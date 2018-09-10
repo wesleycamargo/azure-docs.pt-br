@@ -15,14 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: f43790d3495e1c09730e90b5077ec840731a7d83
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9032a0b68c4c8789010b0304b64a63d4924521fb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141612"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Executar o OpenFoam com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure
-Este artigo mostra uma maneira de executar OpenFoam em máquinas virtuais do Azure. Aqui, você implanta um cluster do Microsoft HPC Pack com nós de computação do Linux no Azure e executa um trabalho [OpenFoam](http://openfoam.com/) com Intel MPI. Você pode usar VMs do Azure compatíveis com RDMA para os nós de computação, para que eles se comuniquem pela rede RDMA do Azure. Outras opções para executar o OpenFoam no Azure incluem imagens comerciais totalmente configuradas disponíveis no Marketplace, como [OpenFoam 2.3 no CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/) da UberCloud e executando no [Lote do Azure](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
+Este artigo mostra uma maneira de executar OpenFoam em máquinas virtuais do Azure. Aqui, você implanta um cluster do Microsoft HPC Pack com nós de computação do Linux no Azure e executa um trabalho [OpenFoam](http://openfoam.com/) com Intel MPI. Você pode usar VMs do Azure compatíveis com RDMA para os nós de computação, para que eles se comuniquem pela rede RDMA do Azure. Outras opções para executar o OpenFoam no Azure incluem imagens comerciais totalmente configuradas disponíveis no Marketplace, como [OpenFoam 2.3 no CentOS 6](https://azuremarketplace.microsoft.com/marketplace/apps/cfd-direct.cfd-direct-from-the-cloud) da UberCloud e executando no [Lote do Azure](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -35,7 +36,7 @@ O Microsoft HPC Pack fornece recursos para executar aplicativos de HPC e paralel
 > 
 > 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * **Cluster HPC Pack com nós de computação do Linux compatíveis com RDMA** – Implante um cluster HPC Pack com nós de computação do Linux do tamanho A8, A9, H16r ou H16rm usando um [modelo do Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou um [script do Azure PowerShell](hpcpack-cluster-powershell-script.md). Consulte [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](hpcpack-cluster.md) para encontrar os pré-requisitos e etapas de cada opção. Se você escolher a opção de implantação de script do PowerShell, consulte o arquivo de configuração de exemplo nos arquivos de exemplo no final deste artigo. Use esta configuração para implantar um cluster de HPC Pack com base no Azure consistindo em um nó principal do tamanho do A8 Windows Server 2012 R2 e dois nós de computação do tamanho do A8 SUSE Linux Enterprise Server 12. Substitua os valores apropriados por sua assinatura e nomes de serviço. 
   
   **Informações adicionais importantes**
@@ -45,7 +46,7 @@ O Microsoft HPC Pack fornece recursos para executar aplicativos de HPC e paralel
   * Depois de implantar os nós do Linux, conecte-se via SSH para executar tarefas administrativas adicionais. Encontre os detalhes da conexão SSH para cada VM do Linux no portal do Azure.  
 * **Intel MPI** – Para executar o OpenFOAM em nós de computação SLES 12 HPC no Azure, é necessário instalar o tempo de execução do Intel MPI Library 5 no site [Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (O Intel MPI 5 está pré-instalado em imagens do HPC baseado em CentOS.)  Em uma etapa posterior, se necessário, instale o Intel MPI em seus nós de computação do Linux. Para se preparar para essa etapa, depois de se registrar na Intel, siga o link no email de confirmação para a página da Web relacionada. Em seguida, copie o link de download do arquivo .tgz para a versão apropriada do Intel MPI. Este artigo se baseia no Intel MPI versão 5.0.3.048.
 * **OpenFOAM Source Pack** - baixe o software OpenFOAM Source Pack do Linux no [site OpenFOAM Foundation](http://openfoam.org/download/2-3-1-source/). Este artigo baseia-se no Source Pack versão 2.3.1, disponível para download como OpenFOAM-2.3.1.tgz. Siga as instruções neste artigo para descompactar e compilar o OpenFOAM nos nós de computação do Linux.
-* **EnSight** (opcional): para ver os resultados da simulação do OpenFOAM, baixe e instale o programa de análise e visualização [EnSight](https://www.ceisoftware.com/download/) . As informações de licenciamento e download estão no site EnSight.
+* **EnSight** (opcional): para ver os resultados da simulação do OpenFOAM, baixe e instale o programa de análise e visualização [EnSight](https://ensighttransfe.wpengine.com/direct-access-downloads/) . As informações de licenciamento e download estão no site EnSight.
 
 ## <a name="set-up-mutual-trust-between-compute-nodes"></a>Configurar a relação de confiança mútua entre os nós de computação
 Executar um trabalho de nós cruzados em vários nós do Linux requer que os nós tenham uma relação de confiança entre si (por **rsh** ou **ssh**). Quando você cria o cluster do HPC Pack com o script de implantação de IaaS do Microsoft HPC Pack, o script configura automaticamente uma relação de confiança mútua permanente para a conta de administrador que você especificar. Para usuários que não sejam administradores criados no domínio do cluster, é necessário configurar uma relação de confiança mútua temporária entre os nós quando um trabalho é alocado para eles e destruir a relação depois que o trabalho for concluído. Para estabelecer confiança para cada usuário, forneça um par de chaves RSA para o cluster usado pelo HPC Pack para a relação de confiança.
@@ -361,7 +362,7 @@ Agora, você pode enviar um trabalho no Gerenciador de Cluster de HPC. Você pre
 10. Quando o trabalho for concluído, localize os resultados do trabalho nas pastas em C:\OpenFoam\sloshingTank3D e os arquivos de log em C:\OpenFoam.
 
 ## <a name="view-results-in-ensight"></a>Exibir resultados no EnSight
-Opcionalmente, use o [EnSight](https://www.ceisoftware.com/) para visualizar e analisar os resultados do trabalho do OpenFOAM. Para obter mais informações sobre a visualização e a animação no EnSight, consulte o [guia em vídeo](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
+Opcionalmente, use o [EnSight](http://www.ensight.com/) para visualizar e analisar os resultados do trabalho do OpenFOAM. Para obter mais informações sobre a visualização e a animação no EnSight, consulte o [guia em vídeo](http://www.ensight.com/ensight.com/envideo/).
 
 1. Depois de instalar o EnSight no nó principal, inicie-o.
 2. Abra o C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.

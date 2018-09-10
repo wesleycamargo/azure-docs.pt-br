@@ -1,94 +1,94 @@
 ---
-title: Configurar o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C | Microsoft Docs
+title: Configurar o fluxo de credenciais de senha de proprietário do recurso no Azure Active Directory B2C | Microsoft Docs
 description: Saiba como configurar o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 04/24/2018
+ms.topic: conceptual
+ms.date: 08/07/2018
 ms.author: davidmu
-ms.openlocfilehash: c1b4d641f6830751e2cb9e66d5052eb20a48d371
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.component: B2C
+ms.openlocfilehash: 519f13d668f09fb2d83e8f64767e195e2544fc1e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158247"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343279"
 ---
-# <a name="configure-the-resource-owner-password-credentials-flow-ropc-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha de proprietário do recurso (ROPC) no Azure AD B2C
+# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C
 
-O fluxo de credenciais de senha de proprietário do recurso (ROPC) é um fluxo de autenticação padrão do OAUTH em que o aplicativo, também conhecido como a terceira parte confiável, troca credenciais válidas, como ID de usuário e senha para um token de ID, o token de acesso e um token de atualização. 
+O fluxo de credenciais de senha de proprietário do recurso (ROPC) é um fluxo de autenticação padrão do OAuth em que o aplicativo, também conhecido como a terceira parte confiável, troca credenciais válidas, como ID de usuário e senha para um token de ID, o token de acesso e um token de atualização. 
 
 > [!NOTE]
 > Esse recurso está em visualização.
 
-No Azure AD B2C, estas opções são suportadas:
+No Azure Active Directory (Azure AD) B2C, há suporte para as seguintes opções:
 
-- **Cliente Nativo** – A interação do usuário durante a autenticação ocorre com o uso do código em execução em um dispositivo de usuário, que pode ser um aplicativo móvel em execução no sistema operacional nativo, como Android, ou em execução no navegador, como Javascript.
-- **Fluxo de cliente público** – Somente credenciais de usuário, coletadas por um aplicativo, são enviadas na chamada de API. As credenciais do aplicativo não são enviadas.
-- **Adicionar novas declarações** -O conteúdo do token de ID pode ser alterado para adicionar novas declarações. 
+- **Native Client**: interação do usuário durante a autenticação ocorre quando o código é executado em um dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel que está sendo executado em um sistema operacional nativo, como Android, ou em execução em um navegador, como JavaScript.
+- **Fluxo de cliente público**: Somente credenciais de usuário, coletadas por um aplicativo, são enviadas na chamada de API. As credenciais do aplicativo não são enviadas.
+- **Adicionar novas declarações**: O conteúdo do token de ID pode ser alterado para adicionar novas declarações. 
 
-Estes fluxos não são suportados:
+Não há suporte para os fluxos a seguir:
 
-- **Servidor-para-servidor** O sistema de proteção de identidade (IDPS) precisa de um endereço IP confiável coletado pelo chamador (o cliente nativo) como parte da interação.  Em uma chamada de API do lado do servidor, somente o endereço IP do servidor é usado, e o IDPS pode identificar um endereço IP repetido como um invasor se um limite dinâmico de autenticações com falha for excedido.
-- **Fluxo de cliente confidencial** - A ID do cliente do aplicativo é validada, mas o segredo do aplicativo não é validado.
+- **Servidor-para-servidor**: O sistema de proteção de identidade precisa de um endereço IP confiável coletado pelo chamador (o cliente nativo) como parte da interação. Em uma chamada de API do lado do servidor, somente o endereço IP do servidor é usado. Se um limite dinâmico de autenticações com falha for excedido, o sistema de proteção de identidade pode identificar um endereço IP repetido como um invasor.
+- **Fluxo de cliente confidencial**: A ID do cliente do aplicativo é validada, mas o segredo do aplicativo não é validado.
 
 ##  <a name="create-a-resource-owner-policy"></a>Criar uma política de proprietário de recurso
 
 1. Entre no portal do Azure como administrador global do locatário Azure AD B2C.
 2. Para alternar para seu locatário do Azure AD B2C, selecione o diretório do B2C no canto superior direito do portal.
 3. Em **Políticas**, selecione **Políticas de Proprietário do Recurso**.
-4. Forneça um nome para a política, como *ROPC_Auth* e, em seguida, clique em **Declarações de aplicativo**.
+4. Forneça um nome para a política, como *ROPC_Auth* e, em seguida, selecione em **Declarações de aplicativo**.
 5. Selecione as declarações de aplicativo de que você precisa para seu aplicativo, como *Nome de Exibição*, *Endereço de Email*, e *Provedor de Identidade*.
-6. Clique em **OK** e depois clique em **Criar**.
+6. Selecione **OK** e, então, selecione **Criar**.
 
-Você verá um ponto de extremidade, como neste exemplo:
+   Você verá um ponto de extremidade, como neste exemplo:
 
-`https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_ROPC_Auth`
+   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
 
 
 ## <a name="register-an-application"></a>Registrar um aplicativo
 
-1. Nas configurações de B2C, clique em **Aplicativos** e depois em **+Adicionar**.
-2. Forneça um nome para o aplicativo, como *ROPC_Auth_app*.
-3. Clique em **Não** para **Aplicativo Web/API da Web** e clique em **Sim** para **Cliente nativo**.
-4. Deixe todos os outros valores como estão e clique em **Criar**.
-5. Selecione o novo aplicativo e anote a ID do aplicativo.
+1. Nas configurações de B2C, selecione em **Aplicativos** e, em seguida, selecione **Adicionar**.
+2. Insira um nome para o aplicativo, como *ROPC_Auth_app*.
+3. Selecione **Não** para **Aplicativo Web/API da Web** e então selecione **Sim** para **Cliente nativo**.
+4. Deixe todos os outros valores como estão e então selecione **Criar**.
+5. Selecione o novo aplicativo e anote a ID do aplicativo para usar depois.
 
 ## <a name="test-the-policy"></a>Testar a política
 
 Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de API e analise a resposta para depurar sua política. Construa uma chamada como esta com as informações na tabela a seguir como o corpo da solicitação POST:
-- Substitua *yourtenant.onmicrosoft.com* com o nome do seu locatário B2C
-- Substitua *B2C_1A_ROPC_Auth* com o nome completo da sua política ROPC
-- Substitua *bef2222d56-552f-4a5b-b90a-1988a7d634c3* pela ID do aplicativo de seu registro.
+- Substitua *\<yourtenant.onmicrosoft.com>* com o nome do seu locatário B2C.
+- Substitua *\<B2C_1A_ROPC_Auth >* com o nome completo da política de credenciais de senha do proprietário do recurso.
+- Substitua *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* pela ID do aplicativo de seu registro.
 
-`https://te.cpim.windows.net/yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | Chave | Valor |
 | --- | ----- |
 | Nome de Usuário | leadiocl@outlook.com |
 | Senha | Passxword1 |
 | grant_type | Senha |
-| scope | openid bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
-| client_id | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
+| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 
-*Client_id* é o valor que você anotou anteriormente como a ID do aplicativo. *Offline_access* será opcional se você desejar receber um token de atualização. 
+*Client_id* é o valor que você anotou anteriormente como a ID do aplicativo. *Offline_access* será opcional se você desejar receber um token de atualização. O nome de usuário e senha que você usa devem ser credenciais de um usuário existente em seu locatário do Azure Active Directory B2C.
 
-A solicitação POST real tem esta aparência:
+A solicitação POST real tem a aparência a seguir:
 
 ```
-POST /yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
-Host: te.cpim.windows.net
+POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
 ```
 
 
-Uma resposta bem-sucedida com acesso offline se assemelha ao seguinte exemplo:
+Uma resposta bem-sucedida com acesso offline se parece com o seguinte exemplo:
 
 ```
 { 
@@ -102,26 +102,43 @@ Uma resposta bem-sucedida com acesso offline se assemelha ao seguinte exemplo:
 
 ## <a name="redeem-a-refresh-token"></a>Resgatar um token de atualização
 
-Construa uma chamada POST como esta com as informações na tabela a seguir como o corpo da solicitação:
+Construa uma chamada POST como a monstrada aqui com as informações na tabela a seguir como o corpo da solicitação:
 
-`https://te.cpim.windows.net/yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | Chave | Valor |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
-| client_id | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
-| recurso | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| recurso | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* e *resource* são os valores que você anotou anteriormente como a ID do aplicativo. *Refresh_token* é o token recebido na chamada de autenticação mencionada anteriormente.
 
+Uma resposta bem-sucedida se parece com o seguinte exemplo:
+
+```
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsifQ.eyJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vNTE2ZmMwNjUtZmYzNi00YjkzLWFhNWEtZDZlZWRhN2NiYWM4L3YyLjAvIiwiZXhwIjoxNTMzNjc2NTkwLCJuYmYiOjE1MzM2NzI5OTAsImF1ZCI6IjljNTA2MThjLWY5NTEtNDlhNS1iZmU1LWQ3ODA4NTEyMWMzYSIsImlkcCI6IkxvY2FsQWNjb3VudCIsInN1YiI6ImJmZDgwODBjLTBjNDAtNDNjYS05ZTI3LTUyZTAyNzIyNWYyMSIsIm5hbWUiOiJEYXZpZE11IiwiZW1haWxzIjpbImRhdmlkd20xMDMwQGhvdG1haWwuY29tIl0sInRmcCI6IkIyQ18xX1JPUENfQXV0aCIsImF6cCI6IjljNTA2MThjLWY5NTEtNDlhNS1iZmU1LWQ3ODA4NTEyMWMzYSIsInZlciI6IjEuMCIsImlhdCI6MTUzMzY3Mjk5MH0.RULWeBR8--s5cCGG6XOi8m-AGyCaASx9W5B3tNUQjbVkHnGdo2_OUrnVoOZ1PTcrc1b0PQM2kVWi7NpYn57ifnqL_feTJPDbj9FJ8BmyxULdoECWxSM6KHsOPWZOIg5y1lNwN_IQ2HNF6UaDyYf1ZIM-jHr-uSfUnQXyWRnGDwNKX7TQbFmFk4oFMbPxTE7ioWAmxSnroiiB4__P9D0rUM1vf_qfzemf2ErIWSF9rGtCNBG-BvJlr3ZMCxIhRiIWNM2bVY0i3Nprzj0V8_FM6q8U19bvg9yDEzUcbe_1PMqzP3IrXW9N1XvQHupsOj8Keb7SmpgY1GG091X6wBCypw",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsifQ.eyJleHAiOjE1MzM2NzY1OTAsIm5iZiI6MTUzMzY3Mjk5MCwidmVyIjoiMS4wIiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi5taWNyb3NvZnRvbmxpbmUuY29tLzUxNmZjMDY1LWZmMzYtNGI5My1hYTVhLWQ2ZWVkYTdjYmFjOC92Mi4wLyIsInN1YiI6ImJmZDgwODBjLTBjNDAtNDNjYS05ZTI3LTUyZTAyNzIyNWYyMSIsImF1ZCI6IjljNTA2MThjLWY5NTEtNDlhNS1iZmU1LWQ3ODA4NTEyMWMzYSIsImlhdCI6MTUzMzY3Mjk5MCwiYXV0aF90aW1lIjoxNTMzNjcyOTkwLCJpZHAiOiJMb2NhbEFjY291bnQiLCJuYW1lIjoiRGF2aWRNdSIsImVtYWlscyI6WyJkYXZpZHdtMTAzMEBob3RtYWlsLmNvbSJdLCJ0ZnAiOiJCMkNfMV9ST1BDX0F1dGgiLCJhdF9oYXNoIjoiYW5hZ3QtX1NveUtBQV9UNFBLaHN4dyJ9.bPzpUFh94XFHXC_yR6qH_Unf6_hN-9-BjDXOzrdb1AuoU6-owQ3fWDxNBUbYEPALid3sgm4qhJ6BROFKryD8aWfrNyaErnYZwZ6rliHk4foa3JsbDgM3yNGPL0hzOFpC4Y9QhUjNgQOxvnQLtqbHVNonSvBc7VVPAjBDza44GowmvLORfJ1qkTjdrFM75HlLVeQch8cUNf-Ova77JdG5WHgYgqRhAq1OhV68YgEpQkARyz77zbAz9zZEHZZlgsli8UV6C-CPcmoHbwS-85mLzF9nLxhzjgIXJwckB6I7lvTpfuRtaqZIb3pMYeHZJaxaNLDvq9Qe4N-danXABg1B2w",
+    "token_type": "Bearer",
+    "not_before": 1533672990,
+    "expires_in": 3600,
+    "expires_on": 1533676590,
+    "resource": "bef2222d56-552f-4a5b-b90a-1988a7d634c3",
+    "id_token_expires_in": 3600,
+    "profile_info": "eyJ2ZXIiOiIxLjAiLCJ0aWQiOiI1MTZmYzA2NS1mZjM2LTRiOTMtYWE1YS1kNmVlZGE3Y2JhYzgiLCJzdWIiOm51bGwsIm5hbWUiOiJEYXZpZE11IiwicHJlZmVycmVkX3VzZXJuYW1lIjpudWxsLCJpZHAiOiJMb2NhbEFjY291bnQifQ",
+    "refresh_token": "eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMCIsInppcCI6IkRlZmxhdGUiLCJzZXIiOiIxLjAifQ..8oC4Q6aKdr35yMWm.p43lns-cfWNFbtmrhvtssQXCItb3E9aSLafZJ6nKnnpXGQ-ZapOOyH7hPK7AN_RT7NMsQwNdy0Fyv_hOMrFbMPZNvHSa91RsQIvBZ73-CVy0HNF0grSezjCATg4NVHfricuQVegEmZKFOoNP6TaMC2kIlEi3rhrrO8VE3ZFQ3Jjo6j91BJaE9ybb02HWOoKqlzHiazwQyUHujw_R0TyXaQCI_gtLARr5QUXm7hlAfHhxR9uewQKlRbeuMH8nCMLSMASCJyzfeSJTjXmA0F0VrXozrqzOJdyy0EETPR7oA48MJ9l6C2sy2ZELkqpOM3xhbhV-Re7nM09b8DeWuCw7VNTcQc9DKnIHDR-H5U2Tc-lMJQadgUNZv7KGSRGTyprWb7wF7FEPnRNID5PCDV_N_yoQpI7VvJO_NotXEgHFo7OHs5Gsgwpl5mrDtymYzIMM7onTflOlu46em_qltji7xcWNOuHq4AeOlcY9ZythZgJH7livljReTwyX8QuUwpomXVEUGDc5pAnvgSozxnUbM7AlwfUeJZRT45P7L7683RSqChdNxiQk0sXUECqxnFxMAz4VUzld2yFe-pzvxFF4_feQjBEmSCAvekpvJUrEticEs4QzByV5UZ2ZCKccijFTg4doACiCo_z13JTm47mxm-5jUhXOQqiL69oxztk.KqI-z2LlC77lvwqmeFtdGQ",
+    "refresh_token_expires_in": 1209600
+}
+```
+
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementar com o SDK nativo preferencial ou usar App-Auth
 
+A implementação do Azure AD B2C atende aos padrões OAuth 2.0 para credenciais de senha de proprietário de cliente público e deve ser compatível com a maioria dos SDKs clientes. Nós testamos esse fluxo extensivamente, em produção, com AppAuth para iOS e AppAuth para Android. Para obter informações mais recentes, consulte [nativo do SDK de aplicativo OAuth 2.0 e OpenID Connect implementando práticas recomendadas modernas](https://appauth.io/).
 
-A implementação do Azure AD B2C atende aos padrões OAuth 2.0 ou ROPC de cliente público e deve ser compatível com a maioria dos SDKs clientes.  Nós testamos esse fluxo extensivamente, em produção, com AppAuth para iOS e AppAuth para Android.  Consulte https://appauth.io/ para obter as informações mais recentes.
-
-Você pode baixar os exemplos de funcionamento, que foram configurados para uso com o Azure AD B2C do github em https://aka.ms/aadb2cappauthropc para Android e https://aka.ms/aadb2ciosappauthropc.
+Baixar os exemplos de funcionamento, que foram configurados para uso com o Azure AD B2C do GitHub em [para Android](https://aka.ms/aadb2cappauthropc) e [para iOS](https://aka.ms/aadb2ciosappauthropc).
 
 
 

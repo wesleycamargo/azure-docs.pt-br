@@ -3,23 +3,20 @@ title: Níveis de consistência no Azure Cosmos DB | Microsoft Docs
 description: O Azure Cosmos DB tem cinco níveis de consistência que ajudam a equilibrar prós e contras de consistência eventual, disponibilidade e latência.
 keywords: consistência eventual, azure cosmos db, Microsoft azure
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
-documentationcenter: ''
-ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2018
-ms.author: sngun
+ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f38d05dc720dd596c81a51abf7040ac062e8158
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 8d95790dc09f6d26c6ae749ed0cd386053c5cb35
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144729"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis ajustáveis de consistência de dados no Azure Cosmos DB
 O Azure Cosmos DB é projetado desde o início pensando em distribuição global para cada modelo de dados. Ele se destina a oferecer garantias de baixa latência previsíveis e vários modelos de consistência amena bem definidos. Atualmente, o Azure Cosmos DB fornece cinco níveis de consistência: forte, desatualização limitada, sessão, prefixo consistente e eventual. Desatualização limitada, sessão, prefixo consistente e eventual são chamados de "modelos de consistência amena", pois fornecem menos consistência de alta segurança, que é o modelo mais consistente disponível. 
@@ -61,7 +58,7 @@ O Azure Cosmos DB oferece [SLAs](https://azure.microsoft.com/support/legal/sla/c
 A granularidade da consistência engloba uma única solicitação de usuário. Uma solicitação de gravação pode corresponder a uma transação de inserir, substituir, upsert ou excluir. Assim como nas gravações, uma transação de leitura/consulta também tem como escopo uma única solicitação de usuário. O usuário pode ter que paginar um amplo conjunto de resultados, abrangendo várias partições, mas cada transação de leitura engloba uma única página e é servida de dentro de uma única partição.
 
 ## <a name="consistency-levels"></a>Níveis de consistência
-Você pode configurar um nível de consistência padrão na conta do banco de dados que se aplica a todas as coleções (e os bancos de dados) em sua conta do Cosmos DB. Por padrão, todas as leituras e consultas emitidas para os recursos definidos pelo usuário usarão o nível de consistência padrão especificado na conta do banco de dados. Você pode relaxar o nível de consistência de uma solicitação de leitura/consulta específica usado em cada uma das APIs com suporte. Há suporte para cinco tipos de nível de consistência no protocolo de replicação do Azure Cosmos DB que fornecem uma clara compensação entre garantias de consistência específica e desempenho, conforme descrito abaixo.
+Você pode configurar um nível de consistência padrão na conta do banco de dados que se aplique a todos os contêineres (e bancos de dados) em sua conta do Cosmos DB. Por padrão, todas as leituras e consultas emitidas para os recursos definidos pelo usuário usarão o nível de consistência padrão especificado na conta do banco de dados. Você pode relaxar o nível de consistência de uma solicitação de leitura/consulta específica usado em cada uma das APIs com suporte. Há suporte para cinco tipos de nível de consistência no protocolo de replicação do Azure Cosmos DB que fornecem uma clara compensação entre garantias de consistência específica e desempenho, conforme descrito abaixo.
 
 <a id="strong"></a>
 **Forte**: 
@@ -115,7 +112,7 @@ Você pode configurar um nível de consistência padrão na conta do banco de da
     ![Captura de tela realçando o ícone Configurações e a entrada Consistência Padrão](./media/consistency-levels/database-consistency-level-1.png)
 
 ## <a name="consistency-levels-for-queries"></a>Níveis de consistência para consultas
-Por padrão, para recursos definidos pelo usuário, o nível de consistência para consultas é o mesmo nível de consistência para leituras. Por padrão, o índice é atualizado de maneira síncrona em cada inserção, substituição ou exclusão de um item no contêiner do Cosmos DB. Isso permite que as consultas sigam o mesmo nível de consistência que as leituras de ponto. Embora o Azure Cosmos DB seja otimizado para gravação e tenha suporte para volumes constantes de gravações, manutenção síncrona de índice e atendimento a consultas consistentes, você pode configurar determinadas coleções para atualizar o próprio índice sem pressa. A indexação lenta aumenta ainda mais o desempenho de gravação, sendo ideal para cenários de ingestão em massa em que uma carga de trabalho é basicamente de leitura intensa.  
+Por padrão, para recursos definidos pelo usuário, o nível de consistência para consultas é o mesmo nível de consistência para leituras. Por padrão, o índice é atualizado de maneira síncrona em cada inserção, substituição ou exclusão de um item no contêiner do Cosmos DB. Isso permite que as consultas sigam o mesmo nível de consistência que as leituras de ponto. Embora o Azure Cosmos DB seja otimizado para gravação e dê suporte para volumes constantes de gravações, manutenção síncrona de índice e entrega de consultas consistentes, você pode configurar determinados contêineres para atualizar o próprio índice lentamente. A indexação lenta aumenta ainda mais o desempenho de gravação, sendo ideal para cenários de ingestão em massa em que uma carga de trabalho é basicamente de leitura intensa.  
 
 | Modo de indexação | Leituras | Consultas |
 | --- | --- | --- |
@@ -135,7 +132,7 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 * [Replicated Data Consistency explained through baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 * [Replicated Data Consistency explained through baseball (whitepaper) by Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * [Session Guarantees for Weakly Consistent Replicated Data](http://dl.acm.org/citation.cfm?id=383631)
-* [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) (PBS (Probabilistic Bounded Staleness) para quóruns parciais práticos)
 * [Eventual Consistent - Revisited](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * [The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)

@@ -1,24 +1,20 @@
 ---
-title: Executar trabalhos Sqoop usando o PowerShell e o Azure HDInsight | Microsoft Docs
+title: Executar trabalhos Sqoop usando o PowerShell e o Azure HDInsight
 description: Saiba como usar o Azure PowerShell em uma estação de trabalho para executar importação e exportação do Sqoop entre um cluster do Hadoop e um Banco de Dados SQL do Azure.
-editor: cgronlun
-manager: jhubbard
+ms.reviewer: jasonh
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: bbb6f53a-e019-4d01-92bd-92c208c760b6
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 138e295bd81a4446568d92171d952b3b0a0374a2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 71edb2fb9c3b02ac62670bbfd54adef096cb36e6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041195"
 ---
 # <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>Execute trabalhos Sqoop usando o Azure PowerShell para o Handoop em HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -30,7 +26,7 @@ Saiba como usar o Azure PowerShell para executar trabalhos Sqoop no em Azure HDI
 > 
 > 
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter os seguintes itens:
 
 * Uma estação de trabalho com o Azure PowerShell.

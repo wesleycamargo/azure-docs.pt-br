@@ -2,7 +2,7 @@
 title: Como executar funções duráveis como WebJobs - Azure
 description: Saiba como codificar e configurar funções durável para executar em trabalhos Web usando o SDK do WebJobs.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3fc84d1492d2855ffa3bb5538226da049a928339
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 94d443505c5c1634c9da00d455e0163b2762d969
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426014"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar funções duráveis como WebJobs
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/07/2018
 
 O exemplo de funções duráveis de encadeamento de propriedades está disponível em uma versão do SDK do WebJobs: realize download ou clonar as funções do [repositório durável](https://github.com/azure/azure-functions-durable-extension/) e navegue até a *pasta de exemplos \\webjobssdk\\oencadeamento*.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você está familiarizado com os conceitos básicos do SDK do WebJobs, desenvolvimento de bibliotecas de classe C# para funções do Azure Functions e as funções duráveis. Se você precisar obter uma introdução a esses tópicos, consulte os seguintes recursos:
 
@@ -222,7 +223,7 @@ A principal mudança introduzida por 3.x é o uso do .NET Core em vez do .NET Fr
   * `Microsoft.Azure.WebJobs.Extensions`
   * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-2. Altere `Main` código do método para obter a cadeia de caracteres de conexão de armazenamento e a chave de instrumentação do Application Insights em um arquivo *appsettings. JSON*, usando a estrutura de configuração do .NET Core.  Aqui está um exemplo:
+1. Altere `Main` código do método para obter a cadeia de caracteres de conexão de armazenamento e a chave de instrumentação do Application Insights em um arquivo *appsettings. JSON*, usando a estrutura de configuração do .NET Core.  Aqui está um exemplo:
 
    ```cs
    static void Main(string[] args)

@@ -4,17 +4,18 @@ description: Perguntas frequentes sobre o autoatendimento de redefinição de se
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 7f54877f9218cbb0c2ac8cca86c580b7f1aa6c83
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160735"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -114,7 +115,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: como eu instruo os usuários sobre onde acessar para redefinir as suas senhas?**
 
-  > **R:** tente alguma das sugestões em nosso artigo [Implantação do SSPR](howto-sspr-deployment.md#email-based-rollout).
+  > **R:** tente alguma das sugestões em nosso artigo [Implantação do SSPR](howto-sspr-deployment.md#sample-communication).
   >
   >
 * **P: posso usar essa página em um dispositivo móvel?**
@@ -169,7 +170,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: configurei minha política para exigir que os usuários usem perguntas de segurança para redefinição, mas os administradores do Azure parecem ter configurado de maneira diferente.**
 
-  > **R:** Esse é um comportamento esperado. A Microsoft impõe uma política padrão forte de redefinição de senha de dois portões para qualquer função de administrador do Azure. Isso impede que administradores usem perguntas de segurança. Mais informações sobre essa política podem ser encontradas no artigo [Políticas e restrições de senha no Azure Active Directory](concept-sspr-policy.md#administrator-password-policy-differences).
+  > **R:** Esse é um comportamento esperado. A Microsoft impõe uma política padrão forte de redefinição de senha de dois portões para qualquer função de administrador do Azure. Isso impede que administradores usem perguntas de segurança. Mais informações sobre essa política podem ser encontradas no artigo [Políticas e restrições de senha no Azure Active Directory](concept-sspr-policy.md).
   >
   >
 * **P: se um usuário tiver registrado mais do que o número máximo de perguntas obrigatórias para a redefinição, como as perguntas de segurança serão selecionadas durante a redefinição?**
@@ -273,15 +274,15 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: o write-back de senha é seguro?  Como posso ter certeza de que não serei invadido por um hacker?**
 
-  > **R:** Sim, o write-back de senha é seguro. Para ler mais sobre as quatro camadas de segurança implementadas pelo serviço de write-back de senha, confira a seção [Modelo de segurança do write-back de senha](howto-sspr-writeback.md#password-writeback-security-model) no artigo [Visão geral do write-back de senha](howto-sspr-writeback.md).
+  > **R:** Sim, o write-back de senha é seguro. Para ler mais sobre as várias camadas de segurança implementadas pelo serviço de write-back de senha, verifique a seção [Segurança de write-back de senha](concept-sspr-writeback.md#password-writeback-security) no artigo [Visão geral do write-back de senha](howto-sspr-writeback.md).
   >
   >
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
-* [Redefinir ou alterar sua senha](../active-directory-passwords-update-your-own-password.md)
-* [Registro de redefinição de senha de autoatendimento](../active-directory-passwords-reset-register.md)
+* [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registro de redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)
 * [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)

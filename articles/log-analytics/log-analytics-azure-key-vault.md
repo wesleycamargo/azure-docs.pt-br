@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 9c4b16ec11d1990de687014c5385314f0e0c602a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: 47158d0c2b5a80ceae25b275836d45b63db50ff4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309332"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solução do Azure Key Vault Analytics no Log Analytics
 
@@ -72,9 +74,9 @@ Não é necessário gravar os logs no Armazenamento de Blobs do Azure e nenhum a
 
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para o Cofre de Chaves do Azure.
 
-| Plataforma | Agente direto | Agente do Systems Center Operations Manager | As tabelas | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | Frequência de coleta |
+| Plataforma | Agente direto | Agente do Systems Center Operations Manager | Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | Frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
-| As tabelas |  |  |&#8226; |  |  | na chegada |
+| Azure |  |  |&#8226; |  |  | na chegada |
 
 ## <a name="use-azure-key-vault"></a>Usar o Cofre de Chaves do Azure
 Após a [instalação da solução](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), consulte os dados do Key Vault clicando no bloco **Azure Key Vault** na página **Visão geral** do Log Analytics.
@@ -103,7 +105,7 @@ A solução de Cofre de Chaves do Azure analisa os registros que têm um tipo de
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| type |*AzureDiagnostics* |
+| Tipo |*AzureDiagnostics* |
 | SourceSystem |*As tabelas* |
 | CallerIpAddress |Endereço IP do cliente que fez a solicitação |
 | Categoria | *AuditEvent* |

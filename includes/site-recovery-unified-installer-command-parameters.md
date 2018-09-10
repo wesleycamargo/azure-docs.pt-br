@@ -1,4 +1,4 @@
-|Nome do Parâmetro| Tipo | Descrição| Valores possíveis|
+|Nome do Parâmetro| Tipo | DESCRIÇÃO| Valores possíveis|
 |-|-|-|-|
 | /ServerMode|Obrigatório|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
 |/InstallLocation|Obrigatório|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|

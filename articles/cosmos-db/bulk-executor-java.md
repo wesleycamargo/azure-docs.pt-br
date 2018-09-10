@@ -1,24 +1,25 @@
 ---
-title: Usando a biblioteca BulkExecutor Java para executar operações em massa no Azure Cosmos DB | Microsoft Docs
-description: Use a biblioteca BulkExecutor Java do Azure Cosmos DB para importar em massa e atualizar documentos em coleções do Azure Cosmos DB.
+title: Usando a biblioteca bulk executor Java para executar operações em massa no Azure Cosmos DB | Microsoft Docs
+description: Use a biblioteca Java do executor em massa do Azure Cosmos DB para importar e atualizar documentos em massa para contêineres do Azure Cosmos DB.
 keywords: Java bulk executor
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: java
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 648b67f4b782b2a2318170ae2b655af40b7bd2a5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8e68a90c347d4802a99072d6ee4492e01dab54ca
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859969"
 ---
-# <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Use a biblioteca BulkExecutor Java para executar operações em massa no Azure Cosmos DB
+# <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Use a biblioteca bulk executor Java para executar operações em massa no Azure Cosmos DB
 
-Este tutorial fornece instruções sobre como usar a biblioteca BulkExecutor Java do Azure Cosmos DB para importar e atualizar documentos do Azure Cosmos DB. Neste tutorial, você cria um aplicativo Java que gera documentos aleatórios e são importados em massa para uma coleção do Azure Cosmos DB. Após a importação, você será em massa atualizar algumas propriedades de um documento. 
+Este tutorial fornece instruções sobre como usar a biblioteca BulkExecutor Java do Azure Cosmos DB para importar e atualizar documentos do Azure Cosmos DB. Para saber mais sobre a biblioteca bulk executor e como ela ajuda a aproveitar armazenamento e taxa de transferência em massa, consulte o artigo [visão geral da Biblioteca bulk executor](bulk-executor-overview.md). Neste tutorial, você cria um aplicativo Java que gera documentos aleatórios a serem importados em massa para um contêiner do Azure Cosmos DB. Após a importação, você será em massa atualizar algumas propriedades de um documento. 
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -76,7 +77,7 @@ O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativ
      DATABASE_NAME,
      COLLECTION_NAME,
      collection.getPartitionKey(),
-     offerThroughput) // throughput you want to allocate for bulk import out of the collection's total throughput
+     offerThroughput) // throughput you want to allocate for bulk import out of the container's total throughput
 
    // Instantiate DocumentBulkExecutor
    DocumentBulkExecutor bulkExecutor = bulkExecutorBuilder.build()
@@ -86,12 +87,12 @@ O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativ
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
 ```
 
-4. Chame a API ImportAll que gera documentos aleatórios para importar em massa para uma coleção do Azure Cosmos DB. Você pode configurar as configurações de linha de comando no arquivo CmdLineConfiguration.java.
+4. Chame a API importAll que gera documentos aleatórios para importar em massa para um contêiner do Azure Cosmos DB. Você pode configurar as configurações de linha de comando no arquivo CmdLineConfiguration.java.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
 ```
-   A API de importação em massa aceita uma coleção de documentos serializado para JSON e tem a seguinte sintaxe, para obter mais detalhes, consulte a [documentação da API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async):
+   A API de importação em massa aceita uma coleção de documentos serializado para JSON e tem a seguinte sintaxe, para obter mais detalhes, consulte a [documentação da API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkImportResponse importAll(
@@ -135,9 +136,9 @@ O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativ
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Atualizar dados em massa no Azure Cosmos DB
 
-Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Neste exemplo, você definirá o campo Nome para um novo valor e removerá o campo Descrição dos documentos existentes. Para o conjunto completo de operações suportadas de atualização de campo, consulte a [documentação da API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async). 
+Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Neste exemplo, você definirá o campo Nome para um novo valor e removerá o campo Descrição dos documentos existentes. Para o conjunto completo de operações suportadas de atualização de campo, consulte a [documentação da API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor). 
 
-1. Defina os itens de atualização juntamente com as operações de atualização de campo correspondentes. Neste exemplo, você usará SetUpdateOperation para atualizar o campo Nome e UnsetUpdateOperation para remover o campo Descrição de todos os documentos. Você também pode executar outras operações, como incremento de um campo de documento por um valor específico, efetuar push de valores específicos para um campo de matriz ou remover um valor específico de um campo de matriz. Para saber mais sobre os diferentes métodos fornecidos pela API de atualização em massa, confira a [documentação da API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async).  
+1. Defina os itens de atualização juntamente com as operações de atualização de campo correspondentes. Neste exemplo, você usará SetUpdateOperation para atualizar o campo Nome e UnsetUpdateOperation para remover o campo Descrição de todos os documentos. Você também pode executar outras operações, como incremento de um campo de documento por um valor específico, efetuar push de valores específicos para um campo de matriz ou remover um valor específico de um campo de matriz. Para saber mais sobre os diferentes métodos fornecidos pela API de atualização em massa, confira a [documentação da API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor).  
 
    ```java
    SetUpdateOperation<String> nameUpdate = new SetUpdateOperation<>("Name","UpdatedDocValue");
@@ -153,13 +154,13 @@ Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Nest
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
 
-2. Chame a API updateAll que gera documentos aleatórios para serem importados em massa para uma coleção do Azure Cosmos DB. Você pode configurar as configurações de linha de comando a serem passadas no arquivo CmdLineConfiguration.java.
+2. Chame a API updateAll que gera documentos aleatórios a serem importados em massa para um contêiner do Azure Cosmos DB. Você pode configurar as configurações de linha de comando a serem passadas no arquivo CmdLineConfiguration.java.
 
    ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
    ```
 
-   A API de atualização em massa aceita uma coleção de itens a serem atualizadas. Cada item de atualização especifica a lista de operações de atualização de campo a ser executada em um documento identificado por uma ID e um valor de chave de partição. Para obter mais detalhes, confira a [documentação da API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async):
+   A API de atualização em massa aceita uma coleção de itens a serem atualizadas. Cada item de atualização especifica a lista de operações de atualização de campo a ser executada em um documento identificado por uma ID e um valor de chave de partição. Para obter mais detalhes, confira a [documentação da API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkUpdateResponse updateAll(
@@ -196,7 +197,7 @@ Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Nest
 
 ## <a name="performance-tips"></a>Dicas de desempenho 
 
-Considere os seguintes pontos para melhor desempenho ao usar a biblioteca BulkExecutor:
+Considere os seguintes pontos para melhor desempenho ao usar a biblioteca bulk executor:
 
 * Para ter o melhor desempenho, execute o aplicativo de uma VM do Azure na mesma região da sua região de gravação da conta do Cosmos DB.  
 * Para alcançar maior taxa de transferência:  
@@ -204,12 +205,12 @@ Considere os seguintes pontos para melhor desempenho ao usar a biblioteca BulkEx
    * Defina o tamanho do heap da JVM para um número grande o suficiente para evitar qualquer problema de memória na manipulação de número grande de documentos. Tamanho do heap sugerido: max (3GB, 3 * tamanho de (todos os documentos passados para API de importação em massa em um lote)).  
    * Há um tempo de pré-processamento, devido ao qual você obterá maior taxa de transferência ao executar operações em massa com um grande número de documentos. Portanto, se você deseja importar 10.000.000 documentos, executar a importação em massa 10 vezes em 10 lotes de documentos, cada um de tamanho 1.000.000, é preferível do que a execução da importação em massa 100 vezes em 100 lotes de documentos, cada um de tamanho 100.000 documentos.  
 
-* É recomendável criar uma instância de um único objeto DocumentBulkExecutor para o aplicativo inteiro em uma única máquina virtual que correspondente a uma coleção específica do Azure Cosmos DB.  
+* É recomendado criar uma instância de um único objeto DocumentBulkExecutor para o aplicativo inteiro em uma única máquina virtual que corresponda a um contêiner do Azure Cosmos DB específico.  
 
-* Como uma execução de API de operação em massa única consome uma grande parte de ES de CPU e de rede do computador cliente. Isso acontece por geração de várias tarefas internamente, evite a geração de várias tarefas simultâneas no processo de aplicativo executando chamadas de API de operação em massa. Se uma chamada de API de operação em massa única em execução em uma única máquina virtual não puder consumir a taxa de transferência da sua coleção inteira (se a taxa de transferência da coleção > 1 milhão RU/s), será preferível criar máquinas virtuais separadas para executar simultaneamente chamadas de API de operação em massa.
+* Como uma execução de API de operação em massa única consome uma grande parte de ES de CPU e de rede do computador cliente. Isso acontece por geração de várias tarefas internamente, evite a geração de várias tarefas simultâneas no processo de aplicativo executando chamadas de API de operação em massa. Se uma única chamada à API de operação em massa em execução em uma única máquina virtual não puder consumir a produtividade inteira do contêiner (se a produtividade do contêiner for de mais de 1 milhão de RU/s), prefira criar máquinas virtuais separadas para executar as chamadas à API de operação em massa simultaneamente.
 
     
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre os detalhes do pacote maven e as notas de versão da biblioteca BulkExecutor Java, consulte [Detalhes do SDK do BulkExecutor](sql-api-sdk-bulk-executor-java.md).
+* Para saber mais sobre os detalhes do pacote maven e as notas de versão da biblioteca bulk executor Java, consulte [Detalhes do SDK do bulk executor](sql-api-sdk-bulk-executor-java.md).
 
 

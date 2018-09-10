@@ -10,16 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aaec5febaa8d697ceb9fd32d3bcdd6c37c399e84
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 985ea1f16cff010041d61d808280cb47f2b77aa9
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618352"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para acessar aplicativos remotamente com o Proxy de Aplicativo do Azure AD
 
@@ -45,7 +46,7 @@ Se você escolher Passagem como seu método de pré-autenticação, não terá e
 
 Aplique controles de política mais rígidos antes que as conexões com sua rede sejam estabelecidas.
 
-Com [acesso condicional](../active-directory-conditional-access-azure-portal-get-started.md), você pode definir restrições em relação ao que o tráfego pode acessar nos seus aplicativos de back-end. É possível criar políticas que restrinjam entradas com base no local, na força da autenticação e no perfil de risco do usuário.
+Com [acesso condicional](../conditional-access/overview.md), você pode definir restrições em relação ao que o tráfego pode acessar nos seus aplicativos de back-end. É possível criar políticas que restrinjam entradas com base no local, na força da autenticação e no perfil de risco do usuário.
 
 Você também pode usar o acesso condicional para configurar políticas de Autenticação Multifator, adicionando outra camada de segurança para suas autenticações de usuário. 
 

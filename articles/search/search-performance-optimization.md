@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797753"
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Considerações de desempenho e otimização do Azure Search
 Uma boa experiência de pesquisa é essencial para o sucesso de muitos aplicativos móveis e da Web. De imóveis a feiras de carros usados até catálogos online, uma pesquisa rápida e resultados relevantes afetarão a experiência do cliente. Este documento tem como objetivo ajuda a descobrir as práticas recomendadas para obter o máximo do Azure Search, especialmente para cenários avançados com requisitos sofisticados de escalabilidade, suporte a vários idiomas ou classificação personalizada.  Além disso, este documento descreve componentes internos e cobre abordagens que funcionam bem em aplicativos reais de clientes.

@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: a2573eef3c90c1840c0d53b2f8aa2cfe2d3a7242
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: na
+ms.openlocfilehash: ac81525c107fcc291a8c3ef0163bf0ef2bbfdc3b
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141866"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência para partes de visualização do Designer de Modos de Exibição do Log Analytics
 Usando o Designer de Modos de Exibição do Azure Log Analytics você pode criar modos de exibição personalizados no portal do Azure que apresentam uma variedade de visualizações de dados do seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
@@ -322,7 +324,7 @@ O separador de valor e nome é o delimitador de caractere único a ser usado par
 Por exemplo, considere uma propriedade chamada *Localização* que incluía valores como *Redmond-Building 41* e *Bellevue-Building12*. Você poderia especificar um traço (-) para o separador de valor e nome e *City-Building* para o nome. Essa abordagem analisa cada valor em duas propriedades chamadas *Cidade* e *Edifício*.
 
 ### <a name="click-through-navigation"></a>Navegação clickthrough
-A navegação clickthrough define qual ação será tomada quando você clicar em um cabeçalho ou item de lista em uma exibição.  Isso abrirá uma consulta no [Portal de pesquisa de logs](log-analytics-log-search-portals.md#log-search) ou iniciar outra exibição.
+A navegação clickthrough define qual ação será tomada quando você clicar em um cabeçalho ou item de lista em uma exibição.  Isso abrirá uma consulta no [Portal de pesquisa de logs](log-analytics-log-search-portals.md) ou iniciar outra exibição.
 
 A tabela a seguir descreve as configurações de navegação clickthrough.
 

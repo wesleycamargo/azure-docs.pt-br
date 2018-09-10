@@ -1,11 +1,11 @@
 ---
-title: "Tarefas permitidas em estados ou status diferentes nos Serviços BizTalk | Microsoft Docs"
-description: "As ações/operações permitidas no status diferente de MABS: parar, iniciar, reiniciar, suspender, continuar, excluir, dimensionar, atualizar o backup e configuração de backup"
+title: Tarefas permitidas em estados ou status diferentes nos Serviços BizTalk | Microsoft Docs
+description: 'As ações/operações permitidas no status diferente de MABS: parar, iniciar, reiniciar, suspender, continuar, excluir, dimensionar, atualizar o backup e configuração de backup'
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: aea738f3-ec76-4099-a41b-e17fea9e252f
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102735"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>O que você pode e não pode fazer usando o estado do Serviço BizTalk
 

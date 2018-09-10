@@ -3,19 +3,19 @@ title: Memória e limites simultâneos - SQL Data Warehouse do Azure | Microsoft
 description: Exiba os limites de memória e simultaneidade alocados para os vários níveis de desempenho e classes de recursos no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 05/07/2018
+ms.date: 07/10/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 46d41e3ee85deb20f189bc9c82a255178f3d7eee
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e901d147d757a046d50927d6f2651b0a74657b1f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942245"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288182"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Memória e limites simultâneos para SQL Data Warehouse do Azure
 Exiba os limites de memória e simultaneidade alocados para os vários níveis de desempenho e classes de recursos no SQL Data Warehouse do Azure. Para obter mais informações e aplicar esses recursos em seu plano de gerenciamento de carga de trabalho, consulte [Classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md). 
@@ -79,7 +79,7 @@ A tabela a seguir mostra o número máximo de consultas simultâneas e slots de 
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW2500c       | 48                         |  100                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW3000c       | 64                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW3000c       | 64                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW5000c       | 64                         |  200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW6000c       | 128                        |  240                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW7500c       | 128                        |  300                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |

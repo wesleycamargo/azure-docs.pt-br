@@ -13,11 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 191d42f43e500c7f8041a02aeba2fbcb7dfd5379
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226519"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalizar a autenticação e a autorização no Serviço de Aplicativo do Azure
 
@@ -52,6 +53,12 @@ Na página de entrada, ou na barra de navegação ou em qualquer outro local de 
 ```
 
 Quando o usuário clica em um dos links, a respectiva página de entrada é aberta para que ele entre.
+
+Para redirecionar o usuário pós-entada para uma URL personalizada, use o parâmetro de cadeia de caracteres de consulta `post_login_redirect_url` (não deve ser confundido com o URI de redirecionamento na configuração do provedor de identidade). Por exemplo, para orientar o usuário para `/Home/Index` após entrar, use o seguinte código HTML:
+
+```HTML
+<a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
 
 ## <a name="access-user-claims"></a>Acessar declarações de usuários
 
@@ -88,7 +95,7 @@ Quando o token de acesso do provedor expira, você precisa autenticar novamente 
 
 - **Google**: anexe um `access_type=offline` parâmetro de cadeia de caracteres para consulta a sua `/.auth/login/google` chamada à API. Se usar o SDK de Aplicativos Móveis, você pode adicionar o parâmetro a uma das `LogicAsync` sobrecargas (consulte [Tokens de atualização do Google](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: não fornece tokens de atualização. Tokens de vida útil longa expiram em 60 dias (consulte [Expiração e extensão de tokens de acesso do Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: tokens de acesso não expiram (consulte [Perguntas frequentes sobre o OAuth do Twitter](https://developer.twitter.com/docs/basics/authentication/guides/oauth-faq)).
+- **Twitter**: tokens de acesso não expiram (consulte [Perguntas frequentes sobre o OAuth do Twitter](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
 - **Microsoft Account**: quando [definir configurações de autenticação de conta Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md), selecione o escopo `wl.offline_access`.
 - **Azure Active Directory**: em [https://resources.azure.com](https://resources.azure.com), execute as seguintes etapas:
     1. Na parte superior da página, selecione **Ler/Gravar**.
@@ -102,7 +109,7 @@ Quando o token de acesso do provedor expira, você precisa autenticar novamente 
 
     1. Clique em **Put**. 
 
-Quando o provedor estiver configurado, você poderá ver se os tokens de atualização estão no repositório de token chamando `/.auth/me`. 
+Depois que seu provedor estiver configurado, você poderá [ encontrar o token de atualização e o tempo de expiração do token de acesso ](#retrieve-tokens-in-app-code) na loja do token. 
 
 Para atualizar o token de acesso a qualquer momento, basta chamar `/.auth/refresh` em qualquer idioma. O trecho a seguir usa o jQuery para atualizar seus tokens de acesso de um cliente JavaScript.
 

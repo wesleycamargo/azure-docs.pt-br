@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 07/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c223091e423d0f342f14424c58d6b7447cda50e8
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f6ba0fccc6fadffb5f4d1a22b2c2fbcc38f9f0df
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494974"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implemente a sincronização de hash de senha com a sincronização do Azure AD Connect
 Este artigo fornece as informações necessárias para sincronizar suas senhas de usuário de uma instância do AD (Active Directory) local para uma instância do Azure AD (Azure Active Directory) baseada na nuvem.
@@ -26,7 +28,7 @@ Este artigo fornece as informações necessárias para sincronizar suas senhas d
 ## <a name="what-is-password-hash-synchronization"></a>O que é a sincronização de hash de senha
 A probabilidade de você ser impedido de concluir seu trabalho devido a uma senha esquecida está relacionada ao número de senhas diferentes que você precisa se lembrar. Quanto mais senhas você precisa lembrar, maior a probabilidade de se esquecer uma delas. Perguntas e chamadas sobre redefinições de senha e outros problemas relacionados à senha demandam a maior parte dos recursos de assistência técnica.
 
-A sincronização de hash de senha é um recurso usado para sincronizar senhas de usuário de uma instância do Active Directory local para uma instância do Azure Active Directory local.
+A sincronização de hash de senha é um recurso usado para sincronizar hash de hash da senha do usuário de uma instância do Active Directory local para uma instância do Microsoft Azure AD baseada em nuvem.
 Use esse recurso para entrar nos serviços do Azure AD como Office 365, Microsoft Intune, CRM Online e Azure Active Directory Domain Services (Azure AD DS). Você entra no serviço usando a mesma senha que usa para entrar sua instância do Active Directory local.
 
 ![O que é o Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-hash-synchronization/arch1.png)
@@ -66,7 +68,7 @@ O recurso de sincronização de hash de senha repete automaticamente tentativas 
 A sincronização de uma senha não afeta um usuário conectado atualmente.
 Sua sessão de serviço de nuvem atual não será afetada imediatamente por uma alteração de senha sincronizada que ocorre enquanto você está logado em um serviço de nuvem. No entanto, quando o serviço de nuvem exigir que você se autentique novamente, será necessário fornecer a nova senha.
 
-O usuário deve inserir suas credenciais corporativas uma segunda vez para autenticar no Azure AD, independentemente se ele está conectado à rede corporativa. Porém, esse padrão pode ser minimizado se o usuário marca a caixa de seleção "Manter-me conectado" (KMSI) ao entrar. Essa seleção define um cookie de sessão que ignora a autenticação por um curto período. O comportamento KMSI pode ser habilitado ou desabilitado pelo administrador do Azure AD.
+O usuário deve inserir suas credenciais corporativas uma segunda vez para autenticar no Azure AD, independentemente se ele está conectado à rede corporativa. Porém, esse padrão pode ser minimizado se o usuário marca a caixa de seleção "Manter-me conectado" (KMSI) ao entrar. Essa seleção define um cookie de sessão que ignora a autenticação por 180 dias. O comportamento KMSI pode ser habilitado ou desabilitado pelo administrador do Azure AD. Além disso, você pode reduzir os prompts de senha ativando [SSO Contínuo](active-directory-aadconnect-sso.md), que conecta automaticamente os usuários quando eles estão em seus dispositivos corporativos conectados à rede corporativa.
 
 > [!NOTE]
 > Somente há suporte para a sincronização de senha para o usuário do tipo de objeto no Active Directory. Não há suporte para o tipo de objeto iNetOrgPerson.
@@ -81,9 +83,9 @@ Veja a seguir uma descrição detalhada de como funciona a sincronização de ha
 2. Antes de enviar, o controlador de domínio criptografa o hash de senha MD4 usando uma chave que é um hash [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) da chave de sessão RPC e um valor de sal. Em seguida, ele envia o resultado para o agente de sincronização de hash de senha por RPC. O controlador de domínio também passa o sal para o agente de sincronização usando o protocolo de replicação do controlador de domínio, para que o agente possa descriptografar o envelope.
 3.  Depois que o agente de sincronização de hash de senha tiver o envelope criptografado, ele usará [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) e o sal para gerar uma chave para descriptografar os dados recebidos de volta para seu formato original de MD4. Em nenhum momento, o agente de sincronização de hash de senha tem acesso à senha de texto não criptografado. Uso que o agente de sincronização de hash de senha faz do MD5 é estritamente para compatibilidade de protocolo de replicação com o controlador de domínio, e é usado somente no local entre o controlador de domínio e o agente de sincronização de hash de senha.
 4.  O agente de sincronização de hash de senha expande o hash de senha binária de 16 bits para 64 bytes convertendo primeiro o hash em uma cadeia hexadecimal de 32 bytes, depois convertendo essa cadeia de caracteres de volta para o binário com a codificação UTF-16.
-5.  O agente de sincronização de hash de senha adiciona um sal, composto por um sal de 10 bytes, para o binário de 64 bits a fim de proteger ainda mais o hash original.
-6.  Depois, o agente de sincronização de hash de senha combina o hash MD4 e o sal com entradas na função [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). Um total de 1000 iterações do algoritmo de hash com chave [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) é usado. 
-7.  O agente de sincronização de hash de senha usa o hash resultante de 32 bytes, concatena o sal e o número de iterações SHA256 a ele (para ser usado pelo Azure AD) e transmite a cadeia de caracteres do Azure AD Connect para o Azure AD por SSL.</br> 
+5.  O agente de sincronização de hash de senha adiciona um sal por usuário – que é composto por um sal de 10 bytes – ao binário de 64 bytes a fim de proteger ainda mais o hash original.
+6.  Em seguida, o agente de sincronização de hash de senha combina o hash MD4 e o sal por usuário e usa o resultado como entrada na função [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). Um total de 1000 iterações do algoritmo de hash com chave [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) é usado. 
+7.  O agente de sincronização de hash de senha usa o hash resultante de 32 bytes, concatena o sal por usuário e o número de iterações SHA256 com ele (para uso pelo Azure AD) e, em seguida, transmite a cadeia de caracteres do Azure AD Connect para o Azure AD por SSL.</br> 
 8.  Quando um usuário tenta entrar no Azure AD e insere sua senha, a senha é executada por meio do mesmo processo de MD4 + sal + PBKDF2 + HMAC-SHA256. Se o hash resultante corresponder ao hash armazenado no Azure AD, isso significa que o usuário digitou a senha correta e será autenticado. 
 
 >[!Note] 
@@ -96,10 +98,6 @@ Você também pode usar o recurso de sincronização de hash de senha para sincr
 Ao sincronizar senhas, a versão da sua senha em texto sem formatação não é exposta ao recurso de sincronização de hash de senha, nem ao Azure AD ou qualquer um dos serviços associados.
 
 A autenticação do usuário ocorre no Azure AD e não na própria instância do Active Directory da organização. Se sua organização se preocupar com a saída de dados de senha da empresa, considere o fato de que os dados de senha SHA256 armazenados no Azure AD -- um hash do hash MD4 original -- são consideravelmente mais seguros do que o que está armazenado no Active Directory. Além disso, como não é possível descriptografar esse hash SHA256, ele não pode ser levado de volta ao ambiente do Active Directory da organização e apresentado como uma senha de usuário válida em um ataque de passagem de hash.
-
-
-
-
 
 ### <a name="password-policy-considerations"></a>Considerações sobre política de senha
 Há dois tipos de políticas de senha que são afetadas ao habilitar a sincronização de hash de senha:
@@ -119,7 +117,7 @@ Se um usuário estiver no escopo de sincronização de hash de senha, a senha da
 Você pode continuar entrando nos serviços de nuvem usando uma senha sincronizada que expirou no seu ambiente local. A senha de nuvem será atualizada na próxima vez que você alterar a senha no ambiente local.
 
 #### <a name="account-expiration"></a>Expiração da conta
-Se sua organização usar o atributo accountExpires como parte do gerenciamento de contas de usuário, lembre-se de que esse atributo não está sincronizado no Azure AD. Como resultado, uma conta expirada do Active Directory em um ambiente configurado para sincronização de hash de senha ainda estará ativa no Azure AD. Recomendamos que, se a conta expirar, uma ação de fluxo de trabalho deverá disparar um script do PowerShell que desabilita a conta de usuário do Azure AD. Por outro lado, quando a conta for ativada, a instância do Azure AD deverá ser ativada.
+Se sua organização usar o atributo accountExpires como parte do gerenciamento de contas de usuário, lembre-se de que esse atributo não está sincronizado no Azure AD. Como resultado, uma conta expirada do Active Directory em um ambiente configurado para sincronização de hash de senha ainda estará ativa no Azure AD. Recomendamos que, se a conta expirar, uma ação de fluxo de trabalho dispare um script do PowerShell que desabilite a conta de usuário do Azure AD (use o cmdlet [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/set-azureaduser?view=azureadps-2.0)). Por outro lado, quando a conta for ativada, a instância do Azure AD deverá ser ativada.
 
 ### <a name="overwrite-synchronized-passwords"></a>Substituir senhas sincronizadas
 Um administrador pode redefinir sua senha manualmente usando o Windows PowerShell.
@@ -132,21 +130,14 @@ A sincronização de uma senha não afeta um usuário do Azure que está conecta
 
 ### <a name="additional-advantages"></a>Vantagens adicionais
 
-- Em geral, a sincronização de hash de senha é mais simples de implementar do que um serviço de federação. Ela não exige quaisquer servidores adicionais e elimina a dependência de um serviço de federação altamente disponível para autenticar usuários. 
+- Em geral, a sincronização de hash de senha é mais simples de implementar do que um serviço de federação. Ela não exige quaisquer servidores adicionais e elimina a dependência de um serviço de federação altamente disponível para autenticar usuários.
 - A sincronização de hash de senha também pode ser habilitada além da federação. Ela pode ser usada como um fallback se seu serviço de federação sofrer uma interrupção.
 
-
-
-
-
-
-
-
-
-
-
-
 ## <a name="enable-password-hash-synchronization"></a>Permitir a sincronização de hash de senha
+
+>[!IMPORTANT]
+>Se você estiver migrando do AD FS (ou outras tecnologias de federação) para Sincronização de Hash de Senha, recomendamos fortemente seguir nosso guia detalhado de implantação publicado [aqui](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Password%20Hash%20Synchronization.docx).
+
 Quando você instala o Azure AD Connect usando as **Configurações Expressas**, a sincronização de hash de senha é habilitada automaticamente. Para obter mais detalhes, confira [Introdução ao Azure AD Connect usando configurações expressas](active-directory-aadconnect-get-started-express.md).
 
 Se você usar configurações personalizadas quando instalar o Azure AD Connect, a sincronização de hash de senha estará disponível na página de entrada do usuário. Para obter mais detalhes, confira [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
@@ -182,3 +173,4 @@ Caso tenha problemas com a sincronização de hash de senha, veja [Solucionar pr
 ## <a name="next-steps"></a>Próximas etapas
 * [Sincronização do Azure AD Connect: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
+* [Obter um plano de implantação passo a passo para migração do AD FS para sincronização de Hash de senha](https://aka.ms/authenticationDeploymentPlan)

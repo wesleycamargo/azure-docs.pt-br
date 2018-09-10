@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ee866248ae7f0c1f1c49c449b777c2b68d884c5b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 4ead83dc449f2b32461b0585f276c9f3bfd3f847
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919095"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de conexão na Automação do Azure
 
@@ -41,7 +42,7 @@ As atividades na tabela a seguir são usadas para acessar conexões em um runboo
 
 |Atividades|DESCRIÇÃO|
 |---|---|
-|[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Obtém uma conexão a ser usada. Retorna uma tabela de hash com as propriedades da conexão.|
+|[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Obtém uma conexão a ser usada. Retorna uma tabela de hash com as propriedades da conexão.|
 
 >[!NOTE] 
 >Evite usar variáveis no parâmetro –Name de **Get-AutomationConnection**, pois isso pode complicar a descoberta de dependências entre configurações de runbooks ou de DSC e ativos de conexão no momento do design.
@@ -76,14 +77,14 @@ Se você estiver familiarizado com a [conta Executar Como](automation-sec-config
 ```powershell
 $ConnectionAssetName = "AzureRunAsConnection"
 $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
-New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-É possível usar o script para criar o ativo de conexão, porque quando você cria sua conta de automação, ele automaticamente inclui vários módulos globais por padrão com o tipo de conexão **AzurServicePrincipal** para criar o ativo de conexão **AzureRunAsConnection**.  É importante lembrar-se disso porque se você tentar criar um novo ativo de conexão para se conectar a um serviço ou aplicativo com um método de autenticação diferente, ele falhará porque o tipo de conexão já não está definido na sua conta de automação.  Para saber mais sobre como criar seu próprio tipo de conexão para um módulo personalizado da [Galeria do PowerShell](https://www.powershellgallery.com), veja [Módulos de integração](automation-integration-modules.md)
+É possível usar o script para criar o ativo de conexão, porque quando você cria sua conta de automação, ele automaticamente inclui vários módulos globais por padrão com o tipo de conexão **AzureServicePrincipal** para criar o ativo de conexão **AzureRunAsConnection**.  É importante lembrar-se disso porque se você tentar criar um novo ativo de conexão para se conectar a um serviço ou aplicativo com um método de autenticação diferente, ele falhará porque o tipo de conexão já não está definido na sua conta de automação.  Para saber mais sobre como criar seu próprio tipo de conexão para um módulo personalizado da [Galeria do PowerShell](https://www.powershellgallery.com), veja [Módulos de integração](automation-integration-modules.md)
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Usando uma conexão em um runbook ou configuração DSC
 
-Recupere uma conexão em um runbook ou configuração DSC com o cmdlet **Get-AutomationConnection** .  Não é possível usar a atividade [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn).  Essa atividade recupera os valores dos diferentes campos na conexão e os retorna como um [tabela de hash](http://go.microsoft.com/fwlink/?LinkID=324844) que pode então ser usada com os comandos apropriados no runbook ou na configuração DSC.
+Recupere uma conexão em um runbook ou configuração DSC com o cmdlet **Get-AutomationConnection** .  Não é possível usar a atividade [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection).  Essa atividade recupera os valores dos diferentes campos na conexão e os retorna como um [tabela de hash](http://go.microsoft.com/fwlink/?LinkID=324844) que pode então ser usada com os comandos apropriados no runbook ou na configuração DSC.
 
 ### <a name="textual-runbook-sample"></a>Exemplo de runbook textual
 
@@ -93,6 +94,9 @@ Os comandos de exemplo a seguir mostram como usar a conta Executar como menciona
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
 Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 ```
+
+> [!IMPORTANT]
+> **Connect-AzureRmAccount** agora é um alias para **Connect-AzureRMAccount**. Ao pesquisar sua biblioteca de itens, se você não vir **Connect-AzureRMAccount**, você pode usar **Connect-AzureRmAccount**, ou você pode atualizar seus módulos em sua Conta de Automação.
 
 ### <a name="graphical-runbook-samples"></a>Exemplos de runbook gráfico
 

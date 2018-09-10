@@ -2,25 +2,20 @@
 title: O que são Coleções de Espaços de Trabalho do Power BI?
 description: O Power BI Embedded possibilita que você integre relatórios do Power BI a seus aplicativos móveis ou Web para que não precise compilar soluções personalizadas.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 0bd6ba74d176ed1db1e8f1f1b38646182da2c379
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 73b13dcea84ba322072217c3feacebdefb3bf1e6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052032"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>O que são Coleções de Espaços de Trabalho do Power BI?
 

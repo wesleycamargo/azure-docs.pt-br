@@ -1,24 +1,20 @@
 ---
-title: Solução de problemas do Diagnóstico do Azure | Microsoft Docs
+title: Solucionando problemas de extensão do Diagnóstico do Azure
 description: Solucionar problemas ao usar o diagnóstico do Azure no Service Fabric, Serviços de Nuvem e Máquinas Virtuais do Azure.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: 66469bce-d457-4d1e-b550-a08d2be4d28c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: e194c2898616d5a19782039d38592c59f6b0c576
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.component: diagnostic-extension
+ms.openlocfilehash: 8f41605114de296b626418d0a868e3ed778c0640
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263839"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Este artigo descreve informações de solução de problemas relevantes para o uso do Diagnóstico do Azure. Para mais informações sobre o Diagnóstico do Azure, consulte [Visão geral do Diagnóstico do Azure](azure-diagnostics.md).
@@ -122,7 +118,7 @@ A configuração de Diagnóstico contém instruções para um determinado tipo d
 #### <a name="is-the-host-generating-data"></a>O host está gerando dados?
 - **Contadores de desempenho**: Abra o perfmon e verifique o contador.
 
-- **Logs de rastreamento**:  Acesso remoto na VM e adicione um TextWriterTraceListener ao arquivo de configuração do aplicativo.  Confira http://msdn.microsoft.com/library/sk36c28t.aspx para configurar o ouvinte de texto.  Verifique se o elemento `<trace>` tem `<trace autoflush="true">`.<br />
+- **Logs de rastreamento**:  Acesso remoto na VM e adicione um TextWriterTraceListener ao arquivo de configuração do aplicativo.  Veja http://msdn.microsoft.com/library/sk36c28t.aspx para configurar o ouvinte de texto.  Verifique se o elemento `<trace>` tem `<trace autoflush="true">`.<br />
 Se você não visualizar os logs de rastreamento sendo gerados, consulte [Mais informações sobre logs de rastreamento ausentes](#more-about-trace-logs-missing).
 
 - **Rastreamento de ETW**: Acesso remoto na VM e instale o PerfView.  Em PerfView, execute **Arquivo** > **Comando do Usuário** > **Escutar etwprovder1** > **etwprovider2**, e assim por diante. O comando **Escutar** diferencia letras maiúsculas de minúsculas e não pode haver espaços entre a lista separada por vírgulas dos provedores do ETW. Se o comando falhar na execução, você poderá selecionar o botão **Log**na parte inferior direita da ferramenta Perfview para ver o que tentou executar e qual foi o resultado.  Supondo que a entrada está correta, uma nova janela aparece. Em alguns segundos, você começará a ver o rastreamento de ETW.

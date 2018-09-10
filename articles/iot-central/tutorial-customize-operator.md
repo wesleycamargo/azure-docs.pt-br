@@ -1,21 +1,21 @@
 ---
 title: Personalizar os modos de exibição do operador no Azure IoT Central | Microsoft Docs
 description: Como um construtor, personalize os modos de exibição do operador em seu aplicativo do Azure IoT Central.
-services: iot-central
 author: sandeeppujar
-ms.author: sadeepu
+ms.author: sandeepu
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 3e0dfab05fc7972a055853af45f0d1b13d52c0a1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+ms.openlocfilehash: c0b42c3efd5e015eaf1fbd750f835d8de8818de9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202315"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185844"
 ---
-# <a name="3---customize-the-azure-iot-central-operators-view"></a>3 – Personalizar o modo de exibição do operador do Azure IoT Central
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar o modo de exibição do operador do Azure IoT Central
 
 Este tutorial mostra a você, como um construtor, como personalizar o modo de exibição do operador do seu aplicativo. Ao fazer uma alteração no aplicativo como um construtor, você pode visualizar o modo de exibição do operador no aplicativo do Microsoft Azure IoT Central.
 
@@ -31,12 +31,12 @@ Neste tutorial, você aprenderá como:
 > * Configurar sua página inicial padrão
 > * Visualizar a página inicial padrão como operador
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, você deve concluir os dois tutoriais anteriores:
 
-1. [Definir um novo tipo de dispositivo em seu aplicativo do Azure IoT Central](tutorial-define-device-type.md).
-1. [Configurar regras e ações para o seu dispositivo](tutorial-configure-rules.md).
+* [Definir um novo tipo de dispositivo em seu aplicativo do Azure IoT Central](tutorial-define-device-type.md).
+* [Configurar regras e ações para o seu dispositivo](tutorial-configure-rules.md).
 
 ## <a name="configure-your-device-dashboard"></a>Configurar o painel do dispositivo
 
@@ -46,17 +46,17 @@ Como um construtor, você pode definir quais informações são exibidas em um p
 
     ![Página Explorer](media/tutorial-customize-operator/explorer.png)
 
-1. Para começar a personalizar o painel do dispositivo de ar condicionado conectado, selecione o modelo do dispositivo de **Ar condicionado conectado (1.0.0)**. Escolha o dispositivo **Ar condicionado-1 conectado** criado no tutorial [Definir um novo tipo de dispositivo em seu aplicativo](tutorial-define-device-type.md):
+2. Para começar a personalizar o painel do dispositivo de ar condicionado conectado, selecione o modelo do dispositivo de **Ar condicionado conectado (1.0.0)**. Escolha o dispositivo **Ar condicionado-1 conectado** criado no tutorial [Definir um novo tipo de dispositivo em seu aplicativo](tutorial-define-device-type.md):
 
     ![Selecione o dispositivo de ar condicionado conectado](media/tutorial-customize-operator/selectdevice.png)
 
     Ao fazer uma alteração em um dispositivo, como **Ar condicionado-1 conectado**, você faz uma alteração no modelo subjacente. Para saber mais sobre como [Criar uma nova versão de modelo de dispositivo](howto-version-devicetemplate.md).
 
-1. Para editar o painel, escolha **Painel**:
+3. Para editar o painel, escolha **Painel**:
 
     ![Página Painel de modelo do dispositivo](media/tutorial-customize-operator/dashboard.png)
 
-1. Para adicionar um bloco KPI ao painel, escolha **KPI**:
+4. Para adicionar um bloco KPI ao painel, escolha **KPI**:
 
     ![Adicionar KPI](media/tutorial-customize-operator/addkpi.png)
 
@@ -69,11 +69,11 @@ Como um construtor, você pode definir quais informações são exibidas em um p
     | Agregação | Máximo |
     | Intervalo de tempo  | Passada uma semana |
 
-1. Escolha **Salvar**. Agora você pode ver o bloco KPI no painel:
+5. Escolha **Salvar**. Agora você pode ver o bloco KPI no painel:
 
     ![Bloco KPI](media/tutorial-customize-operator/temperaturekpi.png)
 
-1. Para mover ou redimensionar um bloco no painel, mova o ponteiro do mouse sobre o bloco. Você pode arrastar o bloco para um novo local ou redimensioná-lo:
+6. Para mover ou redimensionar um bloco no painel, mova o ponteiro do mouse sobre o bloco. Você pode arrastar o bloco para um novo local ou redimensioná-lo:
 
     ![Editar layout do painel](media/tutorial-customize-operator/dashboardlayout.png)
 
@@ -85,7 +85,7 @@ Como um construtor, você também pode configurar o modo de exibição do operad
 
     ![Página Configurações](media/tutorial-customize-operator/settings.png)
 
-1. É possível mover e redimensionar os blocos de configurações:
+2. É possível mover e redimensionar os blocos de configurações:
 
     ![Editar o layout de configurações](media/tutorial-customize-operator/settingslayout.png)
 
@@ -100,7 +100,7 @@ Além do painel e das configurações, também é possível configurar o modo de
 
     ![Página Propriedades](media/tutorial-customize-operator/properties.png)
 
-1. Você pode mover e redimensionar os campos de propriedades:
+2. Você pode mover e redimensionar os campos de propriedades:
 
     ![Editar o layout de propriedades](media/tutorial-customize-operator/propertieslayout.png)
 
@@ -113,17 +113,17 @@ No **Modo de Design**, você pode personalizar as páginas do painel, das config
 
 1. Para exibir o dispositivo de ar condicionado conectado como um operador, você precisa desativar o **Modo de Design**. Para desativar o **Modo de Design**, selecione a opção “off” no **Modo de Design** na parte superior direita da página.
 
-1. Para atualizar o número de série desse dispositivo, edite o valor no bloco do número de série e escolha **Salvar**:
+2. Para atualizar o número de série desse dispositivo, edite o valor no bloco do número de série e escolha **Salvar**:
 
     ![Editar um valor de propriedade](media/tutorial-customize-operator/editproperty.png)
 
-1. Para enviar uma configuração ao ar condicionado conectado, escolha **Configurações**, altere o valor de uma configuração em um bloco e escolha **Atualizar**:
+3. Para enviar uma configuração ao ar condicionado conectado, escolha **Configurações**, altere o valor de uma configuração em um bloco e escolha **Atualizar**:
 
     ![Enviar uma configuração para o dispositivo](media/tutorial-customize-operator/sendsetting.png)
 
     Quando o dispositivo reconhecer o novo valor de configuração, a configuração é exibida como **sincronizada** no bloco.
 
-1. Como um operador, você pode exibir o painel do dispositivo conforme configurado pelo construtor:
+4. Como um operador, você pode exibir o painel do dispositivo conforme configurado pelo construtor:
 
     ![Modo de exibição do operador do painel do dispositivo](media/tutorial-customize-operator/operatordashboard.png)
 
@@ -135,14 +135,14 @@ Quando um construtor ou um operador entra em um aplicativo do Azure IoT Central,
 
     ![Página Construtor do aplicativo](media/tutorial-customize-operator/builderhome.png)
 
-1. Para personalizar a página inicial, adicione blocos da **Biblioteca**. Escolha **Link** e adicione detalhes do site da sua organização. Depois escolha **Salvar**:
+2. Para personalizar a página inicial, adicione blocos da **Biblioteca**. Escolha **Link** e adicione detalhes do site da sua organização. Depois escolha **Salvar**:
 
     ![Adicionar link à página inicial](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > Também é possível adicionar links para páginas dentro do seu aplicativo do Azure IoT Central. Por exemplo, é possível adicionar um link para um painel do dispositivo ou uma página de configurações.
 
-1. Como opção, escolha **Imagem** e carregue uma imagem a ser exibida na sua página inicial. Uma imagem pode conter uma URL para a qual você é destinado ao clicar nela:
+3. Como opção, escolha **Imagem** e carregue uma imagem a ser exibida na sua página inicial. Uma imagem pode conter uma URL para a qual você é destinado ao clicar nela:
 
     ![Adicionar imagem à página inicial](media/tutorial-customize-operator/addimage.png)
 

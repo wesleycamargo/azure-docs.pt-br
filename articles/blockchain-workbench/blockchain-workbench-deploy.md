@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/17/2018
+ms.date: 7/13/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 1a0bc85063a80854ff6b970b0a57a991acfb3750
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303936"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593954"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implantar o Azure Blockchain Workbench
 
@@ -48,7 +48,10 @@ O Azure Blockchain Workbench requer vários pré-requisitos antes da implantaç�
 
 ### <a name="blockchain-workbench-api-app-registration"></a>Registro do aplicativo de API do Blockchain Workbench
 
-A implantação do Blockchain Workbench exige o registro de um aplicativo do Microsoft Azure Active Directory. Você precisa de um locatário do Microsoft Azure Active Directory (Azure AD) para registrar o aplicativo. Você pode usar um locatário existente ou criar um novo locatário. Se você estiver usando um locatário existente do Microsoft Azure Active Directory, você precisa de permissões suficientes para registrar aplicativos dentro de um locatário do Microsoft Azure Active Directory. Os registros de aplicativo precisam estar no locatário do administrador da assinatura onde o Workbench está implantado. Para obter mais informações sobre os locatários do Microsoft Azure Active Directory, consulte [Como obter um locatário do Active Directory](../active-directory/develop/active-directory-howto-tenant.md) e [Integrando aplicativos com o Microsoft Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+A implantação do Blockchain Workbench exige o registro de um aplicativo do Microsoft Azure Active Directory. Você precisa de um locatário do Microsoft Azure Active Directory (Azure AD) para registrar o aplicativo. Você pode usar um locatário existente ou criar um novo locatário. Se você estiver usando um locatário existente do Azure AD, precisará de permissões suficientes para registrar aplicativos e conceder permissões da API do Graph em um locatário do Azure AD. Se você não tiver permissões suficientes em um locatário existente do Azure AD, crie um novo locatário. 
+
+> [!IMPORTANT]
+> O Workbench não precisa ser implantado no mesmo locatário que está sendo utilizado para registrar um aplicativo do Azure AD. O Workbench deve ser implantado em um locatário no qual você tenha permissões suficientes para implantar recursos. Para obter mais informações sobre os locatários do Microsoft Azure Active Directory, consulte [Como obter um locatário do Active Directory](../active-directory/develop/quickstart-create-new-tenant.md) e [Integrando aplicativos com o Microsoft Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Selecione sua conta no canto superior direito e alterne para o locatário do Microsoft Azure Active Directory desejado. O locatário deve ser o locatário do administrador da assinatura onde o Workbench é implantado e você tem permissões suficientes para registrar aplicativos.
@@ -70,10 +73,10 @@ A implantação do Blockchain Workbench exige o registro de um aplicativo do Mic
 
 ### <a name="modify-application-manifest"></a>Modificar o manifesto do aplicativo
 
-Em seguida, você precisa modificar o manifesto do aplicativo para usar as funções de aplicativo no Microsoft Azure Active Directory para especificar administradores do Blockchain Workbench.  Para obter mais informações sobre manifestos de aplicativos, consulte [Manifesto de aplicativo do Microsoft Azure Active Directory](../active-directory/develop/active-directory-application-manifest.md).
+Em seguida, você precisa modificar o manifesto do aplicativo para usar as funções de aplicativo no Microsoft Azure Active Directory para especificar administradores do Blockchain Workbench.  Para obter mais informações sobre manifestos de aplicativos, consulte [Manifesto de aplicativo do Microsoft Azure Active Directory](../active-directory/develop/reference-app-manifest.md).
 
 1. Para o aplicativo que você registrou, selecione **Manifesto** no painel de detalhes do aplicativo registrado.
-2. Gere um GUID. Você pode usar o comando do PowerShell `[guid]::NewGuid()` ou ferramentas on-line para gerar um GUID. 
+2. Gere um GUID. Você pode gerar um GUID usando o comando do PowerShell [guid] :: NewGuid () ou o cmdlet New-GUID. Outra opção é usar um site gerador de GUID.
 3. Você atualizará a seção **appRoles** do manifesto. No painel de Editar manifesto, selecione **Editar** e substitua `"appRoles": []` pelo JSON fornecido. Certifique-se de substituir o valor do campo **id** pelo GUID gerado. 
 
     ``` json
@@ -177,7 +180,7 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
 
     ![Resultados de pesquisa do Marketplace](media/blockchain-workbench-deploy/marketplace-search-results.png)
 
-4.  Clique em **Criar**.
+4.  Selecione **Criar**.
 5.  Conclua as configurações básicas.
 
     ![Criar Azure Blockchain Workbench](media/blockchain-workbench-deploy/blockchain-workbench-settings-basic.png)
@@ -186,7 +189,7 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
     |---------|--------------|
     | Prefixo de recursos | Identificador exclusivo curto para sua implantação. Esse valor é usado como base para nomear recursos. |
     | Nome de usuário da VM | O nome de usuário é usado como administrador para todas as máquinas virtuais (VM). |
-    | Tipo de autenticação. | Selecione se deseja usar uma senha ou chave para se conectar a VMs. |
+    | Tipo de autenticação | Selecione se deseja usar uma senha ou chave para se conectar a VMs. |
     | Senha | A senha é usada para se conectar a VMs. |
     | SSH | Use uma chave pública RSA no formato de única linha começando com **ssh-rsa** ou use o formato PEM de várias linha. É possível gerar chaves SSH usando `ssh-keygen` no Linux e OS X ou usando PuTTYGen no Windows. Para obter mais informações sobre como usar chaves SSH, veja [Como usar chaves SSH com o Windows no Azure](../virtual-machines/linux/ssh-from-windows.md). |
     | Senha do banco de dados / Confirmar senha do banco de dados | Especifique a senha a ser usada para acessar o banco de dados criado como parte da implantação. |
@@ -210,9 +213,13 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
 
 8.  Clique em **OK** para concluir a seção de configuração de Parâmetros do Microsoft Azure Active Directory.
 
-9.  Conclua as configurações de **Tamanho e desempenho da rede**.
+9.  Em **Configurações de Rede e Desempenho**, escolha se você quer criar uma nova rede de blockchain ou usar uma rede de blockchain de prova de autoridade existente.
 
-    ![Configurações de rede e desempenho](media/blockchain-workbench-deploy/blockchain-workbench-settings-network.png)
+    Para **Criar novo**:
+
+    A opção *criar novo* cria um conjunto de nós de PoA (prova de autoridade) do Ethereum dentro da assinatura de um único membro. 
+
+    ![Configurações de rede e desempenho](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-new.png)
 
     | Configuração | DESCRIÇÃO  |
     |---------|--------------|
@@ -220,7 +227,23 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
     | Desempenho de armazenamento | Escolha o desempenho de armazenamento de VM preferido para sua rede de blockchain. |
     | Tamanho da máquina virtual | Escolha o tamanho de VM preferido para sua rede de blockchain. |
 
-10. Clique em **OK** para concluir a seção de tamanho e desempenho de rede.
+    Para **Usar existente**:
+
+    A opção *usar existente* permite que você especifique uma rede de blockchain de PoA (Prova de Autoridade) do Ethereum. Os pontos de extremidade têm os seguintes requisitos.
+
+    * O ponto de extremidade deve ser uma rede de blockchain de PoA (Prova de Autoridade) do Ethereum.
+    * O ponto de extremidade deve estar publicamente acessível pela rede.
+    * A rede de blockchain de PoA deve ser configurada para definir o preço do gás como zero (Nota: as contas do Blockchain Workbench não são financiadas. Se fundos forem necessários, as transações falharão).
+
+    ![Configurações de rede e desempenho](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-existing.png)
+
+    | Configuração | DESCRIÇÃO  |
+    |---------|--------------|
+    | Ponto de extremidade RPC do Ethereum | Fornecer o ponto de extremidade RPC de uma rede de blockchain de PoA existente. O ponto de extremidade começa com http:// e termina com um número da porta. Por exemplo, `http://contoso-chain.onmicrosoft.com:8545` |
+    | Desempenho de armazenamento | Escolha o desempenho de armazenamento de VM preferido para sua rede de blockchain. |
+    | Tamanho da máquina virtual | Escolha o tamanho de VM preferido para sua rede de blockchain. |
+
+10. Selecione **OK** para concluir as configurações de rede e desempenho.
 
 11. Conclua as configurações do **Azure Monitor**.
 

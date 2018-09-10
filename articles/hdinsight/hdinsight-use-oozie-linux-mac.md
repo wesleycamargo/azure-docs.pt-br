@@ -1,24 +1,20 @@
 ---
-title: Usar fluxos de trabalho do Hadoop Oozie no HDInsight baseado em Linux | Microsoft Docs
+title: Usar fluxos de trabalho do Hadoop Oozie no HDInsight baseado em Linux
 description: Usar o Oozie do Hadoop no HDInsight baseado em Linux. Saiba como definir um fluxo de trabalho do Oozie e enviar um trabalho do Oozie.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
+author: omidm1
+ms.author: omidm
+ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 8a25507ab076c4eecccea4e8a503d68ff1441ae5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/26/2018
+ms.openlocfilehash: 052afbe185f9c66af3759775b38b6bf0f2c2e6b2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783314"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -36,12 +32,10 @@ Você também pode usar o Oozie para agendar trabalhos específicos para um sist
 > [!NOTE]
 > Outra opção para definir fluxos de trabalho com HDInsight é usar o Azure Data Factory. Para saber mais sobre o Data Factory, confira [Usar o Pig e o Hive com o Data Factory][azure-data-factory-pig-hive].
 
-> [!IMPORTANT]
-> O Oozie não está habilitado no HDInsight ingressado no domínio.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster hdinsight**: consulte [Introdução ao HDInsight no Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **Um cluster hdinsight**: consulte [Introdução ao HDInsight no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -262,7 +256,7 @@ Para criar um Banco de Dados SQL, siga as etapas do documento [Criar um Banco de
         Default database being set to oozietest
         1>
 
-3. Ao prompt `1>` , insira o seguinte:
+3. Ao prompt `1>`, insira o seguinte:
 
     ```sql
     CREATE TABLE [dbo].[mobiledata](

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cf32ea7b77db3fc78a404063b8a4d69ecebf58
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8f21457a63470b88e93ead97454f996cea38073a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195702"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43103761"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
@@ -47,9 +47,9 @@ Por padrão, os runbooks são executados no contexto da conta de Sistema Local p
 
 Você pode usar ativos de [Credencial](automation-credentials.md) e [Certificado](automation-certificates.md) no runbook com cmdlets que permitem a especificação das credenciais para autenticar com recursos diferentes. O exemplo a seguir mostra uma parte de um runbook que reinicia um computador. Ele recupera as credenciais de um ativo de credencial e o nome do computador de um ativo variável, para então usar esses valores com o cmdlet Restart-Computer.
 
-```azurepowershell-interactive
-$Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -Name "MyCredential"
-$Computer = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" -Name  "ComputerName"
+```powershell
+$Cred = Get-AutomationPSCredential -Name "MyCredential"
+$Computer = Get-AutomationVariable -Name "ComputerName"
 
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
@@ -77,7 +77,7 @@ Use o procedimento a seguir para especificar uma conta RunAs para um grupo do Hy
 
 ### <a name="automation-run-as-account"></a>Conta de automação Executar como
 
-Como parte do processo de compilação automatizado para a implantação de recursos no Azure, você talvez precise acessar os sistemas no local para dar suporte a uma tarefa ou um conjunto de etapas na sequência de implantação. Para dar suporte à autenticação no Azure usando a conta Executar como, você precisa instalar o certificado da conta Executar como.
+Como parte do processo de build automatizado para a implantação de recursos no Azure, talvez você precise acessar os sistemas locais para dar suporte a uma tarefa ou um conjunto de etapas na sequência de implantação. Para dar suporte à autenticação no Azure usando a conta Executar como, você precisa instalar o certificado da conta Executar como.
 
 O runbook do PowerShell a seguir, *Export-RunAsCertificateToHybridWorker*, exporta o certificado de Executar como de sua conta de Automação do Azure e baixa e importa para o repositório de certificados do computador local em um Hybrid Worker conectado à mesma conta. Quando essa etapa for concluída, ele verificará que o Worker pode ser autenticado com sucesso no Azure usando a conta Executar como.
 
@@ -151,19 +151,78 @@ Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbo
 Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 ```
 
+> [!IMPORTANT]
+> **Connect-AzureRmAccount** agora é um alias para **Connect-AzureRMAccount**. Ao pesquisar sua biblioteca de itens, se você não vir **Connect-AzureRMAccount**, você pode usar **Connect-AzureRmAccount**, ou você pode atualizar seus módulos em sua Conta de Automação.
+
 Salve o runbook *Export-RunAsCertificateToHybridWorker* no seu computador com uma extensão `.ps1`. Importe-o para sua conta de Automação e edite o runbook, alterando o valor da variável `$Password` pela sua própria senha. Publique e, em seguida, execute o runbook direcionando o grupo Hybrid Worker que executa e autentica runbooks usando a conta Executar como. O fluxo de trabalho informa a tentativa de importar o certificado para o armazenamento do computador local e vem com várias linhas, dependendo de quantas contas de Automação são definidas em sua assinatura e se a autenticação tiver sido bem-sucedida.
 
 ## <a name="job-behavior"></a>Comportamento do trabalho
 
-Os trabalhos são tratados de forma ligeiramente diferente em Hybrid Runbook Workers do que quando são executados em áreas restritas do Azure. Uma diferença fundamental é que não há limite na duração do trabalho em Hybrid Runbook Workers. Se você tiver um runbook de execução longa, será necessário assegurar que ele seja resiliente a um possível reinício, por exemplo, se o computador que hospeda o Hybrid Worker for reiniciado. Se o computador host do Hybrid Worker reiniciar, qualquer trabalho de runbook em execução será reiniciado desde o início ou do último ponto de verificação para runbooks do Fluxo de trabalho do PowerShell. Se um trabalho do runbook for reiniciado mais de 3 vezes, ele será suspenso.
+Os trabalhos são tratados de forma ligeiramente diferente em Hybrid Runbook Workers do que quando são executados em áreas restritas do Azure. Uma diferença fundamental é que não há limite na duração do trabalho em Hybrid Runbook Workers. Os runbooks executados em áreas restritas do Azure são limitados a 3 horas devido à [fração justa](automation-runbook-execution.md#fair-share). Se você tiver um runbook de execução longa, será necessário assegurar que ele seja resiliente a um possível reinício, por exemplo, se o computador que hospeda o Hybrid Worker for reiniciado. Se o computador host do Hybrid Worker reiniciar, qualquer trabalho de runbook em execução será reiniciado desde o início ou do último ponto de verificação para runbooks do Fluxo de trabalho do PowerShell. Se um trabalho do runbook for reiniciado mais de 3 vezes, ele será suspenso.
 
-## <a name="troubleshooting-runbooks-on-hybrid-runbook-worker"></a>Solucionando problemas de runbooks no Hybrid Runbook Worker
+## <a name="run-only-signed-runbooks"></a>Executar somente runbooks assinados
 
-Os logs são armazenados localmente em cada hybrid worker, em C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Hybrid Workers também registra erros e eventos no log de eventos do Windows em **Logs de Aplicativos e Serviços\Microsoft-SMA\Operacional**. Eventos relacionados a runbooks executados no worker são gravados em **Logs de Aplicativos e Serviços\Microsoft-Automation\Operacional**. O log **Microsoft SMA** inclui muitos outros eventos relacionados ao trabalho de runbook enviado por push para o worker e ao processamento do runbook. Embora o log de eventos **Microsoft-Automation** não tenha muitos eventos com detalhes que auxiliam na solução de problemas da execução do runbook, ele contém os resultados do trabalho do runbook.
+Os Hybrid Runbook Workers podem ser configurados para executar somente runbooks assinados com alguma configuração. A seção a seguir descreve como configurar os Hybrid Runbook Workers para executar runbooks assinados e como assinar os runbooks.
 
-[A saída e as mensagens do runbook](automation-runbook-output-and-messages.md) são enviadas à Automação do Azure do Hybrid Workers assim como os trabalhos do runbook são executados na nuvem. Também é possível habilitar os fluxos Verbose e Progress da mesma forma que você faria para outros runbooks.
+> [!NOTE]
+> Após configurar um Hybrid Runbook Worker para executar somente runbooks assinados, os runbooks que **não** foram assinados não serão executados no trabalho.
 
-Se os runbooks não forem concluídos com êxito e o resumo do trabalho mostrar um status **Suspenso**, leia o artigo de solução de problemas [Hybrid Runbook Worker: um trabalho de runbook termina com o status Suspenso](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).
+### <a name="create-signing-certificate"></a>Criar certificado de assinatura
+
+O exemplo a seguir cria um certificado autoassinado que pode ser usado para assinar runbooks. O exemplo cria o certificado e o exporta. O certificado será importado para os Hybrid Runbook Workers posteriormente. A impressão digital também será retornada e utilizada posteriormente para referenciar o certificado.
+
+```powershell
+# Create a self-signed certificate that can be used for code signing
+$SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
+                                        -Subject "CN=contoso.com" `
+                                        -KeyAlgorithm RSA `
+                                        -KeyLength 2048 `
+                                        -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+                                        -KeyExportPolicy Exportable `
+                                        -KeyUsage DigitalSignature `
+                                        -Type CodeSigningCert
+
+
+# Export the certificate so that it can be imported to the hybrid workers
+Export-Certificate -Cert $SigningCert -FilePath .\hybridworkersigningcertificate.cer
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Retrieve the thumbprint for later use
+$SigningCert.Thumbprint
+```
+
+### <a name="configure-the-hybrid-runbook-workers"></a>Configurar os Hybrid Runbook Workers
+
+Copie o certificado criado para cada Hybrid Runbook Worker em um grupo. Execute o script a seguir para importar o certificado e configure o Hybrid Worker para usar a validação de assinatura em runbooks.
+
+```powershell
+# Install the certificate into a location that will be used for validation.
+New-Item -Path Cert:\LocalMachine\AutomationHybridStore
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\AutomationHybridStore
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Configure the hybrid worker to use signature validation on runbooks.
+Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
+```
+
+### <a name="sign-your-runbooks-using-the-certificate"></a>Assine os Runbooks usando o certificado
+
+Com o Hybrid Runbook workers configurados para usar somente assinado runbooks, você deve entrar runbooks que devem ser usados no Hybrid Runbook Worker. Use o exemplo de PowerShell a seguir para assinar os runbooks.
+
+```powershell
+$SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
+Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
+```
+
+Quando o runbook tiver sido assinado, ele deve ser importado para sua conta de automação e publicado com o bloco de assinatura. Para saber como importar os runbooks, consulte [Importando um runbook de um arquivo para a Automação do Azure](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+
+## <a name="troubleshoot"></a>Solucionar problemas
+
+Se os runbooks não estiverem sendo concluídos com êxito, revise o guia de solução de problemas em [falhas de execução do runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 
 ## <a name="next-steps"></a>Próximas etapas
 

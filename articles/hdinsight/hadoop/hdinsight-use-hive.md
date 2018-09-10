@@ -1,25 +1,21 @@
 ---
-title: O que é o Apache Hive e HiveQL – Azure HDInsight | Microsoft Docs
+title: O que é o Apache Hive e HiveQL - Azure HDInsight?
 description: O Apache Hive é um sistema de data warehouse para Hadoop. Você pode consultar dados armazenados no Hive usando o HiveQL, que é semelhante ao Transact-SQL. Neste documento, você aprenderá a usar o Hive e HiveQL com o Azure HDInsight.
 keywords: hiveql,o que é o hive,hadoop hiveql,como usar o hive,aprender hive,o que é o hive
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: e418411cc6b681e304cc1ba66f0c815ad0d4db64
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 446bb23e15d908c8afe189a33e4d8a70faad284a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126630"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Saiba mais sobre o Apache Hive e o HiveQL no Azure HDInsight?
 
@@ -226,7 +222,7 @@ Há vários serviços que podem ser usados para executar consultas de Hive como 
 
 ### <a name="azure-data-factory"></a>Fábrica de dados do Azure
 
-O Azure Data Factory permite que você use o HDInsight como parte de um pipeline do Data Factory. Para obter mais informações sobre como usar o Hive de um pipeline, consulte o documento [Transformar dados usando a atividade do Hive no Azure Data Factory](/data-factory/transform-data-using-hadoop-hive.md).
+O Azure Data Factory permite que você use o HDInsight como parte de um pipeline do Data Factory. Para obter mais informações sobre como usar o Hive de um pipeline, consulte o documento [Transformar dados usando a atividade do Hive no Azure Data Factory](../../data-factory/transform-data-using-hadoop-hive.md).
 
 ### <a name="hive-jobs-and-sql-server-integration-services"></a>Trabalhos do Hive e SQL Server Integration Services
 

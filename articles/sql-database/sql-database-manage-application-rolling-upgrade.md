@@ -6,14 +6,15 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: sashan
-ms.openlocfilehash: d1799befb2b5f59f1794bbca2a1daa2a13990882
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 37960995c89c2b30d90ac45dcd8cc44d80088398
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818609"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gerenciando a rolagem de atualizações de aplicativos na nuvem usando a replicação geográfica ativa do Banco de dados SQL
 > [!NOTE]
@@ -30,10 +31,10 @@ Ao avaliar as opções de atualização, você deve considerar os seguintes fato
 * Custo total em dólares.  Isso inclui redundância adicional e custos incrementais dos componentes temporários usados pelo processo de atualização. 
 
 ## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Atualizando aplicativos que dependem de backups de banco de dados para recuperação de desastre
-Se seu aplicativo depende de backups automáticos de banco de dados e usa a restauração geográfica para recuperação de desastre, ele normalmente é implantado em uma única região do Azure. Nesse caso, o processo de atualização envolve a criação de uma implantação de backup de todos os componentes do aplicativo de backup envolvidos na atualização. Para minimizar a interrupção do usuário final, você utilizará o WATM (Gerenciador de Tráfego do Azure) com o perfil de failover.  O diagrama a seguir ilustra o ambiente operacional antes do processo de atualização. O ponto de extremidade <i>contoso-1.azurewebsites.net</i> representa um slot de produção do aplicativo que precisa ser atualizado. Para habilitar a capacidade de reverter a atualização, você precisará criar um slot de preparo com uma cópia totalmente sincronizada do aplicativo. As etapas a seguir são necessárias para preparar o aplicativo para a atualização:
+Se seu aplicativo depende de backups automáticos de banco de dados e usa a restauração geográfica para recuperação de desastre, ele normalmente é implantado em uma única região do Azure. Nesse caso, o processo de atualização envolve a criação de uma implantação de backup de todos os componentes do aplicativo de backup envolvidos na atualização. Para minimizar a interrupção do usuário final, você usará o Gerenciador de Tráfego do Azure com o perfil de failover.  O diagrama a seguir ilustra o ambiente operacional antes do processo de atualização. O ponto de extremidade <i>contoso-1.azurewebsites.net</i> representa um slot de produção do aplicativo que precisa ser atualizado. Para habilitar a capacidade de reverter a atualização, você precisará criar um slot de preparo com uma cópia totalmente sincronizada do aplicativo. As etapas a seguir são necessárias para preparar o aplicativo para a atualização:
 
 1. Crie um slot de preparo para a atualização. Para fazer isso, crie um banco de dados secundário (1) e implante um site da Web idêntico na mesma região do Azure. Monitore o secundário para ver se o processo de propagação é concluído.
-2. Crie um perfil de failover no WATM com <i>contoso-1.azurewebsites.net</i> como ponto de extremidade online e <i>contoso-2.azurewebsites.net</i> como offline. 
+2. Crie um perfil de failover no Gerenciador de Tráfego do Azure com <i>contoso-1.azurewebsites.net</i> como ponto de extremidade online e <i>contoso-2.azurewebsites.net</i> como offline. 
 
 > [!NOTE]
 > Observe que as etapas de preparação não terão impacto sobre o aplicativo no slot de produção e poderão funcionar no modo de acesso completo.
@@ -51,7 +52,7 @@ Depois de concluir as etapas de preparação, o aplicativo estará pronto para a
 
 Se a atualização foi concluída com êxito, você agora está pronto para alternar os usuários finais para a cópia de preparo do aplicativo. Agora, ele se tornará o slot de produção do aplicativo.  Isso envolve mais algumas etapas conforme ilustrado no diagrama a seguir.
 
-1. Alterne o ponto de extremidade online no perfil do WATM para <i>contoso-2.azurewebsites.net</i>, que aponta para a versão V2 do site da Web (6). Agora, ele se torna o slot de produção com o aplicativo V2 e o tráfego de usuário final é direcionado a ele.  
+1. Mude o ponto de extremidade online no perfil do Gerenciador de Tráfego do Azure para <i>contoso-2.azurewebsites.net</i>, que aponta para a versão V2 do site da Web (6). Agora, ele se torna o slot de produção com o aplicativo V2 e o tráfego de usuário final é direcionado a ele.  
 2. Se você não precisar mais dos componentes do aplicativo V1, poderá removê-los com segurança (7).   
 
 ![Configuração da replicação geográfica do banco de dados SQL. Recuperação de desastre em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
@@ -64,7 +65,7 @@ Se o processo de atualização não for bem-sucedido, por exemplo, devido a um e
 Neste ponto, o aplicativo é totalmente funcional e as etapas de atualização podem ser repetidas.
 
 > [!NOTE]
-> A reversão não requer alterações no perfil do WATM, pois ele já aponta para <i>contoso-1.azurewebsites.net</i> como o ponto de extremidade ativo.
+> A reversão não requer alterações no perfil do Gerenciador de Tráfego do Azure, pois ele já aponta para <i>contoso-1.azurewebsites.net</i> como o ponto de extremidade ativo.
 > 
 > 
 
@@ -78,12 +79,12 @@ Se seu aplicativo usar a replicação geográfica para continuidade dos negócio
 * O aplicativo permaneça protegido contra falhas catastróficas em todos os momentos durante o processo de atualização
 * Os componentes com redundância geográfica do aplicativo sejam atualizados em paralelo com os componentes ativos
 
-Para atingir essas metas, você utilizará o WATM (Gerenciador de Tráfego do Azure) usando o perfil de failover com um ponto de extremidade ativo e três de backup.  O diagrama a seguir ilustra o ambiente operacional antes do processo de atualização. Os sites da Web <i>contoso-1.azurewebsites.net</i> e <i>contoso-dr.azurewebsites.net</i> representam um slot de produção do aplicativo com redundância geográfica completa. Para habilitar a capacidade de reverter a atualização, você precisará criar um slot de preparo com uma cópia totalmente sincronizada do aplicativo. Como você precisa garantir que o aplicativo pode se recuperar rapidamente no caso de uma falha catastrófica durante o processo de atualização, o slot de preparo também deve ter redundância geográfica. As etapas a seguir são necessárias para preparar o aplicativo para a atualização:
+Para atingir essas metas, você utilizará o Gerenciador de Tráfego do Azure usando o perfil de failover com um ponto de extremidade ativo e três de backup.  O diagrama a seguir ilustra o ambiente operacional antes do processo de atualização. Os sites da Web <i>contoso-1.azurewebsites.net</i> e <i>contoso-dr.azurewebsites.net</i> representam um slot de produção do aplicativo com redundância geográfica completa. Para habilitar a capacidade de reverter a atualização, você precisará criar um slot de preparo com uma cópia totalmente sincronizada do aplicativo. Como você precisa garantir que o aplicativo pode se recuperar rapidamente no caso de uma falha catastrófica durante o processo de atualização, o slot de preparo também deve ter redundância geográfica. As etapas a seguir são necessárias para preparar o aplicativo para a atualização:
 
 1. Crie um slot de preparo para a atualização. Para fazer isso, crie um banco de dados secundário (1) e implante uma cópia idêntica do site da Web na mesma região do Azure. Monitore o secundário para ver se o processo de propagação é concluído.
 2. Crie um banco de dados secundário com redundância geográfica no slot de preparo ao fazer replicação geográfica do banco de dados secundário na região de backup (isso é chamado de "replicação geográfica encadeada"). Monitore o secundário do backup para ver se o processo de propagação é concluído (3).
 3. Crie uma cópia em espera do site da Web na região de backup e vincule-a ao secundário com redundância geográfica (4).  
-4. Adicione pontos de extremidade adicionais <i>contoso-2.azurewebsites.net</i> e <i>contoso-3.azurewebsites.net</i> ao perfil de failover no WATM como pontos de extremidade offline (5). 
+4. Adicione os pontos de extremidade adicionais <i>contoso-2.azurewebsites.net</i> e <i>contoso-3.azurewebsites.net</i> ao perfil de failover no Gerenciador de Tráfego do Azure como pontos de extremidade offline (5). 
 
 > [!NOTE]
 > Observe que as etapas de preparação não terão impacto sobre o aplicativo no slot de produção e poderão funcionar no modo de acesso completo.
@@ -102,7 +103,7 @@ Depois de concluir as etapas de preparação, o slot de preparo estará pronto p
 
 Se a atualização foi concluída com êxito, você agora está pronto para alternar os usuários finais para a versão V2 do aplicativo. O diagrama a seguir ilustra as etapas envolvidas.
 
-1. Alterne o ponto de extremidade ativo no perfil do WATM para <i>contoso-2.azurewebsites.net</i>, que aponta para a versão V2 do site da Web (9). Agora, ele se torna um slot de produção com o aplicativo V2 e o tráfego de usuário final é direcionado a ele. 
+1. Mude o ponto de extremidade ativo no perfil do Gerenciador de Tráfego do Azure para <i>contoso-2.azurewebsites.net</i>, que aponta para a versão V2 do site da Web (9). Agora, ele se torna um slot de produção com o aplicativo V2 e o tráfego de usuário final é direcionado a ele. 
 2. Se você não precisar mais do aplicativo V1, poderá removê-lo com segurança (10 e 11).  
 
 ![Configuração da replicação geográfica do banco de dados SQL. Recuperação de desastre em nuvem.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
@@ -115,7 +116,7 @@ Se o processo de atualização não for bem-sucedido, por exemplo, devido a um e
 Neste ponto, o aplicativo é totalmente funcional e as etapas de atualização podem ser repetidas.
 
 > [!NOTE]
-> A reversão não requer alterações no perfil do WATM, pois ele já aponta para <i>contoso-1.azurewebsites.net</i> como o ponto de extremidade ativo.
+> A reversão não requer alterações no perfil do Gerenciador de Tráfego do Azure, pois ele já aponta para <i>contoso-1.azurewebsites.net</i> como o ponto de extremidade ativo.
 > 
 > 
 

@@ -1,0 +1,112 @@
+items:
+- name: Documentação de Pesquisa de Imagem do Bing
+  href: index.yml
+- name: Visão geral
+  items:
+  - name: O que é a Pesquisa de Imagem do Bing?
+    href: overview.md
+- name: Guia de início rápido
+  items:
+  - name: Enviar consultas de pesquisa usando a API REST
+    items:
+    - name: Usando C#
+      href: quickstarts/csharp.md
+    - name: Usando Java
+      href: quickstarts/java.md
+    - name: Usando o Node.js
+      href: quickstarts/nodejs.md
+    - name: Usando o PHP
+      href: quickstarts/php.md
+    - name: Usando Python
+      href: quickstarts/python.md
+    - name: Usando o Ruby
+      href: quickstarts/ruby.md
+    expanded: true
+  - name: Solicitar e filtrar imagens usando o SDK
+    items:
+    - name: Usando C#
+      href: image-search-sdk-quickstart.md
+    - name: Usando o Node.js
+      href: image-search-sdk-node-quickstart.md
+    - name: Usando Python
+      href: image-sdk-python-quickstart.md
+    - name: Usando Java
+      href: image-sdk-java-quickstart.md
+- name: Tutoriais
+  items:
+  - name: Aplicativo Web de página única
+    href: tutorial-bing-image-search-single-page-app.md
+  - name: Aplicativo Web de página única (código-fonte)
+    href: tutorial-bing-image-search-single-page-app-source.md
+  - name: Carregamento de imagem do Bing para insights
+    href: tutorial-image-post.md
+  - name: Carregamento de imagem do Bing para insights (código-fonte)
+    href: tutorial-image-post-source.md
+- name: Exemplos
+  items:
+  - name: Exemplos de código
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search
+- name: Guias de instruções
+  items:
+  - name: Obter insights de imagens
+    href: image-insights.md
+  - name: Obter imagens .gif
+    href: gif-images.md
+  - name: Obter imagens populares
+    href: trending-images.md
+  - name: Percorrer as imagens
+    href: paging-images.md
+  - name: Miniaturas de redimensionamento e corte
+    href: resize-and-crop-thumbnails.md
+  - name: Atualizar de v5 para v7
+    href: bing-image-upgrade-guide-v5-to-v7.md
+- name: Conceitos
+  items:
+  - name: Obtendo imagens na Web
+    href: concepts/bing-image-search-get-images.md
+  - name: Enviando e trabalhando com consultas de pesquisa
+    href: concepts/bing-image-search-sending-queries.md
+- name: Referência
+  items:
+  - name: API de Pesquisa de Imagem do Bing v7
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
+  - name: API de Pesquisa de Imagem do Bing v5
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
+  - name: Referência do PowerShell dos Serviços Cognitivos do Azure
+    href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Referência da Interface da Linha de Comando dos Serviços Cognitivos do Azure
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+- name: Recursos
+  items:
+  - name: Perguntas frequentes
+    href: bing-image-search-resource-faq.md
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/555907-bing-search
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/bing-search
+  - name: Disponibilidade regional
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Base de Dados de Conhecimento
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Obter chave de API
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
+  - name: Experimente!
+    href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
+  - name: Pontos de extremidade da Pesquisa de Imagem do Bing
+    href: image-search-endpoint.md
+  - name: Países e mercados com suporte
+    href: supported-countries-markets.md
+  - name: Requisitos de uso e exibição
+    href: UseAndDisplayRequirements.md
+  - name: Análise da API de Pesquisa de Imagem do Bing
+    href: bing-image-stats.md
+ms.openlocfilehash: 02b54baef02d40373bb574d12575e2df739f1703
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42440125"

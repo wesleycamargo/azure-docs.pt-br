@@ -1,28 +1,22 @@
 ---
-title: Planejando uma implantação de Sincronização de Arquivo do Azure (versão prévia) | Microsoft Docs
+title: Planejando uma implantação de Sincronização de Arquivos do Azure | Microsoft Docs
 description: Saiba o que considerar ao planejar uma implantação de Arquivos do Azure.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: ebfa7da32859f8d2d0ff3778af3b5cca99bdf1f4
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.component: files
+ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077667"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247388"
 ---
-# <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planejando uma implantação de Sincronização de Arquivo do Azure (versão prévia)
-Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os compartilhamentos de arquivos de sua organização em Arquivos do Azure, sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
+# <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
+Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
 
 Este artigo descreve as considerações importantes para uma implantação da Sincronização de Arquivos do Azure. Recomendamos ler também [Planejando uma implantação dos Arquivos do Azure](storage-files-planning.md). 
 
@@ -73,18 +67,66 @@ A disposição em camadas da nuvem é um recurso opcional da Sincronização de 
 > [!Important]  
 > A camada de nuvem não tem suporte para pontos de extremidade de servidor nos volumes do sistema do Windows.
 
-## <a name="azure-file-sync-interoperability"></a>Interoperabilidade da Sincronização de Arquivos do Azure 
-Esta seção aborda a interoperabilidade da Sincronização de Arquivos do Azure com soluções de terceiros, funções e recursos do Windows Server.
+## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Requisitos de sistema e interoperabilidade da Sincronização de Arquivos do Azure 
+Esta seção aborda os requisitos de sistema e a interoperabilidade do agente de Sincronização de Arquivos do Azure com soluções de terceiros, funções e recursos do Windows Server.
 
-### <a name="supported-versions-of-windows-server"></a>Versões com suporte do Windows Server
-No momento, as versões com suporte do Windows Server na Sincronização de Arquivos do Azure são:
+### <a name="evaluation-tool"></a>Ferramenta de avaliação
+Antes de implantar a Sincronização de Arquivos do Azure, você precisa avaliar se ela é compatível com seu sistema usando a ferramenta de avaliação da Sincronização de Arquivos do Azure. Essa ferramenta é um cmdlet do AzureRM PowerShell que verifica se há possíveis problemas com seu sistema de arquivos e conjunto de dados, como caracteres sem suporte ou uma versão de sistema operacional sem suporte. Observe que suas verificações abrangem a maioria dos recursos mencionados abaixo, mas não todos eles. É recomendável que você leia o restante desta seção com cuidado para garantir que sua implantação seja perfeita. 
 
-| Versão | SKUs com suporte | Opções de implantação com suporte |
-|---------|----------------|------------------------------|
-| Windows Server 2016 | Datacenter e Standard | Completo (servidor com uma interface do usuário) |
-| Windows Server 2012 R2 | Datacenter e Standard | Completo (servidor com uma interface do usuário) |
+#### <a name="download-instructions"></a>Instruções de download
+1. Certifique-se de que você tem a versão mais recente do PackageManagement e do PowerShellGet instalada (isso permite que você instale módulos na versão prévia)
+    
+    ```PowerShell
+        Install-Module -Name PackageManagement -Repository PSGallery -Force
+        Install-Module -Name PowerShellGet -Repository PSGallery -Force
+    ```
+ 
+2. Reiniciar o PowerShell
+3. Instalar os módulos
+    
+    ```PowerShell
+        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+    ```
 
-Versões futuras do Windows Server serão adicionadas à medida que forem liberadas. Versões anteriores do Windows podem ser adicionadas de acordo com os comentários do usuário.
+#### <a name="usage"></a>Uso  
+Você pode invocar a ferramenta de avaliação de algumas maneiras diferentes: você pode executar verificações de sistema, verificações de conjunto de dados ou ambas. Para executar verificações de sistema e de conjunto de dados: 
+
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+```
+
+Para testar apenas o conjunto de dados:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+```
+ 
+Para testar somente os requisitos do sistema:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+```
+ 
+Para exibir os resultados em CSV:
+```PowerShell
+    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+```
+
+### <a name="system-requirements"></a>Requisitos do Sistema
+- Um servidor que executa o Windows Server 2012 R2 ou o Windows Server 2016 
+
+    | Versão | SKUs com suporte | Opções de implantação com suporte |
+    |---------|----------------|------------------------------|
+    | Windows Server 2016 | Datacenter e Standard | Completo (servidor com uma interface do usuário) |
+    | Windows Server 2012 R2 | Datacenter e Standard | Completo (servidor com uma interface do usuário) |
+
+    Versões futuras do Windows Server serão adicionadas à medida que forem liberadas. Versões anteriores do Windows podem ser adicionadas de acordo com os comentários do usuário.
+
+- Um servidor com um mínimo de 2GB de memória
+
+    > [!Important]  
+    > Se o servidor estiver em execução em uma máquina virtual com memória dinâmica habilitada, a VM deverá ser configurada com um mínimo de 2048 MB de memória.
+    
+- Um volume conectado localmente formatado com o sistema de arquivos NTFS
 
 > [!Important]  
 > Recomendamos manter todos os servidores usados com a Sincronização de Arquivos do Azure atualizados com as últimas atualizações do Windows Update. 
@@ -145,11 +187,21 @@ Para Sincronização de arquivos do Azure e DFS-R trabalharem lado a lado:
 
 Para obter mais informações, consulte [Visão geral da Replicação do DFS](https://technet.microsoft.com/library/jj127250).
 
+### <a name="sysprep"></a>Sysprep
+Usando o sysprep em um servidor que possua o agente Sincronização de Arquivos do Azure instalado e isso pode levar a resultados inesperados. A instalação do agente e o registro do servidor devem ocorrer depois da implantação da imagem do servidor e da conclusão da mini-instalação do sysprep.
+
+### <a name="windows-search"></a>Windows Search
+Se a opção de camadas em nuvem estiver habilitada em um ponto de extremidade do servidor, os arquivos que estão em camadas serão ignorados e não serão indexados pelo Windows Search. Arquivos sem camadas são indexados corretamente.
+
 ### <a name="antivirus-solutions"></a>Soluções de antivírus
 Como os antivírus funcionam com o exame de arquivos em busca de códigos mal-intencionados conhecidos, um antivírus pode causar o recall de arquivos em camadas. Como os arquivos em camadas têm o atributo “offline” definido, recomendamos consultar seu fornecedor de software para saber como configurar sua solução para ignorar a leitura de arquivos offline. 
 
 Sabe-se que as seguintes soluções dão suporte à possibilidade de ignorar arquivos offline:
 
+- [O Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - O Windows Defender ignora automaticamente a leitura de arquivos com o atributo offline definido. Testamos o Defender e identificamos um problema menor: quando você adiciona um servidor a um grupo de sincronização existente, os arquivos com menos de 800 bytes são recuperados (baixados) no novo servidor. Esses arquivos permanecerão no novo servidor e não serão colocados em camadas, pois não atendem ao requisito de tamanho em camadas (> 64kb).
+- [Proteção do Terminal do System Center (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - O SCEP funciona da mesma forma que o Defender; Veja acima
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
 - [McAfee EndPoint Security](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (consulte a seção “Scan only what you need to” [Examinar apenas o necessário] na página 90 do PDF)
 - [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)
@@ -158,6 +210,11 @@ Sabe-se que as seguintes soluções dão suporte à possibilidade de ignorar arq
 
 ### <a name="backup-solutions"></a>Soluções de backup
 Como as soluções de antivírus, as soluções de backup podem causar o recall de arquivos em camadas. Recomendamos o uso de uma solução de backup de nuvem para fazer backup do compartilhamento do arquivos do Azure, em vez de um produto de backup local.
+
+Se você estiver usando uma solução de backup local, os backups deverão ser executados em um servidor no grupo de sincronização que possui a camada de nuvem desabilitada. Ao restaurar arquivos no local do ponto de extremidade do servidor, use a opção de restauração no nível de arquivo. Os arquivos restaurados serão sincronizados com todos os pontos de extremidade no grupo de sincronização e os arquivos existentes serão substituídos pela versão restaurada do backup.
+
+> [!Note]  
+> Opções de restauração BMR (recuperação bare-metal) e nível de volume com reconhecimento de aplicativo podem causar resultados inesperados e atualmente não têm suporte. Essas opções de restauração terão suporte em uma versão futura.
 
 ### <a name="encryption-solutions"></a>Soluções de criptografia
 O suporte para soluções de criptografia depende de como elas são implementadas. A Sincronização de Arquivo do Azure é conhecida por funcionar com:
@@ -169,30 +226,58 @@ A Sincronização de Arquivo do Azure é conhecida por não funcionar com:
 
 - EFS (Sistema de Arquivos com Criptografia) NTFS
 
-Em geral, a Sincronização de Arquivos do Azure deve dar suporte à interoperabilidade com soluções de criptografia que ficam abaixo do sistema de arquivos, como o BitLocker, e com soluções implementadas no formato de arquivo, como o BitLocker. Não foi feita nenhuma interoperabilidade especial para soluções que ficam acima do sistema de arquivos (como NTFS EFS).
+Em geral, a Sincronização de Arquivos do Azure deve dar suporte à interoperabilidade com soluções de criptografia que ficam abaixo do sistema de arquivos, como o BitLocker, e com soluções implementadas no formato de arquivo, como a Proteção de Informações do Azure. Não foi feita nenhuma interoperabilidade especial para soluções que ficam acima do sistema de arquivos (como NTFS EFS).
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções de HSM (Gerenciamento de Armazenamento Hierárquico)
 Nenhuma outra solução de HSM deve ser usada com a Sincronização de Arquivos do Azure.
 
 ## <a name="region-availability"></a>Disponibilidade de região
-A Sincronização de Arquivos do Azure está disponível apenas nas seguintes regiões em versão prévia:
+A Sincronização de Arquivos do Azure está disponível apenas nas seguintes regiões:
 
 | Região | Localização do Datacenter |
 |--------|---------------------|
 | Leste da Austrália | Nova Gales do Sul |
+| Sudeste da Austrália | Vitória |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade de Quebec |
+| Índia Central | Pune |
 | Centro dos EUA | Iowa |
 | Ásia Oriental | Hong Kong |
 | Leste dos EUA | Virgínia |
 | Leste dos EUA 2 | Virgínia |
 | Norte da Europa | Irlanda |
+| Sul da Índia | Chennai |
 | Sudeste Asiático | Cingapura |
 | Sul do Reino Unido | Londres |
+| Oeste do Reino Unido | Cardiff |
 | Europa Ocidental | Países Baixos |
 | Oeste dos EUA | Califórnia |
 
-Na versão prévia, damos suporte apenas à sincronização com um compartilhamento de arquivos do Azure na mesma região do Serviço de Sincronização de Armazenamento.
+A Sincronização de Arquivos do Azure é compatível apenas com um compartilhamento de arquivo do Azure que esteja na mesma região que o Serviço de Sincronização de Armazenamento.
+
+### <a name="azure-disaster-recovery"></a>Recuperação de desastre do Azure
+Para proteger-se contra a perda de uma região do Azure, a Sincronização de Arquivos do Azure integra-se com a opção de GRS ([redundância de armazenamento com redundância geográfica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)). O armazenamento GRS funciona usando a replicação de bloco assíncrono entre o armazenamento na região primária, com o qual você normalmente interage, e o armazenamento na região secundária emparelhada. Em caso de desastre que faça uma região do Azure ficar temporária ou permanentemente offline, a Microsoft fará failover do armazenamento para a região emparelhada. 
+
+Para dar suporte à integração de failover entre o armazenamento com redundância geográfica e Sincronização de Arquivos do Azure, todas as regiões de Sincronização de Arquivos do Azure são emparelhadas com uma região secundária que corresponde à região secundária usada pelo armazenamento. Esses pares são os seguintes:
+
+| Região primária      | Região emparelhada      |
+|---------------------|--------------------|
+| Leste da Austrália      | Sudeste da Austrália |
+| Sudeste da Austrália | Leste da Austrália     |
+| Canadá Central      | Leste do Canadá        |
+| Leste do Canadá         | Canadá Central     |
+| Índia Central       | Sul da Índia        |
+| Centro dos EUA          | Leste dos EUA 2          |
+| Ásia Oriental           | Sudeste Asiático     |
+| Leste dos EUA             | Oeste dos EUA            |
+| Leste dos EUA 2           | Centro dos EUA         |
+| Norte da Europa        | Europa Ocidental        |
+| Sul da Índia         | Índia Central      |
+| Sudeste Asiático      | Ásia Oriental          |
+| Sul do Reino Unido            | Oeste do Reino Unido            |
+| Oeste do Reino Unido             | Sul do Reino Unido           |
+| Europa Ocidental         | Norte da Europa       |
+| Oeste dos EUA             | Leste dos EUA            |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente de Sincronização de Arquivo do Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

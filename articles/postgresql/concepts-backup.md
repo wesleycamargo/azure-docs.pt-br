@@ -1,6 +1,6 @@
 ---
-title: "Backup e restauração no Banco de Dados do Azure para PostgreSQL"
-description: "Saiba mais sobre backups automáticos e restauração do Banco de Dados do Azure para servidor PostgreSQL."
+title: Backup e restauração no Banco de Dados do Azure para PostgreSQL
+description: Saiba mais sobre backups automáticos e restauração do Banco de Dados do Azure para servidor PostgreSQL.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29693044"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Backup e restauração no Banco de Dados do Azure para PostgreSQL
 

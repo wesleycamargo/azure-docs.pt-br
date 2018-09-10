@@ -1,23 +1,26 @@
 ---
-title: "Como configurar provisionamento do usuário para um aplicativo de galeria do Azure AD | Microsoft Docs"
-description: "Como você pode rapidamente configurar provisionamento e desprovisionamento de conta de usuário avançado para aplicativos já listados na Galeria de Aplicativos do Azure AD"
+title: Como configurar provisionamento do usuário para um aplicativo de galeria do Azure AD | Microsoft Docs
+description: Como você pode rapidamente configurar provisionamento e desprovisionamento de conta de usuário avançado para aplicativos já listados na Galeria de Aplicativos do Azure AD
 services: active-directory
-documentationcenter: 
-author: ajamess
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: ef9bb5540691f322620e2c510df52f62899048ff
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366823"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Como configurar provisionamento do usuário para um aplicativo de galeria do Azure AD
 

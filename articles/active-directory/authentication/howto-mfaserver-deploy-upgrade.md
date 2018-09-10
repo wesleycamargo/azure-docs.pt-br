@@ -4,23 +4,24 @@ description: Etapas e diretrizes para atualizar o Servidor de Autenticação Mul
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: a94d97fb90e65fd569047a3d55945437002d97ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 7e7952a327134197f1e8492931d7ada871789395
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144147"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualizar para o último Servidor de Autenticação Multifator do Azure
 
 Este artigo descreve o processo de atualização do Servidor do Azure MFA (Autenticação Multifator) v6.0 ou superior. Se precisar atualizar uma versão antiga do Agente PhoneFactor, consulte [Atualizar o Agente PhoneFactor para o Servidor de Autenticação Multifator do Azure](howto-mfaserver-deploy-upgrade-pf.md).
 
-Se estiver atualizando da v6.x ou anterior para a v7.x ou mais nova, todos os componentes serão alterados do .NET 2.0 para o .NET 4.5. Todos os componentes também exigem os Pacotes Redistribuíveis do Microsoft Visual C++ 2015 Atualização 1 ou posterior. O instalador do Servidor MFA instala as versões x86 e x64 desses componentes, caso ainda não estejam instalados. Se o Portal do Usuário e o Serviço Web do Aplicativo Móvel forem executados em servidores separados, você precisará instalar esses pacotes antes de atualizar esses componentes. É possível pesquisar a última atualização dos Pacotes Redistribuíveis do Microsoft Visual C++ 2015 no [Centro de Download da Microsoft](https://www.microsoft.com/en-us/download/). 
+Se estiver atualizando da v6.x ou anterior para a v7.x ou mais nova, todos os componentes serão alterados do .NET 2.0 para o .NET 4.5. Todos os componentes também exigem os Pacotes Redistribuíveis do Microsoft Visual C++ 2015 Atualização 1 ou posterior. O instalador do Servidor MFA instala as versões x86 e x64 desses componentes, caso ainda não estejam instalados. Se o Portal do Usuário e o Serviço Web do Aplicativo Móvel forem executados em servidores separados, você precisará instalar esses pacotes antes de atualizar esses componentes. É possível pesquisar a última atualização dos Pacotes Redistribuíveis do Microsoft Visual C++ 2015 no [Centro de Download da Microsoft](https://www.microsoft.com/download/). 
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>Instalar a última versão do Servidor do Azure MFA
 
@@ -47,21 +48,12 @@ Se estiver atualizando da v6.x ou anterior para a v7.x ou mais nova, todos os co
 
 Se você tiver o Portal do Usuário em vários servidores, repita a instalação em todos eles. 
 
-
 ## <a name="upgrade-the-mobile-app-web-service"></a>Atualizar o Serviço Web do Aplicativo Móvel
 
-1. Faça um backup do arquivo web.config que está no diretório virtual do local de instalação do Serviço Web do Aplicativo Móvel (por exemplo, C:\inetpub\wwwroot\app ou C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService).
-2. Copie o arquivo MultiFactorAuthenticationMobileAppWebServiceSetup64.msi do local de instalação dos Servidores do MFA e coloque-o no servidor Web de registro do Aplicativo Móvel.
-3. Execute o instalador. 
-
-  Se ocorrer um erro informando que os Pacotes Redistribuíveis do Microsoft Visual C++ 2015 Atualização 1 ou posterior são obrigatórios, baixe e instale o último pacote de atualização no [Centro de Download da Microsoft](https://www.microsoft.com/download/). Instale as versões x86 e x64.
-
-4. Após a instalação do software atualizado do Serviço Web do Aplicativo Móvel, compare o arquivo web.config do qual foi criado um backup na etapa 1 com o novo arquivo web.config. Se não houver nenhum atributo no novo web.config, será possível copiar o web.config salvo novamente para o diretório virtual e substituir o novo. Outra opção é copiar e colar os valores de appSettings e a URL do SDK do Serviço Web do arquivo de backup para o novo web.config.
-
-Se você tiver o Serviço Web do Aplicativo Móvel em vários servidores, repita a instalação em todos eles. 
+> [!NOTE]
+> Ao fazer upgrade de uma versão do Azure MFA Server mais antiga do que 8.0 a 8.0+ que o serviço Web de aplicativos móveis pode ser desinstalado após o upgrade
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>Atualizar os adaptadores do AD FS
-
 
 ### <a name="if-mfa-runs-on-different-servers-than-ad-fs"></a>Se o MFA for executado em servidores diferentes do que o AD FS
 

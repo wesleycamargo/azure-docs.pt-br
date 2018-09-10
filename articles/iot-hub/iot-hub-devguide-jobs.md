@@ -1,28 +1,23 @@
 ---
 title: Entender os trabalhos de Hub IoT do Azure | Microsoft Docs
 description: Guia do desenvolvedor – agendar trabalhos para execução em vários dispositivos conectados ao seu Hub IoT. Os trabalhos podem atualizar marcações e propriedades desejadas e invocar métodos diretos em vários dispositivos.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 367eb703465b2fbc6f1e06a383bc9df709cabe78
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e2beec1308b9664d35ccd9d355403b7076567f2f
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745837"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Agendar trabalhos em vários dispositivos
 
-O Hub IoT do Azure permite diversos blocos de construção como [marcas e propriedades do dispositivo gêmeo][lnk-twin-devguide] e [métodos diretos][lnk-dev-methods].  Normalmente, os aplicativos back-end permitem que administradores e operadores do dispositivo atualizem e interajam com dispositivos IoT em massa e em um horário agendado.  Os trabalhos executam atualizações do dispositivo gêmeo e métodos diretos em um conjunto de dispositivos em um horário agendado.  Por exemplo, um operador poderia usar um aplicativo de back-end que inicia e controla um trabalho a fim de reinicializar um conjunto de dispositivos no edifício 43, no terceiro andar, em um horário que não interromperia as operações do edifício.
+O Hub IoT do Azure permite diversos blocos de construção como [marcas e propriedades do dispositivo gêmeo][lnk-twin-devguide] e [métodos diretos][lnk-dev-methods]. Normalmente, os aplicativos back-end permitem que administradores e operadores do dispositivo atualizem e interajam com dispositivos IoT em massa e em um horário agendado.  Os trabalhos executam atualizações do dispositivo gêmeo e métodos diretos em um conjunto de dispositivos em um horário agendado.  Por exemplo, um operador poderia usar um aplicativo de back-end que inicia e controla um trabalho a fim de reinicializar um conjunto de dispositivos no edifício 43, no terceiro andar, em um horário que não interromperia as operações do edifício.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -89,7 +84,7 @@ O trecho de código a seguir mostra os detalhes da solicitação HTTPS 1.1 de at
     }
 
 ## <a name="querying-for-progress-on-jobs"></a>Consultar o andamento dos trabalhos
-O trecho de código a seguir mostra os detalhes da solicitação HTTPS 1.1 para [consultar trabalhos][lnk-query]:
+O trecho de código a seguir mostra os detalhes da solicitação HTTPS 1.1 para consulta de trabalhos:
 
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
@@ -99,6 +94,8 @@ O trecho de código a seguir mostra os detalhes da solicitação HTTPS 1.1 para 
     User-Agent: <sdk-name>/<sdk-version>
 
 O continuationToken é fornecido pela resposta.  
+
+É possível consultar o status de execução do trabalho em cada dispositivo usando a [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens][lnk-query].
 
 ## <a name="jobs-properties"></a>Propriedades dos trabalhos
 A lista a seguir mostra as propriedades e descrições correspondentes que podem ser usadas durante a consulta por trabalhos ou por resultados do trabalho.
@@ -148,7 +145,7 @@ Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutori
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-jobs-tutorial]: iot-hub-node-node-schedule-jobs.md
-[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md

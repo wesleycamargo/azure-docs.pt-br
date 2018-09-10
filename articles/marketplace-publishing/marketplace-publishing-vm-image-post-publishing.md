@@ -3,8 +3,8 @@ title: Gerenciando a imagem da sua máquina virtual no Azure Marketplace | Micro
 description: Guia detalhado sobre como gerenciar a imagem da sua máquina virtual no Azure Marketplace após a publicação inicial
 services: Azure Marketplace
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
 ms.service: marketplace
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
-ms.author: mbaldwin;
-ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: hascipio;
+ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715008"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guia de pós-produção para ofertas de máquina virtual no Azure Marketplace
 Este artigo explica como você pode atualizar uma oferta de máquina virtual online no Azure Marketplace. Ele orienta você pelo processo de adicionar uma ou mais novas SKUs a uma oferta existente. Também o orienta pelo processo de remoção de uma SKU ou oferta de máquina virtual online do Marketplace.

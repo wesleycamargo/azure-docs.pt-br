@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 54bb6056c41126aecada265eb0e079bc7c281be8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865926"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -39,7 +40,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ### <a name="policy-statement"></a>Declaração de política  
   
 ```xml  
-<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="True">  
+<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="true">  
     <value>Value1</value>  
     <value>Value2</value>  
 </check-header>  

@@ -6,20 +6,20 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 07/13/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 61d267898bab5e5df394d4097eacb33ada809518
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 489d9c430db000710368a65f3100bb175ad00eae
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355943"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041166"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de runbook e de módulos para a Automação do Azure
 Em vez de criar seus próprios runbooks e módulos na Automação do Azure, você pode acessar uma variedade de cenários que já foram desenvolvidos pela Microsoft e pela comunidade.  É possível usar esses cenários sem modificação ou usá-los como um ponto de partida e editá-los para seus requisitos específicos.
 
-Você pode obter os runbooks na [Galeria do Runbook](#runbooks-in-runbook-gallery) e os módulos na [Galeria do PowerShell](#modules-in-powerShell-gallery).  Você também pode contribuir com a comunidade compartilhando os cenários que desenvolve.
+Você pode obter os runbooks na [Galeria do Runbook](#runbooks-in-runbook-gallery) e os módulos na [Galeria do PowerShell](#modules-in-powerShell-gallery).  Você também pode contribuir com a comunidade compartilhando os cenários que desenvolver. Para saber mais sobre isso, consulte [Adicionando um runbook à galeria](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)
 
 ## <a name="runbooks-in-runbook-gallery"></a>Runbooks na Galeria de Runbook
 A [Galeria do Runbook](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) fornece vários runbooks da Microsoft e da comunidade que você pode importar para a Automação do Azure. Você pode baixar um runbook da galeria, que é hospedada no [Script Center da TechNet](https://gallery.technet.microsoft.com/scriptcenter/site/upload) ou pode importar runbooks diretamente da galeria no Portal do Azure.

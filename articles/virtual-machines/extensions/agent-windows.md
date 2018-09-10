@@ -3,7 +3,7 @@ title: Visão Geral dos Agente de Máquina Virtual do Azure | Microsoft Docs
 description: Visão Geral do Agente de Máquina Virtual do Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
-ms.openlocfilehash: fb29f0f931715b8a6ba5b4528294eb61ef5762c8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: 9185b786a3eea402b8013eb71a5d7268787900c5
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944738"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414491"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Visão geral do Agente de Máquina Virtual do Azure
 O Agente de VM (Máquina Virtual) do Microsoft Azure é um processo seguro e leve que gerencia a interação da máquina virtual (VM) com o Controlador de Malha do Azure. O Agente de VM tem uma função fundamental na habilitação e execução de extensões de máquina virtual do Azure. Extensões de VM habilitam a configuração de VM pós-implantação, como instalação e configuração de software. Extensões de VM também habilitam os recursos de recuperação como redefinir a senha administrativa de uma VM. Sem o Agente de VM do Azure, não é possível executar extensões da VM.
@@ -77,7 +77,7 @@ O módulo do Azure Resource Manager PowerShell pode ser usado para recuperar inf
 ```powershell` Get-AzureRmVM
 ```
 
-The following condensed example output shows the the *ProvisionVMAgent* property nested inside *OSProfile*. This property can be used to determine if the VM agent has been deployed to the VM:
+The following condensed example output shows the *ProvisionVMAgent* property nested inside *OSProfile*. This property can be used to determine if the VM agent has been deployed to the VM:
 
 ```PowerShell
 OSProfile                  :

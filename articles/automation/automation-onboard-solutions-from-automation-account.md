@@ -5,20 +5,20 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 2f5d664b660d43e61dba46d13aff1ced796de884
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8649b96c9cf95e4a25b24dedf447aef133ef299a
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193345"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865396"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário
 
-A Automação do Azure fornece soluções para gerenciar atualizações de segurança do sistema operacional, controlar alterações e inventariar o que está instalado em seus computadores. Há várias maneiras de integrar computadores, por exemplo, você pode integrar a solução de uma máquina virtual [a partir da sua conta de Automação do Azure](automation-onboard-solutions-from-vm.md) ou por [runbook](automation-onboard-solutions.md). Este artigo aborda a integração dessas soluções em sua conta de Automação.
+A Automação do Azure fornece soluções para gerenciar atualizações de segurança do sistema operacional, controlar alterações e inventariar o que está instalado em seus computadores. Há várias maneiras de integrar computadores, por exemplo, você pode integrar a solução [de uma máquina virtual](automation-onboard-solutions-from-vm.md), [procurando em vários computadores](automation-onboard-solutions-from-browse.md), de sua conta de Automação ou por [runbook](automation-onboard-solutions.md). Este artigo aborda a integração dessas soluções em sua conta de Automação.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -52,7 +52,7 @@ Se o espaço de trabalho selecionado não tiver as soluções de Gerenciamento d
 
 * **MicrosoftDefaultScopeConfig-Updates**
 
-Se o espaço de trabalho selecionado já tiver solução. A solução não é reimplantada, e a configuração de escopo não é adicionada a isso.
+Quando o espaço de trabalho selecionado já tem a solução. A solução não é reimplantada, e a configuração de escopo não é adicionada a isso.
 
 ## <a name="saved-searches"></a>Pesquisas salvas
 
@@ -69,29 +69,27 @@ Selecione a pesquisa salva para visualizar a consulta usada para preencher o gru
 
 ![Pesquisas salvas](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
 
-## <a name="onboard-an-azure-machine"></a>Integrar um computador do Azure
+## <a name="onboard-azure-vms"></a>Integrar VMs do Azure
 
 Na sua conta de Automação do Azure, selecione **Inventário** ou **Controle de alterações** em **GERENCIAMENTO DE CONFIGURAÇÃO** ou **Gerenciamento de atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**.
 
-Clique em **+ Adicionar VM do Azure**, selecione uma VM da lista. Na página **Gerenciamento de Atualizações**, clique em **Habilitar**. Isso adiciona a VM atual na pesquisa salva no grupo de computadores da solução.
+Clique em **+Adicionar VMs do Azure**, selecione uma ou mais VMs na lista. Máquinas virtuais que não podem ser habilitadas ficam esmaecidas e não podem ser selecionadas. Na página **Habilitar Gerenciamento de Atualizações**, clique em **Habilitar**. Isso adiciona as VMs selecionadas à pesquisa salva no grupo de computadores da solução.
+
+![Habilitar VMs do Azure](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
 ## <a name="onboard-a-non-azure-machine"></a>Integrar um computador não Azure
 
-Na sua conta de Automação do Azure, selecione **Inventário** ou **Controle de alterações** em **GERENCIAMENTO DE CONFIGURAÇÃO** ou **Gerenciamento de atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**.
+Computadores que não estão no Azure precisam ser adicionados manualmente. Na sua conta de Automação do Azure, selecione **Inventário** ou **Controle de alterações** em **GERENCIAMENTO DE CONFIGURAÇÃO** ou **Gerenciamento de atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**.
 
-Clique em **Adicionar computador não Azure**. Isso abre uma nova janela do navegador com as instruções sobre como instalar e configurar o Microsoft Monitoring Agent no computador para que o computador possa começar a relatar a solução. Se você estiver instalando um computador atualmente gerenciado pelo System Center Operations Manager, um novo agente não é necessário, as informações do espaço de trabalho são inseridas no agente existente.
+Clique em **Adicionar computador não Azure**. Isso abre uma nova janela do navegador com as [instruções sobre como instalar e configurar o Microsoft Monitoring Agent no computador](../log-analytics/log-analytics-concept-hybrid.md) para que o computador possa começar a relatar a solução. Se você estiver instalando um computador atualmente gerenciado pelo System Center Operations Manager, um novo agente não é necessário, as informações do espaço de trabalho são inseridas no agente existente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Integrar computadores no espaço de trabalho
 
-Na sua conta de Automação do Azure, selecione **Inventário** ou **Controle de alterações** em **GERENCIAMENTO DE CONFIGURAÇÃO** ou **Gerenciamento de atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**.
+Computadores instalados manualmente ou computadores que já estão emitindo relatórios para seu espaço de trabalho precisam ser adicionados à Automação do Azure para a solução a ser habilitada. Na sua conta de Automação do Azure, selecione **Inventário** ou **Controle de alterações** em **GERENCIAMENTO DE CONFIGURAÇÃO** ou **Gerenciamento de atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**.
 
 Selecione **Gerenciar computadores**. Isso abre a página **Gerenciar Computadores**. Esta página permite habilitar a solução em um conjunto selecionado de computadores, todos os computadores disponíveis ou habilitar a solução para todos os computadores atuais e habilitá-la em todos os computadores futuros.
 
 ![Pesquisas salvas](media/automation-onboard-solutions-from-automation-account/managemachines.png)
-
-### <a name="selected-machines"></a>Computadores selecionados
-
-Para habilitar a solução em um ou mais computadores, selecione **Habilitar nos computadores selecionados** e clique em **adicionar** próximo a cada computador que você quer adicionar à solução. Essa tarefa adiciona os nomes dos computadores selecionados à consulta de pesquisa salva do grupo de computadores para a solução.
 
 ### <a name="all-available-machines"></a>Todos os computadores disponíveis
 
@@ -100,6 +98,10 @@ Para habilitar a solução a todos os computadores disponíveis, selecione **Hab
 ### <a name="all-available-and-future-machines"></a>Todos os computadores disponíveis e futuros
 
 Para habilitar a solução a todos os computadores disponíveis e todos os computadores futuros, selecione **Habilitar em todos os computadores disponíveis e futuros**. Essa opção exclui as pesquisas salvas e as Configurações de Escopo do espaço de trabalho. Isso abre a solução para todos os computadores do Azure e não Azure que estão relatando para o espaço de trabalho.
+
+### <a name="selected-machines"></a>Computadores selecionados
+
+Para habilitar a solução em um ou mais computadores, selecione **Habilitar nos computadores selecionados** e clique em **adicionar** próximo a cada computador que você quer adicionar à solução. Essa tarefa adiciona os nomes dos computadores selecionados à consulta de pesquisa salva do grupo de computadores para a solução.
 
 ## <a name="next-steps"></a>Próximas etapas
 

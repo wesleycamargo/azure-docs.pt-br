@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
-ms.openlocfilehash: 41fb529f6b4ae923f2920919306324c86a2baa45
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b628ae0806febb3ffd4edaf71be45841aff38516
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423021"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implantar seu aplicativo no Serviço de Aplicativo do Azure com um arquivo ZIP ou WAR
 
@@ -36,7 +37,7 @@ A implantação do arquivo WAR implanta seu arquivo [WAR](https://wikipedia.org/
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para completar as etapas neste artigo:
 
@@ -68,12 +69,12 @@ Compress-Archive -Path * -DestinationPath <file-name>.zip
 
 Certifique-se de que sua versão da CLI do Azure seja 2.0.21 ou posterior. Para ver qual versão você possui, execute o comando `az --version` na janela do seu terminal.
 
-Implante o arquivo zip carregado no seu aplicativo Web usando o comando [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip).  
+Implante o arquivo zip carregado no seu aplicativo Web usando o comando [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip).  
 
 O exemplo a seguir implanta o arquivo zip do upload que você fez. Ao usar uma instalação local da CLI do Azure, especifique o caminho para o arquivo zip local para `--src`.   
 
 ```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/<filename>.zip
+az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src clouddrive/<filename>.zip
 ```
 
 Esse comando implanta os arquivos e diretórios do arquivo zip para sua pasta de aplicativo do Serviço de Aplicativo do Azure padrão (`\home\site\wwwroot`) e reinicia o aplicativo. Se qualquer processo de compilação personalizada adicional for configurado, ele também será executado. Para obter mais informações, consulte [Documentação do Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
@@ -106,6 +107,8 @@ $apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
 Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "multipart/form-data"
 ```
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

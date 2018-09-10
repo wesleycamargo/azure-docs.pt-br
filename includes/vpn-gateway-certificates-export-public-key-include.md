@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7e19837c1d16ddeea185f340305a0c9c52ce23ff
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4ae4cfb91fb3a746c73d6b098a1adc9e4dee8698
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414698"
 ---
 Após criar um certificado raiz autoassinado, exporte o arquivo .cer de chave pública do certificado raiz (não a chave privada). Posteriormente, será feito upload desse arquivo para o Azure. As etapas a seguir ajudarão você a exportar o arquivo .cer para seu certificado raiz autoassinado:
 
-1. Para obter um arquivo .cer do certificado, abra **Gerenciar certificados de usuário**. Localize o certificado raiz autoassinado, normalmente em 'Certificados – Usuário Atual\Pessoal\Certificados', então clique nele com o botão direito do mouse. Clique em **Todas as Tarefas** e, em seguida, em **Exportar**. Isso abre o **Assistente para Exportação de Certificados**.
+1. Para obter um arquivo .cer do certificado, abra **Gerenciar certificados de usuário**. Localize o certificado raiz autoassinado, normalmente em 'Certificados – Usuário Atual\Pessoal\Certificados', então clique nele com o botão direito do mouse. Clique em **Todas as Tarefas** e, em seguida, em **Exportar**. Isso abre o **Assistente para Exportação de Certificados**. Se você não encontrar o certificado em Usuário\Pessoal\Certificados pode ser que você tenha aberto o Gerenciador de Certificados para os certificados de computador local (o títulos erá “Certificados - Computador Local” como oposição a “Certificados - Usuário Atual”). Para abrir o Gerenciador de Certificados no início de escopo de usuário a partir do mesmo PowerShell onde os certificados foram criados por meio da digitação ```certmgr```.
 
   ![Exportação](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. No Assistente, clique em **Avançar**.

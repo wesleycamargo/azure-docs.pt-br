@@ -13,58 +13,58 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 06/14/2018
 ms.author: genli
-ms.openlocfilehash: 09c2badf6116dd36add6cccc82486d7f5b8f8697
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: b0e24e498acd823242b3613abb62df978466d56d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918305"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar administradores de assinatura do Azure
 
-Os administradores de assinatura clássicos do Azure e o [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) do Azure são dois sistemas para gerenciar o acesso aos recursos do Azure:
+Para gerenciar o acesso aos recursos do Azure, você deve ter a função de administrador apropriada. Este artigo descreve como adicionar ou alterar a função de administrador para um usuário no nível da assinatura.
 
-* As funções clássicas de administrador de assinatura oferecem gerenciamento de acesso básico e incluem Administrador de Conta, Administrador de Serviços e Coadministradores.
-    * Ao se inscrever em uma nova assinatura do Azure, sua conta é definida como o Administrador da Conta e Administrador de Serviços por padrão.
-    * Os Coadministradores podem ser adicionados após a inscrição.
-* O RBAC é um sistema mais recente que oferece gerenciamento de acesso refinado com muitas funções internas, flexibilidade de escopo e funções personalizadas.
-    * No entanto, os usuários que têm somente funções RBAC e não têm funções clássicas de administrador de assinatura não conseguem gerenciar implantações clássicas do Azure.
+> [!div class="nextstepaction"]
+> [Ajudar a melhorar os documentos de cobrança do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
-Para garantir um melhor controle e simplificar o gerenciamento de acesso, é recomendável que você use o RBAC para todas as necessidades de gerenciamento de acesso. Se possível, recomendamos que você reconfigure as políticas de acesso existentes usando o RBAC. 
+## <a name="what-administrator-role-do-i-use"></a>Qual função de administrador usar?
+
+O Azure tem várias funções diferentes. Para gerenciar o acesso aos recursos, você pode usar as funções de administrador de assinatura clássicos, como administrador de serviços e coadministrador ou um sistema de autorização mais recente, chamado de controle de acesso baseado em função (RBAC). Para garantir um melhor controle e simplificar o gerenciamento de acesso, é recomendável que você use o RBAC para todas as necessidades de gerenciamento de acesso. Se possível, recomendamos que você reconfigure as políticas de acesso existentes usando o RBAC. Para obter mais informações, consulte [o que é controle de acesso baseado em função (RBAC)](../role-based-access-control/overview.md) e [entender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 <a name="add-an-admin-for-a-subscription"></a>
 
-## <a name="add-an-rbac-owner-admin-for-a-subscription-in-azure-portal"></a>Adicionar um administrador RBAC proprietário para uma assinatura no Portal do Azure 
+## <a name="add-an-rbac-owner-for-a-subscription-in-azure-portal"></a>Adicionar um RBAC proprietário para uma assinatura no Portal do Azure 
 
-Para adicionar alguém como um administrador da administração do serviço de assinatura do Azure, conceda uma função de Proprietário de RBAC à assinatura. A função de proprietário pode gerenciar os recursos na assinatura que você atribuiu e não tem o privilégio de acesso a outras assinaturas.
+Para adicionar alguém como administrador para uma assinatura do Azure, atribuí-los à função [proprietário](../role-based-access-control/built-in-roles.md#owner) (uma função RBAC) no escopo da assinatura. A função de proprietário pode gerenciar os recursos na assinatura que você atribuiu e não tem o privilégio de acesso a outras assinaturas.
 
 1. Visite [**Assinaturas** no Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Selecione a assinatura à qual você deseja conceder acesso.
-3. Selecione **Adicionar**  
+3. Selecione **Adicionar**.
    (Se o botão Adicionar estiver ausente, você não terá permissão para adicionar permissões.)
-4. Selecione **Controle de Acesso (IAM)** no menu.
+4. Selecione **Controle de acesso (IAM)** na lista.
 5. Na caixa **Função** selecione **Proprietário**. 
 6. Na caixa **Atribuir acesso a** selecione **Usuário, grupo ou aplicativo do Azure AD**. 
 7. Na caixa **Selecionar**, digite o endereço de email do usuário que você deseja adicionar como Proprietário. Selecione o usuário e, em seguida, selecione **Salvar**.
 
     ![Captura de tela que mostra a função Proprietário selecionada](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-Isso concede ao usuário o acesso completo a todos os recursos, inclusive o direito de delegar acesso a outras pessoas. Para conceder acesso a um escopo diferente, como um grupo de recursos, visite o menu IAM desse escopo. 
+Isso concede ao usuário o acesso completo a todos os recursos, inclusive o direito de delegar acesso a outras pessoas. Para conceder acesso a um escopo diferente, como um grupo de recursos, visite a página **Controle de acesso (IAM)** desse escopo.
 
 ## <a name="add-or-change-co-administrator"></a>Adicionar ou alterar coadministrador
 
-Somente um proprietário pode ser adicionado como um coadministrador. Outros usuários com funções como colaborador e leitor não podem ser adicionados como coadministradores.
+Somente um [Proprietário](../role-based-access-control/built-in-roles.md#owner) pode ser adicionado como um coadministrador. Outros usuários com funções como [Colaborador](../role-based-access-control/built-in-roles.md#contributor) e [Leitor](../role-based-access-control/built-in-roles.md#reader) não podem ser adicionados como coadministradores.
 
 > [!TIP]
-> Você só precisa adicionar a conta “Proprietário” como coadministrador se o usuário tem que gerenciar implantações clássicas do Azure. É recomendável usar o RBAC para todas as outras finalidades.
+> Você só precisa adicionar a conta Proprietário como Coadministrador se o usuário tem que gerenciar implantações clássicas do Azure. É recomendável usar o RBAC para todas as outras finalidades.
 
 1. Se você ainda não o fez, adicione alguém como proprietário seguindo as instruções acima.
 2. **Clique com botão direito do mouse** no usuário proprietário você acabou de adicionar e, em seguida, selecione **Adicionar como coadministrador**. Se a opção **Adicionar como coadministrador** não for exibida, atualize a página ou tente usar outro navegador da Internet. 
 
     ![Captura de tela que adiciona o coadministrador](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
-    Para remover a permissão de coadministrador, **clique com o botão direito do mouse** no usuário “coadministrador” e, em seguida, selecione **Remover coadministrador**.
+    Para remover a permissão de Coadministrador, **clique com o botão direito do mouse** no usuário Coadministrador e, em seguida, selecione **Remover Coadministrador**.
 
     ![Captura de tela que remove o coadministrador](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
 
@@ -80,7 +80,7 @@ Somente o Administrador da Conta pode alterar o Administrador de Serviços de um
 1. No lado direito, selecione **Editar detalhes da assinatura**.
 
     ![Captura de tela mostrando o botão Editar assinatura no Centro de Contas](./media/billing-add-change-azure-subscription-administrator/editsub.png)
-1. Na caixa **ADMINISTRADOR DE SERVIÇOS** , insira o endereço de email do novo administrador de serviços.
+1. Na caixa **ADMINISTRADOR DE SERVIÇOS**, insira o endereço de email do novo administrador de serviços.
 
     ![Captura de tela mostrando a caixa para alterar o email do Administrador de Serviços](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
@@ -91,10 +91,10 @@ Somente o Administrador da Conta pode alterar o Administrador de Serviços de um
 * Cada assinatura está associada a um diretório do Azure AD. Para localizar o diretório com o qual a assinatura está associada, acesse [**Assinaturas**](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e, em seguida, selecione uma assinatura para ver o diretório.
 * Se você estiver conectado a uma conta corporativa ou de estudante, poderá adicionar outras contas em sua organização como Administrador de Serviços. Por exemplo, abby@contoso.com pode adicionar bob@contoso.com como Administrador de Serviços, mas não pode adicionar john@notcontoso.com, a menos que john@notcontoso.com esteja no diretório contoso.com. Usuários conectados usando contas corporativas ou de estudante podem continuar adicionando usuários da conta da Microsoft como Administradores de Serviços.
 
-  | Método de entrada | Adicionar usuário da Conta da Microsoft como SA? | Adicionar conta corporativa ou de estudante na mesma organização que SA? | Adicionar conta corporativa ou de estudante em uma organização diferente de SA? |
+  | Método de entrada | Adicionar usuário Conta da Microsoft como um administrador de serviço? | Adicionar conta corporativa ou de estudante na mesma organização que administrador de Serviço? | Adicionar conta corporativa ou de estudante em uma diferente organização que administrador de Serviço? |
   | --- | --- | --- | --- |
-  |  Conta da Microsoft |sim |Não |Não  |
-  |  Conta corporativa ou de estudante |sim |sim |Não  |
+  |  Conta da Microsoft |SIM |Não |Não  |
+  |  Conta corporativa ou de estudante |SIM |sim |Não  |
 
 ## <a name="change-the-account-administrator-for-an-azure-subscription"></a>Alterar o Administrador da Conta de uma assinatura do Azure
 
@@ -108,23 +108,11 @@ O Administrador da Conta é o usuário que inicialmente se inscreveu na assinatu
 1. Selecione a assinatura que você deseja verificar e olhe as **Configurações**.
 1. Selecione **Propriedades**. O Administrador da Conta da assinatura é exibido na caixa **Administrador da Conta**.  
 
-## <a name="types-of-classic-subscription-admins"></a>Tipos de administradores de assinatura clássicos
-
- Administrador da Conta, Administrador de Serviços e Coadministrador são os três tipos clássicos de funções de administrador de assinatura no Azure. A conta que é usada para se inscrever no Azure é definida automaticamente como o Administrador da Conta e o Administrador de Serviços. Depois, outros Coadministradores podem ser adicionados. A tabela a seguir descreve as diferenças exatas entre essas três funções administrativas. 
-
-> [!TIP]
-> Melhor controle e gerenciamento de acesso refinado, recomendamos o uso do RBAC (controle de acesso baseado em função) do Azure, que permite que os usuários sejam adicionados a várias funções. Para saber mais, confira [Controle de acesso baseado em função do Azure Active Directory](../role-based-access-control/overview.md).
-
-| Administrador de assinatura clássico | Limite | DESCRIÇÃO |
-| --- | --- | --- |
-| AA (Administrador da Conta) |1 por conta do Azure |Esse é o usuário que se inscreveu na assinatura do Azure e que está autorizado a acessar o [Centro de Contas](https://account.azure.com/Subscriptions) e realizar várias tarefas de gerenciamento. Elas incluem a capacidade de criar novas assinaturas, cancelar assinaturas, alterar a cobrança para uma assinatura e alterar o Administrador de Serviços. Conceitualmente, o Administrador da Conta é o proprietário de cobrança da assinatura. No RBAC, o Administrador da Conta não é atribuído a uma função.|
-| SA (Administrador de Serviços) |1 por assinatura do Azure |Essa função está autorizada a gerenciar serviços no [Portal do Azure](https://portal.azure.com). Por padrão, para uma nova assinatura, o Administrador da Conta também é o Administrador de Serviços. No RBAC, a função de Proprietário é fornecida ao Administrador de Serviços no escopo da assinatura.|
-| CA (Coadministrador) |200 por assinatura |Essa função tem os mesmos privilégios de acesso que o Administrador de Serviços, mas não pode alterar a associação de assinaturas nos diretórios do Azure. No RBAC, a função de Proprietário é fornecida ao Coadministrador no escopo da assinatura.|
-
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>Saiba mais sobre o controle de acesso a recursos e o Active Directory
 
-* Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, consulte [Noções básicas sobre o acesso aos recursos do Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
-* Para saber mais sobre como o Azure Active Directory, confira [Como as assinaturas do Azure estão associadas ao Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) e [Atribuição de funções de administrador no Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
+* Para saber mais sobre o RBAC, consulte [O que é o Controle de Acesso Baseado em Função(RBAC)?](../role-based-access-control/overview.md)
+* Para saber mais sobre todas as funções no Azure, consulte [entender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
+* Para saber mais sobre como o Azure Active Directory, confira [Como as assinaturas do Azure estão associadas ao Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) e [Atribuição de funções de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 

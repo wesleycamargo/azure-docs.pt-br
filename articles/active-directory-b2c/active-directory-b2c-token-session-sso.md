@@ -1,21 +1,21 @@
 ---
-title: Configuração do token, sessão e logon único - Azure AD B2C | Microsoft Docs
-description: Token, sessão e configuração de logon único no Azure Active Directory B2C
+title: Configuração de token, sessão e logon único no Azure Active Directory B2C | Microsoft Docs
+description: Configuração de token, sessão e logon único no Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 925313b6f2a00826f2ec8086457315c60f70b007
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: 061e2257200b6d660a421a86c540f43597112c5e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337878"
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Configuração de token, de sessão e de logon único
 
@@ -29,7 +29,7 @@ Esse recurso oferece um controle refinado, com base [em cada política](active-d
 Para políticas internas, você pode usar esse recurso em seu diretório do Azure AD B2C da seguinte maneira:
 
 1. Execute estas etapas para [navegar até o menu de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no Portal do Azure.
-2. Clique em **Políticas de inscrição ou de entrada**. *Observação: é possível utilizar esse recurso em qualquer tipo de política, não apenas em **Políticas de entrada ou inscrição***.
+2. Clique em **Políticas de inscrição ou de entrada**. *Observação: é possível utilizar esse recurso em qualquer tipo de política, não apenas em **Políticas de entrada ou inscrição*\*\*.
 3. Clique em uma política para abri-la. Por exemplo, clique em **B2C_1_SiUpIn**.
 4. Clique em **Editar** na parte superior do menu.
 5. Clique em **Configuração de token, de sessão e de logon único**.
@@ -69,8 +69,8 @@ Estes são alguns casos de uso que você pode habilitar usando essas propriedade
 Fizemos alterações de formatação em declarações importantes em tokens de segurança emitidos pelo Azure AD B2C. Isso foi feito para melhorar nosso suporte a protocolos padrão e para melhor interoperabilidade com bibliotecas de identidade de terceiros. No entanto, para evitar a interrupção dos aplicativos existentes, criamos as propriedades a seguir para permitir que os clientes aceitem como necessário:
 
 * **Declaração do emissor (iss)**: identifica o locatário do Azure AD B2C que emitiu o token.
-  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/`: é o valor padrão.
-  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: esse valor inclui ID para o locatário B2C e a política usada na solicitação de token. Se seu aplicativo ou biblioteca precisar do Azure AD B2C para ser compatível com as [especificações do OpenID Connect Discovery 1.0](http://openid.net/specs/openid-connect-discovery-1_0.html), use esse valor.
+  * `https://<domain>/{B2C tenant GUID}/v2.0/`: é o valor padrão.
+  * `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: esse valor inclui ID para o locatário B2C e a política usada na solicitação de token. Se seu aplicativo ou biblioteca precisar do Azure AD B2C para ser compatível com as [especificações do OpenID Connect Discovery 1.0](http://openid.net/specs/openid-connect-discovery-1_0.html), use esse valor.
 * **Declaração de assunto (sub)**: identifica a entidade, ou seja, o usuário, para o qual o token declara informações.
   * **ObjectID**: é o valor padrão. Ele ocupa a ID de objeto do usuário no diretório para a declaração `sub` no token.
   * **Não tem suporte**: é fornecido somente para compatibilidade com versões anteriores, e recomendamos que você alterne para **ObjectID** assim que for possível.

@@ -1,24 +1,19 @@
 ---
 title: Entender a linguagem de consulta do Hub IoT do Azure | Microsoft Azure
 description: Guia do desenvolvedor – descrição da linguagem de consulta do Hub IoT semelhante a SQL, usada para recuperar informações sobre dispositivos/módulos gêmeos e trabalhos do seu Hub IoT.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145664"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos e módulos gêmeos, trabalhos e roteamento de mensagens
 
@@ -173,13 +168,13 @@ SELECT * FROM devices.modules
 Não permitimos a união de coleções de dispositivos e módulos. Se você deseja pesquisar módulos gêmeos em dispositivos, você o faz com base em marcas. Essa consulta retornará todos os módulos gêmeos em todos os dispositivos com o status de “examinando”:
 
 ```sql
-Select * from devices.modules where reported.properties.status = 'scanning'
+Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
 Essa consulta retornará todos os módulos gêmeos com o status de “examinando”, mas somente para o subconjunto especificado de dispositivos.
 
 ```sql
-Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>Exemplo de C#
@@ -314,7 +309,7 @@ No momento, as consultas em **devices.jobs** não dão suporte a:
 
 Usando as [rotas do dispositivo para nuvem ][lnk-devguide-messaging-routes], você poderá configurar o Hub IoT para enviar mensagens do dispositivo para nuvem para pontos de extremidade diferentes. A distribuição é baseada em expressões avaliadas em relação a mensagens individuais.
 
-A [condição][lnk-query-expressions] da rota usa a mesma linguagem de consulta que o Hub IoT como condições em consultas gêmeas e de trabalho. Condições de rota são avaliadas no corpo e nos cabeçalhos de mensagem. Sua expressão de consulta de roteamento pode envolver apenas cabeçalhos de mensagem, apenas o corpo da mensagem ou ambos. O Hub IoT pressupõe um esquema específico para os cabeçalhos e corpo da mensagem para rotear mensagens. As seções a seguir descrevem o que é necessário para o Hub IoT rotear corretamente.
+A [condição][lnk-query-expressions] da rota usa a sintaxe da linguagem de consulta do Hub IoT como condições em consultas gêmeas e de trabalho, mas apenas um subconjunto das funções está disponível. Condições de rota são avaliadas no corpo e nos cabeçalhos de mensagem. A expressão de consulta de direcionamento pode envolver somente cabeçalhos de mensagens, apenas o corpo da mensagem ou os cabeçalhos e o corpo da mensagem. O Hub IoT assume um esquema específico para os cabeçalhos e o corpo da mensagem para rotear mensagens, e as seções a seguir descrevem o que é necessário para o Hub IoT rotear adequadamente.
 
 ### <a name="routing-on-message-headers"></a>Encaminhamento em cabeçalhos de mensagens
 

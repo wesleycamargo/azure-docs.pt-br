@@ -1,24 +1,20 @@
 ---
-title: Definir as configurações do Spark - Azure HDInsight | Microsoft Docs
-description: Como configurar o Spark para um cluster HDInsight.
+title: Definir as configurações do Spark - Azure HDInsight
+description: Como configurar o Spark para um cluster Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.author: maxluk
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
-ms.author: maxluk
-ms.openlocfilehash: db61cc81f51772aa98c034f1bfdf51777cfd68e7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 5678cc17cde833c02c21090a7b5f7b70c01eec9e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045306"
 ---
 # <a name="configure-spark-settings"></a>Definir configurações do Spark
 

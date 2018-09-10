@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 04/13/2018
-ms.author: carolz
-ms.openlocfilehash: ac13d584c3312918e06139035da1f777c0030895
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/16/2018
+ms.author: mtillman
+ms.openlocfilehash: cc79601e2ec283cca2f0ef97cd220c656fc3d311
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594135"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339842"
 ---
 # <a name="azure-active-directory-documentation"></a>Documentação do Azure Active Directory
 
@@ -31,10 +31,11 @@ O Azure AD (Azure Active Directory) é um serviço de gerenciamento de identidad
                     <div class="cardText">
                         <h3>Conceitos básicos</h3>
                         <p>
-                        <a href="/azure/active-directory/active-directory-whatis">O que é o AD do Azure?</a><br/>
-                        <a href="/azure/active-directory/understand-azure-identity-solutions">Soluções de identidade</a><br/>
-                        <a href="/azure/active-directory/get-started-azure-ad">Introdução</a><br/>
-                        <a href="/azure/active-directory/whats-new">O que há de novo</a>
+                        <a href="/azure/active-directory/fundamentals/active-directory-whatis">O que é o AD do Azure?</a><br/>
+                        <a href="/azure/active-directory/fundamentals/understand-azure-identity-solutions">Soluções de identidade</a><br/>
+                        <a href="/azure/active-directory/fundamentals/get-started-azure-ad">Introdução</a><br/>
+                        <a href="/azure/active-directory/fundamentals/whats-new">Novidades</a><br/>
+                        <a href="/azure/active-directory/fundamentals/active-directory-deployment-plans">Planos de implantação do Azure AD</a>
                         </p>
                     </div>
                 </div>
@@ -46,7 +47,7 @@ O Azure AD (Azure Active Directory) é um serviço de gerenciamento de identidad
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Usuários corporativos</h3>
+                        <h3><a href="/azure/active-directory/users-groups-roles/index">Usuários corporativos</a></h3>
                         <p>
                         <a href="/azure/active-directory/add-users-azure-active-directory">Usuários</a><br/>
                         <a href="/azure/active-directory/active-directory-manage-groups">Grupos</a><br/>
@@ -81,10 +82,10 @@ O Azure AD (Azure Active Directory) é um serviço de gerenciamento de identidad
                     <div class="cardText">
                         <h3>Autenticação</h3>
                         <p>
-                        <a href="/azure/active-directory/active-directory-passwords-overview">Senhas</a><br/>
-                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements">Autenticação multifator</a><br/>
+                        <a href="/azure/active-directory/authentication/concept-sspr-howitworks">Senhas</a><br/>
+                        <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Autenticação multifator</a><br/>
                         <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
-                        <a href="/azure/active-directory/active-directory-certificate-based-authentication-get-started">Autenticação baseada em certificado</a>
+                        <a href="/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started">Autenticação baseada em certificado</a>
                         </p>
                     </div>
                 </div>
@@ -99,8 +100,8 @@ O Azure AD (Azure Active Directory) é um serviço de gerenciamento de identidad
                         <h3>Proteção</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">Proteção de identidade</a><br/>
-                        <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Acesso condicional</a><br/>
-                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json">Privileged Identity Management</a>
+                        <a href="/azure/active-directory/conditional-access/index">Acesso condicional</a><br/>
+                        <a href="/azure/active-directory/privileged-identity-management/pim-configure">Privileged Identity Management</a>
                         </p>
                     </div>
                 </div>
@@ -114,9 +115,9 @@ O Azure AD (Azure Active Directory) é um serviço de gerenciamento de identidad
                     <div class="cardText">
                         <h3>Dispositivos</h3>
                         <p>
-                        <a href="/azure/active-directory/device-management-introduction">Gerenciamento de dispositivos</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-registered-devices-windows10-setup">Dispositivos com Windows 10</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-joined-devices-setup">Dispositivos associados</a>
+                        <a href="/azure/active-directory/devices/index">Gerenciamento de dispositivos</a><br/>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Dispositivos com Windows 10</a><br/>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">Dispositivos associados</a>
                         </p>
                     </div>
                 </div>
@@ -131,7 +132,7 @@ O Azure AD (Azure Active Directory) é um serviço de gerenciamento de identidad
                         <h3>Aplicativos</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-enable-sso-scenario">Gerenciamento de aplicativos</a><br/>
-                        <a href="/azure/active-directory/cloudappdiscovery-get-started">Descoberta de aplicativos</a><br/>
+                        <a href="/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure">Migração de aplicativos</a><br/>
                         <a href="/azure/active-directory/active-directory-coreapps-assign-user-azure-portal">Aplicativos empresariais</a><br/>
                         <a href="/azure/active-directory/active-directory-managing-access-to-apps">Acesso a aplicativos</a>
                         </p>

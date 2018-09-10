@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 11f4e8286dc95a233efd724e272911892b75a725
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 00164789d7f37277127878911c3f368a56ec7710
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367334"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616965"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar seu ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ As etapas neste artigo presumem a instalação nativa no Linux ou o uso da image
 Não há suporte para a instalação do tempo de execução do Service Fabric e do SDK no subsistema do Windows para Linux. É possível gerenciar entidades do Service Fabric hospedadas em outro lugar na nuvem ou no local com a interface de linha de comando (CLI) do Azure Service Fabric, para a qual há suporte. Para obter informações sobre como instalar a CLI, consulte [Configurar a CLI do Service Fabric](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Há suporte de desenvolvimento para estas versões de sistema operacional.
 
@@ -80,7 +80,8 @@ Para instalar o SDK e o pacote de execução associado via ferramenta da linha d
 3. Adicionar o repositório `dotnet` à sua lista de fontes.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    sudo dpkg -i packages-microsoft-prod.deb
     ```
 
 4. Adicione a nova chave Gnu Privacy Guard (GnuPG ou GPG) ao arquivo de chaves APT.
@@ -207,27 +208,20 @@ O Service Fabric fornece ferramentas de scaffolding que ajudam a criar aplicativ
 
 1. Instale o Node.js e o npm em seu computador.
 
-    * Ubuntu
-        ```bash
-        curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-        sudo apt-get install -y nodejs 
-        ```
-
-    * Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
-        ```bash
-        sudo yum install nodejs
-        sudo yum install npm
-        ```
+    ```bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    nvm install node
+    ```
 2. Instale o gerador de modelos [Yeoman](http://yeoman.io/) do npm em seu computador.
 
     ```bash
-    sudo npm install -g yo
+    npm install -g yo
     ```
 3. Instalar o gerador de contêineres Yeo do Service Fabric e o gerador de executáveis do convidado a partir do npm.
 
     ```bash
-    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
-    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
 Após a instalação dos geradores, crie os serviços do contêiner ou do executável do convidado executando `yo azuresfguest` ou `yo azuresfcontainer` respectivamente.
@@ -259,7 +253,7 @@ Para criar serviços do Service Fabric usando o Java, instale o JDK 1.8 e Gradle
 Você também precisa instalar o gerador de Yeo do Service Fabric para executáveis do Java. Verifique se você tem o [Yeoman instalado](#set-up-yeoman-generators-for-containers-and-guest-executables), depois execute o seguinte comando:
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
  
 ## <a name="install-the-eclipse-plug-in-optional"></a>Instalar o plug-in do Eclipse (opcional)
@@ -309,8 +303,8 @@ Para remover os SDKs do Service Fabric, execute os comandos a seguir.
 
     ```bash
     sudo apt-get remove servicefabric servicefabicsdkcommon
-    sudo npm uninstall generator-azuresfcontainer
-    sudo npm uninstall generator-azuresfguest
+    npm uninstall -g generator-azuresfcontainer
+    npm uninstall -g generator-azuresfguest
     sudo apt-get install -f
     ```
 
@@ -318,9 +312,9 @@ Para remover os SDKs do Service Fabric, execute os comandos a seguir.
 * Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
 
     ```bash
-    sudo yum remote servicefabric servicefabicsdkcommon
-    sudo npm uninstall generator-azuresfcontainer
-    sudo npm uninstall generator-azuresfguest
+    sudo yum remove servicefabric servicefabicsdkcommon
+    npm uninstall -g generator-azuresfcontainer
+    npm uninstall -g generator-azuresfguest
     ```
 
 ## <a name="next-steps"></a>Próximas etapas

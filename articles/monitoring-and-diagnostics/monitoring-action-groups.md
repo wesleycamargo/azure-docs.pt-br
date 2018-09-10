@@ -1,31 +1,25 @@
 ---
-title: Criar e gerenciar grupos de ações no portal do Azure | Microsoft Docs
+title: Criar e gerenciar grupos de ações no portal do Azure
 description: Este artigo mostra como criar e gerenciar grupos de ações no portal do Azure.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/20/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/1/2018
 ms.author: dukek
-ms.openlocfilehash: 07e3c1a95aa223121117f3deba0269fb6cc280c2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: alerts
+ms.openlocfilehash: 998f35c8957b63d73d7a3d15be76711198fa4833
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170369"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745700"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 ## <a name="overview"></a>Visão geral ##
-Este artigo mostra como criar e gerenciar grupos de ação no Portal do Azure.
+Um grupo de ação é uma coleção de preferências de notificação definidas pelo usuário. Os alertas do Azure Monitor e da Integridade do Serviço do Azure são configurados para usar um grupo de ação específico quando o alerta for disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário.
 
-Você pode configurar uma lista de ações com grupos de ações. Esses grupos podem ser usados por cada alerta definido, garantindo que as mesmas ações sejam executadas cada vez que o alerta for disparado.
+Este artigo mostra como criar e gerenciar grupos de ação no Portal do Azure.
 
 Cada ação é composta das seguintes propriedades:
 
@@ -39,21 +33,21 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 1. No [portal](https://portal.azure.com), selecione **Monitor**. A folha **Monitor** consolida todas as suas configurações e dados em uma exibição de monitoramento.
 
     ![O serviço “Monitor”](./media/monitoring-action-groups/home-monitor.png)
-2. Na seção **Configurações**, selecione **Grupos de ação**.
+1. Na seção **Configurações**, selecione **Grupos de ação**.
 
     ![Na guia "Grupos de ações"](./media/monitoring-action-groups/action-groups-blade.png)
-3. Selecione **Adicionar grupo de ações** e preencha os campos.
+1. Selecione **Adicionar grupo de ações** e preencha os campos.
 
     ![O comando "Adicionar grupo de ações"](./media/monitoring-action-groups/add-action-group.png)
-4. Insira um nome na caixa **Nome do grupo de ação** e, em seguida, digite um nome na caixa **Nome curto**. O nome curto é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
+1. Insira um nome na caixa **Nome do grupo de ação** e, em seguida, digite um nome na caixa **Nome curto**. O nome curto é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
 
       ![Caixa de diálogo Adicionar grupo de ações](./media/monitoring-action-groups/action-group-define.png)
 
-5. A caixa **Assinatura** é automaticamente preenchida com a sua assinatura atual. Esta assinatura é aquela na qual o grupo de ação é salvo.
+1. A caixa **Assinatura** é automaticamente preenchida com a sua assinatura atual. Esta assinatura é aquela na qual o grupo de ação é salvo.
 
-6. Selecione o **Grupo de recursos** no qual o grupo de ações é salvo.
+1. Selecione o **Grupo de recursos** no qual o grupo de ações é salvo.
 
-7. Defina uma lista de ações fornecendo estas ações:
+1. Defina uma lista de ações fornecendo estas ações:
 
     a. **Nome**: insira um identificador exclusivo para esta ação.
 
@@ -61,7 +55,7 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 
     c. **Detalhes**: de acordo com o tipo de ação, insira um número de telefone, endereço de email, URI de webhook, aplicativo do Azure, conexão de ITSM ou runbook de Automação. Para Ação do ITSM, além disso, especifique **Item de Trabalho** e outros campos necessários para a ferramenta de ITSM.
 
-8. Selecione **OK** para criar o grupo de ações.
+1. Selecione **OK** para criar o grupo de ações.
 
 ## <a name="action-specific-information"></a>Informações específicas da ação
 <dl>
@@ -70,7 +64,14 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 <dd>No momento, a ação do aplicativo do Azure dá suporte apenas aos alertas do ServiceHealth. Qualquer outra hora do alerta será ignorada. Consulte [configurar alertas sempre que uma notificação de integridade do serviço for postada](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
 
 <dt>Email</dt>
-<dd>É possível ter até 50 ações de email em um Grupo de Ações</dd>
+<dd>Os emails serão enviados dos endereços de email a seguir. Certifique-se de que a filtragem de email esteja configurada adequadamente
+<ul>
+    <li>azure-noreply@microsoft.com</li>
+    <li>azureemail-noreply@microsoft.com</li>
+    <li>alerts-noreply@mail.windowsazure.com</li>
+</ul>
+</dd>
+<dd>É possível ter até 1000 ações de email em um Grupo de Ações</dd>
 <dd>Consulte o artigo [informações de limitação da taxa](./monitoring-alerts-rate-limiting.md)</dd>
 
 <dt>ITSM</dt>

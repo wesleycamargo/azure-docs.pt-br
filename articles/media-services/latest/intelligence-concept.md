@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: 804a418f6ee88974d6e74a2c18bc5d01b6adf838
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331513"
 ---
 # <a name="media-intelligence"></a>Inteligência de mídia
 
@@ -86,7 +87,7 @@ Exemplo:
 
 |NOME|DESCRIÇÃO|
 |---|---|
-|ID|A id da linha de OCR.|
+|ID|A ID da linha de OCR.|
 |text|O texto de OCR.|
 |confidence|A confiança do reconhecimento.|
 |Linguagem|O idioma do OCR.|
@@ -129,7 +130,7 @@ Exemplo:
 
 |NOME|DESCRIÇÃO|
 |---|---|
-|ID|A id da palavra-chave.|
+|ID|A ID da palavra-chave.|
 |text|O texto da palavra-chave.|
 |confidence|A confiança do reconhecimento da palavra-chave.|
 |Linguagem|O idioma da palavra-chave (quando traduzida).|
@@ -180,7 +181,7 @@ Exemplo:
 |ID|A ID da face.|
 |Nome|O nome da face. Pode ser "Desconhecido #0", uma celebridade identificada ou uma pessoa treinada pelo cliente.|
 |confidence|A confiança de identificação da face.|
-|Descrição|Se for uma celebridade, sua descrição ("Satya Nadella nasceu em...."). |
+|Descrição|Se for uma celebridade, sua descrição. |
 |thumbnalId|A id da miniatura dessa face.|
 |knownPersonId|Se for uma pessoa conhecida, sua ID interna.|
 |referenceId|Se for uma celebridade Bing, sua ID do Bing.|
@@ -281,8 +282,8 @@ Exemplo:
 
 |NOME|DESCRIÇÃO|
 |---|---|
-|ID|A id da captura.|
-|keyFrames|Uma lista com os quadros-chave dentro da captura (cada um tem uma Id e uma lista de intervalos de tempo de instâncias).|
+|ID|A ID da captura.|
+|keyFrames|Uma lista com os quadros-chave dentro da captura (cada um tem uma ID e uma lista de intervalos de tempo de instâncias).|
 |instances|Uma lista com os intervalos de tempo desta captura (as capturas têm apenas 1 instância).|
 
 ```json
@@ -328,33 +329,6 @@ Exemplo:
       ]
     }
   ]
-```
-
-### <a name="audioeffects"></a>audioEffects
-
-|NOME|DESCRIÇÃO|
-|---|---|
-|ID|A ID do efeito de áudio.|
-|Tipo|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
-|instances|Uma lista com os intervalos de tempo nos quais esse efeito de áudio apareceu.|
-
-```json
-"audioEffects": [
-{
-    "id": 0,
-    "type": "Clapping",
-    "instances": [
-    {
-        "start": "00:00:00",
-        "end": "00:00:03"
-    },
-    {
-        "start": "00:01:13",
-        "end": "00:01:21"
-    }
-    ]
-}
-]
 ```
 
 

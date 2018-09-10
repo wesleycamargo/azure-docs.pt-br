@@ -1,26 +1,25 @@
 ---
-title: 'Azure Active Directory B2C: Como adquirir um token usando um aplicativo do Android | Microsoft Docs'
+title: Como adquirir um token usando um aplicativo do Android no Azure Active Directory B2C | Microsoft Docs
 description: Este artigo mostra como criar um aplicativo do Android que usa AppAuth com o Azure Active Directory B2C para autenticar e gerenciar identidades de usuários.
 services: active-directory-b2c
-documentationcenter: android
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: mobile-android
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: davidmu
-ms.openlocfilehash: 6c4c9359571882fbbea4e7701305e30e0f49f460
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 716cf9e47cd71d003513066d390f9dccb5c83dcb
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344119"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: entrar usando um aplicativo Android
 
-A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect. Isso permite aos desenvolvedores aproveitar qualquer biblioteca que queiram integrar aos nossos serviços. Para auxiliar os desenvolvedores que usam a nossa plataforma com outras bibliotecas, escrevemos alguns tutoriais como este para demonstrar como configurar bibliotecas de terceiros para que elas se conectem à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementam [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) poderá conectar-se à Plataforma de Identidade da Microsoft.
+A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect. Esses padrões permitem utilizar qualquer biblioteca que você queira integrar com o Azure Active Directory B2C. Para ajudar você a usar outras bibliotecas, use um passo a passo como este para demonstrar como configurar bibliotecas de terceiros para que elas se conectem à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementa [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) pode se conectar à plataforma de identidade da Microsoft.
 
 > [!WARNING]
 > A Microsoft não fornece correções nem análises para bibliotecas de terceiros. Esse exemplo usa uma biblioteca de terceiros, AppAuth, que foi testada com relação à compatibilidade em cenários básicos com o Azure AD B2C. Os problemas e solicitações de recursos devem ser direcionados ao projeto de software livre da biblioteca. Para saber mais, confira [este artigo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).  
@@ -75,7 +74,7 @@ Você pode configurar a comunicação com o Azure AD B2C especificando o URI de 
 Se optar por descobrir automaticamente a autorização e os URIs de ponto de extremidade de token, você terá que buscar informações do URI de descoberta. O URI de descoberta pode ser gerado ao substituir o Tenant\_ID e o Policy\_Name na seguinte URL:
 
 ```java
-String mDiscoveryURI = "https://login.microsoftonline.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
+String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
 ```
 
 Para adquirir a autorização e os URIs de ponto de extremidade de token e criar um objeto AuthorizationServiceConfiguration, execute:
@@ -102,9 +101,9 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
 Em vez de usar a descoberta para obter a autorização e os URIs de ponto de extremidade de token, você também pode especificá-los explicitamente, substituindo o Tenant\_ID e o Policy\_Name na URL a seguir:
 
 ```java
-String mAuthEndpoint = "https://login.microsoftonline.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
+String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
 
-String mTokenEndpoint = "https://login.microsoftonline.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
+String mTokenEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
 ```
 
 Execute o seguinte código para criar o objeto AuthorizationServiceConfiguration:
@@ -136,5 +135,5 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 
 Consulte o [guia AppAuth](https://openid.github.io/AppAuth-Android/) para concluir o processo. Se quiser trabalhar logo com o seu aplicativo, veja o [nosso exemplo](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Siga as etapas em [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) para inserir sua própria configuração do Azure AD B2C.
 
-Estamos sempre abertos a comentários e sugestões! Caso você tenha alguma dúvida sobre este tópico ou recomendações para melhorar o conteúdo, agradecemos seus comentários na parte inferior da página. Para solicitações de recursos, adicione-os ao [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Estamos sempre abertos a comentários e sugestões! Caso você tenha alguma dúvida sobre este artigo ou recomendações para melhorar o conteúdo, agradecemos seus comentários na parte inferior da página. Para solicitações de recursos, adicione-os ao [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 

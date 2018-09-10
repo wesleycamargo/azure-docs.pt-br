@@ -6,7 +6,6 @@ documentationcenter: cosmosdb
 author: SnehaGunda
 manager: kfile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
@@ -15,11 +14,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: sngun
-ms.openlocfilehash: d0d6709bbf928df8a1dfb85bd7253276225afe27
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 601130dc07613d42b8ec55f670d8b9c050136143
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41920001"
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli"></a>Regenere uma chave de conta do BD Cosmos do Azure usando a CLI do Azure
 
@@ -47,10 +47,10 @@ Este script usa os seguintes comandos. Cada comando da tabela é vinculado à do
 
 | Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Atualiza uma conta do BD Cosmos do Azure. |
-| [az cosmosdb regenerate-key](/cli/azure/cosmosdb/regenerate-key) | Regenera chaves de conta do BD Cosmos do Azure. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-create) | Atualiza uma conta do BD Cosmos do Azure. |
+| [az cosmosdb regenerate-key](/cli/azure/cosmosdb#az-cosmosdb-regenerate-key) | Regenera chaves de conta do BD Cosmos do Azure. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az-group-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

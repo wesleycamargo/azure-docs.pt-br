@@ -7,15 +7,17 @@ manager: douge
 ms.assetid: c3c451d1-71ff-4222-a348-c41c98a02b85
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: e53e8ed27cfc048f24bda4ef92fcd2a50a85ed07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9a9fe0a92f8a8eadbd72ae56303348413a9d10c3
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141628"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Introdução ao armazenamento de Tabela do Azure e serviços conectados do Visual Studio
 
@@ -35,49 +37,51 @@ Para acessar tabelas em projetos do ASP.NET Core, você precisa incluir os itens
 
 1. Adicione as instruções `using` necessárias:
 
-    ```cs
-    using Microsoft.Framework.Configuration;
+    ```csharp
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Table;
     using System.Threading.Tasks;
-    using LogLevel = Microsoft.Framework.Logging.LogLevel;
     ```
 
-1. Obtenha um objeto `CloudStorageAccount` que represente as informações da conta de armazenamento. Use o seguinte código para obter a cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure:
+1. Obtenha um objeto `CloudStorageAccount` que represente as informações da conta de armazenamento. Use o código a seguir, usando o nome da conta de armazenamento e a chave de conta, que você pode encontrar na cadeia de conexão de armazenamento em appSettings.json:
 
-    ```cs
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```csharp
+        CloudStorageAccount storageAccount = new CloudStorageAccount(
+            new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(
+                "<name>", "<account-key>"), true);
     ```
 
 1. Obtenha um objeto `CloudTableClient` para referenciar objetos de tabela em sua conta de armazenamento:
 
-    ```cs
+    ```csharp
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
 1. Obtenha um objeto de referência `CloudTable` para fazer referência a entidades e a uma tabela específica:
 
-    ```cs
+    ```csharp
     // Get a reference to a table named "peopleTable"
     CloudTable peopleTable = tableClient.GetTableReference("peopleTable");
     ```
 
 ## <a name="create-a-table-in-code"></a>Criar uma tabela em código
 
-Para criar a tabela do Azure, chame ``CreateIfNotExistsAsync()`:
+Para criar a tabela do Azure, crie um método assíncrono e, dentro dela, chame `CreateIfNotExistsAsync()`:
 
-```cs
-// Create the CloudTable if it does not exist
-await peopleTable.CreateIfNotExistsAsync();
+```csharp
+async void CreatePeopleTableAsync()
+{
+    // Create the CloudTable if it does not exist
+    await peopleTable.CreateIfNotExistsAsync();
+}
 ```
-
+    
 ## <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
 
 Para adicionar uma entidade a uma tabela, crie uma classe que defina as propriedades da sua entidade. O código a seguir define uma classe de entidade chamada `CustomerEntity` que usa o nome do cliente como a chave de linha e o sobrenome como a chave de partição.
 
-```cs
+```csharp
 public class CustomerEntity : TableEntity
 {
     public CustomerEntity(string lastName, string firstName)
@@ -96,7 +100,7 @@ public class CustomerEntity : TableEntity
 
 As operações de tabela que envolvem entidades usam o objeto `CloudTable` criado anteriormente em [Acessar tabelas no código](#access-tables-in-code). O objeto `TableOperation` representa a operação a ser realizada. O exemplo de código a seguir mostra como criar um objeto `CloudTable` e um objeto `CustomerEntity`. Para preparar a operação, um `TableOperation` é criado para inserir a entidade de cliente na tabela. Finalmente, a operação é executada chamando `CloudTable.ExecuteAsync`.
 
-```cs
+```csharp
 // Create a new customer entity.
 CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
 customer1.Email = "Walter@contoso.com";
@@ -113,7 +117,7 @@ await peopleTable.ExecuteAsync(insertOperation);
 
 Você pode inserir várias entidades em uma tabela em uma única operação de gravação. O exemplo de código a seguir cria dois objetos de entidade ("Mateus Rodrigues" e "Luis Rodrigues") e os adiciona a um objeto `TableBatchOperation` usando o método `Insert` e depois inicia a operação chamando `CloudTable.ExecuteBatchAsync`.
 
-```cs
+```csharp
 // Create the batch operation.
 TableBatchOperation batchOperation = new TableBatchOperation();
 
@@ -139,7 +143,7 @@ await peopleTable.ExecuteBatchAsync(batchOperation);
 
 Para consultar uma tabela de todas as entidades em uma partição, use um objeto `TableQuery`. O exemplo de código a seguir especifica um filtro para as entidades em que 'Smith’ é a chave de partição. Esse exemplo imprime os campos de cada entidade nos resultados da consulta no console.
 
-```cs
+```csharp
 // Construct the query operation for all customer entities where PartitionKey="Smith".
 TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
 
@@ -162,7 +166,7 @@ do
 
 Você pode escrever uma consulta para obter uma entidade única e específica. O código a seguir usa um objeto `TableOperation` para especificar o cliente chamado 'Luis Rodrigues'. O método retorna uma única entidade, em vez de uma coleção, e o valor retornado está em `TableResult.Result` é um objeto `CustomerEntity`. Especificar chaves de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade de serviço `Table`.
 
-```cs
+```csharp
 // Create a retrieve operation that takes a customer entity.
 TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
@@ -180,12 +184,12 @@ else
 
 Você poderá excluir uma entidade facilmente depois de encontrá-la. O código a seguir busca e exclui uma entidade de cliente chamada "Ben Smith":
 
-```cs
+```csharp
 // Create a retrieve operation that expects a customer entity.
 TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
 // Execute the operation.
-TableResult retrievedResult = peopleTable.Execute(retrieveOperation);
+TableResult retrievedResult = await peopleTable.ExecuteAsync(retrieveOperation);
 
 // Assign the result to a CustomerEntity object.
 CustomerEntity deleteEntity = (CustomerEntity)retrievedResult.Result;

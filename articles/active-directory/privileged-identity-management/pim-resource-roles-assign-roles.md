@@ -1,26 +1,38 @@
 ---
-title: Atribuir funções para recursos do Azure usando Privileged Identity Management | Microsoft Docs
-description: Descreve como atribuir funções no PIM.
+title: Atribuir funções de recurso do Azure no PIM | Microsoft Docs
+description: Saiba como atribuir funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: pim
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 501f063992d2f5c7769a5c9059b346aa2b5c2bb4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7019a6f97a9590d3b652584015f3077f4ed075af
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149365"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188913"
 ---
-# <a name="assign-roles-for-azure-resources-by-using-privileged-identity-management"></a>Atribuir funções para recursos do Azure usando Privileged Identity Management
+# <a name="assign-azure-resource-roles-in-pim"></a>Atribuir funções de recurso do Azure no PIM
+
+O Azure AD PIM pode gerenciar as funções internas de recurso do Azure, bem como funções (RBAC) personalizadas, incluindo (mas sem se limitar a):
+
+- Proprietário
+- Administrador de Acesso do Usuário
+- Colaborador
+- Administrador de Segurança
+- Gerenciador de Segurança e muito mais
+
+>[!NOTE]
+Os usuários ou membros de um grupo atribuído às funções de Administrador de Acesso de Usuário ou Proprietário e Administradores Globais que permitem o gerenciamento de assinatura no Azure AD são Administradores de Recursos. Esses administradores podem atribuir funções, definir configurações de função e revisar o acesso ao usar o PIM para recursos do Azure. Exiba a lista de [funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-roles"></a>Atribuir funções
 
@@ -75,3 +87,8 @@ Se você tiver uma ativação de função pendente, uma faixa de notificação �
 Para modificar atribuições existentes a partir do modo de exibição de detalhes do usuário/grupo, selecione **Alterar configurações** na barra de ação. Altere o tipo de atribuição para **Just in Time** ou **Direta**.
 
 ![Painel "Detalhes do usuário" com o botão "Alterar configurações"](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Definir configurações de função de recurso do Azure no PIM](pim-resource-roles-configure-role-settings.md)
+- [Atribuir funções de diretório do Azure AD no PIM](pim-how-to-add-role-to-user.md)

@@ -1,27 +1,28 @@
 ---
-title: Sincronização de Dados SQL do Azure (versão prévia) | Microsoft Docs
-description: Este tutorial mostra como configurar a Sincronização de Dados SQL do Azure (Versão prévia)
+title: Configurar Sincronização de Dados SQL do Azure | Microsoft Docs
+description: Este tutorial mostra como configurar a Sincronização de Dados SQL do Azure
 services: sql-database
-author: douglaslms
+author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: douglasl
+ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 86b0e78f362d1cf3c2480aad97ef5281c5f3bc95
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7cb7ce0ea81cf99c2ee14a6f209864894563d237
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111772"
 ---
-# <a name="set-up-sql-data-sync-preview"></a>Configurar a Sincronização de Dados SQL (Versão prévia)
+# <a name="set-up-sql-data-sync"></a>Configurar Sincronização de Dados SQL
 Neste tutorial, você aprenderá a configurar a Sincronização de Dados SQL do Azure criando um grupo de sincronização híbrido que contém as instâncias de Banco de Dados SQL do Azure e do SQL Server. O novo grupo de sincronização ficará totalmente configurado e sincronizado no agendamento que você definir.
 
 Este tutorial presume que você tem pelo menos alguma experiência anterior com o Banco de Dados SQL e o SQL Server. 
 
-Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-sync-data.md).
+Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md).
 
 Para obter exemplos completos do PowerShell que mostrem como configurar a Sincronização de Dados SQL, veja os seguintes artigos:
 -   [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -198,7 +199,7 @@ A frequência mínima é a cada cinco minutos.
 
 ### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>A Sincronização de Dados SQL totalmente cria e provisiona tabelas?
 
-Se as tabelas do esquema de sincronização já não são criadas no banco de dados de destino, a Sincronização de Dados SQL (Versão prévia) criará com as colunas que você selecionou. No entanto, esse comportamento não resulta em um esquema de fidelidade completa, pelos seguintes motivos:
+Se as tabelas do esquema de sincronização já não são criadas no banco de dados de destino, a Sincronização de Dados SQL criará com as colunas que você selecionou. No entanto, esse comportamento não resulta em um esquema de fidelidade completa, pelos seguintes motivos:
 
 -   Somente as colunas selecionadas são criadas na tabela de destino. Portanto, se algumas colunas não fazem parte do grupo de sincronização, essas colunas não são provisionadas nas tabelas de destino.
 
@@ -214,7 +215,7 @@ Se as tabelas do esquema de sincronização já não são criadas no banco de da
 
 Devido a essas limitações, recomendamos as seguintes ações:
 -   Para ambientes de produção, provisione o esquema de fidelidade total por conta própria.
--   Para experimentar o serviço, o recurso de provisionamento automático de Sincronização de Dados SQL (Versão prévia) funciona bem.
+-   Para experimentar o serviço, o recurso de provisionamento automático de Sincronização de Dados SQL funciona bem.
 
 ### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Por que vejo tabelas que eu não criei?  
 A Sincronização de Dados cria tabelas secundárias no banco de dados para controle de alterações. Não as exclua, pois a Sincronização de Dados deixará de funcionar.
@@ -245,7 +246,7 @@ Depois de exportar um banco de dados como um arquivo `.bacpac` e importar o arqu
 
 ### <a name="why-do-i-need-a-client-agent"></a>Por que preciso de um agente cliente?
 
-O serviço de Sincronização de Dados SQL (Versão prévia) se comunica com os bancos de dados do SQL Server através do agente do cliente. Esse recurso de segurança impede a comunicação direta com bancos de dados por trás de um firewall. Quando o serviço de Sincronização de Dados SQL (Versão prévia) se comunica com o agente, ele faz isso usando conexões criptografadas e um token exclusivo ou *chave do agente*. Os bancos de dados do SQL Server autenticam o agente usando a chave de agente e a cadeia de caracteres de conexão. Esse design fornece um alto nível de segurança para seus dados.
+O serviço de Sincronização de Dados SQL se comunica com os bancos de dados do SQL Server através do agente do cliente. Esse recurso de segurança impede a comunicação direta com bancos de dados por trás de um firewall. Quando o serviço de Sincronização de Dados SQL se comunica com o agente, ele faz isso usando conexões criptografadas e um token exclusivo ou *chave do agente*. Os bancos de dados do SQL Server autenticam o agente usando a chave de agente e a cadeia de caracteres de conexão. Esse design fornece um alto nível de segurança para seus dados.
 
 ### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Quantas instâncias do agente local de interface do usuário podem ser executadas?
 
@@ -257,7 +258,7 @@ Depois de instalar um agente de cliente, a única maneira de alterar a conta de 
 
 ### <a name="how-do-i-change-my-agent-key"></a>Como fazer para alterar minha chave de agente?
 
-Uma chave de agente só pode ser usada uma vez por um agente. Ela não pode ser reutilizada quando você remove e reinstala um novo agente, nem pode ser usado por vários agentes. Se você precisar criar uma nova chave para um agente existente, você deve ter certeza de que a mesma chave está registrada com o agente do cliente e o serviço de Sincronização de Dados SQL (Versão prévia).
+Uma chave de agente só pode ser usada uma vez por um agente. Ela não pode ser reutilizada quando você remove e reinstala um novo agente, nem pode ser usado por vários agentes. Se você precisar criar uma nova chave para um agente existente, você deve ter certeza de que a mesma chave está registrada com o agente do cliente e o serviço de Sincronização de Dados SQL.
 
 ### <a name="how-do-i-retire-a-client-agent"></a>Como fazer para desativar um agente cliente?
 
@@ -269,7 +270,7 @@ Se você deseja executar o agente local em um computador diferente que está atu
 
 1. Instale o agente no computador desejado.
 
-2. Faça logon no portal de Sincronização de Dados SQL (Versão prévia) e regenere uma chave de agente para o novo agente.
+2. Faça logon no portal de Sincronização de Dados SQL e regenere uma chave de agente para o novo agente.
 
 3. Use a interface de usuário do novo agente para enviar a nova chave de agente.
 

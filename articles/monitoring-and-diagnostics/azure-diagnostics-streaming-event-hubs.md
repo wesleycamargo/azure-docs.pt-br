@@ -1,24 +1,20 @@
 ---
-title: "Transmitindo dados do Diagnóstico do Azure no afunilamento usando os Hubs de Eventos | Microsoft Docs"
-description: "Configurando o Diagnóstico do Azure com os Hubs de Eventos de ponta a ponta, incluindo diretrizes para cenários comuns."
-services: event-hubs
-documentationcenter: na
+title: Transmitir dados de Diagnóstico do Azure para Hubs de Eventos
+description: Configurando o Diagnóstico do Azure com os Hubs de Eventos de ponta a ponta, incluindo diretrizes para cenários comuns.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: diagnostic-extension
+ms.openlocfilehash: c87a4acb8ca333af73643a38ae1338c9c8769d13
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341221"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming de dados de Diagnóstico do Azure no afunilamento usando os Hubs de Eventos
 O Diagnóstico do Azure fornece maneiras flexíveis para coletar as métricas e os logs das VMs (máquinas virtuais) dos serviços de nuvem e para transferir os resultados para o armazenamento do Azure. A partir de março de 2016 (SDK 2.9), você poderá enviar o Diagnóstico para fontes de dados personalizadas e transferir dados do afunilamento em questão de segundos usando os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -26,7 +22,7 @@ O Diagnóstico do Azure fornece maneiras flexíveis para coletar as métricas e 
 Entre os tipos de dados com suporte estão:
 
 * Eventos de ETW (Rastreamento de Eventos para Windows)
-* Contadores de desempenho
+* contadores de desempenho
 * Logs de eventos do Windows
 * Logs de aplicativo
 * Logs de infraestrutura do Diagnóstico do Azure
@@ -38,7 +34,7 @@ Este artigo mostra como configurar completamente o Diagnóstico do Azure com os 
 * Como exibir dados de fluxo dos Hubs de Eventos
 * Como solucionar problemas de conexão  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Há suporte para o recebimento de dados pelos Hubs de Eventos do Diagnóstico do Azure nos Serviços de Nuvem, em VMs, nos Conjuntos de Dimensionamento de Máquinas Virtuais e no Service Fabric a partir do SDK do Azure 2.9 e nas Ferramentas do Azure para Visual Studio correspondentes.
 
 * Extensão 1.6 do Diagnóstico do Azure (o[SDK do Azure para .NET 2.9 ou posterior](https://azure.microsoft.com/downloads/) resolve isso por padrão)
@@ -393,9 +389,11 @@ O *ServiceConfiguration.Cloud.cscfg* complementar para este exemplo se parece co
 </ServiceConfiguration>
 ```
 
-Configurações equivalentes baseada em Json para máquinas virtuais são as seguintes:
+Configurações equivalentes baseada em JSON para máquinas virtuais são as seguintes:
+
+Configurações públicas:
 ```JSON
-"settings": {
+{
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
             "overallQuotaInMB": 4096,
@@ -491,8 +489,11 @@ Configurações equivalentes baseada em Json para máquinas virtuais são as seg
     "StorageAccount": "{account name}"
 }
 
+```
 
-"protectedSettings": {
+Configurações protegidas:
+```JSON
+{
     "storageAccountName": "{account name}",
     "storageAccountKey": "{account key}",
     "storageAccountEndPoint": "{storage endpoint}",
@@ -507,7 +508,7 @@ Configurações equivalentes baseada em Json para máquinas virtuais são as seg
 ## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão Geral dos Hubs de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Evento](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Criar um hub de eventos](../event-hubs/event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](../event-hubs/event-hubs-faq.md)
 

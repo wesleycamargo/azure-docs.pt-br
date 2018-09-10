@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de e para o Azure Data Lake Store | Microsoft Docs
+title: Copiar dados de/para o Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Saiba como copiar dados de e para o Data Lake Store usando o Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -10,25 +10,26 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ce5909bd522ab7af77846af598506ea69058bd5c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 97bd2081df8c90f885996629862f25cbec8fd2c2
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860224"
 ---
-# <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Copiar dados de e para o Data Lake Store usando o Data Factory
+# <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiar dados de/para o Data Lake Storage Gen1 usando o Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](data-factory-azure-datalake-connector.md)
-> * [Versão 2 – Versão prévia](../connector-azure-data-lake-store.md)
+> * [Versão 1](data-factory-azure-datalake-connector.md)
+> * [Versão 2 (versão atual)](../connector-azure-data-lake-store.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está em versão prévia, consulte [Azure Data Lake Store connector in V2](../connector-azure-data-lake-store.md) (Conector do Azure Data Lake Store na V2).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do Azure Data Factory, confira [Conector do Azure Data Lake Storage Gen1 na V2](../connector-azure-data-lake-store.md).
 
-Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de e para o Azure Data Lake Store. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), uma visão geral da movimentação de dados com a Atividade de Cópia.
+Este artigo explica como usar a atividade de cópia no Azure Data Factory para mover dados de/para o Azure Data Lake Storage Gen1 (conhecido anteriormente como Azure Data Lake Store). Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), uma visão geral da movimentação de dados com a Atividade de Cópia.
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 Você pode copiar dados **do Azure Data Lake Store** para os seguintes armazenamentos de dados:

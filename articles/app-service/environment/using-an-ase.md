@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 66ef20616df77dc809a79e516a53133a80759dc7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446843"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um ambiente do Serviço de Aplicativo #
 
@@ -50,20 +51,20 @@ Para criar um aplicativo Web em um ASE:
 
 1. Selecione  **Criar um recurso** >  **Web + Mobile** > **Aplicativo da Web**.
 
-2. Insira um nome para o aplicativo Web. Se você já selecionou um plano do Serviço de Aplicativo em um ASE, o nome de domínio do aplicativo reflete o nome de domínio do ASE.
+1. Insira um nome para o aplicativo Web. Se você já selecionou um plano do Serviço de Aplicativo em um ASE, o nome de domínio do aplicativo reflete o nome de domínio do ASE.
 
     ![Seleção de nome de aplicativo Web][1]
 
-3. Selecione uma assinatura.
+1. Selecione uma assinatura.
 
-4. Insira um nome para um novo grupo de recursos ou selecione **Usar existente** e escolha um na lista suspensa.
+1. Insira um nome para um novo grupo de recursos ou selecione **Usar existente** e escolha um na lista suspensa.
 
-5. Selecione seu SO. 
+1. Selecione seu SO. 
 
     * A hospedagem de um aplicativo do Linux em uma ASE é um novo recurso de visualização; portanto, sugerimos que você não adicione aplicativos Linux em um ASE que esteja atualmente executando cargas de trabalho de produção. 
     * A adição de um aplicativo do Linux em um ASE significa que o ASE também estará no modo de visualização. 
 
-5. Selecione um plano do Serviço de Aplicativo existente no ASE ou crie um novo com as seguintes etapas:
+1. Selecione um plano do Serviço de Aplicativo existente no ASE ou crie um novo com as seguintes etapas:
 
     a. Selecione **Criar Novo**.
 
@@ -81,7 +82,7 @@ Para criar um aplicativo Web em um ASE:
     > Aplicativos web do Linux e aplicativos web do Windows não podem estar no mesmo Plano de Serviço de Aplicativo, mas podem estar no mesmo Ambiente de Serviço de Aplicativo. 
     >
 
-6. Clique em **Criar**.
+1. Selecione **Criar**.
 
 ## <a name="how-scale-works"></a>Como funciona a escala ##
 
@@ -159,7 +160,7 @@ Para excluir um ASE:
 
 1. Use **Excluir** na parte superior da folha **Ambiente de Serviço de Aplicativo**. 
 
-2. Insira o nome do seu ASE para confirmar que deseja excluí-lo. Quando você exclui um ASE, exclui todo o conteúdo dentro dele também. 
+1. Insira o nome do seu ASE para confirmar que deseja excluí-lo. Quando você exclui um ASE, exclui todo o conteúdo dentro dele também. 
 
     ![Exclusão de ASE][3]
 

@@ -1,30 +1,31 @@
 ---
-title: "Amostra de Script do Azure PowerShell – WordPress | Microsoft Docs"
-description: "Amostra de Script do Azure PowerShell – WordPress"
+title: Amostra de Script do Azure PowerShell – WordPress | Microsoft Docs
+description: Amostra de Script do Azure PowerShell – WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 778a6d5cfc63f80aa66654d682fedb178cfd67a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 07dcc2f8355c73859500e91d3b6dbe74e27b83c2
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246973"
 ---
 # <a name="create-a-wordpress-vm-with-powershell"></a>Criar uma VM do WordPress com o PowerShell
 
-Esse script cria uma máquina virtual e usa a extensão de script personalizado da Máquina Virtual do Azure para instalar o WordPress. Após a execução do script, é possível acessar o site de configuração do WordPress em `http://<public IP of VM>/wordpress`. 
+Esse script cria uma máquina virtual e usa a extensão de script personalizado da Máquina Virtual do Azure para instalar o WordPress. Após a execução do script, é possível acessar o site de configuração do WordPress em `http://<public IP of VM>/wordpress`.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -34,7 +35,7 @@ Esse script cria uma máquina virtual e usa a extensão de script personalizado 
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.ps1 "Create VM WordPress")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -46,7 +47,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Esse script usa os seguintes comandos para criar a implantação. Cada item em que a tabela contém links para a documentação específica do comando.
 
-| Command | Observações |
+| Comando | Observações |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | Cria uma configuração de sub-rede. Essa configuração é usada com o processo de criação de rede virtual. |

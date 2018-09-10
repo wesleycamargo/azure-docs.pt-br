@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 58a283f1ce5bd2fd78c4fa2038c3998aea1598c9
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3f3adb1230d6ca6b3a7e616a0beed15d66895124
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43282990"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introdução ao Cofre da Chave do Azure
 Este artigo ajuda a começar a usar o Azure Key Vault usando o PowerShell e o orienta quanto às seguintes atividades:
@@ -28,15 +29,12 @@ Este artigo ajuda a começar a usar o Azure Key Vault usando o PowerShell e o or
 
 O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](https://azure.microsoft.com/pricing/details/key-vault/).
 
-> [!NOTE]
-> Este artigo não inclui instruções sobre como gravar um aplicativo do Azure. Você pode usar o [Aplicativo de exemplo do Azure Key Vault](https://www.microsoft.com/download/details.aspx?id=45343) para essas etapas.
-
 Para obter instruções de interface de linha de comando entre diferentes plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli2.md).
 
 ## <a name="requirements"></a>Requisitos
 Antes de avançar com o artigo, confirme que você tem:
 
-- **Uma assinatura do Azure**. Se você não tiver uma, poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- **Uma assinatura do Azure**. Se você não tiver uma, poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/en-us/free/).
 - **Azure PowerShell**, **versão mínima: 1.1.0**. Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Se você já tiver instalado o Azure PowerShell e não souber a versão, no console do Azure PowerShell, digite `(Get-Module azure -ListAvailable).Version`. Quando você tiver o Azure PowerShell versão 0.9.1 até 0.9.8 instalado, ainda poderá usar este tutorial com algumas pequenas alterações. Por exemplo, você deverá usar o comando `Switch-AzureMode AzureResourceManager` ; alguns dos comandos do Cofre da Chave do Azure foram alterados. Para obter uma lista dos cmdlets do Cofre de Chaves para as versões 0.9.1 até 0.9.8, consulte [Cmdlets do Cofre de Chaves do Azure](/powershell/module/azurerm.keyvault/#key_vault).
 - **Um aplicativo que pode ser configurado para usar o Key Vault**. Um aplicativo de exemplo está disponível no [Centro de Download da Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Para obter instruções, consulte o arquivo de acompanhamento **Leiame**.
 
@@ -205,7 +203,7 @@ Para exibir o valor contido no segredo como texto sem formatação:
 Agora, seu cofre de chave e a chave ou o segredo estão prontos para serem usados pelos aplicativos. Você precisa autorizar os aplicativos a usá-los.  
 
 ## <a id="register"></a>Registrar um aplicativo com o Active Directory do Azure
-Esta etapa geralmente seria feita por um desenvolvedor, em um computador separado. Não é específico ao Azure Key Vault. Para obter etapas detalhadas sobre como registrar um aplicativo com o Azure Active Directory, você deve analisar o artigo intitulado [Integrando aplicativos com o Active Directory do Azure](../active-directory/develop/active-directory-integrating-applications.md) ou [Usar o portal para criar um aplicativo do Azure Active Directory e entidade de serviço que pode acessar recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+Esta etapa geralmente seria feita por um desenvolvedor, em um computador separado. Não é específico ao Azure Key Vault. Para obter etapas detalhadas sobre como registrar um aplicativo com o Azure Active Directory, você deve analisar o artigo intitulado [Integrando aplicativos com o Active Directory do Azure](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) ou [Usar o portal para criar um aplicativo do Azure Active Directory e entidade de serviço que pode acessar recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 
 > [!IMPORTANT]
 > Para concluir o tutorial, sua conta, o cofre e o aplicativo que você registrará nesta etapa devem todos estar no mesmo diretório do Azure.
@@ -232,7 +230,7 @@ Você deve selecionar o mesmo diretório que contém a assinatura do Azure com a
     >[!WARNING]
     Verifique se você escolheu **APLICATIVO WEB E/OU API WEB**, caso não, você não verá a opção **chaves** nas configurações.
 
-5. Selecione o botão **Criar** .
+5. Selecione o botão **Criar**.
 6. Ao concluir o registro do aplicativo, você pode ver a lista de aplicativos registrados. Encontre o aplicativo que você acabou de registrar e clique nele.
 7. Clique na folha do **Aplicativo registrado** e copie a **ID do Aplicativo**
 8. Clique em **Todas as configurações**
@@ -268,7 +266,7 @@ Para alterar a autorização de um aplicativo a fim de usar chaves ou segredos:
 ## <a id="HSM"></a>Trabalhando com um HSM (módulo de segurança de hardware)
 Para garantia extra, você pode importar ou gerar chaves em HSMs (módulos de segurança de hardware) que nunca deixam os limites do HSM. Os HSMs têm certificação FIPS 140-2 Nível 2. Se esse requisito não se aplicar a você, ignore esta seção e vá para [Excluir o cofre de chave e chaves e segredos associados](#delete).
 
-Para criar essas chaves protegidas por HSM, você deverá usar a [Camada de serviço Premium do Cofre de Chaves do Azure para dar suporte a chaves protegidas por HSM](https://azure.microsoft.com/pricing/free-trial/). Além disso, observe que essa funcionalidade não está disponível para o Azure China.
+Para criar essas chaves protegidas por HSM, você deverá usar a [Camada de serviço Premium do Cofre de Chaves do Azure para dar suporte a chaves protegidas por HSM](https://azure.microsoft.com/pricing/details/key-vault/). Além disso, observe que essa funcionalidade não está disponível para o Azure China.
 
 Ao criar o cofre de chaves, adicione o parâmetro **-SKU**:
 

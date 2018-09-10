@@ -5,19 +5,20 @@ services: cosmos-db
 author: rimman
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4911a302bf9055948827a72f2e631663b8be741e
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39266571"
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Vários mestres em escala global com o Azure Cosmos DB 
  
-O desenvolvimento de aplicativos distribuídos mundialmente que respondam com latências locais, ao mesmo tempo em que se mantém exibições de dados consistentes em todo o mundo, é um problema desafiador. Os clientes usam bancos de dados globalmente distribuídos, pois precisam melhorar a latência de acesso a dados, alcançar alta disponibilidade dos dados e garantir a recuperação de desastre e (4) para atender às suas necessidades de negócios. Vários mestres no Azure Cosmos DB fornecem altos níveis de disponibilidade (99,999%), latência menor que dez milissegundos para gravar dados e a escalabilidade com suporte interno para resolução de conflitos flexível e abrangente. Esses recursos simplificam significativamente o desenvolvimento de aplicativos distribuídos globalmente. Para aplicativos distribuídos globalmente, o suporte para vários mestres é crucial. 
+O desenvolvimento de aplicativos distribuídos mundialmente que respondam com latências locais, ao mesmo tempo em que se mantém exibições de dados consistentes em todo o mundo, é um problema desafiador. Os clientes usam bancos de dados distribuídos globalmente porque precisam melhorar a latência de acesso a dados, obter alta disponibilidade de dados, assegurar recuperação de desastre garantida e atender aos requisitos de negócios. Vários mestres no Azure Cosmos DB fornecem altos níveis de disponibilidade (99,999%), latência menor que dez milissegundos para gravar dados e a escalabilidade com suporte interno para resolução de conflitos flexível e abrangente. Esses recursos simplificam significativamente o desenvolvimento de aplicativos distribuídos globalmente. Para aplicativos distribuídos globalmente, o suporte para vários mestres é crucial. 
 
 ![Arquitetura de vários mestres](./media/multi-region-writers/multi-master-architecture.png)
 
@@ -34,7 +35,7 @@ Caso você já tenha uma assinatura do Azure, inscreva-se no programa de versão
 
 2. Na página Nova Conta, forneça um nome para sua conta do Azure Cosmos DB, escolha a API, a Assinatura, o Grupo de Recursos e o Local.  
 
-3. Em seguida, selecione **Inscreva-se hoje na versão prévia** no campo Versão Prévia de Vários Mestres.  
+3. Em seguida, selecione **Inscreva-se para visualização hoje mesmo** sob o campo de visualização de mestre múltiplo.  
 
    ![Inscreva-se para a versão prévia de vários mestres](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
 
@@ -62,7 +63,7 @@ Supondo que haja milhões de clientes e fornecedores com bilhões de artigos, as
 
 ## <a name="benefits-of-having-multi-master-support"></a>Benefícios do suporte para vários mestres 
 
-O suporte para vários mestres é essencial para aplicativos distribuídos globalmente. Os vários mestres são compostos de [várias regiões mestres](distribute-data-globally.md) que igualmente participam de um modelo de gravação em qualquer lugar (padrão ativo-ativo) e são usados para garantir que dados estejam disponíveis a qualquer momento em que você precisar. As atualizações feitas a uma região individual são propagadas assincronamente para todas as outras regiões (que por sua vez são regiões mestres em si). As regiões do Azure Cosmos DB operando como regiões mestres em uma configuração de vários mestres funcionam automaticamente para convergir os dados de todas as réplicas e garantir [a integridade dos dados e a consistência global](consistency-levels.md). A imagem a seguir mostra a replicação de leitura/gravação para um único mestre e para vários mestres.
+O suporte para vários mestres é essencial para aplicativos distribuídos globalmente. Os vários mestres são compostos de [várias regiões mestres](distribute-data-globally.md) que igualmente participam de um modelo de gravação em qualquer lugar (padrão ativo-ativo) e são usados para garantir que dados estejam disponíveis a qualquer momento em que você precisar. As atualizações feitas a uma região individual são propagadas assincronamente para todas as outras regiões (que por sua vez são regiões mestres em si). As regiões do Azure Cosmos DB operando como regiões mestres em uma configuração de vários mestres funcionam automaticamente para convergir os dados de todas as réplicas e garantir [a integridade dos dados e a consistência global](consistency-levels.md). A imagem a seguir mostra a replicação de leitura/gravação para um único mestre e vários mestres.
 
 ![Único mestre e vários mestres](./media/multi-region-writers/single-vs-multi-master.png)
 
@@ -70,7 +71,7 @@ A implementação de vários mestres por conta própria adiciona uma sobrecarga 
 
 Em resumo, os vários mestres fornecem os seguintes benefícios:
 
-* **Melhor recuperação de desastre, disponibilidade de gravação e failover** - Os vários mestres podem ser usados para preservar ainda mais a alta disponibilidade de um banco de dados crítico. Por exemplo, um banco de dados de vários mestres pode replicar dados de uma região para uma região de failover quando a região principal fica indisponível devido a uma interrupção ou um desastre regional. Essa região de failover servirá de região mestre totalmente funcional para dar suporte ao aplicativo. Os vários mestres fornecem maior proteção de "persistência" em relação a desastres naturais, falhas de energia, sabotagem ou ambos, pois as regiões restantes podem estar em vários mestres geograficamente diferentes com uma disponibilidade de gravação garantida >99,999%. 
+* **Melhor recuperação de desastre, disponibilidade de gravação e failover** - Os vários mestres podem ser usados para preservar ainda mais a alta disponibilidade de um banco de dados crítico. Por exemplo, um banco de dados de vários mestres pode replicar dados de uma região para uma região de failover quando a região principal fica indisponível devido a uma interrupção ou um desastre regional. Essa região de failover servirá como uma região mestre totalmente funcional para suportar o aplicativo. O mestre múltiplo oferece maior proteção à “capacidade de sobrevivência” em relação a desastres naturais, quedas de energia ou sabotagem, porque as regiões restantes podem utilizar multi-mestres geograficamente diferentes com disponibilidade de gravação garantida> 99,999%. 
 
 * **Melhor latência de gravação para os usuários finais** - Quanto mais próximos seus dados (que você está fornecendo) estão dos usuários finais, melhor será a experiência. Por exemplo, se você tiver usuários na Europa, mas seu banco de dados fica dos Estados Unidos ou na Austrália, a latência será de aproximadamente 140 ms e 300 ms respectivamente. Atrasos são inaceitáveis para muitos jogos populares, requisitos de serviços bancários ou aplicativos interativos (web ou móvel). A latência desempenha uma grande parte na percepção do cliente de uma experiência de alta qualidade e provou-se que ela afeta o comportamento de usuários de certo modo. Com a melhora da tecnologia e especialmente com o surgimento de AR, VR e MR, exigindo experiências ainda mais envolventes e realistas, os desenvolvedores agora precisam produzir sistemas com requisitos rígidos de latência. Portanto, é mais importante ter aplicativos e dados disponíveis localmente (conteúdo para os aplicativos). Com vários mestres no Azure Cosmos DB, o desempenho é rápido como leituras e gravações locais comuns e é aprimorado globalmente pela distribuição geográfica.  
 

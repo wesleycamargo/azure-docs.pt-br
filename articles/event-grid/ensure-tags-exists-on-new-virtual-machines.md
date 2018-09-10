@@ -1,24 +1,21 @@
 ---
-title: "Integrar a Automação do Azure com a Grade de Eventos | Microsoft Docs"
-description: "Saiba como adicionar uma marcação automaticamente quando uma nova VM é criada e enviar uma notificação para o Microsoft Teams."
-keywords: "automação, runbook, teams, grade de eventos, máquina virtual, VM"
+title: Integrar a Automação do Azure com a Grade de Eventos | Microsoft Docs
+description: Saiba como adicionar uma marcação automaticamente quando uma nova VM é criada e enviar uma notificação para o Microsoft Teams.
+keywords: automação, runbook, teams, grade de eventos, máquina virtual, VM
 services: automation
-documentationcenter: 
 author: eamonoreilly
-manager: 
-editor: 
+manager: ''
 ms.service: automation
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2017
+ms.date: 08/14/2018
 ms.author: eamono
-ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: a4356f38df017901ab219318463538003d3a979e
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919728"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrar a Automação do Azure à Grade de Eventos e ao Microsoft Teams
 
@@ -37,14 +34,17 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para concluir este tutorial, uma [conta de Automação do Azure](../automation/automation-offering-get-started.md) é necessária para armazenar o runbook que é disparado da assinatura da Grade de Eventos do Azure.
 
+* O módulo `AzureRM.Tags` precisa ser carregado em sua conta de automação, veja [Como importar os módulos na automação do Azure](../automation/automation-update-azure-modules.md) para aprender a importar os módulos para a Automação do Azure.
+
 ## <a name="import-an-event-grid-sample-runbook"></a>Importar um runbook de exemplo da Grade de Eventos
+
 1. Selecione sua conta de Automação e selecione a página de **Runbooks**.
 
    ![Selecione runbooks](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
 
 2. Clique no botão **Procurar na galeria**.
 
-3. Pesquise por **Grade de Eventos** e selecione **Integração da Automação do Azure com a Grade de Eventos**. 
+3. Pesquise por **Grade de Eventos** e selecione **Integração da Automação do Azure com a Grade de Eventos**.
 
     ![Importe a galeria de runbook](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
 
@@ -52,7 +52,11 @@ Para concluir este tutorial, uma [conta de Automação do Azure](../automation/a
 
 5. Depois que a galeria foi importada, selecione **Editar** para exibir a fonte do runbook. Clique no botão **Publicar**.
 
+> [!NOTE]
+> A linha 74 no script deve ter a linha alterada para `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`. Agora, o parâmetro `-Tags` é `-Tag`.
+
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>Criar um hebwook opcional no Microsoft Teams
+
 1. No Microsoft Teams, selecione **Mais Opções** próximo ao nome do canal e, em seguida, selecione **Conectores**.
 
     ![Conexões do Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
@@ -66,6 +70,7 @@ Para concluir este tutorial, uma [conta de Automação do Azure](../automation/a
 5. Selecione **Concluído** para salvar o webhook.
 
 ## <a name="create-a-webhook-for-the-runbook"></a>Criar um webhook para o runbook
+
 1. Abra o runbook Watch-VMWrite.
 
 2. Selecione **Webhooks** e clique no botão **Adicionar Webhook**.
@@ -78,28 +83,30 @@ Para concluir este tutorial, uma [conta de Automação do Azure](../automation/a
 
     ![Configurar parâmetros de webhook](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
-5. Selecione **OK** para criar o webhook de runbook de Automação.
-
+5. Selecione **Criar** para criar o webhook de runbook de Automação.
 
 ## <a name="create-an-event-grid-subscription"></a>Criar uma assinatura na Grade de Eventos
+
 1. Na página de visão geral da **Conta de Automação**, selecione **Grade de evento**.
 
     ![Selecionar a Grade de Eventos](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Clique no botão **+ Assinatura de evento**.
+2. Clique em **+ Assinatura de Evento**.
 
 3. Configure a assinatura com as seguintes informações:
 
-    *   Digite **AzureAutomation** para nomeá-la.
-    *   Em **Tipo de tópico**, selecione **Assinaturas do Azure**.
-    *   Limpe a caixa de seleção **Assinar todos os tipos de evento**.
-    *   Em **Tipos de evento**, selecione **Êxito na gravação de recurso**.
-    *   Em **Ponto de extremidade do assinante**, insira a URL do webhook para o runbook Watch-VMWrite.
-    *   Em **Filtro de prefixo**, insira a assinatura e o grupo de recursos onde você deseja procurar as novas VMs criadas. O resultado deve ser assim: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+   * Para **Tipo de Tópico**, selecione **Assinaturas do Azure**.
+   * Desmarque a caixa de seleção **Assinar todos os tipos de evento**.
+   * Digite **AzureAutomation** para nomeá-la.
+   * Na lista suspensa **Tipos de Evento Definidos**, desmarque todas as opções, exceto **Gravação de Recurso Bem-Sucedida**.
+   * Para **Tipo de Ponto de Extremidade**, selecione **Webhook**.
+   * Clique em **Selecionar um ponto de extremidade**. Na página **Selecionar Web hook** aberta, cole a URL do web hook que você criou para o runbook Watch-VMWrite.
+   * Em **FILTROS**, insira a assinatura e o grupo de recursos onde você deseja procurar as novas VMs criadas. O resultado deve ser assim: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Selecione **Criar** para salvar a assinatura na Grade de Eventos.
 
 ## <a name="create-a-vm-that-triggers-the-runbook"></a>Crie uma VM que dispara o runbook
+
 1. Crie uma nova VM no grupo de recursos que você especificou no filtro de prefixos na assinatura da Grade de Eventos.
 
 2. O runbook Watch-VMWrite deve ser chamado e uma nova marcação deve ser adicionada à VM.
@@ -111,6 +118,7 @@ Para concluir este tutorial, uma [conta de Automação do Azure](../automation/a
     ![Notificação do Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste tutorial, você configurou a integração entre a Grade de Eventos e a Automação. Você aprendeu como:
 
 > [!div class="checklist"]

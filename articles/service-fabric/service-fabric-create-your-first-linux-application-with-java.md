@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/27/2018
+ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 01f085a7ec69780fe3558c6892e254ed3a7e2fb0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 61b804b876c91b5fcd12ce15bd7e2438f5d897a0
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205681"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617410"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Crie seu primeiro aplicativo Java de Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "34205681"
 
 Este guia de início rápido ajuda a criar seu primeiro aplicativo Java do Azure Service Fabric em um ambiente de desenvolvimento Linux em alguns minutos.  Quando terminar, você terá um aplicativo simples de serviço único Java em execução no cluster de desenvolvimento local.  
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, instale o SDK do Service Fabric, a CLI do Service Fabric, Yeoman, configure o ambiente de desenvolvimento Java e configure um cluster de desenvolvimento no seu [ambiente de desenvolvimento Linux](service-fabric-get-started-linux.md). Se estiver usando o Mac OS X, você poderá [Configurar um ambiente de desenvolvimento no Mac usando Docker](service-fabric-get-started-mac.md).
 
 Instale também a [CLI do Service Fabric](service-fabric-cli.md).
@@ -40,7 +40,7 @@ Instale também a [CLI do Service Fabric](service-fabric-cli.md).
 O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um aplicativo Java do Service Fabric no terminal usando gerador de modelos Yeoman.  Se Yeoman já não estiver instalado, consulte [Introdução ao Service Fabric no Linux](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) para obter instruções sobre como configurar Yeoman. Execute o seguinte comando para instalar o gerador de modelo Yeoman do Service Fabric para Java.
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
 
 ## <a name="basic-concepts"></a>Conceitos básicos
@@ -219,10 +219,25 @@ Os parâmetros para esses comandos podem ser encontrados nos manifestos gerados 
 Depois da implantação do aplicativo, abra um navegador e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
 Em seguida, expanda o nó **Aplicativos** e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
 
+> [!IMPORTANT]
+> Para implantar o aplicativo em um cluster seguro do Linux no Azure, você precisa configurar um certificado para validar seu aplicativo com o tempo de execução do Service Fabric. Isso permite que os serviços de Reliable Actors se comuniquem com as APIs de tempo de execução do Service Fabric subjacente. Para obter mais informações, consulte [Configurar um aplicativo de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
+
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Inicie o cliente de teste e execute um failover
 Atores não fazem nada por conta própria, eles precisam de outro serviço ou cliente para enviar mensagens. O modelo de ator inclui um script de teste simples que você pode usar para interagir com o serviço de ator.
 
+> [!Note]
+> O cliente de teste usa a classe ActorProxy para se comunicar com os atores, que devem ser executados no mesmo cluster que o serviço de agente ou compartilhar o mesmo espaço de endereço IP.  Você pode executar o cliente de teste no mesmo computador que o cluster de desenvolvimento local.  Para se comunicar com atores em um cluster remoto, no entanto, você deve implantar um gateway no cluster que lide com a comunicação externa com os atores.
+
 1. Execute o script usando o utilitário de inspeção para ver a saída do serviço de ator.  O script de teste chama o `setCountAsync()`método no ator para incrementar um contador, o `getCountAsync()` método no ator para obter o novo valor de contador e exibe o valor para o console.
+
+   No caso do MAC OS X, você precisará copiar a pasta HelloWorldTestClient em algum local dentro do contêiner, executando os seguintes comandos adicionais.    
+    
+    ```bash
+     docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
+     docker exec -it [first-four-digits-of-container-ID] /bin/bash
+     cd /home
+     ```
 
     ```bash
     cd HelloWorldActorTestClient
@@ -254,8 +269,8 @@ Suporte Reliable Actor do Service Fabric para seu aplicativo.
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-actors-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-actors</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -264,7 +279,7 @@ Suporte Reliable Actor do Service Fabric para seu aplicativo.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-actors-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-actors:1.0.0'
   }
   ```
 
@@ -275,8 +290,8 @@ Suporte de Reliable Services do Service Fabric para seu aplicativo.
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-services-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-services</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -285,7 +300,7 @@ Suporte de Reliable Services do Service Fabric para seu aplicativo.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-services-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-services:1.0.0'
   }
   ```
 
@@ -297,8 +312,8 @@ Suporte da camada de transporte para aplicativo Java do Service Fabric. Você n�
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-transport-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-transport</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -307,7 +322,7 @@ Suporte da camada de transporte para aplicativo Java do Service Fabric. Você n�
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-transport-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-transport:1.0.0'
   }
   ```
 
@@ -318,8 +333,8 @@ Suporte no nível do sistema para o Service Fabric, que se comunica com a execu�
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -328,7 +343,7 @@ Suporte no nível do sistema para o Service Fabric, que se comunica com a execu�
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf:1.0.0'
   }
   ```
 

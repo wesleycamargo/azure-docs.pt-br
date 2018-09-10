@@ -4,20 +4,18 @@ description: Saiba como importar dados para usar com a API de Tabela do Azure Co
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: b60743e2-0227-43ab-965a-0ae3ebacd917
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: b6e912d450e1a2fed98fab5b18ba835396257ac9
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e4e783d131c4ceee9315b3442ee504e662157d8c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856800"
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importar dados para usar com a API de Tabela do Azure Cosmos DB
 
@@ -32,7 +30,7 @@ Este tutorial cobre as seguintes tarefas:
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* Aumentar a taxa de transferência: a duração da sua migração de dados depende da taxa de transferência que você configurar para uma coleção individual ou um conjunto de coleções. Certifique-se de aumentar a taxa de transferência para migrações de dados maiores. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. Para obter mais informações sobre como aumentar a produtividade no portal do Azure, consulte Níveis de desempenho e tipos de preço no Azure Cosmos DB.
+* Aumentar a taxa de transferência: a duração da sua migração de dados depende da taxa de transferência que você configurar para um contêiner individual ou um conjunto de contêiner. Certifique-se de aumentar a taxa de transferência para migrações de dados maiores. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. Para obter mais informações sobre como aumentar a produtividade no portal do Azure, consulte Níveis de desempenho e tipos de preço no Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Ferramenta de migração de dados
 

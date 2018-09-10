@@ -4,7 +4,7 @@ description: Orientações passo a passo sobre a implantação do bocal do agreg
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c58c2b255d269aef7e8b3fea62d003ad0c16ef0a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971241"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implantar o Bocal do Azure Log Analytics para Monitoramento do Sistema do Cloud Foundry
 
@@ -55,9 +56,9 @@ Antes de configurar o cliente da linha de comando do UAA, certifique-se de que o
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Criar um espaço de trabalho do Log Analytics
 
-É possível criar o espaço de trabalho do Log Analytics manualmente ou usando um modelo. Carregue os alertas e as exibições pré-configurados do OMS depois de concluir a implantação do Bocal.
+É possível criar o espaço de trabalho do Log Analytics manualmente ou usando um modelo. O modelo será implantado uma configuração de exibições de KPI do OMS e alertas para o console do OMS. 
 
-Para criar o espaço de trabalho manualmente:
+#### <a name="to-create-the-workspace-manually"></a>Para criar o espaço de trabalho manualmente:
 
 1. No Portal do Azure, pesquise a lista de serviços no Azure Marketplace e, em seguida, selecione Log Analytics.
 2. Selecione **Criar** e, em seguida, selecione opções para os seguintes itens:
@@ -70,7 +71,22 @@ Para criar o espaço de trabalho manualmente:
 
 Para saber mais, confira [Introdução ao Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-Ou é possível criar o espaço de trabalho do Log Analytics por meio do modelo do OMS. Com esse método, o modelo carrega os alertas e as exibições pré-configurados do OMS automaticamente. Para obter mais informações, consulte a [Azure Log Analytics solution for Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution) (solução do Azure OMS Log Analytics para o Cloud Foundry).
+#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Para criar o espaço de trabalho do OMS por meio do modelo de monitoramento do OMS do Azure Marketplace:
+
+1. Abra o portal do Azure.
+2. Clique no sinal "+" ou em "Criar um recurso" no canto superior esquerdo.
+3. Digite "Cloud Foundry" na janela de pesquisa, selecione "Solução de Monitoramento Cloud Foundry do OMS".
+4. A página inicial do modelo da solução de monitoramento Cloud Foundry do OMS é carregada, clique em “Criar” para iniciar a folha do modelo.
+5. Insira os parâmetros necessários:
+    * **Assinatura**: selecione uma assinatura do Azure para o espaço de trabalho do OMS, normalmente a mesmo com a implantação do Cloud Foundry.
+    * **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo para o espaço de trabalho do OMS.
+    * **Localização do Grupo de Recursos**: selecione a localização do grupo de recursos.
+    * **OMS_Workspace_Name**: insira um nome de espaço de trabalho. Se o espaço de trabalho não existir, o modelo criará um novo.
+    * **OMS_Workspace_Region**: selecione a localização para o espaço de trabalho.
+    * **OMS_Workspace_Pricing_Tier**: selecione o SKU do espaço de trabalho do OMS. Confira as [diretrizes de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
+    * **Termos legais**: clique em Termos legais e clique em “Criar” para aceitar o termo legal.
+- Depois que todos os parâmetros forem especificados, clique em "Criar" para implantar o modelo. Quando a implantação for concluída, o status será exibido na guia de notificação.
+
 
 ## <a name="deploy-the-nozzle"></a>Implantar o Bocal
 
@@ -78,9 +94,9 @@ Há algumas maneiras diferentes para implantar o Bocal: como um bloco PCF ou com
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Implantar o Bocal como um bloco Ops Manager do PCF
 
-Se você implantou o PCF usando o Ops Manager, siga as etapas para [instalar e configurar o Bocal para PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). O Bocal é instalado lado a lado com o Ops Manager.
+Siga as etapas para [instalar e configurar o Bocal do Azure Log Analytics para PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Essa é a abordagem simplificada, o bloco PCF Ops manager configurará e efetuará o push do bocal automaticamente. 
 
-### <a name="deploy-the-nozzle-as-a-cf-application"></a>Implantar o Bocal como um aplicativo CF
+### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Implantar o Bocal manualmente como um aplicativo CF
 
 Se você não estiver usando o Ops Manager do PCF, implante o Bocal como um aplicativo. As seções a seguir descrevem esse processo.
 
@@ -163,6 +179,10 @@ Verifique se o aplicativo do Bocal do OMS está em execução.
 
 ## <a name="view-the-data-in-the-oms-portal"></a>Exiba os dados no portal do OMS
 
+Se você tiver implantado a solução de monitoramento do OMS por meio do modelo do Marketplace, acesse o portal do Azure e encontre a solução do OMS. Você pode encontrar a solução no grupo de recursos especificado no modelo. Clique na solução, navegue até o "Console do OMS", as exibições pré-configuradas são listadas, com os principais KPIs de sistema do Cloud Foundry, dados de aplicativos, alertas e métricas de integridade da VM. 
+
+Se você tiver criado o espaço de trabalho do OMS manualmente, siga as etapas abaixo para criar exibições e alertas:
+
 ### <a name="1-import-the-oms-view"></a>1. Importar o modo de exibição do OMS
 
 No portal do OMS, navegue até **Designer de exibição** > **Importar** > **Procurar** e selecione um dos arquivos omsview. Por exemplo, selecione *Cloud Foundry.omsview* e salve a exibição. Agora um bloco é exibido na página **Visão Geral** do OMS. Selecione-a para ver as métricas visualizadas.
@@ -226,6 +246,6 @@ O Bocal do Azure Log Analytics é de software livre. Envie suas dúvidas e comen
 
 ## <a name="next-step"></a>Próxima etapa
 
-Além das métricas do Cloud Foundry abrangidas no Bocal, é possível usar o agente do OMS para aprofundar-se sobre os dados operacionais no nível da VM (como Syslog, desempenho, alertas, inventário). O agente do OMS é instalado como um complemento Bosh nas VMs do seu CF.
+Do PCF2.0, as métricas de desempenho da VM são transferidas para bocal do Azure Log Analytics pelo Encaminhador de Métricas do Sistema e integradas ao espaço de trabalho do OMS. Você não precisa mais do agente do OMS para as métricas de desempenho da VM. No entanto você ainda pode usar o agente do OMS para coletar informações de Syslog. O agente do OMS é instalado como um complemento Bosh nas VMs do seu CF. 
 
 Para obter detalhes, consulte [Deploy OMS agent to your Cloud Foundry deployment](https://github.com/Azure/oms-agent-for-linux-boshrelease) (Implantar o agente do OMS na implantação do Cloud Foundry).

@@ -3,7 +3,7 @@ title: Amostra de script da CLI do Azure – Criar um Serviço SignalR | Microso
 description: Amostra de script da CLI do Azure – Criar Serviço SignalR
 services: signalr
 documentationcenter: signalr
-author: wesmc7777
+author: sffamily
 manager: cfowler
 editor: ''
 tags: azure-service-management
@@ -13,13 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: signalr
 ms.date: 04/20/2018
-ms.author: wesmc
+ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: a8df62fe229a627b2e551ab04528ad601c5d5d2a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c05003c986786332786e33763834376e148c065e
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664630"
 ---
 # <a name="create-a-signalr-service"></a>Criar um Serviço SignalR 
 
@@ -55,7 +56,7 @@ Cada comando na tabela redireciona para a documentação específica do comando.
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az signalr create](/cli/azure/group#az-group-create) | Cria um recurso de Serviço Azure SignalR. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Lista as chaves que serão usadas pelo seu aplicativo ao enviar atualizações de conteúdo em tempo real com o SignalR. |
+| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | Lista as chaves que serão usadas pelo seu aplicativo ao enviar atualizações de conteúdo em tempo real com o SignalR. |
 
 
 ## <a name="next-steps"></a>Próximas etapas

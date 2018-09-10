@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/06/2018
 ms.author: dimazaid
-ms.openlocfilehash: 00d6a2de3f51ef8ade50f29b14a4bc944ae5fee6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1751071aa37665b5cea51f7be76990020ad569ab
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920245"
 ---
 # <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging"></a>Tutorial: Notificações por push para dispositivos específicos Android usando Hubs de Notificação do Azure e Google Cloud Messaging
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -37,7 +38,7 @@ Neste tutorial, você executa as seguintes ações:
 > * Enviar notificações marcadas. 
 > * Testar o aplicativo
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este tutorial baseia-se no aplicativo que você criou no [Tutorial: Notificações por push para dispositivos Android usando Hubs de Notificação do Azure e Google Cloud Messaging][get-started]. Antes de iniciar este tutorial, conclua o [Tutorial: Notificações por push para dispositivos Android usando Hubs de Notificação do Azure e Google Cloud Messaging][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Adicionar a seleção de categorias ao aplicativo
@@ -321,8 +322,8 @@ Neste tutorial, você enviou notificações de notícias a dispositivos específ
 
 <!-- URLs.-->
 [get-started]: notification-hubs-android-push-notification-google-gcm-get-started.md
-[Use Notification Hubs to broadcast localized breaking news]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
+[Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx

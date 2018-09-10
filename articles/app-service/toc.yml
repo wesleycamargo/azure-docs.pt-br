@@ -23,10 +23,10 @@
       href: app-service-web-get-started-php.md
     - name: Criar aplicativo Java
       href: app-service-web-get-started-java.md
-    - name: Criar aplicativo Python
-      href: app-service-web-get-started-python.md
     - name: Criar site HTML estático
       href: app-service-web-get-started-html.md
+    - name: Executar o contêiner personalizado do Windows
+      href: app-service-web-get-started-windows-container.md
 - name: Tutoriais
   items:
     - name: Aplicativo com BD
@@ -41,8 +41,6 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java com MySQL
           href: app-service-web-tutorial-java-mysql.md
-        - name: Python com PostgreSQL
-          href: app-service-web-tutorial-python-postgresql.md
     - name: Acessar BD SQL com segurança
       href: app-service-web-tutorial-connect-msi.md
     - name: Hospedar API RESTful
@@ -55,8 +53,6 @@
       href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
     - name: Autenticar usuários
       href: app-service-web-tutorial-auth-aad.md
-    - name: Implantar aplicativos no Serviço de Aplicativo do Azure com VSTS e CI/CD
-      href: 'https://docs.microsoft.com/learn/deploy-apps-to-azure/index'
 - name: Exemplos
   items:
     - name: CLI do Azure
@@ -88,7 +84,7 @@
       href: web-sites-traffic-manager.md
     - name: Cache local
       href: app-service-local-cache-overview.md
-    - name: Diagnostics
+    - name: Diagnósticos
       href: app-service-diagnostics.md
 - name: Guias de Instruções
   items:
@@ -167,7 +163,9 @@
         - name: Configurar a camada PremiumV2
           href: app-service-configure-premium-tier.md
         - name: Escalar horizontalmente em várias instâncias
-          href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json
+          href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
+        - name: Hospedagem de alta densidade
+          href: app-service-high-density-hosting.md
     - name: Monitorar aplicativo
       items:
         - name: Cotas e alertas
@@ -251,7 +249,7 @@
     - name: Guias
       items:
         - name: Arquiteturas de referência
-          href: /azure/architecture/reference-architectures/app-service-web-app/
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications'
         - name: Scripts de Implantação
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: solução de problemas
@@ -276,3 +274,11 @@
               href: app-service-web-open-source-technologies-faq.md
             - name: Perguntas frequentes de configuração e gerenciamento
               href: app-service-web-configuration-and-management-faq.md
+    - name: Alteração de endereço IP
+      items:
+        - name: Endereço IP de entrada
+          href: ip-address-change-inbound.md
+        - name: Endereço IP de saída
+          href: ip-address-change-outbound.md
+        - name: Endereço SSL
+          href: ip-address-change-ssl.md

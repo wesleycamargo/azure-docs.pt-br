@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: as trocas de declarações da API REST como uma etapa de orquestração | Microsoft Docs'
-description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C que se integram com uma API
+title: As trocas de declarações da API REST como uma etapa de orquestração no Azure Active Directory B2C | Microsoft Docs
+description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C que se integram a uma API.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
-ms.openlocfilehash: 0a3f69f8262e67de624d4cd97e0cad49c6a96ef0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: dddb42f53d4bb59113df937799bd4de10d31491c
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338772"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Passo a passo: integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração
 
@@ -41,7 +41,7 @@ O cenário é aquele em que, quando um usuário realiza uma edição de perfil, 
 2. Obter a cidade em que o usuário está registrado.
 3. Retornar o atributo para o aplicativo como uma declaração.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Um locatário do Azure AD B2C configurado para concluir uma inscrição/entrada de conta local, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
 - Um ponto de extremidade de API REST com o qual se irá interagir. Este passo a passo usa um webhook de aplicativo de funções simples do Azure como um exemplo.
@@ -245,7 +245,7 @@ Se tudo estiver configurado corretamente, o token incluirá a nova declaração 
   "exp": 1493053292,
   "nbf": 1493049692,
   "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "sub": "a58e7c6c-7535-4074-93da-b0023fbaf3ac",
   "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
   "acr": "b2c_1a_trustframeworkprofileedit",

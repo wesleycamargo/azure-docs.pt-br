@@ -1,11 +1,11 @@
 ---
-title: "Padrão de aplicativo Web multilocatário | Microsoft Docs"
-description: "Encontre visões gerais de arquitetura e padrões de design que descrevem como implementar um aplicativo Web multilocatário no Azure."
-services: 
+title: Padrão de aplicativo Web multilocatário | Microsoft Docs
+description: Encontre visões gerais de arquitetura e padrões de design que descrevem como implementar um aplicativo Web multilocatário no Azure.
+services: ''
 documentationcenter: .net
 author: wadepickett
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: 4f0281d2-1555-42b0-a99d-1222fade0b0f
 ms.service: active-directory
 ms.workload: identity
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23013021"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicativos multilocatários no Azure
 Um aplicativo multilocatário é um recurso compartilhado que permite que usuários distintos ou "locatários" exibam o aplicativo como se ele fosse de sua propriedade. Um cenário típico que pode ser usado como um aplicativo multilocatário é aquele em que todos os usuários do aplicativo talvez queiram personalizar a experiência do usuário, mas que, de outra forma, têm os mesmos requisitos de negócios básico. Exemplos de grandes aplicativos multilocatários são o Office 365, o Outlook.com e o visualstudio.com.

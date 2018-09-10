@@ -3,22 +3,24 @@ title: Um aplicativo de Proxy de Aplicativo demora muito para carregar | Microso
 description: Solucionar problemas de desempenho de carregamento de página com o Proxy de Aplicativo do Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 34422cb42768ddbc2997da3eec3d35c11e272855
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: c78abf05fb28b0370e17107deccd46259df47c47
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158499"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367055"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Um aplicativo de Proxy de Aplicativo demora muito para carregar
 

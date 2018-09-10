@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 674f4ec53300643450d8a576db6fcb50e86dd9d2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: c500725508d2bf9f09279e665871ab286d9e495a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161151"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652062"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controle de acesso baseado em função para StorSimple
 
@@ -31,7 +31,7 @@ Este artigo se aplica a dispositivos da série StorSimple 8000 executando Atuali
 
 O RBAC pode ser atribuído com base em funções. As funções garantem determinados níveis de permissão com base nos recursos disponíveis no ambiente. Há dois tipos de funções que os usuários do StorSimple podem escolher: internas ou personalizadas.
 
-* **Funções internas** – funções internas podem ser de proprietário, colaborador, leitor ou administrador de acesso do usuário. Para saber mais, consulte [Funções internas para controle de acesso baseado em função do Azure](../role-based-access-control/overview.md#built-in-roles).
+* **Funções internas** – funções internas podem ser de proprietário, colaborador, leitor ou administrador de acesso do usuário. Para saber mais, consulte [Funções internas para controle de acesso baseado em função do Azure](../role-based-access-control/built-in-roles.md).
 
 * **Funções personalizadas** – se funções internas não atenderem às suas necessidades, você poderá criar funções personalizadas RBAC para StorSimple. Para criar uma função personalizada RBAC, comece com uma função interna, edite-a e, em seguida, importe-a de volta para o ambiente. O download e o upload da função são gerenciados usando o Azure PowerShell ou a CLI do Azure. Para obter mais informações, consulte [Criar funções personalizadas para controle de acesso baseado em função](../role-based-access-control/custom-roles.md).
 
@@ -154,7 +154,7 @@ PS C:\WINDOWS\system32>
 
 ## <a name="add-users-to-the-custom-role"></a>Adicionar usuários à função personalizada
 
-Conceda acesso de dentro do recurso, do grupo de recursos ou da assinatura que é o escopo da atribuição de função. Ao fornecer acesso, tenha em mente que o acesso concedido no nó pai é herdado pelo filho. Para obter mais informações, vá para [Herança de acesso e hierarquia de recursos](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance).
+Conceda acesso de dentro do recurso, do grupo de recursos ou da assinatura que é o escopo da atribuição de função. Ao fornecer acesso, tenha em mente que o acesso concedido no nó pai é herdado pelo filho. Para obter mais informações, confira [Controle de acesso baseado em função](../role-based-access-control/overview.md).
 
 1. Vá para **Controle de acesso (IAM)**. Selecione **+ Adicionar** na folha Controle de acesso.
 

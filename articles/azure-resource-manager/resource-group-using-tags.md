@@ -12,18 +12,20 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6f9b2b04c3bdfc02065e2a01e1975d734a5f53ac
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: df9c218c275367852885e67ac2649926ba1d31d3
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358975"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42146282"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usar marcações para organizar seus recursos do Azure
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
+
+Para aplicar marcas a recursos, o usuário deve ter acesso de gravação a esse tipo de recurso. Para aplicar marcas a todos os tipos de recursos, use a função [Colaborador](../role-based-access-control/built-in-roles.md#contributor). Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar marcas a máquinas virtuais, use o [Colaborador da Máquina Virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
@@ -136,6 +138,10 @@ if ($group.Tags -ne $null) {
                 }
             }
             Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+        }
+        else
+        {
+            Set-AzureRmResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
         }
     }
 }
@@ -272,4 +278,4 @@ Quando você baixa o CSV de uso para serviços que dão suporte a marcações co
 * Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, confira [Usando o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
 * Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Para obter uma introdução ao uso do portal, confira [Usando o portal do Azure para gerenciar os recursos do Azure](resource-group-portal.md).  
-* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
+* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](/azure/architecture/cloud-adoption-guide/subscription-governance).

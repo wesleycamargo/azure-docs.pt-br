@@ -2,31 +2,36 @@
 title: 'Início rápido: API de Tabela com .NET – Azure Cosmos DB | Microsoft Docs'
 description: Este guia de início rápido mostra como usar a API de Tabela do Azure Cosmos DB para criar um aplicativo com o Portal do Azure e o .NET
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.custom: quickstart connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: c9cbcbd10d19dde3e03ca286d12a3d87513890c1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9cda2c165d7d00ebb92907d54217a30d62df6c18
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700023"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Início rápido: criar um aplicativo de API de Tabela com .NET e Azure Cosmos DB 
+
+> [!div class="op_single_selector"]
+> * [.NET](create-table-dotnet.md)
+> * [Java](create-table-java.md)
+> * [Node.js](create-table-nodejs.md)
+> * [Python](create-table-python.md)
+>  
 
 Este guia de início rápido mostra como usar o .NET e a [API de Tabela](table-introduction.md) do Azure Cosmos DB para criar um aplicativo por meio da clonagem de um exemplo do GitHub. Este guia de início rápido também mostra como criar uma conta do Azure Cosmos DB e como usar o Data Explorer para criar tabelas e entidades no Portal do Azure baseado na Web.
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o **Visual Studio 2017 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
 
@@ -107,7 +112,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
     Agora, a linha 8 deve ser semelhante a:
 
     ```
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account-key>;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
 5. Pressione CTRL+S para salvar o arquivo App.config.
@@ -119,7 +124,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 1. No Visual Studio, clique com o botão direito do mouse no projeto **TableStorage** em **Gerenciador de Soluções** e depois clique em **Gerenciar Pacotes NuGet**. 
 
    ![Gerenciar Pacotes NuGet](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
-2. Na caixa **Procurar** do NuGet, digite *Microsoft.Azure.CosmosDB.Table*. Isso localizará a biblioteca de clientes de API de tabela do Cosmos DB.
+2. Na caixa **Procurar** do NuGet, digite *Microsoft.Azure.CosmosDB.Table*. Isso localizará a biblioteca de clientes de API de tabela do Cosmos DB. Observe que essa biblioteca só está disponível atualmente para o .NET Standard, ela ainda não está disponível para o .NET Core.
    
    ![Guia Procurar do NuGet](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 

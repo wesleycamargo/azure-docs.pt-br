@@ -1,29 +1,25 @@
 ---
-title: Atualizar o cluster HDInsight para uma versão mais nova – Azure | Microsoft Docs
+title: Atualizar o cluster HDInsight para uma versão mais recente - Azure
 description: Saiba como atualizar o cluster HDInsight para uma versão mais nova.
 services: hdinsight
-documentationcenter: ''
-author: bhanupr
-manager: asadk
-editor: bhanupr
-ms.assetid: 60eb573c-e639-4815-9fc6-ea8b106d8dbc
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
-ms.author: bhanupr
-ms.openlocfilehash: d6cd0dd8b326f5340e5014bba4babc6dd945744d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cab2c7aabf23ba8636f46a92c8d864b1c9b74120
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594838"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Atualizar o cluster HDInsight para uma versão mais recente
 Para aproveitar os novos recursos do HDInsight, é recomendável que os clusters HDInsight sejam atualizados para a versão mais recente. Siga as diretrizes apresentadas abaixo para atualizar as versões do cluster HDInsight.
 
 > [!NOTE]
-> Os clusters HDInsight da versão 3.2 e 3.3 estão se aproximando da data de desativação. Para obter mais informações sobre a versão com suporte do HDInsight, consulte [Versões de componente do HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
+> Para obter mais informações sobre versões com suporte do HDInsight, consulte [Versões de componente do HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
 >
 >
 

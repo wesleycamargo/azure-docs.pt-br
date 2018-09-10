@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: recursos em visualização | Microsoft Docs"
-description: "Este tópico descreve em mais detalhes os recursos que estão na visualização no Azure AD Connect."
+title: 'Azure AD Connect: recursos em visualização | Microsoft Docs'
+description: Este tópico descreve em mais detalhes os recursos que estão na visualização no Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c75cd8cf-3eff-4619-bbca-66276757cc07
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d4e76c85af7a9b90867d91a6290c4f4deea19a75
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 853d836d95e60b266d229c7fd3404b15926b6151
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591364"
 ---
 # <a name="more-details-about-features-in-preview"></a>Mais detalhes sobre os recursos no modo de visualização
 Este tópico descreve como usar recursos presentes atualmente na visualização.

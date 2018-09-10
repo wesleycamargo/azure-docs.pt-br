@@ -6,21 +6,16 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: ccec4262297314bad261a852bb5db25c428ce0a0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9759e209f15622d70aaa833a993234863ac1053c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918859"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Proteger novamente VMs do Azure que sofreram failover para a região primária
-
-
->[!NOTE]
->
-> A replicação do Site Recovery para as VMs do Azure está na versão prévia atualmente.
-
 
 
 Quando você [faz failover](site-recovery-failover.md) de VMs do Azure de uma região para outra usando o [Azure Site Recovery](site-recovery-overview.md), as VMs inicializam na região secundária, em um estado desprotegido. Se você fizer failback das VMs de volta para a região primária, faça o seguinte:

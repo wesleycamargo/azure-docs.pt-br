@@ -1,19 +1,20 @@
 ---
 title: Conectar aplicativos ao Banco de Dados do Azure para MySQL
-description: "Este documento lista as cadeias de conexão com suporte no momento para os aplicativos se conectarem ao Banco de Dados do Azure para MySQL, incluindo ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python e Ruby."
+description: Este documento lista as cadeias de conexão com suporte no momento para os aplicativos se conectarem ao Banco de Dados do Azure para MySQL, incluindo ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python e Ruby.
 services: mysql
-author: mswutao
-ms.author: wuta
+author: ajlam
+ms.author: andrela
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: e7b200fd1de79f0bca680bdedc34fa376cf07d68
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 06bd91adb0a86198f7709d0989624657ce00dfa9
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037855"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Como conectar aplicativos ao Banco de Dados do Azure para MySQL
 Este tópico lista os tipos de cadeia de conexão com suporte do Banco de Dados do Azure para MySQL, juntamente com modelos e exemplos. Você pode ter parâmetros e configurações diferentes na cadeia de conexão.
@@ -43,7 +44,7 @@ String url ="jdbc:mysql://%s:%s/%s[?verifyServerCertificate=true&useSSL=true&req
 var conn = mysql.createConnection({host: {your_host}, user: {username@servername}, password: {your_password}, database: {your_database}, Port: {your_port}[, ssl:{ca:fs.readFileSync({ca-cert filename})}}]);
 ```
 
-## <a name="odbc"></a>ODBC
+## <a name="odbc"></a>ODBCODBC
 ```odbc
 DRIVER={MySQL ODBC 5.3 UNICODE Driver};Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password}; [sslca={ca-cert filename}; sslverify=1; Option=3;]
 ```

@@ -5,21 +5,22 @@
     - name: O que é o DNS do Azure?
       href: dns-overview.md
 - name: Guia de início rápido
+  expanded: true
   items:
-    - name: Criar zona DNS e registro - portal
+    - name: Resolução de nomes - portal
       href: dns-getstarted-portal.md
-    - name: Criar zona DNS e registro - PowerShell
+    - name: Resolução de nomes - PowerShell
       href: dns-getstarted-powershell.md
-    - name: Criar zona DNS e registro - CLI
+    - name: Resolução de nomes - CLI
       href: dns-getstarted-cli.md
 - name: Tutoriais
   items:
-    - name: Criar uma zona DNS e registro privados
-      href: private-dns-getstarted-powershell.md
-    - name: Delegar seu domínio ao DNS do Azure
+    - name: Hospede seu domínio no DNS do Azure
       href: dns-delegate-domain-azure-dns.md
     - name: Criar registros DNS personalizados para um aplicativo Web
       href: dns-web-sites-custom-domain.md
+    - name: Criar uma zona DNS e registro privados
+      href: private-dns-getstarted-powershell.md
 - name: Exemplos
   items:
     - name: CLI do Azure
@@ -40,9 +41,11 @@
       href: dns-alerts-metrics.md
     - name: Inverter DNS
       href: dns-reverse-dns-overview.md
+    - name: Recuperação de desastres usando o DNS do Azure e o Gerenciador de Tráfego
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Como
   items:
-    - name: Criar zona DNS e registro personalizados - CLI do Azure
+    - name: Criar uma zona DNS e registro privados - CLI do Azure
       href: private-dns-getstarted-cli.md
     - name: Gerenciar zonas DNS
       items:

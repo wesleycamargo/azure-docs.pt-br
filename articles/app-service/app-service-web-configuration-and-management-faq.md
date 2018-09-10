@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: e773435d89a511e6f1f369cc3fd5dc6f06507e45
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7aa5b00d1497e384377ba4423431eac57c1aa4c9
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630396"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -105,7 +106,7 @@ Para obter mais informações, consulte [Perguntas frequentes para certificados 
 
 ## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>Por que vejo a mensagem "Foi parcialmente bem-sucedida" ao tentar fazer backup de meu aplicativo web?
 
-Uma causa comum de falha de backup é que alguns arquivos estão em uso pelo aplicativo. Arquivos que estão em uso estão bloqueados durante a realização do backup. Isso impede a realização de backup desses arquivos e pode resultar em um status "Foi parcialmente bem-sucedida". Você pode potencialmente evitar que isso ocorra, excluindo arquivos do processo de backup. Você pode optar por fazer backup somente do que for necessário. Para obter mais informações, consulte [Fazer backup apenas das partes importantes do seu site com aplicativos web do Azure](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/).
+Uma causa comum de falha de backup é que alguns arquivos estão em uso pelo aplicativo. Arquivos que estão em uso estão bloqueados durante a realização do backup. Isso impede a realização de backup desses arquivos e pode resultar em um status "Foi parcialmente bem-sucedida". Você pode potencialmente evitar que isso ocorra, excluindo arquivos do processo de backup. Você pode optar por fazer backup somente do que for necessário. Para obter mais informações, consulte [Fazer backup apenas das partes importantes do seu site com aplicativos web do Azure](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Como remover um cabeçalho de resposta HTTP?
 
@@ -287,7 +288,7 @@ Para obter documentação detalhada para autenticação e autorização no Servi
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Como redirecionar o domínio padrão *. azurewebsites.net para o domínio personalizado do meu aplicativo web do Azure?
 
-Quando você cria um novo site por meio de aplicativos Web no Azure, um domínio padrão *sitename*.azurewebsites.net é atribuído ao seu site. Se você adicionar um nome do host personalizado para seu site e não deseja que os usuários possam acessar seu padrão domínio *. azurewebsites.net, você pode redirecionar a URL padrão. Para saber como redirecionar todo o tráfego do domínio de padrão do seu site para seu domínio personalizado, consulte [Redirecionar o domínio padrão para seu domínio personalizado em aplicativos web do Azure](http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/).
+Quando você cria um novo site por meio de aplicativos Web no Azure, um domínio padrão *sitename*.azurewebsites.net é atribuído ao seu site. Se você adicionar um nome do host personalizado para seu site e não deseja que os usuários possam acessar seu padrão domínio *. azurewebsites.net, você pode redirecionar a URL padrão. Para saber como redirecionar todo o tráfego do domínio de padrão do seu site para seu domínio personalizado, consulte [Redirecionar o domínio padrão para seu domínio personalizado em aplicativos web do Azure](http://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Como determinar qual versão do .NET versão está instalada no Serviço de Aplicativo?
 

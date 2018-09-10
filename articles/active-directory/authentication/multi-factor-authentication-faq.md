@@ -4,23 +4,25 @@ description: Perguntas frequentes e respostas relacionadas à Autenticação Mul
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 226400c6da5db589db6ce2f1887c3e96cf9e1f14
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: b6f1185a94f865578d9a6514fb6841f8811b2230
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146300"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
 
 Estas perguntas frequentes respondem a perguntas comuns sobre a Autenticação Multifator do Azure e sobre o uso do serviço de Autenticação Multifator. Ele é dividido em perguntas sobre o serviço em geral, modelos, experiências do usuário, de cobrança e solução de problemas.
 
 ## <a name="general"></a>Geral
+
 **P: Como o Servidor de Autenticação Multifator do Azure lida com os dados do usuário?**
 
 Com o Servidor de Autenticação Multifator, os dados do usuário são armazenados apenas em servidores locais. Nenhum dado de usuário persistente é armazenado na nuvem. Quando o usuário executa a verificação em duas etapas, o Servidor de Autenticação Multifator envia dados ao serviço de nuvem da Autenticação Multifator do Azure para autenticação. A comunicação entre o Servidor de Autenticação Multifator e o serviço de nuvem da Autenticação Multifator usa o protocolo SSL (Secure Sockets Layer) ou TLS (Transport Layer Security) pela porta de saída 443.
@@ -59,6 +61,7 @@ Nos Canadá, a Microsoft usa os seguintes códigos curtos de SMS:
 A Microsoft não garante a entrega de prompt consistente de Autenticação multifator com base em voz ou SMS pelo mesmo número. Pensando no melhor para nossos usuários, a Microsoft pode adicionar ou remover códigos curtos a qualquer momento, pois fazemos ajustes de rota para melhorar a capacidade de entrega de SMS. A Microsoft não tem suporte para códigos curtos para países além dos Estados Unidos e Canadá
 
 ## <a name="billing"></a>Cobrança
+
 A maioria das perguntas de cobranças podem ser respondidas consultando o [Página de preços de Autenticação Multifator](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) ou a documentação sobre [Como obter Autenticação Multifator do Azure](concept-mfa-licensing.md).
 
 **P: é a minha organização cobrada para enviar as chamadas telefônicas e mensagens de texto que são usadas para autenticação?**
@@ -117,8 +120,7 @@ O Azure Active Directory é necessário para o modelo de licença porque as lice
 
 Espero que todos os usuários configuraram mais de um método de verificação. Peça que ele tente entrar novamente, mas selecione um método de verificação diferente na página de entrada.
 
-Você pode apontar os usuários a [guia de solução de problemas do usuário final](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
-
+Você pode apontar os usuários a [guia de solução de problemas do usuário final](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
 **P: o que devo fazer se um dos meus usuários não é possível obter sua conta?**
 
@@ -130,7 +132,7 @@ Para evitar acesso não autorizado, exclua as senhas do todos os usuários aplic
 
 **P: E se um usuário não conseguir entrar em aplicativos que não são acessados por navegador?**
 
-Se sua organização usa ainda clientes herdados e você [permitido o uso de senhas de aplicativo](howto-mfa-mfasettings.md#app-passwords), em seguida, os usuários não conseguem entrar nesses clientes herdados com seu nome de usuário e senha. Em vez disso, eles precisam [configurar senhas de aplicativo](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md). Os usuários devem limpar (excluir) suas informações de logon, reinicie o aplicativo e entre com seu nome de usuário e *senha de aplicativo* em vez de regulares de senha.
+Se sua organização usa ainda clientes herdados e você [permitido o uso de senhas de aplicativo](howto-mfa-mfasettings.md#app-passwords), em seguida, os usuários não conseguem entrar nesses clientes herdados com seu nome de usuário e senha. Em vez disso, eles precisam [configurar senhas de aplicativo](../user-help/multi-factor-authentication-end-user-app-passwords.md). Os usuários devem limpar (excluir) suas informações de logon, reinicie o aplicativo e entre com seu nome de usuário e *senha de aplicativo* em vez de regulares de senha.
 
 Se sua organização não tiver clientes herdados, você não deve permitir que os usuários criem senhas de aplicativo.
 
@@ -195,8 +197,8 @@ Há vários motivos que os usuários podem ser solicitados para registrar as inf
 - A organização criou e ativado uma diretiva de registro de MFA que foi aplicada ao usuário.
 - O usuário registrado para MFA anteriormente, mas escolher um método de verificação que um administrador como desabilitado. O usuário, portanto, deve passar pelo registro MFA novamente para selecionar um novo método de verificação padrão.
 
-
 ## <a name="errors"></a>Errors
+
 **P: o que os usuários deverão fazer se receberem uma mensagem de erro "A solicitação de autenticação não é para uma conta ativada" ao usar notificações de aplicativo móvel?**
 
 Diga siga este procedimento para remover a conta do aplicativo móvel e adicione-a novamente:
@@ -213,9 +215,10 @@ O erro 0x800434D4L ocorre ao tentar entrar em um aplicativo sem navegador, insta
 Uma solução alternativa para esse erro é ter contas de usuário separadas para operações administrativas e não administrativas. Posteriormente, você pode vincular caixas de correio entre a conta administrativa e a conta não administrativa para que seja possível entrar no Outlook usando a conta não administrativa. Para obter mais detalhes sobre isso, saiba como [fornecer a um administrador a capacidade de abrir e exibir o conteúdo da caixa de correio de um usuário](http://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Se sua pergunta não foi respondida aqui, deixe-a nos comentários na parte inferior da página. Ou então, aqui estão algumas opções adicionais para obter ajuda:
 
-* Pesquise a [Base de Dados de Conhecimento de Suporte da Microsoft](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) para obter soluções para problemas técnicos comuns.
+* Pesquise a [Base de Dados de Conhecimento de Suporte da Microsoft](https://www.microsoft.com/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) para obter soluções para problemas técnicos comuns.
 * Pesquise e procure perguntas e respostas técnicas da comunidade ou faça sua própria pergunta nos [fóruns do Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * Se você for um cliente herdado do PhoneFactor e tiver perguntas ou precisar de ajuda para redefinir uma senha, use o link [redefinição de senha](mailto:phonefactorsupport@microsoft.com) para abrir um caso de suporte.
 * Entre em contato com um profissional de suporte por meio do [suporte do Servidor de Autenticação Multifator do Azure (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947). Ao entrar em contato conosco, é útil incluir o máximo possível de informações sobre o problema. As informações que você pode fornecer incluem a página em que viu o erro, o código de erro específico, a ID da sessão específica e a ID do usuário que viu o erro.

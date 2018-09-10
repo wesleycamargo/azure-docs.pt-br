@@ -1,11 +1,11 @@
 ---
-title: "Modelos de página no Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba como personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos no Gerenciamento de API do Azure."
+title: Modelos de página no Gerenciamento de API do Azure | Microsoft Docs
+description: Saiba como personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos no Gerenciamento de API do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: e57df269-1019-4b74-b74d-53155b809d59
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27744990"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelos de página no Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configura o respectivo conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como o [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), bem como um conjunto fornecido de [Recursos de cadeia de caracteres](api-management-template-resources.md#strings), [Recursos do Glyph](api-management-template-resources.md#glyphs) e [Controles de página](api-management-page-controls.md) localizados, você tem grande flexibilidade para configurar o conteúdo das páginas, conforme a necessidade, usando esses modelos.  

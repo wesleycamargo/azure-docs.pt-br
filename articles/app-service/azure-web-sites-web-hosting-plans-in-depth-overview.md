@@ -1,12 +1,12 @@
 ---
-title: "Visão geral dos planos do Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Saiba como os planos do Serviço de Aplicativo para o Serviço de Aplicativo do Azure funcionam e como eles beneficiam sua experiência de gerenciamento."
-keywords: "serviço de aplicativo, serviço de aplicativo do azure, escala, escalonável, escalabilidade, plano de serviço de aplicativo, custo de serviço de aplicativo"
+title: Visão geral dos planos do Serviço de Aplicativo do Azure | Microsoft Docs
+description: Saiba como os planos do Serviço de Aplicativo para o Serviço de Aplicativo do Azure funcionam e como eles beneficiam sua experiência de gerenciamento.
+keywords: serviço de aplicativo, serviço de aplicativo do azure, escala, escalonável, escalabilidade, plano de serviço de aplicativo, custo de serviço de aplicativo
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862352"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano do Serviço de Aplicativo do Azure
 

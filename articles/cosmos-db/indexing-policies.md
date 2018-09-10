@@ -3,22 +3,19 @@ title: Políticas de indexação do Azure Cosmos DB | Microsoft Docs
 description: Entenda como funciona a indexação no Azure Cosmos DB. Saiba como configurar e alterar a política de indexação para indexação automática e um melhor desempenho.
 keywords: como funciona a indexação, indexação automática, banco de dados de indexação
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 277ddd5777ff8edf5195e79885929e3a8c758d7c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d7cbeebff42bddd93cac35a0205d031a90bb4715
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146101"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como o Azure Cosmos DB indexa dados?
 
@@ -39,6 +36,22 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 * Como configurar a indexação para executar consultas ORDER BY ou de intervalo?
 * Como fazer alterações à política de indexação de uma coleção?
 * Como posso comparar armazenamento e desempenho de políticas de indexação diferentes?
+
+## <a id="Indexing"></a> Indexação do Cosmos DB
+
+O objetivo de índices de bancos de dados é atender a consultas em suas diversas formas com um consumo mínimo de recursos (como CPU, entrada/saída), oferecendo alta produtividade e baixa latência. Frequentemente, a escolha do índice correto para consultar um banco de dados requer muito planejamento e experimentação. Esta abordagem representa um desafio para bancos de dados sem esquemas, nos quais os dados não seguem um esquema rígido e evoluem rapidamente. 
+
+Portanto, quando criamos o subsistema de indexação do Cosmos DB, definimos os seguintes objetivos:
+
+* Indexar documentos sem precisar de um esquema: o subsistema de indexação não requer nenhuma informação de esquema e não faz suposições sobre o esquema dos documentos.  
+
+* Suporte para pesquisas hierárquicas e relacionais avançadas e eficientes: o índice dá suporte à linguagem de pesquisa do Cosmos DB de maneira eficiente, incluindo suporte para projeções hierárquicas e relacionais.  
+
+* Suporte para consultas consistentes diante do grande volume de gravações: para possibilitar cargas de trabalho com alta produtividade de gravação com consultas consistentes, o índice é atualizado gradativamente, eficientemente e online, em face de um volume contínuo de gravações. A atualização consistente do índice é crucial para atender às consultas no nível de consistência em que o usuário configurou o sistema.  
+
+* Suporte a multilocatário: dado o modelo baseado em reserva para a governança de recurso entre os locatários, as atualizações do índice são realizadas dentro do orçamento dos recursos do sistema (CPU, memória e operações de entrada/saída por segundo) alocados por réplica.  
+
+* Eficiência no armazenamento: para manter um bom custo-benefício, a sobrecarga do armazenamento em disco do índice é vinculada e previsível. Isto é fundamental porque o Cosmos DB permite que o desenvolvedor faça compensações baseadas em custo entre a sobrecarga do índice em relação ao desempenho da consulta.  
 
 ## Personalizar a política de indexação de uma coleção <a id="CustomizingIndexingPolicy"></a>  
 É possível personalizar as compensações entre armazenamento, desempenho de consultas e gravação e consistência de consultas, substituindo a política de indexação padrão em uma coleção do Azure Cosmos DB. É possível configurar os seguintes aspectos:
@@ -79,9 +92,9 @@ O Azure Cosmos DB dá suporte a três modos de indexação que são possíveis d
 
 A indexação consistente dá suporte a consultas consistentes ao custo de uma possível redução na taxa de transferência de gravação. Essa redução é uma função dos caminhos exclusivos que precisam ser indexados e do "nível de consistência." O modo de indexação consistente foi projetado para cargas de trabalho de "gravação rápida, consulta imediata”.
 
-**Lento**:  o índice é atualizado de forma assíncrona quando uma coleção do Azure Cosmos DB está inativa, ou seja, quando a capacidade de taxa de transferência da coleção não é totalmente utilizada para atender às solicitações do usuário. O modo de indexação Lento pode ser adequado para cargas de trabalho "ingerir agora, consultar depois" que exigem a ingestão de documentos. Observe que é possível obter resultados inconsistentes devido aos dados sendo ingeridos e indexados lentamente. Isso significa que suas consultas COUNT ou resultados de consulta específica podem não ser consistentes ou repetitivos em um determinado momento. 
+**Lento**:  o índice é atualizado de forma assíncrona quando uma coleção do Azure Cosmos DB está inativa, ou seja, quando a capacidade de taxa de transferência da coleção não é totalmente utilizada para atender às solicitações do usuário.  Observe que é possível obter resultados inconsistentes devido aos dados sendo ingeridos e indexados lentamente. Isso significa que suas consultas COUNT ou resultados de consulta específica podem não ser consistentes ou repetitivos em determinado momento. 
 
-O índice geralmente está em modo de atualização com dados ingeridos. Com indexação em modo Lento, as mudanças de vida útil resultam em que o índice seja ignorado e recriado. Isso torna o COUNT e os resultados da consulta inconsistentes por um período de tempo. Devido a isso, a maioria das contas do Azure Cosmos DB devem usar o modo de indexação Consistente.
+O índice geralmente está em modo de atualização com dados ingeridos. Com indexação em modo Lento, as mudanças de vida útil resultam em que o índice seja ignorado e recriado. Isso torna o COUNT e os resultados da consulta inconsistentes por um período de tempo. A maioria das contas do Azure Cosmos DB deve usar o modo de indexação Consistente.
 
 **Nenhum**: uma coleção que possui um modo de índice Nenhum não possui índices associados à coleção. Isso é comumente usado se o Azure Cosmos DB for usado como um armazenamento de chave-valor e os documentos são acessados apenas pela propriedade ID. 
 
@@ -147,6 +160,7 @@ Estes são os padrões comuns para especificar caminhos de índice:
 
 O exemplo a seguir configura um caminho específico com índice do Intervalo e um valor de precisão personalizado de 20 bytes:
 
+```
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
     collection.IndexingPolicy.IncludedPaths.Add(
@@ -167,7 +181,74 @@ O exemplo a seguir configura um caminho específico com índice do Intervalo e u
         });
 
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
+```
 
+Quando um caminho é adicionado para indexação, números e cadeias de caracteres dentro desses caminhos são indexadas. Portanto, mesmo que você defina a indexação de cadeias de caracteres apenas, Azure Cosmos DB adiciona a definição padrão para números também. Em outras palavras, o Azure Cosmos DB tem a capacidade de exclusão do caminho da política de indexação, mas não a exclusão de um caminho específico. A seguir está um exemplo, observe que apenas um índice é especificado para os dois caminhos (Caminho = "/ *" e o Caminho = "/\"attr1\"/?"), mas o tipo de dados de número também é adicionado ao resultado.
+
+```
+var indices = new[]{
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 }// <- note: only 1 index specified
+                    },
+                    Path =  "/*"
+                },
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 } // <- note: only 1 index specified
+                    },
+                    Path =  "/\"attr1\"/?"
+                }
+            };...
+
+            foreach (var index in indices)
+            {
+                documentCollection.IndexingPolicy.IncludedPaths.Add(index);
+            }
+```
+
+Resultado da criação de índice:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        },
+        {
+            "path": "/\"attr\"/?",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        }
+    ],
+}
+```
 
 ### <a name="index-data-types-kinds-and-precisions"></a>Tipos de dados, tipos de índices e precisões
 Você possui várias opções quando configura a política de indexação para um caminho. Você pode especificar uma ou mais definições de indexação para cada caminho:
@@ -229,11 +310,11 @@ O exemplo a seguir mostra como aumentar a precisão dos índices de Intervalo em
 
 Da mesma forma, será possível excluir completamente os caminhos da indexação. O próximo exemplo mostra como excluir uma seção inteira dos documentos (uma *subárvore*) da indexação, usando o operador curinga \*.
 
-    var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
+    var excluded = new DocumentCollection { Id = "excludedPathCollection" };
+    excluded.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+    excluded.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
 
 
@@ -258,9 +339,9 @@ No Azure Cosmos DB é possível fazer alterações na política de indexação d
 
 ![Como funciona a indexação – Transformações de índice online do Azure Cosmos DB](./media/indexing-policies/index-transformations.png)
 
-As transformações do índice são feitas online. Isso significa que os documentos indexados pela política antiga serão transformados com eficiência pela nova política *sem afetar a disponibilidade de gravação ou a taxa de transferência* provisionada da coleção. A consistência das operações de leitura e gravação feitas usando a API REST, SDKs ou em gatilhos e procedimentos armazenados não será afetada durante a transformação do índice. Não haverá degradação de desempenho ou tempo de inatividade em seus aplicativos ao fazer uma alteração de política de indexação.
+As transformações do índice são feitas online. Isso significa que os documentos indexados pela política antiga serão transformados com eficiência pela nova política *sem afetar a disponibilidade de gravação ou a taxa de transferência* provisionada da coleção. A consistência das operações de leitura e gravação feitas usando a API REST, SDKs ou em gatilhos e procedimentos armazenados não será afetada durante a transformação do índice. 
 
-No entanto, durante o tempo em que a transformação de índice estiver em andamento, as consultas por fim serão consistentes, independentemente da configuração do modo indexação (Consistente ou Lento). Isso também se aplica a consultas de todas as interfaces: API REST, SDKs ou de gatilhos e procedimentos armazenados. Assim como com a indexação no modo Lento, a transformação do índice é realizada de forma assíncrona em segundo plano nas réplicas, usando os recursos de reposição disponíveis para uma réplica específica. 
+Alterar a política de indexação é um processo assíncrono e o tempo para concluir a operação depende do número de documentos, o RUs provisionados e o tamanho dos documentos. Enquanto a reindexação está em andamento, a consulta não pode retornar todos os resultados se a consulta usar o índice que está sendo modificado e consultas correspondentes não retornarão quaisquer erros/falhas. Enquanto a reindexação estiver em andamento, as consultas são eventualmente consistentes, independentemente da configuração do modo de indexação (consistente ou lento). Após o índice transformação ser concluído, você continuará ver resultados consistentes. Isso também se aplica a consultas de todas as interfaces: API REST, SDKs ou de gatilhos e procedimentos armazenados. Assim como com a indexação no modo Lento, a transformação do índice é realizada de forma assíncrona em segundo plano nas réplicas, usando os recursos de reposição disponíveis para uma réplica específica. 
 
 Transformações de índice também são feitas in-loco. O Azure Cosmos DB não mantém duas cópias do índice e troca o índice antigo por um novo. Isso significa que nenhum espaço em disco adicional é necessário ou consumido em suas coleções, enquanto as transformações de índice ocorrem.
 
@@ -309,7 +390,7 @@ Você pode remover o índice de uma coleção mudando para o modo de indexação
 **Ignorar o índice para uma coleção**
 
     // Switch to Lazy indexing mode.
-    Console.WriteLine("Dropping index by changing to to the None IndexingMode.");
+    Console.WriteLine("Dropping index by changing to the None IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.None;
 

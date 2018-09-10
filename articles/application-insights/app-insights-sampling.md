@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: mbullwin; vitalyg
-ms.openlocfilehash: 53753a3202362c73356e8e39bfca9d813f6387e0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: vitalyg
+ms.author: mbullwin
+ms.openlocfilehash: b1dd37c07f3c887005d87e3231f62a4bca2f4a3d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869896"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093108"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -281,7 +282,7 @@ Em vez de definir o parâmetro de amostragem no arquivo .config, você pode defi
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
     ...
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.UseSampling(10.0); // percentage
 
     // If you have other telemetry processors:
@@ -326,9 +327,12 @@ Se as condições para usar outras formas de amostragem não se aplicarem, é re
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>Como saber se a amostragem está em operação?
 Para descobrir a taxa de amostragem real, independentemente de onde ela tiver sido aplicada, use uma [consulta do Analytics](app-insights-analytics.md) como esta:
 
-    requests | where timestamp > ago(1d)
-    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
-    | render areachart 
+```
+union * 
+| where timestamp > ago(1d)
+| summarize 100/avg(itemCount) by bin(timestamp, 1h), itemType
+| render timechart 
+```
 
 Em cada registro retido, o `itemCount` indica o número de registros originais que ele representa, igual a 1 + o número de registros descartados anteriormente. 
 

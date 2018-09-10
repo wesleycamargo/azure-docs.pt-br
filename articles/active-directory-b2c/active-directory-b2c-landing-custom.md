@@ -1,23 +1,24 @@
 ---
-title: 'Azure Active Directory B2C: Página de Aterrissagem das Políticas Personalizadas | Microsoft Docs'
-description: Desenvolvendo aplicativos voltados para o consumidor com o Azure Active Directory B2C usando políticas personalizadas
+title: Políticas personalizadas do Azure Active Directory B2C | Microsoft Docs
+description: Desenvolvendo aplicativos voltados para o consumidor com o Azure Active Directory B2C usando políticas personalizadas.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/06/2017
 ms.author: davidmu
-ms.openlocfilehash: f3db8c80d6faef3af0909efb7306dd7aa0336ab0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 26469d735d7165e8b21665df6c169bc4668d8a5a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440511"
 ---
-# <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C: inscrever e realizar a entrada de consumidores em seus aplicativos usando políticas personalizadas
+# <a name="sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies-in-azure-active-directory-b2c"></a>Inscrever e conectar consumidores em seus aplicativos usando políticas personalizadas no Azure Active Directory B2C
+
 Políticas personalizadas são arquivos de configuração que definem o comportamento do locatário do Azure AD B2C. Elas podem ser editadas diretamente por um desenvolvedor de identidade para realizar um número quase ilimitado de tarefas.
 
 ## <a name="how-to-articles"></a>Artigos de instruções

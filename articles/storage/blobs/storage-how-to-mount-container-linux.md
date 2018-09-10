@@ -2,20 +2,17 @@
 title: Como montar Armazenamento de Blobs do Azure como um sistema de arquivos no Linux | Microsoft Docs
 description: Montar um contêiner de Armazenamento de Blobs do Azure com FUSE no Linux
 services: storage
-documentationcenter: linux
 author: seguler
-manager: jahogg
 ms.service: storage
-ms.devlang: bash
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: seguler
-ms.openlocfilehash: 1098eef15b559c30ef436d8e13bbe02bddb78649
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 9964aa4d263e0b75eb59b4e1434a9b3f0aac6ea1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072085"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400179"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Como montar o Armazenamento de Blobs como um sistema de arquivos com blobfuse
 
@@ -79,7 +76,7 @@ sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 ```
 
 ### <a name="use-an-ssd-for-temporary-path"></a>Use um SSD para o caminho temporário
-No Azure, é possível usar os discos efêmeros (SSD) disponíveis em suas VMs para fornecer um buffer de baixa latência para blobfuse. Nas distribuições Ubuntu, esse disco efêmero é montado em '/mnt', enquanto que nas distribuições RedHat e CentOS é montado em '/mnt/resource/'.
+No Azure, é possível usar os discos efêmeros (SSD) disponíveis em suas VMs para fornecer um buffer de baixa latência para blobfuse. Nas distribuições Ubuntu, esse disco efêmero é montado em ' / /mnt ', enquanto ele é montado em ' / /mnt/Resource/ ' nas distribuições RedHat e CentOS.
 
 Certifique-se de que seu usuário tenha acesso ao caminho temporário:
 ```bash

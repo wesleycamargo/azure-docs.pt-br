@@ -3,24 +3,25 @@ title: 'Tutorial: funções definidas pelo usuário do JavaScript do Azure Strea
 description: Neste tutorial, execute o mecanismo de consulta avançada com funções definidas pelo usuário do JavaScript
 keywords: javascript, funções definidas pelo usuário, udf
 services: stream-analytics
-author: SnehaGunda
+author: rodrigoamicrosoft
 manager: kfile
 ms.assetid: ''
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
-ms.author: sngun
-ms.openlocfilehash: f3a94017b95eb614669fa42594fe3a3499c74be7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rodrigoa
+ms.openlocfilehash: a50b96f128fb32b8ac7b7b9971beeb3b12397b5f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39184971"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: funções definidas pelo usuário do JavaScript do Stream Analytics do Azure
-
+ 
 O Stream Analytics do Azure dá suporte a funções definidas pelo usuário gravadas em JavaScript. Com o conjunto avançado dos métodos **String**, **RegExp**, **Math**, **Array** e **Date** fornecidos pelo JavaScript, as transformações de dados complexas com trabalhos do Stream Analytics se tornam mais fáceis de serem criadas.
 
 Neste tutorial, você aprenderá como:
@@ -64,7 +65,7 @@ Para criar uma função definida pelo usuário do JavaScript simples em um traba
     }
     ```
 
-6.  Selecione **Salvar**. Sua função é exibida na lista de funções.
+6.  Clique em **Salvar**. Sua função é exibida na lista de funções.
 7.  Selecione a nova função **hex2Int** e verifique a definição de função. Todas as funções têm um prefixo **UDF** adicionado ao alias de função. Você precisa *incluir o prefixo* ao chamar a função na consulta do Stream Analytics. Nesse caso, você chama **UDF.hex2Int**.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chamar uma função definida pelo usuário do JavaScript em uma consulta
@@ -93,7 +94,7 @@ As funções definidas pelo usuário do JavaScript do Stream Analytics do Azure 
 
 Há diferenças nos tipos com suporte na linguagem de consulta do Stream Analytics e no JavaScript. Esta tabela lista os mapeamentos de conversão entre os dois:
 
-Análise de fluxo | JavaScript
+Stream Analytics | JavaScript
 --- | ---
 bigint | Número (o JavaScript pode representar apenas o inteiro até 2^53 exatamente)
 Datetime | Data (o JavaScript dá suporte somente a milissegundos)
@@ -107,7 +108,7 @@ NULO | Nulo
 Aqui estão as conversões de JavaScript para Stream Analytics:
 
 
-JavaScript | Análise de fluxo
+JavaScript | Stream Analytics
 --- | ---
 Número | Bigint (se o número for arredondado e estiver entre long.MinValue e long.MaxValue; caso contrário, será dobrado)
 Data | Datetime

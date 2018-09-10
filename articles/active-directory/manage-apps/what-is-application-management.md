@@ -8,24 +8,24 @@ manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/15/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 1a8db218309eb48650443f1c9d57fe1ecdf04a6a
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: bf53829a2d2578132f9a3595c0bac5e8eb588916
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34058161"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366764"
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gerenciamento de aplicativos com o Active Directory do Azure
 Além do fluxo de trabalho ou do conteúdo real, as empresas têm dois requisitos básicos para todos os aplicativos:
 
 1. Para aumentar a produtividade, os aplicativos devem ser fáceis de descobrir e acessar
-2. Para habilitar a segurança e governança, a organização precisa controlar e supervisionar quem pode e, na verdade, está acessando cada aplicativo
+2. Para habilitar a segurança e governança, a organização precisa controlar e supervisionar quem pode e quem está de fato acessando cada aplicativo
 
 No mundo dos aplicativos na nuvem, a melhor maneira de obter isso é usar uma identidade para controlar “*QUEM tem permissão para fazer O QUE*.”
 
@@ -100,7 +100,7 @@ Alguns aplicativos fornecem interfaces de automação para a criação e remoç�
 Com o Azure Active Directory, é possível gerenciar o acesso a aplicativos usando atribuições individuais ou orientadas por regras. Você também pode delegar o gerenciamento de acesso para as pessoas certas na organização, garantindo a melhor supervisão e reduzindo a carga sobre a assistência técnica.
 
 ## <a name="on-premises-applications"></a>Aplicativos locais
-O proxy de aplicativo interno permite que você publique seus aplicativos locais para seus usuários, resultando em uma experiência de acesso consistente com o aplicativo em nuvem moderno e nos benefícios dos recursos de monitoramento, relatórios e segurança do AD do Azure.
+O proxy de aplicativo interno permite que você publique seus aplicativos locais para seus usuários, resultando em uma experiência de acesso consistente com o aplicativo em nuvem moderno e nos benefícios dos recursos de monitoramento, relatórios e segurança do Azure Active Directory.
 
 ## <a name="reporting-and-monitoring"></a>Relatórios e monitoramento
 O AD do Azure fornece recursos integrados de relatórios e monitoramento que permitem saber quem tem acesso aos aplicativos e quando eles realmente os usaram.

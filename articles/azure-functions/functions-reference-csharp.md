@@ -3,7 +3,7 @@ title: Referência do desenvolvedor de scripts C# do Azure Functions
 description: Entenda como desenvolver Azure Functions usando script C#.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
-ms.author: tdykstra
-ms.openlocfilehash: 9de8119cbde486800639bc5f3559a1a2859ec204
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: glenga
+ms.openlocfilehash: 8206b4a0673c9744abf74e75a06d20e064475349
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344266"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do desenvolvedor de scripts C# (.csx) do Azure Functions
 
@@ -201,17 +202,19 @@ A diretiva `#load` só funciona com arquivos *.csx*, não com arquivos *.cs*.
 
 Use um valor retornado de um método em uma associação de saída, usando o nome `$return` em *function.json*. Para obter exemplos, consulte [Gatilhos e associações](functions-triggers-bindings.md#using-the-function-return-value).
 
+Use o valor retornado apenas se uma execução de função com êxito sempre resultar em um valor retornado a ser passado para a associação de saída. Caso contrário, use `ICollector` ou `IAsyncCollector`, conforme mostrado na seção a seguir.
+
 ## <a name="writing-multiple-output-values"></a>Gravando vários valores de saída
 
-Para gravar vários valores em uma associação de saída, use os tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Esses tipos são coleções somente gravação que são gravadas na associação de saída quando o método é concluído.
+Para gravar vários valores em uma associação de saída ou se uma invocação de função com êxito não resultar em nada a ser passado para a associação de saída, use os tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Esses tipos são coleções somente gravação que são gravadas na associação de saída quando o método é concluído.
 
 Este exemplo grava várias mensagens de fila na mesma fila usando `ICollector`:
 
 ```csharp
-public static void Run(ICollector<string> myQueueItem, TraceWriter log)
+public static void Run(ICollector<string> myQueue, TraceWriter log)
 {
-    myQueueItem.Add("Hello");
-    myQueueItem.Add("World!");
+    myQueue.Add("Hello");
+    myQueue.Add("World!");
 }
 ```
 
@@ -244,6 +247,8 @@ public async static Task ProcessQueueMessageAsync(
     await blobInput.CopyToAsync(blobOutput, 4096);
 }
 ```
+
+Não é possível usar parâmetros `out` em funções assíncronas. Para associações de saída, use o [valor de retorno de função](#binding-to-method-return-value) ou um [objeto coletor](#writing-multiple-output-values).
 
 ## <a name="cancellation-tokens"></a>Tokens de cancelamento
 
@@ -409,6 +414,8 @@ public static string GetEnvironmentVariable(string name)
         System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
 }
 ```
+
+A propriedade [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) é uma API alternativa para obter os valores de configuração do aplicativo, mas é recomendável que você use `GetEnvironmentVariable` conforme mostrado aqui.
 
 <a name="imperative-bindings"></a> 
 

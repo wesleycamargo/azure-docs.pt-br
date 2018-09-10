@@ -13,14 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/05/2017
+ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc6fba89571515d0d2d7ed3ecc35c3065405056b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a31ca4dc326eb6ada37813cacd8bb1dc337c7fdc
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044235"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli-20"></a>Tutorial: Criar e implantar máquinas virtuais altamente disponíveis com a CLI 2.0 do Azure
 
@@ -78,10 +79,11 @@ for i in `seq 1 2`; do
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
+     --vnet-name myVnet \
+     --subnet mySubnet \
      --image UbuntuLTS \
      --admin-username azureuser \
-     --generate-ssh-keys \
-     --no-wait
+     --generate-ssh-keys
 done
 ```
 
@@ -93,7 +95,7 @@ A distribuição do conjunto de disponibilidade pode ser exibida no portal, vá 
 
 ## <a name="check-for-available-vm-sizes"></a>Conferir os tamanhos de VM disponíveis
 
-VMs adicionais podem ser adicionadas ao conjunto de disponibilidade mais tarde, onde os tamanhos de VM estão disponíveis no hardware. Use [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade:
+VMs adicionais podem ser adicionadas ao conjunto de disponibilidade mais tarde, onde os tamanhos de VM estão disponíveis no hardware. Use [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az-vm-availability-set-list-sizes) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade:
 
 ```azurecli-interactive
 az vm availability-set list-sizes \

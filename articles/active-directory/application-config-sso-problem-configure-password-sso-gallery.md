@@ -3,22 +3,23 @@ title: Problema ao configurar o logon único com senha para um aplicativo na Gal
 description: Compreender os problemas comuns que as pessoas enfrentam ao configurar o Logon Único com Senha para aplicativos já listados na Galeria do Aplicativo Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: f19b684a6c7426134844a2657b886280af2f061c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.openlocfilehash: 01b77fc2521c221594a38b3731694115adf82e2c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067054"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617318"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único com senha para um aplicativo na Galeria do Azure AD
 
@@ -30,7 +31,7 @@ Este problema geralmente acontece se o fornecedor do aplicativo alterou a págin
 
 Ainda que a Microsoft possua tecnologias para detectar automaticamente quando integrações interrompem, talvez não seja possível localizar esses problemas imediatamente ou os problemas levem algum tempo para serem corrigidos. Quando uma dessas integrações não funcionar corretamente, abra um caso de suporte para que seja corrigido o mais rapidamente possível.
 
-**Se você estiver em contato com o fornecedor desse aplicativo,** coloque-o em contato conosco de modo que a Microsoft possa trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](./develop/active-directory-app-gallery-listing.md) para iniciá-los.
+**Se você estiver em contato com o fornecedor desse aplicativo,** coloque-o em contato conosco de modo que a Microsoft possa trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](develop/howto-app-gallery-listing.md) para iniciá-los.
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>As credenciais estão preenchidas e enviadas, mas a página indica que as credenciais estão incorretas
 
@@ -58,7 +59,7 @@ Caso as sugestões anteriores não funcionem, pode ser que tenha ocorrido uma al
 
 Ainda que a Microsoft possua tecnologias para detectar automaticamente quando integrações interrompem, talvez não seja possível localizar esses problemas imediatamente ou os problemas levem algum tempo para serem corrigidos. Quando uma integração não funciona corretamente, você pode abrir um caso de suporte para arrumar o problema o mais rápido possível. 
 
-Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](./develop/active-directory-app-gallery-listing.md) para iniciá-los.
+Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](develop/howto-app-gallery-listing.md) para iniciá-los.
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>A extensão funciona no Chrome e no Firefox, mas não no Internet Explorer
 
@@ -72,7 +73,7 @@ Existem duas principais causas para esse problema:
 
    * Infelizmente, essa situação pode variar dependendo da versão do navegador, da velocidade do computador ou do site visitado. Nesse caso, sugerimos que você contate o suporte para que possamos corrigir a integração para esse aplicativo específico.
 
-Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](./develop/active-directory-app-gallery-listing.md) para iniciá-los.
+Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](develop/howto-app-gallery-listing.md) para iniciá-los.
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Verifique se a página de logon do aplicativo foi alterada recentemente ou exige um campo adicional
 
@@ -80,7 +81,7 @@ Se a página de logon do aplicativo foi drasticamente alterada, às vezes isso c
 
 Ainda que a Microsoft possua tecnologias para detectar automaticamente quando integrações interrompem, talvez não seja possível localizar esses problemas imediatamente ou os problemas levem algum tempo para serem corrigidos. Quando uma integração não funciona corretamente, você pode abrir um caso de suporte para arrumar o problema o mais rápido possível. 
 
-Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](./develop/active-directory-app-gallery-listing.md) para iniciá-los.
+Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](develop/howto-app-gallery-listing.md) para iniciá-los.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
 

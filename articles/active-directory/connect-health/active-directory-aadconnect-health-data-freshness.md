@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect Health - Alerta \"Os dados do serviço de integridade não estão atualizados\" | Microsoft Docs"
-description: "Este documento descreve a causa do alerta \"Os dados do serviço de integridade não estão atualizados\" e como solucioná-lo."
+title: Azure AD Connect Health - Alerta "Os dados do serviço de integridade não estão atualizados" | Microsoft Docs
+description: Este documento descreve a causa do alerta "Os dados do serviço de integridade não estão atualizados" e como solucioná-lo.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhiweiw
 manager: maheshu
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29715004"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Alerta "Os dados do serviço de integridade não estão atualizados"
 

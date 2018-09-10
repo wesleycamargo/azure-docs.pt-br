@@ -2,25 +2,20 @@
 title: Autenticando e autorizando com Coleções de Espaços de Trabalho do Power BI | Microsoft Docs
 description: Autenticando e autorizando com Coleções de Espaços de Trabalho do Power BI.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 54eefc9c488718dae25e35ef0c5f0f5c50dea16c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041734"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticando e autorizando com Coleções de Espaços de Trabalho do Power BI
 
@@ -31,7 +26,7 @@ As Coleções de Espaços de Trabalho do Power BI usam **Chaves** e **Tokens de 
 
 ## <a name="two-ways-to-authenticate"></a>Duas maneiras de autenticar
 
-**Chave** – você pode usar chaves para todas as chamadas à API de REST das Coleções de Espaços de Trabalho do Power BI. As chaves podem ser encontradas no **Portal do Microsoft Azure** selecionando **Todas as configurações** e **Chaves de acesso**. Sempre use a chave como se fosse uma senha. Essas chaves têm permissões para fazer qualquer chamada à API REST em uma coleção de espaço de trabalho específica.
+**Chave** – você pode usar chaves para todas as chamadas à API de REST das Coleções de Espaços de Trabalho do Power BI. As chaves podem ser encontradas no **Portal do Microsoft Azure** selecionando **Todas as configurações** e **Chaves de acesso**. Sempre trate sua chave como se fosse uma senha. Essas chaves têm permissões para fazer qualquer chamada à API REST em uma coleção de espaço de trabalho específica.
 
 Para usar uma chave em uma chamada REST, adicione o seguinte cabeçalho de autorização:
 
@@ -43,10 +38,10 @@ Os tokens de aplicativo são um JWT (Token Web JSON) assinado por uma das suas c
 
 O token de seu aplicativo pode conter as seguintes declarações:
 
-| Declaração | DESCRIÇÃO |
+| Declaração | DESCRIÇÃO |    
 | --- | --- |
 | **ver** |A versão do token do aplicativo. A versão atual é 0.2.0. |
-| **aud** |O destinatário pretendido do token. Para Coleções de Espaço de Trabalho do Power BI use: “https://analysis.windows.net/powerbi/api.” |
+| **aud** |O destinatário pretendido do token. Para o uso de coleções de espaços de trabalho do Power BI: *https:\//analysis.windows.net/powerbi/api*. |
 | **iss** |Uma cadeia de caracteres que indica o aplicativo que emitiu o token. |
 | **tipo** |O tipo de token de aplicativo que está sendo criado. O único tipo com suporte atualmente é **incorporar**. |
 | **wcn** |Nome da coleção de espaços de trabalho para o qual o token foi emitido. |

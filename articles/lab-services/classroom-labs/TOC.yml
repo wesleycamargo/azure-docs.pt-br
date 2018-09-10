@@ -14,6 +14,8 @@
       href: tutorial-setup-classroom-lab.md
     - name: 3. Acessar um laboratório de sala de aula
       href: tutorial-connect-virtual-machine-classroom-lab.md
+    - name: 4. Acompanhar o uso de um laboratório de sala de aula
+      href: tutorial-track-usage.md
 - name: Guias de instruções
   items:
     - name: Gerenciar contas de laboratório

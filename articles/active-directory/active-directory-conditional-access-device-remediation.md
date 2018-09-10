@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: get-started-article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5ad9b01d3821b481fe3255c821e8674dcb26b322
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 664909fa78f2034c0750492e529b21cebc087e5c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723789"
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Não é possível chegar lá a partir deste ponto em um dispositivo do Windows
 
@@ -40,7 +42,7 @@ Se você estiver usando um dispositivo com **Windows**, verifique o seguinte:
 
 ## <a name="supported-browser"></a>Navegador com suporte
 
-Se o administrador tiver configurado uma política de acesso condicional, você só poderá acessar os recursos de sua organização usando um navegador com suporte. Em um dispositivo com Windows, há suporte apenas para o **Internet Explorer** e o **Microsoft Edge**.
+Se o administrador tiver configurado uma política de acesso condicional, você só poderá acessar os recursos de sua organização usando um navegador com suporte. Em um dispositivo com Windows, há suporte apenas para o **Internet Explorer** e o **Edge**.
 
 Basta olhar a seção de detalhes da página de erro para identificar facilmente se a falha no acesso a um recurso ocorreu devido à falta de suporte no navegador:
 

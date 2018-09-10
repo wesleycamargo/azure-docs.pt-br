@@ -6,20 +6,17 @@ keywords: restrição de chave exclusiva, violação de restrição de chave exc
 author: rafats
 manager: kfile
 editor: monicar
-documentationcenter: ''
-ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/21/2018
+ms.topic: conceptual
+ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: dd23f24fd817bfc443457dee30d2f3091c0d9f6b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 796971ff541b62a22a70df4022ab78817e7158e9
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003310"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chaves exclusivas no Azure Cosmos DB
 
@@ -34,7 +31,7 @@ Chaves exclusivas oferecem aos desenvolvedores a capacidade de adicionar uma cam
 
 Como exemplo, vamos ver como um banco de dados do usuário associado a um [aplicativo social](use-cases.md#web-and-mobile-applications) poderia se beneficiar de uma política de chave exclusiva em endereços de email. Ao fazer do endereço de email do usuário uma chave exclusiva, você assegura que cada registro tenha um endereço de email exclusivo, e nenhum novo registro pode ser criado com endereços de email duplicados. 
 
-Se você realmente desejar que os usuários possam criar diversos registros com o mesmo endereço de email, mas não com o mesmo nome, sobrenome e endereço de email, você pode adicionar outros caminhos para a política de chave exclusiva. Portanto, em vez de criar uma chave exclusiva simplesmente baseada em um endereço de email, você pode criar uma chave exclusiva que seja uma combinação do nome, sobrenome e email. Nesse caso, cada combinação exclusiva dos três caminhos é permitida, de modo que o banco de dados pode conter itens que tenham os valores de caminho a seguir. Cada um desses registros seria aprovado pela política de chave exclusiva.  
+Se você realmente desejar que os usuários possam criar diversos registros com o mesmo endereço de email, mas não com o mesmo nome, sobrenome e endereço de email, você pode adicionar outros caminhos para a política de chave exclusiva. Portanto, em vez de criar uma chave exclusiva baseada em um endereço de email, você pode criar uma chave exclusiva que seja uma combinação do nome, sobrenome e email. Nesse caso, cada combinação exclusiva dos três caminhos é permitida, de modo que o banco de dados pode conter itens que tenham os valores de caminho a seguir. Cada um desses registros seria aprovado pela política de chave exclusiva.  
 
 **Valores permitidos para uma chave exclusiva de firstName (nome), lastName (sobrenome) e email**
 
@@ -46,7 +43,7 @@ Se você realmente desejar que os usuários possam criar diversos registros com 
 |    |Duperre|gaby@fabrikam.com|
 |    |       |gaby@fabraikam.com|
 
-Se você tentasse inserir outro registro com qualquer uma das combinações listadas na tabela acima, receberia um erro indicando que a restrição de chave exclusiva não foi atendida. O erro que o Azure Cosmos DB retorna é "Recurso com a id ou o nome especificado já existe." ou "Recurso com a id, o nome ou índice exclusivo especificados já existe." 
+Se você tentasse inserir outro registro com qualquer uma das combinações listadas na tabela acima, receberia um erro indicando que a restrição de chave exclusiva não foi atendida. O erro que o Azure Cosmos DB retorna é "Recurso com a ID ou o nome especificado já existe." ou "Recurso com a id, o nome ou índice exclusivo especificados já existe." 
 
 ## <a name="using-unique-keys"></a>Usando chaves exclusivas
 
@@ -90,9 +87,8 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
                 new Collection<UniqueKey>
                 {
                     new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" }}
-                    new UniqueKey { Paths = new Collection<string> { "/address/zipCode" } },
-
-                }
+                    new UniqueKey { Paths = new Collection<string> { "/address/zipcode" } },
+          }
             };
             await client.CreateDocumentCollectionAsync(
                 UriFactory.CreateDatabaseUri(dataBase),
@@ -115,24 +111,44 @@ Exemplo de documento JSON.
     "firstName": "Gaby",
     "lastName": "Duperre",
     "email": "gaby@contoso.com",
-    "address": [
+    "address": 
         {            
             "line1": "100 Some Street",
             "line2": "Unit 1",
             "city": "Seattle",
             "state": "WA",
-            "zipCode": 98012
+            "zipcode": 98012
         }
-    ],
+    
 }
 ```
+> [!NOTE]
+> Observe que o nome da chave exclusiva diferencia maiúsculas de minúsculas. Conforme mostrado no exemplo acima, o nome exclusivo é definido para /address/zipcode. Se os dados tiverem um ZipCode, "null" será inserido na chave exclusiva como CEP diferente de ZipCode. Devido a essa diferenciação de maiúsculas de minúsculas, todos os outros registros com ZipCode que não poderão ser inseridos como "null" duplicado violarão a restrição de chave exclusiva.
+
 ## <a name="mongodb-api-sample"></a>Exemplo de API do MongoDB
 
 O exemplo de comando a seguir mostra como criar um índice exclusivo nos campos firstName, lastName e email da coleção de usuários para a API do MongoDB. Isso garante a exclusividade para uma combinação de todos os três campos em todos os documentos na coleção. Para coleções de API do MongoDB, o índice exclusivo é criado depois de a coleção ser criada, mas antes de preencher a coleção.
 
+> [!NOTE]
+> O formato de chave exclusivo para contas da API do MongoDB é diferente das contas de API do SQL, onde você não precisa especificar o caractere de barra invertida (/) antes do nome do campo. 
+
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
+## <a name="configure-unique-keys-by-using-azure-portal"></a>Configurar chaves exclusivas usando o portal do Azure
+
+Nas seções acima, você encontrará exemplos de código que mostram como definir restrições de chave exclusivas quando uma coleção é criada usando a API de SQL ou a API do MongoDB. Mas também é possível definir chaves exclusivas quando você cria uma coleção por meio da interface do usuário da Web no portal do Azure. 
+
+- Navegue até o **Data Explorer** na sua conta do Cosmos DB
+- Clique em **Nova Coleção**
+- Na seção de chaves exclusiva, **é possível adicionar as restrições de chave exclusiva desejadas clicando em **Adicionar chave exclusiva**
+
+![Definir chaves exclusivas no Data Explorer](./media/unique-keys/unique-keys-azure-portal.png)
+
+- Se você deseja criar uma restrição de chave exclusiva no caminho lastName, adicione `/lastName`.
+- Se você deseja criar uma restrição de chave exclusiva na combinação lastName firstName, adicione `/lastName,/firstName`
+
+Quando terminar, clique em **OK** para criar a coleção.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,8 +1,8 @@
 ---
-title: "Provisionar e implantar microsserviços previsíveis no Azure"
-description: "Saiba como implantar um aplicativo composto por microsserviços no Serviço de Aplicativo do Azure como uma única unidade e de maneira previsível usando modelos de grupo de recursos JSON e scripts do PowerShell."
+title: Provisionar e implantar microsserviços previsíveis no Azure
+description: Saiba como implantar um aplicativo composto por microsserviços no Serviço de Aplicativo do Azure como uma única unidade e de maneira previsível usando modelos de grupo de recursos JSON e scripts do PowerShell.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 3719e037f1564411a8f94d1ca962ba1ef6b5d435
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050739"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisionar e implantar microsserviços previsíveis no Azure
-Este tutorial mostra como provisionar e implantar um aplicativo composto por [microsserviços](https://en.wikipedia.org/wiki/Microservices) no [Serviço de Aplicativo do Azure](/services/app-service/) como uma única unidade e de maneira previsível usando modelos do grupo de recursos JSON e scripts do PowerShell. 
+Este tutorial mostra como provisionar e implantar um aplicativo composto por [microsserviços](https://en.wikipedia.org/wiki/Microservices) no [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/) como uma única unidade e de maneira previsível usando modelos do grupo de recursos JSON e scripts do PowerShell. 
 
-Ao provisionar e implantar aplicativos em alta escala que são compostos por microsserviços totalmente separados, a repetitividade e a previsibilidade são essenciais para se obter êxito. [Serviço de Aplicativo do Azure](/services/app-service/) permite criar microsserviços que incluem aplicativos Web, aplicativos móveis, aplicativos de API e aplicativos lógicos. O [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) permite gerenciar todos os microsserviços como uma unidade, juntamente com as dependências de recurso, como as configurações de controle do código-fonte e banco de dados. Agora, você também pode implantar esse aplicativo usando modelos JSON e scripts simples do PowerShell. 
+Ao provisionar e implantar aplicativos em alta escala que são compostos por microsserviços totalmente separados, a repetitividade e a previsibilidade são essenciais para se obter êxito. [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/) permite criar microsserviços que incluem aplicativos Web, aplicativos móveis, aplicativos de API e aplicativos lógicos. O [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) permite gerenciar todos os microsserviços como uma unidade, juntamente com as dependências de recurso, como as configurações de controle do código-fonte e banco de dados. Agora, você também pode implantar esse aplicativo usando modelos JSON e scripts simples do PowerShell. 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -39,7 +40,7 @@ No tutorial, você implantará um aplicativo que inclui:
 Neste tutorial, você utilizará as ferramentas a seguir. Como não se trata de uma discussão abrangente sobre ferramentas, escolherei o cenário de ponta a ponta e oferecerei uma breve introdução a respeito cada uma, indicando também onde você pode encontrar mais informações sobre ela. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Modelos do Gerenciador de Recursos do Azure (JSON)
-Sempre que você cria um aplicativo Web no Serviço de Aplicativo do Azure, por exemplo, o Gerenciador de Recursos do Azure usa um modelo JSON para criar todo o grupo de recursos com os recursos do componente. Um modelo complexo do [Azure Marketplace](/marketplace) como o aplicativo [WordPress Escalonável](/marketplace/partners/wordpress/scalablewordpress/) pode incluir o banco de dados MySQL, contas de armazenamento, o Plano do Serviço de Aplicativo, o próprio aplicativo Web, regras de alerta, configurações do aplicativo, configurações de dimensionamento automático e muito mais, e todos esses modelos estão disponíveis para você por meio do PowerShell. Para obter informações sobre como baixar e usar esses modelos, confira [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
+Sempre que você cria um aplicativo Web no Serviço de Aplicativo do Azure, por exemplo, o Gerenciador de Recursos do Azure usa um modelo JSON para criar todo o grupo de recursos com os recursos do componente. Um modelo complexo do [Azure Marketplace](/azure/marketplace) pode incluir o banco de dados, contas de armazenamento, o Plano do Serviço de Aplicativo, o próprio aplicativo Web, regras de alerta, configurações do aplicativo, configurações de dimensionamento automático e muito mais, e todos esses modelos estão disponíveis para você por meio do PowerShell. Para obter informações sobre como baixar e usar esses modelos, confira [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
 
 Para obter mais informações sobre os modelos do Gerenciador de Recursos do Azure, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 
@@ -99,7 +100,7 @@ Agora vamos examinar como o repositório GitHub foi configurado. Você usará o 
 
 Não vou descrever todos os detalhes do formato JSON, mas a seção [Mais Recursos](#resources) contém links para aprender a linguagem de modelo de grupo de recursos. Aqui, eu vou mostrar a você recursos interessantes que podem ajudá-lo a começar a fazer seu próprio modelo personalizado para implantação do aplicativo.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 Dê uma olhada na seção de parâmetros para ver que a maioria desses parâmetros são aquilo que o botão **Implantar no Azure** solicita que você insira. O site por trás do botão **Implantar no Azure** preenche a Interface do Usuário de entrada, usando os parâmetros definidos em azuredeploy.json. Esses parâmetros são usados em todas as definições de recurso, como nomes de recurso, valores de propriedade, etc.
 
 ### <a name="resources"></a>Recursos

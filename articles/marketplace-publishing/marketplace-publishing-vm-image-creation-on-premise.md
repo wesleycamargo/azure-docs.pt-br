@@ -3,8 +3,8 @@ title: Criar uma imagem de máquina virtual local para o Azure Marketplace | Mic
 description: Entenda e execute as etapas para criar uma imagem de VM local e implantar no Azure Marketplace para outras pessoas comprarem.
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: mbaldwin
-ms.openlocfilehash: 6b927ce6032092ce258eeebca49da0571439dbfb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: hascipio; v-divte
+ms.openlocfilehash: d86f60c3d7ed28f435c2514e1ab77594079b399a
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142227"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Desenvolver uma imagem de máquina virtual local para o Azure Marketplace
 É altamente recomendável que você desenvolva discos rígidos virtuais (VHDs) do Azure diretamente na nuvem usando o protocolo RDP. No entanto, se for necessário, é possível baixar um VHD e desenvolvê-lo usando a infraestrutura local.  
@@ -112,11 +113,11 @@ Para criar uma conta de armazenamento, você pode usar o [Portal do Microsoft Az
   ![desenho](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### <a name="create-a-storage-account-by-using-powershell"></a>Criar uma conta de armazenamento usando o PowerShell
-Usando o PowerShell, crie uma conta de armazenamento usando o cmdlet [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) .
+Usando o PowerShell, crie uma conta de armazenamento usando o cmdlet [New-AzureStorageAccount](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/new-azurestorageaccount) .
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-Depois você pode criar um contêiner nessa conta de armazenamento usando o cmdlet [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx) .
+Depois, você poderá criar um contêiner nessa conta de armazenamento usando o cmdlet [New-AzureStorageContainer](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer).
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 

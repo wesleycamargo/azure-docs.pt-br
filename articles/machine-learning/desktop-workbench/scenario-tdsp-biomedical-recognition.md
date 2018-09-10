@@ -3,23 +3,25 @@ title: Reconhecimento de entidade biomédica – Processo de ciência de dados d
 description: Um guia de início rápido do projeto do Processo de Ciência de Dados de Equipe que usa aprendizado profundo para reconhecimento de entidade biomédica no Azure Machine Learning Workbench.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
-ms.openlocfilehash: 421af12da6d207a50d12dcbf64aac51aba06b196
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f6ce43c2d290bacee10e102cc6c382981db9917f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42139998"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconhecimento de entidade biomédica usando o Modelo TDSP (Processo de Ciência de Dados de Equipe)
 
@@ -90,7 +92,7 @@ A seguir está o link para o repositório público do GitHub do cenário do mund
 [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction)
 
 
-## <a name="prerequisites"></a>pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos 
 
 * Uma [assinatura](https://azure.microsoft.com/free/) do Azure
 * Azure Machine Learning Workbench. Consulte o [guia de instalação](../service/quickstart-installation.md). Atualmente, o Azure Machine Learning Workbench pode ser instalado com os seguintes sistemas operacionais: 

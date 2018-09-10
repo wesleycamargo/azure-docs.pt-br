@@ -1,6 +1,6 @@
 ---
-title: Visão geral da identidade para a pilha do Azure | Microsoft Docs
-description: Saiba mais sobre os sistemas de identidade que você pode usar com a pilha do Azure.
+title: Visão geral da identidade para o Azure Stack | Microsoft Docs
+description: Saiba mais sobre os sistemas de identidade que você pode usar com o Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -15,113 +15,114 @@ ms.topic: get-started-article
 ms.date: 2/22/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 607c7938a789b3504a425057645b291bd4c8235b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a5390b51b3b901b159f99e757ca4db1aaf8258e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050960"
 ---
-# <a name="overview-of-identity-for-azure-stack"></a>Visão geral da identidade para a pilha do Azure
+# <a name="overview-of-identity-for-azure-stack"></a>Visão geral da identidade para o Azure Stack
 
-Pilha do Azure requer o Azure Active Directory (AD do Azure) ou o Active Directory Federation Services (AD FS), com o apoio de Active Directory como um provedor de identidade. A escolha de um provedor é uma decisão única que você faz quando você implanta pilha do Azure. Os conceitos e detalhes de autorização neste artigo podem ajudá-lo a escolher entre os provedores de identidade. 
+O Azure Stack requer o Azure Active Directory (Azure AD) ou o Active Directory Federation Services (AD FS), com o respaldo do Active Directory como um provedor de identidade. A escolha de um provedor é uma decisão ocasional que fazer quando você implantar o Azure Stack. Os conceitos e detalhes de autorização neste artigo podem ajudá-lo a escolher entre provedores de identidade. 
 
-A escolha do Azure AD ou AD FS pode ser determinada pelo modo no qual você implanta a pilha do Azure: 
+A escolha do Azure AD ou AD FS pode ser determinada pelo modo em que você implanta o Azure Stack: 
 - Quando você implantá-lo em um modo conectado, você pode usar o Azure AD ou AD FS. 
-- Quando você implantá-lo em modo desconectado, sem uma conexão à internet, somente o AD FS tem suporte.
+- Quando você implantá-lo em um modo desconectado, sem uma conexão à internet, somente o AD FS tem suporte.
 
-Para obter mais informações sobre as opções, que dependem de seu ambiente de pilha do Azure, consulte os seguintes artigos:
-- Kit de implantação do Azure pilha: [considerações sobre a identidade](azure-stack-datacenter-integration.md#identity-considerations).
-- Sistemas integrados de pilha do Azure: [sistemas integrados de decisões de pilha do Azure de planejamento de implantação](azure-stack-deployment-decisions.md).
+Para obter mais informações sobre suas opções, que dependem de seu ambiente do Azure Stack, consulte os seguintes artigos:
+- O kit de implantação do Azure Stack: [considerações sobre identidade](azure-stack-datacenter-integration.md#identity-considerations).
+- Sistemas integrados do Azure Stack: [sistemas integrados de decisões para o Azure Stack de planejamento de implantação](azure-stack-deployment-decisions.md).
 
  
 ## <a name="common-concepts-for-identity"></a>Conceitos comuns de identidade
-As seções a seguir abordam conceitos comuns sobre provedores de identidade e seu uso na pilha do Azure.
+As seções a seguir abordam conceitos comuns sobre provedores de identidade e seu uso no Azure Stack.
 
 ![Terminologia para provedores de identidade](media/azure-stack-identity-overview/terminology.png)
 
-### <a name="directory-tenants-and-organizations"></a>Organizações e locatários de diretório
-Um diretório é um contêiner que armazena informações sobre *usuários*, *aplicativos*, *grupos*, e *entidades de serviço*.
+### <a name="directory-tenants-and-organizations"></a>As organizações e locatários de diretório
+Um diretório é um contêiner que mantém informações sobre *os usuários*, *aplicativos*, *grupos*, e *entidades de serviço*.
  
-Um locatário de diretório é um *organização*, como a Microsoft ou sua própria empresa. 
-- AD do Azure suporta vários locatários e pode dar suporte a várias organizações, cada um em seu próprio diretório. Se você usa o AD do Azure e tiver vários locatários, você pode conceder a aplicativos e usuários de acesso de um locatário para outros locatários do mesmo diretório.
-- O AD FS oferece suporte a apenas um único locatário e, portanto, somente uma única organização. 
+Um locatário de diretório é um *organização*, como Microsoft ou sua própria empresa. 
+- Azure AD dá suporte a vários locatários, e ele pode dar suporte a várias organizações, cada um em seu próprio diretório. Se você usa o Azure AD e tiver vários locatários, você pode conceder a aplicativos e usuários do acesso de um locatário para outros locatários do mesmo diretório.
+- O AD FS dá suporte a apenas um único locatário e, portanto, apenas uma única organização. 
 
 ### <a name="users-and-groups"></a>Usuários e grupos
-Contas de usuário (identidades) são as contas padrão que pessoas se autenticar usando uma ID de usuário e senha. Grupos podem incluir outros grupos ou usuários. 
+Contas de usuário (identidades) são contas padrão que se autenticam indivíduos usando uma ID de usuário e senha. Grupos podem incluir outros grupos ou usuários. 
 
-Como criar e gerenciar usuários e grupos depende da solução de identidade que você usar. 
+Como você pode cria e gerenciar usuários e grupos depende de você usar a solução de identidade. 
 
-Na pilha do Azure, as contas de usuário: 
-- São criados no *username@domain* formato. Embora o AD FS mapeia as contas de usuário a uma instância do Active Directory, o AD FS não suporta o uso do  *\<domínio >\<alias >* formato. 
+No Azure Stack, contas de usuário: 
+- São criados na *username@domain* formato. Embora o AD FS mapeia as contas de usuário a uma instância do Active Directory, AD FS não suporta o uso do  *\<domínio >\<alias >* formato. 
 - Pode ser configurado para usar a autenticação multifator. 
-- São restritos para o diretório onde primeiro registro, que é o diretório da organização.
-- Podem ser importados de seus diretórios locais. Para obter mais informações, consulte [integrar seus diretórios locais com o Active Directory do Azure](/azure/active-directory/connect/active-directory-aadconnect). 
+- São restritos para o diretório em que eles primeiro registram, que é o diretório da organização.
+- Podem ser importados de seus diretórios locais. Para obter mais informações, consulte [integrar seus diretórios locais ao Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect). 
 
-Quando você entrar no portal do locatário da sua organização, você usar o *https://portal.local.azurestack.external* URL. 
+Quando você entrar no portal de locatário da sua organização, você usar o *https://portal.local.azurestack.external* URL. 
 
 ### <a name="guest-users"></a>Usuários convidados
-Usuários convidados são contas de usuário de outros locatários de diretório que receberam acesso a recursos em seu diretório. Para dar suporte a usuários convidados, você usa o AD do Azure e habilita o suporte para multilocação. Quando o suporte está habilitado, você pode convidar usuários de convidado para acessar recursos em seu locatário de diretório, que por sua vez, permite sua colaboração com organizações externas. 
+Usuários convidados são contas de usuário de outros locatários de diretório que receberam acesso a recursos em seu diretório. Para dar suporte a usuários convidados, você pode usa o Azure AD e habilitar o suporte para multilocação. Quando o suporte está habilitado, você pode convidar usuários para acessar os recursos em seu locatário de diretório, que por sua vez, permite que sua colaboração com organizações externas. 
 
-Para convidar usuários convidados, operadores de nuvem e os usuários podem usar [colaboração B2B do Azure AD](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Usuários convidados obtém acesso a documentos, aplicativos e recursos do seu diretório e manter o controle sobre seus próprios recursos e dados. 
+Para convidar usuários convidados, os operadores de nuvem e os usuários podem usar [colaboração B2B do Azure AD](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Os usuários convidados obtém acesso aos documentos, recursos e aplicativos de seu diretório e manter o controle sobre seus próprios recursos e dados. 
 
-Como um usuário convidado, você pode entrar locatário de diretório da outra organização. Para fazer isso, você acrescentar o nome de diretório da organização para o portal de URL. Por exemplo, se você pertence à organização Contoso e para entrar no diretório da Fabrikam, use https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Como um usuário convidado, você pode entrar no locatário do diretório da outra organização. Para fazer isso, você acrescentar o nome de diretório da organização ao portal do URL. Por exemplo, se você pertence à organização Contoso e deseja entrar no diretório da Fabrikam, usar https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
-### <a name="applications"></a>Aplicativos
-Você pode registrar aplicativos para o Azure AD ou AD FS e, em seguida, oferecem aplicativos para usuários em sua organização. 
+### <a name="applications"></a>APLICATIVOS
+Você pode registrar aplicativos para o Azure AD ou AD FS e, em seguida, oferecer os aplicativos para usuários em sua organização. 
 
 Os aplicativos incluem:
 - **Aplicativo Web**: os exemplos incluem o portal do Azure e o Azure Resource Manager. Eles oferecem suporte a chamadas de API da Web. 
-- **Cliente nativo**: exemplos do PowerShell do Azure, o Visual Studio e a CLI do Azure.
+- **Cliente nativo**: os exemplos incluem o Azure PowerShell, o Visual Studio e a CLI do Azure.
 
-Aplicativos podem oferecer suporte a dois tipos de aluguel: 
-- **Único locatário**: dá suporte a usuários e serviços somente do mesmo diretório onde o aplicativo está registrado. 
+Aplicativos podem oferecer suporte a dois tipos de locação: 
+- **Locatário único**: dá suporte a usuários e serviços somente do mesmo diretório em que o aplicativo está registrado. 
 
   > [!NOTE]    
-  > Como o AD FS oferece suporte a apenas um único diretório, aplicativos que você cria em uma topologia do AD FS são, por design, os aplicativos de locatário único.
+  > Como o AD FS oferece suporte a apenas um único diretório, aplicativos que você criou em uma topologia do AD FS são, por design, aplicativos de locatário único.
 
-- **Multilocatário**: oferece suporte ao uso por usuários e serviços do diretório onde o aplicativo é registrado e diretórios adicionais de locatário. Com aplicativos multilocatários, os usuários de outra pode de diretório (outro locatário do Azure AD) do locatário entrarem no seu aplicativo. 
+- **Multilocatário**: oferece suporte ao uso por usuários e serviços de diretório em que o aplicativo está registrado e diretórios adicionais de locatário. Com aplicativos de multilocatário, os usuários de outro pode de diretório (outro locatário do Azure AD) do locatário entrar no seu aplicativo. 
 
   Para obter mais informações sobre multilocação, consulte [habilitar multilocação](azure-stack-enable-multitenancy.md). 
 
-  Para obter mais informações sobre como desenvolver um aplicativo multilocatário, consulte [aplicativos multilocatários](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+  Para obter mais informações sobre como desenvolver um aplicativo multilocatário, consulte [aplicativos de multilocatário](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 
 Quando você registra um aplicativo, você pode criar dois objetos:
 
-- **Objeto de aplicativo**: A representação global do aplicativo em todos os locatários. Essa relação é-para-um com o aplicativo de software e existe somente no diretório onde o aplicativo é registrado pela primeira vez.
+- **Objeto de aplicativo**: A representação global do aplicativo em todos os locatários. Essa relação é-para-um com o aplicativo de software e existe somente no diretório onde o aplicativo pela primeira vez é registrado.
 
-- **Objeto de entidade de serviço**: uma credencial que é criada para um aplicativo no diretório onde o aplicativo é registrado pela primeira vez. Uma entidade de serviço também é criada no diretório de cada locatário adicional em que esse aplicativo é usado. Essa relação pode ser um-para-muitos com o aplicativo de software. 
+- **Objeto de entidade de serviço**: uma credencial que é criada para um aplicativo no diretório onde o aplicativo pela primeira vez é registrado. Uma entidade de serviço também é criada no diretório de cada locatário adicional em que esse aplicativo é usado. Essa relação pode ser um-para-muitos com o aplicativo de software. 
 
-Para saber mais sobre o aplicativo e objetos de serviço, consulte [objetos de aplicativo e serviço principal no Azure Active Directory](/azure/active-directory/develop/active-directory-application-objects). 
+Para saber mais sobre o aplicativo e objetos de entidade de serviço, consulte [aplicativo e objetos de entidade de serviço no Azure Active Directory](/azure/active-directory/develop/active-directory-application-objects). 
 
 ### <a name="service-principals"></a>Entidades de serviço 
-Uma entidade de serviço é um conjunto de *credenciais* para um aplicativo ou serviço que concedem acesso aos recursos na pilha do Azure. O uso de uma entidade de serviço separa as permissões do aplicativo das permissões do usuário do aplicativo.
+Uma entidade de serviço é um conjunto de *credenciais* para um aplicativo ou serviço que concedem acesso a recursos no Azure Stack. O uso de uma entidade de serviço separa as permissões do aplicativo das permissões do usuário do aplicativo.
 
-Uma entidade de serviço é criada em cada locatário em que o aplicativo é usado. A entidade de serviço estabelece uma identidade para entrar e acessar recursos (como usuários) que são protegidos por locatário. 
+Uma entidade de serviço é criada em cada locatário em que o aplicativo é usado. A entidade de serviço estabelece uma identidade para entrada e acesso aos recursos (como usuários) que são protegidos pelo locatário. 
 
-- Um aplicativo de único locatário tem apenas uma entidade de serviço, no diretório onde ele é criado. Essa entidade de serviço é criada e consente que está sendo usado durante o registro do aplicativo. 
-- Um aplicativo multilocatário ou a API tem uma entidade de serviço é criada em cada locatário em que um usuário de locatário consente o uso do aplicativo. 
+- Um aplicativo de locatário único tem apenas uma entidade de serviço, no diretório em que ele é criado. Essa entidade de serviço é criada e dá consentimento a que está sendo usado durante o registro do aplicativo. 
+- Um aplicativo web multilocatário ou a API tem uma entidade de serviço é criada em cada locatário em que um usuário de locatário dá consentimento para o uso do aplicativo. 
 
-As credenciais para entidades de serviço podem ser um de uma chave que é gerada por meio do portal do Azure ou um certificado. O uso de um certificado é adequado para automação, como certificados são considerados mais seguros do que as chaves. 
+As credenciais para as entidades de serviço podem ser um de uma chave que é gerada por meio do portal do Azure ou um certificado. O uso de um certificado é adequado para a automação porque os certificados são considerados mais seguros do que as chaves. 
 
 
 > [!NOTE]    
-> Quando você usar o AD FS com a pilha do Azure, somente o administrador pode criar entidades de serviço. Com o AD FS, as entidades de serviço requerem certificados e são criadas por meio do ponto de extremidade privilegiado (PEP). Para obter mais informações, consulte [fornecem acesso de aplicativos ao Azure pilha](azure-stack-create-service-principals.md).
+> Quando você usa o AD FS com o Azure Stack, somente o administrador pode criar entidades de serviço. Com o AD FS, as entidades de serviço exigem certificados e são criadas por meio do ponto de extremidade com privilégios (PEP). Para obter mais informações, consulte [fornecer acesso a aplicativos para o Azure Stack](azure-stack-create-service-principals.md).
 
-Para saber mais sobre as entidades de serviço para a pilha do Azure, consulte [criar entidades de serviço](azure-stack-create-service-principals.md).
+Para saber mais sobre entidades de serviço para o Azure Stack, consulte [criar entidades de serviço](azure-stack-create-service-principals.md).
 
 
 ### <a name="services"></a>Serviços
-Serviços na pilha do Azure que interagem com o provedor de identidade são registrados como aplicativos com o provedor de identidade. Como aplicativos, o registro permite que um serviço autenticar com o sistema de identidade. 
+Serviços no Azure Stack que interagem com o provedor de identidade são registrados como aplicativos com o provedor de identidade. Assim como aplicativos, o registro permite que um serviço para autenticar com o sistema de identidade. 
 
-Todos os serviços do Azure usam [OpenID Connect](/azure/active-directory/develop/active-directory-protocols-openid-connect-code) protocolos e [JSON Web Tokens](/azure/active-directory/develop/active-directory-token-and-claims) para estabelecer sua identidade. Porque o Azure AD e o AD FS usam protocolos de forma consistente, você pode usar [biblioteca de autenticação do Azure Active Directory](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) para autenticar no local ou no Azure (em um cenário conectado). Com a ADAL, você também pode usar ferramentas como o Azure PowerShell e a CLI do Azure para gerenciamento de recursos de nuvem e local. 
+Todos os serviços do Azure usam [OpenID Connect](/azure/active-directory/develop/active-directory-protocols-openid-connect-code) protocolos e [Tokens Web JSON](/azure/active-directory/develop/active-directory-token-and-claims) para estabelecer sua identidade. Porque o Azure AD e o AD FS usam protocolos de forma consistente, você pode usar [Azure Active Directory Authentication Library](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) para autenticar no local ou no Azure (em um cenário conectado). Com a ADAL, você também pode usar ferramentas como o Azure PowerShell e CLI do Azure para gerenciamento de recursos de nuvem e locais. 
 
 
-### <a name="identities-and-your-identity-system"></a>Identidades e seu sistema de identidade 
-Identidades para a pilha do Azure incluem contas de usuário, grupos e entidades de serviço. 
+### <a name="identities-and-your-identity-system"></a>As identidades e o sistema de identidade 
+Identidades para o Azure Stack incluem as contas de usuário, grupos e entidades de serviço. 
 
-Quando você instala a pilha do Azure, vários serviços e aplicativos internos se registrar automaticamente ao seu provedor de identidade no locatário de diretório. Alguns serviços registrados são usados para administração. Outros serviços estão disponíveis para os usuários. Os registros padrão oferecem identidades de serviços principais que podem interagir entre si e com identidades que forem adicionadas posteriormente.
+Quando você instala o Azure Stack, vários aplicativos internos e serviços registrados automaticamente no seu provedor de identidade no locatário de diretório. Alguns serviços registrados são usados para administração. Outros serviços estão disponíveis para os usuários. Os registros padrão oferecem identidades de serviços principais que podem interagir entre si e com as identidades que você adicionar mais tarde.
 
-Se você configurar o AD do Azure com multilocação, alguns aplicativos são propagadas para os diretórios de novo. 
+Se configurar o Azure AD com a multilocação, alguns aplicativos serão propagadas para os diretórios de novo. 
 
 ## <a name="authentication-and-authorization"></a>Autenticação e autorização
  
@@ -130,60 +131,60 @@ Se você configurar o AD do Azure com multilocação, alguns aplicativos são pr
   
 ![Identidade entre camadas da pilha do Azure](media/azure-stack-identity-overview/identity-layers.png)
 
-Para usuários e aplicativos, a arquitetura da pilha do Azure é descrita por quatro camadas. Interações entre cada uma dessas camadas podem usar diferentes tipos de autenticação.
+Para usuários e aplicativos, a arquitetura do Azure Stack é descrita por quatro camadas. Interações entre cada uma dessas camadas podem usar diferentes tipos de autenticação.
 
 
 |Camada    |Autenticação entre camadas  |
 |---------|---------|
-|Ferramentas e clientes, como o portal de administração     | Para acessar ou modificar um recurso na pilha do Azure, ferramentas e os clientes usam um [JSON Web Token](/azure/active-directory/develop/active-directory-token-and-claims) para fazer uma chamada para o Gerenciador de recursos do Azure. <br>Gerenciador de recursos do Azure valida o JSON Web Token e exibe o *declarações* no token emitido para estimar o nível de autorização de usuário ou entidade de serviço tem na pilha do Azure. |
-|Gerenciador de recursos do Azure e seus serviços de núcleo     |Gerenciador de recursos do Azure se comunica com os provedores de recursos para transferir a comunicação de usuários. <br> Transfere use *imperativo direto* chamadas ou *declarativa* chama via [modelos do Azure Resource Manager](/azure/azure-stack/user/azure-stack-arm-templates.md).|
-|Provedores de recurso     |Chamadas que são passadas para provedores de recursos são protegidas com autenticação baseada em certificado. <br>Gerenciador de recursos do Azure e o provedor de recursos permanecem na comunicação com a API. Para cada chamada é recebida do Gerenciador de recursos do Azure, o provedor de recursos valida a chamada com esse certificado.|
-|Lógica de negócios e infraestrutura     |Provedores de recursos se comunicam com lógica de negócios e infraestrutura usando um modo de autenticação de sua escolha. Os provedores de recursos padrão que acompanham a pilha do Azure usam autenticação do Windows para proteger essa comunicação.|
+|Ferramentas e clientes, como o portal de administração     | Para acessar ou modificar um recurso no Azure Stack, ferramentas e os clientes usam um [Token Web JSON](/azure/active-directory/develop/active-directory-token-and-claims) para fazer uma chamada para o Azure Resource Manager. <br>O Azure Resource Manager valida o JSON Web Token e espia a *declarações* no token emitido para estimar o nível de autorização esse usuário ou entidade de serviço tem no Azure Stack. |
+|O Azure Resource Manager e seus serviços de núcleo     |O Azure Resource Manager se comunica com os provedores de recursos para transferir a comunicação dos usuários. <br> Transferências de uso *imperativo direto* chamadas ou *declarativa* chama via [modelos do Azure Resource Manager](/azure/azure-stack/user/azure-stack-arm-templates).|
+|Provedores de recursos     |Chamadas que são passadas para provedores de recursos são protegidas com a autenticação baseada em certificado. <br>O Azure Resource Manager e o provedor de recursos, em seguida, permanecem na comunicação por meio de uma API. Para cada chamada que é recebida do Azure Resource Manager, o provedor de recursos valida a chamada com esse certificado.|
+|Lógica de negócios e infraestrutura     |Provedores de recursos se comunicar com a lógica de negócios e a infraestrutura usando um modo de autenticação de sua preferência. Os provedores de recursos padrão que vêm com o Azure Stack usam a autenticação do Windows para proteger essa comunicação.|
 
 ![Informações necessárias para autenticação](media/azure-stack-identity-overview/authentication.png)
 
 
-### <a name="authenticate-to-azure-resource-manager"></a>Autenticar ao Gerenciador de recursos do Azure
-Para autenticar com o provedor de identidade e receber um JSON Web Token, você deve ter as seguintes informações: 
-1.  **URL para o sistema de identidade (autoridade)**: A URL na qual o seu provedor de identidade pode ser acessado. Por exemplo, *https://login.windows.net*. 
-2.  **URI de ID de aplicativo do Azure Resource Manager**: O identificador exclusivo para o Gerenciador de recursos do Azure que está registrado com seu provedor de identidade. Também é exclusiva para cada instalação de pilha do Azure.
+### <a name="authenticate-to-azure-resource-manager"></a>Autenticar para o Azure Resource Manager
+Para autenticar com o provedor de identidade e receber um Token Web JSON, você deve ter as seguintes informações: 
+1.  **URL para o sistema de identidade (autoridade de certificação)**: A URL na qual o seu provedor de identidade pode ser acessado. Por exemplo, *https://login.windows.net*. 
+2.  **URI da ID do aplicativo do Azure Resource Manager**: O identificador exclusivo para o Azure Resource Manager que está registrado com seu provedor de identidade. Também é exclusiva para cada instalação do Azure Stack.
 3.  **Credenciais**: A credencial que você pode usar para autenticar com o provedor de identidade. 
-4.  **URL do Gerenciador de recursos do Azure**: A URL é o local do serviço Gerenciador de recursos do Azure. Por exemplo, *https://management.azure.com* ou *https://management.local.azurestack.external*.
+4.  **URL para o Azure Resource Manager**: A URL é o local do serviço do Azure Resource Manager. Por exemplo, *https://management.azure.com* ou *https://management.local.azurestack.external*.
 
 Quando uma entidade de segurança (um cliente, aplicativo ou usuário) faz uma solicitação de autenticação para acessar um recurso, a solicitação deve incluir:
-- Credenciais do servidor principal.
+- As credenciais da entidade.
 - O URI da ID do recurso que deseja que a entidade de segurança para acessar o aplicativo. 
 
-As credenciais são validadas pelo provedor de identidade. O provedor de identidade também valida que o aplicativo do URI de ID é para um aplicativo registrado e a entidade tem os privilégios corretos para obter um token para esse recurso. Se a solicitação for válida, um JSON Web Token é concedido. 
+As credenciais são validadas pelo provedor de identidade. O provedor de identidade também valida que o aplicativo do URI da ID é para um aplicativo registrado e se a entidade tem os privilégios corretos para obter um token para esse recurso. Se a solicitação for válida, recebe um Token Web JSON. 
 
-O token deve passar no cabeçalho de uma solicitação para o Gerenciador de recursos do Azure. Gerenciador de recursos do Azure faz o seguinte, em nenhuma ordem específica:
-- Valida o *emissor* (iss) de declaração confirmar que o token do provedor de identidade correto. 
-- Valida o *público* declaração (aud) para confirmar se o token foi emitido para o Gerenciador de recursos do Azure. 
-- Valida o JSON Web Token é assinado com um certificado que é configurado por meio de OpenID é conhecido para o Gerenciador de recursos do Azure. 
-- Examine o *emitido em* (iat) e *validade* (exp) declarações para confirmar que o token está ativo e pode ser aceito. 
+O token deve, em seguida, passar o cabeçalho de uma solicitação ao Azure Resource Manager. O Azure Resource Manager faz o seguinte, em nenhuma ordem específica:
+- Valida o *emissor* declaração (iss) para confirmar que o token é o correta do provedor de identidade. 
+- Valida o *público* declaração (aud) para confirmar se o token foi emitido para o Azure Resource Manager. 
+- Valida o JSON Web Token é assinado com um certificado que é configurado por meio do OpenID é conhecido para o Azure Resource Manager. 
+- Examine os *emitido em* (iat) e *expiração* (exp) de declarações para confirmar que o token está ativo e pode ser aceito. 
 
-Quando todas as validações forem concluídas, o Gerenciador de recursos do Azure usa o *um objeto* (oid) e o *grupos* declarações para fazer uma lista de recursos que pode acessar a entidade de segurança. 
+Quando todas as validações forem concluídas, o Gerenciador de recursos do Azure usa o *um objeto* (oid) e o *grupos* de declarações para fazer uma lista de recursos que a entidade de segurança pode acessar. 
 
-![Diagrama do protocolo exchange token](media/azure-stack-identity-overview/token-exchange.png)
+![Diagrama do protocolo de troca de token](media/azure-stack-identity-overview/token-exchange.png)
 
 
 ### <a name="use-role-based-access-control"></a>Usar o controle de acesso baseado em função  
-Controle de acesso baseado em função (RBAC) na pilha do Azure é consistente com a implementação no Microsoft Azure. Você pode gerenciar o acesso aos recursos por meio da atribuição de função apropriada de RBAC aos usuários, grupos e aplicativos. Para obter informações sobre como usar o RBAC com pilha do Azure, consulte os seguintes artigos:
+Controle de acesso baseado em função (RBAC) no Azure Stack é consistente com a implementação no Microsoft Azure. Você pode gerenciar o acesso aos recursos, atribuindo a função RBAC apropriada a usuários, grupos e aplicativos. Para obter informações sobre como usar o RBAC com o Azure Stack, consulte os seguintes artigos:
 - [Introdução ao Controle de Acesso Baseado em Função no Portal do Azure](/azure/role-based-access-control/overview).
-- [Use o controle de acesso baseado em função para gerenciar o acesso aos recursos da sua assinatura do Azure](/azure/role-based-access-control/role-assignments-portal).
-- [Criar funções personalizadas para o controle de acesso](/azure/role-based-access-control/custom-roles).
-- [Gerenciar o controle de acesso baseado em função](azure-stack-manage-permissions.md) na pilha do Azure.
+- [Use o controle de acesso baseado em função para gerenciar o acesso aos recursos de sua assinatura do Azure](/azure/role-based-access-control/role-assignments-portal).
+- [Criar funções personalizadas para o controle de acesso baseado em função](/azure/role-based-access-control/custom-roles).
+- [Gerenciar controle de acesso baseado em função](azure-stack-manage-permissions.md) no Azure Stack.
 
 
-### <a name="authenticate-with-azure-powershell"></a>Autenticar com o PowerShell do Azure  
-Detalhes sobre como usar o PowerShell do Azure para autenticar com a pilha do Azure podem ser encontrados em [configurar o ambiente do PowerShell do usuário do Azure pilha](azure-stack-powershell-configure-user.md).
+### <a name="authenticate-with-azure-powershell"></a>Autenticar com o Azure PowerShell  
+Detalhes sobre como usar o PowerShell do Azure para autenticar com o Azure Stack podem ser encontrados em [configurar o ambiente do PowerShell do usuário do Azure Stack](azure-stack-powershell-configure-user.md).
 
-### <a name="authenticate-with-azure-cli"></a>Autenticar com CLI do Azure
-Para obter informações sobre como usar o PowerShell do Azure para autenticar com a pilha do Azure, consulte [instalar e configurar a CLI do Azure para uso com o Azure pilha](/azure/azure-stack/user/azure-stack-connect-cli.md).
+### <a name="authenticate-with-azure-cli"></a>Autenticar com a CLI do Azure
+Para obter informações sobre como usar o PowerShell do Azure para autenticar com o Azure Stack, consulte [instalar e configurar a CLI do Azure para uso com o Azure Stack](/azure/azure-stack/user/azure-stack-connect-cli).
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Arquitetura de identidade](azure-stack-identity-architecture.md)   
-- [Integração do data center - identidade](azure-stack-integrate-identity.md)
+- [Integração do Datacenter - identidade](azure-stack-integrate-identity.md)
 
 
 

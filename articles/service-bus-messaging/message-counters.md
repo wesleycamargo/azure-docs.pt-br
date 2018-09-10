@@ -1,23 +1,24 @@
 ---
-title: "Contagem de mensagens do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Recupere a contagem de mensagens do Barramento de Serviço do Azure."
+title: Contagem de mensagens do Barramento de Serviço do Azure | Microsoft Docs
+description: Recupere a contagem de mensagens do Barramento de Serviço do Azure.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: e6524fe056ee2a1d81c9cccf257008b2369352b1
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: f20893de235ac02fc5a94b54518af2405e4549ff
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696951"
 ---
 # <a name="message-counters"></a>Contadores de mensagens
 

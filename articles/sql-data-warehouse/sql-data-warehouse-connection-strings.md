@@ -3,18 +3,19 @@ title: Cadeias de conexão do SQL Data Warehouse do Azure | Microsoft Docs
 description: Cadeias de conexão do SQL Data Warehouse
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 8fce3ba099c871059ffb71a589e4d8cd33d5bcae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: de875731ffd2170f70d8034f0178d61351d86952
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248014"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>Cadeias de conexão do SQL Data Warehouse do Azure
 Você pode se conectar ao SQL Data Warehouse com vários protocolos de aplicativo diferentes, por exemplo, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] e [JDBC][JDBC]. A seguir estão alguns exemplos de cadeias de conexão para cada protocolo.  Você também pode usar o Portal do Azure para compilar sua cadeia de conexão.  Para compilar a cadeia de conexão usando o Portal do Azure, navegue até a folha do banco de dados, em *Conceitos Básicos*, clique em *Mostrar cadeias de conexão de banco de dados*.

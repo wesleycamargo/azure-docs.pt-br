@@ -1,23 +1,25 @@
 ---
 title: Como procurar um endereço usando o serviço de pesquisa de Mapas do Azure | Microsoft Docs
 description: Saiba como procurar um endereço usando o serviço de pesquisa de Mapas do Azure
-services: azure-maps
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-ms.openlocfilehash: 4a87c0d0a487706209acc1c6a4ded92e6aab8f9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: timlt
+ms.openlocfilehash: fe3bb3a778a42696cd15f9e4265448479bf043a1
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42142012"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Como encontrar um endereço usando o serviço de pesquisa de Mapas do Azure
 
 O serviço de pesquisa de mapas é um conjunto RESTful de APIs projetado para desenvolvedores procurarem endereços, locais, pontos de interesse, anúncios de empresas e outras informações geográficas. O serviço atribui um valor de latitude/longitude para um endereço específico, cruzamento, recurso geográfico ou POI (ponto de interesse). Os valores de latitude e longitude retornados pela pesquisa podem ser usados como parâmetros em outros serviços de mapas, como rota e fluxo de tráfego.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para fazer todas as chamadas para as APIs do serviço de mapas, você precisa de uma conta de mapas e chave. Para obter mais informações sobre como criar uma conta e recuperar uma chave, consulte [Como gerenciar as chaves e a conta dos Mapas do Azure](how-to-manage-account-keys.md).
 
@@ -162,19 +164,11 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
     | Chave | Valor |
     |-----|------------|
-    | spatialKeys | verdadeiro |
-
-    Quando o parâmetro de consulta [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta contém a informação geoespacial principal proprietária de um local especificado.
-
-6. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
-
-    | Chave | Valor |
-    |-----|------------|
     | returnSpeedLimit | verdadeiro |
     
     Quando o parâmetro de consulta [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta retorna o limite de velocidade indicado.
 
-7. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
+6. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
     | Chave | Valor |
     |-----|------------|
@@ -182,7 +176,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
     Quando o parâmetro de consulta [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta retorna a matriz de uso de estrada para reversegeocodes no nível da rua.
 
-8. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
+7. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
     | Chave | Valor |
     |-----|------------|

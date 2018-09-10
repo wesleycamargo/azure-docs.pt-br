@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 03/15/2018
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 39797bb4fe2b0576cd5696d7111826dcf807ff5c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304524"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989778"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicativos gerenciados do Azure no Marketplace
 
@@ -44,7 +44,7 @@ Para tornar-se um editor no Microsoft Azure Marketplace, você deverá:
 1. Criar uma ID da Microsoft - Crie sua conta Microsoft usando um endereço de email pertencente ao domínio da sua empresa, mas não a um único indivíduo. Esse endereço de email será usado tanto para a Central de Desenvolvedores da Microsoft como para o Portal do Cloud Partner. Para obter mais informações, consulte [Guia do Editor do Microsoft Azure Marketplace](https://aka.ms/sellerguide).
 1. Enviar o [Formulário de Nominação do Microsoft Azure Marketplace](https://aka.ms/ampnomination) - Para **Solução que você pretende publicar?**, selecione **Aplicativo Gerenciado**. Quando o formulário for enviado, a equipe de Integração do Marketplace revisará o aplicativo e validará a solicitação. O processo de aprovação poderá demorar de um a três dias. Quando a nomeação for aprovada, você receberá um código promocional para renunciar à taxa de registro para a central de desenvolvedores. Se você **não** concluir o Formulário de Nominação do Marketplace, será solicitado a você pagar uma taxa de registro de $ 99.
 1. Registrar-se na [Central de Desenvolvedores](http://dev.windows.com/registration?accountprogram=azure) - A Microsoft validará que sua organização é uma entidade legal válida com uma ID do Imposto válida para o país em que está registrado. O processo de aprovação poderá demorar de 5 a 10 dias. Para evitar a taxa de registro, utilize o código promocional recebido no email do processo de nominação. Para obter mais informações, consulte [Guia do Editor do Microsoft Azure Marketplace](https://aka.ms/sellerguide).
-1. Fazer logon no [Portal do Cloud Partner](https://cloudpartner.azure.com) - No perfil do editor, associe sua conta da Central de Desenvolvedores ao Perfil do Editor do Marketplace. Para obter mais informações, consulte [Guia do Editor do Microsoft Azure Marketplace](https://aka.ms/sellerguide).
+1. Entre no [Portal do Cloud Partner](https://cloudpartner.azure.com) - No perfil do editor, associe sua conta da Central de Desenvolvedores ao Perfil do Editor do Marketplace. Para obter mais informações, consulte [Guia do Editor do Microsoft Azure Marketplace](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Criar uma nova oferta de aplicativo do Azure
 
@@ -101,12 +101,13 @@ Um SKU aparece sob a oferta pai no marketplace. Ele aparece como sua própria en
 
    Preencha os campos a seguir:
 
-   * **Versão Atual**: insira uma versão para o pacote que você carregar. Ela deve estar no formato `{number}.{number}.{number}{number}`.
-   * **Selecionar um arquivo de pacote**: esse pacote contém dois arquivos necessários compactados em um arquivo .zip. Um arquivo é um modelo do Resource Manager que define os recursos para implantar o aplicativo gerenciado. O outro arquivo define a [interface do usuário](create-uidefinition-overview.md) para os consumidores implantarem o aplicativo gerenciado por meio do portal. Na interface do usuário, você especifica os elementos que permitem aos consumidores fornecer valores de parâmetro.
+   * **Versão**: insira uma versão para o pacote que você carregar. Ela deve estar no formato `{number}.{number}.{number}{number}`.
+   * **Arquivo de pacote (.zip)**: esse pacote contém dois arquivos necessários compactados em um arquivo .zip. Um arquivo é um modelo do Resource Manager que define os recursos para implantar o aplicativo gerenciado. O outro arquivo define a [interface do usuário](create-uidefinition-overview.md) para os consumidores implantarem o aplicativo gerenciado por meio do portal. Na interface do usuário, você especifica os elementos que permitem aos consumidores fornecer valores de parâmetro.
    * **PrincipalId**: essa propriedade é o identificador do Azure AD (Azure Active Directory) de um usuário, grupo de usuários ou aplicativo que recebeu determinadas permissões de acesso aos recursos na assinatura do cliente. A Definição de Função descreve as permissões.
    * **Definição de Função**: essa propriedade é uma lista de todas as funções RBAC (Controle de acesso baseado em função) internas fornecidas pelo Azure AD. Você pode selecionar a função mais apropriada para gerenciar os recursos em nome do cliente.
+   * **Configurações de política**: aplique uma [Azure Policy](../azure-policy/azure-policy-introduction.md) ao seu aplicativo gerenciado para especificar os requisitos de conformidade para as soluções implantadas. Entre as opções disponíveis, selecione as políticas a serem aplicadas. Para **Parâmetros de Política**, forneça uma cadeia de caracteres JSON com os valores de parâmetro. Para definições de política e o formato dos valores de parâmetro, veja [Exemplos de Azure Policy](../azure-policy/json-samples.md).
 
-É possível adicionar várias autorizações. Recomendamos que você crie um grupo de usuários do AD e especifica sua ID em **PrincipalId**. Dessa forma, você pode adicionar mais usuários ao grupo de usuários sem a necessidade de atualizar o SKU.
+Você pode adicionar várias autorizações. Recomendamos que você crie um grupo de usuários do AD e especifica sua ID em **PrincipalId**. Dessa forma, você pode adicionar mais usuários ao grupo de usuários sem a necessidade de atualizar o SKU.
 
 Para saber mais sobre RBAC, consulte [Introdução ao RBAC no Portal do Azure](../role-based-access-control/overview.md).
 

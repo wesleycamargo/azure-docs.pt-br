@@ -1,0 +1,168 @@
+items:
+- name: Documentação de Visual Computacional
+  href: index.yml
+- name: Visão geral
+  items:
+  - name: O que é a Pesquisa Visual Computacional?
+    href: Home.md
+  expanded: true
+- name: Guia de início rápido
+  items:
+  - name: Usando a API REST
+    items:
+    - name: Analisar uma imagem remota
+      items:
+      - name: cURL
+        href: QuickStarts/curl-analyze.md
+      - name: Go
+        href: QuickStarts/go-analyze.md
+      - name: Java
+        href: QuickStarts/java-analyze.md
+      - name: JavaScript
+        href: QuickStarts/javascript-analyze.md
+      - name: Node.js
+        href: QuickStarts/node-analyze.md
+      - name: PHP
+        href: QuickStarts/php-analyze.md
+      - name: Python
+        href: QuickStarts/python-analyze.md
+      - name: Ruby
+        href: QuickStarts/ruby-analyze.md
+    - name: Analisar uma imagem local
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-analyze.md
+      - name: Python
+        href: QuickStarts/python-disk.md
+    - name: Gerar uma miniatura
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-thumb.md
+      - name: cURL
+        href: QuickStarts/curl-thumb.md
+      - name: Go
+        href: QuickStarts/go-thumb.md
+      - name: Java
+        href: QuickStarts/java-thumb.md
+      - name: JavaScript
+        href: QuickStarts/javascript-thumb.md
+      - name: Node.js
+        href: QuickStarts/node-thumb.md
+      - name: PHP
+        href: QuickStarts/php-thumb.md
+      - name: Python
+        href: QuickStarts/python-thumb.md
+      - name: Ruby
+        href: QuickStarts/ruby-thumb.md
+    - name: Extrair texto impresso
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-print-text.md
+      - name: cURL
+        href: QuickStarts/curl-print-text.md
+      - name: Go
+        href: QuickStarts/go-print-text.md
+      - name: Java
+        href: QuickStarts/java-print-text.md
+      - name: JavaScript
+        href: QuickStarts/javascript-print-text.md
+      - name: Node.js
+        href: QuickStarts/node-print-text.md
+      - name: PHP
+        href: QuickStarts/php-print-text.md
+      - name: Python
+        href: QuickStarts/python-print-text.md
+      - name: Ruby
+        href: QuickStarts/ruby-print-text.md
+    - name: Extrair texto escrito à mão
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-hand-text.md
+      - name: Java
+        href: QuickStarts/java-hand-text.md
+      - name: JavaScript
+        href: QuickStarts/javascript-hand-text.md
+      - name: Python
+        href: QuickStarts/python-hand-text.md
+    - name: Usar um modelo de domínio
+      items:
+      - name: PHP
+        href: QuickStarts/php-domain.md
+      - name: Python
+        href: QuickStarts/python-domain.md
+  - name: Usando o SDK .NET
+    items:
+    - name: Analisar uma imagem
+      href: quickstarts-sdk/csharp-analyze-sdk.md
+    - name: Gerar uma miniatura
+      href: quickstarts-sdk/csharp-thumb-sdk.md
+    - name: Extrair texto escrito à mão
+      href: quickstarts-sdk/csharp-hand-text-sdk.md
+- name: Guias de instruções
+  items:
+  - name: Primeiros aplicativos da Pesquisa Visual Computacional
+    items:
+    - name: C#
+      href: Tutorials/CSharpTutorial.md
+    - name: Java
+      href: Tutorials/java-tutorial.md
+    - name: JavaScript
+      href: Tutorials/javascript-tutorial.md
+    - name: Python
+      href: Tutorials/PythonTutorial.md
+  - name: Obter chaves de assinatura
+    href: Vision-API-How-to-Topics/HowToSubscribe.md
+  - name: Chamar a API da Pesquisa Visual Computacional
+    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - name: Use serviço conectado da Pesquisa Visual Computacional
+    href: vs-computer-vision-connected-service.md
+  - name: Analisar vídeos em tempo real
+    href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
+- name: Referência
+  items:
+  - name: CLI do Azure
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: Azure PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: API da Pesquisa Visual Computacional v2.0
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
+  - name: API da Pesquisa Visual Computacional v1.0
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
+  - name: SDKs
+    items:
+    - name: Windows
+      href: https://github.com/Microsoft/Cognitive-vision-windows
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
+    - name: Go
+      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision
+    - name: Android
+      href: https://github.com/Microsoft/Cognitive-vision-android
+    - name: Swift
+      href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
+- name: Recursos
+  items:
+  - name: Exemplos
+    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+  - name: Perguntas frequentes
+    href: FAQ.md
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: Disponibilidade regional
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Taxonomia de categoria
+    href: Category-Taxonomy.md
+ms.openlocfilehash: c784546bdba472882b6c098befc584da35bbac59
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337494"

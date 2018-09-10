@@ -1,6 +1,23 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: service-bus-messaging
+author: spelluru
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 06/29/2018
+ms.author: spelluru
+ms.custom: include file
+ms.openlocfilehash: 7ed298fc8f13685c4872c4c54ba1e447debea79f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702622"
+---
 Verifique se você já criou um namespace do Barramento de Serviço, como mostrado [aqui][namespace-how-to].
 
-1. Faça logon no [Portal do Azure][azure-portal].
+1. Entre no [Portal do Azure][azure-portal].
 2. No painel de navegação à esquerda do portal, clique em **Barramento de Serviço** (se a opção **Barramento de Serviço** não estiver visível, clique em **Todos os serviços**).
 3. Clique no namespace no qual você gostaria de criar a fila. Nesse caso, é **sbnstest1**.
    

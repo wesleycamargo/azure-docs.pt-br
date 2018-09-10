@@ -3,17 +3,17 @@ title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usand
 description: Neste início rápido, você criará uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento para .NET a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 05/22/2018
 ms.author: tamram
-ms.openlocfilehash: 7607643698cddb0cf5a113191ef638d36ab176bc
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d5a9c87246a175cc7455113c36caa59d59a79226
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399678"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Início rápido: Carregar, baixar e listar blobs usando .NET
 
@@ -21,7 +21,7 @@ Neste guia de início rápido, você aprende a usar a biblioteca de clientes do 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, primeiro crie uma conta de armazenamento do Azure no [portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda sobre como criar a conta, confira [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
 
@@ -62,7 +62,7 @@ Este comando clona o repositório para sua pasta do git local. Para abrir a solu
 
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de conexão de armazenamento
 
-Para executar o aplicativo, você deve fornecer a cadeia de conexão para sua conta de armazenamento. O aplicativo de exemplo lê a cadeia de conexão em uma variável de ambiente e utiliza-a para autenticar solicitações no Armazenamento do Azure.
+Para executar o aplicativo, você deve fornecer a cadeia de conexão para sua conta de armazenamento. O aplicativo de exemplo lê a cadeia de conexão em uma variável de ambiente e utiliza-a para autorizar solicitações no Armazenamento do Azure.
 
 Depois de copiar a cadeia de conexão, grave-a em uma nova variável de ambiente no computador local que executa o aplicativo. Para definir a variável de ambiente, abra uma janela de console e siga as instruções do seu sistema operacional. Substitua `<yourconnectionstring>` pela sua cadeia de conexão atual:
 

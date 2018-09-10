@@ -2,23 +2,22 @@
 title: Monitoramento dos aplicativos e recursos do Azure | Microsoft Docs
 description: Visão geral dos serviços e funcionalidades da Microsoft que contribuem para uma estratégia de monitoramento completa para seus serviços e aplicativos do Azure.
 author: bwren
-manager: carmonm
 editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
+services: azure-monitor
 ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: robb,bwren
-ms.openlocfilehash: 00ec9364a900510aeadcb68b19b57be528fb9c50
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.date: 08/10/2018
+ms.author: bwren
+ms.openlocfilehash: 878765a1f84e0825e86def2b59310732b22aaacc
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143939"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitoramento dos aplicativos e recursos do Azure
 
@@ -62,7 +61,7 @@ Métricas disponíveis que fornecem estatísticas de desempenho para diferentes 
 
 Também é possível enviar essas métricas e registros do Azure Log Analytics para análises detalhadas e de tendências ou criar regras de alerta adicionais para notificá-lo proativamente sobre problemas críticos como resultado dessa análise.  
 
-### <a name="azure-advisor"></a>Azure Advisor
+### <a name="azure-advisor"></a>Assistente do Azure
 O [Assistente do Azure](../advisor/advisor-overview.md) monitora constantemente sua telemetria de uso e configuração de recursos. Ele fornece recomendações personalizadas com base nas práticas recomendadas. Seguir essas recomendações irá ajudá-lo a melhorar o desempenho, a segurança e a disponibilidade dos recursos compatíveis com seus aplicativos.
 
 ### <a name="service-health"></a>Integridade do Serviço

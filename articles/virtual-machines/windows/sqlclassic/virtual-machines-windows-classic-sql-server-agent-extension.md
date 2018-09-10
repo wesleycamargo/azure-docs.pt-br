@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/07/2018
+ms.date: 07/12/2018
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3ff9a8b91b0359c57fae5b1a01b5d895ab9a1685
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 55a31d7a0ab603dd7fe7de514d11d003e044240a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008324"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizar tarefas de gerenciamento em máquinas virtuais do Azure com a Extensão do Agente do SQL Server (Clássica)
 > [!div class="op_single_selector"]
@@ -43,7 +44,7 @@ A Extensão do Agente IaaS do SQL Server dá suporte às seguintes tarefas de ad
 | **Aplicação de patch automatizada do SQL** |Configura uma janela de manutenção durante a qual as atualizações importantes do Windows para a VM podem ocorrer, evitando atualizações da carga de trabalho durante horários de pico. Para obter mais informações, confira [Aplicação de patch automatizada para SQL Server em máquinas virtuais do Azure (Clássico)](../classic/sql-automated-patching.md). |
 | **Integração do Cofre da Chave do Azure** |Permite a instalação e configuração automática do Cofre de Chaves do Azure em sua VM do SQL Server. Para saber mais, confira [Configurar a Integração do Cofre de Chaves do Azure para o SQL Server em VMs do Azure (Clássico)](../classic/ps-sql-keyvault.md). |
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Requisitos para uso da extensão SQL Server IaaS Agent em sua VM:
 
 ### <a name="operating-system"></a>Sistema operacional:
@@ -80,8 +81,9 @@ Se você atualizar para a versão mais recente da Extensão do Agente IaaS SQL, 
 
 > [!NOTE]
 > Máquinas virtuais clássicas não têm uma opção para instalar e configurar a extensão do agente SQL IaaS através do portal.
-> 
-> 
+
+> [!NOTE]
+> A extensão do SQL Server IaaS Agent é compatível apenas com [imagens da galeria de VM do SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (paga conforme o uso ou traga sua própria licença). Ela não será compatível se você instalar manualmente o SQL Server em uma máquina virtual do Windows Server somente de sistema operacional ou se você implantar um VHD de VM do SQL Server personalizado. Nesses casos, talvez seja possível instalar e gerenciar a extensão manualmente usando o PowerShell, mas é altamente recomendável, em vez disso, instalar uma imagem da galeria de VM do SQL Server e personalizá-la.
 
 ## <a name="status"></a>Status
 Uma maneira de verificar se a extensão está instalada é exibir o status do agente no Portal do Azure. Selecione uma máquina virtual listada na folha da máquina virtual e, em seguida, clique em **Extensões**. Você deverá ver a extensão **SQLIaaSAgent** na lista.

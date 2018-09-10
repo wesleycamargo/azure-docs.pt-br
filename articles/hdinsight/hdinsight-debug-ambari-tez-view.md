@@ -1,23 +1,20 @@
 ---
-title: Usar a exibição do Ambari Tez com o HDInsight – Azure | Microsoft Docs
+title: Usar o modo de exibição do Ambari Tez com HDInsight - Azure
 description: Saiba como usar o modo de exibição do Ambari Tez para depurar trabalhos do Tez no HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 9c39ea56-670b-4699-aba0-0f64c261e411
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 98874377f31a435e7dd9736410c123ef623928d0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 576460f4b68d670e534e0ddeed920f7ac99e1458
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108879"
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Usar os modos de exibição do Ambari para depurar trabalhos do Tez no HDInsight
 
@@ -26,7 +23,7 @@ A interface do usuário da Web do Ambari para HDInsight contém uma exibição d
 > [!IMPORTANT]
 > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Controle de versão do componente do HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Criar um cluster HDInsight baseado em Linux. Para ver as etapas para criar um cluster, consulte [Introdução ao HDInsight baseado no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Um navegador da Web moderno, com suporte a HTML5.

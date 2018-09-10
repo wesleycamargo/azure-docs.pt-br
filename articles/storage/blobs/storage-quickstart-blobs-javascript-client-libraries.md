@@ -4,17 +4,17 @@ description: Aprenda a usar uma instância de BlobService para carregar, listar 
 services: storage
 keywords: armazenamento, javascript, html
 author: craigshoemaker
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c4af99055753a11a8258a4347a885e0d60e3d286
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399100"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -48,7 +48,7 @@ Em seguida, use Azure Cloud Shell para criar um token de segurança.
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>Criar uma Assinatura de Acesso Compartilhado
-A SAS (Assinatura de Acesso Compartilhado ) é usada pelo código em execução no navegador para autenticar solicitações feitas ao armazenamento de blobs. Usando a SAS, o cliente pode autenticar sem ter a cadeia de conexão ou a chave de acesso da conta. Para saber mais, confira [Usando SAS (Assinaturas de Acesso Compartilhado)](../common/storage-dotnet-shared-access-signature-part-1.md).
+A assinatura de acesso compartilhado (SAS) é usada pelo código em execução no navegador para autorizar solicitações para o Armazenamento de Blobs. Ao usar a SAS, o cliente pode autorizar o acesso a recursos de armazenamento sem a cadeia de conexão ou chave de acesso da conta. Para saber mais, confira [Usando SAS (Assinaturas de Acesso Compartilhado)](../common/storage-dotnet-shared-access-signature-part-1.md).
 
 Você pode criar uma SAS usando a CLI do Azure por meio do Azure Cloud Shell ou com o Gerenciador de Armazenamento do Azure. A tabela a seguir descreve os parâmetros para os quais você precisa fornecer valores a fim de gerar uma SAS com a CLI.
 
@@ -61,7 +61,7 @@ Você pode criar uma SAS usando a CLI do Azure por meio do Azure Cloud Shell ou 
 O script a seguir usou a CLI do Azure para criar uma SAS que você pode passar para um serviço Blob JavaScript.
 
 > [!NOTE]
-> Para obter melhores resultados, remova os espaços a mais entre os parâmetros antes de colar o comando no Azure Cloud Shell.
+> Para obter melhlores resultados remova o excesso de espaços entre os parâmetros antes de colar o comando no Azure Cloud Shell.
 
 ```bash
 az storage account generate-sas
@@ -83,7 +83,7 @@ A série de valores depois de cada parâmetro pode parecer um pouco confusa. Ess
 Agora que a SAS foi gerada, copie o valor retornado para o console em seu editor de texto. Esse valor será usado em uma etapa posterior.
 
 > [!IMPORTANT]
-> Na produção, sempre passe os tokens SAS usando SSL. Além disso, os tokens SAS devem ser gerados no servidor e enviados para a página HTML na ordem inversa de passagem para o Armazenamento de Blobs do Azure. Uma abordagem que você pode considerar é usar uma função sem servidor para gerar tokens SAS. O Portal do Azure inclui modelos de função com capacidade para gerar uma SAS com uma função JavaScript.
+> Na produção, sempre passe os tokens SAS usando SSL. Além disso, os tokens SAS devem ser gerados no servidor e enviados para a página HTML na ordem inversa de passagem para o Armazenamento de Blobs do Azure. Uma abordagem possível é usar uma função sem servidor para gerar tokens SAS. O Portal do Azure inclui modelos de função que possuem a capacidade de gerar uma SAS com uma função do JavaScript.
 
 ## <a name="implement-the-html-page"></a>Implementar a página HTML
 
@@ -253,4 +253,4 @@ Para limpar os recursos criados durante este início rápido, volte para o [port
 Explore os exemplos para saber como baixar blobs e relatar o andamento durante as transferências de arquivos.
 
 > [!div class="nextstepaction"]
-> [Bibliotecas de clientes do Armazenamento de Blobs](https://github.com/Azure/azure-storage-node/tree/master/browser)
+> [Bibliotecas de clientes de Armazenamento de Blobs](https://github.com/Azure/azure-storage-node/tree/master/browser)

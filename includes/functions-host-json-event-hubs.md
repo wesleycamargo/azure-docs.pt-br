@@ -8,7 +8,7 @@
 }
 ```
 
-|Propriedade  |Padrão | Descrição |
+|Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |maxBatchSize|64|A contagem máxima de eventos recebidos por loop de recebimento.|
 |prefetchCount|n/d|O PrefetchCount padrão que será usado pelo EventProcessorHost subjacente.| 

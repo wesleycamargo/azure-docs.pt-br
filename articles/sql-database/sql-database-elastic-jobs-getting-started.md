@@ -6,21 +6,27 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 07/16/2018
 ms.author: sstein
-ms.openlocfilehash: 2d8760476fd7b8a5a11d01a434a383ec1ba27ef1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8b03d228464978995a7a97e2f245b629b52ed812
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092781"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introdução a trabalhos de Banco de Dados Elástico
+
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
 Trabalhos de Banco de Dados Elástico (visualização) para o Banco de Dados SQL do Azure permite que você execute, de modo confiável, scripts T-SQL que abrangem vários bancos de dados, repetindo tentativas automaticamente e fornecendo eventuais garantias de conclusão. Para obter mais informações sobre o recurso de trabalho de Banco de Dados Elástico, consulte [Trabalhos elásticos](sql-database-elastic-jobs-overview.md).
 
 Este artigo estende o exemplo encontrado na [Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md). Quando concluído, você terá aprendido a criar e gerenciar trabalhos que gerenciam um grupo de bancos de dados relacionados. Não é necessário usar as ferramentas de Dimensionamento Elástico para tirar proveito dos benefícios dos Trabalhos elásticos.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Baixe e execute a [exemplo da Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Criar um gerenciador de mapa de fragmentos usando o aplicativo de exemplo
@@ -460,7 +466,7 @@ Todas as linhas da tabela **Clientes** , armazenada em fragmentos diferentes, po
 Agora você pode usar funções de dados do Excel. Use a cadeia de conexão com o nome do servidor, nome do banco de dados e credenciais para conectar suas ferramentas de integração de dados e BI ao banco de dados de consulta elástico. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Consulte o banco de dados de consulta elástico e tabelas externas como qualquer outro banco de dados e tabela do SQL Server que se conectariam à sua ferramenta.
 
 ### <a name="cost"></a>Custo
-Não há nenhum custo adicional para usar o recurso de consulta de Banco de Dados Elástico. No entanto, neste momento esse recurso está disponível apenas em bancos de dados e pools elásticos Premium e Comercialmente Crítico (versão prévia) como um ponto de extremidade, mas os fragmentos podem ser de qualquer camada de serviço.
+Não há nenhum custo adicional para usar o recurso de consulta de Banco de Dados Elástico. No entanto, atualmente esse recurso está disponível apenas em bancos de dados Premium e Comercialmente Crítico e em pools elásticos como um ponto de extremidade, mas os fragmentos podem ser de qualquer camada de serviço.
 
 Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 

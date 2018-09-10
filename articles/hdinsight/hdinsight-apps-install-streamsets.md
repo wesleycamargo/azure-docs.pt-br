@@ -1,24 +1,20 @@
 ---
-title: Instalar aplicativo publicado - Coletor de dados dos conjuntos de fluxos - HDInsight do Azure | Microsoft Docs
+title: Instalar aplicativo publicado - Coletor de dados dos conjuntos de fluxos - Azure HDInsight
 description: Instalar e usar o aplicativo de Hadoop de terceiros do Coletor de Dados dos Conjuntos de Fluxos.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: e433de82576f8b943988881ed0b6673c0dccd77e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 72ace99a8124b0a288e8facf630e947151169d0b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106875"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>Instalar aplicativo publicado - Coletor de dados dos conjuntos de fluxos
 
@@ -41,7 +37,7 @@ O coletor de dados de conjuntos de fluxos foi criado para isolar logicamente cad
 * [Canal de Conjuntos de Fluxos Públicos Slack](https://streamsetters.slack.com/)
 * [Código-fonte](https://github.com/streamsets)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para instalar este aplicativo em um novo cluster do HDInsight ou em um cluster existente, você deve ter a seguinte configuração:
 

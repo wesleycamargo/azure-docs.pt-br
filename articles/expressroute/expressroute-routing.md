@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 07/09/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7fd2dd870338dc6778d192658143d14d9d9895cc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072139"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -66,6 +67,7 @@ Você deve usar endereços IP públicos que possui para configurar as sessões B
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Endereços IP usados para emparelhamento da Microsoft
 Você deve usar endereços IP públicos que possui para configurar as sessões BGP. A Microsoft deve ser capaz de verificar a propriedade dos endereços IP por meio de Registros da Internet de Roteamento e Registros de Roteamento da Internet.
 
+* Os IPs listados no portal para prefixos públicos anunciados para o Emparelhamento da Microsoft criarão ACLs para os roteadores de núcleo da Microsoft para permitir o tráfego de entrada desses IPs. 
 * Você deve usar uma sub-rede /29 (IPv4) ou /125 (IPv6) ou duas sub-redes /30 (IPv4) ou /126 (IPv6) para configurar o emparelhamento BGP para cada emparelhamento por circuito ExpressRoute(se houver mais de um).
 * Se uma sub-rede /29 for usada, ela será dividida em duas sub-redes /30.
 * A primeira sub-rede /30 é usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
@@ -115,7 +117,7 @@ Um Número de AS Privado é permitido com o emparelhamento da Microsoft, mas tam
 > 
 
 ## <a name="dynamic-route-exchange"></a>Intercâmbio de roteamento dinâmico
-O intercâmbio de roteamento será por meio do protocolo eBGP. As sessões EBGP são estabelecidas entre os MSEEs e os roteadores. A autenticação de sessões BGP não é um requisito. Se necessário, um hash MD5 pode ser configurado. Consulte [Configurar roteamento](expressroute-howto-routing-classic.md) e [luxos de trabalho de provisionamento e estados do circuito](expressroute-workflows.md) para obter informações sobre como configurar as sessões BGP.
+O intercâmbio de roteamento será por meio do protocolo eBGP. As sessões EBGP são estabelecidas entre os MSEEs e os roteadores. A autenticação de sessões BGP não é um requisito. Se necessário, um hash MD5 pode ser configurado. Consulte [Configurar roteamento](how-to-routefilter-portal.md) e [luxos de trabalho de provisionamento e estados do circuito](expressroute-workflows.md) para obter informações sobre como configurar as sessões BGP.
 
 ## <a name="autonomous-system-numbers"></a>Números de sistema autônomos
 A Microsoft usa AS 12076 para o emparelhamento público do Azure, o emparelhamento privado do Azure e o emparelhamento da Microsoft. Reservamos os ASNs de 65515 a 65520 para o uso interno. Há suporte para números AS de 16 e 32 bits.
@@ -192,7 +194,7 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | Sul da Índia | 12076:51019 |
 | Oeste da Índia | 12076:51018 |
 | Centro da Índia | 12076:51017 |
-| **Coreia** | |
+| **Coreia do Sul** | |
 | Sul da Coreia | 12076:51028 |
 | Coreia Central | 12076:51029 |
 
@@ -219,7 +221,7 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 > 
 > 
 
-### <a name="bgp-community-support-in-national-clouds-preview"></a>Suporte à Comunidade de BGP no National Clouds (visualização)
+### <a name="bgp-community-support-in-national-clouds"></a>Suporte à Comunidade de BGP no National Clouds
 
 | **Região do Azure de Nuvens Nacionais**| **Valor de comunidade BGP** |
 | --- | --- |

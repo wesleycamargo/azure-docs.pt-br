@@ -1,17 +1,18 @@
 ---
-title: "Sobre a migração no Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como migrar VMs locais e do Azure que usam o serviço Azure Site Recovery."
+title: Sobre a migração no Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como migrar VMs locais e do Azure que usam o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: edf6ffe1cd55884f1c18498213df290cb19bb246
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2cc030bf9724e98c1ef0a43134c5066c81b38b6b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213081"
 ---
 # <a name="about-migration"></a>Sobre a migração
 

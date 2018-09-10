@@ -3,7 +3,7 @@ title: Exemplo do PowerShell – Sincronização entre o Banco de Dados SQL e o 
 description: Script de exemplo do Azure PowerShell para sincronização entre um Banco de Dados SQL do Azure e um banco de dados SQL Server local
 services: sql-database
 documentationcenter: sql-database
-author: jognanay
+author: allenwux
 manager: craigg
 editor: ''
 tags: ''
@@ -15,23 +15,24 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: jognanay
+ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: bef2e3088bf3f3d32f59b382792608fbf3a03a60
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 650303918e6aac1d4d16549f0b1ca976f0e6bf11
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663876"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Use o PowerShell para sincronizar entre um Banco de Dados SQL e um banco de dados local do SQL Server
 
-Este exemplo do PowerShell configura a Sincronização de Dados (versão prévia) para sincronização entre um Banco de Dados SQL do Azure e um banco de dados do SQL Server local. 
+Este exemplo do PowerShell configura a Sincronização de Dados para sincronização entre um Banco de Dados SQL do Azure e um banco de dados do SQL Server local. 
 
 Este exemplo exige o módulo do Azure PowerShell, versão 4.2 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
 Execute `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
-Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure (versão prévia)](../sql-database-sync-data.md).
+Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](../sql-database-sync-data.md).
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -378,7 +379,7 @@ Este script usa os comandos a seguir. Cada comando na tabela redireciona para a 
 | [Get-AzureRmSqlSyncAgentLinkedDatabase](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  Obtém todas as informações para o Agente de Sincronização |
 | [New-AzureRmSqlSyncMember](/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  Adiciona um novo membro ao Grupo de Sincronização |
 | [Update-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  Atualiza as informações de esquema de banco de dados |
-| [Get-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchem) |  Obtém as informações de esquema de banco de dados |
+| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchema?view=azurermps-6.8.1) |  Obtém as informações de esquema de banco de dados |
 | [Update-AzureRmSqlSyncGroup](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  Atualiza o Grupo de Sincronização |
 | [Start-AzureRmSqlSyncGroupSync](/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | Dispara uma Sincronização |
 | [Get-AzureRmSqlSyncGroupLog](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  Verifica o Log de Sincronização |
@@ -400,8 +401,6 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:
     -   [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](sql-database-sync-data-between-sql-databases.md)
-
--   [Baixe a documentação da API REST de Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Para saber mais sobre o Banco de Dados SQL, veja:
 

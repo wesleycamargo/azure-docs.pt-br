@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/13/2018
-ms.openlocfilehash: ec916ea2104df9d694aad2462df7ca5a487017f2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cfdfa1493857a1731da74c52a616293b482f811a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030685"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desenvolver trabalhos de Borda do Stream Analytics utilizando ferramentas do Visual Studio
 
@@ -122,6 +123,6 @@ A janela de exibição de trabalhos fornece operações como atualizar o trabalh
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Mais informações sobre o Azure Iot Edge](../iot-edge/how-iot-edge-works.md)
+* [Mais informações sobre o Azure Iot Edge](../iot-edge/about-iot-edge.md)
 * [ASA no tutorial de IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Enviar comentários para a equipe usando esta pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 

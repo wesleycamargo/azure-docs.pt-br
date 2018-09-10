@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2018
+ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c4670a7e957970acea54ff69d56edcd45092c8fe
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: d924c1fc9697bff77f12f7f0bf33a1654d1e7d6e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157224"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597966"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Declarações opcionais no Azure AD (versão prévia)
 
@@ -33,7 +33,7 @@ Esse recurso é usado por desenvolvedores de aplicativos para especificar quais 
 > [!Note]
 > Atualmente, essa capacidade está em visualização pública. Esteja preparado para reverter ou remover quaisquer alterações. O recurso está disponível em qualquer assinatura do Azure AD durante a visualização pública. No entanto, quando o recurso for disponibilizado para todos, alguns aspectos dele poderão exigir uma assinatura do Azure AD Premium.
 
-Para obter a lista de declarações padrão e como elas são usadas nos tokens, confira [Noções básicas de tokens emitidos pelo Azure AD](active-directory-token-and-claims.md). 
+Para obter a lista de declarações padrão e como elas são usadas nos tokens, confira [Noções básicas de tokens emitidos pelo Azure AD](v1-id-and-access-tokens.md). 
 
 Uma das metas do [ponto de extremidade v2.0 do Azure AD](active-directory-appmodel-v2-overview.md) é obter tamanhos menores de token para garantir um ótimo desempenho pelos clientes.  Como resultado, várias declarações anteriormente incluídas em tokens de acesso e ID não estão mais presentes nos tokens v2.0 e devem ser solicitadas especificamente, por aplicativo.  
 
@@ -41,38 +41,42 @@ Uma das metas do [ponto de extremidade v2.0 do Azure AD](active-directory-appmod
 
 | Tipo de Conta | Ponto de extremidade V1.0                      | Ponto de extremidade V2.0  |
 |--------------|------------------------------------|----------------|
-| MSA          | N/D ‒ são os usados os tíquetes RPS | Suporte em breve |
-| AAD          | Com suporte                          | Com suporte      |
+| Conta pessoal da Microsoft  | N/D ‒ são os usados os tíquetes RPS | Suporte em breve |
+| Conta do AD do Azure          | Com suporte                          | Com suporte      |
 
 ## <a name="standard-optional-claims-set"></a>Conjunto de declarações opcional padrão
 O conjunto de declarações opcionais disponíveis por padrão para uso pelos aplicativos é listado abaixo.  Para adicionar declarações opcionais personalizadas para o aplicativo, confira [Extensões de Diretório](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), abaixo. 
 
 > [!Note]
->A maioria dessas declarações pode ser incluída em JWTs, mas não os tokens SAML, exceto quando indicado na coluna Tipo de Token.  Além disso, embora declarações opcionais tenham suporte apenas para usuários do AAD no momento, o suporte para MSA está sendo adicionado.  Quando a MSA tem suporte para declarações opcionais no ponto de extremidade v2.0, a coluna de tipo de usuário indica se uma declaração está disponível para um usuário do AAD ou MSA.  
+>A maioria dessas declarações pode ser incluída em JWTs para tokens v1.0 e v2.0, mas não para tokens SAML, exceto quando indicado na coluna Tipo de Token.  Além disso, embora declarações opcionais tenham suporte apenas para usuários do AAD no momento, o suporte para MSA está sendo adicionado.  Quando a MSA tem suporte para declarações opcionais no ponto de extremidade v2.0, a coluna de tipo de usuário indica se uma declaração está disponível para um usuário do AAD ou MSA.  
 
 **Tabela 2: Conjunto de declarações opcionais padrão**
 
-| NOME                     | DESCRIÇÃO                                                                                                                                                                                     | Tipo de token | Tipo de Usuário | Observações                                                                                                                                                                                                                                                                                   |
-|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `auth_time`                | Hora em que o usuário foi autenticado pela última vez.  Confira especificações de OpenID Connect.                                                                                                                                | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `tenant_region_scope`      | Região do locatário do recurso                                                                                                                                                                   | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `signin_state`             | Entrar no estado de declaração                                                                                                                                                                             | JWT        |           | Seis valores de retorno, como sinalizadores:<br> "dvc_mngd": o dispositivo é gerenciado<br> "dvc_cmp": o dispositivo está em conformidade<br> "dvc_dmjd": o dispositivo ingressou no domínio<br> "dvc_mngd_app": o dispositivo é gerenciado por meio do MDM<br> "inknownntwk": o dispositivo está dentro de uma rede conhecida.<br> "kmsi": Manter-me Conectado foi usado. <br> |
-| `controls`                 | Declaração com vários valores e que contém os controles de sessão impostos pelas políticas de Acesso Condicional.                                                                                                       | JWT        |           | Três valores:<br> "app_res": o aplicativo deve impor restrições mais granulares. <br> "ca_enf": a imposição de Acesso Condicional foi adiada e ainda é necessária. <br> "no_cookie": este token é insuficiente para troca para um cookie no navegador. <br>                              |
-| `home_oid`                 | Para usuários convidados, a ID de objeto do usuário no locatário inicial do usuário.                                                                                                                           | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `sid`                      | ID de sessão usada para a saída de usuário por sessão.                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `platf`                    | Plataforma de dispositivos                                                                                                                                                                                 | JWT        |           | Restrito aos dispositivos gerenciados que podem verificar o tipo de dispositivo.                                                                                                                                                                                                                              |
-| `verified_primary_email`   | Originado de PrimaryAuthoritativeEmail do usuário                                                                                                                                               | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `verified_secondary_email` | Originado de SecondaryAuthoritativeEmail do usuário                                                                                                                                             | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `enfpolids`                | IDs de política aplicada. Uma lista de IDs de política que foram avaliadas para o usuário atual.                                                                                                         | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `vnet`                     | Informações de especificador de VNET.                                                                                                                                                                     | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `fwd`                      | Endereço IP.  Adiciona o endereço IPv4 original do cliente solicitante (quando dentro de uma VNET)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `ctry`                     | O país do usuário                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `tenant_ctry`              | País do locatário de recursos                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `acct`    | Status da conta de usuários no locatário.  Se o usuário for um membro do locatário, o valor será `0`.  Se eles forem convidado, o valor é `1`.  | JWT, SAML | | |
-| `upn`                      | Declaração UserPrincipalName.  Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais a fim de modificar seu comportamento, no caso do usuário convidado. | JWT, SAML  |           | Propriedades adicionais: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+| NOME                        | DESCRIÇÃO   | Tipo de token | Tipo de Usuário | Observações  |
+|-----------------------------|----------------|------------|-----------|--------|
+| `auth_time`                | Hora em que o usuário foi autenticado pela última vez.  Confira especificações de OpenID Connect.| JWT        |           |  |
+| `tenant_region_scope`      | Região do locatário do recurso | JWT        |           | |
+| `signin_state`             | Entrar no estado de declaração   | JWT        |           | Seis valores de retorno, como sinalizadores:<br> "dvc_mngd": o dispositivo é gerenciado<br> "dvc_cmp": o dispositivo está em conformidade<br> "dvc_dmjd": o dispositivo ingressou no domínio<br> "dvc_mngd_app": o dispositivo é gerenciado por meio do MDM<br> "inknownntwk": o dispositivo está dentro de uma rede conhecida.<br> "kmsi": Manter-me Conectado foi usado. <br> |
+| `controls`                 | Declaração com vários valores e que contém os controles de sessão impostos pelas políticas de Acesso Condicional.  | JWT        |           | Três valores:<br> "app_res": o aplicativo deve impor restrições mais granulares. <br> "ca_enf": a imposição de Acesso Condicional foi adiada e ainda é necessária. <br> "no_cookie": este token é insuficiente para troca para um cookie no navegador. <br>  |
+| `home_oid`                 | Para usuários convidados, a ID de objeto do usuário no locatário inicial do usuário.| JWT        |           | |
+| `sid`                      | ID de sessão usada para a saída de usuário por sessão. | JWT        |           |         |
+| `platf`                    | Plataforma de dispositivos    | JWT        |           | Restrito aos dispositivos gerenciados que podem verificar o tipo de dispositivo.|
+| `verified_primary_email`   | Originado de PrimaryAuthoritativeEmail do usuário      | JWT        |           |         |
+| `verified_secondary_email` | Originado de SecondaryAuthoritativeEmail do usuário   | JWT        |           |        |
+| `enfpolids`                | IDs de política aplicada. Uma lista de IDs de política que foram avaliadas para o usuário atual.  | JWT |  |  |
+| `vnet`                     | Informações de especificador de VNET.    | JWT        |           |      |
+| `fwd`                      | Endereço IP.| JWT    |   | Adiciona o endereço IPv4 original do cliente solicitante (quando dentro de uma VNET) |
+| `ctry`                     | O país do usuário | JWT |           | O Azure AD retorna a declaração opcional `ctry` se ela estiver presente e o valor da declaração é um código de país padrão de duas letras, como FR, JP, SZ e assim por diante. |
+| `tenant_ctry`              | País do locatário de recursos | JWT | | |
+| `xms_pdl`          | Local dos dados preferido   | JWT | | Para locatários de várias áreas geográficas, este é o código de 3 letras mostrando em qual região geográfica o usuário está.  Para obter mais detalhes, veja a [documentação do Azure AD Connect sobre o local de dados preferencial](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> Por exemplo: `APC` para Pacífico Asiático. |
+| `xms_pl`                   | Idioma preferido do usuário  | JWT ||O idioma preferido do usuário, se definido.  Originado de seu locatário inicial, em cenários de acesso de convidado.  Tem o formato II-PP ("en-us"). |
+| `xms_tpl`                  | Idioma preferido do locatário| JWT | | O idioma preferido do locatário do recurso, se definido.  Com o formato II (“en”). |
+| `ztdid`                    | ID de implantação de zero toque | JWT | | A identidade do dispositivo usada para o [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+| `acct`             | Status da conta de usuários no locatário.   | JWT, SAML | | Se o usuário for um membro do locatário, o valor será `0`.  Se eles forem convidado, o valor é `1`.  |
+| `upn`                      | Declaração UserPrincipalName.  | JWT, SAML  |           | Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais a fim de modificar seu comportamento, no caso do usuário convidado.  <br> Propriedades adicionais: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 
 ### <a name="v20-optional-claims"></a>Declarações opcionais V2.0
-Essas declarações são sempre incluídas em tokens da v1.0, mas são removidas de tokens da v2.0, a menos que solicitado.  Essas declarações só são aplicáveis a JWTs (tokens de ID e Tokens de Acesso).  
+Essas declarações são sempre incluídas em tokens da v1.0, mas não em tokens da v2.0, a menos que solicitado.  Essas declarações só são aplicáveis a JWTs (tokens de ID e Tokens de Acesso).  
 
 **Tabela 3: Somente declarações V2.0 opcionais**
 
@@ -95,7 +99,7 @@ Algumas declarações opcionais podem ser configuradas para alterar o modo como 
 
 | Nome da propriedade                                     | Nome de Propriedade Adicional                                                                                                             | DESCRIÇÃO |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |             |
+| `upn`                                                 |                                                                                                                                      |  Pode ser usada para respostas SAML e JWT.            |
 | | `include_externally_authenticated_upn`              | Inclui o UPN de convidado conforme armazenado no locatário do recurso.  Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | Igual ao que é indicado acima, exceto que as marcas de hash (`#`) são substituídas por sublinhados (`_`), por exemplo `foo_hometenant.com_EXT_@resourcetenant.com` |             
 
@@ -118,11 +122,11 @@ Algumas declarações opcionais podem ser configuradas para alterar o modo como 
 }
 ```
 
-Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua outro UPN com o locatário de início adicional e as informações do locatário do recurso.  
+Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua outro UPN com o locatário de início adicional e as informações do locatário do recurso.  Isso altera apenas a declaração `upn` no token, se o usuário é um convidado no locatário (que usa um IDP diferente para autenticação). 
 
 ## <a name="configuring-optional-claims"></a>Como configurar as declarações opcionais
 
-Você pode configurar declarações opcionais para o aplicativo modificando o manifesto do aplicativo (veja o exemplo abaixo). Para saber mais, confira o [artigo Noções básicas sobre o manifesto do aplicativo Azure AD](active-directory-application-manifest.md).
+Você pode configurar declarações opcionais para o aplicativo modificando o manifesto do aplicativo (veja o exemplo abaixo). Para saber mais, confira o [artigo Noções básicas sobre o manifesto do aplicativo Azure AD](reference-app-manifest.md).
 
 **Esquema de exemplo:**
 
@@ -131,14 +135,13 @@ Você pode configurar declarações opcionais para o aplicativo modificando o ma
    {
        "idToken": [
              { 
-                   "name": "upn", 
-                   "essential": false, 
-                   "additionalProperties": [ "include_externally_authenticated_upn"]  
+                   "name": "auth_time", 
+                   "essential": false
               }
         ],
  "accessToken": [ 
              {
-                    "name": "auth_time", 
+                    "name": "ipaddr", 
                     "essential": false
               }
         ],
@@ -162,7 +165,7 @@ Declara as declarações opcionais solicitadas por um aplicativo. Um aplicativo 
 
 **Tabela 5: Propriedades do tipo OptionalClaims**
 
-| NOME        | type                       | DESCRIÇÃO                                           |
+| NOME        | Tipo                       | DESCRIÇÃO                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de ID JWT.     |
 | `accessToken` | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de acesso JWT. |
@@ -176,7 +179,7 @@ Caso haja suporte por uma declaração específica, você também poderá modifi
 
 **Tabela 6: Propriedades do tipo OptionalClaim**
 
-| NOME                 | type                    | DESCRIÇÃO                                                                                                                                                                                                                                                                                                   |
+| NOME                 | Tipo                    | DESCRIÇÃO                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da declaração opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | A origem (objeto de diretório) da declaração. Há declarações predefinidas e definidas pelo usuário de propriedades de extensão. Se o valor de origem for nulo, a declaração será uma declaração opcional predefinida. Se o valor de origem for um usuário, o valor na propriedade name será a propriedade de extensão do objeto de usuário. |
@@ -211,7 +214,7 @@ Há várias opções disponíveis para atualizar as propriedades na configuraç�
 3.  Escolha a extensão **Azure AD** no painel de navegação esquerdo e clique em **Registros de Aplicativo**.
 4.  Localize o aplicativo para o qual você deseja configurar declarações opcionais na lista e clique nele.
 5.  Na página do aplicativo, clique em **Manifesto** para abrir o editor de manifesto embutido. 
-6.  Você pode editar diretamente o manifesto usando esse editor. O manifesto segue o esquema para [Entidade de aplicativo](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)e formata automaticamente o manifesto quando é salvo. Novos elementos serão adicionados à propriedade `OptionalClaims`.
+6.  Você pode editar diretamente o manifesto usando esse editor. O manifesto segue o esquema para [Entidade de aplicativo](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)e formata automaticamente o manifesto quando é salvo. Novos elementos serão adicionados para o `OptionalClaims` propriedade.
 
       ```json
       "optionalClaims": 
@@ -244,4 +247,4 @@ Há várias opções disponíveis para atualizar as propriedades na configuraç�
 
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* Saiba mais sobre as [declarações padrão](active-directory-token-and-claims.md) fornecidas pelo Azure AD. 
+* Saiba mais sobre as [declarações padrão](v1-id-and-access-tokens.md) fornecidas pelo Azure AD. 

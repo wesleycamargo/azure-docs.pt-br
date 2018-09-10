@@ -1,6 +1,6 @@
 ---
 title: Exibir logs de atividade para alterações RBAC no Azure | Microsoft Docs
-description: Exibir os logs de atividade para alterações de controle de acesso baseado em função para os últimos 90 dias.
+description: Exibir logs de atividades para alterações RBAC (controle de acesso baseado em função) dos últimos 90 dias.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,40 +8,48 @@ manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2017
+ms.date: 05/23/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48ea2293c186bbc337f9d70464df374d64b5e61
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 10e0df78d75763dfcf8636983c9f9092b78b9c3b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203896"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437640"
 ---
-# <a name="view-activity-logs-for-role-based-access-control-changes"></a>Exibir os logs de atividade para alterações de controle de acesso baseado em função
+# <a name="view-activity-logs-for-rbac-changes"></a>Exibir logs de atividades para alterações de RBAC
 
-Sempre que alguém faz alterações em definições de função ou atribuições de função dentro de suas assinaturas, as alterações são registradas [o Log de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) na categoria Administrativa. Você pode exibir os logs de atividade para ver todas as alterações RBAC (controle) de acesso baseado em função para os últimos 90 dias.
+Às vezes, você precisa de informações sobre alterações de RBAC (controle de acesso baseado em função), como para fins de auditoria ou solução de problemas. Sempre que alguém faz alterações em definições de função ou definições de função dentro de suas assinaturas, as alterações são registradas no [Log de Atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Você pode exibir os logs de atividade para ver todas as alterações de RBAC dos últimos 90 dias.
 
 ## <a name="operations-that-are-logged"></a>Operações registradas em log
 
 Aqui estão as operações relacionadas à RBAC que são registradas no Activity Log:
 
-- Criar ou atualizar definição de função personalizada
-- Excluir definição de função personalizada
 - Criar atribuição de função
 - Excluir atribuição de função
+- Criar ou atualizar definição de função personalizada
+- Excluir definição de função personalizada
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-A maneira mais fácil para começar é exibir os logs de atividade com o portal do Azure. A captura de tela a seguir mostra um exemplo de um log de atividade que foi filtrado para exibir a categoria **administrativo** junto com a definição de função e as operações de atribuição de função. Ele também inclui um link para baixar os logs como um arquivo CSV.
+A maneira mais fácil para começar é exibir os logs de atividade com o portal do Azure. A captura de tela a seguir mostra um exemplo de um log de atividades que foi filtrado para exibir operações de atribuição de função e definição de função. Ele também inclui um link para baixar os logs como um arquivo CSV.
 
 ![Logs de atividade usando o portal – captura de tela](./media/change-history-report/activity-log-portal.png)
 
-Para obter mais informações, consulte [Visualizar eventos no log de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+O log de atividades no portal tem vários filtros. Estes são os filtros de RBAC:
+
+|Filter  |Valor  |
+|---------|---------|
+|Categoria de evento     | <ul><li>Administrativo</li></ul>         |
+|Operação     | <ul><li>Criar atribuição de função</li> <li>Excluir atribuição de função</li> <li>Criar ou atualizar definição de função personalizada</li> <li>Excluir definição de função personalizada</li></ul>      |
+
+
+Para saber mais sobre logs de atividades, confira [Exibir eventos no log de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -100,7 +108,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) é outra ferramenta que você pode usar para coletar e analisar as alterações de controle de acesso baseado em função para todos os recursos do Azure. o Log Analytics oferece as seguintes vantagens:
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) é outra ferramenta que você pode usar para coletar e analisar as alterações de RBAC para todos os recursos do Azure. o Log Analytics oferece as seguintes vantagens:
 
 - Escrever consultas complexas e lógica
 - Integrar com alertas, Power BI e outras ferramentas

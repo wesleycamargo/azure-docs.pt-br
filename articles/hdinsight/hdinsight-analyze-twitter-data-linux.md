@@ -1,24 +1,20 @@
 ---
-title: Analisar dados do Twitter com o Apache Hive – Azure HDInsight | Microsoft Docs
-description: Saiba como usar o Hive e Hadoop no HDInsight para transformar dados brutos do Twitter em uma tabela do Hive pesquisável.
+title: Analisar dados do Twitter com o Apache Hive – Azure HDInsight
+description: Saiba como usar o Hive e o Hadoop no HDInsight para transformar dados brutos do Twitter em uma tabela do Hive pesquisável.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: larryfr
+ms.date: 06/26/2018
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 89c5ff86b6c59223e0580860e14fdffdaef2472c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a20f9ef6e42027cf3f499654ac8a43eee7b41854
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104071"
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analisar dados do Twitter usando o Hive e Hadoop no HDInsight
 
@@ -31,7 +27,7 @@ Saiba como usar o Apache Hive para processar dados do Twitter. O resultado será
 
 ## <a name="get-the-data"></a>Obter os dados
 
-O Twitter permite que você recupere os [dados de cada tweet](https://dev.twitter.com/docs/platform-objects/tweets) como um documento JSON (JavaScript Object Notation) por meio de uma API REST. [OAuth](http://oauth.net) é necessário para autenticação na API.
+O Twitter permite que você recupere os dados de cada tweet como um documento JSON (JavaScript Object Notation) por meio de uma API REST. [OAuth](http://oauth.net) é necessário para autenticação na API.
 
 ### <a name="create-a-twitter-application"></a>Criar um aplicativo do Twitter
 
@@ -336,5 +332,4 @@ Você aprendeu como transformar um conjunto de dados JSON não estruturado uma e
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
-[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter

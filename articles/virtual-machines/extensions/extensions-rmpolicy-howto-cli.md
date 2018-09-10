@@ -3,7 +3,7 @@ title: Usar a política do Azure para restringir a instalação da extensão VM 
 description: Use a política do Azure para restringir as implantações de extensão VM.
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
@@ -12,12 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
-ms.author: danis;cynthn
-ms.openlocfilehash: 8e65b82730884947633688db9ed50080b96e0b8e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: roiyz;cynthn
+ms.openlocfilehash: f11d08e56fe1970aa7a0d82f368eb73589ece2fe
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412292"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usar a política do Azure para restringir a instalação de extensões nas VMs do Linux
 

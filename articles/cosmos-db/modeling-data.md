@@ -3,22 +3,19 @@ title: Modelando dados de documentos para um banco de dados NoSQL | Microsoft Do
 description: Saiba mais sobre a modelagem de dados para bancos de dados NoSQL
 keywords: modelando dados
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
-documentationcenter: ''
-ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2016
-ms.author: sngun
-ms.openlocfilehash: 8704c8b9278406b56475d30d149e33055278ef70
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: andrl
+ms.openlocfilehash: c577c9734490e3aacc148153f550162371ae482e
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037869"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelando dados de documentos para bancos de dados NoSQL
 Embora bancos de dados sem esquemas, como o Azure Cosmos DB, facilitem muito a adoção de mudanças em seu modelo de dados, ainda é recomendável dedicar algum tempo para considerar os dados. 
@@ -284,7 +281,7 @@ Mudar um pouco as coisas resultaria em um modelo que ainda representa os mesmos 
     ...
     {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
 
-No exemplo acima, tiramos a coleção ilimitada do documento da editora. Em vez disso, temos apenas uma referência à editora no documento de cada livro.
+No exemplo acima, tiramos a coleção ilimitada do documento da editora. Em vez disso, temos apenas uma referência à editora em cada documento de livro.
 
 ### <a name="how-do-i-model-manymany-relationships"></a>Como eu modelo relações de muitos para muitos?
 Em um banco de dados relacional, relações *muitos:muitos* frequentemente são modeladas com tabelas de junção, que simplesmente reúnem os registros de outras tabelas. 

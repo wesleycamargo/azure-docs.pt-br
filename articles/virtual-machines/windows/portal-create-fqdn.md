@@ -1,9 +1,9 @@
 ---
 title: Criar FQDN para uma VM do Windows no Portal do Azure | Microsoft Docs
-description: "Saiba como criar um nome de domínio totalmente qualificado, ou FQDN, para uma máquina virtual baseada no Resource Manager no Portal do Azure."
+description: Saiba como criar um nome de domínio totalmente qualificado, ou FQDN, para uma máquina virtual baseada no Resource Manager no Portal do Azure.
 services: virtual-machines-windows
-documentationcenter: 
-author: iainfoulds
+documentationcenter: ''
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/13/2017
-ms.author: iainfou
+ms.date: 08/15/2018
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ebc1ef89b24a9aa21f39e5b05051c16351f08cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 885003863b8d5a5a81adc7f0310bbf2238edc68e
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143942"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-windows-vm"></a>Criar um nome de domínio totalmente qualificado no Portal do Azure para uma VM Windows
 

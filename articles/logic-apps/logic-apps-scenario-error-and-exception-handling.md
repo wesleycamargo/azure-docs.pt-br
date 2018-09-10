@@ -1,26 +1,21 @@
 ---
-title: "Cenário de log de erros e tratamento de exceção – Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Descreve um caso de uso real sobre o log de erros e o tratamento de exceção avançados do Aplicativo Lógico do Azure"
-keywords: 
+title: Cenário de log de erros e tratamento de exceção – Aplicativo Lógico do Azure | Microsoft Docs
+description: Aqui está um caso de uso real sobre o log de erros e o tratamento de exceção avançados no Aplicativo Lógico do Azure
 services: logic-apps
-author: hedidin
-manager: anneta
-editor: 
-documentationcenter: 
-ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: hedidin
+ms.author: b-hoedid
+ms.reviewer: estfan, LADocs
+ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
-ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
-ms.author: LADocs; b-hoedid
-ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0c6062fb9e9708b0fa6aef7a6d7390287cbf69d4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124028"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Tratamento de exceção e log de erros de aplicativos lógicos
 
@@ -439,7 +434,7 @@ Nosso aplicativo de API de gerenciamento de exceções do Aplicativo Lógico do 
 
 Todos os documentos do Azure Cosmos DB devem ter uma ID exclusiva. Estamos usando o `PatientId` e adicionando um carimbo de data/hora convertido em um valor de carimbo de data/hora do Unix (double). Truncamos o valor para remover o valor fracionário.
 
-Você pode exibir o código-fonte da nossa API de controlador erro [o GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
+Você pode exibir o código-fonte da nossa API de controlador erro no [GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs).
 
 Chamamos a API de um aplicativo lógico usando a seguinte sintaxe:
 

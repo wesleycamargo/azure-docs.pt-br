@@ -1,11 +1,11 @@
 ---
 title: Hospedar um site Ruby on Rails em uma VM do Linux | Microsoft Docs
-description: "Configurar e hospedar um site da Web baseado no Ruby on Rails no Azure usando uma máquina virtual do Linux."
+description: Configurar e hospedar um site da Web baseado no Ruby on Rails no Azure usando uma máquina virtual do Linux.
 services: virtual-machines-linux
 documentationcenter: ruby
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: aad32685-3550-4bff-9c73-beb8d70b3291
 ms.service: virtual-machines-linux
@@ -15,11 +15,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6ea1d249b7f9aec3a45923b162a97ce7f83d0d31
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901146"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Aplicativo Web Ruby on Rails Web em uma VM do Azure
 Esse tutorial descreve como hospedar um site Ruby on Rails no Azure usando uma máquina virtual do Linux.  
@@ -99,7 +100,7 @@ Você deve ver saídas semelhantes às seguintes.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>Adicionar um ponto de extremidade
-1. Acesse o [Portal do Azure] [https://portal.azure.com] e selecione sua VM.
+1. Acesse o [portal do Azure][https://portal.azure.com] e selecione sua VM.
 
 2. Selecione **PONTOS DE EXTREMIDADE** em **Configurações** na borda esquerda da página.
 
@@ -128,7 +129,7 @@ Você deve ver saídas semelhantes às seguintes.
     ![página padrão de rails][default-rails-cloud]
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você realizou a maior parte das etapas manualmente. Em um ambiente de produção, você gravaria seu aplicativo em um computador de desenvolvimento e o implantaria em VM do Azure. Além disso, a maioria dos ambientes de produção hospeda o aplicativo Rails em conjunto com outro processo do servidor como Apache ou NginX, que trata o roteamento da solicitação para várias instâncias do aplicativo Rails e atende recursos estáticos. Para obter mais informações, consulte http://rubyonrails.org/deploy/.
+Neste tutorial, você realizou a maior parte das etapas manualmente. Em um ambiente de produção, você gravaria seu aplicativo em um computador de desenvolvimento e o implantaria em VM do Azure. Além disso, a maioria dos ambientes de produção hospeda o aplicativo Rails em conjunto com outro processo do servidor como Apache ou NginX, que trata o roteamento da solicitação para várias instâncias do aplicativo Rails e atende recursos estáticos. Para obter mais informações, consulte http://guides.rubyonrails.org/routing.html.
 
 Para saber mais sobre o Ruby on Rails, visite os [Guias do Ruby on Rails][rails-guides].
 

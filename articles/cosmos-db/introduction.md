@@ -1,24 +1,21 @@
 ---
 title: Introdução ao Azure Cosmos DB | Microsoft Docs
-description: Saiba mais sobre o Azure Cosmos DB. Este multimodelo de banco de dados distribuído globalmente foi criado para alta disponibilidade, escalabilidade elástica e baixa latência.
+description: Saiba mais sobre o Azure Cosmos DB. Este banco de dados multimodelo distribuído globalmente foi criado para alta disponibilidade, escalabilidade elástica e baixa latência e oferece suporte nativo para dados do NoSQL.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 3c7fc83e379bcd1ad084d20555d9a82697cb5069
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 488ec66eb485761d484e305c298dfb9117745a42
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145274"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -71,7 +68,7 @@ Como um serviço de banco de dados multimodelo globalmente distribuído, o Azure
     * O mecanismo de banco de dados do Azure Cosmos DB é completamente independente de esquema: ele indexa automaticamente todos os dados que ingere sem a necessidade de qualquer esquema ou índice e proporciona consultas incrivelmente rápidas. 
 
 * **Baixo custo de propriedade**
-    * Cinco a dez vezes [mais econômico](https://aka.ms/cosmos-db-tco-paper) do que uma solução não gerenciada ou uma solução NoSQL no local.
+    * Cinco a dez vezes mais econômico do que uma solução não gerenciada ou uma solução NoSQL no local.
     * Três vezes mais barato do que AWS DynamoDB ou Spanner do Google.
 
 ## <a name="capability-comparison"></a>Comparação de funcionalidade
@@ -81,11 +78,11 @@ O Azure Cosmos DB fornece as melhores funcionalidades de bancos de dados relacio
 | Funcionalidades | Bancos de dados relacionais   | Bancos de dados não relacionais (NoSQL) |    Azure Cosmos DB |
 | --- | --- | --- | --- |
 | Distribuição global | Não  | Não  | Sim, a distribuição turnkey em 30 + regiões, com as APIs de hospedagem múltipla|
-| Escala horizontal | Não  | sim | Sim, você pode dimensionar de maneira independente o armazenamento e a taxa de transferência | 
-| Garantias de latência | Não  | sim | Sim, 99% de leituras em < 10 ms e gravações em < 15 ms | 
-| Alta disponibilidade | Não  | sim | Sim, o Azure Cosmos DB está sempre ativo, tem compensações PACELC bem definidas e fornece opções de failover automático e manual|
+| Escala horizontal | Não  | SIM | Sim, você pode dimensionar de maneira independente o armazenamento e a taxa de transferência | 
+| Garantias de latência | Não  | SIM | Sim, 99% de leituras em < 10 ms e gravações em < 15 ms | 
+| Alta disponibilidade | Não  | SIM | Sim, o Azure Cosmos DB está sempre ativo, tem compensações PACELC bem definidas e fornece opções de failover automático e manual|
 | Modelo de dados + API | Relacional + SQL | Multimodelo + API OSS | Multimodelo + SQL + API OSS (e mais em breve) |
-| SLAs | sim | Não  | Sim, SLAs abrangentes de latência, taxa de transferência, consistência e disponibilidade |
+| SLAs | SIM | Não  | Sim, SLAs abrangentes de latência, taxa de transferência, consistência e disponibilidade |
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Soluções que se beneficiam do Azure Cosmos DB
 

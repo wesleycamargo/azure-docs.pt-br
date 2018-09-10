@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b2f33a8dce441312e74688ca766ab65c028451d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064229"
 ---
 # <a name="understanding-cost-management-reports"></a>Compreendendo os relatórios do gerenciamento de custos
 
@@ -135,7 +136,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
     Use os relatórios de Amortização na Alocação de Custo para exibir taxas de serviço sem base no uso ou custos de pagamento único e distribua uniformemente os custos ao longo de sua vida útil. Entre os exemplos de taxas únicas estão:
     - Taxas de suporte anual
     - Taxas de componentes de segurança anuais
-    - Taxas de compra de Instâncias Reservadas
+    - Taxas de compra de instâncias reservadas
     - Alguns itens do Azure Marketplace.
 
   Em Amortização, selecione **Custo amortizado** ou **Custo Real**.
@@ -175,6 +176,10 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 
     Use Ações para salvar, exportar ou agendar do relatório.
 
+15. **Política**
+
+    Embora não ilustrado, alguns relatórios incluem uma política de cálculo de custos projetada. Nesses relatórios, a política **Consolidated** mostra recomendações para todas as contas e assinaturas na entidade atual, como inscrição da Microsoft ou pagante da AWS. A política **Standalone** mostra recomendações para uma conta ou assinatura, como se não houvesse outras assinaturas. A política que você seleciona varia na estratégia de otimização usada por sua organização. As projeções de custos são baseadas nos últimos 30 dias de uso.
+
 ## <a name="save-and-schedule-reports"></a>Salvar e agendar relatórios
 
 Depois de criar um relatório, salve-o para uso futuro. Relatórios salvos ficam disponíveis em **Minhas ferramentas** > **Meus relatórios**. Se você fizer alterações a um relatório existente e salvá-lo, o relatório é salvo como uma nova versão. Ou então, você pode salvá-lo como um novo relatório.
@@ -198,4 +203,5 @@ Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você ainda não concluiu o primeiro tutorial de Gerenciamento de Custos, leia-o em [Examinar o uso e os custos](tutorial-review-usage.md).
+- Saiba mais sobre os relatórios incluídos no Cloudyn em [Use os relatórios de Gerenciamento de Custos](use-reports.md).
+- Saiba como usar relatórios para criar [painéis](dashboards.md).

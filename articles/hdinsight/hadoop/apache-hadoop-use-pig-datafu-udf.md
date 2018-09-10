@@ -1,31 +1,29 @@
 ---
-title: Usar DataFu com Pig no HDInsight – Azure | Microsoft Docs
-description: DataFu é uma coleção de bibliotecas para uso com Hadoop. Saiba como usar DataFu com Pig no cluster do HDInsight.
+title: Usar Apache DataFu com Pig no Azure HDInsight
+description: Apache DataFu Pig é uma coleção de bibliotecas para uso com o Pig no Hadoop. Saiba como usar DataFu com Pig no cluster do HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 0016721a-82be-4773-88ad-91e6b2c21cbb
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: 30243d0b7db41fbe19c60d6c11d56fb7e801797b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 06/16/2018
+ms.author: jasonh
+ms.openlocfilehash: 3d276de1910289e1f79d07c111eee1ac33e247ba
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045845"
 ---
-# <a name="use-datafu-with-pig-on-hdinsight"></a>Usar DataFu com pig no HDInsight
+# <a name="use-apache-datafu-pig-with-pig-on-hdinsight"></a>Usar Apache DataFu Pig com pig no HDInsight
 
-Saiba como usar o DataFu com o HDInsight. DataFu é uma coleção de bibliotecas de software livre para uso com o Pig no Hadoop.
+Saiba como usar Apache DataFU Pig com o HDInsight.
 
-## <a name="prerequisites"></a>pré-requisitos
+DataFu Pig é uma coleção de bibliotecas de software livre para uso com o Pig no Hadoop.
+Para obter mais informações sobre DataFu Pig, consulte [https://datafu.apache.org/](https://datafu.apache.org/).
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure.
 
@@ -43,20 +41,41 @@ Saiba como usar o DataFu com o HDInsight. DataFu é uma coleção de bibliotecas
 >
 > Se você estiver usando um cluster baseado no Windows ou um cluster baseado em Linux superior à versão 3.3, ignore esta seção.
 
-DataFu pode ser baixado e instalado no repositório Maven. Use as etapas a seguir para adicionar DataFu ao cluster HDInsight:
+DataFu pode ser baixado e instalado no repositório Maven. Use as etapas a seguir para localizar a versão necessária e adicioná-la ao seu cluster HDInsight:
+
+> [!WARNING]
+> Versões DataFU podem ter requisitos que não são atendidos pelo HDInsight. Por exemplo, se você usar uma versão mais antiga do DataFu, ele pode exigir uma versão diferente do Pig que está incluído no HDInsight.
+
+### <a name="find-a-version"></a>Encontrar uma versão
+
+1. No navegador da web, navegue até https://mvnrepository.com/artifact/org.apache.datafu/datafu-pig e localize a versão necessária.
+
+2. Selecione o número de versão vinculada.
+
+3. Selecione __Exibir tudo__ para exibir todos os arquivos.
+
+4. Na lista de arquivos, localize o arquivo .jar. Normalmente, esse arquivo é o maior dos listados, pois inclui todas as dependências. Clique com botão direito no link e copie o endereço do link.
+
+### <a name="download-datafu-to-hdinsight"></a>Baixar DataFu para HDInsight
 
 1. Utilize SSH para se conectar ao cluster do HDInsight para Linux. Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use o seguinte comando para baixar o arquivo jar do DataFu usando o utilitário wget, ou copie e cole o link no seu navegador para iniciar o download.
+2. Use o comando a seguir para baixar o arquivo jar do DataFu usando o utilitário wget:
+
+    > [!IMPORTANT]
+    > Substitua o link no comando com a URL que você copiou anteriormente.
 
     ```
-    wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
+    wget http://central.maven.org/maven2/org/apache/datafu/datafu-pig/1.4.0/datafu-pig-1.4.0.jar
     ```
 
 3. Em seguida, carregue o arquivo no armazenamento padrão para o cluster HDInsight. Colocar o arquivo no armazenamento padrão torna-o disponível para todos os nós no cluster.
 
+    > [!IMPORTANT]
+    > Substitua o número de versão no nome do arquivo com a versão que você baixou.
+
     ```
-    hdfs dfs -put datafu-1.2.0.jar /example/jars
+    hdfs dfs -put datafu-pig-1.4.0.jar /example/jars
     ```
 
     > [!NOTE]
@@ -69,9 +88,9 @@ As etapas nesta seção pressupõem que você esteja familiarizado com o uso do 
 > [!IMPORTANT]
 > Se você instalou manualmente DataFu usando as etapas na seção anterior, você deve registrá-lo antes de usá-lo.
 >
-> * Se o cluster usar o Armazenamento do Azure, use um caminho `wasb://`. Por exemplo, `register wasb:///example/jars/datafu-1.2.0.jar`.
+> * Se o cluster usar o Armazenamento do Azure, use um caminho `wasb://`. Por exemplo, `register wasb:///example/jars/datafu-pig-1.4.0.jar`.
 >
-> * Se o cluster usar o Azure Data Lake Store, use um caminho `adl://`. Por exemplo, `register adl://home/example/jars/datafu-1.2.0.jar`.
+> * Se o cluster usar o Azure Data Lake Store, use um caminho `adl://`. Por exemplo, `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
 
 Normalmente, você define um alias para funções DataFu. O exemplo a seguir define um alias de `SHA`:
 
@@ -120,5 +139,5 @@ Isso gera a saída a seguir:
 
 Para obter mais informações sobre DataFu ou Pig, consulte os seguintes documentos:
 
-* [Guia Apache Pig DataFu](http://datafu.incubator.apache.org/docs/datafu/guide.html).
+* [Guia de Introdução do Apache DataFu Pig](https://datafu.apache.org/docs/datafu/getting-started.html).
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)

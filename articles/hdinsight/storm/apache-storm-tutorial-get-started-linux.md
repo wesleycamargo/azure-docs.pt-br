@@ -1,26 +1,21 @@
 ---
-title: Exemplos de storm-starter no Apache Storm no HDInsight - Azure | Microsoft Docs
+title: Exemplos de storm-starter no Apache Storm no HDInsight – Azure
 description: Saiba como fazer a análise de big data e processar dados em tempo real usando o Apache Storm e os exemplos de storm-starter no HDInsight.
 keywords: storm-starter, exemplo do apache storm
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: d710dcac-35d1-4c27-a8d6-acaf8146b485
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: java
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 0490ba63e651b0ef16175dca46b85a3e48bfd26f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a800b3b44d060627bc8f75d8566507a9ad116f86
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048203"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introdução ao Apache Storm no HDInsight usando os exemplos do storm-starter
 
@@ -31,7 +26,7 @@ O Apache Storm é um sistema de computação escalável, tolerante a falhas, dis
 > [!IMPORTANT]
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -72,7 +67,7 @@ Use as seguintes etapas para criar um cluster Storm no HDInsight:
 
 4. Depois de selecionar o tipo de cluster, use o botão __Selecionar__ para definir o tipo de cluster. Em seguida, use o botão __Avançar__ para concluir a configuração básica.
 
-5. Na seção **Armazenamento**, selecione ou crie uma Conta de armazenamento. Para as etapas neste documento, deixe os outros campos nessa janela com os valores padrão. Use o botão __Avançar__ para salvar a configuração de armazenamento.
+5. Na seção **Armazenamento**, selecione ou crie uma Conta de armazenamento. Para as etapas neste documento, deixe os outros campos nessa janela com os valores padrão. Use o botão __Avançar__ para salvar a configuração de armazenamento. Para obter mais informações sobre como usar o Data Lake Storage Gen2, consulte o [Guia de início rápido: configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![Definir as configurações de conta de armazenamento do HDInsight](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 

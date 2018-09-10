@@ -2,22 +2,19 @@
 title: Saiba como proteger o acesso aos dados no Azure Cosmos DB | Microsoft Docs
 description: Saiba mais sobre os conceitos do controle de acesso no Azure Cosmos DB, incluindo chaves mestras, chaves somente leitura, usuários e permissões.
 services: cosmos-db
-author: SnehaGunda
+author: rafats
 manager: kfile
-documentationcenter: ''
-ms.assetid: 8641225d-e839-4ba6-a6fd-d6314ae3a51c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/24/2017
-ms.author: sngun
-ms.openlocfilehash: 7a53dda7d6b49187d77ca44bcb55db5f9c305f64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.topic: conceptual
+ms.date: 08/19/2018
+ms.author: rafats
+ms.openlocfilehash: cfd1160d1592c03eea94e3c4d04fdc5754eca671
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42145300"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Protegendo o acesso aos dados do Azure Cosmos DB
 Este artigo fornece uma visão geral de como proteger o acesso aos dados armazenados no [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -27,7 +24,7 @@ O Azure Cosmos DB usa dois tipos de chaves para autenticar usuários e fornecer 
 |Tipo de chave|Recursos|
 |---|---|
 |[Chaves mestras](#master-keys) |Usadas para os recursos administrativos: contas de bancos de dados, bancos de dados, usuários e permissões|
-|[Tokens de recurso](#resource-tokens)|Usados para recursos do aplicativo: coleções, documentos, anexos, procedimentos armazenados, gatilhos e UDFs|
+|[Tokens de recurso](#resource-tokens)|Usado para recursos de aplicativo: contêineres, documentos, anexos, procedimentos armazenados, gatilhos e UDFs|
 
 <a id="master-keys"></a>
 
@@ -35,7 +32,7 @@ O Azure Cosmos DB usa dois tipos de chaves para autenticar usuários e fornecer 
 
 As chaves mestras fornecem acesso a todos os recursos administrativos para a conta de banco de dados. Chaves mestras:  
 - Fornecem acesso a contas, a bancos de dados, a usuários e a permissões. 
-- Não podem ser usadas para fornecer acesso granular a documentos e coleções.
+- Não pode ser usado para fornecer acesso granular a contêineres e documentos.
 - São criadas durante a criação de uma conta.
 - Podem ser geradas novamente a qualquer momento.
 
@@ -78,7 +75,7 @@ Database database = await client.CreateDatabaseAsync(
 ## <a name="resource-tokens"></a>Tokens de recurso
 
 Os tokens de recurso fornecem acesso aos recursos do aplicativo em um banco de dados. Tokens de recurso:
-- Fornecem acesso a coleções, chaves de partição, documentos, anexos, procedimentos armazenados, gatilhos e UDFs específicos.
+- Fornece acesso a contêineres, chaves de partição, documentos, anexos, procedimentos armazenados, gatilhos e UDFs específicos.
 - São criados quando um [usuário](#users) recebe [permissões](#permissions) para um recurso específico.
 - São recriados quando um recurso de permissão recebe uma ação de uma chamada POST, GET ou PUT.
 - Use um token de recurso de hash construído especificamente para o usuário, o recurso e a permissão.
@@ -137,7 +134,7 @@ Há dois níveis de acesso disponíveis que podem ser fornecidos por um recurso 
 * Leitura: O usuário pode apenas ler o conteúdo do recurso, mas não pode executar operações de gravação, atualização ou exclusão no recurso.
 
 > [!NOTE]
-> Para executar os procedimentos armazenados do Cosmos DB, o usuário deve ter a permissão Tudo na coleção na qual o procedimento armazenado será executado.
+> Para executar os procedimentos armazenados do Cosmos DB, o usuário precisa ter a permissão Tudo no contêiner no qual o procedimento armazenado será executado.
 > 
 > 
 
@@ -177,6 +174,25 @@ foreach (Permission perm in permFeed)
 
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
+
+## <a name="add-users-and-assign-roles"></a>Adicionar usuários e atribuir funções
+
+Para adicionar o acesso de leitor de conta do Azure Cosmos DB à sua conta de usuário, peça ao proprietário de uma assinatura que execute as seguintes etapas no portal do Azure.
+
+1. Abra o portal do Azure e selecione sua conta do Azure Cosmos DB.
+2. Clique na guia **Controle de acesso (IAM)** e, em seguida, clique em **+ Adicionar**.
+3. No painel **Adicionar permissões**, na caixa **Função**, selecione **Função de leitor de conta do Cosmos DB**.
+4. Na caixa **Atribuir acesso à caixa**, selecione **Usuário, grupo ou aplicativo do Microsoft Azure Active Directory**.
+5. Selecione o usuário, o grupo ou o aplicativo no diretório ao qual você deseja conceder acesso.  Você pode pesquisar o diretório por nome para exibição, endereço de email ou identificadores de objeto.
+    O usuário, grupo ou aplicativo selecionado aparece na lista de membros selecionados.
+6. Clique em **Salvar**.
+
+A entidade agora poderá ler recursos do Azure Cosmos DB.
+
+## <a name="delete-or-export-user-data"></a>Excluir ou exportar dados do usuário
+O Azure Cosmos DB permite que você pesquise, selecione, modifique e exclua todos os dados pessoais localizados no banco de dados ou nas coleções. O Azure Cosmos DB fornece APIs para localizar e excluir dados pessoais, no entanto, é sua responsabilidade usar as APIs e definir a lógica necessária para apagar os dados pessoais. Cada API multimodelo (API do SQL, API do MongoDB, API do Gremlin, API do Cassandra, API de tabela) fornece SDKs de linguagens diferentes que contêm métodos para pesquisar e excluir dados pessoais. Você também pode habilitar o recurso [TTL (vida útil)](time-to-live.md) para excluir os dados automaticamente após um período especificado, sem resultar em nenhum custo adicional.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a segurança do banco de dados do Cosmos DB, consulte [Cosmos DB: Segurança do banco de dados](database-security.md).

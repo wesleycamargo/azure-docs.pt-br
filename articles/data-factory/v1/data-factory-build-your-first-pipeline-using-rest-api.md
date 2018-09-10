@@ -10,20 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7b24d4b15d83d746c5a514725bcd474828c62001
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d0bb951e7392eb0f818ed0e9b5c17e203f94e753
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087843"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Criar seu primeiro data factory do Azure usando a API REST do Data Factory
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/19/2018
 
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se estiver usando a versão 2 do serviço Data Factory, que está em versão prévia, confira [Início rápido: Criar um data factory usando o Azure Data Factory versão 2](../quickstart-create-data-factory-rest-api.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver usando a versão atual do serviço Data Factory, confira [Início rápido: Criar um data factory usando o Azure Data Factory](../quickstart-create-data-factory-rest-api.md).
 
 Neste artigo, você usa a API REST do Data Factory para criar seu primeiro data factory do Azure. Para fazer o tutorial usando outras ferramentas/SDKs, selecione uma das opções da lista suspensa.
 
@@ -45,7 +46,7 @@ O pipeline neste tutorial tem uma atividade: **atividade hive do HDInsight**. Es
 > Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito** .
 * Instale o [Curl](https://curl.haxx.se/dlwiz/) em seu computador. Você pode usar a ferramenta CURL com comandos REST para criar um data factory.
 * Siga as instruções [deste artigo](../../azure-resource-manager/resource-group-create-service-principal-portal.md) para:

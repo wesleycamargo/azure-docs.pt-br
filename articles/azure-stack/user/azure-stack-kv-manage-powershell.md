@@ -1,9 +1,9 @@
 ---
-title: Gerenciar o Cofre de chaves na pilha do Azure usando o PowerShell | Microsoft Docs
-description: Saiba como gerenciar o Cofre de chaves na pilha do Azure usando o PowerShell
+title: Gerenciar o Key Vault no Azure Stack usando o PowerShell | Microsoft Docs
+description: Saiba como gerenciar o Cofre de chaves no Azure Stack usando o PowerShell
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 22B62A3B-B5A9-4B8C-81C9-DA461838FAE5
@@ -12,36 +12,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
-ms.author: mabrigg
-ms.openlocfilehash: 5e9de401f64a835c286c226bfac88caf5168b96e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.date: 08/15/2018
+ms.author: sethm
+ms.openlocfilehash: b2dc79c9000c9cb1a826791b4b152cfd2bdb1584
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139294"
 ---
-# <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Gerenciar cofre de chaves na pilha do Azure usando o PowerShell
+# <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Gerenciar o Key Vault no Azure Stack usando o PowerShell
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Você pode gerenciar o Cofre de chaves na pilha do Azure usando o PowerShell. Saiba como usar os cmdlets do PowerShell do Cofre de chave para:
+Você pode gerenciar o Cofre de chaves no Azure Stack usando o PowerShell. Saiba como usar os cmdlets do PowerShell do Cofre de chaves para:
 
 * Crie um cofre da chave.
-* Armazene e gerencie os segredos e chaves de criptografia.
+* Store e gerenciar chaves criptográficas e segredos.
 * Autorize usuários ou aplicativos para invocar operações no cofre.
 
 >[!NOTE]
->Os cmdlets PowerShell do Cofre de chave descritos neste artigo são fornecidas no SDK do PowerShell do Azure.
+>Os cmdlets PowerShell do Cofre de chaves descritos neste artigo são fornecidos no SDK do Azure PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Você deve assinar uma oferta que inclui o serviço de Cofre de chaves do Azure.
-* [Instale o PowerShell para Azure pilha](azure-stack-powershell-install.md).
-* [Configurar o ambiente do PowerShell do usuário do Azure pilha](azure-stack-powershell-configure-user.md).
+* Você deve assinar uma oferta que inclui o serviço do Azure Key Vault.
+* [Instale o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
+* [Configurar o ambiente do PowerShell do usuário do Azure Stack](azure-stack-powershell-configure-user.md).
 
-## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Habilite sua assinatura de locatário para operações do Cofre de chaves
+## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Habilite sua assinatura do locatário para operações do Cofre de chaves
 
-Antes de poder emitir todas as operações em um cofre de chaves, você precisa garantir que sua assinatura de locatário está habilitada para operações do cofre. Para verificar se as operações do cofre estão habilitadas, execute o seguinte comando:
+Antes de poder emitir todas as operações em relação a um cofre de chaves, você precisa garantir que sua assinatura do locatário esteja habilitada para operações do cofre. Para verificar que as operações do cofre estão habilitadas, execute o seguinte comando:
 
 ```PowerShell
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
@@ -51,9 +52,9 @@ Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 
 Se sua assinatura está habilitada para operações do cofre, a saída mostra "RegistrationState" é "registrado" para todos os tipos de recursos de um cofre de chaves.
 
-![Estado do cofre da chave de registro](media/azure-stack-kv-manage-powershell/image1.png)
+![Estado de registro do Cofre de chaves](media/azure-stack-kv-manage-powershell/image1.png)
 
-Se as operações do Cofre não estiverem habilitadas, invocar o comando a seguir para registrar o serviço de Cofre de chaves em sua assinatura:
+Se a operações do Cofre não estiverem habilitadas, invoque o comando a seguir para registrar o serviço de Cofre de chaves em sua assinatura:
 
 ```PowerShell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
@@ -61,13 +62,13 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 **Saída**
 
-Se o registro for bem-sucedido, será retornada a seguinte saída:
+Se o registro for bem-sucedido, a seguinte saída será retornada:
 
-![Registrar](media/azure-stack-kv-manage-powershell/image2.png) quando você invoca os comandos de Cofre de chaves, você poderá receber um erro, como "a assinatura não está registrada para usar o namespace 'Microsoft.KeyVault'." Se você receber um erro, verifique se você tem [habilitado o provedor de recursos do Cofre de chaves](#enable-your-tenant-subscription-for-vault-operations) seguindo as instruções que foram mencionadas anteriormente.
+![Registrar](media/azure-stack-kv-manage-powershell/image2.png) ao invocar os comandos do Cofre de chaves, você poderá receber um erro, como "a assinatura não está registrada para usar o namespace 'Microsoft. keyvault'." Se você receber um erro, confirme se você tem [habilitou o provedor de recursos do Key Vault](#enable-your-tenant-subscription-for-vault-operations) seguindo as instruções mencionadas anteriormente.
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chave
 
-Antes de criar um cofre de chaves, crie um grupo de recursos para que todos os recursos relacionados ao Cofre de chave existem em um grupo de recursos. Use o comando a seguir para criar um novo grupo de recursos:
+Antes de criar um cofre de chaves, crie um grupo de recursos para que todos os recursos relacionados ao Cofre de chaves existem em um grupo de recursos. Use o comando a seguir para criar um novo grupo de recursos:
 
 ```PowerShell
 New-AzureRmResourceGroup -Name “VaultRG” -Location local -verbose -Force
@@ -76,9 +77,9 @@ New-AzureRmResourceGroup -Name “VaultRG” -Location local -verbose -Force
 
 **Saída**
 
-![novo grupo de recursos](media/azure-stack-kv-manage-powershell/image3.png)
+![Novo grupo de recursos](media/azure-stack-kv-manage-powershell/image3.png)
 
-Agora, use o **AzureRMKeyVault novo** comando para criar um cofre de chaves no grupo de recursos que você criou anteriormente. Este comando lê a três parâmetros obrigatórios: nome do grupo de recursos, o nome do Cofre de chaves e a localização geográfica.
+Agora, use o **New-AzureRMKeyVault** comando para criar um cofre de chaves no grupo de recursos que você criou anteriormente. Esse comando lê três parâmetros obrigatórios: nome do grupo de recursos, o nome do Cofre de chaves e a localização geográfica.
 
 Execute o seguinte comando para criar um cofre de chaves:
 
@@ -90,11 +91,11 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 ![Novo cofre de chaves](media/azure-stack-kv-manage-powershell/image4.png)
 
-A saída desse comando mostra as propriedades do cofre da chave que você criou. Quando um aplicativo acessa o cofre, ele deverá usar o **URI do cofre** propriedade, que é "https://vault01.vault.local.azurestack.external" neste exemplo.
+A saída desse comando mostra as propriedades do Cofre de chaves que você criou. Quando um aplicativo acessa o cofre, ele deve usar o **URI do cofre** propriedade, que é "https://vault01.vault.local.azurestack.external" neste exemplo.
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Implantação do Active Directory Federation Services (AD FS)
 
-Em uma implantação do AD FS, você poderá receber este aviso: "política de acesso não está definida. Nenhum usuário ou aplicativo tem permissão de acesso para usar este cofre." Para resolver esse problema, defina uma política de acesso para o cofre usando o [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) comando:
+Em uma implantação do AD FS, você poderá receber esse aviso: "política de acesso não está definida. Nenhum usuário ou aplicativo tem permissão de acesso para usar esse cofre." Para resolver esse problema, defina uma política de acesso para o cofre usando o [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) comando:
 
 ```PowerShell
 # Obtain the security identifier(SID) of the active directory user
@@ -107,7 +108,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName
 
 ## <a name="manage-keys-and-secrets"></a>Gerenciar chaves e segredos
 
-Depois de criar um cofre, use as etapas a seguir para criar e gerenciar chaves e segredos no cofre.
+Depois de criar um cofre, use as seguintes etapas para criar e gerenciar chaves e segredos no cofre.
 
 ### <a name="create-a-key"></a>Criar uma chave
 
@@ -117,20 +118,20 @@ Use o **Add-AzureKeyVaultKey** comando para criar ou importar uma chave protegid
 Add-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01” -verbose -Destination Software
 ```
 
-O **destino** parâmetro é usado para especificar que a chave está protegida de software. Quando a chave é criada com êxito, o comando exibe os detalhes da chave criada.
+O **destino** parâmetro é usado para especificar que a chave é protegida de software. Quando a chave é criada com êxito, o comando gera os detalhes da chave criada.
 
 **Saída**
 
 ![Nova chave](media/azure-stack-kv-manage-powershell/image5.png)
 
-Agora você pode fazer referência a chave criada usando seu URI. Se você cria ou importa uma chave que tem o mesmo nome de uma chave existente, a chave original é atualizada com os valores especificados na nova chave. Você pode acessar a versão anterior usando o URI específico da versão da chave. Por exemplo: 
+Agora você pode referenciar a chave criada usando seu URI. Se você criar ou importar uma chave que tem o mesmo nome que uma chave existente, a chave original é atualizada com os valores especificados na nova chave. Você pode acessar a versão anterior, usando o URI específica da versão da chave. Por exemplo: 
 
-* Use "https://vault10.vault.local.azurestack.external:443/keys/key01" sempre obter a versão atual.
-* Use "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" para obter a versão específica.
+* Use "https://vault10.vault.local.azurestack.external:443/keys/key01" para sempre obter a versão atual.
+* Use "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" para obter essa versão específica.
 
 ### <a name="get-a-key"></a>Obter uma chave
 
-Use o **Get-AzureKeyVaultKey** comando ler uma chave e seus detalhes.
+Use o **Get-AzureKeyVaultKey** comando para ler uma chave e seus detalhes.
 
 ```PowerShell
 Get-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01”
@@ -138,7 +139,7 @@ Get-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01”
 
 ### <a name="create-a-secret"></a>Criar um segredo
 
-Use o **AzureKeyVaultSecret conjunto** comando para criar ou atualizar um segredo em um cofre. Um segredo é criado se ainda não existir. Uma nova versão do segredo é criada se ele já existe.
+Use o **Set-AzureKeyVaultSecret** comando para criar ou atualizar um segredo em um cofre. Um segredo será criado se ele ainda não existir. Uma nova versão do segredo é criada se ele já existe.
 
 ```PowerShell
 $secretvalue = ConvertTo-SecureString “User@123” -AsPlainText -Force
@@ -151,7 +152,7 @@ Set-AzureKeyVaultSecret -VaultName “Vault01” -Name “Secret01” -SecretVal
 
 ### <a name="get-a-secret"></a>Obter um segredo
 
-Use o **AzureKeyVaultSecret Get** comando ler um segredo em um cofre de chaves. Este comando pode retornar todos ou versões específicas de um segredo.
+Use o **Get-AzureKeyVaultSecret** comando para ler um segredo em um cofre de chaves. Esse comando pode retornar todos ou a versões específicas de um segredo.
 
 ```PowerShell
 Get-AzureKeyVaultSecret -VaultName “Vault01” -Name “Secret01”
@@ -161,14 +162,14 @@ Depois de criar as chaves e segredos, você pode autorizar aplicativos externos 
 
 ## <a name="authorize-an-application-to-use-a-key-or-secret"></a>Autorizar um aplicativo para usar uma chave ou segredo
 
-Use o **Set-AzureRmKeyVaultAccessPolicy** comando para autorizar um aplicativo para acessar uma chave ou segredo no cofre de chaves.
-No exemplo a seguir, é o nome do cofre *ContosoKeyVault* e o aplicativo que você deseja autorizar tiver uma ID de cliente *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*. Para autorizar o aplicativo, execute o seguinte comando. Opcionalmente, você pode especificar o **PermissionsToKeys** para definir permissões para um usuário, aplicativo ou um grupo de segurança.
+Use o **Set-AzureRmKeyVaultAccessPolicy** comando autorizar um aplicativo para acessar uma chave ou segredo no cofre de chaves.
+No exemplo a seguir, é o nome do cofre *ContosoKeyVault* e o aplicativo que você deseja autorizar tiver uma ID de cliente *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*. Para autorizar o aplicativo, execute o comando a seguir. Opcionalmente, você pode especificar o **PermissionsToKeys** para definir permissões para um usuário, aplicativo ou um grupo de segurança.
 
 ```PowerShell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 ```
 
-Se você deseja autorizar o mesmo aplicativo para ler segredos em seu cofre, execute o seguinte cmdlet:
+Se você quiser autorizar que o mesmo aplicativo leia segredos em seu cofre, execute o seguinte cmdlet:
 
 ```PowerShell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get

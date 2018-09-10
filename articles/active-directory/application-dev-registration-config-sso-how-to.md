@@ -1,23 +1,25 @@
 ---
-title: "Como configurar um novo aplicativo multilocatário | Microsoft Docs"
-description: "Como configurar o logon único para um aplicativo personalizado que você está desenvolvendo e registrar com o Azure AD."
+title: Como configurar um novo aplicativo multilocatário | Microsoft Docs
+description: Como configurar o logon único para um aplicativo personalizado que você está desenvolvendo e registrar com o Azure AD.
 services: active-directory
-documentationcenter: 
-author: ajamess
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: c9654a9d03769bbf0e9d0e2c477ad26cefc05150
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.openlocfilehash: 97c698fa99c22b689b5e10b91c87345f4eadd647
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365219"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Como configurar um novo aplicativo multilocatário
 

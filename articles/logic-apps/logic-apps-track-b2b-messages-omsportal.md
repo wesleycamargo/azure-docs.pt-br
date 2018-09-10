@@ -1,24 +1,21 @@
 ---
 title: Rastrear mensagens B2B com Azure Log Analytics - Aplicativo Lógico do Azure | Microsoft Docs
-description: Rastrear comunicação B2B para sua conta de integração e aplicativos lógicos com Azure Log Analytics
-author: padmavc
-manager: anneta
-editor: ''
+description: Rastrear comunicação B2B para sua conta de integração e o Aplicativo Lógico do Azure com o Azure Log Analytics
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 07/21/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 48523e1f1bc8d5b810cc7c9d1a7308f1aaadf8bb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
+ms.date: 06/19/2018
+ms.openlocfilehash: 5bf5385824eb9b711a2fee547c29d24d7ef5a01d
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125761"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Rastrear comunicação B2B com Azure Log Analytics
 
@@ -55,39 +52,31 @@ Para que o Log Analytics rastreie mensagens B2B para seu aplicativo lógico, ser
 
    ![Selecionar o espaço de trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Em **Gerenciamento**, escolha **Portal do OMS**.
+3. Em **Gerenciamento**, escolha **Visão geral**.
 
-   ![Escolher o portal do OMS](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Escolha o portal do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. Depois que a home page for aberta, escolha **Galeria de Soluções**.    
+4. Depois que a página inicial abrir, escolha **Adicionar** para instalar a solução dos Aplicativos Lógicos B2B.    
+   ![Escolha Galeria de Soluções](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   ![Escolher a Galeria de Soluções](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
-
-5. Em **Todas as soluções**, encontre e escolha **Aplicativos Lógicos B2B**.     
-
-   ![Escolher Aplicativos Lógicos B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
-
-6. Em **Aplicativos Lógicos B2B**, escolha **Adicionar**.
-
-   ![Escolha Adicionar](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+5. Em **Solução de Gerenciamento**, localize e crie a solução **Aplicativos Lógicos B2B**.     
+   ![Escolher Aplicativos Lógicos B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
    Na home page, o bloco **Mensagens dos Aplicativos Lógicos B2B** é exibido. 
    Esse bloco atualiza a contagem de mensagens quando as mensagens B2B são processadas.
-
-   ![Home page, bloco Mensagens dos Aplicativos Lógicos B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
 ## <a name="track-message-status-and-details-in-log-analytics"></a>Rastrear status e detalhes da mensagem no Log Analytics
 
-1. Depois que as mensagens B2B forem processadas, você poderá exibir o status e os detalhes delas. Na home page, escolha o bloco **Mensagens dos Aplicativos Lógicos B2B**.
+1. Depois que as mensagens B2B forem processadas, você poderá exibir o status e os detalhes delas. Na página de Visão Geral, escolha o bloco **Mensagens dos Aplicativos Lógicos B2B**.
 
-   ![Contagem de mensagens atualizada](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+   ![Contagem de mensagens atualizada](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
    > Por padrão, o bloco **Mensagens dos Aplicativos Lógicos B2B** mostra dados com base em um único dia. Para alterar o escopo de dados para um intervalo diferente, escolha o controle de escopo na parte superior da página:
    > 
-   > ![Alterar o escopo de dados](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
+   > ![Alterar o escopo de dados](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
    >
 
 2. Após a exibição do painel de status de mensagens, você poderá exibir mais detalhes de um tipo de mensagem específico, que mostra dados com base em um único dia. Escolha o bloco **AS2**, **X12** ou **EDIFACT**.

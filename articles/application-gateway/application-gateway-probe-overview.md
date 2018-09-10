@@ -2,22 +2,18 @@
 title: Visão geral do monitoramento de integridade do Gateway de Aplicativo do Azure
 description: Saiba mais sobre os recursos de monitoramento do Application Gateway do Azure
 services: application-gateway
-documentationcenter: na
 author: vhorne
 manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 3/30/2018
+ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b34e5317a35d694e8521e73b0846da973661d9df
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528990"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Visão geral do monitoramento de integridade do Gateway de Aplicativo
 
@@ -26,9 +22,6 @@ Por padrão, o Gateway de Aplicativo do Azure monitora a integridade de todos os
 ![exemplo de investigação de gateway de aplicativo][1]
 
 Além de usar o monitoramento da investigação de integridade padrão, você também pode personalizar a investigação de integridade para atender às necessidades do seu aplicativo. Neste artigo, serão abordadas as investigações de integridade padrão e personalizadas.
-
-> [!NOTE]
-> Se houver um NSG na sub-rede do Gateway de Aplicativo, os intervalos de porta 65503 a 65534 deverão ser abertos na sub-rede do Gateway de Aplicativo para o tráfego de entrada. Essas portas são necessárias para que a API de integridade do back-end funcione.
 
 ## <a name="default-health-probe"></a>Investigação de integridade padrão
 
@@ -45,7 +38,7 @@ Por padrão, uma resposta HTTP(S) com código de status 200 é considerada ínte
 A seguir estão os critérios de correspondência: 
 
 - **Correspondência de código de status de resposta HTTP** - Critério de correspondência de teste para aceitar o código de resposta HTTP ou intervalos de códigos de resposta especificados pelo usuário. Códigos de status de resposta separados por vírgulas individuais ou um intervalo de código de status têm suporte.
-- **Correspondência do corpo da resposta HTTP** - Critério de correspondência da análise que examina o corpo da resposta HTTP e corresponde a uma cadeia de caracteres especificada pelo usuário. Observe que a correspondência procura apenas a presença de uma cadeia de caracteres especificada pelo usuário no corpo da resposta e não é uma correspondência de expressão regular completa.
+- **Correspondência do corpo da resposta HTTP** - Critério de correspondência da análise que examina o corpo da resposta HTTP e corresponde a uma cadeia de caracteres especificada pelo usuário. A correspondência procura apenas a presença de uma cadeia de caracteres especificada pelo usuário no corpo da resposta e não é uma correspondência de expressão regular completa.
 
 Os critérios de correspondência podem ser especificados usando o cmdlet `New-AzureRmApplicationGatewayProbeHealthResponseMatch`.
 
@@ -61,15 +54,21 @@ Depois que os critérios de correspondência forem especificados, ele poderá se
 
 | Propriedades da investigação | Valor | DESCRIÇÃO |
 | --- | --- | --- |
-| URL de investigação |http://127.0.0.1:\<porta\>/ |Caminho da URL |
-| Intervalo |30 |Intervalo da investigação em segundos |
-| Tempo limite |30 |Tempo limite da investigação em segundos |
-| Limite não íntegro |3 |Contagem de repetições da investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite de não íntegro. |
+| URL de investigação |http://127.0.0.1:\<port\>/ |Caminho da URL |
+| Intervalo |30 |A quantidade de tempo em segundos a esperar antes da próxima investigação de integridade é enviada.|
+| Tempo limite |30 |A quantidade de tempo em segundos o gateway de aplicativo aguarda uma resposta de investigação antes da marcação da investigação como não íntegro. Se uma investigação é retornada como íntegra, o back-end correspondente será imediatamente marcado como íntegro.|
+| Limite não íntegro |3 |Controla quantas investigações para enviar o caso ocorra uma falha da investigação de integridade regular. Essas investigações de integridade adicionais são enviadas em sucessão rápida para determinar a integridade do back-end rapidamente e não preciso esperar para que o intervalo de investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite de não íntegro. |
 
 > [!NOTE]
 > A porta é a mesma das configurações de HTTP de back-end.
 
-A investigação padrão procura apenas na http://127.0.0.1:\<porta\> para determinar o estado de integridade. Se precisar configurar a investigação de integridade para ir para uma URL personalizada ou modificar outras configurações, você deverá usar investigações personalizadas, conforme descrito nas etapas a seguir:
+A investigação padrão procura apenas em http://127.0.0.1:\<port\> para determinar o estado de integridade. Se precisar configurar a investigação de integridade para ir para uma URL personalizada ou modificar outras configurações, você deverá usar investigações personalizadas.
+
+### <a name="probe-intervals"></a>Intervalos de investigação
+
+Todas as instâncias do Gateway de Aplicativo investiga o back-end independente um do outro. A mesma configuração de investigação se aplica a cada instância de Gateway de Aplicativo. Por exemplo, se a configuração de investigação é enviar as investigações de integridade a cada 30 segundos e o gateway de aplicativo tem duas instâncias, em seguida, ambas as instâncias de enviam a investigação de integridade a cada 30 segundos.
+
+Também se houver vários ouvintes, cada ouvinte investiga o back-end independente uns dos outros. Por exemplo, se houver dois ouvintes que aponta para o mesmo pool de back-end em duas portas diferentes (configurado por duas configurações de http de back-end), em seguida, cada ouvinte investiga o mesmo back-end independentemente. Nesse caso, há dois testes de cada instância de gateway de aplicativo para os dois ouvintes. Se houver duas instâncias do gateway de aplicativo nesse cenário, a máquina virtual de back-end veria quatro investigações por intervalo de sondagem configurado.
 
 ## <a name="custom-health-probe"></a>Investigação de integridade personalizada
 
@@ -92,6 +91,12 @@ A tabela a seguir fornece definições para as propriedades de uma investigaçã
 > [!IMPORTANT]
 > Se o Gateway de Aplicativo estiver configurado para um único site, por padrão, o nome do Host deverá ser especificado como '127.0.0.1', a menos que seja configurado de outra forma na investigação personalizada.
 > Para referência, uma investigação personalizada é enviada para \<protocol\>://\<host\>:\<port\>\<path\>. A porta usada será a mesma definida nas configurações de HTTP do back-end.
+
+## <a name="nsg-considerations"></a>Considerações NSG
+
+Se houver um NSG (grupo de segurança de rede) em uma sub-rede do Gateway do Aplicativo, os intervalos de porta 65503 a 65534 devem estar abertos na sub-rede do Gateway de Aplicativo para o tráfego de entrada. Essas portas são necessárias para que a API de integridade do back-end funcione.
+
+Além disso, a conectividade de Internet de saída não pode ser bloqueada e tráfego de marca AzureLoadBalancer deve ser permitido.
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de aprender sobre o monitoramento de integridade do Gateway de Aplicativo, você poderá configurar uma [investigação de integridade personalizada](application-gateway-create-probe-portal.md) no portal do Azure ou uma [investigação de integridade personalizada](application-gateway-create-probe-ps.md) usando o PowerShell e o modelo de implantação do Azure Resource Manager.

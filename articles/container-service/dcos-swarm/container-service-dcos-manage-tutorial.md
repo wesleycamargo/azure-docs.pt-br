@@ -2,18 +2,19 @@
 title: Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO
 description: Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1c06605db3044234f6171d8b784bafb7e7ce759e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7ae235ea52c5c505e535cc3fad2306167d349ee9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782253"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO
 
@@ -33,7 +34,7 @@ Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --v
 
 ## <a name="create-dcos-cluster"></a>Criar cluster de DC/SO
 
-Primeiro, crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
+Primeiro, crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
 
 O seguinte exemplo cria um grupo de recursos chamado *myResourceGroup* no local *westeurope*.
 
@@ -41,7 +42,7 @@ O seguinte exemplo cria um grupo de recursos chamado *myResourceGroup* no local 
 az group create --name myResourceGroup --location westeurope
 ```
 
-Em seguida, crie um cluster de DC/SO com o comando [az acs create](/cli/azure/acs#az_acs_create).
+Em seguida, crie um cluster de DC/SO com o comando [az acs create](/cli/azure/acs#az-acs-create).
 
 O exemplo a seguir cria um cluster de DC/SO chamado *myDCOSCluster* e cria as chaves de SSH se elas ainda não existirem. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.  
 
@@ -71,7 +72,7 @@ sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 
 ## <a name="install-dcos-cli"></a>Instalar CLI de DC/SO
 
-Instale a CLI de DC/SO usando o comando [az acs dcos install-cli](/azure/acs/dcos#install-cli). Se você estiver usando o Azure CloudShell, a CLI do DC/SO já estará instalada. Se você estiver executando a CLI do Azure em macOS ou Linux, talvez precise executar o comando com sudo.
+Instale a CLI de DC/SO usando o comando [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli). Se você estiver usando o Azure CloudShell, a CLI do DC/SO já estará instalada. Se você estiver executando a CLI do Azure em macOS ou Linux, talvez precise executar o comando com sudo.
 
 ```azurecli
 az acs dcos install-cli
@@ -237,15 +238,15 @@ Navegar para esse endereço retorna o site NGINX padrão.
 
 ## <a name="scale-dcos-cluster"></a>Cluster de DC/SO de escala
 
-Nos exemplos anteriores, um aplicativo foi dimensionado para várias instâncias. A infraestrutura do DC/SO também pode ser dimensionada para fornecer mais ou menos capacidade de computação. Isso é feito com o comando [az acs scale](). 
+Nos exemplos anteriores, um aplicativo foi dimensionado para várias instâncias. A infraestrutura do DC/SO também pode ser dimensionada para fornecer mais ou menos capacidade de computação. Isso é feito com o comando [az acs scale](/cli/azure/acs#az-acs-scale). 
 
-Para ver a contagem atual de agentes do DC/SO, use o comando [az acs show](/cli/azure/acs#az_acs_show).
+Para ver a contagem atual de agentes do DC/SO, use o comando [az acs show](/cli/azure/acs#az-acs-show).
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-Para aumentar a contagem para 5, use o comando [az acs scale](/cli/azure/acs#az_acs_scale). 
+Para aumentar a contagem para 5, use o comando [az acs scale](/cli/azure/acs#az-acs-scale). 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
@@ -253,7 +254,7 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 ## <a name="delete-dcos-cluster"></a>Excluir cluster de DC/SO
 
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o cluster DC/SO todos os recursos relacionados.
+Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o cluster DC/SO todos os recursos relacionados.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait

@@ -1,24 +1,25 @@
 ---
-title: "Autenticação - Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
+title: Autenticação - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: 23e219fa49146158c97f392427eee7c42c347a7a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307413"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Estrutura de segurança: autenticação | Atenuações 
 | Produto/Serviço | Artigo |
@@ -305,7 +306,7 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | Tipo de Credencial de Cliente - Nenhuma |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortalecer](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortalecer](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
 | **Etapas** | A ausência de autenticação significa que todos podem acessar o serviço. Um serviço que não autentica seus clientes permite acesso a todos os usuários. Configure o aplicativo para autenticação em relação às credenciais do cliente. Isso pode ser feito definindo a mensagem clientCredentialType para Windows ou Certificado. |
 
 ### <a name="example"></a>Exemplo
@@ -321,7 +322,7 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, .NET Framework 3 |
 | **Atributos**              | Tipo de Credencial de Cliente - Nenhuma |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortalecer](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortalecer](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **Etapas** | A ausência de autenticação significa que todos podem acessar o serviço. Um serviço que não autentica seus clientes permite que todos os usuários acessem sua funcionalidade. Configure o aplicativo para autenticação em relação às credenciais do cliente. Isso pode ser feito definindo o transporte clientCredentialType para Windows ou Certificado. |
 
 ### <a name="example"></a>Exemplo

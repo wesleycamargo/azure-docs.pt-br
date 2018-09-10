@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: c2beb67a27b667d31402b903f38dbf116e9425d0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 63fdf2cc82438fe55792b12244dd697721adda15
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301068"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579571"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte de SSH para o Serviço de Aplicativo do Azure no Linux
 
@@ -113,19 +113,19 @@ Para começar, você precisa instalar a [CLI do Azure](/cli/azure/install-azure-
 Adicione a extensão de Serviço de Aplicativo do Azure mais recente, executando [Adicionar extensão az](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
 
 ```azurecli-interactive
-az extension add -–name webapp
+az extension add --name webapp
 ```
 
 Se você já tiver executado `az extension add` antes, execute [atualização de extensão az](/cli/azure/extension?view=azure-cli-latest#az-extension-update) em vez disso:
 
 ```azurecli-interactive
-az extension update -–name webapp
+az extension update --name webapp
 ```
 
-Abra uma conexão remota para seu aplicativo usando o comando [criar az webapp remoto-conexão](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). Especifique  _\<grupo\_nome >_ e \_< aplicativo\_nome > _ para seu aplicativo e substitua \<porta > por um número de porta local.
+Abra uma conexão remota para seu aplicativo usando o comando [criar az webapp remoto-conexão](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). Especifique _\<assinatura\_id>_, _\<grupo\_nome>_ e \_<app\_name>_ para o seu aplicativo e substitua \<port> por um número de porta local.
 
 ```azurecli-interactive
-az webapp remote-connection create --resource-group <group_name> -n <app_name> -p <port> &
+az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> -p <port> &
 ```
 
 > [!TIP]

@@ -10,20 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771041"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698750"
 ---
 # <a name="data-management-gateway"></a>Gateway de gerenciamento de dados
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se estiver usando a versão 2 do serviço Data Factory, que está em versão prévia, consulte [tempo de execução de integração auto-hospedado na versão 2](../create-self-hosted-integration-runtime.md). 
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver usando a versão atual do serviço do Data Factory, consulte [IR auto-hospedado na](../create-self-hosted-integration-runtime.md). 
 
 > [!NOTE]
 > O Gateway de Gerenciamento de Dados agora foi remarcado como Tempo de Execução de Integração Auto-Hospedado.  
@@ -46,14 +46,14 @@ O Gateway de Gerenciamento de Dados fornece as seguintes funcionalidades:
 * Gerenciar o acesso a fontes de dados locais com segurança.
   * Não são necessárias alterações no firewall corporativo. O gateway faz apenas conexões de saída baseadas em HTTP para a Internet aberta.
   * Criptografar credenciais para seus armazenamentos de dados locais com seu certificado.
-* Mover dados com eficiência: os dados são transferidos em paralelo, resilientes a problemas de rede intermitente com lógica de repetição automática.
+* Mover dados com eficiência - os dados são transferidos em paralelo, resilientes a problemas de rede intermitente com lógica de repetição automática.
 
 ### <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados
 Quando você usa uma atividade de cópia para copiar dados entre repositórios locais e a nuvem, a atividade usa um gateway para transferir dados da fonte de dados local para a nuvem, e vice-versa.
 
 Aqui está o fluxo de dados de alto nível e o resumo das etapas para a cópia com o gateway de dados: ![Fluxo de dados usando o gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
-1. O desenvolvedor de dados cria um gateway para uma Azure Data Factory usando o [Portal do Azure](https://portal.azure.com) ou [Cmdlet do PowerShell](https://msdn.microsoft.com/library/dn820234.aspx).
+1. O desenvolvedor de dados cria um gateway para uma Azure Data Factory usando o [Portal do Azure](https://portal.azure.com) ou [Cmdlet do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datafactories/).
 2. O desenvolvedor de dados cria um serviço vinculado para um armazenamento de dados local ao especificar o gateway. Como parte da configuração de dados do serviço vinculado, o desenvolvedor usa o aplicativo Configurando Credenciais para especificar as credenciais e tipos de autenticação.  O diálogo do aplicativo Configurando Credenciais se comunica com o armazenamento de dados para testar a conexão e o gateway para salvar as credenciais.
 3. O gateway criptografa credenciais com o certificado associado ao gateway (fornecido pelo desenvolvedor de dados) antes de salvar as credenciais na nuvem.
 4. O serviço Data Factory se comunica com o gateway para o agendamento e o gerenciamento de trabalhos por meio de um canal de controle que usa uma fila do Barramento de Serviço do Azure compartilhado. Quando o trabalho de atividade de cópia precisa ser inicializado, o Data Factory enfileira a solicitação junto com as informações de credencial. O gateway inicia o trabalho depois de sondar a fila.
@@ -71,7 +71,7 @@ Aqui está o fluxo de dados de alto nível e o resumo das etapas para a cópia c
 * Você deverá **usar o gateway** mesmo se o armazenamento de dados estiver na nuvem em um **VM IaaS do Azure**.
 
 ## <a name="installation"></a>Instalação
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 * As versões de **Sistema Operacional** com suporte são Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. Instalação do Gateway de Gerenciamento de Dados em um controlador de domínio não tem suporte atualmente.
 * O .NET framework 4.5.1 ou superior é necessário. Se você estiver instalando o gateway em um computador com Windows 7, instale o .NET Framework 4.5 ou posterior. Confira [Requisitos de sistema do .NET Framework](https://msdn.microsoft.com/library/8z6watww.aspx) para obter detalhes.
 * A **configuração** recomendada para o computador do gateway é de, no mínimo, 2 GHz, 4 núcleos, 8 GB de RAM e 80 GB de disco.
@@ -142,7 +142,7 @@ No nível do firewall corporativo, você precisa configurar os seguintes domíni
 
 | Nomes de domínio | Portas | DESCRIÇÃO |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |Usado para comunicação com o back-end do Serviço de Movimentação de Dados |
+| * .servicebus.windows.net |443 |Usado para comunicação com o back-end do Serviço de Movimentação de Dados |
 | *.core.windows.net |443 |Usado para cópia em etapas usando Blobs do Azure (se estiver configurado)|
 | *.frontend.clouddatahub.net |443 |Usado para comunicação com o back-end do Serviço de Movimentação de Dados |
 | * .servicebus.windows.net |9350-9354, 5671 |Retransmissão de barramento de serviço opcional sobre TCP usado pelo Assistente de cópia |
@@ -184,7 +184,7 @@ Há três opções de configuração:
 
 * **Não usar proxy**: o gateway não usa explicitamente qualquer proxy para se conectar aos serviços de nuvem.
 * **Usar proxy do sistema**: o gateway usa a configuração de proxy que é definida em diahost.exe.config e em diawp.exe.config.  Se nenhum proxy estiver configurado em diahost.exe.config e em diawp.exe.config, o gateway se conectará ao serviço de nuvem diretamente sem passar pelo proxy.
-* **Usar proxy personalizado**: configure a definição do proxy HTTP a ser usado pelo gateway, em vez de usar as configurações em diahost.exe.config e diawp.exe.config.  Endereço e porta são necessários.  O Nome de Usuário e a Senha são opcionais, dependendo da configuração de autenticação do seu proxy.  Todas as configurações são criptografadas com o certificado de credencial do gateway e armazenadas localmente no computador host do gateway.
+* **Usar proxy personalizado**: configure a definição do proxy HTTP a ser usado pelo gateway, em vez de usar as configurações em diahost.exe.config e diawp.exe.config.  Endereço e porta são necessários.  O Nome de Usuário e Senha são opcionais, dependendo da configuração de autenticação do proxy.  Todas as configurações são criptografadas com o certificado de credencial do gateway e armazenadas localmente no computador host do gateway.
 
 O Serviço de Host do Gateway de Gerenciamento de Dados é reiniciado automaticamente depois que você salva as configurações de proxy atualizadas.
 
@@ -208,7 +208,7 @@ Você pode exibir e atualizar o proxy HTTP usando a ferramenta Gerenciador de Co
 Se você escolher a configuração **Usar proxy do sistema** para o proxy HTTP, o gateway usará a configuração de proxy em diahost.exe.config e diawp.exe.config.  Se nenhum proxy for especificado em diahost.exe.config., o gateway se conectará ao serviço de nuvem diretamente sem passar pelo proxy. O procedimento a seguir fornece instruções para atualizar o arquivo diahost.exe.config.  
 
 1. No Explorador de Arquivos, faça uma cópia de segurança de C:\Arquivos de Programas\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config para fazer backup do arquivo original.
-2. Inicie o Notepad.exe executando como administrador e abra o arquivo de texto "C:\Arquivos de Programas\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config." Você pode encontrar a marcação padrão para system.net conforme mostrado no código abaixo:
+2. Inicie o Notepad.exe executando como administrador e abra o arquivo de texto "C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. Você pode encontrar a marcação padrão para system.net conforme mostrado no código abaixo:
 
          <system.net>
              <defaultProxy useDefaultCredentials="true" />
@@ -231,13 +231,13 @@ Se você escolher a configuração **Usar proxy do sistema** para o proxy HTTP, 
 > Não se esqueça de atualizar **ambos** diahost.exe.config e diawp.exe.config.  
 
 
-Além dos desses pontos, você também precisa verificar se o Microsoft Azure está lista de autorizados da sua empresa. Baixe a lista de endereços IP válidos do Microsoft Azure no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+Além dos desses pontos, você também precisa verificar se o Microsoft Azure está lista de autorizados da empresa. Baixe a lista de endereços IP válidos do Microsoft Azure no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Possíveis sintomas de problemas relacionados ao firewall e ao servidor proxy
 Se você encontrar erros similares aos descritos a seguir, eles provavelmente se deverão à configuração incorreta do servidor proxy ou firewall, que impedirá o gateway de se conectar ao Data Factory para se autenticar. Confira a seção anterior para garantir que seu firewall e servidor proxy estejam configurados corretamente.
 
 1. Ao tentar registrar o gateway, você recebe o seguinte erro: "Falha ao registrar a chave do gateway. Antes de tentar registrar a chave do gateway novamente, confirme se o Gateway de Gerenciamento de Dados está em um estado conectado e o Serviço de Host do Gateway de Gerenciamento de Dados está iniciado."
-2. Ao abrir o Gerenciador de Configurações, você vê o status "Desconectado" ou "Conectando". Ao exibir os logs de eventos do Windows, em "Visualizar eventos" > "Logs de Aplicativos e Serviços" > "Gateway de Gerenciamento de Dados", você vê mensagens de erro como as do seguinte: `Unable to connect to the remote server`
+2. Ao abrir o Gerenciador de Configurações, você vê o status "Desconectado" ou "Conectando." Ao exibir logs de eventos do Windows, em "Visualizador de Eventos" > "Logs de Aplicativos e Serviços" > "Gateway de Gerenciamento de Dados", você verá mensagens de erro como o seguinte erro: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>Abrir a porta 8050 para criptografia de credencial
@@ -247,7 +247,7 @@ Se estiver usando um firewall de terceiros, você poderá abrir manualmente a po
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Se optar por não abrir a porta 8050 no computador do gateway, use mecanismos diferentes do aplicativo **Definindo Credenciais** para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) . Confira a seção [Definir Credenciais e Segurança](#set-credentials-and-securityy) para saber como as credenciais do armazenamento de dados podem ser definidas.
+Se optar por não abrir a porta 8050 no computador do gateway, use mecanismos diferentes do aplicativo **Definindo Credenciais** para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) . Confira a seção [Definir Credenciais e Segurança](#set-credentials-and-securityy) para saber como as credenciais do armazenamento de dados podem ser definidas.
 
 ## <a name="update"></a>Atualizar
 Por padrão, o Gateway de Gerenciamento de Dados é atualizado automaticamente quando uma versão mais recente do gateway está disponível. O gateway não é atualizado até que todas as tarefas agendadas sejam concluídas. Nenhuma tarefa adicional é processada pelo gateway até que a operação de atualização seja concluída. Se a atualização falhar, o gateway será revertido para a versão antiga.
@@ -288,12 +288,12 @@ Você pode habilitar/desabilitar o recurso de atualização automática seguindo
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
-[Para vários nós altamente disponíveis e gateway escalonável (versão prévia)](data-factory-data-management-gateway-high-availability-scalability.md)
+[Para vários nós altamente disponíveis e gateway escalonável](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Inicie o Windows PowerShell no computador do gateway.
 2. Mude para a pasta C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
 3. Execute o seguinte comando para DESATIVAR (desabilitar) o recurso de atualização automática.   
 
-    Para o gateway com o recurso de alta disponibilidade (versão prévia), um parâmetro AuthKey adicional é necessário.
+    Para o gateway com o recurso de alta disponibilidade, um parâmetro AuthKey adicional é necessário.
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```
@@ -470,7 +470,7 @@ Se você acessar o portal de um computador diferente do computador do gateway, v
 
 Quando você usa o aplicativo **Definindo Credenciais**, o portal criptografa as credenciais com o certificado especificado na guia **Certificado** do **Gerenciador de Configurações do Gateway** no computador do gateway.
 
-Se estiver procurando uma abordagem baseada em API para criptografar as credenciais, você poderá usar o cmdlet [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) do PowerShell para criptografar as credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. Você adiciona credenciais criptografadas ao elemento **EncryptedCredential** da **connectionString** no JSON. Você usa o JSON com o cmdlet [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) ou no Editor do Data Factory.
+Se estiver procurando uma abordagem baseada em API para criptografar as credenciais, você poderá usar o cmdlet [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) do PowerShell para criptografar as credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. Você adiciona credenciais criptografadas ao elemento **EncryptedCredential** da **connectionString** no JSON. Você usa o JSON com o cmdlet [New-AzureRmDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) ou no Editor do Data Factory.
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",

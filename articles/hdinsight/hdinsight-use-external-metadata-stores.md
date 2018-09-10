@@ -1,24 +1,20 @@
 ---
-title: Usar armazenamentos de metadados externos - Azure HDInsight | Microsoft Docs
+title: Usar armazenamentos de metadados externos - Azure HDInsight
 description: Use armazenamentos de metadados externos com clusters HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-tags: azure-portal
-editor: cgronlun
-ms.assetid: ''
+author: jasonwhowell
+ms.reviewer: jasonh
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 2eadee1a8695450e2219031ea1a65ee3624f26b5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a2c992a47e40a4f8764f5950c65bb90f1cd9e066
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045136"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usar armazenamentos de metadados externos no Azure HDInsight
 

@@ -3,32 +3,30 @@ title: 'Azure Cosmos Db: tutorial de introdução ao API do SQL | Microsoft Docs
 description: Um tutorial que cria um banco de dados online e um aplicativo de console C# usando a API do SQL.
 keywords: tutorial do nosql, banco de dados online, aplicativo de console c#
 services: cosmos-db
-documentationcenter: .net
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
-ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/16/2017
-ms.author: anhoh
-ms.openlocfilehash: 9de183ccd60dca0b8c67bc3e17136212b7132439
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: sngun
+ms.openlocfilehash: 564824ae18cfeac22a2e817af67b2504d8f0b93c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697876"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: tutorial de introdução à API do SQL
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js para MongoDB](mongodb-samples.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
->  
+> * [Async Java](sql-api-async-java-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Bem-vindo(a) ao tutorial de introdução ao API do SQL do Azure Cosmos DB! Após seguir este tutorial, você terá um aplicativo de console que cria e consulta recursos do Azure Cosmos DB.
@@ -49,7 +47,7 @@ Você não tem tempo? Não se preocupe! A solução completa está disponível e
 
 Agora vamos começar!
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/). 
 

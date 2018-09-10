@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: fba872b01d4ddf0bb4e6aa8d0217042617688b8a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 2eafd4b23da8f21f1a4b3ffcf29e50b65882d6c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646755"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca cliente do Banco de Dados Elástico com Entity Framework
 Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos das [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md). O foco está na composição do [gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) e no [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do **Entity Framework Code First**. O tutorial [Code First - New Database](http://msdn.microsoft.com/data/jj193542.aspx) (Code First – Novo banco de dados) para EF funciona como o exemplo em execução ao longo deste documento. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas de banco de dados elástico de exemplos código do Visual Studio.

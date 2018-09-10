@@ -1,26 +1,26 @@
 ---
-title: Visão geral do Azure Data Lake Store | Microsoft Docs
-description: Entenda o que é o Repositório Azure Data Lake e o valor que ele fornece com relação a outros armazenamentos de dados
+title: Visão geral do Azure Data Lake Storeage Gen1 | Microsoft Docs
+description: Entenda o que é o Azure Data Lake Storage Gen1 (anteriormente conhecido como Azure Data Lake Store) e o valor que ele fornece com relação a outros armazenamentos de dados
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: b3475057-9427-4492-a3af-25a802a23a79
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/26/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 111906bc9e7e85e30a879d7bacff37edb4b204ac
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4dff8f4ff9fc324d48391c0399677b64824493c6
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034236"
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Visão geral do Repositório Azure Data Lake
+# <a name="overview-of-azure-data-lake-storage-gen1"></a>Visão Geral do Azure Data Lake Storage Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 O Repositório Azure Data Lake é um repositório em hiper-escala corporativo para cargas de trabalho de análise de big data. O Azure Data Lake permite que você capture dados de qualquer tamanho, tipo e velocidade de ingestão em um único lugar para análises operacionais e exploratórias.
 
 > [!TIP]
@@ -81,24 +81,8 @@ O Data Lake Store pode ser acessado por meio do novo sistema de arquivos, o Azur
 
 Você pode acessar seus dados no Repositório Data Lake usando `adl://<data_lake_store_name>.azuredatalakestore.net`. Para saber mais sobre como acessar os dados no Repositório Data Lake, consulte [Exibir as propriedades dos dados armazenados](data-lake-store-get-started-portal.md#properties)
 
-## <a name="how-do-i-start-using-azure-data-lake-store"></a>Como posso começar a usar o Repositório Azure Data Lake?
-Veja [Introdução ao Repositório do Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md), para obter informações sobre como provisionar um Repositório do Data Lake usando o Portal do Azure. Depois de provisionar o Azure Data Lake, você aprenderá a usar ofertas de big data, como a Análise do Azure Data Lake ou o Azure HDInsight com o Repositório Data Lake. Você também pode criar um aplicativo .NET a fim de criar uma conta do Repositório Azure Data Lake e executar operações como carregar dados, baixar dados etc.
+## <a name="next-steps"></a>Próximas etapas
 
-* [Introdução à Análise Data Lake do Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Introdução ao Data Lake Store usando o portal do Azure](data-lake-store-get-started-portal.md)
 * [Introdução ao Repositório Azure Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
-
-## <a name="data-lake-store-videos"></a>Vídeos do Repositório Data Lake
-Se você prefere aprender assistindo a vídeos, o Repositório Data Lake tem vídeos sobre uma variedade de recursos.
-
-* [Criar uma conta do Repositório Azure Data Lake](https://mix.office.com/watch/1k1cycy4l4gen)
-* [Usar o Explorador de Dados para gerenciar os dados no Repositório Azure Data Lake](https://mix.office.com/watch/icletrxrh6pc)
-* [Conectar a Análise Azure Data Lake ao Repositório Azure Data Lake](https://mix.office.com/watch/qwji0dc9rx9k)
-* [Acessar o Repositório Data Lake por meio da Análise Azure Data Lake](https://mix.office.com/watch/1n0s45up381a8)
-* [Conectar o Repositório Azure Data Lake do HDInsight](https://mix.office.com/watch/l93xri2yhtp2)
-* [Acessar o Repositório Azure Data Lake usando Hive e Pig](https://mix.office.com/watch/1n9g5w0fiqv1q)
-* [Usar DistCp (cópia distribuída do Hadoop) para copiar dados de e para o Repositório Azure Data Lake](https://mix.office.com/watch/1liuojvdx6sie)
-* [Usar o Apache Sqoop para mover dados entre fontes relacionais e o Repositório Azure Data Lake](https://mix.office.com/watch/1butcdjxmu114)
-* [Orquestração de dados usando o Azure Data Factory para o Repositório Azure Data Lake](https://mix.office.com/watch/1oa7le7t2u4ka)
-* [Protegendo dados no Repositório Azure Data Lake](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
+* [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)

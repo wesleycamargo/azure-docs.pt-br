@@ -3,7 +3,7 @@ title: Associações de armazenamento de filas do Azure Functions
 description: Entenda como usar o gatilho do armazenamento de fila do Azure e a associação de saída no Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: a1ca2b821678b48f65fe6ec6e58fa65cd8e4304f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e034d6c57c619ea74003f531d3309f7da17210b0
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303404"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145293"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associações de armazenamento de filas do Azure Functions
 
@@ -29,13 +29,17 @@ Este artigo explica como trabalhar com associações de armazenamento de Fila do
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Pacotes
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
-As associações de armazenamento de fila são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src).
+As associações de armazenamento Filas são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs), versão 2.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pacotes - Functions 2. x
+
+As associações de armazenamento Filas são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs), versão 3.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Queue).
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
@@ -50,6 +54,7 @@ Consulte o exemplo específico a um idioma:
 * [C#](#trigger---c-example)
 * [Script do C# (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---Java-example)
 
 ### <a name="trigger---c-example"></a>Gatilho - exemplo C#
 
@@ -163,6 +168,22 @@ module.exports = function (context) {
 
 A seção [uso](#trigger---usage) explica `myQueueItem`, que é chamado pela `name` propriedade function.json.  A [seção de metadados de mensagem](#trigger---message-metadata) explica todas as outras variáveis mostradas.
 
+### <a name="trigger---java-example"></a>Gatilho - exemplo de Java
+
+O exemplo Java a seguir mostra as funções do acionador da fila de armazenamento que registra a mensagem acionada colocada na fila `myqueuename`.
+ 
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 ## <a name="trigger---attributes"></a>Gatilho – atributos
  
 Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use os seguintes atributos para configurar um gatilho de fila:
@@ -242,13 +263,15 @@ Em C# e script C#, acesse os dados da mensagem usando um parâmetro de método, 
 * `byte[]`
 * [CloudQueueMessage]
 
+Se você tentar associar `CloudQueueMessage` e receber uma mensagem de erro, certifique-se de ter uma referência para [a versão correta do SDK do Armazenamento](#azure-storage-sdk-version-in-functions-1x).
+
 Em JavaScript, use `context.bindings.<name>` para acessar o conteúdo de item de fila. Se o conteúdo for JSON, ele é desserializado em um objeto.
 
 ## <a name="trigger---message-metadata"></a>Gatilho - metadados da mensagem
 
 O gatilho de fila fornece várias propriedades de [metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas são propriedades da classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
-|Propriedade|type|DESCRIÇÃO|
+|Propriedade|Tipo|DESCRIÇÃO|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Conteúdo da fila (se for uma cadeia de caracteres válida). Se o conteúdo de mensagem de fila como uma cadeia de caracteres `QueueTrigger` tem o mesmo valor da variável nomeada pela `name` propriedade em *function.json*.|
 |`DequeueCount`|`int`|O número de vezes que essa mensagem foi removida da fila.|
@@ -293,6 +316,7 @@ Consulte o exemplo específico a um idioma:
 * [C#](#output---c-example)
 * [Script do C# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>Saída - exemplo C#
 
@@ -423,6 +447,25 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="output---java-example"></a>Saída - exemplo de Java
+
+ O exemplo a seguir mostra uma função Java que cria uma mensagem de fila para quando acionada por uma solicitação HTTP.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+ ```
+
+No [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime), use o `@QueueOutput` anotação em parâmetros cujo valor seria gravado no armazenamento de fila.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
+
+
 ## <a name="output---attributes"></a>Saída - atributos
  
 Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
@@ -475,6 +518,8 @@ Em C# e script C#, grave uma mensagem de fila única usando um parâmetro de mé
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 
+
+Se você tentar associar `CloudQueueMessage` e receber uma mensagem de erro, certifique-se de ter uma referência para [a versão correta do SDK do Armazenamento](#azure-storage-sdk-version-in-functions-1x).
 
 Em C# e script C#, grave várias mensagens de fila usando um dos seguintes tipos: 
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206859"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementar backup e restauração dos Reliable Actors
 No seguinte exemplo, um serviço de ator personalizado expõe um método para fazer backup dos dados do ator, aproveitando o ouvinte de comunicação remota já presente em `ActorService`:

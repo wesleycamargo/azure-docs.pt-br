@@ -2,24 +2,22 @@
 title: 'Azure Cosmos DB: SQL Node.js API, SDK & recursos | Microsoft Docs'
 description: Saiba tudo sobre o SDK e a API do SQL Node.js, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do Node.js para o Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: nodejs
 author: rnagpal
 manager: kfile
 editor: cgronlun
-ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: reference
 ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 271b090468dee306dc0bf2567aeff08eb0526642
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e19c1cb7b297d2537e969e0dd632dae3e1c3d211
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594340"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Node.js do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -36,31 +34,24 @@ ms.lasthandoff: 05/17/2018
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Baixar o SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-
-<tr><td>**Documentação da API**</td><td>[Documentação de referência da API do Node.js](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
-
-<tr><td>**Instruções de instalação do SDK**</td><td>[Instruções de instalação](http://azure.github.io/azure-documentdb-node/)</td></tr>
-
-<tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-
-<tr><td>**Exemplos**</td><td>[Exemplos de código do Node.js](sql-api-nodejs-samples.md)</td></tr>
-
-<tr><td>**Tutorial de introdução**</td><td>[Introdução ao SDK do Node.js](sql-api-nodejs-get-started.md)</td></tr>
-
-<tr><td>**Tutorial do aplicativo Web**</td><td>[Criar um aplicativo web Node.js usando o Azure Cosmos DB](sql-api-nodejs-application.md)</td></tr>
-
-<tr><td>**Plataforma atual com suporte**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
-[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
-[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
-[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
-</td></tr>
-</table></br>
+|Recurso  |Link  |
+|---------|---------|
+|Baixar o SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|Documentação da API  |  [Documentação de referência de SDK do JavaScript](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|Instruções de instalação do SDK  |  [Instruções de instalação](https://github.com/Azure/azure-cosmos-js#installation)
+|Contribuir para o SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+| Exemplos | [Exemplos de código do Node.js](sql-api-nodejs-samples-preview.md)
+| Tutorial de introdução | [Introdução ao SDK do JavaScript](sql-api-nodejs-get-started-preview.md)
+| Tutorial do aplicativo Web | [Criar um aplicativo web Node.js usando o Azure Cosmos DB](sql-api-nodejs-application-preview.md)
+| Plataforma atual com suporte | [Node. js v6](https://nodejs.org/en/blog/release/v6.10.3/) – obrigatório para a versão SDK 2.0.0 e superior.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="2.0.0-3"/>2.0.0-3</a>
+* RC1 da Versão 2.0.0 do SDK do JavaScript para a visualização pública.
+* Novo modelo de objeto, com CosmosClient de nível superior e os métodos são divididos em classes relevantes de banco de dados, contêiner e classes de item. 
+* Suporte para [promessas](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). 
+* SDK convertido para o TypeScript.
 
 ### <a name="1.14.4"/>1.14.4</a>
 * documentação do npm corrigida.
@@ -203,6 +194,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado é reje
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.0.0-3 (RC)](#2.0.0-3) |2 de agosto de 2018 |--- |
 | [1.14.4](#1.14.4) |03 de maio de 2018 |--- |
 | [1.14.3](#1.14.3) |03 de maio de 2018 |--- |
 | [1.14.2](#1.14.2) |21 de dezembro de 2017 |--- |
@@ -215,7 +207,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado é reje
 | [1.11.0](#1.11.0) |16 de março de 2017 |--- |
 | [1.10.2](#1.10.2) |27 de janeiro de 2017 |--- |
 | [1.10.1](#1.10.1) |22 de dezembro de 2016 |--- |
-| [1.10.0](#1.10.0) |3 de outubro de 2016 |--- |
+| [1.10.0](#1.10.0) |03 de outubro de 2016 |--- |
 | [1.9.0](#1.9.0) |07 de julho de 2016 |--- |
 | [1.8.0](#1.8.0) |14 de junho de 2016 |--- |
 | [1.7.0](#1.7.0) |26 de abril de 2016 |--- |

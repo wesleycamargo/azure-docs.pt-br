@@ -1,24 +1,21 @@
 ---
-title: Apache Storm com componentes Python – Azure HDInsight | Microsoft Docs
+title: Apache Storm com componentes Python – Azure HDInsight
 description: Saiba como criar uma topologia Apache Storm que usa componentes de Python.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 keywords: apache storm python
-ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 0a8930da2d44714573155477d791dd9cb78d872a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: jasonh
+ms.openlocfilehash: 753c870f5d99d7bf887944b0d180645dc019b2b1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045760"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias do Apache Storm usando o Python no HDInsight
 
@@ -29,7 +26,7 @@ Saiba como criar uma topologia Apache Storm que usa componentes de Python. O Apa
 
 O código para esse projeto está disponível em [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Python 2.7 ou posterior
 
@@ -37,7 +34,7 @@ O código para esse projeto está disponível em [https://github.com/Azure-Sampl
 
 * Maven 3
 
-* (Opcional) Um ambiente de desenvolvimento local do Storm. Um ambiente local do Storm só será necessário se você quiser executar a topologia localmente. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html).
+* (Opcional) Um ambiente de desenvolvimento local do Storm. Um ambiente local do Storm só será necessário se você quiser executar a topologia localmente. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
 
 ## <a name="storm-multi-language-support"></a>Suporte a várias linguagens no Storm
 
@@ -96,7 +93,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 ```
 
 > [!NOTE]
-> Esse comando requer um ambiente de desenvolvimento local do Storm. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](http://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html)
+> Esse comando requer um ambiente de desenvolvimento local do Storm. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](http://storm.apache.org/releases/current/Setting-up-development-environment.html)
 
 Uma vez que a topologia é iniciada, ela emite informações para o console local semelhantes ao texto a seguir:
 

@@ -1,43 +1,44 @@
 ---
-title: Use a API da pilha do Azure | Microsoft Docs
-description: Saiba como recuperar uma autenticação do Azure para fazer solicitações de API para a pilha do Azure.
+title: Use o API do Azure Stack | Microsoft Docs
+description: Saiba como recuperar uma autenticação do Azure para fazer solicitações de API para o Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: cblackuk
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/02/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: e8a9489a3f487a45303bac45f805381b41427b4b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3b89564bf17a9884640b51faa1c3966dce93f89a
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346783"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="use-the-azure-stack-api"></a>Use a API da pilha do Azure
+# <a name="use-the-azure-stack-api"></a>Use o API do Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Você pode usar a Interface do Azure pilha programação de aplicativo (API) para automatizar operações como distribuir itens do marketplace.
+Você pode usar a Interface de programação de aplicativo (API) para automatizar as operações como adicionar uma máquina virtual à nuvem do Azure Stack.
 
-A API requer que o cliente autenticar o ponto de extremidade de logon do Microsoft Azure. O ponto de extremidade retorna um token a ser usado no cabeçalho de cada solicitação enviada para a API de pilha do Azure. O Microsoft Azure usa Oauth 2.0.
+A API requer que seu cliente para autenticar o ponto de extremidade de logon do Microsoft Azure. O ponto de extremidade retorna um token a ser usado no cabeçalho de cada solicitação enviada para a API do Azure Stack. O Microsoft Azure usa Oauth 2.0.
 
-Este artigo fornece exemplos que usam o **cURL** utilitário para criar solicitações de pilha do Azure. O aplicativo, rotação, é uma ferramenta de linha de comando com uma biblioteca para a transferência de dados. Esses exemplos percorrer o processo de recuperar um token para acessar a API de pilha do Azure. A maioria das linguagens de programação fornecem bibliotecas Oauth 2.0, que têm robustas tarefas de gerenciamento e o identificador de token tais o token de atualização.
+Este artigo fornece exemplos que usam o **cURL** utilitário para criar solicitações de pilha do Azure. O aplicativo, cURL, é uma ferramenta de linha de comando com uma biblioteca para a transferência de dados. Esses exemplos percorrer o processo de recuperar um token para acessar a API do Azure Stack. A maioria das linguagens de programação fornecem bibliotecas de Oauth 2.0, que têm robustas tarefas de gerenciamento e o identificador de token tal uma atualização do token.
 
-Examinar todo o processo de usar a API de REST de pilha do Azure com um cliente REST genérico, como **cURL**, para ajudá-lo a entender subjacente solicitações e mostra o que você pode esperar receber em uma carga de resposta.
+Examinar todo o processo de usar a API REST do Azure Stack com um cliente REST genérico, como **cURL**, para ajudar você a entender subjacente solicita e mostra o que você pode esperar receber em uma carga de resposta.
 
 Este artigo não explorar todas as opções disponíveis para recuperar tokens, como o logon interativo ou criação de IDs de aplicativo dedicado. Para obter informações sobre esses tópicos, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Obter um token do Azure
 
-Crie um corpo de solicitação formatado usando o tipo de conteúdo x-www-form-urlencoded para obter um token de acesso. POSTE sua solicitação para o ponto de extremidade de autenticação de REST do Azure e de logon.
+Crie um corpo de solicitação formatado usando o tipo de conteúdo x-www-form-urlencoded para obter um token de acesso. POSTE sua solicitação para o ponto de extremidade de autenticação de REST do Azure e faça logon.
 
 ### <a name="uri"></a>URI
 
@@ -48,7 +49,7 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 **ID do locatário** é:
 
  - Seu domínio de locatário, como `fabrikam.onmicrosoft.com`
- - ID de seu locatário, como `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+ - ID de locatário, como `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
  - Valor padrão para chaves independente de locatário: `common`
 
 ### <a name="post-body"></a>Corpo do POST
@@ -65,20 +66,20 @@ grant_type=password
 Para cada valor:
 
  - **grant_type**  
-    O tipo de esquema de autenticação que você irá usar. Neste exemplo, o valor é `password`
+    O tipo de esquema de autenticação, você irá usar. Neste exemplo, o valor é `password`
 
  - **recurso**  
-    O recurso acesse o token. Você pode encontrar o recurso consultando o ponto de extremidade de metadados de gerenciamento de pilha do Azure. Examine o **audiências** seção
+    O recurso em que o token acessa. Você pode encontrar o recurso consultando o ponto de extremidade de metadados de gerenciamento do Azure Stack. Examine os **audiências** seção
 
- - **Azure ponto de extremidade de gerenciamento de pilha**  
+ - **O ponto de extremidade do Azure Stack gerenciamento**  
     ```
     https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
     ```
 
   > [!NOTE]  
-  > Se você for um administrador tentar acessar a API de locatário, em seguida, você deve verificar a usar o ponto de extremidade de locatário, por exemplo: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
+  > Se você for um administrador tentar acessar a API de locatário, em seguida, certifique-se de usar o ponto de extremidade de locatário, por exemplo: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
-  Por exemplo, com o Kit de desenvolvimento de pilha do Azure como um ponto de extremidade:
+  Por exemplo, com o Kit de desenvolvimento do Azure Stack como um ponto de extremidade:
 
     ```bash
     curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
@@ -125,7 +126,7 @@ Para cada valor:
 
   **username**
 
-  Por exemplo, a conta do Azure AAD de pilha:
+  Por exemplo, a conta do AAD do Azure Stack:
 
   ```
   azurestackadmin@fabrikam.onmicrosoft.com
@@ -133,7 +134,7 @@ Para cada valor:
 
   **password**
 
-  A senha do administrador AAD de pilha do Azure.
+  A senha de administrador do AAD de pilha do Azure.
 
 ### <a name="example"></a>Exemplo
 
@@ -166,7 +167,7 @@ Resposta:
 
 ## <a name="api-queries"></a>Consultas de API
 
-Depois de obter o token de acesso, você precisa adicioná-lo como um cabeçalho para cada uma das suas solicitações de API. Para fazer isso, você precisa criar um cabeçalho **autorização** com valor: `Bearer <access token>`. Por exemplo: 
+Depois de obter seu token de acesso, você precisará adicioná-lo como um cabeçalho para cada uma das suas solicitações de API. Para fazer isso, você precisa criar um cabeçalho **autorização** com valor: `Bearer <access token>`. Por exemplo: 
 
 Solicitação:
 
@@ -188,16 +189,16 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>Sintaxe de estrutura e a consulta de URL
 
-URI de solicitação genérico consiste em: {esquema URI} :// {URI-host} / {resource-path}? {query-string}
+URI de solicitação genérico consiste em: {esquema de URI} :// {host URI} / {resource-path}? {query-string}
 
 - **Esquema de URI**:  
 O URI indica o protocolo usado para enviar a solicitação. Por exemplo, `http` ou `https`.
-- **Host URI**:  
-O host Especifica o nome de domínio ou endereço IP do servidor onde o ponto de extremidade do serviço REST está hospedado, como `graph.microsoft.com` ou `adminmanagement.local.azurestack.external`.
+- **Host de URI**:  
+O host Especifica o nome de domínio ou endereço IP do servidor onde o ponto de extremidade de serviço REST está hospedado, como `graph.microsoft.com` ou `adminmanagement.local.azurestack.external`.
 - **Caminho do recurso**:  
-O caminho Especifica o recurso ou a coleção de recursos, que pode incluir vários segmentos usados pelo serviço para determinar a seleção desses recursos. Por exemplo: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` pode ser usado para consultar a lista de proprietários de um aplicativo específico dentro da coleção de aplicativos.
+O caminho Especifica o recurso ou coleção de recursos, que pode incluir vários segmentos usados pelo serviço para determinar a seleção desses recursos. Por exemplo: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` pode ser usado para consultar a lista de proprietários de um aplicativo específico dentro da coleção de aplicativos.
 - **Cadeia de caracteres de consulta**:  
-A cadeia de caracteres fornece parâmetros adicionais de simples, como os critérios de seleção de recursos ou de versão de API.
+A cadeia de caracteres fornece parâmetros adicionais simples, como os critérios de seleção de recurso ou a versão de API.
 
 ## <a name="azure-stack-request-uri-construct"></a>Construção URI de solicitação de pilha do Azure
 
@@ -205,13 +206,13 @@ A cadeia de caracteres fornece parâmetros adicionais de simples, como os crité
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}
 ```
 
-### <a name="uri-syntax"></a>Sintaxe URI
+### <a name="uri-syntax"></a>Sintaxe de URI
 
 ```
 https://adminmanagement.local.azurestack.external/{subscription id}/resourcegroups/{resource group}/providers/{provider}/{resource-path}?{api-version}
 ```
 
-### <a name="query-uri-example"></a>Exemplo de consulta de URI
+### <a name="query-uri-example"></a>Exemplo de URI de consulta
 
 ```
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"

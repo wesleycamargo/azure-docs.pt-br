@@ -1,23 +1,25 @@
 ---
-title: "Como alterar os padrões de tempo de vida do token para um aplicativo personalizado | Microsoft Docs"
-description: "Como atualizar as políticas de tempo de vida do token para o aplicativo que você está desenvolvendo no Azure AD"
+title: Como alterar os padrões de tempo de vida do token para um aplicativo personalizado | Microsoft Docs
+description: Como atualizar as políticas de tempo de vida do token para o aplicativo que você está desenvolvendo no Azure AD
 services: active-directory
-documentationcenter: 
-author: ajamess
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 8067ecf3e274f65abe2c82f20dd2f4469344f3b6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.openlocfilehash: 0ecb1f55309901abd2c623d2c3d23ef717fb176b
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365095"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Como alterar os padrões de tempo de vida do token para um aplicativo personalizado
 

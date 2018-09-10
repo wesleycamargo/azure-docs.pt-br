@@ -11,24 +11,18 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: bef298ea8e5710b386822f071d0644c9ddad04a2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 807fd49a54c82b0930134beb8413e14c1c28b278
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115554"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do lote para o Node.js
 
-> [!div class="op_single_selector"]
-> * [.NET](batch-dotnet-get-started.md)
-> * [Python](batch-python-tutorial.md)
-> * [Node.js](batch-nodejs-get-started.md)
->
->
-
 Aprenda as noções básicas da criação de cliente em lote no Node.js usando [SDK do Node.js do lote do Azure ](/javascript/api/overview/azure/batch). Podemos adotar uma abordagem passo a passo de compressão de um cenário para um aplicativo de lote e, em seguida, configurá-lo usando um cliente do Node.js.  
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você tem um conhecimento prático do Node.js e que esteja familiarizado com o Linux. Ele também pressupõe que você tenha uma configuração de conta do Azure com direitos de acesso para criar serviços de armazenamento e de lote.
 
 Recomendamos a leitura da [Visão geral técnica do lote do Azure](batch-technical-overview.md) antes de percorrer as etapas descritas neste artigo.

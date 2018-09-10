@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 6871127ac138fb0113af73ca5222e3e2c2f99d7e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f70e0bcb68f059618f9b398a00e23498a10df23e
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39582776"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Chamar a API do Microsoft Graph de um SPA (Aplicativo de Página Única) JavaScript
 
@@ -30,14 +31,14 @@ Este guia demonstra como um SPA (Aplicativo de Página Única) JavaScript pode e
 ![Como o aplicativo de exemplo gerado por este guia funciona](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.png)
 
 <!--start-collapse-->
-## <a name="more-information"></a>Mais informações
+### <a name="more-information"></a>Mais informações
 
 O aplicativo de exemplo criado por este guia permite que um SPA JavaScript consulte a API do Microsoft Graph ou uma API Web que aceita tokens do ponto de extremidade do Azure Active Directory v2. Para esse cenário, depois que um usuário se conecta, um token de acesso é adicionado às solicitações HTTP por meio do cabeçalho de autorização. A aquisição e a renovação de tokens são manipuladas pela MSAL (Biblioteca de Autenticação da Microsoft).
 
 <!--end-collapse-->
 
 <!--start-collapse-->
-## <a name="libraries"></a>Bibliotecas
+### <a name="libraries"></a>Bibliotecas
 
 Este guia usa a seguinte biblioteca:
 
@@ -46,6 +47,6 @@ Este guia usa a seguinte biblioteca:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Versão prévia da Biblioteca de Autenticação da Microsoft para JavaScript|
 
 > [!NOTE]
-> *msal.js* usa como destino o *ponto de extremidade do Azure Active Directory v2*, que permite que contas pessoais, corporativas e de estudante entrem e adquiram tokens. O *ponto de extremidade do Azure Active Directory v2* tem [algumas limitações](..\articles\active-directory\develop\active-directory-v2-limitations.md). Se você estiver interessado apenas em contas corporativas e de estudante, use *adal.js* e o *ponto de extremidade V1*. Para entender as diferenças entre os pontos de extremidade v1 e v2, leia a [comparação v1-v2](..\articles\active-directory\develop\active-directory-v2-compare.md).
+> *msal.js* usa como destino o *ponto de extremidade do Azure Active Directory v2*, que permite que contas pessoais, corporativas e de estudante entrem e adquiram tokens. O *ponto de extremidade do Azure Active Directory v2* tem [algumas limitações](..\articles\active-directory\develop\active-directory-v2-limitations.md). Se você estiver interessado apenas em contas corporativas e de estudante, use *adal.js* e o *ponto de extremidade V1*. Para entender as diferenças entre os pontos de extremidade v1 e v2, leia a [comparação v1-v2](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

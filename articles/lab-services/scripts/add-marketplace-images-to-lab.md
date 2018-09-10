@@ -1,6 +1,6 @@
 ---
-title: 'Script do PowerShell: Adicionar uma imagem do marketplace a um laboratório personalizado no Azure Lab Services | Microsoft Docs'
-description: Este script do PowerShell adiciona uma imagem do marketplace a um laboratório personalizado no Azure Lab Services.
+title: 'Script do PowerShell: adicionar uma imagem de marketplace a um laboratório no Azure DevTest Labs | Microsoft Docs'
+description: Este script do PowerShell adiciona uma imagem de marketplace a um laboratório no Azure DevTest Labs.
 services: lab-services
 author: spelluru
 manager: ''
@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 64d168c132edce4ecd128b795fbfa5ab2607cb19
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a3a007bf19a28e6f361837856f83a191a761ef9b
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247407"
 ---
-# <a name="use-powershell-to-add-a-marketplace-image-to-a-custom-lab"></a>Use o PowerShell para adicionar uma imagem do marketplace a um laboratório personalizado
+# <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Use o PowerShell adiciona uma imagem de marketplace a um laboratório no Azure DevTest Labs
 
-Este exemplo de script do PowerShell adiciona uma imagem do marketplace a um laboratório personalizado no Azure Lab Services.
+Este script de exemplo do PowerShell adiciona uma imagem de marketplace a um laboratório no Azure DevTest Labs. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
-* **Um laboratório personalizado**. O script exige que você tenha um laboratório personalizado existente. 
+## <a name="prerequisites"></a>Pré-requisitos
+* **Um laboratório**. O script exige que você tenha um laboratório existente. 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-marketplace-images-to-lab/add-marketplace-images-to-lab.ps1 "Add marketplace images to a custom lab")]
+[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-marketplace-images-to-lab/add-marketplace-images-to-lab.ps1 "Add marketplace images to a lab")]
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
@@ -37,7 +38,7 @@ Este script usa os seguintes comandos:
 
 | Comando | Observações |
 |---|---|
-| [Find-AzureRmResource](/module/azurerm.resources/find-azurermresource) | Pesquisas recursos com base nos parâmetros especificados. |
+| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | Pesquisas recursos com base nos parâmetros especificados. |
 | [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Obter recursos. |
 | [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modifica um recurso. |
 | [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Cria um recurso. |

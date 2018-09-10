@@ -2,19 +2,19 @@
 title: Como usar o armazenamento de objeto (Blob) do iOS - Azure | Microsoft Docs
 description: Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto).
 services: storage
-documentationcenter: ios
 author: michaelhauss
-manager: jeconnoc
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: blobs
+ms.openlocfilehash: 35cfa36aba8042bcc753c1005c8fd8dbcdb70e79
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397665"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como usar o armazenamento de Blob no iOS
 
@@ -86,7 +86,7 @@ Se você estiver usando Swift, você precisará criar um cabeçalho ponte e impo
 1. Crie um arquivo de cabeçalho `Bridging-Header.h` e adicione a instrução de importação acima.
 2. Vá para a guia *Configurações de Build* e pesquise por *Cabeçalho Ponte do Objective-C*.
 3. Clique duas vezes no campo de *Cabeçalho Ponte do Objective-C* e adicione o caminho para o arquivo de cabeçalho:`ProjectName/Bridging-Header.h`
-4. Compile o projeto (⌘+B) para verificar se o cabeçalho de ponte foi recebido pelo Xcode.
+4. Compile o projeto (⌘+B) para verificar se o cabeçalho ponte foi recebido pelo Xcode.
 5. Comece a usar a biblioteca diretamente em qualquer arquivo Swift, instruções de importação não são necessárias.
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../../includes/storage-mobile-authentication-guidance.md)]

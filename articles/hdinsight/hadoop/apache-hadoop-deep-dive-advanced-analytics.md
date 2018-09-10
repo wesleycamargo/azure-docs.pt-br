@@ -1,23 +1,20 @@
 ---
-title: Mergulho profundo – Análise Avançada – HDInsight do Azure | Microsoft Docs
+title: Mergulho profundo - Análise avançada - Azure HDInsight
 description: Saiba como a análise avançada usa algoritmos para processar Big Data.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: f121a1f95eed04bf8086c03a5d4406c092dc9445
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 40536aae15f2ae9fa5e186cdbea1f75f7d264437
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047133"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Mergulho profundo – Análise avançada
 
@@ -60,7 +57,7 @@ Além de selecionar os algoritmos mais adequados, você precisa considerar se pr
 O HDInsight tem várias opções de aprendizado de máquina para um fluxo de trabalho de análise avançada:
 
 * [Machine Learning e Spark](#machine-learning-and-spark)
-* [R e Microsoft R Server](#r-and-r-server)
+* [R e ML Services](#r-and-r-server)
 * [Azure Machine Learning e Hive](#azure-machine-learning-and-hive)
 * [Spark e Aprendizado profundo](#spark-and-deep-learning)
 
@@ -74,9 +71,9 @@ Há três bibliotecas de aprendizado de máquina escalonáveis que oferecem recu
 * [**SparkML** ](https://spark.apache.org/docs/1.2.2/ml-guide.html) – SparkML é um pacote mais recente que fornece uma API de nível superior criada sobre o Spark DataFrames para construir pipelines do ML.
 * [**MMLSpark** ](https://github.com/Azure/mmlspark) – a biblioteca Microsoft Azure Machine Learning para Apache Spark (MMLSpark) é projetada para tornar cientistas de dados mais produtivos em Spark, para aumentar a taxa de experimentação e aproveitar técnicas de aprendizado de máquina de última geração, incluindo aprendizado profundo, em conjuntos de dados muito grandes. A biblioteca MMLSpark simplifica tarefas comuns de modelagem para a criação de modelos em PySpark. 
 
-### <a name="r-and-r-server"></a>R e Microsoft R Server
+### <a name="r-and-ml-services"></a>R e ML Services
 
-Como parte do HDInsight, você pode criar um cluster de HDInsight com [Microsoft R Server](../r-server/r-server-overview.md) pronto para ser usado com grandes conjuntos de dados e modelos. Esse novo recurso fornece aos cientistas de dados e estatísticos uma interface familiar do R que pode ser dimensionada sob demanda por meio de HDInsight, sem a sobrecarga de configuração e manutenção do cluster.
+Como parte do HDInsight, é possível criar um cluster do HDInsight com [ML Services](../r-server/r-server-overview.md) pronto para ser usado com modelos e conjuntos de dados em massa. Esse novo recurso fornece aos cientistas de dados e estatísticos uma interface familiar do R que pode ser dimensionada sob demanda por meio de HDInsight, sem a sobrecarga de configuração e manutenção do cluster.
 
 ### <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning e Hive
 
@@ -84,7 +81,7 @@ O [Azure Machine Learning Studio](https://studio.azureml.net/) fornece ferrament
 
 ### <a name="spark-and-deep-learning"></a>Spark e Aprendizado profundo
 
-O [Aprendizado profundo](https://www.microsoft.com/research/group/dltc/) é uma ramificação de aprendizado de máquina que usa *redes neurais em profundidade* (DNNs), inspirada pelos processos biológicos cérebro humano. Muitos pesquisadores veem o aprendizado profundo como uma abordagem promissora de inteligência artificial. Alguns exemplos de aprendizado profundo são tradutores idiomas falados, sistemas de reconhecimento de imagens e raciocínio de máquina. Para ajudar a avançar seu próprio trabalho no aprendizado profundo, a Microsoft desenvolveu o [Kit de Ferramentas Cognitivas da Microsoft](https://www.microsoft.com/cognitive-toolkit/) gratuito, fácil de usar e livre. O kit de ferramentas está sendo usado extensivamente por uma grande variedade de produtos da Microsoft, por empresas em todo o mundo com uma necessidade de implantar o aprendizado profundo em grande escala e por alunos interessados nos algoritmos e técnicas mais recentes. 
+O [Aprendizado profundo](https://www.microsoft.com/research/group/dltc/) é uma ramificação de aprendizado de máquina que usa *redes neurais em profundidade* (DNNs), inspirada pelos processos biológicos cérebro humano. Muitos pesquisadores veem o aprendizado profundo como uma abordagem promissora de inteligência artificial. Alguns exemplos de aprendizado profundo são tradutores idiomas falados, sistemas de reconhecimento de imagens e raciocínio de máquina. Para ajudar a avançar seu próprio trabalho no aprendizado profundo, a Microsoft desenvolveu o [Kit de Ferramentas Cognitivas da Microsoft](https://www.microsoft.com/en-us/cognitive-toolkit/) gratuito, fácil de usar e livre. O kit de ferramentas está sendo usado extensivamente por uma grande variedade de produtos da Microsoft, por empresas em todo o mundo com uma necessidade de implantar o aprendizado profundo em grande escala e por alunos interessados nos algoritmos e técnicas mais recentes. 
 
 ## <a name="scenario---score-images-to-identify-patterns-in-urban-development"></a>Cenário – imagens de pontuação para identificar padrões de desenvolvimento urbano
 
@@ -96,7 +93,7 @@ Há três tarefas-chave nesse cenário de análise avançada:
 
 1. Criar um cluster de Azure HDInsight Hadoop com uma distribuição do Apache Spark 2.1.0. 
 2. Executar um script personalizado para instalar o Kit de Ferramentas Cognitivas da Microsoft em todos os nós de um cluster do Azure HDInsight Spark. 
-3. Carregar um Jupyter Notebook pré-compilado no cluster do HDInsight Spark para ver como aplicar um modelo de aprendizado profundo treinado do Kit de Ferramentas Cognitivas da Microsoft a arquivos em uma Conta de Armazenamento de Blobs do Azure usando a API Python Spark (PySpark). 
+3. Carregue um Jupyter Notebook pré-compilado no cluster do HDInsight Spark para ver como aplicar um modelo de aprendizado profundo treinado do Microsoft Cognitive Toolkit a arquivos em uma Conta de Armazenamento de Blobs do Azure usando a API Python Spark (PySpark). 
 
 Este exemplo usa o conjunto de imagens CIFAR-10 compilado e distribuído por Alex Krizhevsky, Vinod Nair e Geoffrey Hinton. O conjunto de dados CIFAR-10 contém 60.000 imagens coloridas 32x32 que pertencem a 10 classes mutuamente exclusivas:
 

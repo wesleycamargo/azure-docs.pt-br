@@ -9,24 +9,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/16/2018
+ms.topic: conceptual
+ms.date: 05/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 52b6489d14c016ce2efdd06614102a40651b94c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: abe2fabc505f94f19d4b15a406fc59bf6d6e7ac1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050328"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Spark no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-spark.md)
-> * [Versão 2 – Versão prévia](transform-data-using-spark.md)
+> * [Versão 1](v1/data-factory-spark.md)
+> * [Versão atual](transform-data-using-spark.md)
 
 A atividade do Spark em um [pipeline](concepts-pipelines-activities.md) do Data Factory executa um programa do Spark em [seu próprio](compute-linked-services.md#azure-hdinsight-linked-service) ou [sob demanda](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) cluster HDInsight. Este artigo se baseia no artigo sobre [atividades de transformação de dados](transform-data.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas. Quando você usa um serviço vinculado do Spark sob demanda, o Data Factory cria automaticamente um cluster Spark para você Just-In-Time a fim de processar os dados e, em seguida, exclui o cluster quando o processamento for concluído. 
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível, consulte a [Atividade do Spark na V1](v1/data-factory-spark.md).
 
 > [!IMPORTANT]
 > A atividade do Spark não oferece suporte a clusters HDInsight Spark que usam um Azure Data Lake Store como armazenamento primário.
@@ -50,7 +48,6 @@ Esta é a definição do JSON de exemplo de uma atividade do Spark:
         },
         "rootPath": "adfspark\\pyFiles",
         "entryFilePath": "test.py",
-        "arguments": [ "arg1", "arg2" ],
         "sparkConfig": {
             "ConfigItem1": "Value"
         },
@@ -72,7 +69,7 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 | linkedServiceName     | Nome do serviço vinculado do HDInsight Spark no qual o programa Spark é executado. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | sim      |
 | SparkJobLinkedService | O serviço vinculado ao Armazenamento do Azure que contém o arquivo de trabalho, dependências e os logs do Spark.  Se você não especificar um valor para essa propriedade, o armazenamento associado ao cluster HDInsight será usado. O valor desta propriedade só pode ser um serviço vinculado do Armazenamento do Microsoft Azure. | Não        |
 | rootPath              | O contêiner de Blob do Azure e a pasta que contém o arquivo Spark. O nome do arquivo diferencia maiúsculas de minúsculas. Consulte a seção de estrutura de pasta (próxima seção) para obter detalhes sobre a estrutura desta pasta. | sim      |
-| entryFilePath         | Caminho relativo à pasta raiz do código/pacote Spark. | sim      |
+| entryFilePath         | Caminho relativo à pasta raiz do código/pacote Spark. O arquivo de entrada deve ser um arquivo. jar ou um arquivo Python. | sim      |
 | className             | Classe principal de Java/Spark do aplicativo      | Não        |
 | argumentos             | Uma lista de argumentos de linha de comando para o programa Spark. | Não        |
 | proxyUser             | A conta de usuário a ser representada para execução do programa Spark | Não        |

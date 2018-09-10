@@ -2,23 +2,20 @@
 title: Como usar o Armazenamento de Filas do Node.js | Microsoft Docs
 description: Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Node.js.
 services: storage
-documentationcenter: nodejs
 author: craigshoemaker
-manager: jeconnoc
-editor: tysonn
-ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: cshoe
-ms.openlocfilehash: 2565f56324a070368c499a62ab54bb98830d8c20
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.component: queues
+ms.openlocfilehash: 3fef5a848bff0eab5a9cc6c1c9a2f70055358e15
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528217"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Como usar o Armazenamento de Fila do Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -66,8 +63,6 @@ var azure = require('azure-storage');
 
 ## <a name="setup-an-azure-storage-connection"></a>Configurar uma conexão de armazenamento do Azure
 O módulo do Azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **createQueueService**.
-
-Para obter um exemplo de como definir as variáveis de ambiente no [portal do Azure](https://portal.azure.com) para um site do Azure, confira [Aplicativo Web Node.js com o Serviço Tabela do Azure](../../cosmos-db/table-storage-cloud-service-nodejs.md).
 
 ## <a name="how-to-create-a-queue"></a>Como criar uma fila
 O código a seguir cria um objeto **QueueService** , permitindo que você trabalhe com filas.

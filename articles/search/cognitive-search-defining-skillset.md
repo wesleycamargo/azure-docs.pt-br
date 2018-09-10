@@ -3,17 +3,18 @@ title: Criar um conjunto de habilidades em um pipeline de pesquisa cognitiva (Az
 description: Defina a extração de dados, o processamento de idioma natural ou as etapas de análise de imagem para enriquecer e extrair informações estruturadas de seus dados para uso no Azure Search.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 3ab35cfd8ce5cf54a68473736fe05b78d26850de
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786865"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268018"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Como criar um conjunto de habilidades em um pipeline de enriquecimento
 
@@ -52,7 +53,7 @@ No diagrama, a etapa *quebra de documento* acontece automaticamente. Essencialme
 
 ## <a name="skillset-definition-in-rest"></a>Definição de conjunto de habilidades em RET
 
-Um conjunto de habilidades é definido como uma matriz de habilidades. Cada uma delas define a origem de suas entradas e o nome das saídas produzidas. Usando a [API REST de Criação de Conjunto de Habilidades](ref-create-skillset.md), é possível definir um conjunto de habilidades correspondente ao diagrama anterior: 
+Um conjunto de habilidades é definido como uma matriz de habilidades. Cada uma delas define a origem de suas entradas e o nome das saídas produzidas. Usando a [API REST de Criação de Conjunto de Habilidades](https://docs.microsoft.com/rest/api/searchservice/create-skillset), é possível definir um conjunto de habilidades correspondente ao diagrama anterior: 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
@@ -104,13 +105,13 @@ Content-Type: application/json
      "description": "Calls an Azure function, which in turn calls Bing Entity Search",
       "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
-          "Ocp-Apim-Subscription-Key": "foobar",
+          "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -153,8 +154,7 @@ Vamos examinar a primeira habilidade, que é a [habilidade de reconhecimento de 
           "name": "text",
           "source": "/document/content"
         }
-      ],
-      "outputs": [
+      ],      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -209,13 +209,13 @@ Lembre-se da estrutura do enriquecedor de Pesquisa de Entidade do Bing personali
      "description": "This skill calls an Azure function, which in turn calls Bing Entity Search",
       "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
-          "Ocp-Apim-Subscription-Key": "foobar",
+          "Ocp-Apim-Subscription-Key": "foobar"
       }
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -229,9 +229,9 @@ Lembre-se da estrutura do enriquecedor de Pesquisa de Entidade do Bing personali
 
 Essa definição é uma habilidade personalizada que chama uma API Web como parte do processo de enriquecimento. Para cada organização identificada pelo reconhecimento de entidade nomeada, esta habilidade chama uma API Web para localizar a descrição da organização. A orquestração de quando chamar a API Web e como transmitir as informações recebidas é feita internamente pelo mecanismo de enriquecimento. No entanto, a inicialização necessária para chamar essa API personalizada deve ser fornecida no JSON (como URI, httpHeaders e as entradas esperadas). Para obter diretrizes sobre a criação de uma API Web personalizada para o pipeline de enriquecimento, confira [Como definir uma interface personalizada](cognitive-search-custom-skill-interface.md).
 
-Observe que o campo "context" está definido como ```"/document/content/organizations/*"``` com um asterisco, o que significa que a etapa de enriquecimento é chamada *para cada* organização em ```"/document/content/organizations"```. 
+Observe que o campo "context" está definido como ```"/document/organizations/*"``` com um asterisco, o que significa que a etapa de enriquecimento é chamada *para cada* organização em ```"/document/organizations"```. 
 
-A saída, nesse caso a descrição de uma empresa, é gerada para cada organização identificada. Ao fazer referência à descrição em uma etapa downstream (por exemplo, na extração de frases-chave), você usaria o caminho ```"/document/content/organizations/*/description"``` para fazer isso. 
+A saída, nesse caso a descrição de uma empresa, é gerada para cada organização identificada. Ao fazer referência à descrição em uma etapa downstream (por exemplo, na extração de frases-chave), você usaria o caminho ```"/document/organizations/*/description"``` para fazer isso. 
 
 ## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Enriquecimentos criam estrutura em informações não estruturadas.
 

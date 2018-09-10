@@ -2,23 +2,20 @@
 title: Trabalhando com os dados geoespaciais no Azure Cosmos DB | Microsoft Docs
 description: Entenda como criar, indexar e consultar objetos espaciais com o Azure Cosmos DB e a API do SQL.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 10/20/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 858d6c2154a74a6e5fe16c9392827cc8a6354f9c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 74824af6f17a6c1d2638c8604edd38ffa419d607
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858111"
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Trabalhando com os dados geoespaciais e de localização do GeoJSON no Azure Cosmos DB
 Este artigo é uma introdução à funcionalidade geoespacial do [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Depois de ler este artigo, você poderá responder as seguintes perguntas:
@@ -98,12 +95,12 @@ Além dos pontos, o GeoJSON também dá suporte a LineStrings e a polígonos. **
 Além de Ponto, LineString e Polígono, o GeoJSON também especifica a representação de como agrupar vários locais geoespaciais, além de como associar propriedades arbitrárias a geolocalização como um **Recurso**. Como esses objetos são um JSON válido, todos eles podem ser armazenados e processados no Azure Cosmos DB. No entanto, o Azure Cosmos DB dá suporte apenas à indexação automática de pontos.
 
 ### <a name="coordinate-reference-systems"></a>Sistemas de referência de coordenadas
-Como a forma da Terra é irregular, as coordenadas de dados geoespaciais são representadas em muitos sistemas de coordenadas de referência (CRS), cada um com seus próprios quadros de referência e unidades de medida. Por exemplo, o "National Grid of Britain" é um sistema de referência muito preciso para o Reino Unido, mas não para fora dele. 
+Como a forma da Terra é irregular, as coordenadas de dados geoespaciais são representadas em muitos sistemas de coordenadas de referência (CRS), cada um com seus próprios quadros de referência e unidades de medida. Por exemplo, o "National Grid of Britain" é um sistema de referência preciso para o Reino Unido, mas não para fora dele. 
 
 O CRS mais popular em uso hoje é o Sistema Geodésico Mundial [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). Os dispositivos GPS e vários serviços de mapeamento, incluindo as APIs do Google Maps e do Bing Mapas usam WGS-84. O Azure Cosmos DB dá suporte à indexação e à consulta de dados geoespaciais usando apenas o CRS WGS-84. 
 
 ## <a name="creating-documents-with-spatial-data"></a>Criando documentos com dados espaciais
-Quando você criar documentos que contenham valores GeoJSON, eles serão automaticamente indexados com um índice espacial de acordo com a política de indexação da coleção. Se você estiver trabalhando com um SDK do Azure Cosmos DB em uma linguagem dinamicamente tipada, como Python ou Node.js, deverá criar um GeoJSON válido.
+Quando você cria documentos que contêm valores GeoJSON, eles são indexados automaticamente com um índice espacial de acordo com a política de indexação do contêiner. Se você estiver trabalhando com um SDK do Azure Cosmos DB em uma linguagem dinamicamente tipada, como Python ou Node.js, deverá criar um GeoJSON válido.
 
 **Criar documentos com dados geoespaciais no Node.js**
 
@@ -223,7 +220,7 @@ Os argumentos do polígono no ST_WITHIN podem conter apenas um único toque, ou 
 > 
 > 
 
-O Azure Cosmos DB também dá suporte à execução de consultas inversas, ou seja, você pode indexar Polígonos ou linhas no Azure Cosmos DB e, depois, consultar as áreas que contêm um ponto especificado. Esse padrão é normalmente usado em logística para identificar, por exemplo, quando um caminhão entra ou sai de uma determinada área. 
+O Azure Cosmos DB também dá suporte à execução de consultas inversas, ou seja, você pode indexar polígonos ou linhas no Azure Cosmos DB e, depois, consultar as áreas que contêm um ponto especificado. Esse padrão é normalmente usado em logística para identificar, por exemplo, quando um caminhão entra ou sai de uma determinada área. 
 
 **Consulta**
 
@@ -272,7 +269,7 @@ Essas funções também podem ser usadas para validar Polígonos. Por exemplo, S
     }]
 
 ### <a name="linq-querying-in-the-net-sdk"></a>Consultas LINQ no SDK do .NET
-O SDK do .NET do SQL também fornece métodos stub `Distance()` e `Within()` para uso em expressões LINQ. O provedor LINQ do SQL traduz essas chamadas do método nas chamadas de função internas do SQL equivalentes (ST_DISTANCE e ST_WITHIN, respectivamente). 
+O SDK do .NET do SQL também fornece métodos stub `Distance()` e `Within()` para uso em expressões LINQ. O provedor LINQ do SQL traduz as chamadas desse método nas chamadas de função internas do SQL equivalentes (ST_DISTANCE e ST_WITHIN, respectivamente). 
 
 Veja um exemplo de uma consulta LINQ que localiza todos os documentos da coleção do Azure Cosmos DB cujo valor de “localização” está em um raio de 30 km do ponto especificado usando o LINQ.
 
@@ -391,7 +388,7 @@ E veja como você pode modificar uma coleção existente para aproveitar a index
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu a usar o suporte geoespacial no Azure Cosmos DB, poderá:
+Agora que você aprendeu a usar o suporte geoespacial no Azure Cosmos DB, em seguida, poderá:
 
 * Começar a codificar com os [exemplos de código geoespacial .NET no GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Experimente as consultas geoespaciais no [Espaço de Consulta do Azure Cosmos DB](http://www.documentdb.com/sql/demo#geospatial)

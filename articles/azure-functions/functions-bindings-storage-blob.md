@@ -3,7 +3,7 @@ title: Associações de armazenamento do Blob do Azure para o Azure Functions
 description: Entenda como usar gatilhos e associações do Armazenamento de blob do Azure em Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
-ms.author: tdykstra
-ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: glenga
+ms.openlocfilehash: 4a5a0634e371e4a762b3877b0c3e45682924a27d
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356402"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140201"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -35,13 +35,17 @@ Este artigo explica como trabalhar com associações de armazenamento de blob do
 > [!NOTE]
 > Use o gatilho de Grade de Eventos em vez do disparador do armazenamento de Blob apenas para contas de armazenamento de blob, para alta escala, ou para evitar atrasos de inicialização a frio. Para saber mais, veja a seção [Gatilho](#trigger) a seguir. 
 
-## <a name="packages"></a>Pacotes
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
-As associações de armazenamento de Blobs são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src).
+As associações de armazenamento de Blob são fornecidas no [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet, versão 2. x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pacotes - Functions 2. x
+
+As associações de armazenamento de Blobs são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob).
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
@@ -80,6 +84,7 @@ Consulte o exemplo específico a um idioma:
 * [C#](#trigger---c-example)
 * [Script do C# (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Gatilho - exemplo C#
 
@@ -178,6 +183,45 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="trigger---java-example"></a>Gatilho - exemplo de Java
+
+O exemplo a seguir mostra uma ligação de disparo de blob em um arquivo *function.json* e [código Java](functions-reference-java.md) que usa a ligação. A função grava um log quando um blob é adicionado ou atualizado no `myblob` contêiner.
+
+Aqui está o arquivo *function.json*:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "file",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "myblob/{name}",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+Aqui está o código Java:
+
+```java
+ @FunctionName("blobprocessor")
+ public void run(
+    @BlobTrigger(name = "file",
+                  dataType = "binary",
+                  path = "myblob/filepath",
+                  connection = "myconnvarname") byte[] content,
+    @BindingName("name") String filename,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info("Name: " + name + " Size: " + content.length + " bytes");
+ }
+
+```
+
+
 ## <a name="trigger---attributes"></a>Gatilho – atributos
 
 Em [bibliotecas de classe C#](functions-dotnet-class-library.md), use os seguintes atributos para configurar um gatilho de blob:
@@ -264,6 +308,8 @@ Em C# e script C#, você pode usar os tipos de parâmetros a seguir para o blob 
 
 <sup>1</sup> Requer associação "inout" `direction` em *function.json* ou `FileAccess.ReadWrite` em uma biblioteca de classes C#.
 
+Se você tentar associar a um dos tipos de SDK de armazenamento e obter uma mensagem de erro, certifique-se de que você tem uma referência a [a versão correta do SDK de armazenamento](#azure-storage-sdk-version-in-functions-1x).
+
 Associação para `string`, `Byte[]`, ou POCO só é recomendada se o tamanho do blob for pequeno, pois o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`. Para obter mais informações, consulte [Concorrência e uso de memória](#trigger---concurrency-and-memory-usage) mais adiante neste artigo.
 
 Em JavaScript, acesse os dados do blob de entrada usando `context.bindings.<name from function.json>`.
@@ -313,7 +359,7 @@ Se o blob é nomeado *{20140101}soundfile.mp3*, o valor da variável `name` no c
 
 O gatilho de blob fornece várias propriedades de metadados. Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Esses valores têm a mesma semântica que o tipo [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
 
-|Propriedade  |type  |DESCRIÇÃO  |
+|Propriedade  |Tipo  |DESCRIÇÃO  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|O caminho do blob de gatilho.|
 |`Uri`|`System.Uri`|A URI do blob para o local principal.|
@@ -385,6 +431,7 @@ Consulte o exemplo específico a um idioma:
 * [C#](#input---c-example)
 * [Script do C# (.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
 
 ### <a name="input---c-example"></a>Entrada – exemplo de C#
 
@@ -499,6 +546,23 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="input---java-example"></a>Entrada - exemplo de Java
+
+O exemplo a seguir é uma função Java que usa um acionador de fila e uma ligação de blob de entrada. A mensagem da fila contém o nome do blob e a função registra o tamanho do blob.
+
+```java
+@FunctionName("getBlobSize")
+@StorageAccount("AzureWebJobsStorage")
+public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-items") String filename,
+                    @BlobInput(name = "file", dataType = "binary", path = "samples-workitems/{queueTrigger") byte[] content,
+       final ExecutionContext context) {
+      context.getLogger().info("The size of \"" + filename + "\" is: " + content.length + " bytes");
+ }
+ ```
+
+  Na biblioteca de tempo de execução de funções [Java](/java/api/overview/azure/functions/runtime), use a anotação `@BlobInput` nos parâmetros cujo valor viria de um blob.  Essa anotação pode ser usada com tipos nativos do Java, POJOs ou valores que permitem valor nulos usando `Optional<T>`. 
+
+
 ## <a name="input---attributes"></a>Entrada – atributos
 
 Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
@@ -564,6 +628,8 @@ Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a assoc
 
 <sup>1</sup> Requer associação "inout" `direction` em *function.json* ou `FileAccess.ReadWrite` em uma biblioteca de classes C#.
 
+Se você tentar associar a um dos tipos de SDK de armazenamento e obter uma mensagem de erro, certifique-se de que você tem uma referência a [a versão correta do SDK de armazenamento](#azure-storage-sdk-version-in-functions-1x).
+
 Associação para `string` ou `Byte[]` só é recomendada se o tamanho do blob for pequeno, pois o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`. Para obter mais informações, consulte [Concorrência e uso de memória](#trigger---concurrency-and-memory-usage) mais adiante neste artigo.
 
 Em JavaScript, acesse os dados do blob usando `context.bindings.<name from function.json>`.
@@ -579,6 +645,7 @@ Consulte o exemplo específico a um idioma:
 * [C#](#output---c-example)
 * [Script do C# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>Saída - exemplo C#
 
@@ -666,7 +733,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 <!--Same example for input and output. -->
 
-O exemplo a seguir mostra as associações de entrada e de saída de blob em um arquivo *function.json* e [código JavaScript] (functions-reference-node.md) que usa as associações. A função faz uma cópia de um blob. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. O novo blob é nomeado *{originalblobname}-Copy*.
+O exemplo a seguir mostra uma associação de entrada e saída de blob em um arquivo *function.json* e [código JavaScript](functions-reference-node.md) que usa as associações. A função faz uma cópia de um blob. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. O novo blob é nomeado *{originalblobname}-Copy*.
 
 No arquivo *function.json*, a `queueTrigger` propriedade de metadados é usada para especificar o nome do blob nas propriedades `path`:
 
@@ -710,6 +777,24 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="output---java-example"></a>Saída - exemplo de Java
+
+O exemplo a seguir mostra as ligações de entrada e saída de blobs em uma função Java. A função faz uma cópia de um blob de texto. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. O novo blob é nomeado {originalblobname}-Copy
+
+```java
+@FunctionName("copyTextBlob")
+@StorageAccount("AzureWebJobsStorage")
+@BlobOutput(name = "target", path = "samples-workitems/{queueTrigger}-Copy")
+public String blobCopy(
+    @QueueTrigger(name = "filename", queueName = "myqueue-items") String filename,
+    @BlobInput(name = "source", path = "samples-workitems/{queueTrigger}") String content ) {
+      return content;
+ }
+ ```
+
+ Na [biblioteca de tempo de execução das funções Java](/java/api/overview/azure/functions/runtime) , use a anotação `@BlobOutput` nos parâmetros da função cujo valor seria gravado em um objeto no armazenamento de blobs.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
+
 
 ## <a name="output---attributes"></a>Saída - atributos
 
@@ -777,6 +862,8 @@ Em script C# e C#, é possível associar os tipos a seguir para gravar blobs:
 <sup>1</sup> Requer associação "in" `direction` em *function.json* ou `FileAccess.Read` em uma biblioteca de classes C#. No entanto, você pode usar o objeto de contêiner que o tempo de execução fornece para operações de gravação, como carregar blobs no contêiner.
 
 <sup>2</sup> Requer associação "inout" `direction` em *function.json* ou `FileAccess.ReadWrite` em uma biblioteca de classes C#.
+
+Se você tentar associar a um dos tipos de SDK de armazenamento e obter uma mensagem de erro, certifique-se de que você tem uma referência a [a versão correta do SDK de armazenamento](#azure-storage-sdk-version-in-functions-1x).
 
 Em funções assíncronas, use o valor de retorno ou `IAsyncCollector` em vez de um parâmetro `out`.
 

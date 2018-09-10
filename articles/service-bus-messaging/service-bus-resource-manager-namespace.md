@@ -3,7 +3,7 @@ title: Criar um namespace das Mensagens do Barramento de Serviço usando modelo 
 description: Usar modelo do Azure Resource Manager para criar um namespace das Mensagens do Barramento de Serviço
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: dc0d6482-6344-4cef-8644-d4573639f5e4
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/11/2018
-ms.author: sethm
-ms.openlocfilehash: e7e811b86d1ea0454b964fb297cb05b6a4734abd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: spelluru
+ms.openlocfilehash: 6c93c3d9ca46eda9e9bdce60b1047af9e9781142
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699509"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Criar um namespace do Barramento de Serviço usando um modelo do Azure Resource Manager
 

@@ -1,35 +1,36 @@
 ---
 title: Escalar verticalmente automaticamente unidade de produtividade do Hub de Eventos do Azure | Microsoft Docs
-description: "Habilitar Inflação automática em um namespace para escalar verticalmente automaticamente as unidades de produtividade"
+description: Habilitar Inflação automática em um namespace para escalar verticalmente automaticamente as unidades de produtividade.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
-ms.author: sethm
-ms.openlocfilehash: 20ee0e6cff2a07cbd62a79799eada5708c7a0f07
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 07/02/2018
+ms.author: shvija
+ms.openlocfilehash: 32f99b43a37277e70d209f1f315dcb398c2b5931
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004785"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalar verticalmente automaticamente unidade de produtividade do Hub de Eventos do Azure
 
-Hubs de Eventos do Azure é uma plataforma de streaming de dados altamente escalonável. Assim, o uso dos Hubs de Eventos geralmente aumenta após o início do uso do serviço. Tal uso exige o aumento das unidades de produtividade predeterminadas para dimensionar os Hubs de Eventos e manipular taxas de transferência maiores. O recurso *inflar automaticamente* dos Hubs de Eventos escala verticalmente automaticamente o número de unidades de taxa de transferência para atender às necessidades de uso. O aumento de unidades de taxa de transferência evita cenários de limitação, nos quais:
+Hubs de Eventos do Azure é uma plataforma de streaming de dados altamente escalonável. Assim, o uso dos Hubs de Eventos geralmente aumenta após o início do uso do serviço. Tal uso exige o aumento das [unidades de produtividade](event-hubs-features.md#throughput-units) predeterminadas para dimensionar os Hubs de Eventos e manipular taxas de transferência maiores. O recurso **inflar automaticamente** dos Hubs de Eventos escala verticalmente automaticamente aumentando o número de unidades de taxa de transferência para atender às necessidades de uso. O aumento de unidades de taxa de transferência evita cenários de limitação, nos quais:
 
 * As taxas de entrada de dados excedem as unidades de taxa de transferência definidas.
 * As taxas de solicitação de saída de dados excedem as unidades de taxa de transferência definidas.
 
 ## <a name="how-auto-inflate-works"></a>Como o Inflar automaticamente funciona
 
-O tráfego dos Hubs de Eventos é controlado por unidades de produtividade. Uma única unidade de taxa de transferência permite o ingresso de 1 MB por segundo e duas vezes essa quantidade de saída. Hubs de evento Standard podem ser configurados com 1 a 20 unidades de produtividade. Inflar automaticamente permite que você comece pequeno, com o mínimo de unidades de produtividade necessárias. O recurso então dimensiona automaticamente para o limite máximo de unidades de produtividade que você precisa, dependendo do aumento de seu tráfego. O Inflar automaticamente oferece os seguintes benefícios:
+O tráfego dos Hubs de Eventos é controlado por [unidades de produtividade](event-hubs-features.md#throughput-units). Uma única unidade de taxa de transferência permite o ingresso de 1 MB por segundo e duas vezes essa quantidade de saída. Hubs de evento Standard podem ser configurados com 1 a 20 unidades de produtividade. Inflar automaticamente permite que você comece pequeno, com o mínimo de unidades de produtividade necessárias que você escolher. O recurso então dimensiona automaticamente para o limite máximo de unidades de produtividade que você precisa, dependendo do aumento de seu tráfego. O Inflar automaticamente oferece os seguintes benefícios:
 
 - Um mecanismo eficiente de colocação em escala para começar pequeno e escalar verticalmente conforme o crescimento.
 - Dimensione automaticamente para o limite superior especificado sem problemas de limitação.
@@ -39,8 +40,8 @@ O tráfego dos Hubs de Eventos é controlado por unidades de produtividade. Uma 
 
 Você pode habilitar ou desabilitar o recurso Inflação automática em um namespace dos Hubs de Eventos usando qualquer um dos seguintes métodos:
 
-1. O [Portal do Azure](https://portal.azure.com).
-2. Um modelo do Azure Resource Manager.
+- O [Portal do Azure](https://portal.azure.com).
+- Um [modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>Habilitar Inflar automaticamente por meio do Portal
 
@@ -56,7 +57,7 @@ Você também pode habilitar o recurso Inflação automática usando a opção *
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Habilitar Inflar automaticamente usando um modelo do Azure Resource Manager
 
-Você pode habilitar o Inflar automaticamente durante uma implantação de modelo do Azure Resource Manager. Por exemplo, defina a propriedade `isAutoInflateEnabled` como **true** e defina `maximumThroughputUnits` como 10.
+Você pode habilitar o Inflar automaticamente durante uma implantação de modelo do Azure Resource Manager. Por exemplo, defina a propriedade `isAutoInflateEnabled` como **true** e defina `maximumThroughputUnits` como 10. Por exemplo:
 
 ```json
 "resources": [
@@ -105,5 +106,5 @@ Para ver o modelo completo, consulte o modelo [Criar namespace de Hubs de Evento
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 

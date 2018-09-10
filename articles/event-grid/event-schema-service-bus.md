@@ -6,17 +6,20 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 02/21/2018
+ms.date: 08/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: afb85f20c49821ca98e078791730a3376198e9e5
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144745"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Esquema de eventos da Grade de Eventos do Azure para Barramento de Serviço
 
 Este artigo fornece as propriedades e o esquema para eventos do Barramento de Serviço. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
+
+Para obter uma lista de scripts de exemplo e tutoriais, consulte [Origem do evento do Barramento de Serviço](event-sources.md#service-bus).
 
 ## <a name="available-event-types"></a>Tipos de evento disponíveis
 
@@ -29,7 +32,7 @@ Barramento de Serviço emite os seguintes tipos de evento:
 
 ## <a name="example-event"></a>Exemplo de evento
 
-O exemplo a seguir mostra o esquema de mensagens ativas com nenhum evento de listener:
+O exemplo a seguir mostra o esquema de mensagens ativas sem eventos de ouvintes:
 
 ```json
 [{
@@ -77,7 +80,7 @@ O esquema para um evento de fila de mensagens mortas é semelhante:
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | type | DESCRIÇÃO |
+| Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
@@ -90,9 +93,9 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | type | DESCRIÇÃO |
+| Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| nameSpaceName | string | O namespace do Barramento de Serviço onde está o recurso existente. |
+| namespaceName | string | O namespace do Barramento de Serviço onde está o recurso existente. |
 | requestUri | string | O URI para a fila específica ou a assinatura que emite o evento. |
 | entityType | string | O tipo de entidade de Barramento de Serviço que emite eventos (fila ou assinatura). |
 | queueName | string | A fila de mensagens ativas se inscreve-se em uma fila. Valor nulo se usar tópicos / assinaturas. |

@@ -3,17 +3,17 @@ title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usand
 description: Neste início rápido, você usa o Azure PowerShell no armazenamento de objeto (Blob). Em seguida, use o PowerShell para carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: f028d37a98cecf14706773a2eb7cb601481435d1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b482379c05133dcf58e54bd01f38f0c3cee95e8d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398586"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>Início rápido: Carregar, baixar e listar blobs usando o Azure PowerShell
 
@@ -112,13 +112,15 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Nesse guia de início rápido, você aprendeu a transferir arquivos entre o disco local e Armazenamento de Blobs do Azure. Para saber mais sobre como trabalhar com o Armazenamento de Blobs, prossiga para as instruções do Armazenamento de Blobs.
+Nesse guia de início rápido, você aprendeu a transferir arquivos entre o disco local e Armazenamento de Blobs do Azure. Para saber mais sobre como trabalhar com o armazenamento de Blobs usando o PowerShell, continue a usar o Guia de instruções do Azure PowerShell com o Armazenamento do Azure.
 
 > [!div class="nextstepaction"]
-> [Instruções de operações do Armazenamento de Blobs](storage-how-to-use-blobs-powershell.md)
+> [Usando o PowerShell do Azure com o Armazenamento do Azure](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Referência de cmdlets de Armazenamento do Microsoft Azure PowerShell
+
 * [Cmdlets do PowerShell do Armazenamento](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Gerenciador do Armazenamento do Microsoft Azure
+
 * [O Gerenciador de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.

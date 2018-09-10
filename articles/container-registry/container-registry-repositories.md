@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33768321"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Exibir os repositórios do registro de contêiner no Portal do Azure
 

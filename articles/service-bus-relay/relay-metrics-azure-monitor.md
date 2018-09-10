@@ -3,7 +3,7 @@ title: Métricas da Retransmissão do Azure no Azure Monitor (versão prévia) |
 description: Use o Monitoramento do Azure para monitorar a Retransmissão do Azure
 services: service-bus-relay
 documentationcenter: .NET
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
-ms.author: sethm
-ms.openlocfilehash: b919f1fb0799ec497742115b2611f34872af2027
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: spelluru
+ms.openlocfilehash: 6d9c154e4942e39d68c30ac52dee0f743e428b9e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696880"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Métricas da Retransmissão do Azure no Azure Monitor (versão prévia)
 
@@ -30,7 +31,7 @@ O Azure Monitor fornece interfaces de usuário unificadas para monitoramento ent
 
 O Azure Monitor fornece várias maneiras de acessar as métricas. Você pode acessar as métricas por meio do [Portal do Azure](https://portal.azure.com) ou usar as APIs do Azure Monitor (REST e .NET) e as soluções de análise como o Operation Management Suite e os Hubs de Eventos. Para obter mais informações, consulte [Métricas do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
-As métricas estão habilitadas por padrão e você pode acessar os dados dos últimos 30 dias. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Isso pode ser configurado em [configurações de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) no Azure Monitor.
+As métricas estão habilitadas por padrão e você pode acessar os dados dos últimos 30 dias. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Isso pode ser configurado em [configurações de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) no Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Acessar as métricas no portal
 

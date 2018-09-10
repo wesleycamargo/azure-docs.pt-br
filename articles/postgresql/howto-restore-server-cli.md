@@ -10,18 +10,19 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5c5cc1fdbe48fb93eea204e4619038052e685f1f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: de0d6ee32380367bfba4a27958c9c1e739b5dba3
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173419"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 
 ## <a name="backup-happens-automatically"></a>O backup ocorre automaticamente
 O backup do Banco de Dados do Azure para servidores PostgreSQL é feito periodicamente para habilitar os recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de instruções, você precisa:
 - Um [Banco de Dados do Azure para servidor e banco de dados PostgreSQL](quickstart-create-server-database-azure-cli.md)
 
@@ -31,32 +32,6 @@ Para concluir este guia de instruções, você precisa:
 
 > [!IMPORTANT]
 > Este guia de instruções requer que você use a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, no prompt de comando da CLI do Azure, digite `az --version`. Para instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>Adicionar a extensão
-Adicione a extensão de gerenciamento atualizada do Banco de Dados do Azure para PostgreSQL usando o seguinte comando:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Verifique se que você tem a versão de extensão correta instalada. 
-```azurecli-interactive
-az extension list
-```
-
-O retorno JSON deve incluir o seguinte: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Se a versão 0.0.5 não for retornada, execute as etapas abaixo para atualizar a extensão: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Definir configuração de backup
 
@@ -109,6 +84,8 @@ Os valores de local e tipo de preço para o servidor restaurado permanecem iguai
 
 Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado.
 
+O novo servidor criado durante uma restauração não tem as regras de firewall que existiam no servidor original. Regras de firewall precisam ser definidas separadamente para esse novo servidor.
+
 ## <a name="geo-restore"></a>Restauração geográfica
 Se você configurou seu servidor para backups com redundância geográfica, um novo servidor pode ser criado do backup do servidor existente. Esse novo servidor pode ser criado em qualquer região em que o Banco de Dados do Azure para PostgreSQL esteja disponível.  
 
@@ -146,6 +123,8 @@ O comando `az postgres server georestore` exige os seguintes parâmetros:
 >Ao criar um novo servidor com uma restauração geográfica, ele herda o mesmo tamanho de armazenamento e tipo de preços do servidor de origem. Esses valores não podem ser alterados durante a criação. Depois que o novo servidor é criado, seu tamanho de armazenamento pode ser expandido.
 
 Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado.
+
+O novo servidor criado durante uma restauração não tem as regras de firewall que existiam no servidor original. Regras de firewall precisam ser definidas separadamente para esse novo servidor.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre os [backups](concepts-backup.md) do serviço.

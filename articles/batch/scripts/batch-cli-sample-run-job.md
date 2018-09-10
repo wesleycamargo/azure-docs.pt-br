@@ -1,12 +1,12 @@
 ---
 title: Exemplo de Script da CLI do Azure - Execute um trabalho em lotes | Microsoft Docs
-description: "Exemplo de Script da CLI do Azure – Executar um trabalho com o Lote"
+description: Exemplo de Script da CLI do Azure – Executar um trabalho com o Lote
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: d63854b213b33a3c26358df17761999f5270d7a2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d821a5b3f0df85928ca405c8520a86c9d2a0661f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442030"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>Exemplo de CLI: executar um trabalho e tarefas com o Lote do Azure
 
@@ -32,7 +33,7 @@ Caso opte por instalar e usar a CLI localmente, este artigo exige que seja execu
 
 [!code-azurecli-interactive[main](../../../cli_scripts/batch/run-job/run-job.sh "Run Job")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Execute o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
@@ -42,20 +43,20 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Cria a conta do Lote. |
-| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentica na conta do Lote especificada para interação adicional com a CLI.  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_create) | Cria um pool de nós de computação.  |
-| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_create) | Cria um trabalho do Lote.  |
-| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_create) | Adiciona uma tarefa ao trabalho do Lote especificado.  |
-| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_set) | Atualiza as propriedades de um trabalho do Lote.  |
-| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_show) | Recupera detalhes de um trabalho especificado do Lote.  |
-| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_show) | Recupera os detalhes de uma tarefa do trabalho do Lote especificado.  |
-| [az group delete](/cli/azure/group#az_group_delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Cria a conta do Lote. |
+| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Autentica na conta do Lote especificada para interação adicional com a CLI.  |
+| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-create) | Cria um pool de nós de computação.  |
+| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#az-batch-job-create) | Cria um trabalho do Lote.  |
+| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#az-batch-task-create) | Adiciona uma tarefa ao trabalho do Lote especificado.  |
+| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#az-batch-job-set) | Atualiza as propriedades de um trabalho do Lote.  |
+| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#az-batch-job-show) | Recupera detalhes de um trabalho especificado do Lote.  |
+| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#az-batch-task-show) | Recupera os detalhes de uma tarefa do trabalho do Lote especificado.  |
+| [az group delete](/cli/azure/group#az-group-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

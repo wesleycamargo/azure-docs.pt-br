@@ -1,5 +1,5 @@
 ---
-title: Rotear tráfego de rede – tutorial – portal do Azure | Microsoft Docs
+title: Rotear tráfego de rede – tutorial – Portal do Azure | Microsoft Docs
 description: Neste tutorial, aprenda a rotear tráfego de rede com uma tabela de rotas usando o Portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -17,11 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 7254e9336fca14daee2021d5bde4c5538509fe35
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 81478ace72a538f4970e114cd704fd64ceb94aa6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344879"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Rotear tráfego de rede com uma tabela de rotas usando o portal do Azure
 
@@ -55,7 +56,7 @@ Faça logon no Portal do Azure em http://portal.azure.com.
     |NOME|myRouteTablePublic|
     |Assinatura| Selecione sua assinatura.|
     |Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroup*.|
-    |Local padrão|Leste dos EUA|
+    |Localização|Leste dos EUA|
  
     ![Criar tabela de rotas](./media/tutorial-create-route-table-portal/create-route-table.png) 
 
@@ -89,7 +90,7 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, será necessário cr
     |Espaço de endereço| 10.0.0.0/16|
     |Assinatura | Selecione sua assinatura.|
     |Grupo de recursos|Clique em **Usar existente** e selecione **myResourceGroup**.|
-    |Local padrão|Selecione *Leste dos EUA*|
+    |Localização|Selecione *Leste dos EUA*|
     |Nome da sub-rede|Público|
     |Intervalo de endereços|10.0.0.0/24|
     
@@ -131,7 +132,7 @@ Uma NVA é uma VM que executa uma função de rede, como roteamento, firewall ou
     |Nome de usuário|Insira um nome de usuário de sua escolha.|
     |Senha|Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupo de recursos| Clique em **Usar existente** e selecione *myResourceGroup*.|
-    |Local padrão|Selecione **Leste dos EUA**.|
+    |Localização|Selecione **Leste dos EUA**.|
 4. Selecione um tamanho da VM em **Escolher um tamanho**.
 5. Selecione ou insira as informações a seguir para **Configurações** e, em seguida, selecione **OK**:
 
@@ -173,7 +174,7 @@ Você pode criar a VM *myVmPrivate* enquanto o Azure cria a VM *myVmPublic*. Nã
 3. Para conectar-se à VM, abra o arquivo RDP baixado. Se solicitado, selecione **Conectar**.
 4. Insira o nome de usuário e senha especificados ao criar a VM (talvez seja necessário selecionar **Mais escolhas**, em seguida, **Usar uma conta diferente**, para especificar as credenciais inseridas ao criar a VM) e selecione **OK**.
 5. Você pode receber um aviso do certificado durante o processo de logon. Selecione **Sim** para prosseguir com a conexão.
-6. Em uma etapa posterior, a ferramenta de rota de rastreamento é usada para testar o roteamento. A rota de rastreamento usa o protocolo ICMP, que é negado pelo firewall do Windows. Habilite o ICMP pelo firewall do Windows inserindo o seguinte comando do PowerShell na VM *myVmPrivate*:
+6. Em uma etapa posterior, a ferramenta de rota de rastreamento é usada para testar o roteamento. A rota de rastreamento usa o protocolo ICMP, que é negado pelo Firewall do Windows. Habilite o ICMP pelo firewall do Windows inserindo o seguinte comando do PowerShell na VM *myVmPrivate*:
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4

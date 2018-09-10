@@ -1,24 +1,19 @@
 ---
 title: Configurar a topologia Connected Factory | Microsoft Docs
 description: Como configurar a topologia de um acelerador de solução Connected Factory.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 1674ffefb3ee12584771e27d785e014830f84642
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746972"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador da solução Connected Factory
 
@@ -287,7 +282,7 @@ Os números de OEE/KPI para a simulação Connected Factory são parametrizados 
 * Os valores de nó do OPC UA a serem incluídos no cálculo.
 * Como o número é computado por meio dos valores de telemetria.
 
-A Connected Factory usa as fórmulas OEE, conforme publicadas pelo http://oeeindustrystandard.oeefoundation.org.
+A Connected Factory usa as fórmulas OEE, conforme publicadas pelo http://www.oeefoundation.org.
 
 Os objetos de nó do OPC UA nas estações permitem a marcação para uso no cálculo de OEE/KPI. A propriedade **Relevance** indica para qual número de OEE/KPI o valor do nó do OPC UA deve ser usado. A propriedade **OpCode** define como o valor é incluído na computação.
 

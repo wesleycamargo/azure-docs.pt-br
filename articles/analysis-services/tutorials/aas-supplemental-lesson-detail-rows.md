@@ -3,16 +3,17 @@ title: 'Lição suplementar de tutorial do Azure Analysis Services: linhas de de
 description: Descreve como criar uma expressão de linhas de detalhes no tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 02e9edd966e64c0bfa32e2b80f4c26f797e58582
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 626258488afec4b3c3f025ae85bd3b5866aa0cf3
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443970"
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lição suplementar – Linhas de Detalhes
 

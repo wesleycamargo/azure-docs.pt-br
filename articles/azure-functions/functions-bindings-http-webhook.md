@@ -3,7 +3,7 @@ title: Associações HTTP e de webhook do Azure Functions
 description: Entenda como usar gatilhos e associações HTTP e de webhook no Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: tdykstra
-ms.openlocfilehash: d15c5556325284dd3b0b6f11a080c9abc263286c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: glenga
+ms.openlocfilehash: 183dad8f70a4094f6d6ba3605fd19f8921dcc988
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356317"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145292"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associações HTTP e de webhook do Azure Functions
 
@@ -32,13 +32,17 @@ Um gatilho de HTTP pode ser personalizado para responder a [webhooks](https://en
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-## <a name="packages"></a>Pacotes
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
-As associações de HTTP são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/).
+As associações de HTTP são fornecidas no pacote NuGet, versão 1.x. [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pacotes - Functions 2. x
+
+As associações de HTTP são fornecidas no pacote NuGet, versão 3.x. [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/).
+
+[!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Gatilho
 
@@ -54,6 +58,7 @@ Consulte o exemplo específico a um idioma:
 * [Script do C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>Gatilho - exemplo C#
 
@@ -271,6 +276,45 @@ module.exports = function(context, req) {
     }
     context.done();
 };
+```
+
+### <a name="trigger---java-example"></a>Gatilho - exemplo de Java
+
+O exemplo a seguir mostra uma ligação de acionador em um arquivo *function.json* e uma [função Java](functions-reference-java.md) que usa a ligação. A função retorna uma resposta de 200 de código de status HTTP com corpo de arequest que Prefixa o corpo da solicitação de gatilho com um "Hello," saudação.
+
+
+Aqui está o arquivo *function.json*:
+
+```json
+{
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "anonymous",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+Aqui está o código Java:
+
+```java
+@FunctionName("hello")
+public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
+                        final ExecutionContext context) 
+    {
+        // default HTTP 200 response code
+        return String.format("Hello, %s!", request);
+    }
+}
 ```
      
 ## <a name="trigger---webhook-example"></a>Gatilho - exemplo de webhook

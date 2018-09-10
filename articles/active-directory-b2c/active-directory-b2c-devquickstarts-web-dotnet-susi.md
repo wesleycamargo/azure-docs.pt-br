@@ -1,21 +1,21 @@
 ---
-title: Autenticação, inscrição e redefinição de senha ASP.NET do Azure Active Directory B2C
+title: Autenticação, inscrição e redefinição de senha no Azure Active Directory B2C | Microsoft Docs
 description: Como criar um aplicativo Web com inscrição/entrada, edição de perfil e redefinição de senha usando o Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: .net
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 052d81f8170273bb0e40572322349550e7219363
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308024"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Criar um aplicativo Web ASP.NET com inscrição/entrada, edição de perfil e redefinição de senha do Azure Active Directory B2C
 
@@ -31,19 +31,21 @@ Este tutorial mostra como:
 - Você deve conectar seu Locatário B2C a uma conta do Azure. Você pode criar uma conta gratuita do Azure [aqui](https://azure.microsoft.com/).
 - Você precisa do [Microsoft Visual Studio](https://www.visualstudio.com/) ou um programa semelhante para exibir e modificar o código de exemplo.
 
-## <a name="create-an-azure-ad-b2c-directory"></a>Criar um diretório do AD B2C do Azure
+## <a name="create-an-azure-ad-b2c-tenant"></a>Criar um locatário do Azure AD B2C
 
-Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um diretório é um contêiner para todos os seus usuários, aplicativos, grupos e muito mais. Se você ainda não tiver um, crie um diretório B2C antes de prosseguir neste guia.
+Antes de usar AD B2C do Azure, você deve criar um locatário. Um locatário é um contêiner para todos os seus usuários, aplicativos, grupos e muito mais. Se você ainda não tiver um, crie um locatário B2C antes de prosseguir neste guia.
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
 > [!NOTE]
 > 
-> Você precisa se conectar ao Locatário B2C para sua assinatura do Azure. Depois de selecionar **Criar**, selecione a opção **Associar um Locatário do Azure AD B2C existente à minha assinatura do Azure** e, em seguida, na lista suspensa de **Locatário do Azure AD B2C**, selecione o locatário que você deseja associar.
+> Você precisa se conectar ao locatário do Azure AD B2C para sua assinatura do Azure. Depois de selecionar **Criar**, selecione a opção **Associar um Locatário do Azure AD B2C existente à minha assinatura do Azure** e, em seguida, na lista suspensa de **Locatário do Azure AD B2C**, selecione o locatário que você deseja associar.
 
 ## <a name="create-and-register-an-application"></a>Criar e registrar um aplicativo
 
-Em seguida, você precisa criar e registrar um aplicativo em seu diretório B2C. Isso fornece ao Azure AD B2C as informações de que ele precisa para se comunicar de forma segura com seu aplicativo. 
+Em seguida, você precisa criar e registrar um aplicativo no locatário do Azure AD B2C. Isso fornece ao Azure AD B2C as informações de que ele precisa para se comunicar de forma segura com seu aplicativo. 
+
+Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**. Agora você deve estar usando o locatário que criou anteriormente.
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 

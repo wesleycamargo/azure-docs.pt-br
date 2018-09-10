@@ -3,7 +3,7 @@ title: Criar uma regra de autorização do Barramento de Serviço usando um mode
 description: Criar uma regra de autorização do Barramento de Serviço para namespace e fila usando um modelo do Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 7f1443a0-5fa8-4d90-8637-1a977ef0b1f0
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/11/2018
-ms.author: sethm
-ms.openlocfilehash: e29045f43f5b80ffc66d7b10bac39f3d8d03ae3c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: spelluru
+ms.openlocfilehash: ac57c27cf973a2ba236ad1812129e29284deb211
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696115"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Criar uma regra de autorização do Barramento de Serviço para namespace e fila usando um modelo do Azure Resource Manager
 

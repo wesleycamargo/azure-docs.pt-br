@@ -2,32 +2,38 @@
 title: Copiar ou mover dados para o Armazenamento do Azure com o AzCopy no Windows | Microsoft Docs
 description: Use o utilitário AzCopy no Windows para mover ou copiar dados para ou de conteúdo de blob, tabela e arquivo. Copie dados para o Armazenamento do Azure de arquivos locais ou copie dados dentro na mesma conta ou entre contas de armazenamento. Migre facilmente seus dados para o Armazenamento do Azure.
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 08/13/2018
 ms.author: seguler
-ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: common
+ms.openlocfilehash: a0e2400163433ba5290525d0fe807ede624a31ed
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145452"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferir dados com AzCopy no Windows
 O AzCopy é um utilitário de linha de comando projetado para copiar dados entre o armazenamento de Blobs, Arquivos e Tabelas do Microsoft Azure, usando comandos simples para um desempenho ideal. Você pode copiar dados entre um sistema de arquivos e uma conta de armazenamento, ou entre contas de armazenamento.  
 
-Há duas versões do AzCopy que podem ser baixadas. O AzCopy no Windows se baseia no .NET Framework e oferece opções de linha de comando no estilo Windows. O [AzCopy no Linux](storage-use-azcopy-linux.md) se baseia no .NET Core Framework, que se destina a plataformas Linux que oferecem opções de linha de comando no estilo POSIX. Este artigo aborda o AzCopy no Windows.
+Há duas versões do AzCopy que podem ser baixadas. AzCopy no Windows oferece opções de linha de comando de estilo do Windows. [AzCopy no Linux](storage-use-azcopy-linux.md) tem como alvo plataformas Linux oferta estilo POSIX opções de linha de comando. Este artigo aborda o AzCopy no Windows.
 
 ## <a name="download-and-install-azcopy-on-windows"></a>Baixar e instalar o AzCopy no Windows
 
-Baixe a [versão mais recente do AzCopy no Windows](http://aka.ms/downloadazcopy).
+### <a name="latest-version-v81"></a>Versão mais recente (8.1)
+Baixe a [versão mais recente do AzCopy no Windows](https://aka.ms/downloadazcopy).
+
+#### <a name="azcopy-on-windows-81-release-notes"></a>Notas de versão do AzCopy no Windows 8.1
+- Não há suporte para a versão mais recente do serviço de tabela. Se você usar o recurso de exportação de tabela, baixe a versão 7.3 AzCopy.
+- Criado com o .NET Core 2.1 e todas as dependências do .NET Core agora são empacotadas na instalação.
+- Adicionado suporte de autenticação OAuth. Use ```azcopy login``` para fazer logon usando o Active Directory do Azure.
+
+### <a name="azcopy-with-table-support-v73"></a>Azcopy com o suporte de tabela (v 7.3)
+Baixe o [AzCopy 7.3 com suporte de tabela](https://aka.ms/downloadazcopynet).
+
+### <a name="post-installation-step"></a>Etapas pós-instalação
 
 Depois de instalar o AzCopy no Windows usando o instalador, abra uma janela de comando e navegue até o diretório de instalação do AzCopy em seu computador, onde o executável `AzCopy.exe` está localizado. Se quiser, você pode alterar o local da instalação do AzCopy para o caminho do sistema. Por padrão, o AzCopy é instalado em `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` ou em `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
@@ -288,7 +294,7 @@ Vamos examinar várias maneiras de baixar arquivos usando o AzCopy.
 AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 ```
 
-Se a origem especificada for um Compartilhamento de arquivos do Azure, você deverá especificar o nome exato do arquivo, (*por exemplo*, `abc.txt`) para baixar um arquivo individual ou especificar a opção `/S` para baixar todos os arquivos do compartilhamento de maneira recursiva. A tentativa de especificar um padrão de arquivo e a opção `/S` simultaneamente resulta em um erro.
+Se a origem especificada for um compartilhamento de arquivos do Azure, você deverá especificar o nome exato do arquivo, (*por exemplo*, `abc.txt`) para baixar um único arquivo ou especificar a opção `/S` para baixar todos os arquivos do compartilhamento de maneira recursiva. A tentativa de especificar um padrão de arquivo e a opção `/S` simultaneamente resulta em um erro.
 
 ### <a name="download-all-files-in-a-directory"></a>Baixar todos os arquivos em um diretório
 
@@ -298,7 +304,7 @@ AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myf
 
 Observe que as pastas vazias não são baixadas.
 
-## <a name="upload-files-to-an-azure-file-share"></a>Carregar arquivos para um compartilhamento de Arquivo do Azure
+## <a name="upload-files-to-an-azure-file-share"></a>Carregar arquivos para um compartilhamento de arquivos do Azure
 
 Vamos examinar várias maneiras de carregar arquivos usando o AzCopy.
 
@@ -324,7 +330,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfiles
 
 ## <a name="copy-files-in-file-storage"></a>Copiar arquivos no Armazenamento de arquivos
 
-Vamos examinar várias maneiras de copiar arquivos em um Compartilhamento de arquivos do Azure usando o AzCopy.
+Vamos examinar vários modos de copiar arquivos em um compartilhamento de arquivos do Azure usando AzCopy.
 
 ### <a name="copy-from-one-file-share-to-another"></a>Copiar de um compartilhamento de arquivos para outro
 
@@ -609,6 +615,20 @@ Também execute-o em tabelas:
 ```azcopy
 AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /SourceKey:key /SourceType:Table
 ```
+
+### <a name="automatically-determine-content-type-of-a-blob"></a>Determinar automaticamente o tipo de conteúdo de um Blob
+
+AzCopy determina o tipo de conteúdo de um blob com base em um arquivo JSON que armazena o tipo de conteúdo para o mapeamento de extensão de arquivo. Esse arquivo JSON é chamado AzCopyConfig.json e está localizado no diretório AzCopy. Se você tiver um tipo de arquivo que não está na lista, você pode acrescentar o mapeamento para o arquivo JSON:
+
+```
+{
+  "MIMETypeMapping": {
+    ".myext": "text/mycustomtype",
+    .
+    .
+  }
+}
+```     
 
 ## <a name="azcopy-parameters"></a>Parâmetros do AzCopy
 
@@ -942,10 +962,6 @@ Vamos dar uma olhada em alguns dos problemas conhecidos e as melhores práticas.
 Ao copiar blobs ou arquivos usando o AZCopy, lembre-se de que outro aplicativo pode estar modificando os dados enquanto você os copia. Se possível, verifique se os dados que está copiando não estão sendo modificados durante a cópia. Por exemplo, ao copiar um VHD associado a uma máquina virtual do Azure, verifique se nenhum outro aplicativo está gravando no VHD, no momento. Uma boa maneira de fazer isso é ceder o recurso para ser copiado. Também é possível criar um instantâneo do VHD primeiro e, em seguida, copiar o instantâneo.
 
 Se não for possível evitar que outros aplicativos gravem em blobs ou arquivos enquanto são copiados, lembre-se que, quando o trabalho terminar, os recursos copiados não poderão mais ter paridade total com os recursos de origem.
-
-### <a name="run-one-azcopy-instance-on-one-machine"></a>Execute uma instância de AzCopy em um computador.
-
-O AzCopy foi projetado para maximizar a utilização de seu recurso de máquina para acelerar a transferência de dados, é recomendável executar apenas uma instância de AzCopy em um único computador e especifique a opção `/NC` se precisar de mais operações em simultâneo. Para obter mais detalhes, digite `AzCopy /?:NC` na linha de comando.
 
 ### <a name="enable-fips-compliant-md5-algorithms-for-azcopy-when-you-use-fips-compliant-algorithms-for-encryption-hashing-and-signing"></a>Habilite algoritmos MD5 em conformidade com FIPS no AzCopy quando “Usar algoritmos em conformidade com FIPS para criptografia, hash e assinatura”.
 

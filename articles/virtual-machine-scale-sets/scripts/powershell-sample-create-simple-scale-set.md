@@ -3,7 +3,7 @@ title: Exemplos do Azure PowerShell – Criar um conjunto de dimensionamento de 
 description: Exemplos do Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d6417803ae465ec167f1f8980aae84629715c7d7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9ce9c7b2f0834913a22c66062d3e1b4b264b4ae5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452181"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais básico com o PowerShell
 Esse script cria um conjunto de dimensionamento de máquinas virtuais que executa o Windows Server 2016. Depois de executar o script, é possível acessar a VM via RDP.

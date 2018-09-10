@@ -1,25 +1,19 @@
 ---
 title: Entender o Registro da identidade do Hub IoT do Azure | Microsoft Docs
 description: Guia do desenvolvedor ‑ descrição do Registro de identidade do Hub IoT e como usá-lo para gerenciar seus dispositivos. Inclui informações sobre a importação e exportação de identidades de dispositivo em massa.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 0706eccd-e84c-4ae7-bbd4-2b1a22241147
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c90bc4945b613f386f98178949e5451e8fe3673
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247638"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Entender o registro de identidade no Hub IoT
 
@@ -91,10 +85,9 @@ Os dados de dispositivo que uma determinada solução IoT armazena dependem dos 
 
 ## <a name="device-heartbeat"></a>Pulsação do dispositivo
 
-O registro de identidade do Hub IoT contém um campo chamado **connectionState**. Use somente o campo **connectionState** durante o desenvolvimento e a depuração. Soluções de IoT não devem consultar o campo em tempo de execução. Por exemplo, não consulte o campo **connectionState** para verificar se um dispositivo está conectado antes de enviar uma mensagem de nuvem para dispositivo ou um SMS.
+O registro de identidade do Hub IoT contém um campo chamado **connectionState**. Use somente o campo **connectionState** durante o desenvolvimento e a depuração. Soluções de IoT não devem consultar o campo em tempo de execução. Por exemplo, não consulte o campo **connectionState** para verificar se um dispositivo está conectado antes de enviar uma mensagem de nuvem para dispositivo ou um SMS. É recomendável inscrever-se para o [**evento** de dispositivo desconectado](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types) na Grade de Eventos para receber alertas e monitorar o estado de conexão do dispositivo. Use este [tutorial](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) para saber como integrar eventos do Hub IoT em sua solução de IoT.
 
-Se sua solução de IoT precisa saber se um dispositivo está conectado, você deve implementar o *padrão de pulsação*.
-
+Se sua solução de IoT precisa saber se um dispositivo está conectado, você pode implementar o *padrão de pulsação*.
 No padrão de pulsação, o dispositivo envia mensagens do dispositivo para a nuvem pelo menos uma vez a cada período de tempo fixo (por exemplo, pelo menos uma vez a cada hora). Portanto, mesmo quando um dispositivo não tiver dados para enviar, ele enviará uma mensagem vazia do dispositivo para a nuvem (geralmente com uma propriedade que a identifique como uma pulsação). No lado do serviço, a solução mantém um mapa com a última pulsação recebida para cada dispositivo. Se a solução não recebe uma mensagem de pulsação de um dispositivo no tempo esperado, ela supõe que há um problema com ele.
 
 Uma implementação mais complexa pode incluir as informações do [monitoramento de operações][lnk-devguide-opmon] para identificar dispositivos que estão tentando se conectar ou se comunicar, mas falham. Ao implementar o padrão de pulsação, verifique as [Cotas e limitações do Hub IoT][lnk-quotas].
@@ -205,7 +198,7 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 
 ## <a name="module-identity-properties"></a>Propriedades de identidade do módulo
 
-As identidades do dispositivo são representadas como documentos JSON com as seguintes propriedades:
+As identidades do módulo são representadas como documentos JSON com as seguintes propriedades:
 
 | Propriedade | Opções | DESCRIÇÃO |
 | --- | --- | --- |
@@ -270,5 +263,5 @@ Para explorar usando o Serviço de Provisionamento de Dispositivos do Hub IoT pa
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
-[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

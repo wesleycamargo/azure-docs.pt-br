@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 07/20/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 255056390cdbdbee49eba47f8168618929b386c8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302732"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187250"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Perguntas frequentes sobre o Gerenciamento de Custos do Azure
 
@@ -72,16 +72,20 @@ Depois de concluir as etapas anteriores, você pode exibir as recomendações do
 
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Como fazer para habilitar usuários suspensos ou bloqueados?
 
+Primeiro, vamos analisar o cenário mais comum que faz com que as contas de usuário sejam *initiallySuspended*.
+
+> O Admin1 pode ser um usuário do Contrato Enterprise ou o Provedor de Soluções de Nuvem da Microsoft. Sua organização está pronta para começar a usar o Gerenciamento de Custos.  Ele se registra por meio do portal do Azure e entra no portal do Cloudyn. Como a pessoa que registra o serviço de Gerenciamento de Custos e entra no portal do Cloudyn, ele se torna o *administrador principal*. O Admin1 não cria as contas de usuário. No entanto, usando o portal do Cloudyn, ele cria contas do Azure e configura uma hierarquia de entidade. O Admin1 informa o Admin2, um administrador de locatários, que ele precisa se registrar no Gerenciamento de Custos e entrar portal do Cloudyn.
+
+> O Admin2 se registra por meio do portal do Azure. No entanto, quando ele tenta entrar no portal do Cloudyn, ele obtém um erro informando que sua conta está **suspensa**. O administrador principal, Admin1, é notificado sobre a suspensão da conta. O Admin1 precisa ativar a conta do Admin2 e conceder *acesso de entidade de administrador* para as entidades apropriadas, permitir o acesso ao gerenciamento de usuários e ativar a conta de usuário.
+
+
 Se você receber um alerta solicitando para permitir o acesso de um usuário, precisará ativar a conta do usuário.
 
 Para ativar a conta do usuário:
 
 1. Entre no Cloudyn usando a conta de usuário administrativo do Azure que você usou para configurar o Cloudyn. Ou entre usando uma conta de usuário que recebeu acesso de administrador.
-
 2. Selecione o símbolo de engrenagem no canto superior direito e selecione **Gerenciamento de Usuários**.
-
 3. Localize o usuário, selecione o símbolo de lápis e edite o usuário.
-
 4. Em **Status do usuário**, altere o status de **Suspenso** para **Ativo**.
 
 As contas de usuário do Cloudyn se conectam usando o logon único do Azure. Se um usuário digitar incorretamente sua senha, ele poderá ficar bloqueado no Cloudyn mesmo que ainda possa acessar o Azure.
@@ -135,6 +139,14 @@ Os dados para o mês atual não estão disponíveis para coleta no início de ca
 
 Se houver um atraso no envio de dados do Azure para o Cloudyn, os dados serão registrados no Azure. Os dados são transferidos para o Cloudyn quando a conexão é restaurada.
 
+## <a name="cost-fluctuations-in-cloudyn-cost-reports"></a>Flutuações de custo nos Relatórios de Custo do Cloudyn
+
+Relatórios de custos podem mostrar flutuações de custo sempre que provedores de serviços de nuvem enviam arquivos atualizados de cobrança. Custos flutuantes ocorrem quando novos arquivos são recebidos de um provedor de serviços de nuvem fora do cronograma de relatório diário ou mensal normal. Alterações de custo não resultam de recálculo do Cloudyn. 
+
+Ao longo do mês, todos os arquivos de cobrança enviados pelo seu provedor de serviços de nuvem são uma estimativa dos seus custos diários. Às vezes, os dados são atualizados com frequência, ocasionalmente, várias vezes por dia. As atualizações são mais frequentes com a AWS do que com o Azure. Os custos totais devem permanecer estáveis quando o cálculo de cobrança do mês anterior está concluído e o arquivo de cobrança final foi recebido. Geralmente, até o dia 10 do mês.
+
+As alterações ocorrem quando você recebe ajustes de custo de seu provedor de serviços de nuvem. Receber créditos é um exemplo. As alterações podem ocorrer meses após o mês relevante ter sido encerrado. As alterações são mostradas sempre que um recálculo é feito pelo seu provedor de serviços de nuvem. O Cloudyn atualiza seus dados históricos para garantir que todos os ajustes sejam recalculados. Ele também verifica se os custos são mostrados com precisão em seus relatórios.
+
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>Como um CSP direto pode configurar o acesso ao Cloudyn para clientes ou parceiros de CSP indireto?
 
 Consulte [configurar acesso de CSP indireto no Cloudyn](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn) para obter instruções.
@@ -145,7 +157,7 @@ Após adicionar o acesso do Azure Resource Manager e os dados forem coletados, v
 
 ## <a name="is-cost-managementcloudyn-agent-based"></a>É baseado em agente de Gerenciamento de Custos/Cloudyn?
 
-Nº Os agentes não são usados. Os dados da métrica da máquina virtual do Azure para VMs são coletados da API do Microsoft Insights. Se você quiser reunir dados de métrica de VMs do Azure, eles precisam ter as configurações de diagnóstico habilitadas.
+Não. Os agentes não são usados. Os dados da métrica da máquina virtual do Azure para VMs são coletados da API do Microsoft Insights. Se você quiser reunir dados de métrica de VMs do Azure, eles precisam ter as configurações de diagnóstico habilitadas.
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Relatórios Cloudyn mostram mais de um locatário do AD por relatório?
 

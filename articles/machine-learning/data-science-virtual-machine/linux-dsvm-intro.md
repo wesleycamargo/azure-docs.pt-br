@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 1a201974749acbbb9607e42e67d1935f437f9ca1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3883fc71c099718face38c16897040788fe0c6ab
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246383"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Ciência de Dados do Linux CentOS no Azure
 
@@ -37,7 +38,7 @@ A máquina virtual de Ciência de Dados do Linux é uma máquina virtual do Azur
   * [Kit de Ferramentas Cognitivas](https://github.com/Microsoft/CNTK): um kit de ferramentas de software de aprendizado profundo da Microsoft Research.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): um sistema de machine learning rápido com suporte a técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): uma ferramenta que fornece implementação de árvore aumentada rápida e precisa.
-  * [Rattle](http://rattle.togaware.com/) (a "R Analytical Tool To Learn Easily" – Ferramenta Analítica do R para Aprender com Facilidade): uma ferramenta que facilita a introdução à análise de dados e ao machine learning em R, com uma exploração de dados baseada em GUI e modelagem com geração de código R automática.
+  * [Rattle](https://togaware.com/rattle/) (a "R Analytical Tool To Learn Easily" – Ferramenta Analítica do R para Aprender com Facilidade): uma ferramenta que facilita a introdução à análise de dados e ao machine learning em R, com uma exploração de dados baseada em GUI e modelagem com geração de código R automática.
 * SDK do Azure em Java, Python, node.js, Ruby, PHP
 * Bibliotecas em R e Python para uso no Azure Machine Learning e outros serviços do Azure
 * Ferramentas de desenvolvimento e editores (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
@@ -46,8 +47,8 @@ A máquina virtual de Ciência de Dados do Linux é uma máquina virtual do Azur
 Fazer a ciência de dados envolve a iteração em uma sequência de tarefas:
 
 1. Localizar, carregar e pré-processar dados
-2. Compilar e testar modelos
-3. Implantar os modelos para consumo em aplicativos inteligentes
+1. Compilar e testar modelos
+1. Implantar os modelos para consumo em aplicativos inteligentes
 
 Cientistas de dados usam várias ferramentas para concluir essas tarefas. Pode ser muito demorado encontrar as versões apropriadas do software e depois baixar, compilar e instalar essas versões.
 
@@ -58,18 +59,18 @@ Não há encargos de software para esta imagem da VM de ciência de dados. Você
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Outras versões da Máquina Virtual de Ciência de Dados
 Uma imagem do [Ubuntu](dsvm-ubuntu-intro.md) também está disponível, com muitas das mesmas ferramentas que a imagem do CentOS além de estruturas de aprendizado aprofundado. Uma imagem do [Windows](provision-vm.md) também está disponível.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de criar uma Máquina Virtual de Ciência de Dados Linux, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**: para obter uma, confira [Obter avaliação gratuita do Azure](https://azure.microsoft.com/free/).
-* **Uma conta de armazenamento do Azure**: para criar uma, confira [Criar uma conta de armazenamento do Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Como alternativa, se você não quiser usar uma conta existente, a conta de armazenamento poderá ser criada como parte do processo de criação da VM.
+* **Uma conta de armazenamento do Azure**: para criar uma, confira [Criar uma conta de armazenamento do Azure](../../storage/common/storage-quickstart-create-account.md). Como alternativa, se você não quiser usar uma conta existente, a conta de armazenamento poderá ser criada como parte do processo de criação da VM.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Criar sua Máquina Virtual de Ciência de Dados Linux
 Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dados Linux:
 
 1. Navegue até a listagem de máquinas virtuais no [Portal do Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
-2. Clique em **Criar** (na parte inferior) para abrir o assistente. ![configure-data-science-vm](./media/linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
-3. As seções a seguir fornecem as entradas para cada uma das etapas no assistente (enumeradas à direita da figura acima) que são usadas para criar a Máquina Virtual de Ciência de Dados da Microsoft. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
+1. Clique em **Criar** (na parte inferior) para abrir o assistente. ![configure-data-science-vm](./media/linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
+1. As seções a seguir fornecem as entradas para cada uma das etapas no assistente (enumeradas à direita da figura acima) que são usadas para criar a Máquina Virtual de Ciência de Dados da Microsoft. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
    
    a. **Noções básicas**:
    
@@ -112,7 +113,7 @@ Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciai
 A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar conexões de cliente. Para se conectar à área de trabalho gráfica da VM Linux, faça o seguinte em seu cliente:
 
 1. Baixe e instale o cliente X2Go para sua plataforma de cliente [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Execute o cliente X2Go e selecione **Nova Sessão**. Ele abrirá uma janela de configuração com várias guias. Insira os seguintes parâmetros de configuração:
+1. Execute o cliente X2Go e selecione **Nova Sessão**. Ele abrirá uma janela de configuração com várias guias. Insira os seguintes parâmetros de configuração:
    * **Guia Sessão**:
      * **Host**: o nome do host ou endereço IP da sua VM de Ciência de Dados Linux.
      * **Logon**: nome de usuário na VM Linux.
@@ -355,16 +356,16 @@ Agora, uma interface gráfica é aberta com um conjunto de guias. Aqui estão as
 > 
 
 1. Clique em **Executar**.
-2. Uma caixa de diálogo é exibida perguntando se você deseja usar o conjunto de dados meteorológicos de exemplo. Clique em **Sim** para carregar o exemplo.
-3. Clique na guia **Modelo** .
-4. Clique em **Executar** para compilar uma árvore de decisão.
-5. Clique em **Desenhar** para exibir a árvore de decisão.
-6. Clique no botão de opção **Floresta** e clique em **Executar** para compilar uma floresta aleatória.
-7. Clique na guia **Avaliar** .
-8. Clique no botão de opção **Risco** e em **Executar** para exibir duas gráficos de desempenho de Risco (Cumulativo).
-9. Clique a guia **Log** para mostrar o código R gerado das operações anteriores.
+1. Uma caixa de diálogo é exibida perguntando se você deseja usar o conjunto de dados meteorológicos de exemplo. Clique em **Sim** para carregar o exemplo.
+1. Clique na guia **Modelo** .
+1. Clique em **Executar** para compilar uma árvore de decisão.
+1. Clique em **Desenhar** para exibir a árvore de decisão.
+1. Clique no botão de opção **Floresta** e clique em **Executar** para compilar uma floresta aleatória.
+1. Clique na guia **Avaliar** .
+1. Clique no botão de opção **Risco** e em **Executar** para exibir duas gráficos de desempenho de Risco (Cumulativo).
+1. Clique a guia **Log** para mostrar o código R gerado das operações anteriores.
    (Devido a um bug na versão atual do Rattle, você precisa inserir um caractere *#* na frente de *Exportar este log...* no texto do log.)
-10. Clique no botão **Exportar** para salvar o script de R chamado *weather_script.R* na pasta base.
+1. Clique no botão **Exportar** para salvar o script de R chamado *weather_script.R* na pasta base.
 
 Você pode sair do Rattle e do R. Agora você pode modificar o script do R gerado ou usá-la como ele é para executá-lo em qualquer momento, para repetir tudo o que foi feito na interface do usuário do Rattle. Essa é uma maneira fácil, especialmente para iniciantes em R, de fazer análise e aprendizado de máquina rapidamente em uma interface gráfica e, ao mesmo tempo, gerar código em R automaticamente para modificar e/ou aprender.
 

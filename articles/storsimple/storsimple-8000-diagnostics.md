@@ -1,12 +1,12 @@
 ---
-title: "Ferramenta de Diagnóstico para solucionar problemas de dispositivo do StorSimple 8000 | Microsoft Docs"
+title: Ferramenta de Diagnóstico para solucionar problemas de dispositivo do StorSimple 8000 | Microsoft Docs
 description: Descreve os modos de dispositivo StorSimple e explica como usar o Windows PowerShell para StorSimple para alterar o modo de dispositivo.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27744105"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use a Ferramenta de Diagnóstico do StorSimple para solucionar problemas de dispositivo da série 8000
 

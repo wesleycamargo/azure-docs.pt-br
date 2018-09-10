@@ -2,23 +2,19 @@
 title: Habilitando métricas de armazenamento no Portal do Azure | Microsoft Docs
 description: Como habilitar métricas de armazenamento para os serviços Blob, Fila, Tabela e Arquivo
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 0caa4eff80877ad4bf8d501a276e82922b1a84c7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: a12f2f3775808edb2045be5a1d955280f515ff7d
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528989"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Habilitando métricas do Armazenamento do Azure e exibição de dados de métricas
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -36,7 +32,7 @@ Siga estas etapas para habilitar as métricas no [portal do Azure](https://porta
 1. O **Status** deve ser definido como **Ativado**.
 1. Selecione as métricas para os serviços que deseja monitorar.
 1. Especifica uma política de retenção para indicar por quanto tempo deve-se manter as métricas e os dados de log.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 O [portal do Azure](https://portal.azure.com) não permite atualmente configurar métricas de minuto em sua conta de armazenamento. Habilite a métrica de minutos usando o PowerShell ou programaticamente.
 
@@ -115,8 +111,8 @@ Consulte as [ferramentas do cliente de armazenamento do Microsoft Azure](storage
 
 > [!NOTE]
 > Da versão 0.8.0 do [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/) em diante, você pode exibir e baixar as tabelas de métricas de análise.
-> 
-> 
+>
+>
 
 Para acessar as tabelas de análise de forma programática, observe que as tabelas de análise não são mostradas quando você lista todas as tabelas em sua conta de armazenamento. Você pode acessá-las diretamente por nome ou usar [CloudAnalyticsClient API](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) na biblioteca de cliente .NET para consultar os nomes de tabela.
 
@@ -148,6 +144,8 @@ Neste exemplo dos dados de métrica de minutos, a chave de partição usa o temp
 * O tipo de solicitação é tudo que nesse caso é uma linha de resumo, ou ele identifica a API específica, como QueryEntity ou UpdateEntity.
 
 Os dados de exemplo acima mostram todos os registros de um minuto (iniciando às 11h00), para o número de solicitações de QueryEntities mais o número de solicitações de QueryEntity mais o número de solicitações de UpdateEntity adicionam até sete, que é o total mostrado na linha user:All. Da mesma forma, você pode derivar a latência média de ponta a ponta 104.4286 na linha user:All ao calcular ((143.8 * 5) + 3 + 9)/7.
+
+Observe que **Configurações de métrica por hora de Blob** são aplicadas a ambos **métrica de capacidade do Blob** ($MetricsCapacityBlob) e **métricas de transação de Blob por hora** ($ MetricsHourPrimaryTransactionsBlob). Ambos são habilitados ou desabilitados juntos e usam a mesma política de retenção.
 
 ## <a name="metrics-alerts"></a>Alertas de métricas
 Considere configurar alertas no [Portal do Azure](https://portal.azure.com) para que as Métricas de Armazenamento possam notificá-lo automaticamente sobre todas as alterações importantes no comportamento dos seus serviços de armazenamento. Se você usar uma ferramenta de Gerenciador de armazenamento para baixar esses dados de métricas em um formato delimitado, você pode usar o Microsoft Excel para analisar os dados. Confira [Ferramentas de Cliente do Armazenamento do Azure](storage-explorers.md) para obter uma lista de ferramentas do gerenciador de armazenamento disponíveis. Você pode configurar os alertas no painel de **Regras de alerta**, acessível em **Monitoramento** no painel do Menu da conta de armazenamento.

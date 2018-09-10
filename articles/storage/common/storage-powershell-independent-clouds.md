@@ -2,22 +2,18 @@
 title: Gerenciamento do Armazenamento nas nuvens independentes do Azure usando o Azure PowerShell | Microsoft Docs
 description: Gerenciamento do armazenamento na nuvem da China, na nuvem do Governo e na nuvem alemã usando o Azure PowerShell
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
-ms.openlocfilehash: 3eecf8918e6628071e44cc588b1826df68a00f10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: common
+ms.openlocfilehash: 75a3dcb5aeb3e30da570eb57d0d1495710624e54
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145457"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerenciamento do Armazenamento nas nuvens independentes do Azure usando o PowerShell
 
@@ -39,7 +35,7 @@ Estes exemplos exigem a versão 4.4.0 ou posterior do módulo do Azure PowerShel
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Execute o cmdlet [Get-AzureEnvironment](/powershell/module/azure/Get-AzureRmEnvironment) para ver os ambientes do Azure disponíveis:
+Execute o [Get-AzureRmEnvironment](/powershell/module/servicemanagement/azurerm.profile/get-azurermenvironment) cmdlet para ver os ambientes do Azure disponíveis:
    
 ```powershell
 Get-AzureRmEnvironment

@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 926821e2ba9912ae0140f11c9fe9a2d504609a1e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4a84e8f7460d3a339be783be6a12353770ced1b8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665816"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Entender as entradas para o Azure Stream Analytics
 
@@ -26,7 +27,7 @@ O Stream Analytics tem integração de primeira classe de três tipos de recurso
 
 Esses recursos de entrada podem ser da mesma assinatura do Azure que o trabalho do Stream Analytics ou de uma assinatura diferente.
 
-Você pode usar o [Portal do Azure](stream-analytics-quick-create-portal.md#configure-input-to-the-job),  o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), o [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), o [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) e o [Visual Studio](stream-analytics-tools-for-visual-studio.md) para criar, editar e testar entradas de trabalho do Stream Analytics.
+Você pode usar o [Portal do Azure](stream-analytics-quick-create-portal.md#configure-input-to-the-job),  o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), o [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), o [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) e o [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) para criar, editar e testar entradas de trabalho do Stream Analytics.
 
 ## <a name="stream-and-reference-inputs"></a>Entradas de referência e de transmissão
 Como os dados são enviados a uma fonte de dados, eles são consumidos pelo trabalho do Stream Analytics e processados em tempo real. As entradas são divididas em dois tipos: entradas de fluxo de dados e entradas de dados de referência.
@@ -41,7 +42,7 @@ O Stream Analytics também dá suporte à entrada conhecida como *dados de refer
 
 Para obter mais informações sobre entradas de dados de referência, consulte [Usando dados de referência para pesquisas no Stream Analytics](stream-analytics-use-reference-data.md)
 
-Este artigo é uma etapa do [roteiro de aprendizagem do Stream Analytics](/documentation/learning-paths/stream-analytics/).
+Este artigo é uma etapa do [roteiro de aprendizagem do Stream Analytics](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/).
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

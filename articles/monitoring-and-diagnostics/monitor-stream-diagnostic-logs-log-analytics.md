@@ -1,24 +1,19 @@
 ---
-title: Transmitir logs de diagnóstico do Azure para o Log Analytics | Microsoft Docs
+title: Transmitir logs de diagnóstico do Azure para o Log Analytics
 description: Saiba como transmitir logs de diagnóstico do Azure para um espaço de trabalho do Log Analytics.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 82011126375a3c5016e110aac9ce6bc1b2d59cdf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: logs
+ms.openlocfilehash: d8966edb6061ed07f5aecb9682fca081ed589040
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083967"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Transmitir logs de diagnóstico do Azure para o Log Analytics
 
@@ -35,14 +30,14 @@ O Azure Log Analytics é uma ferramenta de análise e pesquisa de logs flexível
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Habilitar o streaming de logs de diagnóstico para o Log Analytics
 
-Você pode habilitar programaticamente o streaming de logs de diagnóstico por meio do portal ou usando a [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). De qualquer forma, você cria uma configuração de diagnóstico na qual especifica um espaço de trabalho do Log Analytics e as categorias de log e as métricas que deseja enviar para esse espaço de trabalho. Uma **categoria de log** de diagnóstico é um tipo de log que um recurso pode fornecer.
+Você pode habilitar programaticamente o streaming de logs de diagnóstico por meio do portal ou usando a [API REST do Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). De qualquer forma, você cria uma configuração de diagnóstico na qual especifica um espaço de trabalho do Log Analytics e as categorias de log e as métricas que deseja enviar para esse espaço de trabalho. Uma **categoria de log** de diagnóstico é um tipo de log que um recurso pode fornecer.
 
 O espaço de trabalho do Log Analytics não precisa estar na mesma assinatura que o recurso que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 > [!NOTE]
 > Atualmente, não há suporte para o envio da métrica multidimensional por meio das configurações de diagnóstico. As métricas com dimensões são exportadas como métricas dimensionais simples, agregadas nos valores da dimensão.
 >
-> *Por exemplo*: a métrica 'Mensagens de Entrada' em um Hub de Eventos pode ser explorada e mapeada por nível da fila. No entanto, quando exportada por meio das configurações de diagnóstico, a métrica será representada como todas as mensagens de entrada em todas as filas no Hub de Eventos.
+> *Por exemplo*: a métrica “Mensagens de Entrada” em um Hub de Eventos pode ser explorada e mapeada por nível da fila. No entanto, quando exportada por meio das configurações de diagnóstico, a métrica será representada como todas as mensagens de entrada em todas as filas no Hub de Eventos.
 >
 >
 

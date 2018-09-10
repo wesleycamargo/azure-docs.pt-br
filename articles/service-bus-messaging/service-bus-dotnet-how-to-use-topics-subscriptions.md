@@ -1,24 +1,25 @@
 ---
-title: "Introdução a tópicos e assinaturas do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Escreva um aplicativo de console em C# .NET Core que usa tópicos e assinaturas de mensagens do Barramento de Serviço."
+title: Introdução a tópicos e assinaturas do Barramento de Serviço do Azure | Microsoft Docs
+description: Escreva um aplicativo de console em C# .NET Core que usa tópicos e assinaturas de mensagens do Barramento de Serviço.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/6/2017
-ms.author: sethm
-ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 07/03/2018
+ms.author: spelluru
+ms.openlocfilehash: c53e0c16f6b1fd8a79f864651f5aae97af886b96
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699593"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Barramento de Serviço
 
@@ -32,7 +33,7 @@ Este tutorial cobre as seguintes etapas:
 4. Escreva um aplicativo de console .NET Core para enviar um conjunto de mensagens ao tópico.
 5. Escreva um aplicativo de console .NET Core para receber essas mensagens da assinatura.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. [Atualização 3 do Visual Studio 2017 (versão 15.3, 26730.01)](http://www.visualstudio.com/vs) ou posterior.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
@@ -51,7 +52,7 @@ Se você já criou um namespace de Mensagens do Barramento de Serviço, vá para
 
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Criar um tópico usando o portal do Azure
 
-1. Faça logon no [Portal do Azure][azure-portal].
+1. Entre no [Portal do Azure][azure-portal].
 2. No painel de navegação à esquerda do portal, clique em **Barramento de Serviço** (se a opção **Barramento de Serviço** não estiver visível, clique em **Todos os serviços** ou clique em **Todos os recursos**). Clique no namespace no qual você gostaria de criar o tópico. 
 3. A janela de visão geral do namespace é aberta. Clique em **Tópicos**:
    
@@ -428,7 +429,7 @@ Parabéns! Usando a biblioteca .NET padrão, você acabou de criar um tópico e 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira nosso [Repositório GitHub com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) que demonstram alguns dos recursos mais avançados de mensagens do Barramento de Serviço.
+Confira o [Repositório GitHub do Barramento de Serviço do Microsoft Azure com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) que demonstram alguns dos recursos mais avançados de mensagens do Barramento de Serviço.
 
 <!--Image references-->
 

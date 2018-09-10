@@ -3,23 +3,24 @@ title: Criar um banco de dados Oracle em uma VM do Azure | Microsoft Docs
 description: Coloque rapidamente em funcionamento um banco de dados Oracle Database 12c no ambiente do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rickstercdn
-manager: timlt
-editor: 
+author: romitgirdhar
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/17/2017
-ms.author: rclaus
-ms.openlocfilehash: 4f760165fa8a93bbb7646539af748b647fe63bba
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 08/02/2018
+ms.author: rogirdh
+ms.openlocfilehash: 62f7c22bb2db933ff1e11c96aac8c02c8d19cd58
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492921"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Criar um Banco de Dados Oracle em uma VM do Azure
 

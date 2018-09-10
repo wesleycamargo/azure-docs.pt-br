@@ -1,10 +1,10 @@
 ---
-title: "Soluções da Oracle no Microsoft Azure | Microsoft Docs"
-description: "Saiba mais sobre configurações com suporte e as limitações das soluções da Oracle no Microsoft Azure."
+title: Soluções da Oracle no Microsoft Azure | Microsoft Docs
+description: Saiba mais sobre configurações com suporte e as limitações das soluções da Oracle no Microsoft Azure.
 services: virtual-machines-linux
-documentationcenter: 
-manager: timlt
-author: rickstercdn
+documentationcenter: ''
+author: romitgirdhar
+manager: jeconnoc
 tags: azure-resource-management
 ms.assetid: 5d71886b-463a-43ae-b61f-35c6fc9bae25
 ms.service: virtual-machines-windows
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/28/2017
-ms.author: rclaus
-ms.openlocfilehash: 1bc03d15096e7f1d4538d6642a61aaee9bb572f7
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.date: 08/02/2018
+ms.author: rogirdh
+ms.openlocfilehash: 6435c866f6cdf5abea3862a718579f3a6e4d7378
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493057"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Soluções da Oracle e sua implantação no Microsoft Azure
 Este artigo aborda informações necessárias para implantar com êxito várias soluções da Oracle no Microsoft Azure. Essas soluções são baseadas em imagens de Máquina Virtual publicadas pela Oracle no Azure Marketplace. Para obter uma lista de imagens disponíveis no momento, execute o seguinte comando:
@@ -89,7 +90,7 @@ Apesar de ter uma solução de alta disponibilidade e recuperação de desastre 
 
          -Dweblogic.rjvm.enableprotocolswitch=true
 
-Para obter informações relacionadas, veja o artigo **860340.1** da Base de Conhecimentos em <http://support.oracle.com>.
+Para obter informações relacionadas, consulte o artigo KB **860340.1** em <http://support.oracle.com>.
 
 * **Limitações de balanceamento de carga e clustering dinâmico.** Suponha que você queira usar um cluster dinâmico no WebLogic Server e expô-lo por meio de um ponto de extremidade único, com balanceamento de carga, no Azure. Isso poderá ser feito, desde que você use um número da porta fixa para cada um dos servidores gerenciados (atribuídos dinamicamente dentro de um intervalo) e não inicie mais servidores gerenciados do que o número de máquinas monitoradas pelo administrador (ou seja, não mais que um servidor gerenciado por máquina virtual). Se sua configuração fizer com que sejam iniciados mais servidores WebLogic do que há máquinas virtuais (isto é, várias instâncias do WebLogic compartilharão a mesma máquina virtual), não será possível que mais de uma dessas instâncias do WebLogic Server se associe a um determinado número da porta e as outras na máquina virtual falharão.
 

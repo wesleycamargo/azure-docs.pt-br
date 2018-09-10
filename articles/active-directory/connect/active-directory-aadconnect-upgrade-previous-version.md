@@ -1,24 +1,26 @@
 ---
-title: "Azure AD Connect: atualizar de uma versão anterior | Microsoft Docs"
-description: "Explica os diferentes métodos para atualizar para a versão mais recente do Azure Active Directory Connect, incluindo a atualização in-loco e a migração swing."
+title: 'Azure AD Connect: atualizar de uma versão anterior | Microsoft Docs'
+description: Explica os diferentes métodos para atualizar para a versão mais recente do Azure Active Directory Connect, incluindo a atualização in-loco e a migração swing.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/12/2017
+ms.date: 07/18/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4d431a9e0fab8d46b244fd40178ede594c095893
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b730f80faa031b1866d3c11d8a2c885ec67f965e
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144313"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: atualização de uma versão anterior para a mais recente
 Este tópico descreve os diferentes métodos que você pode usar para atualizar sua instalação do Azure Active Directory (Azure AD) Connect para a versão mais recente. Recomendamos que você se mantenha atualizado com as versões do Azure AD Connect. Também é possível usar as etapas descritas na seção [migração Swing](#swing-migration) ao fazer uma alteração significativa na configuração.
@@ -65,7 +67,7 @@ Estas etapas também funcionam para mudar do Azure AD Sync ou de uma solução c
 
 ### <a name="use-a-swing-migration-to-upgrade"></a>Usar uma migração swing para atualizar
 1. Se você usar o Azure AD Connect nos dois servidores e planejar fazer apenas uma alteração de configuração, certifique-se de que o servidor ativo e o servidor de preparo estejam usando a mesma versão. Isso facilita a comparação de diferenças mais tarde. Se você estiver atualizando do Azure AD Sync, esses servidores terão versões diferentes. Se você estiver atualizando de uma versão anterior do Azure AD Connect, é uma boa ideia começar com os dois servidores usando a mesma versão, mas isso não é obrigatório.
-2. Se você tiver feito alguma configuração personalizada e o servidor de preparo não a tiver, siga as etapas em [Mover a configuração personalizada do servidor ativo para o de preparo](#move-custom-configuration-from-active-to-staging-server).
+2. Se você tiver feito alguma configuração personalizada e o servidor de preparo não a tiver, siga as etapas em [Mover a configuração personalizada do servidor ativo para o de preparo](#move-a-custom-configuration-from-the-active-server-to-the-staging-server).
 3. Se estiver atualizando de uma versão anterior do Azure AD Connect, atualize o servidor de preparo para a versão mais recente. Se estiver movendo do Azure AD Sync, instale o Azure AD Connect em seu servidor de preparo.
 4. Permita que o mecanismo de sincronização execute a importação completa e a sincronização completa em seu servidor de preparo.
 5. Verifique se a nova configuração não causou alterações inesperadas usando as etapas descritas em “Verificar” em [Verificar a configuração de um servidor](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Se algo não acontecer conforme o esperado, siga as etapas para corrigir, executar a importação e a sincronização e verificar os dados até que eles fiquem corretos.
@@ -128,6 +130,38 @@ Pode haver situações em que você não deseja que essas substituições ocorra
    > Lembre-se de executar as etapas de sincronização necessárias assim que possível. Você pode executar essas etapas manualmente usando o Synchronization Service Manager ou adicionar as substituições novamente usando o cmdlet Set-ADSyncSchedulerConnectorOverride.
 
 Para adicionar as substituições para a importação completa e para a sincronização completa em um conector qualquer, execute o seguinte cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+
+## <a name="troubleshooting"></a>solução de problemas
+A seção a seguir contém solução de problemas e informações que você pode usar se encontrar um problema ao atualizar o Azure AD Connect.
+
+### <a name="azure-active-directory-connector-missing-error-during-azure-ad-connect-upgrade"></a>Erro inexistente do conector do Azure Active Directory durante a atualização do Azure AD Connect
+
+Quando você atualiza o Azure AD Connect de uma versão anterior, pode ocorrer o seguinte erro no início da atualização 
+
+![Erro](./media/active-directory-aadconnect-upgrade-previous-version/error1.png)
+
+Esse erro ocorre porque o conector do Azure Active Directory com identificador, b891884f-051e-4a83-95af-2544101c9083, não existe na configuração atual do Azure AD Connect. Para verificar se este é o caso, abra uma janela do PowerShell, execute o Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
+
+```
+PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083
+Get-ADSyncConnector : Operation failed because the specified MA could not be found.
+At line:1 char:1
++ Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ReadError: (Microsoft.Ident...ConnectorCmdlet:GetADSyncConnectorCmdlet) [Get-ADSyncConne
+   ctor], ConnectorNotFoundException
+    + FullyQualifiedErrorId : Operation failed because the specified MA could not be found.,Microsoft.IdentityManageme
+   nt.PowerShell.Cmdlet.GetADSyncConnectorCmdlet
+
+```
+
+O cmdlet do PowerShell relata o erro **que o MA especificado não pôde ser encontrado**.
+
+Isso ocorre porque a configuração atual do Azure AD Connect não é suportada para atualização. 
+
+Se você deseja instalar uma versão mais recente do Azure AD Connect: feche o assistente do Azure AD Connect, desinstale o Azure AD Connect existente e execute uma instalação limpa do Azure AD Connect mais recente.
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](active-directory-aadconnect.md).

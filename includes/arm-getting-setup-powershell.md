@@ -24,7 +24,7 @@ Verifique se o valor de **PSVersion** é 3.0 ou 4.0. Caso não seja, consulte [W
 ### <a name="set-your-azure-account-and-subscription"></a>Definir sua conta e assinatura do Azure
 Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Abra um prompt de comando do Azure PowerShell e faça logon no Azure com este comando.
+Abra um prompt de comando do Azure PowerShell e entre no Microsoft Azure com este comando.
 
     Connect-AzureRmAccount
 

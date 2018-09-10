@@ -3,19 +3,21 @@ title: Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco d
 description: Implantar e explore o aplicativo SaaS do Wingtip multilicatário, que demonstra os padrões SaaS usando o Banco de dados SQL do Azure.
 keywords: tutorial do banco de dados SQL
 services: sql-database
-author: MightyPen
+author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.topic: article
-ms.date: 04/01/2018
-ms.author: genemi
-ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.topic: conceptual
+ms.date: 04/02/2018
+ms.reviewer: genemi
+ms.author: billgib
+ms.openlocfilehash: 0c2677622b118c11216bef62ff70e87f4de4cded
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665916"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de dados SQL do Azure
 
@@ -45,7 +47,7 @@ Qualquer pessoa pode baixar o código fonte do C# e do PowerShell para Wingtip T
 
 Há uma série de tutoriais relacionados que utilizam essa implantação inicial. Os tutoriais exploram padrões de design e gerenciamento de um intervalo de SaaS. Quando você trabalhar com os tutoriais, você é incentivado a percorrer os scripts fornecidos para ver como os diferentes padrões de SaaS são implementados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
@@ -123,7 +125,7 @@ Cada local obtém um aplicativo Web personalizado para listar seus eventos e ven
 Uma página da Web central do **Hub de Eventos** fornece uma lista de links para os locatários em sua implantação particular. Use as seguintes etapas para vivenciar a página da Web do **Hub de Eventos** e um aplicativo Web individual:
 
 1. Abra o **Hub de eventos** no navegador da web:
-    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Substitua  &lt;user&gt; pelo valor de usuário da implantação.)*
+    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Substitua &lt;user&gt; pelo valor de usuário da implantação.)*
 
     ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 

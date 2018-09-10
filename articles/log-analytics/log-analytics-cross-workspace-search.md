@@ -3,7 +3,7 @@ title: Pesquisar em todos os recursos com o Azure Log Analytics | Microsoft Docs
 description: Este artigo descreve como você pode consultar nos recursos de vários espaços de trabalho e no aplicativo App Insights em sua assinatura.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,26 +11,28 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
-ms.openlocfilehash: e46ae3af3a718703f9e1d6b847b2342469bf3a1e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: na
+ms.openlocfilehash: 75116e0ba50c3f195d528d33822af0c446acd5fe
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142236"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Executar pesquisas de log de recursos cruzados no Log Analytics  
 
 Anteriormente com o Azure Log Analytics, você poderia apenas analisar dados no espaço de trabalho atual e isso limitava sua capacidade de consultar em vários espaços de trabalho definidos em sua assinatura.  Além disso, você pode pesquisar somente itens de telemetria coletados do seu aplicativo baseado na web com o Application Insights diretamente no Application Insights ou do Visual Studio.  Isso também tornou um desafio para analisar nativamente dados de aplicativo e operacionais juntos.   
 
-Agora você pode consultar não apenas em vários espaços de trabalho de Application Insights, mas também os dados de um aplicativo Application Insights específico no mesmo grupo de recursos, outro grupo de recursos ou outra assinatura. Isso fornece uma exibição de seus dados de todo o sistema.  Só é possível executar esses tipos de consulta no [Portal avançado](log-analytics-log-search-portals.md#advanced-analytics-portal), não no portal do Azure.  
+Agora você pode consultar não apenas em vários espaços de trabalho de Application Insights, mas também os dados de um aplicativo Application Insights específico no mesmo grupo de recursos, outro grupo de recursos ou outra assinatura. Isso fornece uma exibição de seus dados de todo o sistema.  Só é possível executar esses tipos de consulta na [página do Log Analytics (versão prévia)](log-analytics-log-search-portals.md#log-analytics-page-preview), não no portal do Azure. O número de recursos (espaços de trabalho do Log Analytics e aplicativo do Application Insights) que você pode incluir em uma única consulta está limitado a 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultar em espaços de trabalho do Log Analytics e do Application Insights
 Para fazer referência a outro espaço de trabalho em sua consulta, use o identificador [*espaço de trabalho*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) e, para um aplicativo do Application Insights, use o identificador [*aplicativo*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()).  
 
 ### <a name="identifying-workspace-resources"></a>Identificar recursos do espaço de trabalho
-Os exemplos a seguir demonstram consultas nos espaços de trabalho do Log Analytics para retornar contagens resumidas de atualizações da tabela de Atualização no espaço de trabalho chamado *contosoretail-it*. 
+Os exemplos a seguir demonstram consultas em espaços de trabalho do Log Analytics para retornar contagens resumidas de logs da tabela de Atualização em um espaço de trabalho chamado *contosoretail-it*. 
 
 A identificação de um espaço de trabalho pode ser realizada de várias maneiras:
 
@@ -43,7 +45,7 @@ A identificação de um espaço de trabalho pode ser realizada de várias maneir
 
 * Nome qualificado – é o "nome completo" do espaço de trabalho, composto pelo nome da assinatura, pelo grupo de recursos e pelo nome do componente neste formato: *subscriptionName/resourceGroup/componentName*. 
 
-    `workspace('contoso/contosoretail/development').requests | count `
+    `workspace('contoso/contosoretail/contosoretail-it').Update | count `
 
     >[!NOTE]
     >Como os nomes de assinatura do Azure não são exclusivos, esse identificador pode ser ambíguo. 
@@ -57,7 +59,7 @@ A identificação de um espaço de trabalho pode ser realizada de várias maneir
 
     Por exemplo: 
     ``` 
-    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
+    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Update | count
     ```
 
 ### <a name="identifying-an-application"></a>Identificar um aplicativo
@@ -86,6 +88,17 @@ A identificação de um aplicativo no Application Insights pode ser realizada co
     Por exemplo: 
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
+    ```
+
+### <a name="performing-a-query-across-multiple-resources"></a>Executar uma consulta em vários recursos
+É possível consultar vários recursos de qualquer uma das instâncias de recursos; esses recursos podem ser aplicativos e espaços de trabalho combinados.
+    
+Exemplo de consulta em dois espaços de trabalho:    
+    ```
+    union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
+    | where TimeGenerated >= ago(1h)
+    | where UpdateState == "Needed"
+    | summarize dcount(Computer) by Classification
     ```
 
 ## <a name="next-steps"></a>Próximas etapas

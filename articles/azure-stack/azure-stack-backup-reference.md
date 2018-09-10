@@ -1,9 +1,9 @@
 ---
 title: Referência de serviço de Backup de infraestrutura de pilha do Azure | Microsoft Docs
-description: Este artigo contém o material de referência para o serviço de Backup do Azure pilha de infraestrutura.
+description: Este artigo contém o material de referência para o serviço de Backup de infraestrutura do Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: D6EC0224-97EA-446C-BC95-A3D32F668E2C
@@ -12,54 +12,55 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 07/17/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 608f3043e0e4b851820274ca743cbc44d1c8c0f1
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5347fd5ce0f2d2951c34df89bcffafffed6db5c5
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42139309"
 ---
-# <a name="infrastructure-backup-service-reference"></a>Referência da infraestrutura de serviço de Backup
+# <a name="infrastructure-backup-service-reference"></a>Referência de serviço de Backup de infraestrutura
 
 ## <a name="azure-backup-infrastructure"></a>Infraestrutura de backup do Azure
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Pilha do Azure consiste em vários serviços que compõem o portal, o Gerenciador de recursos do Azure, e a experiência de gerenciamento da infraestrutura. A experiência de gerenciamento de tipo de ferramenta da pilha do Azure se concentra na redução da complexidade exposta para o operador da solução.
+O Azure Stack consiste em vários serviços que compõem o portal, o Azure Resource Manager, e a experiência de gerenciamento da infraestrutura. A experiência de gerenciamento de tipo de ferramenta do Azure Stack se concentra na redução da complexidade exposta para o operador da solução.
 
-Backup da infra-estrutura foi projetado para internalizar a complexidade do backup e restaurando dados para serviços de infraestrutura, garantir operadores pode se concentrar na solução de gerenciamento e manutenção de um SLA para os usuários.
+Backup de infraestrutura é projetado para internalizar a complexidade de fazer backup e restaurar dados para serviços de infraestrutura, garantir que os operadores pode focar a solução de gerenciamento e manutenção de um SLA para os usuários.
 
-Exportar os dados de backup para um compartilhamento externo é necessária para evitar o armazenamento de backups no mesmo sistema. Necessidade de um compartilhamento externo dá ao administrador a flexibilidade para determinar onde armazenar os dados com base nas políticas de continuidade de negócios/recuperação de desastres existentes da empresa. 
+Exportando os dados de backup para um compartilhamento externo é necessário para evitar o armazenamento de backups no mesmo sistema. Exigir que um compartilhamento externo fornece ao administrador a flexibilidade para determinar onde armazenar os dados com base nas políticas de recuperação de Desastre/continuidade de negócios da empresa existentes. 
 
-### <a name="infrastructure-backup-components"></a>Componentes de Backup de infraestrutura
+### <a name="infrastructure-backup-components"></a>Componentes do Backup de infraestrutura
 
-Backup da infra-estrutura inclui os seguintes componentes:
+Backup de infraestrutura inclui os seguintes componentes:
 
  - **Controlador de Backup de infraestrutura**  
- O controlador de infraestrutura de Backup é instanciado com e residem em cada nuvem de pilha do Azure.
+ O controlador de infraestrutura de Backup é instanciado com e reside em cada nuvem do Azure Stack.
  - **Provedor de recursos de backup**  
- O provedor de recursos de Backup (Backup RP) é composto do usuário interface e aplicativo programa APIs (interfaces) s expondo a funcionalidade básica de backup para a infraestrutura de pilha do Azure.
+ O provedor de recursos de Backup (Backup RP) é composto do usuário interface e aplicativo programa APIs (interfaces) s expondo a funcionalidade básica de backup para infraestrutura do Azure Stack.
 
 #### <a name="infrastructure-backup-controller"></a>Controlador de Backup de infraestrutura
 
-O controlador de infraestrutura de Backup é um serviço é instanciado para uma nuvem de pilha do Azure do Service Fabric. Recursos de backup são criados em um nível e a captura de serviço específico de região de dados regionais do Gerenciador de recursos do AD, Canadá, Azure, CRP, SRP, NRP, KeyVault, RBAC. 
+O controlador de infraestrutura de Backup é um Service Fabric serviço é instanciado para uma nuvem do Azure Stack. Recursos de backup são criados em uma captura e nível de serviço específica da região dados regionais do AD, a autoridade de certificação, Azure Resource Manager, CRP, SRP, NRP, KeyVault, RBAC. 
 
 ### <a name="backup-resource-provider"></a>Provedor de recursos de backup
 
-O provedor de recursos de Backup apresenta a interface de usuário no portal do Azure pilha de configuração básica e lista de recursos de backup. Operador pode executar as seguintes operações na interface do usuário:
+O provedor de recursos de Backup apresenta a interface do usuário no portal do Azure Stack para a configuração básica e a lista de recursos de backup. Operador pode realizar as seguintes operações na interface do usuário:
 
  - Habilitar o backup pela primeira vez, fornecendo o local de armazenamento externo, credenciais e chave de criptografia
- - Modo de exibição concluído criado recursos de backup e recursos de status em criação
- - Modificar o local de armazenamento onde o Backup do controlador coloca os dados de backup
- - Modificar as credenciais que o controlador de Backup usa para acessar o local de armazenamento externo
+ - Modo de exibição concluído criado os recursos de backup e recursos de status em criação
+ - Modifique o local de armazenamento onde o Backup do controlador coloca os dados de backup
+ - Modificar as credenciais usadas pelo Backup do controlador para acessar o local de armazenamento externo
  - Modificar a chave de criptografia que usa o controlador de Backup para criptografar backups 
 
 
-## <a name="backup-controller-requirements"></a>Requisitos de backup de controlador
+## <a name="backup-controller-requirements"></a>Requisitos do controlador de backup
 
-Esta seção descreve os requisitos importantes para o Backup de infraestrutura. É recomendável que você examine as informações cuidadosamente antes de habilitar o backup para a instância de pilha do Azure e, em seguida, referência conforme necessário durante a implantação e operação subsequente.
+Esta seção descreve os requisitos importantes para o Backup de infraestrutura. É recomendável que você examine as informações com atenção antes de habilitar o backup para sua instância do Azure Stack e, em seguida, voltar a ela conforme necessário durante a implantação e operação subsequente.
 
 Os requisitos incluem:
 
@@ -72,9 +73,9 @@ Os requisitos incluem:
 
 | Local de armazenamento                                                                 | Detalhes                                                                                                                                                  |
 |----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Compartilhamento de arquivos SMB hospedado em um dispositivo de armazenamento no ambiente de rede confiável | Compartilhamento SMB no mesmo data center em que a pilha do Azure é implantada ou em um datacenter diferente. Várias instâncias de pilha do Azure podem usar o mesmo compartilhamento de arquivo. |
+| Compartilhamento de arquivos SMB hospedado em um dispositivo de armazenamento dentro do ambiente de rede confiável | Compartilhamento SMB no mesmo datacenter onde o Azure Stack é implantado ou em um datacenter diferente. Várias instâncias do Azure Stack podem usar o mesmo compartilhamento de arquivos. |
 | Compartilhamento de arquivos SMB no Azure                                                          | Não há suporte no momento.                                                                                                                                 |
-| Armazenamento de blob no Azure                                                            | Não há suporte no momento.                                                                                                                                 |
+| Armazenamento de BLOBs do Azure                                                            | Não há suporte no momento.                                                                                                                                 |
 
 #### <a name="supported-smb-versions"></a>Versões com suporte do SMB
 
@@ -82,7 +83,7 @@ Os requisitos incluem:
 |-----|---------|
 | SMB | 3.x     |
 
-#### <a name="storage-location-sizing"></a>Dimensionamento de local de armazenamento 
+#### <a name="storage-location-sizing"></a>Dimensionamento do armazenamento local 
 
 Controlador de infraestrutura de Backup fará backup de dados sob demanda. A recomendação é fazer backup de pelo menos duas vezes por dia e manter no máximo sete dias de backups. 
 
@@ -93,8 +94,8 @@ Controlador de infraestrutura de Backup fará backup de dados sob demanda. A rec
 ### <a name="network-requirements"></a>Requisitos de rede
 | Local de armazenamento                                                                 | Detalhes                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Compartilhamento de arquivos SMB hospedado em um dispositivo de armazenamento no ambiente de rede confiável | A porta 445 é necessária se a instância do Azure pilha reside em um ambiente protegido por firewall. Controlador de infraestrutura de Backup irá iniciar uma conexão ao servidor de arquivos SMB pela porta 445. |
-| Para usar o FQDN do servidor de arquivos, o nome deve ser resolvido por meio do PEP             |                                                                                                                                                                                         |
+| Compartilhamento de arquivos SMB hospedado em um dispositivo de armazenamento dentro do ambiente de rede confiável | A porta 445 será necessária se a instância do Azure Stack reside em um ambiente protegido por firewall. Controlador de infraestrutura de Backup iniciará uma conexão ao servidor de arquivos SMB na porta 445. |
+| Para usar o FQDN do servidor de arquivos, o nome deve ser resolvível do PEP             |                                                                                                                                                                                         |
 
 > [!Note]  
 > Nenhuma porta de entrada precisa ser abertas.
@@ -102,20 +103,20 @@ Controlador de infraestrutura de Backup fará backup de dados sob demanda. A rec
 
 ## <a name="infrastructure-backup-limits"></a>Limites de Backup de infraestrutura
 
-Considere esses limites, como planejar, implantar e operar suas instâncias de pilha do Microsoft Azure. A tabela a seguir descreve esses limites.
+Considere esses limites, como planejar, implantar e operar suas instâncias do Microsoft Azure Stack. A tabela a seguir descreve esses limites.
 
-### <a name="infrastructure-backup-limits"></a>Limites de Backup de infraestrutura
+### <a name="infrastructure-backup-limits"></a>Limites de infraestrutura Backup
 | Identificador de limite                                                 | Limite        | Comentários                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Tipo de backup                                                      | Somente completo    | Controlador de infraestrutura de Backup só oferece suporte a backups completos. Não há suporte para backups incrementais.                                          |
-| Backups agendados                                                | Somente manual  | Controlador de backup atualmente suporta apenas backups sob demanda                                                                                 |
-| Trabalhos de backup simultâneos máximo                                   | 1            | Somente um trabalho de backup ativo é suportado por instância do controlador de Backup.                                                                  |
-| Configuração do comutador de rede                                     | Não está no escopo | Administrador deve fazer backup de configuração de comutador de rede usando as ferramentas de OEM. Consulte a documentação para o Azure pilha cada fornecedor OEM. |
-| Host de ciclo de vida de hardware                                          | Não está no escopo | Administrador faça backup do Host de ciclo de vida de Hardware usando as ferramentas de OEM. Consulte a documentação para o Azure pilha cada fornecedor OEM.      |
+| Backups agendados                                                | Apenas manual  | Controlador de backup atualmente suporta apenas backups sob demanda                                                                                 |
+| Máximo de trabalhos de backup simultâneos                                   | 1            | Apenas um trabalho de backup ativo é tem suporte por instância do controlador de Backup.                                                                  |
+| Configuração do comutador de rede                                     | Não está no escopo | Administrador deve fazer backup de configuração de comutador de rede usando as ferramentas de OEM. Consulte a documentação para o Azure Stack fornecidos por cada fornecedor OEM. |
+| Host de ciclo de vida do hardware                                          | Não está no escopo | Administrador deve fazer backup de Host do ciclo de vida do Hardware usando ferramentas de OEM. Consulte a documentação para o Azure Stack fornecidos por cada fornecedor OEM.      |
 | Número máximo de compartilhamentos de arquivos                                    | 1            | Compartilhamento de arquivos apenas uma pode ser usado para armazenar dados de backup                                                                                        |
-| Serviços de aplicativos, função, SQL, mysql dados de provedor de recursos de backup | Não está no escopo | Consulte a orientação publicada para a implantação e gerenciamento de valor agregado RPs criado pela Microsoft.                                                  |
-| Provedores de recursos de backup de terceiros                              | Não está no escopo | Consulte a orientação publicada para a implantação e gerenciamento de valor agregado RPs criado por fornecedores de terceiros.                                          |
+| Fazer backup de serviços de aplicativos, função, SQL, dados de provedor de recursos do mysql | Não está no escopo | Veja as orientações publicadas para a implantação e gerenciamento de valor agregado RPs criado pela Microsoft.                                                  |
+| Provedores de recursos de terceiros de backup                              | Não está no escopo | Veja as orientações publicadas para a implantação e gerenciamento de valor agregado RPs criado por fornecedores de terceiros.                                          |
 
 ## <a name="next-steps"></a>Próximas etapas
 
- - Para saber mais sobre a infraestrutura de serviço de Backup, consulte [Backup e recuperação de dados para a pilha do Azure com o serviço de Backup de infraestrutura](azure-stack-backup-infrastructure-backup.md).
+ - Para saber mais sobre o serviço de Backup de infraestrutura, consulte [Backup e recuperação de dados para o Azure Stack com o serviço de Backup de infraestrutura](azure-stack-backup-infrastructure-backup.md).

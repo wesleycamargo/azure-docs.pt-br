@@ -1,31 +1,27 @@
 ---
-title: "Pontos de extremidade de segurança no Serviço de Provisionamento de Dispositivo IoT | Microsoft Docs"
-description: "Conceitos – como controlar o acesso ao Serviço de Provisionamento de Dispositivo IoT para aplicativos de back-end. Inclui informações sobre tokens de autenticação de segurança."
-services: iot-dps
-documentationcenter: .net
-author: dsk-2015
+title: Pontos de extremidade de segurança no Serviço de Provisionamento de Dispositivo IoT | Microsoft Docs
+description: Conceitos - como controlar o acesso ao Serviço de Provisionamento de Dispositivos no IoT para aplicativos de back-end. Inclui informações sobre tokens de autenticação de segurança.
+author: wesmc7777
 manager: timlt
-editor: 
 ms.service: iot-dps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-dps
+ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: dkshir,rajeevmv
-ms.openlocfilehash: 718fe9b3ca449f8f7b1420080ea75716e8badcf5
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.author: wesmc
+ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818503"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao Serviço de Provisionamento de Dispositivo do Hub IoT do Azure
 
-Esta seção descreve as opções para proteger o serviço de provisionamento de dispositivo IoT. O serviço de provisionamento usa *permissões* para conceder acesso a cada ponto de extremidade. As permissões limitam o acesso a uma instância de serviço com base na funcionalidade.
+Esta seção descreve as opções para proteger o serviço de Provisionamento de Dispositivos no IoT. O serviço de provisionamento usa *permissões* para conceder acesso a cada ponto de extremidade. As permissões limitam o acesso a uma instância de serviço com base na funcionalidade.
 
 Este artigo descreve:
 
-* As permissões diferentes que você pode conceder a um aplicativo de back-end para acessar seu serviço de provisionamento.
+* As diferentes permissões que você pode conceder a um aplicativo de back-end para acessar o serviço de provisionamento.
 * O processo de autenticação e os tokens que ele usa para verificar permissões.
 
 ### <a name="when-to-use"></a>Quando usar
@@ -38,7 +34,7 @@ Você pode conceder [permissões](#device-provisioning-service-permissions) das 
 
 * **Políticas de autorização de acesso compartilhado**. As políticas de acesso compartilhado podem conceder qualquer combinação de [permissões](#device-provisioning-service-permissions). Você pode definir políticas no [Portal do Azure][lnk-management-portal] ou de forma programática usando as [APIs REST do Serviço de Provisionamento de Dispositivo][lnk-resource-provider-apis]. Um serviço de provisionamento recém-criado tem a seguinte política padrão:
 
-  * **provisioningserviceowner**: política com todas as permissões.
+* **provisioningserviceowner**: política com todas as permissões.
 
 > [!NOTE]
 > Para obter informações detalhadas, consulte [permissões](#device-provisioning-service-permissions).
@@ -55,12 +51,16 @@ Para saber mais sobre como construir e usar os tokens de segurança, veja a pró
 O HTTP é o único protocolo com suporte e implementa a autenticação incluindo um token válido no cabeçalho da solicitação **Authorization**.
 
 #### <a name="example"></a>Exemplo
-`SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`
+```csharp
+SharedAccessSignature sr = 
+   mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
+```
 
 > [!NOTE]
 > Os [SDKs do Serviço de Provisionamento de Dispositivo de IoT do Azure][lnk-sdks] geram tokens automaticamente durante a conexão com o serviço.
 
 ## <a name="security-tokens"></a>Tokens de segurança
+
 Os Serviços de Provisionamento de Dispositivo usam tokens de segurança para autenticar serviços para evitar o envio de chaves durante a transmissão. Além disso, os tokens de segurança têm limite de escopo e de prazo de validade. Os [SDKs do Serviço de Provisionamento de Dispositivo do IoT do Azure][lnk-sdks] geram tokens automaticamente sem precisar de configuração especial. Alguns cenários exigem que você gere e use tokens de segurança diretamente. Esses cenários incluem o uso direto da superfície HTTP.
 
 ### <a name="security-token-structure"></a>Estrutura do token de segurança
@@ -75,11 +75,11 @@ O token de segurança tem o seguinte formato:
 
 Veja os valores esperados:
 
-| Valor | Descrição |
+| Valor | DESCRIÇÃO |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256 no formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: a chave é decodificada da base64 e usada como chave para executar o cálculo de HMAC-SHA256.|
 | {expiry} |As cadeias de caracteres UTF8 para o número de segundos desde a época 00:00:00 UTC em 1º de janeiro de 1970. |
-| {URL-encoded-resourceURI} | Codificação de URL em letras minúsculas do URI de recurso em letras minúsculas. Prefixo de URI (por segmento) dos pontos de extremidade que podem ser acessados com esse token, começando com o nome de host do Serviço de Provisionamento de Dispositivo de IoT (sem protocolo). Por exemplo: `mydps.azure-devices-provisioning.net`. |
+| {URL-encoded-resourceURI} | Codificação de URL em letras minúsculas do URI de recurso em letras minúsculas. Prefixo de URI (por segmento) dos pontos de extremidade que podem ser acessados com esse token, começando com o nome de host do Serviço de Provisionamento de Dispositivo de IoT (sem protocolo). Por exemplo, `mydps.azure-devices-provisioning.net`. |
 | {policyName} |O nome da política de acesso compartilhado a qual se refere esse token. |
 
 **Observação sobre o prefixo**: o prefixo URI é computado por segmento e não por caractere. Por exemplo, `/a/b` é um prefixo para `/a/b/c`, mas não para `/a/bc`.
@@ -135,7 +135,6 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > [!NOTE]
 > Como o prazo de validade do token é validado em computadores do Serviço de Provisionamento de Dispositivo de IoT, o descompasso no relógio do computador que gera o token deve ser mínimo.
 
-
 ### <a name="use-security-tokens-from-service-components"></a>Usar tokens de segurança de componentes de serviço
 
 Os componentes de serviço só podem gerar tokens de segurança usando políticas de acesso compartilhado que concedem as permissões apropriadas, conforme explicado anteriormente.
@@ -154,9 +153,9 @@ Por exemplo, um serviço gerado usando uma política de acesso compartilhado cri
 * URI de recurso: `{mydps}.azure-devices-provisioning.net`,
 * chave de assinatura: uma das chaves da política `enrollmentread` ,
 * nome da política: `enrollmentread`,
-* qualquer data de validade
+* qualquer validade time.backn
 
-![Criar uma política de acesso compartilhado para sua instância de DPS no portal][img-add-shared-access-policy]
+![Criar uma política de acesso compartilhado para a instância do serviço de Provisionamento de Dispositivos no portal][img-add-shared-access-policy]
 
 ```nodejs
 var endpoint ="mydps.azure-devices-provisioning.net";
@@ -174,17 +173,17 @@ O resultado, que concederia acesso para ler todos os relatórios do registro, se
 
 Os tópicos de referência a seguir fornecem a você mais informações sobre como controlar o acesso ao seu Serviço de Provisionamento de Dispositivo de IoT.
 
-## <a name="device-provisioning-service-permissions"></a>Permissões do Serviço de Provisionamento de Dispositivo
+### <a name="device-provisioning-service-permissions"></a>Permissões do Serviço de Provisionamento de Dispositivo
 
 A tabela a seguir lista as permissões que você pode usar para controlar o acesso ao seu Serviço de Provisionamento de Dispositivo de IoT.
 
 | Permissão | Observações |
 | --- | --- |
-| **ServiceConfig** |Concede acesso para alterar as configurações de serviço. <br/>Essa permissão é usada pelos serviços de nuvem de back-end. |
-| **EnrollmentRead** |Concede acesso de leitura para os registros do dispositivo e os grupos de registro. <br/>Essa permissão é usada pelos serviços de nuvem de back-end. |
-| **EnrollmentWrite** |Concede acesso de gravação para os registros do dispositivo e os grupos de registro. <br/>Essa permissão é usada pelos serviços de nuvem de back-end. |
-| **RegistrationStatusRead** |Concede acesso de leitura ao status de registro do dispositivo. <br/>Essa permissão é usada pelos serviços de nuvem de back-end. |
-| **RegistrationStatusWrite**  |Concede acesso de exclusão ao status de registro do dispositivo. <br/>Essa permissão é usada pelos serviços de nuvem de back-end. |
+| **ServiceConfig** |Concede acesso para alterar as configurações de serviço. <br/>Essa permissão é usada pelos serviços de nuvem back-end. |
+| **EnrollmentRead** |Concede acesso de leitura para os registros do dispositivo e os grupos de registro. <br/>Essa permissão é usada pelos serviços de nuvem back-end. |
+| **EnrollmentWrite** |Concede acesso de gravação para os registros do dispositivo e os grupos de registro. <br/>Essa permissão é usada pelos serviços de nuvem back-end. |
+| **RegistrationStatusRead** |Concede acesso de leitura ao status de registro do dispositivo. <br/>Essa permissão é usada pelos serviços de nuvem back-end. |
+| **RegistrationStatusWrite**  |Concede acesso de exclusão ao status de registro do dispositivo. <br/>Essa permissão é usada pelos serviços de nuvem back-end. |
 
 <!-- links and images -->
 

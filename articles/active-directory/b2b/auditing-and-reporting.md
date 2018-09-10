@@ -15,6 +15,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34266933"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e relatórios de um usuário de colaboração B2B
 Com usuários convidados, você conta com funcionalidades de auditoria semelhantes àquelas dos usuários membros. Este é um exemplo do histórico de convites e resgates do convidado Davi Barros:

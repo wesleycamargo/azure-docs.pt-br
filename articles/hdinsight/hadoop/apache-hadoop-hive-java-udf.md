@@ -1,24 +1,20 @@
 ---
-title: UDF (função definida pelo usuário) do Java com o Hive no HDInsight – Azure | Microsoft Docs
+title: Função definida pelo usuário de Java (UDF) com o Hive no HDInsight – Azure
 description: Saiba como criar um UDF (função definida pelo usuário) baseado em Java que funcione com o Hive. Este UDF de exemplo converte uma tabela de cadeias de caracteres de texto em minúsculas.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 00af8ca67af6ba3242c0fee6c50640944768ec4c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: b2a4c7ce3ac91ade497ca59a8c2ca4fe642811a9
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200751"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047496"
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Usar um Java UDF com o Hive no HDInsight
 

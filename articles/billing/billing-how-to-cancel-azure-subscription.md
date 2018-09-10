@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 07/18/2018
 ms.author: genli
-ms.openlocfilehash: 604e2ee6d2ac7e30813f8b4cd02253407c2b1e3f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 0bd0fca54ae5bf4292564a15adf38b7586768450
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145444"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Cancelar sua assinatura do Azure
 
@@ -31,7 +32,7 @@ Antes de cancelar sua assinatura:
 * Finalize seus serviços. Vá para a [página de recursos no portal de gerenciamento](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), e **Pare** quaisquer máquinas virtuais, aplicativos ou outros serviços em execução.
 * Considere migrar seus dados. Consulte [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/resource-group-move-resources.md).
 
-Se você cancelar um [plano de Suporte do Azure](https://azure.microsoft.com/support/plans/) pago, ainda será cobrado mensalmente no restante do termo de 6 meses.
+Se você cancelar um plano de Suporte do Azure pago, ainda será cobrado pelo restante do período de assinatura. Para obter mais informações, consulte [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
 
 ## <a name="cancel-subscription-using-the-azure-portal"></a>Cancelar uma assinatura usando o portal do Azure
 

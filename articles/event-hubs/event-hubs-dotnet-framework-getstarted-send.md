@@ -1,28 +1,27 @@
 ---
 title: Enviar eventos para Hubs de Eventos do Azure usando o .NET Framework | Microsoft Docs
-description: "Introdução ao envio de eventos para Hubs de Eventos usando o .NET Framework"
+description: Introdução ao envio de eventos para Hubs de Eventos usando o .NET Framework
 services: event-hubs
-documentationcenter: 
-author: sethmanheim
+documentationcenter: ''
+author: ShubhaVijayasarathy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
-ms.author: sethm
-ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.date: 07/03/2018
+ms.author: shvija
+ms.openlocfilehash: 7b5a4298ee4c67f0300bd4aabb7fc6373d8edba0
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005283"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Enviar eventos para Hubs de Eventos do Azure usando o .NET Framework
-
-## <a name="introduction"></a>Introdução
 
 Os Hubs de Eventos são um serviço que processa grandes quantidades de dados de eventos (telemetria) a partir de aplicativos e dispositivos conectados. Depois de coletar dados para Hubs de Eventos, você pode armazenar os dados usando um cluster de armazenamento ou transformá-los usando um provedor de análise em tempo real. Essa funcionalidade de coleta e processamento de eventos em grande escala é um componente fundamental de arquiteturas de aplicativos modernas, incluindo a IoT (Internet das Coisas).
 
@@ -30,7 +29,7 @@ Este tutorial mostra como usar o [portal do Azure](https://portal.azure.com) par
 
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
-* [Microsoft Visual Studio 2015 ou superior](http://visualstudio.com). As capturas de tela neste tutorial usam o Visual Studio 2017.
+* [Microsoft Visual Studio 2017 ou superior](http://visualstudio.com).
 * Uma conta ativa do Azure. Se não tiver uma, você poderá criar uma conta gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Como criar um namespace de hubs de eventos e um hub de eventos
@@ -59,8 +58,8 @@ Nesta seção, você escreve um aplicativo de console do Windows para enviar eve
 5. Adicione os seguintes campos à classe **Programa**, substituindo os valores do espaço reservado pelo nome do hub de eventos criado na seção anterior e pela cadeia de conexão no nível do namespace que você salvou anteriormente.
    
   ```csharp
-  static string eventHubName = "{Event Hub name}";
-  static string connectionString = "{send connection string}";
+  static string eventHubName = "Your Event Hub name";
+  static string connectionString = "namespace connection string";
   ```
 6. Adicione o seguinte método à classe **Programa** :
    
@@ -102,11 +101,12 @@ Nesta seção, você escreve um aplicativo de console do Windows para enviar eve
 Parabéns! Agora você enviou mensagens para um hub de eventos.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Agora que você criou um aplicativo funcional que cria um hub de eventos e envia dados, poderá passar para os seguintes cenários:
 
 * [Receber eventos usando o Host de Processador de Eventos](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 * [Referência do host de processador de eventos](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
-* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png

@@ -1,25 +1,19 @@
 ---
-title: Estender o HDInsight com a Rede Virtual – Azure | Microsoft Docs
+title: Estender o HDInsight com a Rede Virtual – Azure
 description: Saiba como usar a Rede Virtual do Azure para conectar o HDInsight a outros recursos de nuvem ou recursos no seu datacenter
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
+author: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 02/21/2018
-ms.author: larryfr
-ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 07/26/2018
+ms.openlocfilehash: 659c33ec0e989003e68b5165fab70f50c607868c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591874"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estender o Azure HDInsight usando uma Rede Virtual do Azure
 
@@ -90,7 +84,7 @@ Use as etapas descritas nesta seção para descobrir como adicionar um novo HDIn
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        Para obter mais informações, consulte o documento [Solução de problemas dos grupos de segurança de rede](../virtual-network/virtual-network-nsg-troubleshoot-portal.md).
+        Para obter mais informações, consulte o documento [Solução de problemas dos grupos de segurança de rede](../virtual-network/diagnose-network-traffic-filter-problem.md).
 
         > [!IMPORTANT]
         > As regras do grupo de segurança de rede são aplicadas em ordem, com base na prioridade da regra. A primeira regra que corresponde ao padrão de tráfego é aplicada e nenhuma outra é aplicada ao tráfego. Ordene as regras da mais permissiva para a menos permissiva. Para obter mais informações, consulte o documento [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md).
@@ -107,7 +101,7 @@ Use as etapas descritas nesta seção para descobrir como adicionar um novo HDIn
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        Para obter mais informações, consulte o documento [Solução de problemas de rotas](../virtual-network/virtual-network-routes-troubleshoot-portal.md).
+        Para obter mais informações, consulte o documento [Solução de problemas de rotas](../virtual-network/diagnose-network-routing-problem.md).
 
 4. Crie um cluster HDInsight e selecione a Rede Virtual do Azure durante a configuração. Use as etapas nos documentos a seguir para entender o processo de criação de cluster:
 
@@ -289,9 +283,10 @@ Se você usar grupos de segurança de rede ou rotas definidas pelo usuário, dev
     | Alemanha | Alemanha Central | 51.4.146.68</br>51.4.146.80 | 443 | Entrada |
     | &nbsp; | Nordeste da Alemanha | 51.5.150.132</br>51.5.144.101 | 443 | Entrada |
     | Índia | Índia Central | 52.172.153.209</br>52.172.152.49 | 443 | Entrada |
+    | &nbsp; | Sul da Índia | 104.211.223.67<br/>104.211.216.210 | 443 | Entrada |
     | Japão | Leste do Japão | 13.78.125.90</br>13.78.89.60 | 443 | Entrada |
     | &nbsp; | Oeste do Japão | 40.74.125.69</br>138.91.29.150 | 443 | Entrada |
-    | Coreia | Coreia Central | 52.231.39.142</br>52.231.36.209 | 433 | Entrada |
+    | Coreia do Sul | Coreia Central | 52.231.39.142</br>52.231.36.209 | 433 | Entrada |
     | &nbsp; | Sul da Coreia | 52.231.203.16</br>52.231.205.214 | 443 | Entrada
     | Reino Unido | Oeste do Reino Unido | 51.141.13.110</br>51.141.7.20 | 443 | Entrada |
     | &nbsp; | Sul do Reino Unido | 51.140.47.39</br>51.140.52.16 | 443 | Entrada |

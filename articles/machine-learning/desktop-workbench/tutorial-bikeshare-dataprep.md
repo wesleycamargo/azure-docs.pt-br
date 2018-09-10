@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2a50350b9ba49d82a20b92804ffb92ec6906186d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439893"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Tutorial: usar o Azure Machine Learning Workbench para preparação avançada de dados (Dados de compartilhamento de bicicleta)
 O Azure Machine Learning (versão prévia) é uma solução de análise avançada e integrada de ciência de dados de ponta a ponta para cientistas profissionais prepararem dados, desenvolverem experimentos e implantarem modelos em escala de nuvem.
@@ -32,7 +34,7 @@ Neste tutorial, você usará o Machine Learning (versão prévia) para aprender 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma instalação local do Azure Machine Learning Workbench. Para obter mais informações, siga o [Guia de início rápido de instalação](../service/quickstart-installation.md).
 * Caso não tenha a CLI do Azure instalada, siga as instruções para [instalar a versão mais recente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -58,7 +60,7 @@ Este tutorial usa o [conjunto de dados Boston Hubway](https://s3.amazonaws.com/h
       - [201610-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201610-hubway-tripdata.zip)
       - [201701-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201701-hubway-tripdata.zip)
 
-2. Descompacte cada arquivo .zip após o download.
+1. Descompacte cada arquivo .zip após o download.
 
 ## <a name="upload-data-files-to-azure-blob-storage"></a>Carregar arquivos de dados no armazenamento do Blob do Azure
 É possível usar o armazenamento de Blobs do Azure para hospedar os arquivos de dados.
@@ -67,9 +69,9 @@ Este tutorial usa o [conjunto de dados Boston Hubway](https://s3.amazonaws.com/h
 
     ![Contas de armazenamento do cluster HDInsight](media/tutorial-bikeshare-dataprep/hdinsightstorageaccount.png)
 
-2. Crie um novo contêiner chamado **data-files** para armazenar os arquivos de dados do **BikeShare**.
+1. Crie um novo contêiner chamado **data-files** para armazenar os arquivos de dados do **BikeShare**.
 
-3. Carregue os arquivos de dados. Carregue `BostonWeather.csv` em uma pasta chamada `weather`. Carregue os arquivos de dados de viagem em uma pasta chamada `tripdata`.
+1. Carregue os arquivos de dados. Carregue `BostonWeather.csv` em uma pasta chamada `weather`. Carregue os arquivos de dados de viagem em uma pasta chamada `tripdata`.
 
     ![Carregar arquivos de dados](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
 
@@ -89,7 +91,7 @@ Este tutorial usa o [conjunto de dados Boston Hubway](https://s3.amazonaws.com/h
 
    * **HOURLYWindSpeed**
 
-2. Os dados do __Hubway__ são organizados em arquivos por ano e por mês. Por exemplo, o arquivo chamado `201501-hubway-tripdata.zip` contém um arquivo .csv que contém dados de janeiro de 2015. Os dados contêm os campos a seguir, com cada linha representando um trajeto de bicicleta:
+1. Os dados do __Hubway__ são organizados em arquivos por ano e por mês. Por exemplo, o arquivo chamado `201501-hubway-tripdata.zip` contém um arquivo .csv que contém dados de janeiro de 2015. Os dados contêm os campos a seguir, com cada linha representando um trajeto de bicicleta:
 
    * **Duração do trajeto (em segundos)**
 
@@ -112,7 +114,7 @@ Este tutorial usa o [conjunto de dados Boston Hubway](https://s3.amazonaws.com/h
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 1. Inicie o **Machine Learning Workbench** no menu Iniciar ou usando o iniciador.
 
-2. Crie um novo projeto do Machine Learning. Selecione o botão **+** na página **Projetos** ou selecione **Arquivo** > **Novo**.
+1. Crie um novo projeto do Machine Learning. Selecione o botão **+** na página **Projetos** ou selecione **Arquivo** > **Novo**.
 
    * Use o modelo **Bike Share**.
 
@@ -124,7 +126,7 @@ Este tutorial usa o [conjunto de dados Boston Hubway](https://s3.amazonaws.com/h
 
    ![Guia Exibição de dados](media/tutorial-bikeshare-dataprep/navigatetodatatab.png)
 
-2. Adicione uma fonte de dados. Selecione o ícone **+** e depois **Adicionar Fonte de Dados**.
+1. Adicione uma fonte de dados. Selecione o ícone **+** e depois **Adicionar Fonte de Dados**.
 
    ![Opção Adicionar Fonte de Dados](media/tutorial-bikeshare-dataprep/newdatasource.png)
 
@@ -134,11 +136,11 @@ Este tutorial usa o [conjunto de dados Boston Hubway](https://s3.amazonaws.com/h
 
    ![Entrada Arquivo(s)/Diretório](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **Seleção de Arquivo**: adicione os dados de clima. Procure e selecione o arquivo `BostonWeather.csv` que você carregou anteriormente no Armazenamento de Blobs. Selecione **Avançar**.
+1. **Seleção de Arquivo**: adicione os dados de clima. Procure e selecione o arquivo `BostonWeather.csv` que você carregou anteriormente no Armazenamento de Blobs. Selecione **Avançar**.
 
    ![Seleção de arquivo com o BostonWeather.csv selecionado](media/tutorial-bikeshare-dataprep/azureblobpickweatherdatafile.png)
 
-3. **Detalhes do Arquivo**: verifique o esquema de arquivo detectado. O Machine Learning Workbench analisa os dados no arquivo e deduz o esquema a ser usado.
+1. **Detalhes do Arquivo**: verifique o esquema de arquivo detectado. O Machine Learning Workbench analisa os dados no arquivo e deduz o esquema a ser usado.
 
    ![Verificar detalhes do arquivo](media/tutorial-bikeshare-dataprep/fileparameters.png)
 
@@ -168,7 +170,7 @@ Este tutorial usa o [conjunto de dados Boston Hubway](https://s3.amazonaws.com/h
 
    Para continuar, selecione **Avançar**.
 
-4. **Tipos de Dados**: examine os tipos de dados que são detectados automaticamente. O Machine Learning Workbench analisa os dados no arquivo e deduz os tipos de dados a serem usados.
+1. **Tipos de Dados**: examine os tipos de dados que são detectados automaticamente. O Machine Learning Workbench analisa os dados no arquivo e deduz os tipos de dados a serem usados.
 
    a. Para esses dados, mude o **TIPO DE DADOS** de todas as colunas para **Cadeia de caracteres**.
 
@@ -179,7 +181,7 @@ Este tutorial usa o [conjunto de dados Boston Hubway](https://s3.amazonaws.com/h
 
    b. Para continuar, selecione __Avançar__. 
 
-5. **Amostragem**: para criar um esquema de amostragem, selecione **Editar**. Selecione a nova linha __10000 Principais__ que foi adicionada e, em seguida, selecione __Editar__. Defina a __Estratégia de Exemplo__ como **Arquivo Completo** e, em seguida, selecione **Aplicar**.
+1. **Amostragem**: para criar um esquema de amostragem, selecione **Editar**. Selecione a nova linha __10000 Principais__ que foi adicionada e, em seguida, selecione __Editar__. Defina a __Estratégia de Exemplo__ como **Arquivo Completo** e, em seguida, selecione **Aplicar**.
 
    ![Adicione uma nova estratégia de amostragem](media/tutorial-bikeshare-dataprep/weatherdatasamplingfullfile.png)
 
@@ -189,14 +191,14 @@ Este tutorial usa o [conjunto de dados Boston Hubway](https://s3.amazonaws.com/h
 
    Para continuar, selecione **Avançar**.
 
-6. **Coluna de Caminho**: use a seção __Coluna de Caminho__ para incluir o caminho de arquivo completo como uma coluna nos dados importados. Selecione __Não Incluir Coluna de Caminho__.
+1. **Coluna de Caminho**: use a seção __Coluna de Caminho__ para incluir o caminho de arquivo completo como uma coluna nos dados importados. Selecione __Não Incluir Coluna de Caminho__.
 
    > [!TIP]
    > Incluir o caminho como uma coluna será útil caso esteja importando uma pasta de muitos arquivos com nomes de arquivo diferentes. Também será útil se os nomes de arquivo contiverem informações que você deseja extrair mais tarde.
 
    ![Coluna de Caminho definida para não incluir](media/tutorial-bikeshare-dataprep/pathcolumn.png)
 
-7. **Concluir**: para concluir a criação da fonte de dados, selecione **Concluir**.
+1. **Concluir**: para concluir a criação da fonte de dados, selecione **Concluir**.
 
     Uma nova guia de fonte de dados chamada __BostonWeather__ é aberta. Um exemplo de dados é exibido em uma exibição em grade. O exemplo é baseado no esquema de amostragem ativo especificado anteriormente.
 
@@ -219,17 +221,17 @@ Para retornar ao modo de exibição de __Dados__, selecione __Dados__ no canto s
 
 1. Selecione __Preparar__ para começar a preparar os dados. 
 
-2. Quando solicitado, insira um nome para o pacote de preparação de dados, como **BikeShare Data Prep**. 
+1. Quando solicitado, insira um nome para o pacote de preparação de dados, como **BikeShare Data Prep**. 
 
-3. Selecione __OK__ para continuar.
+1. Selecione __OK__ para continuar.
 
    ![Caixa de diálogo Preparar](media/tutorial-bikeshare-dataprep/dataprepdialog.png)
 
-4. Um novo pacote chamado **BikeShare Data Prep** aparece na seção __Preparação de Dados__ da guia __Dados__. 
+1. Um novo pacote chamado **BikeShare Data Prep** aparece na seção __Preparação de Dados__ da guia __Dados__. 
 
    Para exibir o pacote, selecione essa entrada. 
 
-5. Selecione o botão **>>** para expandir o __Fluxos de Dados__ e exibir os fluxos de dados contidos no pacote. Neste exemplo, __BostonWeather__ é o único fluxo de dados.
+1. Selecione o botão **>>** para expandir o __Fluxos de Dados__ e exibir os fluxos de dados contidos no pacote. Neste exemplo, __BostonWeather__ é o único fluxo de dados.
 
    > [!IMPORTANT]
    > Um pacote pode conter vários fluxos de dados.
@@ -239,7 +241,7 @@ Para retornar ao modo de exibição de __Dados__, selecione __Dados__ no canto s
 ## <a name="filter-data-by-value"></a>Filtrar dados por valor
 1. Para filtrar os dados, clique com o botão direito do mouse em uma célula com um determinado valor e selecione __Filtrar__. Em seguida, escolha o tipo de filtro.
 
-2. Para este tutorial, selecione uma célula que contenha o valor `FM-15`. Em seguida, defina o filtro como **é igual a**.  Agora os dados estão filtrados para retornar apenas as linhas em que __REPORTTYPE__ é `FM-15`.
+1. Para este tutorial, selecione uma célula que contenha o valor `FM-15`. Em seguida, defina o filtro como **é igual a**.  Agora os dados estão filtrados para retornar apenas as linhas em que __REPORTTYPE__ é `FM-15`.
 
    ![Caixa de diálogo Filtro](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
@@ -253,7 +255,7 @@ Você não precisa mais da coluna __REPORTTYPE__. Clique com botão direito do m
    ![Opção Remover Coluna](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Alterar tipos de dados e remover erros
-1. Para selecionar várias colunas de uma vez, pressione Ctrl (Command ⌘ no Mac) enquanto seleciona os cabeçalhos de coluna. Use essa técnica para selecionar os seguintes cabeçalhos de coluna:
+1. Selecione Ctrl (comando ⌘ no Mac) enquanto seleciona os cabeçalhos de coluna para selecionar várias colunas ao mesmo tempo. Use essa técnica para selecionar os seguintes cabeçalhos de coluna:
 
    * **HOURLYDRYBULBTEMPF**
 
@@ -261,17 +263,17 @@ Você não precisa mais da coluna __REPORTTYPE__. Clique com botão direito do m
 
    * **HOURLYWindSpeed**
 
-2. Clique com botão direito do mouse em um dos cabeçalhos de coluna selecionados e selecione **Converter o Tipo de Campo em Numérico**. Essa opção converte o tipo de dados das colunas para numérico.
+1. Clique com botão direito do mouse em um dos cabeçalhos de coluna selecionados e selecione **Converter o Tipo de Campo em Numérico**. Essa opção converte o tipo de dados das colunas para numérico.
 
    ![Converter várias colunas para numérico](media/tutorial-bikeshare-dataprep/weatherconverttonumeric.png)
 
-3. Filtre os valores de erro. Algumas colunas têm problemas de conversão de tipo de dados. Esse problema é indicado pela cor vermelha na __Barra de Qualidade de Dados__ da coluna.
+1. Filtre os valores de erro. Algumas colunas têm problemas de conversão de tipo de dados. Esse problema é indicado pela cor vermelha na __Barra de Qualidade de Dados__ da coluna.
 
    Para remover as linhas que apresentam erros, clique com o botão direito do mouse no título de coluna **HOURLYDRYBULBTEMPF**. Selecione **Filtrar Coluna**. Use o **Eu Quero** padrão como **Manter Linhas**. Altere a lista suspensa **Condições** para selecionar **não é erro**. Selecione **OK** para aplicar o filtro.
 
    ![Filtrar valores de erro](media/tutorial-bikeshare-dataprep/filtererrorvalues.png)
 
-4. Para eliminar as linhas de erro restantes nas outras colunas, repita esse processo de filtro para as colunas **HOURLYRelativeHumidity** e **HOURLYWindSpeed**.
+1. Para eliminar as linhas de erro restantes nas outras colunas, repita esse processo de filtro para as colunas **HOURLYRelativeHumidity** e **HOURLYWindSpeed**.
 
 ## <a name="use-by-example-transformations"></a>Usar transformações pelo exemplo
 
@@ -289,9 +291,9 @@ Para usar os dados em uma previsão de blocos de tempo de duas horas, você deve
 
    ![Entrada Dividir Colunas por Exemplo](media/tutorial-bikeshare-dataprep/weathersplitcolumnbyexample.png)
 
-2. O Machine Learning Workbench identifica automaticamente um delimitador significativo e cria duas colunas, dividindo os dados em valores de data e hora. 
+1. O Machine Learning Workbench identifica automaticamente um delimitador significativo e cria duas colunas, dividindo os dados em valores de data e hora. 
 
-3. Selecione __OK__ para aceitar os resultados da operação de divisão.
+1. Selecione __OK__ para aceitar os resultados da operação de divisão.
 
    ![Divisão de colunas DATE_1 e DATE_2](media/tutorial-bikeshare-dataprep/weatherdatesplitted.png)
 
@@ -303,7 +305,7 @@ Para usar os dados em uma previsão de blocos de tempo de duas horas, você deve
 
    Uma nova coluna vazia é adicionada com valores nulos.
 
-2. Selecione a primeira célula vazia na nova coluna. Para fornecer um exemplo do intervalo de tempo desejado, digite **12AM-2AM** na nova coluna e pressione Enter.
+1. Selecione a primeira célula vazia na nova coluna. Para fornecer um exemplo do intervalo de tempo desejado, digite **12AM-2AM** na nova coluna e pressione Enter.
 
    ![Nova coluna com o valor 12AM-2AM](media/tutorial-bikeshare-dataprep/weathertimerangeexample.png)
 
@@ -313,26 +315,26 @@ Para usar os dados em uma previsão de blocos de tempo de duas horas, você deve
    > [!IMPORTANT]
    > A identificação de casos extremos pode não funcionar no Mac com a versão atual do Workbench. Ignore as etapas 3 e 4 a seguir no Mac. Em vez disso, selecione __OK__ depois que todas as linhas tiverem sido preenchidas com os valores derivados.
    
-3. O texto **Analisando Dados** acima da grade indica que o Workbench está tentando detectar os casos extremos. Ao concluir, o status será alterado para **Examinar a próxima linha sugerida** ou **Nenhuma sugestão**. Neste exemplo, é retornado **Examinar a próxima linha sugerida**.
+1. O texto **Analisando Dados** acima da grade indica que o Workbench está tentando detectar os casos extremos. Ao concluir, o status será alterado para **Examinar a próxima linha sugerida** ou **Nenhuma sugestão**. Neste exemplo, é retornado **Examinar a próxima linha sugerida**.
 
-4. Para examinar as alterações sugeridas, selecione **Revisar a próxima linha sugerida**. A célula que você deve examinar e corrigir, se necessário, está realçada na exibição.
+1. Para examinar as alterações sugeridas, selecione **Revisar a próxima linha sugerida**. A célula que você deve examinar e corrigir, se necessário, está realçada na exibição.
 
    ![Examinar próxima linha sugerida](media/tutorial-bikeshare-dataprep/weatherreviewnextsuggested.png)
 
     Selecione __OK__ para aceitar a transformação.
  
-5. Você retorna para a exibição em grade dos dados do __BostonWeather__. Agora, a grade contém as três colunas adicionadas anteriormente.
+1. Você retorna para a exibição em grade dos dados do __BostonWeather__. Agora, a grade contém as três colunas adicionadas anteriormente.
 
    ![Modo de exibição em grade com linhas adicionadas](media/tutorial-bikeshare-dataprep/timerangecomputed.png)
 
    > [!TIP]
    > Todas as alterações feitas são preservadas no painel **Etapas**. Vá para a etapa que você criou no painel **Etapas**, selecione a seta para baixo e depois **Editar**. A janela avançada de **Derivar Coluna pelo Exemplo** é exibida. Todos os seus exemplos são preservados aqui. Também é possível adicionar exemplos manualmente clicando duas vezes em uma linha na grade a seguir. Selecione **Cancelar** para retornar à grade principal sem aplicar alterações. Também é possível acessar esse modo de exibição selecionando **Modo Avançado** durante a execução de uma transformação de **Derivar Coluna por Exemplo**.
 
-6. Para renomear a coluna, clique duas vezes no cabeçalho da coluna e digite **Intervalo de Hora**. Selecione Enter para salvar a alteração.
+1. Para renomear a coluna, clique duas vezes no cabeçalho da coluna e digite **Intervalo de Hora**. Selecione Enter para salvar a alteração.
 
    ![Renomear a coluna](media/tutorial-bikeshare-dataprep/weatherhourrangecolumnrename.png)
 
-7. Para derivar o intervalo de data e hora, faça a seleção múltipla das colunas **Date\_1** e **Intervalo de Hora**, clique com o botão direito do mouse e selecione **Derivar Coluna por Exemplo**.
+1. Para derivar o intervalo de data e hora, faça a seleção múltipla das colunas **Date\_1** e **Intervalo de Hora**, clique com o botão direito do mouse e selecione **Derivar Coluna por Exemplo**.
 
    ![Derivar Colunas por Exemplo](media/tutorial-bikeshare-dataprep/weatherderivedatehourrange.png)
 
@@ -348,7 +350,7 @@ Para usar os dados em uma previsão de blocos de tempo de duas horas, você deve
    > * Vá para a primeira célula que contém **Feb 01, 2015 12AM-2AM**. Deve ser a linha 15. Corrija o valor para **Jan 02, 2015 12AM-2AM** e pressione Enter. 
    
 
-8. Espere até que o status seja alterado de **Analisando Dados** para **Examinar a próxima linha sugerida**. Essa alteração pode levar alguns segundos. Selecione o link de status para ir até a linha sugerida. 
+1. Espere até que o status seja alterado de **Analisando Dados** para **Examinar a próxima linha sugerida**. Essa alteração pode levar alguns segundos. Selecione o link de status para ir até a linha sugerida. 
 
    ![Linha sugerida para examinar](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguate.png)
 
@@ -356,7 +358,7 @@ Para usar os dados em uma previsão de blocos de tempo de duas horas, você deve
 
    ![Dados formatados corretamente](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguated.png)
 
-9. Selecione **OK** para aceitar a transformação.
+1. Selecione **OK** para aceitar a transformação.
 
    ![Grade com a transformação concluída](media/tutorial-bikeshare-dataprep/weatherdatehourrangecomputed.png)
 
@@ -364,9 +366,9 @@ Para usar os dados em uma previsão de blocos de tempo de duas horas, você deve
    > Para usar o **Modo avançado** de **Derivar coluna por exemplo** para essa etapa, selecione a seta para baixo no painel **Etapas**. Na grade de dados, há caixas de seleção ao lado das colunas **DATE\_1** e **Intervalo de Hora**. Limpe a caixa de seleção ao lado da coluna **Intervalo de Hora** para ver como a saída é alterada. Na ausência da coluna **Intervalo de Hora** como entrada, **12AM-2AM** será tratado como uma constante e será anexado aos valores derivados. Selecione **Cancelar** para retornar à grade principal sem aplicar as alterações.
    ![Modo Avançado](media/tutorial-bikeshare-dataprep/derivedcolumnadvancededitdeselectcolumn.png)
 
-10. Para renomear a coluna, clique duas vezes no cabeçalho. Altere o nome para **Intervalo de Data e Hora** e pressione Enter.
+1. Para renomear a coluna, clique duas vezes no cabeçalho. Altere o nome para **Intervalo de Data e Hora** e pressione Enter.
 
-11. Faça a seleção múltipla das colunas **DATE**, **DATE\_1**, **DATE\_2** e **Intervalo de Hora**. Clique com o botão direito do mouse e, em seguida, selecione **Remover coluna**.
+1. Faça a seleção múltipla das colunas **DATE**, **DATE\_1**, **DATE\_2** e **Intervalo de Hora**. Clique com o botão direito do mouse e, em seguida, selecione **Remover coluna**.
 
 ## <a name="summarize-data-mean"></a>Resumir dados (média)
 
@@ -376,7 +378,7 @@ A próxima etapa é resumir as condições de clima obtendo a média dos valores
 
     ![Menu Transformações](media/tutorial-bikeshare-dataprep/weathersummarizemenu.png)
 
-2. Para resumir os dados, arraste colunas da grade na parte inferior da página para os painéis esquerdo e direito na parte superior. O painel esquerdo contém o texto **Arrastar colunas aqui para agrupar dados**. O painel direito contém o texto **Arrastar colunas aqui para resumir dados**. 
+1. Para resumir os dados, arraste colunas da grade na parte inferior da página para os painéis esquerdo e direito na parte superior. O painel esquerdo contém o texto **Arrastar colunas aqui para agrupar dados**. O painel direito contém o texto **Arrastar colunas aqui para resumir dados**. 
 
     a. Arraste a coluna **Intervalo de Data e Hora** da grade na parte inferior do painel esquerdo. Arraste **HOURLYDRYBULBTEMPF**, **HOURLYRelativeHumidity** e **HOURLYWindSpeed** para o painel direito. 
 
@@ -390,7 +392,7 @@ Alterar os dados nas colunas numéricas para um intervalo de 0 a 1 permite que a
 
 1. No menu **Transformação**, selecione **Transformar Fluxo de Dados (Script)**.
 
-2. Insira o código a seguir na caixa de texto que aparece. Caso já tenha usado os nomes de coluna, o código deverá funcionar sem modificação. Você está escrevendo uma lógica de normalização de mín./máx. simples em Python.
+1. Insira o código a seguir na caixa de texto que aparece. Caso já tenha usado os nomes de coluna, o código deverá funcionar sem modificação. Você está escrevendo uma lógica de normalização de mín./máx. simples em Python.
 
     > [!WARNING]
     > O script espera os nomes de coluna usados anteriormente neste tutorial. Se você tiver nomes de coluna diferentes, será possível alterar os nomes no script.
@@ -419,7 +421,7 @@ Alterar os dados nas colunas numéricas para um intervalo de 0 a 1 permite que a
     
    ![Caixa de diálogo Transformar fluxo de dados (script)](media/tutorial-bikeshare-dataprep/transformdataflowscript.png)
 
-3. Selecione __OK__ para usar o script. Agora, as colunas numéricas na grade contêm valores no intervalo de 0 a 1.
+1. Selecione __OK__ para usar o script. Agora, as colunas numéricas na grade contêm valores no intervalo de 0 a 1.
 
     ![Grade que contém os valores entre 0 e 1](media/tutorial-bikeshare-dataprep/datagridwithdecimals.png)
 
@@ -435,13 +437,13 @@ Você concluiu a preparação dos dados de clima. Em seguida, prepare os dados d
 
     * __Tipo de Dados__: aceite os padrões.
 
-2. Depois de importar os dados, selecione __Preparar__ para começar a preparar os dados. Selecione o pacote **BikeShare Data Prep.dprep** existente e, em seguida, selecione __OK__.
+1. Depois de importar os dados, selecione __Preparar__ para começar a preparar os dados. Selecione o pacote **BikeShare Data Prep.dprep** existente e, em seguida, selecione __OK__.
 
     Esse processo adiciona um **Fluxo de Dados** no arquivo **Preparação de Dados** existente em vez de criar um novo.
 
     ![Selecionar o pacote existente](media/tutorial-bikeshare-dataprep/addjandatatodprep.png)
 
-3. Depois que a grade for carregada, expanda __DATAFLOWS__. Agora, há dois fluxos de dados: **BostonWeather** e **201701-hubway-tripdata**. Selecione a entrada **201701-hubway-tripdata**.
+1. Depois que a grade for carregada, expanda __DATAFLOWS__. Agora, há dois fluxos de dados: **BostonWeather** e **201701-hubway-tripdata**. Selecione a entrada **201701-hubway-tripdata**.
 
     ![Entrada 201701-hubway-tripdata](media/tutorial-bikeshare-dataprep/twodfsindprep.png)
 
@@ -452,15 +454,15 @@ Para a preparação de dados, visualizações úteis chamadas de inspetores est�
 1. Faça uma seleção múltipla das colunas **latitude da estação inicial** e **longitude da estação inicial**. Clique com o botão direito do mouse em uma das colunas e selecione **Mapa**.
 
     > [!TIP]
-    > Para habilitar a seleção múltipla, mantenha a tecla Ctrl (Command ⌘ no Mac) pressionada e selecione o cabeçalho de cada coluna.
+    > Para habilitar a seleção múltipla, mantenha pressionada a tecla Ctrl (comando ⌘ no Mac) e selecione o cabeçalho de cada coluna.
 
     ![Visualização do mapa](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
-2. Para maximizar a visualização do mapa, selecione o ícone **Maximizar**. Para ajustar o mapa à janela, selecione o ícone **E** no canto superior esquerdo da visualização.
+1. Para maximizar a visualização do mapa, selecione o ícone **Maximizar**. Para ajustar o mapa à janela, selecione o ícone **E** no canto superior esquerdo da visualização.
 
     ![Imagem maximizada](media/tutorial-bikeshare-dataprep/maximizedmap.png)
 
-3. Selecione o botão **Minimizar** para retornar ao modo de exibição em grade.
+1. Selecione o botão **Minimizar** para retornar ao modo de exibição em grade.
 
 ## <a name="use-the-column-statistics-inspector"></a>Usar o inspetor de estatística de coluna
 
@@ -489,7 +491,7 @@ O histograma não é útil porque as exceções distorcem o gráfico.
 
     ![Menu Adicionar Coluna (Script)](media/tutorial-bikeshare-dataprep/computecolscript.png)
 
-2. Na caixa de diálogo __Adicionar Coluna (Script)__, use os seguintes valores:
+1. Na caixa de diálogo __Adicionar Coluna (Script)__, use os seguintes valores:
 
     * __Nome da Nova Coluna__: logtripduration
 
@@ -501,9 +503,9 @@ O histograma não é útil porque as exceções distorcem o gráfico.
 
    ![Caixa de diálogo Adicionar Coluna (Script)](media/tutorial-bikeshare-dataprep/computecolscriptdialog.png)
 
-3. Selecione __OK__ para adicionar a coluna **logtripduration**.
+1. Selecione __OK__ para adicionar a coluna **logtripduration**.
 
-4. Clique com o botão direito do mouse na coluna e selecione **Histograma**.
+1. Clique com o botão direito do mouse na coluna e selecione **Histograma**.
 
     ![Histograma da coluna logtripduration](media/tutorial-bikeshare-dataprep/logtriphistogram.png)
 
@@ -515,7 +517,7 @@ Usar um filtro nos dados atualiza os inspetores com a nova distribuição.
 
 1. Clique com botão direito do mouse na coluna **logtripduration** e selecione **Filtrar Coluna**. 
 
-2. Na caixa de diálogo __Editar__, use os seguintes valores:
+1. Na caixa de diálogo __Editar__, use os seguintes valores:
 
     * __Filtrar esta Coluna de Número__: logtripduration
 
@@ -529,7 +531,7 @@ Usar um filtro nos dados atualiza os inspetores com a nova distribuição.
 
     ![Opções de filtro](media/tutorial-bikeshare-dataprep/loftripfilter.png)
 
-3. Selecione __OK__ para aplicar o filtro.
+1. Selecione __OK__ para aplicar o filtro.
 
     ![Histogramas atualizadas depois que o filtro foi aplicado](media/tutorial-bikeshare-dataprep/loftripfilteredinspector.png)
 
@@ -548,11 +550,11 @@ Usar um filtro nos dados atualiza os inspetores com a nova distribuição.
     > [!NOTE]
     > O histograma azul aparece menor em comparação ao anterior. Essa diferença se deve à nova segmentação automática dos dados no novo intervalo.
 
-2. Para remover o halo, selecione __Editar__ e limpe __Mostrar halo__.
+1. Para remover o halo, selecione __Editar__ e limpe __Mostrar halo__.
 
     ![Opções do histograma](media/tutorial-bikeshare-dataprep/uncheckhalo.png)
 
-3. Selecione **OK** para desabilitar o efeito de halo. Depois minimize o histograma.
+1. Selecione **OK** para desabilitar o efeito de halo. Depois minimize o histograma.
 
 ### <a name="remove-columns"></a>Remover colunas
 
@@ -568,7 +570,7 @@ Para resumir a demanda de bicicleta por um período de duas horas, use colunas d
 
     ![Opção Derivar Colunas por Exemplo](media/tutorial-bikeshare-dataprep/tripdataderivebyexample.png)
 
-2. Por exemplo, insira o valor **Jan 01, 2017 12AM-2AM** para a primeira linha.
+1. Por exemplo, insira o valor **Jan 01, 2017 12AM-2AM** para a primeira linha.
 
     > [!IMPORTANT]
     > No exemplo de derivação de colunas anterior, você usou várias etapas para derivar uma coluna que continha o período de data e hora. Neste exemplo, você pode ver que essa operação pode ser executada como uma única etapa, fornecendo um exemplo de saída final.
@@ -583,19 +585,19 @@ Para resumir a demanda de bicicleta por um período de duas horas, use colunas d
    >
    > * Vá para a primeira célula que contém **Jan 01, 2017 1AM-2AM**. Deve ser a linha 14. Corrija o valor para **Jan 01, 2017 12AM-2AM** e pressione Enter. 
 
-3. Espere até que o aplicativo calcule os valores em todas as linhas. O processo pode levar alguns segundos. Depois que a análise for concluída, use o link __Examinar próxima linha sugerida__ para examinar os dados.
+1. Espere até que o aplicativo calcule os valores em todas as linhas. O processo pode levar alguns segundos. Depois que a análise for concluída, use o link __Examinar próxima linha sugerida__ para examinar os dados.
 
    ![Análise concluída com link de revisão](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
 
     Verifique se os valores calculados estão corretos. Caso contrário, atualize o valor com o valor esperado e pressione Enter. Depois espere até que a análise seja concluída. Conclua o processo **Examinar próxima linha sugerida** até que aparece **Nenhuma sugestão**. **Nenhuma sugestão** significa que o aplicativo analisou os casos extremos e está satisfeito com o programa sintetizado. Uma prática recomendada é realizar uma inspeção visual dos dados transformados antes de aceitar a transformação. 
 
-4. Selecione **OK** para aceitar a transformação. Renomeie a coluna recém-criada para **Intervalo de Data e Hora**.
+1. Selecione **OK** para aceitar a transformação. Renomeie a coluna recém-criada para **Intervalo de Data e Hora**.
 
     ![Colunas renomeadas](media/tutorial-bikeshare-dataprep/tripdatasummarize.png)
 
-5. Clique com botão direito do mouse no cabeçalho da coluna **starttime** e selecione **Remover coluna**.
+1. Clique com botão direito do mouse no cabeçalho da coluna **starttime** e selecione **Remover coluna**.
 
-6. Para resumir os dados, no menu __Transformação__, selecione __Resumir__. Para criar a transformação, siga as seguintes etapas:
+1. Para resumir os dados, no menu __Transformação__, selecione __Resumir__. Para criar a transformação, siga as seguintes etapas:
 
     * Arraste __Intervalo de Data e Hora__ e __ID da estação inicial__ para o painel **Agrupar Por** à esquerda.
 
@@ -603,7 +605,7 @@ Para resumir a demanda de bicicleta por um período de duas horas, use colunas d
 
    ![Opções de resumo](media/tutorial-bikeshare-dataprep/tripdatacount.png)
 
-7. Selecione **OK** para aceitar o resultado do resumo.
+1. Selecione **OK** para aceitar o resultado do resumo.
 
 ## <a name="join-dataflows"></a>Unir fluxos de dados
 
@@ -611,15 +613,15 @@ Para unir os dados de clima aos dados de viagem, use as seguintes etapas:
 
 1. No menu __Transformações__, selecione __Unir__.
 
-2. __Tabelas__: selecione **BostonWeather** como o fluxo de dados à **Esquerda** e **201701-hubway-tripdata** como o fluxo de dados à **Direita**. Para continuar, selecione **Avançar**.
+1. __Tabelas__: selecione **BostonWeather** como o fluxo de dados à **Esquerda** e **201701-hubway-tripdata** como o fluxo de dados à **Direita**. Para continuar, selecione **Avançar**.
 
     ![Seleções de tabelas](media/tutorial-bikeshare-dataprep/jointableselection.png)
 
-3. __Colunas Principais__: selecione a coluna **Intervalo de Data e Hora** nas duas tabelas e, em seguida, selecione __Avançar__.
+1. __Colunas Principais__: selecione a coluna **Intervalo de Data e Hora** nas duas tabelas e, em seguida, selecione __Avançar__.
 
     ![Seleções de colunas da chave](media/tutorial-bikeshare-dataprep/joinkeyselection.png)
 
-4. __Tipo de Junção__: selecione __Linhas correspondentes__ como o tipo de junção e, em seguida, selecione __Concluir__.
+1. __Tipo de Junção__: selecione __Linhas correspondentes__ como o tipo de junção e, em seguida, selecione __Concluir__.
 
     ![Tipo de junção de linhas correspondentes](media/tutorial-bikeshare-dataprep/joinscreen.png)
 
@@ -631,11 +633,11 @@ Para unir os dados de clima aos dados de viagem, use as seguintes etapas:
 
     ![Criar nova coluna para o dia da semana](media/tutorial-bikeshare-dataprep/featureweekday.png)
 
-2. Para criar uma coluna que contenha o período de tempo para uma linha, clique com o botão direito do mouse na coluna **Intervalo de Data e Hora** e selecione **Derivar Coluna por Exemplo**. Use um valor de **12AM-2AM** para a linha que contenha **Jan 01, 2017 12AM-2AM**. Pressione Enter e selecione **OK**. Renomeie essa coluna para **Período**.
+1. Para criar uma coluna que contenha o período de tempo para uma linha, clique com o botão direito do mouse na coluna **Intervalo de Data e Hora** e selecione **Derivar Coluna por Exemplo**. Use um valor de **12AM-2AM** para a linha que contenha **Jan 01, 2017 12AM-2AM**. Pressione Enter e selecione **OK**. Renomeie essa coluna para **Período**.
 
     ![Coluna de período](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. Para remover as colunas **Intervalo de Data e Hora** e **r_Date Hour Range**, pressione Ctrl (Command ⌘ no Mac) e selecione cada cabeçalho de coluna. Clique com botão direito do mouse e selecione **Remover Coluna**.
+1. Para remover as colunas **Intervalo de Data e Hora** e **r_intervalo de Data e Hora**, selecione Ctrl (comando ⌘ no Mac) e, em seguida, selecione cada cabeçalho de coluna. Clique com botão direito do mouse e selecione **Remover Coluna**.
 
 ## <a name="read-data-from-python"></a>Ler dados do Python
 
@@ -670,7 +672,7 @@ Para salvar o fluxo de dados **Resultado da Junção** em um arquivo .csv, você
 
     ![Abrir o projeto no Visual Studio Code](media/tutorial-bikeshare-dataprep/openprojectinvscode.png)
 
-2. Atualize o script Python no arquivo `BikeShare Data Prep.py` usando o seguinte código:
+1. Atualize o script Python no arquivo `BikeShare Data Prep.py` usando o seguinte código:
 
     ```python
     import pyspark
@@ -704,7 +706,7 @@ Para salvar o fluxo de dados **Resultado da Junção** em um arquivo .csv, você
     print('done')
     ```
 
-3. Substitua `Your Azure Storage blob path` pelo caminho para o arquivo de saída a ser criado. Substitua para as variáveis `blobfolder` e `csvfiles`.
+1. Substitua `Your Azure Storage blob path` pelo caminho para o arquivo de saída a ser criado. Substitua para as variáveis `blobfolder` e `csvfiles`.
 
 ## <a name="create-an-hdinsight-run-configuration"></a>Criar uma configuração de execução HDInsight
 
@@ -715,7 +717,7 @@ Para salvar o fluxo de dados **Resultado da Junção** em um arquivo .csv, você
    >[!IMPORTANT]
    >Você deve usar a janela de linha de comando (aberta por meio do Workbench) para realizar as etapas a seguir.
 
-2. Use o prompt de comando para entrar no Azure. 
+1. Use o prompt de comando para entrar no Azure. 
 
    O aplicativo Workbench e a CLI usam caches de credenciais independentes ao autenticar em recursos do Azure. Só é preciso fazer isso uma vez, até que o token em cache expire. O comando `az account list` retorna a lista de assinaturas disponíveis para seu logon. Se houver mais de um, use o valor da ID da assinatura desejada. Defina essa assinatura como a conta padrão para usar com o comando `az account set -s` e, em seguida, forneça o valor da ID da assinatura. Em seguida, confirme a configuração usando o comando `show` da conta.
 
@@ -733,7 +735,7 @@ Para salvar o fluxo de dados **Resultado da Junção** em um arquivo .csv, você
    az account show
    ```
 
-3. Crie a configuração de execução HDInsight. É preciso o nome do cluster e da senha `sshuser`.
+1. Crie a configuração de execução HDInsight. É preciso o nome do cluster e da senha `sshuser`.
 
     ```azurecli
     az ml computetarget attach cluster --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password>
@@ -748,9 +750,9 @@ Retorne ao aplicativo Machine Learning Workbench para executar o script no clust
 
 1. Retorne à tela inicial do projeto selecionando o ícone **Página inicial** à esquerda.
 
-2. Selecione **hdinsight** na lista suspensa para executar o script no cluster HDInsight.
+1. Selecione **hdinsight** na lista suspensa para executar o script no cluster HDInsight.
 
-3. Selecione **Executar**. O script é enviado como um trabalho. O status do trabalho muda para __Concluído__ depois de o arquivo ser gravado no local especificado no seu contêiner de armazenamento.
+1. Selecione **Executar**. O script é enviado como um trabalho. O status do trabalho muda para __Concluído__ depois de o arquivo ser gravado no local especificado no seu contêiner de armazenamento.
 
     ![Script de execução do HDInsight](media/tutorial-bikeshare-dataprep/hdinsightrunscript.png)
 
@@ -774,13 +776,13 @@ Nas etapas anteriores, você usou as fontes de dados `201701-hubway-tripdata.csv
 
    Salve o nome dessa fonte de dados, pois ela será usada em etapas posteriores.
 
-2. Selecione o ícone de pasta para exibir os arquivos no projeto. Expanda o diretório __aml\_config__ e, em seguida, selecione o arquivo `hdinsight.runconfig`.
+1. Selecione o ícone de pasta para exibir os arquivos no projeto. Expanda o diretório __aml\_config__ e, em seguida, selecione o arquivo `hdinsight.runconfig`.
 
     ![Local do hdinsight.runconfig](media/tutorial-bikeshare-dataprep/hdinsightsubstitutedatasources.png) 
 
-3. Selecione o botão **Editar** para abrir o arquivo no Visual Studio Code.
+1. Selecione o botão **Editar** para abrir o arquivo no Visual Studio Code.
 
-4. Adicione as seguintes linhas ao final do arquivo `hdinsight.runconfig` e selecione o ícone de disco para salvar o arquivo.
+1. Adicione as seguintes linhas ao final do arquivo `hdinsight.runconfig` e selecione o ícone de disco para salvar o arquivo.
 
     ```yaml
     DataSourceSubstitutions:
@@ -825,9 +827,9 @@ Nas etapas anteriores, você usou as fontes de dados `201701-hubway-tripdata.csv
     print('done')
     ```
 
-2. Use a pasta chamada `traindata` para a saída de dados de treinamento.
+1. Use a pasta chamada `traindata` para a saída de dados de treinamento.
 
-3. Para enviar um novo trabalho, selecione **Executar**. Certifique-se de **hdinsight** esteja selecionado. Um trabalho é enviado com a nova configuração. A saída desse trabalho são os dados de treinamento. Esses dados são criados usando as mesmas etapas de preparação de dados que você criou anteriormente. O trabalho pode levar alguns minutos para ser concluído.
+1. Para enviar um novo trabalho, selecione **Executar**. Certifique-se de **hdinsight** esteja selecionado. Um trabalho é enviado com a nova configuração. A saída desse trabalho são os dados de treinamento. Esses dados são criados usando as mesmas etapas de preparação de dados que você criou anteriormente. O trabalho pode levar alguns minutos para ser concluído.
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

@@ -10,20 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 28128e07b4beb03b1a8ecdd8546d54c19145689f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1bf93ce9aa1733634b46c2a15b587d4cc0826ba1
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090926"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa usando o Azure Data Factory
 Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure**. Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira a [documentação do Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 De forma mais abrangente, este tutorial envolve as seguintes etapas:
 
@@ -33,12 +31,12 @@ De forma mais abrangente, este tutorial envolve as seguintes etapas:
 > * Criar conjuntos de dados do Banco de Dados SQL do Azure e do SQL Data Warehouse do Azure.
 > * Crie um pipeline para consultar as tabelas a serem copiadas e outro pipeline para executar a operação de cópia propriamente dita. 
 > * Iniciar uma execução de pipeline.
-> * Monitorar as execuções de pipeline e de atividade.
+> * Monitore as execuções de pipeline e de atividade.
 
-Este tutorial usa o Azure PowerShell. Para obter informações sobre como usar outras ferramentas/SDKs para criar um data factory, consulte os [Guias de início rápido](quickstart-create-data-factory-dot-net.md). 
+Este tutorial usa o Azure PowerShell. Para obter informações sobre como usar outras ferramentas/SDKs para criar um data factory, consulte [Guias de início rápido](quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="end-to-end-workflow"></a>Fluxos de trabalho completos
-Neste cenário, temos algumas tabelas do Banco de Dados SQL do Azure que desejamos copiar no SQL Data Warehouse. Aqui está a sequência lógica de etapas no fluxo de trabalho que ocorre em pipelines:
+Nesse cenário, temos um número de tabelas no Banco de Dados SQL do Azure que desejamos para copiar para o SQL Data Warehouse. Aqui está a sequência lógica de etapas no fluxo de trabalho que ocorre em pipelines:
 
 ![Fluxo de trabalho](media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png)
 
@@ -47,9 +45,9 @@ Neste cenário, temos algumas tabelas do Banco de Dados SQL do Azure que desejam
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* **PowerShell do Azure**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* **Azure PowerShell**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * **Conta de Armazenamento do Azure**. A conta de Armazenamento do Azure é usada como Armazenamento de Blobs de preparo na operação de cópia em massa. 
 * **Banco de dados SQL do Azure**. Este banco de dados contém os dados de origem. 
 * **SQL Data Warehouse do Azure**. Esse data warehouse contém os dados copiados do Banco de Dados SQL. 
@@ -110,7 +108,7 @@ Para o Banco de Dados SQL e o SQL Data Warehouse, permita que os serviços do Az
         ```
 
     * Para criar instâncias do Data Factory, você precisa ser um colaborador ou administrador da assinatura do Azure.
-    * Atualmente, o Data Factory V2 permite que você crie os data factories somente nas regiões Leste dos EUA, Leste dos EUA 2 e Europa Ocidental. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+    * Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [ Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 

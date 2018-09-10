@@ -1,30 +1,26 @@
 ---
-title: Depurar trabalhos do Apache Spark em execução no Azure HDInsight | Microsoft Docs
+title: Depurar trabalhos do Apache Spark em execução no Azure HDInsight
 description: Use a interface do usuário do YARN, a interface do usuário do Spark e o Servidor de Histórico do Spark para rastrear e depurar trabalhos em execução no cluster Spark no Azure HDInsight
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 59af05a7-2bd9-44b0-b55f-2438d294198b
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: jgao
-ms.openlocfilehash: 1ddf8cd38b4d62dc206a9f27e0620f8c7b232ec3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 6b62c1ff4649ac72f5c4d04cd7507e7db0166b6e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040923"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar trabalhos do Apache Spark em execução no Azure HDInsight
 
 Neste artigo, você aprenderá a rastrear e depurar trabalhos do Spark em execução em clusters HDInsight usando a interface do usuário do YARN e do Spark e o Servidor de histórico do Spark. Você começará um trabalho do Spark usando um notebook disponível com o cluster Spark, **Aprendizado de máquina: análise preditiva nos dados de inspeção de alimentos usando MLLib**. Você pode usar as etapas a seguir para rastrear um aplicativo que foi enviado usando qualquer outra abordagem, por exemplo, **spark-submit**.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Você deve ter o seguinte:
 
 * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -106,6 +102,7 @@ Quando um trabalho é concluído, as informações sobre ele são mantidas no Se
 
 ## <a name="see-also"></a>Consulte também
 *  [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
+*  [Depurar trabalhos do Spark usando o servidor de histórico Spark estendido](apache-azure-spark-history-server.md)
 
 ### <a name="for-data-analysts"></a>Para analistas de dados
 

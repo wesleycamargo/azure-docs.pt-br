@@ -1,27 +1,23 @@
 ---
-title: "Criar APIs Web e APIs REST para Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Crie APIs Web e APIs REST para chamar suas APIs, serviços ou sistemas de fluxos de trabalho de aplicativos lógicos para integrações do sistema"
-keywords: "APIs Web, APIs REST, fluxos de trabalho, integrações do sistema"
+title: Criar APIs Web e APIs REST para Aplicativos Lógicos do Azure | Microsoft Docs
+description: Criar APIs Web e APIs REST para chamar suas APIs, serviços ou sistemas para integrações do sistema no Aplicativo Lógico do Azure
 services: logic-apps
-author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
-ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.date: 5/26/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
+ms.date: 05/26/2017
+ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122239"
 ---
-# <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Crie APIs personalizadas que podem ser chamadas de fluxos de trabalho de aplicativos lógicos
+# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas que podem ser chamadas do Aplicativo Lógico do Azure
 
 Embora os Aplicativos Lógicos do Azure ofereçam [mais de 100 conectores internos](../connectors/apis-list.md) que você pode usar em fluxos de trabalho de aplicativo lógico, talvez seja melhor chamar APIs, sistemas e serviços que não estão disponíveis como conectores. Você pode criar suas próprias APIs que fornecem ações e gatilhos para uso em aplicativos lógicos. Veja outros motivos para criar suas próprias APIs que você pode chamar de fluxos de trabalhos de aplicativos lógicos:
 
@@ -42,7 +38,8 @@ Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-servic
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/app-service-web-get-started-python.md)
+> * [Python](../app-service/containers/quickstart-python.md)
+> * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
 > Para obter exemplos de aplicativo de API criados para aplicativos lógicos, visite o [Repositório GitHub de Aplicativos Lógicos do Azure](http://github.com/logicappsio) ou o [blog](http://aka.ms/logicappsblog).
 
@@ -179,7 +176,7 @@ Por exemplo, para verificar periodicamente novos arquivos no serviço, você pod
 | A solicitação inclui `triggerState`? | Resposta da API | 
 | -------------------------------- | -------------| 
 | Não  | Retornar um status HTTP `202 ACCEPTED` e um cabeçalho `location` com `triggerState` definido com a hora atual e o intervalo `retry-after` como 15 segundos. | 
-| sim | Verifique em seu serviço arquivos adicionados após o `DateTime` para `triggerState`. | 
+| SIM | Verifique em seu serviço arquivos adicionados após o `DateTime` para `triggerState`. | 
 ||| 
 
 | Número de arquivos encontrados | Resposta da API | 

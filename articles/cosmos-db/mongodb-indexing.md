@@ -2,23 +2,21 @@
 title: Indexando na API MongoDB do Azure Cosmos DB | Microsoft Docs
 description: Apresenta uma visão geral dos recursos de indexação na API MongoDB do Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: orestis-ms
 manager: kfile
 editor: ''
-ms.assetid: daacbabf-1bb5-497f-92db-079910703047
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
-ms.devlang: javascript
-ms.topic: quickstart
+ms.component: cosmosdb-mongo
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: 6cb267096e04d4957b166e539a4fc58aa25e04cb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d0c74bd2ba7a4a77a16d481ddb3b76f90a923254
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989502"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexação no Azure Cosmos DB: API MongoDB
 

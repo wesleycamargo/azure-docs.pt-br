@@ -5,16 +5,15 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
 layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.openlocfilehash: 6dc7b85e5a5f6173572e390c1073971d927aa7df
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ae53700a2957d8cb6056c19bc96db83b7417020
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624209"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185944"
 ---
 # <a name="azure-data-lake-analytics-documentation"></a>Documentação do Azure Data Lake Analytics
 
@@ -109,7 +108,7 @@ Saiba como usar Azure Data Lake Analytics para executar trabalhos de análise de
                 <div class="card">
                     <div class="cardText">
                         <h3>Linha de comando</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.datalakeanalytics">PowerShell</a></p>
                         <p><a href="/cli/azure/dla">CLI 2.0</a></p>
                     </div>
                 </div>
@@ -124,7 +123,7 @@ Saiba como usar Azure Data Lake Analytics para executar trabalhos de análise de
                         <h3>Linguagens</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.datalake.analytics">.NET</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html">Python</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.analytics.account">Python</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt591959">U-SQL</a></p>
                     </div>
                 </div>

@@ -4,23 +4,24 @@ description: Responde a algumas dúvidas que os administradores de TI podem ter 
 services: active-directory
 keywords: configurações do enterprise state roaming, nuvem do windows, perguntas frequentes sobre o enterprise state roaming
 documentationcenter: ''
-author: tanning
+author: MarkusVi
 manager: mtillman
 editor: curtand
+ms.component: devices
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: f33376d5f68d64495a7a90e62870f3ec14f73246
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258707"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630749"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Configurações e perguntas frequentes sobre o roaming de dados
 Este artigo responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo.
@@ -98,7 +99,7 @@ O Roaming de Estado da Empresa armazena todos os dados sincronizados na nuvem do
 ## <a name="who-owns-the-data-thats-being-roamed"></a>A quem pertencem os dados que estão sendo movidos?
 As empresas possuem os dados movidos por meio de Enterprise State Roaming. Os dados são armazenados em um datacenter do Azure. Todos os dados de usuário são criptografados em trânsito e em repouso na nuvem usando o serviço do Microsoft Azure Rights Management da Proteção de Informações do Microsoft Azure. Isso é uma melhoria em comparação à sincronização de configurações baseada em conta da Microsoft, que criptografa apenas determinados dados confidenciais, como credenciais de usuários, antes de saírem do dispositivo.
 
-A Microsoft está comprometida em proteger os dados do cliente. Os dados de configurações do usuário de uma empresa são automaticamente criptografados pelo Azure Rights Management antes de deixar um dispositivo Windows 10, para que outro usuário não possa lê-los. Se sua organização tiver uma assinatura paga do Azure Rights Management, você poderá usar outros recursos de proteção, como rastrear e revogar documentos automaticamente, proteger emails com informações confidenciais e gerenciar suas próprias chaves (a solução "traga sua própria chave", também conhecida como BYOK). Para saber mais informações sobre esses recursos e como esse serviço de proteção funciona, consulte [O que é o Azure Rights Management](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
+A Microsoft está comprometida em proteger os dados do cliente. Os dados de configurações do usuário de uma empresa são automaticamente criptografados pelo Azure Rights Management antes de deixar um dispositivo Windows 10, para que outro usuário não possa lê-los. Se sua organização tiver uma assinatura paga do Azure Rights Management, você poderá usar outros recursos de proteção, como rastrear e revogar documentos automaticamente, proteger emails com informações confidenciais e gerenciar suas próprias chaves (a solução "traga sua própria chave", também conhecida como BYOK). Para saber mais informações sobre esses recursos e como esse serviço de proteção funciona, consulte [O que é o Azure Rights Management](/azure/information-protection/what-is-information-protection).
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Posso gerenciar a sincronização para um aplicativo ou uma configuração específica?
 No Windows 10, não há configurações do MDM ou da Política de Grupo para desabilitar o roaming de um aplicativo individual. Os administradores de locatários podem desabilitar a sincronização de dados de aplicativos para todos os aplicativos em um dispositivo gerenciado, mas não há controles mais refinados por aplicativo ou ao nível do aplicativo.

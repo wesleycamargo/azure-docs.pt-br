@@ -3,7 +3,7 @@ title: Proteger serviços de back-end usando autenticação de certificado do cl
 description: Saiba como garantir serviços de back-end usando autenticação de certificado do cliente no Gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,125 +11,82 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: c3060765022cabcb877041927886b59d6725c7cf
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 2b0db6f9a1e9cd660ce1b1e7af3e7e1c85815c16
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045241"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como garantir serviços de back-end usando autenticação de certificado do cliente no Gerenciamento de API do Azure
-O Gerenciamento de API fornece a capacidade para garantir acesso ao serviço back-end de uma API usando certificados do cliente. Este guia mostra como gerenciar certificados no Portal do editor de API e como configurar uma API para usar um certificado para acessar seu serviço back-end.
+
+O Gerenciamento de API permite proteger o acesso ao serviço back-end de uma API usando certificados do cliente. Este guia mostra como gerenciar certificados na instância do serviço Gerenciamento de API do Azure no portal do Azure. Também explica como configurar uma API para usar um certificado para acessar um serviço back-end.
 
 Para obter mais informações sobre gerenciamento de certificados usando a API REST de gerenciamento de API, consulte <a href="https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Entidade de certificado da API REST de Gerenciamento de API do Azure</a>.
 
 ## <a name="prerequisites"> </a>Pré-requisitos
-Este guia mostra como configurar sua instância de serviço de Gerenciamento de API para usar a autenticação de certificado do cliente para acessar o serviço back-end para uma API. Antes de seguir as etapas descritas neste tópico, é necessário configurar seu serviço back-end para a autenticação de certificado do cliente ([para configurar a autenticação de certificado nos Sites do Azure, consulte este artigo][to configure certificate authentication in Azure WebSites refer to this article]) e ter acesso ao certificado e à senha do certificado para carregar no portal do editor do Gerenciamento de API.
+
+Este guia mostra como configurar sua instância de serviço de Gerenciamento de API para usar a autenticação de certificado do cliente para acessar o serviço back-end para uma API. Antes de executar as etapas deste artigo, será necessário ter o serviço back-end configurado para a autenticação de certificado do cliente ([para configurar a autenticação de certificado nos sites do Azure, consulte este artigo][to configure certificate authentication in Azure WebSites refer to this article]). É necessário acessar o certificado e a senha para enviar ao serviço de Gerenciamento de API.
 
 ## <a name="step1"> </a>Carregar um certificado do cliente
-Para começar, clique em **Portal do Editor** no Portal do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
-![Portal do editor de API][api-management-management-console]
+![Adicionar certificados do cliente](media/api-management-howto-mutual-certificates/apim-client-cert.png)
 
-> Se você ainda não tiver criado uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance].
-> 
-> 
+Siga as etapas abaixo para fazer upload de um novo certificado do cliente. Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte o tutorial [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance].
 
-Clique em **Segurança** no menu **Gerenciamento de API** à esquerda e clique em **Certificados do cliente**.
+1. Navegue até a instância de serviço do Gerenciamento de API do Azure no portal do Azure.
+2. Selecione **Certificados do Cliente** do menu.
+3. Clique no botão **+ Adicionar**.  
+    ![Adicionar certificados do cliente](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)  
+4. Procure o certificado, forneça a ID e senha.  
+5. Clique em **Criar**.
 
-![Certificados do cliente][api-management-security-client-certificates]
-
-Para carregar um novo certificado, clique em **Carregar um certificado**.
-
-![Carregar um certificado][api-management-upload-certificate]
-
-Navegue para o seu certificado e digite a senha para o certificado.
-
+> [!NOTE]
 > O certificado deve estar no formato **.pfx** . Os certificados autoassinados são permitidos.
-> 
-> 
 
-![Carregar um certificado][api-management-upload-certificate-form]
+Depois que o certificado for carregado, ele será exibido nos **Certificados do cliente**.  Se você tiver muitos certificados, anote a impressão digital do certificado desejado para poder [Configurar uma API para usar um certificado do cliente para a autenticação de gateway][Configure an API to use a client certificate for gateway authentication].
 
-Clique em **Carregar** para carregar o certificado.
-
-> A senha do certificado é validada neste momento. Se ela estiver incorreta, é exibida uma mensagem de erro.
-> 
-> 
-
-![Certificado carregado][api-management-certificate-uploaded]
-
-Uma vez que o certificado é carregado, ele aparece na guia **Certificados do cliente** . Se você tiver vários certificados, anote a entidade ou os últimos quatro caracteres da impressão digital, que serão usados para selecionar o certificado ao configurar uma API para usar certificados, como abordado na seção [Configurar uma API para usar um certificado do cliente para a autenticação de gateway][Configure an API to use a client certificate for gateway authentication] a seguir.
-
+> [!NOTE]
 > Para desabilitar a validação da cadeia de certificados ao usar, por exemplo, um certificado autoassinado, siga as etapas descritas neste [item](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end) das Perguntas frequentes.
-> 
-> 
 
 ## <a name="step1a"> </a>Excluir um certificado do cliente
-Para excluir um certificado, clique em **Excluir** ao lado do certificado desejado.
 
-![Excluir Certificado][api-management-certificate-delete]
+Para excluir um certificado, clique no menu de contexto **...** e selecione **Excluir** ao lado do certificado.
 
-Clique em **Sim, excluir** para confirmar.
-
-![Confirmar exclusão][api-management-confirm-delete]
+![Excluir certificados do cliente](media/api-management-howto-mutual-certificates/apim-client-cert-delete.png)
 
 Se o certificado está em uso por uma API, então uma tela de aviso é exibida. Para excluir o certificado, você primeiro deve remover o certificado de quaisquer APIs que são configuradas para usá-la.
 
-![Confirmar exclusão][api-management-confirm-delete-policy]
+![Excluir falha nos certificados do cliente](media/api-management-howto-mutual-certificates/apim-client-cert-delete-failure.png)
 
 ## <a name="step2"> </a>Configurar uma API para usar um certificado do cliente para a autenticação de gateway
-Clique nas **APIs** no menu **Gerenciamento de API** à esquerda, clique no nome da API desejada e clique na guia **Segurança**.
 
-![Segurança da API][api-management-api-security]
+1. Clique em **APIs** do menu **Gerenciamento de API**  à esquerda e navegue até a API.  
+    ![Habilitar certificados do cliente](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)
 
-Selecione **Certificados do cliente** na lista suspensa **Com credenciais**.
+2. Na guia **Design**, clique em um ícone de lápis da seção **Back-end**. 
+3. Altere as **Credenciais do Gateway** para **Client cert** e selecione o certificado na lista suspensa.  
+    ![Habilitar certificados do cliente](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-![Certificados do cliente][api-management-mutual-certificates]
+4. Clique em **Salvar**. 
 
-Selecione o certificado desejado da lista suspensa **Certificado do cliente** . Se houver certificados múltiplos, você pode olhar no assunto ou nos últimos quatro caracteres da impressão digital como observado na seção anterior para determinar o certificado correto.
-
-![Selecionar certificado][api-management-select-certificate]
-
-Clique em **Salvar** para salvar as alterações de configuração para a API.
-
+> [!WARNING]
 > Essa alteração tem efeito imediato e chama para operações desta API, que usará o certificado para autenticar no servidor back-end.
-> 
-> 
 
-![Salvar alterações da API][api-management-save-api]
 
+> [!TIP]
 > Quando um certificado é especificado para a autenticação de gateway para o serviço back-end de uma API, ele se torna parte da política dessa API e pode ser exibido no editor da política.
-> 
-> 
-
-![Política do certificado][api-management-certificate-policy]
 
 ## <a name="self-signed-certificates"></a>Certificados autoassinados
 
-Se você estiver usando certificados autoassinados, precisará desabilitar a validação da cadeia de certificados para que o Gerenciamento de API comunique-se com o sistema de back-end, caso contrário, ele retornará um código de erro 500. Para configurar isso, você pode usar cmdlets [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (para novo back-end) ou [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (para back-end existente) do PowerShell e definir o parâmetro `-SkipCertificateChainValidation` como `True`.
+Se você estiver usando certificados autoassinados, será necessário desabilitar a validação da cadeia de certificados para que o Gerenciamento de API comunique-se com o sistema back-end. Caso contrário, retornará um código de erro 500. Para configurar isso, você pode usar cmdlets [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (para novo back-end) ou [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (para back-end existente) do PowerShell e definir o parâmetro `-SkipCertificateChainValidation` como `True`.
 
 ```
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
-
-[api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
-[api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png
-[api-management-upload-certificate]: ./media/api-management-howto-mutual-certificates/api-management-upload-certificate.png
-[api-management-upload-certificate-form]: ./media/api-management-howto-mutual-certificates/api-management-upload-certificate-form.png
-[api-management-certificate-uploaded]: ./media/api-management-howto-mutual-certificates/api-management-certificate-uploaded.png
-[api-management-api-security]: ./media/api-management-howto-mutual-certificates/api-management-api-security.png
-[api-management-mutual-certificates]: ./media/api-management-howto-mutual-certificates/api-management-mutual-certificates.png
-[api-management-select-certificate]: ./media/api-management-howto-mutual-certificates/api-management-select-certificate.png
-[api-management-save-api]: ./media/api-management-howto-mutual-certificates/api-management-save-api.png
-[api-management-certificate-policy]: ./media/api-management-howto-mutual-certificates/api-management-certificate-policy.png
-[api-management-certificate-delete]: ./media/api-management-howto-mutual-certificates/api-management-certificate-delete.png
-[api-management-confirm-delete]: ./media/api-management-howto-mutual-certificates/api-management-confirm-delete.png
-[api-management-confirm-delete-policy]: ./media/api-management-howto-mutual-certificates/api-management-confirm-delete-policy.png
-
-
 
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to add and publish a product]: api-management-howto-add-products.md
@@ -151,6 +108,3 @@ New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/mya
 [Configure an API to use a client certificate for gateway authentication]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
-
-
-

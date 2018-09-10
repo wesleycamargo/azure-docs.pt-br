@@ -3,22 +3,24 @@ title: Problemas para entrar em um aplicativo a partir do Painel de Acesso| Micr
 description: Como solucionar problemas de acesso a um aplicativo a partir do Painel de Acesso do Microsoft Azure AD em myapps.microsoft.com
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 5765d64fccba69edd0ebe91a6c34694763e6c539
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 290b6cd04ab897caba24799fcc9ece450766887a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364439"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemas para entrar em um aplicativo a partir do Painel de Acesso
 

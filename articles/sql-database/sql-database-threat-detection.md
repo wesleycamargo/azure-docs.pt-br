@@ -5,17 +5,18 @@ services: sql-database
 author: rmatchoro
 manager: craigg
 ms.service: sql-database
+ms.subservice: advanced-threat-protection
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: ronmat
 ms.reviewer: carlrab
-ms.openlocfilehash: db10bbdd39920b05d9fd8c3907f22c3ee5d08b02
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c82692525f06fda93f94a8d856eb65254e5fd211
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364141"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003936"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Detecção de Ameaças do Banco de Dados SQL do Azure
 

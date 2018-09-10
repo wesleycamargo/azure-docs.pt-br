@@ -2,18 +2,19 @@
 title: Aplicativo de conexão da Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
 description: Este artigo descreve como conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure.
 ms.service: sql-database
-author: srdjan-bozovic
+author: srdan-bozovic-msft
 manager: craigg
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 82e8836892b033ccbb3c3ad9806257348afe3702
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818395"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -39,10 +40,10 @@ Há duas opções de conexão de VNETs:
 - [Emparelhamento de Rede Virtual do Azure](../virtual-network/virtual-network-peering-overview.md) 
 - Gateway de VPN VNET a VNET ([portal do Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [CLI do Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
  
-A opção de emparelhamento é a preferencial porque o emparelhamento usa a rede de backbone da Microsoft. Portanto, da perspectiva de conectividade, não há nenhuma diferença perceptível na latência entre as máquinas virtuais na VNET emparelhada e na mesma VNET. O emparelhamento VNET é limitado às redes na mesma região, embora o emparelhamento entre regiões esteja habilitado em algumas regiões como uma versão prévia.  
+A opção de emparelhamento é a preferencial porque o emparelhamento usa a rede de backbone da Microsoft. Portanto, da perspectiva de conectividade, não há nenhuma diferença perceptível na latência entre as máquinas virtuais na VNET emparelhada e na mesma VNET. O emparelhamento de VNET é limitado a redes na mesma região.  
  
 > [!IMPORTANT]
-> Os emparelhamentos de VNET criados entre regiões podem não ter o mesmo nível de disponibilidade e confiabilidade encontrado em emparelhamentos em uma versão de disponibilidade geral. Os emparelhamentos de VNET podem ter funcionalidades restringidas e podem não estar disponíveis em todas as regiões do Azure. Para obter as notificações mais atualizadas sobre a disponibilidade e o status desse recurso, confira a página de atualizações  [Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network). 
+> O cenário de emparelhamento VNet para a instância gerenciada está limitado às redes na mesma região devido a [restrições do emparelhamento de Rede Virtual Global](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). 
 
 ## <a name="connect-an-on-premises-application"></a>Conectar um aplicativo local 
 
@@ -74,9 +75,23 @@ Este cenário é ilustrado no seguinte diagrama:
 
 A Instância Gerenciada pode ser acessada somente por meio de um endereço IP privado. Portanto, para acessá-la na caixa de desenvolvedor, primeiro você precisa fazer uma conexão entre a caixa de desenvolvedor e a VNET da Instância Gerenciada.  
  
-Configure uma conexão Ponto a Site com uma VNET usando a autenticação nativa de certificado do Azure. Os artigos ([portal do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [CLI do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) mostram em detalhes como isso pode ser feito.  
+Configure uma conexão Ponto a Site com uma VNET usando a autenticação nativa de certificado do Azure. Os artigos ([portal do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [CLI do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) mostram em detalhes como isso pode ser feito. 
+
+## <a name="required-versions-of-drivers-and-tools"></a>Versões necessárias de drivers e ferramentas
+
+As seguintes versões mínimas das ferramentas e drivers são recomendadas se você deseja se conectar à Instância Gerenciada:
+
+| Driver/ferramenta | Versão |
+| --- | --- |
+|.NET Framework | 4.6.1 (ou .NET Core) | 
+|Driver ODBC    | v17 |
+|Driver PHP | 5.2.0 |
+|Driver JDBC    | 6.4.0 |
+|Driver Node.js | 2.1.1 |
+|Driver OLE DB   | 18.0.2.0 |
+|SSMS   | 17.8.1 ou [superior](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter informações sobre a Instância Gerenciada, consulte [O que é uma Instância Gerenciada](sql-database-managed-instance.md).
-- Para obter um tutorial mostrando como criar uma nova Instância Gerenciada, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-create-tutorial-portal.md).
+- Para obter um tutorial mostrando como criar uma nova Instância Gerenciada, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-get-started.md).

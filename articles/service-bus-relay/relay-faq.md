@@ -3,7 +3,7 @@ title: Perguntas frequentes de retransmissão do Azure | Microsoft Docs
 description: Obtenha respostas a algumas perguntas frequentes sobre Retransmissão do Azure.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 886d2c7f-838f-4938-bd23-466662fb1c8e
@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2018
-ms.author: sethm
-ms.openlocfilehash: d433fb916280e98dd0f2af61728596b8566be71b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 05/21/2018
+ms.author: spelluru
+ms.openlocfilehash: e30e8c94547ac0f9106a69f1e99cf9a7c03abea5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695890"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes sobre Retransmissão do Azure
 
-Este artigo responde a algumas perguntas frequentes sobre a [Retransmissão do Azure](https://azure.microsoft.com/services/service-bus/). Para informações gerais sobre preço e suporte do Azure, consulte [Perguntas frequentes sobre suporte do Azure](https://azure.microsoft.com/en-in/support/faq/).
+Este artigo responde a algumas perguntas frequentes sobre a [Retransmissão do Azure](https://azure.microsoft.com/services/service-bus/). Para obter informações gerais sobre preço e suporte do Azure, confira [Perguntas frequentes sobre suporte do Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="general-questions"></a>Perguntas gerais
 ### <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
@@ -35,7 +36,7 @@ Um [namespace](relay-create-namespace-portal.md) é um contêiner de escopo que 
 O serviço que antes era chamado de Retransmissão do Barramento de Serviço agora se chama [Retransmissão do WCF](relay-wcf-dotnet-get-started.md). Você pode continuar a usar esse serviço como de costume. O recurso Conexões Híbridas é uma versão atualizada de um serviço que foi transplantado dos Serviços BizTalk do Azure. Ainda há suporte para Retransmissão do WCF e Conexões Híbridas.
 
 ## <a name="pricing"></a>Preços
-Esta seção responde a algumas perguntas frequentes sobre a estrutura de preços de Retransmissão. Você também pode ver [Perguntas frequentes sobre o suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obter informações gerais de preço do Azure. Para obter informações completas sobre o preço da Retransmissão, consulte [Detalhes de preço do Barramento de Serviço][Pricing overview].
+Esta seção responde a algumas perguntas frequentes sobre a estrutura de preços de Retransmissão. Você também pode conferir as [Perguntas frequentes sobre o suporte do Azure](https://azure.microsoft.com/support/faq/) para obter informações gerais sobre preços do Azure. Para obter informações completas sobre o preço da Retransmissão, consulte [Detalhes de preço do Barramento de Serviço][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Como são cobradas as Conexões Híbridas e a Retransmissão do WCF?
 Para obter informações completas sobre os preços da Retransmissão, consulte a tabela [Conexões Híbridas e Retransmissões do WCF][Pricing overview] na página de detalhes de preços do Barramento de Serviço. Além dos preços mencionados, indicados naquela página, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo é provisionado.
@@ -81,8 +82,8 @@ As retransmissões abertas usando a associação do WCF **netTCPRelay** tratam a
 | Ouvintes simultâneos em uma retransmissão |Entidade |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |25 |
 | Conexões de retransmissão simultâneas por todos os pontos de extremidade de retransmissão em um namespace de serviço |Namespace |- |5.000 |
 | Pontos de extremidade de retransmissão por namespace de serviço |Namespace |- |10.000 |
-| Tamanho de mensagem para retransmissões [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) e [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) |Namespace |As mensagens de entrada que excederem essas cotas serão rejeitadas e uma exceção será recebida pelo código de chamada. |64 KB |
-| Tamanho de mensagem para retransmissões [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) e [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Namespace |Não há limite no tamanho da mensagem. |Ilimitado |
+| Tamanho de mensagem para retransmissões [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Namespace |As mensagens de entrada que excederem essas cotas serão rejeitadas e uma exceção será recebida pelo código de chamada. |64 KB |
+| Tamanho de mensagem para retransmissões [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Namespace |Não há limite no tamanho da mensagem. |Ilimitado |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>A retransmissão tem alguma cota de uso?
 Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregada que é calculada para todas as assinaturas de um cliente. Sabemos que, às vezes, suas necessidades podem exceder esses limites. Você pode contatar o atendimento ao cliente a qualquer momento para que possamos compreender suas necessidades e ajustar esses limites adequadamente. Para o Barramento de Serviço, as cotas totais de uso são:
@@ -108,7 +109,7 @@ Para usar o portal do Azure para migrar namespaces de Retransmissão do Azure de
 
 Para usar o PowerShell para mover um namespace de uma assinatura do Azure para outra, use a seguinte sequência de comandos. Para executar essa operação, o namespace já deve estar ativo e o usuário que está executando os comandos do PowerShell deve ser um Administrador nas assinaturas de origem e de destino.
 
-```powershell
+```azurepowershell-interactive
 # Create a new resource group in the target subscription.
 Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
 New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
@@ -136,4 +137,4 @@ Sim. O cliente de retransmissão faz conexões com o serviço de Retransmissão 
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md
-[Shared access signatures]: ../service-bus-messaging/service-bus-sas.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md

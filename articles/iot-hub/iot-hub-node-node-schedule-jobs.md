@@ -1,24 +1,20 @@
 ---
 title: Agendar trabalhos com o Hub IoT do Azure (Node) | Microsoft Docs
 description: Como agendar um trabalho do Hub IoT do Azure para invocar um método direto em vários dispositivos. Você pode usar os SDKs do IoT do Azure para Node.js para implementar os aplicativos do dispositivo simulado e um aplicativo de serviço para executar o trabalho.
-services: iot-hub
-documentationcenter: .net
 author: juanjperez
-manager: timlt
-editor: ''
-ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: juanpere
-ms.openlocfilehash: e7e724de68e7078782e90a3f2eda9f7261638ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2161cd12f8bdb6aa3018d81a7864816a97ed122a
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187743"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Agendar e transmitir trabalhos (Node)
 
@@ -265,10 +261,10 @@ Para continuar com a introdução ao Hub IoT e aos padrões de gerenciamento de 
 Para continuar a introdução ao Hub IoT, consulte [Introdução ao Azure IoT Edge][lnk-iot-edge].
 
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
-[lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md
-[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
+[lnk-twin-props]: tutorial-device-twins.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
-[lnk-fwupdate]: iot-hub-node-node-firmware-update.md
+[lnk-fwupdate]: tutorial-firmware-update.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

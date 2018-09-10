@@ -1,27 +1,23 @@
 ---
 title: Gerenciar metadados de artefato de contas de integração – Aplicativo Lógico do Azure | Microsoft Docs
-description: Adicionar ou recuperar metadados de artefato de contas de integração dos Aplicativo Lógico do Azure
-author: padmavc
-manager: anneta
-editor: ''
+description: Adicionar ou recuperar metadados de artefato de contas de integração no Aplicativo Lógico do Azure com o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 02/23/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 8ebca60c21366cddadccfd0456880696457d7777
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 537014c2780fe94cfb35806759f8bcbd974c4c95
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128796"
 ---
-# <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Gerenciar metadados de artefato nas contas de integração de aplicativos lógicos
+# <a name="manage-artifact-metadata-from-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Gerenciar metadados de artefato de contas de integração no Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
 É possível definir metadados personalizados para artefatos em contas de integração e recuperar esses metadados durante o tempo de execução do aplicativo lógico. Por exemplo, é possível especificar metadados para artefatos, como parceiros, contratos, esquemas e mapas – todos armazenam metadados usando pares chave-valor. 
 

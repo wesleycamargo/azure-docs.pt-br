@@ -1,12 +1,12 @@
 ---
-title: "Configurando o Python com Aplicativos Web do Serviço de Aplicativo do Azure"
-description: "Este tutorial descreve opções para criar e configurar um servidor Web básico compatível com aplicativos de Python Gateway Interface (WSGI) nos Aplicativos Web do Serviço de Aplicativo do Azure."
+title: Configurando o Python com Aplicativos Web do Serviço de Aplicativo do Azure
+description: Este tutorial descreve opções para criar e configurar um servidor Web básico compatível com aplicativos de Python Gateway Interface (WSGI) nos Aplicativos Web do Serviço de Aplicativo do Azure.
 services: app-service
 documentationcenter: python
 tags: python
-author: huguesv
+author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 796de682df28c28bc66f2409e486dfdc221aedd1
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140589"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Configurando o Python com Aplicativos Web do Serviço de Aplicativo do Azure
 Este tutorial descreve as opções para criação e configuração de uma Web Server Gateway Interface (WSGI) básica compatível com aplicativos Python nos [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -29,9 +30,11 @@ Ele descreve os recursos adicionais de implantação do Git, como o ambiente vir
 ## <a name="bottle-django-or-flask"></a>Bottle, Django ou Flask?
 O Microsoft Azure Marketplace contém modelos para as estruturas Bottle, Django e Flask. Se estiver desenvolvendo seu primeiro aplicativo Web no Serviço de Aplicativo do Azure, crie um rapidamente no portal do Azure:
 
-* [Criando aplicativos Web com Bottle](https://portal.azure.com/#create/PTVS.Bottle)
-* [Criando aplicativos Web com Django](https://portal.azure.com/#create/PTVS.Django)
-* [Criando aplicativos Web com Flask](https://portal.azure.com/#create/PTVS.Flask)
+* [Aplicativo Web com Bottle no Linux](https://portal.azure.com/#create/PTVS.BottleLinux)
+* [Aplicativo Web com Django no Linux](https://portal.azure.com/#create/PTVS.DjangoLinux)
+* [Aplicativo Web com Flask no Linux](https://portal.azure.com/#create/PTVS.FlaskLinux)
+
+Ou é possível [explorar o Microsoft Azure Marketplace você mesmo](https://portal.azure.com/#create/hub).
 
 ## <a name="web-app-creation-on-azure-portal"></a>Criação de aplicativos Web no Portal do Azure
 Este tutorial assume uma assinatura existente do Azure e acesso ao Portal do Azure.
@@ -349,8 +352,11 @@ Conteúdo de `ptvs_virtualenv_proxy.py`:
 ## <a name="troubleshooting---virtual-environment"></a>Solução de problemas - Ambiente virtual
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
+## <a name="troubleshooting---startup-errors"></a>Solução de problemas - Erros de inicialização
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais, confira o [Centro de Desenvolvedores do Python](/develop/python/).
+Para saber mais, confira o [Centro de Desenvolvedores do Python](https://azure.microsoft.com/develop/python/).
 
 > [!NOTE]
 > Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.

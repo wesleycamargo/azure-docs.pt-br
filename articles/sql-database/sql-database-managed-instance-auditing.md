@@ -7,14 +7,15 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 08/28/2018
 ms.author: giladm
-ms.openlocfilehash: 3d5a4ad3f4046dfdfe6eb3f7ddd931ccb240b1a9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a43ca95717c712c932d29a619b7f1a0671c500bf
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125434"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Comece com a Auditoria da Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -108,8 +109,8 @@ A seção a seguir descreve a configuração de auditoria na Instância Gerencia
     - [ALTERAR AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 7. Crie uma especificação de Auditoria de Servidor ou Especificação de Auditoria de Banco de Dados como faria para o SQL Server:
-    - [Guia Criar T-SQL de especificação de auditoria de servidor](https://docs.microsoft.com/ sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [Guia Criar T-SQL de especificação de auditoria de banco de dados](https://docs.microsoft.com/ sql/t-sql/statements/create-database-audit-specification-transact-sql)
+    - [Guia Criar T-SQL de especificação de auditoria de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+    - [Guia Criar T-SQL de especificação de auditoria de banco de dados](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 8. Habilite a auditoria de servidor criada na etapa 6:
 

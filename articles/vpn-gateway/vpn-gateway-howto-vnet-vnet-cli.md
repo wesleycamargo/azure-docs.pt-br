@@ -1,11 +1,11 @@
 ---
-title: "Conectar uma rede virtual a outra rede virtual usando uma conexão de VNet a VNet: CLI do Azure | Microsoft Docs"
-description: "Conecte redes virtuais usando a conexão de rede virtual a rede virtual e a CLI do Azure."
+title: 'Conectar uma rede virtual a outra rede virtual usando uma conexão de VNet a VNet: CLI do Azure | Microsoft Docs'
+description: Conecte redes virtuais usando a conexão de rede virtual a rede virtual e a CLI do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 32afd5bd3f972aa1cb1d90e0b10ebff4a761f2e3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 796f63a77e90c729edae7b11adf3c7be807db5f4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38670904"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando a CLI do Azure
 
@@ -28,7 +29,7 @@ Este artigo ajuda você a conectar redes virtuais usando o tipo de conexão de r
 As etapas neste artigo se aplicam ao modelo de implantação do Resource Manager e usa a CLI do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)

@@ -3,7 +3,7 @@ title: Visão geral do modelo de autenticação e de segurança dos Hubs de Even
 description: Visão geral do modelo de autenticação e segurança dos Hubs de Eventos
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 5264930dcb802c2a58abc179bdd0041acc9f58d0
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: 0e8dcf9eede744d52e38b742946a59944988f199
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141618"
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Visão geral do modelo de autenticação e segurança dos Hubs de Eventos
 
@@ -110,11 +111,11 @@ Na ausência de autenticação SAS para grupos de consumidores individuais, voc�
 
 Para saber mais sobre os Hubs de Eventos, veja os tópicos a seguir:
 
-* [Visão geral de Hubs de Evento]
+* [Visão geral de Hubs de Eventos]
 * [Visão Geral de Assinatura de Acesso Compartilhado]
 * [Aplicativos de exemplo que usam Hub de Eventos]
 
-[Visão geral de Hubs de Evento]: event-hubs-what-is-event-hubs.md
+[Visão geral de Hubs de Eventos]: event-hubs-what-is-event-hubs.md
 [Aplicativos de exemplo que usam Hub de Eventos]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [Visão Geral de Assinatura de Acesso Compartilhado]: ../service-bus-messaging/service-bus-sas.md
 

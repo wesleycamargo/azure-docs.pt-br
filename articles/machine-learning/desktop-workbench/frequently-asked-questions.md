@@ -7,14 +7,16 @@ ms.author: serinak
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 864e9ff5551637a93b957e5011a8857072c6eaaf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 94a1f3bbba83e8e71cf9440b5ded0784f4616c99
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674148"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Machine Learning
 
@@ -28,7 +30,7 @@ Azure Blob Storage e Registro de Contêiner do Azure são usadas pelo Azure Mach
 
 **Como o Azure Machine Learning está relacionado aos Serviços Machine Learning da Microsoft no SQL Server 2017?**   
 
-Os Serviços de Machine Learning no SQL Server 2017 são uma plataforma extensível e escalonável para integrar tarefas de aprendizado de máquina a fluxos de trabalho do banco de dados. São ideais para situações em que uma solução local é necessária, por exemplo, quando a movimentação de dados é cara ou inviável. Em contraste, cargas de trabalho de nuvem ou híbrida são uma excelente opção para nossos novos serviços do Azure. 
+Os Serviços de Machine Learning no SQL Server 2017 são uma plataforma extensível e escalonável para integrar tarefas de aprendizado de máquina a fluxos de trabalho do banco de dados. São ideais para cenários em que uma solução local é necessária, por exemplo, quando a movimentação de dados é cara ou inviável. Em contraste, cargas de trabalho de nuvem ou híbrida são uma excelente opção para nossos novos serviços do Azure. 
 
 **Há suporte para Python e R? E quanto a outras linguagens de programação, como C++**
 
@@ -111,11 +113,11 @@ O Azure Machine Learning Workbench é um aplicativo complementar criado para cie
 
 **O Workbench é um IDE?**
 
-Nº O Machine Learning Workbench foi projetado como um complemento a IDEs populares, como Blocos de Anotações do Jupyter, Visual Studio Code e PyCharm, mas não é um IDE totalmente funcional. O Machine Learning Workbench oferece alguns recursos básicos de edição de texto, mas depuração, intellisense e outros recursos de IDE comumente usados não têm suporte. É recomendável que você use seu IDE favorito para o desenvolvimento, edição e depuração de código. Você também poderá tentar [Ferramentas para AI do Visual Studio Code](https://www.visualstudio.com/downloads/ai-tools-vscode).
+Não. O Machine Learning Workbench foi projetado como um complemento a IDEs populares, como Blocos de Anotações do Jupyter, Visual Studio Code e PyCharm, mas não é um IDE totalmente funcional. O Machine Learning Workbench oferece alguns recursos básicos de edição de texto, mas depuração, intellisense e outros recursos de IDE comumente usados não têm suporte. É recomendável que você use seu IDE favorito para o desenvolvimento, edição e depuração de código. Você também poderá tentar [Ferramentas para AI do Visual Studio Code](https://www.visualstudio.com/downloads/ai-tools-vscode).
 
 **Há um custo para usar o Azure Machine Learning Workbench?**
 
-Nº O Azure Machine Learning Workbench é um aplicativo gratuito. Você pode baixá-lo em tantos computadores e usuários quantos precisar. Para usar o Azure Machine Learning Workbench, você deve ter uma conta de Experimentação. .  
+Não. O Azure Machine Learning Workbench é um aplicativo gratuito. Você pode baixá-lo em tantos computadores e usuários quantos precisar. Para usar o Azure Machine Learning Workbench, você deve ter uma conta de Experimentação. .  
 
 **Há suporte para funcionalidades de linha de comando?**
 
@@ -170,4 +172,4 @@ Nossos produtos e serviços de versão prévia incluem o melhor da comunidade de
 
 **Como o Azure Machine Learning se relacionam com o Kit de Ferramentas Cognitivas da Microsoft?**
 
-O [Kit de Ferramentas Cognitivas da Microsoft](https://www.microsoft.com/cognitive-toolkit/) é uma das várias estruturas com suporte em nossas novas ferramentas e serviços. O Kit de Ferramentas Cognitivas é um kit de ferramentas de aprendizado profundo unificado que permite consumir e combinar modelos de aprendizado de máquina populares, incluindo Redes Neurais Profundas de Feed-Forward, Redes Convolucionais, Sequência a Sequência e Redes Recorrentes. Para obter mais informações sobre o Kit de Ferramentas Cognitivas da Microsoft, acesse nossa [documentação de produto](https://docs.microsoft.com/cognitive-toolkit/). 
+O [Kit de Ferramentas Cognitivas da Microsoft](https://www.microsoft.com/en-us/cognitive-toolkit/) é uma das várias estruturas com suporte em nossas novas ferramentas e serviços. O Kit de Ferramentas Cognitivas é um kit de ferramentas de aprendizado profundo unificado que permite consumir e combinar modelos de aprendizado de máquina populares, incluindo Redes Neurais Profundas de Feed-Forward, Redes Convolucionais, Sequência a Sequência e Redes Recorrentes. Para obter mais informações sobre o Kit de Ferramentas Cognitivas da Microsoft, acesse nossa [documentação de produto](https://docs.microsoft.com/cognitive-toolkit/). 

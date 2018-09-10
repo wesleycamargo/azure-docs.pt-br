@@ -2,23 +2,21 @@
 title: 'Início rápido: API Cassandra com Node.js do Azure Cosmos DB | Microsoft Docs'
 description: Este guia de início rápido mostra como usar a API Cassandra do Azure Cosmos DB para criar um aplicativo de perfil com Node.js
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 4732e57d-32ed-40e2-b148-a8df4ff2630d
 ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
 ms.custom: quick start connect, mvc
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cc8fd5ef77407274187411da593be7b68ae114d7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e86b80328c3717220b2771a1bf8f4232f9a51748
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215857"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Guia de início rápido: compilar um aplicativo Cassandra com o Node.js e o Azure Cosmos DB
 
@@ -26,7 +24,7 @@ Este guia de início rápido mostra como usar o Node.js e a [API Cassandra](cass
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, tabelas, valores-chave e bancos de dados de gráfico, todos os quais se beneficiam de recursos de distribuição global e escala horizontal e no núcleo do Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Como alternativa, você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem ônus e sem compromisso.
 
@@ -123,7 +121,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como os recurso
     client.batch(queries, { prepare: true}, next);
     ```
 
-* Consulta para obter todos os valores de chave.
+* Consulta para obter todos os pares chave-valor.
 
     ```nodejs
    var query = 'SELECT * FROM uprofile.user';
@@ -218,7 +216,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar uma coleção usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do Cosmos DB. 
+Neste início rápido, você aprendeu a criar uma conta do Azure Cosmos DB, como criar um contêiner usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importar dados do Cassandra para o Azure Cosmos DB](cassandra-import-data.md)

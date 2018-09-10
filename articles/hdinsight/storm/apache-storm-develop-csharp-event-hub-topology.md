@@ -1,24 +1,20 @@
 ---
-title: Processar eventos de Hubs de Eventos com o Storm – Azure HDInsight | Microsoft Docs
+title: Processar eventos de Hubs de Eventos com o Storm – Azure HDInsight
 description: Saiba como processar dados de Hubs de Eventos do Azure com uma topologia Storm C# criada no Visual Studio usando as ferramentas do HDInsight para Visual Studio.
 services: hdinsight,notification hubs
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: ''
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 475a63937ed09b4ce875465c0eb3488ce92c38be
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7c37abe709559fc0628b94ba50634673c08af375
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051560"
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (C#)
 
@@ -110,7 +106,7 @@ topologyBuilder.SetJavaBolt(
 
 Você pode baixar uma versão completa do projeto criado neste tutorial do [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). No entanto, você ainda precisa fornecer definições de configuração seguindo as etapas neste tutorial.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 * Um [Apache Storm no cluster HDInsight versão 3.5 ou 3.6](apache-storm-tutorial-get-started-linux.md).
 

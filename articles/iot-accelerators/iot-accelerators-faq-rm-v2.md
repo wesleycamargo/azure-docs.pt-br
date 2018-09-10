@@ -1,25 +1,19 @@
 ---
 title: Perguntas frequentes sobre o acelerador de solução de monitoramento remoto | Microsoft Docs
 description: Perguntas frequentes sobre o acelerador de solução de Monitoramento Remoto
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: a65f2a90aedf5aa50016a6c5e5019094f202bf55
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ba0d81761904be74632f8f0025488b7f501bd715
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185992"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Perguntas frequentes sobre o acelerador de solução de Monitoramento Remoto
 
@@ -48,7 +42,7 @@ Para obter mais informações, consulte [Atualizar chave de mapa para ver dispos
 
 Você também pode explorar alguns dos outros recursos dos aceleradores de solução de IoT:
 
-* [Explorar os recursos do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-explore.md)
-* [Visão geral do acelerador de solução de Manutenção Preditiva](../iot-suite/iot-suite-predictive-overview.md)
-* [Visão geral do acelerador de solução Connected Factory](iot-accelerators-connected-factory-overview.md)
-* [Segurança da IoT desde o início](../iot-suite/securing-iot-ground-up.md)
+* [Explorar os recursos do acelerador da solução de Monitoramento Remoto](quickstart-remote-monitoring-deploy.md)
+* [Visão geral do acelerador de solução de Manutenção Preditiva](iot-accelerators-predictive-overview.md)
+* [Implantar o Acelerador de solução de fábrica Conectada](quickstart-connected-factory-deploy.md)
+* [Segurança da IoT desde o início](/azure/iot-fundamentals/iot-security-ground-up)

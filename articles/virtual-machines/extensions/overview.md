@@ -3,7 +3,7 @@ title: Recursos e extensões de máquina virtual do Microsoft Azure| Microsoft D
 description: Saiba quais são as extensões das Máquinas Virtuais do Azure e como usá-las com as máquinas virtuais do Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
-ms.openlocfilehash: 01178995dbf9203082a6250ef256522bc1101e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: ec201f7f82aea97b9927b85a6b185fad51f6081d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944698"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412593"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Extensões e recursos da máquina virtual do Azure
 Extensões de máquina virtual do Azure (VM) são pequenos aplicativos que fornecem as tarefas de configuração e automação de pós-implantação em VMs do Azure, você pode usar imagens existentes e personalizá-las como parte de suas implantações, você saindo da empresa de criação de imagem personalizada.
@@ -43,7 +43,7 @@ Você pode exibir as extensões disponíveis na folha da VM no Portal, em extens
 ## <a name="how-can-i-install-an-extension"></a>Como instalar uma extensão?
 As extensões da VM do Azure podem ser gerenciadas usando a CLI 2.0 do Azure, os modelos do Azure Resource Manager e o Portal do Azure. Para testar uma extensão, você pode ir para o portal do Azure, selecionar a extensão de Script personalizado, em seguida, passar um comando / script e executar as extensões.
 
-Se você quiser mesma extensão adicionada no portal pelo modelo CLI ou o Gerenciador de recursos, consulte a documentação de extensão diferente, como [extensão de Script do Windows personalizado](custom-script-windows.md) e [extensão de Script personalizado do Linux](custom-script-linux.md).
+Caso deseje a mesma extensão que você adicionou no portal pela CLI ou pelo modelo do Resource Manager, confira a documentação de uma extensão diferente, como a [Extensão de Script Personalizado do Windows](custom-script-windows.md) e a [Extensão de Script Personalizado do Linux](custom-script-linux.md).
 
 ## <a name="how-do-i-manage-extension-application-lifecycle"></a>Como gerenciar o ciclo de vida do aplicativo de extensão?
 Você não precisa se conectar a uma VM diretamente para instalar ou excluir a extensão. Como o ciclo de vida do aplicativo de extensão do Azure é gerenciado fora da VM e integrado à plataforma do Azure, também é possível obter status integrado da extensão.

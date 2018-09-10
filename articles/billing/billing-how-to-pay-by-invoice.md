@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: ac8262da05837dcdb4ebddd5029f9b5ece3dbc6f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: cc174822af436e7c31eb5ad4bfa419e1fa022f44
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617362"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Enviar uma solicitação para pagar uma assinatura do Azure por fatura
 
@@ -26,7 +27,7 @@ Você pode alterar o método de pagamento para a sua assinatura do Azure para fa
 
 > [!IMPORTANT]
 > * O pagamento da fatura está disponível somente para contas comerciais.
-> * [Serviços externos e de terceiros](billing-understand-your-azure-marketplace-charges.md) não podem ser comprados ou pagos com pagamento de fatura. Se sua assinatura contém recursos de serviços externos, como ClearDB ou SendGrid, eles precisam ser excluídos antes da alteração para pagamento por fatura. Para comprar serviços externos depois de alternar para pagamento por fatura, você precisa de uma assinatura separada com um cartão de crédito ou de débito.
+> * [Serviços externos e de terceiros](billing-understand-your-azure-marketplace-charges.md) não podem ser comprados ou pagos com pagamento de fatura. Se sua assinatura contém recursos de serviços externos, como SendGrid, eles precisam ser excluídos antes da alteração para pagamento por fatura. Para comprar serviços externos depois de alternar para pagamento por fatura, você precisa de uma assinatura separada com um cartão de crédito ou de débito.
 > * Quando você alternar para o pagamento por fatura, você não pode alternar novamente para pagamento por cartão de crédito ou de débito.
 
 ## <a name="request-pay-by-invoice"></a>Solicitar pagamento por fatura

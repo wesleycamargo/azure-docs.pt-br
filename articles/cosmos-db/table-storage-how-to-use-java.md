@@ -1,27 +1,25 @@
 ---
 title: Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB do Java | Microsoft Docs
-description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL.
+description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: java
 author: SnehaGunda
 manager: kfile
-ms.assetid: 45145189-e67f-4ca6-b15d-43af7bfd3f97
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: Java
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 4ac25fd9e1d7233546b34da89eb1bcaf37f6f38b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f4ebcf51ab6682009190e467ca9dbf67caf1c182
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797889"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB do Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Visão geral
 Este artigo mostra como executar cenários comuns usando o serviço de armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos DB. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]. Os cenários abrangidos incluem **criar**, **listar** e **excluir** tabelas, além de **inserir**, **consultar**, **modificar** e **excluir** entidades em uma tabela. Para obter mais informações sobre tabelas, consulte a seção [Próximas etapas](#next-steps) .
@@ -36,13 +34,13 @@ Este artigo mostra como executar cenários comuns usando o serviço de armazenam
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta de API de Tabele do Azure Cosmos DB
+### <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-java-application"></a>Criar um aplicativo Java
 Neste guia, você usará os recursos de armazenamento que podem ser executados em um aplicativo Java localmente ou no código em execução em uma função web ou de trabalho do Azure.
 
-Para usar os modelos, instale o Java Development Kit (JDK) e crie uma conta de armazenamento do Azure na sua assinatura do Azure. Depois disso, verifique se o sistema de desenvolvimento atende aos requisitos mínimos e às dependências listadas no repositório [Microsoft Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK de Armazenamento do Microsoft Azure para Java) no GitHub. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para fazer o download e instalar as Bibliotecas de Armazenamento do Microsoft Azure para Java em seu sistema por meio desse repositório. Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
+Para usar os modelos, instale o Java Development Kit (JDK) e crie uma conta de armazenamento do Azure ou do Azure Cosmos DB em sua assinatura do Azure. Depois disso, verifique se o sistema de desenvolvimento atende aos requisitos mínimos e às dependências listadas no repositório [Microsoft Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK de Armazenamento do Microsoft Azure para Java) no GitHub. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para fazer o download e instalar as Bibliotecas de Armazenamento do Microsoft Azure para Java em seu sistema por meio desse repositório. Após concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>Configurar seu aplicativo para acessar o armazenamento de tabelas
 Adicione as seguintes instruções de importação na parte superior do arquivo Java em que deseja usar as APIs de armazenamento ou a API da Tabela do Azure Cosmos DB para acessar a tabela:
@@ -67,7 +65,7 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-## <a name="add-an-azure-cosmos-db-connection-string"></a>Adicionar uma cadeia de conexão do Azure Cosmos DB
+## <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Adicionar uma cadeia de conexão da API de Tabela do Azure Cosmos DB
 Uma conta de banco de dados do Azure Cosmos DB usa uma cadeia de caracteres de conexão para armazenar o ponto de extremidade de tabela e suas credenciais. Ao executar um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento do Azure Cosmos DB no formato a seguir, usando o nome de sua conta do Azure Cosmos DB e a chave de Acesso primário da conta de armazenamento listada no [Portal do Azure](https://portal.azure.com) para os valores *AccountName* e *AccountKey*. 
 
 Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão do Azure Cosmos DB:
@@ -100,7 +98,7 @@ Os exemplos abaixo pressupõem que você usou um desses métodos para obter a ca
 Um objeto **CloudTableClient** permite obter os objetos de referência para tabelas e entidades. O código a seguir cria um objeto **CloudTableClient** e o usa para criar um novo objeto **CloudTable**, o qual representa uma tabela nomeada "pessoas". 
 
 > [!NOTE]
-> Existem outras maneiras de criar objetos **CloudStorageAccount**; para obter mais informações, confira **CloudStorageAccount** na [Referência de SDK do cliente de Armazenamento do Microsoft Azure]).
+> Existem outras maneiras de criar objetos **CloudStorageAccount**; para obter mais informações, confira **CloudStorageAccount** na [Referência de SDK do Cliente de Armazenamento do Azure]).
 >
 
 ```java
@@ -599,7 +597,7 @@ catch (Exception e)
 * [Introdução ao Serviço Tabela do Azure em Java](https://github.com/Azure-Samples/storage-table-java-getting-started)
 * [O Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
 * [Microsoft Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK de Armazenamento do Microsoft Azure para Java)
-* [Referência de SDK do cliente de Armazenamento do Microsoft Azure][Referência de SDK do cliente de Armazenamento do Microsoft Azure]
+* [Referência de SDK do Cliente de Armazenamento do Azure][Referência de SDK do Cliente de Armazenamento do Azure]
 * [Azure Storage REST API Reference][Azure Storage REST API] (Referência de API REST do Armazenamento do Azure)
 * [Microsoft Azure Storage Team Blog][Azure Storage Team Blog] (Blog da equipe de Armazenamento do Microsoft Azure)
 
@@ -608,7 +606,7 @@ Para saber mais, visite [Azure para desenvolvedores Java](/java/azure).
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Referência de SDK do cliente de Armazenamento do Microsoft Azure]: http://azure.github.io/azure-storage-java/
+[Referência de SDK do Cliente de Armazenamento do Azure]: http://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

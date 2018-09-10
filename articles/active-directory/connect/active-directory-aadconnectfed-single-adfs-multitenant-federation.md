@@ -4,7 +4,7 @@ description: Neste documento, você aprenderá a federar vários Azure AD com um
 keywords: federar, ADFS, AD FS, vários locatários, único AD FS, um ADFS, federação multilocatária, adfs de várias florestas, aad connect, federação, federação entre locatários
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: anandy; billmath
-ms.openlocfilehash: c55a4232c54308c5d000cfefc2c7dca2800b462c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: hybrid
+ms.author: billmath
+ms.openlocfilehash: 91436af0aa26c079d5cd2cc19d16a1ff0354e860
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126585"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federar várias instâncias do Azure AD com uma instância única do AD FS
 
@@ -58,7 +60,7 @@ Na sessão do Azure AD PowerShell, execute as seguintes etapas: conecte-se ao Az
     Connect-MsolService
 Converta o domínio gerenciado fabrikam.com em federado:
 
-    Convert-MsolDomainToFederated -DomainName anandmsft.com -Verbose -SupportMultipleDomain
+    Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
  
 A operação acima vai federar o domínio fabrikam.com com o mesmo AD FS. Você pode verificar as configurações de domínio usando Get-MsolDomainFederationSettings para os dois domínios.
 

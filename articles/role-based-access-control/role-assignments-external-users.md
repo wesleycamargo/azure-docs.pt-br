@@ -1,6 +1,6 @@
 ---
-title: Gerenciar as atribuições de função para usuários externos no Azure | Microsoft Docs
-description: Gerenciar o controle de acesso baseado em função (RBAC) no Azure para usuários externos de uma organização
+title: Gerenciar acesso para usuários externos usando RBAC no Azure| Microsoft Docs
+description: Saiba como gerenciar o acesso de usuários externos para uma organização usando RBAC (controle de acesso baseado em função) no Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,21 +9,21 @@ editor: ''
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 084594b637f813c110e4e0b2e9df2b9103d58efc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 58108bd2851050e96df1b5453ce96856374b7163
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203879"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437028"
 ---
-# <a name="manage-role-assignments-for-external-users"></a>Gerenciar as atribuições de função para usuários externos
+# <a name="manage-access-for-external-users-using-rbac"></a>Gerenciar acesso para usuários externos usando RBAC
 
 O controle de acesso baseado em função (RBAC) permite um melhor gerenciamento de segurança para grandes empresas e SMBs que trabalham com colaboradores externos, fornecedores ou freelancers que precisam de acesso a recursos específicos em seu ambiente, mas não necessariamente a toda a infraestrutura nem nenhum escopo relacionado à cobrança. O RBAC proporciona a flexibilidade de ter uma assinatura do Azure gerenciada pela conta de administrador (função de administrador de serviços no nível da assinatura) e ter vários usuários convidados para trabalhar na mesma assinatura, mas sem os direitos administrativos para ela.
 
@@ -44,10 +44,10 @@ Funções RBAC podem ser concedidas somente pelos **Proprietários** da assinatu
 No Portal do Azure, depois de entrar como administrador, selecione "Assinaturas" e escolha a desejada.
 ![folha de assinatura no portal do Azure](./media/role-assignments-external-users/0.png) Por padrão, se o usuário administrador tiver comprado a assinatura do Azure, ele aparecerá como **Administrador da conta**, sendo essa a função da assinatura. Para obter mais informações sobre as funções de assinatura do Azure, consulte [Adicionar ou alterar funções de administrador do Azure que gerenciam a assinatura ou os serviços](../billing/billing-add-change-azure-subscription-administrator.md).
 
-Neste exemplo, o usuário "alflanigan@outlook.com" é o **Proprietário** da assinatura de "Avaliação Gratuita" no locatário AAD definido como "Locatário padrão do Azure". Uma vez que esse usuário é o criador da assinatura do Azure com a Conta da Microsoft inicial "Outlook" (Conta da Microsoft = Outlook, Live etc.), o nome de domínio padrão para todos os outros usuários adicionados neste locatário será **"@alflaniganuoutlook.onmicrosoft.com"**. Por design, a sintaxe do novo domínio é formada reunindo o nome de usuário e o nome de domínio do usuário que criou o locatário e adicionando a extensão **".onmicrosoft.com"**.
+Neste exemplo, o usuário "alflanigan@outlook.com" é o **Proprietário** da assinatura de "Avaliação Gratuita" no locatário AAD definido como "Locatário padrão do Azure". Uma vez que esse usuário é o criador da assinatura do Azure com a Conta da Microsoft inicial "Outlook" (Conta da Microsoft = Outlook, Live etc.), o nome de domínio padrão para todos os outros usuários adicionados neste locatário será **"\@alflaniganuoutlook.onmicrosoft.com"**. Por design, a sintaxe do novo domínio é formada reunindo o nome de usuário e o nome de domínio do usuário que criou o locatário e adicionando a extensão **".onmicrosoft.com"**.
 Além disso, os usuários podem entrar com um nome de domínio personalizado no locatário depois de o adicionarem e verificarem para o novo locatário. Para obter mais informações sobre como verificar um nome de domínio personalizado em um locatário do Azure Active Directory, consulte [Adicionar um nome de domínio personalizado ao seu diretório](/active-directory/active-directory-add-domain).
 
-Neste exemplo, o diretório "Locatário padrão do Azure" contém somente usuários com o nome de domínio "@alflanigan.onmicrosoft.com".
+Neste exemplo, o diretório "Locatário padrão do Azure" contém somente usuários com o nome de domínio "\@alflanigan.onmicrosoft.com".
 
 Depois de selecionar a assinatura, o usuário administrador deve clicar em **Controle de acesso (IAM)** e, em seguida, em **Adicionar uma nova função**.
 
@@ -55,7 +55,7 @@ Depois de selecionar a assinatura, o usuário administrador deve clicar em **Con
 
 ![adicionar novo usuário no recurso IAM de controle de acesso no portal do Azure](./media/role-assignments-external-users/2.png)
 
-A próxima etapa é selecionar a função a ser atribuída e o usuário ao qual a função de RBAC será atribuída. No menu suspenso **Função**, o usuário administrador vê apenas as funções RBAC internas que estão disponíveis no Azure. Para obter explicações mais detalhadas sobre cada função e seus escopos atribuíveis, consulte [Funções internas para o Controle de Acesso Baseado em Função do Azure](built-in-roles.md).
+A próxima etapa é selecionar a função a ser atribuída e o usuário ao qual a função de RBAC será atribuída. No menu suspenso **Função**, o usuário administrador vê apenas as funções RBAC internas que estão disponíveis no Azure. Para obter explicações mais detalhadas sobre cada função e seus escopos atribuíveis, consulte [Funções internas](built-in-roles.md).
 
 Em seguida, o usuário administrador precisa adicionar o endereço de email do usuário externo. O comportamento esperado para o usuário externo é não aparecer no locatário existente. Depois de ser convidado, o usuário externo fica visível em **Assinaturas > Controle de Acesso (IAM)** com todos os usuários atuais que são atribuídos a uma função RBAC no escopo de Assinatura no momento.
 

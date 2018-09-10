@@ -16,15 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: a44c9ec9270e4ba76f0ff367e039f5ef72eb04a5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: defc871caed429eeda1f8672323b48a9c0007c8e
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371730"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Criar máquina virtual do Windows com o cmdlet simplificado New-AzureRMVM no Cloud Shell 
 
-O cmdlet [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) adicionou um conjunto simplificado de parâmetros para criar uma nova VM usando o PowerShell. Este tópico mostra como usar o PowerShell no Azure Cloud Shell, com a versão mais recente do cmdlet New-AzureVM pré-instalado, para criar uma nova VM. Usaremos um conjunto de parâmetros simplificado que cria automaticamente todos os recursos necessários usando padrões inteligentes. 
+O cmdlet [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) adicionou um conjunto simplificado de parâmetros para criar uma nova VM usando o PowerShell. Este tópico mostra como usar o PowerShell no Azure Cloud Shell, com a versão mais recente do cmdlet New-AzureVM pré-instalado, para criar uma nova VM. Usaremos um conjunto de parâmetros simplificado que cria automaticamente todos os recursos necessários usando padrões inteligentes. 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -35,7 +36,7 @@ Se você optar por instalar e usar o PowerShell localmente, este tutorial exigir
 
 ## <a name="create-the-vm"></a>Criar a VM
 
-Use o cmdlet [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) para criar uma VM com padrões inteligentes que incluem o uso da imagem do Windows Server 2016 Datacenter a partir do Azure Marketplace. Use o New-AzureRMVM apenas com o parâmetro **-Name** e ele usará esse valor para todos os nomes de recursos. Neste exemplo, definimos o parâmetro **-Nome** como *myVM*. 
+Use o cmdlet [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) para criar uma VM com padrões inteligentes que incluem o uso da imagem do Windows Server 2016 Datacenter a partir do Azure Marketplace. Use o New-AzureRMVM apenas com o parâmetro **-Name** e ele usará esse valor para todos os nomes de recursos. Neste exemplo, definimos o parâmetro **-Nome** como *myVM*. 
 
 Verifique se **PowerShell** está selecionado no Cloud Shell e digite:
 
@@ -45,11 +46,11 @@ New-AzureRMVm -Name myVM
 
 Você será solicitado a criar um nome de usuário e uma senha para a VM, que será usada quando você se conectar à máquina virtual neste tópico. A senha deve ter de 12 a 123 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial.
 
-Leva um minuto para criar a máquina virtual e os recursos associados. Quando terminar, você pode ver todos os recursos que foram criados usando o cmdlet [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource).
+Leva um minuto para criar a máquina virtual e os recursos associados. Quando terminar, você pode ver todos os recursos criados usando o cmdlet [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource).
 
 ```azurepowershell-interactive
-Find-AzureRmResource `
-    -ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
+Get-AzureRmResource `
+    -ResourceGroupName myVMResourceGroup | Format-Table Name
 ```
 
 ## <a name="connect-to-the-vm"></a>Conectar-se à VM

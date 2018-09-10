@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 07/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0020ed42baaa32fbc5ae2d62b37558e491842d67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6272cc8b2f34211aa6e5b85dbb508ade74cee637
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157400"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247563"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure Active Directory Connect: configurar o local de dados preferencial para recursos do Office 365
 O objetivo deste tópico é orientá-lo como configurar o atributo para o local de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém usa recursos de Multi-Geo no Office 365, este atributo é usado para designar a localização geográfica de dados do Office 365 do usuário. (Os termos *região* e *área geográfica* são usados de maneira intercambiável.)
@@ -44,9 +45,10 @@ As áreas geográficas no Office 365, disponíveis para replicação Multigeogr�
 | Austrália | AUS |
 | Canadá | CAN |
 | União Europeia | EUR |
+| França | FRA |
 | Índia | IND |
 | Japão | JPN |
-| Coreia | KOR |
+| Coreia do Sul | KOR |
 | Reino Unido | GBR |
 | Estados Unidos | NAM |
 

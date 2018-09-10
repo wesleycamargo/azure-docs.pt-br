@@ -1,6 +1,6 @@
 ---
 title: Solução Monitor de Desempenho de Rede no Azure Log Analytics | Microsoft Docs
-description: Use o recurso ExpressRoute Manager no Monitor de Desempenho de Rede para monitorar a conectividade de ponta a ponta e o desempenho entre as filiais e o Azure, por meio do Microsoft Azure ExpressRoute.
+description: Use a funcionalidade ExpressRoute Monitor no Monitor de Desempenho de Rede para monitorar a conectividade de ponta a ponta e o desempenho entre as filiais e o Azure, por meio do Azure ExpressRoute.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -11,22 +11,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9610a8b37ead976cfdfa2fed81d4d3932055ddcc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: 27169193a468d98be879164b80e63fffde419002
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38633342"
 ---
-# <a name="expressroute-manager"></a>ExpressRoute Manager
+# <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
-Use o recurso do Azure ExpressRoute Manager no [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md) para monitorar a conectividade de ponta a ponta e o desempenho entre as filiais e o Azure, por meio do Azure ExpressRoute. As principais vantagens são: 
+Use a funcionalidade do Monitor do Azure ExpressRoute no [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md) para monitorar a conectividade de ponta a ponta e o desempenho entre as filiais e o Azure, por meio do Azure ExpressRoute. As principais vantagens são: 
 
 - Detecção automática de circuitos ExpressRoute associados à sua assinatura.
-- Acompanhamento de utilização de largura de banda, perda e latência no circuito, emparelhamento e nível da 
-Rede Virtual do Azure para ExpressRoute.
+- Acompanhamento de utilização de largura de banda, perda e latência no circuito, emparelhamento e nível da Rede Virtual do Azure para ExpressRoute.
 - Descoberta da topologia de rede dos circuitos do ExpressRoute.
 
 ![ExpressRoute Monitor](media/log-analytics-network-performance-monitor/expressroute-intro.png)
@@ -37,7 +38,7 @@ Para abrir a configuração do Monitor de Desempenho de Rede, abra a [solução 
 ### <a name="configure-network-security-group-rules"></a>Configurar regras do grupo de segurança de rede 
 Para servidores no Azure que estão sendo usados para o monitoramento via Monitor de Desempenho de Rede, você deverá configurar as regras do NSG (grupo de segurança de rede) para permitir o tráfego TCP na porta usada pelo Monitor de Desempenho de Rede para transações sintéticas. A porta padrão é 8084. Essa configuração permite que o agente do Operations Management Suite instalado nas VMs do Azure se comunique com um agente de monitoramento local. 
 
-Para obter mais informações sobre o NSG, consulte  [Grupos de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+Para saber mais sobre NSGs, confira  [Grupos de segurança de rede](../virtual-network/manage-network-security-group.md). 
 
 >[!NOTE]
 > Antes de continuar com esta etapa, instale o agente do servidor local e o agente do servidor do Azure e execute o script PowerShell EnableRules.ps1. 

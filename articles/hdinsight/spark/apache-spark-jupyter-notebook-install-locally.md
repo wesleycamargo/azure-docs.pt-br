@@ -1,24 +1,20 @@
 ---
-title: Instalar o Jupyter localmente e conectar-se a um cluster do Spark do Azure HDInsight | Microsoft Docs
-description: Saiba mais sobre como instalar o bloco de anotações do Jupyter localmente em seu computador e se conectar a um cluster Apache Spark no Azure HDInsight.
+title: Instalar o Jupyter localmente e conectar-se a um cluster do Spark do Azure HDInsight
+description: Saiba mais sobre como instalar o bloco de anotações do Jupyter localmente em seu computador e se conectar a um cluster Apache Spark.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 48593bdf-4122-4f2e-a8ec-fdc009e47c16
 ms.service: hdinsight
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: eea61586054f34142d77f16333fe70a66d95d529
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 83e9596f37850ef5b26b530cd4424a024355fc8a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042548"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalar o bloco de anotações do Jupyter em seu computador e conectar-se ao Apache Spark no HDInsight
 
@@ -32,7 +28,7 @@ Há três etapas principais envolvidas na instalação do Jupyter e da mágica d
 
 Para saber mais sobre os kernels personalizados e a sobre a mágica Spark disponível para blocos de notas Jupyter com o cluster HDInsight, confira [Kernels disponíveis para blocos de notas Jupyter com clusters do Apache Spark Linux no HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Os pré-requisitos listados aqui não são para a instalação do Jupyter. Eles são para conectar o bloco de notas Jupyter a um cluster HDInsight depois que o bloco de notas está instalado.
 
 * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -43,7 +39,7 @@ Os pré-requisitos listados aqui não são para a instalação do Jupyter. Eles 
 Você deve instalar o Python antes de instalar notebooks do Jupyter. Ambos o Python e o Jupyter estão disponíveis como parte da [distribuição do Anaconda](https://www.continuum.io/downloads). Quando instala o Anaconda, você instala uma distribuição do Python. Quando o Anaconda é instalado, você adiciona a instalação do Jupyter executando comandos apropriados.
 
 1. Baixe o [instalador do Anaconda](https://www.continuum.io/downloads) para sua plataforma e execute a instalação. Ao executar o assistente de instalação, não deixe de selecionar a opção de adicionar o Anaconda à variável PATH.
-2. Execute o comando a seguir para instalar o Jupyter.
+1. Execute o comando a seguir para instalar o Jupyter.
 
         conda install jupyter
 
@@ -72,8 +68,8 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
         import os
         print(os.path.expanduser('~'))
 
-2. Navegue até o diretório base e crie uma pasta chamada **.sparkmagic** , caso ela ainda não exista.
-3. Dentro da pasta, crie um arquivo chamado **config.json** e adicione o trecho de código JSON a seguir dentro dele.
+1. Navegue até o diretório base e crie uma pasta chamada **.sparkmagic** , caso ela ainda não exista.
+1. Dentro da pasta, crie um arquivo chamado **config.json** e adicione o trecho de código JSON a seguir dentro dele.
 
         {
           "kernel_python_credentials" : {
@@ -88,9 +84,9 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
           }
         }
 
-4. Substitua **{USERNAME}**, **{CLUSTERDNSNAME}** e **{BASE64ENCODEDPASSWORD}** pelos valores apropriados. Você pode usar vários utilitários em sua linguagem de programação favorita ou online para gerar uma senha codificada em base64 para sua senha real.
+1. Substitua **{USERNAME}**, **{CLUSTERDNSNAME}** e **{BASE64ENCODEDPASSWORD}** pelos valores apropriados. Você pode usar vários utilitários em sua linguagem de programação favorita ou online para gerar uma senha codificada em base64 para sua senha real.
 
-5. Defina as configurações corretas de Pulsação em `config.json`. Você deve adicionar essas configurações no mesmo nível que os trechos `kernel_python_credentials` e `kernel_scala_credentials` adicionados anteriormente. Para obter um exemplo de como e onde adicionar as configurações de pulsação, consulte este [exemplo de config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
+1. Defina as configurações corretas de Pulsação em `config.json`. Você deve adicionar essas configurações no mesmo nível que os trechos `kernel_python_credentials` e `kernel_scala_credentials` adicionados anteriormente. Para obter um exemplo de como e onde adicionar as configurações de pulsação, consulte este [exemplo de config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
     * Para `sparkmagic 0.2.3` (clusters v3.4), incluem:
 
@@ -107,11 +103,11 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
     >[!TIP]
     >As pulsações são enviadas para garantir que as sessões não sejam perdidas. Quando um computador entra em suspensão ou está desligado, a pulsação não é enviada e, como resultado, a sessão é limpa. Para clusters v3.4, se desejar desabilitar esse comportamento, você poderá definir a configuração Livy `livy.server.interactive.heartbeat.timeout` para `0` da interface do usuário do Ambari. Para clusters v3.5, se você não definir a configuração de 3.5 ou acima, a sessão não será excluída.
 
-6. Inicie o Jupyter. Use o comando do prompt de comando a seguir.
+1. Inicie o Jupyter. Use o comando do prompt de comando a seguir.
 
         jupyter notebook
 
-7. Verifique se você pode se conectar ao cluster usando o bloco de notas Jupyter e se você pode usar a mágica Spark disponível com os kernels. Execute as seguintes etapas:
+1. Verifique se você pode se conectar ao cluster usando o bloco de notas Jupyter e se você pode usar a mágica Spark disponível com os kernels. Execute as seguintes etapas:
 
     a. Crie um novo bloco de anotações. Do canto direito, clique em **Novo**. Você deve ver o kernel padrão **Python2** e os dois kernels novos instalados, **PySpark** e **Spark**. Clique em **PySpark**.
 

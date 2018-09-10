@@ -4,20 +4,21 @@ description: Saiba como monitorar diferentes tipos de tempo de execução de int
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: ''
+manager: craigg
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/23/2017
+ms.topic: conceptual
+ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 4c857af02e104940559cb86daa3ccd208d8e35a1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8ca7ce2586513373c58552bb1f56b94715f15076
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128442"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um tempo de execução de integração no Azure Data Factory  
 O **tempo de execução de integração** é a infraestrutura de computação usada pelo Azure Data Factory para fornecer diversas funcionalidades de integração de dados entre diferentes ambientes de rede. São oferecidos três tipos de tempos de execução de integração pelo Data Factory:
@@ -25,9 +26,6 @@ O **tempo de execução de integração** é a infraestrutura de computação us
 - Integration Runtime do Azure
 - Tempo de execução de integração auto-hospedado
 - Tempo de execução de integração do Azure-SSIS
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Documentação do Data Factory versão 1](v1/data-factory-introduction.md).
 
 Para obter o status de uma instância de tempo de execução de integração (IR), execute o seguinte comando do PowerShell: 
 
@@ -43,7 +41,7 @@ O recurso de computação para um tempo de execução de integração do Azure �
 ### <a name="properties"></a>propriedades
 A tabela a seguir fornece descrições de propriedades retornadas pelo cmdlet para um tempo de execução de integração:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 -------- | ------------- | 
 | NOME | Nome do tempo de execução de integração do Azure. |  
 | Estado | Status do tempo de execução de integração do Azure. | 
@@ -70,7 +68,7 @@ Esta seção fornece descrições para propriedades retornadas pelo cmdlet Get-A
 
 A tabela a seguir apresenta descrições das Propriedades de monitoramento para **cada nó**:
 
-| Propriedade | DESCRIÇÃO | 
+| Propriedade | Descrição | 
 | -------- | ----------- | 
 | NOME | Nome do tempo de execução de integração auto-hospedado e nós associados a ele. O nó é um computador local do Windows em que o tempo de execução de integração auto-hospedado está instalado. |  
 | Status | O status do tempo de execução de integração auto-hospedado geral e de cada nó. Exemplo: Online/Offline/Limitado/etc. Para obter informações sobre esses status, consulte a próxima seção. | 
@@ -78,10 +76,18 @@ A tabela a seguir apresenta descrições das Propriedades de monitoramento para 
 | Memória disponível | Memória disponível em um nó de tempo de execução de integração auto-hospedado. Esse valor é um instantâneo quase em tempo real. | 
 | Utilização da CPU | Utilização da CPU de um nó de tempo de execução de integração auto-hospedado. Esse valor é um instantâneo quase em tempo real. |
 | Rede (Entrada/Saída) | Utilização da rede de um nó de tempo de execução de integração auto-hospedado. Esse valor é um instantâneo quase em tempo real. | 
-| Trabalhos Simultâneos (Executando/Limite) | Número de trabalhos ou tarefas em execução em cada nó. Esse valor é um instantâneo quase em tempo real. Limite significa a máxima de trabalhos simultâneos para cada nó. Esse valor é definido com base no tamanho do computador. Você pode aumentar o limite para escalar verticalmente a execução de trabalhos simultâneos em cenários avançados, em que memória/CPU/rede são subutilizados, mas as atividades estão atingindo o tempo limite. Essa funcionalidade também está disponível com tempo de execução de integração auto-hospedado de nó único. |
+| Trabalhos Simultâneos (Executando/Limite) | **Executando**. Número de trabalhos ou tarefas em execução em cada nó. Esse valor é um instantâneo quase em tempo real. <br/><br/>**Limite**. Limite significa a máxima de trabalhos simultâneos para cada nó. Esse valor é definido com base no tamanho do computador. Você pode aumentar o limite para escalar verticalmente a execução de trabalhos simultâneos em cenários avançados, em que as atividades estão atingindo o tempo limite mesmo quando há subutilização de memória, CPU ou rede. Essa funcionalidade também está disponível com tempo de execução de integração auto-hospedado de nó único. |
 | Função | Há dois tipos de funções em um tempo de execução de integração auto-hospedado com vários nós – dispatcher e de trabalho. Todos os nós são de trabalho, o que significa que eles podem ser usados para executar trabalhos. Há apenas um nó dispatcher, que é usado para efetuar pull de tarefas/trabalhos dos serviços de nuvem e distribuí-los para nós de trabalho diferentes. O nó dispatcher também é um nó de trabalho. |
 
-Algumas configurações das propriedades fazem mais sentido quando há dois ou mais nós (cenário de expansão) no tempo de execução de integração auto-hospedado. 
+Algumas configurações das propriedades fazem mais sentido quando há dois ou mais nós no tempo de execução de integração auto-hospedado (ou seja, no cenário de expansão).
+
+#### <a name="concurrent-jobs-limit"></a>Limite de trabalhos simultâneos
+
+O valor padrão do limite de trabalhos simultâneos é definido com base no tamanho do computador. Os fatores usados para calcular esse valor dependem da quantidade de RAM e do número de núcleos de CPU do computador. Portanto, quanto mais núcleos e mais memória, maior será o limite padrão de trabalhos simultâneos.
+
+Você escala horizontalmente aumentando o número de nós. Quando você aumenta o número de nós, o limite de trabalhos simultâneos é a soma dos valores de limite de trabalhos simultâneos de todos os nós disponíveis.  Por exemplo, se um nó permitir que você execute um máximo de 12 trabalhos simultâneos, adicionar mais três nós semelhantes permitirá que você execute um máximo de 48 trabalhos simultâneos (ou seja, 4 × 12). É recomendável aumentar o limite de trabalhos simultâneos apenas quando você observar um baixo uso de recursos com os valores padrão em cada nó.
+
+Você pode substituir o valor padrão calculado no portal do Azure. Selecione Autor > Conexões > Integration Runtimes > Editar > Nós > Modificar valor de trabalhos simultâneos por nó. Você também pode usar o comando [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) do PowerShell.
   
 ### <a name="status-per-node"></a>Status (por nó)
 A tabela a seguir fornece os possíveis status de um nó de tempo de execução de integração auto-hospedado:
@@ -166,10 +172,10 @@ O tempo de execução de integração do SSIS do Azure é um cluster totalmente 
 | CatalogAdminUserName | O nome de usuário do administrador do Banco de Dados do SQL Azure/servidor de Instância Gerenciada (versão prévia) existente. O serviço Data Factory usa essas informações para preparar e gerenciar o SSISDB por você. |
 | CatalogAdminPassword | A senha de administrador do servidor existente do Banco de Dados do Azure SQL/Instância Gerenciada (versão prévia). |
 | CatalogPricingTier | O tipo de preço do SSISDB hospedado por seu servidor existente de Banco de dados SQL do Azure.  Não aplicável à Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia) que hospeda o SSISDB. |
-| VNetId | A ID de recursos da rede virtual (VNet) para o tempo de execução de integração do Azure-SSIS ingressar. |
+| VNetId | A ID de recursos da rede virtual para o tempo de execução de integração do Azure-SSIS ingressar. |
 | Sub-rede | O nome da sub-rede para o tempo de execução de integração do Azure-SSIS ingressar. |
 | ID | A ID de recursos do seu tempo de execução de integração do Azure-SSIS. |
-| type | O tipo (Gerenciado/Auto-hospedado) de seu tempo de execução de integração do Azure-SSIS. |
+| Tipo | O tipo (Gerenciado/Auto-hospedado) de seu tempo de execução de integração do Azure-SSIS. |
 | ResourceGroupName | O nome do seu grupo de recursos do Azure, no qual seu data factory e o tempo de execução de integração do Azure-SSIS foram criados. |
 | DataFactoryName | O nome de seu data factory do Azure. |
 | NOME | O nome do seu tempo de execução de integração do Azure-SSIS. |
@@ -195,13 +201,31 @@ O tempo de execução de integração do SSIS do Azure é um cluster totalmente 
 | Parando  | Os nós de seu tempo de execução de integração do Azure-SSIS estão sendo liberados. |
 | Parado | Os nós de seu tempo de execução de integração do Azure-SSIS foram liberados e a cobrança parou. |
 
+### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Monitorar o tempo de execução de integração do Azure-SSIS no portal do Azure
+
+As capturas de tela a seguir mostram como selecionar o IR do Azure-SSIS a ser monitorado e fornecer um exemplo das informações exibidas.
+
+![Selecionar o tempo de execução de integração do Azure-SSIS para monitorar](media/monitor-integration-runtime/monitor-azure-ssis-ir-image1.png)
+
+![Exibir informações sobre o tempo de execução de integração do Azure-SSIS](media/monitor-integration-runtime/monitor-azure-ssis-ir-image2.png)
+
+### <a name="monitor-the-azure-ssis-integration-runtime-with-powershell"></a>Monitorar o tempo de execução de integração do Azure-SSIS com PowerShell
+
+Usar um script como o exemplo a seguir para verificar o status do IR do Azure-SSIS.
+
+```powershell
+Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+```
+
+### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Mais informações sobre o tempo de execução de integração do Azure-SSIS
+
 Consulte os artigos a seguir para saber mais sobre o tempo de execução de integração do Azure-SSIS:
 
 - [Tempo de execução de integração do Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações conceituais sobre tempos de execução de integração em geral, incluindo o IR do Azure-SSIS. 
 - [Tutorial: implantar pacotes do SSIS para o Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo fornece instruções passo a passo para criar um IR do Azure-SSIS e usa um banco de dados SQL do Azure para hospedar o catálogo do SSIS. 
-- [Como: Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar a Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia) e associar o IR a uma VNet. 
+- [Como: Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar a Instância Gerenciada do SQL do Azure (Versão Prévia) e unir o IR a uma rede virtual. 
 - [Gerencie um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md). Este artigo mostra como parar, iniciar ou remover um IR do Azure-SSIS. Ele também mostra como expandir o IR do Azure-SSIS adicionando mais nós ao IR. 
-- [Unir um IR do Azure-SSIS a uma VNet](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo fornece informações conceituais sobre como unir um IR do Azure-SSIS a uma rede virtual (VNet) do Azure. Ele também apresenta as etapas para usar o portal do Azure para configurar a VNet para que o IR do Azure-SSIS possa unir-se à VNet. 
+- [Unir um IR do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo fornece informações conceituais sobre como unir um IR do Azure-SSIS a uma rede virtual do Azure. Ele também apresenta as etapas para usar o portal do Azure para configurar a rede virtual para que o IR do Azure-SSIS possa se unir à rede virtual. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os artigos a seguir para monitorar os pipelines de maneiras diferentes: 

@@ -3,8 +3,8 @@ title: Testando sua oferta de modelo de solução para o Marketplace | Microsoft
 description: Saiba como testar a oferta do modelo de solução para o Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 ms.assetid: ef8f9b5e-b98c-49f3-913f-cdf772c14c12
 ms.service: marketplace
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2015
-ms.author: mbaldwin
-ms.openlocfilehash: e789d0996e72c935ed9d5f456f9868b73d5ef4ee
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: hascipio; v-divte
+ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714818"
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Testar a oferta de modelo de solução em preparo
 Preparo significa implantar a sua oferta em uma "área restrita" privada, em que você poderá testar e verificar sua funcionalidade antes de publicá-la para produção. A oferta aparece em preparo como apareceria para um cliente que a tivesse implantado. Sua oferta deve estar certificada para ser enviada por push para preparação.

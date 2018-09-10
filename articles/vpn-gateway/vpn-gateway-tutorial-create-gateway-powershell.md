@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 0f10384e7e21d65b3a16869a10f8294b9643c74c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b1435773f8d05f9cc730e5745c1a916d9b74321f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210191"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340586"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Criar e gerenciar o gateway de VPN com o módulo Microsoft Azure PowerShell
 
@@ -145,7 +145,7 @@ Para obter mais informações, consulte [Redefinir um gateway VPN](vpn-gateway-r
 
 ## <a name="get-the-gateway-public-ip-address"></a>Obter o endereço IP público do gateway
 
-Se você souber o nome do endereço IP público, use [Get-AzureRmPublicIpAddresst](/powershell/module/azurerm.network/Reset-AzureRmPublicIpAddress) para mostrar o endereço IP público atribuído ao gateway.
+Se você souber o nome do endereço IP público, use [Get-AzureRmPublicIpAddresst](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-6.8.1) para mostrar o endereço IP público atribuído ao gateway.
 
 ```azurepowershell-interactive
 $myGwIp = Get-AzureRmPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1

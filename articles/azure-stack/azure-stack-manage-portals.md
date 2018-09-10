@@ -1,84 +1,88 @@
 ---
-title: Usando o portal de administrador na pilha do Azure | Microsoft Docs
-description: Como um operador de pilha do Azure, Aprenda como usar o portal do administrador.
+title: Usando o portal de administrador no Azure Stack | Microsoft Docs
+description: Como um operador do Azure Stack, saiba como usar o portal do administrador.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 02c7ff03-874e-4951-b591-28166b7a7a79
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 34d9d207225327758d535a11c870019f3db31cb0
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cea59d061dadfa3e10330cbce7b6005a286524cc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024159"
 ---
-# <a name="using-the-administrator-portal-in-azure-stack"></a>Usando o portal de administrador na pilha do Azure
+# <a name="using-the-administrator-portal-in-azure-stack"></a>Usando o portal de administrador no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Há dois portais na pilha do Azure; o portal do administrador e o portal do usuário (também conhecido como o *locatário* portal). Como um operador de pilha do Azure, você pode usar o portal do administrador de gerenciamento diário e operações da pilha do Azure. 
+Há dois portais no Azure Stack; o portal do administrador e o portal do usuário (também conhecido como o *locatário* portal.) Como um operador do Azure Stack, você pode usar o portal do administrador para operações do Azure Stack e o gerenciamento diários.
 
 ## <a name="access-the-administrator-portal"></a>Acessar o portal do administrador
 
-Para um ambiente do kit de desenvolvimento, você precisa primeiro certificar-se de que você pode [conectar ao host do kit de desenvolvimento](azure-stack-connect-azure-stack.md) por meio de Conexão de área de trabalho remota ou uma rede virtual privada (VPN).
+Para um ambiente do kit de desenvolvimento, você precisa primeiro certifique-se de que você pode [conectado ao host do kit de desenvolvimento](azure-stack-connect-azure-stack.md) por meio de Conexão de área de trabalho remota ou uma rede virtual privada (VPN).
 
-Para acessar o portal do administrador, navegue até a URL de portal e entrar usando as credenciais de um operador de pilha do Azure. Para um sistema integrado, o portal de que URL varia com base no nome de região e nome de domínio totalmente qualificado (FQDN) externo de sua implantação do Azure pilha.
+Para acessar o portal do administrador, navegue até a URL de portal e de entrada, usando as credenciais de um operador do Azure Stack. Para um sistema integrado, o portal de que URL varia com base no nome da região e nome de domínio totalmente qualificado (FQDN) externo de sua implantação do Azure Stack.
 
-| Ambiente | URL do Portal de administrador |   
+| Ambiente | URL do Portal do administrador |   
 | -- | -- | 
 | Kit de desenvolvimento| https://adminportal.local.azurestack.external  |
-| Sistemas integrados | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
+| Sistemas integrados | https://adminportal.&lt; *região*&gt;.&lt; *FQDN*&gt; | 
 | | |
 
- ![O portal do administrador](media/azure-stack-manage-portals/image1.png)
+ ![O portal do administrador](media/azure-stack-manage-portals/admin-portal.png)
 
 No portal do administrador, você pode fazer coisas como:
 
-* gerenciar a infraestrutura (incluindo a integridade do sistema, atualizações, capacidade, etc.)
+* Gerenciar a infraestrutura (incluindo a integridade do sistema, atualizações, capacidade, etc.)
 * Preencher o marketplace
-* criar planos e ofertas
 * Criar assinaturas para usuários
+* Criar planos e ofertas
 
-No **tutorial de início rápido** lado a lado, há links para documentação on-line para as tarefas mais comuns.
- 
-Embora não haja a capacidade de um operador criar recursos, como máquinas virtuais, redes virtuais e contas de armazenamento no portal do administrador, você deve [entrar no portal do usuário](user/azure-stack-use-portal.md) para criar e testar recursos. (O **criar uma máquina virtual** link no bloco do tutorial de início rápido você criar uma máquina virtual no portal do administrador, mas esse procedimento é apenas para validar a pilha do Azure após a implantação inicial.)
+O **tutorial de início rápido** lado a lado fornece links para documentação online para as tarefas mais comuns.
 
-## <a name="subscription-behavior"></a>Comportamento de assinatura
- 
-Há apenas uma assinatura que está disponível no portal do administrador. Esta assinatura está o *assinatura do provedor padrão*. Você não pode adicionar outras assinaturas para uso no portal do administrador.
+Embora tenha um operador pode criar recursos como máquinas virtuais, redes virtuais e contas de armazenamento no portal do administrador, você deve [entrar no portal do usuário](user/azure-stack-use-portal.md) para criar e testar recursos.
 
-Como um operador de pilha do Azure, você pode adicionar assinaturas para seus usuários (incluindo você) a partir do portal do administrador. Os usuários (incluindo você) podem acessar e usar essas assinaturas do portal do usuário. O portal do usuário não fornece acesso a qualquer um dos recursos administrativos ou operacionais do portal do administrador.
+>[!NOTE]
+>O **criar uma máquina virtual** link no bloco do tutorial de início rápido ajuda a criar uma máquina virtual no portal do administrador, mas isso é destinado apenas para validar o Azure Stack depois que ele é implantado pela primeira vez.
 
-Os portais de administrador e usuário contam por instâncias separadas do Gerenciador de recursos do Azure. Devido a separação do Gerenciador de recursos, as assinaturas não passam portais. Por exemplo, se você como um operador de pilha do Azure entra portal do usuário, você não poderá acessar a assinatura de provedor padrão. Portanto, você não tem acesso a todas as funções administrativas. Você pode criar assinaturas por conta própria ofertas públicas, mas são considerados um usuário de locatário.
+## <a name="understand-subscription-behavior"></a>Entender o comportamento de assinatura
+
+Há apenas uma assinatura disponível para uso no portal do administrador. Essa assinatura é o *assinatura do provedor padrão*. Você não pode adicionar quaisquer outras assinaturas e usá-los no portal do administrador.
+
+Como um operador do Azure Stack, você pode adicionar assinaturas para seus usuários (inclusive você mesmo) do portal do administrador. Usuários (inclusive você mesmo) podem acessar e usar essas assinaturas com o **usuário** portal. No entanto, o portal do usuário não fornece acesso a qualquer uma das funcionalidades administrativas ou operacionais do portal do administrador.
+
+Os portais de administrador e usuário são apoiados por instâncias separadas do Azure Resource Manager. Devido a essa separação do Gerenciador de recursos, assinaturas não cruzam portais. Por exemplo, se você, como um operador do Azure Stack, entrar no portal do usuário, você não poderá acessar o *assinatura do provedor padrão*. Embora você não tiver acesso a todas as funções administrativas, você pode criar assinaturas por conta própria de ofertas públicas disponíveis. Desde que você está conectado ao portal do usuário, você é considerado um usuário do locatário.
 
   >[!NOTE]
-  No ambiente do kit de desenvolvimento, se um usuário pertencer ao mesmo diretório do locatário o operador de pilha do Azure, eles não são impedidos de entrar portal do administrador. No entanto, eles não podem acessar qualquer uma das funções administrativas. Além disso, no portal de administrador, eles não podem adicionar assinaturas ou acesso oferece que ficam disponíveis para eles no portal do usuário.
+  >No ambiente do kit de desenvolvimento, se um usuário pertencer ao mesmo diretório do locatário de operador do Azure Stack, eles não estão impedidos de entrar portal do administrador. No entanto, eles não podem acessar qualquer uma das funções administrativas. Além disso, no portal de administrador, eles não podem adicionar assinaturas ou acesso oferece que estão disponíveis para eles no portal do usuário.
 
 ## <a name="administrator-portal-tips"></a>Dicas de portal do administrador
 
 ### <a name="customize-the-dashboard"></a>Personalizar o painel
 
-O painel contém um conjunto de blocos padrão. Você pode clicar em **Editar painel** para modificar o painel padrão ou clique em **novo painel** adicionar painéis personalizados. Você pode adicionar facilmente blocos ao painel. Por exemplo, você pode clicar em **novo**, clique com botão direito **oferece + planos**e, em seguida, clique em **fixar no painel**.
+O painel contém um conjunto de blocos padrão. Você pode selecionar **Editar painel** para modificar o painel padrão ou selecione **novo painel** para adicionar um painel personalizado. Você pode adicionar facilmente os blocos em um painel. Por exemplo, você pode selecionar **New**, clique com botão direito **oferece + planos**e, em seguida, selecione **fixar no painel**.
 
 ### <a name="quick-access-to-online-documentation"></a>Acesso rápido a documentação online
 
-Para acessar a documentação de operador de pilha do Azure, clique no ícone de Ajuda e suporte (ponto de interrogação) no canto superior direito do portal do administrador e, em seguida, clique em **ajuda + suporte**.
+Para acessar a documentação do operador do Azure Stack, use a Ajuda e suporte de ícone (ponto de interrogação) no canto superior direito do portal do administrador. Mova o cursor para o ícone e, em seguida, selecione **ajuda + suporte**.
 
 ### <a name="quick-access-to-help-and-support"></a>Acesso rápido a Ajuda e suporte
 
-Se você clique no ícone de Ajuda e suporte (ponto de interrogação) no canto superior direito do portal do administrador e, em seguida, clique em **nova solicitação de suporte**, isto faz o seguinte:
+Se você selecionar o ícone de Ajuda e suporte (ponto de interrogação) no canto superior direito do portal do administrador e, em seguida, selecione **nova solicitação de suporte**, ocorrem por um dos seguintes resultados:
 
-- Se você estiver usando um sistema integrado, essa ação abrirá um site onde você pode abrir diretamente um tíquete de suporte com serviços de suporte de cliente do Microsoft (CSS). Consulte a seção "Onde obter suporte" de [Noções básicas de administração do Azure pilha](azure-stack-manage-basics.md) para entender quando você deve entrar por meio do suporte da Microsoft ou o suporte do fornecedor de hardware fabricante (OEM).
-- Se você estiver usando o kit de desenvolvimento, essa ação abre o site de fóruns do Azure pilha diretamente. Esses fóruns são monitorados regularmente. Porque o kit de desenvolvimento é um ambiente de avaliação, não há nenhum suporte oficial oferecido pelo Microsoft CSS.
+- Se você estiver usando um sistema integrado, essa ação abrirá um site onde você pode abrir diretamente um tíquete de suporte com serviços de suporte de cliente do Microsoft (CSS). Consulte a [onde obter suporte](azure-stack-manage-basics.md#where-to-get-support) para entender quando você deve entrar por meio do suporte da Microsoft ou por meio de suporte do fornecedor de hardware seu fabricante de equipamento original (OEM).
+- Se você estiver usando o kit de desenvolvimento, essa ação abre o site dos fóruns do Azure Stack diretamente. Esses fóruns são monitorados regularmente. Como o kit de desenvolvimento é um ambiente de avaliação, não há nenhum suporte oficial oferecida por meio do Microsoft CSS.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Gerenciamento de região na pilha do Azure](azure-stack-region-management.md)
+- [Gerenciamento de região no Azure Stack](azure-stack-region-management.md)

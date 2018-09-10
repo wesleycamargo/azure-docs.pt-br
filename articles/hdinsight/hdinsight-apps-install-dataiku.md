@@ -1,24 +1,20 @@
 ---
-title: Instalar aplicativo publicado – Dataiku DDS – HDInsight do Azure | Microsoft Docs
+title: Instalar aplicativo publicado – Dataiku DDS – HDInsight do Azure
 description: Instale e use o aplicativo de Hadoop de terceiros do Dataiku DDS.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: facee9187528fa0c6a74f71ee73636dc23ca35ba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 64a6f393498ca90675712747afc8f9befc4b932f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105162"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Instalar aplicativo publicado – Dataiku DDS
 
@@ -34,7 +30,7 @@ Você pode instalar p DSS no HDInsight usando clusters Hadoop ou Spark. Você po
 
 Você pode usar o DSS para compilar projetos, que então podem gerar trabalhos do MapReduce ou Spark. Esses trabalhos são executados como trabalhos normais do MapReduce ou Spark no HDInsight, para que você possa dimensionar o cluster sob demanda.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para instalar este aplicativo em um novo cluster do HDInsight ou em um cluster existente, você deve ter a seguinte configuração:
 

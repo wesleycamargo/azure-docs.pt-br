@@ -26,7 +26,7 @@ O IOPS é o número de solicitações que seu aplicativo está enviando para os 
 
 Quando você anexa um disco do armazenamento premium à sua VM de alta escala, o Azure provisiona um número garantido de IOPS de acordo com a especificação do disco. Por exemplo, um disco P50 provisiona 7500 IOPS. Cada tamanho de VM de alta escala também tem um limite específico de IOPS que ela pode manter. Por exemplo, uma VM GS5 Padrão tem um limite de 80.000 IOPS.
 
-## <a name="throughput"></a>Throughput
+## <a name="throughput"></a>Produtividade
 A Taxa de Transferência ou Largura de Banda é o volume de dados que o aplicativo está enviando aos discos de armazenamento em um intervalo especificado. Se o aplicativo estiver executando operações de entrada/saída com tamanhos grandes de unidade de E/S, ele exigirá Taxa de Transferência alta. Os aplicativos de data warehouse tendem a emitir operações de alta verificação que acessam grandes partes de dados por vez e geralmente executam operações em massa. Em outras palavras, tais aplicativos exigem Taxa de Transferência mais alta. Caso você tenha um aplicativo desse tipo, será preciso projetar sua infraestrutura para otimização da Taxa de Transferência. Na próxima seção, abordaremos em detalhes os fatores que você deve ajustar para conseguir isso.
 
 Quando você anexa um disco do armazenamento premium a uma VM de alta escala, o Azure provisiona Taxa de Transferência de acordo com a especificação do disco. Por exemplo, um disco P50 provisiona Taxa de Transferência de disco de 250 MB por segundo. Cada tamanho de VM de alta escala também tem um limite específico de Taxa de Transferência que ela pode manter. Por exemplo, a VM GS5 padrão tem uma Taxa de Transferência máxima de 2.000 MB por segundo. 
@@ -60,7 +60,7 @@ Em seguida, avalie os requisitos de desempenho máximo do aplicativo durante tod
 | % de operações Sequenciais | | | |
 | Tamanho da solicitação de E/S | | | |
 | Taxa de transferência média | | | |
-| Máx. Throughput | | | |
+| Máx. Produtividade | | | |
 | Mín. Latency | | | |
 | Latência Média | | | |
 | Máx. CPU | | | |
@@ -196,13 +196,13 @@ Com o Armazenamento Premium do Azure, você obtém o mesmo nível de Desempenho 
 Ao executar Linux com Armazenamento Premium, verifique as últimas atualizações dos drivers necessários para garantir alto desempenho.
 
 ## <a name="premium-storage-disk-sizes"></a>Tamanhos de disco do Armazenamento Premium
-Atualmente, o Armazenamento Premium do Azure oferece sete tamanhos de disco. Cada tamanho de disco tem um limite de escala diferente para IOPS, largura de banda e armazenamento. Escolha o tamanho certo do disco do Armazenamento Premium de acordo com os requisitos do aplicativo e o tamanho da VM de alta escala. A tabela abaixo mostra os sete tamanhos de disco e seus recursos. Atualmente, os tamanhos de disco P4 e P6 têm suporte somente para o Managed Disks.
+Atualmente, o Armazenamento Premium do Azure oferece oito tamanhos de disco. Cada tamanho de disco tem um limite de escala diferente para IOPS, largura de banda e armazenamento. Escolha o tamanho certo do disco do Armazenamento Premium de acordo com os requisitos do aplicativo e o tamanho da VM de alta escala. A tabela abaixo mostra os oito tamanhos de disco e seus recursos. Atualmente, os tamanhos de disco P4, P6 e P15 têm suporte apenas para o Managed Disks.
 
-| Tipo de discos premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Tamanho do disco           | 32 GB | 64 GB | 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS por disco       | 120   | 240   | 500   | 2.300              | 5.000              | 7500              | 7500              | 
-| Taxa de transferência por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
+| Tipo de discos premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Tamanho do disco           | 32 GB | 64 GB | 128 GB| 256 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS por disco       | 120   | 240   | 500   | 1100 | 2.300              | 5.000              | 7500              | 7500              | 
+| Taxa de transferência por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo |125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
 
 
 Quantos discos você escolhe depende do tamanho do disco escolhido. Você pode usar um único disco P50 ou vários discos P10 para atender aos requisitos do aplicativo. Leve em conta as considerações listadas abaixo ao fazer sua escolha.
@@ -239,7 +239,7 @@ Para saber mais sobre como o BlobCache funciona, consulte a postagem do blog int
 | **Tipo de disco** | **Configuração padrão de cache** |
 | --- | --- |
 | Disco do sistema operacional |ReadWrite |
-| Disco de dados |Nenhum |
+| Disco de dados |ReadOnly |
 
 Veja a seguir as configurações recomendadas de cache de disco para discos de dados:
 
@@ -253,7 +253,7 @@ Veja a seguir as configurações recomendadas de cache de disco para discos de d
 Ao configurar o cache ReadOnly em discos de dados do Armazenamento Premium, você pode obter baixa latência de leitura e IOPS de leitura e Taxa de Transferência muito altas para seu aplicativo. Isso se deve a dois motivos:
 
 1. As leituras executadas no cache, que está na memória da VM e na SSD local, são muito mais rápidas do que as leituras no disco de dados, que está no armazenamento blob do Azure.  
-2. O Armazenamento Premium não conta as leituras atendidas no cache para IOPS e Taxa de Transferência do disco. Portanto, o aplicativo é capaz de atingir um total mais alto de IOPS e Taxa de Transferência.
+1. O Armazenamento Premium não conta as leituras atendidas no cache para IOPS e Taxa de Transferência do disco. Portanto, o aplicativo é capaz de atingir um total mais alto de IOPS e Taxa de Transferência.
 
 *ReadWrite*  
 Por padrão, os discos do sistema operacional têm o cache ReadWrite habilitado. Recentemente, adicionamos suporte ao cache ReadWrite também nos discos de dados. Se estiver usando o cache ReadWrite, você deverá ter uma maneira adequada de gravar os dados do cache nos discos persistentes. Por exemplo, o SQL Server manipula a gravação de dados em cache nos discos de armazenamento persistentes por sua própria conta. Usar o cache ReadWrite com um aplicativo que não manipule a persistência dos dados necessários pode levar à perda de dados no caso de falha da VM.
@@ -263,7 +263,7 @@ Por exemplo, você pode aplicar essas diretrizes ao SQL Server em execução no 
 1. Configure o cache "ReadOnly" em discos do Armazenamento Premium que hospedam arquivos de dados.  
    a.  A leitura rápida no cache reduz o tempo de consulta do SQL Server, uma vez que as páginas de dados são recuperadas muito mais rapidamente do cache do que diretamente dos discos de dados.  
    b.  Atender às leituras no cache, significa que há Taxa de Transferência adicional disponível nos discos de dados premium. O SQL Server pode usar essa Taxa de Transferência adicional para recuperar mais páginas de dados e outras operações, como backup/restauração, cargas em lote e recriações de índice.  
-2. Configure o cache "None" nos discos do Armazenamento Premium que hospedam os arquivos de log.  
+1. Configure o cache "None" nos discos do Armazenamento Premium que hospedam os arquivos de log.  
    a.  Os arquivos de log têm basicamente operações pesadas de gravação. Sendo assim, eles não se beneficiam do cache ReadOnly.
 
 ## <a name="disk-striping"></a>Distribuição de disco
@@ -381,12 +381,12 @@ Execute as etapas abaixo para aquecer o cache
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
-2. Execute o teste Iometer para inicializar o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" para 2 horas na guia "Configuração do teste".
+1. Execute o teste Iometer para inicializar o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" para 2 horas na guia "Configuração do teste".
 
    | Cenário | Volume de destino | NOME | Duration |
    | --- | --- | --- | --- |
    | Inicializar disco do cache |CacheReads |RandomWrites\_1MB |2 horas |
-3. Execute o teste Iometer para aquecer o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" para 2 horas na guia "Configuração do teste".
+1. Execute o teste Iometer para aquecer o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" para 2 horas na guia "Configuração do teste".
 
    | Cenário | Volume de destino | NOME | Duração |
    | --- | --- | --- | --- |

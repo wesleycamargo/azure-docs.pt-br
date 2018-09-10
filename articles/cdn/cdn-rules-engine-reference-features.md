@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 57648486e515b5438f937c4295b33843583e622e
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145445"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Recursos do mecanismo de regras da CDN do Azure
 Este artigo lista descrições detalhadas dos recursos disponíveis para o [Mecanismo de regras](cdn-rules-engine.md)da CDN (Rede de Distribuição de Conteúdo) do Azure.
@@ -314,7 +315,7 @@ Informações de chave:
 - Especifique um ou mais nomes de parâmetros de cadeia de caracteres de consulta e separe cada nome de parâmetro com um único espaço.
 - Este recurso determina se parâmetros de cadeia de caracteres de consulta são incluídos ou excluídos da chave de cache. Informações adicionais são fornecidas para cada opção na tabela a seguir.
 
-type|DESCRIÇÃO
+Tipo|DESCRIÇÃO
 --|--
  Incluir|  Indica que cada parâmetro especificado deve ser incluído no cache-key. Uma chave de cache exclusiva é gerada para cada solicitação que contém um valor exclusivo para um parâmetro de cadeia de caracteres de consulta definido neste recurso. 
  Incluir Todos  |Indica que uma chave de cache exclusiva é criada para cada solicitação para um recurso que inclui uma cadeia de caracteres de consulta exclusiva. Esse tipo de configuração geralmente não é recomendado porque pode resultar a uma pequena porcentagem de ocorrências no cache. Um número baixo de ocorrências no cache aumenta a carga no servidor de origem, porque deve atender a mais solicitações. Essa configuração duplica o comportamento de cache conhecido como "unique-cache" na página de Cache de Query-String. 
@@ -332,7 +333,7 @@ Para duplicar o comportamento de cache da cadeia de caracteres de consulta "sem 
 
 O seguinte exemplo de uso para esse recurso fornece um exemplo de solicitação e a chave de cache padrão:
 
-- **Solicitação de exemplo:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **Exemplo de solicitação:** http://wpc.0001.&lt; domínio&gt;/800001/Origin/folder/asset.htm?sessionid=1234 & idioma = EN & userid = 01
 - **Default cache-key:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Incluir
@@ -496,8 +497,8 @@ O formato para especificar cabeçalhos de solicitação e resposta é definido d
 
 Tipo de Cabeçalho|Formatar|Exemplos
 -|-|-
-Cabeçalho da Solicitação|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
-Cabeçalho de Resposta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+Cabeçalho da Solicitação|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
+Cabeçalho de Resposta|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Informações de chave:
 

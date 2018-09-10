@@ -17,6 +17,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30312694"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Variáveis de ambiente do nó de computação do Lote do Azure
 O [serviço Lote do Azure](https://azure.microsoft.com/services/batch/) define as seguintes variáveis de ambiente em nós de computação. Você pode consultar essas variáveis de ambiente nas linhas de comando da tarefa e nos programas e scripts executados pelas linhas de comando.

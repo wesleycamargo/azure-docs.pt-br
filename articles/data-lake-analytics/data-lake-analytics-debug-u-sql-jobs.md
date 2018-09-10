@@ -1,24 +1,20 @@
 ---
-title: Depurar código C# definido pelo usuário para trabalhos com falha do U-SQL no Azure Data Lake | Microsoft Docs
-description: Saiba como depurar um vértice com falha do U-SQL usando as Ferramentas do Azure Data Lake para Visual Studio.
+title: Depurar código C# definido pelo usuário para trabalhos U-SQL do Azure Data Lake com falha | Microsoft Docs
+description: Este artigo descreve como depurar um vértice U-SQL com falha usando as Ferramentas do Azure Data Lake para Visual Studio.
 services: data-lake-analytics
-documentationcenter: ''
-author: yanancai
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/31/2017
+author: yanancai
 ms.author: yanacai
-ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.reviewer: jasonwhowell
+ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
+ms.topic: conceptual
+ms.date: 11/30/2017
+ms.openlocfilehash: 1fd1ce54dea672b19baea84bbf3a40b4365093b8
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046211"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depurar um código C# definido pelo usuário em trabalhos com falha do U-SQL
 

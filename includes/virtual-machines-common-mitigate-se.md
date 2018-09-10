@@ -5,29 +5,31 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/03/2018
+ms.date: 08/14/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: dac04ed9a43e19d022720979c8f83aa2b4132f78
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 130cc66831b25621cb022eb19005c624fcd71b9e
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "40105499"
 ---
-**Última atualização do documento**: 3 de abril, 15h PST.
+**Última atualização do documento**: 14 de agosto de 2018, 10h PST.
 
-A divulgação recente de uma [nova classe de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) conhecida como ataques de canal lateral de execução especulativa resultou em várias perguntas dos clientes que queriam saber com mais clareza.  
+A divulgação de uma [nova classe de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) conhecida como ataques de canal paralelo de execução especulativa resultou em várias perguntas dos clientes que queriam mais esclarecimentos sobre o assunto.  
 
-A Microsoft implantou atenuações em todos os nossos serviços de nuvem. A infraestrutura que executa o Azure e isola as cargas de trabalho do cliente entre elas está protegida.  Isso significa que outros clientes em execução no Azure não podem atacar seu aplicativo usando essas vulnerabilidades.
+A Microsoft implantou atenuações em todos os nossos serviços de nuvem. A infraestrutura que executa o Azure e isola as cargas de trabalho do cliente entre elas está protegida. Isso significa que um invasor potencial que usa a mesma infraestrutura não pode atacar seu aplicativo usando essas vulnerabilidades.
 
-Além disso, o Azure está expandindo o uso de [preservação da manutenção da memória](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) sempre que possível, pausando a VM por até 30 segundos, enquanto o host é atualizado ou a VM é movida para um host já atualizado.  A preservação da manutenção da memória também minimiza o impacto para o cliente e elimina a necessidade de reinicializações.  O Azure utilizará esses métodos ao fazer atualizações de todo o sistema para o host.
+O Azure usa a [manutenção da preservação da memória](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) sempre que possível, para minimizar o impacto para o cliente e eliminar a necessidade de reinicializações. O Azure continuará utilizando esses métodos ao fazer atualizações em todo o sistema do host e proteger nossos clientes.
+
+Mais informações sobre como a segurança é integrada em todos os aspectos do Azure estão disponíveis no site [Documentação de segurança do Azure](https://docs.microsoft.com/azure/security/). 
 
 > [!NOTE] 
-> No final de fevereiro de 2018, a Intel Corporation publicou [Diretrizes de Revisão de Microcódigo](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) atualizadas sobre o status de suas versões de microcódigo, o que melhora a estabilidade e atenua as vulnerabilidades recentes divulgadas pelo [Projeto Zero da Google](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). As mitigações implementadas pelo Azure em [3 de janeiro de 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) não são afetadas pela atualização de microcódigo da Intel. A Microsoft já implementou mitigações substanciais para proteger os clientes do Azure contra outras máquinas virtuais do Azure.  
->
-> O microcódigo da Intel aborda a variante 2 do Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) ou injeção de destino de branch) para proteger contra ataques que só são aplicáveis quando você executa cargas de trabalho compartilhadas ou não confiáveis dentro das VMs no Azure. Nossos engenheiros estão testando a estabilidade para minimizar impactos no desempenho do microcódigo, antes de disponibilizá-lo para os clientes do Azure.  Como muito poucos clientes executam cargas de trabalho não confiáveis em suas VMs, a maioria dos clientes não precisará habilitar essa funcionalidade depois de liberada. 
->
-> Esta página será atualizada à medida que outras informações estiverem disponíveis.  
+> Desde a primeira publicação deste documento, foram divulgadas várias variantes dessa classe de vulnerabilidade. A Microsoft continua investindo intensamente na proteção de nossos clientes e no fornecimento de diretrizes. Esta página será atualizada conforme continuamos liberando correções adicionais. 
+> 
+> Em 14 de agosto de 2018, o setor divulgou uma nova vulnerabilidade de canal paralelo de execução especulativa conhecida como [L1TF](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018) (Falha do Terminal L1), à qual foram atribuídos vários CVEs ([CVE-2018-3615, CVE-2018-3620 e CVE-2018-3646](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html)). Essa vulnerabilidade afeta os processadores Intel® Core® e Intel® Xeon®. A Microsoft implantou mitigações em nossos serviços de nuvem que reforçam o isolamento entre os clientes. Leia abaixo as diretrizes adicionais para proteção contra a L1TF e as vulnerabilidades anteriores ([Variante de Espectro 2 CVE-2017-5715 e Variante de Meltdown 3 CVE-2017-5754](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution)).
+>  
 
 
 
@@ -36,40 +38,80 @@ Além disso, o Azure está expandindo o uso de [preservação da manutenção da
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Mantenha seus Sistemas Operacionais atualizados
 
-Enquanto uma atualização do sistema operacional não é necessária para isolar os aplicativos em execução no Azure de outros clientes em execução no Azure, manter as versões de sistema operacional atualizadas é sempre uma prática recomendada. Os [pacotes cumulativos de atualizações de segurança para o Windows](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) de janeiro de 2018 e posteriores contêm atenuações referentes essas vulnerabilidades.
+Embora uma atualização do sistema operacional não seja necessária para isolar os aplicativos em execução no Azure de outros clientes do Azure, é sempre uma melhor prática manter o software atualizado. Os últimos Pacotes Cumulativos de Atualizações de Segurança para o Windows contêm mitigações de várias vulnerabilidades de canal paralelo de execução especulativa. Da mesma forma, as distribuições Linux liberaram várias atualizações para resolver essas vulnerabilidades. Estas são nossas ações recomendadas para atualizar o Sistema Operacional:
 
-Nas seguintes ofertas, aqui estão as nossas ações recomendadas para atualizar seu Sistema Operacional: 
-
-<table>
-<tr>
-<th>Oferta</th> <th>Ação recomendada </th>
-</tr>
-<tr>
-<td>Serviços de nuvem do Azure </td>  <td>Habilite a atualização automática ou verifique se você está executando a versão mais recente do Sistema Operacional Convidado.</td>
-</tr>
-<tr>
-<td>Máquinas Virtuais do Linux do Azure</td> <td>Instalar atualizações do provedor de sistema operacional, quando disponível. </td>
-</tr>
-<tr>
-<td>Máquinas Virtuais do Windows do Azure </td> <td>Verifique se você está executando um aplicativo de antivírus com suporte antes de instalar as atualizações do Sistema Operacional. Contate o fornecedor do software antivírus para obter informações sobre a compatibilidade.<p> Instale o [Rollup de segurança de janeiro](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>
-</tr>
-<tr>
-<td>Outros Serviços de PaaS do Azure</td> <td>Não é necessária nenhuma ação para clientes que usam esses serviços. O Azure mantém automaticamente suas versões de Sistema Operacional atualizadas. </td>
-</tr>
-</table>
+| Oferta | Ação recomendada  |
+|----------|---------------------|
+| Serviços de nuvem do Azure  | Habilite a [atualização automática](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) ou verifique se você está executando o Sistema Operacional Convidado mais recente. |
+| Máquinas Virtuais do Linux do Azure | Instale atualizações do provedor do sistema operacional. Para obter mais informações, confira [Linux](#linux) mais adiante neste documento. |
+| Máquinas Virtuais do Windows do Azure  | Instale o pacote cumulativo de atualizações de segurança mais recente.
+| Outros Serviços de PaaS do Azure | Não é necessária nenhuma ação para clientes que usam esses serviços. O Azure mantém automaticamente suas versões de Sistema Operacional atualizadas. |
 
 ## <a name="additional-guidance-if-you-are-running-untrusted-code"></a>Orientações adicionais se você estiver executando código não confiável 
 
-Não é necessária nenhuma ação adicional por parte do cliente, a menos que você esteja executando código não confiável. Se você permitir algum código não confiável (por exemplo, você permite que um dos seus clientes carregue um trecho de código ou binário que você, depois, executará na nuvem dentro de seu aplicativo), em seguida, as seguintes etapas adicionais devem ser tomadas.  
+Os clientes que permitem que usuários não confiáveis executem um código arbitrário podem desejar implementar alguns recursos de segurança adicionais nas Máquinas Virtuais do Azure ou nos Serviços de Nuvem. Esses recursos protegem contra vetores de divulgação dentro do processo descritos por várias vulnerabilidades de execução especulativa.
 
+Cenários de exemplo em que os recursos de segurança adicionais são recomendados:
+
+- Você permite que um código não confiável seja executado em sua VM.  
+    - *Por exemplo, você permite que um de seus clientes carregue um binário ou um script que você, em seguida, executa no aplicativo*. 
+- Você permite que os usuários não confiáveis façam logon em sua VM usando contas com baixos privilégios.   
+    - *Por exemplo, você permite que um usuário com poucos privilégios faça logon em uma de suas VMs usando a área de trabalho remota ou o SSH*.  
+- Você permite que usuários não confiáveis acessem máquinas virtuais implementadas por meio da virtualização aninhada.  
+    - *Por exemplo, você controla o host Hyper-V, mas aloca as VMs a usuários não confiáveis*. 
+
+Os clientes que não implementam um cenário que envolva um código não confiável não precisam habilitar esses recursos de segurança adicionais. 
+
+## <a name="enabling-additional-security"></a>Habilitando a segurança adicional 
+
+Habilite recursos de segurança adicionais na VM ou no Serviço de Nuvem.
 
 ### <a name="windows"></a>Windows 
-Se você estiver usando o Windows e hospedando código não confiável, também deverá habilitar um recurso do Windows chamado Sombreamento de Endereço Virtual do Kernel (KVA) que fornece proteção adicional contra vulnerabilidades de canal lateral de execução especulativa (especificamente para a variante 3 Meltdown, [CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754), ou carregamento de cache de dados mal-intencionados). Esse recurso está desativado por padrão e, se habilitado, pode afetar o desempenho. Siga as instruções [KB4072698 do Windows Server](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para Habilitar Proteções no Servidor. Caso esteja executando os Serviços de Nuvem do Azure, verifique se está executando WA-GUEST-OS-5.15_201801-01 ou WA-GUEST-OS-4.50_201801-01 (disponível a partir de 10 de janeiro de 2018) e habilite a chave do Registro por meio de uma tarefa de inicialização.
+
+O sistema operacional de destino precisa estar atualizado para habilitar esses recursos de segurança adicionais. Embora várias mitigações de ataques de canal paralelo de execução especulativa estejam habilitadas por padrão, os recursos adicionais descritos aqui precisam ser habilitados manualmente e podem causar um impacto no desempenho. 
+
+**Etapa 1**: [contatar o Suporte do Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para expor o firmware atualizado (microcódigo) nas Máquinas Virtuais. 
+
+**Etapa 2**: habilitar o suporte do sistema operacional de KVAS (Sombreamento de Endereço Virtual do Kernel) e BTI (Injeção de Destino de Branch). Siga as instruções descritas em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar proteções por meio das chaves do Registro do `Session Manager`. Uma reinicialização é necessária. 
+
+**Etapa 3**: para implantações que usam a [virtualização aninhada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (somente D3 e E3): essas instruções se aplicam à VM que está sendo usada como um host Hyper-V. 
+
+1. Siga as instruções descritas em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar proteções por meio das chaves do Registro do `MinVmVersionForCpuBasedMitigations`.  
+ 
+1. Defina o tipo de agendador do hipervisor como **Núcleo** seguindo as instruções descritas [aqui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types). 
+
+**Etapa 4**: seguir as instruções descritas em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para verificar se as proteções estão habilitadas usando o módulo [SpeculationControl](https://aka.ms/SpeculationControlPS) do PowerShell. 
+
+> [!NOTE]
+> Se você já baixou este módulo, precisará instalar a versão mais recente.
+>
+
+Todas as VMs devem mostrar:
+
+```
+branch target injection mitigation is enabled: True
+
+kernel VA shadow is enabled: True  
+
+L1TFWindowsSupportEnabled: True
+```
 
 
 ### <a name="linux"></a>Linux
-Se você estiver usando o Linux e hospedando código não confiável, também deverá atualizar o Linux para uma versão mais recente que implementa o isolamento de tabela de página de kernel (KPTI) e que separa as tabelas de página usadas pelo kernel daquelas que pertencem ao espaço do usuário. Essas mitigações exigem uma atualização do Sistema Operacional Linux e podem ser obtidas do provedor de distribuição, quando disponível. O seu provedor do Sistema Operacional pode informar se as proteções estão habilitadas ou desabilitadas por padrão.
 
+<a name="linux"></a>A habilitação do conjunto de recursos de segurança adicionais internamente exige que o sistema operacional de destino esteja totalmente atualizado. Algumas mitigações serão habilitadas por padrão. A seção a seguir descreve os recursos que estão desativados por padrão e/ou que são dependentes de suporte de hardware (microcódigo). A habilitação desses recursos pode causar um impacto no desempenho. Referencie a documentação do provedor do sistema operacional para obter mais instruções
+ 
+**Etapa 1**: [contatar o Suporte do Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para expor o firmware atualizado (microcódigo) nas Máquinas Virtuais.
+ 
+**Etapa 2**: habilitar o suporte do sistema operacional de BTI (Injeção de Destino de Branch) para atenuar a CVE-2017-5715 (Variante de Espectro 2) seguindo a documentação do provedor do sistema operacional. 
+ 
+**Etapa 3**: habilitar o KPTI (Isolamento de Tabela de Página do Kernel) para atenuar a CVE-2017-5754 (Variante de Meltdown 3) seguindo a documentação do provedor do sistema operacional. 
+ 
+Mais informações estão disponíveis no provedor do sistema operacional:  
+ 
+- [Red Hat e CentOS](https://access.redhat.com/security/vulnerabilities/speculativeexecution) 
+- [SUSE](https://www.suse.com/support/kb/doc/?id=7022512) 
+- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown) 
 
 
 ## <a name="next-steps"></a>Próximas etapas

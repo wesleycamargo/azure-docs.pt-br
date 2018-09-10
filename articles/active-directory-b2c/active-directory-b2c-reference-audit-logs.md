@@ -1,20 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: exemplos e definições de logs de auditoria'
-description: Guia e exemplos sobre como acessar os logs de auditoria do Microsoft Azure Active Directory B2C
+title: Exemplos e as definições de logs de auditoria no Azure Active Directory B2C | Microsoft Docs
+description: Guia e exemplos de como acessar os logs de auditoria do Azure AD B2C.
 services: active-directory-b2c
-author: sromeroz
-manager: sasubram
-ms.author: sezambra
-ms.service: active-directory-b2c
-ms.topic: article
+author: davidmu1
+manager: mtillman
+ms.service: active-directory
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
-ms.openlocfilehash: 8cc48853b0677230c4e19df4f0ecd93ce88b119d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: davidmu
+ms.component: B2C
+ms.openlocfilehash: 1697830f699c9cd50548bcfcdd038348db314020
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206194"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969652"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando os logs de auditoria do Microsoft Azure Active Directory B2C
 
@@ -62,7 +63,7 @@ Você verá uma lista de atividades registradas nos últimos sete dias.
 - Clique em **Download** para baixar as atividades como um arquivo csv
 
 ##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Acessar os logs de auditoria por meio da API de relatórios do Microsoft Azure Active Directory
-Os logs de auditoria são publicados para o mesmo pipeline como outras atividades do Azure Active Directory, para que possam ser acessados por meio da [API de relatórios do Microsoft Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-audit-reference). 
+Os logs de auditoria são publicados para o mesmo pipeline como outras atividades do Azure Active Directory, para que possam ser acessados por meio da [API de relatórios do Microsoft Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
 
 ###<a name="prerequisites"></a>pré-requisitos
 Para autenticar à API de relatórios do Microsoft Azure Active Directory, você precisa registrar um aplicativo. Antes de começar, você precisa concluir as etapas em [Pré-requisitos para acessar as APIs de relatórios do Microsoft Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).

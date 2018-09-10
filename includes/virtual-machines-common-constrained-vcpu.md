@@ -1,5 +1,20 @@
-
-
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: eaf490979167ea5cbfe5846e62444526310452f8
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36269537"
+---
 Algumas cargas de trabalho de banco de dados como o SQL Server ou Oracle exigem alto de memória, armazenamento e largura de banda I/O, mas não número alto de núcleos. Muitas cargas de trabalho do banco de dados não são de uso intensivo de CPU. O Azure oferece determinados tamanhos de VM, onde você pode restringir a contagem de vCPU VM para reduzir o custo de licenciamento de software, mantendo a mesma memória, armazenamento e largura de banda I/O.
 
 A contagem de vCPU pode ser restrita para a metade ou um quarto do tamanho da VM original. Esses novos tamanhos VM têm um sufixo que especifica o número de vCPUs ativos para facilitar a identificação.
@@ -11,6 +26,12 @@ Os valores de licenciamento cobrados para SQL Server ou Oracle são restritos à
 
 | NOME                | vCPU | Especificações           |
 |---------------------|------|-----------------|
+| Standard_M8-2ms     | 2    | Mesmo que M8ms    |
+| Standard_M8-4ms     | 4    | Mesmo que M8ms    |
+| Standard_M16-4ms    | 4    | Mesmo que M16ms   |
+| Standard_M16-8ms    | 8    | Mesmo que M16ms   |
+| Standard_M32-8ms    | 8    | Mesmo que M32ms   |
+| Standard_M32-16ms   | 16   | Mesmo que M32ms   |
 | Standard_M64 32ms   | 32   | O mesmo que M64ms   |
 | Standard_M64-16ms   | 16   | O mesmo que M64ms   |
 | Standard_M128-64ms  | 64   | O mesmo que M128ms  |

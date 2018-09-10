@@ -2,23 +2,18 @@
 title: Criar um Trabalho de exportação para a Importação/Exportação do Azure | Microsoft Docs
 description: Saiba como criar um trabalho de exportação para o serviço de Importação/Exportação do Microsoft Azure.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 613d480b-a8ef-4b28-8f54-54174d59b3f4
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 3fb3f2af5e5cebcac21f4372bc9d9dc9ee837202
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.component: common
+ms.openlocfilehash: 0066ec20c68d70fac9a6529f8f5b85855d6c5349
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666817"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Criando um trabalho de exportação para o serviço de Importação/Exportação do Azure
 A criação de um trabalho de exportação do serviço de Importação/Exportação do Microsoft Azure usando a API REST envolve as seguintes etapas:
@@ -53,7 +48,7 @@ A criação de um trabalho de exportação do serviço de Importação/Exportaç
  Para obter mais informações sobre como especificar os blobs a serem exportados, consulte a operação [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate).
 
 ## <a name="obtaining-your-shipping-location"></a>Obtendo o local de envio
-Antes de criar um trabalho de exportação, você precisa obter um nome e o endereço de uma localização de envio chamando a operação [Get Location](https://portal.azure.com) ou [List Locations](/rest/api/storageimportexport/listlocations). `List Locations` retornará uma lista de localizações e seus endereços para correspondência. É possível selecionar uma localização na lista retornada e enviar os discos rígidos para esse endereço. Você também pode usar a operação `Get Location` para obter o endereço para entrega de uma localização específica diretamente.
+Antes de criar um trabalho de exportação, você precisa obter um nome e o endereço de uma localização de envio chamando a operação [Get Location](https://portal.azure.com) ou [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list). `List Locations` retornará uma lista de localizações e seus endereços para correspondência. É possível selecionar uma localização na lista retornada e enviar os discos rígidos para esse endereço. Você também pode usar a operação `Get Location` para obter o endereço para entrega de uma localização específica diretamente.
 
 Siga as etapas abaixo para obter a localização de envio:
 

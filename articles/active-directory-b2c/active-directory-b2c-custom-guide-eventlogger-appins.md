@@ -2,19 +2,20 @@
 title: Rastrear o comportamento do usuário usando eventos no Application Insights do Azure Active Directory B2C | Microsoft Docs
 description: Guia passo a passo para habilitar logs de eventos no Application Insights dos percursos do usuário do Azure Active Directory B2C utilizando políticas personalizadas (versão prévia)
 services: active-directory-b2c
-documentationcenter: dev-center-name
 author: davidmu1
 manager: mtillman
-ms.service: active-directory-b2c
-ms.topic: article
+ms.service: active-directory
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
-ms.openlocfilehash: db9ba62cb6ef0d2627dbeb07cb8165a4ac7ae490
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: c77feed3b86358c74f741b53aa03ecb454dc9a62
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337095"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Rastrear o comportamento do usuário nos percursos do Azure Active Directory B2C utilizando o Application Insights
 
@@ -36,7 +37,7 @@ Um perfil técnico usa esse provedor para definir um evento do B2C.  O perfil es
 
 O Application Insights pode unificar os eventos usando uma ID de correlação para registrar uma sessão do usuário. O Application Insights disponibiliza o evento e a sessão em segundos e apresenta muitas ferramentas analíticas, de exportação e visualização.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua as etapas em [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md). Este artigo pressupõe que você esteja usando o pacote de inicializador de política personalizada. Mas o pacote de inicializador não é necessário.
 
@@ -285,7 +286,6 @@ Referenced using {OIDC:One of the property names below}
 |  MaxAge | max_age | N/D |
 | ClientId | client_id | N/D |
 | Nome de Usuário | login_hint | N/D |
-| Senha | domain_hint | N/D |
 |  Recurso | recurso| N/D |
 | AuthenticationContextReferences | acr_values | N/D |
 
@@ -300,14 +300,14 @@ Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OA
 Aqui está uma solicitação de exemplo do aplicativo:
 
 ```
-https://login.microsoftonline.com/sampletenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
+https://sampletenant.b2clogin.com/tfp/sampletenant.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize?client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
 
 ```
-As declarações podem ser adicionadas, adicionando um elemento `Input Claim` ao evento do Application Insights:
+As declarações podem ser adicionadas, adicionando um elemento `Input Claim` ao evento do Application Insights: Propriedades de um evento são adicionadas por meio da sintaxe de {property:NAME}, onde NOME é propriedade que está sendo adicionada ao evento. Por exemplo: 
 
 ```
-<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="app_session" DefaultValue="{OAUTH-KV:app_session}" />
-<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="loyalty_number" DefaultValue="{OAUTH-KV:loyalty_number}" />
+<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
+<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
 ```
 
 ### <a name="other-system-claims"></a>Outras declarações do sistema

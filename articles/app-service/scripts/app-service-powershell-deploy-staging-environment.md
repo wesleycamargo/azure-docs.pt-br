@@ -15,11 +15,12 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 179e4afec2250da76fa0e7554e804d290d28c785
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: afa2feaee4283f008f2c255de7b64e3085fbc6ef
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324217"
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>Criar um aplicativo web e implantar o código em um ambiente de preparo
 
@@ -29,7 +30,7 @@ Se necessário, instale o Azure PowerShell usando a instrução encontrada no [g
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[main](../../../powershell_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.ps1?highlight=1 "Create a web app and deploy code to a staging environment")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.ps1?highlight=1 "Create a web app and deploy code to a staging environment")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação 
 

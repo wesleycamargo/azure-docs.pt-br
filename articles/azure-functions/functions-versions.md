@@ -1,36 +1,37 @@
 ---
-title: "Visão geral de versões de tempo de execução do Azure Functions"
-description: "O Azure Functions é compatível com várias versões do tempo de execução. Aprenda as diferenças entre elas e como escolher a certa para você."
+title: Visão geral de versões de tempo de execução do Azure Functions
+description: O Azure Functions é compatível com várias versões do tempo de execução. Aprenda as diferenças entre elas e como escolher a certa para você.
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 07/29/2018
 ms.author: glenga
-ms.openlocfilehash: 9f916aaa8032ff519709d73a1c1f51195f811686
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6bf6621d650ad590cd1134bc79fcdecdc3fd0963
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622629"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral de versões de tempo de execução do Azure Functions
 
- Há duas versões principais do tempo de execução do Azure Functions.: 1.x e 2.x. Este artigo explica como escolher qual versão principal deve ser usada.
-
-> [!IMPORTANT] 
-> O tempo de execução 1.x é a única versão aprovada para uso em produção.
+ Há duas versões principais do Azure Functions Runtime: 1.x e 2.x. Apenas a versão 1.x é aprovada para uso em produção. Este artigo explica as novidades da versão 2.x, que está em versão prévia.
 
 | Tempo de execução | Status |
 |---------|---------|
 |1.x|Disponível de forma geral (GA)|
-|2. x|Visualização|
+|2. x|Visualização<sup>*</sup>|
 
-Para obter informações sobre como configurar um aplicativo de função ou ambiente de desenvolvimento para uma versão específica, consulte [Como escolher versões de tempo de execução do Azure Functions](set-runtime-version.md) e [Codificar e testar o Azure Functions localmente](functions-run-local.md).
+<sup>*</sup>Para receber atualizações importantes na versão 2. x, incluindo os últimos anúncios de alterações, assista ao repositório dos [anúncios de Serviço de Aplicativo do Azure](https://github.com/Azure/app-service-announcements/issues).
+
+> [!NOTE] 
+> Este artigo refere-se ao serviço de nuvem Azure Functions. Para obter informações sobre o produto que permite que você execute o Azure Functions localmente, confira a [Visão geral do Azure Functions Runtime](functions-runtime-overview.md).
 
 ## <a name="cross-platform-development"></a>Desenvolvimento multiplataforma
 
@@ -64,8 +65,8 @@ Para obter informações sobre o suporte a associações e outras lacunas funcio
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Direcionar para o tempo de execução 2.0 em seu ambiente de desenvolvimento local](functions-run-local.md)
+Para saber mais, consulte os recursos a seguir:
 
-> [!div class="nextstepaction"]
-> [Consulte as notas de versão para versões de tempo de execução](https://github.com/Azure/azure-webjobs-sdk-script/releases)
+* [Codificar e testar o Azure Functions localmente](functions-run-local.md)
+* [Como direcionar para versões do Azure Functions Runtime](set-runtime-version.md)
+* [Notas de versão](https://github.com/Azure/azure-functions-host/releases)

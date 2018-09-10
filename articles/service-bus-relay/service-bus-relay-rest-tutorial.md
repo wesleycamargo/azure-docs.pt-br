@@ -1,11 +1,11 @@
 ---
-title: "Tutorial do REST do usando Retransmissão do Azure | Microsoft Docs"
-description: "Compile um aplicativo host simples de Retransmissão do Barramento de Serviço do Azure que expõe uma interface baseada em REST."
+title: Tutorial do REST do usando Retransmissão do Azure | Microsoft Docs
+description: Compile um aplicativo host simples de Retransmissão do Barramento de Serviço do Azure que expõe uma interface baseada em REST.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
 ms.service: service-bus-relay
 ms.devlang: na
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
-ms.author: sethm
-ms.openlocfilehash: 7a5a2916514a125d0b7443ced42e5ec600c68857
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.author: spelluru
+ms.openlocfilehash: fa5b4ba02eda75d16243c9aebbf38dfb30afe53d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695401"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial do REST de Retransmissão de WCF do Azure
 

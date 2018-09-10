@@ -1,22 +1,19 @@
 ---
 title: Cobertura de renderização nos Mapas do Azure | Microsoft Docs
 description: Saiba mais sobre a cobertura de renderização nos Mapas do Azure
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 03/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: ab05277c4541ae859f79b1108c4cf8a7beb29271
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: 6e4ebd5bfd7225537046d34dd885d04e8a94878f
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145044"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de renderização do Mapas do Azure
 
@@ -105,7 +102,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Bahamas                   | ✓ | ✓ |
 | Barbados                  | ✓ | ✓ |
 | Belize                    | ✓ | ✓ |
-| Bermuda                   |   | ✓ |
+| Bermudas                   |   | ✓ |
 | Estado Plurinacional da Bolívia |   | ✓ |
 | Bonaire, Santo Eustáquio e Saba |   | ✓ |
 | Brasil                    | ✓ | ✓ |
@@ -235,7 +232,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Samoa                     |   | Ø |
 | Ilhas Salomão           |   | Ø|
 | Tokelau                   |   | Ø |
-| Tonga                     |   | Ø |
+| Tonganês                     |   | Ø |
 | Tuvalu                    |   | Ø |
 | Vanuatu                   |   | Ø |
 | Wallis e Futuna         |   | Ø |
@@ -259,7 +256,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | República Tcheca            | ✓ | ✓ |
 | Dinamarca                   | ✓ | ✓ |
 | Estônia                   | ✓ | ✓ |
-| Ilhas Faroés             |   | Ø |
+| Ilhas Faroe             |   | Ø |
 | Finlândia                   | ✓ | ✓ |
 | França                    | ✓ | ✓ |
 | Geórgia                   |   | Ø |

@@ -3,21 +3,24 @@ title: Adicionar um aplicativo multilocatário à galeria de aplicativos do Azur
 description: Explica como é possível listar o aplicativo multilocatário personalizado na galeria de aplicativos do Azure Active Directory.
 services: active-directory
 documentationCenter: na
-author: jeevansd
-manager: femila
+author: barbkess
+manager: mtillman
 ms.assetid: 92c1651a-675d-42c8-b337-f78e7dbcc40d
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/16/2018
-ms.author: jeedes
-ms.openlocfilehash: 51a088ccdcc018b85a70f72a5f88fab8de3c7363
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: barbkess
+ms.reviewer: jeedes
+ms.openlocfilehash: 2f112a191770a2b469f4f8d1bce25973999f40d6
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366863"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Adicionar um aplicativo multilocatário à galeria de aplicativos do Azure Active Directory
 

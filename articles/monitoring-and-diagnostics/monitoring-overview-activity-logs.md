@@ -1,24 +1,19 @@
 ---
-title: Visão geral do Log de Atividades do Azure | Microsoft Docs
+title: Visão geral do Log de Atividades do Azure
 description: Saiba o que é o Log de Atividades do Azure e como usá-lo para compreender os eventos que ocorrem dentro de sua assinatura do Azure.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/04/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: 9768fd96b8023ac97d8c5711e0c02f2c147e28f6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: activitylog
+ms.openlocfilehash: 51cc4c37ba661feb63880c138e98200c981f6054
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918474"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorar a atividade da assinatura com o Log de Atividades do Azure
 
@@ -50,7 +45,7 @@ O Log de Atividades contém várias categorias de dados. Para obter todos os det
 * **Integridade do Serviço** - essa categoria contém o registro de qualquer incidente de integridade do serviço ocorrido no Azure. Um exemplo do tipo de evento que você vê nessa categoria é "SQL Azure no Leste dos EUA está passando por tempo de inatividade". Os eventos de serviço de integridade são fornecidos em cinco variedades: Ação Necessária, Recuperação Assistida, Incidente, Manutenção, Informações ou Segurança, e só aparecerão se você tiver um recurso na assinatura que seria afetada pelo evento.
 * **Alerta** - esta categoria contém o registro de todas as ativações de alertas do Azure. Um exemplo do tipo de evento que você vê nessa categoria é "% de CPU em myVM foi 80 nos últimos 5 minutos." Uma variedade de sistemas do Azure têm um conceito de alerta – você pode definir uma regra de algum tipo e receber uma notificação quando as condições corresponderem a essa regra. Cada vez que um tipo de alerta com suporte do Azure é 'ativado', ou as condições são atendidas para gerar uma notificação, um registro de ativação também é enviado para essa categoria de Log de Atividades.
 * **Dimensionamento automático** -essa categoria contém o registro de todos os eventos relacionados à operação do mecanismo de dimensionamento automático com base em quaisquer configurações de dimensionamento automático que você definiu na sua assinatura. Um exemplo do tipo de evento que você veria nessa categoria é "Falha na ação de escalar horizontalmente do Dimensionamento Automático". Usando o dimensionamento automático, você pode dimensionar o número de instâncias em um tipo de recurso com suporte com base na hora do dia e/ou dados de carga (métricas) usando uma configuração de dimensionamento automático. Quando as condições de redimensionamento forem atendidas, os eventos iniciados e bem-sucedidos ou com falha serão registrados nessa categoria.
-* **Recomendação** - essa categoria contém eventos de recomendação de certos tipos de recursos, como sites e servidores SQL. Estes eventos oferecem recomendações sobre como utilizar melhor seus recursos. Você só receberá eventos desse tipo se tiver recursos que emitam recomendações.
+* **Recomendação** – Esta categoria contém eventos de recomendação do Assistente do Azure.
 * **Segurança** – Esta categoria contém o registro de todos os alertas gerados pela Central de Segurança do Azure. Um exemplo do tipo de evento que você veria nessa categoria é "Arquivo de extensão dupla suspeito executado".
 * **Política e Resource Health** -Essas categorias não contêm eventos; elas estão reservadas para uso futuro.
 
@@ -103,9 +98,17 @@ Um **Perfil de Log** controla o modo de exportação de seu Log de Atividades. C
 * Quanto tempo o Log de Atividades deve ser mantido em uma Conta de Armazenamento.
     - Uma retenção de zero dias significa que os registros serão mantidos indefinidamente. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647.
     - Se as políticas de retenção estiverem definidas, mas o armazenamento de logs em uma Conta de Armazenamento estiver desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou Log Analytics forem selecionadas), as políticas de retenção não terão efeito.
-    - As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos.
+    - As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos. A exclusão começa à meia-noite UTC, mas observe que pode levar até 24 horas para que os logs sejam excluídos da conta de armazenamento.
 
 Você pode usar uma conta de armazenamento ou um namespace de hub de eventos que não esteja na mesma assinatura para emitir logs. O usuário que define a configuração deve ter o devido acesso RBAC para ambas as assinaturas.
+
+> [!NOTE]
+>  Atualmente, não é possível arquivar dados em uma conta de armazenamento que fica por trás de uma rede virtual protegida.
+
+> [!WARNING]
+> O formato dos dados de log na conta de armazenamento será alterado para Linhas JSON em 1º de novembro de 2018. [Confira este artigo para obter uma descrição do impacto e saber como atualizar suas ferramentas para manipular o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 Essas configurações podem ser definidas por meio da opção "Exportar" na folha do Log de Atividades no portal. Elas também podem ser definidas por meio de programação [usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), de cmdlets do PowerShell ou da CLI. Uma assinatura pode ter somente um perfil de log.
 
@@ -138,7 +141,7 @@ Get-AzureRmLogProfile
 #### <a name="add-a-log-profile"></a>Adicionar um perfil de log
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
 | Propriedade | Obrigatório | DESCRIÇÃO |
@@ -146,9 +149,9 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | NOME |sim |Nome de seu perfil de log. |
 | StorageAccountId |Não  |ID de recursos da Conta de Armazenamento na qual o Log de Atividades deve ser salvo. |
 | serviceBusRuleId |Não  |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. É uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Locais |sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
+| Localização |sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
 | RetentionInDays |sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
-| Categorias |Não  |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
+| Categoria |Não  |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 
 #### <a name="remove-a-log-profile"></a>Remover um perfil de log
 ```

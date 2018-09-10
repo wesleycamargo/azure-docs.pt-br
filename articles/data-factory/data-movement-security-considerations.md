@@ -10,28 +10,26 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/26/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 855cb159474836e4c015f84d7d57546b5e1a2e99
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745661"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações sobre segurança para movimentação de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-data-movement-security-considerations.md)
-> * [Versão 2 – Versão prévia](data-movement-security-considerations.md)
+> * [Versão 1](v1/data-factory-data-movement-security-considerations.md)
+> * [Versão atual](data-movement-security-considerations.md)
 
 Este artigo descreve a infraestrutura básica de segurança usada pelos serviços de movimentação de dados no Azure Data Factory para ajudar a proteger seus dados. Os recursos de gerenciamento do Data Factory se baseiam na infraestrutura de segurança do Azure e usam todas as medidas de segurança possíveis oferecidas pelo Azure.
 
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira [considerações de segurança de movimento de dados para o Data Factory versão 1](v1/data-factory-data-movement-security-considerations.md).
-
 Em uma solução de Data Factory, você cria um ou mais [pipelines](concepts-pipelines-activities.md)de dados. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. Esses pipelines residem na região em que o data factory foi criado. 
 
-Embora o Data Factory esteja disponível somente nas regiões Leste dos EUA, Leste dos EUA 2 e Europa Ocidental (versão prévia 2), o serviço de movimentação de dados está disponível [globalmente em várias regiões](concepts-integration-runtime.md#azure-ir). Se o serviço de movimentação de dados ainda não estiver implementado nessa região, o serviço Data Factory garante que os dados não saiam de uma área geográfica ou região, a menos que você explicitamente instrua o serviço a usar uma região alternativa. 
+Mesmo que a fábrica de dados está disponível apenas em algumas regiões, o serviço de movimentação de dados é [disponível globalmente](concepts-integration-runtime.md#integration-runtime-location) para garantir a conformidade de dados, eficiência e rede reduzida os custos de saída. 
 
 O Azure Data Factory não armazena nenhum dado, exceto as credenciais do serviço vinculado de armazenamentos de dados em nuvem, que são criptografadas usando certificados. Com o Data Factory, você cria fluxos de trabalho controlados por dados para orquestrar a movimentação de dados entre os [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) e o processamento de dados usando [serviços de computação](compute-linked-services.md) em outras regiões ou em um ambiente local. Você também pode monitorar e gerenciar fluxos de trabalho usando SDKs e Azure Monitor.
 
@@ -41,7 +39,7 @@ A movimentação de dados com o uso do Data Factory foi certificada para:
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
 -   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
-Se você estiver interessado na conformidade do Azure e como ele protege sua própria infraestrutura, visite a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/trustcenter).
+Se você estiver interessado na conformidade do Azure e como ele protege sua própria infraestrutura, visite a [Central de Confiabilidade da Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 Neste artigo, examinamos as considerações sobre segurança nestes dois cenários de movimentação de dados: 
 
@@ -60,6 +58,14 @@ Caso o armazenamento de dados em nuvem dê suporte a HTTPS ou TLS, todas as tran
 
 > [!NOTE]
 > Todas as conexões com o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure exigem criptografia (SSL/TLS) quando os dados estão em trânsito, entrando e saindo do banco de dados. Ao criar um pipeline usando JSON, adicione a propriedade criptografia e defina-a como **verdadeira** na cadeia de conexão. Para Armazenamento do Azure, é possível usar **HTTPS** na cadeia de conexão.
+
+> [!NOTE]
+> Para habilitar a criptografia em trânsito, simultaneamente movendo dados do Oracle, siga uma das opções abaixo:
+> 1. No servidor Oracle, acesse OAS (Segurança Avançada da Oracle) e defina as configurações de criptografia, que dão suporte a 3DES (criptografia DES tripla) e AES (criptografia AES). Consulte os detalhes [aqui](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). O ADF negocia automaticamente o método de criptografia para usar aquele que você configura no OAS ao estabelecer a conexão com o Oracle.
+> 2. Em ADF, você pode adicionar EncryptionMethod=1 na cadeia de conexão (no serviço vinculado). Essa opção usará SSL/TLS como o método de criptografia. Para usar essa, é necessário desabilitar as configurações de criptografia não SSL no OAS no lado do servidor Oracle para evitar conflitos de criptografia.
+
+> [!NOTE]
+> A versão do TLS usada é a 1.2.
 
 ### <a name="data-encryption-at-rest"></a>Criptografia de dados em repouso
 Alguns armazenamentos de dados dão suporte à criptografia de dados em repouso. Recomendamos que você habilite o mecanismo de criptografia de dados nesses armazenamentos de dados. 
@@ -146,8 +152,9 @@ A tabela a seguir fornece os requisitos de porta de saída e de domínio dos fir
 | Nomes de domínio                  | Portas de saída | DESCRIÇÃO                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | Necessárias para que o tempo de execução de integração auto-hospedado se conecte aos serviços de movimentação de dados no Data Factory. |
-| `*.core.windows.net`          | 443            | Usada pelo tempo de execução de integração auto-hospedado para se conectar à conta de armazenamento do Azure ao usar o recurso [cópia em etapas](copy-activity-performance.md#staged-copy). |
 | `*.frontend.clouddatahub.net` | 443            | Necessárias para que o tempo de execução de integração auto-hospedado se conecte ao serviço do Data Factory. |
+| `download.microsoft.com`    | 443            | Exigido pelo tempo de execução da integração auto-hospedada para fazer o download das atualizações. Se tiver desabilitado a atualização automática, você pode ignorar isso. |
+| `*.core.windows.net`          | 443            | Usada pelo tempo de execução de integração auto-hospedado para se conectar à conta de armazenamento do Azure ao usar o recurso [cópia em etapas](copy-activity-performance.md#staged-copy). |
 | `*.database.windows.net`      | 1433           | (Opcional) Necessária ao copiar de ou para o Banco de Dados SQL do Azure ou SQL Data Warehouse do Azure. Use o recurso de cópia em etapas para copiar dados para o Banco de Dados SQL do Azure ou SQL Data Warehouse do Azure sem abrir a porta 1433. |
 | `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Opcional) Necessária ao copiar de ou para o  Azure Data Lake Store. |
 

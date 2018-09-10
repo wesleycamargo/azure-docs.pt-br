@@ -1,24 +1,20 @@
 ---
-title: Criar clusters Hadoop usando a API REST do Azure – Azure | Microsoft Docs
+title: Criar clusters do Hadoop usando a API REST do Azure
 description: Saiba como criar clusters do HDInsight enviando os modelos do Azure Resource Manager para a API REST do Azure.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 98be5893-2c6f-4dfa-95ec-d4d8b5b7dcb5
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
-ms.author: larryfr
-ms.openlocfilehash: 9c2779c692e944bed62d7ae9b76bb8929e62e5f3
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: jasonh
+ms.openlocfilehash: 79ab8ad9d827b3d2dda8138260b9857f241afc45
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094060"
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Hadoop usando a API REST do Azure
 
@@ -370,6 +366,6 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 
 ### <a name="storm-clusters"></a>Clusters Storm
 
-* [Desenvolver topologias Java para Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Desenvolvimento de aplicativos Java para Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
 * [Usar componentes de Python no Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

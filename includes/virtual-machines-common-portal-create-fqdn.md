@@ -1,14 +1,14 @@
 
-1. Selecione sua VM no portal. O *Nome DNS* está em branco. Selecione **Endereço IP público**:
+1. Selecione sua VM no portal. No **nome DNS**, clique em **Configurar**.
    
-   ![Clique no recurso IP Público no portal](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
+   ![Clicar em Configurar no nome DNS](./media/virtual-machines-common-portal-create-fqdn/configure.png)
 
 2. Insira o nome DNS desejado e então selecione **Salvar**.
    
-   ![Inserir um rótulo de nome DNS para seu recurso IP público](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
+   ![Inserir um rótulo de nome DNS para seu recurso IP público](./media/virtual-machines-common-portal-create-fqdn/configure-pane.png)
 
 
 3. Para retornar para a folha de visão geral da VM, feche a folha *Endereço IP público*. Verifique se o *Nome DNS* é mostrado agora.
    
-   ![Confirme que o novo rótulo DNS foi definido](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
+
 

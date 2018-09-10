@@ -3,18 +3,19 @@ title: Analisar dados com o Azure Machine Learning | Microsoft Docs
 description: Use o Azure Machine Learning para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 4a5137ef22455c304dc672520aabd16cac2570e1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4324b1ac343a0e2b77c21d7834beffae08403953
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247519"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -32,7 +33,7 @@ Este tutorial usa o Azure Machine Learning para compilar um modelo de aprendizad
 > 
 > 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para acompanhar este tutorial, você precisará:
 
 * Um SQL Data Warehouse pré-carregado com os dados de exemplo do AdventureWorksDW. Para provisionar isso, consulte [Criar um SQL Data Warehouse][Create a SQL Data Warehouse] e opte por carregar os dados de exemplo. Se você já tiver um data warehouse, mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente][load sample data manually].

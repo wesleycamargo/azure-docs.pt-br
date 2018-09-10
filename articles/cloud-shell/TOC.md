@@ -5,20 +5,20 @@
 ## [PowerShell - início rápido](quickstart-powershell.md)
 
 # Ferramentas e recursos
-## [Bash - ferramentas e recursos](features.md)
-## [PowerShell - ferramentas e recursos](features-powershell.md)
+## [Ferramentas e recursos](features.md)
 
 # Instruções
-## [Bash - armazenamento de persistência](persisting-shell-storage.md)
-## [PowerShell - armazenamento de persistência](persisting-shell-storage-powershell.md)
-## [Usando a janela](using-the-shell-window.md)
+## [Cloud Shell PowerShell para usuários do Windows](cloud-shell-windows-users.md)
+## [Manter os arquivos no armazenamento](persisting-shell-storage.md)
+## [Use a janela](using-the-shell-window.md)
+## [Use o MSI no Cloud Shell](msi-authorization.md)
+## [Inserir Cloud Shell](embed-cloud-shell.md)
 
 # Exemplos
 ## [Bash - criar recursos com Terraform](example-terraform-bash.md)
 ## [Bash - executar guias estratégicos do Ansible](../ansible/ansible-run-playbook-in-cloudshell.md)
 
-# [Inserir Cloud Shell](embed-cloud-shell.md)
-# [Use o MSI no Cloud Shell](msi-authorization.md)
+# [Use o editor do Cloud Shell](using-cloud-shell-editor.md)
 
 # [Solução de problemas e limitações](troubleshooting.md)
 

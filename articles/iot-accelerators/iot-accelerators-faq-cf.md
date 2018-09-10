@@ -1,25 +1,19 @@
 ---
 title: Perguntas frequentes da solução Connected Factory – Azure | Microsoft Docs
 description: Perguntas frequentes sobre o acelerador de solução Connected Factory
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 4ed0cd413480e717e686f7e52123102e1a838f19
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d2f5ce97ee81deaf590771f4794af4adf0fdbd1b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248580"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas frequentes sobre o acelerador de solução Connected Factory
 
@@ -67,7 +61,7 @@ Você tem duas opções para remover o endereço IP:
 
 Há suporte para a entrada na VM de simulação apenas se você implantou a solução usando o script `build.ps1` do PowerShell no [repositório](https://github.com/Azure/azure-iot-connected-factory).
 
-Se você implantou a solução por meio de www.azureiotsuite.com, não poderá entrar na VM. Você não poderá entrar porque a senha é gerada aleatoriamente e não é possível redefini-la.
+Se tiver implantado a solução de www.azureiotsolutions.com, você não poderá entrar na VM. Você não poderá entrar porque a senha é gerada aleatoriamente e não é possível redefini-la.
 
 1. Adicione um endereço IP público à VM. Consulte [Como fazer para adicionar um endereço IP público à VM de simulação?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
 1. Crie uma sessão do SSH para a VM usando o endereço IP da VM.
@@ -131,7 +125,7 @@ Como alternativa, faça logon na VM por meio do SSH e inspecione os arquivos de 
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Como verificar se a simulação está enviando dados para a nuvem?
 
-Com o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou a ferramenta [iothub-explorer](https://github.com/azure/iothub-explorer), inspecione os dados enviados para o Hub IoT de determinados dispositivos. Para usar essas ferramentas, você precisa saber a cadeia de conexão do hub IoT na implantação. Consulte [Como fazer para descobrir a cadeia de conexão do hub IoT usada por minha solução?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Com o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou a ferramenta [iothub-explorer](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events), inspecione os dados enviados para o Hub IoT de determinados dispositivos. Para usar essas ferramentas, você precisa saber a cadeia de conexão do hub IoT na implantação. Consulte [Como fazer para descobrir a cadeia de conexão do hub IoT usada por minha solução?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Inspecione os dados enviados por um dos dispositivos fornecedores:
 
@@ -148,11 +142,11 @@ Caso você não veja nenhum dado enviado para o Hub IoT, há um problema com a s
 
 Para habilitar um mapa interativo em sua solução Connected Factory, deve ter uma API existente do Bing Maps para o plano Enterprise.
 
-Durante a implantação de [www.azureiotsuite.com](http://www.azureiotsuite.com), o processo de implantação verifica se sua assinatura tem uma API do Bing Maps habilitado para o plano Enterprise e implanta automaticamente um mapa interativo na Connected Factory. Se isso não for o caso, você poderá habilitar um mapa interativo em sua implantação da seguinte maneira:
+Durante a implantação de [www.azureiotsolutions.com](http://www.azureiotsolutions.com), o processo de implantação verifica se sua assinatura tem uma API do Bing Mapas habilitada para o plano Enterprise e implanta automaticamente um mapa interativo na Connected Factory. Se isso não for o caso, você poderá habilitar um mapa interativo em sua implantação da seguinte maneira:
 
 Quando você implanta usando o `build.ps1` script no repositório GitHub da Connected Factory e você tem uma API do Bing Maps para o plano Enterprise, defina a variável de ambiente `$env:MapApiQueryKey` na janela de compilação para a chave de consulta do seu plano. O mapa interativo, em seguida, é habilitado automaticamente.
 
-Se você não tiver uma API do Bing Maps para o plano Enterprise, implante a solução Connected Factory de [www.azureiotsuite.com](http://www.azureiotsuite.com) ou usando o script `build.ps1`. Em seguida, adicione uma API do Bing Maps para o plano Enterprise à sua assinatura, conforme explicado em [Como criar uma API do Bing Maps para a conta Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Pesquise a chave de consulta dessa conta conforme explicado em [Como obter a API do Bing Maps para Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) e salve essa chave. Navegue até o portal do Azure e acesse o recurso de serviço de aplicativo em sua implantação Connected Factory. Navegue até **Configurações do aplicativo**, onde você pode encontrar uma seção **Configurações do aplicativo**. Defina o **MapApiQueryKey** para a chave de consulta que você obteve. Salvar as configurações e, em seguida, navegue até **Visão geral** e reinicie o serviço de aplicativo.
+Se não tiver uma API do Bing Mapas para o plano Enterprise, implante a solução Connected Factory de [www.azureiotsolutions.com](http://www.azureiotsolutions.com) ou usando o script `build.ps1`. Em seguida, adicione uma API do Bing Maps para o plano Enterprise à sua assinatura, conforme explicado em [Como criar uma API do Bing Maps para a conta Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Pesquise a chave de consulta dessa conta conforme explicado em [Como obter a API do Bing Maps para Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) e salve essa chave. Navegue até o portal do Azure e acesse o recurso de serviço de aplicativo em sua implantação Connected Factory. Navegue até **Configurações do aplicativo**, onde você pode encontrar uma seção **Configurações do aplicativo**. Defina o **MapApiQueryKey** para a chave de consulta que você obteve. Salvar as configurações e, em seguida, navegue até **Visão geral** e reinicie o serviço de aplicativo.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Como criar uma API do Bing Maps para a conta Enterprise
 
@@ -212,6 +206,6 @@ Para enviar os dados telemétricos dos dispositivos não OPC UA à Connected Fac
 
 Você também pode explorar alguns dos outros recursos dos aceleradores de solução de IoT:
 
-* [Visão geral do acelerador de solução de Manutenção Preditiva](../iot-suite/iot-suite-predictive-overview.md)
-* [Visão geral do acelerador de solução Connected Factory](iot-accelerators-connected-factory-overview.md)
-* [Segurança da IoT desde o início](../iot-suite/securing-iot-ground-up.md)
+* [Visão geral do acelerador de solução de Manutenção Preditiva](iot-accelerators-predictive-overview.md)
+* [Implantar o Acelerador de solução de fábrica Conectada](quickstart-connected-factory-deploy.md)
+* [Segurança da IoT desde o início](/azure/iot-fundamentals/iot-security-ground-up)

@@ -1,24 +1,19 @@
 ---
-title: Restaurar dados no Azure para um computador Windows ou Windows Server | Microsoft Docs
+title: Restaurar dados no Azure para um computador Windows ou Windows Server
 description: Saiba como restaurar os dados armazenados no Azure para um computador Windows ou Windows Server.
 services: backup
-documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: 
-ms.assetid: 742f4b9e-c0ab-4eeb-8e22-ee29b83c22c4
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 1/4/2018
-ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 3444b13972ab9e5c435fc009e8ddb51bcafb1a41
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.topic: conceptual
+ms.date: 8/6/2018
+ms.author: saurse
+ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576178"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restaurar arquivos em um computador de cliente do Windows ou Windows Server usando o modelo de implantação do Gerenciador de recursos
 
@@ -56,6 +51,8 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
 4. No painel **Selecionar Modo de Recuperação**, escolha **Pastas e arquivos individuais** e, em seguida, clique em **Avançar**.
 
     ![Procurar arquivos](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+> [!IMPORTANT]
+> A opção de restauração *arquivos e pastas individuais* requer o .NET Framework 4.5.2 ou superior. Se você não vir as *arquivos e pastas individuais* opção, você deve atualizar o .NET Framework versão 4.5.2 ou superior e tente novamente.
 
 5. No painel **Selecionar Volume e Data**, selecione o volume que contém os arquivos e/ou pastas que deseja restaurar.
 
@@ -72,7 +69,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
     ![Opções de recuperação](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-8. No Windows Explorer, copie os arquivos e/ou pastas que deseja restaurar e cole-os em qualquer localização local no servidor ou computador. Você pode abrir ou transmitir os arquivos diretamente do volume de recuperação e verificar se as versões corretas são recuperadas.
+8. No Windows Explorer, copie os arquivos e/ou pastas que deseja restaurar e cole-os em qualquer localização local no servidor ou computador. Você pode abrir ou transmitir os arquivos diretamente do volume de recuperação e verificar se você está recuperando as versões corretas.
 
     ![Copiar e colar arquivos e pastas do volume montado na localização local](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 
@@ -148,33 +145,6 @@ A terminologia usada nessas etapas inclui:
     > [!Important]
     > Se você não clicar em Desmontar, o Volume de Recuperação permanecerá montado por seis horas a partir da hora em que foi montado. No entanto, o tempo de montagem é estendido até um máximo de 24 horas no caso de uma cópia de arquivo em andamento. Não será executada nenhuma operação de backup enquanto o volume estiver montado. Qualquer operação de backup agendada para execução durante o tempo em que o volume estiver montado será executada após o volume de recuperação ser desmontado.
     >
-
-## <a name="troubleshooting"></a>solução de problemas
-Se o Backup do Azure não tiver montado com êxito o volume de recuperação mesmo após os diversos minutos de clicar em **Montar** ou falha ao montar o volume de recuperação com um ou mais erros, siga as etapas abaixo para iniciar a recuperação normalmente.
-
-1.  Cancele o processo de montagem em andamento caso ele esteja sendo executado por vários minutos.
-
-2.  Verifique se você está na versão mais recente do agente de Backup do Azure. Para obter as informações de versão do agente de Backup do Azure, clique em **Sobre o Agente dos Serviços de Recuperação do Microsoft Azure** no painel **Ações** do console de Backup do Microsoft Azure e verifique se o número de **Versão** é igual a ou maior do que a versão mencionada [neste artigo](https://go.microsoft.com/fwlink/?linkid=229525). Você pode baixar a versão mais recente [aqui](https://go.microsoft.com/fwLink/?LinkID=288905)
-
-3.  Vá para **Gerenciador de Dispositivos** -> **Controladores de Armazenamento** e verifique se você pode localizar o **Iniciador do Microsoft iSCSI**. Se você puder localizá-lo, vá diretamente para a etapa 7 abaixo. 
-
-4.  Se você não puder localizar o serviço Iniciador do Microsoft iSCSI conforme mencionado na etapa 3, verifique se você pode encontrar uma entrada em **Gerenciador de Dispositivos** -> **Controladores de Armazenamento** chamada **Dispositivo Desconhecido** com a ID de Hardware **ROOT\ISCSIPRT**.
-
-5.  Clique com o botão direito do mouse em **Dispositivo Desconhecido** e selecione **Atualizar Software de Driver**.
-
-6.  Atualize o driver ao selecionar a opção para **Pesquisar automaticamente software de driver atualizado**. A conclusão da atualização deve alterar o **Dispositivo Desconhecido** para o **Iniciador do Microsoft iSCSI** conforme mostrado abaixo. 
-
-    ![Criptografia](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
-
-7.  Vá para **Gerenciador de Tarefas** -> **Serviços (Local)** -> **Serviço Iniciador do Microsoft iSCSI**. 
-
-    ![Criptografia](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
-    
-8.  Reinicie o serviço Iniciador do Microsoft iSCSI ao clicar com o botão direito do mouse no serviço, clicar em **Parar** e continue clicando com o botão direito do mouse e clicando em **Iniciar**.
-
-9.  Repita a recuperação usando a Restauração Instantânea. 
-
-Se a recuperação ainda falhar, reinicialize o servidor/cliente. Se uma reinicialização não for desejável ou se a recuperação ainda falhar mesmo após a reinicialização do servidor, tente recuperar de um Computador Alternativo e contate o Suporte do Azure no [Portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e envie uma solicitação de suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Agora que você restaurou seus arquivos e pastas, poderá [gerenciar seus backups](backup-azure-manage-windows-server.md).

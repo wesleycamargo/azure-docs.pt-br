@@ -3,17 +3,18 @@ title: Introdução ao armazenamento de Filas do Azure usando o .NET | Microsoft
 description: As filas do Azure fornecem uma mensagem assíncrona e confiável entre os componentes do aplicativo. A mensagem na nuvem permite que os componentes do aplicativo se dimensionem de modo independente.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/16/2018
+ms.date: 06/13/2018
 ms.author: tamram
-ms.openlocfilehash: 749bc318af331100c8c2079d58c8e3ca395f4a49
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: queues
+ms.openlocfilehash: 25efad05fd0c7dd613d7dfbd5704255f9761d174
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523073"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao armazenamento de Fila do Azure usando o .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -35,8 +36,6 @@ Este tutorial mostra como gravar código .NET para alguns cenários comuns usand
 * [Gerenciador de Configurações do Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Uma conta do Armazenamento do Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#create-a-storage-account)
 
-[!INCLUDE [storage-dotnet-client-library-version-include](../../../includes/storage-dotnet-client-library-version-include.md)]
-
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
@@ -54,7 +53,7 @@ using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Copiar suas credenciais no Portal do Azure
 
-O código de exemplo precisa autenticar o acesso à sua conta de armazenamento. Para autenticar, forneça suas credenciais de conta de armazenamento ao aplicativo na forma de uma cadeia de conexão. Para verificar as credenciais da conta de armazenamento:
+O código de exemplo precisa autorizar o acesso à sua conta de armazenamento. Para autorizar, forneça suas credenciais de conta de armazenamento ao aplicativo na forma de uma cadeia de conexão. Para verificar as credenciais da conta de armazenamento:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
 2. Localize sua cadeia de conexão.

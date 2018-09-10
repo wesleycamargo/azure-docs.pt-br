@@ -1,24 +1,25 @@
 ---
-title: "Replicar uma implantação do Dynamics AX de várias camadas usando o Azure Site Recovery | Microsoft Docs"
+title: Replicar uma implantação do Dynamics AX de várias camadas usando o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como replicar e proteger o Dynamics AX usando o Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: asgang
 manager: rochakm
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eb6f7d9b34e00ce1efd8c871439c2504e5f550d5
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669435"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replicar um aplicativo do Dynamics AX de várias camadas usando o Azure Site Recovery
 
@@ -33,7 +34,7 @@ Este artigo explica como você pode criar uma solução de recuperação de desa
 
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 A implementação de recuperação de desastre para aplicativos do Dynamics AX usando o Site Recovery exige os seguintes pré-requisitos:
 
@@ -51,9 +52,9 @@ Para a finalidade de criação deste artigo, usamos as máquinas virtuais do VMw
 
 **Cenário** | **Para um site secundário** | **Para o Azure**
 --- | --- | ---
-**Hyper-V** | sim | sim
-**VMware** | sim | sim
-**Servidor físico** | sim | sim
+**Hyper-V** | SIM | SIM
+**VMware** | SIM | SIM
+**Servidor físico** | SIM | SIM
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Habilitar a recuperação de desastre do aplicativo Dynamics AX usando o Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Proteger o aplicativo Dynamics AX
@@ -98,7 +99,7 @@ Você pode selecionar a VM nos itens replicados para definir as configurações 
 
 * Se estiver usando um IP estático, especifique o IP que você deseja que seja usado pela VM na caixa de texto **IP de Destino**.
 
-    ![Configurações de rede ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
+    ![Configurações de rede ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. Criar um plano de recuperação
@@ -113,7 +114,7 @@ Crie um plano de recuperação no Site Recovery para automatizar o processo de f
 
     ![Criar Plano de Recuperação](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
-4. Selecione o Servidor de Objetos de Aplicativo e as VMs cliente para o plano de recuperação e selecione o ✓.
+4. Selecione o Servidor de Objetos de Aplicativo e as VMs do cliente para o plano de recuperação e selecione o ✓.
 
     ![Selecionar os itens](./media/site-recovery-dynamics-ax/selectvms.png)
 
@@ -163,7 +164,7 @@ Para obter mais informações sobre como executar um failover de teste, consulte
 
 3. Selecione **Failover** e, em seguida, **Failover**.
 
-4. Selecione a rede de destino e **✓** para iniciar o processo de failover.
+4. Selecione a rede de destino e selecione **✓** para iniciar o processo de failover.
 
 Para obter mais informações sobre como fazer um failover, consulte [Failover no Site Recovery](site-recovery-failover.md).
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072327"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Solucionar problemas de conectividade entre VMs do Azure
 

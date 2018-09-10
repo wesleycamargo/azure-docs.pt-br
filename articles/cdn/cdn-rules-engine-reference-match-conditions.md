@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30173314"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de correspondência do mecanismo de regras da CDN do Azure 
 Este artigo lista descrições detalhadas das condições de correspondência disponíveis para o [mecanismo de regras](cdn-rules-engine.md) da CDN (Rede de Distribuição de Conteúdo) do Azure.
@@ -737,7 +738,7 @@ Informações de chave:
     
 - Especifique vários caminhos de URL delimitando cada um deles com um único espaço.
 
-   Por exemplo: /marketing/asset.* /sales/*.htm
+   Por exemplo: /marketing/asset.* /sales/\*.htm
 
 - Cadeias de caracteres de consulta na URL são ignoradas.
     

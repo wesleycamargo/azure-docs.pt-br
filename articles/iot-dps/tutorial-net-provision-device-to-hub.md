@@ -1,22 +1,21 @@
 ---
 title: Provisionar um dispositivo usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure (.NET) | Microsoft Docs
 description: Provisionar o dispositivo para um único Hub IoT usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure (.NET)
-services: iot-dps
-keywords: ''
-author: bryanla
-ms.author: v-masebo
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: c02835e8712c79ea540d7560da111f54abbeed23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 84072c7e5f7aa37e89fc1b93c1585167dd6d9f4b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919096"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registrar o dispositivo para um Hub IoT usando o Cliente do Serviço de Provisionamento do Hub IoT do Azure (.NET)
 
@@ -27,7 +26,7 @@ No tutorial anterior, você aprendeu como configurar um dispositivo para se cone
 > * Iniciar o dispositivo
 > * Verificar se o dispositivo está registrado
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de prosseguir, certifique-se de configurar seu dispositivo e o respectivo *Hardware Security Module*, conforme discutido no tutorial [Configurar um dispositivo para provisionar usando o Serviço de Provisionamento de Dispositivos no Azure Hub IoT](./tutorial-set-up-device.md).
 
@@ -63,7 +62,7 @@ Há duas maneiras de registrar o dispositivo no Serviço de Provisionamento de D
     
 1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **DeviceProvisioning** e, em seguida, clique em **Gerenciar Pacotes NuGet...**.
 
-1. Na janela **Gerenciador de Pacotes NuGet**, selecione **Procurar** e pesquise por **microsoft.azure.devices.provisioning.service**. Selecione a entrada e clique em **Instalar** para instalar o pacote **Microsoft.Azure.Devices.Provisioning.Service** e aceite os termos de uso. Esse procedimento baixa, instala e adiciona uma referência ao pacote NuGet do [SDK do serviço de provisionamento de dispositivos do IoT do Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) e suas dependências.
+1. Na janela **Gerenciador de Pacotes NuGet**, selecione **Procurar** e pesquise por **microsoft.azure.devices.provisioning.service**. Selecione a entrada e clique em **Instalar** para instalar o pacote **Microsoft.Azure.Devices.Provisioning.Service** e aceite os termos de uso. Esse procedimento baixa, instala e adiciona uma referência ao pacote NuGet do [SDK do serviço de provisionamento de dispositivos do Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) e suas dependências.
 
 1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
    
@@ -71,10 +70,10 @@ Há duas maneiras de registrar o dispositivo no Serviço de Provisionamento de D
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. Adicione os seguintes campos à classe **Program** . Substitua o valor de espaço reservado pela cadeia de conexão do DPS anotada na seção anterior.
+1. Adicione os seguintes campos à classe **Program** . Substitua o valor de espaço reservado pela cadeia de conexão do serviço de provisionamento de dispositivos que você anotou na seção anterior.
    
     ```csharp
-    static readonly string ServiceConnectionString = "{DPS connection string}";
+    static readonly string ServiceConnectionString = "{Device Provisioning Service connection string}";
 
     private const string SampleRegistrationId = "sample-individual-csharp";
     private const string SampleTpmEndorsementKey =

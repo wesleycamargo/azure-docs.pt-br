@@ -3,18 +3,19 @@ title: Analisar sua carga de trabalho – SQL Data Warehouse do Azure | Microsof
 description: Técnicas para analisar a priorização de consulta para sua carga de trabalho no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b0d39b81b72615a9522e95558a59007b10bf109
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248086"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analisar sua carga de trabalho no Azure SQL Data Warehouse
 Técnicas para analisar a priorização de consulta para sua carga de trabalho no SQL Data Warehouse do Azure.
@@ -38,8 +39,7 @@ A tabela a seguir mostra os mapeamentos de importância para cada grupo de carga
 | SloDWGroupC07   | 128                      | 12.800                         | 32.000                      | Alto               |
 | SloDWGroupC08   | 256                      | 25.600                         | 64.000                      | Alto               |
 
-<!-- where are the allocation and consumption of concurrency slots charts? -->
-A tabela **Alocação e consumo de slots de simultaneidade** mostra que um DW500 usa 1, 4, 8 ou 16 slots de simultaneidade para smallrc, mediumrc, largerc e xlargerc, respectivamente. Para descobrir a importância de cada classe de recurso, você pode procurar esses valores na tabela anterior.
+<!-- where are the allocation and consumption of concurrency slots charts? -->A tabela **Alocação e consumo de slots de simultaneidade** mostra que um DW500 usa 1, 4, 8 ou 16 slots de simultaneidade para smallrc, mediumrc, largerc e xlargerc, respectivamente. Para descobrir a importância de cada classe de recurso, você pode procurar esses valores na tabela anterior.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Mapeamento do DW500 para obter a importância das classes de recurso
 | classe de recurso | Grupo de carga de trabalho | Slots de simultaneidade usados | MB / Distribuição | Importância |

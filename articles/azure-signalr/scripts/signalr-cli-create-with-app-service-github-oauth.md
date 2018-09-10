@@ -3,7 +3,7 @@ title: Exemplo de script da CLI do Azure - Criar um aplicativo Web que usa a aut
 description: Exemplo de script da CLI do Azure - Criar um aplicativo Web que usa a autenticação do Serviço SignalR e GitHub
 services: signalr
 documentationcenter: signalr
-author: wesmc7777
+author: sffamily
 manager: cfowler
 editor: ''
 tags: azure-service-management
@@ -13,13 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: signalr
 ms.date: 04/22/2018
-ms.author: wesmc
+ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: ec095572dc8fe20c913d543ffcf926355b5715df
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 94203153b7f9a2fecb664a12ff90548787a4f158
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664454"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>Criar um aplicativo Web que usa a autenticação do Serviço SignalR e GitHub
 
@@ -52,8 +53,8 @@ Cada comando na tabela redireciona para a documentação específica do comando.
 | Comando | Observações |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | Cria um recurso de Serviço Azure SignalR. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Lista as chaves que serão usadas pelo seu aplicativo ao enviar atualizações de conteúdo em tempo real com o SignalR. |
+| [az signalr create](/cli/azure/ext/signalr/signalr#ext-signalr-az-signalr-create) | Cria um recurso de Serviço Azure SignalR. |
+| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | Lista as chaves que serão usadas pelo seu aplicativo ao enviar atualizações de conteúdo em tempo real com o SignalR. |
 | [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um Plano de Serviço de Aplicativo do Azure para hospedar aplicativos web. |
 | [az webapp create](/cli/azure/webapp#az-webapp-create) | Cria um aplicativo Web do Azure usando o plano de hospedagem do Serviço de Aplicativo. |
 | [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Adiciona novas configurações de aplicativo para o aplicativo web. Essas configurações de aplicativo são usadas para armazenar a cadeia de conexão SignalR e segredos do aplicativo GitHub OAuth. |

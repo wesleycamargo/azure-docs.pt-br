@@ -2,19 +2,19 @@
 title: Gerenciar cluster DC/OS do Azure com interface do usuário do Marathon
 description: Implante contêineres para um serviço de cluster do Serviço de Contêiner do Azure usando a interface do usuário da Web do Marathon.
 services: container-service
-author: dlepow
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: danlep
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 43407d40db0aab2772cb1baeab3471be68aee2ab
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a22bddf48f97d961d481e2aedb42f7d645f3e678
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166976"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903074"
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Gerenciar um cluster de DC/SO do Serviço de Contêiner do Azure por meio da interface do usuário Web do Marathon
 

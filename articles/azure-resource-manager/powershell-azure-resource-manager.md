@@ -12,13 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 07/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 13e5836aea0e307cdce5bcdcd5cf3c50969dfbf8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7cda2a406c6c49e9252bfd5840e8f943e5b7043f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205792"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gerenciar recursos com o Azure PowerShell
 
@@ -55,7 +56,7 @@ Neste artigo, você implanta uma máquina virtual e a rede virtual relacionada. 
 * [Colaborador de rede](../role-based-access-control/built-in-roles.md#network-contributor)
 * [Colaborador da Conta de Armazenamento](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Em vez de atribuir funções a usuários individuais, muitas vezes é mais fácil [criar um grupo do Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) para usuários que precisam tomar ações semelhantes. E, em seguida, atribuir esse grupo à função apropriada. Para simplificar este artigo, você cria um grupo do Azure Active Directory sem membros. Além disso, é possível atribuir esse grupo a uma função para um escopo. 
+Em vez de atribuir funções a usuários individuais, muitas vezes é mais fácil [criar um grupo do Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) para usuários que precisam tomar ações semelhantes. E, em seguida, atribuir esse grupo à função apropriada. Para simplificar este artigo, você cria um grupo do Azure Active Directory sem membros. Além disso, é possível atribuir esse grupo a uma função para um escopo. 
 
 O exemplo a seguir cria um grupo e atribui esse grupo à função Colaborador da Máquina Virtual para o grupo de recursos. Para executar o comando `New-AzureAdGroup`, você deverá usar o [Azure Cloud Shell](/azure/cloud-shell/overview) ou [baixar o módulo PowerShell do Azure Active Directory](https://www.powershellgallery.com/packages/AzureAD/).
 
@@ -71,13 +72,9 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 Normalmente, você repete o processo para **Colaborador de Rede** e **Colaborador da Conta de Armazenamento**, visando certificar-se de que os usuários serão designados para gerenciar os recursos implantados. Neste artigo, você pode ignorar essas etapas.
 
-## <a name="azure-policies"></a>Políticas do Azure
+## <a name="azure-policy"></a>Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>Aplicar políticas
-
-Sua assinatura já possui várias definições de políticas. Para ver as definições de políticas disponíveis, use:
+O [Azure Policy](../azure-policy/azure-policy-introduction.md) ajuda a garantir que todos os recursos da assinatura atendam aos padrões corporativos. Sua assinatura já possui várias definições de políticas. Para ver as definições de políticas disponíveis, use:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -222,4 +219,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 * Para saber mais sobre o monitoramento de máquinas virtuais, consulte [Monitorar e atualizar uma Máquina Virtual do Windows com o Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
 * Para saber mais sobre como usar a Central de Segurança do Azure para implementar práticas de segurança recomendadas, consulte [Monitorar segurança da máquina virtual usando a Central de Segurança do Azure](../virtual-machines/windows/tutorial-azure-security.md).
 * Você pode mover os recursos existentes para um novo grupo de recursos. Para obter exemplos, confira [Mover recursos para um novo grupo de recursos ou uma nova assinatura](resource-group-move-resources.md).
-* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
+* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](/azure/architecture/cloud-adoption-guide/subscription-governance).

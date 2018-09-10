@@ -8,17 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 36837c83-2015-48be-b850-c4346aa5ae8a
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: a74d9f6fed51f43bc79f8ea438293e56cf4c3bf7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5e5e8c3a81d911cb47edfcb5432bc423872a29ec
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42141018"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory
 Este tópico mostra como mover dados de um banco de dados do SQL Server local para um banco de dados do SQL Azure por meio do Armazenamento de Blobs do Azure usando o ADF (Azure Data Factory).
@@ -44,7 +46,7 @@ Criamos um pipeline do ADF que compõe duas atividades de migração de dados. J
 * copiar dados da conta de armazenamento de blob do Azure para um banco de dados do SQL Azure.
 
 > [!NOTE]
-> As etapas mostradas aqui foram adaptadas do tutorial mais detalhado [Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md) fornecido pela equipe do ADF e referências para as seções relevantes desse tópico são fornecidas quando apropriado.
+> As etapas mostradas aqui foram adaptadas do tutorial mais detalhado [Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados](../../data-factory/tutorial-hybrid-copy-portal.md) fornecido pela equipe do ADF e referências para as seções relevantes desse tópico são fornecidas quando apropriado.
 >
 >
 
@@ -52,7 +54,7 @@ Criamos um pipeline do ADF que compõe duas atividades de migração de dados. J
 Este tutorial presume que você tenha:
 
 * Uma **assinatura do Azure**. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) . Depois de criar a conta de armazenamento, você precisa obter a chave de conta usada para acessar o armazenamento. Consulte [Manage your storage access keys (Gerenciar as chaves de acesso de armazenamento)](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+* Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) . Depois de criar a conta de armazenamento, você precisa obter a chave de conta usada para acessar o armazenamento. Consulte [Manage your storage access keys (Gerenciar as chaves de acesso de armazenamento)](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Acesso a um **Banco de dados do SQL Azure**. Se você precisar configurar um Banco de Dados SQL do Azure, consulte o tópico [Guia de Introdução ao Banco de Dados SQL do Microsoft Azure ](../../sql-database/sql-database-get-started.md) para obter informações sobre como provisionar uma nova instância de um Banco de Dados SQL do Azure.
 * **Azure PowerShell** instalado e configurado localmente. Para saber mais, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 
@@ -67,7 +69,7 @@ Usamos o [conjunto de dados de Táxi de NYC](http://chriswhong.com/open-data/foi
 Você pode adaptar o procedimento fornecido aqui para um conjunto de seus próprios dados ou seguir as etapas conforme descrito usando o conjunto de dados de Táxi de NYC. Para carregar o conjunto de dados de Táxi de NYC em seu banco de dados do SQL Server local, siga o procedimento descrito em [Importação de dados em massa para o Banco de Dados do SQL Server](sql-walkthrough.md#dbload). Essas instruções são para um SQL Server em uma máquina virtual do Azure, mas o procedimento para carregar o SQL Server local é o mesmo.
 
 ## <a name="create-adf"></a> Criar uma Data Factory do Azure
-As instruções para criar um novo Azure Data Factory e um grupo de recursos no [Portal do Azure](https://portal.azure.com/) são fornecidas em [Create an Azure Data Factory (Criar um Azure Data Factory)](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory). Nomeie a nova instância ADF como *adfdsp* e nomeie o grupo de recursos criado como *adfdsprg*.
+As instruções para criar um novo Azure Data Factory e um grupo de recursos no [Portal do Azure](https://portal.azure.com/) são fornecidas em [Create an Azure Data Factory (Criar um Azure Data Factory)](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Nomeie a nova instância ADF como *adfdsp* e nomeie o grupo de recursos criado como *adfdsprg*.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Instalar e configurar o Gateway de gerenciamento de dados
 Para habilitar os pipelines em um Azure Data Factory para trabalhar com um SQL Server local, você precisa adicioná-los como um Serviço vinculado à fábrica de dados. Para criar um Serviço Vinculado para o SQL Server local, você precisa:
@@ -77,7 +79,7 @@ Para habilitar os pipelines em um Azure Data Factory para trabalhar com um SQL S
 
 O Gateway de Gerenciamento de Dados serializa e desserializa dados de origem e do coletor no computador em que está hospedado.
 
-Para obter instruções e detalhes de instalação sobre o Gateway de Gerenciamento de Dados, confira [Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
+Para obter instruções e detalhes de instalação sobre o Gateway de Gerenciamento de Dados, confira [Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados](../../data-factory/tutorial-hybrid-copy-portal.md)
 
 ## <a name="adflinkedservices"></a>Criar serviços vinculados para conectar-se aos recursos de dados
 Um serviço vinculado define as informações necessárias para o Azure Data Factory conectar-se a um recurso de dados. Temos três recursos neste cenário para os quais os serviços vinculados são necessários:
@@ -86,14 +88,14 @@ Um serviço vinculado define as informações necessárias para o Azure Data Fac
 2. Armazenamento do Blobs do Azure
 3. Banco de Dados SQL Azure
 
-O procedimento passo a passo para criar serviços vinculados é fornecido em [Create linked services (Criar serviços vinculados)](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+O procedimento passo a passo para criar serviços vinculados é fornecido em [Create linked services (Criar serviços vinculados)](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 
 
 ## <a name="adf-tables"></a>Definir e criar tabelas para especificar como acessar os conjuntos de dados
-Crie tabelas que especificam a estrutura, a localização e a disponibilidade dos conjuntos de dados com os procedimentos a seguir baseados em script. Os arquivos JSON são usados para definir as tabelas. Para obter mais informações sobre a estrutura desses arquivos, consulte [Conjuntos de dados](../../data-factory/v1/data-factory-create-datasets.md).
+Crie tabelas que especificam a estrutura, a localização e a disponibilidade dos conjuntos de dados com os procedimentos a seguir baseados em script. Os arquivos JSON são usados para definir as tabelas. Para obter mais informações sobre a estrutura desses arquivos, consulte [Conjuntos de dados](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
-> Você deve executar o cmdlet `Add-AzureAccount` antes de executar o cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) para confirmar que a assinatura correta do Azure esteja selecionada para a execução do comando. Para obter a documentação desse cmdlet, consulte [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0).
+> Você deve executar o cmdlet `Add-AzureAccount` antes de executar o cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) para confirmar que a assinatura correta do Azure esteja selecionada para a execução do comando. Para obter a documentação desse cmdlet, consulte [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0).
 >
 >
 
@@ -109,7 +111,7 @@ Três definições de tabela são necessárias para este pipeline do ADF:
 3. [Tabela do SQL Azure](#adf-table-azure-sql)
 
 > [!NOTE]
-> Estes procedimentos usam o Azure PowerShell para definir e criar as atividades do ADF. Mas essas tarefas também podem ser realizadas pelo Portal do Azure. Para obter detalhes, consulte [Criar conjuntos de dados](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-datasets).
+> Estes procedimentos usam o Azure PowerShell para definir e criar as atividades do ADF. Mas essas tarefas também podem ser realizadas pelo Portal do Azure. Para obter detalhes, consulte [Criar conjuntos de dados](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 >
 >
 
@@ -141,7 +143,7 @@ A definição da tabela do SQL Server local é especificada no seguinte arquivo 
             }
         }
 
-Os nomes de coluna não foram incluídos aqui. Você pode fazer uma subseleção nos nomes das colunas incluindo-os aqui (para obter detalhes, verifique o tópico [documentação ADF](../../data-factory/v1/data-factory-data-movement-activities.md) ).
+Os nomes de coluna não foram incluídos aqui. Você pode fazer uma subseleção nos nomes das colunas incluindo-os aqui (para obter detalhes, verifique o tópico [documentação ADF](../../data-factory/copy-activity-overview.md) ).
 
 Copie a definição de JSON da tabela em um arquivo chamado *onpremtabledef.json* e salve-o em um local conhecido (neste caso deve ser *C:\temp\onpremtabledef.json*). Crie a tabela no ADF com o seguinte cmdlet do Azure PowerShell:
 
@@ -216,7 +218,7 @@ Especifique as atividades que pertencem ao pipeline e crie o pipeline com os pro
 * Observe também que definimos a periodicidade do pipeline para ser executado diariamente e usar o tempo de execução padrão para o trabalho (12:00 UTC).
 
 > [!NOTE]
-> Os procedimentos a seguir usam o Azure PowerShell para definir e criar o pipeline do ADF. Mas essa tarefa também pode ser realizada pelo Portal do Azure. Para obter detalhes, consulte [Criar pipeline](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-pipeline).
+> Os procedimentos a seguir usam o Azure PowerShell para definir e criar o pipeline do ADF. Mas essa tarefa também pode ser realizada pelo Portal do Azure. Para obter detalhes, consulte [Criar pipeline](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 >
 >
 

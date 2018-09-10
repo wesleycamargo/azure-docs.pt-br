@@ -1,31 +1,27 @@
 ---
-title: Aprender a usar uma área restrita do Hadoop – emulador – Azure HDInsight | Microsoft Docs
+title: Aprender a usar uma área restrita do Hadoop – emulador – Azure HDInsight
 description: 'Para começar a aprender a usar o ecossistema Hadoop, você pode definir uma área restrita do Hadoop da Hortonworks em uma máquina virtual do Azure. '
 keywords: emulador do hadoop,área restrita do hadoop
-editor: cgronlun
-manager: jhubbard
+ms.reviewer: jasonh
 services: hdinsight
-author: nitinme
-documentationcenter: ''
-tags: azure-portal
-ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: nitinme
-ms.openlocfilehash: 0b4daa8c832d40457b19ffe4aee1a365796b2435
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 66450077de4748bcd8703080d33f37169671ebe3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048692"
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução a uma área restrita Hadoop, um emulador em uma máquina virtual
 
 Saiba como instalar uma área restrita do Hadoop da Hortonworks em uma máquina virtual para saber mais sobre o ecossistema do Hadoop. A área restrita fornece um ambiente de desenvolvimento local para saber mais sobre o Hadoop, o HDFS (Sistema de Arquivos Distribuído Hadoop) e o envio de trabalhos. Quando estiver familiarizado com o Hadoop, você poderá começar a usar o Hadoop no Azure, criando um cluster do HDInsight. Para saber mais sobre como começar, confira [Introdução ao Hadoop no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * [Oracle VirtualBox](https://www.virtualbox.org/). Baixe-o e instale-o [aqui](https://www.virtualbox.org/wiki/Downloads).
 
 

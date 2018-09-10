@@ -10,16 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2017
+ms.topic: conceptual
+ms.date: 06/28/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 16f008c6a6f97a791122a3b441c4c09eaf7eadde
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 23bf9d5fb26ee3a0f224f7a8acc2b0539a5c1607
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364603"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -91,7 +92,6 @@ Os conectores só enviam solicitações de saída. O tráfego de saída é envia
 
 Para saber mais sobre como configurar regras de firewall de saída, confira [Trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md).
 
-Use a [Ferramenta de Teste de Portas do Conector de Proxy de Aplicativo Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) para verificar se o conector pode alcançar o serviço Proxy de Aplicativo. No mínimo, verifique se a região EUA Central e a região mais próxima de você tem todas as marcas de seleção verdes. Além disso, um número maior de marcas de seleção verdes significa maior resiliência. 
 
 ## <a name="performance-and-scalability"></a>Desempenho e escala
 
@@ -103,7 +103,7 @@ O desempenho do conector está vinculado à CPU e rede. O desempenho da CPU é n
 
 Por outro lado, a memória é uma questão menos significativa para os conectores. O serviço online cuida de grande parte do processamento e de todo o tráfego não autenticado. Tudo o que pode ser feito na nuvem é feito na nuvem. 
 
-O balanceamento de carga ocorre entre conectores de um determinado grupo de conectores. Fazemos uma variação de um round robin para determinar qual conector no grupo atende a uma determinada solicitação. Depois de escolher um conector, mantemos uma afinidade de sessão entre esse usuário e o aplicativo durante a sessão. Se por algum motivo aquele conector ou computador ficar indisponível, o tráfego começará a ir para outro conector no grupo. Essa resiliência também é o motivo para recomendarmos ter vários conectores.
+O balanceamento de carga ocorre entre conectores de um determinado grupo de conectores. Fazemos uma variação de um round robin para determinar qual conector no grupo atende a uma determinada solicitação. Se por algum motivo aquele conector ou computador ficar indisponível, o tráfego começará a ir para outro conector no grupo. Essa resiliência também é o motivo para recomendarmos ter vários conectores.
 
 Outro fator que afeta o desempenho é a qualidade da rede entre os conectores, incluindo: 
 
@@ -164,6 +164,6 @@ Você pode examinar o estado do serviço na janela Serviços. O conector é comp
 
 * [Publicar aplicativos em redes e locais separados usando grupos de conectores](application-proxy-connector-groups.md)
 * [Trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md)
-* [Solucionar erros do conector e do Proxy de Aplicativo](../active-directory-application-proxy-troubleshoot.md)
+* [Solucionar erros do conector e do Proxy de Aplicativo](application-proxy-troubleshoot.md)
 * [Como fazer uma instalação silenciosa do Conector de Proxy de Aplicativo Azure AD](application-proxy-register-connector-powershell.md)
 

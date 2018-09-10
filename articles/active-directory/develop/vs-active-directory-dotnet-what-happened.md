@@ -7,16 +7,17 @@ manager: douge
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev
-ms.openlocfilehash: bd4a32575067b3de94935322ead9a7f0966d2969
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: aaddev, vs-azure
+ms.openlocfilehash: f5ce147e61566ba75532103b4f17460e8029da12
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141835"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com meu projeto do MVC (serviço conectado do Active Directory do Azure do Visual Studio)?
 
@@ -32,7 +33,7 @@ Para obter informações sobre como trabalhar com o serviço conectado, consulte
 
 Afeta as referências *.NET do arquivo de projeto) e `packages.config` (referências de NuGet).
 
-| type | Referência |
+| Tipo | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -47,7 +48,7 @@ Afeta as referências *.NET do arquivo de projeto) e `packages.config` (referên
 
 Referências adicionais se você selecionou a opção **Ler dados do diretório**:
 
-| type | Referência |
+| Tipo | Referência |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (somente Visual Studio 2015) |
@@ -61,7 +62,7 @@ Referências adicionais se você selecionou a opção **Ler dados do diretório*
 
 As seguintes referências são removidas (somente projetos ASP.NET 4, como no Visual Studio 2015):
 
-| type | Referência |
+| Tipo | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -163,5 +164,5 @@ Ao adicionar o serviço conectado, o Visual Studio 2015 faz backup dos arquivos 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Cenários de autenticação do Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Adicionar entrada com a Microsoft para um aplicativo Web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
+- [Adicionar entrada com a Microsoft para um aplicativo Web ASP.NET](quickstart-v1-aspnet-webapp.md)

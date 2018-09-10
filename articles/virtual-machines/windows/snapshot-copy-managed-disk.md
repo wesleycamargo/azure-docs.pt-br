@@ -3,7 +3,7 @@ title: Crie um instantâneo de um VHD no Azure | Microsoft Docs
 description: Saiba como criar uma cópia de uma VM do Azure como um backup ou para solução de problemas.
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: d7315d3fb7fc156beb85271d0e5aa19ec6baa7a9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7d45fd749fea4036d944d740541d8b8607553835
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658148"
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo
 

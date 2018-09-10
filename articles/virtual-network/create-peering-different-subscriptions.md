@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 7c512e0f54cbf8a99c9a1650d0c612333f199ce0
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b67b13f30538d21f1a4db9675ee7c13d999f842a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012842"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726271"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Criar um emparelhamento de rede virtual – Resource Manager, assinaturas diferentes 
 
@@ -103,7 +103,7 @@ Este tutorial usa contas diferentes para cada assinatura. Se você estiver usand
 Os seguintes scripts:
 
 - Exige a CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Funciona em um shell do Bash. Para opções sobre como executar scripts da CLI do Azure no cliente Windows, veja [Execução da CLI do Azure no Windows](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- Funciona em um shell do Bash. Para opções sobre como executar scripts da CLI do Azure no cliente Windows, veja [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows). 
 
 Em vez de instalar a CLI e suas dependências, você pode usar o Azure Cloud Shell. O Azure Cloud Shell é um shell Bash gratuito que podem ser executado diretamente no portal do Azure. Ele tem a CLI do Azure instalada e configurada para usar com sua conta. Selecione o botão **Experimente** no script a seguir, o que invoca Cloud Shell com o qual você pode fazer logon em sua conta do Azure. 
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 11e90a79f45e54f3842d103d290c17254d0e75fc
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3dc6466083a3dd6882933b8acdd7d64e4a8acd04
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006981"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solucionar problemas de ativação de máquina virtual do Windows Azure
 
@@ -48,7 +49,7 @@ Em geral, problemas de ativação da VM do Azure ocorrem se a VM do Windows não
 >[!NOTE]
 >Se você estiver usando uma VPN site a site e túnel forçado, consulte [Usar rotas personalizadas para habilitar a ativação KMS com túnel forçado](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
 >
->Se você estiver usando o ExpressRoute e você tiver uma rota padrão publicada, consulte [A VM do Azure pode falhar ao ser ativada pela ExpressRoute](https://blogs.technet.microsoft.com/jpaztech/2016/05/16/azure-vm-may-fail-to-activate-over-expressroute/).
+>Se você estiver usando o ExpressRoute e você tiver uma rota padrão publicada, consulte [A VM do Azure pode falhar ao ser ativada pela ExpressRoute](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>Etapa 1 Configurar a chave de instalação de cliente KMS adequada (para Windows Server 2016 e Windows Server 2012 R2)
 
@@ -78,7 +79,7 @@ Esta etapa não é aplicável ao Windows 2012 ou Windows 2008 R2. Ela usa o recu
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Etapa 2 Verificar a conectividade entre o serviço KMS do Azure e de VM
 
-1. Baixe e extraia a ferramenta [Psping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) em uma pasta local na VM que não ativa. 
+1. Baixe e extraia a ferramenta [PSping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) em uma pasta local na VM que não ative. 
 
 2. Vá para Iniciar, pesquise no Windows PowerShell, clique com o botão direito no Windows PowerShell e, em seguida, selecione Executar como administrador.
 
@@ -118,7 +119,7 @@ Uma ativação bem-sucedida retorna informações semelhantes à seguinte:
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Criei o Windows Server 2016 a partir do Azure Marketplace. É necessário configurar a chave KMS para ativação do Windows Server 2016? 
  
-Nº A imagem no Azure Marketplace já possui a chave de instalação de cliente KMS adequada configurada. 
+Não. A imagem no Azure Marketplace já possui a chave de instalação de cliente KMS adequada configurada. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>A ativação do Windows funciona da mesma maneira independentemente se a VM estiver usando o Benefício de Uso Híbrido do Azure (HUB) ou não? 
  

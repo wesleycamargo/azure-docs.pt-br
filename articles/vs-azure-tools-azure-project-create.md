@@ -7,18 +7,20 @@ manager: douge
 assetId: ec580df7-3dcc-45a9-a1d9-8c110678dfb5
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.author: ghogen
-ms.openlocfilehash: 06213ecabf3669bf3b8cf2b8d73a4e8def359536
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3e6ab2078c6b9233360d7cabdc49eddf557b9b57
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189233"
 ---
 # <a name="creating-an-azure-cloud-service-project-with-visual-studio"></a>Criando um projeto de serviço de nuvem do Azure com o Visual Studio
-As Ferramentas do Azure para Visual Studio fornecem um modelo de projeto que permite criar um serviço de nuvem do Azure. Após a criação do projeto, o Visual Studio permite configurar, depurar e implantar o serviço de nuvem no Azure.
+As Ferramentas do Azure para Visual Studio fornecem um modelo de projeto que permite criar um [serviço de nuvem do Azure](/azure/cloud-services/cloud-services-choose-me), que é um serviço simples do Azure para fins gerais. Após a criação do projeto, o Visual Studio permite configurar, depurar e implantar o serviço de nuvem no Azure.
 
 ## <a name="steps-to-create-an-azure-cloud-service-project-in-visual-studio"></a>Etapas para criar um projeto de serviço de nuvem do Azure no Visual Studio
 Esta seção explica como criar um projeto de serviço de nuvem do Azure no Visual Studio com uma ou mais funções web.  

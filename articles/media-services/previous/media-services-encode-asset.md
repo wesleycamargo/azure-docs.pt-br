@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-ms.openlocfilehash: 6e44cff930f943f5cf30fb5335ad6a7fd1d08ab5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f44f5cffd105d958c7d6552a170150623a0701ea
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34638443"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Visão geral e comparação de codificadores de mídia sob demanda do Azure
 ## <a name="encoding-overview"></a>Visão Geral de Codificação
@@ -29,10 +30,8 @@ Codecs são o software que implementa os algoritmos de compactação/descompacta
 
 Os Serviços de Mídia fornecem empacotamento dinâmico, o que permite distribuir seu conteúdo codificado em Smooth Streaming ou MP4 com taxa de bits adaptável em formatos de streaming com suporte dos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming), sem a necessidade de empacotar novamente nesses formatos de streaming.
 
->[!NOTE]
->Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. Para aproveitar os benefícios do [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), você precisa fazer o seguinte:
->
->Além disso, codifique seu arquivo de origem em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais adiante neste tutorial).
+> [!NOTE]
+> Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
 
 Os Serviços de Mídia são compatíveis com os seguintes codificadores sob demanda descritos neste artigo:
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/08/2017
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 760426ab6255c6e42383cc19f523b2dbfc55d404
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a38fb8047415479710a8528c0bf55b1ccb3e178c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943671"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900578"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com GPU otimizadas para memória
 
@@ -36,6 +36,7 @@ ms.locfileid: "33943671"
 - [Armazenamento otimizado](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
 - [Computação de alto desempenho](sizes-hpc.md)
+- [Gerações anteriores](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.

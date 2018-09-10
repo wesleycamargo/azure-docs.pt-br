@@ -11,11 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 2de80760484ae1869b340898ea1e5f740fbc2883
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 06ee959d7b38f21684280a35cf770fdcc590b102
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287980"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
 
@@ -39,7 +40,7 @@ A extensão do Microsoft Graph oferece as seguintes associações:
 
 A associação de entrada de token de autenticação é fornecida no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/). As outras associações do Microsoft Graph são fornecidas no pacote [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/). O código-fonte dos pacotes está no repositório GitHub [azure-functions-microsoftgraph-extension](https://github.com/Azure/azure-functions-microsoftgraph-extension/).
 
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="setting-up-the-extensions"></a>Como configurar as extensões
 
@@ -975,7 +976,7 @@ Webhooks permitem reagir a eventos no Microsoft Graph. Para dar suporte a webhoo
 - Uma [associação de entrada de assinatura do webhook do Microsoft Graph](#webhook-input) permite que você liste as assinaturas existentes e, opcionalmente, atualize-as.
 - Uma [associação de saída de assinatura de webhook do Microsoft Graph](#webhook-output) permite que você crie ou exclua assinaturas do webhook.
 
-As associações em si não exigem permissões do Azure AD, mas você precisa solicitar permissões relevantes para o tipo de recurso ao qual você deseja reagir. Para obter uma lista de quais permissões são necessárias para cada tipo de recurso, consulte [permissões de assinatura](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
+As associações em si não exigem permissões do Azure AD, mas você precisa solicitar permissões relevantes para o tipo de recurso ao qual você deseja reagir. Para obter uma lista de quais permissões são necessárias para cada tipo de recurso, consulte [permissões de assinatura](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
 
 Para obter mais informações sobre webhooks, confira [Como trabalhar com webhooks no Microsoft Graph].
 
@@ -1505,8 +1506,8 @@ module.exports = function (context) {
     const existing = context.bindings.existingSubscriptions;
     var toRefresh = [];
     for (var i = 0; i < existing.length; i++) {
-        context.log(`Deleting subscription ${existing[i]}`);
-        todelete.push(existing[i]);
+        context.log(`Refreshing subscription ${existing[i]}`);
+        toRefresh.push(existing[i]);
     }
     context.bindings.subscriptionsToRefresh = toRefresh;
     context.done();
@@ -1575,5 +1576,5 @@ public class UserSubscription {
 > [!div class="nextstepaction"]
 > [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 
-[gatilho HTTP]: functions-bindings-http-webhook.md
+[Gatilho HTTP]: functions-bindings-http-webhook.md
 [Como trabalhar com webhooks no Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks

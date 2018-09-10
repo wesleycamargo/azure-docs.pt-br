@@ -1,24 +1,20 @@
 ---
-title: Exportar um bancos de dado U-SQL usando as Ferramentas do Azure Data Lake para Visual Studio | Microsoft Docs
-description: "Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio para exportar um banco de dados U-SQL e importá-lo automaticamente em uma conta local."
+title: Exportar um bancos de dado U-SQL usando as Ferramentas do Azure Data Lake para Visual Studio
+description: Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio para exportar um banco de dados U-SQL e importá-lo automaticamente em uma conta local.
 services: data-lake-analytics
-documentationcenter: 
 author: yanancai
-manager: 
-editor: 
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: yanacai
-ms.openlocfilehash: 441606258f9541c9552925e7c0cbc9b3a9effb4d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: e4eea3cb4b16460c7e17bb6575c4e6cf8dda5a0a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047247"
 ---
 # <a name="export-a-u-sql-database"></a>Exportar um banco de dados U-SQL
 
@@ -55,7 +51,7 @@ Nesta etapa, você pode verificar os objetos selecionados na caixa **Lista de ob
 
 Você também pode definir outras configurações para o destino de exportação. As descrições de configuração estão listadas na tabela abaixo:
 
-|Configuração|Descrição|
+|Configuração|DESCRIÇÃO|
 |-------------|-----------|
 |Nome do destino|Esse nome indica onde você deseja salvar os recursos do banco de dados exportado. Os exemplos são assemblies, arquivos adicionais e dados de exemplo. Uma pasta com esse nome é criada na sua pasta raiz local de dados.|
 |Diretório do projeto|Esse caminho define onde você deseja salvar o script U-SQL exportado. Todas as definições de objeto de banco de dados são salvas neste local.|

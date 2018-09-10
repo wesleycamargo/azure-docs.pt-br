@@ -1,31 +1,27 @@
 ---
-title: Carregar dados para trabalhos do Hadoop no HDInsight | Microsoft Docs
+title: Carregar dados para trabalhos do Hadoop no HDInsight
 description: Saiba como carregar e acessar os dados de trabalhos do Hadoop no HDInsight usando o Azure CLI, Azure Storage Explorer, Azure PowerShell, a linha de comando do Hadoop ou o Sqoop.
 keywords: hadoop de etl, inserindo dados no hadoop, carregar dados no hadoop
-services: hdinsight,storage
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
+services: hdinsight
+author: jasonwhowell
+ms.reviewer: jasonh
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 1734e9f0002ab7f33a8a67e44811352cb5c45fdc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 838444898500ce7127e1a9e999d0b5ee7b1e3687
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051817"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carregar dados para trabalhos do Hadoop no HDInsight
 
 O Azure HDInsight fornece um HDFS (sistema de arquivos distribuído) completo do Hadoop no Armazenamento do Azure e no Azure Data Lake Store. O Armazenamento do Azure e o Data Lake Store foram projetados como uma extensão do HDFS para fornecer uma experiência contínua para os clientes. Eles habilitam o conjunto completo de componentes no ecossistema do Hadoop para operar diretamente nos dados gerenciados por ele. O Armazenamento do Azure e o Data Lake Store são sistemas de arquivos distintos otimizados para armazenamento de dados e computação nesses dados. Para obter informações sobre os benefícios do uso do Armazenamento do Azure, consulte [Usar o Armazenamento do Azure com o HDInsight][hdinsight-storage] e [Usar o Data Lake Store com o HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Observe os seguintes requisitos antes de começar:
 

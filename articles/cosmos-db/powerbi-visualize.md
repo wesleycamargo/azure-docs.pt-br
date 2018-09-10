@@ -5,20 +5,17 @@ keywords: tutorial do power bi, visualizar dados, conector do power bi
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: conceptual
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 8a0f50ad6df1135e05cd69be78e6b7f7820f90c6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 63ea7e384f9bc5713a41f6c5537ec5548810e5d9
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141216"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Tutorial do Power BI para o Azure Cosmos DB: Visualizar dados usando o conector do Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) é um serviço online no qual você pode criar e compartilhar painéis e relatórios com dados que são importantes para você e sua organização.  O Power BI Desktop é uma ferramenta dedicada para a criação de relatórios que permite recuperar dados de várias fontes de dados, mesclar e transformar os dados, criar relatórios e visualizações avançados e publicar os relatórios no Power BI.  Com a última versão do Power BI Desktop, é possível conectar-se à conta do Microsoft Azure Cosmos DB por meio do conector do Azure Cosmos DB para o Power BI.   
@@ -37,16 +34,16 @@ Depois de concluir este tutorial do Power BI, você estará apto a responder às
 > O conector do Power BI para o Azure Cosmos DB conecta-se ao Power BI Desktop para extração e transformação de dados. Os relatórios criados no Power BI Desktop podem ser publicados no PowerBI.com. Extração direta e transformação de dados do Azure Cosmos DB não podem ser executadas no PowerBI.com. 
 
 > [!NOTE]
-> Para conectar o Azure Cosmos DB ao Power BI usando a API do MongoDB, você deve usar o [Driver ODBC do Simba MongoDB](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
+> No momento, há suporte para conectar-se ao Azure Cosmos DB com o conector do Power BI apenas para contas do SQL Azure Cosmos DB e da API do MongoDB. Para conectar o Azure Cosmos DB ao Power BI usando a API do MongoDB, você deve usar o [Driver ODBC do Simba MongoDB](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de seguir as instruções neste tutorial do Power BI, certifique-se de ter acesso aos recursos seguintes:
 
 * [A versão mais recente do Power BI Desktop](https://powerbi.microsoft.com/desktop).
 * Acesse nossa conta de demonstração ou os dados na conta do Azure Cosmos DB.
   * A conta de demonstração é populada com os dados do vulcão mostrados neste tutorial. Essa conta de demonstração não está vinculada por nenhum SLA e se destina apenas a fins de demonstração.  Reservamos o direito de fazer modificações a essa conta de demonstração, incluindo, entre outros, encerramento da conta, alteração da chave, restrição do acesso, alteração e exclusão dos dados, a qualquer momento, sem aviso prévio ou justificativa.
-    * URL: https://analytics.documents.azure.com
-    * Chave somente leitura: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
+    * URL: `https://analytics.documents.azure.com`
+    * Chave somente leitura: `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`
   * Ou então, para criar sua própria conta, consulte [Criar uma conta de banco de dados do Azure Cosmos DB usando o portal do Azure](https://azure.microsoft.com/documentation/articles/create-account/). Em seguida, para obter dados de vulcão de exemplo semelhantes aos que são usados neste tutorial (mas que não contêm os blocos GeoJSON), visite o [site da NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) e, depois, importe os dados usando a [ferramenta de migração de dados do Azure Cosmos DB](import-data.md).
 
 Para compartilhar seus relatórios no PowerBI.com, você deve ter uma conta no PowerBI.com.  Para saber mais sobre Power BI Gratuito e Power BI Pro, visite [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).

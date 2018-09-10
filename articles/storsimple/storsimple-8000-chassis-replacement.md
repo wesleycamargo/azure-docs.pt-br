@@ -1,12 +1,12 @@
 ---
-title: "Substituir o chassi no dispositivo StorSimple série 8000 | Microsoft Docs"
-description: "Descreve como remover e substituir o chassi em seu compartimento StorSimple primário ou compartimento EBOD."
+title: Substituir o chassi no dispositivo StorSimple série 8000 | Microsoft Docs
+description: Descreve como remover e substituir o chassi em seu compartimento StorSimple primário ou compartimento EBOD.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108154"
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Substituir o chassi em seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral

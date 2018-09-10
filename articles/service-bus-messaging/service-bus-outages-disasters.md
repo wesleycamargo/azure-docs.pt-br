@@ -1,28 +1,23 @@
 ---
-title: "Isolando aplicativos do Barramento de Serviço do Azure contra interrupções e desastres | Microsoft Docs"
-description: "Técnicas para proteger aplicativos contra uma potencial interrupção do Barramento de Serviço."
+title: Isolando aplicativos do Barramento de Serviço do Azure contra interrupções e desastres | Microsoft Docs
+description: Técnicas para proteger aplicativos contra uma potencial interrupção do Barramento de Serviço.
 services: service-bus-messaging
-documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
-editor: 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
-ms.author: sethm
-ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 06/14/2018
+ms.author: spelluru
+ms.openlocfilehash: 5401d43f11c8afc02f48dd643fd4ff2f9611e06e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696710"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 
-Os aplicativos de missão crítica devem funcionar continuamente, mesmo na presença de interrupções ou de desastres não planejados. Este tópico descreve técnicas que podem ser usadas para proteger aplicativos do Barramento de Serviço contra uma potencial interrupção de serviço ou um desastre.
+Os aplicativos de missão crítica devem funcionar continuamente, mesmo na presença de interrupções ou de desastres não planejados. Este artigo descreve técnicas que podem ser usadas para proteger aplicativos do Barramento de Serviço contra uma potencial interrupção de serviço ou um desastre.
 
 Uma interrupção é definida como a indisponibilidade temporária do Barramento de Serviço do Azure. A interrupção pode afetar alguns componentes do Barramento de Serviço, como um repositório de mensagens ou até mesmo o datacenter inteiro. Depois que o problema tiver sido corrigido, o Barramento de Serviço ficará disponível novamente. Normalmente, uma interrupção não causa a perda de mensagens ou de outros dados. Um exemplo de falha de um componente é a indisponibilidade de um repositório de mensagens específico. Um exemplo de uma paralisação de todo o datacenter é uma falha de energia do datacenter ou uma chave de rede do datacenter com defeito. Uma falha pode durar de alguns minutos até alguns dias.
 
@@ -34,7 +29,9 @@ O Barramento de Serviço usa vários repositórios de mensagens para armazenar m
 Todas as entidades de mensagens do Barramento de Serviço (filas, tópicos, retransmissões) residem em um namespace de serviço, que está associado a um datacenter. O Barramento de Serviço agora dá suporte à [*Recuperação de desastre em área geográfica* e à *Replicação geográfica*](service-bus-geo-dr.md) no nível do namespace.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protegendo filas e tópicos contra falhas do repositório de mensagens
-Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações na fila ou no tópico falharão. Uma fila particionada, por outro lado, consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. Se o repositório de mensagens correspondente não estiver disponível, o Barramento de Serviço grava a mensagem em um fragmento diferente, se possível. Para saber mais sobre entidades particionadas, confira [Entidades de mensagens particionadas][Partitioned messaging entities].
+Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações na fila ou no tópico falharão. Uma fila particionada, por outro lado, consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. Se o repositório de mensagens correspondente não estiver disponível, o Barramento de Serviço grava a mensagem em um fragmento diferente, se possível. As entidades particionadas não são mais compatíveis com a camada [SKU Premium](service-bus-premium-messaging.md). 
+
+Para obter mais informações sobre entidades particionadas, veja as [Entidades de Mensagens Particionadas][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Proteção contra interrupções ou desastres de datacenter
 Para permitir um failover entre dois datacenters, você poderá criar um namespace de serviço do Barramento de Serviço em cada datacenter. Por exemplo, o namespace de serviço do Barramento de Serviço **contosoPrimary.servicebus.windows.net** pode estar localizado na região Norte/Central dos Estados Unidos, e **contosoSecondary.servicebus.windows.net** pode estar localizado na região Sul/Central dos EUA. Se uma entidade de mensagens do Barramento de Serviço tiver de permanecer acessível em caso de falha do datacenter, você poderá criar essa entidade em ambos os namespaces.
@@ -81,6 +78,17 @@ O exemplo [Replicação geográfica com mensagens agenciadas do Barramento de Se
 
 O Barramento de Serviço dá suporte à Recuperação de desastre em área geográfica e à Replicação geográfica no nível do namespace. Para mais informações consulte [Recuperação de desastre em área geográfica do Barramento de Serviço do Azure](service-bus-geo-dr.md). O recurso de recuperação de desastre, disponível apenas para [SKU Premium](service-bus-premium-messaging.md), implementa a recuperação de desastre dos metadados e se baseia em namespaces de recuperação de desastre primário e secundário.
 
+## <a name="availability-zones-preview"></a>Zonas de Disponibilidade (versão prévia)
+
+O SKU Premium do Barramento de Serviço oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro de uma região do Azure. 
+
+> [!NOTE]
+> A versão prévia das Zonas de Disponibilidade tem suporte apenas nas regiões **Centro dos EUA**, **Leste dos EUA 2** e **França Central**.
+
+Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usando o portal do Azure. O Barramento de Serviço não dá suporte à migração dos namespaces existentes. Você não pode desabilitar a redundância de zona depois de habilitá-la em seu namespace.
+
+![1][]
+
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a recuperação de desastres, confira estes artigos:
 
@@ -96,3 +104,5 @@ Para saber mais sobre a recuperação de desastres, confira estes artigos:
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
+
+[1]: ./media/service-bus-outages-disasters/az.png

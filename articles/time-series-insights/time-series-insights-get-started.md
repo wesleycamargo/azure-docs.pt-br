@@ -1,21 +1,21 @@
 ---
-title: "Criar um ambiente de Análise de Séries Temporais do Azure | Microsoft Docs"
+title: Criar um ambiente de Análise de Séries Temporais do Azure | Microsoft Docs
 description: Este artigo descreve como usar o portal do Azure para criar um novo ambiente do Time Series Insights.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: ashannon7
 ms.author: anshan
-manager: jhubbard
-editor: MicrosoftDocs/tsidocs
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 20156432e17d5eca90779271bd18dc49fa988d7c
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 909d8a921e46f0f935bb8a059714b1c0170ddee4
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627654"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Criar um novo ambiente de Análise de Séries Temporais no portal do Azure
 Este artigo descreve como criar um novo ambiente do Time Series Insights usando o portal do Azure.
@@ -45,7 +45,7 @@ Siga estas etapas para criar um ambiente:
    Assinatura | Sua assinatura | Se você tiver várias assinaturas, escolha a assinatura que contenha a origem do evento de preferência. A Análise das Séries Temporais podem detectar automaticamente o Hub IoT do Azure e os recursos de Hub de Eventos existentes na mesma assinatura.
    Grupo de recursos | Criar um novo ou usar um existente | Um grupo de recursos é uma coleção de recursos do Azure que são usados juntos. Você pode escolher um grupo de recursos existente, como aquele que contém seu Hub de Eventos ou Hub IoT. Ou você pode criar um novo se esse recurso não estiver relacionado a outros recursos.
    Local padrão | Mais próximo da origem do evento | Preferencialmente, escolha o mesmo local de centro de dados que contenha os dados de origem do evento, em um esforço para evitar os custos de largura de banda entre regiões e zonas e a latência adicional ao mover os dados para fora da região.
-   Tipo de preço  | S1 | Escolha a taxa de transferência necessária. Para ter custos mais baixos e a capacidade inicial, selecione S1.
+   Tipo de preço | S1 | Escolha a taxa de transferência necessária. Para ter custos mais baixos e a capacidade inicial, selecione S1.
    Capacity | 1 | A capacidade é o multiplicador aplicado à taxa de ingresso, à capacidade de armazenamento e ao custo associado com a SKU selecionada.  Você pode alterar a capacidade de um ambiente após a criação. Para custos mais baixos, selecione uma capacidade 1. 
   
 6. Marque **Fixar no painel** para acessar com mais facilidade seu Ambiente do Time Series no futuro.

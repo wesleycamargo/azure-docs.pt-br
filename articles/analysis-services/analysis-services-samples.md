@@ -3,16 +3,17 @@ title: Amostras de banco de dados, código e projeto do Azure Analysis Services 
 description: Saiba mais sobre amostras de banco de dados, código e projeto para o Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 55f350f21111e8937fa1687c890d4f7bb4ab07ed
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6456663a1114ec00f2a071458c54067da53b52a7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443697"
 ---
 # <a name="azure-analysis-services-samples"></a>Amostras do Azure Analysis Services
 Use os recursos de amostra a seguir para ajudá-lo a aprender sobre o Analysis Services e testá-lo para o seu ambiente.
@@ -38,5 +39,5 @@ Se você tem um servidor do Analysis Services no Portal do Azure, você pode cri
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Tutorial da Adventure Works](/tutorials/aas-adventure-works-tutorial.md)   
+[Tutorial da Adventure Works](tutorials/aas-adventure-works-tutorial.md)   
 [Gateway de Dados Local do Azure](analysis-services-gateway.md)  

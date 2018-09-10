@@ -1,11 +1,11 @@
 ---
-title: "Como usar as filas de Barramento de Serviço no Node.js | Microsoft Docs"
-description: "Aprenda a usar as filas do Barramento de Serviço no Azure a partir de um aplicativo Node.js."
+title: Como usar as filas de Barramento de Serviço no Node.js | Microsoft Docs
+description: Aprenda a usar as filas do Barramento de Serviço no Azure a partir de um aplicativo Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
-author: sethmanheim
+author: spelluru
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
 ms.service: service-bus-messaging
 ms.workload: tbd
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
-ms.openlocfilehash: 5b309534f7aef602610cfdb6aa784d180551e1ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: spelluru
+ms.openlocfilehash: c20544fa3eea05d770c91aeff438f3268888c871
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697371"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Como usar filas do Barramento de Serviço com Node.js
 
@@ -64,8 +65,6 @@ var azure = require('azure');
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Configurar uma conexão do barramento de serviço do Azure
 O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` para obter as informações necessárias para se conectar ao Barramento de Serviço. Se essa variável de ambiente não estiver definida, você deverá especificar as informações da conta chamando `createServiceBusService`.
-
-Para obter um exemplo de como definir as variáveis de ambiente em um arquivo de configuração para um Serviço de Nuvem do Azure, confira [Serviço de Nuvem do Node.js com Armazenamento][Node.js Cloud Service with Storage].
 
 Para ver um exemplo de como definir variáveis de ambiente no [Portal do Azure][Azure portal] para um Site do Azure, veja [Aplicativo Web do Node.js com Armazenamento][Node.js Web Application with Storage].
 
@@ -190,6 +189,5 @@ Para saber mais sobre filas, veja os seguintes recursos.
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Create and deploy a Node.js application to an Azure Website]: ../app-service/app-service-web-get-started-nodejs.md
-[Node.js Cloud Service with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-how-to-use-nodejs.md
 [Service Bus quotas]: service-bus-quotas.md

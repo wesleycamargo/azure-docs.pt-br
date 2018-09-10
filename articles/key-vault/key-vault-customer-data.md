@@ -11,20 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/15/2018
+ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 12a176a6eba3b6dd83ef7fb97f89ecfe99083059
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213315"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145045"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Recursos de dados de cliente do Azure Key Vault
 
 O Azure Key Vault recebe os dados do cliente durante a criação ou atualização de cofres, chaves, segredos, certificados e contas de armazenamento gerenciadas. Esses dados de cliente estarão diretamente visíveis no portal do Azure e por meio da API REST. Os dados do cliente podem ser editados ou excluídos por atualizar ou excluir o objeto que contém os dados.
 
 Os logs de acesso do sistema são gerados quando um usuário ou aplicativo acessa o Cofre de Chaves. Os logs detalhados de acesso detalhados estão disponíveis para clientes que usam o Azure Insights.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="identifying-customer-data"></a>Identificando os dados do cliente
 
@@ -46,11 +48,11 @@ A exclusão reversível permite recuperar os dados excluídos por 90 dias após 
 
 ## <a name="exporting-customer-data"></a>Exportando os dados do cliente
 
-As mesmas APIs REST, experiência do Portal e SDKs usados para criar cofres, chaves, segredos, certificados e contas de armazenamento gerenciado também permitem que você visualize e exporte esses objetos.
+As mesmas APIs REST, experiência de portal e SDKs usadas para criar cofres, chaves, segredos, certificados e contas de armazenamento gerenciadas também permitem visualizar e exportar esses objetos.
 
 O logging de acesso do Azure Key Vault é um recurso opcional que pode ser ativado para gerar os logs para cada chamada API REST. Esses logs serão transferidos para uma conta de armazenamento em sua assinatura em que você aplica a política de retenção que atenda aos requisitos da sua organização.
 
-Os logs de diagnóstico do Azure Key Vault contem dados pessoas que podem ser recuperados fazendo uma solicitação de exportação no portal Privacidade do Usuário. Essa solicitação deve ser feita pelo administrador do locatário.
+Os logs de diagnóstico do Azure Key Vault que contêm dados pessoais podem ser recuperados fazendo uma solicitação de exportação no portal User Privacy. Essa solicitação deve ser feita pelo administrador do locatário.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -58,14 +60,10 @@ Os logs de diagnóstico do Azure Key Vault contem dados pessoas que podem ser re
 
 - [Visão geral de exclusão reversível do Azure Key Vault](key-vault-soft-delete-cli.md)
 
-- [Vaults](https://docs.microsoft.com/rest/api/keyvault/vaults)
-
 - [Operações de chave do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/key-operations)
 
 - [Operações de segredo do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
 
 - [Certificados e políticas do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
-
-- [Emissores de certificado](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)
 
 - [Chaves de conta de Armazenamento do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)

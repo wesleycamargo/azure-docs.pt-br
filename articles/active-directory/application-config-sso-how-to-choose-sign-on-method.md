@@ -3,21 +3,23 @@ title: Como determinar o método de logon único a ser usado | Microsoft Docs
 description: Compreenda os modos de logon único com suporte do Azure AD e como escolher qual deles deve ser usado para o aplicativo em que você está interessado.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 52f4045ebb30bf32989e9f7b946fd03d468a9de2
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.openlocfilehash: 336aa4f671e6d86684664fa5e5d15a03a4beff23
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366282"
 ---
 # <a name="how-to-determine-what-single-sign-on-method-to-use"></a>Como determinar o método de logon único a ser usado
 

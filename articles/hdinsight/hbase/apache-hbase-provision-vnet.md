@@ -1,24 +1,20 @@
 ---
-title: Criar clusters HBase em uma Rede Virtual – Azure | Microsoft Docs
+title: Criar clusters HBase na rede virtual do Azure
 description: Introdução ao uso do HBase no Azure HDInsight. Saiba como criar clusters HBase do HDInsight na rede virtual do Azure.
-keywords: ''
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8de8e446-f818-4e61-8fad-e9d38421e80d
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jgao
-ms.openlocfilehash: edcfa47eee0f085bad415be0d9b112bbc33c3eca
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: a3686e99f9bab754cdc9cfc801961ea47560a111
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043228"
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Criar clusters HBase no HDInsight na Rede Virtual do Azure
 Saiba como criar clusters HBase do Azure HDInsight em uma [Rede Virtual do Azure][1].
@@ -29,7 +25,7 @@ Com a integração da rede virtual, os clusters do HBase podem ser implantados n
 * Desempenho aprimorado, evitando que o tráfego percorra diversos gateways e balanceadores de carga.
 * Capacidade de processar informações confidenciais de maneira mais segura, sem expor um ponto de extremidade público.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter os seguintes itens:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

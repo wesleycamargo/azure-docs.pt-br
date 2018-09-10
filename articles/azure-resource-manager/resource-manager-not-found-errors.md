@@ -11,17 +11,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/08/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f5da2a74b3a399c60c518f386ccf2e60a617aeda
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 176de6f19274dfd8a6cf0335bb4cf16a8baa874b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525337"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Solucione erros que ocorrem quando recursos do Azure não são encontrados
 
-Este artigo descreve os erros com que você pode se deparar quando um recurso não é encontrado durante a implantação.
+Este artigo descreve os erros com que você pode ver quando um recurso não é encontrado durante a implantação.
 
 ## <a name="symptom"></a>Sintoma
 
@@ -32,7 +33,7 @@ Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Se tentar usar as funções [reference](resource-group-template-functions-resource.md#reference) ou [listKeys](resource-group-template-functions-resource.md#listkeys) com um recurso que não pode ser resolvido, você receberá o seguinte erro:
+Se usar as funções [reference](resource-group-template-functions-resource.md#reference) ou [listKeys](resource-group-template-functions-resource.md#listkeys) com um recurso que não pode ser resolvido, você receberá o seguinte erro:
 
 ```
 Code=ResourceNotFound;
@@ -59,9 +60,9 @@ Caso você esteja tentando implantar o recurso ausente no modelo, verifique se v
 }
 ```
 
-Mas, para evitar definindo dependências que não são necessários. Quando você tiver dependências desnecessárias, você prolongar a duração da implantação, impedindo que os recursos que não são dependentes entre si seja implantado em paralelo. Além disso, você pode criar dependências circulares que bloqueiam a implantação. A função [reference](resource-group-template-functions-resource.md#reference) cria uma dependência implícita no recurso referenciado, quando esse recurso é implantado no mesmo modelo. Portanto, você pode ter dependências mais que as dependências especificada no **dependsOn** propriedade. O [resourceId](resource-group-template-functions-resource.md#resourceid) função não cria uma dependência implícita ou validar que o recurso existe.
+Mas, se você quiser evitar definir dependências que não são necessárias. Quando você tiver dependências desnecessárias, você prolongar a duração da implantação, impedindo que os recursos que não são dependentes entre si seja implantado em paralelo. Além disso, você pode criar dependências circulares que bloqueiam a implantação. A função [reference](resource-group-template-functions-resource.md#reference) e as funções [list*](resource-group-template-functions-resource.md#list) criam uma dependência implícita no recurso referenciado, quando esse recurso é implantado no mesmo modelo e é referenciado por seu nome (não pela ID de recurso). Portanto, você pode ter dependências mais que as dependências especificada no **dependsOn** propriedade. A função [resourceId](resource-group-template-functions-resource.md#resourceid) não cria uma dependência implícita ou valida que o recurso existe. A função [reference](resource-group-template-functions-resource.md#reference) e as funções [list*](resource-group-template-functions-resource.md#list) não criam uma dependência implícita quando o recurso for referenciado por sua ID de recurso. Para criar uma dependência implícita, passe o nome do recurso que é implantado no mesmo modelo.
 
-Quando você encontrar problemas de dependência, você precisa obter informações sobre a ordem de implantação de recursos. Para exibir a ordem das operações de implantação:
+Quando você vir os problemas de dependência, você precisa obter informações sobre a ordem de implantação de recursos. Para exibir a ordem das operações de implantação:
 
 1. Selecione o histórico de implantação do grupo de recursos.
 

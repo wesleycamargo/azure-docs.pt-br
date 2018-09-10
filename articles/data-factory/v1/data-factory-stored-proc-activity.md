@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: a628374841126a750ebf6881f8adec66340c1d29
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b10fbd953eb9ca904043973ebc1f7c6adb9f9abc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178338"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047380"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade de procedimento armazenado do SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "32178338"
 > * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Azure Data Factory, que já está em GA (disponibilidade geral). Se você usar a versão 2 do serviço do Data Factory, que está em versão prévia, consulte [transformar dados usando atividades de procedimento armazenado no Data Factory versão 2](../transform-data-using-stored-procedure.md).
+> Este artigo aplica-se à versão 1 do Azure Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [transformar dados usando a atividade de procedimento armazenado no Data Factory ](../transform-data-using-stored-procedure.md).
 
 ## <a name="overview"></a>Visão geral
 Use atividades de transformação de dados em um [pipeline](data-factory-create-pipelines.md) do Data Factory para transformar e processar dados brutos em previsões e informações. A Atividade de Procedimento Armazenado é uma das atividades de transformação que o Data Factory dá suporte. Este artigo se baseia no artigo sobre [atividades de transformação de dados](data-factory-data-transformation-activities.md), que apresenta uma visão geral da transformação de dados e das atividades de transformação com suporte no Data Factory.

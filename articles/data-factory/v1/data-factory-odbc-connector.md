@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e75f7a6caac87be9ffb5209fa4eb423097820bfc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 765a10a336b908d399f46b2248aab3903c594d24
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628538"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Mover dados de armazenamentos de dados ODBC usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](data-factory-odbc-connector.md)
-> * [Versão 2 – Versão prévia](../connector-odbc.md)
+> * [Versão 1](data-factory-odbc-connector.md)
+> * [Versão 2 (versão atual)](../connector-odbc.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está em versão prévia, consulte [ODBC connector in V2](../connector-odbc.md) (Conector do ODBC na V2).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do ODBC na V2 ](../connector-odbc.md).
 
 
 Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de um repositório de dados ODBC. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
@@ -65,13 +66,13 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **OnPremisesOdbc** |sim |
-| connectionString |A parte da credencial que não está relacionada ao acesso da cadeia de conexão e uma credencial criptografada opcional. Veja os exemplos nas seções a seguir. <br/><br/>Você pode especificar a cadeia de conexão com um padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` ou usar DSN (nome da fonte de dados) do sistema que você configurou no computador do gateway com o `"DSN=<name of the DSN>;"` (é necessário ainda especificar a parte de credencial no serviço vinculado adequadamente). |sim |
+| Tipo |A propriedade type deve ser definida como: **OnPremisesOdbc** |SIM |
+| connectionString |A parte da credencial que não está relacionada ao acesso da cadeia de conexão e uma credencial criptografada opcional. Veja os exemplos nas seções a seguir. <br/><br/>Você pode especificar a cadeia de conexão com um padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` ou usar DSN (nome da fonte de dados) do sistema que você configurou no computador do gateway com o `"DSN=<name of the DSN>;"` (é necessário ainda especificar a parte de credencial no serviço vinculado adequadamente). |SIM |
 | credencial |A parte da credencial de acesso da cadeia de conexão especificada no formato propriedade-valor específico do driver. Exemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Não  |
-| authenticationType |Tipo de autenticação usado para se conectar ao armazenamento de dados ODBC. Os valores possíveis são: Anonymous e Basic. |sim |
+| authenticationType |Tipo de autenticação usado para se conectar ao armazenamento de dados ODBC. Os valores possíveis são: Anonymous e Basic. |SIM |
 | Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Básica. |Não  |
 | Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não  |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao armazenamento de dados ODBC. |sim |
+| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao armazenamento de dados ODBC. |SIM |
 
 ### <a name="using-basic-authentication"></a>Usando a autenticação Básica
 
@@ -93,7 +94,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>Usando a autenticação Básica com credenciais criptografadas
-Você pode criptografar as credenciais usando o cmdlet [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (versão 1.0 do Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (versão 0.9 ou anterior do Azure PowerShell).  
+Você pode criptografar as credenciais usando o cmdlet [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (versão 1.0 do Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (versão 0.9 ou anterior do Azure PowerShell).  
 
 ```json
 {
@@ -138,7 +139,7 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela no repositório de dados ODBC. |sim |
+| tableName |Nome da tabela no repositório de dados ODBC. |SIM |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e políticas, estão disponíveis para todos os tipos de atividade.
@@ -149,7 +150,7 @@ Na atividade de cópia, quando a fonte for do tipo **RelationalSource** (que inc
 
 | Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. |sim |
+| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. |SIM |
 
 
 ## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>Exemplo de JSON: Copiar dados do repositório de dados ODBC para o Blob do Azure

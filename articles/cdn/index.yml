@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 07a24db7d611f7d29b7fcf9feb22d6fab208c89e
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781923"
 documentType: LandingData
 title: Documentação da CDN do Azure
 metadata:
   title: Documentação da CDN do Azure - Tutoriais, Referência de API | Microsoft Docs
-  description: A Rede de Distribuição de Conteúdo (CDN) do Azure é uma solução global de CDN para o fornecimento de conteúdo de alta largura de banda. Ela pode ser hospedada no Azure ou em outro local. Com a CDN do Azure, você pode armazenar em cache objetos estáticos carregados de um armazenamento de Blobs do Azure, um aplicativo Web ou de qualquer servidor Web acessível publicamente, usando o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser armazenado em cache, aproveitando várias otimizações de rede com POPs de CDN. Por exemplo, a CDN do Azure pode usar a otimização da rota para ignorar o Border Gateway Protocol (BGP).
+  description: A Rede de Distribuição de Conteúdo (CDN) do Azure é uma solução global de CDN para o fornecimento de conteúdo de alta largura de banda. Ela pode ser hospedada no Azure ou em outro local. Com a CDN do Azure, você pode armazenar em cache objetos estáticos carregados de um armazenamento de Blobs do Azure, um aplicativo Web ou de qualquer servidor Web acessível publicamente, usando o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser armazenado em cache, aproveitando várias otimizações de rede e roteamento.
   services: cdn
   author: czeumault
   manager: carolz
@@ -11,15 +17,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/03/2018
+  ms.date: 06/08/2018
   ms.author: carolz
-  ms.openlocfilehash: 42d08e9a5893bf58ecf405cc5caf750ee3e1daf7
-  ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-  ms.translationtype: HT
-  ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/11/2018
 abstract:
-  description: A Rede de Distribuição de Conteúdo (CDN) do Azure é uma solução global de CDN para o fornecimento de conteúdo de alta largura de banda. Ela pode ser hospedada no Azure ou em outro local. Com a CDN do Azure, você pode armazenar em cache objetos estáticos carregados de um armazenamento de Blobs do Azure, um aplicativo Web ou de qualquer servidor Web acessível publicamente, usando o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser armazenado em cache, aproveitando várias otimizações de rede com POPs de CDN. Por exemplo, a CDN do Azure pode usar a otimização da rota para ignorar o Border Gateway Protocol (BGP).
+  description: A Rede de Distribuição de Conteúdo (CDN) do Azure é uma solução global de CDN para o fornecimento de conteúdo de alta largura de banda. Ela pode ser hospedada no Azure ou em outro local. Com a CDN do Azure, você pode armazenar em cache objetos estáticos carregados de um armazenamento de Blobs do Azure, um aplicativo Web ou de qualquer servidor Web acessível publicamente, usando o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser armazenado em cache, aproveitando várias otimizações de rede e roteamento.
 sections:
 - title: 
   items:
@@ -78,7 +79,7 @@ sections:
     className: cardsD
     items:
     - title: Linha de comando
-      html: <p><a href="/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn">PowerShell</a></p>
+      html: <p><a href="/powershell/module/azurerm.cdn">PowerShell</a></p>
     - title: Linguagens
       html: <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
     - title: REST

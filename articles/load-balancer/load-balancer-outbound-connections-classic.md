@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bd446923f84d22537b7a49a8ef6124f343141d73
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939814"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069903"
 ---
 # <a name="outbound-connections-classic"></a>Conexões de saída (Clássico)
 
@@ -40,9 +40,9 @@ O Azure fornece três métodos diferentes para obter implantações Clássicas d
 
 | Cenário | Método | Protocolos de IP | DESCRIÇÃO | Função de trabalho da Web | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1. VM com um endereço IP em Nível de Instância](#ilpip) | SNAT, disfarce de porta não usado | TCP, UDP, ICMP, ESP | O Azure usa a máquina virtual atribuída ao IP público. A instância possui todas as portas efêmeras disponíveis. | Não  | sim |
-| [2. ponto de extremidade público com balanceamento de carga](#publiclbendpoint) | SNAT com disfarce de porta (PAT) para o ponto de extremidade público | TCP, UDP | O Azure compartilha o ponto de extremidade público do endereço IP público com vários pontos de extremidade privados. O Azure usa portas efêmeras do ponto de extremidade público para PAT. | sim | sim |
-| [3. VM autônoma ](#defaultsnat) | SNAT com disfarce de porta (PAT) | TCP, UDP | O Azure designa automaticamente um endereço IP público para SNAT, compartilha esse endereço IP público com toda a implantação e usa portas efêmeras do endereço IP do ponto de extremidade público para PAT. Este é um cenário de fallback para os cenários anteriores. Não é recomendável se você precisar de visibilidade e controle. | sim | sim |
+| [1. VM com um endereço IP em Nível de Instância](#ilpip) | SNAT, disfarce de porta não usado | TCP, UDP, ICMP, ESP | O Azure usa a máquina virtual atribuída ao IP público. A instância possui todas as portas efêmeras disponíveis. | Não  | SIM |
+| [2. ponto de extremidade público com balanceamento de carga](#publiclbendpoint) | SNAT com disfarce de porta (PAT) para o ponto de extremidade público | TCP, UDP | O Azure compartilha o ponto de extremidade público do endereço IP público com vários pontos de extremidade privados. O Azure usa portas efêmeras do ponto de extremidade público para PAT. | SIM | SIM |
+| [3. VM autônoma ](#defaultsnat) | SNAT com disfarce de porta (PAT) | TCP, UDP | O Azure designa automaticamente um endereço IP público para SNAT, compartilha esse endereço IP público com toda a implantação e usa portas efêmeras do endereço IP do ponto de extremidade público para PAT. Este é um cenário de fallback para os cenários anteriores. Não é recomendável se você precisar de visibilidade e controle. | SIM | SIM |
 
 Este é um subconjunto da funcionalidade de conexão de saída disponível para implantações do Gerenciador de Recursos no Azure.  
 
@@ -121,6 +121,8 @@ Lembre-se de que o número de portas SNAT disponíveis não movem diretamente em
 Alterar o tamanho da implantação pode afetar alguns dos fluxos estabelecidos. Se o tamanho do pool de back-end aumenta e faz transições para a próxima camada, metade das suas portas SNAT pré-alocadas é recuperada durante a transição para a próxima camada maior de pool de back-end. Os fluxos que estão associados a uma porta SNAT recuperada atingirão limite de tempo e deverão ser restabelecidos. Se um novo fluxo for tentado, o fluxo terá êxito imediato, desde que as portas pré-alocadas estejam disponíveis.
 
 Se o tamanho da implantação diminuir e fizer transição para uma camada mais baixa, o número de portas SNAT disponíveis aumentará. Nesse caso, as portas SNAT alocadas existentes e seus respectivos fluxos não são afetados.
+
+Se um serviço de nuvem for reimplantado ou alterado, a infraestrutura poderá relatar temporariamente que o pool de back-end é duas vezes maior que o real, e o Azure, por sua vez, pré-aloca menos portas SNAT por instância do que o esperado.  Isso pode aumentar temporariamente a probabilidade de esgotamento de porta SNAT. Eventualmente, o tamanho do pool fará a transição para o tamanho real e o Azure aumentará automaticamente as portas SNAT pré-alocadas para o número esperado, conforme a tabela acima.  Esse comportamento é por design e não é configurável.
 
 As alocações de portas SNAT são o protocolo de transporte IP específico (TCP e UDP são mantidas separadamente) e são liberadas sob as seguintes condições:
 

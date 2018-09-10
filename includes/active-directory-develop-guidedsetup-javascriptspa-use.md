@@ -50,7 +50,7 @@ function callGraphApi() {
         userInfoElement.parentElement.classList.remove("hidden");
         userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-        // Show Sign-Out button
+        // Show sign-out button
         document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
@@ -81,7 +81,7 @@ function callGraphApi() {
 /**
  * Callback method from sign-in: if no errors, call callGraphApi() to show results.
  * @param {string} errorDesc - If error occur, the error message
- * @param {object} token - The token received from login
+ * @param {object} token - The token received from sign-in
  * @param {object} error - The error string
  * @param {string} tokenType - The token type: For loginRedirect, tokenType = "id_token". For acquireTokenRedirect, tokenType:"access_token".
  */
@@ -120,9 +120,9 @@ O SPA gerado por este guia não faz uso diretamente do Token de ID – em vez di
 #### <a name="getting-a-user-token-interactively"></a>Obtendo um token de usuário interativamente
 
 Depois da entrada inicial, você não deseja solicitar aos usuários que autentiquem novamente sempre que precisam solicitar um token para acessar um recurso – portanto, *acquireTokenSilent* deve ser usado na maioria das vezes para adquirir tokens. No entanto, há situações em que é necessário forçar os usuários a interagir com o ponto de extremidade do Azure Active Directory v2 – alguns exemplos incluem:
--   Os usuários precisam reinserir as credenciais deles, pois a senha expirou
--   Seu aplicativo está solicitando acesso a um recurso com o qual o usuário precisa concordar
--   A autenticação de dois fatores é necessária
+- Os usuários precisam reinserir as credenciais deles, pois a senha expirou
+- Seu aplicativo está solicitando acesso a um recurso com o qual o usuário precisa concordar
+- A autenticação de dois fatores é necessária
 
 Chamar o *acquireTokenRedirect(scope)* resulta no redirecionamento dos usuários para o ponto de extremidade do Azure Active Directory v2 (ou *acquireTokenPopup(scope)* resulta em uma janela pop-up) em que os usuários precisam interagir confirmando as credenciais deles ou dando consentimento para o recurso necessário, ou ainda concluindo a autenticação de dois fatores.
 
@@ -204,7 +204,7 @@ Adicione o seguinte código ao seu arquivo `app.js`:
 
 ```javascript
 /**
- * Sign-out the user
+ * Sign out the user
  */
 function signOut() {
     userAgentApplication.logout();

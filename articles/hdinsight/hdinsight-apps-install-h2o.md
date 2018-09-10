@@ -1,24 +1,20 @@
 ---
-title: Instalar aplicativo publicado – H2O Sparkling Water – HDInsight do Azure | Microsoft Docs
+title: Instalar aplicativo publicado – H2O Sparkling Water – HDInsight do Azure
 description: Instale e use o aplicativo de Hadoop de terceiros da H2O Sparkling Water.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5a9505c41c14016768a5da42f9ac1836240b98f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095011"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Instalar aplicativo publicado – H2O Sparkling Water
 
@@ -37,13 +33,13 @@ A H2O Sparkling Water fornece:
 
 ### <a name="resource-links"></a>Link de recursos
 
-* [Roteiro de engenharia do H2O.ai](https://jira.h2o.ai/)
+* [Roteiro de engenharia do H2O.ai](http://jira.h2o.ai/)
 * [Página inicial do H2O.ai](http://www.h2o.ai/)
 * [Documentação do H2O.ai](http://docs.h2o.ai/)
 * [Suporte do H2O.ai](https://support.h2o.ai/)
 * [Base do código-fonte aberto do H2O.ai](https://github.com/h2oai/)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para instalar este aplicativo em um novo cluster do HDInsight ou em um cluster existente, você deve ter a seguinte configuração:
 

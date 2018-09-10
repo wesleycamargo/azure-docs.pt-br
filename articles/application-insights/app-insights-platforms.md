@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/01/2016
-ms.author: mbullwin; olegan
-ms.openlocfilehash: 8aec8567fd15865887a5fe5ded8b45cad0290bf9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.reviewer: olegan
+ms.author: mbullwin
+ms.openlocfilehash: 4f474ad234c80a0dcb5a9f704a263a97e7df0cc1
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174227"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Análise para o desenvolvedor: linguagens, plataformas e integrações
 Esses itens são implementações do [Application Insights](app-insights-overview.md) sobre as quais ouvimos falar, incluindo algumas de terceiros.
@@ -62,7 +64,7 @@ Esses itens são implementações do [Application Insights](app-insights-overvie
 * [Qualquer outra](#projects)
 
 ## <a name="logging-frameworks"></a>Estruturas de registro em log
-* [Log4Net, NLog ou System.Diagnostics.Trace](app-insights-diagnostic-search.md)
+* [Log4Net, NLog ou System.Diagnostics.Trace](app-insights-asp-net-trace-logs.md)
 * [Java, Log4J ou Logback](app-insights-java-trace-logs.md)
 * [Registro Semântico (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - é integrado ao [Bloco de Aplicativos do Registro Semântico](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Teste de carga baseado em nuvem](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)

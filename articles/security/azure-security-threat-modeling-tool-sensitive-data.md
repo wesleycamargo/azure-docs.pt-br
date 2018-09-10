@@ -1,24 +1,25 @@
 ---
 title: Dados confidenciais - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
+description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 8d7189ea4b01d43cea709e3300d8ed71d266f5c9
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: bcd2b2199628a7f717a7ce1d8eba032f5778379b
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301454"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Estrutura de segurança: Dados confidenciais | Atenuações 
 | Produto/Serviço | Artigo |
@@ -409,7 +410,7 @@ Se o aplicativo não for empresarial, use o armazenamento de chaves ou os conjun
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referências**              | [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
 | **Etapas** | Usar o token UserName com um texto de senha sem formatação em um canal não criptografado expõe a senha para invasores que podem descobrir as mensagens do SOAP. Os provedores de serviços que usam o token UserName podem aceitar senhas enviadas em texto sem formatação. Enviar textos de senha sem formatação por um canal não criptografado pode expor a credencial para invasores que podem descobrir a mensagem do SOAP. | 
 
 ### <a name="example"></a>Exemplo
@@ -428,7 +429,7 @@ Defina clientCredentialType para o certificado ou o Windows.
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, .NET Framework 3 |
 | **Atributos**              | Modo de segurança - Transport, Modo de segurança - Message |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html), [Noções básicas da segurança do WCF (CoDe Magazine)](http://www.codemag.com/article/0611051) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [Noções básicas da segurança do WCF (CoDe Magazine)](http://www.codemag.com/article/0611051) |
 | **Etapas** | Nenhuma segurança foi definida para transporte ou mensagens. Os aplicativos que transmitem mensagens sem segurança de transporte ou de mensagem não podem garantir a integridade ou a confidenciabilidade das mensagens. Quando uma associação de segurança do WCF é definida como None, as seguranças de transporte e de mensagem são desabilitadas. |
 
 ### <a name="example"></a>Exemplo

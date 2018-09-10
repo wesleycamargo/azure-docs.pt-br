@@ -2,22 +2,18 @@
 title: Recuperação de desastre em área geográfica do Barramento de Serviço do Azure | Microsoft Docs
 description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre no Barramento de Serviço do Azure
 services: service-bus-messaging
-documentationcenter: ''
-author: christianwolf42
+author: spelluru
 manager: timlt
-editor: ''
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: sethm
-ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 06/14/2018
+ms.author: spelluru
+ms.openlocfilehash: 42960222efb1ade1b48a1d0db56ae3fb0349d174
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695384"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
 
@@ -67,7 +63,7 @@ Você pode automatizar o failover tanto com sistemas de monitoramento ou com sol
 
 Se você iniciar o failover, as duas etapas são necessárias:
 
-1. Caso ocorra outra interrupção, você deve ser capaz de fazer failover novamente. Portanto, configure outro namespace passivo e atualize o emparelhamento. 
+1. Caso ocorra outra interrupção, você deve ser capaz de fazer o failover novamente. Portanto, configure outro namespace passivo e atualize o emparelhamento. 
 
 2. Faça pull das mensagens do namespace primário anterior assim que estiver disponível novamente. Depois disso, use esse namespace para mensagens regulares fora de sua configuração de recuperação geográfica ou exclua o namespace primário antigo.
 
@@ -88,7 +84,7 @@ Caso tenha um cenário no qual você não pode alterar as conexões de produtore
 
 Os [exemplos no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) mostram como configurar e iniciar um failover. Esses exemplos demonstram os conceitos a seguir:
 
-- Um modelo .NET e configurações necessárias no Azure Active Directory para usar o Azure Resource Manager com o Barramento de Serviço para configurar e habilitar a recuperação de desastre geográfico.
+- Um exemplo de .NET e configurações necessárias no Azure Active Directory para usar o Azure Resource Manager com o Barramento de Serviço para configurar e habilitar a recuperação de desastre geográfico.
 - Etapas necessárias para executar o exemplo de código.
 - Como usar um namespace existente como alias.
 - Etapas para habilitar a recuperação de desastres de geográficos por meio do PowerShell ou CLI como alternativa.
@@ -106,6 +102,17 @@ Observe as seguintes considerações a serem lembradas quanto a esta versão:
 
 4. A sincronização de entidades pode levar algum tempo, cerca de 50 a 100 entidades por minuto. Assinaturas e regras também são contadas como entidades. 
 
+## <a name="availability-zones-preview"></a>Zonas de Disponibilidade (versão prévia)
+
+O SKU Premium do Barramento de Serviço também oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro de uma região do Azure. 
+
+> [!NOTE]
+> A versão prévia das Zonas de Disponibilidade tem suporte apenas nas regiões **Centro dos EUA**, **Leste dos EUA 2** e **França Central**.
+
+Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usando o portal do Azure. O Barramento de Serviço não dá suporte à migração dos namespaces existentes. Você não pode desabilitar a redundância de zona depois de habilitá-la em seu namespace.
+
+![3][]
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - Consulte a [referência da API REST de recuperação de desastre em área geográfica aqui](/rest/api/servicebus/disasterrecoveryconfigs).
@@ -122,3 +129,4 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os artigos
 
 [1]: ./media/service-bus-geo-dr/geo1.png
 [2]: ./media/service-bus-geo-dr/geo2.png
+[3]: ./media/service-bus-geo-dr/az.png

@@ -2,22 +2,20 @@
 title: Suporte do BD Cosmos do Azure para Gremlin | Microsoft Docs
 description: Saiba mais sobre a linguagem Gremlin do Apache TinkerPop. Saiba quais etapas e recursos estão disponíveis no Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: LuisBosquez
 manager: kfile
-ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: ''
+ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: c3d80fcaa38d0f1d7fa1770879ca9b40642bb796
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c675f37e50f5b8a259048d9a92fcdbe5b947068c
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797610"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte do Azure Cosmos DB para grafo do Gremlin
 O Azure Cosmos DB dá suporte à linguagem de cruzamento de grafo [Gremlin](http://tinkerpop.apache.org) da [Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma API do Graph para criar entidades de grafo e executar operações de consulta de grafo. É possível usar a linguagem Gremlin para criar entidades de grafo (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 

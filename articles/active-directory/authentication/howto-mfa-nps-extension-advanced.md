@@ -4,17 +4,18 @@ description: Depois de instalar a extensão NPS, siga estas etapas para configur
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 07/14/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 1aa474424823a180a16206ac509053a93c7bfa18
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: a857732bcbe70cec164cebb54d7c09a1f103a942
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160603"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançada para a extensão NPS para autenticação multifator
 
@@ -28,7 +29,7 @@ Dentro da extensão do NPS, você pode designar um atributo do Active Directory 
 
 Para configurar as IDs de logon alternativo, vá para `HKLM\SOFTWARE\Microsoft\AzureMfa` e edite os valores de registro a seguir:
 
-| NOME | type | Valor padrão | DESCRIÇÃO |
+| NOME | Tipo | Valor padrão | DESCRIÇÃO |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Vazio | Designe o nome do atributo do Active Directory que você deseja usar, em vez do UPN. Esse atributo é usado como o atributo AlternateLoginId. Se esse valor de registro for definido como um [atributo válido do Active Directory](https://msdn.microsoft.com/library/ms675090.aspx) (por exemplo, email ou displayName), o valor do atributo será usado no lugar do UPN do usuário para autenticação. Se esse valor do registro estiver vazio ou não estiver configurado, AlternateLoginId estará desabilitado e o UPN do usuário será usado para autenticação. |
 | LDAP_FORCE_GLOBAL_CATALOG | booleano | Falso | Use esse sinalizador para forçar o uso do Catálogo Global para pesquisas LDAP ao procurar AlternateLoginId. Configure um controlador de domínio como um Catálogo Global, adicione o atributo AlternateLoginId ao Catálogo Global e, em seguida, habilite esse sinalizador. <br><br> Se LDAP_LOOKUP_FORESTS estiver configurado (não vazio), **esse sinalizador será imposto como true**, independentemente do valor da configuração do registro. Nesse caso, a extensão NPS exige que o Catálogo Global seja configurado com o atributo AlternateLoginId para cada floresta. |
@@ -42,7 +43,7 @@ Se você precisar monitorar a disponibilidade do servidor, como se os balanceado
 
 Para configurar uma lista de permissões de IP, vá para `HKLM\SOFTWARE\Microsoft\AzureMfa` e configure o seguinte valor de registro: 
 
-| NOME | type | Valor padrão | DESCRIÇÃO |
+| NOME | Tipo | Valor padrão | DESCRIÇÃO |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | string | Vazio | Forneça uma lista separada por ponto e vírgula de endereços IP. Inclua os endereços IP dos computadores dos quais as solicitações de serviço originam-se, como o servidor NAS/VPN. Os intervalos IP que são sub-redes não têm suporte. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
 

@@ -1,24 +1,20 @@
 ---
-title: Instalar aplicativo publicado – Datameer – HDInsight do Azure | Microsoft Docs
+title: Instalar aplicativo publicado – Datameer – HDInsight do Azure
 description: Instale e use o aplicativo de Hadoop de terceiros da Datameer.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9eef1760b7cee3bbdf33122514669b38b0b4d9db
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 377dbadd7b696e62d8464258d22d0dd5ed926208
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106096"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>Instalar aplicativo publicado – Plataforma de Aplicativo de Dados de Cask (CDAP)
 
@@ -52,7 +48,7 @@ Aqui está uma ilustração de como os dados estão fluindo no pipeline acima:
 
 ![Rastreador da CDAP](./media/hdinsight-apps-install-cask/tracker.png)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para instalar este aplicativo em um novo cluster do HDInsight ou em um cluster existente, você deve ter a seguinte configuração:
 

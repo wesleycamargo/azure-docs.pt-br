@@ -1,13 +1,13 @@
 ---
-title: "Modificar os prefixos de endereço IP do gateway de rede local e o endereço IP do Gateway de VPN | Azure | Portal | Microsoft Docs"
-description: "Este artigo mostra o passo a passo da alteração dos prefixos de endereço IP do seu gateway de rede local usando o portal do Azure"
+title: Modificar os prefixos de endereço IP do gateway de rede local e o endereço IP do Gateway de VPN | Azure | Portal | Microsoft Docs
+description: Este artigo mostra o passo a passo da alteração dos prefixos de endereço IP do seu gateway de rede local usando o portal do Azure
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
 ms.openlocfilehash: bdd6f90fe97408bd45a72adf58bfdc190207de46
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38651929"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modificar as configurações de gateway de rede local usando o portal do Azure
 

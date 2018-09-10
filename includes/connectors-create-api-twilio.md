@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 * Uma conta do Twilio
 * Um número de telefone Twilio verificado que possa receber SMS
 * Um número de telefone Twilio verificado que possa enviar SMS
@@ -16,7 +16,7 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
    ![](./media/connectors-create-api-twilio/twilio-0.png)
 2. Se você não tiver criado quaisquer conexões Twilio antes, será solicitado a fornecer suas credenciais do Twilio. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do Twilio e usá-los:  
    ![](./media/connectors-create-api-twilio/twilio-1.png)  
-3. Você precisará da **ID da conta do Twilio** e do **token de acesso do Twilio** no painel do Twilio, então faça logon em sua conta do Twilio e pegue essas duas informações:  
+3. Você precisará da **ID da conta do Twilio** e do **token de acesso do Twilio** no painel do Twilio, então entre em sua conta do Twilio e pegue essas duas informações:  
    ![](./media/connectors-create-api-twilio/twilio-2.png)  
 4. Twilio e aplicativos lógicos usam nomes diferentes para identificar essas duas informações. Você deve mapeá-los para a caixa de diálogo de aplicativos lógicos da seguinte maneira: ![](./media/connectors-create-api-twilio/twilio-3.png)  
 5. Selecione o botão **Criar conexão**:  

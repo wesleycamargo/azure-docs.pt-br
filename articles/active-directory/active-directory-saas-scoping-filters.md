@@ -1,24 +1,25 @@
 ---
 title: Provisionar aplicativos com filtros de escopo | Microsoft Docs
-description: "Saiba como usar filtros de escopo para impedir que objetos em aplicativos que dão suporte a provisionamento automatizado do usuário sejam provisionados caso um objeto não atenda às suas necessidades de negócios."
+description: Saiba como usar filtros de escopo para impedir que objetos em aplicativos que dão suporte a provisionamento automatizado do usuário sejam provisionados caso um objeto não atenda às suas necessidades de negócios.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7a2322239945a529a544054c2273e37a3d65abf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f28c97fed2a5fa4990c1310e8389868c6b7dc20
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368544"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
 O objetivo deste artigo é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados a um aplicativo.
@@ -29,12 +30,12 @@ Um filtro de escopo permite que o serviço de provisionamento do Azure AD (Azure
 
 Os filtros de escopo podem ser utilizados de modo diferente, dependendo do tipo de conector de provisionamento:
 
-* **Provisionamento de saída do Azure AD para aplicativos SaaS**. Quando o Azure AD é o sistema de origem, [atribuições de usuário e grupo](active-directory-coreapps-assign-user-azure-portal.md) são o método mais comum para determinar quais usuários estão no escopo para provisionamento. Essas atribuições também são utilizadas para habilitar o logon único e fornecer um método exclusivo para gerenciar o acesso e o provisionamento. Os filtros de escopo podem ser utilizados opcionalmente, além de atribuições ou, em vez de eles, para filtrar usuários com base em valores de atributos.
+* **Provisionamento de saída do Azure AD para aplicativos SaaS**. Quando o Azure AD é o sistema de origem, [atribuições de usuário e grupo](manage-apps/assign-user-or-group-access-portal.md) são o método mais comum para determinar quais usuários estão no escopo para provisionamento. Essas atribuições também são utilizadas para habilitar o logon único e fornecer um método exclusivo para gerenciar o acesso e o provisionamento. Os filtros de escopo podem ser utilizados opcionalmente, além de atribuições ou, em vez de eles, para filtrar usuários com base em valores de atributos.
 
     >[!TIP]
     > É possível desabilitar o provisionamento com base em atribuições para um aplicativo empresarial alterando as configurações no menu [Escopo](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) nas configurações de provisionamento para **Sincronizar todos os usuários e grupos**. Usar esta opção mais filtros de escopo baseados em atributos oferece um desempenho mais rápido que o uso de atribuições baseadas em grupo.  
 
-* **Provisionamento de entrada de aplicativos HCM para o Azure AD e o Active Directory**. Quando um [aplicativo HCM como o Workday](active-directory-saas-workday-tutorial.md) for o sistema de origem, os filtros de escopo serão o método principal para determinar quais usuários deverão ser provisionados do aplicativo HCM para o Active Directory ou o Azure AD.
+* **Provisionamento de entrada de aplicativos HCM para o Azure AD e o Active Directory**. Quando um [aplicativo HCM como o Workday](saas-apps/workday-tutorial.md) for o sistema de origem, os filtros de escopo serão o método principal para determinar quais usuários deverão ser provisionados do aplicativo HCM para o Active Directory ou o Azure AD.
 
 Por padrão, os conectores de provisionamento do Azure AD não possuem filtros de escopo baseados em atributos configurados. 
 
@@ -60,7 +61,7 @@ De acordo com esse filtro de escopo, os usuários devem atender aos seguintes cr
 * O cargo não deve ser nulo ou nem estar vazio.
 
 ## <a name="create-scoping-filters"></a>Criar filtros de escopo
-Os filtros de escopo são configurados como parte dos mapeamentos de atributos para cada conector de provisionamento de usuário do Azure AD. O procedimento a seguir presume que você já tenha configurado o provisionamento automático para [um dos aplicativos com suporte](active-directory-saas-tutorial-list.md) e está adicionando um filtro de escopo a ele.
+Os filtros de escopo são configurados como parte dos mapeamentos de atributos para cada conector de provisionamento de usuário do Azure AD. O procedimento a seguir presume que você já tenha configurado o provisionamento automático para [um dos aplicativos com suporte](saas-apps/tutorial-list.md) e está adicionando um filtro de escopo a ele.
 
 ### <a name="create-a-scoping-filter"></a>Criar um filtro de escopo
 1. No [Portal do Azure](https://portal.azure.com), vá para a seção **Azure Active Directory** > **Aplicativos Empresariais** > **Todos os aplicativos**.
@@ -115,6 +116,6 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 * [Personalizar mapeamentos de atributos para provisionamento do usuário](active-directory-saas-customizing-attribute-mappings.md)
 * [Escrever expressões para mapeamentos de atributo](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Notificações de provisionamento de conta](active-directory-saas-account-provisioning-notifications.md)
-* [Usar o SCIM para habilitar o provisionamento automático de usuários e grupos do Azure Active Directory para aplicativos](active-directory-scim-provisioning.md)
-* [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
+* [Usar o SCIM para habilitar o provisionamento automático de usuários e grupos do Azure Active Directory para aplicativos](manage-apps/use-scim-to-provision-users-and-groups.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS](saas-apps/tutorial-list.md)
 

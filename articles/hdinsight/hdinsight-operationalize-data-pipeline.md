@@ -1,23 +1,20 @@
 ---
-title: Operacionalizar um pipeline de análise de dados – Azure | Microsoft Docs
+title: Operacionalize um pipeline de análise de dados - Azure
 description: Configure e execute um exemplo de pipeline de dados que é disparado por novos dados e produz resultados concisos.
 services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
+author: ashishthaps
 ms.author: ashishth
-ms.openlocfilehash: 7ac1ed0db15d91ef8af009c879c3634148826286
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 01/11/2018
+ms.openlocfilehash: 9057d9f5d63598ea249e8f3193b84fd715018829
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109964"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalize um pipeline de análise de dados
 

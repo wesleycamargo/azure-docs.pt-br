@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 68ad44bae0856ff000f2847049a15a946d83c0a3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c635a869506918ab7ee032df349eb307987c1284
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168530"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432272"
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Use o Rascunho com o Serviço de Contêiner do Azure e o Registro de Contêiner do Azure para criar e implantar um aplicativo no Kubernetes
 
@@ -33,7 +33,7 @@ Você pode [criar um novo Registro de Contêiner do Azure](../../container-regis
       az group create --name draft --location eastus
       ```
 
-2. Crie um Registro de imagem ACR usando [az acr create](/cli/azure/acr#az_acr_create) e certifique-se de que a opção `--admin-enabled` seja definida como `true`.
+2. Crie um Registro de imagem ACR usando [az acr create](/cli/azure/acr#az-acr-create) e certifique-se de que a opção `--admin-enabled` seja definida como `true`.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```
@@ -41,7 +41,7 @@ Você pode [criar um novo Registro de Contêiner do Azure](../../container-regis
 
 ## <a name="create-an-azure-container-service-with-kubernetes"></a>Criar um Serviço de Contêiner do Azure com Kubernetes
 
-Agora você está pronto para usar [az acs create](/cli/azure/acs#az_acs_create) a fim de criar um cluster ACS usando Kubernetes como o valor `--orchestrator-type`.
+Agora você está pronto para usar [az acs create](/cli/azure/acs#az-acs-create) a fim de criar um cluster ACS usando Kubernetes como o valor `--orchestrator-type`.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
@@ -221,7 +221,7 @@ Seu próprio provedor de domínio tem sua própria maneira de atribuir servidore
     ```
 
 2. Crie uma zona DNS para seu domínio.
-Use o comando [az network dns zone create](/cli/azure/network/dns/zone#az_network_dns_zone_create) para obter os nameservers e delegar o controle DNS para o DNS do Azure em relação ao seu domínio.
+Use o comando [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) para obter os nameservers e delegar o controle DNS para o DNS do Azure em relação ao seu domínio.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {

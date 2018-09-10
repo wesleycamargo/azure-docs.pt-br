@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: MT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 04/23/2018
+  ms.locfileid: "31786716"
 abstract:
   description: O Kit de desenvolvimento de pilha do Azure (ASDK) é uma implantação de nó único da pilha do Azure que você pode baixar e usar gratuitamente. O ASDK visa fornecer um ambiente no qual você pode avaliar a pilha do Azure e desenvolver aplicativos modernos usando APIs e ferramentas consistentes com o Azure em um ambiente de não produção. <br/><br/>Se você tiver um operador de pilha do Azure que gerencia a infraestrutura de sistemas integrados e ofertas de serviços, consulte nosso <a href="/azure/azure-stack/">documentação operador</a>.<br/><br/>Se você for um usuário de pilha do Azure que usa os serviços ou cria aplicativos para a pilha do Azure, consulte nosso <a href="/azure/azure-stack/user">documentação de usuário</a>.
 sections:

@@ -1,24 +1,23 @@
 ---
-title: "API REST: operações de gerenciamento de conta no Azure Data Lake Store | Microsoft Docs"
-description: "Usar o Azure Data Lake Store e a API REST WebHDFS para executar operações de gerenciamento de conta no Data Lake Store"
+title: 'API REST: operações de gerenciamento de conta no Azure Data Lake Store | Microsoft Docs'
+description: Usar o Azure Data Lake Store e a API REST WebHDFS para executar operações de gerenciamento de conta no Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 57ac6501-cb71-4f75-82c2-acc07c562889
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 5fafde870a01a6ceb5e86f7b00b0ca11b748c68a
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5b31188eb5618d0ec5ac1f89c590913e4e284d9f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337144"
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-rest-api"></a>Operações de gerenciamento de conta no Azure Data Lake Store usando API REST
 > [!div class="op_single_selector"]
@@ -30,7 +29,7 @@ ms.lasthandoff: 01/10/2018
 
 Neste artigo, você aprenderá a executar operações de gerenciamento de conta no Data Lake Store usando a API REST. As operações de gerenciamento de conta incluem a criação de uma conta do Data Lake Store, exclusão de uma conta do Data Lake Store etc. Para obter instruções sobre como executar operações de filesystem no Data Lake Store usando API REST, consulte [Operações de filesystem no Data Lake Store usando API REST](data-lake-store-data-operations-rest-api.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **[cURL](http://curl.haxx.se/)**. Este artigo usa cURL para demonstrar como fazer chamadas à API REST em uma conta do Repositório Data Lake.
@@ -43,7 +42,7 @@ Você pode usar duas abordagens para se autenticar usando o Azure Active Directo
 
 
 ## <a name="create-a-data-lake-store-account"></a>Criar uma conta do Repositório Data Lake
-Essa operação se baseia na chamada à API REST definida [aqui](https://msdn.microsoft.com/library/mt694078.aspx).
+Essa operação se baseia na chamada à API REST definida [aqui](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/create).
 
 Use o comando cURL a seguir. Substitua **\<nomedorepositório** pelo nome do Data Lake Store.
 
@@ -60,7 +59,7 @@ No comando acima, substitua \<`REDACTED`\> pelo token de autorização recuperad
     }    
 
 ## <a name="delete-a-data-lake-store-account"></a>Excluir uma conta do Repositório do Data Lake
-Essa operação se baseia na chamada à API REST definida [aqui](https://msdn.microsoft.com/library/mt694075.aspx).
+Essa operação se baseia na chamada à API REST definida [aqui](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/delete).
 
 Use o comando cURL a seguir para excluir uma conta do Repositório Data Lake. Substitua **\<nomedorepositório** pelo nome do Data Lake Store.
 

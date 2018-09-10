@@ -11,18 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: shlo
-ms.openlocfilehash: 4698f2e4c75456de7387ee7fe3bfa9b2ab4dd406
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: c24bec7366ea62b3dd8f7a301c9d2d62c6dd6c7d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011383"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859271"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>A atividade de obtenção de metadados no Azure Data Factory
-A atividade GetMetadata pode ser usada para recuperar metadados de todos os dados no Azure Data Factory. Esta atividade tem suporte apenas data factories da versão 2. Ela pode ser usada nos seguintes cenários:
+A atividade GetMetadata pode ser usada para recuperar metadados de todos os dados no Azure Data Factory. Essa atividade pode ser utilizada nos seguintes cenários:
 
 - Validar as informações de metadados de todos os dados
 - Disparar um pipeline quando os dados estão prontos/disponíveis
@@ -32,12 +32,9 @@ A seguinte funcionalidade está disponível no fluxo de controle:
 - A saída da atividade GetMetadata pode ser usada em expressões condicionais para executar a validação.
 - Um pipeline pode ser disparado quando a condição é atendida por meio do loop Do-Until
 
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Documentação do Data Factory V1](v1/data-factory-introduction.md).
-
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-A Atividade GetMetadata coleta um conjunto de dados como uma entrada obrigatória e gera informações de metadados disponíveis como saída da atividade. Atualmente, há suporte para os seguintes conectores com metadados recuperáveis correspondente:
+A Atividade GetMetadata coleta um conjunto de dados como uma entrada obrigatória e gera informações de metadados disponíveis como saída da atividade. No momento, há suporte para os seguintes conectores com metadados recuperáveis correspondentes, e o tamanho máximo de metadados com suporte é de até **1 MB**.
 
 >[!NOTE]
 >Se você executar GetMetadata atividade em um tempo de execução de integração auto-hospedada, a funcionalidade mais recente é suportada na versão 3.6 ou acima. 
@@ -48,12 +45,16 @@ Armazenamento de Arquivos
 
 | Conector/metadados | itemName<br>(arquivo/pasta) | itemType<br>(arquivo/pasta) | tamanho<br>(arquivo) | criado<br>(arquivo/pasta) | lastModified<br>(arquivo/pasta) |childItems<br>(pasta) |contentMD5<br>(arquivo) | estrutura<br/>(arquivo) | ColumnCount<br>(arquivo) | exists<br>(arquivo/pasta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Blob do Azure | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
+| Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Blob do Azure | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Repositório Azure Data Lake | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Armazenamento de Arquivos do Azure | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Sistema de Arquivos | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+
+- Para Amazon S3, `lastModified` aplica-se ao bucket e chave, mas não à pasta virtual; e `exists` aplica-se ao bucket e chave, mas não ao prefixo ou pasta virtual.
+- Para Blob do Azure, `lastModified` aplica-se ao contêiner e ao blob, mas não à pasta virtual.
 
 **Banco de dados relacional:**
 

@@ -1,29 +1,29 @@
 ---
-title: "Configurar o ambiente de origem (servidores físicos para Azure) | Microsoft Docs"
-description: "Este artigo descreve como configurar seu ambiente local para iniciar a replicação de servidores físicos executando Windows ou Linux no Azure."
+title: Configurar o ambiente de origem (servidores físicos para Azure) | Microsoft Docs
+description: Este artigo descreve como configurar seu ambiente local para iniciar a replicação de servidores físicos executando Windows ou Linux no Azure.
 services: site-recovery
-documentationcenter: 
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 96004a70547c4bfb3a1a3bfadecb1304e4910b52
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 07/21/2018
+ms.author: raynew
+ms.openlocfilehash: 0cbba45ce49667293d8f16bf370424acd70ff78b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213468"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Configurar o ambiente de origem (servidor físico para Azure)
 
 Este artigo descreve como configurar seu ambiente local para iniciar a replicação de servidores físicos executando Windows ou Linux no Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 O artigo supõe que você já tenha:
-1. Um cofre de Serviços de Recuperação no [Portal do Azure](http://portal.azure.com "Portal do Azure").
-3. Um computador físico no qual instalar o servidor de configuração.
+- Um cofre de Serviços de Recuperação no [Portal do Azure](http://portal.azure.com "Portal do Azure").
+- Um computador físico no qual instalar o servidor de configuração.
+- Se você desabilitou o TLS 1.0 no computador no qual você instalando o servidor de configuração, verifique se o TLs 1.2 está habilitado e que o .NET Framework versão 4.6 ou posterior está instalado no computador (com criptografia forte desabilitada). [Saiba mais](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>Requisitos mínimos do servidor de configuração
 A tabela a seguir lista os requisitos mínimos de hardware, software e rede para um servidor de configuração.
@@ -62,7 +62,7 @@ A tabela a seguir lista os requisitos mínimos de hardware, software e rede para
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> O servidor de configuração pode ser instalado por meio de uma linha de comando. Para obter mais informações, confira [Instalando o servidor de configuração usando ferramentas de linhas de comando](http://aka.ms/installconfigsrv).
+> O servidor de configuração pode ser instalado por meio de uma linha de comando. [Saiba mais](physical-manage-configuration-server.md#install-from-the-command-line).
 
 
 ## <a name="common-issues"></a>Problemas comuns

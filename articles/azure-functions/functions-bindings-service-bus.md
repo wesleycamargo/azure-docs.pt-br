@@ -3,7 +3,7 @@ title: Associações do Barramento de Serviço para o Azure Functions
 description: Entenda como usar gatilhos e associações do Barramento de Serviço do Azure no Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,13 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
-ms.author: tdykstra
-ms.openlocfilehash: 01ddebd219a97a59ba3f979d32d6c563a0d31f8a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: glenga
+ms.openlocfilehash: 20dd9349b9ca5ffb6042156e340019c4483b93e5
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304106"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140401"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associações do Barramento de Serviço para o Azure Functions
 
@@ -29,13 +29,17 @@ Este artigo explica como trabalhar com associações do Barramento de Serviço d
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Pacotes
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
-As associações de Barramentos de Serviço são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/).
+As associações do barramento de serviço são fornecidas no [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) pacote NuGet, versão 2. x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pacotes - Functions 2. x
+
+As associações do barramento de serviço são fornecidas no [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) pacote NuGet, versão 3. x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/).
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Gatilho
 
@@ -49,6 +53,7 @@ Consulte o exemplo específico a um idioma:
 * [Script do C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>Gatilho - exemplo C#
 
@@ -174,6 +179,41 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
+### <a name="trigger---java-example"></a>Gatilho - exemplo Java
+
+O exemplo a seguir mostra uma associação de gatilho de Barramento de Serviço em um arquivo *function.json* e uma [função Java](functions-reference-java.md) que usa a associação. A função é disparada por uma mensagem colocada em uma fila do Barramento de Serviço e a função registra a mensagem da fila.
+
+Aqui estão os dados de associação no arquivo *function.json*:
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "myqueuename",
+    "connection": "MyServiceBusConnection",
+    "name": "msg",
+    "type": "ServiceBusQueueTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+Aqui está o código Java:
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 ## <a name="trigger---attributes"></a>Gatilho – atributos
 
 Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use os seguintes atributos para configurar um gatilho do Barramento de Serviço:
@@ -257,7 +297,7 @@ Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a mensa
 * `string` -Se a mensagem for de texto.
 * `byte[]` - Útil para dados binários.
 * Um tipo personalizado - Se a mensagem contiver JSON, funções do Azure tentará desserializar os dados JSON.
-* `BrokeredMessage` - Fornece a você a mensagem desserializada com o método [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx).
+* `BrokeredMessage` - Fornece a você a mensagem desserializada com o método [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
 
 Esses parâmetros são para a versão 1.x do Azure Functions; para 2.x, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage`.
 
@@ -277,7 +317,7 @@ As funções de 1. x permitem que você configure `autoRenewTimeout` na *host.js
 
 O gatilho Barramento de Serviço fornece várias propriedades de [metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas são propriedades da classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
 
-|Propriedade|type|DESCRIÇÃO|
+|Propriedade|Tipo|DESCRIÇÃO|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|Número total de entregas.|
 |`DeadLetterSource`|`string`|A origem de mensagens mortas.|
@@ -312,6 +352,7 @@ Consulte o exemplo específico a um idioma:
 * [Script do C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output--java-example)
 
 ### <a name="output---c-example"></a>Saída - exemplo C#
 
@@ -466,6 +507,25 @@ module.exports = function (context, myTimer) {
     context.done();
 };
 ```
+
+
+### <a name="output---java-example"></a>Saída - exemplo de Java
+
+O exemplo a seguir mostra uma função Java que envia uma mensagem a uma fila `myqueue` do Barramento de Serviço quando disparada por uma solicitação HTTP.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T>; result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+ ```
+
+ Na [biblioteca de tempo de execução das funções Java](/java/api/overview/azure/functions/runtime), use a anotação `@QueueOutput` nos parâmetros da função cujo valor poderia ser gravado em uma fila do Barramento de Serviço.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
 
 ## <a name="output---attributes"></a>Saída - atributos
 

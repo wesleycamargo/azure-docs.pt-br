@@ -1,26 +1,27 @@
 ---
 title: Upload de um VHD generalizado para Script de Exemplo do Azure PowerShell | Microsoft Docs
-description: "Script de exemplo do PowerShell para carregar um VHD generalizado para o Azure e criar uma nova VM utilizando o modelo de implantação do gerenciador de recursos e Managed Disks."
+description: Script de exemplo do PowerShell para carregar um VHD generalizado para o Azure e criar uma nova VM utilizando o modelo de implantação do gerenciador de recursos e Managed Disks.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 01/02/2017
+ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9534ce2a32ac57a441535cfa26f2981b804182d1
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 786dbb258fa4299f80f7ff9d24a1c129a9506bb7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663738"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Script de exemplo para carregar um VHD para o Azure e criar uma nova VM
 
@@ -50,7 +51,6 @@ $ipName = 'myPip'
 $nicName = 'myNic'
 $nsgName = 'myNsg'
 $ruleName = 'myRdpRule'
-$vmName = 'myVM'
 $computerName = 'myComputerName'
 $vmSize = 'Standard_DS1_v2'
 
@@ -81,13 +81,13 @@ $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGr
     -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
 $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $resourceGroup -Location $location `
     -AllocationMethod Dynamic
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroup -Location $location `
-    -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name $ruleName -Description 'Allow RDP' -Access Allow `
     -Protocol Tcp -Direction Inbound -Priority 110 -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroup -Location $location `
+    -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
 
 # Start building the VM configuration
@@ -116,7 +116,7 @@ $vmList.Name
 <!-- 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-iis/create-windows-vm-iis.ps1 "Create VM IIS")] -->
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -128,27 +128,27 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 Esse script usa os seguintes comandos para criar a implantação. Cada item em que a tabela contém links para a documentação específica do comando.
 
-| Get-Help                                                                                                             | Observações                                                                                                                                                                                |
+| Comando                                                                                                             | Observações                                                                                                                                                                                |
 |---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)                           | Cria um grupo de recursos no qual todos os recursos são armazenados.                                                                                                                          |
-| [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/new-azurermstorageaccount)                         | Cria uma conta de armazenamento.                                                                                                                                                           |
-| [Add-AzureRmVhd](/powershell/module/azurerm.resources/add-azurermvhd)                                               | Carrega um disco rígido virtual de uma máquina virtual no local para um blob em uma conta de armazenamento em nuvem no Azure.                                                                       |
-| [New-AzureRmImageConfig](/powershell/module/azurerm.resources/new-azurermimageconfig)                               | Cria um objeto de imagem configurável.                                                                                                                                                 |
-| [Set-AzureRmImageOsDisk](/powershell/module/azurerm.resources/set-azurermimageosdisk)                               | Define as propriedades do disco do sistema operacional em um objeto de imagem.                                                                                                                        |
-| [New-AzureRmImage](/powershell/module/azurerm.resources/new-azurermimage)                                           | Cria uma nova imagem.                                                                                                                                                                 |
-| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.resources/new-azurermvirtualnetworksubnetconfig) | Cria uma configuração de sub-rede. Essa configuração é usada com o processo de criação de rede virtual.                                                                                |
-| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/new-azurermvirtualnetwork)                         | Cria uma rede virtual.                                                                                                                                                           |
-| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.resources/new-azurermpublicipaddress)                       | Cria um endereço IP público.                                                                                                                                                         |
-| [New-AzureRmNetworkInterface](/powershell/module/azurerm.resources/new-azurermnetworkinterface)                     | Cria um adaptador de rede.                                                                                                                                                         |
-| [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermnetworksecurityruleconfig)   | Cria uma configuração de regra de grupo de segurança de rede. Essa configuração é usada para criar uma regra NSG quando o NSG é criado.                                                       |
-| [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.resources/new-azurermnetworksecuritygroup)             | Cria um grupo de segurança de rede.                                                                                                                                                    |
-| [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/get-azurermvirtualnetwork)                         | Obtém uma rede virtual em um grupo de recursos.                                                                                                                                          |
-| [New-AzureRmVMConfig](/powershell/module/azurerm.resources/new-azurermvmconfig)                                     | Cria uma configuração de VM. Essa configuração inclui informações como nome da VM, sistema operacional e credenciais administrativas. A configuração é usada durante a criação da VM. |
-| [Set-AzureRmVMSourceImage](/powershell/module/azurerm.resources/set-azurermvmsourceimage)                           | Especifica uma imagem para uma máquina virtual.                                                                                                                                            |
-| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.resources/set-azurermvmosdisk)                                     | Define as propriedades do disco do sistema operacional em uma máquina virtual.                                                                                                                      |
-| [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.resources/set-azurermvmoperatingsystem)                   | Define as propriedades do disco do sistema operacional em uma máquina virtual.                                                                                                                      |
-| [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.resources/add-azurermvmnetworkinterface)                 | Adiciona uma interface de rede a uma máquina virtual.                                                                                                                                       |
-| [New-AzureRmVM](/powershell/module/azurerm.resources/new-azurermvm)                                                 | Crie uma máquina virtual.                                                                                                                                                            |
+| [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount)                         | Cria uma conta de armazenamento.                                                                                                                                                           |
+| [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd)                                               | Carrega um disco rígido virtual de uma máquina virtual no local para um blob em uma conta de armazenamento em nuvem no Azure.                                                                       |
+| [New-AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig)                               | Cria um objeto de imagem configurável.                                                                                                                                                 |
+| [Set-AzureRmImageOsDisk](/powershell/module/azurerm.compute/set-azurermimageosdisk)                               | Define as propriedades do disco do sistema operacional em um objeto de imagem.                                                                                                                        |
+| [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage)                                           | Cria uma nova imagem.                                                                                                                                                                 |
+| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | Cria uma configuração de sub-rede. Essa configuração é usada com o processo de criação de rede virtual.                                                                                |
+| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)                         | Cria uma rede virtual.                                                                                                                                                           |
+| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)                       | Cria um endereço IP público.                                                                                                                                                         |
+| [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)                     | Cria um adaptador de rede.                                                                                                                                                         |
+| [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)   | Cria uma configuração de regra de grupo de segurança de rede. Essa configuração é usada para criar uma regra NSG quando o NSG é criado.                                                       |
+| [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)             | Cria um grupo de segurança de rede.                                                                                                                                                    |
+| [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork)                         | Obtém uma rede virtual em um grupo de recursos.                                                                                                                                          |
+| [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig)                                     | Cria uma configuração de VM. Essa configuração inclui informações como nome da VM, sistema operacional e credenciais administrativas. A configuração é usada durante a criação da VM. |
+| [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage)                           | Especifica uma imagem para uma máquina virtual.                                                                                                                                            |
+| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk)                                     | Define as propriedades do disco do sistema operacional em uma máquina virtual.                                                                                                                      |
+| [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem)                   | Define as propriedades do disco do sistema operacional em uma máquina virtual.                                                                                                                      |
+| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?view=azurermps-6.8.1)                 | Adiciona uma interface de rede a uma máquina virtual.                                                                                                                                       |
+| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)                                                 | Crie uma máquina virtual.                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Remove um grupo de recursos e todos os recursos contidos nele.                                                                                                                         |
 
 ## <a name="next-steps"></a>Próximas etapas

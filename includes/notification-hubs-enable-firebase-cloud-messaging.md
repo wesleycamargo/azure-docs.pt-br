@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814689"
 ---
 1. Faça logon no [console do Firebase](https://firebase.google.com/console/). Crie um novo projeto do Firebase se você ainda não tiver um.
 2. Depois de criar seu projeto, selecione **Adicionar Firebase ao seu aplicativo Android**. Em seguida, siga as instruções fornecidas. Baixe o arquivo **services.json google**. 

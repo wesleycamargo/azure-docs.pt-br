@@ -2,23 +2,18 @@
 title: Ferramentas para trabalhar com o Armazenamento do Azure | Microsoft Docs
 description: Uma lista de ferramentas que permite exibir/interagir com os dados do Armazenamento do Azure.
 services: storage
-documentationcenter: 
 author: dineshmurthy
-manager: jahogg
-editor: tysonn
-ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-ms.openlocfilehash: 5c2add48b128a3e5a632c048f0feb4413fcb26cc
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.component: common
+ms.openlocfilehash: 55fa63e75768662a0f909cef0e3cc04b9c2dae41
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526191"
 ---
 # <a name="azure-storage-client-tools"></a>Ferramentas de Cliente do Armazenamento do Azure
 Com frequência, os usuários do Armazenamento do Azure desejam poder exibir/interagir com seus dados usando uma ferramenta de cliente do Armazenamento do Azure. Nas tabelas abaixo, listamos várias ferramentas que permitem que você faça isso. Colocamos um "X" em cada bloco caso a ferramenta forneça a capacidade de enumerar e/ou acessar a abstração de dados. A tabela também mostra se as ferramentas são gratuitas ou não. "Avaliação" indica que há uma avaliação gratuita, mas o produto completo não é gratuito. "S/N" indica que uma versão está disponível gratuitamente, enquanto outra versão está disponível para compra.

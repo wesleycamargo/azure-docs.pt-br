@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 63592a1a1c20dd25e5eea66d501f26efeaf0cf21
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c223e8fb000686aedefa1c02e93c1c8cbb30ec73
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888286"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Comprar e configurar um certificado SSL para seu Serviço de Aplicativo do Azure
 
 Este tutorial mostra a você como proteger seu aplicativo Web com a compra de um certificado SSL para o  **[Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714)**, armazenando-o com segurança no [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) e associando-o a um domínio personalizado.
 
-## <a name="step-1---log-in-to-azure"></a>Etapa 1 - Fazer logon no Azure
+## <a name="step-1---sign-in-to-azure"></a>Etapa 1– entrar no Azure
 
-Faça logon no Portal do Azure em http://portal.azure.com
+Entre no portal do Microsoft Azure em http://portal.azure.com
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>Etapa 2: Fazer um pedido de certificado SSL
 
@@ -77,7 +78,7 @@ Da mesma página **Configuração do Certificado** que você usou na Etapa 3, cl
 
 Escolha o método de verificação de domínio preferido. 
 
-Há quatro tipos de verificação de domínio com suporte dos Certificados de Serviço de Aplicativo: Serviço de Aplicativo, Domínio, Email e Verificação Manual. Esses tipos de verificação são explicados em mais detalhes no [seção Avançada](#advanced).
+Há quatro tipos de verificação de domínio com suporte dos Certificados de Serviço de Aplicativo: Serviço de Aplicativo, Domíniol e Verificação Manual. Esses tipos de verificação são explicados em mais detalhes no [seção Avançada](#advanced).
 
 > [!NOTE]
 > A **Verificação do Serviço de Aplicativo** é a opção mais conveniente quando o domínio que você deseja verificar já está mapeado a um aplicativo de Serviço de Aplicativo na mesma assinatura. Ela tira proveito do fato de que o aplicativo de Serviço de Aplicativo já verificou a propriedade de domínio.
@@ -134,16 +135,7 @@ Neste ponto, você poderá visitar o seu aplicativo usando `HTTPS://` em vez de 
 
 ### <a name="verifying-domain-ownership"></a>Verificando a propriedade de domínio
 
-Há dois outros tipos de suporte para certificados de serviço do aplicativo de verificação de domínio: Mail e Verificação Manual.
-
-#### <a name="mail-verification"></a>Verificação por email
-
-Um email de verificação já foi enviado para os endereços de email associados a esse domínio personalizado.
-Para concluir a etapa de verificação por email, abra o email e clique no link de verificação.
-
-![Inserir imagem de verificação de email](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
-
-Se você precisar reenviar o email de verificação, clique no botão **Reenviar Email**.
+Há dois outros tipos de verificação de domínio com suporte dos Certificados de Serviço de Aplicativo: verificação de domínio e verificação manual.
 
 #### <a name="domain-verification"></a>Verificação de domínio
 
@@ -196,17 +188,28 @@ Clique no botão **"Criar Nova Chave"** para iniciar o processo. Esse processo p
 
 A criação de uma nova chave para o certificado causará a emissão de um novo certificado pela autoridade de certificação.
 
+## <a name="renew-the-certificate"></a>Renovar o certificado
+
+Para ativar a renovação automática do certificado a qualquer momento, clique em **Configurações de Renovação Automática** na página de gerenciamento do certificado. Selecione **Ativado** e clique em **Salvar**. Certificados podem iniciar automaticamente renovovação 90 dias antes da expiração, se você tiver ativada a renovação automática.
+
+![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+
+Em vez disso, para renovar manualmente o certificado, clique em **Renovação Manual**. Você pode solicitar renovar manualmente o certificado de 60 dias antes da expiração.
+
+> [!NOTE]
+> O certificado renovado não é associado automaticamente ao seu aplicativo, não importa se a renovação for manual ou automática. Para associá-lo ao seu aplicativo, veja [Renovar certificados](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+
 <a name="notrenewed"></a>
-## <a name="why-is-my-ssl-certificate-not-auto-renewed"></a>Por que meu certificado SSL não é renovado automaticamente?
+## <a name="why-is-my-certificate-not-auto-renewed"></a>Por que meu certificado não é renovado automaticamente?
 
-Se seu certificado SSL estiver configurado para a renovação automática, mas não for renovado automaticamente, você poderá ter uma verificação de domínio pendente. Observe o seguinte: 
+Se seu certificado SSL estiver configurado para a renovação automática, mas não for renovado automaticamente, você poderá ter uma verificação de domínio pendente. Observe que: 
 
-- O GoDaddy, que gera certificados de Serviço de Aplicativo, requer uma verificação de domínio de uma vez a cada três anos. O administrador de domínio recebe um email uma vez a cada três anos para verificar o domínio. A falha em verificar o email ou verificar seu domínio impede que o certificado de serviço de aplicativo seja renovado automaticamente. 
-- Todos os certificados de Serviço de Aplicativo emitidos antes de 31 de março de 2017 exigem a recertificação do domínio no momento da próxima renovação (mesmo se a renovação automática estiver habilitada para o certificado). Este é um resultado da alteração na política do GoDaddy. Verifique seu email e conclua essa verificação de domínio única para continuar a renovação automática do certificado de Serviços de Aplicativo. 
+- O GoDaddy, que gera certificados de Serviço de Aplicativo, requer uma verificação de domínio de uma vez a cada dois anos. O administrador de domínio recebe um email uma vez a cada três anos para verificar o domínio. A falha em verificar o email ou verificar seu domínio impede que o certificado de serviço de aplicativo seja renovado automaticamente. 
+- Devido a uma mudança na política da GoDaddy, todos os certificados de Serviço de Aplicativo emitidos antes de 1º de março de 2017 exigem uma nova verificação do domínio no momento da próxima renovação (mesmo se a renovação automática estiver habilitada para o certificado). Verifique seu email e conclua essa verificação de domínio única para continuar a renovação automática do certificado de Serviços de Aplicativo. 
 
 ## <a name="more-resources"></a>Mais recursos
 
 * [Impor HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
-* [Impor o TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)
+* [Impor o TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Usar um certificado SSL no código de aplicativo no Serviço de Aplicativo do Azure](app-service-web-ssl-cert-load.md)
 * [FAQ: Certificados de Serviço de Aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

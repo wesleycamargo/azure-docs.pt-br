@@ -8,11 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 7c1723e01c78132169d8975473a0e9f5466a066c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e19f1a63c478d17154a24c14f6700e2fb07f2467
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141001"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de segurança para a restrição dos resultados do Azure Search usando identidades do Active Directory
 
@@ -29,7 +30,7 @@ Este artigo aborda as seguintes tarefas:
 >[!NOTE]
 > Os trechos de código de exemplo neste artigo são escritos em C#. Você pode encontrar o código-fonte completo [no GitHub](http://aka.ms/search-dotnet-howto). 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 O índice no Azure Search deve ter um [campo segurança](search-security-trimming-for-azure-search.md) para armazenar a lista de identidades de grupo que têm acesso de leitura ao documento. Esse caso de uso pressupõe uma correspondência individual entre um item protegível (como um aplicativo de admissão de faculdade de um indivíduo) e um campo de segurança especificando quem tem acesso a esse item (equipe de admissão).
 
@@ -62,7 +63,7 @@ No entanto, se você não tiver os usuários existentes, você pode usar as APIs
 
 A associação de grupo e de usuário pode ser muito flexível, especialmente em organizações de grandes porte. O código que cria as identidades de usuário e de grupo deve ser executado com frequência suficiente para acompanhar as alterações na associação da organização. Da mesma forma, o seu índice do Azure Search requer uma agenda de atualização semelhante para refletir o status atual de recursos e usuários permitidos.
 
-### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomgraphdocsapi-referencev10apigrouppostgroups"></a>Etapa 1: Criar [Grupo AAD](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/group_post_groups) 
+### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apigrouppostgroups"></a>Etapa 1: Criar [Grupo AAD](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_post_groups) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -76,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomgraphdocsapi-referencev10apiuserpostusers"></a>Etapa 2: Criar [Usuário AAD](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_post_users) 
+### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apiuserpostusers"></a>Etapa 2: Criar [Usuário AAD](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users) 
 ```csharp
 User user = new User()
 {
@@ -137,7 +138,7 @@ Para filtrar os documentos retornados nos resultados da pesquisa com base nos gr
 
 ### <a name="step-1-retrieve-users-group-identifiers"></a>Etapa 1: Recuperar os identificadores de grupo do usuário
 
-Se os grupos do usuário já não estavam em cache ou se o cache tiver expirado, emita a solicitação ade [grupos](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups)
+Se os grupos do usuário já não estavam em cache ou se o cache tiver expirado, emita a solicitação ade [grupos](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups)
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {

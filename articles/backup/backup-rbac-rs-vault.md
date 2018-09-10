@@ -1,24 +1,19 @@
 ---
-title: Gerenciar backups com o Controle de Acesso baseado em função do Azure | Microsoft Docs
+title: Gerenciar backups com o Controle de Acesso baseado em função do Azure
 description: Use o Controle de Acesso baseado em função para gerenciar o acesso a operações de gerenciamento de backups em um cofre dos Serviços de Recuperação.
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: 3bd46b97-4b29-47a5-b5ac-ac174dd36760
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 8/22/2017
-ms.author: trinadhk;markgal
-ms.openlocfilehash: 442d998d8898dc40ee23ca541d35c340edf64dbd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.topic: conceptual
+ms.date: 7/11/2018
+ms.author: trinadhk
+ms.openlocfilehash: 855b75652fca421df12766f7711152d1e3ca2aeb
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39012054"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controle de Acesso baseado em função para gerenciar pontos de recuperação de Backup do Azure
 O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
@@ -42,9 +37,9 @@ A tabela a seguir captura as ações de gerenciamento de backups e a função RB
 | Operação de gerenciamento | Função RBAC mínima necessária |
 | --- | --- |
 | Criar cofre de Serviços de Recuperação | Colaborador no Grupo de recursos do cofre |
-| Habilitar backup de VMs do Azure | Operador de Backup no cofre, Colaborador de máquina virtual em VMs |
+| Habilitar backup de VMs do Azure | Operador de backup definido no escopo do grupo de recursos que contém o cofre, colaborador da máquina virtual em máquinas virtuais |
 | Backup sob demanda de VM | Operador de backup |
-| Restaurar VM | Operador de backup, colaborador do grupo de recursos no qual VM e Vnets serão implantadas |
+| Restaurar VM | Operador de backup, colaborador do grupo de recursos no qual a VM será implantada, lida na rede virtual e ingressada na sub-rede selecionada |
 | Restaurar discos, arquivos individuais do backup da VM | Operador de backup, Colaborador da máquina virtual em VMs |
 | Criar política de backup para backup da VM do Azure | Colaborador de backup |
 | Modificar a política de backup da VM do Azure | Colaborador de backup |

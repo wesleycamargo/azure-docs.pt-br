@@ -1,5 +1,5 @@
 ---
-title: Criar um serviço altamente disponível usando o Banco de Dados SQL do Azure | Microsoft Docs
+title: Projetar serviços globalmente disponíveis usando o banco de dados SQL do Azure | Microsoft Docs
 description: Saiba mais sobre a criação de um aplicativo para serviços altamente disponíveis usando o Banco de Dados SQL do Azure.
 keywords: recuperação de desastre em nuvem, soluções de recuperação de desastre, backup de dados de aplicativo, replicação geográfica, planejamento de continuidade de negócios
 services: sql-database
@@ -7,22 +7,23 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 07/26/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d19087743740799ec9972bed7a602073afea9f26
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264647"
 ---
-# <a name="designing-highly-available-services-using-azure-sql-database"></a>Criar serviços altamente disponíveis usando o Banco de Dados SQL do Azure
+# <a name="designing-globally-available-services-using-azure-sql-database"></a>Criar serviços globalmente disponíveis usando o banco de dados SQL
 
-Ao criar e implantar serviços altamente disponíveis no Banco de Dados SQL do Azure, use [grupos de failover e a replicação geográfica ativa](sql-database-geo-replication-overview.md) para fornecer resiliência a interrupções regionais e falhas catastróficas. Ela também permite a recuperação rápida em bancos de dados secundários. Este artigo tem como foco os padrões comuns de aplicativos e aborda as vantagens e desvantagens de cada opção. Para obter informações sobre o uso da replicação geográfica ativa com Pools elásticos, confira [Estratégias de recuperação de desastres do pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Ao criar e implantar serviços em nuvem com o Banco de Dados SQL do Azure, você usa [grupos de failover e a replicação geográfica ativa](sql-database-geo-replication-overview.md) para fornecer resiliência a interrupções regionais e falhas catastróficas. O mesmo recurso permite que você crie aplicativos distribuídos globalmente, otimizados para acesso local aos dados. Este artigo aborda os padrões comuns de aplicativos, incluindo os benefícios e as vantagens e desvantagens de cada opção. 
 
 > [!NOTE]
-> Se você estiver usando bancos de dados Premium ou Comercialmente Crítico (versão prévia) e pools elásticos, poderá torná-los resilientes a interrupções regionais, convertendo-os em configuração de implantação com redundância de zona (atualmente em versão prévia). Veja [Bancos de dados com redundância de zona](sql-database-high-availability.md).  
+> Se estiver utilizando bancos de dados Premium ou Comercialmente Crítico e pools elásticos, será possível torná-los resilientes a interrupções regionais convertendo-os para configuração de implantação com redundância de zona. Veja [Bancos de dados com redundância de zona](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Cenário 1: Usando duas regiões do Azure para continuidade dos negócios com tempo de inatividade mínimo
 Nesse cenário, os aplicativos têm as seguintes características: 

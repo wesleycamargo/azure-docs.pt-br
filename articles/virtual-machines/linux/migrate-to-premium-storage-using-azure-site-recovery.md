@@ -1,25 +1,21 @@
 ---
 title: Migrar suas VMs Linux para o Armazenamento Premium do Azure com o Azure Site Recovery | Microsoft Docs
 description: Migre máquinas virtuais existentes para o Armazenamento Premium do Azure usando o Site Recovery. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure.
-services: virtual-machines-linux
+services: virtual-machines-linux,storage
 cloud: Azure
-documentationcenter: na
 author: luywang
-manager: jeconnoc
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 0ab8ce25e3be85061c3fc0417b30b63e04b764ab
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: disks
+ms.openlocfilehash: 5c7a136149bac2fb5b6368bf891e5d8021e12bdd
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777978"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715345"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Armazenamento Premium usando o Azure Site Recovery
 
@@ -69,7 +65,7 @@ Estes são os requisitos do Azure para esse cenário de migração:
 * Uma rede virtual do Azure à qual as VMs serão conectadas quando forem criadas no failover. A rede virtual do Azure tem que estar na mesma região em que o Site Recovery é executado.
 * Uma conta de armazenamento Standard do Azure para armazenar logs de replicação. Ela pode ser a mesma conta de armazenamento dos discos de VM que estão sendo migrados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Compreenda os componentes relevantes do cenário de migração na seção anterior.
 * Planeje o tempo de inatividade sabendo mais sobre o [Failover no Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -203,7 +199,7 @@ O Site Recovery vai criar uma instância VM cujo tipo é igual ou semelhante ou 
    * Para uma VM criada usando o modelo de implantação clássico: adicione a VM ao conjunto de disponibilidade no Portal do Azure. Para obter as etapas detalhadas, vá para [Adicionar uma máquina virtual existente ao conjunto de disponibilidade](../linux/classic/configure-availability-classic.md).
    * Para uma VM criada pelo modelo de implantação do Resource Manager: salve a configuração da VM e, em seguida, exclua e recrie as VMs no conjunto de disponibilidade. Para fazer isso, use o script em [Definir Conjunto de Disponibilidade de VM do Azure Resource Manager](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Antes de executar esse script, verifique as limitações dele e planeje o tempo de inatividade.
 
-2. **Exclua VMs e discos antigos**. Verifique se os discos Premium são consistentes com os discos de origem e se as novas VMs realizam a mesma função que as VMs de origem. Exclua a VM e exclua os discos das contas de armazenamento de origem no Portal do Azure. Se houver um problema que não permita a exclusão do disco mesmo após excluir a VM, consulte [Solucionar erros de exclusão de recursos de armazenamento](storage-resource-deletion-errors.md).
+2. **Exclua VMs e discos antigos**. Verifique se os discos Premium são consistentes com os discos de origem e se as novas VMs realizam a mesma função que as VMs de origem. Exclua a VM e exclua os discos das contas de armazenamento de origem no Portal do Azure. Se houver um problema no qual o disco não é excluído, mesmo que você exclua a VM, consulte [Solucionar problemas de erros de exclusão de recursos de armazenamento](storage-resource-deletion-errors.md).
 
 3. **Limpe a infraestrutura do Azure Site Recovery**. Se o Site Recovery não for mais necessário, você poderá limpar a infraestrutura dele. Exclua itens duplicados, o servidor de configuração e a política de recuperação, então exclua o cofre do Azure Site Recovery.
 

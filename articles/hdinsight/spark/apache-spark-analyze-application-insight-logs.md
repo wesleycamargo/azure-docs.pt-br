@@ -1,23 +1,20 @@
 ---
-title: Analisar os logs do Application Insight com Spark – Azure HDInsight | Microsoft Docs
+title: Analisar os logs do Application Insight com Spark – Azure HDInsight
 description: Saiba como exportar logs do Application Insight para o armazenamento de blobs e, em seguida, analise os logs com Spark no HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 883beae6-9839-45b5-94f7-7eb0f4534ad5
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: larryfr
-ms.openlocfilehash: 31068376e20b240a440432319e65f4e479163ee0
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 51123fee9a3ab3c79e57af12a64e1c0b05daf79a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041598"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analisar logs de telemetria do Application Insights com Spark no HDInsight
 
@@ -25,7 +22,7 @@ Aprenda a usar o Spark no HDInsight para analisar dados de telemetria do Applica
 
 [Visual Studio Application Insights](../../application-insights/app-insights-overview.md) é um serviço de análise que monitora seus aplicativos Web. Os dados de telemetria gerados pelo Application Insights podem ser exportados para o armazenamento do Azure. Depois que os dados estiverem no armazenamento do Azure, o HDInsight pode ser usado para analisá-los.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um aplicativo que está configurado para usar o Application Insights.
 

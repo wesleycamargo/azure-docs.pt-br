@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f34bb9eaa04491dfbef8fac711690d1b19677d89
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9c9cde23f8f8dc557b99d2f1508c923aaa2dce91
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259456"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145261"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder aos usuários B2B do Microsoft Azure AD acesso aos aplicativos locais
 
@@ -79,7 +79,7 @@ Antes de usar o script, certifique-se de revisar os pré-requisitos e as conside
 
 ## <a name="license-considerations"></a>Considerações sobre licença
 
-Certifique-se de que você possui as CALs (Licenças de Acesso para Cliente) corretas para usuários convidados externos que acessam aplicativos locais. Para obter mais informações, consulte a seção "Conectores Externos" das [Licenças de Acesso para Cliente e Licenças de Gerenciamento](https://www.microsoft.com/en-us/licensing/product-licensing/client-access-license.aspx). Consulte o seu representante da Microsoft ou revendedor local em relação às suas necessidades específicas de licenciamento.
+Certifique-se de que você possui as CALs (Licenças de Acesso para Cliente) corretas para usuários convidados externos que acessam aplicativos locais. Para obter mais informações, consulte a seção "Conectores Externos" das [Licenças de Acesso para Cliente e Licenças de Gerenciamento](https://www.microsoft.com/licensing/product-licensing/client-access-license.aspx). Consulte o seu representante da Microsoft ou revendedor local em relação às suas necessidades específicas de licenciamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

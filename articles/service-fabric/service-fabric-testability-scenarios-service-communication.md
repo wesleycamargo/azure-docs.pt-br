@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211218"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Cenários de Possibilidade de Teste do Service Fabric: Comunicação do serviço
 Os estilos de arquitetura orientada a serviços e microsserviços surgem naturalmente no Azure Service Fabric. Nesses tipos de arquiteturas distribuídas, os aplicativos de microsserviço divididos em componentes são compostos normalmente por vários serviços que precisam se comunicar. Mesmo nos casos mais simples, há geralmente pelo menos um serviço Web sem estado e um serviço de armazenamento de dados com estado que precisam se comunicar.

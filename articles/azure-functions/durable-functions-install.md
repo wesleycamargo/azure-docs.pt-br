@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4dd4bbb9c382b772f8f60b259844e7e471ec73e3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12b5c013a0704eb2d3f7df58011571b902955c75
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42140991"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Instalar a extensão de Funções Duráveis e exemplos (Azure Functions)
 
@@ -32,7 +33,7 @@ A extensão [Funções Duráveis](durable-functions-overview.md) do Azure Functi
 
 Atualmente, o Visual Studio fornece a melhor experiência para desenvolver aplicativos que usam Funções Duráveis.  Suas funções podem ser executadas localmente e também podem ser publicadas no Azure. Você pode começar com um projeto vazio ou com um conjunto de funções de exemplo.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 * Instale a [versão mais recente do Visual Studio](https://www.visualstudio.com/downloads/) (versão 15.3 ou posterior). Inclua a carga de trabalho do **desenvolvimento do Azure** em suas opções de instalação.
 
@@ -48,13 +49,13 @@ Atualmente, o Visual Studio fornece a melhor experiência para desenvolver aplic
 Siga as mesmas instruções para começar com o exemplo, mas execute as etapas a seguir em vez de baixar o arquivo *.zip*:
 
 1. Crie um projeto de Aplicativo de Funções.
-2. Pesquise a seguinte referência de pacote NuGet usando *Gerenciar Pacotes do NuGet* e adicione-o ao projeto: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.4.0 (selecione *Incluir pré-lançamento* para pesquisar esse pacote)
+2. Pesquise a seguinte referência de pacote NuGet usando *Gerenciar Pacotes do NuGet* e adicione-o ao projeto: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.5.0
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
 O Visual Studio Code oferece uma experiência de desenvolvimento local abrangendo todas as principais plataformas: macOS, Windows e Linux.  Suas funções podem ser executadas localmente e também ser publicadas no Azure. Você pode começar com um projeto vazio ou com um conjunto de funções de exemplo.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 * Instalar a versão mais recente do [Visual Studio Code](https://code.visualstudio.com/Download) 
 
@@ -78,7 +79,7 @@ O Visual Studio Code oferece uma experiência de desenvolvimento local abrangend
 3. Instale a Extensão Durável do Azure Functions executando o seguinte em uma janela/um terminal de comando:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 4. Instale a Extensão Twilio do Azure Functions executando o seguinte em uma janela do terminal/prompt de comando:
 
@@ -100,7 +101,7 @@ O Visual Studio Code oferece uma experiência de desenvolvimento local abrangend
 3. Instale a Extensão Durável do Azure Functions executando o seguinte em uma janela/um terminal de comando:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 4. Restaure os pacotes npm executando o seguinte em uma janela do terminal/prompt de comando:
     
@@ -121,7 +122,7 @@ O Visual Studio Code oferece uma experiência de desenvolvimento local abrangend
 2. Instale a Extensão Durável do Azure Functions executando o seguinte em uma janela/um terminal de comando:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 3. Crie um projeto de aplicativo de funções executando o seguinte comando:
 
@@ -145,14 +146,14 @@ O Visual Studio Code oferece uma experiência de desenvolvimento local abrangend
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Se preferir, você poderá usar o portal do Azure para o desenvolvimento de Funções Duráveis.
+Se preferir, você pode usar o [portal do Azure](https://portal.azure.com) para o desenvolvimento de Durable Functions.
 
    > [!NOTE]
    > As Funções Duráveis em JavaScript ainda não estão disponíveis no portal.
 
 ### <a name="create-an-orchestrator-function"></a>Crie uma função de orquestrador
 
-1. Crie um novo aplicativo de funções em [functions.azure.com](https://functions.azure.com/signin).
+1. Crie um novo aplicativo de função no portal, conforme mostrado no [artigo de início rápido do Functions](functions-create-first-azure-function.md#create-a-function-app).
 
 2. Configure o aplicativo de funções para [usar a versão de tempo de execução 2.0](set-runtime-version.md).
 

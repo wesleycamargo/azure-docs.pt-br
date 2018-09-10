@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 5b83f02c55d0aa7b2e122d7fc8c9ef5734cdd924
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0ac6b90f2efc525cfb9767843c741f1e3cfc6de7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448800"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Protegendo os dados armazenados no repositório Azure Data Lake
 A proteção de dados no repositório Azure Data Lake é uma abordagem de três etapas.  Controle de acesso baseado em regra (RBAC) e listas de controle de acesso (ACLs) devem ser definidas para possibilitar o acesso completo a dados para usuários e grupos de segurança.
@@ -35,10 +36,10 @@ Antes de começar este tutorial, você deve ter o seguinte:
 * **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Criar grupos de segurança no Active Directory do Azure
-Para obter instruções sobre como criar grupos de segurança do AAD e como adicionar usuários ao grupo, consulte [Gerenciar grupos de segurança no Active Directory do Azure](../active-directory/active-directory-groups-create-azure-portal.md).
+Para obter instruções sobre como criar grupos de segurança do AAD e como adicionar usuários ao grupo, consulte [Gerenciar grupos de segurança no Active Directory do Azure](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 > [!NOTE] 
-> Adicione usuários e outros grupos a um grupo no Azure AD usando o portal do Azure. No entanto, para adicionar uma entidade de serviço a um grupo, use um [módulo do PowerShell do Azure AD](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+> Adicione usuários e outros grupos a um grupo no Azure AD usando o portal do Azure. No entanto, para adicionar uma entidade de serviço a um grupo, use um [módulo do PowerShell do Azure AD](../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
 > 
 > ```powershell
 > # Get the desired group and service principal and identify the correct object IDs

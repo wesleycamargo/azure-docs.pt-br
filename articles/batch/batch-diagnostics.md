@@ -15,11 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: e64d272695c4e47c972df040d1c1c2a63bf3dddd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 85bda9e1a936f19a37be2f2c1c42f948cab727d6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122460"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Logs, alertas e métricas do Lote para avaliação e monitoramento de diagnóstico
 
@@ -63,7 +64,7 @@ Para configurar um alerta de métrica no portal:
 2. Em **Monitoramento**, clique em **Regras de alerta** > **Adicionar métrica de alerta**.
 3. Selecione uma métrica, uma condição de alerta (por exemplo, quando uma métrica exceder um valor específico durante um período) e uma ou mais notificações.
 
-Também é possível configurar um alerta quase em tempo real usando a [API REST](). Para obter mais informações, consulte [Usar os alertas de métrica mais recentes para os serviços do Azure no Portal do Azure](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
+Também é possível configurar um alerta quase em tempo real usando a [API REST](https://docs.microsoft.com/rest/api/monitor/). Para obter mais informações, consulte [Usar os alertas de métrica mais recentes para os serviços do Azure no Portal do Azure](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
 ## <a name="batch-diagnostics"></a>Diagnóstico do Lote
 
 Os logs de diagnóstico contêm informações emitidas pelos recursos do Azure que descrevem a operação de cada recurso. Para o Lote, é possível coletar os logs a seguir:
@@ -100,7 +101,7 @@ Outros destinos opcionais para logs de diagnóstico:
 
     ![Diagnóstico do Lote](media/batch-diagnostics/diagnostics-portal.png)
 
-Outras opções para habilitar a coleção de logs incluem: use o Azure Monitor no portal para definir configurações de diagnóstico, use um [modelo do Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md) ou use o Azure PowerShell ou a CLI do Azure. consulte [Coletar e consumir dados de log dos recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs).
+Outras opções para habilitar a coleção de logs incluem: use o Azure Monitor no portal para definir configurações de diagnóstico, use um [modelo do Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md) ou use o Azure PowerShell ou a CLI do Azure. consulte [Coletar e consumir dados de log dos recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Acessar logs de diagnóstico no armazenamento

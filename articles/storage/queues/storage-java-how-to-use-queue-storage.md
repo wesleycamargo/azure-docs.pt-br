@@ -2,23 +2,20 @@
 title: Como usar o Armazenamento de filas no Java | Microsoft Docs
 description: Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Java.
 services: storage
-documentationcenter: java
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 68cecc8e-38c9-4a24-99e8-cb722bc63cf9
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.openlocfilehash: cd79a21fedca1c21c2e4a65394d424f1590f32c3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: queues
+ms.openlocfilehash: 594407ac5f5dc012ab542cedc6393b702fa31804
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525392"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Como usar o Armazenamento de Fila no Java
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -396,13 +393,13 @@ catch (Exception e)
 Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
 * [Microsoft Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK de Armazenamento do Microsoft Azure para Java)
-* [Referência de SDK do cliente de armazenamento do Azure][Referência de SDK do cliente de armazenamento do Azure]
+* [Referência de SDK do Cliente de Armazenamento do Azure][Referência de SDK do Cliente de Armazenamento do Azure]
 * [Azure Storage Services REST API Reference][Azure Storage Services REST API] (Referência de API REST dos Serviços de Armazenamento do Azure)
 * [Microsoft Azure Storage Team Blog][Azure Storage Team Blog] (Blog da equipe de Armazenamento do Microsoft Azure)
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Referência de SDK do cliente de armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
+[Referência de SDK do Cliente de Armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
 [Azure Storage Services REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

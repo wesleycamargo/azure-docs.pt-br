@@ -17,6 +17,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30310307"
 ---
 # <a name="pool-delete-complete-event"></a>Evento de conclusão de exclusão de pool
 

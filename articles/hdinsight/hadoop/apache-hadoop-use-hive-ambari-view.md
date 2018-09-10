@@ -1,24 +1,20 @@
 ---
-title: Usar os Modos de Exibição do Ambari para trabalhar com o Hive no HDInsight (Hadoop) – Azure | Microsoft Docs
+title: Usar os Modos de Exibição do Ambari para trabalhar com o Hive no HDInsight (Hadoop) – Azure
 description: Saiba como usar o Modo de Exibição do Hive em seu navegador da Web para enviar consultas do Hive. O Modo de exibição do Hive faz parte da Interface de Usuário da Web do Ambari fornecida com o cluster HDInsight baseado em Linux.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 1abe9104-f4b2-41b9-9161-abbc43de8294
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 6c07e9a45cbfbc5e6ed6787277dcfa1bf4cf4b2b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 43b82070ced57c0654d646fbea5a12aeab7c2a31
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048514"
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Usar a Exibição do Hive do Ambari com o Hadoop no HDInsight
 
@@ -26,7 +22,7 @@ ms.lasthandoff: 05/16/2018
 
 Aprenda a executar consultas do Hive usando a Exibição do Hive do Ambari. A Exibição do Hive permite que você crie, otimize e execute consultas de Hive do seu navegador da Web.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um Hadoop baseado em Linux no cluster HDInsight versão 3.4 ou maior.
 

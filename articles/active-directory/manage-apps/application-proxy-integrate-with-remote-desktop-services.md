@@ -10,16 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/03/2017
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 4c3b88d9f522e28189bcb746905d35dced9d31cc
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5d8af50e3007342a5cd46e4862623f2cf7145172
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480414"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
 
@@ -44,11 +45,15 @@ Em uma implantação do RDS, a função Web da Área de Trabalho Remota e a fun�
 
 ## <a name="requirements"></a>Requisitos
 
+- Use um cliente que não seja o cliente da web de área de trabalho remota, como o cliente da web não oferece suporte para o Proxy de aplicativo.
+
 - Tanto o ponto de extremidade da Web da Área de Trabalho Remota quanto o ponto de extremidade do Gateway de Área de Trabalho Remota devem estar localizados no mesmo computador e com uma raiz comum. A Web da Área de Trabalho Remota e o Gateway de Área de Trabalho Remota serão publicados como um único aplicativo com o Proxy de Aplicativo para que você possa ter uma experiência de logon único entre os dois aplicativos.
 
 - Você já deverá ter [implantado o RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) e [habilitado o Proxy de Aplicativo](application-proxy-enable.md).
 
 - Esse cenário pressupõe que seus usuários finais passem pelo Internet Explorer em áreas de trabalho do Windows 7 ou do Windows 10 que se conectem por meio da página da Web de RD. Se você precisar de suporte a outros sistemas operacionais, consulte [Suporte a outras configurações de cliente](#support-for-other-client-configurations).
+
+- Ao publicar na Web do RD, é recomendável usar o mesmo FQDN interno e externo. Se os FQDNs interno e externo forem diferentes, você deverá desabilitar a Tradução do Cabeçalho de Solicitação para evitar que o cliente receba links inválidos. 
 
 - No Internet Explorer, habilite o complemento ActiveX do RDS.
 
@@ -59,14 +64,14 @@ Depois de configurar o RDS e o Proxy de Aplicativo do Azure AD em seu ambiente, 
 ### <a name="publish-the-rd-host-endpoint"></a>Publicar o ponto de extremidade do host de Área de Trabalho Remota
 
 1. [Publicar um novo aplicativo de Proxy de Aplicativo](application-proxy-publish-azure-portal.md) com os seguintes valores:
-   - URL interna: https://\<rdhost\>.com/, em que \<rdhost\> é a raiz comum que a Web da Área de Trabalho Remota e o Gateway de Área de Trabalho Remota compartilham.
+   - URL interna: `https://\<rdhost\>.com/`, em que `\<rdhost\>` é a raiz comum que a Web da Área de Trabalho Remota e o Gateway de Área de Trabalho Remota compartilham.
    - URL externa: esse campo é preenchido automaticamente com base no nome do aplicativo, mas você pode modificá-lo. Os usuários serão levados a essa URL quando acessarem o RDS.
    - Método de pré-autenticação: Azure Active Directory
    - Converter cabeçalhos de URL: não
 2. Atribua usuários ao aplicativo de Área de Trabalho Remota publicado. Certifique-se também de que todos eles tenham acesso ao RDS.
 3. Deixe o método de logon único para o aplicativo como **Logon único do Azure AD desabilitado**. É solicitado aos usuários que autentiquem uma vez no Azure AD e uma vez para a Web da Área de Trabalho Remota, eles têm logon único para o Gateway de Área de Trabalho Remota.
 4. Vá para **Azure Active Directory** > **Registros de Aplicativo** > *Seu aplicativo* > **Configurações**.
-5. Selecione **Propriedades** e atualize o campo **URL da Home Page** para apontar para o ponto de extremidade da Web da Área de Trabalho Remota (como https://\<rdhost\>.com/RDWeb).
+5. Selecione **Propriedades** e atualize o campo **URL da Home Page** para apontar para o ponto de extremidade da Web da Área de Trabalho Remota (como `https://\<rdhost\>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Direcionar o tráfego do RDS para o Proxy de Aplicativo
 

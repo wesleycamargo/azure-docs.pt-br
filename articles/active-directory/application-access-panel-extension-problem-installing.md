@@ -3,23 +3,24 @@ title: Instalar a extensão do navegador do painel de acesso do aplicativo - Azu
 description: Corrija os erros comuns encontrados quando você instala a extensão do navegador do painel de acesso.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/4/18
-ms.author: asteen
-ms.reviewer: japere
-ms.openlocfilehash: 8db0c28b0ea6b6f78ef86c773ff24f9d22fe3ecd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: barbkess
+ms.reviewer: japere,asteen
+ms.openlocfilehash: 642f07be0eb58e4d10630bc4482d26bd00e08a94
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34353867"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142228"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão do navegador do painel de acesso
 
@@ -86,8 +87,8 @@ Você também pode baixar a extensão para o Chrome e para o Microsoft Edge dire
        Os três aplicativos que você usou são exibidos na lista de atalho **Usados recentemente**.
        
 * Para usar URLs internas da empresa ao remoto, faça o seguinte:
-    1. [Configurar Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) no seu locatário
-    2. [Publicar o aplicativo](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) e a URL por meio do Application Proxy
+    1. [Configurar Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) no seu locatário
+    2. [Publicar o aplicativo](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) e a URL por meio do Application Proxy
     3. Instale a extensão, conecte-se a ela selecionando Conectar-se para começar
     4. Agora você pode navegar para a URL interna da empresa, mesmo em remoto
 

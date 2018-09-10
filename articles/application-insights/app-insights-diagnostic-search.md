@@ -2,7 +2,7 @@
 title: Usar a Pesquisa no Azure Application Insights | Microsoft Docs
 description: Pesquise e filtre telemetria bruta enviada pelo seu aplicativo Web.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
+ms.topic: conceptual
+ms.date: 07/18/2018
 ms.author: mbullwin
-ms.openlocfilehash: ce2fd9ed1ce796762cc15622cb1c59a316c1909d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136887"
 ---
 # <a name="using-search-in-application-insights"></a>Usar a Pesquisa no Application Insights
 A Pesquisa é um recurso do [Application Insights](app-insights-overview.md) que você usa para localizar e explorar itens individuais de telemetria, como exibições de página, exceções ou solicitações da Web. Você também pode exibir rastreamentos de log e eventos que você tenha codificado.
@@ -25,16 +26,14 @@ A Pesquisa é um recurso do [Application Insights](app-insights-overview.md) que
 (Para consultas mais complexas sobre os dados, use o [Analytics](app-insights-analytics-tour.md).)
 
 ## <a name="where-do-you-see-search"></a>Onde você vê o Search?
+
 ### <a name="in-the-azure-portal"></a>No portal do Azure
+
 Você pode abrir a pesquisa de diagnóstico explicitamente na folha Visão Geral do Application Insights do seu aplicativo:
 
-![Abra a pesquisa de diagnóstico](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![Abra a pesquisa de diagnóstico](./media/app-insights-diagnostic-search/001.png)
 
-Ela também é aberta quando você clica em alguns gráficos e itens de grade. Nesse caso, os filtros dessa pesquisa são predefinidos para concentrar-se no tipo de item selecionado por você. 
-
-Por exemplo, na folha Visão Geral, há um gráfico de barras das solicitações classificadas pelo tempo de resposta. Clique em um intervalo de desempenho para ver uma lista de solicitações individuais desse intervalo de tempo de resposta:
-
-![Clique no desempenho de solicitação](./media/app-insights-diagnostic-search/07-open-from-filters.png)
+![Captura de tela dos grafos de pesquisa de diagnóstico](./media/app-insights-diagnostic-search/002.png)
 
 O corpo principal da Pesquisa de diagnóstico é uma lista de itens de telemetria - solicitações ao servidor, visualizações de página, eventos personalizados que você codificou e assim por diante. Na parte superior da lista, há um gráfico de resumo mostrando contagens de eventos ao longo do tempo.
 
@@ -55,9 +54,14 @@ A janela Pesquisar tem os mesmos recursos que o portal da Web:
 A guia Controlar Operação está disponível ao abrir uma solicitação ou uma exibição de página. Uma “operação” é uma sequência de eventos associada a uma única solicitação ou exibição de página. Por exemplo, chamadas de dependência, exceções, logs de rastreamento e eventos personalizados podem fazer parte de uma única operação. A guia Controlar Operação mostra graficamente o tempo e a duração desses eventos em relação à exibição de solicitação ou página. 
 
 ## <a name="inspect-individual-items"></a>Inspecionar itens individuais
-Selecione qualquer item de telemetria para ver os campos-chave e itens relacionados. Se você quiser ver o conjunto completo de campos, clique em "...". 
 
-![Clique em Novo Item de Trabalho, edite os campos e, em seguida, clique em OK.](./media/app-insights-diagnostic-search/10-detail.png)
+Selecione qualquer item de telemetria para ver os campos-chave e itens relacionados.
+
+![Captura de tela de uma solicitação de dependência individual](./media/app-insights-diagnostic-search/003.png)
+
+Isso iniciará a exibição de detalhes da transação de ponta a ponta:
+
+![Captura de tela da exibição de detalhes da transação de ponta a ponta.](./media/app-insights-diagnostic-search/004.png)
 
 ## <a name="filter-event-types"></a>Filtrar tipos de evento
 Abrir a folha de filtro e escolha os tipos de eventos que você deseja ver. (Se posteriormente, você desejar restaurar os filtros com os quais você abriu a folha, clique em Redefinir.)
@@ -90,14 +94,10 @@ Neste exemplo, está claro que a solicitação “Rpt/Employees” resulta na ma
 
 ![Expanda uma propriedade e escolha um valor](./media/app-insights-diagnostic-search/04-failingReq.png)
 
-
-
-
 ## <a name="find-events-with-the-same-property"></a>Encontrar eventos com a mesma propriedade
 Localize todos os itens com o mesmo valor da propriedade:
 
 ![Clique com o botão direito em uma propriedade](./media/app-insights-diagnostic-search/12-samevalue.png)
-
 
 ## <a name="search-the-data"></a>Pesquisar os dados
 
@@ -115,7 +115,7 @@ Pesquisar por palavras inteiras, não subcadeias de caracteres. Use aspas para d
 
 | string | *não* é encontrada por | porém, pode ser encontrada por |
 | --- | --- | --- |
-| ControladorInicial.Sobre |inicial<br/>controlador<br/>obre | homecontroller<br/>sobre<br/>"homecontroller.about"|
+| ControladorInicial.Sobre |inicial<br/>controlador<br/>obre | homecontroller<br/>about<br/>"homecontroller.about"|
 |Estados Unidos|Uni<br/>dos|unidos<br/>estados<br/>estados AND unidos<br/>“estados unidos”
 
 Estas são algumas expressões de pesquisa que você pode usar:
@@ -127,14 +127,10 @@ Estas são algumas expressões de pesquisa que você pode usar:
 | `apple OR banana`<br/>`apple banana` |Encontrar eventos que contêm uma das duas palavras. Use "OR", e não "or".<br/>Forma abreviada. |
 | `apple NOT banana` |Encontre eventos que contêm uma das palavras, mas não a outra. |
 
-
-
 ## <a name="sampling"></a>amostragem
 Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados. 
 
 [Saiba mais sobre amostragem](app-insights-sampling.md).
-
-
 
 ## <a name="create-work-item"></a>Criar um item de trabalho
 Você pode criar um bug no GitHub ou Visual Studio Team Services com os detalhes de qualquer item de telemetria. 
@@ -146,17 +142,6 @@ Na primeira vez que fizer isso, será solicitado que você configure um link par
 ![Preencha a URL do servidor do Team Services e o Nome do projeto e, em seguida, clique em Autorizar](./media/app-insights-diagnostic-search/41.png)
 
 (Você também pode configurar o link na folha Itens de Trabalho.)
-
-## <a name="save-your-search"></a>Salvar sua pesquisa
-Quando você definiu todos os filtros que deseja, você pode salvar a pesquisa como um favorito. Se você trabalha em uma conta organizacional, você pode optar por compartilhá-la com outros membros da equipe.
-
-![Clique em Favorito, defina o nome e clique em Salvar](./media/app-insights-diagnostic-search/08-favorite-save.png)
-
-Para ver a pesquisa novamente, **vá até a folha de visão geral** e abra Favoritos:
-
-![Bloco Favoritos](./media/app-insights-diagnostic-search/09-favorite-get.png)
-
-Se você os salvou com o intervalo de tempo Relativo, a folha reaberta contém os dados mais recentes. Se você os salvou com o intervalo de tempo Absoluto, consulte os mesmos dados, sempre. (Se “Intervalo de Tempo” não estiver disponível quando você desejar salvar um favorito, clique em Intervalo de tempo no cabeçalho e defina um período que não seja um intervalo personalizado.)
 
 ## <a name="send-more-telemetry-to-application-insights"></a>Enviar mais telemetria para o Application Insights
 Além de telemetria da caixa enviada pelo SDK do Application Insights, você pode:

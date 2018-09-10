@@ -6,31 +6,33 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 08/09/2018
 ms.author: raynew
-ms.openlocfilehash: a7e0455d92635b7767227685b622bdae303f9621
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: d19aa4c3765beecc853a1b800a7ba1d3ebd74e9c
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160634"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004320"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para replicação de VMware e servidor físico no Azure
 
 Este artigo resume os componentes compatíveis e as configurações de recuperação de desastre de VMs da VMware no Azure usando o [Azure Site Recovery](site-recovery-overview.md).
 
+Para começar a usar o Azure Site Recovery com o cenário de implantação mais simples, visite nossos [tutoriais](tutorial-prepare-azure.md). Saiba mais sobre a arquitetura do Azure Site Recovery [aqui](vmware-azure-architecture.md).
+
 ## <a name="replication-scenario"></a>Cenário de replicação
 
 **Cenário** | **Detalhes**
 --- | ---
-VMs VMware | Replicação de VMs VMware locais para Azure. É possível implantar este cenário no portal do Azure ou usando o PowerShell.
+VMs VMware | Replicação de VMs VMware locais para Azure. É possível implantar este cenário no portal do Azure ou usando o [PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Servidores físicos | Replicação de servidores físicos Windows/Linux locais para Azure. Implante esse cenário no portal do Azure.
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização locais
 
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0 ou 5.5 ou vSphere 6.5, 6.0 ou 5.5 | Recomendamos o uso de um vCenter Server.<br/><br/> Recomendamos que os hosts vSphere e os servidores vCenter estejam localizados na mesma rede que o servidor de processo. Por padrão, os componentes do servidor de processo executam no servidor de configuração, portanto, essa será a rede na qual você configurará o servidor de configuração, exceto se você configurar um servidor de processo dedicado.
+VMware | vCenter Server 6.7, 6.5, 6.0 ou 5.5 ou vSphere 6.7, 6.5, 6.0 ou 5.5 | Recomendamos o uso de um vCenter Server.<br/><br/> Recomendamos que os hosts vSphere e os servidores vCenter estejam localizados na mesma rede que o servidor de processo. Por padrão, os componentes do servidor de processo executam no servidor de configuração, portanto, essa será a rede na qual você configurará o servidor de configuração, exceto se você configurar um servidor de processo dedicado.
 Físico | N/D
 
 ## <a name="site-recovery-configuration-server"></a>Servidor de configuração do Azure Site Recovery
@@ -40,7 +42,7 @@ O servidor de configuração é um computador local que executa componentes do S
 **Componente** | **Requisitos**
 --- |---
 Núcleos de CPU | 8
-RAM | 12 GB
+RAM | 16 GB
 Número de discos | 3 discos<br/><br/> Os discos incluem o disco do sistema operacional, disco de cache do servidor de processo e a unidade de retenção para failback.
 Espaço livre em disco | 600 GB de espaço necessário para cache do servidor de processo.
 Espaço livre em disco | 600 GB de espaço necessário para a unidade de retenção.
@@ -61,8 +63,9 @@ O Site Recovery dá suporte para replicação de qualquer carga de trabalho em e
 **Componente** | **Detalhes**
 --- | ---
 Configurações do computador | Os computadores que são replicados para o Azure precisam atender aos [requisitos do Azure](#azure-vm-requirements).
-Sistema operacional Windows | Windows Server 2016 de 64 bits (Server Core, Server com Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com pelo menos SP1. Não há suporte para Windows 2016 Nano Server.
-Sistema operacional Linux | Red Hat Enterprise Linux: 5.2 a 5.11, 6.1 a 6.9, 7.0 a 7.4 <br/><br/>CentOS: 5.2 a 5.11, 6.1 a 6.9, 7.0 a 7.4 <br/><br/>Servidor do Ubuntu 14.04 LTS[ (suporte para versões de kernel)](#ubuntu-kernel-versions)<br/><br/>Servidor LTS do Ubuntu 16.04[ (versões de kernel com suporte)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versões de kernel com suporte)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 que executa Red Hat compatível com kernel ou o Unbreakable Enterprise Kernel Versão 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>Não há suporte para computadores replicados do SP3 para SP4. Para atualizar, desabilite a replicação e habilite novamente após a atualização.
+Sistema operacional Windows | Windows Server 2016 de 64 bits (Server Core, Server com Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com pelo menos SP1. </br></br>  [Windows Server 2008 com pelo menos o SP2 - 32 e 64 bits](migrate-tutorial-windows-server-2008.md) (somente migração). </br></br> Não há suporte para Windows 2016 Nano Server.
+Sistema operacional Linux | Red Hat Enterprise Linux: 5.2 a 5.11 <b>\*\*</b>, 6.1 a 6.9 <b>\*\*</b>, 7.0 a 7.5 <br/><br/>CentOS: 5.2 a 5.11<b>\*\*</b>, 6.1 a 6.9<b>\*\*</b>, 7.0 para 7.5 <br/><br/>Servidor do Ubuntu 14.04 LTS[ (suporte para versões de kernel)](#ubuntu-kernel-versions)<br/><br/>Servidor LTS do Ubuntu 16.04[ (versões de kernel com suporte)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versões de kernel com suporte)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1,SP2,SP3 [ (versões de kernel com suporte)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 que executa Red Hat compatível com kernel ou o Unbreakable Enterprise Kernel Versão 3 (UEK3) <br/><br/></br>* *Atualizar as máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4 não é suportado. Para atualizar, desabilite a replicação e habilite novamente após a atualização.*</br></br><b>\*\*</b> *Consulte a [suporte para máquinas virtuais Linux no Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) para entender o suporte para Linux e tecnologia de software livre no Azure. O Azure Site Recovery permite failover e executar servidores Linux no Azure, no entanto fornecedores do Linux podem limitar o suporte para somente as versões de sua distribuição que não tenha atingido o fim da vida útil.*
+
 
 >[!NOTE]
 >
@@ -70,21 +73,22 @@ Sistema operacional Linux | Red Hat Enterprise Linux: 5.2 a 5.11, 6.1 a 6.9, 7.0
 >
 > - Não há suporte para atualização de computadores protegidos nas versões principais de distribuição do Linux. Para atualizar, desabilite a replicação, atualize o sistema operacional e, em seguida, habilite a replicação novamente.
 >
+> - Servidores que executam o Red Hat Enterprise Linux 5.2 a 5.11 ou CentOS 5.2 a 5.11 devem ter os componentes de Services(LIS) de integração do Linux instalados para que as máquinas inicializem no Azure.
 
 ### <a name="ubuntu-kernel-versions"></a>Versões de kernel do Ubuntu
 
 
 **Versão com suporte** | **Serviço de Mobilidade do Azure Site Recovery versão** | **Versão do kernel** |
 --- | --- | --- |
-14.04 LTS | 9.12 | 3.13.0-24-generic a 3.13.0-132-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-96-generic |
-14.04 LTS | 9.13 | 3.13.0-24-generic a 3.13.0-137-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-104-generic |
-14.04 LTS | 9.14 | 3.13.0-24-generic para 3.13.0-142-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic para 4.4.0-116-generic |
+14.04 LTS | 9.18 | 3.13.0-24-generic a 3.13.0-153-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-130-generic |
+14.04 LTS | 9.17 | 3.13.0-24-generic a 3.13.0-149-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-127-generic |
+14.04 LTS | 9.16 | 3.13.0-24-generic para 3.13.0-144-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic para 4.4.0-119-generic, |
 14.04 LTS | 9.15 | 3.13.0-24-generic para 3.13.0-144-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic para 4.4.0-119-generic, |
-16.04 LTS | 9.12 | 4.4.0-21-generic a 4.4.0-96-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-35-generic |
-16.04 LTS | 9.13 | 4.4.0-21-generic a 4.4.0-104-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic |
-16.04 LTS | 9.14 | 4.4.0-21-generic para 4.4.0-116-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic para 4.13.0-36-generic,<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1011-azure |
-16.04 LTS | 9.15 | 4.4.0-21-generic para 4.4.0-119-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-38-generic,<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1012-azure |
-
+|||
+16.04 LTS | 9.18 | 4.4.0-21-generic a 4.4.0-130-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic |
+16.04 LTS | 9.17 | 4.4.0-21-generic a 4.4.0-127-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-43-generic |
+16.04 LTS | 9.16 | 4.4.0-21-generic para 4.4.0-119-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-38-generic |
+16.04 LTS | 9.15 | 4.4.0-21-generic para 4.4.0-119-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-38-generic |
 
 
 ### <a name="debian-kernel-versions"></a>Versões de Kernel do Debian
@@ -92,16 +96,25 @@ Sistema operacional Linux | Red Hat Enterprise Linux: 5.2 a 5.11, 6.1 a 6.9, 7.0
 
 **Versão com suporte** | **Serviço de Mobilidade do Azure Site Recovery versão** | **Versão do kernel** |
 --- | --- | --- |
-Debian 7 | 9,14, 9.15 | 3.2.0-4-amd64 para 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 8 | 9,14, 9.15 | 3.16.0-4-amd64 para 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 para 4.9.0-0.bpo.5-amd64 |
+Debian 7 | 9.17, 9.18 | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.15, 9.16 | 3.2.0-4-amd64 para 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+|||
+Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.6-amd64 |
+Debian 8 | 9.16 | 3.16.0-4-amd64 para 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 para 4.9.0-0.bpo.6-amd64 |
+Debian 8 | 9.15 | 3.16.0-4-amd64 para 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 para 4.9.0-0.bpo.5-amd64 |
 
+### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 versões de kernel com suporte
+
+**Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
+--- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default a 4.4.138-94.39-default |
 
 ## <a name="linux-file-systemsguest-storage"></a>Sistemas de arquivos Linux/armazenamento convidado
 
 **Componente** | **Com suporte**
 --- | ---
 Sistemas de arquivos | ext3, ext4, XFS.
-Gerenciador de volumes | LVM2.
+Gerenciador de volumes | LVM2. Há suporte para o LVM para discos de dados somente. As VMs do Azure tem apenas um único disco de sistema operacional.
 Dispositivos de armazenamento paravirtualizados | Não há suporte para dispositivos exportados por drivers paravirtualizados.
 Dispositivos de E/S de bloqueio de várias filas | Sem suporte.
 Servidores físicos com o controlador de armazenamento CCISS da HP | Sem suporte.
@@ -109,7 +122,12 @@ Diretórios | Esses diretórios (se configurados como partições/sistemas de ar
 Requisitos de espaço livre| 2 GB na /partição raiz <br/><br/> 250 MB na pasta de instalação
 XFSv5 | Recursos XFSv5 em sistemas de arquivos XFS, como a soma de verificação dos metadados, têm suporte do Serviço de Mobilidade versão 9.10 em diante. Use o utilitário xfs_info para verificar o superbloco XFS da partição. Se ftype é definido como 1, isso indica que os recursos do XFSv5 estão sendo usados.
 
+## <a name="vmdisk-management"></a>Gerenciamento de VM/disco
 
+**Ação** | **Detalhes**
+--- | ---
+Redimensionar o disco na VM replicada | Com suporte.
+Adicionar disco na VM replicada | Desabilitar a replicação para a VM, adicionar o disco e, em seguida, reabilitar a replicação. Adição de um disco em uma máquina virtual de replicação não é suportado atualmente.
 
 ## <a name="network"></a>Rede
 
@@ -118,10 +136,10 @@ XFSv5 | Recursos XFSv5 em sistemas de arquivos XFS, como a soma de verificação
 Agrupamento NIC da rede do host | Compatível com VMs da VMware. <br/><br/>Sem suporte para a replicação de computador físico.
 VLAN da rede do host | Sim.
 IPv4 da rede do host | Sim.
-IPv6 da rede do host | Nº
-Agrupamento NIC da rede do convidado/servidor | Nº
+IPv6 da rede do host | Não.
+Agrupamento NIC da rede do convidado/servidor | Não.
 IPv4 da rede do convidado/servidor | Sim.
-IPv6 da rede do convidado/servidor | Nº
+IPv6 da rede do convidado/servidor | Não.
 IP estático da rede do convidado/servidor (Windows) | Sim.
 IP estático da rede do convidado/servidor (Linux) | Sim. <br/><br/>As VMs são configuradas para usar o DHCP no failback.
 Várias NICs da rede do convidado/servidor | Sim.
@@ -131,39 +149,39 @@ Várias NICs da rede do convidado/servidor | Sim.
 
 **Componente** | **Com suporte**
 --- | ---
-Azure ExpressRoute | sim
-ILB | sim
-ELB | sim
-Gerenciador de Tráfego do Azure | sim
-NIC múltipla | sim
-Endereço IP Reservado | sim
-IPv4 | sim
-Manter endereço IP de origem | sim
-Pontos de extremidade de serviço de Rede Virtual do Azure<br/> (sem Firewalls de Armazenamento do Azure) | sim
+Azure ExpressRoute | SIM
+ILB | SIM
+ELB | SIM
+Gerenciador de Tráfego do Azure | SIM
+NIC múltipla | SIM
+Endereço IP Reservado | SIM
+IPv4 | SIM
+Manter endereço IP de origem | SIM
+Pontos de extremidade de serviço de Rede Virtual do Azure<br/> (sem Firewalls de Armazenamento do Azure) | SIM
 Rede Acelerada | Não 
 
 ## <a name="storage"></a>Armazenamento
 **Componente** | **Com suporte**
 --- | ---
 NFS do host | Sim para VMware<br/><br/> Não para servidores físicos
-Host SAN iSCSI/FC) | sim
+Host SAN iSCSI/FC) | SIM
 Host vSAN | Sim para VMware<br/><br/> N/D para servidores físicos
 MPIO (Múltiplos caminhos) do host | Sim, testado com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Volumes de host Virtual (VVols) | Sim para VMware<br/><br/> N/D para servidores físicos
-VMDK do convidado/servidor | sim
+VMDK do convidado/servidor | SIM
 EFI/UEFI do convidado/servidor| Parcial (somente migração do Azure para o Windows Server 2012 e máquinas virtuais VMware posteriores) </br></br> Consulte a observação ao final da tabela
 Disco de cluster compartilhado do convidado/servidor | Não 
 Disco criptografado do convidado/servidor | Não 
 NFS do convidado/servidor | Não 
 SMB 3.0 do convidado/servidor | Não 
-RDM do convidado/servidor | sim<br/><br/> N/D para servidores físicos
-Disco do convidado/servidor > 1 TB | sim<br/><br/>Até 4.095 GB
-Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | sim
-Disco do convidado/servidor com tamanho de setor lógico de 4.000 e físico de 512 bytes | sim
-Volume do convidado/servidor com discos distribuídos >4 TB <br><br/>Gerenciamento de volumes lógicos (LVM)| sim
+RDM do convidado/servidor | SIM<br/><br/> N/D para servidores físicos
+Disco do convidado/servidor > 1 TB | SIM<br/><br/>Até 4.095 GB
+Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | SIM
+Disco do convidado/servidor com tamanho de setor lógico de 4.000 e físico de 512 bytes | SIM
+Volume do convidado/servidor com discos distribuídos >4 TB <br><br/>Gerenciamento de volumes lógicos (LVM)| SIM
 Convidado/servidor - espaços de armazenamento | Não 
 Adicionar/remover disco a quente por convidado/servidor | Não 
-Convidado/servidor - excluir disco | sim
+Convidado/servidor - excluir disco | SIM
 MPIO (Múltiplos caminhos) de convidado/servidor | Não 
 
 > [!NOTE]
@@ -178,14 +196,14 @@ MPIO (Múltiplos caminhos) de convidado/servidor | Não
 
 **Componente** | **Com suporte**
 --- | ---
-Armazenamento com redundância local | sim
-Armazenamento com redundância geográfica | sim
-Armazenamento com redundância geográfica com acesso de leitura | sim
+Armazenamento com redundância local | SIM
+Armazenamento com redundância geográfica | SIM
+Armazenamento com redundância geográfica com acesso de leitura | SIM
 Armazenamento frio | Não 
 Armazenamento quente| Não 
 Blobs de bloco | Não 
-Criptografia em repouso (Criptografia do Serviço de Armazenamento)| sim
-Armazenamento Premium | sim
+Criptografia em repouso (Criptografia do Serviço de Armazenamento)| SIM
+Armazenamento Premium | SIM
 Serviço de importação/exportação | Não 
 Firewalls de armazenamento do Azure para redes virtuais configurados na conta de armazenamento de cache/armazenamento de destino (usada para armazenar dados de replicação) | Não 
 Contas de armazenamento v2 de uso geral (camadas hot e cool) | Não 
@@ -194,9 +212,9 @@ Contas de armazenamento v2 de uso geral (camadas hot e cool) | Não
 
 **Recurso** | **Com suporte**
 --- | ---
-Conjuntos de disponibilidade | sim
-HUB | sim
-Discos gerenciados | sim
+Conjuntos de disponibilidade | SIM
+HUB | SIM
+Discos gerenciados | SIM
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
@@ -204,7 +222,7 @@ VMs locais que são replicados para o Azure devem atender aos requisitos de VM d
 
 **Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Sistema operacional convidado | Verificar os [sistemas operacionais compatíveis](#replicated machines). | A verificação falha se não tiver suporte.
+Sistema operacional convidado | Verificar [sistemas operacionais com suporte](#replicated-machines) para computadores replicados. | A verificação falha se não tiver suporte.
 Arquitetura do sistema operacional convidado | 64 bits. | A verificação falha se não tiver suporte.
 Tamanho do disco do sistema operacional | Até 2.048 GB. | A verificação falha se não tiver suporte.
 Contagem do disco do sistema operacional | 1 | A verificação falha se não tiver suporte.  
@@ -225,12 +243,15 @@ Mover cofre entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | N
 Mover armazenamento, rede, VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não 
 
 
-## <a name="mobility-service"></a>Serviço de Mobilidade
+## <a name="download-latest-azure-site-recovery-components"></a>Baixe os últimos componentes do Azure Site Recovery
 
-**Nome** | **Descrição** | **Última versão** | **Detalhes**
+**Nome** | **Descrição** | **Instruções de download da última versão** 
 --- | --- | --- | --- | ---
-Configuração Unificada do Azure Site Recovery | Coordena as comunicações entre servidores VMware locais e o Azure  <br/><br/> Instalado nos servidores VMware no locais | 9.12.4653.1 (disponível no portal) | [Recursos e correções mais recentes](https://aka.ms/latest_asr_updates)
-Serviço de Mobilidade | Coordena a replicação entre servidores VMware/servidores físicos locais e o Azure/site secundário<br/><br/> Instalado na VM VMware ou nos servidores físicos que você deseja replicar | 9.12.4653.1 (disponível no portal) | [Recursos e correções mais recentes](https://aka.ms/latest_asr_updates)
+Servidor de configuração | Coordena as comunicações entre servidores VMware locais e o Azure  <br/><br/> Instalado nos servidores VMware no locais | Para a nova instalação, clique [aqui](vmware-azure-deploy-configuration-server.md). Para atualizar o componente existente para a última versão, clique [aqui](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Servidor de processo|Instalado por padrão no servidor de configuração. Recebe dados de replicação, otimiza-os com caching, compactação e criptografia e os envia para o Armazenamento do Microsoft Azure. À medida que a implantação cresce, você pode adicionar outros servidores de processo separados para lidar com volumes maiores de tráfego de replicação.| Para a nova instalação, clique [aqui](vmware-azure-set-up-process-server-scale.md). Para atualizar o componente existente para a última versão, clique [aqui](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+Serviço de Mobilidade | Coordena a replicação entre servidores VMware/servidores físicos locais e o Azure/site secundário<br/><br/> Instalado na VM VMware ou nos servidores físicos que você deseja replicar | Para a nova instalação, clique [aqui](vmware-azure-install-mobility-service.md). Para atualizar o componente existente para a última versão, clique [aqui](vmware-azure-install-mobility-service.md#update-mobility-service).
+
+Para saber mais sobre os últimos recursos e correções, clique [aqui](https://aka.ms/latest_asr_updates).
 
 
 ## <a name="next-steps"></a>Próximas etapas

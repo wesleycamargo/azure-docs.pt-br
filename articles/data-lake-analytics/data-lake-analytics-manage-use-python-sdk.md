@@ -1,33 +1,31 @@
 ---
-title: Gerenciar o Azure Data Lake Analytics usando o Python | Microsoft Docs
-description: 'Aprenda a usar o Python para criar uma conta do Data Lake Store e enviar trabalhos. '
+title: Gerenciar o Azure Data Lake Analytics usando o Python
+description: Este artigo descreve como usar o Python para gerenciar contas, fontes de dados, usuários e trabalhos do Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: matt1883
-manager: jhubbard
-editor: cgronlun
-ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/18/2017
+author: matt1883
 ms.author: saveenr
-ms.custom: devcenter
-ms.openlocfilehash: 0182a14979550c880904ec829f6b59dee016cad2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.reviewer: jasonwhowell
+ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
+ms.topic: conceptual
+ms.date: 06/08/2018
+ms.openlocfilehash: f73ef118efbdfc94d8cb9b7d81717bd13511c785
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048275"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gerenciar o Azure Data Lake Analytics usando o Python
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-## <a name="python-versions"></a>Versões do Python
+Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalhos do Azure Data Lake Analytics usando o Python.
+
+## <a name="supported-python-versions"></a>Versões do Python compatíveis
 
 * Use uma versão de 64 bits do Python.
 * Você pode usar a distribuição padrão do Python encontrada nos  **[downloads do Python.org](https://www.python.org/downloads/)**. 
-* Muitos desenvolvedores consideram conveniente usar a  **[Distribuição do Anaconda Python](https://www.continuum.io/downloads)**.  
+* Muitos desenvolvedores consideram conveniente usar a  **[Distribuição do Anaconda Python](https://www.anaconda.com/download/)**.  
 * Este artigo foi escrito usando o Python versão 3.6 da distribuição padrão do Python
 
 ## <a name="install-azure-python-sdk"></a>Instalar o SDK do Python do Azure
@@ -35,9 +33,9 @@ ms.lasthandoff: 04/05/2018
 Instale os seguintes módulos:
 
 * O módulo **azure-mgmt-resource** inclui outros módulos do Azure para o Active Directory, etc.
-* O módulo **azure-mgmt-datalake-store** inclui as operações de gerenciamento de contas do Azure Data Lake Store.
 * O módulo **azure-datalake-store** inclui as operações de sistema de arquivos do Azure Data Lake Store. 
-* O módulo **azure-datalake-analytics** inclui as operações do Azure Data Lake Analytics. 
+* O módulo **azure-mgmt-datalake-store** inclui as operações de gerenciamento de contas do Azure Data Lake Store.
+* O módulo **azure-mgmt-datalake-analytics** inclui as operações do Azure Data Lake Analytics. 
 
 Primeiro, verifique se você tem a versão mais recente do `pip`, executando o seguinte comando:
 

@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: fa2ee4df9a0a28c08237f30fcf6a4bac50c21100
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849501"
 ---
 # <a name="asdk-administration-basics"></a>Noções básicas de administração de ASDK 
 Há várias coisas que você precisa saber se você é novo para a administração do Kit de desenvolvimento na pilha do Azure (ASDK). Este guia fornece uma visão geral de sua função como um operador de pilha do Azure no ambiente de avaliação e como garantir que os usuários de teste pode se tornarem rapidamente produtivo.
@@ -64,5 +65,5 @@ Para o kit de desenvolvimento, sua única opção de suporte é fazer perguntas 
 > Como o ASDK é um ambiente de avaliação, não há nenhum oficial de suporte oferecido por meio de serviços de suporte de cliente do Microsoft (CSS).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Implantar o ASDK](asdk-deploy.md)
+[Implantar o ASDK](asdk-install.md)
 

@@ -3,7 +3,7 @@ title: Introdução às Websockets de Conexões Híbridas de Retransmissão do A
 description: Escreva um aplicativo de console C# para Websockets de Conexões Híbridas da Retransmissão do Azure.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
-ms.author: sethm
-ms.openlocfilehash: 5b900f70721f8642e27daf242295fbda77d7df6f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.author: spelluru
+ms.openlocfilehash: 1ed401f6175d7ebea83a888898221d345791bc34
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697951"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introdução às Websockets de Conexões Híbridas de Retransmissão em .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -33,7 +34,7 @@ Conexões Híbridas requer um componente de cliente e um componente de servidor.
 3. Escreva um aplicativo de console do servidor (ouvinte) para receber mensagens.
 4. Escreva um aplicativo de console de cliente (remetente) para enviar mensagens.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 

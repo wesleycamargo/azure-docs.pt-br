@@ -1,21 +1,21 @@
 ---
-title: "Como adicionar um conjunto de dados de referência ao seu ambiente Azure Time Series Insights"
-description: "Este artigo descreve como adicionar um conjunto de dados de referência para ampliar dados no seu ambiente Azure Time Series Insights."
-services: time-series-insights
+title: Como adicionar um conjunto de dados de referência ao seu ambiente Azure Time Series Insights
+description: Este artigo descreve como adicionar um conjunto de dados de referência para ampliar dados no seu ambiente Azure Time Series Insights.
 ms.service: time-series-insights
-author: jasonwhowell
-ms.author: jasonh
-manager: kfile
-editor: MicrosoftDocs/tsidocs
+services: time-series-insights
+author: ashannon7
+ms.author: anshan
+manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: e0d11f253d5aa143ff636c4dc8dff7665a80360e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2cf9c8baf715acf0eef36d640c22f355435c9ca5
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39631037"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para o seu ambiente Time Series Insights usando o Portal do Azure
 

@@ -1,26 +1,23 @@
 ---
-title: "Criar soluções B2B – Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Receba dados em aplicativos lógicos usando os recursos de B2B do Enterprise Integration Pack"
+title: Criar Enterprise Integrations B2B – Aplicativo Lógico do Azure | Microsoft Docs
+description: Receber dados de B2B no Aplicativo Lógico do Azure com o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: anneta
-editor: cgronlun
-ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 0625787ddcbc0091e70b111f687e25929720ad15
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad7a29f4a554d599b17576921542b1ac6e403911
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127756"
 ---
-# <a name="receive-data-in-logic-apps-with-the-b2b-features-in-the-enterprise-integration-pack"></a>Receba dados em aplicativos lógicos usando os recursos de B2B do Enterprise Integration Pack
+# <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Receber dados de B2B com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
 
 Depois de criar uma conta de integração com parceiros e contratos, você estará pronto para criar um fluxo de trabalho entre empresas (B2B) para seu aplicativo lógico com o [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: db508e2311602a66a2c252ffaa842f8bfb4f670b
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 22b18f77b3d997cdba7b60b53f1968b516701cc1
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076064"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140390"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux
 
@@ -28,9 +28,9 @@ ms.locfileid: "34076064"
 
 [Observador de Rede do Azure](/azure/network-watcher/) é um serviço de monitoramento de desempenho, diagnóstico e análise de rede que permite o monitoramento de redes do Azure. A extensão de máquina virtual (VM) do Agente do Observador de Rede é um requisito para alguns dos recursos do Observador de Rede em VMs do Azure para capturar o tráfego de rede sob demanda e outras funcionalidades avançadas.
 
-Este artigo detalha as plataformas e as opções de implantação com suporte para a extensão da VM do Agente do Observador de Rede para Linux. A instalação do agente não interrompe a VM ou exige uma reinicialização dela.
+Este artigo detalha as plataformas e as opções de implantação com suporte para a extensão da VM do Agente do Observador de Rede para Linux. A instalação do agente não interrompe a VM ou exige uma reinicialização dela. É possível implantar a extensão em máquinas virtuais que você implanta. Se a máquina virtual for implantada por um serviço do Azure, verifique a documentação do serviço para determinar se ele permite ou não a instalação de extensões na máquina virtual.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
@@ -40,7 +40,7 @@ A extensão do Agente do Observador de Rede pode ser configurada para as seguint
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS e 12.04 LTS |
 | Debian | 7 e 8 |
-| RedHat | 6 e 7 |
+| Red Hat | 6 e 7 |
 | Oracle Linux | 6.8+ e 7 |
 | SUSE Linux Enterprise Server | 11 e 12 |
 | OpenSUSE Leap | 42.3+ |

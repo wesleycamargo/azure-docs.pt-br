@@ -1,23 +1,21 @@
 ---
 title: 'Início Rápido: Enviar telemetria ao Hub IoT do Azure (Python) | Microsoft Docs'
-description: Neste início rápido, você executa um aplicativo Python de exemplo para enviar telemetria simulada a um hub IoT e usar um utilitário para ler a telemetria do hub IoT.
-services: iot-hub
+description: Neste início rápido, você executa um aplicativo Python de exemplo para enviar telemetria simulada a um hub IoT e usar um utilitário para ler a telemetria do Hub IoT.
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 35e6f027551c343a56f606313b6592e74bf6caf7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7d5f2246eec20144a30e0abbc31038bdf04ab2b0
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339269"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT, e ler a telemetria do hub com um aplicativo de back-end (Python)
 
@@ -31,7 +29,7 @@ Este início rápido usa um aplicativo Python previamente codificado para enviar
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os dois exemplos de aplicativo executados neste início rápido são escritos usando Python. Você precisa do Python 2.7.x ou 3.5.x no computador de desenvolvimento.
 
@@ -75,8 +73,10 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyPythonDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
+
+    Se você escolher um nome diferente para seu dispositivo, atualize o nome de dispositivo nos aplicativos de exemplo antes de executá-lo.
 
 1. Execute o seguinte comando para obter a _cadeia de conexão de dispositivo_ do dispositivo que você acabou de registrar:
 
@@ -98,7 +98,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 O aplicativo de dispositivo simulado se conecta a um ponto de extremidade específico do dispositivo em seu hub IoT e envia telemetria simulada de temperatura e umidade.
 
-1. Em uma janela de terminal, navegue até a pasta raiz do projeto Python de exemplo. Em seguida, navegue até a pasta **Quickstarts\simulated-device**.
+1. Em uma janela de terminal, navegue até a pasta raiz do projeto Python de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\simulated-device**.
 
 1. Abra o arquivo **SimulatedDevice.py** em seu editor de texto preferido.
 
@@ -116,7 +116,7 @@ O aplicativo de dispositivo simulado se conecta a um ponto de extremidade espec�
     python SimulatedDevice.py
     ```
 
-    A captura de tela a seguir mostra a saída à medida que o aplicativo de dispositivo simulado envia telemetria para o seu hub IoT:
+    A captura de tela a seguir mostra o resultado à medida que o aplicativo de dispositivo simulado envia telemetria para o seu hub IoT:
 
     ![Executar o dispositivo simulado](media/quickstart-send-telemetry-python/SimulatedDevice.png)
 
@@ -127,7 +127,7 @@ O utilitário CLI `iothub-explorer` se conecta ao ponto de extremidade **Eventos
 Em outra janela de terminal, execute os comandos a seguir substituindo `{your hub service connection string}` com a cadeia de conexão de serviço que você anotou anteriormente:
 
 ```cmd/sh
-iothub-explorer monitor-events MyPythonDevice --login {your hub service connection string}
+iothub-explorer monitor-events MyPythonDevice --login "{your hub service connection string}"
 ```
 
 A captura de tela a seguir mostra a saída à medida que o utilitário recebe a telemetria enviada pelo dispositivo simulado para o hub:
@@ -136,9 +136,7 @@ A captura de tela a seguir mostra a saída à medida que o utilitário recebe a 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você planeja concluir o próximo início rápido, mantenha o grupo de recursos e o hub IoT e reutilize-os posteriormente.
-
-Se você não precisar mais do hub IoT, exclua-o junto com o grupo de recursos no portal. Para isso, selecione o grupo de recursos **qs-iot-hub-rg** que contém o Hub IoT e clique em **Excluir**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

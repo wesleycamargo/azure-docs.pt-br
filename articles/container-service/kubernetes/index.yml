@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 04/16/2018
+  ms.locfileid: "31394570"
 abstract:
   description: O Serviço de Contêiner do Azure permite implantar rapidamente um cluster Kubernetes pronto para produção. Saiba como usar o Serviço de Contêiner do Azure em conjunto com o Kubernetes com esses guias de início rápido, tutoriais e exemplos.
 sections:

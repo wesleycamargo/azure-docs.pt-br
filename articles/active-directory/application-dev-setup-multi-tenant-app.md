@@ -1,23 +1,25 @@
 ---
-title: "Como configurar um novo aplicativo multilocatário | Microsoft Docs"
-description: "Saiba como configurar um aplicativo como multilocatário e saiba como aplicativos multilocatário funcionam"
+title: Como configurar um novo aplicativo multilocatário | Microsoft Docs
+description: Saiba como configurar um aplicativo como multilocatário e saiba como aplicativos multilocatário funcionam
 services: active-directory
-documentationcenter: 
-author: ajamess
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 72cc4f0e5937787ec235d33e1f563bce8eebdf0d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.openlocfilehash: f18db928250ed7ced29194036a96e98abbcc3888
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365915"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Como configurar um novo aplicativo multilocatário
 

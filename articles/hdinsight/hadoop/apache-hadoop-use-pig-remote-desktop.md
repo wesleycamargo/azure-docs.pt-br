@@ -1,24 +1,20 @@
 ---
-title: Usar o Pig do Hadoop com área de trabalho remota no HDInsight – Azure | Microsoft Docs
+title: Usar o Pig do Hadoop com área de trabalho remota no HDInsight - Microsoft Azure
 description: Aprenda a usar o comando Pig para executar instruções Pig Latin por meio de uma conexão de área de trabalho remota a um cluster Hadoop em HDInsight baseado em Windows.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: e034a286-de0f-465f-8bf1-3d085ca6abed
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: f8d403e46f7460dff92cc418b829cc5510efd982
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 224722c61a653eae55bc1351e91e6288bc793fb6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049856"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Executar trabalhos do Pig por meio de uma conexão de área de trabalho remota
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -76,8 +72,9 @@ Habilite a área de trabalho remota para o cluster HDInsight e conecte-se a ele 
     <tr>
     <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordena os níveis de log por contagem (decrescente) e armazena em RESULT</td>
     </tr>
-    </table>
-6. Você também pode salvar os resultados de uma transformação usando a instrução `STORE`. Por exemplo, o comando a seguir salva o `RESULT` no diretório **/example/data/pigout** , no contêiner de armazenamento padrão para seu cluster:
+</table>
+
+6. Você também pode salvar os resultados de uma transformação usando a instrução `STORE` . Por exemplo, o comando a seguir salva o `RESULT` no diretório **/example/data/pigout** , no contêiner de armazenamento padrão para seu cluster:
 
         STORE RESULT into 'wasb:///example/data/pigout'
 
@@ -85,6 +82,7 @@ Habilite a área de trabalho remota para o cluster HDInsight e conecte-se a ele 
    > Os dados são armazenados no diretório especificado nos arquivos chamados **part-nnnnn**. Se o diretório já existir, você receberá uma mensagem de erro.
    >
    >
+   
 7. Para sair do prompt do assistente, insira a instrução a seguir.
 
         QUIT;

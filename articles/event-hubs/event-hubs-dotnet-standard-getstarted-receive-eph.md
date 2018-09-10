@@ -1,24 +1,25 @@
 ---
 title: Receber eventos dos Hubs de Eventos do Azure usando a biblioteca do .NET Standard | Microsoft Docs
-description: "Introdução à recepção de mensagens com o EventProcessorHost no .NET Standard"
+description: Introdução à recepção de mensagens com o EventProcessorHost no .NET Standard
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
-ms.author: sethm
-ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: 03acd63ff00f0a3017297d1998289c8e68f0f290
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920010"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Introdução à recepção de mensagens com o Host do Processador de Eventos no .NET Standard
 
@@ -27,12 +28,12 @@ ms.lasthandoff: 02/21/2018
 
 Este tutorial mostra como gravar um aplicativo de .NET Core que recebe mensagens de um hub de eventos usando a biblioteca do **Host do Processador de Eventos**. É possível executar a solução do [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) no estado em que se encontra, substituindo as cadeias de caracteres pelos valores do hub de eventos e da conta de armazenamento. Se preferir, é possível seguir as etapas deste tutorial para criar sua própria solução.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Microsoft Visual Studio 2015 ou 2017](http://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2017, mas também há suporte para o Visual Studio 2015.
 * [Ferramentas do .NET Core do Visual Studio 2015 ou 2017](http://www.microsoft.com/net/core).
 * Uma assinatura do Azure.
-* Um namespace dos Hubs de Eventos do Azure.
+* Um namespace dos Hubs de Eventos e Hub de Eventos do Azure.
 * Uma conta de armazenamento do Azure.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um namespace de Hubs de Eventos e um hub de eventos  
@@ -56,7 +57,7 @@ Inicie o Visual Studio. No menu **Arquivo**, clique em **Novo** e em **Projeto**
 
 ![Novo Projeto][2]
 
-## <a name="add-the-event-hubs-nuget-package"></a>Adicione o pacote NuGet de Hubs de Evento
+## <a name="add-the-event-hubs-nuget-package"></a>Adicione o pacote NuGet de Hubs de Eventos
 
 Adicione os pacotes NuGet da biblioteca .NET Standard [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) e [**Microsoft.Azure.EventHubs.Processor**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) a seu projeto seguindo estas etapas: 
 
@@ -122,11 +123,11 @@ Adicione os pacotes NuGet da biblioteca .NET Standard [**Microsoft.Azure.EventHu
     using System.Threading.Tasks;
     ```
 
-2. Adicione constantes à classe `Program` da cadeia de conexão do hub de eventos, do nome do hub de eventos, do nome do contêiner da conta de armazenamento, do nome da conta de armazenamento e da chave da conta de armazenamento. Adicione o código a seguir, substituindo os espaços reservados pelos valores correspondentes.
+2. Adicione constantes à classe `Program` da cadeia de conexão do hub de eventos, do nome do hub de eventos, do nome do contêiner da conta de armazenamento, do nome da conta de armazenamento e da chave da conta de armazenamento. Adicione o código a seguir, substituindo os espaços reservados pelos valores correspondentes:
 
     ```csharp
-    private const string EhConnectionString = "{Event Hubs connection string}";
-    private const string EhEntityPath = "{Event Hub path/name}";
+    private const string EventHubConnectionString = "{Event Hubs connection string}";
+    private const string EventHubName = "{Event Hub path/name}";
     private const string StorageContainerName = "{Storage account container name}";
     private const string StorageAccountName = "{Storage account name}";
     private const string StorageAccountKey = "{Storage account key}";
@@ -142,9 +143,9 @@ Adicione os pacotes NuGet da biblioteca .NET Standard [**Microsoft.Azure.EventHu
         Console.WriteLine("Registering EventProcessor...");
 
         var eventProcessorHost = new EventProcessorHost(
-            EhEntityPath,
+            EventHubName,
             PartitionReceiver.DefaultConsumerGroupName,
-            EhConnectionString,
+            EventHubConnectionString,
             StorageConnectionString,
             StorageContainerName);
 
@@ -173,8 +174,8 @@ Adicione os pacotes NuGet da biblioteca .NET Standard [**Microsoft.Azure.EventHu
 
         public class Program
         {
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
             private const string StorageContainerName = "{Storage account container name}";
             private const string StorageAccountName = "{Storage account name}";
             private const string StorageAccountKey = "{Storage account key}";
@@ -191,9 +192,9 @@ Adicione os pacotes NuGet da biblioteca .NET Standard [**Microsoft.Azure.EventHu
                 Console.WriteLine("Registering EventProcessor...");
 
                 var eventProcessorHost = new EventProcessorHost(
-                    EhEntityPath,
+                    EventHubName,
                     PartitionReceiver.DefaultConsumerGroupName,
-                    EhConnectionString,
+                    EventHubConnectionString,
                     StorageConnectionString,
                     StorageContainerName);
 
@@ -217,9 +218,9 @@ Parabéns! Agora você recebeu mensagens de um hub de eventos usando o Host do P
 ## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Criar um hub de eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
-[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcore.png
+[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

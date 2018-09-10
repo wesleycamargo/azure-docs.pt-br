@@ -1,11 +1,11 @@
 ---
 title: Alterar a senha de administrador do dispositivo da StorSimple Virtual Array | Microsoft Docs
-description: "Descreve como usar o portal do Azure ou a interface do usuário da Web da Matriz Virtual StorSimple para alterar a senha do administrador do dispositivo."
+description: Descreve como usar o portal do Azure ou a interface do usuário da Web da Matriz Virtual StorSimple para alterar a senha do administrador do dispositivo.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 11490814-d9fd-4dc7-9c3b-55dd2c23eaf1
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109424"
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Alterar a senha de administrador do dispositivo StorSimple Virtual Array por meio do Gerenciador de Dispositivos do StorSimple
 

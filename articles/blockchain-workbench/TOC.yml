@@ -40,8 +40,6 @@
           href: blockchain-workbench-data-sql-management-studio.md
 - name: Referência
   items:
-    - name: Exemplos de código
-      href: 'https://github.com/Azure-Samples/blockchain'
     - name: Configuração
       href: blockchain-workbench-configuration-overview.md
     - name: Exibições do banco de dados
@@ -50,3 +48,24 @@
       href: blockchain-workbench-messages-overview.md
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
+- name: Recursos
+  items:
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Exemplos de código
+      href: 'https://github.com/Azure-Samples/blockchain'
+    - name: Comunidade
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Fórum
+      href: 'https://aka.ms/workbenchforum'
+    - name: Comentários sobre o produto
+      href: 'https://aka.ms/blockchainuservoice'
+- name: Prova de Autoridade do Consórcio Ethereum
+  href: ethereum-poa-deployment.md
+- name: Modelos de Solução
+  items:
+    - name: Prova de Funcionamento do Consórcio Ethereum
+      href: ethereum-deployment-guide.md
+    - name: Consórcio Hyperledger Fabric
+      href: hyperledger-fabric-single-member-blockchain.md
+

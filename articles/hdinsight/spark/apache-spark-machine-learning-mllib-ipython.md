@@ -1,25 +1,21 @@
 ---
-title: Exemplo de aprendizado de máquina com MLlib do Spark no HDInsight – Azure | Microsoft Docs
+title: Exemplo de aprendizado de máquina com MLlib do Spark no HDInsight – Azure
 description: Saiba como usar o Spark MLlib para criar um aplicativo de aprendizado de máquina que analisa um conjunto de dados usando a classificação por meio de regressão logística.
 keywords: aprendizado de máquina do spark, exemplo de aprendizado de máquina do spark
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: c0fd4baa-946d-4e03-ad2c-a03491bd90c8
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: jgao
-ms.openlocfilehash: 1fc89f2181a5b9fb6b6c5a26d974b016fa1926a6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: jasonh
+ms.openlocfilehash: 78f9240e6b01bafc68b71d20044c7ec7458cc972
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047289"
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Use o Spark MLlib para compilar uma aplicativo de aprendizado de máquina e analisar um conjunto de dados
 

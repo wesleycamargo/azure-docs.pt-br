@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 89f5391cfbfd85f9f0715a8c7d288cc3981cc618
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 87df752f62956cffd455358059a3ab7b275b6a5d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090489"
 ---
-# <a name="introduction-to-azure-data-factory"></a>Introdução à Fábrica de Dados do Azure 
+# <a name="introduction-to-azure-data-factory"></a>Introdução ao Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-introduction.md)
-> * [Versão 2 – Versão prévia](introduction.md)
+> * [Versão 1](v1/data-factory-introduction.md)
+> * [Versão atual](introduction.md)
 
 No mundo de Big Data, os dados brutos e não organizados são, muitas vezes, armazenados em sistemas relacionais, não relacionais e outros sistemas de armazenamento. No entanto, os dados brutos em si não possuem o contexto ou significado apropriados para fornecer uma visão adequada para os analistas, cientistas de dados ou responsáveis por decisões de negócio. 
 
@@ -39,9 +40,6 @@ O Azure Data Factory é a plataforma que resolve esses cenários de dados. É um
 Além disso, é possível publicar dados de saída para repositórios de dados como o SQL Data Warehouse do Azure para consumo pelos aplicativos de business intelligence (BI). Por fim, por meio do Azure Data Factory, os dados brutos podem ser organizados em armazenamentos de dados e em data lakes importantes para possibilitar melhores decisões corporativas.
 
 ![Visão de nível superior do Data Factory](media/introduction/big-picture.png)
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que normalmente está disponível (GA), consulte [Introduction to Data Factory version 1](v1/data-factory-introduction.md) (Introdução ao Data Factory versão 1).
 
 ## <a name="how-does-it-work"></a>Como ele funciona?
 Os pipelines (fluxos de trabalho controlados por dados) no Azure Data Factory normalmente executam as quatro etapas a seguir:
@@ -91,7 +89,7 @@ Serviços vinculados são usados para duas finalidades no Data Factory:
 - Para representar um **recurso de computação** que pode hospedar a execução de uma atividade. Por exemplo, a atividade HDInsightHive é executada em um cluster Hadoop do HDInsight. Para obter uma lista das atividades de transformação e dos ambientes de computação com suporte, confira o artigo [transformar dados](transform-data.md).
 
 ### <a name="triggers"></a>Gatilhos
-Os gatilhos representam a unidade de processamento que determina quando uma execução de pipeline precisa ser inicializada. Existem diferentes tipos de gatilhos para diferentes tipos de eventos. Para visualização, o data factory dá suporte ao gatilho do agendador de relógio. 
+Os gatilhos representam a unidade de processamento que determina quando uma execução de pipeline precisa ser inicializada. Existem diferentes tipos de gatilhos para diferentes tipos de eventos.
 
 ### <a name="pipeline-runs"></a>Execuções de pipeline
 Uma execução de pipeline é uma instância da execução do pipeline. As execuções de pipeline normalmente são instanciadas por meio da transmissão de argumentos para os parâmetros que são definidos em pipelines. Os argumentos podem ser passados manualmente ou na definição do gatilho.
@@ -115,19 +113,23 @@ Para obter mais informações sobre os conceitos do Data Factory, confira os seg
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
-Atualmente, é possível criar data factories nas regiões Leste dos EUA, Leste dos EUA 2, Europa Ocidental. No entanto, uma fábrica de dados pode acessar repositórios de dados e serviços de computação em outras regiões do Azure para mover dados entre repositórios de dados ou processar dados usando serviços de computação.
+Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [ Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). No entanto, uma fábrica de dados pode acessar repositórios de dados e serviços de computação em outras regiões do Azure para mover dados entre repositórios de dados ou processar dados usando serviços de computação.
 
 O Azure Data Factory em si não armazena dados. Ele permite que você crie fluxos de trabalho controlados por dados para orquestrar a movimentação de dados entre os armazenamentos de dados com suporte e o processamento de dados usando serviços de computação em outras regiões ou em um ambiente local. Também permite monitorar e gerenciar fluxos de trabalho usando mecanismos programáticos e de IU.
 
-Embora o Data Factory esteja disponível somente nas regiões Leste dos EUA, Leste dos EUA 2 e Europa Ocidental, o serviço que capacita a movimentação de dados no Data Factory está disponível globalmente em várias regiões. Se um repositório de dados estiver atrás de um firewall, então um Integration Runtime auto-hospedado instalado em seu ambiente local moverá os dados.
+Embora o Data Factory esteja disponível somente em determinadas regiões, o serviço que capacita a movimentação de dados no Data Factory está disponível globalmente em várias regiões. Se um repositório de dados estiver atrás de um firewall, então um Integration Runtime auto-hospedado instalado em seu ambiente local moverá os dados.
 
 Por exemplo, digamos que seus ambientes de computação, como o cluster Azure HDInsight e o Azure Machine Learning, estejam ficando sem a região Europa Ocidental. Você pode criar e usar uma instância do Azure Data Factory no Leste dos EUA e no Leste dos EUA 2 e usá-la para agendar trabalhos em seus ambientes de computação na Europa Ocidental. Demora alguns milissegundos para o Data Factory disparar o trabalho em seu ambiente de computação, mas o tempo de execução do trabalho em seu ambiente de computação não é alterado.
 
-## <a name="compare-with-version-2"></a>Comparar com a versão 2
-Para obter uma lista das diferenças entre a versão 1 e 2 do serviço Data Factory, veja [Comparar com a versão 1](compare-versions.md). 
+## <a name="accessibility"></a>Acessibilidade
+
+A experiência do usuário do Data Factory no portal do Azure está acessível.
+
+## <a name="compare-with-version-1"></a>Comparar com a versão 1
+Para obter uma lista das diferenças entre a versão 1 e a versão atual do serviço Data Factory, veja [Comparar com a versão 1](compare-versions.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
-Introdução à criação de um pipeline da fábrica de dados usando um dos seguintes SDK/ferramentas: 
+Introdução à criação de um pipeline do Data Factory usando um dos seguintes SDK/ferramentas: 
 
 - [Interface do usuário do Data Factory no portal do Azure](quickstart-create-data-factory-portal.md)
 - [Ferramenta Copiar Dados no portal do Azure](quickstart-create-data-factory-copy-data-tool.md)

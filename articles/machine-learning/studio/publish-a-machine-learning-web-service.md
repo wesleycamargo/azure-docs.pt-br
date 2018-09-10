@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 3ce4104040e90a4740442d7692b3bf4a0789bde0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0f22f22d40410b258b3945d9e78938384ce64767
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128381"
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Implantar um serviço Web de Azure Machine Learning
 O Azure Machine Learning permite compilar, testar e implantar soluções de análise preditiva.
@@ -185,8 +187,8 @@ Uma opção para atualizar seu serviço Web é treinar novamente o modelo de for
 [Criar um teste de treinamento]: #create-a-training-experiment
 [Convertê-lo em um teste preditivo]: #convert-the-training-experiment-to-a-predictive-experiment
 [Implantá-lo como um serviço Web]: #deploy-it-as-a-web-service
-[novo]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[clássico]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[novo]: #deploy-the-predictive-experiment-as-a-new-web-service
+[clássico]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

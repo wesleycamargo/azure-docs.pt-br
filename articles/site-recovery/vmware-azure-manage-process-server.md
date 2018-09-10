@@ -1,19 +1,17 @@
 ---
 title: Gerenciar um servidor em processo no Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como gerenciar um servidor em processo configurado para a replicação de servidor físico e de VM do VMware no Azure Site Recovery.
-services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
-editor: ''
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 096b2890d41402448809ae87759fcd6b67bee2fe
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.topic: conceptual
+ms.date: 07/21/2018
+ms.author: ramamill
+ms.openlocfilehash: f8368aab1bc979492143d77a191a31afef754c4c
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213003"
 ---
 # <a name="manage-process-servers"></a>Gerenciar servidores de processo
 

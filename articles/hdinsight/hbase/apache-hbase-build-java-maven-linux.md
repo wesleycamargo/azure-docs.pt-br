@@ -1,23 +1,20 @@
 ---
-title: Cliente HBase Java – Azure HDInsight | Microsoft Docs
+title: Cliente HBase Java – Azure HDInsight
 description: Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no HBase no HDInsight do Azure.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: ''
-ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 564bfb9c80fe835bd5defb4321607e0970c9f0aa
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: jasonh
+ms.openlocfilehash: d198db98c07c01a56be118e74ce2bf4b29b8c757
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048425"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicativos Java para Apache HBase
 

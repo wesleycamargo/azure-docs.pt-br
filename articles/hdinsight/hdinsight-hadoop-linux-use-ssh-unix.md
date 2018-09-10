@@ -1,27 +1,21 @@
 ---
-title: Usar SSH com Hadoop - Azure HDInsight | Microsoft Docs
+title: Usar SSH com Hadoop – Azure HDInsight
 description: Você pode acessar o HDInsight usando o Secure Shell (SSH). Este documento fornece informações sobre a conexão com o HDInsight usando os comandos ssh e scp de clientes Windows, Linux, Unix ou macOS.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 keywords: hadoop comandos no linux, comandos do linux hadoop, hadoop macos, ssh hadoop, ssh cluster hadoop
-ms.assetid: a6a16405-a4a7-4151-9bbf-ab26972216c5
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 04/26/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 359b458d5fa9089fd7f35f94cd3f0265dc8ea3c9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f7e6651e0aa776c4bbcac1fc70017139c21a7512
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105013"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Conectar ao HDInsight (Hadoop) usando o SSH
 
@@ -31,7 +25,7 @@ O HDInsight pode usar o Linux (Ubuntu) como o sistema operacional para os nós n
 
 | Endereço | Porta | Conecta-se a... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nó de borda (Servidor R no HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nó do Edge (ML Services no HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nó de borda (qualquer outro tipo de cluster, se existir um nó de borda) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Nó de cabeçalho primário |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Nó de cabeçalho secundário |
@@ -136,7 +130,19 @@ Para obter informações sobre como alterar a senha de conta de usuário do SSH,
 
 ## <a id="domainjoined"></a>Autenticação: HDInsight associado ao domínio
 
-Se estiver usando um __cluster HDInsight associado ao domínio__, você deverá usar o comando `kinit` após a conexão com o SSH. Este comando solicita um usuário de domínio e uma senha e autentica a sessão com o domínio do Azure Active Directory associado ao cluster.
+Se estiver usando um __cluster HDInsight associado ao domínio__, você deverá usar o comando `kinit` após a conexão com o usuário local SSH. Este comando solicita um usuário de domínio e uma senha e autentica a sessão com o domínio do Azure Active Directory associado ao cluster.
+
+Você também pode habilitar a Autenticação Kerberos em cada nó ingressado em domínio (por exemplo, nó de cabeçalho, nó de borda) para ssh usando a conta de domínio. Para fazer isso, edite o arquivo de configuração do sshd:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+remova os comentários e altere `KerberosAuthentication` para `yes`
+
+```bash
+sudo service sshd restart
+```
+
+A qualquer momento, para verificar se a autenticação Kerberos foi bem-sucedida ou não, use o comando `klist`.
 
 Para obter mais informações, confira [Configurar o HDInsight associado ao domínio](./domain-joined/apache-domain-joined-configure.md).
 

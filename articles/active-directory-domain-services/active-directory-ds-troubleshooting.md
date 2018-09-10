@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services: guia de solução de problemas | Microsoft Docs"
-description: "Guia de solução de problemas para os Serviços de Domínio do AD do Azure"
+title: 'Azure Active Directory Domain Services: guia de solução de problemas | Microsoft Docs'
+description: Guia de solução de problemas para os Serviços de Domínio do AD do Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 0956476931396c6455bf3e4fc7582da3bf3deb33
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: fa4d40786fdc61183c119a17b6e36bd853a6fd64
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145262"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services – Guia de solução de problemas
 Este artigo fornece dicas de solução de problemas que você pode encontrar ao configurar ou administrar os Serviços de Domínio do AD (Active Directory do Azure).
@@ -137,7 +139,7 @@ Se um ou mais usuários em seu locatário do Azure AD não conseguirem entrar no
 * **Contas externas:** verifique se a conta de usuário afetada não é uma conta externa no locatário do Azure AD. Exemplos de contas externas incluem as contas da Microsoft (por exemplo, “joe@live.com”) ou as contas de usuário de um diretório externo do Azure AD. Como os Serviços de Domínio do AD do Azure não têm credenciais para tais contas de usuário, esses usuários não podem entrar no domínio gerenciado.
 * **Contas sincronizadas:** se as contas de usuário afetadas forem sincronizadas de um diretório local, verifique se:
 
-  * Você implantou ou atualizou para a [versão recomendada mais recente do Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+  * Você implantou ou atualizou para a [versão recomendada mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
   * Você configurou o Azure AD Connect para [executar uma sincronização completa](active-directory-ds-getting-started-password-sync.md).
   * Dependendo do tamanho do diretório, pode levar algum tempo para as contas de usuário e os hashes de credenciais ficarem disponíveis nos Serviços de Domínio do AD do Azure. Espere tempo suficiente antes de tentar a autenticação novamente.
   * Se o problema persistir depois de verificar as etapas anteriores, tente reiniciar o Serviço de sincronização do Microsoft Azure AD. Em seu computador de sincronização, inicie um prompt de comando e execute os seguintes comandos:

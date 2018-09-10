@@ -1,20 +1,21 @@
 ---
 title: Personalizar a interface do usuário de um Percurso do Usuário com políticas personalizadas | Microsoft Docs
-description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C
+description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: c6882dd56ee96e1fcab5926b77f11ce928bf950b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442348"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizar a interface do usuário de um Percurso do Usuário com políticas personalizadas
 

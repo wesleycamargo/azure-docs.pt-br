@@ -4,20 +4,20 @@ description: Descreve o elemento Microsoft.Common.UserNameTextBox da interface d
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: b65b62389fbb66c9461430d1dd2df42e71bf6cff
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9f07c5bf9ba1f1880fa142beb52455522425e68d
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063294"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Elemento de interface do usuário Microsoft.Compute.UserNameTextBox
 Um controle de caixa de texto com validação interna para nomes de usuário do Windows e do Linux.
@@ -44,16 +44,15 @@ Um controle de caixa de texto com validação interna para nomes de usuário do 
 ```
 
 ## <a name="remarks"></a>Comentários
-- Se `constraints.required` é definido como **true**, a caixa de texto deve conter um valor a ser validado com êxito. O valor padrão é **true**.
+- Se `constraints.required` estiver definido como **true**, a caixa de texto deve ter um valor para validar com êxito. O valor padrão é **true**.
 - `osPlatform` deve ser especificada e pode ser **Windows** ou **Linux**.
 - `constraints.regex` é um padrão de expressão regular JavaScript. Se especificado, o valor da caixa de texto deve corresponder ao padrão para validar com êxito. O valor padrão é **null**.
 - `constraints.validationMessage` é uma cadeia de caracteres a ser exibida quando o valor da caixa de texto falha a validação especificada por `constraints.regex`. Se não for especificado, as mensagens de validação internas da caixa de texto serão usadas. O valor padrão é **null**.
-- Este elemento tem validação interna com base no valor especificado para `osPlatform`. A validação interna pode ser usada juntamente com uma expressão regular personalizada.
-Se um valor para `constraints.regex` for especificado, as validações internas e personalizadas serão disparadas.
+- Este elemento tem validação interna com base no valor especificado para `osPlatform`. A validação interna pode ser usada juntamente com uma expressão regular personalizada. Se um valor para `constraints.regex` for especificado, as validações internas e personalizadas serão disparadas.
 
 ## <a name="sample-output"></a>Saída de exemplo
 ```json
-"tabrezm"
+"Example name"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

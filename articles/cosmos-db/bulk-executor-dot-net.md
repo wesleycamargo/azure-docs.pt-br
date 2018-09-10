@@ -1,27 +1,27 @@
 ---
-title: Usando a biblioteca .NET BulkExecutor para executar operações em massa no Azure Cosmos DB | Microsoft Docs
-description: Use a biblioteca BulkExecutor .NET do Azure Cosmos DB para importar em massa e atualizar documentos em coleções do Azure Cosmos DB.
+title: Usando a biblioteca .NET bulk executor para executar operações em massa no Azure Cosmos DB | Microsoft Docs
+description: Use a biblioteca .NET do executor em massa do Azure Cosmos DB para importar em massa e atualizar documentos nos contêineres do Azure Cosmos DB.
 keywords: .Net bulk executor
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 608551090ce10e08ba517def644c72186a6f25e1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 842ec8f641fca80e469864dd4d81e14c863fd464
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887235"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600050"
 ---
-# <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Usando a biblioteca .NET BulkExecutor para executar operações em massa no Azure Cosmos DB
+# <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Use a biblioteca .NET bulk executor para executar operações em massa no Azure Cosmos DB
 
-Este tutoria fornece instruções sobre como usar a biblioteca BulkExecutor .NET do Azure Cosmos DB para importar e atualizar documentos em coleções do Azure Cosmos DB. Para saber mais sobre a biblioteca BulkExecutor e como ela ajuda a aproveitar armazenamento e taxa de transferência em massa, consulte o artigo [visão geral da Biblioteca BulkExecutor](bulk-executor-overview.md). Este tutorial irá orientá-lo por um aplicativo .NET de exemplo que importa em massa documentos gerados aleatoriamente para uma coleção do Azure Cosmos DB. Após a importação, ele mostra como você pode atualizar em massa os dados importados, especificando os patches como operações a serem executadas em campos de documento específicos.
+Este tutorial fornece instruções de como usar a biblioteca .NET do executor em massa do Azure Cosmos DB para importar e atualizar documentos no contêiner do Azure Cosmos DB. Para saber mais sobre a biblioteca bulk executor e como ela ajuda a aproveitar armazenamento e taxa de transferência em massa, consulte o artigo [visão geral da biblioteca bulk executor](bulk-executor-overview.md). Este tutorial demonstrará um aplicativo .NET de exemplo que importa em massa documentos gerados aleatoriamente para um contêiner do Azure Cosmos DB. Após a importação, ele mostra como você pode atualizar em massa os dados importados, especificando os patches como operações a serem executadas em campos de documento específicos.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Se você ainda não tiver o Visual 2017 Studio instalado, poderá baixar e usar o [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Verifique se você habilitou o desenvolvimento do Azure durante a instalação do Visual Studio.
 
@@ -166,15 +166,15 @@ Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Nest
     
 ## <a name="performance-tips"></a>Dicas de desempenho 
 
-Considere os seguintes pontos para melhor desempenho ao usar a biblioteca BulkExecutor:
+Considere os seguintes pontos para melhor desempenho ao usar a biblioteca bulk executor:
 
 * Para ter o melhor desempenho, execute o aplicativo de uma máquina virtual do Azure que está na mesma região da sua região de gravação da conta do Cosmos DB.  
 
-* É recomendável criar uma instância de um único objeto BulkExecutor para o aplicativo inteiro em uma única máquina virtual correspondente a uma coleção específica do Cosmos DB.  
+* É recomendado criar uma instância de um único objeto BulkExecutor para todo o aplicativo dentro de uma única máquina virtual correspondente a um contêiner do Cosmos DB específico.  
 
-* Como uma execução de API de operação em massa única consome uma grande parte de ES de CPU e de rede do computador cliente. Isso acontece por geração de várias tarefas internamente, evite a geração de várias tarefas simultâneas no processo de aplicativo executando chamadas de API de operação em massa. Se uma chamada de API de operação em massa única em execução em uma única máquina virtual não puder consumir a taxa de transferência da sua coleção inteira (se a taxa de transferência da coleção > 1 milhão RU/s), será preferível criar máquinas virtuais separadas para executar simultaneamente chamadas de API de operação em massa.  
+* Como uma execução de API de operação em massa única consome uma grande parte de ES de CPU e de rede do computador cliente. Isso acontece por geração de várias tarefas internamente, evite a geração de várias tarefas simultâneas no processo de aplicativo executando chamadas de API de operação em massa. Se uma única chamada à API de operação em massa em execução em uma única máquina virtual não puder consumir a produtividade inteira do contêiner (se a produtividade do contêiner for de mais de 1 milhão de RU/s), prefira criar máquinas virtuais separadas para executar as chamadas à API de operação em massa simultaneamente.  
 
-* Certifique-se de que InitializeAsync() seja invocado após instanciar um objeto BulkExecutor para buscar o mapa de partição de coleção do Cosmos DB de destino.  
+* Verifique se InitializeAsync() é invocado depois de instanciar um objeto BulkExecutor para buscar o mapa de partições de contêiner do Cosmos DB de destino.  
 
 * No App.Config do aplicativo, certifique-se de **gcServer** esteja habilitado para melhor desempenho
   ```xml  
@@ -196,4 +196,4 @@ Considere os seguintes pontos para melhor desempenho ao usar a biblioteca BulkEx
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre os detalhes do pacote Nuget e as notas de versão da biblioteca BulkExecutor .Net, consulte [Detalhes do SDK do BulkExecutor](sql-api-sdk-bulk-executor-dot-net.md). 
+* Para saber mais sobre os detalhes do pacote Nuget e as notas de versão da biblioteca bulk executor .Net, consulte [Detalhes do SDK do bulk executor](sql-api-sdk-bulk-executor-dot-net.md). 

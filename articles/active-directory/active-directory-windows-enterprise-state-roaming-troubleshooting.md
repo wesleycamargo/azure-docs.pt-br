@@ -7,21 +7,23 @@ documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 editor: ''
+ms.component: devices
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a80bec460fffcc7c7170204d541d578428980394
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223942"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Solucionando problemas de configurações do Enterprise State Roaming no Azure Active Directory
 
@@ -79,7 +81,7 @@ Em determinadas condições, o Roaming de Estado de Empresa poderá não sincron
 **Possível problema**: a sincronização poderá falhar se o administrador configurar a política de acesso condicional do Autenticação Multifator dos Serviços de Federação do Active Directory e o token de acesso do dispositivo expirar. Certifique-se de entrar e sair usando o PIN do Microsoft Passport for Work ou conclua a Autenticação Multifator durante o acesso a outros serviços do Azure, como o Office 365.
 
 ### <a name="event-viewer"></a>Visualizador de Eventos
-Para a solução de problemas avançada, o Visualizador de Eventos pode ser usado para localizar erros específicos. Eles estão documentados na tabela abaixo. Os eventos podem ser encontrados em Visualizador de Eventos > Logs de aplicativos e serviços > **Microsoft** > **Windows** > **SettingSync** e para problemas com a sincronização relacionados a identidade **Microsoft** > **Windows** > **AD do Azure**.
+Para a solução de problemas avançada, o Visualizador de Eventos pode ser usado para localizar erros específicos. Eles estão documentados na tabela abaixo. Os eventos podem ser encontrados em Visualizador de Eventos > Logs de Aplicativos e Serviços > **Microsoft** > **Windows** > **SettingSync** e para problemas com a sincronização relacionados a identidade **Microsoft** > **Windows** > **AAD**.
 
 
 ## <a name="known-issues"></a>Problemas conhecidos
@@ -177,7 +179,7 @@ Prossiga com as etapas listadas em [KB3196528](https://support.microsoft.com/kb/
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Use o [fórum User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/158658-enterprise-state-roaming) para fazer comentários e sugestões sobre como melhorar o Enterprise State Roaming.
+- Use o [fórum User Voice](https://social.technet.microsoft.com/Forums/windows/en-US/f51c856c-db92-4cf7-a497-720da21d7d31/enterprise-state-roaming) para fazer comentários e sugestões sobre como melhorar o Enterprise State Roaming.
 
 - Para obter mais informações, consulte a [Visão geral do Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md). 
 

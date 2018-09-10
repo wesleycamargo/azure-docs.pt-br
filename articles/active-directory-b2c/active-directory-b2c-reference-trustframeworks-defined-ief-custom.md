@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: referência – estruturas confiáveis | Microsoft Docs'
-description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C e a Estrutura de Experiência de Identidade
+title: Referência – estruturas de confiança no Azure Active Directory B2C | Microsoft Docs
+description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C e a Estrutura de Experiência de Identidade.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 0cd64e90ac1b6c87008b2a16ca3afa273b9c9d56
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185771"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir estruturas confiáveis com a Estrutura de Experiência de Identidade do Azure AD B2C
 
@@ -89,7 +89,7 @@ Em termos de implementação, a especificação de TF consiste em um conjunto de
 
 - Os metadados para estabelecer comunicações de rede entre os participantes. Esses metadados com os perfis técnicos são usados durante uma transação para inserir interoperabilidade "durante a transmissão" entre a terceira parte confiável e outros participantes da comunidade.
 
-- A conversão de protocolo, se houver (por exemplo, SAML, OAuth2, Web Services Federation e OpenID Connect).
+- A conversão de protocolo, se houver (por exemplo, SAML 2.0, OAuth2, Web Services Federation e OpenID Connect).
 
 - Os requisitos de autenticação.
 

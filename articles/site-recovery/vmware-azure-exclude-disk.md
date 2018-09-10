@@ -1,19 +1,17 @@
 ---
 title: Excluir discos da proteção usando o Azure Site Recovery | Microsoft Docs
 description: Descreve por que e como excluir discos de VM da replicação da VMware para o Azure.
-services: site-recovery
 author: nsoneji
-manager: garavd
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 71d49ee07c0ccc7641941aea4f688b9700c39a57
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e7c9c1db52dc23c576782ffa8b21426c75230c51
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921270"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Excluir discos da replicação do VMware para o cenário do Azure
 
@@ -52,7 +50,7 @@ Execute o fluxo de trabalho [Habilitar replicação](vmware-azure-enable-replica
 
 >[!NOTE]
 >
-> * Você pode excluir somente os discos que já têm o serviço de Mobilidade instalado. Você precisa instalar o serviço de Mobilidade manualmente porque ele só é instalado usando o mecanismo de push depois que a replicação é habilitada.
+> * Você pode excluir somente os discos nas VMs que já têm o serviço de Mobilidade instalado. Você precisa instalar o serviço de Mobilidade manualmente porque ele só é instalado usando o mecanismo de push depois que a replicação é habilitada.
 > * Apenas discos básicos podem ser excluídos da replicação. Você não pode excluir o sistema operacional ou discos dinâmicos.
 > * Depois de habilitar a replicação, você não pode adicionar ou remover discos para replicação. Se desejar adicionar ou excluir um disco, você precisará desabilitar a proteção do computador e habilitá-la novamente.
 > * Se excluir um disco necessário para um aplicativo operar, após o failover no Azure você precisará criá-lo manualmente no Azure para que possa executar o aplicativo replicado. Como alternativa, você pode integrar a automação do Azure em um plano de recuperação para criar o disco durante o failover do computador.

@@ -1,19 +1,19 @@
 ---
 title: Conectar um dispositivo Windows IoT Core ao aplicativo Azure IoT Central | Microsoft Docs
 description: Como um desenvolvedor de dispositivos, saiba como conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central.
-services: iot-central
-author: miriamb
-ms.author: mriamb
+author: miriambrus
+ms.author: miriamb
 ms.date: 04/09/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
 manager: peterpr
-ms.openlocfilehash: c38231f97eeb1c4511702bf3e788f72918cab045
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 73a23ace23d2373e238c6887c4a41c6037d233de
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200397"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188997"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo Windows IoT Core ao aplicativo Azure IoT Central
 
@@ -24,33 +24,19 @@ Este artigo descreve como um desenvolvedor de dispositivos conecta um dispositiv
 Para concluir as etapas neste artigo, você precisa do seguinte:
 
 1. Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte [Criar o aplicativo Azure IoT Central](howto-create-application.md).
-2. Um dispositivo executando o sistema operacional Windows 10 IoT Core. Para este passo a passo, vamos usar um Raspberry Pi
-
-Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **Windows IoT Core** com as características a seguir:
-
-### <a name="telemetry-measurements"></a>Medidas de telemetria
-
-| Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
-| -------------- | ------ | ------- | ------- | -------------- |
-| umidade       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-
-### <a name="settings"></a>Configurações
-
-Configurações numéricas
-
-| Nome de exibição | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Velocidade da ventoinha    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+2. Um dispositivo executando o sistema operacional Windows 10 IoT Core. Para este passo a passo, vamos usar um Raspberry Pi.
 
 
-### <a name="properties"></a>propriedades
+## <a name="sample-devkits-application"></a>Aplicativo **Devkits de exemplo**
 
-| type            | Nome de exibição | Nome do campo | Tipo de dados |
-| --------------- | ------------ | ---------- | --------- |
-| Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
-| Texto            | Local padrão     | location   | N/D       |
+Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **Windows IoT Core** com as características a seguir: 
+
+- Telemetria que contém as medidas para o dispositivo **Umidade**, **Temperatura** e **Pressão**. 
+- Configurações mostrando a **Velocidade do Ventilador**.
+- Propriedades contendo a propriedade de dispositivo **número do dado** e a propriedade de nuvem **local**.
+
+
+Para obter detalhes completos sobre a configuração do modelo de dispositivo, veja os [Detalhes do modelo de Dispositivo do Windows IoT Core](howto-connect-windowsiotcore.md#windows-iot-core-device-template-details)
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
@@ -58,7 +44,7 @@ No aplicativo Azure IoT Central, adicione um dispositivo real do modelo de dispo
 
 ### <a name="prepare-the-windows-iot-core-device"></a>Preparar o dispositivo Windows IoT Core
 
-Para configurar um dispositivo Windows IoT Core, siga o guia passo a passo em [Configurar um dispositivo Windows IoT Core] (https://github.com/Microsoft/microsoft-iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
+Para configurar um dispositivo Windows IoT Core, siga o guia passo a passo em [Configurar um dispositivo Windows IoT Core] (https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
 
 ### <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
@@ -106,3 +92,31 @@ Se você quiser explorar e modificar o código-fonte do aplicativo cliente, ser�
 
 > [!NOTE]
 > Se o **git** não estiver instalado no ambiente de desenvolvimento, será possível baixá-lo a partir de [https://git-scm.com/download](https://git-scm.com/download).
+
+## <a name="windows-iot-core-device-template-details"></a>Detalhes do modelo do dispositivo Windows IoT Core
+
+Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **Windows IoT Core** com as características a seguir:
+
+### <a name="telemetry-measurements"></a>Medidas de telemetria
+
+| Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
+| -------------- | ------ | ------- | ------- | -------------- |
+| umidade       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pressão       | hPa    | 260     | 1260    | 0              |
+
+### <a name="settings"></a>Configurações
+
+Configurações numéricas
+
+| Nome de exibição | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Velocidade da ventoinha    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+
+### <a name="properties"></a>propriedades
+
+| Tipo            | Nome de exibição | Nome do campo | Tipo de dados |
+| --------------- | ------------ | ---------- | --------- |
+| Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
+| Texto            | Local padrão     | location   | N/D       |

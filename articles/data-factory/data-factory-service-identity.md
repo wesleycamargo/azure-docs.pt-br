@@ -9,36 +9,34 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: conceptual
+ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 06e07d566afe64b55470f73e232cf45feccd47fb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143955"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identidade do serviço Azure Data Factory
 
 Este artigo ajuda você a entender o que é a identidade de serviço de data factory e como ela funciona.
 
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira a [documentação do Data Factory versão 1](v1/data-factory-introduction.md).
-
 ## <a name="overview"></a>Visão geral
 
 Ao criar um data factory, uma identidade do serviço pode ser criada ao mesmo tempo. A identidade do serviço é um aplicativo gerenciado registrado no Azure Active Directory e representa esse data factory específico.
 
-Identidade do serviço de data factory se beneficia dos dois seguintes recursos:
+A identidade do serviço de data factory se beneficia dos seguintes recursos:
 
 - [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md), caso em que a identidade do serviço de data factory é usada para autenticação de Cofre de chaves do Azure.
-- [Copiar dados de/para o Azure Data Lake Store](connector-azure-data-lake-store.md), caso em que a identidade do serviço de data factory pode ser usada como um dos tipos de autenticação com suporte do Data Lake Store.
+- Conectores incluindo [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Banco de Dados SQL do Azure](connector-azure-sql-database.md) e [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
 
 ## <a name="generate-service-identity"></a>Gerar a identidade do serviço
 
 Identidade do serviço de data factory é gerada da seguinte maneira:
 
-- Ao criar o data factory por meio de **portal do Azure ou do PowerShell**, a identidade do serviço sempre será criada automaticamente a partir da visualização pública ADF V2.
+- Ao criar o data factory por meio do **portal do Azure ou do PowerShell**, a identidade do serviço sempre será criada automaticamente.
 - Ao criar o data factory por meio do **SDK**, a identidade do serviço será criada somente se você especificar "identidade = FactoryIdentity() nova" no objeto de fábrica para a criação. Consulte o exemplo do [início rápido do .NET - criar data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
 - Ao criar o data factory por meio da **API REST**, a identidade do serviço será criada somente se você especificar a seção "identidade" no corpo da solicitação. Consulte o exemplo do [início rápido do REST - criar data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 

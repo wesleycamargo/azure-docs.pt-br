@@ -1,24 +1,21 @@
 ---
-title: "Versão prévia do RBAC (controle de acesso baseado em função) dos Hubs de Eventos do Azure | Microsoft Docs"
-description: "Controle de acesso baseado em função de Hubs de Eventos do Azure"
+title: Versão prévia do RBAC (controle de acesso baseado em função) dos Hubs de Eventos do Azure | Microsoft Docs
+description: Controle de acesso baseado em função de Hubs de Eventos do Azure
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: 
-ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 0d3a779eb2cccf242bcd42d82c1a90048b3512ab
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.date: 07/05/2018
+ms.author: shvija
+ms.openlocfilehash: ef74600fdf5051394f8b7bfbdd71e144b3f26d8a
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005731"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controle de acesso baseado em função do Active Directory (versão prévia)
 
@@ -60,7 +57,7 @@ Antes de executar o aplicativo de exemplo, registre-o no Azure AD e aprove a sol
 
 Como o aplicativo de exemplo é um aplicativo de console, você deve registrar um aplicativo nativo e adicionar as permissões de API para **Microsoft.EventHub** ao conjunto de "permissões necessárias". Os aplicativos nativos também precisam de um **URI de redirecionamento** no Azure AD que funcione como um identificador. O URI não precisa ser um destino de rede. Use `http://eventhubs.microsoft.com` para este exemplo, porque o exemplo de código já usa esse URI.
 
-As etapas de registro detalhadas são explicadas [neste tutorial](../active-directory/develop/active-directory-integrating-applications.md). Siga as etapas para registrar um aplicativo **Nativo** e, em seguida, siga as instruções de atualização para adicionar a API **Microsoft.EventHub** às permissões necessárias. Ao seguir as etapas, anote o **TenantId** e o **ApplicationId**, pois você precisará desses valores para executar o aplicativo.
+As etapas de registro detalhadas são explicadas [neste tutorial](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Siga as etapas para registrar um aplicativo **Nativo** e, em seguida, siga as instruções de atualização para adicionar a API **Microsoft.EventHub** às permissões necessárias. Ao seguir as etapas, anote o **TenantId** e o **ApplicationId**, pois você precisará desses valores para executar o aplicativo.
 
 ### <a name="run-the-app"></a>Execute o aplicativo
 
@@ -68,8 +65,8 @@ Antes de executar o exemplo, edite o arquivo App.config e, dependendo do cenári
 
 - `tenantId`: defina com o valor **TenantId**.
 - `clientId`: defina com o valor **ApplicationId**. 
-- `clientSecret`: se você quiser fazer logon usando o segredo do cliente, crie-o no Azure AD. Além disso, use um aplicativo Web ou uma API em vez de um aplicativo nativo. E também adicione o aplicativo no **Controle de Acesso (IAM)** no namespace que você criou anteriormente.
-- `eventHubNamespaceFQDN`: defina o nome DNS completo do namespace dos Hubs de Eventos recém-criado, por exemplo, `example.servicebus.windows.net`.
+- `clientSecret`: se você quiser entrar usando o segredo do cliente, crie-o no Azure AD. Além disso, use um aplicativo Web ou uma API em vez de um aplicativo nativo. E também adicione o aplicativo no **Controle de Acesso (IAM)** no namespace que você criou anteriormente.
+- `eventHubNamespaceFQDN`: defina o nome DNS totalmente qualificado do namespace dos Hubs de Eventos recém-criado, por exemplo, `example.servicebus.windows.net`.
 - `eventHubName`: defina como o nome do hub de eventos que você criou.
 - O URI de redirecionamento que você especificou no aplicativo nas etapas anteriores.
  

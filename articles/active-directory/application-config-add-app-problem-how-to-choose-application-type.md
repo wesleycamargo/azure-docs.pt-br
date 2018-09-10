@@ -3,21 +3,23 @@ title: Como escolher o tipo de aplicativo a ser usado ao adicionar um aplicativo
 description: Entenda os tipos de aplicativos com suporte que você pode integrar ao Azure AD e suas opções de configuração relacionadas
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: a34c3343b669cb80ad88c1b09fe95b1b1d9b5275
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: barbkess
+ms.openlocfilehash: 5236e9620d68d2ac4dcc544482d244c1e998be9d
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365365"
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Como escolher o tipo de aplicativo a ser usado ao adicionar um aplicativo
 

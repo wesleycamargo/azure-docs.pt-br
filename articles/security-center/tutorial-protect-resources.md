@@ -1,11 +1,11 @@
 ---
-title: "Tutorial da Central de segurança do Azure - Proteger seus recursos com a Central de Segurança do Azure | Microsoft Docs"
-description: "Este tutorial mostra como configurar uma política de acesso just in time de VM e uma política de controle de aplicativo."
+title: Tutorial da Central de segurança do Azure - Proteger seus recursos com a Central de Segurança do Azure | Microsoft Docs
+description: Este tutorial mostra como configurar uma política de acesso just in time de VM e uma política de controle de aplicativo.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 07/30/2018
 ms.author: terrylan
-ms.openlocfilehash: cda204f5b54aef239cc0795b62c6fa484a27ebb5
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b882f9740a9b29cddb2cbe0359056cf66c293717
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363747"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Proteger seus recursos com a Central de Segurança do Azure
 A Central de Segurança limita a exposição a ameaças por meio de controles de acesso e de aplicativo a fim de bloquear atividades mal-intencionadas. O acesso da VM (máquina virtual) just-in-time reduz a exposição a ataques permitindo que você negue o acesso persistente às VMs. Em vez disso, você fornece acesso controlado e auditado às VMs somente quando for necessário. Controles de aplicativo adaptáveis ajudam a proteger VMs contra malware, controlando quais aplicativos podem ser executados em suas VMs. A Central de Segurança usa o aprendizado de máquina para analisar os processos em execução na VM e ajuda a aplicar regras de lista de permissões usando essa inteligência.
@@ -32,13 +33,11 @@ Neste tutorial, você aprenderá a:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para percorrer os recursos abordados neste tutorial, você deve estar em um tipo de preço da Central de Segurança Padrão. Você pode experimentar a Central de Segurança Standard sem nenhum custo pelos primeiros 60 dias. O início rápido [Integração da sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) orienta você sobre como fazer upgrade para Standard.
 
 ## <a name="manage-vm-access"></a>Gerenciar acesso à VM
 O acesso just in time à VM pode ser usado para bloquear o tráfego de entrada às suas VMs do Azure, reduzindo a exposição aos ataques, fornecendo acesso fácil para conectar às VMs quando necessário.
-
-O acesso à VM just in time está em versão prévia.
 
 As portas de gerenciamento não precisam ficar abertas o tempo todo. Elas só precisam ser abertas enquanto você estiver conectado à VM, por exemplo, para realizar tarefas de manutenção ou gerenciamento. Quando o just in time está habilitado, a Central de Segurança usa regras de NSG (Grupo de Segurança de Rede), que restringem o acesso às portas de gerenciamento para que elas não se tornem alvo de invasores.
 
@@ -74,7 +73,7 @@ As portas de gerenciamento não precisam ficar abertas o tempo todo. Elas só pr
 ## <a name="harden-vms-against-malware"></a>Proteger VMs contra malware
 Os controles de aplicativo adaptáveis ajudam você a definir um conjunto de aplicativos que podem ser executados em grupos de recursos configurados que, entre outros benefícios, ajuda você a proteger suas VMs contra malware. A Central de Segurança usa o aprendizado de máquina para analisar os processos em execução na VM e ajuda a aplicar regras de lista de permissões usando essa inteligência.
 
-Os controles de aplicativo adaptáveis estão em versão prévia. Este recurso só está disponível para máquinas com Windows.
+Este recurso só está disponível para máquinas com Windows.
 
 1. Volte para o menu principal da Central de Segurança. Em **DEFESA AVANÇADA DE NUVEM**, selecione **Controles de aplicativo adaptáveis**.
 
@@ -106,14 +105,14 @@ Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de
 2. Selecione a assinatura ou a política que você deseja retornar para Gratuita. A **Política de segurança** abre.
 3. Em **COMPONENTES DE POLÍTICA**, selecione **Tipo de preços**.
 4. Selecione **Gratuita** para alterar a assinatura da camada Standard para a camada Gratuita.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 Se quiser desabilitar o provisionamento automático:
 
 1. Retorne ao menu principal da Central de Segurança e selecione **Política de segurança**.
 2. Selecione a assinatura em que você deseja desabilitar o provisionamento automático.
 3. Em **Política de segurança – Coleta de dados**, selecione **Desativar** em **Integração** para desabilitar o provisionamento automático.
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 >[!NOTE]
 > Desabilitar o provisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure em que o agente tenha sido provisionado. Desabilitar o provisionamento automático limita o monitoramento de segurança dos seus recursos.

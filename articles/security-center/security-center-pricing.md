@@ -1,24 +1,25 @@
 ---
-title: "Atualizar para a camada Standard da Central de Segurança para segurança aprimorada | Microsoft Docs"
-description: "Este artigo fornece informações sobre os preços para a Central de Segurança do Azure."
+title: Atualizar para a camada Standard da Central de Segurança para segurança aprimorada | Microsoft Docs
+description: Este artigo fornece informações sobre os preços para a Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
-ms.author: terrylan
-ms.openlocfilehash: 0a8fb526602692db6737842c24649b686bea5dad
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.date: 08/06/2018
+ms.author: rkarlin
+ms.openlocfilehash: 824362c5dab9f226aff84e75b6620221d3a9147f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528470"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Atualizar para a camada Standard da Central de Segurança para segurança aprimorada
 A Central de Segurança do Azure fornece gerenciamento de segurança unificado e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, localmente e em outras nuvens. Ela proporciona visibilidade e controle sobre cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudá-lo a acompanhar o ritmo veloz da evolução dos ataques cibernéticos.
@@ -34,7 +35,7 @@ Para obter mais informações, confira a [página de preços](https://azure.micr
 ## <a name="try-standard-free-for-60-days"></a>Experimentar a versão Standard gratuitamente por 60 dias
 A camada Standard é oferecida gratuitamente nos 60 primeiros dias. Ao fim dos 60 dias, se você optar por continuar usando o serviço, começaremos a cobrar automaticamente pelo uso.
 
-Você pode atualizar uma assinatura inteira do Azure para a camada Standard, que será herdada por todos os recursos na assinatura ou você pode definir uma política exclusiva para atualizar somente um Grupo de recursos específico.
+Você pode atualizar uma assinatura inteira do Azure para a camada Standard, que será herdada por todos os recursos na assinatura.
 
 Para obter a camada Standard:
 
@@ -55,7 +56,7 @@ Para obter a camada Standard:
 A Central de Segurança oferece maior segurança e proteção contra ameaças para suas cargas de trabalho de nuvem híbrida, incluindo:
 
 - **Segurança híbrida** – Obtenha uma exibição unificada sobre a segurança em todas as suas cargas de trabalho locais e na nuvem. Aplique políticas de segurança e avalie continuamente a segurança de suas cargas de trabalho de nuvem híbrida a fim de garantir a conformidade com padrões de segurança. Colete, pesquise e analise dados de segurança de uma variedade de fontes, inclusive firewalls e outras soluções de parceiros.
-- **Detecção avançada de ameaças** – Use análises avançadas e o Gráfico de segurança inteligente da Microsoft para obter uma vantagem sobre ataques cibernéticos em evolução.  Aproveite a análise comportamental interna e o aprendizado de máquina para identificar ataques e explorações de dia zero. Monitore redes, computadores e serviços de nuvem contra ataques recebidos e atividade pós-violação. Simplifique a investigação com ferramentas interativas e inteligência contextual contra ameaças.
+- **Detecção avançada de ameaças** – Use análises avançadas e o Grafo de segurança inteligente da Microsoft para obter uma vantagem sobre ataques cibernéticos em evolução.  Aproveite a análise comportamental interna e o aprendizado de máquina para identificar ataques e explorações de dia zero. Monitore redes, computadores e serviços de nuvem contra ataques recebidos e atividade pós-violação. Simplifique a investigação com ferramentas interativas e inteligência contextual contra ameaças.
 - **Controles de acesso e de aplicativo** – Bloqueie malwares e outros aplicativos indesejados aplicando recomendações de lista de permissões adaptada para suas cargas de trabalho específicas e baseada em aprendizado de máquina. Reduza a superfície de ataque da rede com acesso controlado Just-In-Time às portas de gerenciamento em VMs do Azure, reduzindo drasticamente a exposição à ataques de força bruta e outros ataques de rede.
 
 

@@ -2,22 +2,20 @@
 title: Usando a estrutura de Mongoose com o Azure Cosmos DB | Microsoft Docs
 description: Saiba como conectar um aplicativo Mongoose do Node.js ao Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
-author: romitgirdhar
+author: slyons
 manager: kfile
-ms.assetid: de5eea58-ee7c-4609-b1c9-4af3e61a5883
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 01/08/2018
-ms.author: rogirdh
-ms.openlocfilehash: 4ce86c6a3fb3d191f101329025d0aedf266ce79e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: sclyon
+ms.openlocfilehash: aa178a24f0c36a1c5fb56b342141b066c150c7c3
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037848"
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Usando a estrutura de Mongoose com o Azure Cosmos DB
 
@@ -25,7 +23,7 @@ Este tutorial demonstra como usar o [Mongoose Framework](http://mongoosejs.com/)
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

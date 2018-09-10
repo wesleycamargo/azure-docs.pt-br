@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 4af6545058ab0031d7cd1b38618b6d80204f83b9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b61c5860cb18f5a5b4ffa96212d66b7becad9928
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723268"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Como configurar o clustering do Redis para um Cache Redis do Azure Premium
 O Cache Redis do Azure apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache, incluindo recursos do nível Premium, como clustering, persistência e suporte à rede virtual. Este artigo descreve como configurar o clustering em uma instância premium do Cache Redis do Azure.
@@ -123,7 +124,9 @@ Para obter um exemplo de código sobre como trabalhar com clustering e localizar
 O maior tamanho de cache premium é de 53 GB. Você pode criar até 10 fragmentos, fornecendo um tamanho máximo de 530 GB. Se precisar de um tamanho maior, você pode [solicitar mais](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Para saber mais, confira [Preço do Cache Redis do Azure](https://azure.microsoft.com/pricing/details/cache/).
 
 ### <a name="do-all-redis-clients-support-clustering"></a>Todos os clientes do Redis dão suporte ao clustering?
-No momento, nem todos os clientes dão suporte ao clustering do Redis. StackExchange.Redis é o que dá suporte a ele. Para obter mais informações sobre outros clientes, confira a seção [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) do [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
+No momento, nem todos os clientes dão suporte ao clustering do Redis. StackExchange.Redis é o que dá suporte a ele. Para obter mais informações sobre outros clientes, confira a seção [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) do [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial). 
+
+O protocolo de clustering do Redis exige que cada cliente se conecte a cada fragmento diretamente no modo de clustering. A tentativa de usar um cliente que não dá suporte ao clustering provavelmente resultará em muitas [exceções de redirecionamento MOVIDAS](https://redis.io/topics/cluster-spec#moved-redirection).
 
 > [!NOTE]
 > Se estiver usando o StackExchange.Redis como seu cliente, verifique se está usando a versão mais recente do [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 ou posterior para que o clustering funcione corretamente. Se você tiver problemas com as exceções de movimentação, confira [exceções move](#move-exceptions) para obter mais informações.
@@ -134,7 +137,7 @@ No momento, nem todos os clientes dão suporte ao clustering do Redis. StackExch
 Você pode se conectar ao seu cache usando os mesmos [pontos de extremidade](cache-configure.md#properties), [portas](cache-configure.md#properties) e [chaves](cache-configure.md#access-keys) usados ao conectar-se a um cache que não tem o clustering habilitado. O Redis gerencia o clustering no back-end para que você não precise gerenciá-lo por meio de seu cliente.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Posso me conectar diretamente aos fragmentos individuais do meu cache?
-Oficialmente, não há suporte para isso. Dito isso, cada fragmento consiste em um par de cache primário/de réplica que é conhecido coletivamente como uma instância de cache. Você pode se conectar a essas instâncias de cache usando o utilitário redis-cli na ramificação [instável](http://redis.io/download) do repositório do Redis no GitHub. Esta versão implementa o suporte básico quando iniciado com o switch `-c` . Para obter mais informações, consulte [Brincando com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io)no [Tutorial do cluster Redis](http://redis.io/topics/cluster-tutorial).
+O protocolo de clustering exige que o cliente faça as conexões de fragmento corretas. Portanto, o cliente deve fazer isso corretamente para você. Dito isso, cada fragmento consiste em um par de cache primário/de réplica que é conhecido coletivamente como uma instância de cache. Você pode se conectar a essas instâncias de cache usando o utilitário redis-cli na ramificação [instável](http://redis.io/download) do repositório do Redis no GitHub. Esta versão implementa o suporte básico quando iniciado com o switch `-c` . Para obter mais informações, consulte [Brincando com o cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [http://redis.io](http://redis.io)no [Tutorial do cluster Redis](http://redis.io/topics/cluster-tutorial).
 
 Para não SSL, use os comandos a seguir.
 

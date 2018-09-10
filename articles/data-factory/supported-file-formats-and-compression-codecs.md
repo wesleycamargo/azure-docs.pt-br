@@ -6,19 +6,19 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
-ms.date: 05/09/2018
+ms.topic: conceptual
+ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: fdfee4e06994de1b9a63996203b1a1b9fed9b768
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 844440d22bc0a524e9e61bde457ee9f43fd367b2
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940147"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444605"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de arquivo e codecs de compactação com suporte no Azure Data Factory
 
-*Este tópico se aplica aos seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [Blob do Azure](connector-azure-blob-storage.md), [Azure Data Lake Store](connector-azure-data-lake-store.md), [Armazenamento de Arquivos do Azure](connector-azure-file-storage.md), [Sistema de Arquivos](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) e [SFTP](connector-sftp.md).*
+*Este tópico se aplica aos seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [Blob do Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Armazenamento de Arquivos do Azure](connector-azure-file-storage.md), [Sistema de Arquivos](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) e [SFTP](connector-sftp.md).*
 
 Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. Se você quiser **analisar ou gerar arquivos com um formato específico**, o Azure Data Factory dará suporte aos seguintes tipos de formato de arquivo:
 
@@ -27,9 +27,6 @@ Se você quiser **copiar arquivos no estado em que se encontram** entre reposit�
 * [Formato Avro](#avro-format)
 * [Formato ORC](#orc-format)
 * [Formato Parquet](#parquet-format)
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você usar a versão 1 do serviço do Data Factory, que está em GA (disponibilidade geral), consulte os [formatos de arquivo e compactação com suporte no Data Factory versão 1](v1//data-factory-supported-file-and-compression-formats.md).
 
 > [!TIP]
 > Saiba como a atividade de cópia mapeia seus dados de origem até o coletor da seção [Mapeamento de esquema na atividade de cópia](copy-activity-schema-and-type-mapping.md), incluindo como os metadados são determinados com base nas suas configurações de formato de arquivo e dicas sobre quando especificar o [conjunto de dados `structure`](concepts-datasets-linked-services.md#dataset-structure).

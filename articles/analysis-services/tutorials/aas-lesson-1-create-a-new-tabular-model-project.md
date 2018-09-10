@@ -3,24 +3,25 @@ title: 'Lição 1 do tutorial do Azure Analysis Services: criar um novo projeto 
 description: Descreve como criar um novo projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 08/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 73764e7595d5b0bbc55ee9242e86ba19d5f80254
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b9d3e9df62ffd31a6a01ea427fec8d5a3d168bfa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141617"
 ---
 # <a name="create-a-tabular-model-project"></a>Criar um projeto de modelo de tabela
 
-Nesta lição, você usará o Visual Studio com SQL Server Data Tools (SSDT) para criar um novo projeto de modelo tabular no nível de compatibilidade 1400. Depois de criar o novo projeto, você pode começar a adicionar dados e criar seu modelo. Esta lição fornece uma breve introdução ao ambiente de criação de modelos tabulares no Visual Studio.  
+Nesta lição, você usará o Visual Studio com Projetos do Analysis Services ou SQL Server Data Tools (SSDT) para criar um novo projeto de modelo tabular no nível de compatibilidade 1400. Depois de criar o novo projeto, você pode começar a adicionar dados e criar seu modelo. Esta lição fornece uma breve introdução ao ambiente de criação de modelos tabulares no Visual Studio.  
   
 Tempo estimado para conclusão desta lição: **10 minutos**  
   
-## <a name="prerequisites"></a>pré-requisitos  
+## <a name="prerequisites"></a>Pré-requisitos  
 Este tópico é a primeira lição em um tutorial de criação de modelos tabulares. Para concluir esta lição, há diversos pré-requisitos necessários. Para saber mais, veja [Azure Analysis Services – tutorial da Adventure Works](../tutorials/aas-adventure-works-tutorial.md).  
   
 ## <a name="create-a-new-tabular-model-project"></a>Criar um novo projeto de modelo tabular  
@@ -48,7 +49,7 @@ Este tópico é a primeira lição em um tutorial de criação de modelos tabula
     Se você não vê a opção SQL Server 2017 / Azure Analysis Services (1400) na caixa de listagem Nível de compatibilidade, você não está usando a versão mais recente do SQL Server Data Tools. Para obter a versão mais recente, veja [Instalar SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
       
   
-## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Noções básicas sobre o ambiente de criação de modelos tabulares do SSDT  
+## <a name="understanding-the-visual-studio-tabular-model-authoring-environment"></a>Noções básicas sobre o ambiente de criação de modelos tabulares do Visual Studio  
 Agora que você criou um novo projeto de modelo tabular, exploraremos o ambiente de criação de modelos tabulares no Visual Studio.  
   
 Depois que o projeto é criado, ele é aberto no Visual Studio. No lado direito, em **Gerenciador de Modelos tabulares**, você verá um modo de exibição de árvore dos objetos em seu modelo. Já que você ainda não terá importado dados, as pastas estarão vazias. Clique com o botão direito do mouse em uma pasta de objeto para executar ações, de modo similar a uma barra de menus. Conforme você percorre este tutorial, você usará o Gerenciador de Modelos tabulares para navegar por diferentes objetos no projeto de modelo.
@@ -67,7 +68,7 @@ Quando você cria um novo projeto modelo, determinadas propriedades de modelo s�
 
 No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Vendas pela Internet da AW** (projeto) e depois clique em **Propriedades**. A caixa de diálogo **Páginas de Propriedades de Vendas pela Internet da AW** é exibida. Você definirá algumas dessas propriedades posteriormente quando implantar seu modelo.  
   
-Quando você instalou o SSDT, vários novos itens de menu foram adicionados ao ambiente do Visual Studio. Clique na guia **Modelo**. Daqui em diante, você poderá importar dados, atualizar dados do espaço de trabalho, navegar pelo seu modelo no Excel, criar perspectivas e funções, selecionar a exibição de modelo e definir opções de cálculo. Clique o menu **Tabela**. Daqui em diante, você poderá criar e gerenciar relações, especificar configurações de tabela de data, criar partições e editar propriedades da tabela. Se você clicar no menu **Coluna**, poderá adicionar e excluir colunas em uma tabela, congelar colunas e especificar a ordem de classificação. O SSDT também adiciona alguns botões à barra. O recurso AutoSoma, para criação de uma medida de agregação padrão para uma coluna selecionada, é extremamente útil. Outros botões da barra de ferramentas fornecem acesso rápido aos comandos e recursos usados com frequência.  
+Quando você instalou o Azure Analysis Services ou o SSDT, vários novos itens de menu foram adicionados ao ambiente do Visual Studio. Clique na guia **Modelo**. Daqui em diante, você poderá importar dados, atualizar dados do espaço de trabalho, navegar pelo seu modelo no Excel, criar perspectivas e funções, selecionar a exibição de modelo e definir opções de cálculo. Clique o menu **Tabela**. Daqui em diante, você poderá criar e gerenciar relações, especificar configurações de tabela de data, criar partições e editar propriedades da tabela. Se você clicar no menu **Coluna**, poderá adicionar e excluir colunas em uma tabela, congelar colunas e especificar a ordem de classificação. O Visual Studio também adiciona alguns botões à barra. O recurso AutoSoma, para criação de uma medida de agregação padrão para uma coluna selecionada, é extremamente útil. Outros botões da barra de ferramentas fornecem acesso rápido aos comandos e recursos usados com frequência.  
   
 Explore algumas das caixas de diálogo e localizações para vários recursos específicos para a criação de modelos tabulares. Embora alguns itens ainda não estejam ativos, você pode obter uma boa ideia do ambiente de criação de modelos tabulares.  
   

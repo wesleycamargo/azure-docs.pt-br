@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: f8cd78e63099f864c5fc54b6268f6e558d738626
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9f7fee71fb2b80be93d978569791dbb57f137949
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371364"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346827"
 ---
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -21,15 +21,14 @@ ms.locfileid: "34371364"
 
 Agora que você criou um hub IoT, localize as informações importantes que você usa para se conectar a dispositivos e aplicativos para o hub IoT. 
 
-No menu de navegação do Hub IoT, abra a opção **Políticas de acesso compartilhado**.
-Selecione a política **iothubowner** e, em seguida, copie a **Cadeia de conexão – chave primária** do Hub IoT. Para saber mais, veja [Controlar o acesso ao Hub IoT](../articles/iot-hub/iot-hub-devguide-security.md).
+No menu de navegação do Hub IoT, abra a opção **Políticas de acesso compartilhado**. Selecione a política **iothubowner** e, em seguida, copie a **Cadeia de conexão – chave primária** do Hub IoT. Para saber mais, veja [Controlar o acesso ao Hub IoT](../articles/iot-hub/iot-hub-devguide-security.md).
 
    > [!NOTE] 
-   > Você não precisará dessa cadeia de conexão de iothubowner para este tutorial de configuração. No entanto, talvez você precise dela para alguns dos tutoriais ou cenários de IoT diferentes após a conclusão dessa configuração.
+   > Você não precisa da string de conexão do proprietário de casa para este tutorial de configuração. No entanto, talvez você precise dela para alguns dos tutoriais ou cenários de IoT diferentes após a conclusão dessa configuração.
 
    ![Obter sua cadeia de conexão do Hub IoT](./media/iot-hub-get-started-create-hub-and-device/create-iot-hub5.png)
 
-## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>Registrar um dispositivo no hub IoT para o dispositivo
+## <a name="register-your-device-in-the-iot-hub"></a>Registre seu dispositivo no hub da IoT
 
 1. No menu de navegação do Hub IoT, abra **Dispositivos IoT** e, em seguida, clique em **Adicionar** para registrar um dispositivo no Hub IoT.
 
@@ -39,8 +38,10 @@ Selecione a política **iothubowner** e, em seguida, copie a **Cadeia de conexã
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. Clique em **Salvar**.
-5. Após a criação do dispositivo, abra o dispositivo na lista do painel **Dispositivos IoT**.
-6. Copie a **Cadeia de conexão – chave primária** para uso futuro.
+3. Clique em **Salvar**.
+
+4. Após a criação do dispositivo, abra o dispositivo na lista do painel **Dispositivos IoT**.
+
+5. Copie a **Cadeia de conexão – chave primária** para uso futuro.
 
    ![Obter a cadeia de conexão do dispositivo](./media/iot-hub-get-started-create-hub-and-device/device-connection-string.png)

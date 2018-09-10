@@ -3,9 +3,8 @@ title: Recomendações de custo do Azure Advisor | Microsoft Docs
 description: Use o Azure Advisor para otimizar o custo de suas implantações do Azure.
 services: advisor
 documentationcenter: NA
-author: KumudD
-manager: carmonm
-editor: ''
+author: manbeenkohli
+manager: ''
 ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
@@ -13,12 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumud
-ms.openlocfilehash: 7a8807a580f1a7f1fe67e026a8fbd4cc0e96c41c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: makohli
+ms.openlocfilehash: 71c380a1caae730b6b01615ce3047c2e22bd6dfb
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42142219"
 ---
 # <a name="advisor-cost-recommendations"></a>Recomendações de custo do Advisor
 
@@ -33,6 +33,14 @@ Se você deseja ser mais agressivo na identificação de máquinas virtuais subu
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Reduzir os custos eliminando circuitos do ExpressRoute não provisionados
 O Assistente identifica circuitos do ExpressRoute que estão no status de provedor *Não Provisionado* por mais de um mês e recomenda excluir o circuito se você não estiver planejando provisioná-lo com o seu provedor de conectividade.
+
+## <a name="reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways"></a>Reduzir os custos excluindo ou reconfigurando gateways de rede virtual ociosos
+O Assistente identifica os portões de rede virtual ociosos há mais de 90 dias. Como esses gateways são cobradas por hora, você deverá considerar a reconfiguração ou a exclusão deles se não pretender mais usá-los. 
+
+## <a name="buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs"></a>Compre instâncias de máquina virtual reservadas para economizar nos custos de pagamento conforme o uso
+O Assistente examinará seu uso da máquina virtual nos últimos 30 dias e determinará se você poderá economizar dinheiro com a compra de uma reserva do Azure. O Assistente mostrará as regiões e os tamanhos nos quais você tem maior potencial de economia e mostrará as economias estimadas com a compra de reservas. 
+
+Com as reservas do Azure, você pode comprar previamente os custos de base para as máquinas virtuais. Descontos serão aplicados automaticamente a VMs novas ou existentes com o mesmo tamanho e na mesma região que suas reservas. [Saiba mais sobre as Instâncias de VM Reservadas do Azure](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Como acessar as recomendações de custo no Assistente do Azure
 

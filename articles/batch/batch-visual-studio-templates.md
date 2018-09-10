@@ -15,18 +15,19 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5241c62e8b423b20477fc72c87303daf3d4ab43c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114089"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usar modelos de projeto do Visual Studio para iniciar rapidamente soluções em lote
 
 O **Gerenciador de Trabalho** e os **modelos do Visual Studio do Processador de Tarefa** para o Lote fornecem código para ajudar você a implementar e executar suas cargas de trabalho de computação intensa no Lote com o mínimo de esforço. Este documento descreve esses modelos e fornece diretrizes sobre como usá-los.
 
 > [!IMPORTANT]
-> Este artigo discute apenas as informações aplicáveis a esses dois modelos e pressupõe que você esteja familiarizado com o serviço do Lote e os principais conceitos relacionados a ele: pools, nós de computação, trabalhos e tarefas, tarefas do gerenciador de trabalho, variáveis de ambiente e outras informações relevantes. Encontre mais informações em [Noções básicas do Lote do Azure](batch-technical-overview.md), [Visão geral do recurso Lote para desenvolvedores](batch-api-basics.md) e [Introdução à biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md).
+> Este artigo discute apenas as informações aplicáveis a esses dois modelos e pressupõe que você esteja familiarizado com o serviço do Lote e os principais conceitos relacionados a ele: pools, nós de computação, trabalhos e tarefas, tarefas do gerenciador de trabalho, variáveis de ambiente e outras informações relevantes. É possível encontrar mais informações em [Noções básicas do Lote do Azure](batch-technical-overview.md) e [Visão geral do recurso do Lote para desenvolvedores](batch-api-basics.md).
 > 
 > 
 
@@ -51,7 +52,7 @@ Conforme mostrado no diagrama a seguir, um trabalho de computação que usa esse
 
 ![Diagrama mostrando como o código do cliente interage com o serviço do Lote][diagram01]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para usar os modelos do Lote, você precisará do seguinte:
 
 * Um computador com o Visual Studio 2015 instalado. Modelos de lote atualmente só têm suporte para o Visual Studio 2015.
@@ -438,10 +439,7 @@ parameters.json e, se o encontrar, o carrega como o dicionário de parâmetros. 
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Persistir saída de tarefa e de trabalho no Armazenamento do Azure
 Outra ferramenta útil no desenvolvimento de soluções do Lote são as [Convenções de Arquivo do Lote do Azure][nuget_package]. Use essa biblioteca de classes .NET (em versão de visualização) em seus aplicativos .NET do Lote para armazenar e recuperar com facilidade as saídas de tarefas no Armazenamento do Azure. [Persistir e saída de tarefa e de trabalho do Lote do Azure](batch-task-output.md) contém uma discussão completa sobre a biblioteca e seu uso.
 
-### <a name="batch-forum"></a>Fórum do Lote
-O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobre o Lote e fazer perguntas sobre o serviço. Acesse diretamente as postagens “fixas” úteis e poste suas dúvidas conforme elas surgirem enquanto você cria suas soluções do Lote.
 
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files

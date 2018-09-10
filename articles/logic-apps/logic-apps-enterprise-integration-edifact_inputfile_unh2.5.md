@@ -1,26 +1,24 @@
 ---
-title: "Decodificação de edifact B2B dos Aplicativos Lógicos resolve UNH2.5 – Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Decodificação de edifact B2B dos Aplicativos Lógicos resolve UNH2.5"
+title: Manipular mensagens EDIFACT com segmentos UNH 2.5 – Aplicativo Lógico do Azure | Microsoft Docs
+description: Resolver documentos EDIFACT com segmentos UNH 2.5 no Aplicativo Lógico do Azure com o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: anneta
-editor: 
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 62ad8183cc6e9f56255b2729a04ee7710d00a21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c8b8611347840dcf49759dac51fb506815cd782
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122001"
 ---
-# <a name="how-to-handle-edifact-documents-having-unh25-segment"></a>Como tratar documentos EDIFACT tendo o segmento UNH2.5
+# <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Manipular documentos EDIFACT com segmentos UNH 2.5 no Aplicativo Lógico do Azure
+
 Quando está presente no documento EDIFACT, UNH2.5 está sendo usado para pesquisa de esquema. 
 
 Exemplo: o campo UNH é **EAN008** na mensagem EDIFACT  

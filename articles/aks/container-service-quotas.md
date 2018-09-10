@@ -2,17 +2,18 @@
 title: Cotas de AKS (Serviço de Kubernetes do Azure) e disponibilidade de região
 description: As cotas padrão e a disponibilidade de região do AKS (Serviço de Kubernetes do Azure).
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
-ms.date: 04/26/2018
-ms.author: nepeters
-ms.openlocfilehash: adf2d57961df9a4e8d03f2b3fe43ca0603685eb2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 08/01/2018
+ms.author: iainfou
+ms.openlocfilehash: 266e2c1f986ba78c9aac40887bc9a7dee1cbff82
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420339"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Cotas e disponibilidade de região para AKS (Serviço de Kubernetes do Azure)
 
@@ -28,12 +29,21 @@ Todas as outras limitações de rede, computação e armazenamento se aplicam à
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O AKS (Serviço de Kubernetes do Azure) está disponível como versão prévia nas seguintes regiões:
-- Leste dos EUA
-- Europa Ocidental
-- Centro dos EUA
+O AKS (Serviço de Kubernetes do Azure) está disponível nas seguintes regiões:
+
+- Leste da Austrália
 - Canadá Central
 - Leste do Canadá
+- Centro dos EUA
+- Leste dos EUA
+- Leste dos EUA 2
+- Leste do Japão
+- Norte da Europa
+- Sudeste Asiático
+- Sul do Reino Unido
+- Europa Ocidental
+- Oeste dos EUA
+- Oeste dos EUA 2
 
 ## <a name="next-steps"></a>Próximas etapas
 

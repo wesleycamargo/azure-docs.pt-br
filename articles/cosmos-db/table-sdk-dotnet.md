@@ -1,23 +1,21 @@
 ---
-title: Recursos e SDK .NET da API de Tabela do Azure CosmosDB | Microsoft Docs
+title: Recursos e SDK do .NET da API de Tabela do Azure Cosmos DB | Microsoft Docs
 description: Saiba tudo sobre a API de Tabela do Azure Cosmos DB, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão.
 services: cosmos-db
-documentationcenter: .net
 author: rnagpal
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 03/26/2018
+ms.topic: reference
+ms.date: 08/17/2018
 ms.author: rnagpal
-ms.openlocfilehash: 7e012e07b8f93554ea44404c611a7bc0eb64a0d0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d0bd7dba5d50445cb681c16d9575b1bd69167e2f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141423"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET de Tabela do Azure CosmosDB: download e notas de versão
 > [!div class="op_single_selector"]
@@ -40,6 +38,10 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
+* Corrigidas as dependências de pacote NuGet no Microsoft.Azure.Storage.Common e Microsoft.Azure.DocumentDB.
+* Correções de bugs na serialização de tabelas quando o JsonConvert.DefaultSettings é configurado.
+
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 * Validação adicional para ETAGs malformadas no Modo Direto.
 * Bug de consulta LINQ fixado no Modo de Gateway.
@@ -58,7 +60,7 @@ ms.lasthandoff: 04/16/2018
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e desativação
 A Microsoft notifica pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
 
-O pacote de versão prévia [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) foi preterido e substituído pelo pacote [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). O SDK WindowsAzure.Storage-PremiumTable será desativado em 15 de novembro de 2018, quando as solicitações para o SDK obsoleto não serão permitidas.
+O pacote de versão prévia [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) foi preterido e substituído pelo pacote [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). O SDK WindowsAzure.Storage-PremiumTable será desativado em 15 de novembro de 2018, quando as solicitações para o SDK obsoleto não serão permitidas. A biblioteca `Microsoft.Azure.CosmosDB.Table` só está disponível atualmente para o .NET Standard, ela ainda não está disponível para o .NET Core.
 
 Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente. 
 
@@ -67,6 +69,7 @@ Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rej
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.1.3](#1.1.3) |17 de julho de 2018|--- |
 | [1.1.1](#1.1.1) |26 de março de 2018|--- |
 | [1.1.0](#1.1.0) |21 de fevereiro de 2018|--- |
 | [1.0.0](#1.0.0) |15 de novembro de 2017|--- |
@@ -88,7 +91,7 @@ ao tentar usar o pacote Microsoft.Azure.CosmosDB.Table NuGet, você tem duas op�
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
     
-* Usando a ferramenta de gerenciamento de pacotes Nuget preferencial, instale o pacote Nuget Microsoft.Azure.Storage.Common antes de instalar o Microsoft.Azure.CosmosDB.Table.
+* Usando a ferramenta de gerenciamento de pacotes NuGet preferencial, instale o pacote NuGet Microsoft.Azure.Storage.Common antes de instalar o Microsoft.Azure.CosmosDB.Table.
 
 ## <a name="faq"></a>Perguntas frequentes
 

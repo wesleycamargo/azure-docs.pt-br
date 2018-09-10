@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f8f626143e74d65fa9d4e37e1e2bfda37501f102
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e7f9c0c3ad11cb6988f528503d614ab26dcc0968
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41917649"
 ---
 # <a name="run-applications-in-kubernetes"></a>Executar aplicativos no Kubernetes
 
@@ -42,7 +43,7 @@ Se você ainda não realizou essas etapas e deseja continuar acompanhando, retor
 
 Neste tutorial, o ACR (Registro de Contêiner do Azure) foi usado para armazenar uma imagem de contêiner. Antes de executar o aplicativo, o nome do servidor de logon do ACR precisa ser atualizado no arquivo de manifesto do Kubernetes.
 
-Obter o nome do servidor de logon ACR com o comando [az acr list](/cli/azure/acr#az_acr_list).
+Obter o nome do servidor de logon ACR com o comando [az acr list](/cli/azure/acr#az-acr-list).
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -66,7 +67,7 @@ Salve e feche o arquivo.
 
 ## <a name="deploy-application"></a>Implantar um aplicativo
 
-Use o comando [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) para executar o aplicativo. Esse comando analisa o arquivo de manifesto e cria objetos Kubernetes definidos.
+Use o comando [kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) para executar o aplicativo. Esse comando analisa o arquivo de manifesto e cria objetos Kubernetes definidos.
 
 ```azurecli-interactive
 kubectl create -f azure-vote-all-in-one-redis.yml
@@ -85,7 +86,7 @@ service "azure-vote-front" created
 
 Um [serviço Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) é criado que expõe o aplicativo para a internet. Esse processo pode levar alguns minutos. 
 
-Para monitorar o andamento, use o comando [kubectl get service](https://review.docs.microsoft.com/azure/container-service/container-service-kubernetes-walkthrough?branch=pr-en-us-17681) com o argumento `--watch`.
+Para monitorar o andamento, use o comando [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) com o argumento `--watch`.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch

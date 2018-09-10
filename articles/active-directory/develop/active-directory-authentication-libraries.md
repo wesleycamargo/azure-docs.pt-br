@@ -17,12 +17,12 @@ ms.date: 04/13/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 143ee99c581db052c1dbcbf46decce356ee96fa6
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 6cf01bfe0b88150f7d2b200031c96ffb703ade0a
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258049"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145057"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de Autenticação do Active Directory do Azure
 
@@ -44,11 +44,11 @@ A Biblioteca de Autenticação do Azure Active Directory (ADAL) v1.0 permite que
 | Cliente .NET, Windows Store, UWP, Xamarin iOS e Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Aplicativo da área de trabalho](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Referência](https://docs.microsoft.com/dotnet/api/?view=identitymodelclientsad-3.13.9) |
 | Cliente .NET, Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [Aplicativo da área de trabalho](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | |
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Aplicativo de Página Única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
-| iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[Aplicativo iOS](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Referência](https://cocoadocs.org/docsets/ADAL/)|
+| iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[Aplicativo iOS](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Referência](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
 | Android |ADAL |[O Repositório Central](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Aplicativo Android](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
-| Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Aplicativo Web Node.js](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)| |
-| Java |ADAL4J |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Aplicativo Web Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | |
-| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Aplicativo Web do Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) | [Referência](http://adal-python.readthedocs.io/en/latest/) |
+| Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Aplicativo Web Node.js](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)|[Referência](https://docs.microsoft.com/javascript/api/adal-node/?view=azure-node-latest) |
+| Java |ADAL4J |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3Aadal4j%20g%3Acom.microsoft.azure) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Aplicativo Web Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) |[Referência](http://javadoc.io/doc/com.microsoft.azure/adal4j) |
+| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Aplicativo Web do Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) |[Referência](http://adal-python.readthedocs.io/) |
 
 ## <a name="microsoft-supported-server-libraries"></a>Bibliotecas de servidor com suporte da Microsoft
 
@@ -83,6 +83,6 @@ Nesse cenário, um desenvolvedor tem um aplicativo Web em execução num servido
 
 ## <a name="see-also"></a>Veja também
 
-- [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
-- [Cenários de autenticação do Active Directory do Azure](active-directory-authentication-scenarios.md)
-- [Exemplos de código do Active Directory do Azure](active-directory-code-samples.md)
+- [Guia do desenvolvedor do Active Directory do Azure](azure-ad-developers-guide.md)
+- [Cenários de autenticação do Active Directory do Azure](authentication-scenarios.md)
+- [Exemplos de código do Active Directory do Azure](sample-v1-code.md)

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: ed1a307cb2a2613fc7701392cd7b408715f10910
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215223"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
 O Service Fabric do Azure introduz um modelo de integridade que fornece avaliação e relatório de integridade avançados, flexíveis e extensíveis. O modelo permite o monitoramento do estado quase em tempo real do cluster e dos serviços que são executados nele. Você pode obter as informações sobre integridade facilmente e corrigir possíveis problemas antes que eles se espalhem e causem interrupções massivas. No modelo comum, os serviços enviam relatórios com base na respectiva exibição local e as informações são agregadas para fornecer uma exibição geral no nível de cluster.
@@ -116,7 +117,7 @@ O exemplo a seguir é um trecho de um manifesto do cluster. Para definir as entr
 A [política de integridade do aplicativo](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) descreve como a avaliação da agregação dos estados de eventos e filhos é feita para aplicativos e seus filhos. Ela pode ser definida no manifesto do aplicativo, **ApplicationManifest.xml**, no pacote de aplicativos. Se nenhuma política for especificada, o Service Fabric suporá que a entidade não está íntegra se ela tiver um relatório de integridade ou um filho no estado de integridade com erro ou aviso.
 As políticas configuráveis são:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Especifica se os relatórios de integridade Aviso devem ser tratados como erros durante a avaliação de integridade. Padrão: falso.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica se os relatórios de integridade Aviso devem ser tratados como erros durante a avaliação de integridade. Padrão: falso.
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Especifica a porcentagem máxima tolerada de aplicativos implantados que podem estar não íntegros antes de o aplicativo ser considerado com erro. Este percentual é calculado pela divisão do número de aplicativos implantados não íntegros pelo número de nós em que os aplicativos estão atualmente implantados no cluster. O cálculo é arredondado para cima para tolerar uma falha em um número pequeno de nós. Porcentagem padrão: zero.
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Especifica a política de integridade do tipo de serviço padrão, que substitui a política de integridade padrão para todos os tipos de serviço no aplicativo.
 * [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Fornece um mapa de políticas de integridade do serviço por tipo de serviço. Estas políticas substituem as políticas de integridade do tipo de serviço padrão para cada tipo de serviço especificado. Por exemplo, se um aplicativo tiver um tipo de serviço de gateway sem estado e um tipo de serviço de mecanismo com estado, você poderá configurar as políticas de integridade da avaliação de maneira diferente. Ao especificar a política por tipo de serviço você permite um controle mais granular da integridade do serviço.
@@ -185,8 +186,8 @@ Depois que o Repositório de Integridade tiver avaliado todos os filhos, ele agr
 
 * Se todos os filhos tiverem estados OK, o estado de integridade agregada dos filhos será OK.
 * Se todos os filhos tiverem estados OK e aviso, o estado de integridade agregada dos filhos é um aviso.
-* Se houver filhos com estados de erro que não respeitarem a porcentagem máxima permitida de filhos não íntegros, o estado de integridade agregada é um erro.
-* Se os filhos com estados de erro respeitarem a porcentagem máxima permitida de filhos não íntegros, o estado de integridade agregada é um aviso.
+* Se houver filhos com estados de erro que não respeitem a porcentagem máxima permitida de filhos não íntegros, o estado de integridade pai agregado será um erro.
+* Se os filhos com estados de erro respeitarem a porcentagem máxima permitida de filhos não íntegros, o estado de integridade pai agregado será um aviso.
 
 ## <a name="health-reporting"></a>Relatório de integridade
 Os componentes do sistema, os aplicativos do System Fabric e os watchdogs internos/externos podem ser relatados em relação às entidades do Service Fabric. Os relatores fazem uma determinação *local* da integridade da entidades monitoradas com base em algumas condições que estão monitorando. Eles não precisam observar nenhum estado global ou dados agregados. O comportamento desejado é ter relatores simples e organismos não complexos que precisariam observar muitas circunstâncias para inferir quais informações enviar.

@@ -1,25 +1,20 @@
 ---
-title: Visão geral da extensão Diagnóstico do Azure | Microsoft Docs
+title: Visão geral da extensão do Diagnóstico do Azure
 description: Usar o diagnóstico do Azure para depurar, medir o desempenho, monitorar e analisar o tráfego em serviços de nuvem, em máquinas virtuais e no Service Fabric
-services: multiple
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: ''
-editor: ''
-ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 05/01/2018
+ms.topic: conceptual
+ms.date: 07/13/2018
 ms.author: robb
-ms.openlocfilehash: daeaddefa461e71fcc62af4efc4fb7084b237cf9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: diagnostic-extension
+ms.openlocfilehash: b00d774ec59755288b8660d238c7b8dfc9a89eab
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886388"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089886"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>O que é a extensão Diagnóstico do Azure
 A extensão Diagnóstico do Azure é um agente no Azure que permite a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de várias fontes diferentes. As que têm suporte no momento são as Funções de Trabalho ou Web do Serviço de Nuvem do Azure (clássico), as Máquinas Virtuais, os conjuntos de dimensionamento de Máquinas Virtuais e o Service Fabric. Outros serviços do Azure têm métodos diferentes de diagnósticos. Consulte [Visão geral do monitoramento no Azure](monitoring-overview.md). 
@@ -37,10 +32,12 @@ A extensão Diagnóstico do Azure pode coletar os seguintes tipos de dados:
 | Logs de Eventos do Windows |Informações enviadas ao sistema de log de eventos do Windows |
 | Fonte de evento do .NET |Eventos de gravação de código usando a classe [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) do .NET |
 | Logs IIS |Informações sobre sites do IIS |
-| Manifesto com base no ETW |Rastreamento de Eventos para eventos do Windows gerados por qualquer processo |
+| Manifesto com base no ETW |Rastreamento de Eventos para eventos do Windows gerados por qualquer processo.(1) |
 | Despejos de falhas |Informações sobre o estado do processo no caso de uma falha do aplicativo |
 | Logs de erros personalizados |Logs criados por seu aplicativo ou serviço |
 | Logs de infraestrutura do Diagnóstico do Azure |Informações sobre o próprio Diagnóstico |
+
+(1) para obter uma lista de provedores ETW, execute `c:\Windows\System32\logman.exe query providers` em uma janela de console no computador do qual você gostaria de coletar informações. 
 
 ## <a name="data-storage"></a>Armazenamento de dados
 A extensão armazena seus dados em uma [conta do Armazenamento do Azure](azure-diagnostics-storage.md) especificada. 

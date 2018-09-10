@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 06/18/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b3f274c2bf457760a1d62d5cc369ebdb0c52c59
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 351f3e34f5050d922655a633ec89f51d191b946e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291961"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: considerações especiais para instâncias
 O Azure AD Connect é mais comumente usado com a instância mundial do Azure AD e o Office 365. Mas também existem outras instâncias que têm requisitos diferentes para URLs e outras considerações especiais.
@@ -36,8 +38,6 @@ Ao entrar em seu locatário do Azure AD, você deverá usar uma conta com o dom�
 
 Recursos atualmente indisponíveis no Microsoft Cloud Alemanha:
 
-* O **Azure AD Connect Health** não está disponível.
-* As **Atualizações automáticas** não estão disponíveis.
 * O **Write-back de senha** está disponível em versão prévia no Azure AD Connect versão 1.1.570.0 e posteriores.
 * Outros serviços do Azure AD Premium não estão disponíveis.
 
@@ -59,8 +59,6 @@ Esta nuvem teve suporte em versões mais antigas do DirSync. A partir da build 1
 
 Recursos atualmente indisponíveis na nuvem do Microsoft Azure Governamental:
 
-* O **Azure AD Connect Health** não está disponível.
-* As **Atualizações automáticas** não estão disponíveis.
 * O **Write-back de senha** está disponível em versão prévia no Azure AD Connect versão 1.1.570.0 e posterior.
 * Outros serviços do Azure AD Premium não estão disponíveis.
 

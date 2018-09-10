@@ -1,30 +1,27 @@
 ---
-title: "Segurança no Azure IoT Edge | Microsoft Docs"
-description: "Segurança, autenticação e autorização de dispositivos IoT Edge"
-services: iot-edge
-keywords: 
+title: Segurança no Azure IoT Edge | Microsoft Docs
+description: Segurança, autenticação e autorização de dispositivos IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8a5bf1f35fcdd779cf27edeba7dfd5705cbae205
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+services: iot-edge
+ms.openlocfilehash: f198efe9ff5e4862a3bbe872ab50e5848c9dbb5c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030573"
 ---
-# <a name="securing-azure-iot-edge---preview"></a>Segurança Azure IoT Edge - versão prévia
+# <a name="securing-azure-iot-edge"></a>Protegendo Azure IoT Edge
 
 Protegendo a borda inteligente é necessário concede confiança na operação de uma solução de IoT de ponta a ponta. Azure IoT Edge destina-se a segurança é extensível para perfis de risco diferentes cenários de implantação, e oferece a mesma proteção que você espera de todos os serviços do Azure.
 
 Azure IoT Edge é executado em um hardware diferente, dá suporte a Linux e Windows e é aplicável aos cenários de implantação diferentes.  Risco avaliado depende de muitas considerações, incluindo a propriedade da solução, geografia de implantação, confidencialidade de dados, privacidade, requisitos normativos e vertical do aplicativo.  Em vez de oferecer soluções concretas para cenários específicos, faz sentido criar uma estrutura de segurança extensível baseada em princípios com aterramento bem projetados para a escala. 
  
 Este artigo fornece uma visão geral da segurança estrutural. Para obter mais informações, consulte [Protegendo borda inteligente][lnk-edge-blog].
-
->[!NOTE]
->A estrutura de segurança descrita abaixo é adicionar ao produto agora e estará disponível no momento do lançamento da disponibilidade geral do Azure IoT Edge. O produto está atualmente em visualização pública, uma versão pretende permitir o desenvolvimento e protótipos de soluções de borda, implantações de produção completo não precisam do framework de segurança completa.   
 
 ## <a name="standards"></a>Padrões
 

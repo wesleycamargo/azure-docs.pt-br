@@ -3,16 +3,17 @@ title: Introdução ao Armazenamento do Azure – Armazenamento em nuvem no Azur
 description: O Armazenamento do Azure é uma solução de armazenamento em nuvem. O Armazenamento do Azure oferece armazenamento para objetos de dados altamente disponível, seguro, durável, altamente escalonável e redundante.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 04/05/2018
+ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: 8fc94db3e44fc5388063b507cf240863fcc26a3c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: common
+ms.openlocfilehash: 59e6f4126e8a39ab695015fae2a2013529383418
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920810"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -31,7 +32,7 @@ O Armazenamento do Azure inclui esses serviços de dados:
 - [Blobs do Azure](../blobs/storage-blobs-introduction.md): um repositório de objetos altamente escalonável para texto e dados binários.
 - [Arquivos do Azure](../files/storage-files-introduction.md): compartilhamentos de arquivos gerenciados para implantações locais e em nuvem.
 - [Filas do Azure](../queues/storage-queues-introduction.md): um armazenamento de mensagens para um sistema de mensagens confiável entre componentes do aplicativo. 
-- [Tabelas do Azure](../../cosmos-db/table-storage-overview.md): Um armazenamento NoSQL para um armazenamento sem esquemas de dados estruturados.
+- [Tabelas do Azure](../tables/table-storage-overview.md): Um armazenamento NoSQL para um armazenamento sem esquemas de dados estruturados.
 
 Cada serviço é acessado através de uma conta de armazenamento. Para usá-los, consulte [Criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
@@ -47,7 +48,7 @@ O armazenamento de Blobs é ideal para:
 * Armazenamento de dados de backup e restauração, recuperação de desastres e arquivamento.
 * Armazenamento de dados para análise por um serviço local ou hospedado no Azure.
 
-Os objetos no armazenamento de Blobs podem ser acessados de qualquer lugar no mundo via HTTP ou HTTPS. Usuários ou aplicativos cliente podem acessar blobs por meio de URLs, da [API REST do Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), do [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), da [CLI do Azure](https://docs.microsoft.com/cli/azure/storage) ou de uma biblioteca de cliente de Armazenamento do Azure. As bibliotecas de clientes de armazenamento estão disponíveis para várias linguagens, incluindo [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/en/latest/index.html), [PHP](http://azure.github.io/azure-storage-php/) e [Ruby](http://azure.github.io/azure-storage-ruby).
+Os objetos no armazenamento de Blobs podem ser acessados de qualquer lugar no mundo via HTTP ou HTTPS. Usuários ou aplicativos cliente podem acessar blobs por meio de URLs, da [API REST do Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), do [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), da [CLI do Azure](https://docs.microsoft.com/cli/azure/storage) ou de uma biblioteca de cliente de Armazenamento do Azure. As bibliotecas de clientes de armazenamento estão disponíveis para várias linguagens, incluindo [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](http://azure.github.io/azure-storage-php/) e [Ruby](http://azure.github.io/azure-storage-ruby).
 
 Para mais informações sobre o Armazenamento de Blobs do Azure, confira [Introdução ao armazenamento de objetos no Azure](../blobs/storage-blobs-introduction.md).
 
@@ -78,13 +79,13 @@ Para obter mais informações sobre Filas do Azure, consulte [Introdução às F
 
 ## <a name="table-storage"></a>Armazenamento de tabela
 
-O armazenamento de Tabelas do Azure agora faz parte do Azure Cosmos DB. Para ver a documentação do armazenamento de Tabelas do Azure, veja a [Visão geral do Armazenamento de Tabelas do Azure](../../cosmos-db/table-storage-overview.md). Além do serviço de armazenamento de Tabelas do Azure existente, há uma nova oferta de API de Tabela do Azure Cosmos DB que fornece tabelas otimizadas de taxa de transferência, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência premium, confira [API de Tabela do Azure Cosmos DB](https://aka.ms/premiumtables).
+O armazenamento de Tabelas do Azure agora faz parte do Azure Cosmos DB. Para ver a documentação do armazenamento de Tabelas do Azure, veja a [Visão geral do Armazenamento de Tabelas do Azure](../tables/table-storage-overview.md). Além do serviço de armazenamento de Tabelas do Azure existente, há uma nova oferta de API de Tabela do Azure Cosmos DB que fornece tabelas otimizadas de taxa de transferência, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência premium, confira [API de Tabela do Azure Cosmos DB](https://aka.ms/premiumtables).
 
-Para saber mais informações sobre o armazenamento de tabelas, consulte [Visão geral do armazenamento de Tabelas do Azure](../../cosmos-db/table-storage-overview.md).
+Para saber mais informações sobre o armazenamento de tabelas, consulte [Visão geral do armazenamento de Tabelas do Azure](../tables/table-storage-overview.md).
 
 ## <a name="disk-storage"></a>Armazenamento em disco
 
-O Armazenamento do Azure também inclui recursos de disco gerenciados e usados por máquinas virtuais. Para obter mais informações sobre esses recursos, consulte a [documentação do Serviço de Computação](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+O Armazenamento do Azure também inclui recursos de disco gerenciados e usados por máquinas virtuais. Para obter mais informações sobre esses recursos, consulte a [documentação do Serviço de Computação](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Tipos de contas de armazenamento
 
@@ -139,7 +140,8 @@ Há dois tipos básicos de criptografia disponíveis para os serviços de Armaze
 
 A SSE (Criptografia do Serviço de Armazenamento) do Azure em repouso ajuda a proteger seus dados para atender aos compromissos de conformidade e segurança de sua organização. Com esse recurso, o Armazenamento do Azure criptografa automaticamente seus dados antes de persistir no armazenamento e os descriptografa antes da recuperação. A criptografia, a descriptografia e o gerenciamento de chaves são totalmente transparentes para os usuários.
 
-A SSE criptografa automaticamente os dados em todos os níveis de desempenho (Standard e Premium), em todos os modelos de implantação (Azure Resource Manager e Clássico) e em todos os serviços do Armazenamento do Microsoft Azure (Blobs, Filas, Tabelas e Arquivos). A SSE não afeta o desempenho do Armazenamento do Microsoft Azure.
+
+A SSE criptografa automaticamente os dados em todos os níveis de desempenho (Standard e Premium), em todos os modelos de implantação (Azure Resource Manager e Clássico) e em todos os serviços do Armazenamento do Azure (Blobs, Filas, Tabelas e Arquivos). A SSE não afeta o desempenho do Armazenamento do Azure.
 
 Para saber mais sobre a criptografia de SSE em repouso, consulte [Criptografia de serviço do Armazenamento do Azure para dados em repouso](storage-service-encryption.md).
 
@@ -167,6 +169,8 @@ Você pode usar o utilitário de linha de comando AzCopy para copiar dados de ar
 O AzCopy se baseia na [Biblioteca de Movimentação de Dados do Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), que atualmente está disponível na visualização.
 
 O serviço de Importação/Exportação do Azure pode ser usado para importar ou exportar grandes quantidades de dados de blobs de ou para sua conta de armazenamento. Você prepara e envia vários discos rígidos para um data center do Azure, onde eles transferirão os dados de/para discos rígidos e enviarão os discos rígidos de volta para você. Para obter mais informações sobre o serviço de Importação/Exportação, consulte [Usar o Serviço de Importação/Exportação do Microsoft Azure para Transferir Dados para o Armazenamento de Blobs](../storage-import-export-service.md).
+
+Para importar grandes quantidades de dados de blob para sua conta de armazenamento rápido, barato e uma maneira confiável, você também pode usar o disco do Azure Data Box. A Microsoft fornece até cinco SSDs (discos de estado sólido) criptografados com capacidade de 40 TB para seu datacenter por meio de uma operadora regional. Você configura rapidamente os discos, copiar dados para discos em uma conexão USB e enviar os discos de volta para o Azure. No datacenter do Azure, seus dados são carregados automaticamente de unidades para a nuvem. Para saber mais sobre essa solução, acesse [Visão geral do disco do Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## <a name="pricing"></a>Preços
 

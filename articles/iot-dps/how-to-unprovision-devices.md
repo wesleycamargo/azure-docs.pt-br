@@ -1,22 +1,19 @@
 ---
 title: Como desprovisionar dispositivos que foram provisionados com Provisionamento de Dispositivos no Hub IoT | Microsoft Docs
 description: Como desprovisionar dispositivos que foram provisionados com Provisionamento de Dispositivos no Hub IoT
-services: iot-dps
-keywords: ''
-author: bryanla
-ms.author: v-jamebr;bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 05/11/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: 87932c1ae1676d36ea0eb1ba7885f2ac455949ae
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 3c6e2a9006d73d269422292dc959866d3f6d8a82
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522665"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Como desprovisionar dispositivos autoprovisionados anteriormente 
 

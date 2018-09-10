@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235012"
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Habilitar criptografia para conta de armazenamento do Azure na Central de Segurança do Azure
 A Central de Segurança do Azure pode aconselhar você a habilitar a Criptografia do Serviço de Armazenamento do Azure para dados em repouso.

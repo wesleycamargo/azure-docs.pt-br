@@ -1,11 +1,11 @@
 ---
-title: "Catálogo de backup do StorSimple Snapshot Manager | Microsoft Docs"
-description: "Descreve como usar o snap-in StorSimple Snapshot Manager MMC para exibir e gerenciar o catálogo de backup."
+title: Catálogo de backup do StorSimple Snapshot Manager | Microsoft Docs
+description: Descreve como usar o snap-in StorSimple Snapshot Manager MMC para exibir e gerenciar o catálogo de backup.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111284"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup
 
@@ -91,7 +92,7 @@ Use o procedimento a seguir para criar uma duplicata (clone) de um volume ou gru
    
    1. Na caixa de texto **Nome** , digite um nome para o volume clonado. Esse nome aparecerá no nó **Volumes** . 
    2. (Opcional) Selecione a **Unidade**e selecione uma letra da unidade na lista suspensa.
-   3. (Opcional) Selecione **Pasta (NTFS)**e digite um caminho de pasta ou clique em Procurar e selecione um local para a pasta. 
+   3. (Opcional) Selecione **Pasta (NTFS)** e digite um caminho de pasta ou clique em Procurar e selecione um local para a pasta. 
    4. Clique em **Criar**.
 5. Quando o processo de clonagem for concluído, você precisa inicializar o volume clonado. Inicie o Gerenciador do Servidor e inicie o gerenciamento de disco. Para obter instruções detalhadas, consulte [Montar volumes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Depois que é inicializado, o volume é listado no nó **Volumes** no painel **Escopo**. Se você não vir o volume listado, atualize a lista de volumes (clique com o botão direito do mouse no nó **Volumes** e clique em **Atualizar**).
 

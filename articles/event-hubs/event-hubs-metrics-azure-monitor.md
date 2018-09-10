@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2018
-ms.author: sethm
-ms.openlocfilehash: 445b439ff77a88a4b7783427f5fab0e40a485542
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: e65fc329af0af585caf20c26bd2ef79a1f39d501
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140193"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Métricas do Hub de Eventos do Azure no Azure Monitor (versão prévia)
 
@@ -30,7 +31,7 @@ O Azure Monitor fornece interfaces de usuário unificadas para monitoramento ent
 
 O Azure Monitor fornece várias maneiras de acessar as métricas. Você pode acessar as métricas por meio do [Portal do Azure](https://portal.azure.com) ou usar as APIs do Azure Monitor (REST e .NET) e as soluções de análise como o Operation Management Suite e os Hubs de Eventos. Para obter mais informações, consulte [Métricas do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
-As métricas estão habilitadas por padrão e você pode acessar os dados dos últimos 30 dias. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Isso pode ser configurado em [configurações de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) no Azure Monitor.
+As métricas estão habilitadas por padrão e você pode acessar os dados dos últimos 30 dias. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Isso pode ser configurado em [configurações de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) no Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Acessar as métricas no portal
 

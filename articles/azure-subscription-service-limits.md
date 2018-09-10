@@ -1,26 +1,21 @@
 ---
-title: Limites e cotas de assinatura do Azure | Microsoft Docs
+title: Limites e cotas de assinatura do Azure
 description: Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Isso inclui informações sobre como aumentar os limites junto com os valores máximos.
-services: ''
-documentationcenter: ''
+services: multiple
 author: rothja
 manager: jeffreyg
-editor: ''
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 08/16/2018
 ms.author: byvinyal
-ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6b6e713c0da11a3d2c8cfbf388b84940a4542e95
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939953"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141825"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Com o passar do tempo, a lista será expandida e atualizada para uma maior cobertura da plataforma.
@@ -53,8 +48,11 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Application Insights](#application-insights-limits)
 * [Automação](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Banco de Dados do Azure para MySQL](#azure-database-for-mysql)
+* [Banco de Dados do Azure para PostgreSQL](#azure-database-for-postgresql)
 * [Grade de Eventos do Azure](#azure-event-grid-limits)
 * [Mapas do Azure](#azure-maps-limits)
+* [Azure Policy](#azure-policy-limits)
 * [Cache Redis do Azure](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -63,17 +61,19 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Serviços de Nuvem](#cloud-services-limits)
 * [Instâncias de Contêiner](#container-instances-limits)
 * [Registro de Contêiner](#container-registry-limits)
-* [Serviço do Kubernetes](#container-service-aks-limits)
+* [Serviço do Kubernetes](#kubernetes-service-limits)
 * [Fábrica de dados](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [Serviço de Migração do Banco de Dados](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Hubs de Evento](#event-hubs-limits)
+* [Firewall do Azure](#azure-firewall-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Serviço de Provisionamento de Dispositivos no Hub IoT](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
+* [Identidade gerenciada](#managed-identity-limits)
 * [Serviços de Mídia](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Serviços Móveis](#mobile-services-limits)
@@ -83,6 +83,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Observador de Rede](#network-watcher-limits)
 * [Serviço de hub de notificação](#notification-hub-service-limits)
 * [Grupo de recursos](#resource-group-limits)
+* [Controle de acesso baseado em função](#role-based-access-control-limits)
 * [Agendador](#scheduler-limits)
 * [Search](#search-limits)
 * [Barramento de Serviço](#service-bus-limits)
@@ -152,6 +153,9 @@ A tabela a seguir fornece detalhes sobre os recursos e os limites das [camadas d
 #### <a name="dns-limits"></a>Limites de DNS
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
+#### <a name="azure-firewall-limits"></a>Limites de Firewall do Azure
+[!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
+
 ### <a name="storage-limits"></a>Limites de armazenamento
 Para obter mais detalhes sobre os limites da conta de armazenamento, veja [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage/common/storage-scalability-targets.md).
 
@@ -214,6 +218,12 @@ A tabela a seguir mostra os limites para os serviços Biztalk do Azure.
 
 ### <a name="azure-cosmos-db-limits"></a>Limites do Azure Cosmos DB
 O Azure Cosmos DB é um banco de dados de escala global no qual o armazenamento e a produtividade podem ser dimensionados para atender às necessidades de seu aplicativo. Em caso de dúvidas sobre a escala fornecida pelo Azure Cosmos DB, envie um email para askcosmosdb@microsoft.com.
+
+### <a name="azure-database-for-mysql"></a>Banco de Dados do Azure para MySQL
+Para limites do Banco de Dados do Azure para MySQL, consulte [Limitações no Banco de Dados do Azure para MySQL](mysql/concepts-limits.md).
+
+### <a name="azure-database-for-postgresql"></a>Banco de Dados do Azure para PostgreSQL
+Para limites do Banco de Dados do Azure para PostgreSQL, consulte [Limitações no Banco de Dados do Azure para PostgreSQL](postgresql/concepts-limits.md).
 
 ### <a name="mobile-engagement-limits"></a>Limites do Mobile Engagement 
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
@@ -286,6 +296,9 @@ Para saber mais sobre limites em um nível mais granular, como o tamanho do docu
 ### <a name="azure-maps-limits"></a>Limites do Azure Mapas
 [!INCLUDE [maps-limits](../includes/maps-limits.md)]
 
+### <a name="azure-policy-limits"></a>Limites do Azure Policy
+[!INCLUDE [policy-limits](../includes/azure-policy-limits.md)]
+
 ### <a name="storsimple-system-limits"></a>Limites do sistema StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
@@ -316,8 +329,14 @@ Para saber mais sobre limites em um nível mais granular, como o tamanho do docu
 ### <a name="automation-limits"></a>Limites de automação
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
+### <a name="managed-identity-limits"></a>Limites de identidade gerenciada
+[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+
+### <a name="role-based-access-control-limits"></a>Limites de controle de acesso baseado em função
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
+
 ### <a name="sql-database-limits"></a>Limites de banco de dados SQL
-Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco de Dados SQL](sql-database/sql-database-resource-limits.md).
+Para conferir os limites do Banco de Dados SQL, veja [Limites de recursos de Banco de Dados SQL para bancos de dados individuais](sql-database/sql-database-vcore-resource-limits-single-databases.md) e [Limites de recursos de Banco de Dados SQL para pools elásticos e bancos de dados em pool](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### <a name="sql-data-warehouse-limits"></a>Limites do SQL Data Warehouse
 Para limites do SQL Data Warehouse, consulte [Limites de recursos do SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).

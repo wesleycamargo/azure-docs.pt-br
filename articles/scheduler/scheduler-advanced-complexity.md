@@ -1,11 +1,11 @@
 ---
-title: "Como compilar agendas complexas e recorrência avançada com o Agendador do Microsoft Azure"
-description: "Como compilar agendas complexas e recorrência avançada com o Agendador do Microsoft Azure."
+title: Como compilar agendas complexas e recorrência avançada com o Agendador do Microsoft Azure
+description: Como compilar agendas complexas e recorrência avançada com o Agendador do Microsoft Azure.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692327"
 ---
 # <a name="build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Como compilar agendas complexas e recorrência avançada com o Agendador do Microsoft Azure
 

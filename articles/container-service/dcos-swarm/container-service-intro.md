@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32166330"
 ---
 # <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Introdução às soluções de hospedagem de contêineres do Docker com o Serviço de Contêiner do Azure 
 

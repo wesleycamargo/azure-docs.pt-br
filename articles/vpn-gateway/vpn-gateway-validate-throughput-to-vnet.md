@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7e6b3e7496c4a063156ff3b8feae1f5096efe55f
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035611"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar a taxa de transferência VPN para uma rede virtual
 
@@ -53,7 +54,7 @@ O diagrama a seguir mostra a conectividade lógica de uma rede local para uma re
 4.  Determine a largura de banda do Provedor de Serviços de Internet (ISP).
 5.  Calcule sua taxa de transferência esperada - Menor largura de banda de (VM, Gateway, ISP) * 0,8.
 
-Se a taxa de transferência calculada não atender aos requisitos de taxa de transferência de linha de base do aplicativo, será necessário aumentar a largura de banda do recurso identificado como o gargalo. Para redimensionar um Gateway de VPN do Azure, consulte [Alterar um SKU de gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para redimensionar uma máquina virtual, consulte [Redimensionar uma VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Se não houver largura de banda de Internet esperada, também convém entrar em contato com seu ISP.
+Se a taxa de transferência calculada não atender aos requisitos de taxa de transferência de linha de base do aplicativo, será necessário aumentar a largura de banda do recurso identificado como o gargalo. Para redimensionar um Gateway de VPN do Azure, consulte [Alterar um SKU de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para redimensionar uma máquina virtual, consulte [Redimensionar uma VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Se não houver largura de banda de Internet esperada, também convém entrar em contato com seu ISP.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Validar a taxa de transferência de rede usando as ferramentas de desempenho
 
@@ -87,7 +88,7 @@ Baixar [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para 
     ```CMD
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
-    </br>
+     
     **Linux do Azure:** as imagens do Linux do Azure têm firewalls permissivos. Se houver um aplicativo escutando em uma porta, o tráfego será permitido. Imagens personalizadas que são protegidas podem precisar de portas abertas explicitamente. Os firewalls da camada de OS do Linux comuns incluem `iptables`, `ufw`, ou `firewalld`.
 
 3. No nó de servidor, altere para o diretório onde o iperf3.exe é extraído. Em seguida, execute o iPerf no modo de servidor e configure-o para escutar na porta 5001, de acordo com os seguintes comandos:

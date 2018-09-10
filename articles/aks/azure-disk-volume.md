@@ -2,18 +2,19 @@
 title: Usar discos do Azure com AKS
 description: Usar discos do Azure com AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: nepeters
+ms.date: 05/21/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b790213e19b9f2aaef74a3f670c89246f54fd6d7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: aa9b92df84a48ef4cb706e9e89e0f6c0a25cd42a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420485"
 ---
 # <a name="volumes-with-azure-disks"></a>Volumes com discos do Azure
 
@@ -23,44 +24,43 @@ Para obter mais informações sobre volumes Kubernetes, consulte [Volumes Kubern
 
 ## <a name="create-an-azure-disk"></a>Criar um disco do Azure
 
-Antes de montar um disco gerenciado do Azure como um volume do Kubernetes, o disco deverá existir no mesmo grupo de recursos que os recursos de cluster do AKS. Para localizar esse grupo de recursos, utilize o comando [az group list][az-group-list].
+Antes de montar um disco gerenciado do Azure como um volume do Kubernetes, o disco deverá existir no grupo de recursos do **nó** do AKS. Obtenha o nome do grupo de recursos com o comando [az resource show][az-resource-show].
 
 ```azurecli-interactive
-az group list --output table
-```
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-Você está procurando um grupo de recursos com um nome semelhante a `MC_clustername_clustername_locaton`, em que clustername é o nome do cluster do AKS e location é a região do Azure onde o cluster foi implantado.
-
-```console
-Name                                 Location    Status
------------------------------------  ----------  ---------
-MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
-myAKSCluster                         eastus      Succeeded
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Utilize o comando [az disk create][az-disk-create] para criar o disco do Azure.
 
-Usando este exemplo, atualize `--resource-group` com o nome do grupo de recursos e `--name` para um nome de sua escolha.
+Atualize `--resource-group` com o nome do grupo de recursos obtido na última etapa e `--name` para um nome de sua escolha.
 
 ```azurecli-interactive
 az disk create \
-  --resource-group MC_myAKSCluster_myAKSCluster_eastus \
+  --resource-group MC_myResourceGroup_myAKSCluster_eastus \
   --name myAKSDisk  \
   --size-gb 20 \
   --query id --output tsv
 ```
 
-Depois que o disco tiver sido criado, você deverá ver uma saída semelhante à seguinte. Esse valor é a ID do disco, que é utilizado ao montar o disco em um Pod do Kubernetes.
+Depois que o disco tiver sido criado, você deverá ver uma saída semelhante à seguinte. Esse valor é a ID do disco, que é utilizada ao montar o disco.
 
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
+> [!NOTE]
+> Os Azure Managed Disks são cobrados por SKU de um tamanho específico. Essas SKUs variam de 32GiB para discos S4 ou P4 discos a 4TiB para discos S50 ou P50. Além disso, a taxa de transferência e o desempenho de IOPS de um Disco Gerenciado Premium depende do SKU e do tamanho da instância dos nós no cluster do AKS. Confira [Preços e desempenho do Managed Disks][managed-disk-pricing-performance].
+
+> [!NOTE]
+> Se precisar criar o disco em um grupo de recursos separado, adicione também a entidade de serviço do AKS (Serviço de Kubernetes do Azure) do cluster ao grupo de recursos, mantendo o disco com a função `Contributor`. 
+>
 
 ## <a name="mount-disk-as-volume"></a>Montar o disco como volume
 
 Monte o disco do Azure em seu Pod configurando o volume na especificação do contêiner.
 
-Crie um novo arquivo chamado `azure-disk-pod.yaml` com os conteúdos a seguir. Atualize `diskName` com o nome do disco recém-criado e `diskURI` com a ID do disco. Além disso, anote o `mountPath`, esse é o caminho no qual o disco do Azure é montado no Pod.
+Crie um novo arquivo chamado `azure-disk-pod.yaml` com os conteúdos a seguir. Atualize `diskName` com o nome do disco recém-criado e `diskURI` com a ID do disco. Além disso, anote o `mountPath`, que é o caminho no qual o disco do Azure é montado no pod.
 
 ```yaml
 apiVersion: v1
@@ -100,8 +100,10 @@ Saiba mais sobre os volumes do Kubernetes utilizando discos do Azure.
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
-[az-disk-list]: /cli/azure/disk#az_disk_list
-[az-disk-create]: /cli/azure/disk#az_disk_create
-[az-group-list]: /cli/azure/group#az_group_list
+[az-disk-list]: /cli/azure/disk#az-disk-list
+[az-disk-create]: /cli/azure/disk#az-disk-create
+[az-group-list]: /cli/azure/group#az-group-list
+[az-resource-show]: /cli/azure/resource#az-resource-show

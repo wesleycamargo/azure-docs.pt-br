@@ -1,21 +1,21 @@
 ---
-title: Usar AppAuth em um aplicativo iOS - Azure Active Directory B2C
+title: Usando AppAuth em um aplicativo do iOS no Azure Active Directory B2C | Microsoft Docs
 description: Este artigo mostra como criar um aplicativo iOS que usa AppAuth com o Azure Active Directory B2C para gerenciar identidades de usuário e autenticar usuários.
 services: active-directory-b2c
-documentationcenter: ios
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2017
 ms.author: davidmu
-ms.openlocfilehash: 18c3801b18fb9adb444918cc45ee70c2611b213d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 5f95b71497b59eafff09d4add2b4bb1c20656592
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339351"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: entrar usando um aplicativo iOS
 
@@ -69,13 +69,13 @@ Você pode configurar a comunicação com o Azure AD B2C especificando o ponto d
 O URI do ponto de extremidade de token pode ser gerado substituindo a ID\_do locatário e o nome\_da política na seguinte URL:
 
 ```objc
-static NSString *const tokenEndpoint = @"https://login.microsoftonline.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
+static NSString *const tokenEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
 ```
 
 O URI do ponto de extremidade de autorização pode ser gerado substituindo a ID\_do locatário e o nome\_da política na seguinte URL:
 
 ```objc
-static NSString *const authorizationEndpoint = @"https://login.microsoftonline.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
+static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
 ```
 
 Execute o seguinte código para criar o objeto AuthorizationServiceConfiguration:

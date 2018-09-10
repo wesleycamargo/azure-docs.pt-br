@@ -1,24 +1,20 @@
 ---
-title: Analisar logs de sites usando o Azure Data Lake Analytics | Microsoft Docs
-description: "Saiba como analisar os logs de site usando a Análise Data Lake. "
+title: Analisar logs de site usando o Azure Data Lake Analytics
+description: Saiba como analisar os logs de site usando a Análise Data Lake.
 services: data-lake-analytics
-documentationcenter: 
 author: saveenr
-manager: saveenr
-editor: cgronlun
+ms.author: saveenr
+ms.reviewer: jasonwhowell
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/05/2016
-ms.author: saveenr
-ms.openlocfilehash: 52d19297ae5c34f9daf5e42250a53a78e0168192
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d25aed196dd6b4ce92ae1cf18e556d1c32295d3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051960"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analisar logs de site usando o Azure Data Lake Analytics
 Saiba como analisar os logs do site usando a Análise Data Lake, principalmente para descobrir quais referenciadores resultaram em erros ao tentar visitar o site.
@@ -170,9 +166,9 @@ Você pode adicionar operadores definidos pelo usuário a este aplicativo.  Para
 1. No **Gerenciador de Servidores**, expanda **Azure**, expanda **Data Lake Analytics**, expanda sua conta do Data Lake Analytics, expanda **Contas de Armazenamento**, clique com o botão direito do mouse na conta de Armazenamento padrão do Data Lake e clique em **Gerenciador**.
 2. Clique duas vezes em **Exemplos** para abrir a pasta e, então, clique duas vezes em **Saídas**.
 3. Clique duas vezes em **UnsuccessfulResponsees.log**.
-4. Também é possível clicar duas vezes no arquivo de saída no modo de exibição de gráficos do trabalho a fim de navegar diretamente até a saída.
+4. Também é possível clicar duas vezes no arquivo de saída no modo de exibição de grafos do trabalho a fim de navegar diretamente até a saída.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 Para começar a usar a Análise Data Lake com ferramentas diferentes, consulte:
 
 * [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)

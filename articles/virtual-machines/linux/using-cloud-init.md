@@ -1,11 +1,11 @@
 ---
-title: "Visão geral do suporte de cloud-init para máquinas virtuais Linux no Azure | Microsoft Docs"
-description: "Visão geral dos recursos de cloud-init no Microsoft Azure"
+title: Visão geral do suporte de cloud-init para máquinas virtuais Linux no Azure | Microsoft Docs
+description: Visão geral dos recursos de cloud-init no Microsoft Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
 ms.service: virtual-machines-linux
@@ -15,11 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: fbb6fc15663570d9b9470fc7d4de3c8eb30de9d9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 0f7660e8534a74eabe32611c4c01ae5587af7cee
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188866"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init para máquinas virtuais no Azure
 Este artigo mostra que o suporte que existe para a [cloud-init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual VM ou conjunto de dimensionamento de máquinas virtuais (VMSS) no momento do provisionamento no Azure. Esses scripts de cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure.  
@@ -31,8 +32,10 @@ A inicialização de nuvem também funciona em distribuições. Por exemplo, voc
 
  Trabalhamos ativamente com nossos parceiros endossados de distribuição de Linux para termos imagens de cloud-init habilitadas disponíveis no marketplace do Azure. Essas imagens farão com que as suas configurações e implantações de cloud-init funcionem perfeitamente com VMs e Conjuntos de Dimensionamento de VM (VMSS). A tabela a seguir descreve a disponibilidade de imagens habilitadas de cloud-init na plataforma do Azure:
 
-| Publicador | Oferta | SKU | Versão | Cloud-init pronto
-|:--- |:--- |:--- |:--- |:--- |:--- |
+| Publicador | Oferta | SKU | Versão | Cloud-init pronto |
+|:--- |:--- |:--- |:--- |:--- |
+|Canônico |UbuntuServer |18.04-LTS |mais recente |Sim | 
+|Canônico |UbuntuServer |17.10 |mais recente |Sim | 
 |Canônico |UbuntuServer |16.04-LTS |mais recente |Sim | 
 |Canônico |UbuntuServer |14.04.5-LTS |mais recente |Sim |
 |CoreOS |CoreOS |Estável |mais recente |Sim |

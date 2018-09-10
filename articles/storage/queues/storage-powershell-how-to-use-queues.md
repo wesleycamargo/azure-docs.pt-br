@@ -2,27 +2,22 @@
 title: Executar operações no armazenamento de Fila do Azure com o PowerShell | Microsoft Docs
 description: Como executar operações no armazenamento de Fila do Azure com o PowerShell
 services: storage
-documentationcenter: storage
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: ''
+author: roygara
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
-ms.author: robinsh
-ms.openlocfilehash: bad9f1f3fd5737e865a8f4d1d15ab3d5eb68b4cb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: rogarana
+ms.component: queues
+ms.openlocfilehash: 2f347ef0bd53a8d148a56d8431e004e9e88894d8
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128564"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Fila do Azure com o Azure PowerShell
 
-O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Para obter informações detalhadas, veja [Introdução às Filas do Azure](storage-queues-introduction.md). Este artigo de instruções abrange operações comuns de armazenamento de Fila. Você aprenderá como:
+O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de HTTP ou HTTPS. Para obter informações detalhadas, veja [Introdução às Filas do Azure](storage-queues-introduction.md). Este artigo de instruções abrange operações comuns de armazenamento de Fila. Você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar uma fila
@@ -143,22 +138,22 @@ No exemplo a seguir, leia as mensagens em três filas e aguarde 10 segundos (o t
 $invisibleTimeout = [System.TimeSpan]::FromSeconds(10)
 
 # Read the message from the queue, then show the contents of the message. Read the other two messages, too.
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queueMessage 
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queueMessage 
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queueMessage 
 
 # After 10 seconds, these messages reappear on the queue. 
 # Read them again, but delete each one after reading it.
 # Delete the message.
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queue.CloudQueue.DeleteMessage($queueMessage)
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queue.CloudQueue.DeleteMessage($queueMessage)
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
 ## <a name="delete-a-queue"></a>Excluir uma fila

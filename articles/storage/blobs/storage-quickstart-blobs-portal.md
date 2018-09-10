@@ -3,23 +3,23 @@ title: Início Rápido do Azure – Criar um blob no armazenamento de objeto usa
 description: Neste início rápido, você usa o portal do Azure no armazenamento de objeto (Blob). Em seguida, use o portal do Azure para carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: 1468aa0f12a05b71e3b997e1850d345a492308f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c3f281532260cfc895ecea56666260a1df1fb0c0
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400494"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>Início rápido: Carregar, baixar e listar blobs usando o portal do Azure
 
 Neste guia de início rápido, você aprenderá a usar o [portal do Azure](https://portal.azure.com/) para criar um contêiner no Armazenamento do Azure e a carregar e baixar blobs de blocos nesse contêiner.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -32,7 +32,7 @@ Para criar um contêiner no portal do Azure, siga estas etapas:
 1. Navegue até sua nova conta de armazenamento no portal do Azure.
 2. No menu à esquerda da conta de armazenamento, role até a seção **Serviço de Blobs** e selecione **Procurar Blobs**.
 3. Clique no botão **Adicionar Contêiner**.
-4. Digite um nome para seu novo contêiner. O nome do contêiner deve estar em caixa baixa, começar com uma letra ou número e pode conter apenas letras, números e o caractere traço (-). Consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Nomenclatura e referência de contêineres, blobs e metadados) para obter mais informações sobre nomes de contêiner e de blobs.
+4. Digite um nome para seu novo contêiner. O nome do contêiner deve estar com letras minúsculas, começar com uma letra ou número e pode conter apenas letras, números e o caractere traço (-). Consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Nomenclatura e referência de contêineres, blobs e metadados) para obter mais informações sobre nomes de contêiner e de blobs.
 5. Defina o nível de acesso público ao contêiner. O nível padrão é **Privado (sem acesso anônimo)**.
 6. Clique em **OK** para criar o contêiner.
 

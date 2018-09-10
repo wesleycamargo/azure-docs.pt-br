@@ -3,7 +3,7 @@ title: Redefinir o acesso a uma VM do Linux do Azure | Microsoft Docs
 description: Como gerenciar usuários administrativos e redefinir o acesso em VMs Linux usando a extensão VMAccess e a CLI do Azure 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: danis
-ms.openlocfilehash: c023f226894d2fabb90736513e49a1ecca179d4f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.author: roiyz
+ms.openlocfilehash: 51c203c746a5256924033ebe48d9ddfdc3823b16
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165784"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39415889"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Gerenciar usuários administrativos, SSH e verificar ou reparar discos em VMs Linux do usando a extensão VMAccess com a CLI do Azure 2.0
 ## <a name="overview"></a>Visão geral
@@ -28,7 +28,7 @@ O disco em sua VM do Linux está mostrando erros. De alguma forma, você redefin
 
 Este artigo mostra como usar a extensão VMAccess do Azure para verificar ou reparar um disco, redefinir o acesso do usuário, gerenciar contas de usuário administrativo ou atualizar a configuração do SSH no Linux quando eles estão sendo executados como máquinas virtuais do Azure Resource Manager. Se precisar gerenciar máquinas virtuais Clássicas, você poderá seguir as instruções encontradas na [documentação de VM clássica](../linux/classic/reset-access-classic.md). 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="operating-system"></a>Sistema operacional
 
 A extensão de Acesso de VM pode ser executada nessas distribuições do Linux:
@@ -37,7 +37,7 @@ A extensão de Acesso de VM pode ser executada nessas distribuições do Linux:
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS e 12.04 LTS |
 | Debian | Debian 7.9+, 8.2+ |
-| RedHat | RHEL 6.7+, 7.1+ |
+| Red Hat | RHEL 6.7+, 7.1+ |
 | Oracle Linux | 6.4+, 7.0+ |
 | Suse | 11 e 12 |
 | OpenSuse | openSUSE Leap 42.2+ |

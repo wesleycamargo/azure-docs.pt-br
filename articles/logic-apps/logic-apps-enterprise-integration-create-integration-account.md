@@ -4,7 +4,7 @@ description: Criar, vincular, mover e excluir contas de integração para soluç
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2a1fe501386884e02657d4b6cbef58ffc533fa33
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166226"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297981"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Criar e gerenciar contas de integração para soluções B2B com Aplicativos Lógicos
 
@@ -58,7 +58,7 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
    | Assinatura | sim | <*Azure-subscription-name*> | O nome da assinatura do Azure a ser usado | 
    | Grupo de recursos | sim | test-integration-account-rg | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados. Para este exemplo, crie um novo grupo de recursos com o nome especificado. | 
    | Camada de preços | sim | Grátis | O tipo de preço que deseja usar. Para este exemplo, selecione **Gratuito**, mas para obter mais informações, consulte [Limites e configuração de Aplicativos Lógicos](../logic-apps/logic-apps-limits-and-config.md) e [Preços dos Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Local padrão | sim | Oeste dos EUA | A região na qual armazenar os dados da conta de integração. Selecione a mesma localização do aplicativo lógico ou crie um aplicativo lógico na mesma localização da conta de integração. Para este exemplo, | 
+   | Local padrão | sim | Oeste dos EUA | A região na qual armazenar os dados da conta de integração. Selecione a mesma localização do aplicativo lógico ou crie um aplicativo lógico na mesma localização da conta de integração. | 
    | Log Analytics | Não  | Desativar | Mantenha a configuração **Desligado** para o log de diagnósticos. | 
    ||||| 
 

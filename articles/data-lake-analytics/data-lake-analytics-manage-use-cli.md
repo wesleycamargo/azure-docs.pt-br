@@ -1,25 +1,21 @@
 ---
-title: Gerenciar o Azure Data Lake Analytics usando a Interface de Linha de Comando do Azure | Microsoft Docs
-description: Saiba como gerenciar contas, fontes de dados, trabalhos e os usuários da Análise Data Lake  usando a CLI do Azure
+title: Gerenciar o Azure Data Lake Analytics usando a interface de linha de comando do Azure
+description: Este artigo descreve como usar a CLI do Azure para gerenciar trabalhos, fontes de dados e usuários do Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: SnehaGunda
-manager: Kfile
+author: jasonwhowell
+ms.author: jasonh
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: sngun
-ms.openlocfilehash: 9504e1fcbb0128f538cb6e959cf7586f24827836
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: e265a46533264bbb1d437edbfe1bbfb3306614ad
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044816"
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Gerenciar a Análise Azure Data Lake usando a CLI (interface de linha de comando) do Azure
+# <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gerenciar o Azure Data Lake Analytics usando a CLI (interface de linha de comando) do Azure
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
@@ -214,24 +210,6 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
-
-
-## <a name="use-azure-resource-manager-groups"></a>Usar os grupos do Gerenciador de Recursos do Azure
-Os aplicativos normalmente são compostos por vários componentes, como, por exemplo, um aplicativo Web, banco de dados, servidor de banco de dados, armazenamento e serviços de terceiros. O Azure Resource Manager permite trabalhar com os recursos do seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. Você pode esclarecer a cobrança para sua organização exibindo os custos acumulados para todo o grupo. Para saber mais, consulte [Visão geral do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md). 
-
-Um serviço de Análise Data Lake pode incluir os seguintes componentes:
-
-* Conta da Análise Azure Data Lake
-* Conta padrão do Armazenamento do Azure Data Lake obrigatória
-* Adicionar outras contas do Armazenamento do Azure Data Lake
-* Contas do Armazenamento do Azure adicionais
-
-Você pode criar todos esses componentes em um grupo Gerenciador de Recursos para torná-los mais fáceis de serem gerenciados.
-
-![Conta e armazenamento da Análise Azure Data Lake](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
-
-Uma conta da Análise Data Lake e as contas de armazenamento dependentes devem ser colocadas no mesmo data center do Azure.
-No entanto, o grupo Gerenciador de Recursos pode estar localizado em um data center diferente.  
 
 ## <a name="see-also"></a>Consulte também
 * [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)

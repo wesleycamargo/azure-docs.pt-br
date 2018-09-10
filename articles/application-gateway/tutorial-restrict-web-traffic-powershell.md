@@ -8,17 +8,17 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 3/22/2018
+ms.date: 7/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a3bd3e772c6c80bb86af7f6aac6a578e857a3f2d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d7610d1f73db022ef2af41f51b67176857525a20
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356266"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044750"
 ---
-# <a name="restrict-web-traffic-with-a-web-application-firewall-using-azure-powershell"></a>Restringir o tráfego da web com um firewall do aplicativo Web usando o Azure PowerShell
+# <a name="enable-web-application-firewall-using-azure-powershell"></a>Ativar firewall do aplicativo Web usando o Azure PowerShell
 
 Você pode restringir tráfego em um [gateway de aplicativo](overview.md) com um [firewall de aplicativo de web](waf-overview.md) (WAF). O WAF usa as regras de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger o seu aplicativo. Essas regras incluem proteção contra ataques, como injeção de SQL, ataques de script entre sites e sequestros de sessão. 
 
@@ -31,6 +31,8 @@ Neste tutorial, você aprenderá como:
 > * Criar uma conta de armazenamento e configurar diagnósticos
 
 ![Exemplo de Firewall do aplicativo Web](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
+
+Se preferir, você pode concluir este tutorial usando a [CLI do Azure](tutorial-restrict-web-traffic-cli.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -204,6 +206,7 @@ Set-AzureRmVmssStorageProfile $vmssConfig `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
   -ImageReferenceVersion latest
+  -OsDiskCreateOption FromImage
 
 Set-AzureRmVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `
@@ -225,7 +228,7 @@ New-AzureRmVmss `
 ### <a name="install-iis"></a>Instalar o IIS
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss

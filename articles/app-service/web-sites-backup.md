@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 66423fecce92cd933cc8680810aa2abe5e25a90d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 44b4da7c293da0643fb88cc2de21433c6ea72c5c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886397"
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
 O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](app-service-web-overview.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo. 
@@ -36,8 +37,8 @@ O Serviço de Aplicativo pode fazer backup das seguintes em uma conta de armazen
 
 As soluções de banco de dados a seguir são compatíveis com o recurso de backup: 
    - [Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
-   - [Banco de Dados do Azure para MySQL (Visualização)](https://azure.microsoft.com/services/mysql)
-   - [Banco de Dados do Azure para PostgreSQL (Visualização)](https://azure.microsoft.com/services/postgres)
+   - [Banco de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql)
+   - [Banco de Dados do Azure para PostgreSQL](https://azure.microsoft.com/services/postgresql)
    - [MySQL no aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 
@@ -52,6 +53,11 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
   A camada **Premium** permite um número maior de backups diários do que a camada **Standard**.
 * Você precisa de uma conta de armazenamento do Azure e do contêiner na mesma assinatura do aplicativo do qual você deseja fazer backup. Para obter mais informações sobre contas de armazenamento do Azure, consulte os [links](#moreaboutstorage) no final deste artigo.
 * Backups podem ter até 10 GB de conteúdo do aplicativo e do banco de dados. Se o tamanho do backup ultrapassar esse limite, você receberá um erro.
+* Não há suporte para backups do Banco de Dados do Azure para MySQL habilitado para SSL. Se houver um backup configurado, os backups falharão.
+* Não há suporte para backups do Banco de Dados do Azure para PostgreSQL habilitado para SSL. Se houver um backup configurado, os backups falharão.
+* O backup de bancos de dados MySQL no aplicativo é feito automaticamente, sem nenhuma configuração. Se você fizer manualmente configurações para bancos de dados MySQL no aplicativo, tais como a adição de cadeias de conexão, os backups poderão não funcionar corretamente.
+* Não há suporte para usar uma conta de armazenamento habilitada para firewall como o destino dos backups. Se houver um backup configurado, os backups falharão.
+
 
 <a name="manualbackup"></a>
 
@@ -80,7 +86,9 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
     ![Escolher uma conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Para que um banco de dados seja exibido nessa lista, sua cadeia de conexão deve constar na seção **Cadeias de conexão** da página **Configurações de aplicativo** do aplicativo.
+   > Para que um banco de dados seja exibido nessa lista, sua cadeia de conexão deve constar na seção **Cadeias de conexão** da página **Configurações de aplicativo** do aplicativo. 
+   >
+   > O backup de bancos de dados MySQL no aplicativo é feito automaticamente, sem nenhuma configuração. Se você fizer manualmente configurações para bancos de dados MySQL no aplicativo, tais como a adição de cadeias de conexão, os backups poderão não funcionar corretamente.
    > 
    > 
 6. Na página **Configuração de backup**, clique em **Salvar**.    

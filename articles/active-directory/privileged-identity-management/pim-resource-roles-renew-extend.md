@@ -1,136 +1,135 @@
 ---
-title: Privileged Identity Management para recursos do Azure - Estender e renovar funções | Microsoft Docs
-description: Este documento descreve como estender e renovar funções de recurso do Azure para recursos do PIM.
+title: Estender ou renovar funções de recurso do Azure no PIM | Microsoft Docs
+description: Saiba como estender ou renovar funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
-editor: mwahl
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: pim
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2547b3793688eb51a4114f30bfcf61a9402f2cd2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2c85c5bbbd4c152113108e0fdb717d23f85f9fde
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189643"
 ---
-# <a name="privileged-identity-management---resource-roles---extend-or-renew"></a>Privileged Identity Management - Funções de recurso - Estender ou renovar
+# <a name="extend-or-renew-azure-resource-roles-in-pim"></a>Estender ou renovar funções de recurso do Azure no PIM
 
-O PIM para recursos do Azure apresenta novos controles para gerenciar o ciclo de vida de atribuição e de acesso para recursos do Azure. Os administradores podem atribuir associação usando propriedades de data e hora de início e término. Quando o final da atribuição estiver próximo, o PIM envia notificações por email para os membros afetados (que podem ser um usuário ou grupo) e para os administradores do recurso para garantir que o acesso apropriado seja mantido. Caso o acesso ao evento não seja estendido devido a ociosidade, atribuições poderão ser renovadas e permanecem visíveis em um estado expirado por até 30 dias.
+O PIM (Privileged Identity Management) para recursos do Azure apresenta novos controles para gerenciar o ciclo de vida de acesso e atribuição dos recursos do Azure. Os administradores podem atribuir associação usando propriedades de data e hora de início e término. Quando a atribuição termina, o PIM envia notificações por e-mail aos usuários ou grupos afetados. Ele também envia notificações por e-mail aos administradores do recurso para garantir que o acesso apropriado seja mantido. As atribuições podem ser renovadas e permanecer visíveis em um estado expirado por até 30 dias, mesmo que o acesso não seja estendido.
 
 ## <a name="who-can-extend-and-renew"></a>Quem pode estender e renovar?
 
-Somente os administradores do recurso podem estender ou renovar atribuições de função. O membro afetado poderá solicitar a extensão das funções prestes a expirar e solicitar a renovação de funções já expiradas.
+Somente os administradores do recurso podem estender ou renovar atribuições de função. O membro afetado pode solicitar a extensão de funções que estão prestes a expirar e solicitar a renovação de funções que já expiraram.
 
 ## <a name="when-are-notifications-sent"></a>Quando as notificações são enviadas?
 
-O PIM envia notificações por email para os administradores e os membros afetados de funções que vencerão em 14 dias e um dia antes da expiração. Um email adicional é enviado quando uma atribuição expirou oficialmente. 
+O PIM envia notificações por e-mail para administradores e membros afetados de funções que estão expirando dentro de 14 dias e um dia antes da expiração. Ele envia um e-mail adicional quando uma atribuição expira oficialmente. 
 
-Os administradores recebem notificações quando um membro de uma função expirada ou expirando solicita a extensão ou renovação. Quando um administrador específico resolve a solicitação, todos os outros administradores são notificados sobre a decisão de resolução (aprovada ou negada) e o membro solicitante é notificado sobre a decisão. 
+Os administradores recebem notificações quando um membro de uma função expirada ou expirando solicita a extensão ou renovação. Quando um administrador específico resolve a solicitação, todos os outros administradores são notificados da decisão de resolução (aprovada ou recusada). Em seguida, o membro solicitante é notificado da decisão. 
 
 ## <a name="extend-role-assignments"></a>Estender atribuições de função
 
-As etapas abaixo descrevem as etapas e a interface do usuário envolvidas na solicitação, resolução ou administração de uma extensão ou renovação de uma atribuição de função. 
+As etapas a seguir descrevem o processo de solicitação, resolução ou administração de uma extensão ou renovação de uma atribuição de função. 
 
 ### <a name="member-extend"></a>Extensão por membros
 
-Membros de uma atribuição de função podem solicitar a extensão das atribuições de função expirando diretamente na guia "Qualificadas" ou "Ativas" na página "Minhas funções" de um recurso e do nível superior Minhas funções do portal do PIM. Membros podem solicitar a extensão de funções qualificadas e ativas (atribuídas) que expirarão dentro de 14 dias.
+Os membros de uma atribuição de função podem estender atribuições de função com prazo de validade diretamente da guia **Elegível** ou **Ativo** na página **Minhas funções** de um recurso e do nível superior**Minhas funções** página do portal PIM. Membros podem solicitar a extensão de funções qualificadas e ativas (atribuídas) que expirarão dentro de 14 dias.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_ui.png)
+![Estender a funções](media/azure-pim-resource-rbac/aadpim_rbac_extend_ui.png)
 
-Quando a data e a hora de término da atribuição estiver dentro de 14 dias, o botão para "Estender" se tornará um link ativo na interface do usuário. No exemplo a seguir, suponha que a data atual seja 27 de março.
+Quando a data e a hora de término da atribuição estiverem dentro de 14 dias, o botão para **Estender** se tornará um link ativo na interface do usuário. No exemplo a seguir, suponha que a data atual seja 27 de março.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
+![O botão "Estender"](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
 
-Para solicitar uma extensão dessa atribuição de função, clique em "Estender" para abrir o formulário de solicitação.
+Para solicitar uma extensão dessa atribuição de função, selecione **Estender** para abrir o formulário de solicitação.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_role_assignment_request.png)
+![Abra o formulário de solicitação](media/azure-pim-resource-rbac/aadpim_rbac_extend_role_assignment_request.png)
 
-Expanda os "detalhes de atribuição" para exibir informações sobre a atribuição original. Insira um motivo para a solicitação de extensão e clique em "Estender".
+Para visualizar informações sobre a atribuição original, expanda **Detalhes da atribuição**. Digite uma razão para a solicitação de extensão e, em seguida, selecione **Estender**.
 
 >[!Note]
->É recomendável incluir os detalhes de por que a extensão é necessária e por quanto tempo a extensão deve ser estendida (se souber).
+>Recomendamos incluir os detalhes de por que a extensão é necessária e por quanto tempo a extensão deve ser concedida (se você tiver essa informação).
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_form_complete.png)
+![Estender atribuição de função](media/azure-pim-resource-rbac/aadpim_rbac_extend_form_complete.png)
 
-Em questão de minutos, os administradores de recursos receberão uma notificação por email solicitando que examinem a solicitação de extensão. Se uma solicitação de extensão já tiver sido enviada, uma notificação do sistema explicando o erro será exibida na parte superior do Portal do Azure.
+Em questão de momentos, os administradores de recursos recebem uma notificação por e-mail solicitando que eles revisem a solicitação de extensão. Se uma solicitação para estender já tiver sido enviada, uma notificação de notificação será exibida na parte superior do portal do Azure, explicando o erro.
 
 ![](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
 
-Visite a guia "Solicitações pendentes" no menu de navegação à esquerda para exibir o status ou cancelar sua solicitação.
+Vá até a guia **Solicitações pendentes** no painel esquerdo para ver o status da sua solicitação ou para cancelá-la.
 
 ![](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
 
 ### <a name="admin-approve"></a>Aprovação pelo administrador
 
-Quando um membro envia uma solicitação para estender uma atribuição de função, os administradores de recurso recebem uma notificação por email que contém os detalhes da atribuição original e o motivo fornecidos pelo solicitante. A notificação inclui um link direto com a solicitação para o administrador aprovar ou negar. 
+Quando um membro envia uma solicitação para estender uma atribuição de função, os administradores de recursos recebem uma notificação por email que contém os detalhes da atribuição original e o motivo da solicitação. A notificação inclui um link direto com a solicitação para o administrador aprovar ou negar. 
 
-Além de seguir o link do email, os administradores podem aprovar ou negar as solicitações navegando para o portal de administração do PIM e selecionando "Aprovar solicitações" no menu de navegação à esquerda.
+Além de usar o seguinte link do email, os administradores podem aprovar ou negar solicitações acessando o portal de administração do PIM e selecionando **Approve requests** no painel esquerdo.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
+![Captura de tela do erro](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
 
-Quando um Administrador seleciona Aprovar ou Negar, os detalhes da solicitação são mostrados junto com um campo para fornecer uma justificativa para os logs de auditoria.
+Quando um Administrador seleciona **Aprovar** ou **Negar**, os detalhes da solicitação são exibidos, junto com um campo para fornecer justificativa para os registros de auditoria.
 
 ![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
-Ao aprovar uma solicitação para estender a atribuição de função, os administradores de recursos podem escolher uma nova hora e data de início e término e o tipo de atribuição. A alteração do tipo de atribuição pode ser necessária se o administrador quiser fornecer acesso limitado para concluir uma tarefa específica (por exemplo, um dia). Neste exemplo, o administrador pode alterar a atribuição de Qualificada para Ativa, fornecendo acesso ao solicitante sem a necessidade de ativar.
+Ao aprovar uma solicitação para estender a atribuição de função, os administradores de recursos podem escolher uma nova data de início, uma data de término e um tipo de atribuição. Alterar o tipo de atribuição pode ser necessário se o administrador quiser fornecer acesso limitado para concluir uma tarefa específica (um dia, por exemplo). Neste exemplo, o administrador pode alterar a atribuição de **Qualificado** para **Ativo**. Isso significa que eles podem fornecer acesso ao solicitante sem precisar que eles sejam ativados.
 
 ### <a name="admin-extend"></a>Extensão pelo administrador
 
-Caso um membro da função esqueça ou não possa solicitar a extensão da associação da função, um administrador poderá estender uma atribuição em nome do membro. As extensões administrativas de associação de função não requerem aprovação, mas as notificações são enviadas a todos os outros administradores após a conclusão da extensão da função.
+Se um membro da função esquecer ou não puder solicitar uma extensão de associação de função, um administrador poderá estender uma atribuição em nome do membro. As extensões administrativas da associação de função não exigem aprovação, mas as notificações são enviadas a todos os outros administradores depois que a função foi estendida.
 
-Para estender uma associação de função, navegue até a exibição de membro ou função de recurso no PIM. Localize o membro que exige extensão e clique em "Estender" na coluna de ação.
+Para estender uma associação de função, navegue até a função de recurso ou exibição de membro no PIM. Localize o membro que requer uma extensão. Em seguida, selecione **estender** na coluna ação.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_extend.png)
+![Estender uma associação de função](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_extend.png)
 
 ## <a name="renew-role-assignments"></a>Renovar atribuições de função
 
-Embora conceitualmente semelhantes, o processo para renovar uma atribuição de função expirada é diferente da solicitação de extensão para os membros e os administradores. Usando as etapas abaixo, membros e administradores podem renovar o acesso a funções expiradas quando necessário.
+Embora seja conceitualmente semelhante ao processo para solicitar uma extensão, o processo para renovar uma atribuição de função expirada é diferente. Usando as etapas a seguir, membros e administradores podem renovar o acesso a funções expiradas quando necessário.
 
 ### <a name="member-renew"></a>Renovação por membro
 
-Membros que não podem mais acessar recursos, podem acessar até 30 dias do histórico de atribuições expiradas navegando até Minhas funções no painel de navegação à esquerda do PIM e selecionando a guia "Funções expiradas" na seção de funções de recurso do Azure.
+Membros que não podem mais acessar recursos podem acessar até 30 dias do histórico de atribuições expiradas. Para fazer isso, navegue até **funções Meus** no painel esquerdo e, em seguida, selecione o **expirado funções** guia na seção de funções de recurso do Azure.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
+![A guia "Funções expiradas"](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
 
-A lista de funções mostrada tem como padrão as atribuições Qualificadas. Use o menu suspenso para alternar entre funções atribuídas Qualificadas e Ativas.
+A lista de papéis mostrada é padronizada para **Funções elegíveis**. Use o menu suspenso para alternar entre as funções atribuídas Elegíveis e Ativas.
 
-Para solicitar a renovação de qualquer uma das atribuições de função na lista, selecione a ação "Renovar" e forneça um motivo para a solicitação. É útil fornecer uma duração além de qualquer contexto adicional que ajude o administrador de recursos a decidir entre aprovar ou negar.
+Para solicitar a renovação de qualquer uma das atribuições de função na lista, selecione a ação **Renovar**. Em seguida, forneça um motivo para a solicitação. É útil fornecer uma duração além de qualquer contexto adicional que ajude o administrador de recursos a decidir aprovar ou negar.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_renew_request_form.png)
+![Renovar atribuição de função](media/azure-pim-resource-rbac/aadpim_rbac_renew_request_form.png)
 
-Após o envio da solicitação, os administradores de recursos são notificados de uma solicitação pendente para renovar uma atribuição de função.
+Depois que a solicitação é enviada, os administradores de recursos são notificados sobre uma solicitação pendente para renovar uma atribuição de função.
 
 ### <a name="admin-approves"></a>Aprovação pelo administrador
 
-Os administradores de recursos podem acessar a solicitação de renovação pelo link no email de notificação ou acessando o PIM do portal do Azure e selecionando "Aprovar solicitações" no menu de navegação à esquerda.
+Os administradores de recursos podem acessar a solicitação de renovação a partir do link na notificação por e-mail ou acessando o PIM do portal do Azure e selecionando **Aprovar solicitações** no painel esquerdo.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
+![Aprovar solicitações](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
 
-Quando um administrador seleciona Aprovar ou Negar, os detalhes da solicitação são mostrados junto com um campo para fornecer uma justificativa para os logs de auditoria.
+Quando um administrador seleciona **Aprovar** ou **Negar**, os detalhes da solicitação são mostrados junto com um campo para fornecer justificativa para os registros de auditoria.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
+![Aprovar atribuição de função](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
-Ao aprovar uma solicitação para renovar a atribuição de função, os administradores de recursos devem inserir uma nova hora e data de início e término e o tipo de atribuição. 
+Ao aprovar uma solicitação para renovar a atribuição de função, os administradores de recursos devem inserir uma nova data de início, uma data de término e um tipo de atribuição. 
 
 ### <a name="admin-renew"></a>Renovação pelo administrador
 
-Os administradores de recursos podem renovar atribuições de função expiradas pela guia Membros no menu de navegação à esquerda de um recurso ou na guia de funções Expiradas de uma função de recurso.
+Os administradores de recursos podem renovar atribuições de função expiradas da guia **Members** no menu de navegação à esquerda de um recurso. Eles também podem renovar atribuições de função expiradas de dentro do **expirado** guia funções de uma função de recurso.
 
-Na tela de Membros, selecione funções Expiradas para exibir uma lista de todas as atribuições de função expiradas.
+Para visualizar uma lista de todas as atribuições de funções expiradas, na tela **Members**, selecione **Expired roles**.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_member_blade.png)
+![Funções expiradas](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_member_blade.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Requer aprovação para ativar](pim-resource-roles-approval-workflow.md)
-
-[Ativar uma função](pim-resource-roles-use-the-audit-log.md)
-
-
+- [Aprovar ou negar as solicitações para funções de recurso do Azure no PIM](pim-resource-roles-approval-workflow.md)
+- [Definir configurações de função de recurso do Azure no PIM](pim-resource-roles-configure-role-settings.md)

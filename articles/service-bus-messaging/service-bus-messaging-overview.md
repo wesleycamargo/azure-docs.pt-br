@@ -1,59 +1,131 @@
 ---
-title: "Visão geral de sistema de mensagens do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Descrição de sistema de mensagens do Barramento de Serviço e Retransmissão do Azure"
+title: Visão geral de sistema de mensagens do Barramento de Serviço do Azure | Microsoft Docs
+description: Descrição do sistema de mensagens do Barramento de Serviço do Azure
 services: service-bus-messaging
-documentationcenter: .net
-author: sethmanheim
+documentationcenter: ''
+author: spelluru
 manager: timlt
-editor: 
-ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
+editor: ''
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: get-started-article
-ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: e299ccfe587d37757cd67cb4367f019b21a09b4a
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.topic: overview
+ms.date: 05/22/2018
+ms.custom: mvc
+ms.author: spelluru
+ms.openlocfilehash: a291d4d7ecafde366a20b7e7f1f12a95303da90d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697611"
 ---
-# <a name="service-bus-messaging-flexible-data-delivery-in-the-cloud"></a>Mensagens do Barramento de Serviço: entrega de dados flexível na nuvem
+# <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
 
-O Barramento de Serviço do Microsoft Azure é um serviço de entrega de informações confiáveis. A finalidade desse serviço é facilitar a comunicação. Quando dois ou mais participantes desejam trocar informações, eles precisam de um facilitador de comunicação. O Barramento de Serviço é um mecanismo de comunicação agenciado ou de terceiros. Isso é semelhante a um serviço postal no mundo físico. Os serviços postais tornam muito fácil enviar tipos diferentes de cartas e pacotes com uma variedade de garantias de entrega em qualquer lugar do mundo.
+O Barramento de Serviço do Microsoft Azure é um agente de mensagens de integração empresarial totalmente gerenciado. O Barramento de Serviço é mais comumente usado para desacoplar aplicativos e serviços uns dos outros e é uma plataforma confiável e segura para dados assíncronos e transferência de estado. Os dados são transferidos entre diferentes aplicativos e serviços usando *mensagens*. Uma mensagem é em formato binário que pode conter JSON, XML ou apenas texto. 
 
-Semelhante ao serviço postal de entrega de cartas, o Barramento de Serviço é uma entrega de informações flexível do remetente e do destinatário. O serviço de mensagens garante que as informações sejam entregues mesmo se as duas partes nunca estiverem online ao mesmo tempo, ou se elas não estão disponíveis no mesmo exato momento. Dessa forma, o sistema de mensagens é semelhante ao envio de uma carta, enquanto que a comunicação não agenciada é semelhante ao fazer uma chamada telefônica (ou como uma chamada telefônica costumava ser - antes da chamada em espera e da ID de chamador, que são muito mais mensagens agenciadas).
+Alguns cenários de sistema de mensagens comuns são:
 
-O remetente da mensagem também pode exigir várias características de entrega, incluindo transações, detecção de duplicidade, expiração com base no tempo e envio em lote. Esses padrões também têm analogias postais: repetir a entrega, assinatura exigida, alteração de endereço ou recuperação.
+* Mensagens: transferir dados comerciais, como vendas ou pedidos de compra, diários ou movimentos de estoque.
+* Desacoplar aplicativos: melhorar a confiabilidade e a escalabilidade de aplicativos e serviços (cliente e serviço não precisam estar online ao mesmo tempo).
+* Tópicos e assinaturas: habilitar 1:*n* relacionamentos entre publicadores e assinantes.
+* Sessões de mensagens: implementar fluxos de trabalho que exijam ordenação de mensagens ou adiamento de mensagens.
 
-O Barramento de Serviço dá suporte a dois padrões distintos de sistema de mensagens: *Retransmissão do Azure* e *Sistema de Mensagens do Barramento de Serviço*.
+## <a name="namespaces"></a>Namespaces
 
-## <a name="azure-relay"></a>Retransmissão do Azure
+Um namespace é um contêiner de escopo para todos os componentes de mensagem. Várias filas e tópicos podem residir em um único namespace e os namespaces geralmente servem como contêineres de aplicativos.
 
-O componente [Retransmissão do WCF](../service-bus-relay/relay-what-is-it.md) da Retransmissão do Azure é um serviço centralizado (mas altamente balanceado por carga) que dá suporte a uma variedade de diferentes protocolos de transporte e padrões de serviços Web. Isso inclui SOAP, WS-* e até REST. O [serviço de retransmissão](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) fornece uma variedade de diferentes opções de conectividade de retransmissão e pode ajudar a negociar conexões diretas ponto a ponto quando é possível. O Barramento de Serviço foi otimizado para desenvolvedores de .NET que usam o WCF (Windows Communication Foundation), tanto em relação ao desempenho quanto à usabilidade, além de fornecer acesso completo ao respectivo serviço de retransmissão por meio de interfaces REST e SOAP. Isso possibilita que qualquer ambiente de programação SOAP ou REST integre-se ao Barramento de Serviço.
+## <a name="queues"></a>Filas
 
-O serviço de retransmissão oferece suporte às mensagens unidirecionais tradicionais, mensagens de solicitação/resposta e mensagens ponto a ponto. Ele também oferece suporte à distribuição de eventos no escopo da Internet para habilitar cenários de publicação/assinatura e a comunicação de soquete bidirecional para maior eficiência ponto a ponto. No padrão do sistema de mensagens de retransmissão, um serviço local conecta-se ao serviço de retransmissão por meio de uma porta de saída e cria um soquete bidirecional para comunicação ligado a um endereço específico de reunião. Em seguida, o cliente pode se comunicar com o serviço local enviando mensagens para o serviço de retransmissão direcionando o endereço de reunião. O serviço de retransmissão "retransmitirá" as mensagens ao serviço local por meio do soquete bidirecional já instalado. O cliente não precisa de uma conexão direta com o serviço local, não precisa saber onde reside o serviço e o serviço local não precisa de nenhuma porta de entrada aberta no firewall.
+As mensagens são enviadas e recebidas a partir de *filas*. As filas permitem que você armazene mensagens até que o aplicativo de recebimento esteja disponível para recebê-las e processá-las.
 
-Você inicia a conexão entre o serviço local e o serviço de retransmissão usando um conjunto de associações de "retransmissão" WCF. Nos bastidores, as associações de retransmissão são mapeadas para elementos de associação de transporte projetados para criar componentes de canal WCF que são integrados ao Barramento de Serviço na nuvem.
+![Fila](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-A Retransmissão do WCF oferece muitos benefícios, mas exige que servidor e cliente estejam online ao mesmo tempo para envio e recebimento de mensagens. Isso não é ideal para comunicação no estilo HTTP, em que as solicitações normalmente não têm vida longa, nem para clientes que se conectam apenas ocasionalmente, como navegadores, aplicativos móveis, etc. O sistema de mensagens agenciado oferece suporte à comunicação separada e tem suas próprias vantagens; clientes e servidores podem se conectar quando necessário e executar suas operações de maneira assíncrona.
+As mensagens em filas são ordenadas e recebem carimbo de data/hora na chegada. Quando aceita, a mensagem é mantida protegida em armazenamento com redundância. As mensagens são entregues em modo *pull*, que entrega mensagens mediante solicitação.
 
-## <a name="brokered-messaging"></a>Sistema de mensagens agenciado
+## <a name="topics"></a>Tópicos
 
-Ao contrário do esquema de retransmissão, o Sistema de Mensagens do Barramento de Serviço com [filas, tópicos e assinaturas](service-bus-queues-topics-subscriptions.md) podem ser pensados como assíncronos, ou "temporariamente separados". Os produtores (remetentes) e consumidores (destinatários) não precisam estar online ao mesmo tempo. A infraestrutura do sistema de mensagens armazena mensagens de maneira confiável em um "agente" (por exemplo, uma fila) até que a parte consumidora esteja pronta para recebê-las. Isso permite que os componentes do aplicativo distribuído sejam desconectados, ou voluntariamente, para manutenção, por exemplo, ou devido a uma falha de componente, sem afetar o sistema inteiro. Além disso, o aplicativo de recebimento talvez tenha que ficar online apenas durante determinados períodos do dia, como um sistema de gerenciamento de inventário, que precisa ser executado apenas no fim do dia.
+Também é possível usar *tópicos* para enviar e receber mensagens. Enquanto uma fila é frequentemente usada para comunicação ponto a ponto, os tópicos são úteis em cenários de publicação/assinatura.
 
-Os principais componentes da infraestrutura do sistema de mensagens do Barramento de Serviço são filas, tópicos e assinaturas. A principal diferença é que tópicos oferecem suporte a recursos de publicação/assinatura que podem ser usados para roteamento baseado em conteúdo sofisticado e lógica de entrega, incluindo o envio para vários destinatários. Esses componentes permitem novos cenários de sistema de mensagens assíncrono, como separação temporal, publicação/assinatura e balanceamento de carga. Para saber mais sobre essas entidades de sistema de mensagens, consulte [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md).
+![Tópico](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
-Assim como na infraestrutura de Retransmissão do WCF, o recurso do sistema de mensagens agenciado é fornecido para programadores do .NET Framework e WCF, e também via REST.
+Os tópicos podem ter várias assinaturas independentes. Um assinante de um tópico pode receber uma cópia de cada mensagem enviada para esse tópico. As assinaturas são entidades nomeadas criadas de forma durável, mas podem, opcionalmente, expirar ou excluir automaticamente.
 
+Em alguns cenários, talvez você não queira que assinaturas individuais recebam todas as mensagens enviadas para um tópico. Nesse caso, é possível usar [regras e filtros](topic-filters.md) para definir condições que disparam [ações](topic-filters.md#actions) opcionais, filtram mensagens especificadas e definem ou modificam propriedades de mensagens.
+
+## <a name="advanced-features"></a>Recursos avançados
+
+O Barramento de Serviço também possui recursos avançados que permitem resolver problemas de mensagens mais complexos. As seções a seguir descrevem esses principais recursos:
+
+### <a name="message-sessions"></a>Sessões de mensagem
+
+Para realizar uma garantia PEPS (primeiro a entrar, primeiro a sair) no Barramento de Serviço, use as sessões. As [Sessões de mensagens](message-sessions.md) permitem manipulação ordenada e conjunta de sequências não associadas de mensagens relacionadas. 
+
+### <a name="auto-forwarding"></a>Encaminhamento automático
+
+O recurso [encaminhamento automático](service-bus-auto-forwarding.md) permite encadear uma fila ou assinatura a outra fila ou outro tópico que faça parte do mesmo namespace. Quando o encaminhamento automático está habilitado, o Barramento de Serviço remove automaticamente as mensagens colocadas na primeira fila ou assinatura (origem) e as coloca na segunda fila ou no segundo tópico (destino).
+
+### <a name="dead-lettering"></a>Mensagens mortas
+
+O Barramento de Serviço dá suporte a uma [DLQ](service-bus-dead-letter-queues.md) (fila de mensagens mortas) para manter mensagens que não podem ser entregues a nenhum receptor ou mensagens que não podem ser processadas. Portanto, é possível remover mensagens da DLQ e inspecioná-las.
+
+### <a name="scheduled-delivery"></a>Entrega agendada
+
+É possível enviar mensagens a uma fila ou tópico [para processamento atrasado](message-sequencing.md#scheduled-messages), por exemplo, para agendar a disponibilidade de um trabalho para processamento por um sistema em um determinado momento.
+
+### <a name="message-deferral"></a>Adiamento de mensagens
+
+Quando um cliente de assinatura ou fila recebe uma mensagem que está disposto a processar, mas cujo processamento não é possível devido a circunstâncias especiais no aplicativo, a entidade tem a opção de [adiar a recuperação da mensagem](message-deferral.md) para um ponto posterior. A mensagem permanece na fila ou assinatura, mas é reservada.
+
+### <a name="batching"></a>Envio em lote
+
+O [Envio em lote do lado do cliente](service-bus-performance-improvements.md#client-side-batching) permite que um cliente de tópico ou fila adie o envio de uma mensagem por um determinado período de tempo. Se o cliente enviar mensagens adicionais durante esse período, ele transmitirá as mensagens em um único lote. 
+
+### <a name="transactions"></a>Transações
+
+Uma [transação](service-bus-transactions.md) agrupa duas ou mais operações em um escopo de execução. O Barramento de Serviço dá suporte a operações de agrupamento em uma única entidade de mensagens (fila, tópico e assinatura) no escopo de uma transação.
+
+### <a name="filtering-and-actions"></a>Filtragem e ações
+
+Os assinantes podem definir quais mensagens desejam receber de um tópico. Essas mensagens são especificadas na forma de uma ou mais [regras de assinatura nomeadas](topic-filters.md). Para cada condição de regra com correspondência, a assinatura produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra com correspondência.
+
+### <a name="auto-delete-on-idle"></a>Exclusão automática em tempo ocioso
+
+A [exclusão automática em tempo ocioso](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle) permite que você especifique um intervalo de tempo ocioso, após o qual a fila será excluída automaticamente. A duração mínima é de 5 minutos.
+
+### <a name="duplicate-detection"></a>Detecção de duplicidade
+
+Se ocorrer um erro em que o cliente tenha alguma dúvida sobre o resultado de uma operação de envio, a [detecção de duplicidades](duplicate-detection.md) eliminará a dúvida dessas situações, permitindo que o remetente envie novamente a mesma mensagem e que a fila ou o tópico descarte as cópias duplicadas.
+
+### <a name="sas-rbac-and-msi"></a>SAS, RBAC e MSI
+
+O Barramento de Serviço dá suporte a protocolos de segurança, como [SAS](service-bus-sas.md) (Assinaturas de Acesso Compartilhado), [RBAC](service-bus-role-based-access-control.md) (Controle de Acesso Baseado em Função) e [MSI](service-bus-managed-service-identity.md) (Identidade de Serviço Gerenciada).
+
+### <a name="geo-disaster-recovery"></a>Recuperação de desastre geográfico
+
+Quando os datacenters ou regiões do Azure passam por um tempo de inatividade, a [recuperação de desastre geográfico](service-bus-geo-dr.md) permite que o processamento de dados continue operando em um datacenter ou região diferente.
+
+### <a name="security"></a>Segurança
+
+O Barramento de Serviço dá suporte aos protocolos padrão [AMQP 1.0](service-bus-amqp-overview.md) e [HTTP/REST](/rest/api/servicebus/).
+
+## <a name="client-libraries"></a>Bibliotecas de cliente
+
+O Barramento de Serviço dá suporte a bibliotecas de clientes para [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
+
+## <a name="integration"></a>Integração
+
+O Barramento de Serviço integra-se totalmente aos serviços do Azure a seguir:
+
+- [Grade de Eventos](https://azure.microsoft.com/services/event-grid/) 
+- [Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps/) 
+- [Funções](https://azure.microsoft.com/services/functions/) 
+- [Dynamics 365](https://dynamics.microsoft.com)
+- [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+ 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópicos a seguir.
+Para começar a usar o sistema de mensagens do Barramento de Serviço, consulte os artigos a seguir:
 
-* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
-* [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
-* [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
-* [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-
+* [Comparar os serviços de mensagens do Azure](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
+* Saiba mais sobre as camadas [Standard e Premium](https://azure.microsoft.com/pricing/details/service-bus/) do Barramento de Serviço do Azure e o respectivo preço
+* [Desempenho e latência da camada Premium do Barramento de Serviço do Azure](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
+* Experimente os inícios rápidos em [.NET](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md) ou [JMS](service-bus-quickstart-powershell.md)

@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4ec5a97f8655c0b5b53dea129d4648a05f6ef85
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: f5fa81d53e1728e8f566a2a39aed8311828b20c7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108698"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento de interface do usuário Microsoft.Storage.MultiStorageAccountCombo
 Um grupo de controles para criar várias contas de armazenamento com nomes que começam com um prefixo comum.
@@ -52,14 +53,14 @@ Um grupo de controles para criar várias contas de armazenamento com nomes que c
 ```
 
 ## <a name="remarks"></a>Comentários
-- O valor de `defaultValue.prefix` é concatenado com um ou mais números inteiros para gerar a sequência de nomes de conta de armazenamento. Por exemplo, se `defaultValue.prefix` é **foobar** e `count` é **2**, os nomes de conta de armazenamento **foobar1** e **foobar2** são gerados. Os nomes de conta de armazenamento gerados são validados por exclusividade automaticamente.
-- Os nomes de conta de armazenamento são gerados lexicograficamente com base em `count`. Por exemplo, se `count` for 10, os nomes de conta de armazenamento terminarão com números inteiros de 2 dígitos (01, 02, 03, etc.).
+- O valor de `defaultValue.prefix` é concatenado com um ou mais números inteiros para gerar a sequência de nomes de conta de armazenamento. Por exemplo, se `defaultValue.prefix` é **sa** e `count` é **2**, os nomes de conta de armazenamento **sa1** e **sa2** são gerados. Os nomes de conta de armazenamento gerados são validados por exclusividade automaticamente.
+- Os nomes de conta de armazenamento são gerados lexicograficamente com base em `count`. Por exemplo, se `count` for 10, os nomes de conta de armazenamento terminarão com números inteiros de 2 dígitos (01, 02, 03).
 - O valor padrão de `defaultValue.prefix` é **null**e `defaultValue.type` é **Premium_LRS**.
-- Os tipos não especificados em `constraints.allowedTypes` ficam ocultos e os tipos não especificados em `constraints.excludedTypes` são mostrados.
-`constraints.allowedTypes` e `constraints.excludedTypes` são opcionais, mas não podem ser usados simultaneamente.
+- Os tipos não especificados em `constraints.allowedTypes` ficam ocultos e os tipos não especificados em `constraints.excludedTypes` são mostrados. `constraints.allowedTypes` e `constraints.excludedTypes` são opcionais, mas não podem ser usados simultaneamente.
 - Além de gerar nomes de conta de armazenamento, `count` é usado para definir o multiplicador apropriado para o elemento. Ele dá suporte a um valor estático, como **2**, ou a um valor dinâmico de outro elemento, como `[steps('step1').storageAccountCount]`. O valor padrão é **1**.
 
 ## <a name="sample-output"></a>Saída de exemplo
+
 ```json
 {
   "prefix": "sa",

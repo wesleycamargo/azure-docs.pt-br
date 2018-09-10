@@ -9,10 +9,11 @@ ms.date: 04/04/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 634bb14cfef3df2cf944eeafbfa8d671afa4ac98
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "33835790"
 ---
 ## <a name="create-the-webapi-project"></a>Criar o projeto WebAPI
 As seções a seguir abordam a criação de um novo back-end WebAPI ASP.NET. Esse processo tem três objetivos principais:
@@ -383,7 +384,7 @@ Em seguida, implante o aplicativo em um site do Azure para poder ser acessado po
 
 3. Na janela **Criar Serviço de Aplicativo**, selecione sua conta do Azure. Selecione **Alterar Tipo** > **Aplicativo Web**. Mantenha o **Nome do Aplicativo Web** padrão e selecione a **Assinatura**, o **Grupo de Recursos** e o **Plano do Serviço de Aplicativo**. 
 
-4. Clique em **Criar**.
+4. Selecione **Criar**.
 
 5. Anote a propriedade **URL do Site** na seção **Resumo**. Essa URL será seu *ponto de extremidade de back-end* mais adiante no tutorial. 
 

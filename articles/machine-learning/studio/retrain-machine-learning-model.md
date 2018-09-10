@@ -9,19 +9,21 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: f02bf54cc8941d18c866183c9b7d12bbe7222d2b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 46aa2c209f782706357f9a928ddbaa6321abdd77
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115520"
 ---
 # <a name="retrain-a-machine-learning-model"></a>Readaptar um modelo do Machine Learning
-Como parte do processo de operacionalização de modelos de aprendizado de máquina no Azure Machine Learning, um modelo deve ser treinado e salvo. Em seguida, use-o para criar um serviço Web predicativo. O serviço Web pode ser consumido nos sites, painéis e aplicativos móveis. 
+Como parte do processo de operacionalização de modelos de aprendizado de máquina no Azure Machine Learning, um modelo deve ser treinado e salvo. Em seguida, será possível utilizá-lo para criar um serviço Web preditivo. O serviço Web pode ser consumido nos sites, painéis e aplicativos móveis. 
 
 Os modelos que você cria usando o Machine Learning geralmente não são estáticos. Conforme novos dados ficam disponíveis ou quando o consumidor da API tem seus próprios dados, o modelo precisa ser readaptado. 
 

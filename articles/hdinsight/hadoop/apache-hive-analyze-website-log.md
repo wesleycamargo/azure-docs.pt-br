@@ -1,24 +1,20 @@
 ---
-title: Usar Hive com Hadoop para análise de log do site – HDInsight do Azure | Microsoft Docs
+title: Usar Hive com Hadoop para análise de log do site – Azure HDInsight
 description: Saiba como usar o Hive com o HDInsight para analisar os logs do Website. Você usará um arquivo de log como entrada em uma tabela do HDInsight e usará o HiveQL para consultar os dados.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 6fb7b5c2-8df4-40b1-a9e2-6815080004f9
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2016
-ms.author: nitinme
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 53a0560d3bc5a52069d5829b9c3bd353e0c37ef3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 47175ed4bc01a43d1f21cbfc84b8a788f11b7338
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048017"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Usar o Hive com o HDInsight baseado no Windows para analisar logs de sites
 Saiba como usar o HiveQL com HDInsight para analisar os logs de um Website. A análise de log do Website pode ser usada para segmentar seu público com base em atividades semelhantes, categorizar os visitantes do site por demografia e descobrir o conteúdo que eles veem, seus Websites de origem e assim por diante.
@@ -35,7 +31,7 @@ Neste exemplo, você usa um cluster HDInsight para analisar arquivos de log do s
 
 ![HDI.Samples.Website.Log.Analysis](./media/apache-hive-analyze-website-log/hdinsight-weblogs-sample.png)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Você deve ter provisionado um cluster Hadoop no Azure HDInsight. Para obter instruções, consulte [Provision HDInsight Clusters](../hdinsight-hadoop-provision-linux-clusters.md) (Provisionar clusters HDInsight).
 * Você deve ter o Microsoft Excel 2013 ou Microsoft Excel 2010 instalado.
 * Você deve ter o [Driver ODBC do Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886) para importar dados do Hive no Excel.

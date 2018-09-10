@@ -7,14 +7,16 @@ ms.author: kehuan
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: cbb077796d9f14a7f9d1d00268c7b6889ade8375
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860966"
 ---
 # <a name="document-collection-analysis"></a>Análise da coleção de documentos
 
@@ -73,7 +75,7 @@ Crie um novo projeto usando este exemplo como modelo:
 
 ## <a name="data-description"></a>Descrição dos dados
 
-O conjunto de dados usado neste cenário contém resumos de texto e metadados associados para cada ação legislativa tomada pelo Congresso dos EUA. Os dados são coletados de [GovTrack.us](https://www.govtrack.us/), que rastreia as atividades do Congresso dos Estados Unidos e ajuda os americanos a participarem de seu processo legislativo nacional. Os dados em massa podem ser baixados por meio [deste link](https://www.govtrack.us/data/congress/) usando um script manual, que não está incluído neste cenário. Os detalhes de como baixar os dados podem ser encontrados na [Documentação da API GovTrack](https://www.govtrack.us/developers/api).
+O conjunto de dados usado neste cenário contém resumos de texto e metadados associados para cada ação legislativa tomada pelo Congresso dos EUA. Os dados são coletados de [GovTrack.us](https://www.govtrack.us/), que rastreia as atividades do Congresso dos Estados Unidos e ajuda os americanos a participarem de seu processo legislativo nacional. Os dados em massa podem ser baixados por meio [deste link](https://www.govtrack.us/data/congress/) usando um script manual, que não está incluído neste cenário. Os detalhes de como baixar os dados podem ser encontrados na [Documentação da API GovTrack](https://www.govtrack.us/developers).
 
 ### <a name="data-source"></a>Fonte de dados
 
@@ -83,7 +85,7 @@ Neste cenário, os dados brutos coletados são uma série de ações legislativa
 
 Há nove campos de dados no arquivo de dados. Os nomes e as descrições do campo de dados são listados da seguinte maneira.
 
-| Nome do campo | type | DESCRIÇÃO | Contém o valor ausente |
+| Nome do campo | Tipo | DESCRIÇÃO | Contém o valor ausente |
 |------------|------|-------------|---------------|
 | `ID` | Cadeia de caracteres | A ID do projeto de lei/resolução. O formato deste campo é [tipo_do_projeto_de_lei] [número]-[congresso]. Por exemplo, "hconres1-93" significa que o tipo de projeto de lei é "hconres" (sigla para Resolução simultânea da casa, consulte [este documento](https://github.com/unitedstates/congress/wiki/bills#basic-information)), o número do projeto de lei é '1' e o número do Congresso é '93'. | Não  |
 | `Text` | Cadeia de caracteres | O conteúdo do projeto de lei/resolução. | Não  |
@@ -101,7 +103,7 @@ O exemplo de análise de coleção de documentos é organizado em dois tipos de 
 
 Os arquivos neste exemplo são organizados da seguinte maneira.
 
-| Nome do Arquivo | type | DESCRIÇÃO |
+| Nome do Arquivo | Tipo | DESCRIÇÃO |
 |-----------|------|-------------|
 | `aml_config` | Pasta | Pasta de configuração do Azure Machine Learning Workbench, consulte [esta documentação](./experimentation-service-configuration-reference.md) para obter configuração de execução de experimento detalhada |
 | `Code` | Pasta | A pasta de código usada para salvar os scripts Python e o pacote Python |

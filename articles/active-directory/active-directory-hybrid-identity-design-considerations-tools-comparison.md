@@ -11,13 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/27/2018
+ms.date: 08/28/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5d189af9b08f2b6e9ea194c15bfba683afc75a54
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 80cbe09eca2e5aacd46325e9add35f3ec8aae407
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143267"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Comparação de ferramentas de integração de diretório da Identidade Híbrida
 Ao longo dos anos, as ferramentas de integração de diretório cresceram e evoluíram.  Este documento tem o objetivo de ajudar a fornecer uma visão consolidada dessas ferramentas e uma comparação dos recursos que estão disponíveis em cada uma.
@@ -38,22 +40,28 @@ FR = Versão Futura
 PP = Versão prévia pública  
 
 ## <a name="on-premises-to-cloud-synchronization"></a>Local para a sincronização de nuvem
-| Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure (sincronização do AAD) | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Recurso | Conexão do Active Directory do Azure | Serviços de Sincronização do Azure Active Directory (AAD Sync) - NÃO TEM MAIS SUPORTE | Ferramenta de Sincronização do Azure Active Directory (DirSync) - NÃO TEM MAIS SUPORTE | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Conectar-se a única floresta do AD local |● |● |● |● |● |
 | Conectar-se a várias florestas do AD local |● |● | |● |● |
 | Conectar-se a várias organizações de Exchange local |● | | | | |
-| Conectar-se a um único diretório LDAP local | | | |● |● |
-| Conectar-se a vários diretórios LDAP local |  | | |● |● |
-| Conectar-se a diretórios AD locais e LDAP locais | | | |● |● |
+| Conectar-se a um único diretório LDAP local |●* | | |● |● | 
+| Conectar-se a vários diretórios LDAP local |●*  | | |● |● | 
+| Conectar-se a diretórios AD locais e LDAP locais |●* | | |● |● | 
 | Conecte-se aos sistemas personalizados (por exemplo, SQL, Oracle, MySQL, etc.) |FR | | |● |● |
 | Sincronize atributos definido pelo cliente (extensões de diretório) |● | | | | |
 | Conectar-se ao RH local (isto é, SAP, Oracle eBusiness,PeopleSoft) |FR | | |● |● |
 | Oferece suporte a regras de sincronização do FIM e conectores para provisionamento para os sistemas locais. | | | |● |● |
 
+ 
+&#42; Atualmente, há duas opções com suporte para isso.  Eles são: 
+
+   1. Você pode usar o conector LDAP genérico e habilitá-lo fora do Azure AD Connect.  Isso é complexo e exige um parceiro de integração e um contrato de suporte premier para manter.  Essa opção pode lidar com um ou vários diretórios LDAP. 
+
+   2. Você pode desenvolver sua própria solução para mover objetos do LDAP para o Active Directory.  Em seguida, sincronize os objetos com o Azure AD Connect.  MIM ou FIM pode ser usado como uma possível solução para mover os objetos. 
 
 ## <a name="cloud-to-on-premises-synchronization"></a>Nuvem para sincronização no local
-| Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Recurso | Conexão do Active Directory do Azure | Serviços de Sincronização do Azure Active Directory - NÃO TEM MAIS SUPORTE  | Ferramenta de Sincronização do Azure Active Directory (DirSync) - NÃO TEM MAIS SUPORTE  | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Write-back de dispositivos |● | |● | | |
 | Write-back de atributo (para implantação híbrida do Exchange) |● |● |● |● |● |
@@ -61,15 +69,17 @@ PP = Versão prévia pública
 | Write-back de senhas (de redefinição de senha de autoatendimento (SSPR) e alteração de senha) |● |● | | | |
 
 ## <a name="authentication-feature-support"></a>Suporte ao recurso de autenticação
-| Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Recurso | Conexão do Active Directory do Azure | Serviços de Sincronização do Azure Active Directory - NÃO TEM MAIS SUPORTE  | Ferramenta de Sincronização do Azure Active Directory (DirSync) - NÃO TEM MAIS SUPORTE  | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
-| Sincronização de senha para a floresta única do AD local |● |● |● | | |
-| Sincronização de senha para várias florestas do AD local |● |● | | | |
+| Sincronização de hash de senha para a floresta única do AD local |●|●|● | | |
+| Sincronização de hash de senha para várias florestas do AD local |●|● | | | |
+| Autenticação de passagem para florestas individuais do AD local |●| | | | |
 | Logon único com federação |● |● |● |● |● |
+| Logon Único Contínuo|● |||||
 | Write-back de senhas (de alteração SSPR e senha) |● |● | | | |
 
 ## <a name="set-up-and-installation"></a>Instalação e configuração
-| Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | Microsoft Identity Manager 2016 (MIM) |
+| Recurso | Conexão do Active Directory do Azure | Serviços de Sincronização do Azure Active Directory - NÃO TEM MAIS SUPORTE  | Ferramenta de Sincronização do Azure Active Directory (DirSync) - NÃO TEM MAIS SUPORTE  | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Oferece suporte à instalação em um controlador de domínio |● |● |● | |
 | Oferece suporte à instalação usando o SQL Express |● |● |● | |
@@ -80,7 +90,7 @@ PP = Versão prévia pública
 | Suporte para o Windows Server 2012 e Windows Server 2012 R2 |● |● |● |● |
 
 ## <a name="filtering-and-configuration"></a>Filtragem e configuração
-| Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Recurso | Conexão do Active Directory do Azure | Serviços de Sincronização do Azure Active Directory - NÃO TEM MAIS SUPORTE  | Ferramenta de Sincronização do Azure Active Directory (DirSync) - NÃO TEM MAIS SUPORTE  | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Filtrar em domínios e unidades organizacionais |● |● |● |● |● |
 | Filtrar os valores de atributo de objetos |● |● |● |● |● |

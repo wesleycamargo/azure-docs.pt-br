@@ -14,15 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ba84d297420ca5a9b75b4cfa432373d3070e0d01
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125237"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio
 ## <a name="overview"></a>Visão geral
-Este tutorial mostra como usar ferramentas do Visual Studio para ajudar a depurar um aplicativo Web no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), seja executando-o no [modo de depuração](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) remotamente ou exibindo logs do aplicativo e do servidor Web.
+Este tutorial mostra como usar ferramentas do Visual Studio para ajudar a depurar um aplicativo Web no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), seja executando-o no [modo de depuração](https://docs.microsoft.com/visualstudio/debugger/) remotamente ou exibindo logs do aplicativo e do servidor Web.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -38,7 +39,7 @@ O que você aprenderá:
 Se você tiver o Visual Studio Ultimate, também é possível utilizar o [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) para depuração. O IntelliTrace não é abordado neste tutorial.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este tutorial funciona com o ambiente de desenvolvimento, o projeto Web e o aplicativo Web do Azure que você configurou na [Introdução ao Azure e ao ASP.NET][GetStarted]. Para as seções do WebJobs, você precisará do aplicativo que você criou na [Introdução ao SDK do Azure WebJobs][GetStartedWJ].
+Este tutorial funciona com o ambiente de desenvolvimento, projeto Web e aplicativo Web do Azure que você configurou na [Introdução ao Azure e ASP.NET](app-service-web-get-started-dotnet-framework.md). Para as seções do WebJobs, você precisará do aplicativo que você criou na [Introdução ao SDK do Azure WebJobs][GetStartedWJ].
 
 Os exemplos de código mostrados neste tutorial são para um aplicativo Web MVC em C#, mas os procedimentos para solução de problemas são os mesmos para aplicativos em Visual Basic e Web Forms.
 
@@ -60,7 +61,7 @@ O Visual Studio fornece acesso a um subconjunto das funções de gerenciamento e
 
     Para obter mais informações sobre como se conectar aos recursos do Azure no Visual Studio, consulte [Gerenciar contas, assinaturas e funções administrativas](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 2. No **Gerenciador de Servidores**, expanda **Azure** e **Serviço de Aplicativo**.
-3. Expanda o grupo de recursos que inclui o aplicativo Web que você criou em [Criar um aplicativo da web ASP.NET no Azure][app-service-web-get-started-dotnet.md] e clique com o botão direito do mouse no nó do aplicativo Web e clique em **Exibir Configurações**.
+3. Expanda o grupo de recursos que inclui o aplicativo Web que você criou em [Criar um aplicativo Web do ASP.NET no Azure](app-service-web-get-started-dotnet-framework.md) e, em seguida, clique com o botão direito do mouse no nó do aplicativo Web e clique em **Exibir Configurações**.
 
     ![Exibir Configurações no Gerenciador de Servidores](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -117,9 +118,9 @@ Se a mensagem de erro detalhada não oferecer informações suficientes e não f
 
 A depuração remota não funciona em edições Express do Visual Studio.
 
-Esta seção mostra como depurar remotamente usando o projeto que você cria no [Criar um aplicativo da web ASP.NET no Azure](app-service-web-get-started-dotnet.md).
+Esta seção mostra como depurar remotamente usando o projeto que você cria no [Criar um aplicativo da web ASP.NET no Azure](app-service-web-get-started-dotnet-framework.md).
 
-1. Abra o projeto da web que você criou em [Criar um aplicativo da web ASP.NET no Azure](app-service-web-get-started-dotnet.md).
+1. Abra o projeto da web que você criou em [Criar um aplicativo da web ASP.NET no Azure](app-service-web-get-started-dotnet-framework.md).
 
 2. Abra o *Controllers\HomeController.cs*.
 
@@ -133,11 +134,12 @@ public ActionResult About()
     return View();
 }
 ```
-4. [Defina um ponto de interrupção](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) na linha `ViewBag.Message`.
+
+4. [Defina um ponto de interrupção](https://docs.microsoft.com/visualstudio/debugger/) na linha `ViewBag.Message`.
 
 5. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e clique em **Publicar**.
 
-6. Na lista suspensa de **Perfil**, selecione o mesmo perfil que você usou em [Criar um aplicativo da web ASP.NET no Azure](app-service-web-get-started-dotnet.md). Em seguida, clique em Configurações.
+6. Na lista suspensa de **Perfil**, selecione o mesmo perfil que você usou em [Criar um aplicativo da web ASP.NET no Azure](app-service-web-get-started-dotnet-framework.md). Em seguida, clique em Configurações.
 
 7. Na caixa de diálogo **Publicar**, clique em **Configurações** e altere **Configuração** para D**epuração** e, em seguida, clique em **Salvar**.
 
@@ -184,7 +186,7 @@ A depuração remota só funciona com Trabalhos Web contínuos. Trabalhos Web ag
 
 2. No projeto ContosoAdsWebJob, abra *Functions.cs*.
 
-3. [Defina um ponto de interrupção](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) na primeira instrução do método `GnerateThumbnail`.
+3. [Defina um ponto de interrupção](https://docs.microsoft.com/visualstudio/debugger/) na primeira instrução do método `GnerateThumbnail`.
 
     ![Definir ponto de interrupção](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -249,7 +251,7 @@ Se a sua função [criou logs](https://github.com/Azure/azure-webjobs-sdk/wiki),
   <httpRuntime targetFramework="4.5" />
 </system.web>
 ```
-* Se você descobrir que o depurador não entra no código que você deseja depurar, será preciso alterar a configuração de Just My Code.  Para obter mais informações, consulte [Restringir a entrada em Just My Code](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code)
+* Se você descobrir que o depurador não entra no código que você deseja depurar, será preciso alterar a configuração de Just My Code.  Para obter mais informações, consulte [Especificar se quer depurar somente o código do usuário usando Apenas Meu Código no Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
 * Um timer é iniciado no servidor quando você habilita o recurso de depuração remota e, após 48 horas, o recurso é desativado automaticamente. Esse limite de 48 horas é definido por razões de segurança e desempenho. Você pode reativá-lo facilmente quantas vezes quiser. É recomendável deixá-lo desabilitado quando você não está depurando ativamente.
 * Você pode anexar manualmente o depurador a qualquer processo, não apenas ao processo do aplicativo Web (w3wp.exe). Para obter mais informações sobre como usar o modo de depuração no Visual Studio, consulte [Depurando no Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 
@@ -272,7 +274,7 @@ Os logs são gravados em arquivos em uma pasta *LogFiles* no sistema de arquivos
 ## <a name="apptracelogs"></a>Criar e exibir logs de rastreamento de aplicativos
 Nesta seção, você executará as seguintes tarefas:
 
-* Adicionar instruções de rastreamento ao projeto Web que você criou em [Introdução ao Azure e ASP.NET][GetStarted].
+* Adicionar instruções de rastreamento ao projeto Web que você criou em [Introdução ao Azure e ASP.NET](app-service-web-get-started-dotnet-framework.md).
 * Exiba os logs ao executar o projeto localmente.
 * Exiba os logs conforme eles são gerados pelo aplicativo em execução no Azure.
 
@@ -621,7 +623,7 @@ Você viu como o Visual Studio facilita a exibição de logs criados por um apli
 ### <a name="azure-web-app-troubleshooting"></a>Solução de problemas de aplicativo Web do Azure
 Para saber mais sobre como solucionar problemas de aplicativos Web no Serviço de Aplicativo do Azure, confira os seguintes recursos:
 
-* [Como monitorar aplicativos Web](/manage/services/web-sites/how-to-monitor-websites/)
+* [Como monitorar aplicativos Web](web-sites-monitor.md)
 * [Investigando perdas de memória em aplicativos Web do Azure com o Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Postagem no blog do Microsoft ALM sobre os recursos do Visual Studio para análise de problemas de memória gerenciados.
 * [Ferramentas online de aplicativos Web do Azure sobre as quais você deve saber](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Postagem de blog de Amit Apple.
 
@@ -672,7 +674,7 @@ catch (Exception ex)
 
 * [Registro em log de rastreamento do diagnóstico de streaming na linha de comando do Azure (mais Glimpse!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Como usar a linha de comando para fazer o que este tutorial mostra no Visual Studio. [Glimpse (a página pode estar em inglês)](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) é uma ferramenta para depuração de aplicativos ASP.NET.
-* [Usando diagnóstico e registro em log de Aplicativos Web – com David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) e [Logs de streaming dos Aplicativos Web – com David Ebbo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+* [Usando diagnóstico e registro em log de Aplicativos Web – com David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) e [Logs de streaming dos Aplicativos Web – com David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Vídeos de Scott Hanselman e David Ebbo.
 
 Para o registro em log de erros, uma alternativa para escrever seu próprio código de rastreamento é usar uma estrutura de registros em log de software livre, como o [ELMAH](http://nuget.org/packages/elmah/). Para obter mais informações, consulte as [postagens no blog de Scott Hanselman sobre o ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
@@ -683,7 +685,7 @@ Além disso, você não precisa usar ASP.NET ou `System.Diagnostics` rastreament
 Para obter mais informações sobre como analisar logs de servidor web, consulte os seguintes recursos:
 
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
-  Uma ferramenta para exibir dados em logs de servidor Web (arquivos*.log* ).
+  Uma ferramenta para exibir dados em logs de servidor Web (arquivos *.log* ).
 * [Solução de problemas de desempenho do IIS ou erros de aplicativo usando o LogParser](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Uma introdução à ferramenta LogParser que pode ser usada para analisar logs de servidor web.
 * [Postagens no blog por Robert McMurray sobre como usar o LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>

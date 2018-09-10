@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
-description: "Aprenda a criar uma máquina virtual usando o Linux com uma implantação clássica."
-title: "Máquinas virtuais do Azure para Documentação do Linux (Implantação Clássica) | Microsoft Docs"
+description: Aprenda a criar uma máquina virtual usando o Linux com uma implantação clássica.
+title: Máquinas virtuais do Azure para Documentação do Linux (Implantação Clássica) | Microsoft Docs
 services: virtual-machines-linux
 author: czeumault
 manager: carolz
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,4 +17,5 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23072836"
 ---

@@ -3,16 +3,17 @@ title: 'Lição 10 do tutorial do Azure Analysis Services: criar partições | M
 description: Descreve como criar partições no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 743eff21154502fc4ff651177abb8df91edb7494
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7a445cd0e5c737371fa56f1e4dffa49d1915b15a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447934"
 ---
 # <a name="create-partitions"></a>Criar partições
 

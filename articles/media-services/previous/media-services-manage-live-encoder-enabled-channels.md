@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246384"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 
@@ -51,7 +52,7 @@ A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, vo
 ## <a name="billing-implications"></a>Implicações de cobrança
 Um canal de codificação ativo começará a ser cobrado assim que seu estado mudar para "Em execução" por meio da API.   Você também pode exibir o estado no Portal do Azure ou na ferramenta Gerenciador de Serviços de Mídia do Azure (http://aka.ms/amse).
 
-A tabela a seguir mostra como os estados de Canal são mapeados para os estados de cobrança na API e no Portal do Azure. Observe que os estados são ligeiramente diferentes entre a API e o Portal UX. Assim que um canal estiver no estado "Em execução" por meio da API ou no estado "Pronto" ou "Streaming" no Portal do Azure, a cobrança estará ativa.
+A tabela a seguir mostra como os estados de Canal são mapeados para os estados de cobrança na API e no Portal do Azure. Os estados são ligeiramente diferentes entre a API e o Portal UX. Assim que um canal estiver no estado "Em execução" por meio da API ou no estado "Pronto" ou "Streaming" no Portal do Azure, a cobrança estará ativa.
 Para parar a cobranças adicionais do Canal, você terá de Parar o Canal por meio da API ou no Portal do Azure.
 Você é responsável por parar seus canais quando terminar com o canal de codificação ativo.  A falha ao interromper um canal de codificação resultará em cobrança contínua.
 
@@ -87,7 +88,7 @@ O diagrama a seguir representa um fluxo de trabalho de streaming ao vivo em que 
 A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de streaming ao vivo.
 
 > [!NOTE]
-> Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Contate  amslived@microsoft.com se precisar executar um Canal por longos períodos. Lembre-se de que há um impacto de cobrança para a codificação ativa e você deve se lembrar que deixar um canal de codificação ativa no estado "Em execução" incorrerá em cobranças por hora.  É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. 
+> Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com se precisar executar um Canal por períodos mais longos. Há um impacto de cobrança para codificação ativa e você deve se lembrar que deixar um canal de codificação ativo no estado "Em execução" incorrerá em cobranças por hora.  É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. 
 > 
 > 
 
@@ -168,7 +169,7 @@ Você pode obter as URLs de ingestão depois de criar um canal. Para obter essas
 Você tem a opção de ingerir fluxo ao vivo (Smooth Streaming) de MP4 fragmentado por uma conexão SSL. Para inserir por SSL, certifique-se de atualizar a URL de inserção para HTTPS. Observe que, atualmente, o AMS não dá suporte ao SSL com domínios personalizados.  
 
 ### <a name="allowed-ip-addresses"></a>Endereços IP permitidos
-Você pode definir os endereços IP que têm permissão para publicar vídeo para esse canal. Os endereços IP permitidos podem ser especificados como um endereço IP individual (por exemplo, '10.0.0.1'), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ‘10.0.0.1/22’), ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, '10.0.0.1(255.255.252.0)').
+Você pode definir os endereços IP que têm permissão para publicar vídeo para esse canal. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo, '10.0.0.1'), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, '10.0.0.1/22) ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede com notação decimal com ponto (por exemplo, '10.0.0.1(255.255.252.0)').
 
 Se nenhum endereço IP for especificado e não houver definição de regra, nenhum endereço IP será permitido. Para permitir qualquer endereço IP, crie uma regra e defina 0.0.0.0/0.
 
@@ -181,12 +182,12 @@ Você pode obter a URL de visualização quando você cria o canal. Para obter a
 Depois que o canal inicia a ingestão de dados, você pode visualizar o fluxo.
 
 > [!NOTE]
-> Atualmente, o fluxo de visualização só pode ser entregue em formato MP4 fragmentado (Smooth Streaming), independentemente do tipo de entrada especificado. É possível usar o player [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para testar o Smooth Stream. Você também pode usar um player hospedado no Portal do Azure para exibir a transmissão.
+> Atualmente, o fluxo de visualização só pode ser entregue em formato MP4 fragmentado (Smooth Streaming), independentemente do tipo de entrada especificado.  Você pode usar um player hospedado no Portal do Azure para exibir a transmissão.
 > 
 > 
 
 ### <a name="allowed-ip-addresses"></a>Endereços IP permitidos
-Você pode definir os endereços IP que têm permissão para conectar-se ao ponto de extremidade de visualização. Se nenhum endereço IP for especificado, qualquer endereço IP será permitido. Os endereços IP permitidos podem ser especificados como um endereço IP individual (por exemplo, '10.0.0.1'), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ‘10.0.0.1/22’), ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, ‘10.0.0.1(255.255.252.0)’).
+Você pode definir os endereços IP que têm permissão para conectar-se ao ponto de extremidade de visualização. Se nenhum endereço IP for especificado, qualquer endereço IP será permitido. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo, '10.0.0.1'), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, '10.0.0.1/22) ou um intervalo IPs usando um endereço IP e uma máscara de sub-rede com notação decimal com ponto (por exemplo, '10.0.0.1(255.255.252.0)').
 
 ## <a name="live-encoding-settings"></a>Configurações de codificação ao vivo
 Esta seção descreve como as configurações para o codificador ativo no canal podem ser ajustadas, quando o **Tipo de codificação** de um canal é definido como **Standard**.
@@ -227,7 +228,8 @@ Observe que, se você precisar de predefinições personalizadas deverá contata
 | 200 |340 |192 |30 |Linha de base |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Fluxo de áudio de saída
-O áudio é codificado como estéreo AAC-LC a 64 kbps, com taxa de amostragem de 44,1 kHz.
+
+O áudio é codificado para AAC-LC estéreo a 128 kbps, taxa de amostragem de 48 kHz.
 
 ## <a name="signaling-advertisements"></a>Sinalização de anúncios
 Quando o canal está com codificação ao vivo habilitada, você tem um componente em seu pipeline de processamento de vídeo e pode manipulá-lo. Você pode sinalizar para o canal inserir slates e/ou anúncios no fluxo de saída de taxa de bits adaptável. Slates ainda são imagens que você pode usar para cobrir a transmissão de entrada ao vivo em certos casos (por exemplo, durante um intervalo comercial). Sinais de publicidade, são sinais sincronizados que você insere no fluxo de saída para informar o player de vídeo para realizar ações especiais – por exemplo, para alternar para um anúncio no momento apropriado. Consulte este [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) para uma visão geral do mecanismo de sinalização SCTE-35 usado para essa finalidade. Abaixo está um cenário típico que você poderia implementar em seu evento ao vivo.
@@ -280,7 +282,7 @@ Se a **ID padrão do ativo de imagem fixa** não for especificada e **inserir im
 ## <a name="channels-programs"></a>Programas do canal
 Um canal é associado a programas que permitem que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Os canais gerenciam os programas. A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele Canal.
 
-Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o programa, definindo a duração da **Janela de Arquivo** . Esse valor pode ser definido entre o mínimo de 5 minutos e o máximo de 25 horas. A duração da janela de arquivo também determina que a quantidade máxima de tempo que os clientes podem pesquisar na posição atual em tempo real. Os programas podem ser executados pelo período de tempo especificado, mas o conteúdo que estiver por trás da janela de tamanho será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
+Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o programa, definindo a duração da **Janela de Arquivo** . Esse valor pode ser definido entre o mínimo de 5 minutos e o máximo de 25 horas. A duração da janela de arquivo morto também determina o número máximo de tempo que os clientes podem buscar na posição atual em tempo real. Os programas podem ser executados pelo período de tempo especificado, mas o conteúdo que estiver por trás da janela de tamanho será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
 Cada programa está associado um ativo que armazena o conteúdo transmitido. Um ativo é mapeado para um contêiner de blob de blocos na conta de Armazenamento do Azure e os arquivos no ativo são armazenados como blobs nesse contêiner. Para publicar o programa para que seus clientes possam exibir o fluxo, você deve criar um localizador OnDemand para o ativo associado. Ter esse localizador permitirá que você crie uma URL de transmissão que você pode fornecer aos seus clientes.
 
@@ -332,12 +334,12 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 * Você será cobrado apenas quando o canal estiver no estado **Executando** . Para obter mais informações, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) seção.
 * Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived@microsoft.com se precisar executar um Canal por períodos mais longos.
 * Verifique se o ponto de extremidade de streaming do qual você deseja transmitir nosso conteúdo está no estado **Executando**.
-* A predefinição de codificação usa a noção de "taxa de quadros máxima" de 30 fps. Portanto, se a entrada é 60fps/59,97i, os quadros de entrada são descartados/divididos para 30/29,97 fps. Se a entrada é 50fps/50i, os quadros de entrada são descartados/divididos para 25 fps. Se a entrada é 25 fps, a saída permanece em 25 fps.
+* A predefinição de codificação usa a noção de "taxa de quadros máxima" de 30 fps. Portanto, se a entrada é 60fps/59,94i, os quadros de entrada são descartados/divididos para 30/29,97 fps. Se a entrada é 50fps/50i, os quadros de entrada são descartados/divididos para 25 fps. Se a entrada é 25 fps, a saída permanece em 25 fps.
 * Não se esqueça de PARAR SEUS CANAIS quando terminar. Caso contrário, a cobrança continuará.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 * O tempo de inicialização do canal foi aprimorado para uma média de 2 minutos, mas em momentos de maior demanda pode ainda levar até 20 minutos ou mais.
-* As imagens fixas devem estar de acordo com as restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se você tentar criar um Canal com um slate padrão que seja maior que 1920 x 1080, a solicitação será um erro.
+* As imagens fixas devem estar de acordo com as restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se você tentar criar um Canal com uma imagem fixa padrão maior que 1920x1080, a solicitação eventualmente será um erro.
 * Mais uma vez... não se esqueça de PARAR SEUS CANAIS quando concluir o streaming. Caso contrário, a cobrança continuará.
 
 ## <a name="next-step"></a>Próxima etapa

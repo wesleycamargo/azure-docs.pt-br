@@ -1,24 +1,20 @@
 ---
-title: Usar o Hive do Hadoop com o PowerShell no HDInsight – Azure | Microsoft Docs
+title: Usar o Hive do Hadoop com o PowerShell no HDInsight
 description: Usar o PowerShell para executar consultas Hive com Hadoop no HDInsight
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: cb795b7c-bcd0-497a-a7f0-8ed18ef49195
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: d72d5223373043648aeb3d783477781dbce35f6d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: 16caee1b04b8fb3ae2e83b8105b802e121092f60
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051769"
 ---
 # <a name="run-hive-queries-using-powershell"></a>Executar consultas Hive usando o PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -28,7 +24,7 @@ Este documento fornece um exemplo de como usar o Azure PowerShell no modo de Gru
 > [!NOTE]
 > Esse documento não fornece uma descrição detalhada do que as instruções HiveQL que usadas nos exemplos fazem. Para obter informações sobre o HiveQL usado neste exemplo, veja [Usar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um Hadoop baseado em Linux no cluster HDInsight versão 3.4 ou maior.
 

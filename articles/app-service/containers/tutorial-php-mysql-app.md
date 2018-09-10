@@ -12,11 +12,12 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 593f89071f03cb2e2b8ed9d7eda2cc7cb3971128
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5b02f8f71299f2ff4f88cf63481d761afc2c5f49
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41919477"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Web em PHP e MySQL no Serviço de Aplicativo do Azure no Linux
 
@@ -40,7 +41,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -151,7 +152,7 @@ Para interromper o PHP, digite `Ctrl + C` no terminal.
 
 ## <a name="create-mysql-in-azure"></a>Criar o MySQL no Azure
 
-Nesta etapa, você cria um banco de dados MySQL no [Banco de dados do Azure para MySQL (versão prévia)](/azure/mysql). Posteriormente, você configura o aplicativo PHP para se conectar a esse banco de dados.
+Nesta etapa, você cria um banco de dados MySQL no [Banco de Dados do Azure para MySQL](/azure/mysql). Posteriormente, você configura o aplicativo PHP para se conectar a esse banco de dados.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -159,7 +160,7 @@ Nesta etapa, você cria um banco de dados MySQL no [Banco de dados do Azure para
 
 ### <a name="create-a-mysql-server"></a>Criar um servidor MySQL
 
-Crie um servidor no Banco de Dados do Azure para MySQL (versão prévia) com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+Crie um servidor no Banco de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
 No comando a seguir, substitua o nome do MySQL Server em que o espaço reservado _&lt;mysql_server_name>_ é exibido (os caracteres válidos são `a-z`, `0-9` e `-`). Esse nome faz parte do nome do host do MySQL Server (`<mysql_server_name>.database.windows.net`) e precisa ser global exclusivo.
 
@@ -184,7 +185,7 @@ Quando o servidor MySQL for criado, a CLI do Azure mostrará informações semel
 
 ### <a name="configure-server-firewall"></a>Configurar o firewall do servidor
 
-Crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
+Crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -229,7 +230,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Conectar o aplicativo ao MySQL do Azure
 
-Nesta etapa, você conecta o aplicativo PHP ao banco de dados MySQL criado no Banco de Dados do Azure para MySQL (Versão Prévia).
+Nesta etapa, você conecta o aplicativo PHP ao banco de dados MySQL criado no Banco de Dados do Azure para MySQL.
 
 <a name="devconfig"></a>
 
@@ -253,7 +254,7 @@ MYSQL_SSL=true
 Salve as alterações.
 
 > [!TIP]
-> Para proteger as informações de conexão do MySQL, esse arquivo já foi excluído do repositório Git (consulte _.gitignore_ na raiz do repositório). Posteriormente, você aprende a configurar variáveis de ambiente no Serviço de Aplicativo para se conectar ao banco de dados no Banco de Dados do Azure para MySQL (Versão Prévia). Com variáveis de ambiente, você não precisa do arquivo *.env* no Serviço de Aplicativo.
+> Para proteger as informações de conexão do MySQL, esse arquivo já foi excluído do repositório Git (consulte _.gitignore_ na raiz do repositório). Posteriormente, você aprende a configurar variáveis de ambiente no Serviço de Aplicativo para se conectar ao banco de dados no Banco de Dados do Azure para MySQL. Com variáveis de ambiente, você não precisa do arquivo *.env* no Serviço de Aplicativo.
 >
 
 ### <a name="configure-ssl-certificate"></a>Configurar o certificado SSL
@@ -276,7 +277,7 @@ O certificado `BaltimoreCyberTrustRoot.crt.pem` é fornecido no repositório par
 
 ### <a name="test-the-application-locally"></a>Testar o aplicativo localmente
 
-Execute migrações de banco de dados do Laravel com _.env.production_ como arquivo de ambiente para criar as tabelas em seu banco de dados MySQL no Banco de Dados do Azure para MySQL (versão prévia). Lembre-se de que _.env.production_ tem as informações de conexão ao banco de dados MySQL no Azure.
+Execute migrações de banco de dados do Laravel com _.env.production_ como arquivo de ambiente para criar as tabelas em seu banco de dados MySQL no Banco de Dados do Azure para MySQL. Lembre-se de que _.env.production_ tem as informações de conexão ao banco de dados MySQL no Azure.
 
 ```bash
 php artisan migrate --env=production --force
@@ -298,7 +299,7 @@ Navegue até `http://localhost:8000`. Se a página for carregada sem erros, o ap
 
 Adicione algumas tarefas à página.
 
-![O PHP se conecta com êxito ao Banco de Dados do Azure para MySQL (versão prévia)](./media/tutorial-php-mysql-app/mysql-connect-success.png)
+![O PHP se conecta com êxito ao Banco de Dados do Azure para MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
 Para interromper o PHP, digite `Ctrl + C` no terminal.
 
@@ -338,7 +339,7 @@ O aplicativo Laravel é iniciado no diretório _/public_. A imagem do Docker do 
 
 ### <a name="configure-database-settings"></a>Definir configurações de banco de dados
 
-No Serviço de Aplicativo, defina as variáveis de ambiente como _configurações do aplicativo_ usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
+No Serviço de Aplicativo, defina as variáveis de ambiente como _configurações do aplicativo_ usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
 O comando a seguir define as configurações do aplicativo `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua os espaços reservados _&lt;appname>_ e _&lt;mysql_server_name>_.
 
@@ -346,7 +347,7 @@ O comando a seguir define as configurações do aplicativo `DB_HOST`, `DB_DATABA
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-É possível usar o método [getenv](http://www.php.net/manual/function.getenv.php) do PHP para acessar as configurações. O código do Laravel usa um wrapper [env](https://laravel.com/docs/5.4/helpers#method-env) em torno do `getenv` do PHP. Por exemplo, a configuração do MySQL em _config/database.php_ é parecida com o seguinte código:
+É possível usar o método [getenv](http://php.net/manual/en/function.getenv.php) do PHP para acessar as configurações. O código do Laravel usa um wrapper [env](https://laravel.com/docs/5.4/helpers#method-env) em torno do `getenv` do PHP. Por exemplo, a configuração do MySQL em _config/database.php_ é parecida com o seguinte código:
 
 ```php
 'mysql' => [
@@ -369,7 +370,7 @@ Use `php artisan` para gerar uma nova chave de aplicativo sem salvá-la em _.env
 php artisan key:generate --show
 ```
 
-Defina a chave de aplicativo no aplicativo Web do Serviço de Aplicativo usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set). Substitua os espaços reservados _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
+Defina a chave de aplicativo no aplicativo Web do Serviço de Aplicativo usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Substitua os espaços reservados _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"

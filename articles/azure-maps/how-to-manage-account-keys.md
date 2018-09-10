@@ -1,18 +1,19 @@
 ---
 title: Como gerenciar sua conta e chaves dos Mapas do Azure | Microsoft Docs
 description: Você pode usar o portal do Azure para gerenciar sua conta dos Mapas do Azure e gerenciar suas chaves de acesso.
-services: azure-maps
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
+services: azure-maps
 manager: timlt
-ms.openlocfilehash: 091b91b51f7c880a1edbf65a0e2c83560d4bc38b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f5596f4c9bc827852c730d18856753e87de3c59c
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141405"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Como gerenciar sua conta e chaves dos Mapas do Azure
 
@@ -50,4 +51,5 @@ Você pode excluir uma conta no Portal do Azure. Navegue até a página de visã
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como usar a [API de gerenciamento de Mapas](https://docs.microsoft.com/rest/api/maps-management/accounts) para criar, atualizar e excluir contas de Mapas. 
+* Saiba como usar APIs de pesquisa do Azure Mapas em [pesquisar um endereço](./how-to-search-for-address.md).
+* Saiba como usar o [controle de mapa de JavaScript](./how-to-use-map-control.md) do Azure Mapas.

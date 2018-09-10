@@ -1,11 +1,11 @@
 ---
-title: "Aviso de desativação da família 1 de SOs convidados | Microsoft Docs"
-description: "Fornece informações sobre quando ocorreu a desativação da família 1 sistemas operacionais convidados do Azure e determinar se você foi afetado"
+title: Aviso de desativação da família 1 de SOs convidados | Microsoft Docs
+description: Fornece informações sobre quando ocorreu a desativação da família 1 sistemas operacionais convidados do Azure e determinar se você foi afetado
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37b422e9-0713-4a81-a942-f553ef478064
 ms.service: cloud-services
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22998291"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de desativação da família 1 de SO convidados
 A desativação da família 1 do sistema operacional foi anunciada em 1º de junho de 2013.

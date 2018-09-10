@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2016
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 29ac254bf3b0e8decb26452fc36112af0a3970af
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 69dc56191667e65922d7d81116f4daf7a6e4b97a
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576929"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Substituição de chave de assinatura no Azure Active Directory
 Este artigo aborda o que você precisa saber sobre as chaves públicas que são usadas no Azure Active Directory (Azure AD) para assinar tokens de segurança. É importante observar que essas chaves são substituídas em intervalos periódicos e, em caso de emergência, podem ser substituídas imediatamente. Todos os aplicativos que usam o Azure AD devem ser capazes de manipular programaticamente o processo de substituição de chave ou estabelecer um processo de substituição manual periódica. Continue lendo para entender como funcionam as chaves, como avaliar o impacto de substituição no seu aplicativo e como atualizar seu aplicativo ou estabelecer um processo de substituição manual periódica para tratar a substituição de chave, se necessário.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Visão geral das chaves de assinatura no Azure AD
-O Azure AD usa criptografia de chave pública criada nos padrões da indústria para estabelecer a confiança entre ela e os aplicativos que a utilizam. Em termos práticos, isso funciona da seguinte maneira: o Azure AD usa uma chave de assinatura que consiste em um par de chaves público e privado. Quando um usuário entra em um aplicativo que usa o Azure AD para autenticação, este cria um token de segurança que contém informações sobre o usuário. Esse token é assinado pelo Azure AD usando sua chave privada antes de ser enviado para o aplicativo. Para verificar se o token é válido e é originado a partir do Azure AD, o aplicativo deverá validar a assinatura do token usando a chave pública exposta pelo Azure AD que está contida no [documento de descoberta do OpenID Connect](http://openid.net/specs/openid-connect-discovery-1_0.html) do locatário ou o [documento de metadados federados do locatário SAML/WS-Fed](active-directory-federation-metadata.md).
+O Azure AD usa criptografia de chave pública criada nos padrões da indústria para estabelecer a confiança entre ela e os aplicativos que a utilizam. Em termos práticos, isso funciona da seguinte maneira: o Azure AD usa uma chave de assinatura que consiste em um par de chaves público e privado. Quando um usuário entra em um aplicativo que usa o Azure AD para autenticação, este cria um token de segurança que contém informações sobre o usuário. Esse token é assinado pelo Azure AD usando sua chave privada antes de ser enviado para o aplicativo. Para verificar se o token é válido e é originado a partir do Azure AD, o aplicativo deverá validar a assinatura do token usando a chave pública exposta pelo Azure AD que está contida no [documento de descoberta do OpenID Connect](http://openid.net/specs/openid-connect-discovery-1_0.html) do locatário ou o [documento de metadados federados do locatário SAML/WS-Fed](azure-ad-federation-metadata.md).
 
 Para fins de segurança, a chave de assinatura do Azure AD é substituída periodicamente e, em caso de emergência, pode ser substituída imediatamente. Um aplicativo que se integra ao Azure AD deve estar preparado para lidar com um evento de substituição de chave, independentemente da frequência em que pode ocorrer. Se não tiver, e o aplicativo tentar usar uma chave expirada para verificar a assinatura em um token, a solicitação falhará.
 
@@ -50,7 +51,7 @@ Como o seu aplicativo lida com a substituição de chave depende de variáveis c
 
 Esta diretriz **não** é aplicável:
 
-* Os aplicativos adicionados da Galeria de Aplicativos do Azure AD (incluindo os Personalizados) têm diretrizes separadas em relação às chaves de assinatura. [Mais informações.](../active-directory-sso-certs.md)
+* Os aplicativos adicionados da Galeria de Aplicativos do Azure AD (incluindo os Personalizados) têm diretrizes separadas em relação às chaves de assinatura. [Mais informações.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
 * Os aplicativos locais publicados por meio do proxy de aplicativo não precisam se preocupar com as chaves de assinatura.
 
 ### <a name="nativeclient"></a>Aplicativos cliente nativos que acessam recursos

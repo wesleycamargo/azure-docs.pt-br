@@ -1,6 +1,6 @@
 ---
-title: "Como registrar um tíquete de suporte de evento de segurança – Azure | Microsoft Docs"
-description: "Como um vendedor no Azure Marketplace, tendo identificado um possível evento de segurança, preciso saber como registrar um tíquete apropriado."
+title: Como registrar um tíquete de suporte de evento de segurança – Azure | Microsoft Docs
+description: Como um vendedor no Azure Marketplace, tendo identificado um possível evento de segurança, preciso saber como registrar um tíquete apropriado.
 services: security
 documentationcenter: na
 author: DavidBosland
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129933"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Como registrar um tíquete de suporte de evento de segurança
 

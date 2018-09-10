@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: b87cb14fc707d14638c2d6a52af6f295276a2279
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: eef71aabaab71f908f950a4467da918dca1787fa
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492537"
 ---
 # <a name="overview-of-azure-devops-project"></a>Visão geral do projetos do Azure DevOps
 
@@ -68,7 +69,7 @@ Depois de criar seu projeto DevOps, você pode:
 
 ## <a name="how-do-i-start-using-the-azure-devops-project"></a>Como faço para começar a usar o projeto Azure DevOps?
 
-* [Introdução ao projeto Azure DevOps](https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-github)
+* [Introdução ao projeto Azure DevOps](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
 
 ## <a name="azure-devops-project-videos"></a>Vídeos sobre o projeto Azure DevOps
 

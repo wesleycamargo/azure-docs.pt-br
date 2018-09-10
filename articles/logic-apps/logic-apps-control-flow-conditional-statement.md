@@ -1,29 +1,25 @@
 ---
-title: "Instruções condicionais - Executar etapas baseadas em uma condição - Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Execute etapas no aplicativo lógico somente após atender a uma condição. Crie árvores de decisão que executem fluxos de trabalho com base em condições especificadas."
+title: Adicionar instruções condicionais a fluxos de trabalho – Aplicativo Lógico do Azure | Microsoft Docs
+description: Como criar condições que controlam ações em fluxos de trabalho no Aplicativo Lógico do Azure
 services: logic-apps
-keywords: "instruções condicionais, árvores de decisão"
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 486c1053f42ed3becc2c4b60accc993db7f24baa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: d4e69d33e07f484b4ccc5343786865230368c7ca
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096369"
 ---
-# <a name="conditional-statements-run-steps-based-on-a-condition-in-logic-apps"></a>Instruções condicionais: executar etapas baseadas em uma condição em aplicativos lógicos
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Crie instruções condicionais que controlam ações de fluxo de trabalho no Aplicativo Lógico do Azure
 
-Para executar etapas somente após passar uma condição especificada, utilize uma *instrução condicional*. Essa estrutura compara dados no fluxo de trabalho com valores ou campos específicos. Dessa forma, é possível definir diferentes etapas para executar com base em se os dados atendem a condição ou não. É possível aninhar condições dentro de outras.
+Para executar ações específicas em seu aplicativo lógico somente depois de passar uma condição especificada, adicione uma *instrução condicional*. Essa estrutura compara dados no fluxo de trabalho com valores ou campos específicos. Dessa forma, é possível definir diferentes ações para executar com base em se os dados atendem a condição ou não. É possível aninhar condições dentro de outras.
 
 Por exemplo, suponha que você tenha um aplicativo lógico que envia muitos emails quando novos itens aparecem no feed RSS de um site. Então, é possível adicionar uma declaração condicional para enviar email somente quando o novo item incluir uma cadeia de caracteres específica. 
 
@@ -50,36 +46,31 @@ Por exemplo, suponha que você tenha um aplicativo lógico que envia muitos emai
 
    Quando você quiser adicionar uma condição no final do fluxo de trabalho, na parte inferior do aplicativo lógico, escolha  **+ Nova etapa** > **Adicionar uma condição**.
 
-3. Em **Condição**, cria a condição. 
+3. Em **Condição**, compile a condição. 
 
    1. Na caixa esquerda, especifique os dados ou o campo que deseja comparar.
 
-      A partir da lista **Adicionar conteúdo dinâmico**, você poderá selecionar campos existentes do aplicativo lógico.
+      Quando você clica dentro da caixa à esquerda, a lista de conteúdo dinâmico é exibida para que você possa selecionar saídas de etapas anteriores em seu aplicativo lógico. 
+      Para este exemplo, selecione o resumo do feed RSS.
+
+      ![Compilar a condição](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
 
    2. Na lista intermediária, selecione a operação a executar. 
-   3. Na caixa direita, especifique um valor ou campo como o critério.
+   Neste exemplo, selecione “**contém**”. 
 
-   Por exemplo: 
-
-   ![Editar condição no modo básico](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode.png)
+   3. Na caixa direita, especifique um valor ou campo como o critério. 
+   Neste exemplo, especifique esta cadeia de caracteres: **Microsoft**
 
    Aqui está a condição completa:
 
-   ![Condição completa](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
+   ![Condição completa](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
+
+5. Em **Se verdadeiro** e **Se falso**, adicione as etapas a serem executadas com base em se a condição é atendida. Por exemplo: 
+
+   ![Condição com caminhos "Se verdadeiro" e "Se falso"](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > Para criar uma condição mais avançada ou usar expressões, escolha **Editar em modo avançado**. É possível utilizar expressões definidas pela [Linguagem de Definição de Fluxo de Trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
-   > 
-   > Por exemplo: 
-   >
-   > ![Editar condição no código](./media/logic-apps-control-flow-conditional-statement/edit-condition-advanced-mode.png)
-
-5. Em **SE SIM** e **SE NÃO**, adicione as etapas a serem executadas com base em se a condição é atendida. Por exemplo: 
-
-   ![Condição com caminhos SIM e NÃO](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
-
-   > [!TIP]
-   > Você pode arrastar ações existentes para os caminhos **SE SIM** e **SE NÃO**.
+   > Você pode arrastar ações existentes para os caminhos **Se verdadeiro** e **Se falso**.
 
 6. Salve seu aplicativo lógico.
 
@@ -91,14 +82,21 @@ Após ter criado um aplicativo lógico usando uma instrução condicional, vejam
 
 ``` json
 "actions": {
-  "myConditionName": {
+  "Condition": {
     "type": "If",
-    "expression": "@contains(triggerBody()?['summary'], 'Microsoft')",
     "actions": {
       "Send_an_email": {
-        "inputs": { },
+        "inputs": {},
         "runAfter": {}
-      }
+    },
+    "expression": {
+      "and": [ 
+        { 
+          "contains": [ 
+            "@triggerBody()?['summary']", "Microsoft"
+          ]
+        } 
+      ]
     },
     "runAfter": {}
   }
@@ -112,7 +110,7 @@ Após ter criado um aplicativo lógico usando uma instrução condicional, vejam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Executar etapas baseadas em valores diferentes (instrução de comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Executar e repetir etapas (loops)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Executar etapas baseadas em valores diferentes (instruções de comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Executar e repetir (loops)](../logic-apps/logic-apps-control-flow-loops.md)
 * [Executar ou mesclar etapas paralelas (branches)](../logic-apps/logic-apps-control-flow-branches.md)
 * [Executar etapas baseadas no status da ação agrupada (escopos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

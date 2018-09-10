@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 946b5a568d98367daec0244968b962618f22ae76
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037879"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série 8000 StorSimple: uma solução de armazenamento em nuvem híbrida
 ## <a name="overview"></a>Visão geral
@@ -56,7 +57,7 @@ A solução Microsoft Azure StorSimple inclui os seguintes componentes:
 * **Dispositivo de Nuvem StorSimple** – também conhecido como Solução de Virtualização do StorSimple, é uma versão de software do dispositivo StorSimple que replica a arquitetura e a maioria dos recursos do dispositivo de armazenamento híbrido físico. O Dispositivo de Nuvem StorSimple é executado em um único nó em uma máquina virtual do Azure. Dispositivos virtuais premium, que aproveitam o armazenamento premium do Azure, estão disponíveis na Atualização 2 e posterior.
 * **Serviço do Gerenciador de Dispositivos StorSimple** – uma extensão do portal do Azure que permite gerenciar um dispositivo StorSimple ou Dispositivo de Nuvem StorSimple de uma única interface da Web. Você pode usar o serviço Gerenciador de Dispositivos StorSimple para criar e gerenciar serviços, exibir e gerenciar dispositivos, exibir alertas, gerenciar volumes e exibir e gerenciar políticas de backup e o catálogo de backup.
 * **Windows PowerShell para StorSimple** – uma interface de linha de comando que você pode usar para gerenciar o dispositivo do StorSimple. O Windows PowerShell para StorSimple tem recursos que permitem registrar seu dispositivo StorSimple, configurar a interface de rede em seu dispositivo, instalar determinados tipos de atualizações, solucionar problemas de seu dispositivo acessando a sessão de suporte e alterar o estado do dispositivo. Você pode acessar o Windows PowerShell para StorSimple conectando-se ao console serial ou usando o Windows PowerShell remotamente.
-* **cmdlets Azure PowerShell StorSimple** – um conjunto de cmdlets do Windows PowerShell que permitem automatizar tarefas de nível de serviço e migração a partir da linha de comando. Para obter mais informações sobre os cmdlets do Azure PowerShell para StorSimple, vá para a [referência do cmdlet](/powershell/module/azure/?view=azuresmps-3.7.0#azure).
+* **cmdlets Azure PowerShell StorSimple** – um conjunto de cmdlets do Windows PowerShell que permitem automatizar tarefas de nível de serviço e migração a partir da linha de comando. Para obter mais informações sobre os cmdlets do Azure PowerShell para StorSimple, vá para a [referência do cmdlet](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0#azure).
 * **StorSimple Snapshot Manager** – um snap-in do MMC que usa grupos de volume e o Serviço de Cópias de Sombra de Volume do Windows para gerar backups consistentes com o aplicativo. Além disso, você pode usar o Gerenciador de instantâneos do StorSimple para criar o clone e agendamentos de backup ou restaurar volumes.
 * **StorSimple Adapter for SharePoint** – uma ferramenta que estende de modo transparente o armazenamento e a proteção de dados do Microsoft Azure StorSimple para os farms do SharePoint Server, tornando o armazenamento do StorSimple visualizável e gerenciável por meio do portal de Administração Central do SharePoint.
 
@@ -125,7 +126,7 @@ Você pode acessar o Windows PowerShell para StorSimple em um console serial (em
 Para saber mais, veja [Usar o Windows PowerShell para StorSimple para administrar seu dispositivo](storsimple-8000-windows-powershell-administration.md).
 
 ## <a name="azure-powershell-storsimple-cmdlets"></a>cmdlets Azure PowerShell StorSimple
-Os cmdlets do Azure PowerShell StorSimple são um conjunto de cmdlets do Windows PowerShell que permite automatizar tarefas de nível de serviço e migração na linha de comando. Para obter mais informações sobre os cmdlets do Azure PowerShell para StorSimple, vá para a [referência do cmdlet](/powershell/module/azure/?view=azuresmps-3.7.0).
+Os cmdlets do Azure PowerShell StorSimple são um conjunto de cmdlets do Windows PowerShell que permite automatizar tarefas de nível de serviço e migração na linha de comando. Para obter mais informações sobre os cmdlets do Azure PowerShell para StorSimple, vá para a [referência do cmdlet](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
 
 ## <a name="storsimple-snapshot-manager"></a>StorSimple Snapshot Manager
 O Gerenciador de instantâneos do StorSimple é um snap-in do MMC (Console de Gerenciamento Microsoft) que você pode usar para criar cópias de backup consistentes de um ponto no tempo de dados locais e em nuvem. O snap-in é executado em um host baseado no Windows Server. Você pode usar o Gerenciador de instantâneos do StorSimple para:
@@ -206,10 +207,10 @@ Confira na tabela abaixo um resumo das cargas de trabalho do StorSimple com supo
 
 | Cenário | Carga de trabalho | Com suporte | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Colaboração |Compartilhamento de arquivos |sim | |Todas as versões |
-| Colaboração |Compartilhamento de arquivos distribuído |sim | |Todas as versões |
+| Colaboração |Compartilhamento de arquivos |SIM | |Todas as versões |
+| Colaboração |Compartilhamento de arquivos distribuído |SIM | |Todas as versões |
 | Colaboração |SharePoint |Sim* |Com suporte somente com volumes afixados localmente |Atualização 2 e posterior |
-| Arquivamento |Arquivamento de arquivos simples |sim | |Todas as versões |
+| Arquivamento |Arquivamento de arquivos simples |SIM | |Todas as versões |
 | Virtualização |Máquinas virtuais |Sim* |Com suporte somente com volumes afixados localmente |Atualização 2 e posterior |
 | Banco de dados |SQL |Sim* |Com suporte somente com volumes afixados localmente |Atualização 2 e posterior |
 | Vigilância em vídeo |Vigilância em vídeo |Sim* |Há suporte quando o dispositivo StorSimple é dedicado somente a essa carga de trabalho |Atualização 2 e posterior |
@@ -233,7 +234,7 @@ Veja a seguir uma lista dos componentes da infraestrutura com suporte do StorSim
 
 | Cenário | Carga de trabalho | Com suporte | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Geral |ExpressRoute |sim | |Todas as versões |
+| Geral |ExpressRoute |SIM | |Todas as versões |
 | Geral |DataCore FC |Sim* |Suporte com DataCore SANsymphony |Todas as versões |
 | Geral |DFSR |Sim* |Com suporte somente com volumes afixados localmente |Todas as versões |
 | Geral |Indexação |Sim* |Para volumes em camadas, somente a indexação de metadados tem suporte (sem dados).<br>Para volumes afixados localmente, a indexação completa tem suporte. |Todas as versões |
@@ -248,7 +249,7 @@ A seguir está uma lista de outros aplicativos de software usados com o StorSimp
 | Destino de backup |Veeam |Veeam v 9 e posterior |[StorSimple como um destino de backup com o Veeam](storsimple-configure-backup-target-veeam.md)|
 | Destino de backup |VERITAS Backup Exec |Backup Exec 16 e posterior |[StorSimple como destino de backup com o Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|
 | Destino de backup |Veritas NetBackup |NetBackup 7.7.x e posterior  |[StorSimple como um destino de backup com o NetBackup](storsimple-configure-backuptarget-netbackup.md)|
-| Compartilhamento de Arquivos Global <br></br> Colaboração |Talon  |[StorSimple com Talon](https://www.talonstorage.com/products/fast-deployment-azure-storsimple) | |
+| Compartilhamento de Arquivos Global <br></br> Colaboração |Talon  |[StorSimple com Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
 
 ## <a name="storsimple-terminology"></a>Terminologia do StorSimple
 Antes de implantar sua solução de Microsoft Azure StorSimple, recomendamos que você revise os seguintes termos e definições.

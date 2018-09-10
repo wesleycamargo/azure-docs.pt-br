@@ -3,7 +3,7 @@ title: Autenticação e autorização no Serviço de Aplicativo do Azure | Micro
 description: Referência conceitual e visão geral do recurso Autenticação/Autorização para o Serviço de Aplicativo do Azure
 services: app-service
 documentationcenter: ''
-author: mattchenderson
+author: cephalin
 manager: erikre
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
@@ -12,13 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/29/2016
-ms.author: mahender
-ms.openlocfilehash: c180dcf5d769245f3fa2485ccee2cbc18ecf5f67
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 08/24/2018
+ms.author: mahender,cephalin
+ms.openlocfilehash: 9b4e86e719998c5f19a70734480356bcb98b8d2f
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888093"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -78,11 +79,11 @@ O Serviço de Aplicativo usa [identidade federada](https://en.wikipedia.org/wiki
 
 | Provedor | Ponto de extremidade de logon |
 | - | - |
-| [Azure Active Directory](../active-directory/active-directory-whatis.md) | `/.auth/login/aad` |
-| [Conta da Microsoft](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoft` |
+| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
+| [Conta da Microsoft](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoftaccount` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
-| [Twitter](https://developer.twitter.com/docs/basics/authentication) | `/.auth/login/twitter` |
+| [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
 Ao habilitar a autenticação e autorização com um desses provedores, seu ponto de extremidade de logon estará disponível para autenticação de usuário e validação de tokens de autenticação do provedor. Você pode fornecer aos usuários qualquer número dessas opções de entrada com facilidade. Você também pode integrar outro provedor de identidade ou [sua própria solução de identidade personalizada][custom-auth].
 
@@ -94,7 +95,7 @@ O fluxo de autenticação é o mesmo para todos os provedores, mas difere depend
 - Com SDK do provedor: o aplicativo conecta o usuário manualmente e, em seguida, envia o token de autenticação para o Serviço de Aplicativo para validação. Esse é tipicamente o caso de aplicativos sem navegador, que não podem apresentar a página de entrada do provedor ao usuário. O código do aplicativo gerencia o processo de entrada, portanto, ele também é chamado de _fluxo direcionado ao cliente_ ou _fluxo do cliente_. Esse caso aplica-se para APIs REST, [Azure Functions](../azure-functions/functions-overview.md) e clientes do navegador JavaScript, bem como aplicativos Web que precisam de mais flexibilidade no processo de entrada. Aplica-se também a aplicativos móveis nativos que conectam usuários usando o SDK do provedor.
 
 > [!NOTE]
-> Chamadas de um aplicativo de navegador confiável no Serviço de Aplicativo chamam outra API REST no Serviço de Aplicativo ou o [Azure Functions](../azure-functions/functions-overview.md) pode ser autenticado usando o fluxo direcionado ao servidor. Para obter mais informações, consulte [Autenticar usuários com o Serviço de Aplicativo do Azure]().
+> Chamadas de um aplicativo de navegador confiável no Serviço de Aplicativo chamam outra API REST no Serviço de Aplicativo ou o [Azure Functions](../azure-functions/functions-overview.md) pode ser autenticado usando o fluxo direcionado ao servidor. Para obter mais informações, consulte [Personalizar autenticação e autorização no serviço de aplicativos](app-service-authentication-how-to.md).
 >
 
 A tabela abaixo mostra as etapas do fluxo de autenticação.

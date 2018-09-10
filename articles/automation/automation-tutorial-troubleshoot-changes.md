@@ -7,15 +7,16 @@ ms.component: change-inventory-management
 keywords: alteração, controle, automação
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 02/28/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 62d34f82749900e161bebdb7a1a8d470b2e85bbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: fd94fd234067f63eab424c7f757d4adf842e7b46
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120578"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solucionar problemas de alterações em seu ambiente
 
@@ -32,7 +33,7 @@ Neste tutorial, você aprenderá a:
 > * Disparar um evento
 > * Exibir alterações
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará:
 
@@ -111,7 +112,9 @@ Na janela **Configuração do Espaço de Trabalho**, adicione as chaves do Regis
 |habilitado     | Determina se a configuração é aplicada        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado        |
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos        |
-|Insira o Caminho     | O caminho para verificar o arquivo, por exemplo: "c:\temp\myfile.txt"       |
+|Inserir o Caminho     | O caminho para verificar o arquivo. Por exemplo: "c:\temp\\\*.txt"<br>Você também pode usar variáveis de ambiente, como "%winDir%\System32\\\*.*"         |
+|Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
+|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **verdadeiro** ou **falso**.|
 
 ### <a name="add-a-linux-file"></a>Adicionar um arquivo Linux
 
@@ -129,8 +132,9 @@ Na janela **Configuração do Espaço de Trabalho**, adicione as chaves do Regis
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Usar o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
 |Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** - Ignora os links simbólicos e não inclui os arquivos/diretórios referenciados<br>**Seguir** - Segue os links simbólicos durante a recursão e inclui também os arquivos/diretórios referenciados<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do tratamento do conteúdo retornado      |
+|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **verdadeiro** ou **falso**.|
 
-   > [!NOTE]   
+   > [!NOTE]
    > A opção "Gerenciar" links não é recomendada. Não há suporte para a recuperação de conteúdo do arquivo.
 
 ## <a name="enable-activity-log-connection"></a>Habilitar conexão do log de atividades

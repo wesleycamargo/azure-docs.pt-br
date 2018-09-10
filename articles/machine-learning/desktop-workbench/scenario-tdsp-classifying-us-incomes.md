@@ -3,23 +3,25 @@ title: Classificação de renda – Processo de Ciência de Dados de Equipe – 
 description: Como usar o modelo do Processo de Ciência de Dados de Equipe para criar um projeto no Azure Machine Learning que classifica as rendas dos EUA.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.author: bradsev
-ms.openlocfilehash: 48c88f541f650fac3bdec431f3164138fb0f3205
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: edc3fc5e2a625a14bcb48b03f32cd99069a0ad53
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140405"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classificação de renda com Projeto TDSP (Processo de Ciência de Dados de Equipe)
 
@@ -48,7 +50,7 @@ Consulte [Team Data Science Process (TDSP) Lifecycle](https://github.com/Azure/M
 
 ![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="required-subscription-hardware-software"></a>Obrigatórios: assinatura, hardware, software
 1. Uma [assinatura](https://azure.microsoft.com) do Azure. É possível obter uma [assinatura gratuita](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) para executar este exemplo também.
 2. Uma [DSVM (Máquina virtual de Ciência de Dados do Azure) Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm), (Tamanho da VM: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) com 4 CPUs virtuais e 14 GB RAM). Embora testado em uma DSVM do Azure, é provável que funcione em qualquer computador Windows 10.

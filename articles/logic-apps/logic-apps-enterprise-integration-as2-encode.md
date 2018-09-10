@@ -1,26 +1,23 @@
 ---
-title: "Codificar mensagens AS2 – Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Como usar o codificador AS2 no Enterprise Integration Pack para o Aplicativo Lógico do Azure"
+title: Codificar mensagens AS2 – Aplicativo Lógico do Azure | Microsoft Docs
+description: Codificar mensagens AS com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: anneta
-editor: 
-ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: bccc8f81a3a664e090796ae8a3cbb38c890c0479
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
+ms.date: 08/08/2018
+ms.openlocfilehash: 6bb19199929a004ee5668a3a6e057a69c24dd752
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122706"
 ---
-# <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificar mensagens AS2 para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
+# <a name="encode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificar mensagens AS2 com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
 
 Para estabelecer confiabilidade e segurança ao transmitir mensagens, use o conector de mensagem AS2 de codificação. Ele fornece a assinatura digital, criptografia e confirmações por meio de Notificações de Disposição de Mensagem (MDN), o que também leva a suporte para Não Repúdio.
 
@@ -70,6 +67,14 @@ O conector codificador AS2 executa as seguintes tarefas:
 * Sinaliza mensagens de saída (se configurado)
 * Criptografa mensagens de saída (se configurado)
 * Compacta as mensagens (se configurado)
+* Nome do arquivo de transmissão no cabeçalho MIME (se configurado)
+
+
+  > [!NOTE]
+  > Se você usar o Azure Key Vault para o gerenciamento de certificado, certifique-se de configurar as chaves para permitir a operação **Criptografar**.
+  > Caso contrário, a Codificação de AS2 falhará.
+  >
+  > ![Descriptografias de cofre de chaves](media/logic-apps-enterprise-integration-as2-encode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>Experimente este exemplo
 

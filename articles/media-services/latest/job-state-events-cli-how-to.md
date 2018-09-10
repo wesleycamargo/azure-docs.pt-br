@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 2780438e715b6f6cb04d820c02d09f14e14b480f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e9df0cd24ef890765b78c25a073d671889be10a7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723738"
 ---
 # <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>Rotear eventos de Serviços de Mídia do Azure para um ponto de extremidade da Web personalizado usando a CLI
 
@@ -31,7 +32,7 @@ Faça logon no [Portal do Azure](http://portal.azure.com) e inicie o **CloudShel
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá a CLI do Azure versão 2.0 ou posterior. Execute `az --version` descobrir a versão que você tem. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este artigo exigirá a CLI do Azure versão 2.0 ou posterior. Execute `az --version` descobrir a versão que você tem. Caso precise instalá-la ou atualizá-la, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
@@ -185,3 +186,7 @@ az group delete --name <resource_group_name>
 ## <a name="next-steps"></a>Próximas etapas
 
 [Reagindo a eventos](reacting-to-media-services-events.md)
+
+## <a name="see-also"></a>Consulte também
+
+[CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

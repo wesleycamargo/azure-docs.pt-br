@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23109974"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Notas de versão as Atualizações 0.1 e 0.2 do StorSimple Virtual Array
 ## <a name="overview"></a>Visão geral

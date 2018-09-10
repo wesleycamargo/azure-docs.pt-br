@@ -1,39 +1,56 @@
 ---
-title: Adicionar o conector do Box aos seus Aplicativos Lógicos | Microsoft Docs
-description: Visão geral do Conector do Box com os parâmetros da API REST
-services: ''
-documentationcenter: ''
+title: Conectar à Caixa - Azure Logic Apps | Microsoft Docs
+description: Criar e gerenciar arquivos com APIs REST de caixa e aplicativos de lógica do Azure
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-ms.assetid: 949579cf-a81c-4790-9ef5-fe39b4fbd0c5
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: jeconnoc
+ms.author: estfan
 ms.date: 11/07/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 43268653a507ee76778e8594c5d001e4148dd910
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: b5c8c18c6d02710646560f29d4bc7b5784f730a2
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746870"
 ---
-# <a name="get-started-with-the-box-connector"></a>Introdução ao conector do Box
-Conecte-se ao Box, crie arquivos, exclua arquivos e muito mais. Com o Box, você pode:
+# <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Criar e gerenciar arquivos no Box com o Aplicativo Lógico do Azure
+
+Este artigo mostra como você pode criar e gerenciar seus arquivos no Box de dentro de um aplicativo lógico com o conector do Box. Dessa forma, você pode criar aplicativos lógicos que automatizam tarefas e fluxos de trabalho para gerenciar seus arquivos e outras ações, por exemplo:
 
 * Compile seu fluxo de negócios baseado nos dados que obtém do Box. 
-* Usar gatilhos para quando um arquivo for criado ou atualizado.
-* Usar ações para copiar um arquivo, excluir um arquivo e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um arquivo é alterado no Box, você pode obtê-lo e enviá-lo por email usando o Office 365.
 
-É possível começar criando um aplicativo lógico agora. Consulte [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Dispare o fluxo de trabalho e tarefas automatizadas quando um arquivo é criado ou atualizado.
 
-## <a name="connector-specific-details"></a>Detalhes específicos do conector
+* Execute ações para copiar um arquivo, excluir um arquivo e muito mais. 
 
-Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/box/).
+  Quando essas ações obtêm uma resposta, elas disponibilizam a saída para outras ações. 
+  Por exemplo, quando um arquivo é alterado no Box, você pode enviar esse arquivo em email usando o Office 365.
 
-## <a name="more-connectors"></a>Mais conectores
-Volte para a [Lista de APIs](apis-list.md).
+## <a name="prerequisites"></a>Pré-requisitos
 
+* Uma [conta do Box](https://www.box.com/home)
+
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. 
+
+* O aplicativo lógico no qual você deseja acessar a conta do Box. Para iniciar seu aplicativo lógico com um gatilho do Box, é necessário um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Se ainda não estiver familiarizado com o Aplicativo Lógico, veja [O que é o Aplicativo Lógico do Azure](../logic-apps/logic-apps-overview.md).
+
+## <a name="connector-reference"></a>Referência de conector
+
+Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo de Swagger do conector, confira a [página de referência do conector](/connectors/box/). 
+
+## <a name="get-support"></a>Obtenha suporte
+
+* Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Próximas etapas
+
+* Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

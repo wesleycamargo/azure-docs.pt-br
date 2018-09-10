@@ -2,23 +2,21 @@
 title: 'Azure Cosmos DB: como consultar usando a API do MongoDB? | Microsoft Docs'
 description: Aprenda a consultar com a API do MongoDB para o Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 03/29/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d8d524038d6483ff5da195648ee763f8faa1dad4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e941eb27e9c55f9a4b0e7af8d4cd8efa0220616b
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264453"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Tutorial: Consultar o Azure Cosmos DB usando a API do MongoDB
 
@@ -29,9 +27,7 @@ Este artigo aborda as seguintes tarefas:
 > [!div class="checklist"]
 > * Consultar dados com o MongoDB
 
-Você pode começar assistindo a esse vídeo com o gerente de programa do Azure Cosmos DB Andy Hoh sobre como consultar o MongoDB:
-
->[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
+Você pode começar usando os exemplos neste documento e assistindo ao vídeo [Consultar o Azure Cosmos DB com o shell do MongoDB](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/).
 
 ## <a name="sample-document"></a>Exemplo de documento
 

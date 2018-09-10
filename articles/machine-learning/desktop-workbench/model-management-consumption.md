@@ -7,21 +7,24 @@ ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 93df053bf62b5a69f74d816fc05520d040d73bd7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38973168"
 ---
 # <a name="consuming-web-services"></a>Consumindo serviços Web
 Depois de implantar um modelo como um serviço Web em tempo real, você poderá enviar dados a ele e obter previsões de uma variedade de plataformas e aplicativos. O serviço Web em tempo real expõe uma API REST para obter previsões. Você pode enviar dados para o serviço Web no formato de única linha ou de várias linhas para obter uma ou mais previsões de cada vez.
 
 Com o [serviço Web do Azure Machine Learning](model-management-service-deploy.md), um aplicativo externo comunica-se com um modelo de previsão de forma síncrona, fazendo uma chamada HTTP POST para a URL do serviço. Para fazer uma chamada ao serviço Web, o aplicativo cliente precisa especificar a chave de API que é criada quando você implanta uma previsão e colocar os dados da solicitação no corpo da solicitação POST.
 
-Observe que as chaves de API só estão disponíveis no modo de implantação de cluster. Os serviços Web locais não têm chaves.
+> [!NOTE]
+> Observe que as chaves de API só estão disponíveis no modo de implantação de cluster. Os serviços Web locais não têm chaves.
 
 ## <a name="service-deployment-options"></a>Opções de implantação de serviço
 Os serviços Web do Azure Machine Learning podem ser implantados nos clusters baseados em nuvem para cenários de teste e de produção e para estações de trabalho locais usando o mecanismo do Docker. A funcionalidade do modelo de previsão em ambos os casos permanece a mesma. A implantação baseada em cluster oferece uma solução escalonável e de alto desempenho com base nos serviços de Contêiner do Azure, enquanto a implantação local pode ser usada para depuração. 
@@ -70,11 +73,11 @@ Use a URL do serviço para enviar uma solicitação de um aplicativo de console 
 1. No Visual Studio, crie um novo aplicativo de console: 
     * No menu, clique em, Arquivo -> Novo -> Projeto
     * No Visual Studio C#, clique em Área de Trabalho de Classe do Windows e selecione Aplicativo de Console.
-2. Insira _MyFirstService_ como o nome do projeto e, em seguida, clique em OK.
-3. Em Referências do Projeto, defina as referências para _System.Net_ e _System.Net.Http_.
-4. Clique em Ferramentas -> Gerenciador de Pacotes NuGet -> Console do Gerenciador de Pacotes e, em seguida, instale o pacote Microsoft.AspNet.WebApi.Client.
-5. Abra o arquivo Program.cs e substitua o código pelo código a seguir:
-6. Atualize os parâmetros _SERVICE_URL_ e _API_KEY_ com as informações do seu serviço Web.
+2. Insira `MyFirstService` como o Nome do projeto e, em seguida, clique em OK.
+3. Em Referências do Projeto, defina referências a `System.Net` e `System.Net.Http`.
+4. Clique em Ferramentas -> Gerenciador de Pacotes NuGet -> Console do Gerenciador de Pacotes e, em seguida, instale o pacote **Microsoft.AspNet.WebApi.Client**.
+5. Abra o arquivo **Program.cs** e substitua o código pelo seguinte código:
+6. Atualize os parâmetros `SERVICE_URL` e `API_KEY` com as informações do serviço Web.
 7. Execute o projeto.
 
 ```csharp

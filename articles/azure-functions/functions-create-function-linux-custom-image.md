@@ -11,11 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 758906126b42c103853e0047bb19d2e96a84fae6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fab67b503d060c8c01b5a3692c8a07b24c425c78
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437399"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Criar uma função no Linux usando uma imagem personalizada (versão prévia)
 
@@ -37,13 +38,13 @@ Neste tutorial, você aprenderá como:
 
 As etapas a seguir têm suporte em um computador Mac, Windows ou Linux.  
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará:
 
 * [Git](https://git-scm.com/downloads)
 * Uma [assinatura ativa do Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Docker](https://docs.docker.com/get-started/#setup)
+* [Docker](https://docs.docker.com/install/)
 * Uma [conta do Hub do Docker](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
@@ -160,7 +161,7 @@ No momento, não há suporte para a hospedagem no Linux do Functions em planos d
 
 ## <a name="create-and-deploy-the-custom-image"></a>Criar e implantar a imagem personalizada
 
-O aplicativo de funções hospeda a execução de suas funções. Crie um aplicativo de funções a partir de uma imagem do Hub do Docker usando o comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
+O aplicativo de funções hospeda a execução de suas funções. Crie um aplicativo de funções a partir de uma imagem do Hub do Docker usando o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create). 
 
 No comando a seguir, substitua um nome de aplicativo de funções exclusivo quando você vir o espaço reservado `<app_name>` e o nome da conta de armazenamento por `<storage_name>`. O `<app_name>` é usado como domínio DNS padrão para o aplicativo de funções, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. Como antes, `<docker-id>` é o nome de conta do Docker.
 
@@ -195,7 +196,7 @@ O parâmetro _deployment-container-image-name_ indica a imagem hospedada no Hub 
 
 A função precisa da cadeia de conexão para se conectar à conta de armazenamento padrão. Quando você estiver publicando sua imagem personalizada em uma conta de contêiner privado, defina essas configurações de aplicativo como variáveis de ambiente no Dockerfile usando a [instrução ENV](https://docs.docker.com/engine/reference/builder/#env), ou algo equivalente. 
 
-Nesse caso, `<storage_account>` é o nome da conta de armazenamento criada. Obtenha a cadeia de conexão com o comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Adicione essas configurações de aplicativo ao aplicativo de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
+Nesse caso, `<storage_account>` é o nome da conta de armazenamento criada. Obtenha a cadeia de conexão com o comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Adicione essas configurações de aplicativo ao aplicativo de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -226,7 +227,7 @@ Neste tutorial, você aprendeu como:
 > * Implante um aplicativo de funções do Hub do Docker.
 > * Adicione configurações de aplicativo ao aplicativo de funções.
 
-Saiba mais sobre como desenvolver localmente Azure Functions usando as Ferramentas Básicas do Azure Functions.
+Saiba como habilitar a funcionalidade de integração contínua incorporada à plataforma central de Serviço de Aplicativo. É possível configurar seu aplicativo de funções para que o contêiner seja reimplantado quando você atualizar a imagem no Hub do Docker.
 
 > [!div class="nextstepaction"] 
-> [Codificar e testar o Azure Functions localmente](functions-run-local.md)
+> [Implantação contínua com o Aplicativo Web para Contêineres](../app-service/containers/app-service-linux-ci-cd.md)

@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-ms.openlocfilehash: b6b78c5ae4506c1405428b60887567f272d6e268
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6178c4a55d24bb37aae787129c9a0d390a2e536b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226219"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse
 Neste tutorial, explicamos como criar e implantar de um modelo de Machine Learning usando o SQL DW (SQL Data Warehouse) para um conjunto de dados publicamente disponível – o conjunto de dados [Corridas de Táxi de NYC](http://www.andresmh.com/nyctaxitrips/). O modelo de classificação binária construído prevê se uma gorjeta foi paga ou não por uma corrida. Também discutimos os modelos de regressão e classificação multiclasse que preveem a distribuição das gorjetas pagas.
@@ -885,7 +887,7 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 ## <a name="references"></a>Referências
 •   [Página de download de Viagens de Táxi de NYC, de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
 •   [Dados de Viagem de Táxi de FOILing NYC, de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•   [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•   [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

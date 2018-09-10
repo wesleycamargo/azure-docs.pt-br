@@ -1,24 +1,25 @@
 ---
-title: Privileged Identity Management para recursos do Azure - habilitar gerenciamento de assinaturas | Microsoft Docs
-description: Saiba como os administradores globais podem gerenciar assinaturas no locatário.
+title: Habilitar gerenciamento de assinaturas em seu locatário – Azure | Microsoft Docs
+description: Saiba como habilitar o gerenciamento de assinatura em seu locatário ao usar o Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: how-to
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: pim
 ms.date: 03/27/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e164d8adaf5df63dba31bb6aa8e56f768741479c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 89bb6fd48c58b7672b7a2251a172cc169093d368
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200868"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189988"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>Habilitar gerenciamento de assinaturas em seu locatário
 
@@ -28,7 +29,7 @@ Como administrador global do seu diretório, você pode não ter acesso padrão 
 
 Cada usuário atribuído à função de administrador global deve seguir as etapas abaixo para habilitar o gerenciamento de assinaturas. Depois que tiver habilitado o gerenciamento de assinaturas por conta própria, você poderá adicionar outros administradores globais que talvez precisem também de acesso aos recursos. Não há nenhuma configuração de diretório que habilita o acesso para todos os membros da função de administrador global.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no Portal do Azure com uma conta que seja um membro qualificado ou ativo da função de administrador global. Se a conta for um administrador global qualificado, você deverá primeiro ativar a função antes de passar para a próxima etapa.
 
@@ -78,14 +79,5 @@ Agora que você tem atribuições qualificadas para as assinaturas importantes e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Descobrir recursos](pim-resource-roles-discover-resources.md)
-
-[Definir configurações de função](pim-resource-roles-configure-role-settings.md)
-
-
-
-
-
-
-
-
+- [Descobrir os recursos do Azure para gerenciar no PIM](pim-resource-roles-discover-resources.md)
+- [Definir configurações de função de recurso do Azure no PIM](pim-resource-roles-configure-role-settings.md)

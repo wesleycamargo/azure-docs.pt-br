@@ -1,48 +1,83 @@
 ---
-title: Adicionar o Conector do Yammer ao seu Aplicativo Lógico do Azure | Microsoft Docs
-description: Visão geral do Conector do Yammer com os parâmetros da API REST
+title: Conectar-se com o Yammer do Aplicativo Lógico do Azure | Microsoft Docs
+description: Automatize tarefas e fluxos de trabalho que monitoram, postam e gerenciam mensagens, feeds e muito mais no Yammer usando o Aplicativo Lógico do Azure
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 7f1758e9b95f534b23188f427ae0edaddbb29a48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: 41855d6e562ddbb78df5d1d8794127e1064cc2ca
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918288"
 ---
-# <a name="get-started-with-the-yammer-connector"></a>Introdução ao conector do Yammer
-Conecte-se ao Yammer para acessar conversas em sua rede corporativa. Com o Yammer, você pode:
+# <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Monitore e gerencie sua conta do Yammer usando o Aplicativo Lógico do Azure
 
-* Crie seu fluxo de negócios baseado nos dados obtidos do Yammer. 
-* Use gatilhos para quando há uma nova mensagem em um grupo ou um feed a seguir.
-* Use as ações para postar uma mensagem, obter todas as mensagens e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando uma nova mensagem for exibida, você poderá enviar um email usando o Office 365.
+Com o Aplicativo Lógico do Azure e o conector do Yammer, você pode criar fluxos de trabalho e tarefas automatizadas que monitoram e gerenciam mensagens, feeds e mais em sua conta do Yammer, bem como outras ações, por exemplo:
 
-Comece pela criação de um aplicativo lógico; veja [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Monitorar quando novas mensagens aparecem em feeds e grupos seguidos.
+* Obter detalhes de usuários, mensagens, grupos e redes, entre outros.
+* Postar e curtir mensagens.
 
-## <a name="create-a-connection-to-yammer"></a>Criar uma conexão com o Yammer
-Para usar o conector do Yammer, você primeiro cria uma **conexão**, em seguida, fornece os detalhes dessas propriedades: 
+Você pode usar gatilhos que obtêm respostas de sua conta do Yammer e disponibilizam a saída para outras ações. Você pode usar ações que executam tarefas com sua conta do Yammer. Também é possível fazer com que outras ações usem a saída das ações do Yammer. Por exemplo, quando novas mensagens aparecem em feeds ou grupos, é possível compartilhar essas mensagens com o conector do Slack. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
-| Propriedade | Obrigatório | DESCRIÇÃO |
-| --- | --- | --- |
-| A criptografia do token |sim |Fornecer suas credenciais do Yammer |
+## <a name="prerequisites"></a>Pré-requisitos
 
-> [!INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
-> 
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. 
 
-## <a name="connector-specific-details"></a>Detalhes específicos do conector
+* Suas credenciais de usuário e conta do Yammer
 
-Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/yammer/).
+   Suas credenciais autorizam o aplicativo lógico a criar uma conexão e acessar sua conta do Yammer.
 
-## <a name="more-connectors"></a>Mais conectores
-Volte para a [Lista de APIs](apis-list.md).
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* O aplicativo lógico em que você deseja acessar sua conta do Yammer. Para iniciar com um gatilho do Yammer, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação do Yammer, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho de **Recorrência**.
+
+## <a name="connect-to-yammer"></a>Conectar-se com o Yammer
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
+
+1. Escolha um caminho: 
+
+   * Para aplicativos lógicos em branco, na caixa de pesquisa, insira "yammer" como filtro. 
+   Na lista de gatilhos, selecione o gatilho desejado. 
+
+     -ou-
+
+   * Para aplicativos lógicos existentes: 
+   
+     * Na última etapa em que você deseja adicionar uma ação, escolha **Nova etapa**. 
+
+       -ou-
+
+     * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
+     Escolha o sinal de adição (**+**) que aparece e, em seguida, selecione **Adicionar uma ação**.
+     
+       Na caixa de pesquisa, insira "yammer" como filtro. 
+       Na lista de ações, selecione a ação desejada.
+
+1. Se for solicitado que você entre no Yammer, entre agora para que possa permitir o acesso.
+
+1. Forneça os detalhes necessários para o gatilho ou a ação selecionada e continue criando o fluxo de trabalho do aplicativo lógico.
+
+## <a name="connector-reference"></a>Referência de conector
+
+Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/connectors/yammer/) do conector.
+
+## <a name="get-support"></a>Obtenha suporte
+
+* Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Próximas etapas
+
+* Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

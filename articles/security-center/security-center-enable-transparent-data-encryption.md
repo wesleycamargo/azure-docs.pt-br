@@ -1,11 +1,11 @@
 ---
-title: "Habilitar Transparent Data Encryption na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação da Central de Segurança do Azure para **Habilitar Transparent Data Encryption**."
+title: Habilitar Transparent Data Encryption na Central de Segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar a recomendação da Central de Segurança do Azure para **Habilitar Transparent Data Encryption**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: e4be8a0e-2118-4ee9-a266-69e52d9f7f8e
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040261"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Habilitar Transparent Data Encryption na Central de Segurança do Azure
 A Central de Segurança do Azure recomendará habilitar a TDE (Transparent Data Encryption) em bancos de dados SQL se já não estiver habilitada. A TDE protege seus dados e ajuda a cumprir os requisitos de conformidade, criptografando seu banco de dados, backups associados e arquivos de log de transações em repouso, sem exigir alterações no seu aplicativo. Para saber mais, consulte [Transparent Data Encryption com o Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/dn948096).

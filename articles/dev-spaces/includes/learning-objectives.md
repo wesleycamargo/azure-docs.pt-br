@@ -10,15 +10,15 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 56233a6764c50ed816a5fd10e79d3a66fff08a0a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 024ecbf692d8d0d521686a92861a765ba4f914e2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198602"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "40129195"
 ---
-Neste guia, você aprenderá como:
+Neste guia, você aprenderá a:
 
-- Criar um ambiente baseado em Kubernetes no Azure que é otimizado para desenvolvimento.
+- Crie um ambiente baseado em Kubernetes no Azure que seja otimizado para desenvolvimento – um _espaço de desenvolvimento_.
 - Desenvolver código em containers iterativamente usando o VS Code e a linha de comando.
 - Desenvolver e testar o código produtivamente em um ambiente de equipe.

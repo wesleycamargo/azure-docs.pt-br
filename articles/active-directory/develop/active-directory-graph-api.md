@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 4b4f698042f6688e3db484f7d96ccfb06c5cdd4f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3ec6bbcb9250626f8d6ef75330991c5ebac053a7
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158006"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504710"
 ---
 # <a name="azure-active-directory-graph-api"></a>API do Graph do Active Directory do Azure
 > [!IMPORTANT]
@@ -59,13 +59,13 @@ API do Microsoft Azure AD Graph fornece os seguintes recursos:
 ## <a name="scenarios"></a>Cenários
 A API do Microsoft Azure AD Graph habilita muitos cenários de aplicativos. A seguir, os cenários mais comuns:
 
-* **Aplicativo de linha de negócios (único locatário)**: neste cenário, um desenvolvedor corporativo trabalha para uma organização que tem uma assinatura do Office 365. O desenvolvedor está criando um aplicativo Web que interage com o Azure AD para executar tarefas como a atribuição de uma licença para um usuário. Esta tarefa exige acesso à API do Microsoft Azure AD Graph para que o desenvolvedor registre o aplicativo de único locatário no Microsoft Azure AD e configure as permissões de leitura e gravação para a API do Microsoft Azure AD Graph. Em seguida, o aplicativo é configurado para usar suas próprias credenciais ou aquelas do usuário conectado no momento para adquirir um token para chamar a API do Microsoft Azure AD Graph.
-* **Aplicativo de software como serviço (multilocatário)**: neste cenário, um fornecedor de software independente (ISV) está desenvolvendo um aplicativo Web multilocatário hospedado que fornece recursos de gerenciamento de usuário para outras organizações que usam o AD do Azure. Esses recursos exigem acesso a objetos de diretório, por isso o aplicativo precisa chamar a API do Microsoft Azure AD Graph. O desenvolvedor registra o aplicativo no Microsoft Azure AD, configura para exigir as permissões de leitura e gravação para a API do Microsoft Azure AD Graph e habilita o acesso externo para que outras organizações possam concordar com o uso do aplicativo em seu diretório. Quando um usuário de outra organização autentica o aplicativo pela primeira vez, é mostrada uma caixa de diálogo de consentimento com as permissões que o aplicativo está solicitando. Conceder consentimento dará o aplicativo às permissões solicitadas para a API do Microsoft Azure AD Graph no diretório do usuário. Para saber mais sobre a estrutura de consentimento, consulte [Visão geral da estrutura de consentimento](active-directory-integrating-applications.md).
+* **Aplicativo de linha de negócios (único locatário)**: neste cenário, um desenvolvedor corporativo trabalha para uma organização que tem uma assinatura do Office 365. O desenvolvedor está criando um aplicativo da Web que interage com o Azure AD para executar tarefas, como atribuir uma licença a um usuário. Essa tarefa exige acesso à API do Graph do Azure AD, portanto, o desenvolvedor registra o aplicativo de locatário único no Azure AD e configura as permissões de leitura e gravação da API do Graph do Azure AD. Em seguida, o aplicativo é configurado para usar suas próprias credenciais ou as do usuário de login atual para adquirir um token para chamar a API do Graph do Azure AD.
+* **Software como um aplicativo de serviço (multilocatário)**: nesse cenário, um fornecedor de software independente (ISV) está desenvolvendo um aplicativo da Web multilocatário hospedado que fornece recursos de gerenciamento de usuário para outras organizações que usam o Azure AD. Esses recursos exigem acesso a objetos de diretório, portanto, o aplicativo precisa chamar a API do Graph do Azure AD. O desenvolvedor registra o aplicativo no Microsoft Azure AD, configura para exigir as permissões de leitura e gravação para a API do Microsoft Azure AD Graph e habilita o acesso externo para que outras organizações possam concordar com o uso do aplicativo em seu diretório. Quando um usuário de outra organização autentica o aplicativo pela primeira vez, é mostrada uma caixa de diálogo de consentimento com as permissões que o aplicativo está solicitando. Conceder consentimento dará o aplicativo às permissões solicitadas para a API do Microsoft Azure AD Graph no diretório do usuário. Para saber mais sobre a estrutura de consentimento, consulte [Visão geral da estrutura de consentimento](quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="see-also"></a>Veja também
 [Guia de início rápido para a API do Graph do AD do Azure](active-directory-graph-api-quickstart.md)
 
 [Documentação do REST para a Microsoft Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
-[Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
+[Guia do desenvolvedor do Active Directory do Azure](azure-ad-developers-guide.md)
 

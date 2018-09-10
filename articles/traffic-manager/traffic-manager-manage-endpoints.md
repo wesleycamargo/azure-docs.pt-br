@@ -1,11 +1,11 @@
 ---
-title: "Gerenciar pontos de extremidade no Gerenciador de Tráfego do Azure | Microsoft Docs"
-description: "Este artigo o ajudará a adicionar, remover, habilitar e desabilitar pontos de extremidade do Gerenciador de Tráfego do Azure."
+title: Gerenciar pontos de extremidade no Gerenciador de Tráfego do Azure | Microsoft Docs
+description: Este artigo o ajudará a adicionar, remover, habilitar e desabilitar pontos de extremidade do Gerenciador de Tráfego do Azure.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ade2bbc2-35a7-43c5-8001-4698f7254526
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26577372"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desabilitar, habilitar ou excluir pontos de extremidade
 

@@ -1,19 +1,19 @@
 ---
 title: Referência do Azure IoT EdgeAgent e EdgeHub | Microsoft Docs
 description: Revise as propriedades específicas e os respectivos valores para os módulos gêmeos edgeAgent e edgeHub
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 0971d5bba59ce3c7b1a6409ef3248f33a41e37c9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+services: iot-edge
+ms.openlocfilehash: 2858179d42ebf51cbb24d95d2e0093f8577bacef
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030556"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Propriedades dos módulos gêmeos agente do Edge e hub do Edge
 
@@ -31,22 +31,25 @@ O gêmeo do módulo para o agente do Edge se chama `$edgeAgent` e coordena as co
 | runtime.type | Tem que ser "docker" | sim |
 | runtime.settings.minDockerVersion | Definido para a versão mínima do Docker necessária para o manifesto de implantação | sim |
 | runtime.settings.loggingOptions | Um JSON em cadeias de caracteres que contém as opções de registro para o contêiner do agente do Edge. [Opções de registro em log do Docker][lnk-docker-logging-options] | Não  |
+| runtime.settings.registryCredentials<br>.{registryId}.username | O nome de usuário do registro de contêiner. Para registro de contêiner do Azure, o nome de usuário geralmente é o nome do registro.<br><br> Credenciais de registro são necessárias para as imagens de módulo que não são públicas. | Não  |
+| runtime.settings.registryCredentials<br>.{registryId}.password | A senha para o registro de contêiner. | Não  |
+| runtime.settings.registryCredentials<br>.{registryId}.address | O endereço do registro de contêineres. Para registro de contêiner do Azure, o endereço é geralmente *{registryname}.azurecr.io*. | Não  |  
 | systemModules.edgeAgent.type | Tem que ser "docker" | sim |
 | systemModules.edgeAgent.settings.image | O URI da imagem do agente do Edge. Atualmente, o agente do Edge não é capaz de se atualizar. | sim |
-| systemModules.edgeAgent.settings.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do agente do Edge. [Opções de criação de docker][lnk-docker-create-options] | Não  |
-| systemModules.edgeAgent.configuration.id | A ID da implantação que implantou este módulo. | Isso é definido pelo Hub IoT quando esse manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
+| systemModules.edgeAgent.settings<br>.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do agente do Edge. [Opções de criação de docker][lnk-docker-create-options] | Não  |
+| systemModules.edgeAgent.configuration.id | A ID da implantação que implantou este módulo. | Esta propriedade é definida pelo Hub IoT quando este manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
 | systemModules.edgeHub.type | Tem que ser "docker" | sim |
 | systemModules.edgeHub.status | Deve estar "em execução" | sim |
 | systemModules.edgeHub.restartPolicy | Deve estar "sempre" | sim |
 | systemModules.edgeHub.settings.image | O URI da imagem do hub do Edge. | sim |
-| systemModules.edgeHub.settings.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do hub do Edge. [Opções de criação de docker][lnk-docker-create-options] | Não  |
-| systemModules.edgeHub.configuration.id | A ID da implantação que implantou este módulo. | Isso é definido pelo Hub IoT quando esse manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
+| systemModules.edgeHub.settings<br>.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do hub do Edge. [Opções de criação de docker][lnk-docker-create-options] | Não  |
+| systemModules.edgeHub.configuration.id | A ID da implantação que implantou este módulo. | Esta propriedade é definida pelo Hub IoT quando este manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
 | modules.{moduleId}.version | Uma cadeia definida pelo usuário que representa a versão desse módulo. | sim |
 | modules.{moduleId}.type | Tem que ser "docker" | sim |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | sim |
 | modules.{moduleId}.settings.image | O URI para a imagem do módulo. | sim |
 | modules.{moduleId}.settings.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do módulo. [Opções de criação de docker][lnk-docker-create-options] | Não  |
-| modules.{moduleId}.configuration.id | A ID da implantação que implantou este módulo. | Isso é definido pelo Hub IoT quando esse manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
+| modules.{moduleId}.configuration.id | A ID da implantação que implantou este módulo. | Esta propriedade é definida pelo Hub IoT quando este manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
 
 ## <a name="edgeagent-reported-properties"></a>Propriedades relatadas do EdgeAgent
 
@@ -59,7 +62,7 @@ As propriedades relatadas pelo agente do Edge incluem três partes de informaç�
 Esta última informação é útil no caso de as propriedades desejadas mais recentes não serem aplicadas com êxito pelo tempo de execução, juntamente com o dispositivo ainda estar a executar um manifesto de implantação anterior.
 
 > [!NOTE]
-> As propriedades relatadas do agente do Edge são úteis porque podem ser consultadas com a [linguagem de consulta do Hub IoT][lnk-iothub-query] para investigar o status das implantações em grande escala. Confira [Implantações][lnk-deploy] para obter mais informações sobre como usar esse recurso.
+> As propriedades relatadas do agente do Edge são úteis porque podem ser consultadas com a [linguagem de consulta do Hub IoT][lnk-iothub-query] para investigar o status das implantações em grande escala. Para saber mais sobre como usar as propriedades de agente Edge para status, veja [Noções básicas sobre implantações do IoT Edge para dispositivos únicos ou em escala][lnk-deploy].
 
 A tabela a seguir não inclui as informações que são copiadas das propriedades desejadas.
 

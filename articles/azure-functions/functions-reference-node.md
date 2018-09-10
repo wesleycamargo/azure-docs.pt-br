@@ -3,7 +3,7 @@ title: Referência do desenvolvedor de JavaScript do Azure Functions | Microsoft
 description: Entenda como desenvolver funções usando JavaScript.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,12 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
-ms.author: tdykstra
-ms.openlocfilehash: 78f29cd4a20861e40bb7f7f398979b8d93387a7b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: glenga
+ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005468"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -93,7 +94,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Informa ao tempo de execução que seu código terminou. Você deve chamar `context.done`, ou o tempo de execução nunca saberá que sua função terminou e a execução atingirá o tempo limite. 
+Informa ao tempo de execução que seu código terminou. Se sua função usa a `async function` declaração (disponível usando o Nó 8 + no Functions versão 2.x), você não precisará usar `context.done()`. O `context.done` retorno de chamada é chamado implicitamente.
+
+Se sua função não é uma função assíncrona, **você deve chamar `context.done`** para informar o tempo de execução que sua função é concluída. A execução atingirá o tempo limite se ele estiver ausente.
 
 O método `context.done` permite que você passe um erro definido pelo usuário de volta ao tempo de execução, e um recipiente de propriedades que substitui as propriedades no objeto `context.bindings`.
 
@@ -270,7 +273,7 @@ A tabela a seguir mostra a versão do Node.js usada por cada versão principal d
 | Versão do Functions | Versão do Node.js | 
 |---|---|
 | 1.x | 6.11.2 (bloqueada pelo tempo de execução) |
-| 2. x  |Recomenda-se >=8.4.0 com LTS 8.9.4 atual. Defina a versão usando a [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_DEFAULT_NODE_VERSION.|
+| 2. x  | _Active Directory LTS_ e _atual_ versões de Node. js (8.11.1 e 10.6.0 recomendado). Defina a versão usando a [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_DEFAULT_NODE_VERSION.|
 
 Você pode ver a versão atual usada pelo tempo de execução imprimindo `process.version` de qualquer função.
 

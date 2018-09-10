@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: add8e184db102d48275bd8d3faa42def63918c19
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360482"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746011"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -174,7 +174,7 @@ Para informações sobre preços de ambos os nós de computação de baixa prior
 
 ### <a name="size-of-the-compute-nodes"></a>Tamanho dos nós de computação
 
-Ao criar um pool de Lote do Azure, você pode escolher dentre quase todas as famílias de VMs e os tamanhos disponíveis no Azure. O Azure oferece uma variedade de tamanhos de VMs para diferentes cargas de trabalho, incluindo tamanhos de VMs [HPC](../virtual-machines/linux/sizes-hpc.md) ou [habilitado para GPU](../virtual-machines/linux/sizes-gpu.md) especializados. 
+Ao criar um pool de Lote do Azure, você pode escolher dentre quase todas as famílias de VMs e os tamanhos disponíveis no Azure. O Azure oferece vários tamanhos de VM para diferentes cargas de trabalho, incluindo tamanhos de VM especializados para [HPC](../virtual-machines/linux/sizes-hpc.md) ou [habilitados para GPU](../virtual-machines/linux/sizes-gpu.md). 
 
 Para obter mais informações, confira [Escolha um tamanho de VM para nós de computação em um pool do Lote do Azure](batch-pool-vm-sizes.md).
 
@@ -288,7 +288,7 @@ Se uma tarefa de inicialização falhar em um nó de computação, o estado do n
 Se você adicionar ou atualizar a tarefa inicial para um pool existente , deverá reinicializar seus nós de computação para que a tarefa inicial seja aplicada aos nós.
 
 >[!NOTE]
-> O tamanho total de uma tarefa de início deve ser menor ou igual a 32768 caracteres, incluindo arquivos de recurso e variáveis de ambiente. Para garantir que a tarefa de início atenda a esse requisito, você pode usar uma das duas abordagens:
+> O lote limita o tamanho total de uma tarefa de inicialização, que inclui arquivos de recurso e variáveis de ambiente. Se você precisar reduzir o tamanho de uma tarefa de inicialização, poderá usar uma das duas abordagens:
 >
 > 1. Você pode usar pacotes de aplicativos para distribuir aplicativos ou dados em cada nó no pool do Lote. Para saber mais sobre pacotes de aplicativos, veja [Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote](batch-application-packages.md).
 > 2. Você pode criar um arquivo compactado que contém os arquivos de aplicativos manualmente. Carregue seu arquivo compactado no Armazenamento do Azure como um blob. Especifique o arquivo compactado como um arquivo de recurso para a tarefa de início. Antes de executar a linha de comando para a tarefa de início, descompacte o arquivo da linha de comando. 
@@ -504,10 +504,9 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
-* Veja o passo a passo do aplicativo de exemplo do Lote em [Introdução à Biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md). Também há uma [versão em Python](batch-python-tutorial.md) do tutorial que executa uma carga de trabalho nos nós de computação do Linux.
-* Baixe e instale o [BatchLabs][batch_labs] para usá-lo ao desenvolver suas soluções do Lote. Use o BatchLabs para ajudar a criar, depurar e monitorar aplicativos do Lote do Azure. 
-* Saiba como [criar pools de nós de computação do Linux](batch-linux-nodes.md).
-* Visite o [fórum do Lote do Azure][batch_forum] no MSDN. O fórum é um bom lugar para fazer perguntas se você está apenas aprendendo ou se é especialista no Lote.
+* Obtenha as noções básicas sobre o desenvolvimento de um aplicativo habilitado para o Lote usando a [biblioteca de cliente .NET do Lote](quick-run-dotnet.md) ou do [Python](quick-run-python.md). O artigo de início rápido orienta você por meio de um aplicativo de exemplo que usa o serviço em Lotes para executar uma carga de trabalho em vários nós de computação e que inclui o uso do Armazenamento do Azure para preparação e recuperação de um arquivo de carga de trabalho.
+* Baixe e instale o [Batch Explorer][batch_labs] para usá-lo durante a instalação das suas soluções de lote. Use o Batch Explorer para ajudar a criar, depurar e monitorar os aplicativos do Lote do Azure. 
+* Consulte os recursos da comunidade incluindo o [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), o [repositório da Comunidade de Lote](https://github.com/Azure/Batch), e o [fórum do Lote do Azure][batch_forum] no MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
@@ -517,7 +516,7 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -541,7 +540,7 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 [vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
-[py_add_user]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.operations.html#azure.batch.operations.ComputeNodeOperations.add_user
+[py_add_user]: https://docs.microsoft.com/en-us/python/azure/?view=azure-python
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx

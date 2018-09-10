@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: a6ca5c389079e2c1c960f4f9322f0da1d98890ca
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 31d515aa8256cd360671502d10aea5b7f04d42c5
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198836"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "40129152"
 ---
 ## <a name="get-started-on-azure-dev-spaces"></a>Introdução ao Azure Dev Spaces
 

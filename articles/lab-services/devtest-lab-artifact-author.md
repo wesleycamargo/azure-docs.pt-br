@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 268b9af7835c51d78812b35aff5aaac585961b01
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ad9e9e893dc831530b69a30cc3dd930e879e9d7b
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185111"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Criar artefatos personalizados para sua máquina virtual do DevTest Labs
 
@@ -55,12 +56,12 @@ O exemplo a seguir mostra as seções que compõem a estrutura básica de um arq
 | Nome do elemento | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
 | $schema |Não  |Local do arquivo de esquema JSON. O arquivo de esquema JSON pode lhe ajudar a testar a validade do arquivo de definição. |
-| título |sim |Nome do artefato exibido no laboratório. |
-| Descrição |sim |Descrição do artefato exibido no laboratório. |
+| título |SIM |Nome do artefato exibido no laboratório. |
+| Descrição |SIM |Descrição do artefato exibido no laboratório. |
 | iconUri |Não  |URI do ícone exibido no laboratório. |
-| targetOsType |sim |Sistema operacional da VM em que o artefato está instalado. As opções com suporte são Windows e Linux. |
+| targetOsType |SIM |Sistema operacional da VM em que o artefato está instalado. As opções com suporte são Windows e Linux. |
 | parâmetros |Não  |Valores fornecidos quando o comando de instalação do artefato é executado em um computador. Isso ajuda você a personalizar seu artefato. |
-| runCommand |sim |Comando de instalação do artefato executado em uma VM. |
+| runCommand |SIM |Comando de instalação do artefato executado em uma VM. |
 
 ### <a name="artifact-parameters"></a>Parâmetros do artefato
 Na seção de parâmetros do arquivo de definição, especifique quais valores um usuário pode inserir ao instalar um artefato. Você pode consultar esses valores no comando de instalação do artefato.
@@ -77,9 +78,9 @@ Para definir parâmetros, use a seguinte estrutura:
 
 | Nome do elemento | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
-| Tipo |sim |Tipo do valor do parâmetro. Veja a lista a seguir para os tipos permitidos. |
-| displayName |sim |Nome do parâmetro exibido para um usuário no laboratório. | |
-| Descrição |sim |Descrição do parâmetro exibido no laboratório. |
+| Tipo |SIM |Tipo do valor do parâmetro. Veja a lista a seguir para os tipos permitidos. |
+| displayName |SIM |Nome do parâmetro exibido para um usuário no laboratório. | |
+| Descrição |SIM |Descrição do parâmetro exibido no laboratório. |
 
 Os tipos permitidos são:
 
@@ -112,7 +113,7 @@ O exemplo a seguir mostra como usar expressões e funções para construir um va
 1. Instalar um editor de JSON. Você precisa de um editor de JSON para trabalhar com arquivos de definição de artefato. Recomendamos o uso do [Visual Studio Code](https://code.visualstudio.com/), que está disponível para Windows, Linux e OS X.
 2. Obtenha um exemplo de arquivo de definição artifactfile.json. Confira os artefatos criados pela equipe do DevTest Labs em nosso [repositório GitHub](https://github.com/Azure/azure-devtestlab). Você criou uma biblioteca avançada artefatos que podem lhe ajudar a criar seus próprios artefatos. Baixe um arquivo de definição de artefato e faça as alterações nele para criar seus próprios artefatos.
 3. Faça uso do IntelliSense. Use o IntelliSense para ver os elementos válidos que você pode usar para construir um arquivo de definição de artefato. Você também pode ver as diferentes opções de valores para um elemento. Por exemplo, quando você edita o elemento **targetOsType**, o IntelliSense mostra a você as duas opções, Windows ou Linux.
-4. Armazene o artefato em um [repositório Git](devtest-lab-add-artifact-repo.md).
+4. Armazene o artefato no [repositório público do Git para DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou no [seu próprio repositório Git](devtest-lab-add-artifact-repo.md). No repositório público, você pode exibir os artefatos compartilhados por outras pessoas que você pode usar diretamente ou personalizá-los para atender às suas necessidades. 
    
    1. Crie um diretório separado para cada artefato. O nome do diretório deve ser igual ao nome do artefato.
    2. Armazene o arquivo de definição de artefato (artifactfile.json) no diretório que você criou.
@@ -121,9 +122,8 @@ O exemplo a seguir mostra como usar expressões e funções para construir um va
       Veja um exemplo de como uma pasta de artefatos pode ser:
       
       ![Exemplo de pasta de artefato](./media/devtest-lab-artifact-author/git-repo.png)
-5. Adicione o repositório de artefatos ao laboratório. Veja [Adicionar um repositório Git para artefatos e modelos](devtest-lab-add-artifact-repo.md).
+5. Se estiver usando seu próprio repositório para armazenar artefatos, adicione-o ao laboratório seguindo as instruções no artigo: [Add a Git repository for artifacts and templates](devtest-lab-add-artifact-repo.md) (Adicionar um repositório Git para artefatos e modelos).
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Como diagnosticar falhas de artefato em DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)

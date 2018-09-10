@@ -17,6 +17,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33786725"
 ---
 # <a name="use-powershell-to-create-an-azure-notification-hub"></a>Usar o PowerShell para criar um hub de notificações do Azure
 

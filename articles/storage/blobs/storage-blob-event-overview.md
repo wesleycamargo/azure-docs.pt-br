@@ -2,17 +2,18 @@
 title: Reagir aos eventos de armazenamento de Blobs do Azure | Microsoft Docs
 description: Use a Grade de Eventos do Azure para assinar eventos de Armazenamento de Blobs.
 services: storage,event-grid
-keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: blobs
+ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141011"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs
 
@@ -20,12 +21,12 @@ Eventos de Armazenamento do Azure permitem que aplicativos reajam à criação e
 
 Os cenários comuns de eventos de armazenamento de Blobs incluem processamento de vídeo ou imagem, indexação de pesquisa ou qualquer fluxo de trabalho orientado a arquivos.  Os carregamentos de arquivo assíncronos são uma excelente opção para eventos.  Quando as alterações não forem frequentes, mas seu cenário exigir uma capacidade de resposta imediata, a arquitetura baseada em eventos pode ser especialmente eficaz.
 
-A disponibilidade para eventos de Armazenamento está vinculada à [disponibilidade](../../event-grid/overview.md) da Grade de Eventos e estará disponível em outras regiões, como a Grade de Eventos. Dê uma olhada em [Encaminhar eventos de armazenamento de Blob para um ponto de extremidade da Web personalizado - CLI](storage-blob-event-quickstart.md) ou [Encaminhar eventos de armazenamento de Blob para um ponto de extremidade da Web personalizado - PowerShell](storage-blob-event-quickstart-powershell.md) para obter um exemplo rápido. 
+Dê uma olhada em [Encaminhar eventos de armazenamento de Blob para um ponto de extremidade da Web personalizado - CLI](storage-blob-event-quickstart.md) ou [Encaminhar eventos de armazenamento de Blob para um ponto de extremidade da Web personalizado - PowerShell](storage-blob-event-quickstart-powershell.md) para obter um exemplo rápido. 
 
 ![Modelo da Grade de Eventos](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Contas de armazenamento de Blobs
-Os eventos do Armazenamento de Blobs estão disponíveis em [contas do Armazenamento de Blobs](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) e em [contas de armazenamento de uso geral v2](../common/storage-account-options.md#general-purpose-v2). As contas de **uso geral v2 (GPv2)** são contas de armazenamento que fornecem suporte a todos os recursos de todos os serviços de armazenamento, incluindo blobs, arquivos, filas e tabelas. Uma **conta de armazenamento Blob** é uma conta de armazenamento especializada para armazenar dados não estruturados como blobs (objetos) no Armazenamento do Microsoft Azure. As contas de armazenamento de Blobs são como contas de armazenamento de finalidade geral existentes e compartilham todos os excelentes recursos de durabilidade, disponibilidade, escalabilidade e desempenho que você usa atualmente, incluindo 100% de consistência de API para blobs de bloco e blobs de acréscimo. Para aplicativos que exigem apenas o armazenamento de blobs em bloco ou acréscimo, recomendamos o uso de contas de Armazenamento de Blobs. 
+Os eventos do Armazenamento de Blobs estão disponíveis em [contas do Armazenamento de Blobs](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) e em [contas de armazenamento de uso geral v2](../common/storage-account-options.md#general-purpose-v2-accounts). As contas de **uso geral v2 (GPv2)** são contas de armazenamento que fornecem suporte a todos os recursos de todos os serviços de armazenamento, incluindo blobs, arquivos, filas e tabelas. Uma **conta de armazenamento Blob** é uma conta de armazenamento especializada para armazenar dados não estruturados como blobs (objetos) no Armazenamento do Microsoft Azure. As contas de armazenamento de Blobs são como contas de armazenamento de finalidade geral existentes e compartilham todos os excelentes recursos de durabilidade, disponibilidade, escalabilidade e desempenho que você usa atualmente, incluindo 100% de consistência de API para blobs de bloco e blobs de acréscimo. Para aplicativos que exigem apenas o armazenamento de blobs em bloco ou acréscimo, recomendamos o uso de contas de Armazenamento de Blobs. 
 
 ## <a name="available-blob-storage-events"></a>Eventos do Armazenamento de Blobs disponíveis
 A Grade de eventos usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes.  As assinaturas de evento do armazenamento de blobs podem incluir os dois tipos de eventos:  
@@ -36,10 +37,9 @@ A Grade de eventos usa [assinaturas de evento](../../event-grid/concepts.md#even
 > |`Microsoft.Storage.BlobDeleted`|Acionado quando um blob é excluído por meio de uma operação `DeleteBlob`|
 
 ## <a name="event-schema"></a>Esquema do evento
-Eventos do armazenamento de blobs contêm todas as informações que você precisa para responder às alterações em seus dados.  Você pode identificar um evento do Armazenamento de Blobs porque a propriedade eventType começa com "Microsoft.Storage".  
-Encontre informações adicionais sobre o uso de propriedades de evento da Grade de Eventos em [Esquema de eventos da Grade de Eventos](../../event-grid/event-schema.md).  
+Eventos do armazenamento de blobs contêm todas as informações que você precisa para responder às alterações em seus dados.  Você pode identificar um evento do Armazenamento de Blobs porque a propriedade eventType começa com "Microsoft.Storage". Encontre informações adicionais sobre o uso de propriedades de evento da Grade de Eventos em [Esquema de eventos da Grade de Eventos](../../event-grid/event-schema.md).  
 
-> |Propriedade|type|DESCRIÇÃO|
+> |Propriedade|Tipo|DESCRIÇÃO|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |topic|string|Id completa do Azure Resource Manager da conta de armazenamento que emite o evento.|
 > |subject|string|O caminho relativo do recurso até o objeto que é o assunto do evento, usando o mesmo formato estendido do Azure Resource Manager que usamos para descrever as contas de armazenamento, serviços e contêineres para o Azure RBAC.  Esse formato inclui um nome de blob que preserva as maiúsculas e minúsculas.|
@@ -53,11 +53,11 @@ Encontre informações adicionais sobre o uso de propriedades de evento da Grade
 > |data.contentLength|número|O tamanho do blob como um inteiro que representa um número de bytes, como seria retornado no cabeçalho Content-Length do blob.  Enviado com o evento BlobCreated, mas não com BlobDeleted.|
 > |data.url|string|A url do objeto que é o assunto do evento|
 > |data.eTag|string|A etag do objeto quando esse evento foi acionado.  Não disponível para o evento BlobDeleted.|
-> |data.api|string|O nome da operação de api que disparou esse evento.  Para eventos BlobCreated, esse valor será "PutBlob", "PutBlockList" ou "CopyBlob".  Para eventos BlobDeleted, esse valor será "DeleteBlob".  Esses valores são os mesmos nomes de api que estão presentes nos logs de diagnóstico do Armazenamento do Azure.  Confira [Mensagens de operações e status registradas em log](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
+> |data.api|string|O nome da operação de api que disparou esse evento. Para eventos BlobCreated, esse valor será "PutBlob", "PutBlockList" ou "CopyBlob". Para eventos BlobDeleted, esse valor será "DeleteBlob". Esses valores são os mesmos nomes de api que estão presentes nos logs de diagnóstico do Armazenamento do Azure. Confira [Mensagens de operações e status registradas em log](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
 > |data.sequencer|string|Um valor de cadeia de caracteres opaca que representa a sequência lógica de eventos para qualquer nome específico de blob.  Os usuários podem usar a comparação de cadeia de caracteres padrão para entender a sequência relativa dos dois eventos no mesmo nome de blob.|
-> |data.requestId|string|Id da solicitação gerada pelo serviço para a operação da API de armazenamento.  Pode ser usada para correlacionar com os logs de diagnóstico do Armazenamento do Azure usando o campo "request-id-header" nos logs, e retornada pela inicialização da chamada á API no cabeçalho 'x-ms-request-id'. Consulte [Formato de Log](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
-> |data.clientRequestId|string|Id da solicitação fornecida pelo cliente para a operação da API de armazenamento.  Pode ser usada para correlacionar com os logs de diagnóstico do Armazenamento do Azure usando o campo "client-request-id" nos logs, e pode ser fornecida em solicitações de cliente usando o cabeçalho "x-ms-client-request-id". Consulte [Formato de Log](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
-> |data.storageDiagnostics|objeto|Dados de diagnóstico ocasionalmente incluídos pelo serviço de Armazenamento do Azure.  Quando presente, deve ser ignorado pelos consumidores de evento.|
+> |data.requestId|string|Id da solicitação gerada pelo serviço para a operação da API de armazenamento. Pode ser usada para correlacionar com os logs de diagnóstico do Armazenamento do Azure usando o campo "request-id-header" nos logs, e retornada pela inicialização da chamada á API no cabeçalho 'x-ms-request-id'. Consulte [Formato de Log](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
+> |data.clientRequestId|string|Id da solicitação fornecida pelo cliente para a operação da API de armazenamento. Pode ser usada para correlacionar com os logs de diagnóstico do Armazenamento do Azure usando o campo "client-request-id" nos logs, e pode ser fornecida em solicitações de cliente usando o cabeçalho "x-ms-client-request-id". Consulte [Formato de Log](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+> |data.storageDiagnostics|objeto|Dados de diagnóstico ocasionalmente incluídos pelo serviço de Armazenamento do Azure. Quando presente, deve ser ignorado pelos consumidores de evento.|
 |data.blobType|string|O tipo do blob. Os valores válidos são "BlockBlob" ou "PageBlob".| 
 
 Veja um exemplo de um evento BlobCreated:
@@ -116,9 +116,7 @@ Para corresponder os eventos de blobs criados em um contêiner específico que c
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 
-Para corresponder os eventos de blobs criados em um contêiner específico que compartilha um sufixo de nome de blob, use um filtro `subjectEndsWith` como “.log” ou “.jpg”
-
-Para saber mais, confira [Conceitos da Grade de Eventos](../../event-grid/concepts.md#filters).
+Para corresponder os eventos de blobs criados em um contêiner específico que compartilha um sufixo de nome de blob, use um filtro `subjectEndsWith` como “.log” ou “.jpg”. Para saber mais, confira [Conceitos da Grade de Eventos](../../event-grid/concepts.md#event-subscriptions).
 
 ## <a name="practices-for-consuming-events"></a>Práticas para consumo de eventos
 Aplicativos que manipulam eventos de Armazenamento de Blobs devem seguir algumas práticas recomendadas:
@@ -128,7 +126,7 @@ Aplicativos que manipulam eventos de Armazenamento de Blobs devem seguir algumas
 > * Como as mensagens podem chegar fora de ordem e após algum atraso, use os campos de etag para entender se suas informações sobre objetos ainda estão atualizadas.  Além disso, use os campos do sequenciador para entender a ordem de eventos em qualquer objeto específico.
 > * Use o campo blobType para entender os tipos de operações permitidos no blob, e quais tipos de biblioteca de cliente você deve usar para acessar o blob. Os valores válidos são `BlockBlob` ou `PageBlob`. 
 > * Use o campo de url com os construtores `CloudBlockBlob` e `CloudAppendBlob` para acessar o blob.
-> * Ignore os campos que você não entende.  Essa prática ajudará você a manter-se resiliente a novos recursos que possam ser adicionados no futuro.
+> * Ignore os campos que você não entende. Essa prática ajudará você a manter-se resiliente a novos recursos que possam ser adicionados no futuro.
 
 
 ## <a name="next-steps"></a>Próximas etapas

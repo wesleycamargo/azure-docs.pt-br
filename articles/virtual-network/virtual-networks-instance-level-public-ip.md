@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/10/2016
+ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 4b4350e6b1616450ce45f9e947cc3b639a341ae7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cb8ba5169a6ebfbb11ba0acfa9b9f463b7cdf6a1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520795"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Visão geral de IP público em nível de instância (Clássico)
 Um ILPIP (IP público em nível de instância) é um endereço IP público que pode ser atribuído diretamente a uma VM ou instância de função dos Serviços de Nuvem, em vez de ao serviço de nuvem no qual a VM ou a instância de função reside. Ele não substitui o VIP (IP virtual) que é atribuído ao serviço de nuvem. Ao contrário, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
@@ -43,7 +44,7 @@ Quando você cria um serviço de nuvem no Azure, registros DNS A correspondentes
 ## <a name="why-would-i-request-an-ilpip"></a>Por que solicitar um ILPIP?
 Se você quiser ser capaz de conectar a sua VM ou instância de função por um endereço IP atribuído diretamente a ela, em vez de usar o &lt;número da porta&gt; do VIP de serviço de nuvem, solicite um ILPIP para sua VM ou instância de função.
 
-* **FTP Ativo** – com a atribuição de um ILPIP a uma VM, ele pode receber o tráfego em qualquer porta. Pontos de extremidade não são necessários para que a VM receba o tráfego.  Consulte \(\https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)\[Visão geral do protocolo FTP] para obter detalhes sobre o protocolo FTP.
+* **FTP Ativo** – com a atribuição de um ILPIP a uma VM, ele pode receber o tráfego em qualquer porta. Pontos de extremidade não são necessários para que a VM receba o tráfego.  Consulte [Visão geral do protocolo FTP] (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)) para encontrar detalhes sobre o protocolo FTP.
 * **IP de saída** – O tráfego de saída proveniente da VM é mapeado para o ILPIP, conforme a fonte e o ILPIP identificam exclusivamente a VM para entidades externas.
 
 > [!NOTE]
@@ -59,10 +60,26 @@ O seguinte script do PowerShell cria um serviço de nuvem chamado *FTPService*, 
 ```powershell
 New-AzureService -ServiceName FTPService -Location "Central US"
 
-$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"} `
+$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
+
+#Set "current" storage account for the subscription. It will be used as the location of new VM disk
+
+Set-AzureSubscription -SubscriptionName <SubName> -CurrentStorageAccountName <StorageAccountName>
+
+#Create a new VM configuration object
+
 New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
 | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
+
+```
+Se você quiser especificar outra conta de armazenamento como o local do novo disco VM, você pode usar o parâmetro **MediaLocation**:
+
+```powershell
+    New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
+     -MediaLocation https://management.core.windows.net/<SubscriptionID>/services/storageservices/<StorageAccountName> `
+    | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
+    | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 ```
 
 ### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>Como recuperar informações de ILPIP para uma máquina virtual
@@ -143,6 +160,16 @@ Para adicionar um ILPIP a uma instância de função dos Serviços de Nuvem, con
     </ServiceConfiguration>
     ```
 3. Carregue o arquivo .cscfg do serviço de nuvem concluindo as etapas do artigo [Como configurar os Serviços de Nuvem](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg).
+
+### <a name="how-to-retrieve-ilpip-information-for-a-cloud-service"></a>Como recuperar informações de ILPIP para um Serviço de Nuvem
+Para exibir as informações de ILPIP da instância de função, execute o seguinte comando do PowerShell e observe os valores de *PublicIPAddress* e *PublicIPName*:
+
+```powershell
+$roles = Get-AzureRole -ServiceName PaaSFTPService -Slot Production -RoleName WorkerRole1 -InstanceDetails
+
+$roles[0].PublicIPAddress
+$roles[1].PublicIPAddress
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 * Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássica.

@@ -2,23 +2,19 @@
 title: Enviar eventos para Hubs de Eventos do Azure usando Java | Microsoft Docs
 description: Começar a enviar para Hubs de Eventos usando Java
 services: event-hubs
-documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
-ms.author: sethm
-ms.openlocfilehash: 5dd0c88dab9ff4b7073a9acf6872b4c3ff085586
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 08/27/2018
+ms.author: shvija
+ms.openlocfilehash: f67982eda60a8fdfdf0d50785827c513275fd202
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124748"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Enviar eventos para Hubs de Eventos do Azure usando Java
 
@@ -28,22 +24,24 @@ Para obter mais informações, veja [Visão Geral dos Hubs de Eventos][Event Hub
 
 Este tutorial mostra como enviar eventos para um hub de eventos usando um aplicativo de console em Java. Para receber eventos usando a biblioteca do Host de processador de eventos do Java, veja [neste artigo](event-hubs-java-get-started-receive-eph.md), ou clique no idioma apropriado de recebimento no sumário à esquerda.
 
-Para concluir este tutorial, você precisará do seguinte:
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Um ambiente de desenvolvimento Java. Para este tutorial, vamos considerar o [Eclipse](https://www.eclipse.org/).
+Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
+
+* Um ambiente de desenvolvimento Java. Este tutorial usa o [Eclipse](https://www.eclipse.org/).
 * Uma conta ativa do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][] antes de começar.
 
-O código neste tutorial é baseado no [exemplo Enviar exemplo do GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/Send), que é possível examinar para ver o aplicativo completo em funcionamento.
+O código neste tutorial é baseado no [exemplo SimpleSend do GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), que você pode examinar para ver o aplicativo completo em funcionamento.
 
 ## <a name="send-events-to-event-hubs"></a>Enviar eventos para os Hubs de Eventos
 
-A biblioteca de clientes Java para Hubs de Eventos está disponível para uso em projetos Maven no [Repositório Central do Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Você pode fazer referência a essa biblioteca usando a seguinte declaração de dependência em seu arquivo do projeto Maven. A versão atual é 1.0.0:    
+A biblioteca de clientes Java para Hubs de Eventos está disponível para uso em projetos Maven no [Repositório Central do Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Você pode fazer referência a essa biblioteca usando a seguinte declaração de dependência em seu arquivo do projeto Maven. A versão atual é 1.0.2:    
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
@@ -53,7 +51,7 @@ Para um editor de eventos simples, importe o pacote *com.microsoft.azure.eventhu
 
 ### <a name="declare-the-send-class"></a>Declarar a classe Enviar
 
-Para o exemplo a seguir, primeiro crie um novo projeto do Maven para um aplicativo de console/shell em seu ambiente de desenvolvimento Java favorito. Nome da classe `Send`:     
+Para o exemplo a seguir, primeiro crie um novo projeto do Maven para um aplicativo de console/shell em seu ambiente de desenvolvimento Java favorito. Nome da classe `SimpleSend`:     
 
 ```java
 package com.microsoft.azure.eventhubs.samples.send;
@@ -63,21 +61,23 @@ import com.google.gson.GsonBuilder;
 import com.microsoft.azure.eventhubs.ConnectionStringBuilder;
 import com.microsoft.azure.eventhubs.EventData;
 import com.microsoft.azure.eventhubs.EventHubClient;
-import com.microsoft.azure.eventhubs.PartitionSender;
 import com.microsoft.azure.eventhubs.EventHubException;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.time.Instant;
-import java.util.Random;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
 
-public class Send {
+public class SimpleSend {
 
     public static void main(String[] args)
             throws EventHubException, ExecutionException, InterruptedException, IOException {
+            
+            
+    }
+ }
 ```
 
 ### <a name="construct-connection-string"></a>Construir cadeia de conexão
@@ -85,20 +85,21 @@ public class Send {
 Use a classe ConnectionStringBuilder para construir um valor de cadeia de conexão para passar para a instância do cliente de Hubs de Eventos. Substitua os espaços reservados pelos valores obtidos quando você criou o namespace e o hub de eventos:
 
 ```java
-   final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-      .setNamespaceName("----NamespaceName-----")
-      .setEventHubName("----EventHubName-----")
-      .setSasKeyName("-----SharedAccessSignatureKeyName-----")
-      .setSasKey("---SharedAccessSignatureKey----");
+final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
+        .setNamespaceName("Your Event Hubs namespace name")
+        .setEventHubName("Your event hub")
+        .setSasKeyName("Your policy name")
+        .setSasKey("Your primary SAS key");
 ```
 
 ### <a name="send-events"></a>Enviar eventos
 
-Em seguida, crie um evento singular transformando uma cadeia de caracteres em sua codificação de bytes UTF-8. Em seguida, crie uma nova instância cliente dos Hubs de Eventos usando a cadeia de conexão e envie a mensagem.   
+Crie um evento singular transformando uma cadeia de caracteres em sua codificação de bytes UTF-8. Em seguida, crie uma nova instância de cliente dos Hubs de Eventos usando a cadeia de conexão e envie a mensagem:   
 
 ```java 
-byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
-EventData sendEvent = new EventData(payloadBytes);
+String payload = "Message " + Integer.toString(i);
+byte[] payloadBytes = gson.toJson(payload).getBytes(Charset.defaultCharset());
+EventData sendEvent = EventData.create(payloadBytes);
 
 final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
 ehClient.sendSync(sendEvent);
@@ -107,6 +108,33 @@ ehClient.sendSync(sendEvent);
 ehClient.closeSync();
 
 ``` 
+
+### <a name="how-messages-are-routed-to-eventhub-partitions"></a>Como as mensagens são roteadas para as partições de Hub de Eventos
+
+Antes que as mensagens sejam recuperadas pelos consumidores, elas precisam primeiro ser publicadas nas partições pelos editores. Quando as mensagens são publicadas para o Hub de Eventos de modo síncrono usando o método sendSync() no objeto com.microsoft.azure.eventhubs.EventHubClient, a mensagem foi enviada para uma partição específica ou distribuída a todas as partições disponíveis de forma round robin, dependendo de a chave de partição ser especificada ou não.
+
+Quando uma cadeia de caracteres que representa a chave de partição for especificada, a chave receberá um hash para determinar a qual partição enviar o evento.
+
+Quando a chave de partição não for definida, as mensagens serão distribuídas por round robin a todas as partições disponíveis
+
+```java
+// Serialize the event into bytes
+byte[] payloadBytes = gson.toJson(messagePayload).getBytes(Charset.defaultCharset());
+
+// Use the bytes to construct an {@link EventData} object
+EventData sendEvent = EventData.create(payloadBytes);
+
+// Transmits the event to event hub without a partition key
+// If a partition key is not set, then we will round-robin to all topic partitions
+eventHubClient.sendSync(sendEvent);
+
+//  the partitionKey will be hash'ed to determine the partitionId to send the eventData to.
+eventHubClient.sendSync(sendEvent, partitionKey);
+
+// close the client at the end of your program
+eventHubClient.closeSync();
+
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

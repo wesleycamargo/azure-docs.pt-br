@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d707122f79b37dd6b979be09693011dead988156
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211660"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42154774"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária
 
@@ -28,8 +28,8 @@ Este tutorial mostra como configurar a recuperação de desastre em uma região 
 > * Configurar o acesso de saída para VMs
 > * Habilitar a replicação para uma VM
 
-A replicação de Azure para Azure está atualmente em versão prévia.
-## <a name="prerequisites"></a>pré-requisitos
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -100,7 +100,7 @@ O Azure Site Recovery fornece três funções internas para controlar as operaç
 
 - **Colaborador do Site Recovery** -essa função tem todas as permissões necessárias para gerenciar operações do Azure Site Recovery em um cofre dos Serviços de Recuperação. No entanto, um usuário com essa função não pode criar ou excluir um cofre dos Serviços de Recuperação ou atribuir direitos de acesso a outros usuários. Essa função é ideal para os administradores de recuperação de desastre que podem habilitar e gerenciar a recuperação de desastre para aplicativos ou organizações inteiras.
 
-- **Operador do Site Recovery** - essa função tem permissões para executar e gerenciar operações de Failover e Failback. Um usuário com essa função não pode habilitar ou desabilitar a replicação, criar ou excluir cofres, registrar nova infraestrutura ou atribuir direitos de acesso a outros usuários. Essa função é ideal para um operador de recuperação de desastre que pode executar failover em máquinas virtuais ou aplicativos quando instruído por administradores de TI ou proprietários do aplicativo em uma situação de desastre real ou simulada. Após a resolução do desastre, o operador de recuperação de desastre pode proteger e fazer failback das máquinas virtuais novamente.
+- **Operador do Site Recovery** - Essa função tem permissões para executar e gerenciar operações de Failover e Failback. Um usuário com essa função não pode habilitar ou desabilitar a replicação, criar ou excluir cofres, registrar nova infraestrutura ou atribuir direitos de acesso a outros usuários. Essa função é ideal para um operador de recuperação de desastre que pode executar failover em máquinas virtuais ou aplicativos quando instruído por administradores de TI ou proprietários do aplicativo em uma situação de desastre real ou simulada. Após a resolução do desastre, o operador de recuperação de desastre pode proteger e fazer failback das máquinas virtuais novamente.
 
 - **Leitor do Site Recovery**: essa função tem permissões para exibir todas as operações de gerenciamento do Site Recovery. Essa função é ideal para um executivo de monitoramento de TI que possa monitorar o estado atual de proteção e gerar tíquetes de suporte.
 
@@ -114,8 +114,9 @@ Saiba mais sobre as [funções internas do RBAC do Azure](../role-based-access-c
 2. Em **Fonte**, selecione **Azure**.
 3. Em **Local de origem**, selecione a fonte de região do Azure em que suas VMs estão sendo executados.
 4. Selecione o **modelo de implantação de máquina virtual do Azure** para VMs: **Gerenciador de Recursos** ou **Clássico**.
-5. Selecione o **Grupo de recursos de origem** para VMs do Gerenciador de Recursos ou **serviço de nuvem** para VMs clássicas.
-6. Clique em **OK** para salvar as configurações.
+5. Selecione a **Assinatura de origem** na qual as máquinas virtuais estão em execução. Pode ser qualquer assinatura dentro do mesmo locatário do Azure Active Directory na qual existe o cofre dos serviços de recuperação.
+6. Selecione o **Grupo de recursos de origem** para VMs do Gerenciador de Recursos ou **serviço de nuvem** para VMs clássicas.
+7. Clique em **OK** para salvar as configurações.
 
 ### <a name="select-the-vms"></a>Selecione as VMs
 
@@ -134,9 +135,11 @@ O Site Recovery cria as configurações padrão e a política de replicação pa
   ![Configurar definições](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
+- **Assinatura de destino**: a assinatura de destino usada para recuperação de desastres. Por padrão, a assinatura de destino será o mesma que a assinatura de origem. Clique em "Personalizar" para selecionar uma assinatura de destino diferente no mesmo locatário do Active Directory do Azure.
+
 - **Localização de destino**: a região de destino usada para recuperação de desastre. É recomendável que a localização de destino corresponda à localização do cofre do Site Recovery.
 
-- **Grupo de recursos de destino**: o grupo de recursos na região de destino que contém as VMs do Azure após o failover. Por padrão, o Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr". local do grupo de recurso do grupo de recurso de destino pode ser de qualquer região exceto a região onde as suas máquinas virtuais de origem estão hospedadas. 
+- **Grupo de recursos de destino**: o grupo de recursos na região de destino que contém as VMs do Azure após o failover. Por padrão, o Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr". local do grupo de recurso do grupo de recurso de destino pode ser de qualquer região exceto a região onde as suas máquinas virtuais de origem estão hospedadas.
 
 - **Rede virtual de destino**: a rede na região de destino na qual as VMs estarão localizadas após o failover.
   Por padrão, o Site Recovery cria uma nova rede virtual (e sub-redes) na região de destino com um sufixo "asr".

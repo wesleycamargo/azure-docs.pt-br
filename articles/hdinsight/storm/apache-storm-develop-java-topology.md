@@ -1,25 +1,21 @@
 ---
-title: Exemplo de topologia Java do Apache Storm – Azure HDInsight | Microsoft Docs
+title: Exemplo de topologia Java do Apache Storm – Azure HDInsight
 description: Aprenda a criar topologias Apache Storm em Java criando um exemplo de topologia de contagem de palavras.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 keywords: apache storm, exemplo de apache storm, storm java, exemplo de topologia storm
-ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 02/20/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 10ea0eb3907abc0a90e589e57970c0e4622a4d56
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043922"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia Apache Storm em Java
 
@@ -30,7 +26,7 @@ Depois de concluir as etapas neste documento, você pode implantar a topologia p
 > [!NOTE]
 > Uma versão completa dos exemplos de topologia do Storm criados neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [JDK (Java Developer Kit) versão 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
@@ -80,7 +76,7 @@ Exclua o teste gerado e os arquivos do aplicativo:
 
 ## <a name="add-maven-repositories"></a>Adicionar repositórios Maven
 
-Como o HDInsight tem base no HDP (Hortonworks Data Platform), recomendamos o uso do repositório Hortonworks para baixar dependências de seus projetos do Apache Storm. No arquivo __pom.xml__, adicione o seguinte XML após a linha `<url>http://maven.apache.org</url>`:
+Como o HDInsight tem base no HDP (Hortonworks Data Platform), recomendamos o uso do repositório Hortonworks para baixar dependências de seus projetos do Apache Storm. No arquivo __pom.xml__, adicione o seguinte XML após a linha `<url> http://maven.apache.org</url>`:
 
 ```xml
 <repositories>
@@ -596,10 +592,10 @@ Flux é uma nova estrutura disponível com o Storm 0.10.0 e superior, que permit
 
 O arquivo YAML define os componentes a serem usados para a topologia, e o fluxo de os dados entre eles. Você pode incluir um arquivo YAML como parte do arquivo jar ou usar um arquivo YAML externo.
 
-Para obter mais informações sobre Flux, consulte [Estrutura do Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
+Para obter mais informações sobre Flux, consulte [Estrutura do Flux (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
 
 > [!WARNING]
-> Devido a um [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) com o Storm 1.0.1, será necessário instalar um [ambiente de desenvolvimento Storm](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) para executar topologias do Flux localmente.
+> Devido a um [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) com o Storm 1.0.1, será necessário instalar um [ambiente de desenvolvimento Storm](http://storm.apache.org/releases/current/Setting-up-development-environment.html) para executar topologias do Flux localmente.
 
 1. Mova o arquivo `WordCountTopology.java` para fora do projeto. Anteriormente, este arquivo definia a topologia, mas isso não é necessário com o Flux.
 
@@ -718,9 +714,9 @@ Para obter mais informações sobre Flux, consulte [Estrutura do Flux (https://s
     ```
 
     > [!WARNING]
-    > Se a topologia usar bits do Storm 1.0.1, esse comando falhará. Esta falha é causada por [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Em vez disso, [instale o Storm no ambiente de desenvolvimento](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) e use as informações a seguir:
+    > Se a topologia usar bits do Storm 1.0.1, esse comando falhará. Esta falha é causada por [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Em vez disso, [instale o Storm no ambiente de desenvolvimento](http://storm.apache.org/releases/current/Setting-up-development-environment.html) e use as informações a seguir:
     >
-    > Se você tiver [instalado o Storm no ambiente de desenvolvimento](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), poderá usar os seguintes comandos em vez disso:
+    > Se você tiver [instalado o Storm no ambiente de desenvolvimento](http://storm.apache.org/releases/current/Setting-up-development-environment.html), poderá usar os seguintes comandos em vez disso:
     >
     > ```bash
     > mvn compile package
@@ -766,7 +762,7 @@ Para obter mais informações sobre Flux, consulte [Estrutura do Flux (https://s
 
     Depois que a topologia começar, você deverá observar uma alteração no tempo entre os lotes emitidos refletindo o valor em newtopology.yaml. Veja então que você pode alterar sua configuração por meio de um arquivo YAML sem ter que recompilar a topologia.
 
-Para obter mais informações sobre esses e outros recursos da estrutura do Flux, consulte [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
+Para obter mais informações sobre esses e outros recursos da estrutura do Flux, consulte [Flux (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
 
 ## <a name="trident"></a>Trident
 

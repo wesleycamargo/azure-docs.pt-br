@@ -12,12 +12,12 @@ ms.technology: azds-kubernetes
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
 manager: douge
-ms.openlocfilehash: b77d862f578ddc374dbb58117b4ea58eb973e5fe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 352e43633ea1464eb7e28fa698d1ae77d5ac52bd
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198306"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140387"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Como gerenciar segredos ao trabalhar com um Azure Dev Space
 

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 5f5ca940-eef8-4125-b6a0-f44ba04ab5ab
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 06/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 14aa54277cac3369df739a1d84580624f2d3b401
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3e1dd8ad49ceb126a14070ed641146d91419640a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025048"
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Exportar um modelo do Azure Resource Manager a partir dos recursos existentes
 Neste artigo, você aprenderá a exportar um modelo do Resource Manager de recursos existentes em sua assinatura. Você pode usar esse modelo gerado para compreender melhor a sintaxe do modelo.
@@ -40,11 +40,11 @@ Vamos começar a implantação de recursos para o Azure que podem ser usados par
    
       ![Pesquise aplicativo Web e SQL](./media/resource-manager-export-template/webapp-sql.png)
 
-3. Clique em **Criar**.
+3. Selecione **Criar**.
 
       ![Selecione criar](./media/resource-manager-export-template/create.png)
 
-4. Forneça os valores necessários para o aplicativo Web e o banco de dados SQL. Clique em **Criar**.
+4. Forneça os valores necessários para o aplicativo Web e o banco de dados SQL. Selecione **Criar**.
 
       ![Forneça valor SQL e Web](./media/resource-manager-export-template/provide-web-values.png)
 
@@ -64,8 +64,7 @@ A implantação pode demorar um pouco. Quando a implantação terminar, a sua as
    
    1. **Modelo** - O modelo que define a infraestrutura de sua solução. Quando você criou a conta de armazenamento por meio do portal, o Gerenciador de Recursos usou um modelo para implantá-la e salvou esse modelo para uma futura referência.
    2. **Parâmetros** - Um arquivo de parâmetro que você pode usar para passar valores durante a implantação. Ele contém os valores que você forneceu durante a primeira implantação. Você pode alterar qualquer um desses valores ao reimplantar o modelo.
-   3. **CLI** - Um arquivo de script CLI (interface da linha comando) do Azure que você pode usar para implantar o modelo.
-   3. **CLI 2.0** - Um arquivo de script CLI (interface da linha comando) do Azure que você pode usar para implantar o modelo.
+   3. **CLI** - Um arquivo de script CLI do Azure que você pode usar para implantar o modelo.
    4. **PowerShell** - Um arquivo de script do Azure PowerShell que você pode usar para implantar o modelo.
    5. **.NET** - Uma classe .NET que você pode usar para implantar o modelo.
    6. **Ruby** - uma classe Ruby que você pode usar para implantar o modelo.
@@ -162,12 +161,11 @@ O modelo exportado funciona bem se você deseja criar o mesmo aplicativo Web e b
 
 
 ## <a name="fix-export-issues"></a>Corrigir os problemas da exportação
-Nem todos os tipos de recursos suportam a função para exportar o modelo. Para resolver isso, adicione manualmente os recursos ausentes de volta ao seu modelo. A mensagem de erro inclui os tipos de recursos que não podem ser exportados. Encontre o tipo de recurso em [referência de modelo](/azure/templates/). Por exemplo, para adicionar um gateway de rede virtual manualmente, confira [referência de modelo Microsoft.Network/virtualNetworkGateways ](/azure/templates/microsoft.network/virtualnetworkgateways).
+Nem todos os tipos de recursos suportam a função para exportar o modelo. Você só vê problemas de exportação quando exporta de um grupo de recursos em vez de seu histórico de implantações. Se sua última implantação apresentar com precisão o estado atual do grupo de recursos, você deverá exportar o modelo do histórico de implantações, em vez do grupo de recursos. Exporte somente a partir de um grupo de recursos quando você fez alterações no grupo de recursos que não são definidas em um único modelo.
 
-> [!NOTE]
-> Você só encontra problemas de exportação quando exporta de um grupo de recursos em vez de seu histórico de implantações. Se sua última implantação apresentar com precisão o estado atual do grupo de recursos, você deverá exportar o modelo do histórico de implantações, em vez do grupo de recursos. Exporte somente a partir de um grupo de recursos quando você fez alterações no grupo de recursos que não são definidas em um único modelo.
-> 
-> 
+Para resolver problemas de exportação, adicione manualmente os recursos ausentes de volta ao seu modelo. A mensagem de erro inclui os tipos de recursos que não podem ser exportados. Encontre o tipo de recurso em [referência de modelo](/azure/templates/). Por exemplo, para adicionar um gateway de rede virtual manualmente, confira [referência de modelo Microsoft.Network/virtualNetworkGateways ](/azure/templates/microsoft.network/virtualnetworkgateways). O modelo de referência nos dá o JSON para adicionar o recurso ao nosso modelo.
+
+Depois de pegar o formato JSON para o recurso, você precisa pegar os valores de recurso. Você consegue ver os valores para o recurso usando a operação GET no API REST para o tipo de recurso. Por exemplo, para pegar os valores para o seu gateway de rede virtual, consulte [Criar gateway de rede virtual](/rest/api/network-gateway/virtualnetworkgateways/get).
 
 ## <a name="next-steps"></a>Próximas etapas
 

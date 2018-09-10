@@ -1,25 +1,19 @@
 ---
-title: "Fontes de dados com suporte no Catálogo de Dados do Azure | Microsoft Docs"
-description: "Este artigo lista especificações das fontes de dados com suporte no momento."
+title: Fontes de dados com suporte no Catálogo de Dados do Azure
+description: Este artigo lista especificações das fontes de dados com suporte no momento.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: jstevens
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: b76f3cc3d8538a50895f5be32a800cb469c81203
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0f7ee285e77b9e54e2ff720f10f0d24c5b764014
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042932"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Fontes de dados com suporte no Catálogo de Dados do Azure
 
@@ -1396,8 +1390,8 @@ Se você quiser ver uma fonte de dados específica com suporte, sugira-a (ou man
     </tr>
     <tr>
       <td>Other (none of the above)</td>
-      <td>\*</td>
-      <td>\*</td>
+      <td>&#10033;</td>
+      <td>&#10033;</td>
       <td>
         
             Protocol: generic-asset

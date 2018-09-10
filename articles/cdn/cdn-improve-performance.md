@@ -3,8 +3,8 @@ title: Melhorar o desempenho compactando os arquivos na CDN do Azure | Microsoft
 description: Saiba como melhorar a velocidade de transferência do arquivo e aumentar o desempenho de carregamento da página compactando os arquivos na CDN do Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
@@ -12,27 +12,28 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
-ms.author: mazha
-ms.openlocfilehash: 41e40c7e740e06654e7660c208db52fc2617d4b5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 08/15/2018
+ms.author: magattus
+ms.openlocfilehash: c3a20bd4fa1cccdca7cba0de52620f09fe01abc5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146288"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho compactando os arquivos na CDN do Azure
 A compactação de arquivo é um método simples e eficiente para melhorar a velocidade de transferência de arquivos e aumentar o desempenho de carregamento de páginas, reduzindo o tamanho de arquivos antes de serem enviados do servidor. Ela pode reduzir os custos de largura de banda e oferece uma experiência mais responsiva para os seus usuários.
 
 Há duas maneiras de habilitar a compactação de arquivo:
 
-- Habilite a compactação no servidor de origem. Nesse caso, a CDN passa os arquivos compactados e entrega-os aos clientes que os solicitam.
-- Habilite a compactação diretamente nos servidores POPS de CDN ("compactação em tempo real"). Neste caso, a CDN compacta os arquivos e entrega-os aos usuários finais, mesmo se eles não são compactados pelo servidor de origem.
+- Habilite a compactação no servidor de origem. Nesse caso, a CDN do Azure passa os arquivos compactados e entrega-os aos clientes que os solicitam.
+- Habilite a compactação diretamente nos servidores POP de CDN (*compactação em tempo real*). Neste caso, a CDN compacta os arquivos e entrega-os aos usuários finais, mesmo se eles não são compactados pelo servidor de origem.
 
 > [!IMPORTANT]
-> As alterações de configuração da CDN podem levar algum tempo para serem propagadas pela rede: 
-- Para perfis da **CDN Standard do Azure da Microsoft**, a propagação geralmente conclui em dez minutos. 
+> As alterações na configuração da CDN do Azure podem demorar um pouco para serem propagadas pela rede: 
+- Para perfis da **CDN Standard do Azure da Microsoft**, a propagação geralmente é concluída em dez minutos. 
 - Para perfis da **CDN Standard do Azure da Akamai**, a propagação normalmente é concluída em um minuto. 
-- Para perfis da **CDN Standard do Azure da Verizon** e **CDN Premium do Azure da Verizon**, a propagação geralmente conclui em 90 minutos. 
+- Para perfis da **CDN Standard do Azure da Verizon** e da **CDN Premium do Azure da Verizon**, a propagação geralmente é concluída em 10 minutos. 
 >
 > Se estiver configurando a compactação pela primeira vez para o ponto de extremidade CDN, considere a possibilidade de aguardar de 1 a 2 horas antes de solucionar problemas para garantir que as configurações de compactação tenham sido propagadas para os POPs.
 > 
@@ -64,6 +65,10 @@ As camadas CDN Standard e Premium fornecem a mesma funcionalidade de compactaç�
    
    > [!TIP]
    > Embora seja possível, não é recomendável aplicar a compactação a formatos compactados. Por exemplo, ZIP, MP3, MP4 ou JPG.
+   > 
+   
+   > [!NOTE]
+   > Atualmente, a modificação da lista padrão dos tipos MIME não tem suporte na Rede de Distribuição de Conteúdo Standard do Microsoft Azure.
    > 
  
 5. Depois de fazer suas alterações, selecione **Salvar**.

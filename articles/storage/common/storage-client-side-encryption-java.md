@@ -2,23 +2,19 @@
 title: Criptografia do lado do cliente com Java para o Armazenamento do Microsoft Azure | Microsoft Docs
 description: A Biblioteca de Cliente do Armazenamento do Azure para Java dá suporte à criptografia do lado do cliente e à integração com o Cofre da Chave do Azure para a segurança máxima de seus aplicativos do Armazenamento do Azure.
 services: storage
-documentationcenter: java
 author: lakasa
-manager: jahogg
-editor: tysonn
-ms.assetid: 3df49907-554c-404a-9b0c-b3e3269ad04f
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: b4f3814ac2dbc8b74cef8f5fcb0540b7509efa0d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: common
+ms.openlocfilehash: 995b54d8eb53efc6001e29366e22e09b246f0bff
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522009"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Criptografia do lado do cliente e o Azure Key Vault com Java para o Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]

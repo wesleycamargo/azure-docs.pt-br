@@ -1,24 +1,20 @@
 ---
-title: Criar clusters Hadoop usando o PowerShell – Azure HDInsight | Microsoft Docs
+title: Criar clusters Hadoop usando o PowerShell – Azure HDInsight
 description: Saiba como criar clusters Hadoop, HBase, Storm ou Spark no Linux para o HDInsight usando o Azure PowerShell.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 4208deca-d64a-45e1-8948-2673d5d7678c
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 57ae7c3cab6c0084bb43585f65d79ae6cc265356
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: f788660c0652a70cdc1065dfbef1eefd3c8a9022
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107541"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Criar clusters baseados em Linux no HDInsight usando o Azure PowerShell
 
@@ -29,7 +25,7 @@ O Azure PowerShell é um ambiente de script poderoso que você pode usar para co
 > [!NOTE]
 > O Azure PowerShell só está disponível em clientes do Windows. Se você estiver usando um cliente Linux, Unix ou Mac OS X, veja [Criar um cluster HDInsight baseado em Linux usando a CLI Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) para obter informações sobre como usar a CLI do Azure para criar um cluster.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Você deve ter o seguinte antes de iniciar este procedimento:
 
 * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -107,7 +103,7 @@ Agora que você criou com êxito um cluster HDInsight, use os seguintes recursos
 
 ### <a name="storm-clusters"></a>Clusters Storm
 
-* [Desenvolver topologias Java para Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Desenvolvimento de aplicativos Java para Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
 * [Usar componentes de Python no Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 

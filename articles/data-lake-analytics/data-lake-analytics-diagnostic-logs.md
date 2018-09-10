@@ -1,23 +1,19 @@
 ---
-title: Exibindo logs de diagnóstico para o Azure Data Lake Analytics | Microsoft Docs
-description: 'Entenda como configurar e acessar os logs de diagnóstico do Azure Data Lake Analytics  '
+title: Habilitar e exibir logs de diagnóstico para o Azure Data Lake Analytics
+description: Entenda como configurar e acessar os logs de diagnóstico do Azure Data Lake Analytics
 services: data-lake-analytics
-documentationcenter: ''
+ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
-ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: efec1e00e9c2da519028f7e6ff094a0f0876df79
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0bade9f393d879123b7b1485052f70924d9c9b9c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045474"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
 
@@ -129,7 +125,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
 
-| NOME | type | DESCRIÇÃO |
+| NOME | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
 | tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
 | ResourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
@@ -143,7 +139,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
 
-| NOME | type | DESCRIÇÃO |
+| NOME | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
 | HttpMethod |Cadeia de caracteres |O método HTTP usado para a operação. Por exemplo, GET. |
 | Caminho |Cadeia de caracteres |O caminho em que a operação foi executada |
@@ -181,7 +177,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
 
-| NOME | type | DESCRIÇÃO |
+| NOME | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
 | tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
 | ResourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
@@ -199,7 +195,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
 
-| Name | type | DESCRIÇÃO |
+| Name | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
 | JobId |Cadeia de caracteres |A ID atribuída ao trabalho |
 | JobName |Cadeia de caracteres |O nome fornecido para o trabalho |

@@ -1,14 +1,14 @@
 ---
-title: "Criar imagens de contêiner para o Azure Service Fabric | Microsoft Docs"
-description: "Neste tutorial, você aprende a criar imagens de contêiner para um aplicativo do Service Fabric com vários contêineres."
+title: Create imagens de contêiner no Service Fabric no Azure | Microsoft Docs
+description: Neste tutorial, você aprende a criar imagens de contêiner para um aplicativo do Service Fabric com vários contêineres.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker, Contêineres, Microservices, Service Fabric, Azure"
-ms.assetid: 
+keywords: Docker, Contêineres, Microservices, Service Fabric, Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -16,39 +16,40 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 13cf13ce4a1456731d08f356ca405119ce1a6480
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 15fcea6ca8f9c66ee4907018a11481b6c714b81a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616276"
 ---
-# <a name="tutorial-create-container-images-for-service-fabric"></a>Tutorial: Criar imagens de contêiner para o Service Fabric
+# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contêiner em um cluster do Service Fabric do Linux
 
-Este tutorial é a parte um de uma série de tutoriais que demonstra como usar contêineres em um cluster do Service Fabric do Linux. Neste tutorial, um aplicativo com vários contêineres é preparado para uso com o Service Fabric. Nos tutoriais subsequentes, essas imagens são usadas como parte de um aplicativo do Service Fabric. Neste tutorial, você aprenderá a: 
+Este tutorial é a parte um de uma série de tutoriais que demonstra como usar contêineres em um cluster do Service Fabric do Linux. Neste tutorial, um aplicativo com vários contêineres é preparado para uso com o Service Fabric. Nos tutoriais subsequentes, essas imagens são usadas como parte de um aplicativo do Service Fabric. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-> * Clonar a origem do aplicativo do GitHub  
+> * Clonar a origem do aplicativo do GitHub
 > * Criar uma imagem de contêiner da origem do aplicativo
 > * Implantar uma instância de ACR (Registro de Contêiner do Azure)
 > * Marcar uma imagem de contêiner para ACR
 > * Carregar a imagem para ACR
 
-Nesta série de tutoriais, você aprenderá a: 
+Nesta série de tutoriais, você aprenderá a:
 
 > [!div class="checklist"]
 > * Criar imagens de contêiner para o Service Fabric
 > * [Criar e executar um aplicativo do Service Fabric com contêineres](service-fabric-tutorial-package-containers.md)
 > * [Como o failover e o dimensionamento são manipulados no Service Fabric](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Ambiente de desenvolvimento do Linux configurado para o Service Fabric. Siga as instruções [aqui](service-fabric-get-started-linux.md) para configurar seu ambiente do Linux. 
-- Este tutorial exige que você esteja executando a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
-- Além disso, ele requer que você tenha uma assinatura do Azure disponível. Para obter mais informações sobre uma versão de avaliação gratuita, acesse [aqui](https://azure.microsoft.com/free/).
+* Ambiente de desenvolvimento do Linux configurado para o Service Fabric. Siga as instruções [aqui](service-fabric-get-started-linux.md) para configurar seu ambiente do Linux.
+* Este tutorial exige que você esteja executando a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+* Além disso, ele requer que você tenha uma assinatura do Azure disponível. Para obter mais informações sobre uma versão de avaliação gratuita, acesse [aqui](https://azure.microsoft.com/free/).
 
 ## <a name="get-application-code"></a>Obter o código de aplicativo
 
-O aplicativo de exemplo usado neste tutorial é um aplicativo de votação. O aplicativo consiste de um componente Web de front-end e uma instância Redis de back-end. Os componentes são empacotados em imagens de contêiner. 
+O aplicativo de exemplo usado neste tutorial é um aplicativo de votação. O aplicativo consiste de um componente Web de front-end e uma instância Redis de back-end. Os componentes são empacotados em imagens de contêiner.
 
 Use o git para baixar uma cópia do aplicativo em seu ambiente de desenvolvimento.
 
@@ -58,15 +59,17 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-A solução contém duas pastas e um arquivo ' docker-compose.yml'. A pasta 'azure voto' contém o serviço de front-end do Python junto com o Dockerfile usado para criar a imagem. O diretório 'Votação' contém o pacote de aplicativos do Service Fabric que é implantado no cluster. Esses diretórios contêm os ativos necessários para este tutorial.  
+A solução contém duas pastas e um arquivo ' docker-compose.yml'. A pasta 'azure voto' contém o serviço de front-end do Python junto com o Dockerfile usado para criar a imagem. O diretório 'Votação' contém o pacote de aplicativos do Service Fabric que é implantado no cluster. Esses diretórios contêm os ativos necessários para este tutorial.
 
 ## <a name="create-container-images"></a>Criar imagens de contêiner
 
-Dentro do diretório **azure-vote'**, execute o seguinte comando para criar a imagem para o componente Web de front-end. Esse comando usa o Dockerfile nesse diretório para montar a imagem. 
+Dentro do diretório **azure-vote'**, execute o seguinte comando para criar a imagem para o componente Web de front-end. Esse comando usa o Dockerfile nesse diretório para montar a imagem.
 
 ```bash
 docker build -t azure-vote-front .
 ```
+> [!Note]
+> Se a permissão estiver sendo negada, siga [esta](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) documentação sobre como trabalhar com o docker sem sudo.
 
 Este comando pode levar algum tempo, pois todas as dependências necessárias precisam ser extraídas do Hub do Docker. Quando completado, use o comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) para ver as imagens criadas.
 
@@ -85,13 +88,13 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Implantar o Registro de Contêiner do Azure
 
-Primeiro, execute o comando **logon az** para fazer logon em sua conta do Azure. 
+Primeiro, execute o comando **logon az** para fazer logon em sua conta do Azure.
 
 ```bash
 az login
 ```
 
-Em seguida, use o comando **conta az** para escolher sua assinatura para criar o Registro de Contêiner do Azure. Você tem que inserir a ID da sua assinatura do Azure no lugar de <subscription_id>. 
+Em seguida, use o comando **conta az** para escolher sua assinatura para criar o Registro de Contêiner do Azure. Você tem que inserir a ID da sua assinatura do Azure no lugar de <subscription_id>.
 
 ```bash
 az account set --subscription <subscription_id>
@@ -105,13 +108,13 @@ Crie um grupo de recursos com o comando **az group create**. Neste exemplo, um g
 az group create --name <myResourceGroup> --location westus
 ```
 
-Crie um Registro de Contêiner do Azure com o comando **az acr create**. Substitua \<acrName > pelo nome do registro de contêiner que você deseja criar em sua assinatura. Esse nome de exibição deve ser alfanumérico e exclusivo. 
+Crie um Registro de Contêiner do Azure com o comando **az acr create**. Substitua \<acrName > pelo nome do registro de contêiner que você deseja criar em sua assinatura. Esse nome de exibição deve ser alfanumérico e exclusivo.
 
 ```bash
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Durante o restante deste tutorial, utilizamos "acrName" como um espaço reservado para o nome do registro de contêiner escolhido. Anote este valor. 
+Durante o restante deste tutorial, utilizamos "acrName" como um espaço reservado para o nome do registro de contêiner escolhido. Anote este valor.
 
 ## <a name="log-in-to-your-container-registry"></a>Fazer logon no Registro de contêiner
 
@@ -163,7 +166,6 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 Depois de marcada, execute 'docker images' para verificar a operação.
 
-
 Saída:
 
 ```bash
@@ -209,13 +211,13 @@ Na conclusão do tutorial, a imagem de contêiner foi armazenada em uma instânc
 Neste tutorial, foi efetuado pull de um aplicativo do Github e as imagens de contêiner foram criadas e enviadas por push para um Registro. As etapas a seguir foram concluídas:
 
 > [!div class="checklist"]
-> * Clonar a origem do aplicativo do GitHub  
+> * Clonar a origem do aplicativo do GitHub
 > * Criar uma imagem de contêiner da origem do aplicativo
 > * Implantar uma instância de ACR (Registro de Contêiner do Azure)
 > * Marcar uma imagem de contêiner para ACR
 > * Carregar a imagem para ACR
 
-Avança para o próximo tutorial para saber mais sobre empacotamento de contêineres em um aplicativo do Service Fabric usando o Yeoman. 
+Avança para o próximo tutorial para saber mais sobre empacotamento de contêineres em um aplicativo do Service Fabric usando o Yeoman.
 
 > [!div class="nextstepaction"]
 > [Empacotar e implantar contêineres como um aplicativo do Service Fabric](service-fabric-tutorial-package-containers.md)

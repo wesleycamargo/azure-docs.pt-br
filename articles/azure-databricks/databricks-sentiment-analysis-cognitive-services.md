@@ -1,26 +1,21 @@
 ---
-title: 'Tutorial: Análise de sentimento em dados de streaming usando o Azure Databricks | Microsoft Docs'
+title: 'Tutorial: Análise de sentimento em dados de streaming usando o Azure Databricks'
 description: Aprenda a usar o Azure Databricks com os Hubs de Eventos e a API dos Serviços Cognitivos para executar a análise de sentimento nos dados de streaming em tempo quase real.
 services: azure-databricks
-documentationcenter: ''
 author: lenadroid
 manager: cgronlun
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: azure-databricks
 ms.custom: mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/27/2018
+ms.date: 08/06/2018
 ms.author: alehall
-ms.openlocfilehash: 87984859d1f0562149e6700642f7f0a1361d624e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: edd78b9b54e39a25aa3349f6ad27e61991ea91d2
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577806"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análise de sentimento em dados de streaming usando o Azure Databricks
 
@@ -543,7 +538,7 @@ Adicione uma nova célula de código e cole o trecho de código abaixo. Esse tre
       val docsWithLanguage = SentimentDetector.getLanguage(inputDocs)
       val docsWithSentiment = SentimentDetector.getSentiment(docsWithLanguage)
       if (docsWithLanguage.documents.isEmpty) {
-        // Placeholder value to display for no score returned by the sentiment API
+        // Placeholder value to display when unable to perform sentiment request for text in unknown language
         (-1).toDouble
       } else {
         docsWithSentiment.documents.get(0).sentiment.toDouble

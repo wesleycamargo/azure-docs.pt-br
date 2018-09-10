@@ -1,31 +1,27 @@
 ---
-title: Introdução ao Azure Data Lake Analytics usando a CLI do Azure 2.0 | Microsoft Docs
-description: 'Saiba como usar a interface de linha de comando do Azure 2.0 para criar uma conta do Data Lake Analytics, criar um trabalho do Data Lake Analytics usando U-SQL e enviar o trabalho. '
-services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
+title: Introdução ao Azure Data Lake Analytics usando a CLI do Azure 2.0
+description: Saiba como usar a Interface de Linha de Comando 2.0 do Azure para criar uma conta do Azure Data Lake Analytics e enviar um trabalho do U-SQL.
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+services: data-lake-analytics
+author: saveenr
+ms.author: saveenr
+ms.reviewer: jasonwhowell
+ms.topic: conceptual
 ms.date: 06/18/2017
-ms.author: jgao
-ms.openlocfilehash: e7ce65446a6af49f15b3ce1881757b16f8fcaa35
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: db20188244ba12afa97c96400e095d06a0dffce5
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043740"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Introdução ao Azure Data Lake Analytics usando a CLI do Azure 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (Valores Separados por Tabulação) e irá convertê-lo em um arquivo CSV (valores separados por vírgula). Para acompanhar o mesmo tutorial usando outras ferramentas compatíveis,use a lista suspensa na parte superior desta seção.
+Este artigo descreve como usar a Interface de Linha de Comando 2.0 do Azure para criar uma conta do Azure Data Lake Analytics, enviar trabalhos USQL e catálogos. O trabalho lê um arquivo TSV (Valores Separados por Tabulação) e os converte em um arquivo CSV (valores separados por vírgula). 
 
-## <a name="prerequisites"></a>pré-requisitos
-Antes de começar este tutorial, você deve ter os seguintes itens:
+## <a name="prerequisites"></a>Pré-requisitos
+Antes de começar, você precisa dos seguintes itens:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **CLI 2.0 do Azure**. Consulte [Instalar e configurar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).

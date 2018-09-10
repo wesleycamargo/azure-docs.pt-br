@@ -1,39 +1,39 @@
 ---
-title: Encaminhar dados de relatório DSC de Automação do Azure para o Log Analytics
-description: Este artigo demonstra como enviar dados de relatório DSC (Desired State Configuration) ao Log Analytics para fornecer informações e gerenciamento adicionais.
+title: Encaminhar dados de relatório da Configuração do Estado de Automação do Azure para o Log Analytics
+description: Este artigo demonstra como enviar dados de relatórios para a Configuração do Estado Desejado (DSC) da Configuração do Estado de Automação do Azure para o Log Analytics para entregar insight e gerenciamento adicional.
 services: automation
 ms.service: automation
 ms.component: dsc
-author: georgewallace
-ms.author: gwallace
-ms.date: 03/16/2018
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d01042a02f2339f039f23d4f6e021de503dc3815
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1b3c0cd71508aef9a608e0c41e32cd079e40d4e5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003459"
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Encaminhar dados de relatório DSC de Automação do Azure para o Log Analytics
+# <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Encaminhar dados de relatório da Configuração do Estado de Automação do Azure para o Log Analytics
 
-A Automação pode enviar dados de status do nó DSC para o espaço de trabalho do Log Analytics.  
-O status de conformidade é visível no Portal do Azure, ou com o PowerShell, para nós e recursos individuais de DSC em configurações de nó. Com o Log Analytics, você pode:
+A Configuração de Estado de Automação do Azure pode enviar dados de status do nó de Configuração de Estado Desejada (DSC) para seu espaço de trabalho do Log Analytics. O status de conformidade é visível no portal do Microsoft Azure, ou com o PowerShell, para nós e recursos individuais de DSC em configurações de nó. Com o Log Analytics, você pode:
 
-* Obter informações de conformidade para nós gerenciados e recursos individuais
-* Disparar um email ou alerta com base no status de conformidade
-* Escrever consultas avançadas em seus nós gerenciados
-* Correlacionar o status de conformidade em contas de Automação
-* Visualizar o histórico de conformidade do nó ao longo do tempo
+- Obter informações de conformidade para nós gerenciados e recursos individuais
+- Disparar um email ou alerta com base no status de conformidade
+- Escrever consultas avançadas em seus nós gerenciados
+- Correlacionar o status de conformidade em contas de Automação
+- Visualizar o histórico de conformidade do nó ao longo do tempo
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar a enviar seus relatórios de DSC de Automação para Log Analytics, você precisará do seguinte:
+Para começar a enviar seus relatórios de Configuração do Estado de Automação para Log Analytics, você precisará do seguinte:
 
-* Versão de novembro 2016 ou posterior do [Azure PowerShell](/powershell/azure/overview) ( versão 2.3.0).
-* Uma conta de Automação do Azure. Para saber mais, veja [Introdução à Automação do Azure](automation-offering-get-started.md)
-* Um espaço de trabalho de Log Analytics com uma oferta de serviço **Automação e Controle**. Para saber mais, confira [Introdução ao Log Analytics](../log-analytics/log-analytics-get-started.md).
-* Pelo menos um nó DSC de Automação do Azure. Para saber mais, veja [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
+- Versão de novembro 2016 ou posterior do [Azure PowerShell](/powershell/azure/overview) ( versão 2.3.0).
+- Uma conta de Automação do Azure. Para saber mais, veja [Introdução à Automação do Azure](automation-offering-get-started.md)
+- Um espaço de trabalho de Log Analytics com uma oferta de serviço **Automação e Controle**. Para saber mais, confira [Introdução ao Log Analytics](../log-analytics/log-analytics-get-started.md).
+- No mínimo, um nó de Configuração do Estado de Automação do Azure. Para saber mais, veja [Máquinas de integração para o gerenciamento pela Configuração do Estado de Automação do Azure](automation-dsc-onboarding.md)
 
 ## <a name="set-up-integration-with-log-analytics"></a>Configurar a integração com o Log Analytics
 
@@ -44,55 +44,57 @@ Para começar a importar dados do DSC de Automação do Azure para Log Analytics
 
   ```powershell
   # Find the ResourceId for the Automation Account
-  Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+  Find-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
   ```
+
 1. Obtenha o _ResourceId_ de seu espaço de trabalho do Log Analytics executando o seguinte comando do PowerShell: (se você tiver mais de um espaço de trabalho, escolha o _ResourceID_ para o que deseja configurar).
 
   ```powershell
   # Find the ResourceId for the Log Analytics workspace
-  Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+  Find-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
   ```
+
 1. Execute o seguinte comando do PowerShell, substituindo `<AutomationResourceId>` e `<WorkspaceResourceId>` pelos valores de _ResourceId_ de cada uma das etapas anteriores:
 
   ```powershell
-  Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories "DscNodeStatus"
+  Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
   ```
 
-Se você quiser parar de importar dados do DSC de Automação do Azure para o Log Analytics, execute o seguinte comando do PowerShell.
+Se você quiser parar de importar dados da Configuração do Estado de Automação do Azure para o Log Analytics, execute o seguinte comando do PowerShell:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Categories "DscNodeStatus"
+Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Categories 'DscNodeStatus'
 ```
 
-## <a name="view-the-dsc-logs"></a>Exibir os logs de DSC
+## <a name="view-the-state-configuration-logs"></a>Exibir os logs de configuração de estado
 
-Depois de configurar a integração com o Log Analytics para os seus dados de DSC de Automação, um botão **Pesquisa de log** aparecerá na folha **Nós DSC** de sua conta de automação. Clique no botão **Pesquisa de Log** para exibir os logs para dados do nó DSC.
+Depois de configurar a integração com o Log Analytics para os seus dados de DSC de Automação, um botão **Pesquisa de log** aparecerá na folha **Nós da Configuração do Estado**  de sua conta de automação. Clique no botão **Pesquisa de Log** para exibir os logs para dados do nó DSC.
 
 ![Botão Pesquisar Log](media/automation-dsc-diagnostics/log-search-button.png)
 
-A folha **Pesquisa de Log** é aberta e você verá uma operação **DscNodeStatusData** para cada nó DSC e uma operação **DscResourceStatusData** para cada [Recurso DSC](https://msdn.microsoft.com/powershell/dsc/resources) chamado na configuração do nó aplicada a esse nó.
+A folha **Pesquisa de Log** é aberta e você verá uma operação **DscNodeStatusData** para cada nó da Configuração do Estado e uma operação **DscResourceStatusData** para cada [Recurso DSC](/powershell/dsc/resources) chamado na configuração do nó aplicada a esse nó.
 
 A operação **DscResourceStatusData** contém informações de erro para todos os recursos DSC que falharam.
 
 Clique em cada operação na lista para ver os dados para essa operação.
 
 Você também pode exibir os logs [pesquisando no Log Analytics. Veja [Localizar dados usando pesquisas de logs](../log-analytics/log-analytics-log-searches.md).
-Digite a consulta a seguir para localizar os logs DSC: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus"`
+Digite a consulta a seguir para localizar os logs da Configuração do Estado: `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
 
-Você também pode restringir a consulta pelo nome da operação. Por exemplo: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus" OperationName = "DscNodeStatusData"
+Você também pode restringir a consulta pelo nome da operação. Por exemplo: `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus' OperationName='DscNodeStatusData'`
 
-### <a name="send-an-email-when-a-dsc-compliance-check-fails"></a>Enviar um email quando uma verificação de conformidade do DSC falhar
+### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>Enviar um email quando uma verificação de conformidade da Configuração do Estado falhar
 
-Uma das principais solicitações de nossos clientes é a capacidade de enviar um email ou uma mensagem de texto quando algo dá errado com uma configuração de DSC.   
+Uma das principais solicitações de nossos clientes é a capacidade de enviar um email ou uma mensagem de texto quando algo dá errado com uma configuração de DSC.
 
-Para criar uma regra de alerta, você começa criando uma pesquisa de log para os registros do relatório DSC que devem invocar o alerta.  Clique no botão **Alerta** para criar e configurar a regra de alerta.
+Para criar uma regra de alerta, você começa criando uma pesquisa de log para os registros do relatório da Configuração do Estado que devem invocar o alerta. Clique no botão **+ Nova Regra de Alerta** para criar e configurar a regra de alerta.
 
 1. Na página Visão geral do Log Analytics, clique em **Pesquisa de Logs**.
-1. Crie uma consulta de pesquisa de log para o alerta digitando a seguinte pesquisa no campo de consulta: `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
+1. Crie uma consulta de pesquisa de log para o alerta digitando a seguinte pesquisa no campo de consulta: `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-  Se você tiver configurado logs de mais de uma Conta de automação ou assinatura para o espaço de trabalho, também poderá agrupar os alertas por assinatura e por conta de Automação.  
-  O nome da conta de Automação pode ser derivado do campo de Recurso na pesquisa de DscNodeStatusData.  
-1. Para abrir a tela **Adicionar Regra de Alerta**, clique em **Alerta** na parte superior da página. Para saber mais sobre as opções de configuração de alerta, confira [Alertas no Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
+   Se você tiver configurado logs de mais de uma Conta de automação ou assinatura para o espaço de trabalho, também poderá agrupar os alertas por assinatura e por conta de Automação.  
+   O nome da conta de Automação pode ser derivado do campo de Recurso na pesquisa de DscNodeStatusData.  
+1. Para abrir a tela **Criar regra**, clique em **+ Nova regra de alerta** na parte superior da página. Para obter mais informações sobre as opções para configurar o alerta, consulte [ Criar um rulelert de alerta ](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Encontrar recursos DSC com falha em todos os nós
 
@@ -100,7 +102,7 @@ Uma vantagem de usar o Log Analytics é que você pode pesquisar falhas de verif
 Para localizar todas as instâncias de recursos DSC que falharam.
 
 1. Na página Visão geral do Log Analytics, clique em **Pesquisa de Logs**.
-1. Crie uma consulta de pesquisa de log para o alerta digitando a seguinte pesquisa no campo de consulta: `Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
+1. Crie uma consulta de pesquisa de log para o alerta digitando a seguinte pesquisa no campo de consulta: `Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
 
 ### <a name="view-historical-dsc-node-status"></a>Exibir status do nó DSC histórico
 
@@ -179,16 +181,20 @@ O diagnóstico da Automação do Azure cria duas categorias de registros no Log 
 
 ## <a name="summary"></a>Resumo
 
-Ao enviar seus dados do DSC de Automação para o Log Analytics, você poderá ter mais informações sobre o status de seus nós DSC:
+Ao enviar seus dados da Configuração do Estado de Automação para o Log Analytics, você poderá ter mais informações sobre o status de seus nós do Estado de Configuração do Estado:
 
-* Configurando alertas para notificá-lo quando houver um problema
-* Usando exibições personalizadas e consultas de pesquisa para visualizar os resultados de runbook, o status do trabalho de runbook e outros principais indicadores ou métricas relacionadas.  
+- Configurando alertas para notificá-lo quando houver um problema
+- Usando exibições personalizadas e consultas de pesquisa para visualizar os resultados de runbook, o status do trabalho de runbook e outros principais indicadores ou métricas relacionadas.  
 
-O Log Analytics oferece maior visibilidade operacional para os dados do DSC de Automação e pode ajudar a tratar de incidentes mais rapidamente.  
+O Log Analytics oferece maior visibilidade operacional para os dados da Configuração do Estadov de Automação e pode ajudar a tratar de incidentes mais rapidamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre como construir consultas de pesquisa diferentes e examinar os logs de DSC de Automação com o Log Analytics, confira [Efetuar pesquisas no Log Analytics](../log-analytics/log-analytics-log-searches.md)
-* Para saber mais sobre como usar a DSC de Automação do Azure, veja [Introdução à DSC de Automação do Azure](automation-dsc-getting-started.md)
-* Para saber mais sobre o Log Analytics e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-
+- Para obter uma visão geral, consulte [Configuração de Estado da Automação do Azure](automation-dsc-overview.md)
+- Para começar, consulte [Introdução à Configuração de Estado da Automação do Azure](automation-dsc-getting-started.md)
+- Para saber como compilar configurações de DSC para que possam ser atribuídas a nós de destino, consulte [Compilar configurações na Configuração de Estado da Automação do Azure](automation-dsc-compile.md)
+- Para referência de cmdlet do PowerShell, consulte [Cmdlets da Configuração de Estado da Automação do Azure](/powershell/module/azurerm.automation/#automation)
+- Para obter informações sobre preços, consulte [Preço da Configuração de Estado da Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
+- Para ver um exemplo de uso da Configuração de Estado da Automação do Azure em um pipeline de implantação contínua, consulte [Implantação contínua usando Configuração de Estado da Automação do Azure e Chocolatey](automation-dsc-cd-chocolatey.md)
+- Para saber mais sobre como construir consultas de pesquisa diferentes e examinar os logs da Configuração do Estado de Automação com o Log Analytics, confira [Efetuar pesquisas no Log Analytics](../log-analytics/log-analytics-log-searches.md)
+- Para saber mais sobre o Log Analytics e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md)

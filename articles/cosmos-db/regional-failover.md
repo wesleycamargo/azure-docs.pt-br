@@ -2,23 +2,20 @@
 title: Failover regional no Azure Cosmos DB | Microsoft Docs
 description: Saiba mais sobre como o failover manual e automáticos funcionam com o Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
+author: kanshiG
 manager: kfile
-ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 03/27/2018
-ms.author: sngun
+ms.author: govindk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 977027de0627a6eca5f9eb5d1ab83dea5347c6d4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 697be3a1eb07b2f2650f3dd94fd835b9431aec6b
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037897"
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Failover regional automático para a continuidade dos negócios no Azure Cosmos DB
 O Azure Cosmos DB simplifica a distribuição global de dados oferecendo [contas de banco de dados em várias regiões](distribute-data-globally.md) totalmente gerenciadas que fornecem claras compensações entre consistência, disponibilidade e desempenho, tudo com garantias correspondentes. As contas do Cosmos DB oferecem alta disponibilidade, latências de milissegundos de digito único, [níveis bem definidos de consistência](consistency-levels.md), failover regional transparente com APIs de hospedagem múltipla e a capacidade de dimensionar de forma elástica a produtividade e o armazenamento no mundo todo. 

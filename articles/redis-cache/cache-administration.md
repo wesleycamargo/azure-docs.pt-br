@@ -1,6 +1,6 @@
 ---
 title: Como administrar o Cache Redis do Azure | Microsoft Docs
-description: "Saiba como executar tarefas administrativas, como atualizações de reinicialização e agenda para o Cache Redis do Azure"
+description: Saiba como executar tarefas administrativas, como atualizações de reinicialização e agenda para o Cache Redis do Azure
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 37e7395a26ead737009ad9e285e9f88372b25d26
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 3b62b41fb7b9d7ff6f40191c48d00c1f0a941e48
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639445"
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Como administrar o Cache Redis do Azure
 Este tópico descreve como executar tarefas administrativas, como [reinicializar](#reboot) e [agendar atualizações](#schedule-updates) para as instâncias de Cache Redis do Azure.
@@ -91,10 +92,8 @@ A folha **Agendar atualizações** permite designar uma -janela de manutenção 
 
 Para especificar uma janela de manutenção, marque os dias desejados, especifique a hora de início da janela de manutenção para cada dia e clique em **OK**. Observe que o horário da janela de manutenção é em UTC. 
 
-> [!NOTE]
-> A janela de manutenção padrão para atualizações é de cinco horas. Esse valor não é configurável no portal do Azure, mas você pode configurá-lo no PowerShell usando o parâmetro `MaintenanceWindow` do cmdlet [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) . Para saber mais, confira [Posso gerenciar as atualizações agendadas usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
-> 
-> 
+A janela de manutenção padrão e mínima para atualizações é de cinco horas. Esse valor não é configurável no portal do Azure, mas você pode configurá-lo no PowerShell usando o parâmetro `MaintenanceWindow` do cmdlet [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) . Para saber mais, confira [Posso gerenciar as atualizações agendadas usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+
 
 ## <a name="schedule-updates-faq"></a>Perguntas frequentes sobre agendamento de atualizações
 * [Quando as atualizações ocorrerão se eu não usar o recurso de agendamento de atualizações?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)

@@ -3,22 +3,23 @@ title: Como preencher campos específicos para um aplicativo personalizado | Mic
 description: Orientações sobre como preencher campos específicos ao registrar um aplicativo personalizado com o Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: cd4313efb5d08842ba12ec00e6e5160214800d56
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: barbkess
+ms.openlocfilehash: ecdd76a8a6974a819cd0bedffd095299435dcc88
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055610"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365306"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Como preencher campos específicos para um aplicativo personalizado
 

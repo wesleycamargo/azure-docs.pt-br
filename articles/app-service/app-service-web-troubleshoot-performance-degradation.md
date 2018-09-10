@@ -1,13 +1,13 @@
 ---
-title: "Desempenho lento do aplicativo Web no Serviço de Aplicativo | Microsoft Docs"
-description: "Este artigo ajuda você a solucionar problemas de desempenho de aplicativo Web lento no Serviço de Aplicativo do Azure."
+title: Desempenho lento do aplicativo Web no Serviço de Aplicativo | Microsoft Docs
+description: Este artigo ajuda você a solucionar problemas de desempenho de aplicativo Web lento no Serviço de Aplicativo do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: top-support-issue
-keywords: "desempenho do aplicativo Web, aplicativo lento, lentidão do aplicativo"
+keywords: desempenho do aplicativo Web, aplicativo lento, lentidão do aplicativo
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.service: app-service-web
 ms.workload: web
@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0f053c0293488f19adcd058f1ba8304d8d238738
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128299"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Solucionar problemas de desempenho de aplicativo Web lento no Serviço de Aplicativo do Azure
 Este artigo ajuda você a solucionar problemas de desempenho de aplicativo Web lento no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -45,7 +46,7 @@ A solução de problemas pode ser dividida em três tarefas distintas, em ordem 
 2. [Coletar dados](#collect)
 3. [Atenuar o problema](#mitigate)
 
-[Os Aplicativos Web do Serviço de Aplicativo](/services/app-service/web/) oferecem várias opções em cada etapa.
+[Os Aplicativos Web do Serviço de Aplicativo](app-service-web-overview.md) oferecem várias opções em cada etapa.
 
 <a name="observe" />
 
@@ -66,7 +67,7 @@ Algumas das métricas que deseja monitorar para seu aplicativo Web são
 
 ![monitorar o desempenho do aplicativo Web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 * [Monitorar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-monitor.md)
 * [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
@@ -90,7 +91,7 @@ Cada aplicativo Web do Serviço de Aplicativo fornece um ponto de extremidade de
 - Editores de código-fonte, como o [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Ferramentas de gerenciamento de recursos conectados, tais como um banco de dados MySQL conectado a um aplicativo Web.
 
-[Azure Application Insights](/services/application-insights/) é uma extensão de site para monitoramento de desempenho que também está disponível. Para usar o Application Insights, você deve recompilar seu código com um SDK. Você também pode instalar uma extensão que forneça acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes. Para obter mais informações, consulte [Monitorar desempenho em aplicativos Web](../application-insights/app-insights-web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) é uma extensão de site para monitoramento de desempenho que também está disponível. Para usar o Application Insights, você deve recompilar seu código com um SDK. Você também pode instalar uma extensão que forneça acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes. Para obter mais informações, consulte [Monitorar desempenho em aplicativos Web](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 

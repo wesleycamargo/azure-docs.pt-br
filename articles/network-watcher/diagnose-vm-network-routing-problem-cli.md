@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: fcb7ec2e40b5c0e8794d2f4d70395dcbecca019c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 15fb39a74047bdeffed0076501f0129eb00de4e8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182156"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443316"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar um problema de roteamento de rede de máquina virtual - CLI do Azure
 
@@ -36,13 +36,13 @@ Caso opte por instalar e usar a CLI localmente, este artigo exigirá que seja ex
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
-Antes de criar uma VM, você deve criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Antes de criar uma VM, você deve criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). Se as chaves SSH ainda não existirem em uma localização de chave padrão, o comando criará. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`. O exemplo a seguir cria uma VM chamada *myVm*:
+Crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Se as chaves SSH ainda não existirem em uma localização de chave padrão, o comando criará. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`. O exemplo a seguir cria uma VM chamada *myVm*:
 
 ```azurecli-interactive
 az vm create \
@@ -153,7 +153,7 @@ Como você pode ver na saída do comando `az network watcher nic show-effective-
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você poderá usar [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos e todos os recursos que ele contém:
+Quando não for mais necessário, você poderá usar [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos que ele contém:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes

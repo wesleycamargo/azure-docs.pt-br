@@ -1,177 +1,202 @@
+items:
 - name: Documentação do Lab Services
   href: index.yml
 - name: Visão geral
   items:
-    - name: Sobre o Lab Services
-      href: lab-services-overview.md
-    - name: Comparar tipos de laboratório
-      href: compare-lab-types.md
+  - name: Sobre o Lab Services
+    href: lab-services-overview.md
+  - name: Comparar tipos de laboratório
+    href: compare-lab-types.md
 - name: Tutoriais
   items:
-    - name: Laboratórios de Desenvolvimento/Teste
-      items:
-        - name: 1. Configurar um laboratório personalizado
-          href: tutorial-create-custom-lab.md
-        - name: 2. Acessar um laboratório personalizado
-          href: tutorial-use-custom-lab.md
-    - name: Laboratórios de sala de aula
-      items:
-        - name: 1. Configurar uma conta de laboratório
-          href: tutorial-setup-lab-account.md
-        - name: 2. Configurar um laboratório de sala de aula
-          href: tutorial-setup-classroom-lab.md
-        - name: 3. Acessar um laboratório de sala de aula
-          href: tutorial-connect-virtual-machine-classroom-lab.md
+  - name: Laboratórios de Desenvolvimento/Teste
+    items:
+    - name: 1. Configurar um laboratório
+      href: tutorial-create-custom-lab.md
+    - name: 2. Acessar um laboratório
+      href: tutorial-use-custom-lab.md
+  - name: Laboratórios de sala de aula
+    items:
+    - name: 1. Configurar uma conta de laboratório
+      href: classroom-labs/tutorial-setup-lab-account.md
+    - name: 2. Configurar um laboratório de sala de aula
+      href: classroom-labs/tutorial-setup-classroom-lab.md
+    - name: 3. Acessar um laboratório de sala de aula
+      href: classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md
+    - name: 4. Acompanhar o uso de um laboratório de sala de aula
+      href: classroom-labs/tutorial-track-usage.md
 - name: Exemplos
   items:
-    - name: Laboratórios de Desenvolvimento/Teste
-      items:
-        - name: Modelos do Gerenciador de Recursos
-          href: 'https://github.com/Azure/azure-devtestlab/tree/master/Samples'
-        - name: Azure PowerShell
-          href: samples-powershell.md
-        - name: CLI do Azure
-          href: samples-cli.md
+  - name: Laboratórios de Desenvolvimento/Teste
+    items:
+    - name: Modelos do Gerenciador de Recursos
+      href: https://github.com/Azure/azure-devtestlab/tree/master/Samples
+    - name: Azure PowerShell
+      href: samples-powershell.md
+    - name: CLI do Azure
+      href: samples-cli.md
 - name: Conceitos
   items:
+  - name: Laboratórios de Desenvolvimento/Teste
+    href: devtest-lab-concepts.md
+    items:
+    - name: Usar laboratórios para desenvolvedores
+      href: devtest-lab-developer-lab.md
+    - name: Usar laboratórios para ambientes de teste
+      href: devtest-lab-test-env.md
+    - name: Usar laboratórios para treinamento
+      href: devtest-lab-training-lab.md
     - name: Laboratórios de Desenvolvimento/Teste
-      href: devtest-lab-concepts.md
-      items:
-        - name: Usar laboratórios para desenvolvedores
-          href: devtest-lab-developer-lab.md
-        - name: Usar laboratórios para ambientes de teste
-          href: devtest-lab-test-env.md
-        - name: Usar laboratórios para treinamento
-          href: devtest-lab-training-lab.md
-        - name: Laboratórios de Desenvolvimento/Teste
-          href: devtest-lab-overview.md
+      href: devtest-lab-overview.md
 - name: Guias de instruções
   items:
-    - name: Laboratórios de sala de aula
+  - name: Laboratórios de sala de aula
+    items:
+    - name: Gerenciar contas de laboratório
+      href: classroom-labs/how-to-manage-lab-accounts.md
+    - name: Gerenciar laboratórios de sala de aula
+      href: classroom-labs/how-to-manage-classroom-labs.md
+    - name: Acessar laboratórios de sala de aula
+      href: classroom-labs/how-to-use-classroom-lab.md
+  - name: Laboratórios de desenvolvimento/teste
+    items:
+    - name: Criar um laboratório
+      href: devtest-lab-create-lab.md
+    - name: Criar uma VM no laboratório
+      href: devtest-lab-create-first-vm.md
+    - name: Excluir um laboratório ou VM em um laboratório
+      href: devtest-lab-delete-lab-vm.md
+    - name: Definir políticas para o laboratório
+      href: devtest-lab-get-started-with-lab-policies.md
+    - name: Armazenar segredos no Azure Key Vault
+      href: devtest-lab-store-secrets-in-key-vault.md
+    - name: Teste seu aplicativo no Azure
+      href: test-app-azure.md
+    - name: Usar VMs em um laboratório
       items:
-        - name: Gerenciar contas de laboratório
-          href: how-to-manage-lab-accounts.md
-        - name: Gerenciar laboratórios de sala de aula
-          href: how-to-manage-classroom-labs.md
-        - name: Acessar laboratórios de sala de aula
-          href: how-to-use-classroom-lab.md
-    - name: Laboratórios de desenvolvimento/teste
+      - name: Criar VMs
+        href: devtest-lab-add-vm.md
+      - name: Criar e gerenciar VMs requisitáveis
+        href: devtest-lab-add-claimable-vm.md
+      - name: Criar e gerenciar VMs com a CLI do Azure
+        href: devtest-lab-vmcli.md
+      - name: Criar uma VM usando um modelo do Resource Manager
+        href: devtest-lab-use-resource-manager-template.md
+      - name: Reiniciar uma VM
+        href: devtest-lab-restart-vm.md
+      - name: Redimensionar uma VM
+        href: devtest-lab-resize-vm.md
+      - name: Reimplantar uma VM
+        href: devtest-lab-redeploy-vm.md
+      - name: Importar uma VM
+        href: devtest-lab-import-vm.md
+    - name: Usar ambientes em um laboratório
       items:
-        - name: Criar um laboratório personalizado
-          href: devtest-lab-create-lab.md
-        - name: Criar uma VM no laboratório personalizado
-          href: devtest-lab-create-first-vm.md
-        - name: Definir políticas para o laboratório personalizado
-          href: devtest-lab-get-started-with-lab-policies.md
-        - name: Usar VMs em um laboratório personalizado
-          items:
-            - name: Criar VMs
-              href: devtest-lab-add-vm.md
-            - name: Criar e gerenciar VMs requisitáveis
-              href: devtest-lab-add-claimable-vm.md
-            - name: Criar e gerenciar VMs com a CLI do Azure
-              href: devtest-lab-vmcli.md
-            - name: Criar uma VM usando um modelo do Resource Manager
-              href: devtest-lab-use-resource-manager-template.md
-            - name: Reiniciar uma VM
-              href: devtest-lab-restart-vm.md
-        - name: Usar ambientes em um laboratório personalizado
-          items:
-            - name: Criar um ambiente
-              href: devtest-lab-create-environment-from-arm.md
-        - name: Proteger o acesso aos laboratórios
-          items:
-            - name: Adicionar proprietários e usuários do laboratório
-              href: devtest-lab-add-devtest-user.md
-            - name: Personalizar permissões com funções personalizadas
-              href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
-        - name: Configurar um laboratório personalizado
-          items:
-            - name: Definir políticas e agendas
-              href: devtest-lab-set-lab-policy.md
-            - name: Configurar o gerenciamento de custo
-              href: devtest-lab-configure-cost-management.md
-            - name: Configurar imagens do Azure Marketplace
-              href: devtest-lab-configure-marketplace-images.md
-            - name: Habilitar uma imagem licenciada
-              href: devtest-lab-enable-licensed-images.md
-            - name: Adicionar marcas a um laboratório personalizado
-              href: devtest-lab-add-tag.md
-            - name: Notificação de postagem em um laboratório personalizado
-              href: devtest-lab-announcements.md
-            - name: Adicionar informações de suporte a um laboratório personalizado
-              href: devtest-lab-internal-support-message.md
-        - name: Selecionar imagem ou fórmula personalizadas
-          href: devtest-lab-comparing-vm-base-image-types.md
-        - name: Gerenciar imagens personalizadas
-          items:
-            - name: Criar uma imagem personalizada de uma VM
-              href: devtest-lab-create-custom-image-from-vm-using-portal.md
-            - name: Criar uma imagem personalizada de um VHD usando o portal do Azure
-              href: devtest-lab-create-template.md
-            - name: Criar uma imagem personalizada de um VHD usando o PowerShell
-              href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
-            - name: Carregar o arquivo VHD usando o AzCopy
-              href: devtest-lab-upload-vhd-using-azcopy.md
-            - name: Carregar o arquivo VHD usando o PowerShell
-              href: devtest-lab-upload-vhd-using-powershell.md
-            - name: Carregar o arquivo VHD usando o Gerenciador de Armazenamento
-              href: devtest-lab-upload-vhd-using-storage-explorer.md
-        - name: Gerenciar modelos reutilizáveis
-          items:
-            - name: Adicionar um repositório Git para artefatos e modelos
-              href: devtest-lab-add-artifact-repo.md
-            - name: Gerenciar fórmulas
-              href: devtest-lab-manage-formulas.md
-        - name: Gerenciar artefatos
-          items:
-            - name: Criar artefatos personalizados
-              href: devtest-lab-artifact-author.md
-            - name: Diagnosticar falhas do artefato
-              href: devtest-lab-troubleshoot-artifact-failure.md
-        - name: Gerenciar redes virtuais
-          items:
-            - name: Configurar redes virtuais
-              href: devtest-lab-configure-vnet.md
-            - name: Selecionar opção de configuração de IP
-              href: devtest-lab-shared-ip.md
-        - name: Gerenciar discos de dados
-          items:
-            - name: Anexar e desanexar discos de dados
-              href: devtest-lab-attach-detach-data-disk.md
-        - name: Dimensionar seu laboratório
-          href: devtest-lab-scale-lab.md
-        - name: Integrar com CI/CD
-          items:
-            - name: Integrar laboratórios em seu pipeline VSTS CI/CD
-              href: devtest-lab-integrate-ci-cd-vsts.md
-        - name: Criar ou modificar laboratórios usando o modelo do Resource Manager
-          href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
+      - name: Criar um ambiente
+        href: devtest-lab-create-environment-from-arm.md
+      - name: Configurar e usar ambientes públicos
+        href: devtest-lab-configure-use-public-environments.md
+    - name: Proteger o acesso aos laboratórios
+      items:
+      - name: Adicionar proprietários e usuários do laboratório
+        href: devtest-lab-add-devtest-user.md
+      - name: Personalizar permissões com funções personalizadas
+        href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+    - name: Configurar um laboratório
+      items:
+      - name: Definir políticas e agendas
+        href: devtest-lab-set-lab-policy.md
+      - name: Configurar o gerenciamento de custo
+        href: devtest-lab-configure-cost-management.md
+      - name: Configurar imagens do Azure Marketplace
+        href: devtest-lab-configure-marketplace-images.md
+      - name: Habilitar uma imagem licenciada
+        href: devtest-lab-enable-licensed-images.md
+      - name: Adicionar marcas a um laboratório
+        href: devtest-lab-add-tag.md
+      - name: Notificação de postagem em um laboratório
+        href: devtest-lab-announcements.md
+      - name: Adicionar informações de suporte a um laboratório
+        href: devtest-lab-internal-support-message.md
+    - name: Selecionar imagem ou fórmula personalizadas
+      href: devtest-lab-comparing-vm-base-image-types.md
+    - name: Gerenciar imagens personalizadas
+      items:
+      - name: Criar uma imagem personalizada de uma VM
+        href: devtest-lab-create-custom-image-from-vm-using-portal.md
+      - name: Criar uma imagem personalizada de um VHD usando o portal do Azure
+        href: devtest-lab-create-template.md
+      - name: Criar uma imagem personalizada de um VHD usando o PowerShell
+        href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
+      - name: Carregar o arquivo VHD usando o AzCopy
+        href: devtest-lab-upload-vhd-using-azcopy.md
+      - name: Carregar o arquivo VHD usando o PowerShell
+        href: devtest-lab-upload-vhd-using-powershell.md
+      - name: Carregar o arquivo VHD usando o Gerenciador de Armazenamento
+        href: devtest-lab-upload-vhd-using-storage-explorer.md
+    - name: Gerenciar modelos reutilizáveis
+      items:
+      - name: Adicionar um repositório Git para artefatos e modelos
+        href: devtest-lab-add-artifact-repo.md
+      - name: Gerenciar fórmulas
+        href: devtest-lab-manage-formulas.md
+    - name: Gerenciar artefatos
+      items:
+      - name: Especificar artefatos obrigatórios
+        href: devtest-lab-mandatory-artifacts.md
+      - name: Criar artefatos personalizados
+        href: devtest-lab-artifact-author.md
+      - name: Diagnosticar falhas do artefato
+        href: devtest-lab-troubleshoot-artifact-failure.md
+    - name: Gerenciar redes virtuais
+      items:
+      - name: Configurar redes virtuais
+        href: devtest-lab-configure-vnet.md
+      - name: Selecionar opção de configuração de IP
+        href: devtest-lab-shared-ip.md
+    - name: Gerenciar discos de dados
+      items:
+      - name: Anexar e desanexar discos de dados
+        href: devtest-lab-attach-detach-data-disk.md
+    - name: Dimensionar seu laboratório
+      href: devtest-lab-scale-lab.md
+    - name: Integrar com CI/CD
+      items:
+      - name: Integrar laboratórios em seu pipeline VSTS CI/CD
+        href: devtest-lab-integrate-ci-cd-vsts.md
+    - name: Criar ou modificar laboratórios usando o modelo do Resource Manager
+      href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
 - name: Referência
   items:
-    - name: CLI 2.0
-      href: /cli/azure/lab
-    - name: PowerShell
-      href: '/powershell/module/azurerm.devtestlabs/#devtest_labs'
-    - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/dtl/'
+  - name: CLI 2.0
+    href: /cli/azure/lab
+  - name: PowerShell
+    href: /powershell/module/azurerm.devtestlabs/#devtest_labs
+  - name: API REST
+    href: https://docs.microsoft.com/rest/api/dtl/
 - name: Recursos
   items:
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=developer-tools'
-    - name: Calculadora de preço
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Perguntas frequentes do DevTest Labs
-      href: devtest-lab-faq.md
-    - name: Atualizações do serviço
-      href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDevTestLabs'
-    - name: Blog da equipe
-      href: 'https://blogs.msdn.microsoft.com/devtestlab/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-devtest-labs'
-    - name: vídeos
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/?category=developer-tools
+  - name: Calculadora de preço
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Perguntas frequentes do DevTest Labs
+    href: devtest-lab-faq.md
+  - name: Atualizações do serviço
+    href: https://azure.microsoft.com/updates/?product=devtest-lab
+  - name: Fórum do MSDN
+    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDevTestLabs
+  - name: Blog da equipe
+    href: https://blogs.msdn.microsoft.com/devtestlab/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-devtest-labs
+  - name: vídeos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/devtest-lab/
+ms.openlocfilehash: a3e6dcc959474c79aeb06d05e7f722695471fd9f
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024441"

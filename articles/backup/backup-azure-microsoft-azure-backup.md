@@ -1,28 +1,22 @@
 ---
-title: Usar o Servidor de Backup do Azure para fazer backup de cargas de trabalho no Azure | Microsoft Docs
+title: Usar o Servidor de Backup do Azure para fazer backup de cargas de trabalho no Azure
 description: Use o Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho no Portal do Azure.
 services: backup
-documentationcenter: ''
 author: PVRK
 manager: shivamg
-editor: ''
 keywords: servidor de backup do Azure; proteger cargas de trabalho; fazer backup de cargas de trabalho
-ms.assetid: e7fb1907-9dc1-4ca1-8c61-50423d86540c
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 5/14/2018
-ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: ef6be97144d05f18362ef707ef255b93c8cf21d9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.date: 7/10/2018
+ms.author: adigan
+ms.openlocfilehash: 67243aca9f5f578402ff79422783148af53798c6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196671"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38546010"
 ---
-# <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparação para fazer backup de cargas de trabalho usando o Servidor de Backup do Azure
+# <a name="install-and-configure-azure-backup-server"></a>Instalar e configurar o Servidor de Backup do Azure
 > [!div class="op_single_selector"]
 > * [Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
@@ -230,7 +224,7 @@ Quando você souber o estado da conectividade do Azure e da assinatura do Azure,
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperação de perda de conectividade
 Se você tiver um firewall ou um proxy que esteja impedindo o acesso do Azure, precisará incluir os seguintes endereços de domínio na lista de permissões no perfil do firewall/proxy:
 
-* www.msftncsi.com
+* `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
 * \*.WindowsAzure.com
 * \*.microsoftonline.com

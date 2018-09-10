@@ -1,27 +1,28 @@
 ---
-title: Atribuições qualificadas e visibilidade de recursos para o Azure no Privileged Identity Management | Microsoft Docs
-description: Descreve como atribuir membros como ualificados para funções de recurso ao usar PIM.
+title: Atribuições qualificadas e visibilidade de recursos no PIM – Azure | Microsoft Docs
+description: Descreve como atribuir membros como qualificados para funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
-editor: mwahl
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: pim
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4804d930a98192d64245784058920eeba7d30212
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3551c3231a94f8a844d26a713cbf171ca7653815
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149979"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189207"
 ---
-# <a name="eligible-assignments-and-resource-visibility-with-privileged-identity-management"></a>Atribuições qualificadas e visibilidade de recursos com o Privileged Identity Management
+# <a name="eligible-assignments-and-resource-visibility-in-pim"></a>Atribuições qualificadas e visibilidade de recursos no PIM
 
 O PIM (Privileged Identity Management) para funções de recurso do Azure fornece segurança aprimorada para organizações que têm recursos críticos do Azure. Os administradores de recursos podem usar PIM para atribuir membros como qualificáveis para funções de recursos. Saiba mais sobre os diferentes tipos de atribuição e estados de atribuição para funções de recurso do Azure nas seguintes seções. 
 
@@ -69,4 +70,4 @@ Ao visualizar uma associação listada em **Funções ativas**, você pode usar 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Atribuir funções no Privileged Identity Manager](pim-resource-roles-assign-roles.md)
+- [Atribuir funções de recurso do Azure no PIM](pim-resource-roles-assign-roles.md)

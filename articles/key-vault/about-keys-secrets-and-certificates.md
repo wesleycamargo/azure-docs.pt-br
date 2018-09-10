@@ -3,7 +3,7 @@ title: Sobre Chaves, Segredos e Certificados
 description: Visão geral da interface REST e detalhes de desenvolvedor KV
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: BryanLa
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: 2c7dd89d9c2e5d50f2533101499a6e50e52047b3
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.date: 08/14/2018
+ms.author: bryanla
+ms.openlocfilehash: f36e0e3ddc605d960ed764252308cbf09578832c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126135"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
 O Cofre da Chave do Azure permite aos usuários armazenar e usar chaves de criptografia no ambiente do Microsoft Azure. O Cofre de chaves dá suporte a vários tipos de chave e algoritmos e permite o uso de módulos de segurança de Hardware (HSM) para chaves de alto valor. Além disso, o Cofre de Chaves permite que os usuários armazenem segredos de forma segura. Os segredos são objetos de octetos de tamanho limitado sem semântica específica. O Cofre de Chaves também oferece suporte a certificados, que são criados sobre chaves e segredos e adicionam um recurso de renovação automática.
@@ -27,26 +28,26 @@ Para obter mais informações gerais sobre o Cofre da Chave do Azure, consulte [
 
 **Detalhes gerais do Cofre de Chaves**
 
--   [Padrões de suporte](about-keys-secrets-and-certificates.md#BKMK_Standards)
--   [Tipos de dados](about-keys-secrets-and-certificates.md#BKMK_DataTypes)  
--   [Objetos, identificadores e controle de versão](about-keys-secrets-and-certificates.md#BKMK_ObjId)  
+-   [Padrões de suporte](#BKMK_Standards)
+-   [Tipos de dados](#BKMK_DataTypes)  
+-   [Objetos, identificadores e controle de versão](#BKMK_ObjId)  
 
 **Sobre as chaves**
 
--   [Chaves e tipos de chave](about-keys-secrets-and-certificates.md#BKMK_KeyTypes)  
--   [Algoritmos RSA](about-keys-secrets-and-certificates.md#BKMK_RSAAlgorithms)  
--   [Algoritmos RSA-HSM](about-keys-secrets-and-certificates.md#BKMK_RSA-HSMAlgorithms)  
--   [Proteção criptográfica](about-keys-secrets-and-certificates.md#BKMK_Cryptographic)
--   [Operações de chave](about-keys-secrets-and-certificates.md#BKMK_KeyOperations)  
--   [Atributos de chave](about-keys-secrets-and-certificates.md#BKMK_KeyAttributes)  
--   [Marcas de chave](about-keys-secrets-and-certificates.md#BKMK_Keytags)  
+-   [Chaves e tipos de chave](#BKMK_KeyTypes)  
+-   [Algoritmos RSA](#BKMK_RSAAlgorithms)  
+-   [Algoritmos RSA-HSM](#BKMK_RSA-HSMAlgorithms)  
+-   [Proteção criptográfica](#BKMK_Cryptographic)
+-   [Operações de chave](#BKMK_KeyOperations)  
+-   [Atributos de chave](#BKMK_KeyAttributes)  
+-   [Marcas de chave](#BKMK_Keytags)  
 
 **Sobre segredos** 
 
--   [Como trabalhar com os segredos](about-keys-secrets-and-certificates.md#BKMK_WorkingWithSecrets)  
--   [Atributos de segredos](about-keys-secrets-and-certificates.md#BKMK_SecretAttrs)  
--   [Marcas de segredos](about-keys-secrets-and-certificates.md#BKMK_SecretTags)  
--   [Controle de acesso a segredo](about-keys-secrets-and-certificates.md#BKMK_SecretAccessControl)  
+-   [Como trabalhar com os segredos](#BKMK_WorkingWithSecrets)  
+-   [Atributos de segredos](#BKMK_SecretAttrs)  
+-   [Marcas de segredos](#BKMK_SecretTags)  
+-   [Controle de acesso a segredo](#BKMK_SecretAccessControl)  
 
 **Sobre certificados**
 
@@ -116,15 +117,36 @@ Em que:
 
 As chaves de criptografia no Cofre de Chaves do Azure são representadas como objetos de chave da Web JSON [JWK]. As especificações JWK/JWA base também são estendidas para permitir tipos de chave exclusivos para a implementação do Cofre de Chaves do Azure, por exemplo, a importação de chaves no Cofre de Chaves do Azure usando o empacotamento específico (Thales) de fornecedor do HSM para habilitar um transporte seguro de chaves, que só pode ser usados nos HSMs do Cofre de Chaves do Azure.  
 
-A versão inicial do Cofre de Chaves do Azure oferece suporte somente a chaves RSA. As versões futuras podem dar suporte a outros tipos de chave, como curva elíptica e simétrica.  
+- **Teclas "soft"**: uma chave processada no software pelo Key Vault, mas criptografada em repouso usando uma chave do sistema que está em um HSM. Os clientes podem importar uma chave RSA ou EC existente ou solicitar que o Cofre de Chaves do Azure gere um.
+- **Teclas "Hard"**: uma chave processada em um HSM (Hardware Security Module). Essas chaves são protegidas em um dos Mundos de Segurança do HSM do Cofre de Chaves do Azure (existe um Mundo de Segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou EC, seja em formato flexível ou exportando de um dispositivo HSM compatível, ou solicitar que o Cofre da Chave do Azure gere um. Esse tipo de chave adiciona o atributo T para o JWK obter para transportar o material de chave do HSM.
 
--   **RSA**: uma chave RSA de 2048 bits. Esta é uma chave "soft", que é processada no software pelo Cofre de Chaves, mas é armazenada criptografada em repouso usando uma chave do sistema que está em um HSM. Os clientes podem importar uma chave RSA existente ou solicitar que o Cofre de Chaves do Azure gere uma.  
--   **RSA-HSM**: uma chave RSA que é processada em um HSM. As chaves RSA-HSM são protegidas em um dos mundos de segurança HSM do Cofre de Chaves do Azure (há um mundo de segurança por localização geográfica para manter o isolamento). Os clientes podem importar uma chave RSA, no formato soft ou por meio da exportação de um dispositivo do HSM compatível, ou solicitar que o Cofre de chaves do Azure gere uma. Esse tipo de chave adiciona o atributo T para o JWK obter para transportar o material de chave do HSM.  
+     Para obter mais informações sobre fronteiras geográficas, consulte [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
-     Para obter mais informações sobre fronteiras geográficas, consulte [Microsoft Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center/privacy/)  
+O Cofre de Chaves do Azure suporta apenas as chaves RSA e Curva Elíptica; versões futuras podem suportar outros tipos de chaves, como simétricas.
+
+-   **EC**: chave de curva elíptica "Soft".
+-   **EC-HSM**: chave de curva elíptica de "Rígida".
+-   **RSA**: chave "Soft" RSA.
+-   **RSA-HSM**: chave "Hard" RSA.
+
+O Cofre de Chaves do Azure oferece suporte a chaves RSA de tamanhos 2048, 3072 e 4096 e chaves de Curva Elíptica do tipo P-256, P-384, P-521 e P-256K.
+
+### <a name="BKMK_Cryptographic"></a> Proteção criptográfica
+
+Os módulos de criptografia usado pelo Cofre de Chaves do Azure, se o HSM ou software, são validados do FIPS. Você não precisa fazer nada especial para executar no modo FIPS. Se você **criar** ou **importar** chaves como protegida por HSM, elas são garantidas de serem processadas dentro dos HSMs validados para FIPS 140-2 nível 2 ou superior. Se você **criar** ou **importar** chaves como protegida por software, elas são processadas dentro de módulos criptográficos validados para FIPS 140-2 nível 1 ou superior. Para obter mais informações, confira [Chaves e tipos de chaves](#BKMK_KeyTypes).
+
+###  <a name="BKMK_ECAlgorithms"></a> Algoritmos EC
+ Os seguintes identificadores de algoritmo são suportados com chaves EC e EC-HSM no Cofre de Chaves do Azure. 
+
+#### <a name="signverify"></a>SIGN/VERIFY
+
+-   **ES256** - resumos de ECDSA para SHA-256 e as chaves criadas com a curva p-256. Esse algoritmo é descrito em [RFC7518].
+-   **ES256K** - resumos de ECDSA para SHA-256 e as chaves criadas com curva P-256_K. Este algoritmo está pendente de padronização.
+-   **ES384** - resumos de ECDSA para SHA-384 e as chaves criadas com a curva p-384. Esse algoritmo é descrito em [RFC7518].
+-   **ES512** - ECDSA para SHA-512 resumos e as chaves criadas com a curva p-521. Esse algoritmo é descrito em [RFC7518].
 
 ###  <a name="BKMK_RSAAlgorithms"></a> Algoritmos RSA  
- Os seguintes identificadores de algoritmo são compatíveis com chaves RSA no Cofre de Chaves do Azure.  
+ Os seguintes identificadores de algoritmo são suportados com chaves RSA e RSA-HSM no Cofre de Chaves do Azure.  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>WRAPKEY/UNWRAPKEY, CRIPTOGRAFAR/DESCRIPTOGRAFAR
 
@@ -137,25 +159,6 @@ A versão inicial do Cofre de Chaves do Azure oferece suporte somente a chaves R
 -   **RS384** - RSASSA-PKCS-v1_5 usando SHA-384. O valor do resumo fornecido pelo aplicativo deve ser calculado usando SHA-384 e deve ter 48 bytes de comprimento.  
 -   **RS512** - RSASSA-PKCS-v1_5 usando SHA-512. O valor do resumo fornecido pelo aplicativo deve ser calculado usando SHA-512 e deve ter 64 bytes de comprimento.  
 -   **RSNULL** - consulte [RFC2437], um caso de uso especializado para permitir determinados cenários TLS.  
-
-###  <a name="BKMK_RSA-HSMAlgorithms"></a> Algoritmos RSA-HSM  
-Os seguintes identificadores de algoritmo são compatíveis com chaves RSA-HSM no Cofre de Chaves do Azure.  
-
-### <a name="BKMK_Cryptographic"></a> Proteção criptográfica
-
-Os módulos de criptografia usado pelo Cofre de Chaves do Azure, se o HSM ou software, são validados do FIPS. Você não precisa fazer nada especial para executar no modo FIPS. Se você **criar** ou **importar** chaves como protegida por HSM, elas são garantidas de serem processadas dentro dos HSMs validados para FIPS 140-2 nível 2 ou superior. Se você **criar** ou **importar** chaves como protegida por software, elas são processadas dentro de módulos criptográficos validados para FIPS 140-2 nível 1 ou superior. Para obter mais informações, confira [Chaves e tipos de chaves](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
-
-#### <a name="wrapunwrap-encryptdecrypt"></a>WRAP/UNWRAP, CRIPTOGRAFAR/DESCRIPTOGRAFAR
-
--   **RSA1_5** - criptografia de chave RSAES-PKCS1-V1_5 [RFC3447]  
--   **RSA-OAEP** - RSAES usando Preenchimento de Criptografia Assimétrica Ideal (OAEP) [RFC3447], com os parâmetros padrão especificados por RFC 3447 na seção 2.1. Esses parâmetros padrão estão usando uma função de hash de SHA-1 e uma função de geração de máscara de MGF1 com SHA-1.  
-
- #### <a name="signverify"></a>SIGN/VERIFY  
-
--   **RS256** - RSASSA-PKCS-v1_5 usando SHA-256. O valor do resumo fornecido pelo aplicativo deve ser calculado usando SHA-256 e deve ter 32 bytes de comprimento.  
--   **RS384** - RSASSA-PKCS-v1_5 usando SHA-384. O valor do resumo fornecido pelo aplicativo deve ser calculado usando SHA-384 e deve ter 48 bytes de comprimento.  
--   **RS512** - RSASSA-PKCS-v1_5 usando SHA-512. O valor do resumo fornecido pelo aplicativo deve ser calculado usando SHA-512 e deve ter 64 bytes de comprimento.  
--   RSNULL: consulte [RFC2437], um caso de uso especializado para permitir determinados cenários TLS.  
 
 ###  <a name="BKMK_KeyOperations"></a> Operações de chave
 
@@ -171,7 +174,7 @@ O Cofre de Chaves do Azure suporta as seguintes operações em objetos de chave:
 -   **Backup**: exporta uma chave de forma protegida.  
 -   **Restaurar**: importa uma chave de backup anterior.  
 
-Para obter mais informações, consulte [Operações de chave](/rest/api/keyvault/key-operations.md).  
+Para obter mais informações, veja [Operações de chave na referência de API REST do Key Vault](/rest/api/keyvault).  
 
 Quando uma chave tiver sido criada no Cofre de Chaves do Azure, as seguintes operações criptográficas podem ser executadas usando a chave:  
 
@@ -191,22 +194,22 @@ Para obter mais informações sobre objetos JWK, consulte [Chave de Web JSON (JW
 
 Além do material de chave, os seguintes atributos podem ser especificados. Em uma solicitação de JSON, a palavra-chave e as chaves, '{' '}', são necessárias, mesmo se não houver nenhum atributo especificado.  
 
-- *habilitado*: booliano, opcional, o padrão é **true**. Especifica se a chave está habilitada e pode ser utilizada para operações de criptografia. O atributo *habilitado* é usado em conjunto com *nbf* e *exp*. Quando ocorre uma operação entre *nbf* e *exp*, ele só será permitido se *habilitado* estiver definido como **true**. As operações fora da janela *nbf* / *exp* não são automaticamente permitidas, exceto para determinados tipos de operação em [determinadas condições](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops).
-- *nbf*: IntDate, opcional, o padrão é agora. O atributo *nbf* (not before) identifica o tempo anterior que a chave NÃO DEVE ser usada para operações de criptografia, exceto para determinados tipos de operação em [determinadas condições](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops). O processamento do atributo *nbf* requer que a data/hora atual DEVE ser posterior ou igual a data/hora não-anterior listada no atributo *nbf*. Cofre de Chaves do Azure PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
-- *EXP*: IntDate, opcional, o padrão é “infinito”. O atributo *exp* (expiration time) identifica o tempo de expiração em que ou depois que a chave NÃO DEVE ser usada para operações de criptografia, exceto para determinados tipos de operação em [determinadas condições](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops). O processamento do atributo *exp* requer que a data/hora atual DEVE ser anterior a data/hora de expiração listada no atributo *exp*. Cofre de Chaves do Azure PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
+- *habilitado*: booliano, opcional, o padrão é **true**. Especifica se a chave está habilitada e pode ser utilizada para operações de criptografia. O atributo *habilitado* é usado em conjunto com *nbf* e *exp*. Quando ocorre uma operação entre *nbf* e *exp*, ele só será permitido se *habilitado* estiver definido como **true**. As operações fora da janela *nbf* / *exp* não são automaticamente permitidas, exceto para determinados tipos de operação em [determinadas condições](#BKMK_key-date-time-ctrld-ops).
+- *nbf*: IntDate, opcional, o padrão é agora. O atributo *nbf* (not before) identifica o tempo anterior que a chave NÃO DEVE ser usada para operações de criptografia, exceto para determinados tipos de operação em [determinadas condições](#BKMK_key-date-time-ctrld-ops). O processamento do atributo *nbf* requer que a data/hora atual DEVE ser posterior ou igual a data/hora não-anterior listada no atributo *nbf*. Cofre de Chaves do Azure PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
+- *EXP*: IntDate, opcional, o padrão é “infinito”. O atributo *exp* (expiration time) identifica o tempo de expiração em que ou depois que a chave NÃO DEVE ser usada para operações de criptografia, exceto para determinados tipos de operação em [determinadas condições](#BKMK_key-date-time-ctrld-ops). O processamento do atributo *exp* requer que a data/hora atual DEVE ser anterior a data/hora de expiração listada no atributo *exp*. Cofre de Chaves do Azure PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
 
 Há mais atributos somente leitura que são incluídos em qualquer resposta que inclui os atributos de chave:  
 
 - *criado*: IntDate, opcional. O atributo *criado* indica quando esta versão da chave foi criada. Esse valor é nulo para chaves criadas antes da adição deste atributo. Seu valor DEVE ser um número que contenha um valor de IntDate.  
 - *atualizado*: IntDate, opcional. O atributo *atualizado* indica quando esta versão da chave foi atualizada. Esse valor é nulo para chaves que foram atualizadas antes da adição deste atributo. Seu valor DEVE ser um número que contenha um valor de IntDate.  
 
-Para obter mais informações sobre IntDate e outros tipos de dados, consulte [Tipos de dados](about-keys-secrets-and-certificates.md#BKMK_DataTypes)  
+Para obter mais informações sobre IntDate e outros tipos de dados, consulte [Tipos de dados](#BKMK_DataTypes)  
 
 #### <a name="BKMK_key-date-time-ctrld-ops"></a> Operações de data e hora controladas
 
 Chaves expiradas e ainda não válidas, aquelas que estão fora da janela *nbf* / *exp*, funcionarão para operações **descriptografar**, **unwrap** e **verificar** (não retornará 403, proibido). A lógica para usar o estado de não válido ainda é permitir que uma chave seja testada antes do uso de produção. A lógica para usar o estado expirado é permitir operações de recuperação de dados que foram criados quando a chave era válida. Além disso, você pode desabilitar o acesso a uma chave usando políticas de Cofre de Chaves, ou atualizando o atributo de chave *habilitado* para **false**.
 
-Para obter mais informações sobre tipos de dados, consulte [Tipos de dados](about-keys-secrets-and-certificates.md#BKMK_DataTypes).
+Para obter mais informações sobre tipos de dados, consulte [Tipos de dados](#BKMK_DataTypes).
 
 Para obter mais informações sobre outros atributos possíveis, consulte a [Chave de Web JSON (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
@@ -253,9 +256,9 @@ O Cofre de Chaves do Azure também oferece suporte a um campo contentType para s
 
 Além dos dados de segredo, os seguintes atributos podem ser especificados:  
 
-- *exp*: IntDate, opcional, o padrão é **infinito**. O atributo *exp* (tempo de expiração) identifica o tempo de expiração em que ou depois que os dados de segredo NÃO DEVEM ser recuperados, exceto em [determinadas situações](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). O processamento do atributo *exp* requer que a data/hora atual DEVE ser anterior a data/hora de expiração listada no atributo *exp*. Cofre de Chaves do Azure PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
-- *nbf*: IntDate, opcional, o padrão é **agora**. O atributo *nbf* (not before) identifica o tempo anterior que os dados de segredo NÃO DEVEM ser recuperados, exceto em [determinadas situações](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). O processamento do atributo *nbf* requer que a data/hora atual DEVE ser posterior ou igual a data/hora não-anterior listada no atributo *nbf*. Cofre de Chaves do Azure PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
-- *habilitado*: booliano, opcional, o padrão é **true**. Esse atributo especifica se os dados secretos podem ser recuperados. O atributo habilitado é usado em conjunto com *exp* quando ocorre uma operação entre exp, ele só será permitido se habilitado estiver definido como **true**. As operações fora da janela *nbf* e *exp* são automaticamente não permitidas, exceto em [determinadas situações](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops).  
+- *exp*: IntDate, opcional, o padrão é **infinito**. O atributo *exp* (tempo de expiração) identifica o tempo de expiração em que ou depois que os dados de segredo NÃO DEVEM ser recuperados, exceto em [determinadas situações](#BKMK_secret-date-time-ctrld-ops). Esse campo é para fins **informativos** somente, visto que ele informa os usuários do serviço de cofre de que um segredo específico não pode ser usado. Seu valor DEVE ser um número que contenha um valor de IntDate.   
+- *nbf*: IntDate, opcional, o padrão é **agora**. O atributo *nbf* (not before) identifica o tempo anterior que os dados de segredo NÃO DEVEM ser recuperados, exceto em [determinadas situações](#BKMK_secret-date-time-ctrld-ops). Este documento serve apenas para fins **informativos**. Seu valor DEVE ser um número que contenha um valor de IntDate. 
+- *habilitado*: booliano, opcional, o padrão é **true**. Esse atributo especifica se os dados secretos podem ser recuperados. O atributo habilitado é usado em conjunto com *exp* quando ocorre uma operação entre exp, ele só será permitido se habilitado estiver definido como **true**. As operações fora da janela *nbf* e *exp* são automaticamente não permitidas, exceto em [determinadas situações](#BKMK_secret-date-time-ctrld-ops).  
 
 Há mais atributos somente leitura que são incluídos em qualquer resposta que inclui os atributos de segredo:  
 
@@ -266,7 +269,7 @@ Há mais atributos somente leitura que são incluídos em qualquer resposta que 
 
 Uma operação **obter** do segredo funcionará para segredos ainda não válidos e expirados, fora da janela *nbf* / *exp*. Chamar uma operação **obter** do segredo, para um segredo ainda não válido, pode ser usada para fins de teste. Recuperar (**obter**) um segredo expirado, pode ser usado para operações de recuperação.
 
-Para obter mais informações sobre tipos de dados, consulte [Tipos de dados](about-keys-secrets-and-certificates.md#BKMK_DataTypes).  
+Para obter mais informações sobre tipos de dados, consulte [Tipos de dados](#BKMK_DataTypes).  
 
 ###  <a name="BKMK_SecretAccessControl"></a> Controle de acesso a segredo
 
@@ -280,7 +283,7 @@ As seguintes permissões podem ser usadas, por entidade de segurança, na entrad
 -   *excluir*: excluir o segredo  
 -   *todas*: todas as permissões  
 
-Para obter mais informações sobre como trabalhar com segredos, consulte [Operações de segredo](/rest/api/keyvault/secret-operations.md).  
+Para obter mais informações sobre como trabalhar com segredos, veja [Operações de segredo na referência de API REST do Key Vault](/rest/api/keyvault).  
 
 ###  <a name="BKMK_SecretTags"></a> Marcas de segredos  
 Você pode especificar mais metadados específicos do aplicativo na forma de marcas. O Cofre de Chaves do Azure oferece suporte a até 15 marcas, cada um deles pode ter um nome de 256 caracteres e um valor de 256 caracteres.  
@@ -327,7 +330,7 @@ Os atributos de certificado são espelhados para atributos de chave endereçáve
 
 Um certificado do Cofre de Chaves tem os seguintes atributos:  
 
--   *habilitado*: booliano, opcional, o padrão é **true**. Esse atributo pode ser especificado para indicar se os dados de certificado podem ser recuperados como segredo ou operável como uma chave. Isso é usado em conjunto com *nbf* e *exp* quando ocorre uma operação entre *nbf* e exp, ele só será permitido se habilitado estiver definido como true. As operações fora da janela *nbf* e*exp* são automaticamente proibidas.  
+-   *habilitado*: booliano, opcional, o padrão é **true**. Esse atributo pode ser especificado para indicar se os dados de certificado podem ser recuperados como segredo ou operável como uma chave. Isso é usado em conjunto com *nbf* e *exp* quando ocorre uma operação entre *nbf* e *exp* e só será permitido se” habilitado” estiver definido como true. As operações fora da janela *nbf* e *exp* são proibidas automaticamente.  
 
 Há mais atributos somente leitura que são incluídos em resposta:
 
@@ -433,18 +436,14 @@ Se uma política de certificado for definida como renovação automática, uma n
 -   *criar*: permite criar um certificado de Chave de Cofre.  
 -   *importar*: permite a importação de material de certificado em um Certificado de Cofre de Chaves.  
 -   *atualizar*: permite a atualização de um certificado.  
--   *manageconnects*: permite o gerenciamento de contatos de certificados de Cofre de Chaves  
+-   *managecontacts*: permite o gerenciamento de contatos de certificados de Cofre de Chaves  
 -   *getissuers*: permite obter de emissores de um certificado  
 -   *listissuers*: permite listar emissores do certificado  
 -   *setissuers*: permite criar ou atualizar emissores de certificado do Cofre de Chaves  
 -   *deletissuers*: permite excluir emissores de certificado do Cofre de Chaves  
 -   *todas*: concede todas as permissões  
 
-## <a name="additional-information-for-certificates"></a>Informações adicionais sobre certificados
-
-- [Certificados e políticas](/rest/api/keyvault/certificates-and-policies.md)
-- [Emissores de certificado](/rest/api/keyvault/certificate-issuers.md)
-- [Contatos de certificado](/rest/api/keyvault/certificate-contacts.md)
+Para obter mais informações, veja [Operações de certificado na referência de API REST do Key Vault](/rest/api/keyvault). 
 
 ## <a name="see-also"></a>Veja também
 

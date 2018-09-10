@@ -4,19 +4,19 @@ description: Recomendações para criar modelos do Azure Resource Manager para i
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
-manager: timlt
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc816bb6e95d2800d79124dfac60b55e88eaa500
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c2f600d86965e1115d4be1370da8f7c8e1b67f05
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927665"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Diretrizes sobre a implantação de aplicativos Web usando modelos do Azure Resource Manager
 
@@ -58,19 +58,20 @@ Os recursos são implantados na seguinte ordem:
 
 Normalmente, sua solução inclui apenas alguns desses recursos e camadas. Para camadas ausentes, mapeie recursos mais baixos para o próximo nível superior.
 
-O exemplo a seguir mostra parte de um modelo. O valor de configuração da cadeia de conexão depende da extensão do MSDeploy. A extensão do MSDeploy depende do aplicativo Web e do banco de dados.
+O exemplo a seguir mostra parte de um modelo. O valor de configuração da cadeia de conexão depende da extensão do MSDeploy. A extensão do MSDeploy depende do aplicativo Web e do banco de dados. 
 
 ```json
 {
-    "name": "[parameters('name')]",
-    "type": "Microsoft.Web/sites",
+    "name": "[parameters('appName')]",
+    "type": "Microsoft.Web/Sites",
+    ...
     "resources": [
       {
           "name": "MSDeploy",
           "type": "Extensions",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('name'))]",
-            "[concat('SuccessBricks.ClearDB/databases/', parameters('databaseName'))]"
+            "[concat('Microsoft.Web/Sites/', parameters('appName'))]",
+            "[concat('Microsoft.Sql/servers/', parameters('dbServerName'), '/databases/', parameters('dbName'))]",
           ],
           ...
       },
@@ -78,7 +79,7 @@ O exemplo a seguir mostra parte de um modelo. O valor de configuração da cadei
           "name": "connectionstrings",
           "type": "config",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('name'), '/Extensions/MSDeploy')]"
+            "[concat('Microsoft.Web/Sites/', parameters('appName'), '/Extensions/MSDeploy')]"
           ],
           ...
       }
@@ -86,13 +87,15 @@ O exemplo a seguir mostra parte de um modelo. O valor de configuração da cadei
 }
 ```
 
+Para um exemplo pronto para execução que usa o código acima, consulte [Modelo: Compilar um aplicativo Web Umbraco simples](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+
 ## <a name="find-information-about-msdeploy-errors"></a>Localizar informações sobre erros do MSDeploy
 
 Se seu modelo do Resource Manager usar MSDeploy, as mensagens de erro de implantação poderão ser difíceis de compreender. Para obter mais informações após uma implantação com falha, experimente as etapas a seguir:
 
 1. Vá para o [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) do site.
 2. Navegue até a pasta em D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Procure os arquivos appManagerStatus.xml e appManagerLog.xml. O primeiro arquivo registra o status. O segundo arquivo registra as informações sobre o erro. Se o erro não estiver claro, você poderá incluí-lo ao solicitar ajuda no fórum.
+3. Procure os arquivos appManagerStatus.xml e appManagerLog.xml. O primeiro arquivo registra o status. O segundo arquivo registra as informações sobre o erro. Se o erro não estiver claro, inclua-o ao solicitar ajuda no fórum.
 
 ## <a name="choose-a-unique-web-app-name"></a>Escolha um nome de aplicativo Web exclusivo
 
@@ -106,6 +109,30 @@ O nome do seu aplicativo Web deve ser globalmente exclusivo. Você pode usar uma
   ...
 }
 ```
+
+## <a name="deploy-web-app-certificate-from-key-vault"></a>Implantar certificado de aplicativo Web do Key Vault
+
+Se o modelo incluir um recurso [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) para associação SSL e o certificado estiver armazenado em um Key Vault, você precisará garantir que a identidade do Serviço de Aplicativo pode acessar o certificado.
+
+No Azure global, a entidade de serviço do Serviço de Aplicativo tem a ID **abfa0a7c-a6b6-4736-8310-5855508787cd**. Para permitir acesso ao Key Vault para a entidade de serviço do Serviço de Aplicativo, use:
+
+```azurepowershell-interactive
+Set-AzureRmKeyVaultAccessPolicy `
+  -VaultName KEY_VAULT_NAME `
+  -ServicePrincipalName abfa0a7c-a6b6-4736-8310-5855508787cd `
+  -PermissionsToSecrets get `
+  -PermissionsToCertificates get
+```
+
+No Azure Governamental, a entidade de serviço do Serviço de Aplicativo tem a ID **6a02c803-dafd-4136-b4c3-5a6f318b4714**. Use essa ID no exemplo anterior.
+
+No Key Vault, selecione **Certificados** e **Gerar/Importar** para carregar o certificado.
+
+![Importar certificado](media/web-sites-rm-template-guidance/import-certificate.png)
+
+No modelo, forneça o nome do certificado para o `keyVaultSecretName`.
+
+Para obter um modelo de exemplo, confira [Implantar um certificado de aplicativo Web de um segredo do Key Vault e usá-lo para a criação da associação SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
 
 ## <a name="next-steps"></a>Próximas etapas
 

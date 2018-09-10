@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: na
+ms.openlocfilehash: 8a92bf7b031899ee75fbf2bb2fdfd7dced3bc1ad
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38481983"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluções de monitoramento de rede do Azure no Log Analytics
 
@@ -77,6 +79,7 @@ Nos Gateways de Aplicativo, há suporte para os seguintes logs:
 * ApplicationGatewayFirewallLog
 
 Há suporte para as seguintes métricas nos Gateways de Aplicativo:
+
 
 * Taxa de transferência de 5 minutos
 
@@ -139,6 +142,12 @@ Em qualquer uma das páginas de pesquisa de log, você pode exibir os resultados
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Solução de análise de Grupo de Segurança de Rede do Azure no Log Analytics
 
 ![Símbolo da Análise do Grupo de Segurança de Rede do Azure](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+
+> [!NOTE]
+> A solução de análise do Grupo de Segurança de Rede está sendo movida para o suporte da comunidade, pois sua funcionalidade foi substituída pela [Análise de Tráfego](../network-watcher/traffic-analytics.md).
+> - A solução agora está disponível nos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) e, em breve, não estará mais disponível no Azure Marketplace.
+> - Para os clientes existentes que já adicionaram a solução a seus espaços de trabalho, ela continuará funcionando sem alterações.
+> - A Microsoft continuará dando suporte ao envio de logs de diagnóstico do NSG para o espaço de trabalho usando as Configurações de Diagnóstico.
 
 Nos grupos de segurança de rede, há suporte para os seguintes logs:
 

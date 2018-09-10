@@ -1,19 +1,19 @@
 ---
-title: "Pesquisar dados não estruturados no armazenamento em nuvem do Azure"
-description: "Pesquisando dados não estruturados usando o Azure Search."
+title: Pesquisar dados não estruturados no armazenamento em nuvem do Azure
+description: Pesquisando dados não estruturados usando o Azure Search.
 author: roygara
-manager: timlt
 services: storage
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/12/2017
-ms.author: rogara
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 930b735eb03aea6ce701b694ca527049b4c3f24d
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: eba2ef280e60693cfd4402348fe61b122cdccdf6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399849"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>Pesquisar dados não estruturados no armazenamento em nuvem
 
@@ -178,7 +178,7 @@ Os parâmetros de índice e os atributos que você fornecer aos parâmetros são
 A coluna **NOME DO CAMPO** contém os parâmetros. A tabela a seguir fornece uma lista de atributos disponíveis e suas descrições.
 
 ### <a name="field-attributes"></a>Atributos do campo
-| Atributo | Descrição |
+| Atributo | DESCRIÇÃO |
 | --- | --- |
 | *Chave* |Uma cadeia de caracteres que fornece a ID exclusiva de cada documento, usada para pesquisar documentos. Todos os índices devem ter uma chave. Somente um campo pode ser a chave e seu tipo deve ser definido para Edm.String. |
 | *Recuperável* |Especifica se um campo pode ser retornado em um resultado da pesquisa. |

@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 860a09d004c16de992093e79c0dbda4c469bb775
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 843b92c20b2ec930ce67659802a4287328a08650
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771357"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618862"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o Portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "32771357"
 > * [Usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está em versão prévia, consulte [monitorar e gerenciar pipelines do Data Factory na versão 2](../monitor-visually.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Monitorar e gerenciar pipelines do Data Factory em](../monitor-visually.md).
 
 Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o portal do Azure e o PowerShell.
 
@@ -289,7 +289,7 @@ Em caso de falha na validação da fatia devido a uma falha de política (por ex
 ![Corrigir os erros e validar](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
-Você pode executar novamente as falhas usando o cmdlet **Set-AzureRmDataFactorySliceStatus**. Confira o tópico [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) para obter a sintaxe e outros detalhes sobre o cmdlet.
+Você pode executar novamente as falhas usando o cmdlet **Set-AzureRmDataFactorySliceStatus**. Confira o tópico [Set-AzureRmDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus) para obter a sintaxe e outros detalhes sobre o cmdlet.
 
 **Exemplo:**
 

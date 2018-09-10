@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30197526"
 ---
 Ao criar um gateway de rede virtual, você precisa especificar o SKU do gateway que você deseja usar. Quando você seleciona uma SKU de gateway mais alta, mais CPUs e largura de banda da rede são alocados para o gateway e, como resultado, o gateway pode dar suporte a uma taxa de transferência de rede mais alta para a rede virtual. 
 

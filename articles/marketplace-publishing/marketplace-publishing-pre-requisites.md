@@ -3,8 +3,8 @@ title: Pré-requisitos não técnicos para criar uma oferta para o Azure Marketp
 description: Entenda os requisitos para criar e implantar uma oferta para o Azure Marketplace para outras pessoas comprarem.
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 ms.assetid: 3dae463b-8f48-4f52-8fa8-4e3975f09f43
 ms.service: marketplace
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: mbaldwin
-ms.openlocfilehash: 5c30e62bf345843fe83b3f17b728e1a937d19ce3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: hascipio
+ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714182"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Pré-requisitos gerais para a criação de uma oferta para o Azure Marketplace
 Compreenda os pré-requisitos gerais, centrados em processos de negócios que são necessários para prosseguir com o processo de criação de oferta.

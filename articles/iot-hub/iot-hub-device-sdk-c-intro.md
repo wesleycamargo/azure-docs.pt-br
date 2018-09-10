@@ -1,24 +1,20 @@
 ---
 title: O SDK do dispositivo IoT do Azure para C | Microsoft Docs
 description: Como usar o SDK do dispositivo IoT do Azure para C e saiba como criar aplicativos de dispositivos que se comunicam com um Hub IoT.
-services: iot-hub
-documentationcenter: ''
 author: yzhong94
-manager: timlt
-editor: ''
-ms.assetid: e448b061-6bdd-470a-a527-15ec03cca7b9
+manager: arjmands
 ms.service: iot-hub
-ms.devlang: cpp
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: c
+ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 6a85ae65a0f20892b3a20656abac05e90538a1bd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4f8ad67fafa20fd9adce62e8beb619999203ef62
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346654"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK do dispositivo IoT do Azure para C
 
@@ -74,9 +70,10 @@ Agora que você tem o código-fonte, a próxima coisa a fazer é obter um conjun
 Há várias ferramentas de código-fonte aberto para ajudá-lo a gerenciar seu Hub IoT.
 
 * Um aplicativo do Windows chamado [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* Uma extensão de código do Visual Studio de plataforma cruzada chamada [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 * Uma ferramenta de CLI do Python de plataforma cruzada denominada [a extensão de IoT do Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-Este tutorial usa a ferramenta gráfica *Gerenciador de Dispositivos*. Você também pode usar a ferramenta *a extensão de IoT do Azure CLI 2.0* se preferir usar uma ferramenta CLI.
+Este tutorial usa a ferramenta gráfica *Gerenciador de Dispositivos*. Você pode usar a extensão do *Azure IoT Toolkit para o código VS* se desenvolver no Código VS. Você também pode usar a ferramenta *a extensão de IoT do Azure CLI 2.0* se preferir usar uma ferramenta CLI.
 
 A ferramenta Gerenciador de Dispositivos usa as bibliotecas de serviço IoT do Azure para executar várias funções no Hub IoT, incluindo a adição de dispositivos. Se você usar a ferramenta Gerenciador de Dispositivos para adicionar um dispositivo, você obterá uma cadeia de conexão para seu dispositivo. Você precisa dessa cadeia de conexão para executar os aplicativos de exemplo.
 
@@ -88,7 +85,7 @@ Ao executar o programa, você verá esta interface:
 
   ![](media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
 
-Insira a **Cadeia de Conexão do Hub IoT** no primeiro campo e clique em **Atualizar**. Essa etapa configura a ferramenta para que ela possa se comunicar com o Hub IoT.
+Insira a **Cadeia de Conexão do Hub IoT** no primeiro campo e clique em **Atualizar**. Essa etapa configura a ferramenta para que ela possa se comunicar com o Hub IoT. A **Connection String** pode ser encontrada em **Serviço do Hub IoT** > **Configurações** > **Política de Acesso Compartilhado** > **proprietário de casa**.
 
 Depois que a cadeia de conexão do Hub IoT for configurada, clique na guia **Gerenciamento**:
 
@@ -106,7 +103,7 @@ Depois que o dispositivo for criado, a lista Dispositivos será atualizada com t
 
 Se você escolher **Copiar cadeia de conexão para o dispositivo selecionado**, a cadeia de conexão do dispositivo será copiada para a área de transferência. Manter uma cópia da cadeia de conexão do dispositivo. Você precisará dela ao executar os aplicativos de exemplo descritos nas próximas seções.
 
-Após concluir as etapas acima, você estará pronto para começar a executar códigos. Ambos os exemplos têm uma constante na parte superior do arquivo de origem principal que permite inserir uma cadeia de conexão. Por exemplo, a linha correspondente do **iothub\_client\_sample\_mqtt** aparece da forma a seguir.
+Após concluir as etapas acima, você estará pronto para começar a executar códigos. A maioria das amostras tem uma constante na parte superior do arquivo de origem principal que permite inserir uma cadeia de conexão. Por exemplo, a linha correspondente do **iothub\_client\_sample\_mqtt** aparece da forma a seguir.
 
 ```c
 static const char* connectionString = "[device connection string]";

@@ -1,5 +1,5 @@
 ---
-title: Evitar custos inesperados e gerenciar a cobrança – Azure | Microsoft Docs
+title: Evitar custos inesperados, gerenciar o faturamento no Azure | Microsoft Docs
 description: Saiba como evitar encargos inesperados em sua conta do Azure. Use recursos de gerenciamento e controle de custos para uma assinatura do Microsoft Azure.
 services: ''
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 47a0f2e1cdb873dc907748ed2f3def29efccaa98
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9396e954305ecc9ff6cbdd664c6cb71846bd5bfa
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919119"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
 
@@ -30,6 +31,9 @@ Ao se inscrever no Azure, há várias coisas que podem ser feitas para você ter
 - Se sua assinatura for uma Avaliação Gratuita, do [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), do AIO (Azure via Open) ou BizSpark, ela será desabilitada automaticamente quando todos os créditos forem usados. Saiba mais sobre os [limites de gastos](#spending-limit) para evitar que sua assinatura desabilitada de forma inesperada.
 
 - Se tiver se inscrito na [Conta gratuita do Azure](https://azure.microsoft.com/free/), [você poderá usar alguns dos serviços do Azure mais populares gratuitamente por 12 meses](billing-create-free-services-included-free-account.md). Juntamente com as recomendações listadas abaixo, consulte [Evitar ser cobrado na conta gratuita](billing-avoid-charges-free-account.md).
+
+> [!div class="nextstepaction"]
+> [Ajudar a melhorar os documentos de cobrança do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Obter custos estimados antes de adicionar serviços do Azure
 
@@ -120,7 +124,7 @@ Para obter mais recursos de redução de custos para os ambientes de desenvolvim
 
 ### <a name="turn-on-and-check-out-azure-advisor-recommendations"></a>Habilitar e conferir as recomendações do Azure Advisor
 
-[O Azure Advisor](../advisor/advisor-overview.md) é um recurso de visualização que ajuda a reduzir os custos identificando recursos com baixa utilização. Habilite-o no portal do Azure:
+[O Assistente do Azure](../advisor/advisor-overview.md) é um recurso que ajuda a reduzir os custos identificando recursos com baixa utilização. Visite o assistente no portal do Azure:
 
 ![Captura de tela do botão Azure Advisor no portal do Azure](./media/billing-getting-started/advisor-button.PNG)
 
@@ -149,7 +153,7 @@ Fale com seu gerente de conta ou parceiro do Azure para começar.
 | Programa do CSP (Provedor de Soluções na Nuvem) | Fale com seu provedor |
 | Azure Sponsorship | [Portal do Sponsorship](https://www.microsoftazuresponsorships.com/) |
 
-Se estiver gerenciando TI em uma grande organização, recomendamos a leitura de [Azure enterprise scaffold](../azure-resource-manager/resource-manager-subscription-governance.md) e [enterprise IT white paper](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (baixe o .pdf, somente em inglês).
+Se estiver gerenciando TI em uma grande organização, recomendamos a leitura de [Azure enterprise scaffold](/azure/architecture/cloud-adoption-guide/subscription-governance) e [enterprise IT white paper](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (baixe o .pdf, somente em inglês).
 
 #### <a name="EA"></a> Visualizações de custo Contrato Enterprise de Versão Prévia no Portal do Azure 
 

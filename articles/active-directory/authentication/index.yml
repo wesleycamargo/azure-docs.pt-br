@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação da Autenticação do Azure AD
+metadata:
+  document_id: 
+  title: Documentação de Autenticação do Azure Active Directory
+  description: Saiba como gerenciar e implantar a redefinição de senha de autoatendimento do Azure Active Directory, a Autenticação Multifator, a lista de senhas banidas personalizadas e o bloqueio inteligente.
+  services: active-directory
+  ms.component: authentication
+  author: MicrosoftGuyJFlo
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/19/2018
+  ms.author: joflore
+  ms.openlocfilehash: f1317c78570ace901c076ae2814bee3216fc5b79
+  ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 07/20/2018
+  ms.locfileid: "39172897"
+abstract:
+  description: Saiba como implantar e gerenciar a redefinição de senha de autoatendimento do Azure Active Directory, a Autenticação Multifator, a lista de senhas banidas personalizadas e o bloqueio inteligente. Esses recursos vêm em conjunto para fornecer autenticação forte com uma variedade de métodos de verificação, fornecendo um processo de entrada simples para sua organização.
+sections:
+- title: Guia de início rápido de 5 minutos
+  items:
+  - type: paragraph
+    text: Saiba como habilitar a redefinição de senha de autoatendimento para reduzir as chamadas do suporte técnico de usuários.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_protect.png
+      text: Habilitar a redefinição de senha por autoatendimento
+      href: https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr
+- title: Tutoriais Passo a Passo
+  items:
+  - type: paragraph
+    text: Saiba como habilitar um processo de entrada simples e seguro para sua organização.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/authentication/tutorial-sspr-pilot">Habilitar um piloto de redefinição de senha de autoatendimento</a>
+    - html: <a href="/azure/active-directory/authentication/tutorial-mfa-applications">Exigir MFA para o portal do Azure</a>
+    - html: <a href="/azure/active-directory/authentication/tutorial-enable-writeback">Habilitar a integração local de redefinição de senha de autoatendimento</a>
+    - html: <a href="/azure/active-directory/authentication/tutorial-sspr-windows">Habilitar a redefinição de senha do Windows 10</a>
+    - html: <a href="/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa">Integrar com o Azure Identity Protection</a>

@@ -16,19 +16,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: d19d33d7d8d19923e814b8685c3e56553f85850d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 1dcbc8e0221689a6ece7e061d4b1a2632986ae84
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012471"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224367"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração de estado desejado com os modelos do Azure Resource Manager
 
 Este artigo descreve o modelo do Azure Resource Manager para o [manipulador de extensão da Configuração de Estado Desejado (DSC)](dsc-overview.md).
 
 > [!NOTE]
-> Você pode encontrar exemplos de esquema ligeiramente diferente. A alteração no esquema ocorreu na versão de outubro de 2016. Para obter detalhes, consulte [Atualização do formato anterior](#update-from-the-previous-format).
+> Você pode encontrar exemplos de esquema ligeiramente diferente. A alteração no esquema ocorreu na versão de outubro de 2016. Para obter detalhes, confira [Atualizar de um formato anterior](#update-from-a-previous-format).
 
 ## <a name="template-example-for-a-windows-vm"></a>Exemplo de modelo para uma VM do Windows
 
@@ -65,7 +65,7 @@ Para obter mais informações, consulte a [classe VirtualMachineExtension](https
                         }
                     },
                     {
-                        "RegistrationUrl": "registrationUrl",
+                        "RegistrationUrl": "registrationUrl"
                     },
                     {
                         "NodeConfigurationName": "nodeConfigurationName"
@@ -115,7 +115,7 @@ Para obter mais informações, consulte a [classe VirtualMachineScaleSetExtensio
                             },
                         },
                         {
-                            "RegistrationUrl": "registrationUrl",
+                            "RegistrationUrl": "registrationUrl"
                         },
                         {
                             "NodeConfigurationName": "nodeConfigurationName"
@@ -176,7 +176,7 @@ Para obter uma lista de argumentos disponíveis para o script de configuração 
 
 ## <a name="details"></a>Detalhes
 
-| Nome da propriedade | type | DESCRIÇÃO |
+| Nome da propriedade | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
 | settings.wmfVersion |string |Especifica a versão do Windows Management Framework (WMF) que deve ser instalada em sua VM. Configurar essa propriedade como **latest** instala a versão mais recente de WMF. Atualmente, os únicos valores possíveis para essa propriedade são **4.0**, **5.0**, **5.0PP** e **latest**. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é **latest**. |
 | settings.configuration.url |string |Especifica o local da URL de onde baixar seu arquivo .zip de configuração DSC. Se a URL fornecida exigir um token SAS para acesso, defina a propriedade **protectedSettings.configurationUrlSasToken** como o valor do seu token de SAS. Esta propriedade será necessária se **settings.configuration.script** ou **settings.configuration.function** estiverem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chama o script de configuração padrão para definir os metadados do LCM (Location Configuration Manager) e os argumentos devem ser fornecidos. |
@@ -195,7 +195,7 @@ Para obter uma lista de argumentos disponíveis para o script de configuração 
 Para obter mais informações sobre os seguintes valores, consulte [Configurações Básicas do Local Configuration Manager](/powershell/dsc/metaconfig#basic-settings).
 Você pode usar o script de configuração padrão de extensão DSC para configurar apenas as propriedades do LCM que são listadas na tabela a seguir.
 
-| Nome da propriedade | type | DESCRIÇÃO |
+| Nome da propriedade | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
 | settings.configurationArguments.RegistrationKey |secureString |Propriedade exigida. Especifica a chave que é usada para um nó para registrar com o serviço de Automação do Azure como a senha de um objeto de credencial do PowerShell. Esse valor pode ser descoberto automaticamente usando o método **listkeys** em relação à conta de Automação. O valor deve ser protegido como uma configuração protegida. |
 | settings.configurationArguments.RegistrationUrl |string |Propriedade exigida. Especifica a URL do ponto de extremidade de Automação em que o nó tenta registrar. Esse valor pode ser descoberto automaticamente usando o método de **referência** em relação à conta de Automação. |
@@ -249,7 +249,7 @@ Os argumentos de configuração são passados para o script de configuração pa
 },
 "protectedSettings": {
     "Items": {
-        "registrationKeyPrivate": "[parameters('registrationKey1']"
+        "registrationKeyPrivate": "[parameters('registrationKey1')]"
     }
 }
 ```
@@ -356,7 +356,7 @@ Certifique-se de que todas as URLs resolvem para locais válidos que a extensão
 
 ### <a name="invalid-configurationargument-type"></a>Tipo ConfigurationArgument inválido
 
-"Tipo configurationArguments inválido {0}"
+"Tipo configurationArgument inválido {0}"
 
 **Problema**: a propriedade *ConfigurationArguments* não pode resolver um objeto **Hashtable**.
 

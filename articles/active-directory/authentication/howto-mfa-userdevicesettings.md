@@ -4,17 +4,18 @@ description: Isso descreve como alterar as configurações de usuário, como for
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 8dd30f53dc37734e1c01b3712b5adb7d81a1489b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 2f73d9795ba807e5901568507ad2fae5b001c91a
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161282"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerenciar configurações de usuário com a Autenticação Multifator do Azure na nuvem
 
@@ -74,4 +75,4 @@ A configuração **Restaurar a autenticação multifator em todos os dispositivo
 
 - Para saber mais sobre como [Definir as configurações da Autenticação Multifator do Azure](howto-mfa-mfasettings.md)
 
-- Se os usuários precisarem de ajuda, direcione-os para [Guia do usuário para verificação em duas etapas](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)
+- Se os usuários precisarem de ajuda, direcione-os para [Guia do usuário para verificação em duas etapas](../user-help/multi-factor-authentication-end-user.md)

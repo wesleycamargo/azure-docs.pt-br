@@ -3,22 +3,23 @@ title: Problema ao adicionar um aplicativo inexistente na galeria | Microsoft Do
 description: Compreenda os problemas comuns que as pessoas enfrentam ao adicionar aplicativos personalizados inexistentes na galeria
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 3d54a9bccdf3f940959c2cbe3f85bd5fddff68e1
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: barbkess
+ms.openlocfilehash: d0bd5739af3eb32e53d47cba8950861fe3987d01
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053548"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365032"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Problema ao adicionar um aplicativo inexistente na galeria
 

@@ -1,24 +1,20 @@
 ---
-title: Instalar e usar o Giraph em clusters HDInsight (Hadoop) – Azure | Microsoft Docs
+title: Instalar e usar o Giraph em clusters HDInsight (Hadoop) – Azure
 description: Saiba como instalar o Giraph em clusters HDInsight baseados em Linux usando as Ações de Script. Ações de script permitem que você personalize o cluster durante a criação, alterando a configuração do cluster ou instalando serviços e utilitários.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 03e72c29bedf6a3125a5ae0272e93cdf58632bc6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: 5fbc325e0b0b0e3cdf0d9156ab115d3cbf77f6dd
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104798"
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar o Giraph nos clusters Hadoop do HDInsight e usar o Giraph para processar grafos em grande escala
 

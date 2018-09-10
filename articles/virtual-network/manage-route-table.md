@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7ef57960b81e13eefebfab4430eec4db0c1eb2e8
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895588"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344886"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
@@ -35,7 +35,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 - Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 - Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
-A conta que você realizou o logon, ou conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões](#permissions).
+A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões](#permissions).
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
@@ -43,7 +43,7 @@ Há um limite para o número de tabelas de rotas que você pode criar por assina
 
 1. No canto superior esquerdo do Portal, selecione **+ Criar um recurso**.
 2. Selecione **Rede** e, em seguida, selecione **Tabela de rotas**.
-3. Insira um **Nome** para a tabela de rotas, selecione sua **Assinatura**, crie um novo **Grupo de recursos** ou selecione um grupo de recursos existente, selecione um **Local** e, em seguida, selecione **Criar**. A opção **Desabilitar propagação de rotas BGP** impede que rotas locais sejam propagadas por meio de BGP para as interfaces de rede em qualquer sub-rede a qual a tabela de rotas esteja associada. Se sua rede virtual não está conectada a um gateway de rede do Azure (ExpressRoute ou VPN), deixe a opção *Desabilitada*.
+3. Insira um **Nome** para a tabela de rotas, selecione sua **Assinatura**, crie um novo **Grupo de recursos** ou selecione um grupo de recursos existente, selecione um **Local** e, em seguida, selecione **Criar**. Se você planeja associar a tabela de rotas a uma sub-rede em uma rede virtual que está conectada à sua rede local por meio de um gateway de VPN e desabilitar **propagação de rotas BGP**, suas rotas locais não são propagadas para o interfaces de rede na sub-rede.
 
 **Comandos**
 
@@ -95,6 +95,8 @@ Uma sub-rede pode ter zero ou uma tabela de rotas associada a ela. Uma tabela de
 4. Selecione a sub-rede à qual você deseja associar a tabela de rotas.
 5. Selecione **tabela de rotas**, selecione a tabela de rotas que você deseja associar à sub-rede e selecione **Salvar**.
 
+Se sua rede virtual está conectada a um gateway de VPN do Azure, não associe a uma tabela de rota para o [sub-rede de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que inclui uma rota com um destino de 0.0.0.0/0. Isso pode impedir que o gateway funcione corretamente. Para obter mais informações sobre como usar 0.0.0.0/0 em uma rota, consulte [roteamento de tráfego de rede Virtual](virtual-networks-udr-overview.md#default-route).
+
 **Comandos**
 
 - CLI do Azure: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
@@ -126,7 +128,7 @@ Se uma tabela de rotas está associada a alguma sub-rede, ela não pode ser excl
 **Comandos**
 
 - CLI do Azure: [az network route-table delete](/cli/azure/network/route-table/route#az_network_route_table_delete)
-- PowerShell: [Delete-AzureRmRouteTable](/powershell/module/azurerm.network/delete-azurermroutetable) 
+- PowerShell: [Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
 
 ## <a name="create-a-route"></a>Criar uma rota
 
@@ -211,7 +213,7 @@ As rotas efetivas para cada adaptador de rede anexado a uma máquina virtual sã
 **Comandos**
 
 - CLI do Azure: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
-- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/remove-azurermrouteconfig) 
+- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>Validar o roteamento entre dois pontos de extremidade
 

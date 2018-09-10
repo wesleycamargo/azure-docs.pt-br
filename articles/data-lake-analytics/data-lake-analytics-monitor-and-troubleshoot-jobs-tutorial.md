@@ -1,25 +1,20 @@
 ---
-title: Monitorar trabalhos no Azure Data Lake Analytics usando o portal do Azure | Microsoft Docs
-description: 'Saiba como usar o Portal do Azure para solucionar problemas com trabalhos da Análise do Data Lake. '
+title: Monitoramento no Azure Data Lake Analytics usando o portal do Azure
+description: Este artigo descreve como usar o portal do Azure para solucionar problemas de trabalhos do Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
-ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 14b1f4ec9dff78e4b5d2480755a4b1f2579ec135
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: jasonwhowell
+ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: 1e18addc43e53cb45e92966607ad5d1db2b42c3c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33884772"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046712"
 ---
 # <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Monitorar trabalhos no Azure Data Lake Analytics usando o portal do Azure
 

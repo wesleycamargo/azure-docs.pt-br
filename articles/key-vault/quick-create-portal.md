@@ -1,6 +1,6 @@
 ---
-title: Início rápido do Azure - Criar um portal do Key Vault | Microsoft Docs
-description: Início rápido que mostra como criar um Azure Key Vault usando o portal
+title: Início Rápido do Azure – Definir e recuperar um segredo do Key Vault usando o portal do Azure | Microsoft Docs
+description: Início Rápido que mostra como definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
 services: key-vault
 author: barclayn
 manager: mbaldwin
@@ -14,13 +14,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 251cd7eaba439708e7ef4e1ee8ccbd7efe7d66bb
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e7b9b87a7727b75588759d408292419d1fdccb83
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022448"
 ---
-# <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Início Rápido: Criar um Key Vault usando o Portal do Azure
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
 
 O Azure Key Vault é um serviço de nuvem que funciona como um repositório de segredos seguro. Você pode armazenar chaves, senhas, certificados e outros segredos com segurança. Para saber mais sobre o Key Vault, reveja a [Visão geral](key-vault-overview.md). Os cofres de chaves do Azure podem ser criados e gerenciados por meio do portal do Azure. Neste guia de início rápido, você criará um cofre de chaves. Depois de concluído, você armazenará um segredo.
 
@@ -87,4 +88,4 @@ Quando não for mais necessário, exclua o grupo de recursos e ele excluirá o K
 Neste início rápido, você criou um Key Vault e armazenou um segredo. Para saber mais sobre o Key Vault e como você pode usá-lo com seus aplicativos, prossiga para o tutorial de aplicativos Web que trabalham com o Key Vault.
 
 > [!div class="nextstepaction"]
-> Para saber como ler um segredo do Key Vault com um aplicativo Web usando identidades de serviço gerenciada, continue com o tutorial a seguir, [Configurar um aplicativo Web do Azure para ler um segredo do Key Vault](tutorial-web-application-keyvault.md).
+> Para saber como ler um segredo do Key Vault com um aplicativo Web usando identidades de serviço gerenciada, continue com o tutorial a seguir, [Configurar um aplicativo Web do Azure para ler um segredo do Key Vault](quick-create-net.md).

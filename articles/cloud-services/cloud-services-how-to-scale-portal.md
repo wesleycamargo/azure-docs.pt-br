@@ -1,11 +1,11 @@
 ---
-title: "Dimensionar automaticamente um serviço de nuvem no portal | Microsoft Docs"
-description: "Saiba como usar o portal para configurar regras de dimensionamento automático para uma função web ou função de trabalho do serviço de nuvem no Azure."
+title: Dimensionar automaticamente um serviço de nuvem no portal | Microsoft Docs
+description: Saiba como usar o portal para configurar regras de dimensionamento automático para uma função web ou função de trabalho do serviço de nuvem no Azure.
 services: cloud-services
-documentationcenter: 
-author: Thraka
+documentationcenter: ''
+author: jpconnock
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 701d4404-5cc0-454b-999c-feb94c1685c0
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 0eea38cdb9827ab6e322025ff344ebbab0e83da3
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.author: jeconnoc
+ms.openlocfilehash: 29ee71e7946145e50cc875df96b674abec3e12df
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004329"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar o dimensionamento automático para um Serviço de Nuvem no portal
 

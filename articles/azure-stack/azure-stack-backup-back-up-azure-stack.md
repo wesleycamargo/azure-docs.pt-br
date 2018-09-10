@@ -1,9 +1,9 @@
 ---
-title: Faça backup do Azure pilha | Microsoft Docs
-description: Execute um backup sob demanda na pilha do Azure com o backup em vigor.
+title: Fazer backup do Azure Stack | Microsoft Docs
+description: Execute um backup sob demanda no Azure Stack com backup em vigor.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 9565DDFB-2CDB-40CD-8964-697DA2FFF70A
@@ -12,45 +12,79 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/08/2017
-ms.author: mabrigg
+ms.date: 09/05/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: c2a6727692a7a74b3e5fe32de8800722a9ed91b5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: a11de2a4580515f6a358438a706e5be3f5543e28
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025303"
 ---
-# <a name="back-up-azure-stack"></a>Fazer backup do Azure pilha
+# <a name="back-up-azure-stack"></a>Fazer backup do Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Execute um backup sob demanda na pilha do Azure com o backup em vigor. Se você precisar habilitar o serviço de Backup de infraestrutura, consulte [habilitar o Backup para a pilha do Azure no portal de administração](azure-stack-backup-enable-backup-console.md).
+Execute um backup sob demanda no Azure Stack com backup em vigor. Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para Azure Stack ](azure-stack-powershell-install.md). Para entrar Azure Stack, consulte [usando o portal de administrador no Azure Stack](azure-stack-manage-portals.md).
 
-> [!Note]  
->  Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para Azure pilha ](azure-stack-powershell-install.md).
+## <a name="start-azure-stack-backup"></a>Iniciar o backup do Azure Stack
 
-## <a name="start-azure-stack-backup"></a>Iniciar o backup de pilha do Azure
-
-Abra o Windows PowerShell com um prompt com privilégios elevados no ambiente de gerenciamento de operador e execute os seguintes comandos:
+### <a name="start-a-new-backup-without-job-progress-tracking"></a>Iniciar um novo backup sem controle de andamento do trabalho
+Use AzSBackup Iniciar para iniciar um novo backup imediatamente com nenhum progresso do trabalho de acompanhamento.
 
 ```powershell
-    Start-AzSBackup -Location $location.Name
+   Start-AzsBackup -Force
 ```
 
-## <a name="confirm-backup-completed-in-the-administration-portal"></a>Confirme o backup foi concluído no portal de administração
+### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>Iniciar o backup do Azure Stack com controle de andamento do trabalho
+Use AzSBackup Iniciar para iniciar um novo backup com a variável - AsJob para acompanhar o andamento do trabalho de backup.
 
-1. Abra o portal de administração de pilha do Azure em [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
-2. Selecione **mais serviços** > **backup da infra-estrutura**. Escolha **configuração** no **backup da infra-estrutura** folha.
-3. Localizar o **nome** e **data de conclusão** do backup em **backups disponíveis** lista.
-4. Verifique se o **estado** é **êxito**.
+```powershell
+    $backupjob = Start-AzsBackup -Force -AsJob 
+    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " `
+    + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) `
+    -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
 
-<!-- You can also confirm the backup completed from the administration portal. Navigate to `\MASBackup\<datetime>\<backupid>\BackupInfo.xml`
+    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+```
 
-In ‘Confirm backup completed’ section, the path at the end doesn’t make sense (ie relative to what, datetime format, etc?)
-\MASBackup\<datetime>\<backupid>\BackupInfo.xml -->
+## <a name="confirm-backup-has-completed"></a>Confirme se o backup foi concluído
 
+### <a name="confirm-backup-has-completed-using-powershell"></a>Confirme se o backup foi concluído usando o PowerShell
+Use os seguintes comandos do PowerShell para garantir que o backup foi concluído com êxito:
+
+```powershell
+   Get-AzsBackup
+```
+
+O resultado deve ser semelhante a seguinte saída:
+
+```powershell
+    BackupDataVersion : 1.0.1
+    BackupId          : <backup ID>
+    RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
+    Status            : Succeeded
+    CreatedDateTime   : 7/6/2018 6:46:24 AM
+    TimeTakenToCreate : PT20M32.364138S
+    DeploymentID      : <deployment ID>
+    StampVersion      : 1.1807.0.41
+    OemVersion        : 
+    Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
+    Name              : local/<local name>
+    Type              : Microsoft.Backup.Admin/backupLocations/backups
+    Location          : local
+    Tags              : {}
+```
+
+### <a name="confirm-backup-has-completed-in-the-administration-portal"></a>Confirme se o backup foi concluído no portal de administração
+Use o portal de administração do Azure Stack para verificar que o backup foi concluído com êxito seguindo estas etapas:
+
+1. Abra o [portal de administração do Azure Stack](azure-stack-manage-portals.md).
+2. Selecione **todos os serviços**e, em seguida, sob o **administração** categoria, selecione > **backup da infra-estrutura**. Escolher **Configuration** na **backup de infraestrutura** folha.
+3. Localizar o **nome** e **data de conclusão** do backup **backups disponíveis** lista.
+4. Verifique se o **estado** é **Succeeded**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o fluxo de trabalho para se recuperar de um evento de perda de dados. Consulte [recuperação da perda de dados catastrófica de](azure-stack-backup-recover-data.md).
+Saiba mais sobre o fluxo de trabalho para se recuperar de um evento de perda de dados. Ver [recuperar da perda de dados catastrófica](azure-stack-backup-recover-data.md).

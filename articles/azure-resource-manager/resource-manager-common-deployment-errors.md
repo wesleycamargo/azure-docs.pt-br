@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ecc1a9557c7854a0771decb3cc7f7597bcd87dd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8da582750b5e20ddd7018f59292e7342f1628c8c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425376"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -38,7 +39,7 @@ Este tópico descreve alguns erros comuns de implantação do Azure que você po
 | Conflito | Você está solicitando uma operação que não é permitida no estado atual do recurso. Por exemplo, o redimensionamento do disco é permitido apenas ao criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActive | Aguarde a conclusão da implantação simultânea nesse grupo de recursos. | |
 | DeploymentFailed | O erro DeploymentFailed é um erro geral que não fornece os detalhes necessários para resolver o erro. Examine os detalhes do erro em busca de um código de erro que fornece mais informações. | [Encontrar código do erro](#find-error-code) |
-| DeploymentQuotaExceeded | Caso você atinja o limite de 800 implantações por grupo de recursos, exclua do histórico as implantações que não são mais necessárias. Exclua entradas do histórico com [az group deployment delete](/cli/azure/group/deployment#az_group_deployment_delete) para a CLI do Azure ou [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) no PowerShell. A exclusão de uma entrada do histórico de implantações não afeta os recursos de implantação. | |
+| DeploymentQuotaExceeded | Caso você atinja o limite de 800 implantações por grupo de recursos, exclua do histórico as implantações que não são mais necessárias. Exclua entradas do histórico com [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) para a CLI do Azure ou [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) no PowerShell. A exclusão de uma entrada do histórico de implantações não afeta os recursos de implantação. | |
 | DnsRecordInUse | O nome do registro DNS deve ser exclusivo. Forneça um nome diferente ou modifique o registro existente. | |
 | ImageNotFound | Verifique as configurações de imagem da VM. |  |
 | InUseSubnetCannotBeDeleted | Você pode encontrar este erro quando tenta atualizar um recurso, mas a solicitação é processada excluindo e criando o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -69,7 +70,7 @@ Este tópico descreve alguns erros comuns de implantação do Azure que você po
 | RequestDisallowedByPolicy | Sua assinatura inclui uma política de recursos que impede uma ação que você está tentando executar durante a implantação. Localize a política que bloqueia a ação. Se possível, modifique sua implantação para atender às limitações da política. | [Resolver políticas](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Forneça um nome de recurso que não inclua um nome reservado. | [Nomes de recurso reservados](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Aguarde a conclusão da exclusão. | |
-| ResourceGroupNotFound | Verifique o nome do grupo de recursos de destino para a implantação. Ele já deve existir em sua assinatura. Verifique o contexto de sua assinatura. | [CLI do Azure](/cli/azure/account?#az_account_set), [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
+| ResourceGroupNotFound | Verifique o nome do grupo de recursos de destino para a implantação. Ele já deve existir em sua assinatura. Verifique o contexto de sua assinatura. | [CLI do Azure](/cli/azure/account?#az-account-set), [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
 | ResourceNotFound | Sua implantação faz referência a um recurso que não pode ser resolvido. Verifique se o uso da função de **referência** inclui os parâmetros necessários para seu cenário. | [Resolver referências](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | A implantação está tentando criar recursos que ultrapassam a cota da assinatura, do grupo de recursos ou da região. Se possível, revise sua infraestrutura para permanecer dentro das cotas. Caso contrário, considere solicitar uma alteração de suas cotas. | [Resolver cotas](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Selecione a SKU (por exemplo, o tamanho da VM) que está disponível para o local que você selecionou. | [Resolver SKU](resource-manager-sku-not-available-errors.md) |
@@ -103,7 +104,21 @@ Selecione a mensagem para obter mais detalhes. Na imagem a seguir, você vê um 
 
 ### <a name="deployment-errors"></a>Erros de implantação
 
-Quando a operação for aprovada na validação, mas falhar durante a implantação, você verá o erro nas notificações. Selecione a notificação.
+Quando a operação aprova a validação, mas falha durante a implantação, você recebe um erro de implantação.
+
+Para ver os códigos de erro de implantação e as mensagens com o PowerShell, use:
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+Para ver os códigos de erro de implantação e as mensagens com a CLI do Azure, use:
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+No portal, selecione a notificação.
 
 ![erro de notificação](./media/resource-manager-common-deployment-errors/notification.png)
 
@@ -117,59 +132,91 @@ Você verá a mensagem de erro e os códigos de erro. Observe que há dois códi
 
 ## <a name="enable-debug-logging"></a>Habilitar o log de depuração
 
-Às vezes, você precisa obter mais informações sobre a solicitação e a resposta para descobrir o que deu errado. Usando o PowerShell ou a CLI do Azure, você pode solicitar que informações adicionais sejam registradas durante a implantação.
+Às vezes, você precisa obter mais informações sobre a solicitação e a resposta para descobrir o que deu errado. Durante a implantação, você pode solicitar que informações adicionais sejam registradas durante a implantação. 
 
-- PowerShell
+### <a name="powershell"></a>PowerShell
 
-   No PowerShell, defina o parâmetro **DeploymentDebugLogLevel** como All, ResponseContent ou RequestContent.
+No PowerShell, defina o parâmetro **DeploymentDebugLogLevel** como All, ResponseContent ou RequestContent.
 
-  ```powershell
-  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-  ```
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateFile c:\Azure\Templates\storage.json `
+  -DeploymentDebugLogLevel All
+```
 
-   Examine o conteúdo da solicitação com o seguinte cmdlet:
+Examine o conteúdo da solicitação com o seguinte cmdlet:
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.request `
+| ConvertTo-Json
+```
 
-   Ou o conteúdo da resposta com:
+Ou o conteúdo da resposta com:
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.response `
+| ConvertTo-Json
+```
 
-   Essas informações podem ajudá-lo a determinar se um valor no modelo está sendo definido incorretamente.
+Essas informações podem ajudá-lo a determinar se um valor no modelo está sendo definido incorretamente.
 
-- CLI do Azure
+### <a name="azure-cli"></a>CLI do Azure
 
-   Examine as operações de implantação, com o comando a seguir:
+Atualmente, CLI do Azure não dá suporte para ativar o log de depuração, mas você pode recuperar o log de depuração.
 
-  ```azurecli
-  az group deployment operation list --resource-group ExampleGroup --name vmlinux
-  ```
+Examine as operações de implantação, com o comando a seguir:
 
-- Modelo aninhado
+```azurecli
+az group deployment operation list \
+  --resource-group examplegroup \
+  --name exampledeployment
+```
 
-   Para registrar informações de depuração de um modelo aninhado, use o elemento **debugSetting**.
+Examine o conteúdo da solicitação com o seguinte comando:
 
-  ```json
-  {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-              "uri": "{template-uri}",
-              "contentVersion": "1.0.0.0"
-          },
-          "debugSetting": {
-             "detailLevel": "requestContent, responseContent"
-          }
-      }
-  }
-  ```
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.request
+```
+
+Examine o conteúdo da resposta com o seguinte comando:
+
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.response
+```
+
+### <a name="nested-template"></a>Modelo aninhado
+
+Para registrar informações de depuração de um modelo aninhado, use o elemento **debugSetting**.
+
+```json
+{
+    "apiVersion": "2016-09-01",
+    "name": "nestedTemplate",
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "{template-uri}",
+            "contentVersion": "1.0.0.0"
+        },
+        "debugSetting": {
+           "detailLevel": "requestContent, responseContent"
+        }
+    }
+}
+```
 
 ## <a name="create-a-troubleshooting-template"></a>Criar um modelo de solução de problemas
 

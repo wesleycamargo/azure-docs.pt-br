@@ -1,12 +1,12 @@
 ---
-title: "Hierarquia País/Região usada pelo tipo de roteamento Geográfico do Gerenciador de Tráfego do Azure | Microsoft Docs"
-description: "Este artigo lista a hierarquia País/Região usada pelo tipo de roteamento Geográfico do Gerenciador de Tráfego do Azure"
+title: Hierarquia País/Região usada pelo tipo de roteamento Geográfico do Gerenciador de Tráfego do Azure | Microsoft Docs
+description: Este artigo lista a hierarquia País/Região usada pelo tipo de roteamento Geográfico do Gerenciador de Tráfego do Azure
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28201489"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia País/Região usada pelo Gerenciador de Tráfego do Azure para método de roteamento de tráfico geográfico
 

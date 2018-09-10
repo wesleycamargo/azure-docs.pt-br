@@ -1,21 +1,21 @@
 ---
-title: "Configurar a segurança para acessar e gerenciar o Azure Time Series Insights | Microsoft Docs"
-description: "Este artigo descreve como configurar a segurança e as permissões como políticas de gerenciamento de acesso e políticas de acesso de dados para proteger o Azure Time Series Insights."
-services: time-series-insights
+title: Configurar a segurança para acessar e gerenciar o Azure Time Series Insights | Microsoft Docs
+description: Este artigo descreve como configurar a segurança e as permissões como políticas de gerenciamento de acesso e políticas de acesso de dados para proteger o Azure Time Series Insights.
 ms.service: time-series-insights
+services: time-series-insights
 author: ashannon7
 ms.author: anshan
-manager: jhubbard
-editor: MicrosoftDocs/tsidocs
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: c7d4079c9106226e0d07aa97c4a52c16ddb257c3
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 97c9480d6f2b75d83252bfb6410d7b5f946757ef
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630646"
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Conceder acesso a dados em um ambiente de Análise de Séries Temporais usando o portal do Azure
 

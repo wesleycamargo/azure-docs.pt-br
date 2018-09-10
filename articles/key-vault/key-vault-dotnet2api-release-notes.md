@@ -2,9 +2,9 @@
 title: Notas de versão da API do .NET 2.x para o Cofre de Chaves | Microsoft Docs
 description: Os desenvolvedores em .NET usarão essa API para codificar para o Cofre de Chaves do Azure
 services: key-vault
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
-editor: alleonar
+editor: bryanla
 ms.assetid: 1cccf21b-5be9-4a49-8145-483b695124ba
 ms.service: key-vault
 ms.devlang: CSharp
@@ -12,12 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
-ms.author: alleonar
-ms.openlocfilehash: a7735f8c1c4332bf2472bc83c0c37baf49019004
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: bryanla
+ms.openlocfilehash: f2bcace1ba328aff20971b46880f317295f3a406
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141606"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>.NET 2.0 para Cofre de Chaves do Azure - Notas de versão e guia de migração
 As informações a seguir ajudam a migrar para a versão 2.0 da biblioteca do Azure Key Vault para C# e .NET.  Aplicativos escritos para versões anteriores precisam ser atualizados para dar suporte à versão mais recente.  Essas alterações são necessárias para dar suporte total a recursos novos e aprimorados, como **certificados do Key Vault**.

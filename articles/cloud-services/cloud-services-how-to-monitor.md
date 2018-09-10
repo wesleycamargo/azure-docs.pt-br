@@ -1,24 +1,25 @@
 ---
-title: "Monitorar um Serviço de Nuvem do Azure | Microsoft Docs"
-description: "Descreve o que envolve o monitoramento de um Serviço de Nuvem do Azure e quais são algumas das opções."
+title: Monitorar um Serviço de Nuvem do Azure | Microsoft Docs
+description: Descreve o que envolve o monitoramento de um Serviço de Nuvem do Azure e quais são algumas das opções.
 services: cloud-services
-documentationcenter: 
-author: thraka
+documentationcenter: ''
+author: jpconnock
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: adegeo
-ms.openlocfilehash: f3a3a1beb8540ee8ab0502379396c06ea505fb44
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.author: jeconnoc
+ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42141660"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução ao Monitoramento de Serviço de Nuvem
 
@@ -57,7 +58,7 @@ O monitoramento avançado envolve o uso da extensão **Diagnóstico do Azure** (
 
 ## <a name="setup-diagnostics-extension"></a>Extensão de diagnóstico da configuração
 
-Primeiro, se você não tiver uma conta de armazenamento **clássica**, [crie uma](../storage/common/storage-create-storage-account.md#create-a-storage-account). Crie a conta de armazenamento com o **Modelo de implantação clássico** especificado.
+Primeiro, se você não tiver uma conta de armazenamento **clássica**, [crie uma](../storage/common/storage-quickstart-create-account.md). Crie a conta de armazenamento com o **Modelo de implantação clássico** especificado.
 
 Em seguida, navegue até o recurso **Conta de armazenamento (clássico)**. Selecione **Configurações** > **Chaves de Acesso** e copie o valor de **Cadeia de conexão primária**. Você precisa desse valor para o serviço de nuvem. 
 

@@ -34,10 +34,11 @@
 ### [Configurar um alias de nome de servidor](analysis-services-server-alias.md)
 ### [Configurar a expansão](analysis-services-scale-out.md)
 ### [Instalar e configurar um gateway de dados local](analysis-services-gateway-install.md)
+### [Usar gateway para fontes de dados em uma Rede Virtual do Azure](analysis-services-vnet-gateway.md)
 ### [Gerenciar um servidor](analysis-services-manage.md)
 ### [Monitorar métricas do servidor](analysis-services-monitor.md)
 ### [Configurar o log de diagnósticos](analysis-services-logging.md)
-### [Criar entidade de serviço - portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Criar entidade de serviço - Portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ### [Criar entidade de serviço - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 ### [Adicionar uma entidade de serviço à função de administrador de servidor](analysis-services-addservprinc-admins.md)
 
@@ -80,6 +81,7 @@
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Linguagem de Scripts do Modelo de Tabela (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
+## [Modelo de Objeto Tabular (TOM)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo)
 
 # Recursos
 

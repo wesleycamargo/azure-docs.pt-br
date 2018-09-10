@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 4/27/2018
+ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c50a97add735138c295aeb7bf5759f7d5ec54600
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c9797c57c7820213f601bdb056471d43637d5b09
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355977"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41919475"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial: Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL, usando a CLI do Azure
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos da rede 
 
-Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az_net). Você pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para os servidores de back-end usando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* usando [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az-net). Você pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para os servidores de back-end usando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* usando [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -77,7 +77,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
-Use [az network application-gateway create](/cli/azure/application-gateway#create) para criar o gateway do aplicativo denominado myAppGateway. Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. O gateway de aplicativo é atribuído a *myAGSubnet* e *myPublicIPAddress* que você criou anteriormente.
+Use [az network application-gateway create](/cli/azure/network/application-gateway#create) para criar o gateway do aplicativo denominado myAppGateway. Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. O gateway de aplicativo é atribuído a *myAGSubnet* e *myPublicIPAddress* que você criou anteriormente.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -106,7 +106,7 @@ az network application-gateway create \
 
 ### <a name="add-backend-pools-and-ports"></a>Adicionar pools e portas de back-end
 
-Você pode adicionar os pools de endereços de back-end denominados *imagesBackendPool* e *videoBackendPool* para o seu gateway de aplicativo usando [az network application-gateway address-pool create](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create). Adicionar as portas de front-end para os pools usando [az network application-gateway frontend-port create](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create). 
+Você pode adicionar os pools de endereços de back-end denominados *imagesBackendPool* e *videoBackendPool* para o seu gateway de aplicativo usando [az network application-gateway address-pool create](/cli/azure/network/application-gateway#az-network_application_gateway_address-pool_create). Adicionar as portas de front-end para os pools usando [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -136,7 +136,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-listeners"></a>Adicionar ouvintes
 
-Adicione os ouvintes de back-end chamados *backendListener* e *redirectedListener* necessários para rotear o tráfego usando [az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
+Adicione os ouvintes de back-end chamados *backendListener* e *redirectedListener* necessários para rotear o tráfego usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create).
 
 
 ```azurecli-interactive
@@ -157,7 +157,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-default-url-path-map"></a>Adicionar o mapa de caminho de URL padrão
 
-Os mapas de caminho de URL certificam que as URLs específicas sejam roteadas para pools de back-end específicos. Você pode criar mapas de caminho de URL chamados *imagePathRule* e *videoPathRule* usando [az network application-gateway url-path-map create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) e [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create)
+Os mapas de caminho de URL certificam que as URLs específicas sejam roteadas para pools de back-end específicos. Você pode criar mapas de caminho de URL chamados *imagePathRule* e *videoPathRule* usando [az network application-gateway url-path-map create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_create) e [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_rule_create)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -182,7 +182,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-redirection-configuration"></a>Adicionar a configuração de redirecionamento
 
-Você pode configurar o redirecionamento para o ouvinte usando [az network application-gateway redirect-config create](/cli/azure/application-gateway#az_network_application_gateway_redirect_config_create).
+Você pode configurar o redirecionamento para o ouvinte usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway#az-network_application_gateway_redirect_config_create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -209,7 +209,7 @@ az network application-gateway url-path-map create \
 
 ### <a name="add-routing-rules"></a>Adicionar regras de redirecionamento
 
-As regras de redirecionamento associam os mapa de URL ao ouvintes que você criou. É possível adicionar as regras chamadas *defaultRule* e *redirectedRule* usando [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
+As regras de redirecionamento associam os mapa de URL ao ouvintes que você criou. É possível adicionar as regras chamadas *defaultRule* e *redirectedRule* usando [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -276,14 +276,14 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 
 done
 ```
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Para obter o endereço IP público do gateway de aplicativo, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Como, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, *http://40.121.222.19:8080/video/test.htm* ou *http://40.121.222.19:8081/images/test.htm*.
+Para obter o endereço IP público do gateway de aplicativo, use [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Como, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, *http://40.121.222.19:8080/video/test.htm* ou *http://40.121.222.19:8081/images/test.htm*.
 
 ```azurepowershell-interactive
 az network public-ip show \

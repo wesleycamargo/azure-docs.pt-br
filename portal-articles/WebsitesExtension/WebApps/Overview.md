@@ -8,11 +8,12 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: e795a6c5f76fb8d40c7e6778555de619d00b3a41
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c01fcc7e69cf5af26b127519f183062ccf4923cc
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172737"
 ---
 # <a name="app-service-documentation"></a>Documentação do Serviço de Aplicativo
 O Serviço de Aplicativo do Azure permite criar e hospedar aplicativos Web na linguagem de programação de sua escolha, sem gerenciamento de infra-estrutura nem tempo de execução de estrutura da Web ou linguagem. Eles oferecem o dimensionamento automático e alta disponibilidade, compatível com Windows e Linux e permite implantações automatizadas do GitHub, Visual Studio Team Services ou qualquer repositório Git. Saiba como usar o Serviço de Aplicativo do Azure com nossos inícios rápidos, tutoriais e exemplos.
@@ -28,7 +29,7 @@ Saiba como implantar seu primeiro aplicativo para a nuvem usando o Serviço de A
 - [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
 - [PHP](/azure/app-service/app-service-web-get-started-php)
 - [Java](/azure/app-service/app-service-web-get-started-java)
-- [Python](/azure/app-service/app-service-web-get-started-python)
+- [Python](/azure/app-service/containers/quickstart-python)
 - [HTML](/azure/app-service/app-service-web-get-started-html)
 
 ## <a name="step-by-step-tutorials"></a>Tutoriais Passo a Passo
@@ -39,7 +40,7 @@ Saiba como implantar, gerenciar e monitorar aplicativos Web seguros no Azure.
   - [.NET com banco de dados SQL do Azure](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
   - [Node.js com o MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
   - [Java com MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python com PostgreSQL](/app-service/app-service-web-tutorial-python-postgresql)
+  - [Python com PostgreSQL](/app-service/containers/tutorial-docker-python-postgresql-app)
 - [Mapear um domínio personalizado existente para seu aplicativo ](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Associar um certificado SSL existente ao seu aplicativo](/azure/app-service/app-service-web-tutorial-custom-SSL)
 

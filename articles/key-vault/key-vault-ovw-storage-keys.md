@@ -5,15 +5,16 @@ description: Chaves da conta de armazenamento fornecem uma integração contínu
 ms.topic: article
 services: key-vault
 ms.service: key-vault
-author: lleonard-msft
-ms.author: alleonar
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
-ms.date: 10/12/2017
-ms.openlocfilehash: 4f42a47a6d934bf0538efccbcf7f057fd28e2c03
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/21/2017
+ms.openlocfilehash: 0112d48647c031845bc89ccebfcdd40954c59f14
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140408"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chaves de conta de Armazenamento do Azure Key Vault
 
@@ -37,8 +38,8 @@ O Key Vault executa várias funções de gerenciamento interno em seu nome quand
     - O Azure Key Vault gera novamente (gira) as chaves periodicamente.
     - Os valores de chave nunca são retornados em resposta ao chamador.
     - O Azure Key Vault gerencia chaves tanto de Contas de Armazenamento quanto de Contas de Armazenamento Clássicas.
-- O Azure Key Vault permite que você, o proprietário do cofre/objeto, crie definições de SAS (SAS de conta ou serviço).
-    - O valor SAS, criado usando a definição de SAS, é retornado como um segredo por meio do caminho do URI REST. Para obter mais informações, consulte [Operações de conta de armazenamento do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations).
+- O Azure Key Vault permite que você, o proprietário do objeto/cofre, crie definições de SAS (Assinatura de Acesso Compartilhado, conta ou serviço de SAS).
+    - O valor SAS, criado usando a definição de SAS, é retornado como um segredo por meio do caminho do URI REST. Para obter mais informações, consulte as operações de definição de SAS na [Referência de API REST do Azure Key Vault](/rest/api/keyvault).
 
 ## <a name="naming-guidance"></a>Diretrizes de nomenclatura
 
@@ -96,16 +97,18 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ## <a name="getting-started"></a>Introdução
 
-### <a name="setup-for-role-based-access-control-rbac-permissions"></a>Configuração para permissões de RBAC (controle de acesso baseadas em função)
+### <a name="give-key-vault-access-to-your-storage-account"></a>Conceder acesso ao Key Vault para a conta de armazenamento 
 
-A identidade do aplicativo Azure Key Vault precisa de permissões para *listar* e *regenerar* chaves para uma conta de armazenamento. Configure essas permissões usando as seguintes etapas:
+Como muitos aplicativos, o Key Vault é registrado no Azure AD para usar o OAuth para acessar outros serviços. Durante o registro, um objeto de [entidade de serviço](/azure/active-directory/develop/app-objects-and-service-principals) é criado e usado para representar a identidade do aplicativo em tempo de execução. A entidade de serviço também é usada para autorizar a identidade do aplicativo para acessar outro recurso, por meio do RBAC (controle de acesso baseado em função).
+
+A identidade do aplicativo do Azure Key Vault precisa de permissões para *listar* e *regenerar* chaves para a conta de armazenamento. Configure essas permissões usando as seguintes etapas:
 
 ```powershell
 # Get the resource ID of the Azure Storage Account you want to manage.
 # Below, we are fetching a storage account using Azure Resource Manager
 $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
 
-# Get ObjectId of Azure Key Vault Identity
+# Get Application ID of Azure Key Vault's service principal
 $servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
 
 # Assign Storage Key Operator role to Azure Key Vault Identity
@@ -117,7 +120,7 @@ New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'St
 
 ## <a name="working-example"></a>Exemplo de trabalho
 
-O exemplo a seguir demonstra como criar uma Conta de Armazenamento do Azure gerenciada por Key Vault e as definições de SAS (Assinatura de Acesso Compartilhado).
+O exemplo a seguir demonstra a criação de uma Conta de Armazenamento Gerenciado do Microsoft Azure do Key Vault e as definições de SAS associadas.
 
 ### <a name="prerequisite"></a>Pré-requisito
 
@@ -204,8 +207,9 @@ Observe que quando tentamos acessar com *$readSasToken* recebemos um erro, mas c
 $context1 = New-AzureStorageContext -SasToken $readSasToken -StorageAccountName $storage.StorageAccountName
 $context2 = New-AzureStorageContext -SasToken $writeSasToken -StorageAccountName $storage.StorageAccountName
 
-Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt" -Context $context1
-Set-AzureStorageBlobContent -Container cont1-file "file.txt" -Context $context2
+# Ensure the txt file in command exists in local path mentioned
+Set-AzureStorageBlobContent -Container containertest1 -File "./abc.txt" -Context $context1
+Set-AzureStorageBlobContent -Container cont1-file "./file.txt" -Context $context2
 ```
 
 Você pode acessar o conteúdo do blob de armazenamento com o token SAS que tem acesso de gravação.
@@ -231,7 +235,7 @@ O Key Vault deve verificar se a identidade tem permissões para *regenerar* ante
 - O Key Vault lista permissões de RBAC no recurso de conta de armazenamento.
 - O Key Vault valida a resposta por meio correspondência de expressão regular de ações e não ações.
 
-Encontre alguns exemplos de suporte em [Key Vault – Amostras de Chaves de Conta de Armazenamento Gerenciado](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167).
+Encontre alguns exemplos de suporte em [Key Vault – Amostras de Chaves de Conta de Armazenamento Gerenciado](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=).
 
 Se a identidade não tiver a permissão *regenerar* ou se a identidade da primeira parte do Key Vault não tiver a permissão *lista* ou *regenerar*, a solicitação de integração falhará, retornando um código de erro apropriado e uma mensagem.
 

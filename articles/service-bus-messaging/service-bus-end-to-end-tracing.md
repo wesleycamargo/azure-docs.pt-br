@@ -1,11 +1,11 @@
 ---
-title: "Diagnóstico e rastreamento end-to-end de Barramento de Serviço do Azure | Microsoft Docs"
-description: "Visão geral do diagnóstico e o rastreamento end-to-end de cliente do Barramento de Serviço"
+title: Diagnóstico e rastreamento end-to-end de Barramento de Serviço do Azure | Microsoft Docs
+description: Visão geral do diagnóstico e o rastreamento end-to-end de cliente do Barramento de Serviço
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: lmolkova
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 847056acd2d97391782dcac1874a2739b7f5825c
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146096"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreamento distribuído e correlação por meio de mensagens do Barramento de Serviço
 
@@ -44,8 +45,8 @@ A instrumentação permite controlar todas as chamadas para o serviço de mensag
 O [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) fornece recursos de monitoramento de desempenho avançado, incluindo solicitações automáticas e rastreamento de dependências.
 
 Dependendo do tipo do seu projeto, instale o SDK do Application Insights:
-- [ASP.NET](../application-insights/app-insights-asp-net.md) versão 2.5-beta2 ou superior
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) versão 2.2.0-beta2 ou superior.
+- [ASP.NET](../application-insights/app-insights-asp-net.md) - instalar a versão 2.5-beta2 ou superior
+- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) - instalar a versão 2.2.0-beta2 ou superior.
 Esses links fornecem detalhes sobre como instalar o SDK, criando recursos e configurando o SDK (se necessário). Para aplicativos diferentes do ASP.NET, consulte o artigo [Application Insights do Azure para aplicativos de Console](../application-insights/application-insights-console.md).
 
 Se você usar [padrão de manipulador de mensagens](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) para processar mensagens, você conclui: todas as chamadas de Barramento de Serviço feitas pelo serviço são automaticamente rastreadas e correlacionadas com outros itens de telemetria. Caso contrário, consulte o exemplo a seguir para o controle de processamento de mensagem manual.

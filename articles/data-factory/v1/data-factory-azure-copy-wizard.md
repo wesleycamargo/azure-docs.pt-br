@@ -1,29 +1,30 @@
 ---
-title: "Assistente de Cópia do Azure Data Factory | Microsoft Docs"
-description: "Saiba mais sobre como usar o Assistente de Cópia do Azure Data Factory para copiar dados de fontes de dados com suporte para coletores."
+title: Assistente de Cópia do Azure Data Factory | Microsoft Docs
+description: Saiba mais sobre como usar o Assistente de Cópia do Azure Data Factory para copiar dados de fontes de dados com suporte para coletores.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aeed2b2413f14b60d018ebd4f09293d6c41554d2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6330854f4ee9b2db1597d916c815bb6646da6a29
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052742"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de Cópia do Azure Data Factory
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). 
+> Este artigo se aplica à versão 1 do Data Factory. 
 
 O Assistente de Cópia do Azure Data Factory facilita o processo de ingerir dados, que geralmente é a primeira etapa no cenário de integração completa de dados. Ao executar o Assistente de Cópia do Azure Data Factory, você não precisa entender qualquer definição de JSON para serviços vinculados, conjuntos de dados e pipelines. O assistente cria automaticamente um pipeline para copiar dados da fonte de dados selecionada para o destino selecionado. Além disso, o Assistente de Cópia ajuda você a validar os dados que estão sendo ingeridos no momento da criação. Isso poupa tempo, especialmente quando você está ingerindo dados pela primeira vez da fonte de dados. Para iniciar o Assistente de Cópia, clique no bloco **Copiar dados** na home page da sua fábrica de dados.
 
@@ -79,7 +80,7 @@ Clique no botão **Procurar** de **Arquivo ou pasta**, navegue até uma dessas p
 
 ![Usando variáveis de sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Conforme mostrado na captura de tela abaixo, você também pode usar uma variável **personalizada** , além de usar qualquer [cadeia de caracteres com formato compatível](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Para selecionar uma pasta com essa estrutura, use primeiro o botão **Procurar** . Em seguida, substitua um valor por **{personalizado}**e pressione a tecla **Tab** para ver a caixa de texto em que você poderá digitar a cadeia de caracteres de formato.     
+Conforme mostrado na captura de tela abaixo, você também pode usar uma variável **personalizada** , além de usar qualquer [cadeia de caracteres com formato compatível](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Para selecionar uma pasta com essa estrutura, use primeiro o botão **Procurar** . Em seguida, substitua um valor por **{personalizado}** e pressione a tecla **Tab** para ver a caixa de texto em que você poderá digitar a cadeia de caracteres de formato.     
 
 ![Usando variáveis personalizadas](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 

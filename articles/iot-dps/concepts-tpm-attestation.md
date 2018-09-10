@@ -1,29 +1,25 @@
 ---
 title: Serviço de Provisionamento de Dispositivos no Hub IoT do Azure – Atestado de TPM
 description: Este artigo fornece uma visão geral conceitual do fluxo de atestado de TPM usando o Serviço de Provisionamento de Dispositivos  IoT.
-services: iot-dps
-keywords: ''
 author: nberdy
 ms.author: nberdy
 ms.date: 04/23/2018
 ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: dec024c5c23bf8c628457127af57b8d18800660e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+services: iot-dps
+manager: briz
+ms.openlocfilehash: cb763327eb292feb9d58fb21b1ca808a3f2909aa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182136"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144145"
 ---
 # <a name="tpm-attestation"></a>Atestado de TPM
 
 O Serviço de Provisionamento de Dispositivos no Hub IoT é um serviço auxiliar do Hub IoT que você usa para configurar o provisionamento de dispositivo sem interação para um Hub IoT especificado. Com o Serviço de Provisionamento de Dispositivos, é possível provisionar milhões de dispositivos de maneira segura.
 
-Este artigo descreve um processo de atestado de identidade ao usar um [TPM](./concepts-device.md). TPM significa Trusted Platform Module e é um tipo de HSM (módulo de segurança de hardware). Este artigo pressupõe que você está usando um TPM discreto, de firmware ou integrado. Os TPMs emulados para software são adequados para fazer protótipos ou teste, mas não oferecem o mesmo nível de segurança que os TPMs discretos, de firmware ou integrados oferecem. Não recomendamos usar TPMs de software em produção. [Saiba mais](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf) sobre os tipos de TPMs.
+Este artigo descreve um processo de atestado de identidade ao usar um [TPM](./concepts-device.md). TPM significa Trusted Platform Module e é um tipo de HSM (módulo de segurança de hardware). Este artigo pressupõe que você está usando um TPM discreto, de firmware ou integrado. Os TPMs emulados para software são adequados para fazer protótipos ou teste, mas não oferecem o mesmo nível de segurança que os TPMs discretos, de firmware ou integrados oferecem. Não recomendamos usar TPMs de software em produção. Para obter mais informações sobre os tipos de TPMs, consulte [Uma breve introdução ao TPM](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
 Este artigo só é relevante para dispositivos que usam o TPM 2.0 com suporte à chave HMAC e suas chaves de endosso. Não é para dispositivos que usam certificados X.509 para autenticação. O TPM é um padrão ISO de todo o setor do Trusted Computing Group, e é possível ler mais sobre ele na [especificação do TPM 2.0 completa](https://trustedcomputinggroup.org/tpm-library-specification/) ou na [especificação ISO/IEC 11889](https://www.iso.org/standard/66510.html). Este artigo também pressupõe que você conhece os pares de chaves públicas e privadas e como elas são usadas para criptografia.
 
@@ -65,7 +61,7 @@ O dispositivo usa o nonce e as partes privadas da EK e da SRK para descriptograf
 
 O dispositivo pode assinar um token SAS usando o nonce descriptografado e reestabelecer uma conexão com o Serviço de Provisionamento de Dispositivos usando o token SAS assinado. Com o desafio nonce concluído, o serviço permite que o dispositivo provisione.
 
-![O dispositivo reestabelece a conexão com o DPS para validar a propriedade da EK](./media/concepts-tpm-attestation/step-three-validation.png)
+![O dispositivo reestabelece a conexão com o Serviço de Provisionamento de Dispositivo para validar a propriedade da EK](./media/concepts-tpm-attestation/step-three-validation.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

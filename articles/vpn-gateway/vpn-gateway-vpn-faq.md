@@ -2,23 +2,17 @@
 title: Perguntas frequentes do Gateway de VPN do Azure | Microsoft Docs
 description: Perguntas frequentes sobre o Gateway de VPN. Perguntas frequentes para conexões entre locais de Rede Virtual do Microsoft Azure, conexões de configuração híbrida e gateways de VPN.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/05/2018
+ms.topic: conceptual
+ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9ebdbb8958779e074195623aec90b7a6f6de2bb4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 245e5e1048f27fc76141312cf6f9021dc0060ae6
+ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "39359051"
 ---
 # <a name="vpn-gateway-faq"></a>Perguntas frequentes de gateway de VPN
 
@@ -71,10 +65,10 @@ Os gateways baseados em política implementam VPNs baseadas em política. As VPN
 Gateways baseados em rota implementam VPNs baseadas em rota. As VPNs baseadas em rota usam "rotas" da tabela de roteamento ou de encaminhamento de IP para direcionar pacotes para as interfaces de túnel correspondentes. As interfaces de túnel criptografam ou descriptografam então os pacotes para dentro e para fora dos túneis. O seletor de política ou de tráfego para as VPNs baseadas em rota são configurados como qualquer para qualquer (ou curingas).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Posso atualizar meu gateway de VPN baseado em Política para baseado em Rota?
-Nº Um tipo de gateway de rede virtual do Azure não pode ser alterado de baseado em política para baseado em rota ou ao contrário. O gateway deve ser excluído e recriado, um processo que demora em torno de 60 minutos. O endereço IP do gateway não será preservado e nem a Chave Pré-compartilhada (PSK).
+Não. Um tipo de gateway de rede virtual do Azure não pode ser alterado de baseado em política para baseado em rota ou ao contrário. O gateway deve ser excluído e recriado, um processo que demora em torno de 60 minutos. O endereço IP do gateway não será preservado e nem a Chave Pré-compartilhada (PSK).
 1. Exclua todas as conexões associadas ao gateway a ser excluído.
 2. Exclua o gateway:
-* [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+* [portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 * [PowerShell do Azure](vpn-gateway-delete-vnet-gateway-powershell.md)
 * [Azure Powershell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 3. [Criar um novo gateway do tipo desejado e concluir a configuração da VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
@@ -87,15 +81,15 @@ Quando você cria a sub-rede de gateway, pode especificar o número de endereço
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Posso implantar máquinas virtuais ou instâncias de função na minha sub-rede de gateway?
 
-Nº
+Não.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>Posso obter o endereço IP do gateway de VPN antes de criá-lo?
 
-Nº Você precisa criar seu gateway primeiro para obter o endereço IP. O endereço IP será alterado se você excluir e recriar o gateway de VPN.
+Não. Você precisa criar seu gateway primeiro para obter o endereço IP. O endereço IP será alterado se você excluir e recriar o gateway de VPN.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>Eu posso solicitar um endereço IP Público Estático para o meu gateway de VPN?
 
-Nº Somente a atribuição de endereço IP Dinâmico é suportada. No entanto, isso não significa que o endereço IP é alterado depois que ele foi atribuído ao seu gateway de VPN. A única vez em que o endereço IP de gateway de VPN é alterado é quando o gateway é excluído e recriado. O endereço IP público do gateway de VPN não muda durante o redimensionamento, a redefinição ou a manutenção/atualização interna do gateway de VPN. 
+Não. Somente a atribuição de endereço IP Dinâmico é suportada. No entanto, isso não significa que o endereço IP é alterado depois que ele foi atribuído ao seu gateway de VPN. A única vez em que o endereço IP de gateway de VPN é alterado é quando o gateway é excluído e recriado. O endereço IP público do gateway de VPN não muda durante o redimensionamento, a redefinição ou a manutenção/atualização interna do gateway de VPN. 
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>Como meu túnel de VPN é autenticado?
 
@@ -166,13 +160,13 @@ Há suporte para servidores RRAS (Roteamento e Acesso Remoto) do Windows Server 
 
 Outras soluções VPN de software devem funcionar com nosso gateway, contanto que estejam em conformidade com implementações de IPsec padrão do setor. Contate o fornecedor do software para obter instruções de configuração e suporte.
 
-## <a name="P2S"></a>Ponto a Site - Autenticação de certificado nativa do Azure
+## <a name="P2S"></a>Ponto a Site usando a autenticação de certificado nativa do Azure
 
 Esta seção se aplica ao modelo de implantação do Resource Manager.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Ponto a Site - autenticação RADIUS
+## <a name="P2SRADIUS"></a>Ponto a Site usando a autenticação RADIUS
 
 Esta seção se aplica ao modelo de implantação do Resource Manager.
 
@@ -229,7 +223,7 @@ Você também pode se conectar à sua máquina virtual com o endereço IP privad
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-the-traffic-from-my-vm-go-through-that-connection"></a>Se a minha máquina virtual estiver em uma rede virtual com conectividade entre locais, todo o tráfego de minha VM passará por essa conexão?
 
-Nº Somente o tráfego com um destino IP contido em intervalos de endereços IP de rede Local virtual de rede especificado passará pelo gateway de rede virtual. O tráfego que tiver um destino IP localizado na rede virtual permanecerá na rede virtual. Outro tráfego é enviado pelo balanceador de carga para as redes públicas ou, se for usado o túnel forçado, enviado pelo gateway da VPN do Azure.
+Não. Somente o tráfego com um destino IP contido em intervalos de endereços IP de rede Local virtual de rede especificado passará pelo gateway de rede virtual. O tráfego que tiver um destino IP localizado na rede virtual permanecerá na rede virtual. Outro tráfego é enviado pelo balanceador de carga para as redes públicas ou, se for usado o túnel forçado, enviado pelo gateway da VPN do Azure.
 
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>Como eu faço para solucionar problemas de uma conexão de RDP para uma VM
 

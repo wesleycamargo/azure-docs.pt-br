@@ -1,20 +1,20 @@
 ---
-title: Arquivar dados de monitoramento do Azure | Microsoft Docs
+title: Arquivar os dados de log e métrica do Azure usando o Armazenamento do Azure
 description: Arquive dados de log e de métrica produzidos no Azure em uma conta de armazenamento.
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b44bbd9cb2f54107d2593b1ab7f07f07fcc41e57
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: metrics
+ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918264"
 ---
 # <a name="archive-azure-monitoring-data"></a>Arquivar dados de monitoramento do Azure
 
@@ -30,7 +30,7 @@ Várias camadas do ambiente do Azure produzem dados de log e de métrica que pod
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -136,6 +136,11 @@ Os dados de monitoramento de seu recurso agora estão fluindo para a conta de ar
 Os dados de monitoramento de suas máquinas virtuais agora estão fluindo para a conta de armazenamento.
 
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Exibir os dados de monitoramento na conta de armazenamento
+
+> [!WARNING]
+> O formato dos dados de log na conta de armazenamento será alterado para Linhas JSON em 1º de novembro de 2018. [Confira este artigo para obter uma descrição do impacto e saber como atualizar suas ferramentas para manipular o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 Se você seguiu as etapas anteriores, os dados começaram a fluir para sua conta de armazenamento.
 

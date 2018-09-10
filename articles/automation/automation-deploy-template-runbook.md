@@ -10,11 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, automação do azure
-ms.openlocfilehash: 489676736e0a3dcff463fae954f0250d90ba3d0f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fe7a3632936e13a0762ebc0afcc357965e019146
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918599"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implantar um modelo do Azure Resource Manager em um runbook do PowerShell de Automação do Azure
 
@@ -24,11 +25,11 @@ Ao fazer isso, você pode automatizar a implantação de recursos do Azure. Voc�
 
 Neste tópico, criamos um runbook do PowerShell que usa um modelo do Resource Manager armazenado no [Armazenamento do Azure](../storage/common/storage-introduction.md) para implantar uma nova conta de Armazenamento do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-account/" target="_blank">[inscrever-se em uma conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se em uma conta gratuita](https://azure.microsoft.com/free/).
 * [Conta de automação](automation-sec-configure-azure-runas-account.md) para manter o runbook e se autenticar nos recursos do Azure.  Esta conta deve ter permissão para iniciar e parar a máquina virtual.
 * [Conta de Armazenamento do Azure](../storage/common/storage-create-storage-account.md) na qual será armazenado o modelo do Resource Manager
 * Azure PowerShell instalado em um computador local. Consulte [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) (Instalar e configurar o Azure PowerShell) para obter informações sobre como obter o Azure PowerShell.
@@ -56,6 +57,13 @@ Em um editor de texto, copie o seguinte texto:
       "metadata": {
         "description": "Storage Account type"
       }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
     }
   },
   "variables": {
@@ -65,8 +73,8 @@ Em um editor de texto, copie o seguinte texto:
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
+      "apiVersion": "2018-02-01",
+      "location": "[parameters('location')]",
       "sku": {
           "name": "[parameters('storageAccountType')]"
       },

@@ -4,7 +4,7 @@ description: Este tópico descreve o Logon Único Contínuo do Azure AD (Azure A
 services: active-directory
 keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/26/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6a106ba59f09ffc20f8461c5267ae06695df4cd0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285350"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Logon Único Contínuo do Azure Active Directory
 
@@ -28,12 +30,12 @@ O SSO Contínuo do Azure AD (Logon Único Contínuo do Azure Active Directory) c
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md) ou de [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md).
+O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md) ou de [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md). O SSO contínuo _não_ é aplicável aos Serviços de Federação do Active Directory (AD FS).
 
 ![Logon Único Contínuo](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->O SSO contínuo _não_ é aplicável aos Serviços de Federação do Active Directory (AD FS).
+>O SSO contínuo precisa no dispositivo do usuário para ser **ingressado no domínio**, mas não necessário para o dispositivo esteja [ingressado no Azure AD](../active-directory-azureadjoin-overview.md).
 
 ## <a name="key-benefits"></a>Principais benefícios
 
@@ -53,17 +55,17 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 - Se um aplicativo (por exemplo, https://myapps.microsoft.com/contoso.com) encaminhar um parâmetro `domain_hint` (OpenID Connect) ou `whr` (SAML) - identificando seu locatário, ou um parâmetro `login_hint` - identificando o usuário, na solicitação de entrada do Microsoft Azure AD, os usuários serão automaticamente conectados sem inserir nomes de usuário ou senhas.
 - Os usuários também terão uma experiência de logon silenciosa se um aplicativo (por exemplo, https://contoso.sharepoint.com)) enviar solicitações de entrada para pontos de extremidade com locatários do Microsoft Azure AD - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez do ponto de extremidade comum do Microsoft Azure AD - ou seja, https://login.microsoftonline.com/common/<...>.
 - Há suporte para saída. Isso permite que os usuários escolham outra conta do Azure AD para conectar, em vez de conectar automaticamente usando o SSO contínuo automaticamente.
-- Os clientes do Office 365 (16.0.8730.xxxx e acima) têm suporte usando um fluxo não interativo.
+- Clientes do Office 365 Win32 (Outlook, Word, Excel e outros) com as versões 16.0.8730.xxxx e superiores têm suporte com o uso de um fluxo não interativo. Para o OneDrive, você precisará ativar o [recurso de Configuração silenciosa do OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de logon silenciosa.
 - Isso pode ser habilitado por meio do Azure AD Connect.
 - Essa é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 - Há suporte para ele em clientes baseados em navegador da Web e clientes do Office que dão suporte à [autenticação moderna](https://aka.ms/modernauthga) em plataformas e navegadores que sejam compatíveis com a autenticação Kerberos:
 
 | Sistema operacional\Navegador |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|sim|Não|sim|Sim\*|N/D
-|Windows 8.1|sim|N/D|sim|Sim\*|N/D
-|Windows 8|sim|N/D|sim|Sim\*|N/D
-|Windows 7|sim|N/D|sim|Sim\*|N/D
+|Windows 10|SIM|Não |SIM|Sim\*|N/D
+|Windows 8.1|SIM|N/D|SIM|Sim\*|N/D
+|Windows 8|SIM|N/D|SIM|Sim\*|N/D
+|Windows 7|SIM|N/D|SIM|Sim\*|N/D
 |Mac OS X|N/D|N/D|Sim\*|Sim\*|Sim\*
 
 \*Exige [configuração adicional](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
@@ -74,7 +76,9 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [**Início Rápido** ](active-directory-aadconnect-sso-quick-start.md) – colocar o SSO Contínuo do Azure AD em funcionamento.
+- [**Plano de Implantação**](https://aka.ms/AuthenticationDeploymentPlan) - Plano de implantação passo a passo.
 - [**Aprofundamento técnico**](active-directory-aadconnect-sso-how-it-works.md) – entenda como esse recurso funciona.
 - [**Perguntas frequentes**](active-directory-aadconnect-sso-faq.md) – respostas para perguntas frequentes.
 - [**Solução de problemas**](active-directory-aadconnect-troubleshoot-sso.md) – Saiba como resolver problemas comuns do recurso.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.
+

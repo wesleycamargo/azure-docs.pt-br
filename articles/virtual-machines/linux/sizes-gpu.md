@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: c4704dd461ae96600fa812fdfe8d9b0e59e93d72
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 435dc3a4815d9fe554ccba57a49ed9a772b53529
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904072"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com GPU otimizadas
 
@@ -28,9 +29,12 @@ ms.lasthandoff: 04/24/2018
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-[!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
+## <a name="supported-distributions-and-drivers"></a>Distribuições e drivers com suporte
 
-Para etapas de verificação e instalação do driver, consulte [Instalação do driver na série N para Linux](n-series-driver-setup.md).
+Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam o Linux, instale os drivers de GPU NVIDIA. A [Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) instala drivers CUDA ou GRID NVIDIA apropriados em VMs da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como a CLI do Azure ou os modelos do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) para saber quais são as distribuições compatíveis e as etapas de implantação. Para obter informações gerais sobre extensões de VM, confira [Recursos e extensões de máquina virtual do Azure](../extensions/overview.md).
+
+Se você optar por instalar os drivers de GPU NVIDIA manualmente, confira [Instalação do driver de GPU da série N para Linux](n-series-driver-setup.md) para saber quais são as distribuições e os drivers com suporte e as etapas de instalação e verificação.
+
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
@@ -42,6 +46,7 @@ Para etapas de verificação e instalação do driver, consulte [Instalação do
 - [Memória otimizada](sizes-memory.md)
 - [Armazenamento otimizado](sizes-storage.md)
 - [Computação de alto desempenho](sizes-hpc.md)
+- [Gerações anteriores](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.

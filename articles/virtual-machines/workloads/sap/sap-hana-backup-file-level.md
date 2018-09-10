@@ -4,20 +4,21 @@ description: Há duas possibilidades principais de backup para SAP HANA em máqu
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 3/13/2017
+ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d3d1769766053b513a98df153cb635ae148f26b1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867363"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup do Azure do SAP HANA no nível do arquivo
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 03/23/2018
 
 Este artigo faz parte de uma série dividida em três partes com artigos relacionados ao backup do SAP HANA. [Guia de backup do SAP HANA em máquinas virtuais do Azure](./sap-hana-backup-guide.md) fornece uma visão geral e informações sobre como começar, e [Backup do SAP HANA com base em instantâneos de armazenamento](./sap-hana-backup-storage-snapshots.md) aborda a opção de backup baseado em instantâneo de armazenamento.
 
-Observando os tamanhos de VM do Azure, é possível ver que um GS5 permite 64 discos de dados anexados. Para sistemas SAP HANA de grande porte, um número considerável de discos já pode estar ocupado por arquivos de log e de dados, possivelmente em combinação com RAID de software para obtenção da melhor taxa de transferência de E/S de disco. Assim, a pergunta é onde armazenar os arquivos de backup do SAP HANA, o que pode encher completamente os discos de dados anexados com o passar do tempo? Confira [Tamanhos das máquinas virtuais do Linux no Azure](../../linux/sizes.md) para ver as tabelas de tamanho de VM do Azure.
+Diferentes tipos de VM no Azure permitem que um número diferente de VHDs sejam anexados. Os detalhes exatos estão documentados em [Tamanhos das Máquinas Virtuais do Linux no Azure](../../linux/sizes.md). Para os testes mencionados nesta documentação, usamos uma VM GS5 do Azure que permite 64 discos de dados anexados. Para sistemas SAP HANA maiores, um número significativo de discos já pode estar ocupado com arquivos de log e de dados, possivelmente em combinação com a distribuição de software para obter a taxa de transferência de E/S de disco ideal. Para obter mais detalhes sobre as configurações de disco sugeridas para implantações do SAP HANA em VMs do Azure, leia o artigo [SAP HANA no guia de operações do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations). As sugestões também incluem recomendações de espaço em disco para backups locais.
 
 No momento, não há integração de backup do SAP HANA disponível com o serviço de Backup do Azure. O modo padrão de gerenciamento de backup/restauração no nível do arquivo é com um backup baseado em arquivo via declarações do SAP HANA Studio ou do SAP HANA SQL. Confira [SAP HANA SQL e referência de exibições do sistema](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf) para saber mais.
 
@@ -33,7 +34,7 @@ No momento, não há integração de backup do SAP HANA disponível com o servi�
 
 Esta figura mostra a caixa de diálogo do item de menu de backup no SAP HANA Studio. Ao escolher o tipo de &quot;arquivo,&quot;, é preciso especificar um caminho no sistema de arquivos no qual o SAP HANA gravará os arquivos de backup. A restauração funciona da mesma maneira.
 
-Embora essa opção pareça simples e direta, há algumas considerações. Conforme mencionado anteriormente, uma VM do Azure tem uma limitação no número de discos de dados que podem ser anexados. Talvez não haja capacidade para armazenar arquivos de backup do SAP HANA em sistemas de arquivos da VM, dependendo do tamanho do banco de dados e dos requisitos de taxa de transferência no disco, o que pode envolver o RAID de software usando a distribuição em vários discos de dados. Posteriormente, este artigo fornece várias opções para mover esses arquivos de backup e gerenciar as restrições de tamanho de arquivo e desempenho ao lidar com terabytes de dados.
+Embora essa opção pareça simples e direta, há algumas considerações. Conforme mencionado anteriormente, uma VM do Azure tem uma limitação no número de discos de dados que podem ser anexados. Talvez não haja capacidade para armazenar arquivos de backup do SAP HANA nos sistemas de arquivos da VM, dependendo dos requisitos de tamanho do banco de dados e de taxa de transferência do disco, que podem envolver a distribuição de software entre vários discos de dados. Posteriormente, este artigo fornece várias opções para mover esses arquivos de backup e gerenciar as restrições de tamanho de arquivo e desempenho ao lidar com terabytes de dados.
 
 Outra opção, que oferece mais liberdade com relação à capacidade total, é o Armazenamento de Blobs do Azure. Embora um único blob também esteja restrito a 1 TB, a capacidade total de um único contêiner de blob é atualmente de 500 TB. Além disso, ele oferece aos clientes a opção de selecionar o chamado armazenamento de blobs &quot;estático&quot;, que tem um bom custo-benefício. Confira [Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática](../../../storage/blobs/storage-blob-storage-tiers.md) para obter detalhes sobre o armazenamento de blobs frio.
 
@@ -43,7 +44,7 @@ Para obter mais segurança, use uma conta de armazenamento com replicação geog
 
 ## <a name="azure-backup-agent"></a>Agente de backup do Azure
 
-Além de oferecer a opção de fazer backup de VMs completas, o backup do Azure também oferece o backup de arquivos e diretórios por meio do agente de backup, que deve ser instalado no sistema operacional convidado. Mas desde dezembro de 2016, o agente só tem suporte no Windows (consulte [Fazer backup de um Windows Server ou cliente no Azure usando o modelo de implantação do Resource Manager](../../../backup/backup-configure-vault.md)).
+Além de oferecer a opção de fazer backup de VMs completas, o backup do Azure também oferece o backup de arquivos e diretórios por meio do agente de backup, que deve ser instalado no sistema operacional convidado. Mas esse agente só tem suporte no Windows (confira [Fazer backup de um Windows Server ou de um cliente no Azure usando o modelo de implantação do Resource Manager](../../../backup/backup-configure-vault.md)).
 
 Uma solução alternativa é copiar primeiro os arquivos de backup do SAP HANA para uma VM do Windows no Azure (por exemplo, por meio do compartilhamento do SAMBA) e, depois, usar o agente de backup do Azure a partir daí. Embora seja tecnicamente possível, isso acrescentaria complexidade e tornaria o processo de backup ou restauração mais lento devido a uma cópia entre a VM do Linux e do Windows. Não recomendamos seguir essa abordagem.
 
@@ -65,11 +66,11 @@ Esta captura de tela é do YaST na VM de teste do SAP HANA. Conforme mencionado 
 
 ![Repetição do mesmo backup no RAID de software com distribuição nos cinco discos de dados de armazenamento padrão do Azure anexados](media/sap-hana-backup-file-level/image025.png)
 
-A repetição do mesmo backup no RAID de software com distribuição nos cinco discos de dados de armazenamento padrão do Azure anexado reduziu o tempo de backup de 42 minutos para 10 minutos. Os discos foram anexados sem armazenamento em cache para a VM. Portanto, fica óbvia a importância da taxa de transferência de gravação de disco para o tempo de backup. Assim, é possível mudar para o armazenamento premium do Azure para acelerar o processo e obter o melhor desempenho. Em geral, o Armazenamento premium do Azure deve ser usado para sistemas de produção.
+A repetição do mesmo backup no RAID de software com distribuição nos cinco discos de dados de armazenamento padrão do Azure anexado reduziu o tempo de backup de 42 minutos para 10 minutos. Os discos foram anexados sem armazenamento em cache para a VM. Portanto, fica óbvia a importância da taxa de transferência de gravação de disco para o tempo de backup. Assim, é possível mudar para o Armazenamento Premium do Azure para acelerar mais o processo de obter o desempenho ideal. Em geral, o Armazenamento Premium do Azure deve ser usado para sistemas de produção.
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Copiar arquivos de backup do SAP HANA para o Armazenamento de Blobs do Azure
 
-Desde dezembro de 2016, a melhor opção para armazenar rapidamente arquivos de backup do SAP HANA é o Armazenamento de Blobs do Azure. Um único contêiner de blob tem um limite de 500 TB, o suficiente para a maioria dos sistemas SAP HANA, executados em uma VM GS5 no Azure, para manter backups suficientes do SAP HANA. Os clientes têm a opção de armazenamento de blobs &quot;dinâmico&quot; e &quot;estático&quot; (confira [Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática](../../../storage/blobs/storage-blob-storage-tiers.md)).
+Outra opção para armazenar rapidamente arquivos de backup do SAP HANA é o Armazenamento de Blobs do Azure. Um único contêiner de blob tem um limite de 500 TB, que é suficiente para alguns sistemas SAP HANA menores, usando os tipos de VM M32ts, M32ls, M64ls e GS5 do Azure, para manter backups suficientes do SAP HANA. Os clientes têm a opção de armazenamento de blobs &quot;dinâmico&quot; e &quot;estático&quot; (confira [Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática](../../../storage/blobs/storage-blob-storage-tiers.md)).
 
 Com a ferramenta blobxfer, é fácil copiar os arquivos de backup do SAP HANA diretamente no Armazenamento de Blobs do Azure.
 
@@ -89,7 +90,7 @@ O console do backup do HANA Studio permite restringir o tamanho máximo dos arqu
 
 ![Definir o limite de tamanho do arquivo de backup no lado do HANA não melhora o tempo do backup](media/sap-hana-backup-file-level/image029.png)
 
-Definir o limite de tamanho do arquivo de backup no lado do HANA não melhora o tempo de backup, pois os arquivos são gravados em sequência, conforme mostra esta figura. O limite de tamanho do arquivo foi definido como 60 GB, portanto o backup criou quatro arquivos de dados grandes, em vez de um único arquivo de 230 GB.
+Definir o limite de tamanho do arquivo de backup no lado do HANA não melhora o tempo de backup, pois os arquivos são gravados em sequência, conforme mostra esta figura. O limite de tamanho do arquivo foi definido como 60 GB, portanto o backup criou quatro arquivos de dados grandes, em vez de um único arquivo de 230 GB. O uso de vários arquivos de backup é uma necessidade para fazer backup de bancos de dados do HANA que aproveitam a memória de VMs do Azure maiores, como as M64s, M64ms, M128s e M128ms.
 
 ![Para testar o paralelismo da ferramenta blobxfer, o tamanho máximo dos backups do HANA foi definido como 15 GB](media/sap-hana-backup-file-level/image030.png)
 
@@ -135,9 +136,9 @@ A alternativa de fazer um backup em um conjunto de distribuição local e copiar
 
 Funciona, mas o desempenho não foi bom para o teste de backup de 230 GB. Ficaria ainda pior para vários terabytes.
 
-## <a name="copy-sap-hana-backup-files-to-azure-file-service"></a>Copiar arquivos de backup do SAP HANA para o serviço de arquivo do Azure
+## <a name="copy-sap-hana-backup-files-to-azure-files"></a>Copiar arquivos de backup do SAP HANA para os Arquivos do Azure
 
-É possível montar um compartilhamento de arquivos do Azure dentro de uma VM do Linux do Azure. O artigo [Como usar o Armazenamento de arquivos do Azure com o Linux](../../../storage/files/storage-how-to-use-files-linux.md) fornece detalhes sobre como fazer isso. Tenha em mente de que há um limite de cota de 5 TB de um compartilhamento de arquivos do Azure e um limite de tamanho de arquivo de 1 TB por arquivo. Confira [Metas de desempenho e de escalabilidade do Armazenamento do Azure](../../../storage/common/storage-scalability-targets.md) para saber mais sobre os limites de armazenamento.
+É possível montar um compartilhamento de Arquivos do Azure dentro de uma VM do Linux do Azure. O artigo [Como usar o Armazenamento de arquivos do Azure com o Linux](../../../storage/files/storage-how-to-use-files-linux.md) fornece detalhes sobre como fazer isso. Tenha em mente de que há um limite de cota de 5 TB de um compartilhamento de arquivos do Azure e um limite de tamanho de arquivo de 1 TB por arquivo. Confira [Metas de desempenho e de escalabilidade do Armazenamento do Azure](../../../storage/common/storage-scalability-targets.md) para saber mais sobre os limites de armazenamento.
 
 Os testes mostraram, no entanto, que o backup do SAP HANA não funciona diretamente no momento com esse tipo de montagem de CIFS. Também está declarado na [Nota SAP 1820529](https://launchpad.support.sap.com/#/notes/1820529) que o CIFS não é recomendado.
 

@@ -2,23 +2,18 @@
 title: Visão geral do instantâneo de compartilhamento dos Arquivos do Azure | Microsoft Docs
 description: Um instantâneo de compartilhamento é uma versão somente leitura de um compartilhamento dos Arquivos do Azure feito em determinado momento, como uma maneira de fazer backup do compartilhamento.
 services: storage
-documentationcenter: .net
 author: RenaShahMSFT
-manager: aungoo
-editor: tysonn
-ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 6499bdf1af676898f7b2911612cbd206bccfa4fa
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: files
+ms.openlocfilehash: b261ec5fb0ad437202df1a8fd8683a095cb1bb96
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145654"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Visão geral de instantâneos de compartilhamento para Arquivos do Azure 
 Os Arquivos do Azure fornecem a funcionalidade de tirar instantâneos de compartilhamentos de arquivos. Os instantâneos de compartilhamento capturam o estado de compartilhamento naquele ponto no tempo. Neste artigo, descreveremos quais recursos os instantâneos de compartilhamento fornecem e como você pode aproveitá-los no seu caso de uso personalizado.
@@ -45,7 +40,7 @@ A capacidade de instantâneo de compartilhamento é fornecida no nível de compa
 
 Um instantâneo de compartilhamento de um compartilhamento de arquivos é idêntico ao seu compartilhamento de arquivo de base. A única diferença é que um valor de **DateTime** é acrescentado ao URI do compartilhamento para indicar o horário em que o compartilhamento de instantâneo foi tirado. Por exemplo, se um URI de compartilhamento de arquivo for http://storagesample.core.file.windows.net/myshare, o URI do instantâneo será semelhante a:
 ```
-http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Os instantâneos de compartilhamento persistem até que sejam excluídos deliberadamente. Um instantâneo de compartilhamento não pode sobreviver além do seu compartilhamento de arquivo base. Você pode enumerar os instantâneos associados ao compartilhamento de arquivos principal para acompanhar seus instantâneos atuais. 
@@ -91,4 +86,5 @@ Compartilhamentos de instantâneos fornecem apenas a proteção no nível de arq
     - [Portal](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
     - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
     - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+    - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
 - [Perguntas frequentes sobre instantâneo de compartilhamento](storage-files-faq.md#share-snapshots)

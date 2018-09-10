@@ -14,15 +14,16 @@ ms.topic: sample
 ms.date: 10/09/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 6356eb7ce7d34e973607b0588a9dc2854726f5d3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c1096567a42845a0be327edfb1be67838936a057
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434582"
 ---
 # <a name="azure-powershell-samples-for-api-management"></a>Exemplos do Azure PowerShell para Gerenciamento de API
 
-A tabela a seguir inclui links para scripts bash compilados usando o Azure PowerShell.
+A tabela a seguir contém scripts de exemplo para trabalhar com o serviço de gerenciamento de API do PowerShell.
 
 | | |
 |-|-|

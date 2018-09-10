@@ -1,24 +1,25 @@
 ---
-title: "Referência da sintaxe SQLFilter do Barramento de Serviços do Azure | Microsoft Docs"
-description: "Detalhes sobre a gramática de SQLFilter."
+title: Referência da sintaxe SQLFilter do Barramento de Serviços do Azure | Microsoft Docs
+description: Detalhes sobre a gramática de SQLFilter.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: ec9d728eb31eb979e82bfb53cf619f823750e65c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: spelluru
+ms.openlocfilehash: c94ffed753ebf8fddbd553977c5d733f2306971d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698325"
 ---
 # <a name="sqlfilter-syntax"></a>Sintaxe SQLFilter
 
@@ -281,5 +282,5 @@ Considere a seguinte semântica de [SqlFilter](/dotnet/api/microsoft.servicebus.
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Classe SQLFilter (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
-- [Classe SQLFilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter)
+- [Classe SQLFilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
 - [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)

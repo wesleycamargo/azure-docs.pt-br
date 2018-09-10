@@ -1,22 +1,20 @@
 ---
-title: Configurar a replicação de cluster HBase nas redes virtuais do Azure | Microsoft Docs
+title: Configurar a replicação de cluster HBase nas redes virtuais do Azure
 description: Saiba como configurar a replicação de HBase de uma versão do HDInsight para outra para balanceamento de carga, alta disponibilidade, migração sem tempo de inatividade, atualizações e recuperação de desastre.
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: jgao
-ms.openlocfilehash: 56b2b5ae9d3e4a0e682ec3dd47cd5cc30ebf6d58
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.author: jasonh
+ms.openlocfilehash: 624165f5ee1140ade9b9ce03c5249d297c8d83f1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047476"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster HBase nas redes virtuais do Azure
 
@@ -41,7 +39,7 @@ Casos de uso de replicação de HBase para duas redes virtuais:
 
 É possível replicar clusters usando os scripts [ação de script](../hdinsight-hadoop-customize-cluster-linux.md) do [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deverá ter uma assinatura do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configurar os ambientes
@@ -61,7 +59,7 @@ Para facilitar a configuração dos ambientes, alguns [modelos do Azure Resource
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Configurar duas redes virtuais em duas regiões diferentes
 
-Para criar duas redes virtuais em duas regiões diferentes e a conexão VPN entre VNets, clique na imagem a seguir para criar o. O modelo está armazenado [armazenamento de blob público]](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
+Para usar um modelo que cria duas redes virtuais em duas regiões diferentes e a conexão VPN entre as VNETs, selecione o botão **Implantar no Azure** a seguir. A definição de modelo está armazenada em um [armazenamento de blobs público](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -300,7 +298,7 @@ As etapas a seguir mostram como chamar o script de ação de script no Portal do
     >
     > Use o nome do host em vez de FQDN para o nome DNS do cluster de origem e de destino.
 
-6. Clique em **Criar**. O script pode demorar, especialmente quando o argumento **-copydata** for usado.
+6. Selecione **Criar**. O script pode demorar, especialmente quando o argumento **-copydata** for usado.
 
 Argumentos necessários:
 

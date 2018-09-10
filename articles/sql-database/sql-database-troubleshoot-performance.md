@@ -2,21 +2,22 @@
 title: Monitoramento e ajuste de desempenho – Banco de Dados SQL do Azure | Microsoft Docs
 description: Dicas de ajuste de desempenho no Banco de Dados SQL por meio de avaliação e melhoria.
 services: sql-database
-author: v-shysun
+author: danimir
 manager: craigg
 editor: ''
 keywords: ajuste de desempenho de sql, ajuste de desempenho de banco de dados, dicas de ajuste de desempenho do sql, ajuste de desempenho de banco de dados sql
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
-ms.date: 04/01/2018
-ms.author: v-shysun
-ms.openlocfilehash: 710d517621cb9d4d9d2e9bf29e4facf7d75ab481
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: conceptual
+ms.date: 07/16/2018
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 8d8b983a5304f227d09392198d0f1307fe6dafde
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187787"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524177"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoramento e ajuste de desempenho
 
@@ -50,7 +51,7 @@ Você também pode permitir que o banco de dados SQL do Azure [otimize o desempe
 
 ## <a name="improving-database-performance-with-more-resources"></a>Melhorando o desempenho do banco de dados com mais recursos
 
-Por fim, se não houver nenhum item acionável que possa melhorar o desempenho do banco de dados, você poderá alterar a quantidade de recursos disponíveis no Banco de Dados SQL do Azure. Atribua mais recursos alterando a [camada de serviço DTU](sql-database-service-tiers-dtu.md) de um banco de dados autônomo ou aumente as eDTUs de um pool elástico a qualquer momento. Como alternativa, se você estiver usando o [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md), você pode alterar a camada de serviço ou aumentar os recursos alocados para o banco de dados. 
+Por fim, se não houver nenhum item acionável que possa melhorar o desempenho do banco de dados, você poderá alterar a quantidade de recursos disponíveis no Banco de Dados SQL do Azure. Atribua mais recursos alterando a [camada de serviço DTU](sql-database-service-tiers-dtu.md) de um banco de dados autônomo ou aumente as eDTUs de um pool elástico a qualquer momento. Como alternativa, se estiver usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), você poderá alterar a camada de serviço ou aumentar os recursos alocados para o banco de dados. 
 1. Para bancos de dados independentes, é possível [alterar as camadas de serviço](sql-database-service-tiers-dtu.md) ou [recursos de computação](sql-database-service-tiers-vcore.md) sob demanda para melhorar o desempenho do banco de dados.
 2. Para vários bancos de dados, considere o uso de [pools elásticos](sql-database-elastic-pool-guidance.md) para dimensionar os recursos automaticamente.
 

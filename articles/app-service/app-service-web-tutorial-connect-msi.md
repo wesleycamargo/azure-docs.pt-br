@@ -14,11 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1b51638754287d3359eaea7bd5da3f71bf15cc89
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445554"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Tutorial: proteger a conexão do Banco de Dados SQL com a identidade de serviço gerenciada
 
@@ -32,9 +33,12 @@ Você aprenderá a:
 > * Configurar o código do aplicativo para autenticar com o Banco de Dados SQL usando a autenticação do Azure Active Directory
 > * Conceder privilégios mínimos para a identidade de serviço no Banco de Dados SQL
 
+> [!NOTE]
+> A autenticação do Azure Active Directory é _diferente_ da [autenticação Integrada do Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) no Active Directory (AD DS) local. O AD DS e o Azure Active Directory usam protocolos de autenticação completamente diferentes. Para saber mais, veja [A diferença entre o Windows Server AD DS e o Azure AD](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo continua de onde parou no [Tutorial: criar um aplicativo ASP.NET no Azure com o Banco de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Se você ainda não fez isso, siga o tutorial primeiro. Como alternativa, você pode adaptar as etapas ao seu próprio aplicativo ASP.NET com o Banco de Dados SQL.
 
@@ -44,7 +48,7 @@ Este artigo continua de onde parou no [Tutorial: criar um aplicativo ASP.NET no 
 
 ## <a name="enable-managed-service-identity"></a>Habilitar a identidade de serviço gerenciada
 
-Para habilitar uma identidade de serviço para o aplicativo do Azure, use o comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az_webapp_identity_assign) no Cloud Shell. No comando a seguir, substitua *\<app name>*.
+Para habilitar uma identidade de serviço para o aplicativo do Azure, use o comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) no Cloud Shell. No comando a seguir, substitua *\<app name>*.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -64,12 +68,12 @@ Confira um exemplo da saída depois que a identidade é criada no Azure Active D
 Você usará o valor de `principalId` na próxima etapa. Se você quiser ver os detalhes da nova identidade no Azure Active Directory, execute o seguinte comando opcional com o valor de `principalId`:
 
 ```azurecli-interactive
-az ad sp show --id <principalid>`
+az ad sp show --id <principalid>
 ```
 
 ## <a name="grant-database-access-to-identity"></a>Conceder acesso de banco de dados à identidade
 
-Em seguida, conceda acesso de banco de dados para a identidade do serviço do aplicativo usando o comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az_sql_server_ad-admin_create) no Cloud Shell. No comando a seguir, substitua *\<server_name>* e <principalid_from_last_step>. Digite um nome de administrador para *\<admin_user>*.
+Em seguida, conceda acesso de banco de dados para a identidade do serviço do aplicativo usando o comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) no Cloud Shell. No comando a seguir, substitua *\<server_name>* e <principalid_from_last_step>. Digite um nome de administrador para *\<admin_user>*.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
@@ -79,7 +83,7 @@ A identidade de serviço gerenciada agora tem acesso ao seu servidor do Banco de
 
 ## <a name="modify-connection-string"></a>Modificar cadeia de conexão
 
-Modifique a conexão que você definiu anteriormente para seu aplicativo usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) no Cloud Shell. No comando a seguir, substitua *\<app name>* pelo nome do seu aplicativo e substitua *\<server_name>* e *\<db_name>*  com aqueles do Banco de Dados SQL.
+Modifique a conexão que você definiu anteriormente para seu aplicativo usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. No comando a seguir, substitua *\<app name>* pelo nome do seu aplicativo e substitua *\<server_name>* e *\<db_name>*  com aqueles do Banco de Dados SQL.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='Server=tcp:<server_name>.database.windows.net,1433;Database=<db_name>;' --connection-string-type SQLAzure
@@ -156,7 +160,7 @@ No Cloud Shell, adicione a identidade de serviço gerenciada do aplicativo a um 
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
 msiobjectid=$(az webapp identity show --resource-group <group_name> --name <app_name> --query principalId --output tsv)
-az ad group member add --group $groupid --member-id $msiid
+az ad group member add --group $groupid --member-id $msiobjectid
 az ad group member list -g $groupid
 ```
 

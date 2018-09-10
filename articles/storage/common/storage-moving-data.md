@@ -1,24 +1,19 @@
 ---
 title: Mover grandes quantidades dados do/para armazenamento em nuvem no Azure | Microsoft Docs
-description: "Uma visão geral dos diferentes métodos para mover dados para dentro e para fora do Armazenamento do Azure."
+description: Uma visão geral dos diferentes métodos para mover dados para dentro e para fora do Armazenamento do Azure.
 services: storage
-documentationcenter: 
-author: JarrettRenshaw
-manager: msmets
-editor: tysonn
-ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
+author: tamram
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: jarrettr
-ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.date: 08/26/2018
+ms.author: tamram
+ms.component: common
+ms.openlocfilehash: 1df237a65a8b5312b20de19a99399b3a3dd075ff
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049603"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Movendo dados para dentro e para fora do Armazenamento do Azure
 Se você quiser mover dados locais para o Armazenamento do Azure (ou vice-versa), há várias maneiras de fazer isso. A melhor abordagem para você dependerá do seu cenário. Este artigo fornece uma visão geral rápida de diferentes cenários e ofertas apropriadas para cada um.
@@ -26,7 +21,7 @@ Se você quiser mover dados locais para o Armazenamento do Azure (ou vice-versa)
 ## <a name="building-applications"></a>Criando aplicativos
 Se você estiver criando um aplicativo, o desenvolvimento na API REST ou em uma das muitas de nossas bibliotecas de cliente é uma excelente maneira de mover dados para dentro e para fora do Armazenamento do Azure.
 
-O Armazenamento do Azure fornece ricas bibliotecas de cliente para .NET, iOS, Java, Android, UWP (Plataforma Universal do Windows), Xamarin, C++, Node.JS, PHP, Ruby e Python. As bibliotecas de cliente oferecem recursos avançados, como lógica de recuperação, registro em log e carregamentos paralelos. Você também pode desenvolver diretamente na API REST, que pode ser chamada por qualquer linguagem que faça solicitações HTTP/HTTPS.
+O Armazenamento do Azure fornece bibliotecas de cliente avançadas para várias linguagens de programação populares, incluindo .NET, Java, Android, Go, Xamarin, C++, Node.js, PHP, Ruby, Python e iOS. As bibliotecas de cliente oferecem recursos avançados, como lógica de recuperação, registro em log e carregamentos paralelos. Você também pode desenvolver diretamente na API REST, que pode ser chamada por qualquer linguagem que faça solicitações HTTP/HTTPS.
 
 Confira [Introdução ao Armazenamento de Blobs do Azure](../blobs/storage-dotnet-how-to-use-blobs.md) para saber mais.
 

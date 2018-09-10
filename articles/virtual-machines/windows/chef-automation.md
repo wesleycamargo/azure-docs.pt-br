@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 36293c41219a1b42d75850fa66d3c631637bb855
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3a6fbc8410dbc5aec4522f0972a29c67527edb23
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037852"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatizando a implantação de máquina virtual do Azure com o Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -58,7 +59,7 @@ Em seguida, crie um segundo diretório chamado c:\chef\cookbooks.
 
 Agora, é necessário baixar o arquivo de configurações do Azure para que o Chef possa se comunicar com a assinatura do Azure.
 
-Baixe as configurações de publicação usando o comando [AzurePublishSettingsFile Get](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) do PowerShell Azure. 
+Baixe as configurações de publicação usando o comando [AzurePublishSettingsFile Get](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) do PowerShell Azure. 
 
 Salve o arquivo de configurações de publicação em C:\chef.
 

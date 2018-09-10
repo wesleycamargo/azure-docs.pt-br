@@ -2,27 +2,23 @@
 title: Bibliotecas de gerenciamento dos Hubs de Eventos do Azure | Microsoft Docs
 description: Gerenciar namespaces de Hubs de eventos e entidades do .NET
 services: event-hubs
-cloud: na
-documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-ms.assetid: 
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.date: 08/13/2018
+ms.author: shvija
+ms.openlocfilehash: 79cddcac4d469753bc39107e6db2d8ce901111d1
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746409"
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de gerenciamento dos Hubs de Eventos
 
-As bibliotecas de gerenciamento de Hubs de eventos podem provisionar dinamicamente entidades e namespaces de Hubs de eventos. Essa natureza dinâmica permite implantações e cenários de mensagens complexos, para que seja possível determinar de forma programática quais entidades serão provisionadas. Essas bibliotecas estão atualmente disponíveis para .NET.
+Você pode usar as bibliotecas de gerenciamento de Hubs de eventos podem provisionar dinamicamente entidades e namespaces de Hubs de Eventos do Azure. Essa natureza dinâmica permite implantações e cenários de mensagens complexos, para que seja possível determinar de forma programática quais entidades serão provisionadas. Essas bibliotecas estão atualmente disponíveis para .NET.
 
 ## <a name="supported-functionality"></a>Funcionalidade com suporte
 
@@ -30,7 +26,7 @@ As bibliotecas de gerenciamento de Hubs de eventos podem provisionar dinamicamen
 * Criação de Hubs de eventos, atualização, exclusão
 * Criação de grupo de consumidores, atualização, exclusão
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar a usar as bibliotecas de gerenciamento de Hubs de eventos, você deverá se autenticar com o Azure Active Directory (AAD). AAD exige que você autentique como uma entidade de serviço, que fornece acesso aos recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
 

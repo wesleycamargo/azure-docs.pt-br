@@ -3,29 +3,25 @@ title: Copiar uma tabela incrementalmente usando o Azure Data Factory | Microsof
 description: Neste tutorial, você cria um pipeline do Azure Data Factory que copia dados incrementalmente de um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/11/2018
-ms.author: shlo
-ms.openlocfilehash: 75d291c10f732f2d18fb78b0262c42052acc713e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: yexu
+ms.openlocfilehash: 342fdce9a0e9b47380a8d8c975703ebb7f57e3b6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087122"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure
 Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela em um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure. 
-
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Azure Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível, consulte a [documentação do Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
@@ -67,9 +63,9 @@ Aqui estão as etapas importantes ao criar essa solução:
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de origem. Se você não tiver um banco de dados SQL, consulte [Criar um banco de dados SQL](../sql-database/sql-database-get-started-portal.md) para saber as etapas para criar um.
-* **Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de coletor. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para saber as etapas para criar uma. Crie um contêiner denominado adftutorial. 
+* **Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de coletor. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para saber as etapas para criar uma. Crie um contêiner denominado adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Criar uma tabela de fonte de dados no banco de dados SQL
 1. Abra o SQL Server Management Studio. No **Gerenciador de Servidores**, clique com o botão direito do mouse no banco de dados e escolha **Nova consulta**.
@@ -172,7 +168,7 @@ END
       - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
          
         Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Selecione **V2 (Versão Prévia)** para a **versão**.
+4. Selecione **V2** para a **versão**.
 5. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 6. Selecione **Fixar no painel**.     
 7. Clique em **Criar**.      
@@ -310,7 +306,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
     1. Selecione **sp_write_watermark** para o **Nome do procedimento armazenado**. 
     2. Para especificar valores para os parâmetros de procedimento armazenado, clique em **Importar parâmetros** e insira os seguintes valores para os parâmetros: 
 
-        | NOME | type | Valor | 
+        | NOME | Tipo | Valor | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Cadeia de caracteres | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
@@ -420,7 +416,7 @@ PersonID | Name | LastModifytime
     ```sql
     Select * from watermarktable
     ```
-    amostra de saída: 
+    exemplo de saída: 
     
     | TableName | WatermarkValue |
     | --------- | --------------- |

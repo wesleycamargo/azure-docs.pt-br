@@ -14,11 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: faa28a6b28c721e4088ccfbb00514be7f605f3e2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ff5c76ca0a164d09e45488cb7abf7f2c2ee50a95
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064225"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Preparar uma imagem de VM do Azure do Linux para uso com cloud-init
 Este artigo mostra como usar uma máquina virtual do Azure existente e prepará-la para ser reimplantada e estar pronta para usar cloud-init. A imagem resultante pode ser usada para implantar uma nova máquina virtual ou conjuntos de dimensionamento de máquinas virtuais, que podem ser ainda mais personalizados pela cloud-init no tempo de implantação.  Esses scripts de cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure. Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)
@@ -96,7 +97,7 @@ EOF
 
 Se a imagem do Azure existente tiver um arquivo de permuta configurado e você desejar alterar a configuração do arquivo de permuta para novas imagens usando a cloud-init, será necessário remover o arquivo de permuta existente.
 
-Para imagens baseadas em RedHat, siga as instruções no documento do RedHat a seguir explicando como [remover o arquivo de permuta](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/s2-swap-removing-file.html).
+Para imagens baseadas no Red Hat - siga as instruções no seguinte documento da Red Hat explicando como [remover o arquivo de troca](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/swap-removing-file).
 
 Para imagens CentOS com o arquivo de permuta habilitado, você pode executar o seguinte comando para desativar o arquivo de permuta:
 ```bash

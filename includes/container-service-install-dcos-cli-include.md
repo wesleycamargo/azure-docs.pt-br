@@ -2,12 +2,12 @@
 title: Instalar a CLI do DC/OS | Microsoft Docs
 description: Instale a CLI do DC/OS.
 services: container-service
-documentationcenter: 
+documentationcenter: ''
 author: rgardler
 manager: timlt
-editor: 
+editor: ''
 tags: acs, azure-container-service
-keywords: "Contêineres, Microsserviços, DC/OS, Azure"
+keywords: Contêineres, Microsserviços, DC/OS, Azure
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22877251"
 ---
 > [!NOTE]
 > Isso é para trabalhar com clusters ACS baseados no DC/OS. Não é necessário fazer isso para clusters ACS baseados no Swarm.

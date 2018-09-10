@@ -3,21 +3,23 @@ title: Como atribuir usuários e grupos a um aplicativo | Microsoft Docs
 description: Atribua usuários ao aplicativo para conceder acesso
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 19303237e7e2c3c3a7f373102465875c34a571d1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.openlocfilehash: 2c0cdd10c23b8511a757673a1e2046bc454e49b8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363516"
 ---
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>Como atribuir usuários e grupos a um aplicativo
 

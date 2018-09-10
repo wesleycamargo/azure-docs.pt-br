@@ -1,30 +1,27 @@
 ---
 title: Implantar a solução de monitoramento remoto localmente – Azure | Microsoft Docs
 description: Este tutorial mostra como implantar o acelerador de solução de monitoramento remoto em seu computador local para teste e desenvolvimento.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 03/07/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: a11df1dc17b4dcbacece85526eeac39502cbbe34
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 21bc8c27a44c940279b0c5bdcdbe04e579dc4bfa
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188656"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Implantar o acelerador de solução de monitoramento remoto localmente
+# <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Implantar o acelerador da solução de monitoramento remoto localmente
 
-Este artigo mostra como implantar o acelerador de solução de monitoramento remoto em seu computador local para teste e desenvolvimento. Essa abordagem implanta os microsserviços em um contêiner do Docker local e usa o Hub IoT, Cosmos DB e serviços de armazenamento do Azure na nuvem. Você usa os aceleradores de solução (PCS) CLI para implantar os serviços de nuvem do Azure.
+Este artigo mostra como implantar o acelerador de solução de Monitoramento Remoto no computador local para teste e desenvolvimento. Essa abordagem implanta os microsserviços em um contêiner do Docker local e usa o Hub IoT, Cosmos DB e serviços de armazenamento do Azure na nuvem. Você usa os aceleradores de solução (PCS) CLI para implantar os serviços de nuvem do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para implantar os serviços do Azure usados pelo acelerador de solução de monitoramento remoto, você precisará de uma assinatura ativa do Azure.
+Para implantar os serviços do Azure usados pelo acelerador de solução de Monitoramento Remoto, você precisará de uma assinatura ativa do Azure.
 
 Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -52,7 +49,7 @@ Para obter mais informações sobre a CLI, consulte [Como usar a CLI](https://gi
 
 ### <a name="download-the-source-code"></a>Fazer o download do código-fonte
 
- O repositório de código-fonte de monitoramento remoto inclui os arquivos de configuração do Docker que você precisa baixar, configurar e executar as imagens do Docker que contêm os microsserviços. Para clonar e criar uma versão local do repositório, navegue até uma pasta adequada em seu computador local por meio sua linha de comando ou terminal favorito e execute um dos seguintes comandos:
+ O repositório de código-fonte de Monitoramento Remoto inclui os arquivos de configuração do Docker dos quais você precisa para baixar, configurar e executar as imagens do Docker que contêm os microsserviços. Para clonar e criar uma versão local do repositório, navegue até uma pasta adequada em seu computador local por meio sua linha de comando ou terminal favorito e execute um dos seguintes comandos:
 
 Para instalar as implementações de Java dos microsserviços, execute:
 
@@ -119,13 +116,13 @@ Na primeira vez que você executar esse comando, o Docker baixa as imagens de mi
 
 Você pode usar um shell separado para exibir os logs do contêiner. Primeiro, encontre a ID de contêiner usando o comando `docker ps -a`. Em seguida, use `docker logs {container-id} --tail 1000` para exibir as últimas entradas de log de 1000 para o contêiner especificado.
 
-Para acessar o painel de solução de monitoramento remoto, navegue até [http://localhost:8080](http://localhost:8080) em seu navegador.
+Para acessar o painel da solução de Monitoramento Remoto, navegue até [http://localhost:8080](http://localhost:8080) em seu navegador.
 
 ## <a name="clean-up"></a>Limpar
 
 Para evitar encargos desnecessários, quando você terminar o teste, remova os serviços de nuvem de sua assinatura do Azure. A maneira mais fácil de remover os serviços é navegar até o [portal do Azure](https://ms.portal.azure.com) e excluir o grupo de recursos criado pela ferramenta `pcs`.
 
-Use o comando `docker-compose down --rmi all` para remover as imagens do Docker e liberar espaço no seu computador local. Você também pode excluir a cópia local do repositório de monitoramento remoto criado quando você clonou o código-fonte do GitHub.
+Use o comando `docker-compose down --rmi all` para remover as imagens do Docker e liberar espaço no seu computador local. Você também pode excluir a cópia local do repositório de Monitoramento Remoto criada quando você clonou o código-fonte do GitHub.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -137,6 +134,6 @@ Neste tutorial, você aprendeu como:
 > * Implantar o acelerador de solução
 > * Entrar no acelerador de solução
 
-Agora que você implantou a solução de monitoramento remoto, a próxima etapa será [explorar os recursos do painel da solução](iot-accelerators-remote-monitoring-deploy.md).
+Agora que você implantou a solução de Monitoramento Remoto, a próxima etapa será [explorar os recursos do painel da solução](quickstart-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

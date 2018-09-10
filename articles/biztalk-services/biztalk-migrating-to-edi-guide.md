@@ -1,26 +1,23 @@
 ---
-title: "Migrando as soluções EDI do BizTalk Server para os Serviços BizTalk: guia técnico | Microsoft Docs"
-description: "Migrar EDI para MABS; Serviços BizTalk do Microsoft Azure"
+title: Migrar Soluções de EDI do BizTalk Server para Serviços BizTalk | Microsoft Docs
+description: Saiba como é possível migrar as soluções de EDI do Microsoft BizTalk Server para MABS (Serviços BizTalk do Microsoft Azure)
 services: biztalk-services
-documentationcenter: na
-author: MandiOhlinger
-manager: anneta
-editor: 
-ms.assetid: 61c179fa-3f37-495b-8016-dee7474fd3a6
 ms.service: biztalk-services
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jonfancey
+ms.author: jonfan
+manager: jeconnoc
 ms.topic: article
-ms.date: 11/07/2016
-ms.author: mandia
-ms.openlocfilehash: 1b70fc3d199d7f1521acb534dafec8fb3e69500e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 07/31/2018
+ms.reviewer: jonfan, LADocs
+ms.suite: integration
+ms.openlocfilehash: 4ce65f1b5dd22da031ebf6730b5efad2d04f91a0
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365580"
 ---
-# <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migrando as soluções EDI do BizTalk Server aos Serviços BizTalk: guia técnico
+# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migrar soluções de EDI do BizTalk Server para Serviços BizTalk: Guia Técnico
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -31,9 +28,9 @@ Revisores: Karthik Bharthy
 Escrito usando: Serviços BizTalk do Microsoft Azure – versão de fevereiro de 2014.
 
 ## <a name="introduction"></a>Introdução
-O intercâmbio de dados eletrônico (EDI) é um dos meios mais utilizados por empresas para trocar dados eletronicamente, também conhecido como transações Business-to-Business ou B2B. BizTalk Server teve suporte a EDI por mais de uma década, desde a versão inicial do BizTalk Server. Com os Serviços BizTalk, a Microsoft continua o suporte às soluções EDI na plataforma Microsoft Azure. As transações B2B são em grande parte externas à organização e, portanto, sua implementação é mais fácil do que se fossem implementadas em uma plataforma de nuvem. O Microsoft Azure fornece essa funcionalidade por meio de Serviços BizTalk.
+O intercâmbio de dados eletrônico (EDI) é um dos meios mais utilizados por empresas para trocar dados eletronicamente, também conhecido como transações Business-to-Business ou B2B. O BizTalk Server teve suporte para EDI há mais de uma década, desde o lançamento inicial do BizTalk Server. Com os Serviços BizTalk, a Microsoft continua o suporte às soluções EDI na plataforma Microsoft Azure. As transações B2B são em grande parte externas à organização e, portanto, sua implementação é mais fácil do que se fossem implementadas em uma plataforma de nuvem. O Microsoft Azure fornece essa funcionalidade por meio de Serviços BizTalk.
 
-Embora alguns clientes considerem os Serviços BizTalk como uma plataforma de "ambiente intacto" para novas soluções EDI, vários clientes têm soluções EDI do BizTalk Server atuais que desejam migrar para o Azure. Como o EDI dos Serviços BizTalk foi desenvolvido com base nas mesmas entidades chaves da arquitetura do EDI do BizTalk Server (parceiros comerciais, entidades, acordos), é possível migrar artefatos EDI do BizTalk Server para os serviços BizTalk.
+Embora alguns clientes considerem o BizTalk Services uma plataforma de "ambiente intacto" para novas soluções de EDI, muitos clientes têm soluções EDI atuais do BizTalk Server que podem migrar para o Azure. Como o EDI dos Serviços BizTalk foi desenvolvido com base nas mesmas entidades chaves da arquitetura do EDI do BizTalk Server (parceiros comerciais, entidades, acordos), é possível migrar artefatos EDI do BizTalk Server para os serviços BizTalk.
 
 Este documento discute algumas das diferenças envolvidas na migração de artefatos do EDI do BizTalk Server aos Serviços BizTalk. Este documento presume um conhecimento prático do processamento de EDI do BizTalk Server e dos acordos entre parceiros comerciais. Para obter mais informações sobre o EDI do BizTalk Server, consulte [Gerenciamento de parceiros comerciais usando o BizTalk Server](https://msdn.microsoft.com/library/bb259970.aspx).
 
@@ -75,7 +72,7 @@ No EDI do BizTalk Server, pipelines são entidades de processamento de mensagem 
 
 Você pode inserir um fluxo de publicação/assinatura com código personalizado e/ou usar Filas e Tópicos de mensagem do Barramento de Serviço antes que o acordo entre parceiros comerciais receba a mensagem ou depois do contrato processar a mensagem e encaminhá-la para um ponto de extremidade do Barramento de Serviço.
 
-Consulte **Cenários/Fluxo de Mensagens** neste tópico para obter o padrão do fluxo de mensagens.
+Consulte **Cenários/Fluxo de Mensagens** neste artigo para obter o padrão do fluxo de mensagens.
 
 ## <a name="agreements"></a>Contratos
 Se você estiver familiarizado com os acordos entre parceiros comerciais do BizTalk Server 2010 usados para processamento de EDI, os acordos entre parceiros comerciais dos Serviços BizTalk são bastante familiares. A maioria das configurações de acordo é igual e usa a mesma terminologia. Em alguns casos, as configurações dos acordos são muito mais simples em comparação com as mesmas configurações no BizTalk Server. Os Serviços BizTalk do Microsoft Azure dão suporte ao transporte X12, EDIFACT e AS2.
@@ -103,7 +100,7 @@ Você também pode examinar uma amostra por Sandro Pereira, MVP do BizTalk, sobr
 ## <a name="orchestrations"></a>Orquestrações
 Se você precisar migrar o processamento de orquestração do BizTalk Server para o Microsoft Azure, as orquestrações precisariam ser regravadas porque o Microsoft Azure não oferece suporte à execução de orquestrações do BizTalk Server.  Você poderia reescrever a funcionalidade de orquestração em um serviço do Windows Workflow Foundation 4.0 (WF4).  Isso seria uma regravação completa, pois não há nenhuma migração de orquestrações do BizTalk Server para o WF4 atualmente. Aqui estão alguns recursos do Windows Workflow:
 
-* [*Como integrar um Serviço do Fluxo de Trabalho do WCF com Tópicos e Filas do Barramento de Serviço*](https://msdn.microsoft.com/library/azure/hh709041.aspx) de Paolo Salvatori. 
+* [*Como integrar um Serviço do Fluxo de Trabalho do WCF com Tópicos e Filas do Barramento de Serviço*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) de Paolo Salvatori. 
 * [*Sessão* Criando aplicativos com o Windows Workflow Foundation e o Azure](http://go.microsoft.com/fwlink/p/?LinkId=237314) da conferência Build 2011.
 * [*Centro de Desenvolvedores do Windows Workflow Foundation*](http://go.microsoft.com/fwlink/p/?LinkId=237315) no MSDN.
 * [*Documentação do Windows Workflow Foundation 4 (WF4)*](https://msdn.microsoft.com/library/dd489441.aspx) no MSDN.
@@ -117,10 +114,7 @@ O processamento de EDI do BizTalk Server tem o conceito de "Acordos de Fallback"
 ### <a name="routing-to-multiple-destinations"></a>Roteamento para vários destinos
 As pontes dos Serviços BizTalk, em seu estado atual, não oferecem suporte para rotear mensagens para vários destinos usando um modelo de publicação-assinatura. Em vez disso, você pode rotear as mensagens de uma ponte dos Serviços BizTalk para um tópico do Barramento de Serviço, que pode ter várias assinaturas para receber a mensagem em mais de um ponto de extremidade.
 
-## <a name="conclusion"></a>Conclusão
-Os Serviços BizTalk do Microsoft Azure são atualizados em etapas regulares para adicionar mais recursos e capacidades. Com cada atualização, buscamos oferecer suporte a mais funcionalidades para facilitar a criação de soluções de ponta a ponta usando os Serviços BizTalk e outras tecnologias do Azure.
-
-## <a name="see-also"></a>Consulte também
-[Desenvolvimento de aplicativos empresariais com o Azure](https://msdn.microsoft.com/library/azure/hh674490.aspx)
+## <a name="see-also"></a>Veja também
+[Soluções de LOB no Azure](https://azure.microsoft.com/solutions/lob-applications)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png

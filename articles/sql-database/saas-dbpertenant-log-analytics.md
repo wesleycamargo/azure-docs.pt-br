@@ -7,16 +7,16 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 02c380c78fa773b56a3c8b666e890836a3d8e54b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3ca2f811ff0ac81ea70ec0b22d7429cdc5604171
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942045"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420175"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configurar e usar o Log Analytics com um aplicativo SaaS multilocatário do Banco de Dados SQL
 
@@ -46,13 +46,13 @@ Os espaços de trabalho e as soluções de análise do Log Analytics abrem no Po
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Criar dados de diagnóstico de desempenho simulando uma carga de trabalho em seus locatários 
 
 1. No ISE do PowerShell, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Módulos de Aprendizado\\Gerenciamento e Monitoramento do desempenho\\Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha esse script aberto, pois você talvez queira executar vários dos cenários de geração de carga durante este tutorial.
-2. Se você já não fez isso, provisione um lote de locatários para tornar o contexto de monitoramento mais interessante. Esse processo leva alguns minutos.
+1. Se você já não fez isso, provisione um lote de locatários para tornar o contexto de monitoramento mais interessante. Esse processo leva alguns minutos.
 
    a. Defina **$DemoScenario = 1,** _Provisionar um lote de locatários_.
 
    b. Para executar o script e implantar mais 17 locatários, pressione F5.
 
-3. Agora, inicie o gerador de carga para executar uma carga simulada em todos os locatários.
+1. Agora, inicie o gerador de carga para executar uma carga simulada em todos os locatários.
 
     a. Defina **$DemoScenario** = 2, _Gerar carga de intensidade normal (aproximadamente 30 DTU)_.
 
@@ -67,7 +67,7 @@ Os scripts e o código-fonte do aplicativo SaaS de banco de dados multilocatári
 O Log Analytics é um serviço separado que precisa ser configurado. O Log Analytics coleta dados de log, telemetria e métrica em um espaço de trabalho do Log Analytics. Assim como outros recursos no Azure, o espaço de trabalho do Log Analytics deve ser criado. O espaço de trabalho não precisa ser criado no mesmo grupo de recursos que os aplicativos que ele está monitorando. Mas isso geralmente faz mais sentido. Para o aplicativo Wingtip Tickets, use um único grupo de recursos para garantir que o espaço de trabalho seja excluído com o aplicativo.
 
 1. No ISE do PowerShell, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Módulos de Aprendizado\\Gerenciamento e Monitoramento do Desempenho\\Log Analytics\\Demo-LogAnalytics.ps1*.
-2. Para executar o script, pressione F5.
+1. Para executar o script, pressione F5.
 
 Agora você pode abrir o Log Analytics no portal do Azure ou no portal do Operations Management Suite. Leva alguns minutos para coletar a telemetria no espaço de trabalho do Log Analytics e para torná-la visível. Quanto mais tempo você deixa o sistema coletando dados, mais interessante é a experiência. 
 
@@ -80,38 +80,38 @@ Neste exercício, abra o Log Analytics e o portal do Operations Management Suite
 
    ![Abrir Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-2. Selecione o espaço de trabalho chamado _wtploganalytics-&lt;user&gt;_.
+1. Selecione o espaço de trabalho chamado _wtploganalytics-&lt;user&gt;_.
 
-3. Selecione **Visão geral** para abrir a solução Log Analytics no Portal do Azure.
+1. Selecione **Visão geral** para abrir a solução Log Analytics no Portal do Azure.
 
    ![Visão geral](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
     > Pode demorar alguns minutos até que a solução esteja ativa. 
 
-4. Selecione o bloco **Análise de SQL do Azure** para abri-lo.
+1. Selecione o bloco **Análise de SQL do Azure** para abri-lo.
 
     ![Bloco Visão Geral](media/saas-dbpertenant-log-analytics/overview.png)
 
-5. Os modos de exibição na solução rolam lateralmente, com sua própria barra de rolagem interna na parte inferior. Se necessário, atualize a página.
+1. Os modos de exibição na solução rolam lateralmente, com sua própria barra de rolagem interna na parte inferior. Se necessário, atualize a página.
 
-6. Para explorar a página de resumo, selecione os blocos ou bancos de dados individuais para abrir um gerenciador de detalhes.
+1. Para explorar a página de resumo, selecione os blocos ou bancos de dados individuais para abrir um gerenciador de detalhes.
 
     ![Painel do Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-7. Altere a configuração de filtro para modificar o intervalo de tempo. Para este tutorial, selecione **Última 1 hora**.
+1. Altere a configuração de filtro para modificar o intervalo de tempo. Para este tutorial, selecione **Última 1 hora**.
 
     ![Filtro de tempo](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-8. Selecione um único banco de dados para explorar o uso de consulta e a métrica para esse banco de dados.
+1. Selecione um único banco de dados para explorar o uso de consulta e a métrica para esse banco de dados.
 
     ![Análise de banco de dados](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 
-9. Para ver a métrica de uso, role a página de análise para a direita.
+1. Para ver a métrica de uso, role a página de análise para a direita.
  
      ![Métrica de banco de dados](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-10. Role a página de análise para a esquerda e selecione o bloco do servidor na lista **Informações do Recurso**.  
+1. Role a página de análise para a esquerda e selecione o bloco do servidor na lista **Informações do Recurso**.  
 
     ![Lista de Informações do Recursos](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
@@ -119,12 +119,12 @@ Neste exercício, abra o Log Analytics e o portal do Operations Management Suite
 
     ![Servidor com pools e bancos de dados](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
 
-11. Selecione um pool. Na página do pool que é aberta, role para a direita a fim de ver as métricas do pool. 
+1. Selecione um pool. Na página do pool que é aberta, role para a direita a fim de ver as métricas do pool. 
 
     ![Métricas do pool](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-12. Voltando para o espaço de trabalho do Log Analytics, selecione **Portal do OMS** para abrir o espaço de trabalho nele.
+1. Voltando para o espaço de trabalho do Log Analytics, selecione **Portal do OMS** para abrir o espaço de trabalho nele.
 
     ![Bloco Portal do Operations Management Suite](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 

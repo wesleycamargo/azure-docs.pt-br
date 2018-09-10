@@ -1,24 +1,20 @@
 ---
-title: Analisar logs de sites com bibliotecas de Python no Spark – Azure | Microsoft Docs
+title: Analisar logs de sites com bibliotecas de Python no Spark – Azure
 description: Este notebook demonstra como analisar dados de log usando uma biblioteca personalizada com o Spark no Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 8c61c70f-fe7f-4f0f-a4ab-0cccee5668c9
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: jgao
-ms.openlocfilehash: 00940d4eb438fceb683eca8663d0d23f53ff7ff3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: a22e1f90c01b6b0e871516816815286a4f6671a2
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045709"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Analisar logs do site usando uma biblioteca personalizada do Python com cluster Spark no HDInsight
 

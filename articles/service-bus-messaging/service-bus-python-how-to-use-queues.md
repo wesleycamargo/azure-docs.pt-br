@@ -3,7 +3,7 @@ title: Como usar as filas de Barramento de Serviço do Azure com Python | Micros
 description: Saiba como usar as filas do barramento de serviço do Azure do Python.
 services: service-bus-messaging
 documentationcenter: python
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: aa0f243f4a5bc3d84c580b950bcf0ed7a78362e7
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: spelluru
+ms.openlocfilehash: afc310ce4dd373b632f183245ab427a3a65a0af6
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696761"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Como usar filas do Barramento de Serviço com Python
 

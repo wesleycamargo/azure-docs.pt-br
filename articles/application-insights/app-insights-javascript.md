@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: c3c5a3029916b91b65a5bd0f6efa5c83f5dfcb66
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 70269fc71fcb2ef9158b50d3bb281097abee0740
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992044"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 Saiba mais sobre o desempenho e o uso de sua página da Web ou aplicativo. Se adicionar o [Application Insights](app-insights-overview.md) ao script de página, você obterá intervalos de carregamentos de página e chamadas AJAX, contagens e detalhes de exceções de navegador e falhas de AJAX, bem como contagens de usuários e sessões. Todos esses itens podem ser segmentados por página, sistema operacional cliente e versão do navegador, localização geográfica e outras dimensões. Você pode definir alertas para contagens de falhas ou carregamento de páginas lento. E inserindo chamadas de rastreamento em seu código JavaScript, você pode controlar como os diferentes recursos do seu aplicativo de página da Web são usados.
@@ -56,7 +57,7 @@ Em Início Rápido, obtenha o script para páginas da Web:
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -126,7 +127,7 @@ Abra a folha Navegador para exibir dados de desempenho agregados dos navegadores
 
 ![Em portal.azure.com, abra o recurso do aplicativo e clique em Configurações, Navegador](./media/app-insights-javascript/03.png)
 
-*Não há dados ainda? Clique em **Atualizar** na parte superior da página. Nada mesmo assim? Consulte [Solução de problemas](app-insights-troubleshoot-faq.md).*
+Nenhum dado ainda? Clique em **Atualizar** na parte superior da página. Nada mesmo assim? Consulte [Solucionar problemas](app-insights-troubleshoot-faq.md).
 
 A folha Navegadores é uma [folha do Metrics Explorer](app-insights-metrics-explorer.md) com filtros predefinidos e opções de gráfico. Você poderá editar o intervalo de tempo, os filtros e a configuração do gráfico, se desejar, e salvar o resultado como um favorito. Clique em **Restaurar padrões** para voltar para a configuração original da folha.
 
@@ -235,7 +236,7 @@ O nome da página pode conter os mesmos caracteres da URL, mas nada após o "#" 
 ## <a name="usage-tracking"></a>Acompanhamento de uso
 Quer saber o que os usuários fazem com seu aplicativo?
 
-* [Saiba mais sobre acompanhamento de uso](app-insights-web-track-usage.md)
+* [Conheça as ferramentas de análise de comportamento do usuário](app-insights-web-track-usage.md)
 * [Saiba mais sobre os eventos e as métricas personalizados de API](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Vídeo

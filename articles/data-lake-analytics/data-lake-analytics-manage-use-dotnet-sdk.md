@@ -1,29 +1,25 @@
 ---
-title: Gerenciar o Azure Data Lake Analytics usando o SDK do .NET do Azure | Microsoft Docs
-description: "Saiba como gerenciar trabalhos, fontes de dados e usuários da Análise Data Lake. "
+title: Gerenciar o Azure Data Lake Analytics usando o SDK do .NET do Azure
+description: Este artigo descreve como usar o SDK do .Net do Azure para escrever aplicativos que gerenciam fontes de dados, trabalhos e usuários do Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: 
 author: saveenr
-manager: saveenr
-editor: cgronlun
+ms.author: saveenr
+ms.reviewer: jasonwhowell
 ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 06/18/2017
-ms.author: saveenr
-ms.openlocfilehash: 0f8a95f96ce4c816dfb9132923faa9a9bf20c205
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96b449e372417298ee3517d6a45c245d440a01c2
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047384"
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-net-sdk"></a>Gerenciar o Azure Data Lake Analytics usando o SDK do .NET do Azure
+# <a name="manage-azure-data-lake-analytics-a-net-app"></a>Gerenciar o Azure Data Lake Analytics usando um aplicativo .NET
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Saiba como gerenciar contas, fontes de dados, usuários e trabalhos do Azure Data Lake Analytics usando o SDK do .NET do Azure. 
+Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalhos do Azure Data Lake Analytics usando um aplicativo codificado com o SDK do .NET do Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -288,6 +284,8 @@ using (var memstream = new MemoryStream())
    {
       sw.WriteLine("Hello World");
       sw.Flush();
+      
+      memstream.Position = 0;
 
       adlsFileSystemClient.FileSystem.Create(adls, "/Samples/Output/randombytes.csv", memstream);
    }
@@ -333,22 +331,27 @@ IEnumerable<USqlTableColumn> columns = tbl.ColumnList;
 
 foreach (USqlTableColumn utc in columns)
 {
-  string scriptPath = "/Samples/Scripts/SearchResults_Wikipedia_Script.txt";
-  Stream scriptStrm = adlsFileSystemClient.FileSystem.Open(_adlsAccountName, scriptPath);
-  string scriptTxt = string.Empty;
-  using (StreamReader sr = new StreamReader(scriptStrm))
-  {
-      scriptTxt = sr.ReadToEnd();
-  }
-
-  var jobName = "SR_Wikipedia";
-  var jobId = Guid.NewGuid();
-  var properties = new USqlJobProperties(scriptTxt);
-  var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1, degreeOfParallelism: 1, jobId: jobId);
-  var jobInfo = adlaJobClient.Job.Create(adla, jobId, parameters);
-  Console.WriteLine($"Job {jobName} submitted.");
-
+  Console.WriteLine($"\t{utc.Name}");
 }
+```
+
+### <a name="submit-a-u-sql-job"></a>Enviar um trabalho do U-SQL
+O código a seguir mostra como usar um cliente de gerenciamento de trabalho do Data Lake Analytics para enviar um trabalho.
+``` csharp
+string scriptPath = "/Samples/Scripts/SearchResults_Wikipedia_Script.txt";
+Stream scriptStrm = adlsFileSystemClient.FileSystem.Open(_adlsAccountName, scriptPath);
+string scriptTxt = string.Empty;
+using (StreamReader sr = new StreamReader(scriptStrm))
+{
+    scriptTxt = sr.ReadToEnd();
+}
+
+var jobName = "SR_Wikipedia";
+var jobId = Guid.NewGuid();
+var properties = new USqlJobProperties(scriptTxt);
+var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1, degreeOfParallelism: 1, jobId: jobId);
+var jobInfo = adlaJobClient.Job.Create(adla, jobId, parameters);
+Console.WriteLine($"Job {jobName} submitted.");
 ```
 
 ### <a name="list-failed-jobs"></a>Listar trabalhos com falha
@@ -385,7 +388,7 @@ foreach (var r in recurrences)
 }
 ```
 
-## <a name="common-graph-scenarios"></a>Cenários comuns de gráfico
+## <a name="common-graph-scenarios"></a>Cenários comuns de grafo
 
 ### <a name="look-up-user-in-the-aad-directory"></a>Pesquisar o usuário no diretório do AAD
 

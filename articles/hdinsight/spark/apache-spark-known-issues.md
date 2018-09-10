@@ -1,24 +1,20 @@
 ---
-title: Solucionar problemas com o cluster Apache Spark no Azure HDInsight | Microsoft Docs
+title: Solucionar problemas com o cluster Apache Spark no Azure HDInsight
 description: Saiba mais sobre problemas relacionados aos clusters Apache Spark no Azure HDInsight e como solucioná-los.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 664c97117de793209007843fa23c98f52c2b079d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 92baa28393100abe3d7694920e5ee327966db927
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048301"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos do cluster do Apache Spark no HDInsight
 

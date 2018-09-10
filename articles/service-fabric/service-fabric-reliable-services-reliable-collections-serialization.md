@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
-ms.openlocfilehash: b02d8924749abb0e2fe815b555d55767bf1e5cc1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8fb6f1767741e950b300fd297250a6b64656191c
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952419"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objeto de Coleções Confiáveis no Azure Service Fabric
 As Coleções Confiáveis replicam e persistem seus itens para garantir que eles são duráveis durante falhas do computador e interrupções de energia.
@@ -54,7 +55,7 @@ O Gerenciador de Estado Confiável tem um serializador interno para os seguintes
 
 Os serializadores personalizados são geralmente usados para aumentar o desempenho ou criptografar os dados durante a transmissão e em disco. Entre outros motivos, de modo geral, os serializadores personalizados são mais eficientes do que os serializadores genéricos, já que eles não precisam serializar informações sobre o tipo. 
 
-[IReliableStateManager.TryAddStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) é usado para registrar um serializador personalizado para o tipo T especificado. Esse registro deve ser feito na construção da StatefulServiceBase para garantir que, antes do início da recuperação, todas as Coleções Confiáveis têm acesso ao serializador relevante para ler seus dados persistentes.
+[IReliableStateManager.TryAddStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) é usado para registrar um serializador personalizado para o tipo T especificado. Esse registro deve ser feito na construção da StatefulServiceBase para garantir que, antes do início da recuperação, todas as Coleções Confiáveis têm acesso ao serializador relevante para ler seus dados persistentes.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)

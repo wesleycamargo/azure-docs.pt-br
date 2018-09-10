@@ -15,11 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92089904941ae913f1992a4407083bfcae010f2d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a07a17105b4d84b51689e9636cfacc7a3b5428ad
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528020"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Projetar e criar uma solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
@@ -76,7 +77,7 @@ Enquanto você estiver desenvolvendo sua solução, precisará instalar e testá
 Depois de concluir e testar sua solução, disponibilize-a para clientes usando as seguintes fontes.
 
 - **Modelos de Início Rápido do Azure**.  [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/) é um conjunto de modelos do Resource Manager que contribuem para a comunidade por meio do GitHub.  Você pode disponibilizar sua solução seguindo as informações no [guia de contribuição](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
-- **Azure Marketplace**.  O [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) permite distribuir e vender sua solução para outros desenvolvedores, ISVs e profissionais de TI.  Aprenda a publicar sua solução no Azure Marketplace em [Como publicar e gerenciar uma oferta no Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
+- **Azure Marketplace**.  O [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) permite distribuir e vender sua solução para outros desenvolvedores, ISVs e profissionais de TI.  Aprenda a publicar sua solução no Azure Marketplace em [Como publicar e gerenciar uma oferta no Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
 
 
 

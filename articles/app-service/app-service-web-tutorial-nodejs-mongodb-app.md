@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 8fdad8d8e62365c33b47e67b483c929aaab0083e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7a3e91e8f928f6e7e2df7a26f52bd44b3b3a81b2
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618947"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Tutorial: compilar um aplicativo Web Node.js e MongoDB no Azure
 
@@ -43,7 +44,7 @@ O que você aprenderá:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -131,7 +132,11 @@ Para o MongoDB, este tutorial usa o [BD Cosmos do Azure](/azure/documentdb/). O 
 
 ### <a name="create-a-cosmos-db-account"></a>Criar uma conta do BD Cosmos
 
-No Cloud Shell, crie uma conta do Cosmos DB com o comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create).
+> [!NOTE]
+> Há um custo para criar os bancos de dados do Azure Cosmos DB deste tutorial em sua própria assinatura do Azure. Para usar uma conta gratuita do Azure Cosmos DB por sete dias, você pode usar a experiência [Experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/en-us/try/cosmosdb/) experiência. Basta clicar no botão **Criar** no bloco do MongoDB para criar um banco de dados gratuito do MongoDB no Azure. Quando o banco de dados é criado, navegue até **Cadeia de Conexão** no portal e recupere a cadeia de conexão do Azure Cosmos DB para usá-la posteriormente no tutorial.
+>
+
+No Cloud Shell, crie uma conta do Cosmos DB com o comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
 No comando a seguir, substitua um nome do Cosmos DB exclusivo quando vir o espaço reservado *\<cosmosdb_name>*. Esse nome exclusivo é usado como parte do seu ponto de extremidade do Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, portanto, o nome precisa ser exclusivo em todas as contas do Cosmos DB no Azure. O nome deve conter somente letras minúsculas, números e o caractere hífen (-), e deve ter entre 3 e 50 caracteres.
 
@@ -165,7 +170,7 @@ Nesta etapa, você conecta o aplicativo de exemplo MEAN.js ao BD Cosmos que acab
 
 ### <a name="retrieve-the-database-key"></a>Recuperar a chave do banco de dados
 
-Para se conectar ao BD Cosmos, você precisa da chave do banco de dados. No Cloud Shell, use o comando [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) para recuperar a chave primária.
+Para se conectar ao BD Cosmos, você precisa da chave do banco de dados. No Cloud Shell, use o comando [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) para recuperar a chave primária.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -262,7 +267,7 @@ Nessa etapa, você implanta seu aplicativo Node.js conectado ao MongoDB no Servi
 
 Por padrão, o projeto MEAN.js mantém _config/env/local-production.js_ fora do repositório Git. Portanto, para seu aplicativo Web do Azure, use as configurações de aplicativo para definir a cadeia de conexão do MongoDB.
 
-Para definir as configurações do aplicativo, use o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) no Cloud Shell. 
+Para definir as configurações do aplicativo, use o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. 
 
 O exemplo a seguir permite definir uma configuração de aplicativo `MONGODB_URI` no seu aplicativo Web do Azure. Substitua os espaços reservados  *\<app_name >*,  *\<cosmosdb_name >* e  *\<primary_master_key >*.
 
@@ -466,7 +471,7 @@ Se você adicionou artigos anteriores, ainda será possível vê-los. Dados exis
 
 Enquanto o aplicativo Node.js é executado no Serviço de Aplicativo do Azure, você pode obter logs do console transferidos para o seu terminal. Dessa forma, é possível obter as mesmas mensagens de diagnóstico para ajudá-lo a depurar erros de aplicativo.
 
-Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) no Cloud Shell.
+Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) no Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

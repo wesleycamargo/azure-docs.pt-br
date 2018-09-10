@@ -1,24 +1,20 @@
 ---
-title: Enviar trabalhos do Hadoop no HDInsight | Microsoft Docs
+title: Enviar trabalhos Hadoop no HDInsight
 description: Saiba como enviar trabalhos Hadoop no Azure HDInsight.
-editor: cgronlun
-manager: jhubbard
+ms.reviewer: jasonh
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 50430b96-2329-4775-9713-19c5795b775f
+ms.author: jasonh
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 2263201b0caf543db7167294f346863d7dcbf383
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 19f81e3ba5ecf928020e1527374b5c46299fbd21
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051752"
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>Enviar trabalhos Hadoop no HDInsight
 

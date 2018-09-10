@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805294"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Como criar uma rede virtual clássica no portal do Azure
 Para criar uma VNet clássica com base no cenário anterior, siga estas etapas.

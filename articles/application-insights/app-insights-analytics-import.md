@@ -1,31 +1,34 @@
 ---
 title: Importar seus dados para o Analytics no Azure Application Insights | Microsoft Docs
-description: "Importe dados estáticos para unir a telemetria de aplicativo, ou importe um fluxo de dados separado para consultar com o Analytics."
+description: Importe dados estáticos para unir a telemetria de aplicativo, ou importe um fluxo de dados separado para consultar com o Analytics.
 services: application-insights
-keywords: "abrir o esquema, importação de dados"
-documentationcenter: 
+keywords: abrir o esquema, importação de dados
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2017
+ms.topic: conceptual
+ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 963e5cfd929f57b34dcb045df82b64f870e897e2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141204"
 ---
 # <a name="import-data-into-analytics"></a>Importar dados para o Analytics
 
 Importe quaisquer dados tabulares para o [Analytics](app-insights-analytics.md), seja para associá-los com a telemetria do [Application Insights](app-insights-overview.md) do seu aplicativo ou para que você possa analisá-los como um fluxo separado. O Analytics é uma poderosa linguagem de consulta ideal para analisar fluxos de telemetria de grande volume com carimbo de data e hora.
-
 Você pode importar dados para o Analytics usando seu próprio esquema. Ele não precisa usar os esquemas padrão do Application Insights, como solicitação ou rastreamento.
 
 Você pode importar arquivos JSON ou DSV (valores separados por delimitador - vírgula, ponto-e-vírgula ou tabulação).
+
+> [!IMPORTANT]
+> Este artigo foi **preterido**. O método recomendado de obtenção de dados para o Log Analytics é por meio da [API do coletor de dados do Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
 
 Há três situações em que a importação para o Analytics é útil:
 
@@ -115,15 +118,16 @@ Formato JSON
 ]
 ```
  
-Cada coluna é identificada pelo local, nome e tipo. 
+Cada coluna é identificada pelo local, nome e tipo.
 
 * Local - para o formato de arquivo delimitado, é a posição do valor mapeado. Para o formato JSON, é o jpath da chave mapeada.
 * Nome - o nome exibido da coluna.
 * Tipo - o tipo de dados dessa coluna.
  
-Caso alguns dados de exemplo tenham sido usados, e o formato de arquivo seja delimitado, a definição de esquema deverá mapear todas as colunas e adicionar novas colunas ao final. 
-
-O JSON permite o mapeamento parcial dos dados, portanto, a definição de esquema do formato JSON não precisa mapear todas as chaves que estão localizadas nos dados de exemplo. Também é possível mapear colunas que não fazem parte dos dados de exemplo. 
+> [!NOTE]
+> Caso alguns dados de exemplo tenham sido usados e o formato de arquivo seja delimitado, a definição de esquema deverá mapear todas as colunas e adicionar novas colunas ao final.
+> 
+> O JSON permite o mapeamento parcial dos dados, portanto, a definição de esquema com um formato JSON não precisa mapear todas as chaves localizadas nos dados de exemplo. Também é possível mapear colunas que não fazem parte dos dados de exemplo. 
 
 ## <a name="import-data"></a>Importar dados
 

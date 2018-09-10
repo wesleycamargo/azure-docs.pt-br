@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: b01df5d89784c9982ebbf2351ae61a5d9f79aee8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8cac3c8d3a1877ad7c93efc0954c2f07ecaa0a29
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359434"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42140180"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
-Para implantar sua solução, você pode usar um único modelo, ou um modelo principal com vários modelos relacionados. O modelo relacionado pode ser um arquivo separado que é vinculado a partir do modelo principal ou um modelo que está aninhado dentro do modelo principal.
+Para implantar sua solução, você pode usar um único modelo, ou um modelo principal com muitos modelos relacionados. O modelo relacionado pode ser um arquivo separado que é vinculado a partir do modelo principal ou um modelo que está aninhado dentro do modelo principal.
 
-Para pequenas e médias soluções, um único modelo é mais fácil de entender e manter. É possível ver todos os recursos e valores em um único arquivo. Para cenários avançados, modelos vinculados permitem dividir a solução em componentes desejados e reutilizar modelos.
+Para pequenas e médias soluções, um único modelo é mais fácil de entender e manter. Você pode ver todos os recursos e valores em um único arquivo. Para cenários avançados, modelos vinculados permitem dividir a solução em componentes desejados e reutilizar modelos.
 
 Ao usar o modelo vinculado, você criar um modelo principal que recebe os valores do parâmetro durante a implantação. O modelo principal contém todos os modelos vinculados e passa valores para esses modelos, conforme necessário.
 
@@ -48,6 +48,8 @@ Para vincular a outro modelo, adicione um recurso de **implantações** no seu m
 ```
 
 As propriedades que você fornece para o recurso de implantação variam com base em se você está vinculando a um modelo externo ou inserindo um modelo aninhado no modelo principal.
+
+Para os dois modelos vinculados e aninhados, você só pode usar modo de implantação [Incremental](deployment-modes.md). 
 
 ### <a name="nested-template"></a>Modelo aninhado
 
@@ -86,6 +88,8 @@ Para aninhar o modelo no modelo principal, use a propriedade **modelo** e especi
 >
 > Não é possível usar a função `reference` na seção de saídas de um modelo aninhado. Para retornar os valores de um recurso implantado em um modelo aninhado, converta seu modelo aninhado em um modelo vinculado.
 
+O modelo aninhado requer as [mesmas propriedades](resource-group-authoring-templates.md) como um modelo padrão.
+
 ### <a name="external-template-and-external-parameters"></a>Modelo externo e parâmetros externos
 
 Para vincular a um arquivo de parâmetro e o modelo externo, use **templateLink** e **parametersLink**. Ao vincular a um modelo, o do Gerenciador de Recursos deve ser capaz de acessá-lo. Você não pode especificar um arquivo local ou um arquivo que esteja disponível apenas em sua rede local. Você só pode fornecer um valor de URI que inclua **http** ou **https**. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item.
@@ -110,6 +114,8 @@ Para vincular a um arquivo de parâmetro e o modelo externo, use **templateLink*
   }
 ]
 ```
+
+Você não precisa fornecer a propriedade `contentVersion` para o modelo ou parâmetros. Se você não fornecer um valor de versão do conteúdo, a versão atual do modelo é implantada. Se você fornecer um valor para a versão do conteúdo, ele deve corresponder à versão do modelo vinculado; caso contrário, a implantação falhará com um erro.
 
 ### <a name="external-template-and-inline-parameters"></a>Modelo externo e parâmetros embutidos
 
@@ -149,7 +155,7 @@ O exemplo a seguir mostra como usar uma URL base para criar duas URLs para model
 }
 ```
 
-Você também pode usar [deployment()](resource-group-template-functions-deployment.md#deployment) para obter a URL base para o modelo atual e usá-lo para obter a URL para outros modelos no mesmo local. Essa abordagem será útil se o local do modelo é alterado (talvez devido a controle de versão) ou para evitar embutir URLs no arquivo de modelo. A propriedade templateLink só será retornada ao vincular a um modelo remoto com uma URL. Se você estiver usando um modelo local, essa propriedade não estará disponível.
+Você também pode usar [deployment()](resource-group-template-functions-deployment.md#deployment) para obter a URL base para o modelo atual e usá-lo para obter a URL para outros modelos no mesmo local. Essa abordagem será útil se o local do modelo é alterado ou para evitar embutir URLs no arquivo de modelo. A propriedade templateLink só será retornada ao vincular a um modelo remoto com uma URL. Se você estiver usando um modelo local, essa propriedade não estará disponível.
 
 ```json
 "variables": {

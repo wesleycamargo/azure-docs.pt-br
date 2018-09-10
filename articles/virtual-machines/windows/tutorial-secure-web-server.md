@@ -3,7 +3,7 @@ title: Tutorial – Proteger um servidor Web do Windows com certificados SSL no 
 description: Neste tutorial, você aprenderá a usar o Azure PowerShell para proteger uma máquina virtual do Windows que executa o servidor Web do IIS com certificados SSL armazenados no Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 76d1170f4696c4221233d2b3c1d358375adfe5c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e42f8f36acdaa5e84f4a3087cac7016867622c21
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338817"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Proteger um servidor Web em uma máquina virtual do Windows no Azure com certificados SSL armazenados no Key Vault
 
@@ -150,7 +151,7 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 
 
 ### <a name="test-the-secure-web-app"></a>Testar o aplicativo Web protegido
-Obtenha os endereços IP públicos da VM com [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). O exemplo a seguir obtém o endereço IP para `myPublicIP` criado anteriormente:
+Obtenha os endereços IP públicos da VM com [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress). O exemplo a seguir obtém o endereço IP para `myPublicIP` criado anteriormente:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"

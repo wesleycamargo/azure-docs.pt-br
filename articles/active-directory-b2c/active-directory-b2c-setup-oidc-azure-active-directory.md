@@ -1,25 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: adicionar um provedor do Azure AD usando políticas internas | Microsoft Docs'
-description: Saiba como adicionar um provedor de identidade Open ID Connect (Azure AD)
+title: Adicionar um provedor do Azure AD usando políticas internas no Azure Active Directory B2C | Microsoft Docs
+description: Saiba como adicionar um provedor de identidade do Open ID Connect (Azure AD).
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
-manager: krassk
-editor: parakhj
-ms.assetid: 7dac9545-d5f1-4136-a04d-1c5740aea499
-ms.service: active-directory-b2c
+author: davidmu1
+manager: mtillman
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: parja
-ms.openlocfilehash: 52a752df9cf199acf39596f49e7368bce27a8158
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: davidmu
+ms.component: B2C
+ms.openlocfilehash: e09ad89f3225af9de40781fafc022c8326f80619
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2018
-ms.locfileid: "32309011"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338631"
 ---
 # <a name="azure-active-directory-b2c-sign-in-using-azure-ad-accounts-through-a-built-in-policy"></a>Azure Active Directory B2C: entrar usando contas do Azure AD por meio de uma política interna
 
@@ -41,13 +37,13 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
 1. Selecione **Novo registro de aplicativo**.
 1. Insira um nome para seu aplicativo (por exemplo, `Azure AD B2C App`).
 1. Selecione **Aplicativo Web/API** como o tipo de aplicativo.
-1. Para a **URL de Logon**, insira a URL a seguir, em que `yourtenant` é substituído pelo nome do seu locatário do Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
+1. Para a **URL de Logon**, insira a URL a seguir, em que `yourtenant` é substituído pelo nome do seu locatário do Azure AD B2C (`fabrikamb2c`):
 
     >[!NOTE]
     >O valor de "yourtenant" deve estar todo em letras maiúsculas no **URL de Logon**.
 
     ```Console
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. Salvar a ID do aplicativo, que você usará na próxima seção como a ID do cliente.

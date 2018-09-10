@@ -1,19 +1,19 @@
 ---
 title: Conectar um aplicativo cliente Node.js genérico ao Azure IoT Central | Microsoft Docs
 description: Como um desenvolvedor de dispositivos, saiba como conectar um dispositivo Node.js genérico ao aplicativo Azure IoT Central.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 8666a2db051cbd4a93c3e587aeaef3e1722b1b83
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199588"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206030"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conectar um aplicativo cliente genérico ao aplicativo Azure IoT Central (Node.js)
 
@@ -26,6 +26,8 @@ Para concluir as etapas neste artigo, você precisa do seguinte:
 1. Um aplicativo Azure IoT Central. Para obter mais informações, consulte [Criar o aplicativo Azure IoT Central](howto-create-application.md).
 1. Um computador de desenvolvimento com [Node.js](https://nodejs.org/) versão 4.0.0 ou posterior instalado. É possível executar `node --version` na linha de comando para verificar a versão. O Node.js está disponível para uma ampla variedade de sistemas operacionais.
 
+## <a name="create-a-device-template"></a>Criar um modelo de dispositivo
+
 No aplicativo Azure IoT Central, é necessário ter um modelo de dispositivo com as medidas e propriedades do dispositivo definidas a seguir:
 
 ### <a name="telemetry-measurements"></a>Medidas de telemetria
@@ -36,7 +38,7 @@ Adicione a telemetria a seguir na página **Medidas**:
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Temperatura  | temperatura | F     | 60  | 110 | 0              |
 | Umidade     | umidade    | %     | 0   | 100 | 0              |
-| Pressão     | pressure    | kPa   | 80  | 110 | 0              |
+| Pressão     | pressão    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
   O tipo de dados da medida de telemetria é duplo.
@@ -49,7 +51,7 @@ Adicione o estado a seguir na página **Medidas**:
 
 | Nome de exibição | Nome do campo  | Valor 1 | Nome de exibição | Valor 2 | Nome de exibição |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| Modo da ventoinha     | fanmode     | 1       | Executando      | 0       | Parado      |
+| Modo ventilação     | fanmode     | 1       | Executando      | 0       | Parado      |
 
 > [!NOTE]
   O tipo de dados da medida de Estado é cadeia de caracteres.
@@ -89,11 +91,11 @@ Adicione as configurações de **número** a seguir na **página de configuraç�
 
 Insira o nome de campo exatamente conforme mostrado na tabela no modelo de dispositivo. Se os nomes de campo não corresponderem, o dispositivo não poderá receber o valor de configuração.
 
-### <a name="add-a-real-device"></a>Adicionar um dispositivo real
+## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
 No aplicativo Azure IoT Central, adicione um dispositivo real ao modelo de dispositivo criado e anote a cadeia de conexão do dispositivo. Para obter mais informações, consulte [Adicionar um dispositivo real ao aplicativo Azure IoT Central](tutorial-add-device.md)
 
-## <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
+### <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
 
 As etapas a seguir mostram como criar um aplicativo cliente que implementa o dispositivo real que você adicionou ao aplicativo.
 

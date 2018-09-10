@@ -1,12 +1,12 @@
 ---
-title: "Sincronização do Azure AD Connect: alterando a senha da conta do AD DS | Microsoft Docs"
-description: "Este documento de tópico descreve como atualizar o Azure AD Connect depois que a senha da conta do AD DS é alterada."
+title: 'Sincronização do Azure AD Connect: alterando a senha da conta do AD DS | Microsoft Docs'
+description: Este documento de tópico descreve como atualizar o Azure AD Connect depois que a senha da conta do AD DS é alterada.
 services: active-directory
 keywords: Conta do AD DS, conta do Active Directory, senha
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5bc296b594917f68f35d7d15653b7b0c60cde514
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: a4d0d062b28b03de7f1e606202dddae28bf6a2f3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592452"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Alterando a senha da conta do AD DS
 A conta do AD DS refere-se à conta de usuário usada pelo Azure AD Connect para se comunicar com o Active Directory local. Se você alterar a senha da conta do AD DS, será necessário atualizar o Azure AD Connect Synchronization Service com a nova senha. Caso contrário, o serviço não poderá mais sincronizar corretamente com o Active Directory local e você encontrará os seguintes erros:

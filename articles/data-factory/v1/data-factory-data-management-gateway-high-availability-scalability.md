@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d04500e770bf43278b88c2f980a10693590c7d16
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 58f612906af55575e9d42307af924ea0a8501ca1
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142015"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade (versão prévia)
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se estiver usando a versão 2 do serviço Data Factory, que está em versão prévia, consulte [tempo de execução de integração auto-hospedado na versão 2](../create-self-hosted-integration-runtime.md). 
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver usando a versão atual do serviço do Data Factory, consulte [IR auto-hospedado na](../create-self-hosted-integration-runtime.md). 
 
 
 Este artigo ajudará a configurar a solução de alta disponibilidade e escalabilidade com o Gateway/Integração de Gerenciamento de Dados.    
@@ -112,7 +113,7 @@ Esta seção pressupõe que você percorreu os dois artigos a seguir ou está fa
         ![Página inicial da data factory](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
     2. Selecione o **gateway** para ver a página **Gateway**:
     
-        ![Página inicial da data factory](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
+        ![Página inicial do data factory](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
     4. Você vê a página **Gateway**:   
 
         ![Gateway com exibição de nó único](media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png) 
@@ -164,11 +165,11 @@ Aqui estão os requisitos para o certificado TLS/SSL usado para proteger as comu
 - O certificado deve ser um certificado X509 v3 publicamente confiável. É recomendável que você use certificados emitidos por uma AC (autoridade de certificação) pública (de terceiros).
 - Cada nó de tempo de execução de integração deve confiar nesse certificado, bem como no computador cliente que está executando o aplicativo do gerenciador de credenciais. 
 > [!NOTE]
-> O aplicativo do gerenciador de credenciais é usado durante a configuração segura da credencial do Assistente para Cópia/Portal do Azure. E isso pode ser acionados de qualquer computador na mesma rede que o armazenamento de dados local/privado.
+> O aplicativo do gerenciador de credenciais é usado durante a configuração segura da credencial do Assistente para Cópia/Portal do Azure. E isso pode ser disparado de qualquer computador na mesma rede que o armazenamento de dados local/privado.
 - Há suporte para certificados curinga. Se o nome FQDN for **node1.domain.contoso.com**, você poderá usar ***.domain.contoso.com** como nome da entidade do certificado.
 - Certificados SAN não são recomendados, já que apenas o último item dos Nomes Alternativos de Entidade será usado e todos os outros serão ignorados devido à limitação atual. Por exemplo você tem um certificado SAN cujo SAN é **node1.domain.contoso.com** e **node2.domain.contoso.com**, você só pode usar este certificado no computador cujo FQDN é **node2.domain.contoso.com**.
 - Dá suporte a qualquer tamanho de chave com suporte pelo Windows Server 2012 R2 para certificados SSL.
-- Não há suporte para certificado usando chaves CNG. Não dá suporte a certificados que usam chaves CNG.
+- Não há suporte para certificado usando chaves CNG.
 
 #### <a name="faq-when-would-i-not-enable-this-encryption"></a>Perguntas frequentes: Quando eu não habilitaria essa criptografia?
 Habilitar criptografia pode adicionar custos à sua infraestrutura (ter um certificado público), portanto, você pode ignorar a habilitação de criptografia nestes casos:

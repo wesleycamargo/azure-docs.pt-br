@@ -3,19 +3,19 @@ title: Criação e atualização de estatísticas — SQL Data Warehouse do Azur
 description: Recomendações e exemplos para criar e atualizar as estatísticas de otimização de consulta em tabelas no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 1a7ea00e8bdf4fa1a22dd765e5108dce72e2d380
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011757"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307455"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Criação e atualização de estatísticas em tabelas no SQL Data Warehouse do Azure
 Recomendações e exemplos para criar e atualizar as estatísticas de otimização de consulta em tabelas no SQL Data Warehouse do Azure.
@@ -50,11 +50,14 @@ Criação automática de estatísticas é gerada de forma síncrona portanto voc
 > A criação de estatísticas também será registrada [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) em um contexto de usuário diferente.
 > 
 
-Quando são criadas estatísticas automáticas, terão o formato: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. Você pode exibir estatísticas que já foram criadas executando o seguinte comando:
+Quando são criadas estatísticas automáticas, terão o formato: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. Você pode exibir estatísticas que já foram criadas executando o comando [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017):
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
 ```
+O primeiro argumento é uma tabela que contém as estatísticas a serem exibidas. Não pode ser uma tabela externa. O segundo argumento é o nome do índice de destino, as estatísticas ou a coluna cujas informações de estatísticas serão exibidas.
+
+
 
 ## <a name="updating-statistics"></a>Atualização de estatísticas
 
@@ -62,7 +65,10 @@ Uma prática recomendada é atualizar as estatísticas em colunas de data por di
 
 O seguinte são recomendações atualizando estatísticas:
 
-| **Frequência de atualizações de estatísticas** | Conservadora: Diária <br></br> Depois de carregar ou transformar os dados | | **Amostragem** | Menos de 1 bilhão de linhas, usar a amostragem padrão (20 por cento) <br></br> Com mais de 1 bilhão de linhas, as estatísticas em uma faixa de 2% são boas |
+|||
+|-|-|
+| **Frequência de atualizações de estatísticas**  | Conservadora: diária <br></br> Depois de carregar ou transformar os dados |
+| **Amostragem** |  Menos de 1 bilhão de linhas, usar a amostragem padrão (20%) <br></br> Com mais de 1 bilhão de linhas, as estatísticas em uma faixa de 2% são boas |
 
 Uma das primeiras perguntas a serem feitas quando você estiver solucionando problemas em uma consulta é, **"As estatísticas estão atualizadas?"**
 

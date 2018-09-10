@@ -2,7 +2,7 @@
 title: Referência de host.json para Azure Functions
 description: Documentação de referência do arquivo host.json do Azure Functions.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
-ms.author: tdykstra
-ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: glenga
+ms.openlocfilehash: 9043add91022c2829c305425dba9c8f11b224fcf
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345507"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Referência de host.json para Azure Functions
 
@@ -158,8 +159,11 @@ Definições de configuração para [Funções Duráveis](durable-functions-over
     "MaxConcurrentOrchestratorFunctions": 10,
     "AzureStorageConnectionStringName": "AzureWebJobsStorage",
     "TraceInputsAndOutputs": false,
+    "LogReplayEvents": false,
     "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "EventGridKeySettingName":  "EventGridKey"
+    "EventGridKeySettingName":  "EventGridKey",
+    "EventGridPublishRetryCount": 3,
+    "EventGridPublishRetryInterval": "00:00:30"
   }
 }
 ```
@@ -177,8 +181,11 @@ Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos some
 |MaxConcurrentOrchestratorFunctions |10 vezes o número de processadores no computador atual|O número máximo de funções de atividade que podem ser processadas simultaneamente em uma única instância de host.|
 |AzureStorageConnectionStringName |AzureWebJobsStorage|O nome da configuração de aplicativo que tem a cadeia de conexão do Armazenamento do Azure usada para gerenciar os recursos subjacentes do Armazenamento do Azure.|
 |TraceInputsAndOutputs |falso|Um valor que indica se as entradas e saídas de chamadas de função sertão rastreadas. O comportamento padrão durante o rastreamento de eventos de execução de função é incluir o número de bytes nas entradas e saídas serializadas para chamadas de função. Isso fornece um mínimo de informações sobre como são as entradas e saídas sem sobrecarregar os logs ou expor inadvertidamente informações confidenciais para os logs. A definição dessa propriedade como true faz com que o log de função padrão registre todo o conteúdo de entradas e saídas da função.|
-|EventGridTopicEndpoint ||A URL de um ponto de extremidade de tópico personalizado da Grade de Eventos do Azure. Quando essa propriedade for definida, eventos de notificação de ciclo de vida de orquestração são publicados para esse ponto de extremidade.|
-|EventGridKeySettingName ||O nome da configuração de aplicativo que contém a chave usada para autenticar com o tópico personalizado da Grade de Eventos do Azure em `EventGridTopicEndpoint`.
+|LogReplayEvents|falso|Um valor que indica se é necessário gravar eventos de reprodução de orquestração para o Application Insights.|
+|EventGridTopicEndpoint ||A URL de um ponto de extremidade de tópico personalizado da Grade de Eventos do Azure. Quando essa propriedade for definida, eventos de notificação de ciclo de vida de orquestração são publicados para esse ponto de extremidade. Esta propriedade dá suporte à resolução de Configurações do Aplicativo.|
+|EventGridKeySettingName ||O nome da configuração de aplicativo que contém a chave usada para autenticar com o tópico personalizado da Grade de Eventos do Azure em `EventGridTopicEndpoint`.|
+|EventGridPublishRetryCount|0|O número de novas tentativas se a publicação no Tópico de Grade de Eventos falha.|
+|EventGridPublishRetryInterval|5 minutos|A nova tentativa do intervalo de publicação da Grade de Eventos no formato *hh:mm:ss*.|
 
 Muitos desses são para otimizar o desempenho. Para obter mais informações, consulte [Desempenho e escala](durable-functions-perf-and-scale.md).
 

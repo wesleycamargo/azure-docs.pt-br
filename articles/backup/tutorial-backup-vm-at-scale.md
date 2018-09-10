@@ -1,19 +1,20 @@
 ---
-title: "Fazer backup de máquinas virtuais do Azure em escala | Microsoft Docs"
-description: "Faça backup de várias máquinas virtuais do Azure simultaneamente"
+title: Fazer backup de máquinas virtuais do Azure em escala
+description: Faça backup de várias máquinas virtuais do Azure simultaneamente
 services: backup
-keywords: "backup de máquina virtual; backup da máquina virtual, fazer backup de vm, fazer backup da vm, fazer backup de vm do Azure, backup e recuperação de desastre"
+keywords: backup de máquina virtual; backup da máquina virtual, fazer backup de vm, fazer backup da vm, fazer backup de vm do Azure, backup e recuperação de desastre
 author: markgalioto
 ms.author: markgal
 ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: f1cfa72d0fb3c83ef6265649b740dec317f0e4b2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ecbf583a9b64868004b246bb01e7f174a21496b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607457"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Use o portal do Azure para fazer backup de várias máquinas virtuais
 

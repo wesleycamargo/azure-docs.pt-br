@@ -10,7 +10,7 @@
 | Centro-Norte dos EUA    | 3                       |
 | Centro-Sul dos Estados Unidos    | 3                       |
 | Centro-Oeste dos EUA     | 2                       |
-| Canadá Central      | 2                       |
+| Canadá Central      | 3                      |
 | Leste do Canadá         | 2                       |
 |                     |                         |
 | Norte da Europa        | 3                       |
@@ -33,7 +33,7 @@
 |                     |                         |
 | Sul do Brasil        | 2                       |
 |                     |                         |
-| US Gov Virginia     | 2                       |
+| Gov. dos EUA – Virgínia     | 2                       |
 | Governo dos EUA do Texas        | 2                       |
 | Governo dos EUA do Arizona      | 2                       |
 | DoD Central dos EUA      | 2                       |

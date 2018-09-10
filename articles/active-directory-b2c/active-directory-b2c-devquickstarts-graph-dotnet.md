@@ -1,22 +1,21 @@
 ---
-title: Usar a API do Graph - Azure AD B2C | Microsoft Docs
+title: Use a API do Graph no Azure Active Directory B2C | Microsoft Docs
 description: Como chamar a API do Graph para um locatário B2C usando uma identidade de aplicativo para automatizar o processo.
 services: active-directory-b2c
-documentationcenter: .net
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
-ms.openlocfilehash: 731ff24fe9cc1b5dbf0c597139a96ae80b863cc2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: ce2c92f984f835c8e8f49ec94d65a9f3390812f9
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140024"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493115"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usar a API do Graph do Azure AD
 
@@ -28,7 +27,7 @@ Os locatários do Azure Active Directory (Azure AD) B2C tendem a ser muito grand
 Para locatários B2C, existem basicamente dois modos de se comunicar com a API do Graph.
 
 * Para tarefas de execução única, interativas, você deverá agir como uma conta de administrador no locatário B2C quando executar as tarefas. Esse modo requer que um administrador entre com credenciais antes de poder executar todas as chamadas à API do Graph.
-* Para tarefas automatizadas, contínuas, você deve usar algum tipo de conta de serviço fornecida com os privilégios necessários para executar tarefas de gerenciamento. No Azure AD, você pode fazer isso registrando um aplicativo e autenticando no Azure AD. Isso é feito usando uma **ID de aplicativo** que usa a [concessão de credenciais do cliente OAuth 2.0](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Nesse caso, o aplicativo atua em nome próprio, e não como usuário, para chamar a API do Graph.
+* Para tarefas automatizadas, contínuas, você deve usar algum tipo de conta de serviço fornecida com os privilégios necessários para executar tarefas de gerenciamento. No Azure AD, você pode fazer isso registrando um aplicativo e autenticando no Azure AD. Isso é feito usando uma **ID de aplicativo** que usa a [concessão de credenciais do cliente OAuth 2.0](../active-directory/develop/authentication-scenarios.md#daemon-or-server-application-to-web-api). Nesse caso, o aplicativo atua em nome próprio, e não como usuário, para chamar a API do Graph.
 
 Neste artigo, você saberá como realizar o caso de uso automatizado. Você vai criar um .NET 4.5 `B2CGraphClient` que executa as operações CRUD (criar, ler, atualizar e excluir) do usuário. O cliente terá uma CLI (interface de linha de comando) do Windows que permite que você chame vários métodos. No entanto, o código é gravado para se comportar de forma não interativa e automatizada.
 

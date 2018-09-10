@@ -1,40 +1,45 @@
 ---
-title: SSPR do Azure AD na tela de login do Windows 10 | Microsoft Docs
-description: Configurar a redefinição de senha do Azure AD da tela de login do Windows 10 e esqueci meu PIN
+title: SSPR do Azure AD na tela de logon do Windows 10
+description: Neste tutorial, você habilitará a redefinição de senha na tela de logon do Windows 10 para reduzir as chamadas de assistência técnica.
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 04/27/2018
+ms.topic: tutorial
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919729"
 ---
-# <a name="azure-ad-password-reset-from-the-login-screen"></a>Redefinição de senha do Azure AD a partir da tela de logon
+# <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Redefinição de senha do Azure AD a partir da tela de logon
 
-Você já implantou a redefinição de senha de autoatendimento do Azure AD (SSPR), mas os usuários ainda ligam para a assistência técnica quando esquecem a senha. Eles ligam para a assistência técnica porque não conseguem acessar um navegador da Web para poder acessar a SSPR.
+Neste tutorial, você permitirá que os usuários redefinam suas senhas na tela de logon do Windows 10. Com o novo Windows 10 Atualização de abril de 2018, os usuários com dispositivos **Ingressados no Azure AD** ou **Ingressados no Azure AD híbrido** podem usar um link "Redefinir senha" na tela de logon. Quando os usuários clicam nesse link, eles têm a mesma experiência de redefinição de senha de autoatendimento (SSPR) com a qual já estão familiarizados.
 
-Com o novo Windows 10 Atualização de abril de 2018, os usuários com dispositivos do **Azure AD unidos** ou **Azure AD híbridos unidos** podem ver e usar um link de "Redefinir senha" na sua tela de logon. Quando clicam nesse link, eles têm a mesma experiência de redefinição de senha de autoatendimento (SSPR) com a qual já estão familiarizados.
+> [!div class="checklist"]
+> * Configurar o link Redefinir senha usando o Intune
+> * Opcionalmente, configure usando o Registro do Windows
+> * Entenda o que os usuários irão ver
 
-Para permitir que os usuários redefinam sua senha do Azure AD na tela de logon do Windows 10, os requisitos a seguir precisam ser atendidos:
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Windows 10 Atualização de abril de 2018 ou cliente mais recente que seja [Azure AD unidos](../device-management-azure-portal.md) ou [Azure AD híbridos unidos](../device-management-hybrid-azuread-joined-devices-setup.md).
+* Atualização de 10 de abril de 2018 do Windows, ou o cliente mais recente é:
+   * [Ingressado no Azure AD](../device-management-azure-portal.md) ou 
+   * [Ingressado no Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md)
 * A redefinição de senha de autoatendimento do Azure AD deve ser habilitada.
-* Configurar e implantar a configuração para habilitar o link Redefinir senha por meio de um dos seguintes métodos:
-   * [Perfil de configuração de dispositivo do Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
-   * [Chave do registro](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar o link Redefinir senha usando o Intune
 
+Implantar a alteração de configuração para habilitar a redefinição de senha da tela de logon usando o Intune é o método mais flexível. O Intune permite que você implante a alteração de configuração para um grupo específico de computadores que você definir. Esse método requer o registro do dispositivo no Intune.
+
 ### <a name="create-a-device-configuration-policy-in-intune"></a>Criar uma política de configuração do dispositivo no Intune
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) e clique em **Intune**.
+1. Entre no [portal do Azure](https://portal.azure.com) e clique em **Intune**.
 2. Criar um novo perfil de configuração do dispositivo acessando **Configuração do dispositivo** > **Perfis** > **Criar perfil**
    * Forneça um nome significativo para o perfil
    * Opcionalmente, forneça uma descrição significativa do perfil
@@ -58,18 +63,18 @@ Para permitir que os usuários redefinam sua senha do Azure AD na tela de logon 
 
 #### <a name="create-a-group-to-apply-device-configuration-policy-to"></a>Criar um grupo no qual será aplicada a política de configuração de dispositivo
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) e clique em **Azure Active Directory**.
+1. Entre no [portal do Azure](https://portal.azure.com) e clique em **Azure Active Directory**.
 2. Navegue até **Usuários e grupos** > **Todos os grupos de** > **Novo grupo**
 3. Forneça um nome para o grupo e, em **Tipo de associação** escolha **Atribuído**
    * Em **Membros**, escolha os dispositivos Windows 10 ingressados pelo Azure AD nos quais você deseja aplicar a política.
    * Clique em **Selecionar**
 4. Clique em **Criar**
 
-Mais informações sobre como criar grupos podem ser encontradas no artigo [Gerenciar o acesso a recursos com grupos do Azure Active Directory](../active-directory-manage-groups.md).
+Mais informações sobre como criar grupos podem ser encontradas no artigo [Gerenciar o acesso a recursos com grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md).
 
 #### <a name="assign-device-configuration-policy-to-device-group"></a>Atribuir a política de configuração de dispositivo para o grupo de dispositivos
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) e clique em **Intune**.
+1. Entre no [portal do Azure](https://portal.azure.com) e clique em **Intune**.
 2. Localize o perfil de configuração do dispositivo criado anteriormente acessando **Configuração do dispositivo** > **Perfis** > Clique no perfil criado anteriormente
 3. Atribuir o perfil a um grupo de dispositivos 
    * Clique em **Atribuições** > em **Incluir** > **Selecionar grupos para incluir**
@@ -82,9 +87,7 @@ Agora você criou e atribuiu uma política de configuração de dispositivo para
 
 ## <a name="configure-reset-password-link-using-the-registry"></a>Configurar o link Redefinir senha usando o registro
 
-É recomendável usar esse método somente para testar a alteração da configuração.
-
-1. Faça logon no dispositivo ingressado no Azure AD usando as credenciais administrativas
+1. Faça logon no PC Windows usando as credenciais administrativas
 2. Execute o **regedit** como administrador
 3. Defina a seguinte chave do registro
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -97,8 +100,9 @@ Agora que a política foi configurada e atribuída, o que muda para o usuário? 
 ![LoginScreen][LoginScreen]
 
 Quando os usuários tentam fazer logon, eles agora veem um link Redefinir senha que abre a experiência de redefinição de senha de autoatendimento na tela de logon. Essa funcionalidade permite aos usuários redefinir a senha sem a necessidade de usar outro dispositivo para acessar um navegador da Web.
+Quando os usuários tentam fazer logon, eles agora veem um link Redefinir senha que abre a experiência de redefinição de senha de autoatendimento na tela de logon. Essa funcionalidade permite aos usuários redefinir a senha sem a necessidade de usar outro dispositivo para acessar um navegador da Web.
 
-Os usuários podem encontrar orientações sobre esse recuso em [Redefinir sua senha corporativa ou de estudante](../active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
+Os usuários podem encontrar orientações sobre esse recuso em [Redefinir sua senha corporativa ou de estudante](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
 ## <a name="common-issues"></a>Problemas comuns
 
@@ -106,17 +110,22 @@ Ao testar essa funcionalidade usando o Hyper-V, o link de "Redefinir senha" não
 
 * Acesse a máquina virtual que você está usando para teste, clique em **Exibição** e, em seguida, desmarque a opção **Sessão aprimorada**.
 
-Ao testar essa funcionalidade usando a Área de Trabalho Remota, o link de "Redefinir senha" não aparece.
+Ao testar essa funcionalidade usando a Área de Trabalho Remota, o link de “Redefinir senha” não aparece.
 
 * Atualmente não há suporte para a redefinição de senha a partir de uma Área de Trabalho Remota.
 
+Se a tela de bloqueio do Windows for desabilitada usando um registro de chave ou diretiva de grupo, a **redefinição de senha** não estará disponível.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Se você decidir que não deseja mais usar a funcionalidade que você configurou como parte deste tutorial, exclua o perfil de configuração de dispositivo do Intune que você criou ou a chave do registro.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
+Neste tutorial, você permitirá que os usuários redefinam suas senhas na tela de logon do Windows 10. Continue com o próximo tutorial para ver como a Proteção de Identidade do Azure pode ser integrada na redefinição de senha de autoatendimento e as experiências da Autenticação Multifator.
 
-* [Como fazer para implantar a SSPR?](howto-sspr-deployment.md)
-* [Como habilitar a redefinição do PIN a partir da tela de logon?](https://docs.microsoft.com/intune/device-windows-pin-reset)
-* [Mais informações sobre as políticas de autenticação do MDM](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-authentication)
+> [!div class="nextstepaction"]
+> [Avaliar o risco ao entrar](tutorial-risk-based-sspr-mfa.md)
 
 [CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Criar perfil de configuração de dispositivo do Intune para habilitar o link Redefinir senha na tela de logon do Windows 10"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Atribuir a política de configuração de dispositivo do Intune a um grupo de dispositivos Windows 10"

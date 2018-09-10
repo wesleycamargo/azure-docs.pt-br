@@ -1,24 +1,19 @@
 ---
-title: Introdução às funções, permissões e segurança com o Azure Monitor | Microsoft Docs
+title: Introdução às funções, permissões e segurança com o Azure Monitor
 description: Saiba como usar funções e permissões internas do Azure Monitor para restringir o acesso aos recursos de monitoramento.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 248d45a59fa2769c4cfcc4b169bd9e61059f11b0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: ''
+ms.openlocfilehash: a30c6a8d02b46656a0d76cf8438bdf0b3361ae91
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248454"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introdução às funções, permissões e segurança com o Azure Monitor
 Muitas equipes precisam regular estritamente o acesso aos dados e configurações de monitoramento. Por exemplo, se você tiver os membros da equipe que trabalham exclusivamente no monitoramento (engenheiros de suporte, engenheiros de devops) ou se você usar um provedor de serviços gerenciados, você talvez queira conceder-lhes acesso aos dados de monitoramento apenas enquanto restringe a capacidade de criar, modificar ou excluir recursos. Este artigo mostra como aplicar uma função interna de RBAC de monitoramento a um usuário no Azure rapidamente ou criar sua própria função personalizada para um usuário que precise de permissões limitadas de monitoramento. Em seguida, ele aborda considerações de segurança para os recursos relacionados ao Azure Monitor e como você pode limitar o acesso aos dados contidos nos mesmos.
@@ -33,7 +28,7 @@ Pessoas atribuídas à função de Leitor de monitoramento podem exibir todos os
 * Exibir regras de alerta definidas nos [Alertas do Azure](monitoring-overview-unified-alerts.md)
 * Consultar métricas usando a [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [os cmdlets do PowerShell](insights-powershell-samples.md) ou a [CLI de plataforma cruzada](insights-cli-samples.md).
 * Consultar o Log de atividades usando o portal, a API REST do Azure Monitor, os cmdlets do PowerShell ou a CLI de plataforma cruzada.
-* Exibir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) para um recurso.
+* Exibir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) para um recurso.
 * Exibir o [perfil de log](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) para uma assinatura.
 * Exibir as configurações de autoescala.
 * Exibir as configurações e a atividade do alerta.
@@ -54,7 +49,7 @@ Pessoas atribuídas à função de Leitor de monitoramento podem exibir todos os
 Pessoas atribuídas à função de Colaborador de monitoramento podem exibir todos os dados de monitoramento em uma assinatura e criar ou modificar as configurações de monitoramento, mas não podem modificar outros recursos. Essa função é um superconjunto da função Leitor de monitoramento e é apropriada para membros de uma equipe de monitoramento ou provedores de serviços gerenciados de uma organização que, além das permissões acima, também precisam ser capazes de:
 
 * Publicra os painéis de monitoramentos como um painel compartilhado.
-* Definir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) para um recurso.*
+* Definir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) para um recurso.*
 * Definir o [perfil de log](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) para uma assinatura.*
 * Defina a atividade das regras de alerta e as configurações por meio dos [Alertas do Azure](monitoring-overview-unified-alerts.md).
 * Criar testes Web e componentes do Application Insights.
@@ -125,7 +120,7 @@ Todos esses três tipos de dados podem ser armazenados em uma conta de armazenam
 
 * Use uma conta de armazenamento única e dedicada para os dados de monitoramento. Se você precisar separar dados de monitoramento em várias contas de armazenamento, nunca compartilhe o uso de uma conta de armazenamento entre dados de monitoramento e não de monitoramento, pois isso pode, inadvertidamente, dar a quem precisa apenas de acesso aos dados de monitoramento (por exemplo, uma solução SIEM de terceiros) acesso aos dados que não são de monitoramento.
 * Use um namespace único e dedicado de Barramento de Serviço ou Hub de Eventos em todas as configurações de diagnóstico pelo mesmo motivo que o citado acima.
-* Limite o acesso às contas de armazenamento ou hubs de eventos relacionados ao monitoramento mantendo os mesmos em um grupo de recursos separado e [use o escopo](../role-based-access-control/overview.md#basics-of-access-management-in-azure) nas suas funções de monitoramento para limitar o acesso somente ao grupo de recursos.
+* Limite o acesso às contas de armazenamento ou hubs de eventos relacionados ao monitoramento mantendo os mesmos em um grupo de recursos separado e [use o escopo](../role-based-access-control/overview.md#scope) nas suas funções de monitoramento para limitar o acesso somente ao grupo de recursos.
 * Não conceda a permissão de ListKeys para contas de armazenamento ou hubs de eventos no escopo de assinatura quando um usuário precisa apenas de acesso aos dados de monitoramento. Em vez disso, conceda essas permissões ao usuário a um escopo de recurso ou grupo de recursos (se você tiver um grupo de recursos de monitoramento dedicado).
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Limitando o acesso a contas de armazenamento relacionados ao monitoramento

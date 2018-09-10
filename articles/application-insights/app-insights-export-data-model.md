@@ -1,8 +1,8 @@
 ---
 title: Modelo de Dados do Azure Application Insights | Microsoft Docs
-description: "Descreve as propriedades exportadas de exportação contínua em JSON e usados como filtros."
+description: Descreve as propriedades exportadas de exportação contínua em JSON e usados como filtros.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: mbullwin
-ms.openlocfilehash: 86aef6ba93224bbbb41bc7e651aaeec394fd8718
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ee6597b78ac8de8fc3a7f3796010f22919243b23
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294887"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
 Esta tabela lista as propriedades de telemetria enviadas dos SDKs do [Application Insights](app-insights-overview.md) para o portal.
@@ -114,7 +115,7 @@ Pontos a serem observados:
 ## <a name="context"></a>Contexto
 Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem todos esses campos são transmitidos com cada ponto de dados.
 
-| Caminho | Tipo | Observações |
+| Caminho | type | Observações |
 | --- | --- | --- |
 | context.custom.dimensions [0] |object [ ] |Pares de cadeira de caractere chave-valor definidos pelo parâmetro das propriedades personalizadas. Comprimento máximo da chave 100, comprimento máximo dos valores 1024. Mais de 100 valores exclusivos, é possível pesquisar na propriedade, mas não usá-la para segmentação. Máximo de 200 chaves por ikey. |
 | context.custom.metrics [0] |object [ ] |Pares de chave-valor definidos pelo parâmetro de medidas personalizadas e por TrackMetrics. Comprimento máximo da chave 100, os valores podem ser numéricos. |
@@ -151,12 +152,12 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 | context.user.authAcquisitionDate |string |[Usuário autenticado](app-insights-api-custom-events-metrics.md#authenticated-users) |
 | context.user.isAuthenticated |booleano | |
 | internal.data.documentVersion |string | |
-| internal.data.id |string | |
+| internal.data.id |string | ID exclusiva atribuída quando um item é ingerido no Application Insights |
 
 ## <a name="events"></a>Eventos
 Eventos personalizados gerados por [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent).
 
-| Caminho | Tipo | Observações |
+| Caminho | type | Observações |
 | --- | --- | --- |
 | event [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | event [0] name |string |Nome do evento.  Comprimento máximo 250. |
@@ -167,7 +168,7 @@ Eventos personalizados gerados por [TrackEvent()](app-insights-api-custom-events
 ## <a name="exceptions"></a>Exceções
 [Exceções](app-insights-asp-net-exceptions.md) do relatório no servidor e no navegador.
 
-| Caminho | Tipo | Observações |
+| Caminho | type | Observações |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
 | basicException [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
@@ -196,7 +197,7 @@ Eventos personalizados gerados por [TrackEvent()](app-insights-api-custom-events
 ## <a name="trace-messages"></a>Mensagens de rastreamento
 Enviado por [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace) e pelos [adaptadores de log](app-insights-asp-net-trace-logs.md).
 
-| path | Tipo | Observações |
+| Caminho | type | Observações |
 | --- | --- | --- |
 | message [0] loggerName |string | |
 | message [0] parameters |string | |
@@ -206,7 +207,7 @@ Enviado por [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace) e
 ## <a name="remote-dependency"></a>Dependência remota
 Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamadas para dependências](app-insights-asp-net-dependencies.md) no servidor, e chamadas do AJAX no navegador.
 
-| Caminho | Tipo | Observações |
+| Caminho | type | Observações |
 | --- | --- | --- |
 | remoteDependency [0] async |booleano | |
 | remoteDependency [0] baseName |string | |
@@ -224,10 +225,10 @@ Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamad
 | remoteDependency [0] urlData.hashTag |string | |
 | remoteDependency [0] urlData.host |string |Comprimento máximo 200 |
 
-## <a name="requests"></a>Solicitações
+## <a name="requests"></a>Requests
 Enviado por [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). Os módulos padrão usam isso para indicar o tempo de resposta do servidor, medido no servidor.
 
-| Caminho | Tipo | Observações |
+| Caminho | type | Observações |
 | --- | --- | --- |
 | request [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo: 4 =&gt; 25%. |
 | request [0] durationMetric.value |número |Tempo de chegada da solicitação até a resposta. 1e7 == 1s |
@@ -245,7 +246,7 @@ Enviado pelo navegador. Mede o tempo de processamento de uma página, desde o in
 
 Os valores de contexto mostram a versão do navegador e do sistema operacional cliente.
 
-| Caminho | Tipo | Observações |
+| Caminho | type | Observações |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |inteiro |Tempo desde o término do recebimento do HTML até a exibição da página. |
 | clientPerformance [0] name |string | |
@@ -262,7 +263,7 @@ Os valores de contexto mostram a versão do navegador e do sistema operacional c
 ## <a name="page-views"></a>Visualizações de página
 Enviado por trackPageView() ou [stopTrackPage](app-insights-api-custom-events-metrics.md#page-views)
 
-| Caminho | Tipo | Observações |
+| Caminho | type | Observações |
 | --- | --- | --- |
 | view [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | view [0] durationMetric.value |inteiro |Valor definido opcionalmente em trackPageView() ou por startTrackPage() - stopTrackPage(). Não é igual aos valores de clientPerformance. |
@@ -275,7 +276,7 @@ Enviado por trackPageView() ou [stopTrackPage](app-insights-api-custom-events-me
 ## <a name="availability"></a>Disponibilidade
 Relata os [testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md).
 
-| Caminho | Tipo | Observações |
+| Caminho | type | Observações |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |string |Disponibilidade |
 | availability [0] availabilityMetric.value |número |1.0 ou 0.0 |
@@ -296,7 +297,7 @@ Gerado por TrackMetric().
 
 O valor da métrica é encontrado em context.custom.metrics[0]
 
-Por exemplo:
+Por exemplo: 
 
     {
      "metric": [ ],
@@ -322,7 +323,7 @@ Por exemplo:
     }
 
 ## <a name="about-metric-values"></a>Sobre valores de métricas
-Valores de métricas, tanto em relatórios de métrica quanto em outros locais, são relatados com uma estrutura de objeto padrão. Por exemplo:
+Valores de métricas, tanto em relatórios de métrica quanto em outros locais, são relatados com uma estrutura de objeto padrão. Por exemplo: 
 
       "durationMetric": {
         "name": "contoso.org",

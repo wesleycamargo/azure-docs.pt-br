@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 4bb6f12781666792aad31789a59d752dd5a822de
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b14163bfb9a5e6265158db39e98cb9b31ccef021
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494101"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: compilar um aplicativo Web PHP e MySQL no Azure
 
@@ -43,7 +44,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -162,9 +163,9 @@ Nesta etapa, você cria um banco de dados MySQL no [Banco de Dados do Azure para
 
 ### <a name="create-a-mysql-server"></a>Criar um servidor MySQL
 
-No Cloud Shell, crie um servidor no Banco de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+No Cloud Shell, crie um servidor no Banco de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-No comando a seguir, substitua o espaço reservado  *\<mysql_server_name >* por um nome de servidor exclusivo,*\<admin_user>* por um nome de usuário e *\<admin_password>* por uma senha. Esse nome do servidor é usado como parte de seu ponto de extremidade do PostgreSQL (`https://<mysql_server_name>.mysql.database.azure.com`), portanto, ele precisa ser exclusivo entre todos os servidores no Azure.
+No comando a seguir, substitua o espaço reservado  *\<mysql_server_name >* por um nome de servidor exclusivo,*\<admin_user>* por um nome de usuário e *\<admin_password>* por uma senha. O nome do servidor é usado como parte de seu ponto de extremidade do MySQL (`https://<mysql_server_name>.mysql.database.azure.com`) e, portanto, precisa ser exclusivo entre todos os servidores no Azure.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
@@ -198,7 +199,7 @@ Quando o servidor MySQL for criado, a CLI do Azure mostrará informações semel
 
 ### <a name="configure-server-firewall"></a>Configurar o firewall do servidor
 
-No Cloud Shell, crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
+No Cloud Shell, crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -346,7 +347,7 @@ Nesta etapa, você implanta o aplicativo PHP conectado ao MySQL no Serviço de A
 
 Conforme mencionado anteriormente, é possível se conectar ao banco de dados MySQL do Azure usando variáveis de ambiente no Serviço de Aplicativo.
 
-No Cloud Shell, defina as variáveis de ambiente como _configurações do aplicativo_ usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
+No Cloud Shell, defina as variáveis de ambiente como _configurações do aplicativo_ usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
 O comando a seguir define as configurações do aplicativo `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua os espaços reservados _&lt;appname>_ e _&lt;mysql_server_name>_.
 
@@ -377,7 +378,7 @@ Na janela do terminal local, use `php artisan` para gerar uma nova chave de apli
 php artisan key:generate --show
 ```
 
-No Cloud Shell, defina a chave de aplicativo no aplicativo Web do Serviço de Aplicativo usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set). Substitua os espaços reservados _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
+No Cloud Shell, defina a chave de aplicativo no aplicativo Web do Serviço de Aplicativo usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Substitua os espaços reservados _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -389,7 +390,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Defina o caminho do aplicativo virtual do aplicativo Web. Esta etapa é necessária porque o [ciclo de vida do aplicativo do Laravel](https://laravel.com/docs/5.4/lifecycle) começa no diretório _public_, em vez de no diretório raiz do aplicativo. Outras estruturas PHP cujo ciclo de vida começa no diretório raiz podem funcionar sem a configuração manual do caminho do aplicativo virtual.
 
-No Cloud Shell, defina o caminho do aplicativo virtual usando o comando [`az resource update`](/cli/azure/resource#az_resource_update). Substitua o espaço reservado _&lt;appname>_.
+No Cloud Shell, defina o caminho do aplicativo virtual usando o comando [`az resource update`](/cli/azure/resource#az-resource-update). Substitua o espaço reservado _&lt;appname>_.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -580,7 +581,7 @@ Se você tiver adicionado tarefas, elas serão retidas no banco de dados. As atu
 
 Embora o aplicativo PHP seja executado no Serviço de Aplicativo do Azure, é possível fazer com que os logs do console sejam redirecionados para o terminal. Dessa forma, é possível obter as mesmas mensagens de diagnóstico para ajudá-lo a depurar erros de aplicativo.
 
-Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) no Cloud Shell.
+Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) no Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

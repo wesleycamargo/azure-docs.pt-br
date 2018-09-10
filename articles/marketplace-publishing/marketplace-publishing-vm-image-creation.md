@@ -3,8 +3,8 @@ title: Criar uma imagem de máquina virtual para o Azure Marketplace | Microsoft
 description: Instruções detalhadas sobre como criar uma imagem de máquina virtual para o Azure Marketplace para outras pessoas comprarem.
 services: Azure Marketplace
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: mbaldwin
-ms.openlocfilehash: ea92275b26da4ac72f76b438f632bd1c048beb10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: hascipio; v-divte
+ms.openlocfilehash: bf2ba6d31c170715a52b84439276c45665293c35
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246389"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Este artigo, **Etapa 2**, mostra a preparação dos VHDs (discos rígidos virtuais) que você implantará no Azure Marketplace. Seus VHDs são a base de sua SKU. O processo é diferente dependendo se você está fornecendo uma SKU baseada em Linux ou em Windows. Este artigo aborda ambos os cenários. Esse processo pode ser executado em paralelo com [Criação e registro de conta][link-acct-creation].
@@ -69,8 +70,8 @@ O VHD do sistema operacional para a imagem VM deve ser baseado em uma imagem de 
 Para começar, crie uma VM de uma das seguintes imagens, localizadas no [Portal do Microsoft Azure][link-azure-portal]:
 
 * Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
-* SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
-* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web][link-sql-2012-web])
+* SQL Server 2014 
+* SQL Server 2012 SP2 
 
 Esses links também podem ser encontrados no portal de publicação na página de SKU.
 
@@ -446,7 +447,7 @@ A seguir são mostradas as etapas para gerar a URL SAS usando a CLI do Azure
 
     b. **`<Storage Account Key>`**: informe a chave de conta de armazenamento
 
-    c. **`<Permission Start Date>`**: Para garantir a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 25 de outubro de 2016, o valor deverá ser 25/10/2016. Se estiver usando CLI do Azure 2.0 (comando az), forneça a data e a hora nas datas de início e término, por exemplo: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: Para garantir a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 26 de outubro de 2016, o valor deverá ser 25/10/2016. Se estiver usando CLI do Azure 2.0 (comando az), forneça a data e a hora nas datas de início e término, por exemplo: 10-25-2016T00:00:00Z.
 
     d. **`<Permission End Date>`**: selecione uma data que seja pelo menos três semanas após a data em **Hora de Início**. O valor deve ser **02/11/2016**. Se estiver usando CLI do Azure 2.0 (comando az), forneça a data e a hora nas datas de início e término, por exemplo: 11-02-2016T00:00:00Z.
 
@@ -556,15 +557,6 @@ Depois de concluir os detalhes do SKU, avance até o [Guia de conteúdo de marke
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx
 [link-azure-portal]:https://portal.azure.com
 [link-pubportal]:https://publish.windowsazure.com
-[link-sql-2014-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/
-[link-sql-2014-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/
-[link-sql-2014-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/
-[link-sql-2012-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/
-[link-sql-2012-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/
-[link-sql-2012-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/
-[link-datactr-2012-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/
-[link-datactr-2012]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
-[link-datactr-2008-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-technet-1]:https://technet.microsoft.com/library/hh848454.aspx
 [link-azure-vm-2]:./virtual-machines-linux-agent-user-guide/

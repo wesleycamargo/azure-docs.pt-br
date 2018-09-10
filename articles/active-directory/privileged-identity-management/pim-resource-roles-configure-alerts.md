@@ -1,26 +1,27 @@
 ---
-title: Gerenciar alertas de segurança para recursos do Azure usando Privileged Identity Management | Microsoft Docs
-description: Descreve os alertas de segurança de PIM.
+title: Configurar alertas de segurança para funções de recurso do Azure no PIM | Microsoft Docs
+description: Saiba como configurar alertas de segurança para funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: pim
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: c6c057541b3e3067de6331bab6ca9cccfa092710
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2fa63cf2fa05f2cde4558f0bea38bfd7f17df3ae
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149178"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43342055"
 ---
-# <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Gerenciar alertas de segurança para recursos do Azure usando Privileged Identity Management
+# <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Configurar alertas de segurança para funções de recurso do Azure no PIM
 O PIM (Privileged Identity Management) para Recursos do Azure gera alertas quando há atividade suspeita ou não segura em seu ambiente. Quando um alerta é disparado, ele aparece na página Alertas. 
 
 ![Página de alertas](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
@@ -49,3 +50,7 @@ Na página Alertas, vá para **Configurações**.
 
 Personalize configurações nos diferentes alertas para trabalhar com seu ambiente e as metas de segurança.
 ![Personalizar as configurações](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Configurar alertas de segurança para funções de recurso do Azure no PIM](pim-resource-roles-configure-alerts.md)

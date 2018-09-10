@@ -3,7 +3,7 @@ title: Gatilhos e associações no Azure Functions
 description: Saiba como usar gatilhos e associações no Azure Functions para conectar a execução de seu código a eventos online e a serviços baseados em nuvem.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/07/2018
-ms.author: tdykstra
-ms.openlocfilehash: 56b0f8e24dfc38b542f4bbfc7975f1704d70f22c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 05/24/2018
+ms.author: glenga
+ms.openlocfilehash: 85b7248c9b4c61e29ce3c29b9432f94934255819
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346595"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
@@ -31,61 +32,11 @@ Um *gatilho* define como uma função é invocada. Uma função deve ter exatame
 
 *Associações* de entrada e saída fornecem uma maneira declarativa de se conectar aos dados de dentro do seu código. Associações são opcionais e uma função pode ter várias associações de entrada e saída. 
 
-Gatilhos e associações permitem evitar que os detalhes dos serviços com os quais você está trabalhando sejam embutidos no código. Sua função recebe dados (por exemplo, o conteúdo de uma mensagem da fila) em parâmetros de função. Você envia dados (por exemplo, para criar uma mensagem da fila) usando o valor retornado da função, um parâmetro `out`, ou um [objeto coletor](functions-reference-csharp.md#writing-multiple-output-values).
+Gatilhos e associações permitem evitar que os detalhes dos serviços com os quais você está trabalhando sejam embutidos no código. Sua função recebe dados (por exemplo, o conteúdo de uma mensagem da fila) em parâmetros de função. Você envia dados (por exemplo, para criar uma mensagem da fila) usando o valor retornado da função. No C# e script C#, formas alternativas de enviar os dados são parâmetros `out` e [objetos de coletor](functions-reference-csharp.md#writing-multiple-output-values).
 
 Quando você desenvolve funções usando o Portal do Azure, gatilhos e associações são configuradas em um arquivo *function.json*. O portal fornece uma interface do usuário para essa configuração, mas você pode editar o arquivo diretamente, alterando para o **Editor avançado**.
 
 Ao desenvolver funções usando o Visual Studio para criar uma biblioteca de classes, você configura gatilhos e associações decorando métodos e parâmetros com atributos.
-
-## <a name="supported-bindings"></a>Associações com suporte
-
-[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
-
-Para obter informações sobre quais associações estão na visualização ou são aprovadas para o uso de produção, consulte [Idiomas com suporte](supported-languages.md).
-
-## <a name="register-binding-extensions"></a>Registrar as extensões de associação
-
-Na versão 2.x do tempo de execução do Azure Functions, você deve registrar explicitamente a [extensões de associação](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) usadas em seu aplicativo de funções. 
-
-As extensões são entregues como pacotes do NuGet, onde o nome do pacote normalmente começa com [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  Como instalar e registrar as extensões de associação depende de como você desenvolve suas funções: 
-
-+ [Localmente em C# usando o Visual Studio ou o VS Code](#local-c-development-using-visual-studio-or-vs-code)
-+ [Localmente usando as ferramentas básicas do Azure Functions](#local-development-azure-functions-core-tools)
-+ No [portal do Azure](#azure-portal-development) 
-
-Há um conjunto principal de associações na versão 2. x que não são fornecidos como extensões. Não é necessário registrar extensões para os gatilhos e as associações a seguir: HTTP, o timer e o Armazenamento do Azure. 
-
-Para obter informações sobre como configurar um aplicativo de funções para usar a versão 2.x do tempo de execução do Functions, confira [Como direcionar versões do tempo de execução do Azure Functions](set-runtime-version.md). Versão 2. x do tempo de execução do Functions está atualmente em versão prévia. 
-
-As versões do pacote mostradas nesta seção são fornecidas somente como exemplos. Verifique o [site NuGet.org](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) para determinar qual versão de uma determinada extensão é exigida por outras dependências em seu aplicativo de função.    
-
-###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Desenvolvimento do C# local usando o Visual Studio ou VS Code 
-
-Quando você usa o Visual Studio ou o Visual Studio Code para desenvolver localmente funções em C#, basta adicionar o pacote do NuGet para a extensão. 
-
-+ **Visual Studio**: Use as ferramentas do Gerenciador de Pacotes do NuGet. O seguinte comendo [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) instala a extensão do Azure Cosmos DB do Console do Gerenciador de Pacotes:
-
-    ```
-    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
-    ```
-+ **Visual Studio Code**: você pode instalar os pacotes do prompt de comando usando o comando [dotnet Adicionar pacote](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) na CLI .NET, da seguinte maneira:
-
-    ```
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
-    ```
-
-### <a name="local-development-azure-functions-core-tools"></a>Ferramentas básicas do Azure Functions para desenvolvimento local
-
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
-
-### <a name="azure-portal-development"></a>Desenvolvimento do portal do Azure
-
-Quando você cria uma função ou adiciona uma associação a uma função existente, você será solicitado quando a extensão para o gatilho ou a associação que estiver sendo adicionada exigir o registro.   
-
-Depois que um aviso é exibido para a extensão específica que está sendo instalada, clique em **Instalar** para registrar a extensão. Você só precisa instalar cada extensão uma vez para um aplicativo de função determinada. 
-
->[!Note] 
->O processo de instalação no portal pode levar até 10 minutos em um plano de consumo.
 
 ## <a name="example-trigger-and-binding"></a>Associação e gatilho de exemplo
 
@@ -196,6 +147,66 @@ Em uma biblioteca de classes, o mesmo gatilho e informações de associação &m
  }
 ```
 
+## <a name="supported-bindings"></a>Associações com suporte
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+Para obter informações sobre quais associações estão na visualização ou são aprovadas para o uso de produção, consulte [Idiomas com suporte](supported-languages.md).
+
+## <a name="register-binding-extensions"></a>Registrar as extensões de associação
+
+Em alguns ambientes de desenvolvimento, você precisa explicitamente *registrar* uma associação que você deseja usar. Extensões de associação são fornecidas em pacotes do NuGet e para registrar uma extensão que você instalar um pacote. A tabela a seguir indica quando e como registrar as extensões de associação.
+
+|Ambiente de desenvolvimento |Registro<br/> em funções de 1. x  |Registro<br/> em funções 2. x  |
+|---------|---------|---------|
+|Portal do Azure|Automático|[Automático com o prompt](#azure-portal-development)|
+|Local usando as ferramentas de núcleo de funções do Azure|Automático|[Use os comandos principais ferramentas CLI](#local-development-azure-functions-core-tools)|
+|Biblioteca de classes C# usando o Visual Studio de 2017|[Usar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|[Usar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|
+|Biblioteca de classes C# usando o código do Visual Studio|N/D|[Use o .NET Core CLI](#c-class-library-with-visual-studio-code)|
+
+Os seguintes tipos de associação são exceções que não exigem o registro explícito porque eles são registrados automaticamente em todos os ambientes e versões: HTTP, o timer e o armazenamento do Azure (blobs, filas e tabelas). 
+
+### <a name="azure-portal-development"></a>Desenvolvimento do portal do Azure
+
+Esta seção aplica-se somente ao Functions 2.x. As extensões de associação não precisam ser registradas explicitamente no Functions 1.x.
+
+Quando você cria uma função ou adiciona uma associação, você será solicitado quando a extensão para o gatilho ou a associação requer o registro. Responder ao aviso clicando **instalar** para registrar a extensão. Instalação pode levar até 10 minutos em um plano de consumo.
+
+Você só precisa instalar cada extensão uma vez para um aplicativo de função determinada. 
+
+### <a name="local-development-azure-functions-core-tools"></a>Ferramentas básicas do Azure Functions para desenvolvimento local
+
+Esta seção aplica-se somente ao Functions 2.x. As extensões de associação não precisam ser registradas explicitamente no Functions 1.x.
+
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+
+<a name="local-csharp"></a>
+### <a name="c-class-library-with-visual-studio-2017"></a>Biblioteca de classes C# com 2017 do Visual Studio
+
+Em **2017 do Visual Studio**, você pode instalar os pacotes do Console do Gerenciador de pacotes usando o [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) de comando, conforme mostrado no exemplo a seguir:
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+```
+
+O nome do pacote a ser usado para uma associação fornecida é fornecido no artigo de referência para essa associação. Para obter um exemplo, consulte o [pacotes seção do artigo de referência de associação do barramento de serviço](functions-bindings-service-bus.md#packages---functions-1x).
+
+Substituir `<target_version>` no exemplo com uma versão específica do pacote, como `3.0.0-beta5`. Versões válidas são listadas nas páginas de pacotes individuais em [NuGet.org](https://nuget.org). As versões principais que correspondem às funções de tempo de execução 1. x ou 2. x são especificadas no artigo de referência para a associação.
+
+### <a name="c-class-library-with-visual-studio-code"></a>Biblioteca de classes C# com o código do Visual Studio
+
+Em **código do Visual Studio**, você pode instalar os pacotes do prompt de comando usando o [dotnet Adicionar pacote](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) comando no .NET Core CLI, conforme mostrado no exemplo a seguir:
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+```
+
+O .NET Core CLI só pode ser usado para o desenvolvimento do Azure Functions 2.x.
+
+O nome do pacote a ser usado para uma associação fornecida é fornecido no artigo de referência para essa associação. Para obter um exemplo, consulte o [pacotes seção do artigo de referência de associação do barramento de serviço](functions-bindings-service-bus.md#packages---functions-1x).
+
+Substituir `<target_version>` no exemplo com uma versão específica do pacote, como `3.0.0-beta5`. Versões válidas são listadas nas páginas de pacotes individuais em [NuGet.org](https://nuget.org). As versões principais que correspondem às funções de tempo de execução 1. x ou 2. x são especificadas no artigo de referência para a associação.
+
 ## <a name="binding-direction"></a>Direção de associação
 
 Todos os disparadores e associações têm uma propriedade `direction` no arquivo *function.json*:
@@ -213,9 +224,11 @@ Em linguagens que têm um valor de retorno, você pode associar uma associação
 * Em uma biblioteca de classe C#, aplique o atributo de associação de saída para o valor de retorno do método.
 * Em outras linguagens, defina a propriedade `name` em *function.json* para `$return`.
 
-Se você precisar gravar mais de um item, use um [objeto coletor](functions-reference-csharp.md#writing-multiple-output-values) em vez do valor de retorno. Se houver várias associações de saída, use o valor de retorno de apenas um deles.
+Se houver várias associações de saída, use o valor de retorno de apenas um deles.
 
-Consulte o exemplo específico a um idioma:
+No C# e script C#, formas alternativas de enviar os dados para uma associação de saída são parâmetros `out` e [objetos de coletor](functions-reference-csharp.md#writing-multiple-output-values).
+
+Veja o exemplo específico de uma linguagem que mostra o uso do valor de retorno:
 
 * [C#](#c-example)
 * [Script do C# (.csx)](#c-script-example)
@@ -519,7 +532,7 @@ A exemplo a seguir mostra o arquivo *function.json* arquivo para uma função de
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+      "path": "strings/{BlobName}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -541,11 +554,13 @@ public class BlobInfo
     public string BlobName { get; set; }
 }
   
-public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents)
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, TraceWriter log)
 {
     if (blobContents == null) {
         return req.CreateResponse(HttpStatusCode.NotFound);
     } 
+
+    log.Info($"Processing: {info.BlobName}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         data = $"{blobContents}"

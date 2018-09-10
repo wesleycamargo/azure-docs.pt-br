@@ -1,24 +1,20 @@
 ---
 title: Carregar arquivos de dispositivos para o Hub IoT do Azure com Java | Microsoft Docs
 description: Como carregar arquivos de um dispositivo para a nuvem usando o SDK do dispositivo IoT do Azure para Java. Os arquivos carregados são armazenados em um contêiner de Azure Storage Blob.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 794ebd3b2d25f6b7d5dcb86b0834380fce9b9a27
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7eb18a623683fb8a3662297825e90234644ead39
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146308"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT
 
@@ -29,7 +25,7 @@ Este tutorial baseia-se no código do tutorial [Enviar mensagens da nuvem para o
 - Fornecer com segurança um URI de blob do Azure a um dispositivo para carregamento de um arquivo.
 - Usar as notificações de carregamento de arquivo do Hub IoT para disparar o processamento do arquivo no back-end do aplicativo.
 
-Os tutoriais [Introdução ao Hub IoT](iot-hub-java-java-getstarted.md) e [Enviar mensagens da nuvem para o dispositivo com o Hub IoT](iot-hub-java-java-c2d.md) mostram a funcionalidade básica de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT. O tutorial [Processar mensagens do dispositivo para a nuvem](iot-hub-java-java-process-d2c.md) descreve uma forma de armazenamento confiável das mensagens do dispositivo para a nuvem no Armazenamento de Blobs do Azure. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo: 
+Os tutoriais [Introdução ao Hub IoT](quickstart-send-telemetry-java.md) e [Enviar mensagens da nuvem para o dispositivo com o Hub IoT](iot-hub-java-java-c2d.md) mostram a funcionalidade básica de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT. O tutorial [Processar mensagens do dispositivo para a nuvem](tutorial-routing.md) descreve uma forma de armazenamento confiável das mensagens do dispositivo para a nuvem no Armazenamento de Blobs do Azure. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo: 
 
 * Arquivos grandes que contêm imagens
 * vídeos
@@ -286,7 +282,7 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [Central de Desenvolvedores do IoT do Azure]: http://azure.microsoft.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account
+[Azure Storage]:../storage/common/storage-quickstart-create-account.md
 [lnk-configure-upload]: iot-hub-configure-file-upload.md
 [Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

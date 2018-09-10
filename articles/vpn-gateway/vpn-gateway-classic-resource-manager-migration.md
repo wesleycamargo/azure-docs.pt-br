@@ -1,6 +1,6 @@
 ---
-title: "Gateway de VPN clássico para migração do Gerenciador de Recursos | Microsoft Docs"
-description: "Esta página fornece uma visão geral do gateway de VPN clássico para migração do Gerenciador de Recursos."
+title: Gateway de VPN clássico para migração do Gerenciador de Recursos | Microsoft Docs
+description: Esta página fornece uma visão geral do gateway de VPN clássico para migração do Gerenciador de Recursos.
 documentationcenter: na
 services: vpn-gateway
 author: amsriva
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23127094"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Gateway de VPN clássico para migração do Gerenciador de Recursos
 Gateways de VPN agora podem ser migrados do modelo de implantação clássico para o Gerenciador de Recursos. É possível ler mais sobre os [Recursos e benefícios](../azure-resource-manager/resource-group-overview.md) do Azure Resource Manager. Neste artigo, detalhamos como migrar de implantações clássicas para o modelo com base no Gerenciador de Recursos mais recente. 

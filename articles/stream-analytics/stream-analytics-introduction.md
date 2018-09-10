@@ -1,6 +1,6 @@
 ---
 title: Visão geral do Azure Stream Analytics
-description: Saiba mais sobre o Stream Analytics, um serviço de nuvem gerenciado que ajuda a analisar dados de streaming de Internet das coisas (IoT) em tempo real.
+description: Saiba mais sobre o Stream Analytics, um serviço de nuvem gerenciado que ajuda a analisar dados de streaming de Internet das Coisas (IoT) em tempo real.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -11,11 +11,12 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: mvc
 ms.date: 03/27/2018
-ms.openlocfilehash: 4d68ee7f38c317b4ee42f5b40cc4c4196114e159
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7b38548ce3266d74ffd51ce75ffa92bdb4ac24b9
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437613"
 ---
 # <a name="what-is-stream-analytics"></a>O que é o Stream Analytics?
 
@@ -39,7 +40,7 @@ Depois de analisar os dados de entrada, você especifica uma saída para os dado
 * Envie dados ao painel do Power BI para visualização em tempo real.
 * Arquive dados em outros serviços de armazenamento do Azure.
 
-A imagem a seguir ilustra o pipeline do Stream Analytics. O trabalho do Stream Analytics pode usar todas as entradas e saídas ou um conjunto selecionado. Esta imagem mostra como os dados são enviados ao Stream Analytics, analisados e enviados para outras ações, como armazenamento ou apresentação:
+A imagem a seguir ilustra o pipeline do Stream Analytics. O trabalho do Stream Analytics pode usar todas as entradas e saídas de um conjunto selecionado. Esta imagem mostra como os dados são enviados ao Stream Analytics, analisados e enviados para outras ações, como armazenamento ou apresentação:
 
 ![Pipeline do Stream Analytics](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
 

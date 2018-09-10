@@ -1,23 +1,19 @@
 ---
-title: "Faça backup de servidores VMware com o Servidor de Backup do Azure | Microsoft Docs"
-description: "Utilize o Servidor de Backup do Azure para fazer backup de servidores VMware vCenter/ESXi para o Azure ou disco. Este artigo fornece instruções passo a passo para fazer backup (ou proteger) suas cargas de trabalho do VMware."
+title: Faça backup de servidores VMware com o Servidor de Backup do Azure
+description: Utilize o Servidor de Backup do Azure para fazer backup de servidores VMware vCenter/ESXi para o Azure ou disco. Este artigo fornece instruções passo a passo para fazer backup (ou proteger) suas cargas de trabalho do VMware.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-ms.assetid: 6b131caf-de85-4eba-b8e6-d8a04545cd9d
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/24/2017
-ms.author: markgal;
-ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: ce7b255359c076ddae642ed44f056e444b655e25
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216403"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Fazer backup de um servidor do VMware no Azure
 
@@ -92,7 +88,7 @@ Para corrigir esse problema e criar uma conexão segura, baixe os certificados C
 
     ![Pasta de destino do certificado](./media/backup-azure-backup-server-vmware/certificate-store-selected.png)
 
-    A pasta **Autoridades de Certificação Confiáveis** é confirmada como o repositório de certificados. Clique em **Avançar**.
+    A pasta **Autoridades de Certificação Confiáveis** é confirmada como o repositório de certificados. Clique em **Próximo**.
 
     ![Pasta de repositório de certificados](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 
@@ -155,8 +151,8 @@ Para adicionar uma função do vCenter Server e seus privilégios a um administr
 
   Depois de clicar em **OK**, a nova função é exibida na lista no painel Funções.
 
-|Privilégios do vCenter 6.0| Privilégios do vCenter 5.5|
-|--------------------------|---------------------------|
+|Privilégios para vCenter 6.0 e 6.5| Privilégios do vCenter 5.5|
+|----------------------------------|---------------------------|
 |Datastore.AllocateSpace   | Datastore.AllocateSpace|
 |Global.ManageCustomFields | Global.ManageCustomerFields|
 |Global.SetCustomFields    |   |

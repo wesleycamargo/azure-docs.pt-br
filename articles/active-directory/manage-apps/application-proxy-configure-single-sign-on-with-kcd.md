@@ -10,16 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/31/2018
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 506ff0bce0b68b1477f27f913bd3fe119e36cca1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4ce76f1156d4d8d85f5e10bb750b012f93ba7afb
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366673"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para logon único em seus aplicativos com o Proxy de Aplicativo
 
@@ -41,7 +42,7 @@ Este diagrama explica o fluxo de quando um usuário tenta acessar um aplicativo 
 7. O Conector envia a solicitação original para o servidor de aplicativos usando o token Kerberos recebido do AD.
 8. O aplicativo envia a resposta para o Conector, que é retornada para o serviço de Proxy de Aplicativo e, finalmente, para o usuário.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar com o logon único para aplicativos da IWA, verifique se seu ambiente está preparado com as seguintes configurações e definições:
 
 * Seus aplicativos, como os aplicativos Web do SharePoint, são definidos para usar a Autenticação Integrada do Windows. Para sabe rmais, veja [Habilitar suporte para autenticação Kerberos](https://technet.microsoft.com/library/dd759186.aspx), ou para o SharePoint, consulte [Planejar a autenticação Kerberos no SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
@@ -84,7 +85,23 @@ Sharepointserviceaccount pode ser a conta do computador do SPS ou uma conta de s
 
 
 ## <a name="sso-for-non-windows-apps"></a>SSO para aplicativos não Windows
-O fluxo de delegação de Kerberos no Proxy de Aplicativo do AD do Azure é iniciado quando o AD do Azure autentica o usuário na nuvem. Depois que a solicitação chega localmente, o conector do Proxy de Aplicativo Azure AD emite um tíquete do Kerberos em nome do usuário interagindo com o Active Directory local. Esse processo é conhecido como KCD (delegação restrita do Kerberos). Na próxima fase, uma solicitação é enviada ao aplicativo de back-end com esse tíquete Kerberos. Há vários protocolos que definem como enviar essas solicitações. A maioria dos servidores não Windows espera Negotiate/SPNego, que agora tem suporte no Proxy de Aplicativo do AD do Azure.
+
+O fluxo de delegação de Kerberos no Proxy de Aplicativo do AD do Azure é iniciado quando o AD do Azure autentica o usuário na nuvem. Depois que a solicitação chega localmente, o conector do Proxy de Aplicativo Azure AD emite um tíquete do Kerberos em nome do usuário interagindo com o Active Directory local. Esse processo é conhecido como KCD (delegação restrita do Kerberos). Na próxima fase, uma solicitação é enviada ao aplicativo de back-end com esse tíquete Kerberos. 
+
+Há vários protocolos que definem como enviar essas solicitações. A maioria dos servidores não Windows espera negociar com o SPNEGO. Esse protocolo é compatível com o Proxy de Aplicativo do Azure AD, mas é desabilitado por padrão. Um servidor pode ser configurado para SPNEGO ou KCD padrão, mas não ambos.
+
+Se você configurar um computador conector para SPNEGO, certifique-se de que todos os outros conectores nesse grupo conector também estejam configurados com SPNEGO. Aplicativos que esperam KCD padrão devem ser roteados por meio de outros conectores que não estão configurados para SPNEGO.
+ 
+
+Para habilitar SPNEGO:
+
+1. Abra um prompt de comando que é executado como administrador.
+2. No prompt de comando, execute os seguintes comandos em servidores do conector que precisam de SPNEGO.
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
+    net stop WAPCSvc & net start WAPCSvc
+    ```
 
 Para obter mais informações sobre o Kerberos, consulte [Tudo o que você deseja saber sobre a delegação restrita de Kerberos (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 
@@ -124,7 +141,7 @@ Porém, em alguns casos, a solicitação será enviada com êxito para o aplicat
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Como configurar um aplicativo de Proxy de Aplicativo para usar a Delegação restrita de Kerberos](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Solucionar problemas que surgirem com o Proxy de Aplicativo](../active-directory-application-proxy-troubleshoot.md)
+* [Solucionar problemas que surgirem com o Proxy de Aplicativo](application-proxy-troubleshoot.md)
 
 
 Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)

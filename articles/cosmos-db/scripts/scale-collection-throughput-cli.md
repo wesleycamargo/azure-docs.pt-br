@@ -6,20 +6,20 @@ documentationcenter: cosmosdb
 author: SnehaGunda
 manager: kfile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
-ms.date: 06/02/2017
+ms.date: 05/23/2018
 ms.author: sngun
-ms.openlocfilehash: e3df30250642617927cb2c98830a8420cb07bc20
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d830d8150066acd17cbfca6a05156b33ade240a2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437807"
 ---
 # <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>Dimensione a taxa de transferência do contêiner do BD Cosmos do Azure usando a CLI do Azure
 
@@ -32,6 +32,24 @@ Se você optar por instalar e usar a CLI localmente, este tópico exigirá que v
 ## <a name="sample-script"></a>Script de exemplo
 
 [!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-throughput/scale-cosmosdb-throughput.sh?highlight=40-46 "Scale Azure Cosmos DB throughput")]
+
+O exemplo de script acima permite criar e dimensionar uma coleção fixa. Se você quiser criar e dimensionar uma coleção com capacidade de armazenamento ilimitada, você deve: 
+ 
+* Criar a coleção com pelo menos 1000 RU/s e 
+* Especificar uma chave de partição durante a criação da coleção. 
+
+O comando a seguir mostra um exemplo para criar uma coleção com capacidade de armazenamento ilimitado:
+
+```cli
+az cosmosdb collection create \
+    --collection-name $collectionName \
+    --name $name \
+    --db-name $databaseName \
+    --resource-group $resourceGroupName \
+    --throughput 1000
+    --partition-key-path /deviceId
+
+```
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
@@ -47,9 +65,9 @@ Este script usa os seguintes comandos. Cada comando da tabela é vinculado à do
 
 | Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_update) | Atualiza uma conta do BD Cosmos do Azure. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-update) | Atualiza uma conta do BD Cosmos do Azure. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az-group-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

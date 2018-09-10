@@ -7,15 +7,17 @@ manager: douge
 assetId: eb3afde6-ba90-4308-9ac1-3cc29da4ede0
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/31/2017
 ms.author: ghogen
-ms.openlocfilehash: a19f33c4dd2654538c5718d2cd7dbe5d018e4de1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 81a0e2923ddbb6960066f01d6365e8c9278defac
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146301"
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>Acessando máquinas virtuais do Azure por meio do Gerenciador de Servidores
 
@@ -36,7 +38,7 @@ Se tiver máquinas virtuais hospedadas pelo Azure, você pode acessá-las no Ger
 2. Escolha um nó do ponto de extremidade e exiba a janela **Propriedades** .
 3. A tabela a seguir descreve as propriedades de pontos de extremidade disponíveis, mas eles são somente leitura. Para adicionar ou editar os pontos de extremidade para uma máquina virtual, use o [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). 
 
-   | Propriedade | DESCRIÇÃO |
+   | Propriedade | Descrição |
    | --- | --- |
    | NOME |Um identificador para o ponto de extremidade. |
    | Porta privada |A porta para acesso à rede interna para o seu aplicativo. |

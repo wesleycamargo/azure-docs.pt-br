@@ -4,20 +4,18 @@ description: Saiba mais sobre o suporte de recurso que a API MongoDB do Azure Co
 services: cosmos-db
 author: alekseys
 manager: kfile
-documentationcenter: ''
-ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: cadf637dd3a71e040fef8188f7290907659e5cdb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2c86cbe2ac9a0611873aca35480af92304abe5b5
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928678"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Suporte da API MongoDB para recursos e sintaxe do MongoDB
 
@@ -25,14 +23,19 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 
 Usando a API MongoDB do Azure Cosmos DB, você pode aproveitar os benefícios das APIs MongoDB às quais você está acostumado, com todos os recursos corporativos do Azure Cosmos DB: [distribuição global](distribute-data-globally.md), [fragmentação automática](partition-data.md), garantias de disponibilidade e latência, indexação automática de cada campo, criptografia em repouso, backups e muito mais.
 
+## <a name="mongodb-protocol-support"></a>Suporte ao Protocolo do MongoDB
+
+A API do MongoDB do Azure Cosmos DB é compatível com a versão do MongoDB Server **3.2**, por padrão. Os operadores com suporte e qualquer limitação ou exceções estão listadas abaixo. Os recursos ou os operadores de consulta adicionados à versão do MongoDB **3.4** estão disponíveis no momento como um recurso de visualização. Qualquer driver de cliente que compreenda esses protocolos deve ser capaz de conectar-se ao Cosmos DB usando a API do MongoDB.
+
+O [pipeline de agregação do MongoDB](#aggregation-pipeline) também está disponível como um recurso de visualização separado.
+
 ## <a name="mongodb-query-language-support"></a>Suporte de linguagem de consulta do MongoDB
 
 A API Mongo DB do Azure Cosmos DB oferece suporte abrangente para construções de linguagem de consulta do MongoDB. Abaixo você encontrará uma lista detalhada de operações, operadores, estágios, comandos e opções com suporte atualmente.
 
-
 ## <a name="database-commands"></a>Comandos de banco de dados
 
-O Azure Cosmos DB suporta os seguintes comandos de banco de dados em todas as contas da API MongoDB. 
+O Azure Cosmos DB suporta os seguintes comandos de banco de dados em todas as contas da API MongoDB.
 
 ### <a name="query-and-write-operation-commands"></a>Comandos de operação de consulta e gravação
 - excluir
@@ -289,7 +292,11 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Sem suporte. Nesse caso, use $regex 
+$text |  | Sem suporte. Nesse caso, use $regex.
+
+## <a name="unsupported-operators"></a>Operadores sem suporte
+
+Os operadores ```$where``` e ```$eval``` não têm suporte pelo Azure Cosmos DB.
 
 ### <a name="methods"></a>Métodos
 
@@ -318,6 +325,10 @@ O Azure Cosmos DB ainda não oferece suporte para usuários e funções. O Azure
 ## <a name="replication"></a>Replicação
 
 O Azure Cosmos DB oferece suporte à replicação automática nativa em camadas mais baixas. Essa lógica é estendida para atingir também réplica global e baixa. O Azure Cosmos DB não oferece suporte aos comandos de replicação manual.
+
+## <a name="write-concern"></a>Problema de Gravação
+
+Determinado suporte de Apis do MongoDB especificando um [Problema de Gravação](https://docs.mongodb.com/manual/reference/write-concern/) que especifica o número de respostas necessárias durante uma operação de gravação. Devido à forma como o Cosmos DB lida com a replicação em segundo plano, todas as gravações são automaticamente Quorum, por padrão. Qualquer problema de gravação especificado pelo código do cliente é ignorado. Saiba mais em [Como usar níveis de consistência para maximizar a disponibilidade e o desempenho](consistency-levels.md).
 
 ## <a name="sharding"></a>Fragmentação
 

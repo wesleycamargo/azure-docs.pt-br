@@ -1,20 +1,21 @@
 ---
-title: "Criar uma função no Azure que é implantada a partir do GitHub | Microsoft Docs"
-description: "Criar um aplicativo de funções e implantar o código de função de um repositório GitHub usando o Azure Functions."
+title: Criar uma função no Azure que é implantada a partir do GitHub | Microsoft Docs
+description: Criar um aplicativo de funções e implantar o código de função de um repositório GitHub usando o Azure Functions.
 services: functions
 ms.service: functions
-keywords: 
+keywords: ''
 ms.devlang: azurecli
 author: syntaxc4
-ms.author: cfowler
-ms.date: 01/09/2018
+ms.author: glenga
+ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 720ead07aa35540f61f1dc8e15b79ac9d58669be
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3090058236212d1baca17e2886a76f31ee1b2718
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424462"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Criar um aplicativo de funções no Azure que é implantado no GitHub
 
@@ -45,12 +46,11 @@ Este exemplo cria um Aplicativo de funções do Azure e implanta o código da fu
 
 Cada comando na tabela redireciona para a documentação específica do comando. Este script usa os seguintes comandos:
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um Plano do Serviço de Aplicativo. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Associa um aplicativo de funções a um repositório Git ou Mercurial. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Cria a conta de armazenamento necessária para o aplicativo de funções. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções sem o servidor [plano de consumo](../functions-scale.md#consumption-plan) e a associa a um repositório Git ou Mercurial. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

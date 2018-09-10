@@ -1,11 +1,11 @@
 ---
 title: Como Usar o Twilio para Voz e SMS (Ruby) | Microsoft Docs
-description: "Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos de códigos escritos em Ruby."
-services: 
+description: Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos de códigos escritos em Ruby.
+services: ''
 documentationcenter: ruby
 author: devinrader
 manager: twilio
-editor: 
+editor: ''
 ms.assetid: 60e512f6-fa47-47c0-aedc-f19bb72a1158
 ms.service: multiple
 ms.workload: na
@@ -14,11 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 69e50e7fe0e1f302e96c309878b8dea6869dff4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b5383dd319f2cb6fad4316e963f86dd7a4bc61
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036601"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Como usar o Twilio para recursos de voz e SMS no Ruby
 Este guia demonstra como executar tarefas comuns de programação com o serviço de API do Twilio no Azure. Os cenários abrangidos incluem fazer uma chamada telefônica e enviar uma mensagem serviço de mensagem curta (SMS). Para obter mais informações sobre o Twilio e o uso de voz e SMS em seus aplicativos, consulte a seção [Próximas etapas](#NextSteps) .
@@ -117,7 +118,7 @@ Adicione esta função a `web.md`:
     sid = "your_twilio_account_sid";
     token = "your_twilio_authentication_token";
 
-    # The number of the phone initiating the the call.
+    # The number of the phone initiating the call.
     # This should either be a Twilio number or a number that you've verified
     from = "NNNNNNNNNNN";
 
@@ -193,4 +194,4 @@ Agora que você já conhece os princípios do serviço Twilio, acesse estes link
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
+[azure_vm_setup]: https://docs.microsoft.com/azure/virtual-machines/linux/classic/ruby-rails-web-app

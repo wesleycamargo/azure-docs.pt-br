@@ -7,18 +7,20 @@ author: eringreenlee
 manager: ''
 editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 7cd16d64d18b4cdcb710f68c55a8251904acda86
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5bc1212cc6e894cd82a60abb42f92893c0bb2d43
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579537"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Solucionar problemas de configuração de entidade de serviço inválida para o domínio gerenciado
 
@@ -28,7 +30,7 @@ Este artigo ajuda você a solucionar problemas e resolver erros de configuraçã
 
 **Mensagem de alerta:** *Uma Entidade de Serviço necessária para o funcionamento correto do Azure AD Domain Services foi excluída do seu diretório do Azure AD. Essa configuração afeta a capacidade da Microsoft de monitorar, gerenciar, aplicar patch e sincronizar seu domínio gerenciado.*
 
-As [entidades de serviço](../active-directory/develop/active-directory-application-objects.md) são aplicativos usados pela Microsoft para gerenciar, atualizar e manter seu domínio gerenciado. Se forem excluídas, prejudicará a capacidade da Microsoft de realizar a manutenção em seu domínio.
+As [entidades de serviço](../active-directory/develop/app-objects-and-service-principals.md) são aplicativos usados pela Microsoft para gerenciar, atualizar e manter seu domínio gerenciado. Se forem excluídas, prejudicará a capacidade da Microsoft de realizar a manutenção em seu domínio.
 
 
 ## <a name="check-for-missing-service-principals"></a>Verificar entidades de serviço ausentes

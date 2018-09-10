@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 986a946e345492515a79f7dcd8730c533f4a0503
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052733"
 documentType: LandingData
 title: Documentação do Banco de dados SQL do Azure
 metadata:
@@ -7,20 +13,15 @@ metadata:
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   author: CarlRabeler
-  manager: carigg
+  manager: craigg
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang: 
-  ms.topic: landing-page
-  ms.date: 04/01/2018
+  ms.topic: overview
+  ms.date: 07/07/2018
   ms.author: carlrab
-  ms.openlocfilehash: b7888a2bece1a9b601c3629deb1c1dd1fc5cbbe3
-  ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-  ms.translationtype: HT
-  ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/06/2018
 abstract:
-  description: O Banco de Dados SQL do Azure é um banco de dados como serviço relacional usando o Mecanismo do Microsoft SQL Server. O Banco de dados SQL é um banco de dados seguro, confiável e de alto desempenho que você pode usar para criar aplicativos orientados a dados e sites na linguagem de programação de sua escolha, sem a necessidade de gerenciar a infra-estrutura. Saiba como usar o Banco de Dados SQL com nossos guias de início rápido, tutoriais e exemplos.
+  description: O Banco de Dados SQL do Azure é um banco de dados como serviço relacional (DBaaS) baseado na versão estável mais recente do Mecanismo de Banco de Dados do Microsoft SQL Server. O Banco de dados SQL é um banco de dados seguro, confiável e de alto desempenho que você pode usar para criar aplicativos orientados a dados e sites na linguagem de programação de sua escolha, sem a necessidade de gerenciar a infra-estrutura. Saiba como usar o Banco de Dados SQL com nossos guias de início rápido, tutoriais e exemplos.
   aside:
     image:
       alt: 
@@ -31,25 +32,118 @@ abstract:
     href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
     width: 250
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/sql-database/sql-database-technical-overview
+      html: <p>Banco de dados de PaaS que está sempre em execução na versão estável mais recente do Mecanismo de Banco de Dados do SQL Server e do sistema operacional corrigido com 99,99% de disponibilidade.</p>
+      image:
+        src: media/index/i_managed.svg
+      title: Totalmente gerenciado
+    - href: /azure/sql-database/sql-database-service-tiers
+      html: <p>Personalize a taxa de preço/desempenho de acordo com suas necessidades com níveis de desempenho flexíveis que abrangem desde bancos de dados acessíveis a $5/mês a bancos de dados avançados com 80 núcleos.</p>
+      image:
+        src: media/index/i_perftier.svg
+      title: Níveis de desempenho/preço
+    - href: /azure/sql-database/sql-database-scale-resources
+      html: <p>Escale verticalmente, escale horizontalmente ou fragmente seus bancos de dados com facilidade, dependendo das suas necessidades para melhorar o desempenho do seu aplicativo.</p>
+      image:
+        src: media/index/i_scale.svg
+      title: Escalabilidade
+    - href: /azure/sql-database/sql-database-servers-databases
+      html: <p>Use o banco de dados individual hospedado em servidores lógicos para seus aplicativos de SaaS e microsserviços que precisam de um banco de dados individual com os desempenhos previsíveis.</p>
+      image:
+        src: media/index/i_db.svg
+      title: Banco de Dados Individual
+    - href: /azure/sql-database/sql-database-elastic-pool
+      html: <p>Pools elásticos do Banco de Dados SQL são uma solução simples e econômica para gerenciar e dimensionar a vários bancos de dados com demandas de uso variadas e imprevisíveis.</p>
+      image:
+        src: media/index/i_elasticpool.svg
+      title: Pools elásticos
+    - href: /azure/sql-database/sql-database-managed-instance
+      html: <p>Use a Instância Gerenciada para facilmente migrar seus bancos de dados locais para o serviço de banco de dados de PaaS do Azure totalmente gerenciado com pouca ou nenhuma alteração de código do banco de dados.</p>
+      image:
+        src: media/index/i_mi.svg
+      title: Instância Gerenciada
+    - href: /azure/sql-database/sql-database-business-continuity
+      html: <p>Alta disponibilidade interna, backups automatizados e replicação geográfica impedirão que operações de manutenção, falhas de infraestrutura ou hardware interrompam seus negócios.</p>
+      image:
+        src: media/index/gear.svg
+      title: Continuidade dos negócios
+    - href: /azure/sql-database/sql-database-security-overview
+      html: <p>Proteja seu banco de dados com a autenticação do Azure AD, redes virtuais, firewalls, conexões Always Encrypted. Identificar ameaças e vulnerabilidades com segurança interna.</p>
+      image:
+        src: media/index/i_security.svg
+      title: Segurança avançada
+    - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
+      html: <p>A inteligência interna ajuda-o a reduzir significativamente os custos de execução e gerenciamento de bancos de dados e maximiza o desempenho e a segurança de seu aplicativo.</p>
+      image:
+        src: media/index/i_intelligence.svg
+      title: Inteligência interna
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: 'Saiba como criar um Banco de Dados SQL, gerenciá-lo usando o SQL Management Studio e desenvolver com ele em C#, Java, Python, Node.js e Ruby:'
-  - type: list
-    style: icon48
-    items:
+    text: 'O Banco de Dados SQL do Azure permite executar facilmente as tarefas básicas de gerenciamento usando o portal do Azure, a CLI do Azure e o Azure PowerShell. Saiba como executar tarefas básicas de gerenciamento usando os seguintes exemplos de início rápido:'
+  - type: table
+    style: dataMatrix
+    columns:
     - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: Portal do Azure
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal
+        src: media/index/portal.svg
+      title: O Portal do Azure
     - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
-      text: CLI do Azure
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-cli
+        src: media/index/cli.svg
+      title: CLI do Azure
     - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-powershell
+        src: media/index/logo_powershell.svg
+      title: PowerShell
+    - image:
+        src: media/index/logo_arm.svg
+      title: Modelo do Azure Resource Manager
+    rows:
+    - title: Criar um Único Banco de Dados SQL
+      values:
+      - href: /azure/sql-database/sql-database-get-started-portal
+      - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
+      - href: /azure/sql-database//scripts/sql-database-create-and-configure-database-powershell
+      - href: 
+    - title: Criar uma Instância Gerenciada do SQL
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-get-started
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
+    - title: Criar um Pool Elástico do SQL
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
+      - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
+    - title: Dimensionar um Único Banco de Dados SQL
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
+      - href: 
+    - title: Dimensionar um Pool Elástico do SQL
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
+    - title: Dimensionar uma Instância Gerenciada
+      values:
+      - href: 
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
+      - href: 
+    - title: Configurar a rede do Azure para a Instância Gerenciada
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
@@ -95,6 +189,6 @@ sections:
     - title: REST
       html: <p><a href="/rest/api/sql/">referência da API REST (a página pode estar em inglês)</a></p>
     - title: Ferramentas do SQL Server
-      html: <p><a href="https://msdn.microsoft.com/library/mt238365.aspx">Ferramentas do SQL Server</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SSDT (Ferramentas de Dados do SQL Server)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">Pacote de Biblioteca de Gerenciamento de Banco de Dados SQL</a></p>
+      html: <p><a href="https://msdn.microsoft.com/library/mt238365.aspx">Ferramentas do SQL Server</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SSDT (Ferramentas de Dados do SQL Server)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://docs.microsoft.com/sql/tools/sqlpackage">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">Pacote de Biblioteca de Gerenciamento de Banco de Dados SQL</a></p>
     - title: Drivers do SQL Server
       html: <p><a href="https://msdn.microsoft.com/library/mt654049.aspx">Drivers do SQL Server</a></p><p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p><p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p><p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>

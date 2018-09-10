@@ -3,7 +3,7 @@ title: Proteger uma implantação de aplicativos SAP NetWeaver de várias camada
 description: Este artigo descreve como proteger as implantações de aplicativos SAP NetWeaver usando o Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: asgang
 manager: rochakm
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,14 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
-ms.author: manayar
-ms.openlocfilehash: e2107177663163259d1f731717c4910bc986fc1f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.date: 07/06/2018
+ms.author: asgang
+ms.openlocfilehash: 95e5c53da2556293fc676fa5b1db9b4585038300
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922734"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Proteger uma implantação de aplicativo SAP NetWeaver de várias camadas usando o Site Recovery
 
@@ -48,7 +49,7 @@ Você pode usar o Azure Site Recovery para implementar uma solução de recupera
 * Sistemas SAP em execução em servidores VMware (ou físicos) locais que replicam para um local de recuperação de desastre em um datacenter do Azure (recuperação de desastre do VMware para o Azure). Este cenário requer alguns componentes adicionais. Para saber mais, confira [Arquitetura de replicação do VMware para o Azure](https://aka.ms/asr-v2a-architecture).
 * Sistemas SAP em execução no Hyper-V localmente que são replicados em um local de recuperação de desastre em um datacenter do Azure (recuperação de desastre do Hyper-V para Azure). Este cenário requer alguns componentes adicionais. Para saber mais, confira [Arquitetura de replicação do Hyper-V para o Azure](https://aka.ms/asr-h2a-architecture).
 
-Neste artigo, usamos um cenário de recuperação de desastre do Azure para o Azure a fim de demonstrar os recursos de recuperação de desastre de SAP do Site Recovery. Como a replicação do Site Recovery não é específica do aplicativo, o processo descrito deve também se aplicar a outros cenários.
+Neste artigo, usamos um cenário de recuperação de desastre do **Azure para o Azure** a fim de demonstrar os recursos de recuperação de desastre de SAP do Site Recovery. Como a replicação do Site Recovery não é específica do aplicativo, o processo descrito deve também se aplicar a outros cenários.
 
 ### <a name="required-foundation-services"></a>Serviços básicos necessários
 No cenário discutido neste artigo, os seguintes serviços de base são implantados:
@@ -57,43 +58,97 @@ No cenário discutido neste artigo, os seguintes serviços de base são implanta
 
 Recomendamos que você estabeleça essa infraestrutura antes de implantar o Site Recovery.
 
-## <a name="typical-sap-application-deployment"></a>Implantação típica do aplicativo SAP
-Os clientes grandes do SAP geralmente implantam entre 6 e 20 aplicativos SAP individuais. A maioria desses aplicativos é baseada em mecanismos Java ou ABAP do SAP NetWeaver. Vários mecanismos autônomos e aplicativos específicos que não são SAP NetWeaver e, tipicamente, alguns aplicativos que não são SAP, dão suporte a esses aplicativos principais NetWeaver.  
+## <a name="reference-sap-application-deployment"></a>Implantação de referência do aplicativo SAP
 
-É fundamental inventariar todos os aplicativos SAP que estão em execução no seu ambiente. Em seguida, determine o modo de implantação (de duas ou três camadas), as versões, os patches, os tamanhos, as taxas de variação e os requisitos de persistência do disco.
+Essa arquitetura de referência mostra um SAP NetWeaver em execução em um ambiente Windows no Azure com alta disponibilidade.  Essa arquitetura é implantada com tamanhos específicos de VM (máquina virtual) que podem ser alterados para acomodar as necessidades da sua organização.
 
-![Diagrama de um padrão de implantação típico do SAP](./media/site-recovery-sap/sap-typical-deployment.png)
+![Diagrama de um padrão de implantação típico do SAP](./media/site-recovery-sap/reference_sap.png)
 
-Proteja a camada de persistência do Banco de Dados SAP por meio de ferramentas nativas do DBMS, como o AlwaysOn do SQL Server, o Oracle Data Guard ou o sistema de replicação SAP HANA. Assim como a camada de banco de dados do SAP, a camada de cliente não está protegida pelo Site Recovery. É importante considerar os fatores que afetam essa camada. Os fatores incluem atraso de propagação DNS, segurança e acesso remoto ao datacenter de recuperação de desastre.
+## <a name="disaster-recovery-considerations"></a>Considerações de recuperação de desastres
 
-O Site Recovery é a solução recomendada para a camada de aplicativo, incluindo os SCS e ASCS SAP. Outros aplicativos, como aplicativos que não são SAP NetWeaver e SAP, fazem parte do ambiente geral de implantação do SAP. Você deve protegê-los com o Site Recovery.
+Para DR (recuperação de desastres), você deve ser capaz de fazer failover para uma região secundária. Cada camada usa uma estratégia diferente para fornecer proteção de recuperação de desastres.
 
-## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
+#### <a name="vms-running-sap-web-dispatcher-pool"></a>Pool do SAP Web Dispatcher em execução nas VMs 
+O componente Web Dispatcher é usado como um balanceador de carga para tráfego da SAP entre os servidores de aplicativos SAP. Para obter alta disponibilidade para o componente Web Dispatcher, o Azure Load Balancer será usado para implementar a configuração paralela do Web Dispatcher em uma configuração de round robin para distribuição de tráfego de HTTP(S) entre os Web Dispatchers disponíveis no pool dos balanceadores. Isso será replicado usando o ASR (Azure Site Recovery) e scripts de automação serão usados para configurar o balanceador de carga na região de recuperação de desastre. 
+
+####<a name="vms-running-application-servers-pool"></a>VMs que executam o pool de servidores de aplicativos
+Para gerenciar grupos de logon para servidores de aplicativos ABAP, é usada a transação SMLG. Ela usa a função de balanceamento de carga no servidor de mensagens do Central Services para distribuir a carga de trabalho entre o pool de servidores de aplicativos SAP para o tráfego de SAPGUIs e RFC. Isso será replicado usando o Azure Site Recovery 
+
+####<a name="vms-running-sap-central-services-cluster"></a>VMs que executam o cluster do SAP Central Services
+Essa arquitetura de referência executa o Central Services em VMs na camada de aplicativo. O Central Services é um SPOF (ponto único de falha) potencial quando implantado em uma única VM — uma implantação típica quando a alta disponibilidade não é um requisito.<br>
+
+Para implementar uma solução de alta disponibilidade, pode-se usar um cluster de disco compartilhado ou um cluster de compartilhamento de arquivos. Para configurar VMs para um cluster de disco compartilhado, use o Cluster de Failover do Windows Server. A Testemunha de Nuvem é recomendada como uma testemunha de quorum. 
+ > [!NOTE]
+ > O Azure Site Recovery não replica a testemunha de nuvem, portanto, é recomendável implantá-la na região de recuperação de desastre.
+
+Para dar suporte ao ambiente de cluster de failover, a [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) executa a função de volume de cluster compartilhado replicando discos independentes pertencentes a nós de cluster. O Azure não oferece suporte a discos compartilhados e, portanto, requer soluções fornecidas pelo SIOS. 
+
+Outra maneira de lidar com o clustering é implementando um cluster de compartilhamento de arquivos. Recentemente, a [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) modificou o padrão de implantação do Central Services para acessar os diretórios globais /sapmnt por meio de um caminho UNC. No entanto, ainda é recomendável garantir que o compartilhamento UNC /sapmnt seja altamente disponível. Isso pode ser feito na instância do Central Services usando um Cluster de Failover do Windows Server com SOFS (Servidor de Arquivos de Escalabilidade Horizontal) e o recurso S2D (Espaços de Armazenamento Diretos) no Windows Server 2016. 
+ > [!NOTE]
+ > No momento, o Azure Site Recovery oferece suporte apenas para falhas constantes no ponto de replicação de máquinas virtuais que usam espaços de armazenamento diretos 
+
+
+## <a name="disaster-recovery-considerations"></a>Considerações de recuperação de desastres
+
+Você pode usar o Azure Site Recovery para orquestrar o failover da implantação completa do SAP em regiões do Azure.
+Abaixo estão as etapas para configurar a recuperação de desastre 
+
+1. Replicar máquinas virtuais 
+2. Criar uma rede de recuperação
+3.  Replicar um controlador de domínio
+4.  Replicar a camada de banco de dados 
+5.  Execute um teste de failover 
+6.  Execute um failover 
+
+Abaixo está a recomendação para recuperação de desastre de cada camada usada neste exemplo. 
+
+ **Camadas do SAP** | **Recomendações**
+ --- | ---
+**Pool do SAP Web Dispatcher** |  Replicar usando o Site Recovery 
+**Pool de servidores de aplicativo do SAP** |  Replicar usando o Site Recovery 
+**Cluster do SAP Central Services** |  Replicar usando o Site Recovery 
+**Máquinas virtuais do Active Directory** |  Replicação do Active Directory 
+**Servidores de Banco de Dados SQL** |  SQL sempre em replicação
+
+##<a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
+
 Para iniciar a replicação de todas as máquinas virtuais do aplicativo SAP para o datacenter de recuperação de desastre do Azure, siga as orientações em [Replicar uma máquina virtual no Azure](azure-to-azure-walkthrough-enable-replication.md).
+
+
+* Para obter diretrizes sobre como proteger o Active Directory e DNS, consulte o documento [Proteger o Active Directory e DNS](site-recovery-active-directory.md).
+
+* Para obter diretrizes sobre como proteger a camada de banco de dados em execução no SQL Server, consulte o documento [Proteger o SQL Server](site-recovery-active-directory.md).
+
+## <a name="networking-configuration"></a>Configuração de rede
 
 Se você usar um endereço IP estático, poderá especificar o endereço IP que você deseja que a máquina virtual use. Para configurar o endereço IP, vá para **Configurações de computação e rede** > **Placa de adaptador de rede**.
 
 ![Captura de tela que mostra como definir um endereço IP privado no painel de adaptador de rede do Site Recovery](./media/site-recovery-sap/sap-static-ip.png)
 
-## <a name="create-a-recovery-plan"></a>Criar um plano de recuperação
+
+## <a name="creating-a-recovery-plan"></a>Criar um plano de recuperação
 Um plano de recuperação dá suporte à sequência de várias camadas em um aplicativo de várias camadas durante um failover. O sequenciamento ajuda a manter a consistência do aplicativo. Quando você criar um plano de recuperação para um aplicativo Web de várias camadas, conclua as etapas descritas em [Criar um plano de recuperação usando o Site Recovery](site-recovery-create-recovery-plans.md).
+
+### <a name="adding-virtual-machines-to-failover-groups"></a>Adicionar máquinas virtuais aos grupos de failover
+
+1.  Crie um plano de recuperação adicionando o servidor de aplicativos, o dispatcher da Web e as VMs do SAP Central Services.
+2.  Clique em 'Personalizar' para agrupar as VMs. Por padrão, todas as VMs são parte do 'Grupo 1'.
+
+
 
 ### <a name="add-scripts-to-the-recovery-plan"></a>Adicionar scripts ao plano de recuperação
 Talvez seja necessário fazer algumas operações nas máquinas virtuais do Azure após o failover ou durante o teste de failover para que seus aplicativos funcionem corretamente. Você pode automatizar algumas operações após o failover. Por exemplo, você pode atualizar a entrada DNS e alterar associações e conexões adicionando scripts correspondentes ao plano de recuperação.
 
-### <a name="dns-update"></a>Atualização de DNS
-Se o DNS estiver configurado para atualização dinâmica de DNS, as máquinas virtuais normalmente atualizarão o DNS com o novo endereço IP quando forem iniciadas. Se você quiser adicionar uma etapa explícita para atualizar o DNS com os novos IPs das máquinas virtuais, adicione um [script para atualizar o endereço IP no DNS](https://aka.ms/asr-dns-update) como uma ação pós-failover nos grupos de plano de recuperação.  
 
-## <a name="example-azure-to-azure-deployment"></a>Exemplo de implantação do Azure para o Azure
-O diagrama abaixo mostra o cenário de recuperação de desastre do Azure para o Azure pelo Site Recovery:
+Você pode implantar os scripts do Azure Site Recovery mais comumente usados em sua conta de automação clicando no botão 'Implantar no Azure' abaixo. Quando você estiver usando qualquer script publicado, verifique se seguiu as diretrizes no script.
 
-![Diagrama de um cenário de replicação do Azure para o Azure](./media/site-recovery-sap/sap-replication-scenario.png)
+[![Implantar no Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-* O datacenter primário está localizado em Cingapura (Sudeste Asiático). O datacenter de recuperação de desastre fica em Hong Kong (Azure Ásia Oriental). Nesse cenário, a alta disponibilidade local é fornecida por duas VMs que executam o SQL Server AlwaysOn no modo síncrono em Cingapura.
-* O ASCS SAP do compartilhamento de arquivos fornece alta disponibilidade para os pontos únicos de falha do SAP. O ASCS do compartilhamento de arquivos não requer um disco de cluster compartilhado. Aplicativos como SIOS não são necessários.
-* A proteção de recuperação de desastre para a camada de DBMS é obtida usando replicação assíncrona.
-* Este cenário mostra "recuperação de desastre simétrica". Esse termo descreve uma solução de recuperação de desastre que é uma réplica exata da produção. A solução SQL Server de recuperação de desastre tem alta disponibilidade local. A recuperação de desastre simétrica não é obrigatória para a camada de banco de dados. Muitos clientes aproveitam a flexibilidade de implantações de nuvem para criar rapidamente um nó de alta disponibilidade local após um evento de recuperação de desastre.
-* O diagrama ilustra a camada de servidor de aplicativo e do ASCS SAP NetWeaver replicada pelo Site Recovery.
+1. Adicione um script de ação prévia para o 'Grupo 1' para fazer failover do grupo de Disponibilidade do SQL. Use o script 'ASR-SQL-FailoverAG' publicado nos scripts de exemplo. Verifique se você seguiu as diretrizes no script e faça adequadamente as alterações necessárias no script.
+2. Adicione um script de ação posterior para anexar um balanceador de carga a máquinas virtuais da camada da Web (Grupo 1) nas quais o failover foi realizado. Use o script 'ASR-AddSingleLoadBalancer' publicado nos scripts de exemplo. Verifique se você seguiu as diretrizes no script e faça adequadamente as alterações necessárias no script.
+
+![Plano de recuperação do SAP](./media/site-recovery-sap/sap_recovery_plan.png)
+
 
 ## <a name="run-a-test-failover"></a>Execute um teste de failover
 

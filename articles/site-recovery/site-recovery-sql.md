@@ -2,23 +2,17 @@
 title: Replicar aplicativos com o SQL Server e o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como replicar o SQL Server usando o Azure Site Recovery para as funcionalidades de desastre do SQL Server.
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
+author: rayne-wiselman
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/02/2018
-ms.author: pratshar
-ms.openlocfilehash: 7afa05b53186ceac13bef3294c7a139f77193110
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.date: 07/22/2018
+ms.author: raynew
+ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188766"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Proteger o SQL Server usando a recuperação de desastre do SQL Server e o Azure Site Recovery
 
@@ -47,10 +41,10 @@ O Site Recovery pode proteger o SQL Server, como resumido na tabela.
 
 **Cenário** | **Para um site secundário** | **Para o Azure**
 --- | --- | ---
-**Hyper-V** | sim | sim
-**VMware** | sim | sim
-**Servidor físico** | sim | sim
-**As tabelas**|ND| sim
+**Hyper-V** | SIM | SIM
+**VMware** | SIM | SIM
+**Servidor físico** | SIM | SIM
+**As tabelas**|ND| SIM
 
 ### <a name="supported-sql-server-versions"></a>Versões do SQL Server com suporte
 Essas versões do SQL Server tem suporte nos cenários com suporte:
@@ -77,7 +71,7 @@ Esta tabela resume nossas recomendações para a integração de tecnologias de 
 
 | **Versão** | **Edição** | **Implantação** | **Local para local** | **Local para o Azure** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2014 ou 2012 |Enterprise |Instância do cluster de failover |Grupos de disponibilidade AlwaysOn |Grupos de disponibilidade AlwaysOn |
+| SQL Server 2016, 2014 ou 2012 |Enterprise |Instância do cluster de failover |Grupos de disponibilidade AlwaysOn |Grupos de disponibilidade AlwaysOn |
 || Enterprise |Grupos de disponibilidade AlwaysOn para alta disponibilidade |Grupos de disponibilidade AlwaysOn |Grupos de disponibilidade AlwaysOn | |
 || Standard |FCI (instância do cluster de failover) |Replicação de Recuperação de Site com espelhamento local |Replicação de Recuperação de Site com espelhamento local | |
 || Enterprise ou Standard |Autônomo |Replicação de recuperação de site |Replicação de recuperação de site | |
@@ -89,7 +83,6 @@ Esta tabela resume nossas recomendações para a integração de tecnologias de 
 
 * Uma implantação local do SQL Server executando uma versão com suporte do SQL Server. Normalmente, também é necessário ter um Active Directory para o SQL Server.
 * Os requisitos para o cenário que você deseja implantar. Saiba mais sobre os requisitos de suporte para [replicação no Azure](site-recovery-support-matrix-to-azure.md) e [no local](site-recovery-support-matrix.md) e [os pré-requisitos de implantação](site-recovery-prereq.md).
-* Para configurar a recuperação no Azure, será necessário executar a ferramenta [Avaliação de preparação da máquina virtual do Azure](http://www.microsoft.com/download/details.aspx?id=40898) nas máquinas virtuais do SQL Server a fim de verificar se são compatíveis com o Azure e com o Site Recovery.
 
 ## <a name="set-up-active-directory"></a>Configurar o Active Directory
 

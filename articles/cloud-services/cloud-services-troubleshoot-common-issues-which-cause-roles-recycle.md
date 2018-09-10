@@ -1,11 +1,11 @@
 ---
-title: "Causas comuns da reciclagem de funções do Serviço de Nuvem | Microsoft Docs"
-description: "Uma função de serviço de nuvem que é reciclada repentinamente pode causar um tempo de inatividade significativo. Veja alguns problemas comuns que causam a reciclagem de funções, que podem ajudar a reduzir o tempo de inatividade."
+title: Causas comuns da reciclagem de funções do Serviço de Nuvem | Microsoft Docs
+description: Uma função de serviço de nuvem que é reciclada repentinamente pode causar um tempo de inatividade significativo. Veja alguns problemas comuns que causam a reciclagem de funções, que podem ajudar a reduzir o tempo de inatividade.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984279"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comuns que causam a reciclagem de funções
 Este artigo discute algumas das causas comuns dos problemas de implantação e fornece dicas de solução de problemas para ajudá-lo a resolvê-los. Uma indicação de que existe um problema com um aplicativo é quando há uma falha na inicialização da instância de função ou se ela alterna entre os estados inicializando, ocupado e parando.

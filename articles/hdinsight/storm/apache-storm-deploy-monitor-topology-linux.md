@@ -1,25 +1,22 @@
 ---
-title: Implantar e gerenciar topologias Apache Storm no HDInsight baseado em Linux | Microsoft Docs
+title: Implantar e gerenciar topologias Apache Storm no Microsoft Azure HDInsight
 description: Aprenda a implantar, monitorar e gerenciar topologias do Apache Storm usando o Painel do Storm no HDInsight baseado em Linux. Use as ferramentas do Hadoop para Visual Studio.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: larryfr
-ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 486fcdfecf70b13d01c259f36b74676fb8e4d54f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042949"
 ---
-# <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no HDInsight
+# <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no Microsoft Azure HDInsight 
 
 Neste documento, conheça as noções básicas de gerenciamento e monitoramento de topologias Storm em execução no Storm em clusters HDInsight.
 
@@ -29,7 +26,7 @@ Neste documento, conheça as noções básicas de gerenciamento e monitoramento 
 > Para obter informações sobre as topologias de implantação e monitoramento em HDInsight baseado em Windows, consulte [Implantar e gerenciar topologias do Apache Storm no HDInsight baseado em Windows](apache-storm-deploy-monitor-topology.md)
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Storm baseado em Linux no cluster HDInsight**: consulte [Introdução com o Apache Storm no HDInsight](apache-storm-tutorial-get-started-linux.md) para etapas para criar um cluster
 
@@ -39,9 +36,9 @@ Neste documento, conheça as noções básicas de gerenciamento e monitoramento 
 
     Uma das seguintes versões do Visual Studio:
 
-  * Visual Studio 2012 com [Atualização 4](http://www.microsoft.com/download/details.aspx?id=39305)
+  * Visual Studio 2012 com Atualização 4
 
-  * Visual Studio 2013 com [Atualização 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * Visual Studio 2013 com Atualização 4 ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
   * Visual Studio 2015 (qualquer edição)
@@ -63,7 +60,7 @@ As Ferramentas do HDInsight podem ser usadas para enviar topologias C# ou híbri
 
 3. Na caixa de diálogo **Novo Projeto**, expanda **Instalados** > **Modelos** e selecione **HDInsight**. Na lista de modelos, selecione **Amostra do Storm**. Na parte inferior da caixa de diálogo, digite um nome para o aplicativo.
 
-    ![imagem](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
+    ![image](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
 
 4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Enviar para o Storm no HDInsight**.
 
@@ -211,7 +208,7 @@ Selecionar um spout nas seções **Spouts** ou **Bolts** exibirá as seguintes i
 
 A interface do usuário do Storm é criada sobre a API REST e, portanto, você pode realizar gerenciamento semelhante e monitorar a funcionalidade usando a API REST. Você pode usar a API REST para criar ferramentas personalizadas para o gerenciamento e o monitoramento de topologias Storm.
 
-Para obter mais informações, veja [API REST da interface do usuário do Storm](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html). As informações a seguir são específicas para o uso da API REST com Apache Storm no HDInsight.
+Para obter mais informações, veja [API REST da interface do usuário do Storm](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). As informações a seguir são específicas para o uso da API REST com Apache Storm no HDInsight.
 
 > [!IMPORTANT]
 > A API do REST Storm não está disponível publicamente pela Internet, e deve ser acessada usando um túnel SSH para o nó principal do cluster HDInsight. Para obter informações sobre como criar e usar um túnel SSH, consulte [Usar um túnel SSH para acessar a interface do usuário da Web do Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras interfaces do usuário da Web](../hdinsight-linux-ambari-ssh-tunnel.md).

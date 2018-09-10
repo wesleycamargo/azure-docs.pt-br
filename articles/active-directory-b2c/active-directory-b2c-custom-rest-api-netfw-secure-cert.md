@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: proteger seu serviço RESTful usando certificados do cliente'
+title: Proteger seu serviço RESTful usando certificados do cliente no Azure Active Directory B2C | Microsoft Docs
 description: Proteja suas trocas de declarações da API REST personalizadas no Azure AD B2C usando certificados do cliente
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: fb5c8a48a676a2909cce3c4d126218e48a4c8ce2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 7bf7add75f60bf64f64119979e5eee81be0f6e7b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344958"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteger seu serviço RESTful usando certificados do cliente
 
@@ -33,26 +33,18 @@ Este artigo detalha como:
 * Carregue o certificado para as chaves de política do Azure AD B2C.
 * Configure sua política personalizada para usar o certificado do cliente.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Execute as etapas descritas no artigo [Integrar trocas de declarações da API REST](active-directory-b2c-custom-rest-api-netfw.md).
 * Obtenha um certificado válido (um arquivo .pfx com uma chave privada).
 
 ## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>Etapa 1: Configurar o aplicativo Web para autenticação de certificado do cliente
-Para configurar o **Serviço de Aplicativo do Azure** para exigir certificados do cliente, defina a configuração do site `clientCertEnabled` do aplicativo Web como *true*. Para fazer essa alteração, é necessário usar a API REST. A configuração está disponível por meio da experiência de gerenciamento no Portal do Azure. Para localizar a configuração, no menu **Configurações** do aplicativo RESTful, em **Ferramentas de desenvolvimento**, selecione **Resource Explorer**.
+Para configurar o **Serviço de Aplicativo do Azure** para exigir certificados do cliente, defina a configuração do site `clientCertEnabled` do aplicativo Web como *true*. Para fazer esta mudança, no Portal do Azure, abra a página do aplicativo Web. Na navegação esquerda, em **Configurações** selecione **Configurações SSL**. No **certificados de cliente** seção, ative o **certificado de cliente de entrada** opção.
 
 >[!NOTE]
 >Verifique se seu plano de Serviço de Aplicativo do Azure é Standard ou superior. Para obter mais informações, consulte [Visão geral detalhada de planos de serviço de aplicativo do Azure](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
-
-Use o [Azure Resource Explorer (Versão Prévia)](https://resources.azure.com) para definir a propriedade **clientCertEnabled** como *true*, conforme mostrado na imagem a seguir:
-
-![Definir clientCertEnabled por meio do Azure Resource Explorer](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
-
 >[!NOTE]
 >Para obter mais informações sobre como definir a propriedade **clientCertEnabled**, consulte [Como configurar a autenticação mútua TLS para Aplicativo Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
-
->[!TIP]
->Outra opção, para facilitar a criação da chamada à API REST, é usar a ferramenta [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Etapa 2: Carregar seu certificado para as chaves de política do Azure AD B2C
 Depois de definir `clientCertEnabled` como *true*, a comunicação com a API RESTful agora requer um certificado do cliente. Para obter, carregar e armazenar o certificado do cliente no locatário do Azure AD B2C, faça o seguinte: 
@@ -144,7 +136,7 @@ Para dar suporte à autenticação de certificado do cliente na sua política pe
      "exp": 1507125903,
      "nbf": 1507122303,
      "ver": "1.0",
-     "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+     "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
      "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
      "acr": "b2c_1a_signup_signin",
      "nonce": "defaultNonce",

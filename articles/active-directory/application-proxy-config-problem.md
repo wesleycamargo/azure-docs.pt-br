@@ -3,21 +3,24 @@ title: Problemas ao criar um aplicativo de Application Proxy| Microsoft Docs
 description: Como solucionar problemas de criação de aplicativos de Application Proxy no portal de administração do Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 376925715e954904cfdadccb060d0ca242bbec4a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.topic: conceptual
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 3f0c05673ec970e5763f27fc0045b9a529b2ffee
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365467"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>Problemas ao criar um aplicativo de Application Proxy 
 

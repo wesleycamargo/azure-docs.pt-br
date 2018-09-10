@@ -1,28 +1,19 @@
 ---
-title: Passo a passo da API REST de Monitoramento do Azure | Microsoft Docs
+title: Passo a passo da API REST de Monitoramento do Azure
 description: Como autenticar solicitações e usar a API REST do Azure Monitor para recuperar as definições de métrica e os valores de métrica disponíveis.
 author: mcollier
-manager: ''
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 565e6a88-3131-4a48-8b82-3effc9a3d5c6
-ms.service: monitoring-and-diagnostics
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.search.region: ''
-ms.search.scope: ''
-ms.search.validFrom: ''
-ms.dyn365.ops.version: ''
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
-ms.openlocfilehash: a2b33822a1208c2835b8eabfb6717edba08d1992
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: ''
+ms.openlocfilehash: 9524d471388e69166191b6197fb295532b068092
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390547"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Passo a passo da API REST de Monitoramento do Azure
 Este artigo mostra como executar autenticação para que o seu código possa usar a [referência de API REST do Monitor do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -240,7 +231,7 @@ Use o “value” do nome da métrica (não o “localizedValue”) para todas a
 
 **Método**: GET
 
-**URI de Solicitação**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
+**URI de solicitação**: https://management.azure.com/subscriptions/ *{id da assinatura}* ResourceGroups *{resource-group-name}*/providers/*{resource-provider-namespace}* / *{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*& timespan =*{starttime/endtime}*& $filter =*{filter}*& resultType = metadados & api-version =*{apiVersion}*
 
 Por exemplo, para recuperar a lista de valores de dimensão que foram emitidos para a 'dimensão nome da API' para a métrica 'Transações', em que a dimensão GeoType = 'Primary' durante o intervalo de tempo especificado, a solicitação seria:
 
@@ -311,7 +302,7 @@ Use o “value” do nome da métrica (não o “localizedValue”) para todas a
 
 **Método**: GET
 
-**URI de solicitação**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+**URI de solicitação**: https://management.azure.com/subscriptions/ *{id da assinatura}* ResourceGroups *{resource-group-name}*/providers/*{resource-provider-namespace}* / *{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*& timespan =*{starttime/endtime}*& $filter =*{filter}*& intervalo =*{timeGrain}*& aggregation =*{ aggreation}*& api-version =*{apiVersion}*
 
 Por exemplo, para recuperar as 3 maiores APIs, da maior para a menor, pelo número de 'Transactions' durante um intervalo de 5 minutos, em que o GeotType era 'Primary', a solicitação seria:
 

@@ -1,11 +1,11 @@
 ---
-title: "Analisar a segurança de rede com exibição de grupo de segurança do Observador de Rede do Azure – CLI 2.0 do Azure | Microsoft Docs"
-description: "Este artigo descreve como usar a CLI 2.0 do Azure para analisar um título de máquinas virtuais com o modo de exibição de grupo de segurança."
+title: Analisar a segurança de rede com exibição de grupo de segurança do Observador de Rede do Azure – CLI 2.0 do Azure | Microsoft Docs
+description: Este artigo descreve como usar a CLI 2.0 do Azure para analisar um título de máquinas virtuais com o modo de exibição de grupo de segurança.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a986ff4f-7e0c-4994-95e1-4ac824986500
 ms.service: network-watcher
 ms.devlang: na
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9ae5ec422b197b077c52dbb2e64ddab4e08e3a50
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 82cd0d97a64819ae8528850ba9a44800bf960afc
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090541"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>Analisar a segurança de máquina Virtual com o modo de exibição de grupo de segurança usando a CLI 2.0 do Azure
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-security-group-view-cli.md)
+> - [CLI do Azure](network-watcher-security-group-view-cli.md)
 > - [API REST](network-watcher-security-group-view-rest.md)
 
 Exibição de grupo de segurança retorna as regras de segurança de rede configurados e eficaz que são aplicadas a uma máquina virtual. Esse recurso é útil para auditoria e diagnosticar grupos de segurança de rede e as regras configuradas em uma VM para garantir que o tráfego está sendo corretamente permitido ou negado. Neste artigo, mostraremos como recuperar as regras de segurança configuradas e em vigor para uma máquina virtual usando a CLI do Azure

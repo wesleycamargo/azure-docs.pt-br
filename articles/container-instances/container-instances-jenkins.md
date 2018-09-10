@@ -2,18 +2,18 @@
 title: Usar as Instâncias de Contêiner do Azure como um agente de build Jenkins
 description: Saiba como usar as Instâncias de Contêiner do Azure como um agente de build Jenkins.
 services: container-instances
-author: neilpeterson
+author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/20/2018
-ms.author: nepeters
-ms.openlocfilehash: 4df230c8306a3876e94a5e9ada5e7408f134ba26
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 08/31/2018
+ms.author: marsma
+ms.openlocfilehash: 6419753a48e1356b2d94592fca72cee1f848dcdb
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359536"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390646"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usar as Instâncias de Contêiner do Azure como um agente de build Jenkins
 
@@ -92,31 +92,21 @@ O Jenkins agora está configurado e pronto para compilar e implantar código. Pa
 
 ## <a name="create-a-build-job"></a>Criar um trabalho de build
 
-Ao usar uma imagem de contêiner como um destino de build do Jenkins, é necessário especificar uma imagem que inclua todas as ferramentas necessárias para um build com êxito. Para especificar a imagem:
+Agora, um trabalho de build do Jenkins é criado para demonstrar builds dos Jenkins em uma instância de contêiner do Azure.
 
-1. Selecione **Gerenciar Jenkins** > **Configurar Sistema** e role até a seção **Nuvem**. Neste exemplo, atualize o valor de imagem do Docker para **microsoft/java-on-azure-jenkins-slave**.
-
-   Quando terminar, clique em **Salvar** para retornar ao painel do Jenkins.
-
-   ![Configuração de nuvem do Jenkins](./media/container-instances-jenkins/jenkins-aci-image.png)
-
-2. Agora, crie um trabalho de build do Jenkins. Selecione **Novo Item**, dê ao projeto de build um nome como **aci-java-demo**, selecione **Freestyle project** e selecione **OK**.
+1. Selecione **Novo Item**, dê ao projeto de build um nome como **aci-demo**, selecione **Freestyle project** e selecione **OK**.
 
    ![Caixa para o nome do trabalho de compilação e a lista de tipos de projeto](./media/container-instances-jenkins/jenkins-new-job.png)
 
-3. Em **Geral**, assegure-se de que **Restringir onde este projeto pode ser executado** está selecionado. Insira **linux** para a expressão de rótulo. Essa configuração assegura que esse trabalho de build execute na nuvem do ACI.
+2. Em **Geral**, assegure-se de que **Restringir onde este projeto pode ser executado** está selecionado. Insira **linux** para a expressão de rótulo. Essa configuração assegura que esse trabalho de build execute na nuvem do ACI.
 
    ![Guia "Geral" com detalhes de configuração](./media/container-instances-jenkins/jenkins-job-01.png)
 
-4. Em **gerenciamento de código-fonte**, **Git** e insira **https://github.com/spring-projects/spring-petclinic.git** para o repositório URL. Este repositório do GitHub contém o código do aplicativo de exemplo.
+3. Sob **Build**, selecione **Adicionar etapa de compilação** e selecione **Executar Shell**. Insira `echo "aci-demo"` como o comando.
 
-   ![Guia "Gerenciamento de código de origem" com informações do código fonte](./media/container-instances-jenkins/jenkins-job-02.png)
+   ![Guia "Criar" com as seleções para a etapa de compilação](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. Em **Compilar**, selecione **Adicionar etapa de build** e, em seguida, **Invocar destinos de nível superior do Maven**. Insira o **pacote** como a meta da etapa de build.
-
-   ![Guia "Criar" com as seleções para a etapa de compilação](./media/container-instances-jenkins/jenkins-job-03.png)
-
-6. Clique em **Salvar**.
+5. Clique em **Salvar**.
 
 ## <a name="run-the-build-job"></a>Executar o trabalho de build
 
@@ -137,6 +127,10 @@ Para testar o trabalho de build e observar as Instâncias de Contêiner do Azure
 4. Depois que todos os trabalhos de build forem concluídos, as instâncias de contêiner serão removidas.
 
    ![Grupo de recursos com instâncias de contêiner removido](./media/container-instances-jenkins/jenkins-aci-none.png)
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Solução de problemas do plug-in do Jenkins
+
+Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIRA do Jenkins](https://issues.jenkins-ci.org/) para o componente específico.
 
 ## <a name="next-steps"></a>Próximas etapas
 

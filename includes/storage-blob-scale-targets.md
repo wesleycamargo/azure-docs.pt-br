@@ -1,6 +1,6 @@
 | Recurso | Destino |
 |----------|---------------|
-| Tamanho máximo de contêiner de blob único | 500 TiB |
+| Tamanho máximo de contêiner de blob único | O mesmo da capacidade máxima da conta de armazenamento |
 | Número máximo de blocos em um blob de blocos ou de acréscimo | 50.000 blocos |
 | Tamanho máximo de um bloco em um blob de blocos | 100 MiB |
 | Tamanho máximo de um blob de blocos | 50.000 x 100 MiB (aproximadamente 4,75 TiB) |

@@ -1,24 +1,20 @@
 ---
-title: Executar as amostras do Hadoop no HDInsight – Azure | Microsoft Docs
+title: Executar amostras do Hadoop no Azure HDInsight
 description: Introdução ao uso do serviço Azure HDInsight com os exemplos fornecidos. Use os scripts do PowerShell que executam programas MapReduce em clusters de dados.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bf76d452-abb4-4210-87bd-a2067778c6ed
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1262e0eda5cf490eb6c3ef81bc05de3954059f4c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59e6fd0a05374329efb20201c8d904cbbdc72b1a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110992"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Executar exemplos do MapReduce do Hadoop no HDInsight baseado em Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]

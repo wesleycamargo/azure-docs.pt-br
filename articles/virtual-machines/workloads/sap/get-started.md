@@ -4,7 +4,7 @@ description: Saiba como executar as soluções SAP em VMs (máquinas virtuais) n
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 54bb2857c18e273fe98f2a590068d73f80d2fad1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27fa69043797860c0a4acb1a128b45fe9e2b01c1
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090687"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -304,6 +305,13 @@ A exclusividade do Azure para SAP HANA é uma oferta exclusiva que distingue o A
 
 Hospedar cenários de carga de trabalho do SAP no Azure também pode criar requisitos de integração de identidade e logon único usando o Azure Active Directory para diferentes componentes SAP e ofertas SaaS ou PaaS do SAP. Uma lista de tais cenários de integração e de logon único com entidades SAP e do AAD (Azure Active Directory) é descrita e documentada na seção "Integração de Identidade do AAD SAP e Logon Único".
 
+## <a name="latest-changes"></a>Últimas alterações
+
+Documentação em torno de escala horizontal do SAP HANA no Azure VM M128s foi adicionada para:
+
+- [Configurações de infraestrutura do SAP HANA e operações no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
+- [Disponibilidade do SAP HANA em uma região do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
+
 
 ## <a name="sap-hana-on-sap-hana-on-azure-large-instances"></a>SAP HANA no SAP HANA no Azure (Instâncias Grandes)
 
@@ -337,7 +345,7 @@ Atualização: julho de 2017
 ### <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>Alta disponibilidade e recuperação de desastre do SAP HANA no Azure (Instâncias Grandes)
 Título: Alta disponibilidade e recuperação de desastre do SAP HANA no Azure (Instâncias Grandes)
 
-Resumo: a HA (Alta Disponibilidade) e a DR (Recuperação de Desastre) são aspectos importantes da execução de servidores críticos do SAP HANA no Azure (Instâncias Grandes). É importante trabalhar com a SAP, o integrador de sistema e/ou a Microsoft, a fim de arquitetar e implementar adequadamente a estratégia de HA/DR certa para você. Deve-se levar em conta considerações importantes como RPO (Objetivo de Ponto de Recuperação) e RTO (Objetivo de Tempo de Recuperação), específicas ao ambiente.  Este documento explica as opções para habilitar o nível preferencial de HA e DR.
+Resumo: a HA (Alta Disponibilidade) e a DR (Recuperação de Desastre) são aspectos importantes da execução de servidores críticos do SAP HANA no Azure (Instâncias Grandes). É importante trabalhar com a SAP, com seu integrador de sistema e/ou com a Microsoft para arquitetar e implementar corretamente a estratégia de HA/DR certa para você. Deve-se levar em conta considerações importantes como RPO (Objetivo de Ponto de Recuperação) e RTO (Objetivo de Tempo de Recuperação), específicas ao ambiente.  Este documento explica as opções para habilitar o nível preferencial de HA e DR.
 
 Atualização: Outubro de 2017
 
@@ -479,7 +487,7 @@ Atualização: junho de 2017
 ### <a name="using-azure-site-recovery-for-sap-workload"></a>Usando o Azure Site Recovery para carga de trabalho SAP
 Título: SAP NetWeaver: criando uma solução de recuperação de desastre com o Azure Site Recovery
 
-Resumo: este documento descreve como os serviços do Azure Site Recovery podem ser usados para tratar cenários de recuperação de desastre. Casos em que o Azure é usado como local de recuperação de desastre para uma paisagem SAP local usando os Serviços do Azure Site Recovery. Outro cenário descrito no documento é o caso de recuperação de desastre A2A (Aure para Azure) e como ele é gerenciado com o Azure Site Recovery.  
+Resumo: este documento descreve como os serviços do Azure Site Recovery podem ser usados para tratar cenários de recuperação de desastre. Casos em que o Azure é usado como local de recuperação de desastre para um cenário do SAP local usando os serviços do Azure Site Recovery. Outro cenário descrito no documento é o caso de recuperação de desastre A2A (Aure para Azure) e como ele é gerenciado com o Azure Site Recovery.  
 
 Atualização: agosto de 2017
 

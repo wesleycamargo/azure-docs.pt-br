@@ -1,25 +1,27 @@
 ---
-title: "Design de identidade híbrida - estratégia de adoção de ciclo de vida do Azure | Microsoft Docs"
-description: "Auxilia na definição de tarefas de gerenciamento de identidade híbrida de acordo com as opções disponíveis para cada fase do ciclo de vida."
-documentationcenter: 
+title: Design de identidade híbrida - estratégia de adoção de ciclo de vida do Azure | Microsoft Docs
+description: Auxilia na definição de tarefas de gerenciamento de identidade híbrida de acordo com as opções disponíveis para cada fase do ciclo de vida.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 420b6046-bd9b-4fce-83b0-72625878ae71
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bfa74c7557819bbef334fc94eb42e5ba83cf3fee
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: fb52949bf5616c8639caa1f3fab860597648ec89
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504583"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinar uma estratégia de adoção para o ciclo de vida da identidade híbrida
 Nesta tarefa, você define a estratégia de gerenciamento de identidade para sua solução de identidade híbrida, para atender aos requisitos de negócios definidos na seção [Determinar as tarefas de gerenciamento de identidade híbrida](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -35,11 +37,11 @@ As contas de empresas de TI sofisticadas incluem centenas de parâmetros que def
 
 | Fase de gerenciamento do ciclo de vida | No local | Nuvem | Híbrido |
 | --- | --- | --- | --- |
-| Provisionamento e gerenciamento de contas |Usando a função de servidor dos Serviços de Domínio do Active Directory® (AD DS), crie uma infraestrutura escalonável, segura e fácil de gerenciar para o usuário e para o gerenciamento de recursos, e ofereça suporte para aplicativos habilitados por diretório, como o Microsoft® Exchange Server. <br><br> [Você pode provisionar grupos no AD DS por meio de um gerenciador de identidades](https://technet.microsoft.com/library/ff686261.aspx) <br>[ Você pode provisionar usuários no AD DS](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Os administradores podem usar o controle de acesso para gerenciar o acesso de usuários e compartilhar recursos de segurança. No Active Directory, o controle de acesso é administrado no nível do objeto, estabelecendo diferentes níveis de acesso ou permissões para objetos, como Controle total, Gravação, Leitura ou Sem acesso. O controle de acesso no Active Directory determina como os usuários podem usar os objetos do Active Directory. As permissões para objetos no Active Directory são definidas com a configuração mais segura por padrão. |Você precisa criar uma conta para cada usuário que acessará um serviço de nuvem da Microsoft. Você também pode alterar as contas de usuário ou excluí-las quando elas não forem mais necessárias. Por padrão, os usuários não têm permissões de administrador, mas, opcionalmente, você pode atribuí-las. Para obter mais informações, veja [Gerenciando usuários no AD do Azure](active-directory-create-users.md). <br><br> Um dos principais recursos no Active Directory do Azure é a capacidade de gerenciar o acesso aos recursos. Esses recursos podem ser parte do diretório, como no caso de permissões para gerenciar objetos por meio de funções no diretório ou podem ser externos ao diretório, como aplicativos SaaS, serviços do Azure e sites do SharePoint ou recursos locais. <br><br> No centro da solução de gerenciamento de acesso do Active Directory do Azure está o grupo de segurança. O proprietário do recurso (ou o administrador do diretório) pode atribuir um grupo para fornecer um determinado acesso aos recursos que possui. Os membros do grupo receberão o acesso e o proprietário do recurso pode delegar a outra pessoa o direito de gerenciar a lista de membros de um grupo, como um gerente de departamento ou um administrador de assistência técnica<br> <br> O tópico Gerenciando grupos no AD do Azure fornece mais informações sobre o gerenciamento de acesso por meio dos grupos. |Estender as identidades do Active Directory para a nuvem através de sincronização e federação |
+| Provisionamento e gerenciamento de contas |Usando a função de servidor dos Serviços de Domínio do Active Directory® (AD DS), crie uma infraestrutura escalonável, segura e fácil de gerenciar para o usuário e para o gerenciamento de recursos, e ofereça suporte para aplicativos habilitados por diretório, como o Microsoft® Exchange Server. <br><br> [Você pode provisionar grupos no AD DS por meio de um gerenciador de identidades](https://technet.microsoft.com/library/ff686261.aspx) <br>[ Você pode provisionar usuários no AD DS](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Os administradores podem usar o controle de acesso para gerenciar o acesso de usuários e compartilhar recursos de segurança. No Active Directory, o controle de acesso é administrado no nível do objeto, estabelecendo diferentes níveis de acesso ou permissões para objetos, como Controle total, Gravação, Leitura ou Sem acesso. O controle de acesso no Active Directory determina como os usuários podem usar os objetos do Active Directory. As permissões para objetos no Active Directory são definidas com a configuração mais segura por padrão. |Você precisa criar uma conta para cada usuário que acessará um serviço de nuvem da Microsoft. Você também pode alterar as contas de usuário ou excluí-las quando elas não forem mais necessárias. Por padrão, os usuários não têm permissões de administrador, mas, opcionalmente, você pode atribuí-las. Para obter mais informações, veja [Gerenciando usuários no AD do Azure](active-directory-create-users.md). <br><br> Um dos principais recursos no Active Directory do Azure é a capacidade de gerenciar o acesso aos recursos. Esses recursos podem ser parte do diretório, como no caso de permissões para gerenciar objetos por meio de funções no diretório ou podem ser externos ao diretório, como aplicativos SaaS, serviços do Azure e sites do SharePoint ou recursos locais. <br><br> No centro da solução de gerenciamento de acesso do Active Directory do Azure está o grupo de segurança. O proprietário do recurso (ou o administrador do diretório) pode atribuir um grupo para fornecer um determinado acesso aos recursos que possui. Os membros do grupo receberão o acesso e o proprietário do recurso pode delegar a outra pessoa o direito de gerenciar a lista de membros de um grupo, como um gerente de departamento ou um administrador de assistência técnica<br> <br> A seção Gerenciando grupos no Azure AD fornece mais informações sobre o gerenciamento de acesso por meio dos grupos. |Estender as identidades do Active Directory para a nuvem através de sincronização e federação |
 
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 O controle de acesso baseado em função (RBAC) usa funções e políticas de provisionamento para avaliar, testar e impor processos de negócios e regras para conceder acesso aos usuários. Os principais administradores criam políticas de provisionamento e atribuem usuários a funções, além de definir conjuntos de qualificações de recursos para essas funções. O RBAC amplia a solução de gerenciamento de identidades para usar processos baseados em software e reduzir a interação manual do usuário no processo de provisionamento.
-O RBAC do AD do Azure permite à empresa restringir a quantidade de operações que um usuário pode realizar quando obtém acesso ao Portal de Gerenciamento do Azure. Ao usar o RBAC para controlar o acesso ao portal, os administradores de TI podem delegar o acesso usando as seguintes abordagens de gerenciamento de acesso:
+O RBAC do Azure AD permite à empresa restringir o número de operações que um usuário pode realizar quando obtém acesso ao portal do Azure. Ao usar o RBAC para controlar o acesso ao portal, os administradores de TI podem delegar o acesso usando as seguintes abordagens de gerenciamento de acesso:
 
 * **Atribuição de função baseada em grupo**: você pode atribuir acesso aos grupos do AD do Azure, que podem ser sincronizados no Active Directory local. Isso permite aproveitar os investimentos existentes que sua organização já fez em ferramentas e processos para gerenciar os grupos. Também é possível usar o recurso de gerenciamento de grupos delegado do Azure AD Premium.
 * **Aproveitar funções internas do Azure**: você pode usar três funções: Proprietário, Colaborador e Leitor para garantir que os usuários e grupos tenham permissão para realizar apenas as tarefas necessárias para concluir seus respectivos trabalhos.
@@ -67,17 +69,18 @@ Quando a empresa começa a provisionar recursos para todas as organizações int
 > 
 > 
 
-Os Serviços do AD do Azure baseados em licença (baseados em direito) funcionam ativando uma assinatura no locatário de serviço/diretório do AD do Azure. Quando a assinatura está ativa, os recursos de serviço podem ser gerenciados por administradores de serviço/diretório e usados por usuários licenciados. Para saber mais, consulte o tópico Como funciona o licenciamento do AD do Azure?
-Integração com outros provedores de terceiros
+Os Serviços do AD do Azure baseados em licença (baseados em direito) funcionam ativando uma assinatura no locatário de serviço/diretório do AD do Azure. Quando a assinatura está ativa, os recursos de serviço podem ser gerenciados por administradores de serviço/diretório e usados por usuários licenciados. 
 
-O Active Directory do Azure fornece logon único e segurança avançada de acesso a aplicativos para milhares de aplicativos SaaS e aplicativos Web locais. Para obter uma lista detalhada da Galeria de Aplicativos do Active Directory do Azure para aplicativos SaaS com suporte, consulte a lista de compatibilidade de federação do Active Directory do Azure: provedores de identidade de terceiros que podem ser usados para implementar o logon único
+## <a name="integration-with-other-3rd-party-providers"></a>Integração com outros provedores de terceiros
+
+O Active Directory do Azure fornece logon único e segurança avançada de acesso a aplicativos para milhares de aplicativos SaaS e aplicativos Web locais. Para saber mais, confira [Integrando aplicativos com o Azure Active Directory](develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="define-synchronization-management"></a>Definir o gerenciamento de sincronização
 A integração de seus diretórios locais ao AD do Azure torna os usuários mais produtivos ao fornecer uma identidade comum para acesso aos recursos na nuvem e locais. Com essa integração, os usuários e as organizações podem se beneficiar do seguinte:
 
 * As organizações podem fornecer aos usuários uma identidade híbrida comum para serviços baseados em nuvem ou locais, aproveitando o Active Directory do Windows Server e, em seguida, conectando-se ao Active Directory do Azure.
 * Os administradores podem fornecer acesso condicional com base no recurso do aplicativo, na identidade de usuário e dispositivo, no local de rede e na autenticação multifator.
-* Os usuários podem aproveitar sua identidade comum por meio das contas no AD do Azure para o Office 365, o Intune, os aplicativos SaaS e os aplicativos de terceiros.
+* Os usuários podem aproveitar sua identidade comum por meio das contas no Azure AD para o Office 365, o Intune, os aplicativos SaaS e os aplicativos de terceiros.
 * Os desenvolvedores podem criar aplicativos que aproveitam o modelo de identidade comum, integrando aplicativos ao Active Directory local ou o Azure para aplicativos baseados em nuvem.
 
 A imagem a seguir mostra o exemplo de uma exibição de alto nível do processo de sincronização de identidades.
@@ -90,7 +93,7 @@ Analise a tabela a seguir para comparar as opções de sincronização:
 
 | Opção de gerenciamento de sincronização | Vantagens | Desvantagens |
 | --- | --- | --- |
-| Com base em sincronização (através do DirSync ou do AADConnect) |Usuários e grupos sincronizados no local e na nuvem  <br>  **Controle de políticas**: as Políticas de Conta podem ser definidas no Active Directory, que fornece ao administrador a capacidade de gerenciar políticas de senha, estações de trabalho, restrições, controles de bloqueio e muito mais, sem ter que realizar outras tarefas na nuvem.  <br>  **Controle de acesso**: pode restringir o acesso ao serviço de nuvem para que os serviços possam ser acessados através do ambiente corporativo, através de servidores online, ou das duas maneiras. <br>  Menos chamadas de suporte: quando os usuários têm menos senhas para se lembrar, é menos provável esquecê-las. <br>  Segurança: as informações e identidades dos usuários são protegidas porque todos os servidores e serviços usados no logon único são gerenciados e controlados localmente. <br>  Suporte para autenticação forte: use uma autenticação forte (também chamada de autenticação de dois fatores) com o serviço de nuvem. No entanto, se usar esse recurso, você deve usar o logon único. | |
+| Com base em sincronização (através do DirSync ou do AADConnect) |Usuários e grupos sincronizados localmente e na nuvem <br>  **Controle de políticas**: as políticas de conta podem ser definidas no Active Directory, que fornece ao administrador a capacidade de gerenciar políticas de senha, estações de trabalho, restrições, controles de bloqueio e muito mais, sem ter que realizar outras tarefas na nuvem.  <br>  **Controle de acesso**: pode restringir o acesso ao serviço de nuvem para que os serviços possam ser acessados através do ambiente corporativo, através de servidores online, ou das duas maneiras. <br>  Menos chamadas de suporte: quando os usuários têm menos senhas para se lembrar, é menos provável esquecê-las. <br>  Segurança: as informações e identidades dos usuários são protegidas porque todos os servidores e serviços usados no logon único são gerenciados e controlados localmente. <br>  Suporte para autenticação forte: use uma autenticação forte (também chamada de autenticação de dois fatores) com o serviço de nuvem. No entanto, se usar esse recurso, você deve usar o logon único. | |
 | Com base em federação (através do AD FS) |Habilitado pelo serviço de token de segurança (STS). Quando você configura um STS para fornecer acesso de logon único com um serviço de nuvem da Microsoft, cria ao mesmo tempo uma relação de confiança federada entre o STS local e o domínio federado que você especificou no locatário do AD do Microsoft Azure. <br> Permite aos usuários finais usar o mesmo conjunto de credenciais para obter acesso a vários recursos <br>Os usuários finais não precisam manter vários conjuntos de credenciais. Além disso, os usuários devem fornecer suas credenciais a cada um dos recursos participantes. Cenários com suporte para relações B2B e B2C. |Requer profissionais especializados para implantação e manutenção de servidores dedicados do AD FS local. Há restrições sobre o uso de autenticação forte, caso planeje usar o AD FS para o STS. Para saber mais, consulte o artigo [Configurando opções avançadas do AD FS 2.0](http://go.microsoft.com/fwlink/?linkid=235649). |
 
 > [!NOTE]

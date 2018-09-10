@@ -1,24 +1,25 @@
 ---
-title: "Visão geral da API dos Hubs de Eventos do Azure | Microsoft Docs"
-description: "Visão geral das APIs de Hubs de Eventos do Azure disponíveis"
+title: Visão geral da API dos Hubs de Eventos do Azure | Microsoft Docs
+description: Visão geral das APIs de Hubs de Eventos do Azure disponíveis
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3f221a0c-182d-4e39-9f3d-3a3c16c5c6ed
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
-ms.author: sethm
-ms.openlocfilehash: abd44fd0c9cbfab2365b1552e3cd90e84a5348d7
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.date: 07/02/2018
+ms.author: shvija
+ms.openlocfilehash: 2523db3d817b4281b6435374ef0cca4e1d2da695
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005850"
 ---
 # <a name="available-event-hubs-apis"></a>APIs de Hubs de Eventos disponíveis
 
@@ -26,9 +27,9 @@ Este artigo descreve o conjunto de clientes disponíveis da API, que você pode 
 
 ## <a name="runtime-apis"></a>APIs de tempo de execução
 
-Veja a seguir uma descrição de todos os clientes de tempo de execução dos Hubs de Eventos do Azure atualmente disponíveis. Embora algumas dessas bibliotecas também incluem a funcionalidade de gerenciamento limitado, também há [bibliotecas específicas](#management-apis) dedicada às operações de gerenciamento. O foco principal dessas bibliotecas é enviar e receber mensagens de um hub de eventos.
+A seção a seguir descreve todos os clientes de tempo de execução dos Hubs de Eventos do Azure atualmente disponíveis. Embora algumas dessas bibliotecas também incluem a funcionalidade de gerenciamento limitado, também há [bibliotecas específicas](#management-apis) dedicada às operações de gerenciamento. O foco principal dessas bibliotecas é enviar e receber mensagens de um hub de eventos.
 
-Veja [informações adicionais](#additional-information) para obter mais detalhes sobre o status atual de cada biblioteca de tempo de execução.
+Para obter mais detalhes sobre o status atual de cada biblioteca de tempo de execução, veja [informações adicionais](#additional-information).
 
 | Linguagem/plataforma | Pacote de cliente | Pacote EventProcessorHost | Repositório |
 | --- | --- | --- | --- |
@@ -41,11 +42,12 @@ Veja [informações adicionais](#additional-information) para obter mais detalhe
 ### <a name="additional-information"></a>Informações adicionais
 
 #### <a name="net"></a>.NET
-O ecossistema do .NET tem vários tempos de execução, portanto, há várias bibliotecas .NET de Hubs de Eventos. A biblioteca .NET Standard pode ser executada usando o .NET Core ou o .NET Framework, enquanto a biblioteca do .NET Framework só pode ser executada em um ambiente do .NET Framework. Para saber mais sobre o .NET Framework, veja [versões da estrutura](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
+
+O ecossistema do .NET tem vários tempos de execução, portanto, há várias bibliotecas .NET de Hubs de Eventos. A biblioteca .NET Standard pode ser executada usando o .NET Core ou o .NET Framework, enquanto a biblioteca do .NET Framework só pode ser executada em um ambiente do .NET Framework. Para saber mais sobre versões do .NET Framework, veja [versões da estrutura](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
 
 #### <a name="node"></a>Nó
 
-A biblioteca do Node. js está atualmente em visualização e é mantida como um projeto de lado por funcionários da Microsoft e colaboradores externos. Todas as contribuições, incluindo código-fonte são bem-vindas e serão analisadas.
+A [biblioteca do Node.js](https://github.com/Azure/azure-event-hubs-node) está atualmente em visualização e é mantida como um projeto de lado por funcionários da Microsoft e colaboradores externos. Todas as contribuições, incluindo código-fonte são bem-vindas e serão analisadas.
 
 ## <a name="management-apis"></a>APIs de gerenciamento
 
@@ -58,6 +60,6 @@ A seguir está uma lista de todas as bibliotecas específicas de gerenciamento d
 ## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Criar um hub de eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)

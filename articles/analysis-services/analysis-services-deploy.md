@@ -3,16 +3,17 @@ title: Implantar no Azure Analysis Services usando o SSDT | Microsoft Docs
 description: Saiba como implantar um modelo de tabela em um servidor do Azure Analysis Services usando SSDT.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a25066ef8446449148bc0ca95989dc6ca3ca6839
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a3b969af861d6fb750b8aad666f2e1dfb7c8a3d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447278"
 ---
 # <a name="deploy-a-model-from-ssdt"></a>Implantar um modelo a partir do SSDT
 Depois de criar um servidor em sua assinatura do Azure, você estará pronto para implantar nele um banco de dados de modelo de tabela. Você pode usar o SSDT (SQL Server Data Tools) para criar e implantar um projeto de modelo de tabela no qual você está trabalhando. 
@@ -29,15 +30,18 @@ Para começar, você precisa do seguinte:
 > 
 > 
 
-## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Para implantar um modelo de tabela do SSDT
+## <a name="get-the-server-name"></a>Obter o nome do servidor
 
-1. Antes de implantar, você precisa obter o nome do servidor. No **Portal do Azure** > servidor > **Visão geral** > **Nome do servidor**, copie o nome do servidor.
+No **Portal do Azure** > servidor > **Visão geral** > **Nome do servidor**, copie o nome do servidor.
    
-    ![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. No SSDT > **Gerenciador de Solução**, clique com o botão direito do mouse no projeto > **Propriedades**. Em seguida, em **Implantação** > **Servidor**, cole o nome do servidor.   
+![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
+
+## <a name="to-deploy-from-ssdt"></a>Para implantar de SSDT
+
+1. No SSDT > **Gerenciador de Solução**, clique com o botão direito do mouse no projeto > **Propriedades**. Em seguida, em **Implantação** > **Servidor**, cole o nome do servidor.   
    
     ![Colar o nome do servidor na propriedade do servidor de implantação](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
-3. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Propriedades** e clique em **Implantar**. Talvez você receba uma solicitação para entrar no Azure.
+2. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Propriedades** e clique em **Implantar**. Talvez você receba uma solicitação para entrar no Azure.
    
     ![Implantar no servidor](./media/analysis-services-deploy/aas-deploy-deploy.png)
    

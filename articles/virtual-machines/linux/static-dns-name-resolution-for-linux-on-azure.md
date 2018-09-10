@@ -15,14 +15,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: 8df9035cf4a5e62102353c701625526e211b7282
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c1ca250d7255877cc811bf7c03034ecbb8f1f372
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936897"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Criar placas de adaptador de rede virtual e usar DNS interno para resolução de nome da VM no Azure
-Este artigo mostra como definir nomes DNS internos estáticos para VMs Linux usando vNics (placas de interface de rede virtual) e nomes de rótulo DNS com a CLI 2.0 do Azure. Você também pode executar essas etapas com a [CLI do Azure 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Nomes DNS estáticos são usados para serviços de infraestrutura permanentes como um servidor de build Jenkins, que é usado para este documento ou um servidor Git.
+Este artigo mostra como definir nomes DNS internos estáticos para VMs Linux usando vNics (placas de interface de rede virtual) e nomes de rótulo DNS com a CLI 2.0 do Azure. Nomes DNS estáticos são usados para serviços de infraestrutura permanentes como um servidor de build Jenkins, que é usado para este documento ou um servidor Git.
 
 Esses requisitos são:
 

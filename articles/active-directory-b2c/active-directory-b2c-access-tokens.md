@@ -1,21 +1,21 @@
 ---
-title: Solicitar tokens de acesso - Azure AD B2C | Microsoft Docs
+title: Solicitando tokens de acesso no Azure Active Directory B2C | Microsoft Docs
 description: Este artigo mostra como configurar um aplicativo cliente e adquirir um token de acesso.
 services: active-directory-b2c
-documentationcenter: android
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
-ms.openlocfilehash: bd919543072a8d2bf5fb0ebba17e69ba2f467218
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 9cd5789cd2ee6e167f3d3ed05c2fde077f7ec9a3
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344934"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Solicitando tokens de acesso
 
@@ -79,7 +79,7 @@ Ao solicitar um token de acesso, o aplicativo cliente precisa especificar as per
 > Atualmente, não há suporte para os domínios personalizados junto com os tokens de acesso. Você deve usar o seu domínio tenantName.onmicrosoft.com na URL de solicitação.
 
 ```
-https://login.microsoftonline.com/<tenantName>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 Para adquirir várias permissões na mesma solicitação, você pode adicionar várias entradas separadas por espaços no único parâmetro **scope**. Por exemplo: 

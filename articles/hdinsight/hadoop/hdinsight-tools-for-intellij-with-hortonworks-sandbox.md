@@ -1,25 +1,21 @@
 ---
-title: Usar o Kit de Ferramentas do Azure para IntelliJ com a Área Restrita do Hortonworks | Microsoft Docs
+title: Usar o Azure Toolkit for IntelliJ com a Área Restrita do Hortonworks
 description: Saiba como usar as ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ com a Área Restrita do Hortonworks.
 keywords: ferramentas do hadoop,consulta do hive,intellij,área restrita do hortonworks,kit de ferramentas do azure para intellij
-services: HDInsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: b587cc9b-a41a-49ac-998f-b54d6c0bdfe0
+services: hdinsight
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 59251287f7597955fe22700cc96527b9476753c1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 9e87392ad7730571b973dbec809f64487eefa849
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048584"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Usar ferramentas de HDInsight para IntelliJ com a área restrita do Hortonworks
 
@@ -27,7 +23,7 @@ Saiba como usar as Ferramentas do HDInsight para IntelliJ para desenvolver aplic
 
 O [IntelliJ IDEA](https://www.jetbrains.com/idea/) é um ambiente de desenvolvimento integrado Java (IDE) para o desenvolvimento de software de computador. Depois de desenvolver e testar os aplicativos na Área Restrita do Hortonworks, é possível movê-los para o [Azure HDInsight](apache-hadoop-introduction.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial, você deve ter os seguintes itens:
 

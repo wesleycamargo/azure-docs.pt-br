@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: f75671e2e5511054f3db550a8c24e62d031492c3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 94e8e813b537d304e62854b81979d433d0645115
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918040"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Tutorial: Notificações por push para aplicativos Xamarin.Android usando Hubs de Notificação do Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -35,7 +36,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 > * Criar um aplicativo Xamarin.Android e conectar-se ao hub de notificação
 > * Enviar notificações por push de teste do portal do Azure
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Assinatura do Azure**. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - [Visual Studio com Xamarin] no Windows ou [Visual Studio para Mac] no OS X.
@@ -57,7 +58,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 
 Seu hub de notificação está configurado para funcionar com o FCM e você tem as cadeias de conexão para registrar o aplicativo para receber notificações e enviar notificações por push.
 
-## <a name="create-xamainandroid-app-and-connect-it-to-notification-hub"></a>Criar um aplicativo Xamarin.Android e conectar-se ao hub de notificação
+## <a name="create-xamarinandroid-app-and-connect-it-to-notification-hub"></a>Criar um aplicativo Xamarin.Android e conectar-se ao hub de notificação
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Criar um projeto do Visual Studio e adicionar pacotes NuGet
 1. No Visual Studio, aponte para **Arquivo**, selecione **Novo** e **Projeto**. 
@@ -141,6 +142,7 @@ Abra o arquivo **AndroidManifest.xml** e insira os seguintes elementos `<receive
 8. Adicione as seguintes instruções de uso a **MyFirebaseIIDService.cs**:
    
     ```csharp
+    using Android.App;
     using Android.Util;
     using WindowsAzure.Messaging;
     using Firebase.Iid;
@@ -182,6 +184,7 @@ Abra o arquivo **AndroidManifest.xml** e insira os seguintes elementos `<receive
 12. Adicione o seguinte usando instruções para **MyFirebaseMessagingService.cs**.
     
     ```csharp
+        using Android.App;
         using Android.Util;
         using Firebase.Messaging;
     ```
@@ -236,7 +239,7 @@ Abra o arquivo **AndroidManifest.xml** e insira os seguintes elementos `<receive
 16. **Executar** aplicativo no dispositivo ou emulador carregado
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>Enviar notificação por push de teste do portal do Azure
-Você pode testar o recebimento de notificações no aplicativo com a opção *Envio de Teste* no [portal do Azure]. Isso envia uma notificação por push de teste para seu dispositivo.
+Você pode testar o recebimento de notificações no aplicativo com a opção *Envio de Teste* no [Portal do Azure]. Isso envia uma notificação por push de teste para seu dispositivo.
 
 ![Portal do Azure – Envio de Teste](media/partner-xamarin-notification-hubs-android-get-started/send-test-notification.png)
 
@@ -246,7 +249,7 @@ As notificações por push são geralmente enviadas em um serviço back-end, com
 Neste tutorial, você envia notificações de transmissão para todos os seus dispositivos Android registrados com o back-end. Para saber como enviar notificações por push para dispositivos Android específicos, vá para o tutorial a seguir: 
 
 > [!div class="nextstepaction"]
->[Notificações por push para dispositivos específicos](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[Notificações por push para especificar dispositivos](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 
 <!-- Anchors. -->
@@ -286,11 +289,11 @@ Neste tutorial, você envia notificações de transmissão para todos os seus di
 [Visual Studio com Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio para Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 
-[portal do Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
-[Use Notification Hubs to push notifications to users]: /manage/services/notification-hubs/notify-users-aspnet
-[Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid

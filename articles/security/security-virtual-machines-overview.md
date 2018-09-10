@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7d31a434d4ead6dd8f8a13a08d368389904b5b4a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fb6a984ff838305b4ce411538465c0b9b5c152da
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364226"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886907"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança de máquinas virtuais do Azure
 Use as Máquinas Virtuais do Azure para implantar uma ampla gama de soluções de computação com agilidade. O serviço dá suporte ao Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e Serviços BizTalk do Azure. Portanto, você pode implantar qualquer carga de trabalho e qualquer linguagem em praticamente qualquer sistema operacional.
@@ -82,9 +82,8 @@ A solução é integrada ao Azure Key Vault para ajudá-lo a controlar e gerenci
 
 Saiba mais:
 
-* [Criptografia de Disco do Azure para VMs IaaS Windows e Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
-* [Azure Disk Encryption for Linux and Windows Virtual Machines (Azure Disk Encryption para máquinas virtuais Windows e Linux)](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/)
-* [Criptografar uma máquina virtual](../security-center/security-center-disk-encryption.md)
+* [Azure Disk Encryption para VMs de IaaS](../security/azure-security-disk-encryption-overview.md)
+* [Guia de início rápido: criptografar uma VM de IaaS do Windows com o Azure PowerShell](../security/quick-encrypt-vm-powershell.md)
 
 ## <a name="virtual-machine-backup"></a>Backup de máquinas virtuais
 O Backup do Azure é uma solução escalonável que ajuda a proteger os dados de seu aplicativo com zero investimento de capital e custos operacionais mínimos. Erros de aplicativo podem corromper seus dados e erros humanos podem introduzir bugs em seus aplicativos. Com o Backup do Azure, suas máquinas virtuais executando Windows e Linux estão protegidas.
@@ -124,7 +123,7 @@ Saiba mais:
 * [Recursos de rede e parcerias para cenários empresariais](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>Gerenciamento de política de segurança e emissão de relatórios
-A Central de Segurança do Azure ajuda você a prevenir, detectar e responder a ameaças. A Central de Segurança proporciona a você maior visibilidade e controle da segurança de seus recursos do Azure. Ela fornece monitoramento de segurança integrado e gerenciamento de políticas em suas assinaturas do Azure. Ela ajuda a detectar ameaças que poderiam não ser notadas de outra forma e funciona com um amplo ecossistema de soluções de segurança.
+A Central de Segurança do Azure ajuda você a evitar, detectar e responder a ameaças. A Central de Segurança proporciona a você maior visibilidade e controle da segurança de seus recursos do Azure. Ela fornece monitoramento de segurança integrado e gerenciamento de políticas em suas assinaturas do Azure. Ela ajuda a detectar ameaças que poderiam não ser notadas de outra forma e funciona com um amplo ecossistema de soluções de segurança.
 
 A Central de Segurança ajuda você a otimizar e monitorar a segurança de suas máquinas virtuais:
 
@@ -142,5 +141,5 @@ As Máquinas Virtuais do Azure são certificados para FISMA, FedRAMP, HIPAA, PCI
 
 Saiba mais:
 
-* [Microsoft Trust Center: Compliance (Central de Confiabilidade da Microsoft: conformidade)](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
+* [Microsoft Trust Center: Compliance (Central de Confiabilidade da Microsoft: conformidade)](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance (A nuvem confiável: segurança, privacidade e conformidade do Microsoft Azure)](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)

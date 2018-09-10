@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: chackdan
-ms.openlocfilehash: 16758cc85b552e82d3daa63893558e1048bcefb8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a1cfd68b526d8ce63fcfbc3b6e0eac84926fabaa
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144748"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 É recomendável que você se familiarize com o modo como o Service Fabric usa certificados X.509 e com os [Cenários de segurança do cluster do cluster](service-fabric-cluster-security.md). Você deve entender o que é um certificado de cluster e qual sua finalidade, antes de continuar.
+
+O comportamento de carregamento do certificado padrão do SDK do Azure Service Fabrics, é implantar e usar um certificado definido com uma data de expiração mais distante no futuro; independentemente de sua definição de configuração primária ou secundária. Voltar para o comportamento clássico é uma ação avançada não recomendada e exige a definição do valor do parâmetro de configuração "UseSecondaryIfNever" como false na sua configuração Fabric.Code.
 
 O Service Fabric permite especificar dois certificados de cluster, um primário e um secundário, quando você configura a segurança do certificado durante a criação do cluster, além de certificados de cliente. Veja a [criação de um cluster do Service Fabric por meio do portal](service-fabric-cluster-creation-via-portal.md) ou a [criação de um cluster do azure por meio do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter detalhes sobre a configuração deles no tempo de criação. Se você especificar apenas um certificado de cluster no momento da criação, em seguida, que é usado como o certificado principal. Após a criação do cluster, é possível adicionar um novo certificado como um secundário.
 
@@ -33,17 +36,12 @@ O Service Fabric permite especificar dois certificados de cluster, um primário 
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Adicionar um certificado de cluster secundário usando o portal
 Certificado de cluster secundário não pode ser adicionado por meio do portal do Azure, use o powershell do Azure. O processo será descrito posteriormente neste documento.
 
-## <a name="swap-the-cluster-certificates-using-the-portal"></a>Trocar os certificados de cluster usando o portal
-Depois de ter implantado com êxito um certificado de cluster secundário, se você deseja alternar primário e secundário, navegue até a seção de segurança e selecione a opção 'Troca com primário' no menu de contexto para trocar o certificado secundário com o certificado principal.
-
-![Trocar o certificado][Delete_Swap_Cert]
-
 ## <a name="remove-a-cluster-certificate-using-the-portal"></a>Remover um certificado de cluster usando o portal
-Para um cluster seguro, você sempre precisará de, pelo menos, um certificado (primário ou secundário) válido (não revogado ou expirado) implantado; caso contrário, o cluster vai parar de funcionar.
+Para um cluster seguro, sempre será necessário pelo menos um certificado (não revogado ou expirado) válido. O certificado implantado com a data mais distante na data de expiração futura estará em uso e removê-lo fará o cluster parar de funcionar; certifique-se de remover somente o certificado que expirou ou um certificado não utilizado que expira em breve.
 
-Para remover um certificado secundário sejam usados para segurança de cluster, navegue até a seção de segurança e selecione a opção 'Excluir' no menu de contexto do certificado secundário.
+Para remover um certificado de segurança de cluster não usado, navegue até a seção Segurança e selecione a opção 'Excluir' no menu de contexto do certificado não usado.
 
-Se sua intenção for remover o certificado que está marcado como primário, você precisará trocá-lo com o secundário primeiro e, em seguida, exclua o secundário após a conclusão da atualização.
+Se a sua intenção for remover o certificado que está marcado como primário,você precisará implantar um certificado secundário com uma data de expiração ainda mais no futuro que o certificado primário, permitindo o comportamento de sobreposição automática. Exclua o certificado primário após a substituição automática ser concluída.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Adicionar um certificado secundário usando o Powershell do Resource Manager
 > [!TIP]
@@ -263,7 +261,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="deploying-application-certificates-to-the-cluster"></a>Implantar certificados de aplicativo para o cluster.
 
-Você pode usar as mesmas etapas conforme descrito nas etapas 5 anteriores para que os certificados implantados de um Key Vault para os nós. É necessário apenas definir e usar parâmetros diferentes.
+Você pode usar as mesmas etapas conforme descrito nas Etapas 5 anteriores para que os certificados implantados de um Key Vault para os nós. É necessário apenas definir e usar parâmetros diferentes.
 
 
 ## <a name="adding-or-removing-client-certificates"></a>Adicionando ou removendo certificados de cliente
@@ -294,7 +292,6 @@ Leia estes artigos para obter mais informações sobre gerenciamento de cluster:
 * [Configurar o acesso baseado em funções para clientes](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
-[Delete_Swap_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_09.PNG
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG
 [Json_Pub_Setting1]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_14.PNG
 [Json_Pub_Setting2]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_15.PNG

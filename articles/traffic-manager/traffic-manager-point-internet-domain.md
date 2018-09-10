@@ -1,11 +1,11 @@
 ---
-title: "Apontar um domínio de Internet da empresa para um nome de domínio do Gerenciador de Tráfego | Microsoft Docs"
-description: "Este artigo ajudará a indicar o nome de domínio de sua empresa para um nome de domínio do Gerenciador de Tráfego."
+title: Apontar um domínio de Internet da empresa para um nome de domínio do Gerenciador de Tráfego | Microsoft Docs
+description: Este artigo ajudará a indicar o nome de domínio de sua empresa para um nome de domínio do Gerenciador de Tráfego.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 29822946-2d45-4434-ba47-fc180a445cc3
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-ms.openlocfilehash: 0322b3510cfd4f94031d8c1db8f1cc032b997fa8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 63a78332742dcefab20401575b1df0e23c06aa78
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035139"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego do Azure
 
 Quando você cria um perfil do Gerenciador de tráfego, o Azure atribui automaticamente um nome DNS ao perfil. Para usar um nome de sua zona DNS, crie um registro DNS CNAME que mapeia para o nome de domínio de seu perfil do Gerenciador de Tráfego. Você pode encontrar o nome do domínio do Gerenciador de Tráfego na seção **Geral** da página Configuração do perfil do Gerenciador de Tráfego.
 
-Por exemplo, para apontar o nome www.contoso.com para o nome DNS do Gerenciador de Tráfego contoso.trafficmanager.net, você criaria o seguinte registro de recurso DNS:
+Por exemplo, para o nome do ponto `www.contoso.com` para o nome DNS do Gerenciador de Tráfego `contoso.trafficmanager.net`, você cria o seguinte registro de recurso DNS:
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 

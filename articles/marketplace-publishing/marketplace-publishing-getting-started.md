@@ -3,8 +3,8 @@ title: Visão geral de como criar e implantar uma oferta no Marketplace | Micros
 description: Entenda as etapas necessárias para tornar-se um desenvolvedor aprovado da Microsoft e criar e implantar uma imagem de máquina virtual, modelo, serviço de dados ou serviço de desenvolvedor no Azure Marketplace
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 ms.assetid: 5343bd26-c6e4-4589-85b7-4a2c00bba8ab
 ms.service: marketplace
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: mbaldwin
-ms.openlocfilehash: 02df78de48c8466f3488ef5f8346e1852b4e3ded
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: hascipio
+ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715994"
 ---
 > [!NOTE]
 > Esta documentação não está atualizada e não é precisa. Em vez disso, acesse o [Guia do Vendedor](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) do Microsoft Azure Marketplace para obter orientação sobre como publicar uma oferta do Marketplace.

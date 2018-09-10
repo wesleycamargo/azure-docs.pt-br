@@ -3,22 +3,25 @@ title: Em vez de ETL, projetar ELT para SQL Data Warehouse do Azure | Microsoft 
 description: Em vez de ETL, projete um processo de ELT (Extração, Carregamento e Transformação) para carregamento de dados ou SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: facd9a98b2f2d866574dd1f9bf180fa2a9618f31
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301323"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Criação de Extrair, Carregar e Transformar (ELT) para o Azure SQL Data Warehouse
 
 Em vez de ETL (Extração, Transformação e Carregamento ), projete um processo de ELT (Extração, Carregamento e Transformação) para carregar dados no SQL Data Warehouse do Azure. Este artigo apresenta maneiras de projetar um processo de ELT que move dados para um data warehouse do Azure.
+
+> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## <a name="what-is-elt"></a>O que é ELT?
 
@@ -100,7 +103,7 @@ Para formatar os arquivos de texto:
 ## <a name="load-to-a-staging-table"></a>Carregar para uma tabela de preparo
 Para levar os dados para o data warehouse, é uma boa solução carregar primeiro os dados em uma tabela de preparo. Usando uma tabela de preparo, você pode manipular erros sem interferir com as tabelas de produção, e você evita a execução de operações de reversão na tabela de produção. Uma tabela de preparo também oferece a oportunidade de usar o SQL Data Warehouse para executar transformações antes da inserção dos dados em tabelas de produção.
 
-Para carregar com o T-SQL, execute a instrução de T-SQL [CRIAR TABELA COMO SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md). Este comando insere os resultados de uma instrução select em uma nova tabela. Quando a instrução seleciona a partir de uma tabela externa, ela importa dados externos. 
+Para carregar com o T-SQL, execute a instrução de T-SQL [CRIAR TABELA COMO SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse). Este comando insere os resultados de uma instrução select em uma nova tabela. Quando a instrução seleciona a partir de uma tabela externa, ela importa dados externos. 
 
 No exemplo a seguir, ext.Date é uma tabela externa. Todas as linhas são importadas para uma nova tabela denominada dbo.Date.
 

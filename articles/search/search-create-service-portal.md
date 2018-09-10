@@ -6,13 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 11/07/2017
+ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 1837fc6511ac734766c55bd1c2a2a7a40219c31a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 83e34f926ec3133f89ccb90979fc3e6708613a80
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713920"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço de Azure Search no portal
 
@@ -28,8 +29,8 @@ Alternativamente, você pode [ativar os benefícios de assinante MSDN](https://a
 
 ## <a name="find-azure-search"></a>Encontrar o Azure Search
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Clique no sinal de adição ("+") no canto superior esquerdo.
-3. Selecione **Web + Móvel** > **Azure Search**.
+2. Clique no sinal de adição ("+ Criar Recurso") no canto superior esquerdo.
+3. Selecione **Web** > **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
@@ -59,7 +60,7 @@ Como um serviço do Azure, a Azure Search pode ser hospedado em datacenters em t
 ## <a name="select-a-pricing-tier-sku"></a>Selecionar um tipo de preço (SKU)
 [A Azure Search é oferecida atualmente em vários tipos de preço](https://azure.microsoft.com/pricing/details/search/): Gratuito, Básico ou Standard. Cada tipo tem sua própria [capacidade e limites](search-limits-quotas-capacity.md). Confira [Escolher um tipo de preço ou SKU](search-sku-tier.md) para obter orientações.
 
-Neste passo a passo, escolhemos o tipo Standard para nosso serviço.
+Geralmente, o Standard é escolhido para cargas de trabalho de produção, mas a maioria dos clientes começa com o serviço Gratuito.
 
 A camada de preços não pode ser alterada depois que o serviço é criado. Se você precisar de um nível superior ou inferior mais tarde, você precisa recriar o serviço.
 
@@ -76,12 +77,14 @@ As ***partições*** permitem que o seu serviço armazene e pesquise mais docume
 
 ***Réplicas*** permitem que seu serviço lide com uma carga maior de consultas de pesquisa.
 
+A adição de recursos aumenta sua fatura mensal. A [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) pode ajudá-lo a entender as implicações de cobrança de adição de recursos. Lembre-se de que você pode ajustar os recursos com base na carga. Por exemplo, você pode aumentar os recursos para criar um índice inicial completo e reduzir recursos posteriormente para um nível mais adequado para indexação incremental.
+
 > [!Important]
 > Um serviço deve ter [duas réplicas para o SLA somente leitura e três réplicas para o SLA de leitura/gravação](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Vá até a folha de serviço de pesquisa no Portal do Azure.
 2. No painel de navegação esquerdo, selecione **Configurações** > **Escala**.
-3. Use a barra deslizante para adicionar réplicas ou partições.
+3. Use a barra deslizante para adicionar recursos de qualquer tipo.
 
 ![](./media/search-create-service-portal/settings-scale.png)
 

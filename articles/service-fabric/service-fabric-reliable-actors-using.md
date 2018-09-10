@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 41548c3395fa0c8f56e62cfcfb7338a2d53f040f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6aff9e9599d31942f994f3cb4e5e9219f33dc7e1
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205513"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>Implementação de recursos de nível de serviço em seu serviço de ator
 Conforme descrito em [camadas de serviço](service-fabric-reliable-actors-platform.md#service-layering), o próprio serviço de ator é um serviço confiável.  É possível gravar seu próprio serviço que deriva de `ActorService` e implementar recursos no nível de serviço da mesma forma que você faria ao herdar StatefulService, tais como:
@@ -148,24 +149,53 @@ public class Program
 ## <a name="implementing-actor-backup-and-restore"></a>Implementando o backup e a restauração de ator
 Um serviço de ator personalizado pode expor um método para fazer backup dos dados do ator aproveitando o ouvinte de comunicação remota já presente em `ActorService`.  Para obter um exemplo, consulte [Atores de backup e restauração](service-fabric-reliable-actors-backup-and-restore.md).
 
+## <a name="actor-using-remoting-v2interfacecompatible-stack"></a>Ator utilizando a Pilha de Comunicação Remota V2(InterfaceCompatible)
+A pilha de Comunicação Remota V2(InterfaceCompatible, ou seja, V2_1) tem todos os recursos da pilha de Comunicação Remota V2, além de sua pilha compatível com interface para a pilha de Comunicação Remota V1, mas não é compatível com versões anteriores para V2 e V1. Para fazer a atualização de V1 para V2_1 sem afetar a disponibilidade do serviço, siga o [artigo](#actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability) abaixo.
+
+As seguintes alterações são necessárias para usar a Pilha V2_1 de Comunicação Remota.
+ 1. Adicione o seguinte atributo de assembly nas Interfaces de Ator.
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
+
+ 2. Compile e atualize os projetos ActorClient e ActorService para começar a usar a Pilha V2.
+
+#### <a name="actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability"></a>Atualize o ActorService para Pilha de Comunicação Remota V2 (InterfaceCompatible) sem afetar a Disponibilidade do Serviço.
+Essa alteração será uma atualização da etapa 2. Siga as etapas na mesma sequência, conforme listado.
+
+1.  Adicione o seguinte atributo de assembly nas Interfaces de Ator. Esse atributo iniciará dois ouvintes para ActorService, Ouvintes V1 (existente) e V2_1. Atualize ActorService com essa alteração.
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+  ```
+
+2. Atualize ActorClients após concluir a atualização anterior.
+Esta etapa garante que o Proxy do Ator esteja usando a Pilha de Comunicação Remota V2_1.
+
+3. Esta etapa é opcional. Altere o atributo acima para remover o Ouvinte V1.
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+    ```
+
 ## <a name="actor-using-remoting-v2-stack"></a>Ator utilizando Pilha V2 de Comunicação Remota
 Com o pacote NuGet 2.8, os usuários agora podem usar a pilha V2 de Comunicação Remota que é mais eficaz e fornece recursos como Serialização personalizada. A V2 de Comunicação Remota não é compatível com a pilha de Comunicação Remota existente (agora denominada como Pilha de Comunicação Remota V1).
 
 As seguintes alterações são necessárias para usar a Pilha V2 de Comunicação Remota.
  1. Adicione o seguinte atributo de assembly nas Interfaces de Ator.
    ```csharp
-   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
  2. Compile e atualize os projetos ActorClient e ActorService para começar a usar a Pilha V2.
 
-### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Atualize o ActorService para Pilha V2 de Comunicação Remota sem afetar a Disponibilidade do Serviço.
+#### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Atualize o ActorService para Pilha V2 de Comunicação Remota sem afetar a Disponibilidade do Serviço.
 Essa alteração será uma atualização da etapa 2. Siga as etapas na mesma sequência, conforme listado.
 
 1.  Adicione o seguinte atributo de assembly nas Interfaces de Ator. Este atributo iniciará dois ouvintes para ActorService, Ouvinte V1 (existente) e V2. Atualize ActorService com essa alteração.
 
   ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
   ```
 
 2. Atualize ActorClients após concluir a atualização anterior.
@@ -174,7 +204,7 @@ Esta etapa garante que o Proxy do Ator esteja usando a Pilha V2 de Comunicação
 3. Esta etapa é opcional. Altere o atributo acima para remover o Ouvinte V1.
 
     ```csharp
-    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
 ## <a name="next-steps"></a>Próximas etapas

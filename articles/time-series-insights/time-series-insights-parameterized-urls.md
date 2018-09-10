@@ -1,22 +1,21 @@
 ---
-title: "Compartilhar exibições personalizadas do Azure Time Series Insights com URLs parametrizadas | Microsoft Docs"
-description: "Este artigo descreve como desenvolver URLs parametrizadas no Azure Time Series Insights para que uma exibição do cliente possa ser facilmente compartilhada."
-services: time-series-insights
+title: Compartilhar exibições personalizadas do Azure Time Series Insights com URLs parametrizadas | Microsoft Docs
+description: Este artigo descreve como desenvolver URLs parametrizadas no Azure Time Series Insights para que uma exibição do cliente possa ser facilmente compartilhada.
 ms.service: time-series-insights
-author: MarkMcGeeAtAquent
-ms.author: MarkMcGeeAtAquent
-manager: jhubbard
-editor: MicrosoftDocs/tsidocs
+services: time-series-insights
+author: ashannon7
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
-ms.devlang: rest-api
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: dbd717d79230c5dc2fc823484376267e7b7b8ab1
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628793"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Compartilhar uma exibição personalizada usando uma URL parametrizada
 

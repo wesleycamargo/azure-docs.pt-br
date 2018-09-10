@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: b57683f5b0634c27e8604c26496a3421ae386439
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 470779f80e998c3908cf28328cfb415d98c5e06c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579248"
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Um tour pela Análise no Application Insights
 O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Log Analytics.
@@ -179,7 +180,7 @@ Outros exemplos:
 
 
 ## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>[Projeto](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): selecionar, renomear e computar colunas
-Use [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) para selecionar apenas as colunas desejadas:
+Use [`project`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) para selecionar apenas as colunas desejadas:
 
 ```AIQL
 
@@ -225,7 +226,7 @@ O uso de [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular
 
 ### <a name="convert-to-local-time"></a>Converter em hora local
 
-Os carimbos de data e hora são sempre em UTC. Portanto, se estiver na costa do Pacífico nos EUA e for inverno, você terá algo semelhante a isto:
+Os carimbos de data e hora são sempre em UTC. Portanto, se você estiver na Costa do Pacífico nos EUA e for inverno, o horário local é-8 horas do UTC, talvez assim:
 
 ```AIQL
 
@@ -460,7 +461,7 @@ Para obter uma análise separada para cada país, temos apenas que trazer a colu
 ## <a name="join"></a>Ingressar
 Temos acesso a várias tabelas, incluindo solicitações e exceções.
 
-Para encontrar as exceções relacionadas a uma solicitação que retornou uma resposta com falha, podemos unir as tabelas em `session_Id`:
+Para encontrar as exceções relacionadas a uma solicitação que retornou uma resposta com falha, podemos unir as tabelas em `operation_Id`:
 
 ```AIQL
 

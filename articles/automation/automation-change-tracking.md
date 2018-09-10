@@ -6,22 +6,41 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b110f83274b2b42896bd18fb364c355ecc97a028
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258253"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128119"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
 Este artigo ajuda você a usar a solução de Controle de Alterações para identificar facilmente as alterações em seu ambiente. A solução controla as alterações no software Windows e Linux, nos arquivos Windows e chaves do Registro, nos serviços Windows e daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais.
 
 Alterações no software instalado, nos serviços Windows, nos arquivos e registros do Windows e daemons do Linux nos servidores monitorados são enviadas ao serviço do Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
+
+## <a name="supported-windows-operating-systems"></a>Sistemas operacionais Windows compatíveis
+
+Há suporte oficial para as seguintes versões do sistema operacional Windows para o agente para Windows:
+
+* Windows Server 2008 Service Pack 1 (SP1) ou posterior
+* Windows 7 SP1 e posterior.
+
+## <a name="supported-linux-operating-systems"></a>Sistemas operacionais Linux com suporte
+
+As seguintes distribuições Linux têm suporte oficialmente. No entanto, o agente para Linux também pode ser executado em outras distribuições não listadas. Salvo indicação em contrário, todas as versões secundárias são compatíveis com cada versão principal listada.  
+
+* Amazon Linux 2012.09 a 2015.09 (x86/x64)
+* CentOS Linux 5, 6 e 7 (x86/x64)  
+* Oracle Linux 5, 6 e 7 (x86/x64)
+* Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
+* Debian GNU/Linux 6, 7 e 8 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
+* SUSE Linux Enterprise Server 11 e 12 (x86/x64)
 
 ## <a name="enable-change-tracking-and-inventory"></a>Habilitar Controle de Alterações e Inventário
 
@@ -57,6 +76,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivo em computador
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Usar o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
 |Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** - Ignora os links simbólicos e não inclui os arquivos/diretórios referenciados.<br>**Seguir** - Segue os links simbólicos durante a recursão e inclui também os arquivos/diretórios referenciados.<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do conteúdo retornado.     |
+|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **verdadeiro** ou **falso**.|
 
 > [!NOTE]
 > A opção "Gerenciar" links não é recomendada. Não há suporte para a recuperação de conteúdo do arquivo.
@@ -74,7 +94,24 @@ Use as etapas a seguir para configurar o acompanhamento de arquivos em computado
 |habilitado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado.        |
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos.        |
-|Inserir o Caminho     | O caminho para verificar o arquivo, por exemplo: "c:\temp\myfile.txt"       |
+|Inserir o Caminho     | O caminho para verificar em busca do arquivo. Por exemplo: "c:\temp\\\*.txt"<br>Você também pode usar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
+|Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
+|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **verdadeiro** ou **falso**.|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>Configurações de caractere curinga, recursão e ambiente
+
+A recursão permite que você especifique caracteres curinga para simplificar o acompanhamento em diretórios, e variáveis para que você possa acompanhar arquivos em ambientes com vários nomes de unidade ou nomes de unidade dinâmicos. A seguir está uma lista de informações comuns que você deve saber ao configurar a recursão:
+
+* Caracteres curinga são necessários para acompanhar vários arquivos
+* Ao usar caracteres curinga, eles só podem ser usados no último segmento de um caminho. (por exemplo, C:\pasta\\**arquivo** ou /etc/*.conf)
+* Se uma variável de ambiente tiver um caminho inválido, a validação terá êxito, mas esse caminho falhará quando o inventário for executado.
+* Evite caminhos gerais como `c:\*.*` ao definir o caminho, pois isso resultaria em muitas pastas sendo percorridas.
+
+## <a name="configure-file-content-tracking"></a>Configurar o controle de conteúdo do arquivo
+
+Você pode visualizar o conteúdo antes e depois de uma alteração de um arquivo com o controle de alteração de conteúdo de arquivo. Isso está disponível para arquivos do Windows e Linux, para cada alteração no arquivo, o conteúdo do arquivo é armazenado em uma conta de armazenamento e mostra o arquivo antes e após a alteração, embutido ou lado a lado. Para obter mais informações, confira [Exibir o conteúdo de um arquivo controlado](change-tracking-file-contents.md).
+
+![exibir alterações em um arquivo](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Configurar chaves do Registro do Windows para rastrear
 
@@ -95,13 +132,8 @@ Use as etapas a seguir para configurar as chaves do registro para acompanhamento
 
 A solução de Controle de Alterações atualmente não dá suporte ao seguinte:
 
-* Pastas (diretórios) para o controle de arquivos do Windows
-* Recursão para o controle de arquivos do Windows
-* Caracteres curingas para o controle de arquivos do Windows
 * Recursão para o rastreamento de registro do Windows
-* Variáveis de caminho
 * Sistemas de arquivos de rede
-* Conteúdo do arquivo
 
 Outras limitações:
 
@@ -125,11 +157,22 @@ A tabela a seguir mostra a frequência da coleta de dados para os tipos de alter
 | Registro do Windows | 50 minutos |
 | Arquivo do Windows | 30 minutos |
 | Arquivo Linux | 15 minutos |
-| Serviços do Windows | 30 minutos |
+| Serviços do Windows | 10 segundos a 30 minutos</br> Padrão: 30 minutos |
 | Daemons Linux | 5 minutos |
 | Software do Windows | 30 minutos |
 | Software Linux | 5 minutos |
 
+### <a name="windows-service-tracking"></a>Rastreamento de serviço do Windows
+
+A frequência da coleta padrão para os serviços do Windows é de 30 minutos. Para configurar a frequência, acesse **Controle de Alterações**. Em **Editar Configurações** na guia **Serviços do Windows**, há um controle deslizante que permite alterar a frequência de coleta para os serviços do Windows de 10 segundos para até 30 minutos. Mova o controle deslizante para a frequência desejada e ele a salvará automaticamente.
+
+![Controle deslizante de serviços do Windows](./media/automation-change-tracking/windowservices.png)
+
+O agente controla somente as alterações e isso otimiza o desempenho do agente. Se um limite muito alto for definido, as alterações poderão ser perdidas se o serviço for revertido para o estado original. Definir a frequência para um valor menor permite capturar alterações que poderiam ser perdidas de outra forma.
+
+> [!NOTE]
+> Embora o agente possa controlar as alterações em um intervalo de apenas 10 segundos, os dados ainda demoram alguns minutos para serem exibido no portal. As alterações durante o tempo de exibição no portal do ainda são controladas e registradas.
+  
 ### <a name="registry-key-change-tracking"></a>Controle de alterações de chave do Registro
 
 O objetivo de monitorar alterações às chaves do registro é identificar os pontos de extensibilidade em que código de terceiros e o malware podem ser ativados. A lista a seguir mostra a lista de chaves do Registro pré-configuradas. Essas chaves estão configuradas, mas não habilitadas. Para controlar essas chaves do Registro, é necessário habilitar cada uma delas.

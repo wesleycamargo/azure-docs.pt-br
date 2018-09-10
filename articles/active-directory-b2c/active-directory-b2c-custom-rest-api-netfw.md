@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário'
+title: Integrar trocas de declaração de API REST na jornada de usuário do Azure Active Directory B2C | Microsoft Docs
 description: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
-ms.openlocfilehash: c4a530b3d6b4f6d4f5ec6087adcee839422dd01d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: e3d938c4464fc5141b97f85220bf096920e17d00
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339586"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário
 
@@ -53,7 +53,7 @@ Visão geral:
 * Retornar um número de fidelidade. 
 * Adicionar o número de fidelidade a um JWT (JSON Web Token).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>Etapa 1: Criar uma API Web ASP.NET
@@ -366,7 +366,7 @@ Depois de adicionar a nova declaração, o código de terceira parte confiável 
   "exp": 1507125903,
   "nbf": 1507122303,
   "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
   "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",

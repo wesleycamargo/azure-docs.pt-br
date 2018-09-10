@@ -1,6 +1,6 @@
 ---
-title: 'Implantar serviços de aplicativos: Pilha do Azure | Microsoft Docs'
-description: Instruções detalhadas para implantar o serviço de aplicativo na pilha do Azure
+title: 'Implantar serviços de aplicativos: O Azure Stack | Microsoft Docs'
+description: Instruções detalhadas para implantar o serviço de aplicativo no Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,223 +12,252 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: f44e6e917058306e37b9eb99819afda76a742389
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604260"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139441"
 ---
-# <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo a pilha do Azure
+# <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo para o Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-> [!IMPORTANT]
-> Aplicar a atualização 1804 a seu sistema de pilha do Azure integradas ou implantar o kit de desenvolvimento de pilha do Azure mais recente antes de implantar 1.2 de serviço de aplicativo do Azure.
->
->
+Use as diretrizes neste artigo para implantar o serviço de aplicativo no Azure Stack.
 
-Como um operador de nuvem de pilha do Azure, você pode oferecer aos usuários a capacidade de criar aplicativos web e API. Para fazer isso, você deve primeiro adicionar o [provedor de recursos do serviço de aplicativo](azure-stack-app-service-overview.md) para sua implantação de pilha do Azure conforme descrito neste artigo. Depois de instalar o provedor de recursos do serviço de aplicativo, você pode incluí-lo em suas ofertas e planos. Os usuários podem assinar, em seguida, para obter o serviço e iniciar a criação de aplicativos.
+>[!IMPORTANT]  
+>Aplicar a atualização 1807 seu sistema integrado do Azure Stack ou implantar o mais recente do Azure Stack desenvolvimento ASDK (Kit) antes de implantar 1.3 de serviço de aplicativo do Azure.
 
-> [!IMPORTANT]
-> Antes de executar o instalador, certifique-se de seguir as orientações em [antes de começar](azure-stack-app-service-before-you-get-started.md).
->
->
+Você pode dar a seus usuários a capacidade de criar aplicativos web e API. Para permitir que os usuários criem esses aplicativos, você precisa:
 
-## <a name="run-the-app-service-resource-provider-installer"></a>Execute o instalador do provedor de recursos do serviço de aplicativo
+ - Adicione a [provedor de recursos do serviço de aplicativo](azure-stack-app-service-overview.md) à sua implantação do Azure Stack usando as etapas descritas neste artigo.
+ - Depois de instalar o provedor de recursos do serviço de aplicativo, você pode incluí-lo em seus planos e ofertas. Os usuários podem inscrever-se, em seguida, para obter o serviço e iniciar a criação de aplicativos.
 
-Instalar o provedor de recursos do serviço de aplicativo em seu ambiente de pilha do Azure pode levar pelo menos uma hora depende de quantas instâncias de função que você optar por implantar. Durante esse processo, o instalador irá:
+> [!IMPORTANT]  
+> Antes de executar o instalador do provedor de recursos, certifique-se de que você seguiu as orientações [antes de você começar a usar](azure-stack-app-service-before-you-get-started.md).
 
-* Crie um contêiner de blob na conta de armazenamento do Azure pilha especificada.
-* Crie uma zona DNS e entradas para o serviço de aplicativo.
-* Registre o provedor de recursos do serviço de aplicativo.
-* Registre os itens da Galeria do serviço de aplicativo.
+## <a name="run-the-app-service-resource-provider-installer"></a>Execute o instalador de provedor de recursos de serviço de aplicativo
+
+Instalar o provedor de recursos do serviço de aplicativo demora pelo menos uma hora. O período de tempo necessário depende da função quantas instâncias você implantar. Durante a implantação, o instalador executa as seguintes tarefas:
+
+ - Crie um contêiner de blob na conta de armazenamento do Azure Stack especificada.
+ - Crie uma zona DNS e entradas para o serviço de aplicativo.
+ - Registre o provedor de recursos do serviço de aplicativo.
+ - Registre os itens de galeria do serviço de aplicativo.
 
 Para implantar o provedor de recursos do serviço de aplicativo, siga estas etapas:
 
-1. Execute appservice.exe como um administrador de um computador que pode acessar o Azure pilha Azure recurso Gerenciamento de ponto de extremidade administrador.
+1. Execute appservice.exe como um administrador de um computador que possa acessar o Azure Stack Azure recurso Gerenciamento de ponto de extremidade administrador.
 
-2. Clique em **implantar o serviço de aplicativo ou atualização para a versão mais recente**.
+2. Selecione **implantar o serviço de aplicativo ou atualização para a versão mais recente**.
 
-    ![Instalador de serviço de aplicativo][1]
+    ![Instalador do serviço de aplicativo][1]
 
-3. Revise e aceite os termos de licença de Software da Microsoft e, em seguida, clique em **próximo**.
+3. Examine e aceite os termos de licença de Software da Microsoft e, em seguida, selecione **próxima**.
 
-4. Revise e aceite os termos de licença de terceiros e, em seguida, clique em **próximo**.
+4. Examine e aceite os termos de licença de terceiros e, em seguida, selecione **próxima**.
 
-5. Certifique-se de que as informações de configuração de nuvem do serviço de aplicativo estão corretas. Se você usou as configurações padrão durante a implantação do Kit de desenvolvimento de pilha do Azure, você pode aceitar os valores padrão aqui. No entanto, se você personalizou as opções quando implantou a pilha do Azure, ou estiver implantando em um sistema integrado, você deve editar os valores nesta janela de refletir isso. Por exemplo, se você usar o mycloud.com de sufixo de domínio, altere seu ponto de extremidade do Gerenciador de recursos do Azure pilha locatário do Azure para gerenciamento. &lt;região&gt;. mycloud.com. Depois de confirmar suas informações, clique em **próximo**.
+5. Certifique-se de que as informações de configuração de nuvem do serviço de aplicativo estão corretas. Se você usou as configurações padrão durante a implantação do Kit de desenvolvimento na pilha do Azure (ASDK), você pode aceitar os valores padrão. Mas, se você personalizou as opções quando você implantou o ASDK, ou estiver implantando em um sistema integrado do Azure Stack, você deve editar os valores nesta janela para refletir as diferenças.
 
-    ![Instalador de serviço de aplicativo][2]
+   Por exemplo, se você usar o mycloud.com de sufixo de domínio, o ponto de extremidade do Gerenciador de recursos do Azure Stack locatário do Azure deve alterar para gerenciamento. &lt;região&gt;. mycloud.com. Examine essas configurações e, em seguida, selecione **próxima** para salvar as configurações.
 
-6. Na próxima página:
-    1. Clique no **conectar** lado a **assinaturas de pilha do Azure** caixa.
-        * Se você estiver usando o Azure Active Directory (AD do Azure), insira a conta de administrador do AD do Azure e a senha que você forneceu quando você implantou a pilha do Azure. Clique em **Entrar**.
-        * Se você estiver usando os serviços de Federação do Active Directory (AD FS), fornece sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Digite sua senha e clique em **entrar**.
-    2. No **assinaturas do Azure pilha** caixa, selecione a **assinatura do provedor padrão**.
-    
-    > [!NOTE]
-    > Serviço de aplicativo só pode ser implantado no **assinatura do provedor padrão** neste momento.  Em uma atualização futura do serviço de aplicativo será implantado para a nova assinatura medição introduzido no Azure pilha 1804 e todas as implantações existentes serão migradas para essa nova assinatura também.
-    >
-    >
-    
-    3. No **Azure pilha locais** , selecione o local que corresponde à região que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento de pilha do Azure.
+   ![Instalador do serviço de aplicativo][2]
 
-    ![Instalador de serviço de aplicativo][3]
+6. Na próxima página do instalador do serviço de aplicativo, siga estas etapas:
 
-7. Agora você tem a opção de implantar em uma rede Virtual existente, conforme configurado pelas etapas [aqui](azure-stack-app-service-before-you-get-started.md#virtual-network), ou permitir que o instalador do serviço de aplicativo criar uma rede Virtual e sub-redes associadas.
-    1. Selecione **criar redes com as configurações padrão**, aceite os padrões e clique em **próximo**, ou;
-    2. Selecione **usar rede virtual existente e sub-redes**.
-        1. Selecione o **grupo de recursos** que contém sua rede Virtual;
-        2. Escolher o correto **rede Virtual** nome que você deseja implantar em;
-        3. Selecione o correto **sub-rede** valores para cada uma das sub-redes função necessários;
-        4. Clique em **Avançar**
+    a. Selecione **Connect** ao lado de **assinaturas do Azure Stack**.
 
-    ![Instalador de serviço de aplicativo][4]
+     - Se você estiver usando o Azure Active Directory (Azure AD), insira a conta de administrador do Azure AD e a senha que você forneceu quando você implantou o Azure Stack. Selecione **entrar**.
+     - Se você estiver usando os serviços de Federação do Active Directory (AD FS), forneça sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Insira sua senha e, em seguida, selecione **Sign In**.
 
-8. Insira as informações para o compartilhamento de arquivo e, em seguida, clique em **próximo**. O endereço do compartilhamento de arquivos deve usar o nome de domínio totalmente qualificado ou o endereço IP do servidor de arquivos. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
+   b. Na **assinaturas do Azure Stack**, selecione o **assinatura do provedor padrão**.
 
-   > [!NOTE]
-   > O instalador tentará testar a conectividade com o compartilhamento de arquivos antes de continuar.  No entanto se você tiver optado por implantar em uma rede Virtual existente, o instalador não consiga se conectar ao compartilhamento de arquivos e é apresentado um aviso perguntando se deseja continuar.  Verifique as informações de compartilhamento de arquivos e continuar se elas estão corretas.
-   >
-   >
+     >[!NOTE]
+     >Atualmente, o serviço de aplicativo só pode ser implantado para o **assinatura do provedor padrão**.
 
-   ![Instalador de serviço de aplicativo][7]
+   c. No **locais da pilha do Azure**, selecione o local que corresponde à região em que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento do Azure Stack.
 
-9. Na próxima página:
-    1. No **ID do aplicativo de identidade** , digite o GUID para o aplicativo que você está usando para identidade (do AD do Azure).
-    2. No **arquivo de certificado de identidade de aplicativo** caixa, digite (ou procure) o local do arquivo do certificado.
-    3. No **senha do certificado de identidade de aplicativo** caixa, digite a senha do certificado. Essa senha é aquele que você anotou quando você usou o script para criar os certificados.
-    4. No **arquivo do certificado raiz do Azure Resource Manager** caixa, digite (ou procure) o local do arquivo do certificado.
-    5. Clique em **Próximo**.
+    ![Instalador do serviço de aplicativo][3]
 
-    ![Instalador de serviço de aplicativo][9]
+7. Agora você pode implantar em uma rede virtual existente que você configurou [usando as seguintes etapas](azure-stack-app-service-before-you-get-started.md#virtual-network), ou deixar que o instalador do serviço de aplicativo criar uma nova rede virtual e sub-redes. Para criar uma rede virtual, siga estas etapas:
 
-10. Para cada um dos três caixas de arquivo de certificado, clique em **procurar** e navegue até o arquivo de certificado apropriado. Você deve fornecer a senha para cada certificado. Esses certificados são aqueles que você criou no [etapa de certificados necessários crie](azure-stack-app-service-before-you-get-started.md#get-certificates). Clique em **próximo** depois de inserir todas as informações.
+   a. Selecione **criar VNet com as configurações padrão**, aceite os padrões e, em seguida, selecione **próxima**.
+
+   b. Como alternativa, selecione **usar a rede virtual existente e sub-redes**. Conclua as seguintes ações:
+
+     - Selecione o **grupo de recursos** que contém sua rede Virtual.
+     - Escolha o **rede Virtual** nome que você deseja implantar.
+     - Selecione a correta **sub-rede** valores para cada uma das sub-redes de função necessários.
+     - Selecione **Avançar**.
+
+   ![Instalador do serviço de aplicativo][4]
+
+8. Insira as informações para o compartilhamento de arquivos e, em seguida, selecione **próxima**. O endereço do compartilhamento de arquivos deve usar o nome de domínio totalmente qualificado (FQDN) ou o endereço IP do servidor de arquivos. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
+
+   >[!NOTE]
+   >O instalador tentará testar a conectividade com o compartilhamento de arquivos antes de continuar. No entanto, se você estiver implantando em uma rede virtual existente, esse teste de conectividade pode do arquivo. Você recebe um aviso e um prompt para continuar. Se as informações de compartilhamento de arquivos estiverem corretas, continue a implantação.
+
+   ![Instalador do serviço de aplicativo][7]
+
+9. Na próxima página do instalador do serviço de aplicativo, siga estas etapas:
+
+   a. No **ID do aplicativo de identidade** , digite o GUID para o aplicativo que você está usando para a identidade (do Azure AD).
+
+   b. No **arquivo de certificado de identidade de aplicativo** caixa, digite (ou procure) o local do arquivo de certificado.
+
+   c. No **senha do certificado de identidade de aplicativo** , digite a senha do certificado. Essa senha é aquela que você anotou quando você usou o script para criar os certificados.
+
+   d. No **arquivo de certificado raiz do Azure Resource Manager** caixa, digite (ou procure) o local do arquivo de certificado.
+
+   e. Selecione **Avançar**.
+
+   ![Instalador do serviço de aplicativo][9]
+
+10. Para cada uma das caixas de arquivo de certificado de três, selecione **procurar** e navegue até o arquivo de certificado apropriado. Você deve fornecer a senha para cada certificado. Esses certificados são aqueles que você criou na [etapa de certificados necessários crie](azure-stack-app-service-before-you-get-started.md#get-certificates). Selecione **próxima** depois de inserir todas as informações.
 
     | Box | Exemplo de nome de arquivo de certificado |
     | --- | --- |
-    | **Arquivo de certificado SSL do serviço de aplicativo padrão** | \_.appservice.local.AzureStack.external.pfx |
+    | **Arquivo de certificado padrão SSL do serviço de aplicativo** | \_.appservice.local.AzureStack.external.pfx |
     | **Arquivo de certificado SSL de API do serviço de aplicativo** | api.appservice.local.AzureStack.external.pfx |
-    | **Arquivo de certificado de SSL de publicador do serviço de aplicativo** | ftp.appservice.local.AzureStack.external.pfx |
+    | **Arquivo de certificado SSL do fornecedor de serviço de aplicativo** | ftp.appservice.local.AzureStack.external.pfx |
 
-    Se você usou um sufixo de domínio diferente quando você criou os certificados, os nomes de arquivo de certificado não usam *local. AzureStack.external*. Em vez disso, use as informações de domínio personalizado.
+    Se você usou um sufixo de domínio diferente quando você criou os certificados, seus nomes de arquivo de certificado não usam *local. AzureStack.external*. Em vez disso, use suas informações de domínio personalizado.
 
-    ![Instalador de serviço de aplicativo][10]
+    ![Instalador do serviço de aplicativo][10]
 
-11. Insira os detalhes do SQL Server para a instância do servidor usada para hospedar os bancos de dados do provedor de recursos do serviço de aplicativo e, em seguida, clique em **próximo**. O instalador valida as propriedades de conexão SQL.
-
-    > [!NOTE]
-    > O instalador tentará testar a conectividade com o SQl Server antes de continuar.  No entanto se você tiver optado por implantar em uma rede Virtual existente, o instalador não pode ser capaz de se conectar ao SQL Server e é apresentado um aviso perguntando se deseja continuar.  Verifique as informações do SQL Server e continuar se elas estão corretas.
-    >
-    >
-
-    ![Instalador de serviço de aplicativo][11]
-
-12. Examine as opções de SKU e a instância de função. Os padrões preencha com o número mínimo de instância e o SKU mínimo para cada função em uma implantação de ASDK. Um resumo dos requisitos de memória e vCPU é fornecido para ajudar a planejar a implantação. Depois de fazer suas seleções, clique em **próximo**.
+11. Insira os detalhes do SQL Server para a instância do servidor usada para hospedar os bancos de dados do provedor de recursos do serviço de aplicativo e, em seguida, selecione **próxima**. O instalador valida as propriedades de conexão SQL.
 
     > [!NOTE]
-    > Para implantações de produção, seguindo as orientações em [planejamento de capacidade de funções de servidor do serviço de aplicativo do Azure na pilha do Azure](azure-stack-app-service-capacity-planning.md).
+    > O instalador tentará testar a conectividade com o SQL Server antes de continuar. No entanto, se você estiver implantando em uma rede virtual existente, esse teste de conectividade pode do arquivo. Você recebe um aviso e um prompt para continuar. Se as informações do SQL Server estão corretas, continue a implantação.
     >
-    >
+    > Do serviço de aplicativo do Azure no Azure Stack 1.3 em diante, o instalador verificará se o SQL Server tem a contenção de banco de dados habilitada no nível do SQL Server.  Se não for, você será solicitado com a seguinte exceção:
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > Consulte a [notas de versão do serviço de aplicativo do Azure no Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) para obter mais detalhes.
+
+    ![Instalador do serviço de aplicativo][11]
+
+12. Examine as opções de SKU e a instância de função. Preencher os padrões com o número mínimo de instâncias e o SKU mínimo para cada função em uma implantação ASDK. Um resumo dos requisitos de memória e vCPU é fornecido para ajudar a planejar sua implantação. Depois de fazer suas seleções, selecione **próxima**.
+
+    >[!NOTE]
+    >Para implantações de produção, seguindo as orientações [planejamento de capacidade de funções de servidor do serviço de aplicativo do Azure no Azure Stack](azure-stack-app-service-capacity-planning.md).
 
     | Função | Instâncias mínimas | SKU mínimo | Observações |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Gerencia e mantém a integridade da nuvem do serviço de aplicativo. |
-    | Gerenciamento | 1 | Standard_A2 - (vCPUs 2, 3584 MB) | Gerencia os pontos de extremidade do serviço de aplicativo do Azure Resource Manager e a API, extensões portais (administrador, locatário, portal de funções) e o serviço de dados. Para dar suporte a failover, aumentado instâncias recomendadas para 2. |
+    | Controller | 1 | Standard_A2 - (2 Vcpus, 3584 MB) | Gerencia e mantém a integridade da nuvem do serviço de aplicativo. |
+    | Gerenciamento | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Gerencia os pontos de extremidade de serviço de aplicativo do Azure Resource Manager e a API, extensões portal (administrador, locatário, o portal de funções) e o serviço de dados. Para dar suporte a failover, o aumento das instâncias recomendadas para 2. |
     | Publicador | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publica o conteúdo por meio de implantação da web e FTP. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Encaminha solicitações para aplicativos de serviço de aplicativo. |
-    | Trabalho compartilhados | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosts ou aplicativos de API aplicativos web e funções do Azure. Você talvez queira adicionar mais instâncias. Como um operador, você pode definir sua oferta e escolha qualquer camada SKU. As camadas devem ter no mínimo um vCPU. |
+    | Trabalho compartilhada | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosts ou aplicativos de API do aplicativos web e funções do Azure. Talvez você queira adicionar mais instâncias. Como um operador, você pode definir sua oferta e escolha qualquer camada SKU. As camadas devem ter um mínimo de uma vCPU. |
 
-    ![Instalador de serviço de aplicativo][13]
+    ![Instalador do serviço de aplicativo][13]
 
-    > [!NOTE]
-    > **Windows Server 2016 Core não é uma imagem de plataforma com suporte para uso com o serviço de aplicativo do Azure na pilha do Azure.  Não use imagens de avaliação para implantações de produção.**
+    >[!NOTE]
+    >**Windows Server 2016 Core não é uma imagem de plataforma com suporte para uso com o serviço de aplicativo do Azure no Azure Stack.  Não use imagens de avaliação para implantações de produção.**
 
-13. No **selecione a imagem de plataforma** caixa, escolha sua imagem de máquina virtual de implantação do Windows Server 2016 as imagens disponíveis no provedor de recursos de computação para a nuvem de serviço de aplicativo. Clique em **Próximo**.
+13. No **selecione a imagem de plataforma** , escolha a imagem de máquina virtual do Windows Server 2016 de implantação de imagens disponíveis no provedor de recursos de computação para a nuvem de serviço de aplicativo. Selecione **Avançar**.
 
-14. Na próxima página:
-     1. Insira o nome de usuário do administrador de máquina virtual de função de trabalho e a senha.
-     2. Insira o nome de usuário do administrador de máquina virtual de outras funções e a senha.
-     3. Clique em **Próximo**.
+14. Na próxima página do instalador do serviço de aplicativo, siga estas etapas:
 
-    ![Instalador de serviço de aplicativo][15]    
+     a. Insira o nome de usuário do administrador de máquina virtual de função de trabalho e a senha.
 
-15. Na página de resumo:
-    1. Verifique se as seleções feitas por você. Para fazer alterações, use o **anterior** botões para visitar a páginas anteriores.
-    2. Se as configurações estão corretas, selecione a caixa de seleção.
-    3. Para iniciar a implantação, clique em **próximo**.
+     b. Insira o nome de usuário do administrador de máquina virtual de outras funções e a senha.
 
-    ![Instalador de serviço de aplicativo][16]
+     c. Selecione **Avançar**.
 
-16. Na próxima página:
-    1. Acompanhar o progresso da instalação. Serviço de aplicativo no Azure pilha leva cerca de 60 minutos para implantar com base nas seleções padrão.
-    2. Depois que a instalação for concluída com êxito, clique em **saída**.
+    ![Instalador do serviço de aplicativo][15]
 
-    ![Instalador de serviço de aplicativo][17]
+15. Na página de resumo do instalador do serviço de aplicativo, siga estas etapas:
 
-## <a name="validate-the-app-service-on-azure-stack-installation"></a>Validar o serviço de aplicativo na instalação de pilha do Azure
+    a. Verifique se as seleções feitas por você. Para fazer alterações, use o **anterior** botões para visitar a páginas anteriores.
 
-1. No portal de administração de pilha do Azure, vá para **administração - serviço de aplicativo**.
+    b. Se as configurações estão corretas, selecione a caixa de seleção.
 
-2. Na visão geral em status, verifique que o **Status** mostra **todas as funções estão prontas**.
+    c. Para iniciar a implantação, selecione **próxima**.
+
+    ![Instalador do serviço de aplicativo][16]
+
+16. Na próxima página do instalador do serviço de aplicativo, siga estas etapas:
+
+    a. Acompanhe o progresso da instalação. Serviço de aplicativo no Azure Stack leva cerca de 60 minutos para implantar com base nas seleções padrão.
+
+    b. Depois que o instalador foi concluída com êxito, selecione **Exit**.
+
+    ![Instalador do serviço de aplicativo][17]
+
+## <a name="validate-the-app-service-on-azure-stack-installation"></a>Validar o serviço de aplicativo na instalação do Azure Stack
+
+1. No portal de administração do Azure Stack, acesse **administração - serviço de aplicativo**.
+
+2. Na visão geral em status, verificar se o **Status** mostra **todas as funções estão prontas**.
 
     ![Gerenciamento de serviço de aplicativo](media/azure-stack-app-service-deploy/image12.png)
-    
-> [!NOTE]
-> Se você optar por implantar em uma rede virtual existente e um endereço IP interno para conenct para seu servidor de arquivos, você deve adicionar uma regra de segurança de saída, permitindo que o tráfego entre a sub-rede de trabalho e o servidor de arquivos SMB.  Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
-> * Origem: qualquer
-> * Intervalo de porta de origem: *
-> * Destino: Endereços IP
-> * Intervalo de endereço IP de destino: intervalo de endereços IP para o servidor de arquivos
-> * Intervalo de porta de destino: 445
-> * Protocolo: TCP
-> * Ação: permitir
-> * Prioridade: 700
-> * Nome: Outbound_Allow_SMB445
 
-## <a name="test-drive-app-service-on-azure-stack"></a>Faça o test drive do serviço de aplicativo na pilha do Azure
+   >[!IMPORTANT]
+   >Se você estiver implantando em uma rede virtual existente e usando um endereço IP interno para se conectar ao seu servidor de arquivos, você deve adicionar uma regra de segurança de saída. Essa regra permite o tráfego entre a sub-rede de trabalho e o servidor de arquivos SMB.  Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:<br>
+    >  - Fonte: qualquer
+    >  - Intervalo de porta de origem: *
+    >  - Destino: Endereços IP
+    >  - Intervalo de endereços IP de destino: intervalo de IPs para seu servidor de arquivos
+    >  - Intervalo de porta de destino: 445
+    >  - Protocolo: TCP
+    >  - Ação: permitir
+    >  - Prioridade: 700
+    >  - Nome: Outbound_Allow_SMB445
 
-Depois de implantar e registrar o provedor de recursos do serviço de aplicativo, testá-lo para certificar-se de que os usuários podem implantar aplicativos web e API.
+## <a name="test-drive-app-service-on-azure-stack"></a>Test drive do serviço de aplicativo no Azure Stack
 
-> [!NOTE]
-> Você precisa criar uma oferta que tenha o namespace Microsoft Web dentro do plano. Em seguida, você precisa ter uma assinatura de locatário se inscreve para esta oferta. Para obter mais informações, consulte [criar oferta](azure-stack-create-offer.md) e [criar plano](azure-stack-create-plan.md).
+Depois de implantar e registrar o provedor de recursos do serviço de aplicativo, testá-lo para certificar-se de que os usuários podem implantar aplicativos de API e da web.
+
+>[!NOTE]
+>Você precisará criar uma oferta que tenha o namespace Microsoft. Web no plano. Você também precisa de uma assinatura de locatário que assina a oferta. Para obter mais informações, consulte [criar oferta](azure-stack-create-offer.md) e [criar plano](azure-stack-create-plan.md).
 >
-Você *deve* tem uma assinatura de locatário para criar aplicativos que usam o serviço de aplicativo na pilha do Azure. Os recursos de apenas um administrador de serviço pode ser concluída dentro do portal de administração relacionados para a administração de provedor de recursos de serviço de aplicativo. Esses recursos incluem a capacidade de adicionar, configurando fontes de implantação e adicionar camadas de trabalhador e SKUs.
+>Você *deve* possui uma assinatura de locatário para criar aplicativos que usam o serviço de aplicativo no Azure Stack. As únicas tarefas que um administrador de serviço pode concluir no portal de administração estão relacionadas para a administração de provedor de recursos do serviço de aplicativo. Isso inclui a adição de capacidade, configurando as fontes de implantação e adicionar SKUs e camadas de trabalhador.
 >
-Para criar a web, API e o Azure funções de aplicativos, você deve usar o portal de locatário e ter uma assinatura de locatário.
+>Para criar a web, API e o Azure Functions aplicativos, você deve usar o portal de locatário e ter uma assinatura de locatário.
+>
 
-1. No portal de locatário de pilha do Azure, clique em **novo** > **Web + móvel** > **aplicativo Web**.
+Para criar um aplicativo web de teste, siga estas etapas:
 
-2. Sobre o **aplicativo Web** folha, digite um nome no **aplicativo Web** caixa.
+1. No portal de locatário do Azure Stack, selecione **New** > **Web + móvel** > **Web App**.
 
-3. Em **grupo de recursos**, clique em **novo**. Digite um nome no **grupo de recursos** caixa.
+2. Sob **aplicativo Web**, insira um nome na **aplicativo Web**.
 
-4. Clique em **Plano do Serviço de Aplicativo/Local** > **Criar Novo**.
+3. Sob **grupo de recursos**, selecione **New**. Insira um nome para o **grupo de recursos**.
 
-5. No **plano de serviço de aplicativo** folha, digite um nome no **plano de serviço de aplicativo** caixa.
+4. Selecione **plano do serviço de aplicativo/localização** > **criar novo**.
 
-6. Clique em **preço** > **compartilhado gratuito** ou **compartilhado compartilhado** > **selecione**  >   **Okey** > **criar**.
+5. Sob **plano do serviço de aplicativo**, insira um nome para o **plano de serviço de aplicativo**.
 
-7. Em menos de um minuto, um bloco para o novo aplicativo web é exibida no painel. Clique no bloco.
+6. Selecione **tipo de preço** > **compartilhado gratuito** ou **compartilhado compartilhado** > **selecione**  >  **Okey** > **criar**.
 
-8. Sobre o **aplicativo Web** folha, clique em **procurar** para exibir o site padrão para este aplicativo.
+7. Um bloco para o novo aplicativo web é exibida no painel. Selecione o bloco.
 
-## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Implantar um site de WordPress, DNN ou Django (opcional)
+8. Na **aplicativo Web**, selecione **procurar** para exibir o site padrão para este aplicativo.
 
-1. No portal de locatário de pilha do Azure, clique em **+**, vá para o Azure Marketplace, implantar um site Django e aguardar a conclusão bem-sucedida. O web platform Django usa um banco de dados do arquivo baseado no sistema. Ele não requer que os provedores de recursos adicionais, como SQL ou MySQL.
+## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Implantar um site WordPress, DNN ou Django (opcional)
 
-2. Se você também implantou um provedor de recursos do MySQL, você pode implantar um site de WordPress do Marketplace. Quando você for solicitado para parâmetros de banco de dados, digite o nome de usuário como *User1@Server1*com o nome de usuário e o nome do servidor de sua escolha.
+1. No portal de locatário do Azure Stack, selecione **+**, vá para o Azure Marketplace, implante um site Django e, em seguida, aguarde a conclusão da implantação. A plataforma de web do Django usa um banco de dados com base no sistema do arquivo. Ele não requer quaisquer provedores de recursos adicionais, como SQL ou MySQL.
 
-3. Se você também implantou um provedor de recursos do SQL Server, você pode implantar um site DNN do Marketplace. Quando você for solicitado para parâmetros de banco de dados, escolha um banco de dados no computador executando o SQL Server que está conectado ao seu provedor de recursos.
+2. Se você também implantou um provedor de recursos do MySQL, você pode implantar um site do WordPress no Marketplace. Quando você for solicitado para parâmetros de banco de dados, insira o nome de usuário *User1@Server1*com o nome de usuário e o nome do servidor de sua escolha.
+
+3. Se você também implantou um provedor de recursos do SQL Server, você pode implantar um site do DNN do Marketplace. Quando você for solicitado para parâmetros de banco de dados, escolha um banco de dados no computador executando o SQL Server que está conectado ao seu provedor de recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você também pode experimentar outros [plataforma como um serviço (PaaS) serviços](azure-stack-tools-paas-services.md).
+Você também pode experimentar outras [plataforma como um serviço (PaaS) serviços](azure-stack-tools-paas-services.md).
 
-- [Provedor de recursos do SQL Server](azure-stack-sql-resource-provider-deploy.md)
-- [Provedor de recursos MySQL](azure-stack-mysql-resource-provider-deploy.md)
+ - [Provedor de recursos do SQL Server](azure-stack-sql-resource-provider-deploy.md)
+ - [Provedor de recursos MySQL](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531

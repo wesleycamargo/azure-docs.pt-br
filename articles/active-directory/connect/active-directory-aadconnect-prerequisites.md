@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d6d6eadf0ae8996b019a0564715f843913101944
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 39ae4573b4c447253c4c90a3845a087434dcd77a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42139992"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este tópico descreve os pré-requisitos e requisitos de hardware para o Azure AD Connect.
@@ -31,7 +33,7 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
   * Você também pode usar o [portal do Azure](https://portal.azure.com). Esse portal não requer uma licença do Azure AD.
 * [Adicione e verifique o domínio](../active-directory-domains-add-azure-portal.md) que você planeja usar no AD do Azure. Por exemplo, se você planeja usar contoso.com para os usuários, em seguida, verifique se este domínio foi verificado e se não está usando apenas o domínio padrão contoso.onmicrosoft.com.
 * Um locatário do Azure AD pode ter, por padrão, 50 mil objetos. Quando você verificar seu domínio, o limite aumentará para 300 mil objetos. Se precisar de mais objetos no Azure AD, precisará abrir um caso de suporte para aumentar ainda mais o limite. Se você precisar de mais de 500 mil objetos, precisará de uma licença, como Office 365, Azure AD Básico, Azure AD Premium ou Enterprise Mobility and Security.
-* ADSyncPrep é um módulo de script do PowerShell que fornece funções usadas para preparar seu ambiente do Active Directory para o Azure AD Connect.  O ADSyncPrep exige o [Módulo do PowerShell do Azure AD Microsoft Online v1.1](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  A Versão 2 não funcionará.  Instale o módulo usando o cmdlet `Install-Module`.  Para saber mais, confira o link fornecido.
+* ADSyncPrep é um módulo de script do PowerShell que fornece funções usadas para preparar seu ambiente do Active Directory para o Azure AD Connect.  O ADSyncPrep exige o [Módulo do PowerShell do Azure AD Microsoft Online v1.1](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  A Versão 2 não funcionará. Você pode instalar o módulo usando o cmdlet `Install-Module`.  Para saber mais, confira o link fornecido.
 
 ### <a name="prepare-your-on-premises-data"></a>Preparar seus dados locais
 * Usar [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) para identificar erros como duplicatas e problemas de formatação no diretório antes de sincronizar para o Azure AD e o Office 365.
@@ -41,7 +43,6 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
 * A versão de esquema do AD e o nível funcional de floresta devem ser o Windows Server 2003 ou posterior. Os controladores de domínio podem executar qualquer versão, desde os requisitos de nível de floresta e de esquema sejam atendidos.
 * Se você pretende usar o recurso **write-back de senha**, os Controladores de Domínio devem estar no Windows Server 2008 (com o último SP) ou posterior. Se os controladores de domínio estiverem no 2008 (pré-R2), você também deverá aplicar o [hotfix KB2386717](http://support.microsoft.com/kb/2386717).
 * O controlador de domínio usado pelo Azure AD deve ser gravável. **Não há suporte** para o uso de um RODC (controlador de domínio somente leitura) e o Azure AD Connect não segue redirecionamentos de gravação.
-* **Não há suporte** para o uso de florestas/domínios locais que usam SLDs (Domínios de Rótulo Único).
 * **Não há suporte** para o uso de florestas/domínios locais que usam nomes NetBios “com pontos” (nome que contém um ponto “.”).
 * É recomendável [habilitar a lixeira do Active Directory](active-directory-aadconnectsync-recycle-bin.md).
 
@@ -57,7 +58,7 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
 * Se os Serviços de Federação do Active Directory estiverem sendo implantados, os servidores onde o AD FS ou Proxy de Aplicativo Web será instalado devem ser Windows Server 2012 R2 ou posterior. [O gerenciamento remoto do Windows](#windows-remote-management) deve estar habilitado nesses servidores para instalação remota.
 * Se o Serviços de Federação do Active Directory estiver sendo implantado, você precisará dos [Certificados SSL](#ssl-certificate-requirements).
 * Se os Serviços de Federação do Active Directory (AD FS) estiverem sendo implantados, você precisará configurar a [resolução de nomes](#name-resolution-for-federation-servers).
-* Se os administradores globais tiverem a MFA habilitada, a URL **https://secure.aadcdn.microsoftonline-p.com** precisa estar na lista de sites confiáveis. Você deverá adicionar esse site à lista de sites confiáveis quando receber um desafio de MFA e ele não tiver sido adicionado antes. Você pode usar o Internet Explorer para adicioná-la aos seus sites confiáveis.
+* Se os administradores globais tiverem uma MFA habilitada, a URL **https://secure.aadcdn.microsoftonline-p.com** precisará estar na lista de sites confiáveis. Você deverá adicionar esse site à lista de sites confiáveis quando receber um desafio de MFA e ele não tiver sido adicionado antes. Você pode usar o Internet Explorer para adicioná-la aos seus sites confiáveis.
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server usado pelo Azure AD Connect
 * O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados de identidade. Por padrão, um SQL Server 2012 Express LocalDB (uma versão leve do SQL Server Express) é instalado. O SQL Server Express tem um limite de tamanho de 10GB que permite que você gerencie aproximadamente 100.000 objetos. Se precisar gerenciar um volume maior de objetos de diretório, você precisa apontar o assistente de instalação para uma instalação diferente do SQL Server.
@@ -92,7 +93,7 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
     </system.net>
 ```
 
-* Se o servidor proxy precisar de autenticação, a [conta de serviço](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) deverá estar localizada no domínio e você deverá usar o caminho de instalação das configurações personalizadas para especificar uma [conta de serviço personalizada](active-directory-aadconnect-get-started-custom.md#install-required-components). Você também precisa de uma alteração diferente em machine.config. Com essa alteração em machine.config, o assistente de instalação e o mecanismo de sincronização respondem às solicitações de autenticação do servidor proxy. Em todas as páginas do assistente de instalação, com exceção da página **Configurar**, as credenciais do usuário conectado são usadas. Na página **Configurar** no final do assistente de instalação, o contexto é alternado para a [conta de serviço](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) que foi criada por você. A seção machine.config deve ter esta aparência.
+* Se o servidor proxy precisar de autenticação, a [conta de serviço](active-directory-aadconnect-accounts-permissions.md#adsync-service-account) deverá estar localizada no domínio e você deverá usar o caminho de instalação das configurações personalizadas para especificar uma [conta de serviço personalizada](active-directory-aadconnect-get-started-custom.md#install-required-components). Você também precisa de uma alteração diferente em machine.config. Com essa alteração em machine.config, o assistente de instalação e o mecanismo de sincronização respondem às solicitações de autenticação do servidor proxy. Em todas as páginas do assistente de instalação, com exceção da página **Configurar**, as credenciais do usuário conectado são usadas. Na página **Configurar** no final do assistente de instalação, o contexto é alternado para a [conta de serviço](active-directory-aadconnect-accounts-permissions.md#adsync-service-account) que foi criada por você. A seção machine.config deve ter esta aparência.
 
 ```
     <system.net>

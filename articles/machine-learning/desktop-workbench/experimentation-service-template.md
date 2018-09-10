@@ -2,19 +2,19 @@
 title: Criar Experimentação do Azure Machine Learning com o modelo do Azure Resource Manager | Microsoft Docs
 description: Este artigo fornece um exemplo para criar uma conta da Experimentação do Azure Machine Learning usando um modelo do Azure Resource Manager.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: jmartens, jasonwhowell, mldocs
+author: hning86
+ms.author: haining
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 6f3e08cf36a27d8f42291d13e82458e3fcebc03f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7938eaa0e06c9a33034a7388d02845d60967774e
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141220"
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Configurar o serviço de Experimentação do Azure Machine Learning
 

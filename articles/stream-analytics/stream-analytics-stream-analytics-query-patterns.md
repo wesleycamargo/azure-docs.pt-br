@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7f171fa1eb8c91b55119d0308b57fe3d3e70261b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578884"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemplos de consulta para padrões de uso do Stream Analytics
 
@@ -23,6 +24,11 @@ As consultas no Azure Stream Analytics são expressas em uma linguagem de consul
 O design de consulta pode expressar lógica de passagem simples para mover dados de evento de um fluxo de entrada para outro armazenamento de dados de saída. Ou ele pode fazer análise de correspondência e temporal padrão avançado para calcular agregações em várias janelas de tempo como a amostra de TollApp. Você pode associar dados de várias entradas para combinar eventos de fluxo contínuo e fazer pesquisas nos dados de referência estática para enriquecer os valores de evento. Além disso, você pode gravar dados para várias saídas.
 
 Este artigo descreve soluções para vários padrões comuns de consulta com base em cenários do mundo real. É um trabalho em andamento e continuará sendo atualizado com novos padrões de forma contínua.
+
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>Trabalhar com Tipos de Dados complexos em JSON e AVRO 
+O Azure Stream Analytics dá suporte ao processamento de eventos em formatos de dados CSV, JSON e Avro.
+JSON e Avro podem conter tipos complexos, como matrizes ou objetos aninhados (registros). Para trabalhar com esses tipos de dados complexos, consulte o artigo [Análise de JSON e AVRO](stream-analytics-parsing-json.md).
+
 
 ## <a name="query-example-convert-data-types"></a>Exemplo de consulta: converter tipos de dados
 **Descrição**: defina os tipos das propriedades no fluxo de entrada.
@@ -117,7 +123,7 @@ Por exemplo, forneça uma descrição de cadeia de caracteres para quantos carro
         Make,
         TumblingWindow(second, 10)
 
-**Explicação**: a cláusula **CASE** nos permite fornecer uma computação diferente com base em alguns critérios (no nosso caso, a contagem dos carros na janela de agregação).
+**Explicação**: A expressão **CASE** compara uma expressão com um conjunto de expressões simples para determinar o resultado. Neste exemplo, o veículo faz com uma contagem de 1 retornou uma descrição de cadeia de caracteres diferentes de veículo faz com um número diferente de 1. 
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>Exemplo de consulta: enviar dados para várias saídas
 **Descrição**: envie dados para vários destinos de saída de um único trabalho.
@@ -577,6 +583,46 @@ WHERE
 ````
 
 **Explicação**: a primeira consulta `max_power_during_last_3_mins` usa a [Janela deslizante](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para localizar o valor máximo do sensor de potência de cada dispositivo durante os últimos 3 minutos. A segunda consulta é unida à primeira consulta para localizar o valor de potência na janela mais recente relevante para o evento atual. E, em seguida, desde que as condições sejam atendidas, um alerta é gerado para o dispositivo.
+
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Exemplo de consulta: processar eventos independentes de dispositivo (subfluxos) distorção do relógio
+**Descrição**: eventos poderá chegar atrasado ou fora de ordem devido a inclinação do relógio entre produtores de eventos, o relógio inclina entre partições ou latência de rede. No exemplo a seguir, o relógio do dispositivo para TollID 2 é de dez segundos por trás TollID 1 e o relógio do dispositivo para TollID 3 é cinco segundos por trás TollID 1. 
+
+
+**Entrada**:
+| PlacaDeCarro | Faça | Hora | TollID |
+| --- | --- | --- | --- |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
+| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
+| QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
+| MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
+| YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
+
+**Saída**:
+| TollID | Contagem |
+| --- | --- |
+| 1 | 2 |
+| 2 | 2 |
+| 1 | 1 |
+| 3 | 1 |
+| 2 | 1 |
+| 3 | 1 |
+
+**Solução**:
+
+````
+SELECT
+      TollId,
+      COUNT(*) AS Count
+FROM input
+      TIMESTAMP BY Time OVER TollId
+GROUP BY TUMBLINGWINDOW(second, 5), TollId
+
+````
+
+**Explicação**: a cláusula [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) examina cada linha do tempo do dispositivo separadamente usando subfluxos. Os eventos de saída para cada TollID são gerados como eles são computados, que significa que os eventos estão na ordem em relação a cada TollID em vez de ser reordenadas como se todos os dispositivos foram no relógio do mesmo.
 
 
 ## <a name="get-help"></a>Obter ajuda

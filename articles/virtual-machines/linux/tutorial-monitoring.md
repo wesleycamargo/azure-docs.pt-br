@@ -3,7 +3,7 @@ title: Tutorial – Monitorar e atualizar máquinas virtuais do Linux no Azure |
 description: Neste tutorial, você aprenderá a monitorar métricas de desempenho e diagnóstico de inicialização e gerenciar atualizações de pacote em uma máquina virtual do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2017
-ms.author: iainfou
+ms.date: 06/06/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0dc403d92855902daef09c91a5dd022beb23fd71
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f5773d2f6634d1de9674351ff30a15b488bdd672
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38597456"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorar e atualizar uma máquina virtual do Linux no Azure
 
@@ -39,17 +40,17 @@ Para garantir que suas VMs (máquinas virtuais) no Azure estejam sendo executada
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Criar VM
 
-Para ver os diagnósticos e as métricas em ação, você precisa de uma VM. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupMonitor* no local *eastus*.
+Para ver os diagnósticos e as métricas em ação, você precisa de uma VM. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupMonitor* no local *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). O exemplo a seguir cria uma VM chamada *myVM*:
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). O seguinte exemplo cria uma VM chamada *myVM* e gera as chaves SSH, caso ainda não existam em *~/.ssh/*:
 
 ```azurecli-interactive
 az vm create \
@@ -64,7 +65,7 @@ az vm create \
 
 Durante a inicialização das VMs do Linux, a extensão de diagnóstico de inicialização captura a saída de inicialização e a armazena no Armazenamento do Azure. Esses dados podem ser usados para solucionar problemas de inicialização da VM. Os diagnósticos de inicialização não são habilitados automaticamente quando você cria uma VM do Linux usando a CLI do Azure.
 
-Antes de habilitar o diagnóstico de inicialização, é necessário criar uma conta de armazenamento para armazenar os logs de inicialização. As contas de armazenamento devem ter um nome exclusivo globalmente, com três a 24 caracteres e conter apenas números e letras minúsculas. Crie uma conta de armazenamento com o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). Neste exemplo, uma cadeia de caracteres aleatória é usada para criar um nome de conta de armazenamento exclusivo.
+Antes de habilitar o diagnóstico de inicialização, é necessário criar uma conta de armazenamento para armazenar os logs de inicialização. As contas de armazenamento devem ter um nome exclusivo globalmente, com três a 24 caracteres e conter apenas números e letras minúsculas. Crie uma conta de armazenamento com o comando [az storage account create](/cli/azure/storage/account#az-storage-account-create). Neste exemplo, uma cadeia de caracteres aleatória é usada para criar um nome de conta de armazenamento exclusivo.
 
 ```azurecli-interactive
 storageacct=mydiagdata$RANDOM
@@ -82,7 +83,7 @@ Ao habilitar o diagnóstico de inicialização, o URI do contêiner de armazenam
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-Agora, habilite o diagnóstico de inicialização com [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). O valor `--storage` é o URI do blob coletado na etapa anterior.
+Agora, habilite o diagnóstico de inicialização com [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-enable). O valor `--storage` é o URI do blob coletado na etapa anterior.
 
 ```azurecli-interactive
 az vm boot-diagnostics enable \
@@ -93,19 +94,19 @@ az vm boot-diagnostics enable \
 
 ## <a name="view-boot-diagnostics"></a>Exibir diagnóstico de inicialização
 
-Quando o diagnóstico de inicialização for habilitado, sempre que você parar e iniciar a VM, as informações sobre o processo de inicialização serão gravadas em um arquivo de log. Para este exemplo, primeiro desaloque a VM com o comando [az vm deallocate](/cli/azure/vm#az_vm_deallocate) da seguinte maneira:
+Quando o diagnóstico de inicialização for habilitado, sempre que você parar e iniciar a VM, as informações sobre o processo de inicialização serão gravadas em um arquivo de log. Para este exemplo, primeiro desaloque a VM com o comando [az vm deallocate](/cli/azure/vm#az-vm-deallocate) da seguinte maneira:
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Agora, inicie a VM com o comando [az vm start]( /cli/azure/vm#az_vm_stop) da seguinte maneira:
+Agora, inicie a VM com o comando [az vm start]( /cli/azure/vm#az-vm-stop) da seguinte maneira:
 
 ```azurecli-interactive
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Você pode obter os dados de diagnóstico de inicialização para *myVM* com o comando [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log) da seguinte maneira:
+Você pode obter os dados de diagnóstico de inicialização para *myVM* com o comando [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-get-boot-log) da seguinte maneira:
 
 ```azurecli-interactive
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
@@ -115,24 +116,18 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 Uma VM do Linux tem um host dedicado no Azure com o qual ela interage. As métricas são coletadas automaticamente para o host e podem ser exibidas no Portal do Azure da seguinte maneira:
 
-1. No Portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
-1. Para ver como está o desempenho da VM do host, clique em **Métricas** na folha da VM e, em seguida, selecione qualquer uma das métricas de *Host* em **Métricas disponíveis**.
+1. No portal do Azure, selecione **Grupos de Recursos**, escolha **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
+1. Para ver como está o desempenho da VM do host, selecione **Métricas** na janela da VM e, em seguida, escolha qualquer uma das métricas de *Host* em **Métricas disponíveis**.
 
     ![Exibir métricas de host](./media/tutorial-monitoring/monitor-host-metrics.png)
 
 ## <a name="install-diagnostics-extension"></a>Instalar extensão de diagnóstico
 
-> [!IMPORTANT]
-> Este documento descreve a versão 2.3 da Extensão de Diagnóstico do Linux, a qual está preterida. A versão 2.3 será suportada até 30 de junho de 2018.
->
-> A versão 3.0 da Extensão de Diagnóstico do Linux pode ser ativada em vez disso. Para obter mais informações, consulte a [documentação](./diagnostic-extension.md).
-
 As métricas de host básicas estão disponíveis, mas para ver métricas mais granulares e específicas à VM, você precisa instalar a extensão de Diagnóstico do Azure na VM. A extensão de Diagnóstico do Azure permite que dados de monitoramento e diagnóstico adicionais sejam recuperados da VM. Você pode exibir essas métricas de desempenho e criar alertas com base no desempenho de uma máquina virtual. A extensão de diagnóstico é instalada por meio do Portal do Azure, da seguinte maneira:
 
-1. No Portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione **myVM** na lista de recursos.
-1. Clique em **Configurações de diagnóstico**. A lista mostra que o *Diagnóstico de inicialização* já está habilitado na seção anterior. Clique na caixa de seleção para as *Métricas básicas*.
-1. Na seção *Conta de armazenamento*, navegue até a conta *mydiagdata[1234]* criada na seção anterior e selecione-a.
-1. Clique no botão **Salvar** .
+1. No Portal do Azure, escolha **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
+1. Selecione **Configurações de diagnóstico**. No menu suspenso *Escolher uma conta de armazenamento*, se ainda não estiver selecionado, escolha a conta *mydiagdata [1234]* criada na seção anterior.
+1. Selecione o botão **Habilitar o monitoramento em nível de convidado**.
 
     ![Exibir métricas de diagnóstico](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
@@ -140,8 +135,8 @@ As métricas de host básicas estão disponíveis, mas para ver métricas mais g
 
 Você pode exibir as métricas da VM da mesma maneira que você exibiu as métricas da VM host:
 
-1. No Portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione **myVM** na lista de recursos.
-1. Para ver como está o desempenho da VM do Host, clique em **Métricas** na folha da VM e, em seguida, selecione qualquer uma das métricas de diagnóstico em **Métricas disponíveis**.
+1. No Portal do Azure, escolha **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
+1. Para ver como está o desempenho da VM do Host, selecione **Métricas** na janela da VM e, em seguida, selecione qualquer uma das métricas de diagnóstico de *Convidado* em **Métricas disponíveis**.
 
     ![Exibir métricas de VM](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
@@ -151,12 +146,12 @@ Você pode criar alertas com base em métricas de desempenho específicas. Alert
 
 O exemplo a seguir cria um alerta para uso médio da CPU.
 
-1. No Portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione **myVM** na lista de recursos.
-2. Clique em **Regras de alerta** na folha da VM e, em seguida, clique em **Adicionar alerta de métrica** na parte superior da folha de alertas.
+1. No portal do Azure, selecione **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
+2. Selecione **Alertas (clássico)**, em seguida, escolha **Adicionar alerta de métrica (clássico)** na parte superior da janela de alertas.
 3. Forneça um **Nome** para o alerta, como *myAlertRule*
 4. Para disparar um alerta quando o percentual de CPU excede 1.0 por cinco minutos, deixe todos os outros padrões selecionados.
 5. Opcionalmente, marque a caixa de *Proprietários, colaboradores e leitores de email* para enviar uma notificação por email. A ação padrão é apresentar uma notificação no portal.
-6. Clique no botão **OK**.
+6. Selecione o botão **OK**.
 
 ## <a name="manage-package-updates"></a>Gerenciar atualizações de pacote
 
@@ -171,7 +166,7 @@ Habilite o Gerenciamento de Atualizações para sua VM:
 
 1. No lado esquerdo da tela, selecione **Máquinas virtuais**.
 2. Na lista, selecione uma VM.
-3. Na tela da VM, na seção **Operações**, clique em **Gerenciamento de Atualizações**. A tela **Habilitar Gerenciamento de Atualizações** é aberta.
+3. Na tela da VM, na seção **Operações**, selecione **Gerenciamento de atualizações**. A tela **Habilitar Gerenciamento de Atualizações** é aberta.
 
 Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado para essa VM.
 A validação inclui verificar se há um espaço de trabalho do Log Analytics e uma conta de automação vinculada e se a solução está no espaço de trabalho.
@@ -183,7 +178,7 @@ Para executar ações adicionais em máquinas virtuais que requerem atualizaçõ
 O processo de validação também verifica se a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o Hybrid Runbook Worker da Automação.
 Esse agente é usado para comunicar-se com a VM e obter informações sobre o status de atualização.
 
-Escolha o espaço de trabalho do Log Analytics e a conta de automação e clique em **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
+Escolha o espaço de trabalho do Log Analytics e a conta de automação e selecione **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
 
 Se algum dos seguintes pré-requisitos estiver ausente durante a integração, ele será adicionado automaticamente:
 
@@ -191,7 +186,7 @@ Se algum dos seguintes pré-requisitos estiver ausente durante a integração, e
 * [Automação](../../automation/automation-offering-get-started.md)
 * Uma [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitada na VM
 
-A tela **Gerenciamento de Atualizações** é exibida. Configure o local, o espaço de trabalho de Log analytics e a conta de Automação a serem usados e clique em **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo espaço de trabalho e conta de Automação devem ser usados.
+A tela **Gerenciamento de Atualizações** é exibida. Configure o local, o espaço de trabalho do Log Analytics e a conta de Automação a serem usados e selecione **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo espaço de trabalho e conta de Automação devem ser usados.
 
 ![Habilitar a solução de Gerenciamento de Atualizações](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
@@ -207,7 +202,7 @@ Depois que o **Gerenciamento de Atualizações** for habilitado, a tela **Gerenc
 
 Para instalar atualizações, agende uma implantação que siga o agendamento de versão e o período de serviço. Você pode escolher quais tipos de atualização deseja incluir na implantação. Por exemplo, você pode incluir atualizações críticas ou de segurança e excluir pacotes cumulativos de atualizações.
 
-Agende uma nova implantação de atualização para a VM clicando em **Agendar implantação de atualização** na parte superior da tela **Gerenciamento de Atualizações**. Na tela **Nova implantação de atualização**, especifique as seguintes informações:
+Para agendar uma nova Implantação de atualização para a VM selecione **Agendar implantação de atualização** na parte superior da tela **Gerenciamento de atualizações**. Na tela **Nova implantação de atualização**, especifique as seguintes informações:
 
 * **Nome** – forneça um nome exclusivo para identificar a Implantação de atualizações.
 * **Classificação de atualização** – selecione os tipos de software que a implantação de atualização incluiu na implantação. Os tipos de classificação são:
@@ -218,13 +213,13 @@ Agende uma nova implantação de atualização para a VM clicando em **Agendar i
   ![Tela de configurações de agenda de atualização](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 
 * **Configurações de agenda** – você pode aceitar a data e hora padrão, que é de 30 minutos após a hora atual ou especificar um horário diferente.
-  Você também pode especificar se a implantação ocorre uma única vez ou configurar um agendamento recorrente. Clique na opção Recorrente em Recorrência para configurar um agendamento recorrente.
+  Você também pode especificar se a implantação ocorre uma única vez ou configurar um agendamento recorrente. Selecione a opção Recorrente em Recorrência para configurar um agendamento recorrente.
 
   ![Tela de configurações de agenda de atualização](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
 
 * **Janela de manutenção (minutos)** – especifique o período de tempo em que deseja que a implantação de atualização ocorra. Isso ajuda a garantir que as alterações sejam executadas dentro das janelas de serviço definidas.
 
-Depois de concluir a configuração da agenda, clique no botão **Criar** e retorne ao painel de status.
+Depois de concluir a configuração da agenda, selecione o botão **Criar** e retorne ao painel de status.
 Observe que a tabela **Agendado** mostra a agenda de implantação criada.
 
 > [!WARNING]
@@ -235,7 +230,7 @@ Observe que a tabela **Agendado** mostra a agenda de implantação criada.
 Após o início da implantação agendada, você pode ver o status dessa implantação na guia **Implantações de atualização** na tela **Gerenciamento de Atualizações**.
 Se ela estiver em execução, seu status será mostrado como **Em andamento**. Após a conclusão, em caso de êxito, ele será alterado para **Êxito**.
 Se houver falha em uma ou mais atualizações na implantação, o status será **Falhou parcialmente**.
-Clique na implantação de atualização concluída para ver o painel dessa implantação de atualização.
+Selecione a implantação de atualização concluída para ver o painel dessa implantação de atualização.
 
 ![Painel de status de implantação de atualização para implantação específica](./media/tutorial-monitoring/manage-updates-view-results.png)
 
@@ -246,11 +241,11 @@ Na tabela à direita há uma análise detalhada de cada atualização e os resul
 * **Êxito** – a atualização foi bem-sucedida
 * **Falha** – Falha na atualização
 
-Clique em **Todos os logs** para ver todas as entradas de log que a implantação criou.
+Selecione **Todos os logs** para ver todas as entradas de log que a implantação criou.
 
-Clique no bloco **Saída** para ver o fluxo de trabalho do runbook responsável por gerenciar a implantação de atualização na VM de destino.
+Selecione o bloco **Saída** para ver o fluxo de trabalho do runbook responsável por gerenciar a implantação de atualização na VM de destino.
 
-Clique em **Erros** para ver informações detalhadas sobre os erros da implantação.
+Selecione **Erros** para ver informações detalhadas sobre quaisquer erros da implantação.
 
 ## <a name="monitor-changes-and-inventory"></a>Monitoramento de alterações e inventário
 
@@ -262,9 +257,9 @@ Habilitar Alterações e Gerenciamento de Estoque para a sua VM:
 
 1. No lado esquerdo da tela, selecione **Máquinas virtuais**.
 2. Na lista, selecione uma VM.
-3. Na tela da VM, na seção **Operações**, clique em **Estoque** ou **Rastrear mudanças**. A tela **Habilitar Controle de Alterações e Estoque** é aberta.
+3. Na tela da VM, na seção **Operações**, selecione **Estoque** ou **Rastrear mudanças**. A tela **Habilitar Controle de Alterações e Estoque** é aberta.
 
-Configure o local, o espaço de trabalho de Log analytics e a conta de Automação a serem usados e clique em **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo espaço de trabalho e conta de Automação devem ser usados. Mesmo que as soluções estejam separadas no menu, elas são a mesma solução. Habilitar uma permite ambos para sua VM.
+Configure o local, o espaço de trabalho do Log Analytics e a conta de Automação a serem usados e selecione **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo espaço de trabalho e conta de Automação devem ser usados. Mesmo que as soluções estejam separadas no menu, elas são a mesma solução. Habilitar uma permite ambos para sua VM.
 
 ![Habilitar Controle de Alterações e Inventário](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -272,7 +267,7 @@ Depois que a solução é habilitada, leva algum tempo para os dados serem exibi
 
 ### <a name="track-changes"></a>Controle de alterações
 
-Na sua VM, selecione **Controle de alterações** em **OPERAÇÕES**. Clique em **Editar configurações**, a página **Controle de Alterações** é exibida. Selecione o tipo de configuração que você deseja acompanhar e, em seguida, clique em **+ +Adicionar** para definir as configurações. A opção disponível para Linux é **Arquivos Linux**
+Na sua VM, selecione **Controle de alterações** em **OPERAÇÕES**. Selecione **Editar configurações**, a página **Controle de alterações** é exibida. Selecione o tipo de configuração que você deseja acompanhar e, em seguida, selecione **+Adicionar** para definir as configurações. A opção disponível para Linux é **Arquivos Linux**
 
 Para obter informações detalhadas sobre o Controle de Alterações, consulte [Solucionar as alterações em uma máquina virtual](../../automation/automation-tutorial-troubleshoot-changes.md)
 

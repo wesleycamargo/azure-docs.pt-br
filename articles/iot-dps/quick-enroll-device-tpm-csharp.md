@@ -1,22 +1,21 @@
 ---
 title: Registrar o dispositivo TPM no Serviço de Provisionamento de Dispositivos do Azure usando C# | Microsoft Docs
 description: Guia de Início Rápido do Azure – Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço C#
-services: iot-dps
-keywords: ''
-author: bryanla
-ms.author: v-jamebr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 01/16/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: c9492d47461e95c7baa28f82b8a95fd7e370ac16
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5c0ac54996f66f44d39389d8ed1bc0c40793933b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528071"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço C#
 

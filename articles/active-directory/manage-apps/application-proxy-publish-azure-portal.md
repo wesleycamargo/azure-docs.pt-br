@@ -2,24 +2,22 @@
 title: Publicar aplicativos com o Proxy de Aplicativo do Azure AD | Microsoft Docs
 description: Publique aplicativos locais na nuvem com o Proxy de Aplicativo do Azure AD no Portal do Azure.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/06/2017
+ms.topic: conceptual
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 6ab0e36fc0b4bd3f04d75499b6dfe734a9f72d4d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 973a6201a227e6c2e295e6e5ea2f40c302572504
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140234"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicar aplicativos usando o Proxy de Aplicativo do AD do Azure
 
@@ -29,6 +27,9 @@ Este artigo explica as etapas para publicar um aplicativo local com o Proxy de A
 
 Se você for iniciante com o Proxy de Aplicativo, aprenda mais sobre este recurso com o artigo [Como fornecer acesso remoto seguro a aplicativos locais](application-proxy.md).
 
+## <a name="before-you-begin"></a>Antes de começar
+
+Este artigo considera que você já tenha instalado e registrado um conector. Se você ainda precisa realizar essas etapas, confira [Introdução ao proxy de aplicativo e instalação do conector](application-proxy-enable.md).
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>Publicar um aplicativo local para acesso remoto
 
@@ -68,6 +69,7 @@ Siga estas etapas para publicar seus aplicativos com Proxy de Aplicativo. Se voc
    ![Configurar seu aplicativo](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. Se necessário, defina configurações adicionais. Para a maioria dos aplicativos, você deve manter essas configurações em seus estados padrão. 
    - **Tempo limite do aplicativo de back-end**: Defina esse valor como **Longo** somente se seu aplicativo estiver lento para se autenticar e se conectar. 
+   - **Use o cookie somente HTTP**: defina esse valor como **Sim** para que os cookies do Proxy de Aplicativos incluam o sinalizador HTTPOnly no cabeçalho da resposta HTTP.
    - **Converter URLs nos cabeçalhos**: Mantenha esse valor como **Sim** a menos que seu aplicativo exija o cabeçalho de host original na solicitação de autenticação.
    - **Converter URLs no corpo do aplicativo**: Mantenha esse valor como **Não** a menos que você tenha inserido no código HTML links para outros aplicativos locais e não use domínios personalizados. Para saber mais, consulte [Conversão de link com o Proxy de Aplicativo](application-proxy-configure-hard-coded-link-translation.md).
    

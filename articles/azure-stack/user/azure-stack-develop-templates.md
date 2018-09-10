@@ -3,7 +3,7 @@ title: Desenvolver modelos para o Azure Stack | Microsoft Docs
 description: Conheça as práticas recomendadas do modelo do Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
@@ -12,28 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 046866d9ed7ce65e3b46be1c67b4ab2058cefa4d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d09dec2f327d8b5911a4e55832ba106838c7ebc3
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42139492"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Considerações sobre o modelo do Azure Resource Manager
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Ao desenvolver um aplicativo, é importante garantir a portabilidade do modelo entre o Azure e o Azure Stack. Este artigo fornece considerações para o desenvolvimento do Azure Resource Manager [modelos](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), para que você possa protótipo sua implantação do aplicativo e teste no Azure sem acesso a um ambiente de pilha do Azure.
+Ao desenvolver um aplicativo, é importante garantir a portabilidade do modelo entre o Azure e o Azure Stack. Este artigo fornece considerações sobre o desenvolvimento do Azure Resource Manager [modelos](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), de modo que você possa construir protótipos do seu aplicativo e testar sua implantação no Azure sem acesso a um ambiente do Azure Stack.
 
 ## <a name="resource-provider-availability"></a>Disponibilidade do provedor de recursos
 
-O modelo que você está planejando implantar somente deve usar os serviços do Microsoft Azure que já estão disponíveis ou na visualização na pilha do Azure.
+O modelo que você está planejando implantar somente deve usar os serviços do Microsoft Azure que já estão disponíveis ou na visualização no Azure Stack.
 
 ## <a name="public-namespaces"></a>Namespaces públicos
 
-Como o Azure Stack está hospedado no seu datacenter, ele tem namespaces de ponto de extremidade de serviço diferentes do da nuvem pública do Azure. Como resultado, pontos de extremidade públicos em modelos do Azure Resource Manager codificado falharem quando você tentar implantá-los a pilha do Azure. Você pode criar dinamicamente os pontos de extremidade de serviço usando o *referência* e *concatenar* funções para recuperar valores de provedor de recursos durante a implantação. Por exemplo, em vez de codificar *>.blob.Core.Windows.NET* no modelo, recuperar o [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) para definir dinamicamente o *osDisk.URI* ponto de extremidade:
+Como o Azure Stack está hospedado no seu datacenter, ele tem namespaces de ponto de extremidade de serviço diferentes do da nuvem pública do Azure. Como resultado, os pontos de extremidade públicos no Azure Resource Manager templates embutidos em código falharem quando você tentar implantá-los para o Azure Stack. Você pode criar dinamicamente os pontos de extremidade de serviço usando o *referência* e *concatenar* funções para recuperar valores do provedor de recursos durante a implantação. Por exemplo, em vez de codificar *blob.core.windows.net* em seu modelo, recuperar as [primaryendpoints. blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) para definir dinamicamente o *osdisk. URI* ponto de extremidade:
 
      "osDisk": {"name": "osdisk","vhd": {"uri":
      "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
@@ -41,7 +42,7 @@ Como o Azure Stack está hospedado no seu datacenter, ele tem namespaces de pont
 
 ## <a name="api-versioning"></a>Controle de versão de API
 
-As versões de serviço do Azure podem ser diferentes entre o Azure e o Azure Stack. Cada recurso requer o **apiVersion** atributo, que define os recursos oferecidos. Para garantir a compatibilidade de versão de API na pilha do Azure, as seguintes versões de API são válidas para cada provedor de recursos:
+As versões de serviço do Azure podem ser diferentes entre o Azure e o Azure Stack. Cada recurso requer o **apiVersion** atributo, que define os recursos oferecidos. Para garantir a compatibilidade de versão de API no Azure Stack, as seguintes versões de API são válidas para cada provedor de recursos:
 
 | Provedor de recursos | apiVersion |
 | --- | --- |
@@ -53,20 +54,20 @@ As versões de serviço do Azure podem ser diferentes entre o Azure e o Azure St
 
 ## <a name="template-functions"></a>Funções de modelo
 
-Gerenciador de recursos do Azure [funções](../../azure-resource-manager/resource-group-template-functions.md) fornecem os recursos necessários para compilar modelos dinâmicos. Por exemplo, é possível usar as funções para tarefas como:
+O Azure Resource Manager [funções](../../azure-resource-manager/resource-group-template-functions.md) fornecem os recursos necessários para criar modelos dinâmicos. Por exemplo, é possível usar as funções para tarefas como:
 
-* Concatenação ou cortar cadeias de caracteres.
+* CONCATENAR ou filtrar cadeias de caracteres.
 * Fazer referência a valores de outros recursos.
-* Iterando em recursos para implantar várias instâncias.
+* Iterar recursos para implantar várias instâncias.
 
-Essas funções não estão disponíveis na pilha do Azure:
+Essas funções não estão disponíveis no Azure Stack:
 
 * Skip
 * Take
 
 ## <a name="resource-location"></a>Local do recurso
 
-Modelos do Gerenciador de recursos do Azure usam um atributo de local para colocar recursos durante a implantação. No Azure, localização é uma região, como o oeste dos EUA ou a América do Sul. No Azure Stack, as localizações são diferentes, pois ele está em seu datacenter. Para garantir que os modelos sejam transferíveis entre o Azure e o Azure Stack, você deve referenciar a localização do grupo de recursos enquanto implanta recursos individuais. Você pode fazer isso usando `[resourceGroup().Location]` para garantir que todos os recursos herdam o local do grupo de recursos. O trecho a seguir está um exemplo de como usar essa função durante a implantação de uma conta de armazenamento:
+Modelos do Azure Resource Manager usam um atributo de local para colocar recursos durante a implantação. No Azure, localização é uma região, como o oeste dos EUA ou a América do Sul. No Azure Stack, as localizações são diferentes, pois ele está em seu datacenter. Para garantir que os modelos sejam transferíveis entre o Azure e o Azure Stack, você deve referenciar a localização do grupo de recursos enquanto implanta recursos individuais. Você pode fazer isso usando `[resourceGroup().Location]` para garantir que todos os recursos herdam o local do grupo de recursos. O trecho a seguir está um exemplo de como usar essa função ao implantar uma conta de armazenamento:
 
     "resources": [
     {

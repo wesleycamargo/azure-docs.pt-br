@@ -12,14 +12,14 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2018
+ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 28bb900a3281becc7bb243e6bd7bf2beedf1a5c1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 117fc5cb6583c4e3eed0c9506bda470400941f61
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261624"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41919360"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
@@ -33,20 +33,24 @@ A Central de Segurança facilita a criação de soluções de segurança integra
 
 Atualmente, as soluções de segurança integradas incluem:
 
-- Proteção de ponto de extremidade ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection) e [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection))
+- Proteção de ponto de extremidade ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) e [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))
 - Firewall de aplicativo Web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html), [Gateway de Aplicativo do Azure](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - Firewall de próxima geração ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) e [Palo Alto Networks](https://www.paloaltonetworks.com/products))
-- Avaliação de vulnerabilidades ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
+- Avaliação de vulnerabilidade ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) e [Rapid7](https://www.rapid7.com/products/insightvm/))
 
-A experiência de integração da proteção de ponto de extremidade pode variar de acordo com a solução. A tabela a seguir tem mais detalhes sobre a experiência de cada solução:
+> [!NOTE]
+> A Central de Segurança não instala o Microsoft Monitoring Agent em soluções de virtualização de parceiro porque a maioria dos fornecedores de segurança proíbe agentes externos em execução em suas soluções.
+>
+>
+
 
 | Proteção do ponto de extremidade               | Plataformas                             | Instalação da Central de Segurança | Descoberta da Central de Segurança |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | Não, Integrado no SO           | sim                       |
-| System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 | Via extensão                | sim                       |
-| Trend Micro – Todas as versões         | Família Windows Server                 | Via extensão                | sim                       |
-| Symantec v12.1.1100+              | Família Windows Server                 | Não                            | sim                       |
-| McAfee v10+                       | Família Windows Server                 | Não                            | sim                       |
+| Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | Não, Integrado no SO           | SIM                       |
+| System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 | Via extensão                | SIM                       |
+| Trend Micro – Todas as versões         | Família Windows Server                 | Não                            | SIM                       |
+| Symantec v12.1.1100+              | Família Windows Server                 | Não                            | SIM                       |
+| McAfee v10+                       | Família Windows Server                 | Não                            | SIM                       |
 | Kaspersky                         | Família Windows Server                 | Não                            | Não                         |
 | Sophos                            | Família Windows Server                 | Não                            | Não                         |
 
@@ -64,13 +68,13 @@ As soluções de segurança do Azure implantadas da Central de Segurança serão
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gerenciar soluções de segurança integrada do Azure e outras fontes de dados
 
-1. Entre no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Entre no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 
 2. No menu **Microsoft Azure**, selecione **Central de Segurança**. **Central de Segurança - Visão geral** é aberto.
 
-  ![Visão geral da Central de Segurança](./media/security-center-partner-integration/overview.png)
+3. No menu da Central de Segurança, selecione **Soluções de segurança**.
 
-3. Em **Visão Geral**, selecione **Soluções de Segurança**.
+  ![Visão geral da Central de Segurança](./media/security-center-partner-integration/overview.png)
 
 Em **Soluções de segurança**, você pode exibir informações sobre a integridade da solução integrada de segurança do Azure e executar tarefas básicas de gerenciamento. Você também pode conectar a outros tipos de fontes de dados de segurança, como logs de firewall e alertas do Azure Active Directory Identity Protection no CEF (Formato de Evento Comum).
 

@@ -2,24 +2,19 @@
 title: Segurança em nível de linha com Coleções de Espaços de Trabalho do Power BI
 description: Detalhes sobre a segurança em nível de linha com as Coleções de Espaços de Trabalho do Power BI
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 7256e2f798fbc32c098f19f60b62e577300868c7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ce1e3818edea6e0fdaedd33b6ec0c3214f475340
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048549"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Segurança em nível de linha com Coleções de Espaços de Trabalho do Power BI
 
@@ -92,7 +87,7 @@ Agora, os filtros também podem fluir da tabela Vendas para a tabela **Item** :
 1. **Arquivo** -> **Opções e Configurações** -> **Recursos de Visualização** -> **Habilitar filtragem cruzada em ambas as direções para DirectQuery**.
 2. **Arquivo** -> **Opções e Configurações** -> **DirectQuery** -> **Permitir medidas irrestritas no modo DirectQuery**.
 
-Para saber mais sobre filtragem cruzada bidirecional, baixe o whitepaper [Filtragem cruzada bidirecional no SQL Server Analysis Services 2016 e no Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx).
+Para saber mais sobre filtragem cruzada bidirecional, baixe o whitepaper [Filtragem cruzada bidirecional no SQL Server Analysis Services 2016 e no Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx).
 
 Isso conclui todo o trabalho que precisa ser feito no Power BI Desktop, mas há um mais trabalho que precisa ser feito para tornar as regras de RLS definidas funcionarem no Power BI Embedded. Os usuários são autenticados e autorizados pelo seu aplicativo e Tokens de Aplicativo são usados para conceder acesso de usuário a um relatório de Power BI Embedded específico. O Power BI Embedded não tem nenhuma informação específica sobre quem é o usuário. Para que a RLS funcione, você precisa passar algum contexto adicional como parte de seu token do aplicativo:
 

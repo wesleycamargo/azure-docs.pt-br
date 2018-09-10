@@ -1,25 +1,20 @@
 ---
 title: Modelo de dados para os Backup do Azure
-description: "Este artigo aborda detalhes de modelo de dados do Power BI para relatórios de Backup do Azure."
+description: Este artigo aborda detalhes de modelo de dados do Power BI para relatórios de Backup do Azure.
 services: backup
-documentationcenter: 
-author: JPallavi
-manager: vijayts
-editor: 
-ms.assetid: 0767c330-690d-474d-85a6-aa8ddc410bb2
+author: adiganmsft
+manager: shivamg
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 06/26/2017
-ms.author: pajosh
+ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efecbc9f1c410744f49795889c4ec3cc618f07e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1531e23d0e5fd34eff59868055ccd855b423e4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444296"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modelo de dados para relatórios de Backup do Azure
 Este artigo descreve o modelo de dados do Power BI usado para criar relatórios de Backup do Azure. Usando esse modelo de dados, você pode filtrar os relatórios existentes com base em campos relevantes e, mais importante, criar seus próprios relatórios usando tabelas e campos no modelo. 
@@ -33,7 +28,7 @@ Você pode usar os seguintes campos fornecidos como parte do modelo de dados par
 ### <a name="alert"></a>Alerta
 Esta tabela fornece campos e agregações básicos em vários campos relacionados ao alerta.
 
-| Campo | Tipo de Dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | #AlertsCreatedInPeriod |Número inteiro |Número de alertas criados no período de tempo selecionado |
 | %ActiveAlertsCreatedInPeriod |Percentual |Porcentagem de alertas ativos no período de tempo selecionado |
@@ -50,7 +45,7 @@ Esta tabela fornece campos e agregações básicos em vários campos relacionado
 ### <a name="backup-item"></a>Item de backup
 Esta tabela fornece campos e agregações básicos em vários campos relacionados ao item de backup.
 
-| Campo | Tipo de Dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | #BackupItems |Número inteiro |Número de itens de backup |
 | #UnprotectedBackupItems |Número inteiro |Número de itens de backup interrompidos para proteção ou configurados para backups, mas os backups não iniciados|
@@ -68,7 +63,7 @@ Esta tabela fornece campos e agregações básicos em vários campos relacionado
 ### <a name="calendar"></a>Calendário
 Esta tabela fornece detalhes sobre os campos relacionados ao calendário.
 
-| Campo | Tipo de Dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | Data |Data |Data selecionada para filtrar dados |
 | DateKey |Texto |Chave exclusiva para cada item de data |
@@ -85,7 +80,7 @@ Esta tabela fornece detalhes sobre os campos relacionados ao calendário.
 ### <a name="job"></a>Trabalho
 Esta tabela fornece campos e agregações básicos em vários campos relacionados ao trabalho.
 
-| Campo | Tipo de Dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | #JobsCreatedInPeriod |Número inteiro |Número de trabalhos criados no período de tempo selecionado |
 | %FailuresForJobsCreatedInPeriod |Percentual |Porcentagem geral de trabalho com falhas no período de tempo selecionado |
@@ -105,7 +100,7 @@ Esta tabela fornece campos e agregações básicos em vários campos relacionado
 ### <a name="policy"></a>Política
 Esta tabela fornece campos e agregações básicos em vários campos relacionados à política.
 
-| Campo | Tipo de Dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | #Policies |Número inteiro |Número de políticas de backup que existem no sistema |
 | #PoliciesInUse |Número inteiro |Número de políticas que estão sendo usadas no momento para configurar backups |
@@ -139,7 +134,7 @@ Esta tabela fornece campos e agregações básicos em vários campos relacionado
 ### <a name="protected-server"></a>Servidor protegido
 Esta tabela fornece campos e agregações básicos em vários campos relacionados a servidores protegidos.
 
-| Campo | Tipo de Dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | #ProtectedServers |Número inteiro |Número de servidores protegidos |
 | AsOnDateTime |Data/hora |Hora da atualização mais recente para a linha selecionada |
@@ -158,7 +153,7 @@ Esta tabela fornece campos e agregações básicos em vários campos relacionado
 ### <a name="storage"></a>Armazenamento
 Esta tabela fornece campos e agregações básicos em vários campos relacionados ao armazenamento.
 
-| Campo | Tipo de Dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | #ProtectedInstances |Número decimal |Número de instâncias protegidas usadas para calcular o armazenamento de front-end no faturamento, calculado com base no valor mais recente de tempo selecionado |
 | AsOnDateTime |Data/hora |Hora da atualização mais recente para a linha selecionada |
@@ -169,7 +164,7 @@ Esta tabela fornece campos e agregações básicos em vários campos relacionado
 ### <a name="time"></a>Hora
 Esta tabela fornece detalhes sobre os campos relacionados ao tempo.
 
-| Campo | Tipo de Dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | Hora |Hora |Hora do dia, por exemplo, 1:00:00 PM |
 | HourNumber |Número decimal |Número de horas do dia, por exemplo, 13.00 |
@@ -181,7 +176,7 @@ Esta tabela fornece detalhes sobre os campos relacionados ao tempo.
 ### <a name="vault"></a>Cofre
 Esta tabela fornece campos e agregações básicos em vários campos relacionados ao cofre.
 
-| Campo | Tipo de Dados | Descrição |
+| Campo | Tipo de Dados | DESCRIÇÃO |
 | --- | --- | --- |
 | #Vaults |Número inteiro |Número de cofres |
 | AsOnDateTime |Data/hora |Hora da atualização mais recente para a linha selecionada |

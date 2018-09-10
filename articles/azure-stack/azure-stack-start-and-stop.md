@@ -1,6 +1,6 @@
 ---
-title: Iniciar e parar a pilha do Azure | Microsoft Docs
-description: Saiba como iniciar e desativar a pilha do Azure.
+title: Iniciar e parar o Azure Stack | Microsoft Docs
+description: Saiba como iniciar e desligar o Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -15,58 +15,62 @@ ms.topic: article
 ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 53015ba5c282bbe9c7b8185b080ffb6d834b6c75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dd1e64d5ad6982c85a8205e3036d30a2ede92f7c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930283"
 ---
-# <a name="start-and-stop-azure-stack"></a>Iniciar e parar a pilha do Azure
-Você deve seguir os procedimentos neste artigo para desligar e reiniciar os serviços do Azure pilha corretamente. 
+# <a name="start-and-stop-azure-stack"></a>Iniciar e parar o Azure Stack
+Você deve seguir os procedimentos neste artigo para desligar e reiniciar os serviços do Azure Stack corretamente. Desligamento será desligar fisicamente todo o ambiente do Azure Stack. Inicialização liga todas as funções de infraestrutura e retorna a recursos de locatário para o estado de energia que estavam antes do desligamento.
 
-## <a name="stop-azure-stack"></a>Parar a pilha do Azure 
+## <a name="stop-azure-stack"></a>Parar o Azure Stack 
 
-Desligar a pilha do Azure com as seguintes etapas:
+Desligue o Azure Stack com as seguintes etapas:
 
-1. Abra uma sessão com privilégios de ponto de extremidade (PEP) de um computador com acesso à rede para máquinas virtuais ERCS da pilha do Azure. Para obter instruções, consulte [usando o ponto de extremidade com privilégios na pilha do Azure](azure-stack-privileged-endpoint.md).
+1. Prepare todas as cargas de trabalho em execução em recursos do locatário do seu ambiente do Azure Stack para o desligamento futuro. 
 
-2. PEP, execute:
+2. Abra uma sessão com privilégios de ponto de extremidade (PEP) de um computador com acesso à rede para as VMs do Azure Stack ERCS. Para obter instruções, consulte [usando o ponto de extremidade privilegiado no Azure Stack](azure-stack-privileged-endpoint.md).
+
+3. Em PEP, execute:
 
     ```powershell
       Stop-AzureStack
     ```
 
-3. Aguarde para todos os nós físicos de pilha do Azure para power off.
+4. Aguarde até todos os nós físicos do Azure Stack para power off.
 
 > [!Note]  
-> Você pode verificar o status de energia de um nó físico, seguindo as instruções do fabricante de equipamento Original (OEM) que forneceu o hardware de pilha do Azure. 
+> Você pode verificar o status de energia de um nó físico, seguindo as instruções do fabricante de equipamento Original (OEM) que forneceu o hardware do Azure Stack. 
 
-## <a name="start-azure-stack"></a>Iniciar a pilha do Azure 
+## <a name="start-azure-stack"></a>Inicie o Azure Stack 
 
-Inicie a pilha do Azure com as etapas a seguir. Siga estas etapas, independentemente de como a pilha do Azure interrompido.
+Inicie o Azure Stack com as etapas a seguir. Siga estas etapas, independentemente de como o Azure Stack interrompido.
 
-1. Alimentação em cada um de nós físicos em seu ambiente de pilha do Azure. Verifique se as instruções para os nós físicos de ligar seguindo as instruções do fabricante de equipamento Original (OEM) que forneceu o hardware para a pilha do Azure.
+1. Energia em cada um de nós físicos em seu ambiente do Azure Stack. Verifique se as instruções para os nós físicos de ligar, seguindo as instruções do fabricante de equipamento Original (OEM) que forneceu o hardware para o Azure Stack.
 
-2. Aguarde até que inicia os serviços de infraestrutura de pilha do Azure. Serviços de infraestrutura de pilha do Azure podem exigir duas horas para concluir o processo de inicialização. Você pode verificar o status de início da pilha do Azure com o [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
+2. Aguarde até que os serviços de infraestrutura do Azure Stack é iniciado. Serviços de infraestrutura do Azure Stack podem exigir duas horas para concluir o processo de inicialização. Você pode verificar o status de início da pilha do Azure com o [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
 
+3. Certifique-se de que todos os seus recursos de locatário tiveram retornado para o estado em que estavam antes do desligamento. Cargas de trabalho executadas nos recursos de locatário talvez precise ser reconfigurado após a inicialização pelo Gerenciador de carga de trabalho.
 
-## <a name="get-the-startup-status-for-azure-stack"></a>Obtém o status de inicialização para a pilha do Azure
+## <a name="get-the-startup-status-for-azure-stack"></a>Obter o status de inicialização para o Azure Stack
 
-Obter a inicialização para a rotina de inicialização de pilha do Azure com as seguintes etapas:
+Obter a inicialização para a rotina de inicialização do Azure Stack com as seguintes etapas:
 
-1. Abra uma sessão de ponto de extremidade com privilégios de um computador com acesso à rede para máquinas virtuais ERCS da pilha do Azure.
+1. Abra uma sessão com privilégios de ponto de extremidade de um computador com acesso à rede para as VMs do Azure Stack ERCS.
 
-2. PEP, execute:
+2. Em PEP, execute:
 
     ```powershell
       Get-ActionStatus Start-AzureStack
     ```
 
-## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Solucionar problemas de inicialização e desligamento da pilha do Azure
+## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Solucionar problemas de inicialização e desligamento do Azure Stack
 
-Se os serviços de infraestrutura e de locatário não iniciar com êxito 2 horas após você energia em seu ambiente de pilha do Azure, execute as seguintes etapas. 
+Execute as seguintes etapas se os serviços de infraestrutura e de locatário não iniciam com êxito 2 horas após você energia em seu ambiente do Azure Stack. 
 
-1. Abra uma sessão de ponto de extremidade com privilégios de um computador com acesso à rede para máquinas virtuais ERCS da pilha do Azure.
+1. Abra uma sessão com privilégios de ponto de extremidade de um computador com acesso à rede para as VMs do Azure Stack ERCS.
 
 2. Execute: 
 
@@ -74,7 +78,7 @@ Se os serviços de infraestrutura e de locatário não iniciar com êxito 2 hora
       Test-AzureStack
       ```
 
-3. Examine a saída e resolva quaisquer erros de integridade. Para obter mais informações, consulte [executar um teste de validação da pilha do Azure](azure-stack-diagnostic-test.md).
+3. Examine a saída e resolva quaisquer erros de integridade. Para obter mais informações, consulte [executar um teste de validação do Azure Stack](azure-stack-diagnostic-test.md).
 
 4. Execute:
 
@@ -86,4 +90,4 @@ Se os serviços de infraestrutura e de locatário não iniciar com êxito 2 hora
 
 ## <a name="next-steps"></a>Próximas etapas 
 
-Saiba mais sobre a ferramenta de diagnóstico do Azure pilha e emitir o registro em log, consulte [ferramentas de diagnóstico do Azure pilha](azure-stack-diagnostics.md).
+Saiba mais sobre a ferramenta de diagnóstico do Azure Stack e emitir o registro em log, consulte [ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md).

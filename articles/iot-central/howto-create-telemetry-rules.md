@@ -1,77 +1,96 @@
 ---
 title: Criar e gerenciar regras de telemetria no aplicativo Azure IoT Central | Microsoft Docs
 description: As regras de telemetria do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email, quando a regra é disparada.
+author: ankitgupta
+ms.author: ankitgup
+ms.date: 08/14/2018
+ms.topic: conceptual
+ms.service: iot-central
 services: iot-central
-author: tanmaybhagwat
-ms.author: tanmayb
-ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 47497fbda90ecb6ebe5b5a8675069a7fb262a3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+manager: peterpr
+ms.openlocfilehash: 5913df2d4dc286fad63760c95f54e0dbc717acdc
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201716"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246362"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar notificações no aplicativo Azure IoT Central
 
-É possível usar o Microsoft Azure IoT Central para monitorar remotamente os dispositivos conectados. As regras do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email, quando a regra é disparada. Com apenas alguns cliques, você pode definir a condição para monitorar os dados do dispositivo e configurar a ação a ser invocada. Este artigo explica a regra de telemetria em detalhes.
+É possível usar a Azure IoT Central para monitorar remotamente os dispositivos conectados. As regras do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email ou disparar o Microsoft Flow. Com apenas alguns cliques, você pode definir a condição para monitorar os dados do dispositivo e configurar a ação correspondente. Este artigo explica como criar regras para monitorar a telemetria enviada pelo dispositivo.
 
-O Azure IoT Central usa [medidas de telemetria](howto-set-up-template.md) para capturar dados do dispositivo. Cada tipo de medida possui atributos de chave que definem a medida. É possível criar regras para monitorar cada tipo de medida de dispositivo e gerar alertas quando a regra for disparada. Uma regra de telemetria é disparada quando a telemetria do dispositivo selecionado ultrapassa um limite especificado.
+Dispositivos podem usar a medição de telemetria para enviar dados numéricos do dispositivo. Uma regra de telemetria é disparada quando a telemetria do dispositivo selecionado ultrapassa um limite especificado.
 
 ## <a name="create-a-telemetry-rule"></a>Criar uma regra de telemetria
 
-Esta seção mostra como criar uma regra de telemetria. Este exemplo usa um dispositivo de condicionador de ar conectado que envia telemetria de temperatura e umidade. A regra monitora a temperatura relatada pelo dispositivo e envia um email quando ultrapassa os 80 graus.
+Para criar uma regra de telemetria, o modelo do dispositivo deve ter pelo menos uma medida de telemetria definida. Este exemplo usa um dispositivo de máquina de vendas conectado que envia telemetria de temperatura e umidade. A regra monitora a temperatura relatada pelo dispositivo e envia um email quando ultrapassa os 80 graus.
 
-1. Navegue até a página de detalhes do dispositivo para o dispositivo ao qual você está adicionando a regra.
+1. Usando o Device Explorer, navegue até o modelo de dispositivo para o qual você está adicionando a regra.
+
+1. No modelo selecionado, clique em um dispositivo existente. 
+
+    >[!TIP] 
+    >Se o modelo não tiver nenhum dispositivo, primeiramente adicione um novo dispositivo.
 
 1. Se você ainda não criou regras, a tela a seguir será exibida:
 
-    ![Não há regras](media\howto-create-telemetry-rules\image1.png)
+    ![Não há regras](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
 
-1. Na guia **Regras**, escolha **+ Nova Regra** para ver os tipos de regras que você pode criar.
+1. Na guia **Regras**, clique em **+ Nova Regra** para ver os tipos de regras que você pode criar.
 
-    ![Tipos de regras](media\howto-create-telemetry-rules\image2.png)
+1. Clique no bloco **telemetria** para criar uma regra para monitorar a telemetria do dispositivo.
 
-1. Escolha o bloco **Telemetria** para abrir o formulário para criar a regra.
+    ![Tipos de Regras](media\howto-create-telemetry-rules\Rule_Types.png)
 
-    ![Regra de telemetria](media\howto-create-telemetry-rules\image3.png)
+1. Digite um nome que o ajude a identificar a regra neste modelo de dispositivo.
 
-1. Escolha um nome que ajude-o a identificar a regra neste modelo de dispositivo.
+1. Para habilitar imediatamente a regra para todos os dispositivos criados para esse modelo, alterne **Habilitar regra para todos os dispositivos deste modelo**.
 
-1. Para habilitar imediatamente a regra para todos os dispositivos criados a partir desse modelo, alterne **Habilitar regra**.
+   ![Detalhe da Regra](media\howto-create-telemetry-rules\Rule_Detail.png)
+    
+    A regra se aplica automaticamente a todos os dispositivos no modelo de dispositivo.
+    
 
-### <a name="configure-the-rule-condition"></a>Configurar a condição de regra
+### <a name="configure-the-rule-conditions"></a>Configurar as condições de regra
 
-Esta seção mostra como adicionar uma condição para monitorar a telemetria de temperatura.
+A condição define os critérios que são monitorados pela regra.
 
-1. Escolha **+** próximo à **Condição**.
+1. Clique em **+** ao lado de **Condições** para adicionar uma nova condição.
 
-1. Escolha a telemetria de **Temperatura** no menu suspenso. Em seguida, escolha o operador e forneça um valor limite. É possível adicionar várias condições de telemetria. Quando várias condições são especificadas, todas as condições devem ser atendidas para que a regra seja disparada.
+1. Escolha a telemetria que deseja monitorar na lista suspensa **Medida**.
 
-    ![Adicionar condição de telemetria](media\howto-create-telemetry-rules\image4.png)
+   ![Condição](media\howto-create-telemetry-rules\Aggregate_Condition_Filled_Out.png)
 
-    > [!NOTE]
-    > Selecione pelo menos uma medida de telemetria ao definir uma condição de regra de telemetria.
+1. Em seguida, escolha **Agregação**, **Operador** e forneça um valor **Limite**.
+    - A agregação é opcional. Sem agregação, a regra é disparada para cada ponto de dados de telemetria que atenda à condição. Por exemplo, se a regra está configurada para disparar quando temperatura estiver acima de 80, então a regra disparará quase instantaneamente quando o dispositivo relatar temperatura > 80.
+    - Se uma função como Contagem, Média, Mín, Máx for escolhida, o usuário deverá fornecer uma **Janela de tempo de agregação** por meio da qual a condição precisa ser avaliada. Por exemplo, se você definir o período como "5 minutos" e a regra procurar a temperatura Média acima de 80, a regra dispara quando a temperatura média estiver acima de 80 por pelo menos 5 minutos. A frequência de avaliação da regra é igual à **Janela de tempo de agregação**, o que significa que, neste exemplo, a regra é avaliada uma vez a cada 5 minutos.
 
-### <a name="configure-the-action"></a>Configurar a ação
+    >[!NOTE]
+    >Mais de uma medida de telemetria pode ser adicionada em **Condição**. Quando várias condições são especificadas, todas as condições devem ser atendidas para que a regra seja disparada. Cada condição é unida por uma cláusula 'AND' implicitamente. Ao usar a agregação, cada medida deve ser agregada.
+    
+    
 
-Esta seção mostra como especificar o que a regra faz quando a condição corresponde, adicionando uma ação.
+### <a name="configure-actions"></a>Configurar ações
 
-1. Escolha **+** próximo a **Ações**. Aqui, você vê a lista de ações disponíveis. Durante a visualização pública, o **Email** é a única ação com suporte.
+Esta seção mostra como configurar as ações a serem executadas quando a regra é disparada. Ações são invocadas quando todas as condições especificadas na regra são avaliadas como true.
 
-    ![Adicionar Ação](media\howto-create-telemetry-rules\image5.png)
+1. Escolha **+** próximo a **Ações**. Aqui, você vê a lista de ações disponíveis.  
+
+    ![Adicionar Ação](media\howto-create-telemetry-rules\Add_Action.png)
 
 1. Escolha a ação **Email**, insira um endereço de email válido no campo **Para** e forneça uma observação para aparecer no corpo do email quando a regra for disparada.
 
     > [!NOTE]
     > Os emails serão enviados apenas aos usuários que foram adicionados ao aplicativo e fizeram logon pelo menos uma vez. Saiba mais sobre o [gerenciamento de usuários](howto-administer.md) no Azure IoT Central.
 
-   ![Configurar Ação](media\howto-create-telemetry-rules\image6.png)
+   ![Configurar Ação](media\howto-create-telemetry-rules\Configure_Action.png)
 
 1. Para salvar a regra, escolha **Salvar**. A regra entra em ação em poucos minutos e começa a monitorar a telemetria enviada ao aplicativo. Quando a condição especificada na regra corresponde, a regra dispara a ação de email configurada.
+
+É possível adicionar outras ações à regra, como o Microsoft Flow e webhooks. Você pode adicionar até 5 ações por regra.
+
+- [Ação do Microsoft Flow](howto-add-microsoft-flow.md) para iniciar um fluxo de trabalho no Microsoft Flow quando uma regra é disparada 
+- [Ação do Webhook](howto-create-webhooks.md) para notificar outros serviços quando uma regra é disparada
 
 ## <a name="parameterize-the-rule"></a>Parametrizar a regra
 
@@ -79,7 +98,7 @@ As regras podem derivar determinados valores de **Propriedades do Dispositivo** 
 
 Usar parâmetros é uma maneira eficiente de reduzir o número de regras a serem gerenciadas por modelo de dispositivo.
 
-As ações também podem ser configuradas usando a **Propriedade de Dispositivo** como um parâmetro. Se um endereço de email for armazenado como uma propriedade de dispositivo, ele poderá ser usado quando você definir o endereço **Para**.
+As ações também podem ser configuradas usando a **Propriedade de Dispositivo** como um parâmetro. Se um endereço de email for armazenado como uma propriedade, ele poderá ser usado quando você definir o endereço **Para**.
 
 ## <a name="delete-a-rule"></a>Excluir uma regra
 
@@ -87,7 +106,7 @@ Se você não precisar mais de uma regra, exclua-a, abrindo a regra e escolhendo
 
 ## <a name="enable-or-disable-a-rule-for-a-device-template"></a>Habilitar ou desabilitar uma regra para um modelo de dispositivo
 
-Navegue até o dispositivo e escolha a regra que você deseja habilitar ou desabilitar. Alternar o botão **Habilitar regra para todos os dispositivos deste modelo** na regra, habilita ou desabilita a regra para todos os dispositivos associados ao modelo de dispositivo.
+Navegue até o dispositivo e escolha a regra que você deseja habilitar ou desabilitar. Alterne o botão **Habilitar regra para todos os dispositivos deste modelo** na regra para habilitar ou desabilitar a regra para todos os dispositivos associados ao modelo de dispositivo.
 
 ## <a name="enable-or-disable-a-rule-for-a-device"></a>Habilitar ou desabilitar uma regra para um dispositivo
 
@@ -95,7 +114,8 @@ Navegue até o dispositivo e escolha a regra que você deseja habilitar ou desab
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu como editar regras no aplicativo Azure IoT Central, a próxima etapa sugerida é apresentada:
+Agora que você aprendeu como criar regras no aplicativo Azure IoT Central, estas são algumas das próximas etapas:
 
-> [!div class="nextstepaction"]
-> [Como gerenciar os dispositivos](howto-manage-devices.md).
+- [Adicionar ação do Microsoft Flow em regras](howto-add-microsoft-flow.md)
+- [Adicionar ação de Webhook em regras](howto-create-webhooks.md)
+- [Como gerenciar seus dispositivos](howto-manage-devices.md)

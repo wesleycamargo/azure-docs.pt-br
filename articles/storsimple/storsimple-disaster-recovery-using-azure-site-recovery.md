@@ -1,11 +1,11 @@
 ---
 title: Automatizar a DR de compartilhamento de arquivos do StorSimple com o Azure Site Recovery | Microsoft Docs
-description: "Descreve as etapas e práticas recomendadas para criar uma solução de recuperação de desastre para compartilhamentos de arquivos hospedados no armazenamento do Microsoft Azure StorSimple."
+description: Descreve as etapas e práticas recomendadas para criar uma solução de recuperação de desastre para compartilhamentos de arquivos hospedados no armazenamento do Microsoft Azure StorSimple.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 23049a2c-055e-4d0e-b8f5-af2a87ecf53f
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23452405"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
 ## <a name="overview"></a>Visão geral

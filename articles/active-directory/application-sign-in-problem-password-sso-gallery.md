@@ -2,21 +2,24 @@
 title: Problemas ao entrar em um aplicativo na Galeria do Azure AD configurado para logon único com senha | Microsoft Docs
 description: Como solucionar problemas com o aplicativo na Galeria do Azure AD configurado para logon único com senha
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 9458dc3254b6bfa377adeeff1c1abcb8bfdc0d94
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 8708b826a55f24b4674730c2908f81b008855b48
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365632"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas ao entrar em um aplicativo na Galeria do Azure AD configurado para logon único com senha
 
@@ -79,7 +82,7 @@ Siga o tutorial [Como Implantar a Extensão do Painel de Acesso para o Internet 
 
 ## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Solucionar problemas do Painel de Acesso no Internet Explorer
 
-Siga o guia [Solucionar problemas da Extensão do Painel de Acesso para o Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot) para acessar uma ferramenta de diagnóstico e as instruções passo a passo sobre como configurar a extensão para o IE.
+Siga o guia [Solucionar problemas da Extensão do Painel de Acesso para o Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) para acessar uma ferramenta de diagnóstico e as instruções passo a passo sobre como configurar a extensão para o IE.
 
 ## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o login único com senha para um aplicativo na galeria do Azure AD
 

@@ -1,8 +1,8 @@
 ---
-title: "Como escalar um aplicativo em um Ambiente do Serviço de Aplicativo"
-description: "Escalando um aplicativo em um Ambiente do Serviço de Aplicativo"
+title: Como escalar um aplicativo em um Ambiente do Serviço de Aplicativo
+description: Escalando um aplicativo em um Ambiente do Serviço de Aplicativo
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986311"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Escalando aplicativos em um Ambiente do Serviço de Aplicativo
 No Serviço de Aplicativo do Azure normalmente há três itens que você pode dimensionar:

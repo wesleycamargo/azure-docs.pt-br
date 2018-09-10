@@ -1,31 +1,31 @@
 ---
-title: Habilitar automaticamente as Configurações de Diagnóstico usando um modelo do Resource Manager | Microsoft Docs
+title: Habilitar automaticamente as configurações de diagnóstico usando um modelo do Resource Manager
 description: Saiba como usar um modelo do Resource Manager para criar configurações de diagnóstico que ajudarão a transmitir seus logs de diagnóstico para os Hubs de Eventos ou armazená-los em uma conta de armazenamento.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: a8a88a8c-4a48-4df6-8f7e-d90634d39c57
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 5b372ae5a7ff2ad26e4bb83675f592df3f08931b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: ''
+ms.openlocfilehash: e8af84467c008f5c576142fa094b2757cfd30387
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248071"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitar automaticamente as Configurações de Diagnóstico na criação do recurso usando um modelo do Resource Manager
 Neste artigo, mostramos como você pode usar um [Modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para definir as Configurações de Diagnóstico em um recurso quando ele é criado. Isso permite iniciar automaticamente o streaming de seus Logs de Diagnóstico e métricas para os Hubs de Eventos, arquivando-os em uma Conta de Armazenamento ou enviando-os para o Log Analytics quando um recurso é criado.
 
+> [!WARNING]
+> O formato dos dados de log na conta de armazenamento será alterado para Linhas JSON em 1º de novembro de 2018. [Confira este artigo para obter uma descrição do impacto e saber como atualizar suas ferramentas para manipular o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
+
 O método para habilitar os Logs de Diagnóstico usando um modelo do Resource Manager depende do tipo de recurso.
 
-* **Não Computação** (por exemplo, Grupos de Segurança de Rede, Aplicativos Lógicos, Automação) usam as [Configurações de Diagnóstico descritas neste artigo](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
+* **Não Computação** (por exemplo, Grupos de Segurança de Rede, Aplicativos Lógicos, Automação) usam as [Configurações de Diagnóstico descritas neste artigo](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 * **De Computação** (baseados no WAD/LAD) usam o [Arquivo de configuração do WAD/LAD descrito neste artigo](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
 Neste artigo, descrevemos como configurar o diagnóstico usando um método.
@@ -80,7 +80,7 @@ Para os recursos de Não Computação, você precisará fazer duas coisas:
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "Microsoft.Insights/[parameters('settingName')]",
+        "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
@@ -210,7 +210,7 @@ Aqui temos um exemplo completo que cria um aplicativo lógico e ativa o streamin
       "resources": [
         {
           "type": "providers/diagnosticSettings",
-          "name": "Microsoft.Insights/[parameters('settingName')]",
+          "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],

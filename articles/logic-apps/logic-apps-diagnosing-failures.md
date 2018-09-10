@@ -1,26 +1,23 @@
 ---
-title: "Solucionar problemas e diagnosticar falhas – Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Entender como e por que os aplicativos lógicos falham"
+title: Solucionar problemas e diagnosticar falhas – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Saiba como solucionar problemas e diagnosticar falhas de fluxo de trabalho no Aplicativo Lógico do Azure
 services: logic-apps
-documentationcenter: 
-author: jeffhollan
-manager: anneta
-editor: 
-ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: 
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: de706f711e9c57b2e575d130a2a0cfd0bdc907a1
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 994e7945a7107815029bd415f4cc0d45bb68e335
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123680"
 ---
-# <a name="troubleshoot-and-diagnose-logic-app-failures"></a>Solucionar problemas e diagnosticar falhas nos aplicativos lógicos
+# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Solucionar problemas e diagnosticar falhas de fluxo de trabalho no Aplicativo Lógico do Azure
 
 Seu aplicativo lógico gera informações que podem ajudar você a diagnosticar e depurar problemas nele. É possível diagnosticar um aplicativo lógico revisando cada etapa no fluxo de trabalho por meio do Portal do Azure. Ou então, você pode adicionar algumas etapas a um fluxo de trabalho para depuração no tempo de execução.
 
@@ -31,7 +28,7 @@ Cada aplicativo lógico começa com o gatilho. Se o gatilho não disparar, verif
 1. Para verificar se o gatilho foi disparado, escolha **Visão geral** no menu do aplicativo lógico. Em **Histórico de gatilho**, examine o status do gatilho.
 
    > [!TIP]
-   > Se o menu do aplicativo lógico não aparecer, tente retornar ao Painel do Azure e abra novamente o aplicativo lógico.
+   > Se o menu do aplicativo lógico não aparecer, tente retornar ao painel do Azure e abra novamente o aplicativo lógico.
 
    ![Examinar histórico de gatilho](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
 
@@ -41,7 +38,7 @@ Cada aplicativo lógico começa com o gatilho. Se o gatilho não disparar, verif
 
    Aqui estão os possíveis status para uma tentativa de disparo:
 
-   | Status | Descrição | 
+   | Status | DESCRIÇÃO | 
    | ------ | ----------- | 
    | **Êxito** | O gatilho verificou o ponto de extremidade e encontrou dados disponíveis. Normalmente, um status de "Disparado" também é exibida junto com esse status. Caso contrário, a definição do gatilho pode ter uma condição ou comando `SplitOn` que não foi atendido. <p>Esse status pode se aplicar a um gatilho manual, gatilho recorrente ou gatilho de sondagem. Um gatilho pode ser executado com êxito, mas a execução em si ainda pode falhar quando as ações gerarem erros sem tratamento. | 
    | **Ignorado** | O gatilho verificou o ponto de extremidade, mas não encontrou dados disponíveis. | 
@@ -72,7 +69,7 @@ Cada gatilho disparado inicia uma execução de fluxo de trabalho. É possível 
 1. No menu do aplicativo lógico, escolha **Visão geral**. Em **Histórico de execuções**, examine a execução do gatilho disparado.
 
    > [!TIP]
-   > Se o menu do aplicativo lógico não aparecer, tente retornar ao Painel do Azure e abra novamente o aplicativo lógico.
+   > Se o menu do aplicativo lógico não aparecer, tente retornar ao painel do Azure e abra novamente o aplicativo lógico.
 
    ![Examinar o histórico de execuções](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
 
@@ -82,7 +79,7 @@ Cada gatilho disparado inicia uma execução de fluxo de trabalho. É possível 
 
    Estes são os possíveis status para uma execução:
 
-   | Status | Descrição | 
+   | Status | DESCRIÇÃO | 
    | ------ | ----------- | 
    | **Êxito** | Todas as ações foram bem sucedidas. <p>Caso tenha ocorrido alguma falha em uma ação específica, uma ação posterior no fluxo de trabalho a tratou. | 
    | **Com falha** | Pelo menos uma ação falhou e nenhuma ação posterior no fluxo de trabalho estava configurada para tratar essa falha. | 
@@ -98,21 +95,21 @@ Cada gatilho disparado inicia uma execução de fluxo de trabalho. É possível 
 
    ![Exibir os detalhes de uma execução de aplicativo lógico](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. Para examinar as entradas, saídas e as mensagens de erro para uma etapa específica, escolha essa etapa para que a forma se expanda e mostre os detalhes. Por exemplo:
+3. Para examinar as entradas, saídas e as mensagens de erro para uma etapa específica, escolha essa etapa para que a forma se expanda e mostre os detalhes. Por exemplo: 
 
    ![Exibir detalhes da etapa](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 
 ## <a name="perform-runtime-debugging"></a>Realizar depuração de tempo de execução
 
-Para ajudar na depuração, você pode adicionar etapas de diagnóstico a um fluxo de trabalho, bem como examinar os históricos de gatilho e de execuções. Por exemplo, você pode adicionar etapas que usam o serviço [RequestBin](http://requestb.in) para poder inspecionar solicitações HTTP e determinar seu tamanho, forma e formato exatos.
+Para ajudar na depuração, você pode adicionar etapas de diagnóstico a um fluxo de trabalho, bem como examinar os históricos de gatilho e de execuções. Por exemplo, você pode adicionar etapas que usam o serviço [Webhook Tester](https://webhook.site/) para poder inspecionar solicitações HTTP e determinar seu tamanho, forma e formato exatos.
 
-1. Crie um RequestBin, que poderá ser privado e visualizável apenas no seu navegador.
+1. Visite [Webhook testador](https://webhook.site/) e copie a URL exclusiva criada
 
 2. No seu aplicativo lógico, adicione uma ação HTTP POST com o conteúdo do corpo que você deseja testar, como por exemplo, uma expressão ou outra saída da etapa.
 
-3. Cole a URL para o RequestBin na ação HTTP POST.
+3. Cole a URL para o Webhook Tester na ação HTTP POST.
 
-4. Para examinar como a solicitação é formada quando é gerada pelo mecanismo de Aplicativos Lógicos, execute o aplicativo lógico e atualize seu RequestBin.
+4. Para examinar como a solicitação é formada quando é gerada pelo mecanismo de Aplicativos Lógicos, execute o aplicativo lógico e atualize seu Webhook Tester.
 
 ## <a name="next-steps"></a>Próximas etapas
 

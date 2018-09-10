@@ -1,0 +1,179 @@
+---
+title: Método Transliterate da API de Tradução de Texto da Microsoft | Microsoft Docs
+description: Use o método Transliterate da API de Tradução de Texto da Microsoft.
+services: cognitive-services
+author: Jann-Skotdal
+manager: chriswendt1
+ms.service: cognitive-services
+ms.technology: microsoft translator
+ms.topic: article
+ms.date: 03/29/2018
+ms.author: v-jansko
+ms.openlocfilehash: fdd6fa9236f0c02685198b6de3228c444993dad6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "35364547"
+---
+# <a name="text-api-30-transliterate"></a>API de Texto 3.0: Transliterate
+
+Converte texto em um idioma de um script em outro script.
+
+## <a name="request-url"></a>URL de Solicitação
+
+Envie uma solicitação `POST` para:
+
+```HTTP
+https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
+```
+
+## <a name="request-parameters"></a>Parâmetros da solicitação
+
+Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
+
+<table width="100%">
+  <th width="20%">Parâmetro de consulta</th>
+  <th>DESCRIÇÃO</th>
+  <tr>
+    <td>api-version</td>
+    <td>*Parâmetro necessário*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
+  </tr>
+  <tr>
+    <td>Linguagem</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto a converter de um script para outro. Idiomas possíveis estão listados no escopo de `transliteration` obtido consultando o serviço para os seus [idiomas compatíveis](.\v3-0-languages.md).</td>
+  </tr>
+  <tr>
+    <td>fromScript</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o script usado pelo texto de entrada. Pesquisa [idiomas compatíveis](.\v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de entrada disponíveis para o idioma selecionado.</td>
+  </tr>
+  <tr>
+    <td>toScript</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o script de saída. Pesquisa [idiomas compatíveis](.\v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de saída e saída disponíveis para a combinação selecionada de idioma de entrada e script de entrada.</td>
+  </tr>
+</table> 
+
+Os cabeçalhos da solicitação incluem:
+
+<table width="100%">
+  <th width="20%">Cabeçalhos</th>
+  <th>DESCRIÇÃO</th>
+  <tr>
+    <td>_Uma autorização_<br/>_cabeçalho_</td>
+    <td>*Cabeçalho de solicitação obrigatório*.<br/>Veja [Opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
+  </tr>
+  <tr>
+    <td>Tipo de conteúdo</td>
+    <td>*Cabeçalho de solicitação obrigatório*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
+  </tr>
+  <tr>
+    <td>Content-Length</td>
+    <td>*Cabeçalho de solicitação obrigatório*.<br/>O tamanho do corpo da solicitação.</td>
+  </tr>
+  <tr>
+    <td>X-ClientTraceId</td>
+    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Observe que você poderá omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta chamado `ClientTraceId`.</td>
+  </tr>
+</table> 
+
+## <a name="request-body"></a>Corpo da solicitação
+
+O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de cadeia de caracteres denominada `Text`, que representa a cadeia de caracteres a converter.
+
+```json
+[
+    {"Text":"こんにちは"},
+    {"Text":"さようなら"}
+]
+```
+
+As seguintes limitações se aplicam:
+
+* A matriz pode ter no máximo 10 elementos.
+* O valor de texto de um elemento de matriz não pode exceder mil caracteres incluindo espaços.
+* Todo o texto incluído na solicitação não pode exceder cinco mil caracteres incluindo espaços.
+
+## <a name="response-body"></a>Corpo da resposta
+
+Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada elemento na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+
+  * `text`: uma cadeia de caracteres que é o resultado da conversão da cadeia de caracteres de entrada no script de saída.
+  
+  * `script`: uma cadeia de caracteres especificando o script usado na saída.
+
+Um exemplo de resposta JSON é:
+
+```json
+[
+    {"text":"konnnichiha","script":"Latn"},
+    {"text":"sayounara","script":"Latn"}
+]
+```
+
+## <a name="response-headers"></a>Cabeçalhos de resposta
+
+<table width="100%">
+  <th width="20%">Cabeçalhos</th>
+  <th>DESCRIÇÃO</th>
+  <tr>
+    <td>X-RequestId</td>
+    <td>Valor gerado pelo serviço para identificar a solicitação. É usado para fins de solução de problemas.</td>
+  </tr>
+</table> 
+
+## <a name="response-status-codes"></a>Códigos de status de resposta
+
+Veja a seguir os possíveis códigos de status HTTP retornados por uma solicitação. 
+
+<table width="100%">
+  <th width="20%">Código de status</th>
+  <th>DESCRIÇÃO</th>
+  <tr>
+    <td>200</td>
+    <td>Sucesso.</td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>Um dos parâmetros de consulta está ausente ou é inválido. Corrija os parâmetros de solicitação antes de tentar novamente.</td>
+  </tr>
+  <tr>
+    <td>401</td>
+    <td>A solicitação não pôde ser autenticada. Verifique se as credenciais estão especificadas e são válidas.</td>
+  </tr>
+  <tr>
+    <td>403</td>
+    <td>A solicitação não foi autorizada. Verifique os detalhes da mensagem de erro. Isso geralmente indica que todas as traduções gratuitas fornecidas com uma assinatura de avaliação foram consumidas.</td>
+  </tr>
+  <tr>
+    <td>429</td>
+    <td>O chamador está enviando muitas solicitações.</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>Erro inesperado. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
+  </tr>
+  <tr>
+    <td>503</td>
+    <td>Servidor temporariamente não disponível. Tente novamente a solicitação. Se o erro persistir, relate-o com: data e hora da falha, identificador da solicitação do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
+  </tr>
+</table> 
+
+## <a name="examples"></a>Exemplos
+
+O exemplo a seguir mostra como converter duas cadeias de caracteres japonesas em japonês romanizado.
+
+# <a name="curltabcurl"></a>[curl](#tab/curl)
+
+O conteúdo JSON para a solicitação neste exemplo:
+
+```
+[{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
+```
+
+Se você estiver usando cUrl em uma janela de linha de comando que não seja compatível com caracteres Unicode, pegue o seguinte conteúdo JSON e salve-o em um arquivo denominado `request.txt`. Salve o arquivo com a codificação `UTF-8`.
+
+```
+curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt
+```
+
+---

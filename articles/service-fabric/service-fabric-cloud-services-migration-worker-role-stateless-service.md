@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206675"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de funções de trabalho e Web em serviços sem estado do Service Fabric
 Este artigo descreve como migrar suas funções de trabalho e Web dos Serviços de Nuvem para serviços sem estado do Service Fabric. Esse é o caminho mais simples de migração dos Serviços de Nuvem para o Service Fabric, no caso de aplicativos cuja arquitetura geral permanecerá basicamente igual.

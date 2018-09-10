@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3dc62ba21458cc91d1858e11e7abbb6e96b0d5dd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: df1cf093a154b4f7adf59fae93f90fbc70459788
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037900"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Usar o Azure PowerShell para criar uma entidade de serviço com um certificado
 
@@ -185,7 +186,7 @@ Se precisar recuperar a ID do aplicativo, use:
 
 ## <a name="change-credentials"></a>Alterar credenciais
 
-Para alterar as credenciais para um aplicativo do AD, por causa de uma violação de segurança ou expiração de credencial, use os cmdlets [Remove-AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) e [New-AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential).
+Para alterar as credenciais para um aplicativo do AD, por causa de uma violação de segurança ou expiração de credencial, use os cmdlets [Remove-AzureRmADAppCredential](/powershell/module/azurerm.resources/remove-azurermadappcredential) e [New-AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential).
 
 Para remover todas as credenciais de um aplicativo, use:
 
@@ -213,5 +214,5 @@ Você pode receber os seguintes erros ao criar uma entidade de serviço:
 ## <a name="next-steps"></a>Próximas etapas
 * Para configurar uma entidade de serviço com a senha, consulte [Criar uma entidade de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 * Para ver as etapas detalhadas sobre como integrar um aplicativo no Azure para gerenciar os recursos, consulte [Guia do desenvolvedor para a autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
-* Para obter uma explicação mais detalhada de aplicativos e entidades de serviço, consulte [Objetos de aplicativo e de entidade de serviço](../active-directory/active-directory-application-objects.md). 
-* Para obter mais informações sobre a autenticação do Active Directory do Azure, consulte [Cenários de Autenticação do Azure AD](../active-directory/active-directory-authentication-scenarios.md).
+* Para obter uma explicação mais detalhada de aplicativos e entidades de serviço, consulte [Objetos de aplicativo e de entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md). 
+* Para obter mais informações sobre a autenticação do Active Directory do Azure, consulte [Cenários de Autenticação do Azure AD](../active-directory/develop/authentication-scenarios.md).

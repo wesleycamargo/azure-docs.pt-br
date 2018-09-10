@@ -1,24 +1,20 @@
 ---
-title: 'Tutorial: Apache Kafka com o Storm no HDInsight – Azure | Microsoft Docs'
+title: 'Tutorial: Apache Kafka com o Storm no HDInsight – Azure '
 description: Saiba como criar um pipeline de streaming usando o Apache Storm e o Apache Kafka no HDInsight. Neste tutorial, você usará os componentes KafkaBolt e KafkaSpout para transmitir dados do Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/06/2018
-ms.author: larryfr
-ms.openlocfilehash: 8baafd69e45210b74db8b0bf41b765067b1251a8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/21/2018
+ms.openlocfilehash: 7aa8f0b62459c376113bca5a0c58cc7dd3b5280c
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094882"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Tutorial: Usar o Apache Storm com o Kafka no HDInsight
 
@@ -37,7 +33,7 @@ Neste tutorial, você aprenderá como:
 > * Interromper as topologias
 > * Limpar recursos
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Familiaridade com a criação de tópicos Kafka. Para obter mais informações, consulte o documento [Início rápido do Kafka no HDInsight](./kafka/apache-kafka-get-started.md).
 
@@ -59,7 +55,7 @@ As seguintes variáveis de ambiente podem ser definidas quando você instala o J
     * O diretório em que o Maven está instalado.
 
 > [!IMPORTANT]
-> As etapas neste documento exigem um grupo de recursos do Azure que contém um Storm no HDInsight e um Kafka no cluster de HDInsight. Esses clusters são ambos localizados em uma Rede Virtual do Azure, que permite que o cluster Spark se comunique diretamente com o cluster Kafka.
+> As etapas neste documento exigem um grupo de recursos do Azure que contém um Storm no HDInsight e um Kafka no cluster de HDInsight. Esses clusters são ambos localizados em uma Rede Virtual do Azure, que permite que o cluster Storm se comunique diretamente com o cluster Kafka.
 > 
 > Para sua conveniência, este documento direciona para um modelo que pode criar todos os recursos necessários do Azure. 
 >
@@ -430,7 +426,7 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters Kafka e St
 4. Por fim, marque **Fixar no painel** e selecione **Comprar**.
 
 > [!NOTE]
-> Pode levar até 20 minutos para criar os clusters.
+> A criação de clusters pode levar até 20 minutos.
 
 ## <a name="build-the-topology"></a>Compilar a topologia
 

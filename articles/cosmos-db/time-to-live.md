@@ -2,30 +2,27 @@
 title: Expirar os dados no Azure Cosmos DB com a vida útil | Microsoft Docs
 description: Com a TTL, o Microsoft Azure Cosmos DB fornece a capacidade de limpar documentos automaticamente do sistema após determinado período.
 services: cosmos-db
-documentationcenter: ''
 keywords: vida útil
 author: SnehaGunda
 manager: kfile
-ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 020f9c8753b2b91b3336b304a1c92590f62be003
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141611"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Expirar os dados em coleções do Azure Cosmos DB automaticamente com a vida útil
 Os aplicativos podem gerar e armazenar grandes quantidades de dados. Alguns desses dados, como dados de evento, logs e informações da sessão do usuário gerados por computador, são úteis apenas por determinado período. Depois que os dados se tornam excedentes para as necessidades do aplicativo, é seguro limpar esses dados e reduzir as necessidades de armazenamento de um aplicativo.
 
 Com a “vida útil” ou TTL, o Microsoft Azure Cosmos DB fornece a capacidade de limpar documentos automaticamente do banco de dados após determinado período. A vida útil padrão pode ser definida no nível de coleção e substituída conforme o documento. Depois de definir a TTL como um padrão de coleta ou em um nível de documento, o Cosmos DB removerá automaticamente os documentos existentes após esse período, em segundos, desde sua última modificação.
 
-A vida útil no Cosmos DB usa um deslocamento em relação à data da última modificação do documento. Para fazer isso, ela usa o campo `_ts`, encontrado em todos os documentos. O campo _ts é um carimbo de data/hora de época estilo Unix que representa a data e a hora. O campo `_ts` é atualizado sempre que um documento é modificado. 
+A vida útil no Azure Cosmos DB usa um deslocamento em relação à data da última modificação do documento. Para fazer isso, ela usa o campo `_ts`, encontrado em todos os documentos. O campo _ts é um carimbo de data/hora de época estilo Unix que representa a data e a hora. O campo `_ts` é atualizado sempre que um documento é modificado. 
 
 ## <a name="ttl-behavior"></a>Comportamento de TTL
 O recurso TTL é controlado pelas propriedades TTL em dois níveis: o nível de coleção e o nível de documento. Os valores são definidos em segundos e tratados como um delta no `_ts` em que o documento foi modificado pela última vez.
@@ -33,8 +30,8 @@ O recurso TTL é controlado pelas propriedades TTL em dois níveis: o nível de 
 1. DefaultTTL da coleção
    
    * Se estiverem ausentes (ou definidos como nulos), os documentos não serão excluídos automaticamente.
-   * Se estiverem presentes e o valor for "-1" = infinito, os documentos não expirarão por padrão
-   * Se estiverem presentes e o valor for qualquer número ("n"), os documentos expirarão em "n" segundos após a última modificação
+   * Se estiverem presentes e o valor estiver definido como "-1" = infinito, os documentos não expirarão por padrão
+   * Se estiverem presentes e o valor estiver definido como qualquer número ("n"), os documentos expirarão em "n" segundos após a última modificação
 2. TTL dos documentos: 
    
    * A propriedade será aplicável somente se houver uma DefaultTTL para a coleção pai.
@@ -44,14 +41,24 @@ Assim que o documento tiver expirado (`ttl` + `_ts` <= hora atual do servidor), 
 
 A lógica acima pode ser mostrada na matriz a seguir:
 
-|  | DefaultTTL ausente/não definida na coleção | DefaultTTL = -1 na coleção | DefaultTTL = “n” na coleção |
+|  | DefaultTTL ausente/não definida na coleção | DefaultTTL = -1 na coleção | DefaultTTL = n' na coleção |
 | --- |:--- |:--- |:--- |
-| TTL Ausente no documento |Nada para substituir no nível de documento, pois o documento e a coleção não têm nenhum conceito de TTL. |Nenhum documento nesta coleção expirará. |Os documentos nessa coleção expirarão quando o intervalo de n expirar. |
-| TTL = -1 no documento |Nada para substituir no nível de documento, pois a coleção não define a propriedade DefaultTTL que pode ser substituída por um documento. A TTL de um documento não é interpretada pelo sistema. |Nenhum documento nesta coleção expirará. |O documento com TTL = -1 nesta coleção nunca expirará. Todos os outros documentos expirarão após o intervalo de “n”. |
-| TTL = n no documento |Nada para substituir no nível de documento. A TTL de um documento não é interpretada pelo sistema. |O documento com TTL = n expirará após o intervalo de n, em segundos. Os outros documentos herdarão o intervalo de -1 e nunca expirarão. |O documento com TTL = n expirará após o intervalo de n, em segundos. Os outros documentos herdarão o intervalo de “n” da coleção. |
+| TTL Ausente no documento |Nada para substituir no nível de documento, pois o documento e a coleção não têm nenhum conceito de TTL. |Nenhum documento nesta coleção expirará. |Os documentos nessa coleção expirarão quando o intervalo de n' expirar. |
+| TTL = -1 no documento |Nada para substituir no nível de documento, pois a coleção não define a propriedade DefaultTTL que pode ser substituída por um documento. A TTL de um documento não é interpretada pelo sistema. |Nenhum documento nesta coleção expirará. |O documento com TTL = -1 nesta coleção nunca expirará. Todos os outros documentos expirarão após o intervalo de n'. |
+| TTL = n no documento |Nada para substituir no nível de documento. A TTL de um documento não é interpretada pelo sistema. |O documento com TTL = n expirará após o intervalo de n, em segundos. Os outros documentos herdarão o intervalo de -1 e nunca expirarão. |O documento com TTL = n expirará após o intervalo de n, em segundos. Os outros documentos herdarão o intervalo de n' da coleção. |
 
 ## <a name="configuring-ttl"></a>Configurando a TTL
-Por padrão, a vida útil é desabilitada por padrão em todas as coleções e todos os documentos do Cosmos DB. TTL pode ser definido programaticamente ou no Portal do Azure, na seção **Configurações** da coleção. 
+Por padrão, a vida útil é desabilitada por padrão em todas as coleções e todos os documentos do Cosmos DB. TTL pode ser definido programaticamente ou usando o portal do Azure. Use as etapas a seguir para configurar o TTL no portal do Azure:
+
+1. Entre no [portal do Azure](https://portal.azure.com/) e navegue até a sua conta Microsoft Azure Cosmos DB.  
+
+2. Navegue para a coleção que você deseja definir o valor de TTL, abra o painel **Escala e Configurações**. Você pode ver que o tempo de vida é definido por padrão como **desativar**. Você pode alterá-lo para  **(não padrão)** ou **em**.
+
+   **desativado** os documentos não serão excluídos automaticamente.  
+   **ativado (não padrão)** - esta opção define o valor de TTL como "-1" (infinito) que significa que documentos não expirarão por padrão.  
+   **em** - Os documentos expirarão "n" segundos após a última modificação.  
+
+   ![Vida útil para viver](./media/time-to-live/set-ttl-in-portal.png)
 
 ## <a name="enabling-ttl"></a>Habilitando a TTL
 Para habilitar a TTL em uma coleção, ou no documento em uma coleção, é necessário definir a propriedade DefaultTTL de uma coleção como -1 ou um número positivo diferente de zero. Definir a DefaultTTL como -1 significa que, por padrão, todos os documentos na coleção residirão para sempre, mas o serviço Cosmos DB deverá monitorar, nessa coleção, os documentos que substituíram esse padrão.

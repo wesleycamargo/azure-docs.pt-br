@@ -21,6 +21,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072143"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Solucionar problemas de mensagens de erro específicas ao RDP para uma VM do Windows no Azure
 Você pode receber mensagens de erro específicas ao usar a conexão de Área de Trabalho Remota para uma VM (máquina virtual) do Windows no Azure. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, junto com as etapas para resolvê-las. Se você estiver enfrentando problemas para se conectar à sua VM usando o RDP, mas não encontrar uma mensagem de erro específica, consulte o [guia de solução de Área de Trabalho Remota](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

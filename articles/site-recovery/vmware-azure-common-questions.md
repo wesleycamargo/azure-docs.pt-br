@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/15/2018
+ms.date: 07/19/2018
+ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e8d30ae6cde7c787f1aa950506e0eb74bac0c12d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238801"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - replicação do VMware para Azure
 
@@ -32,7 +33,7 @@ Durante a replicação, os dados são replicados para o armazenamento do Azure e
 
 
 
-## <a name="azure"></a>As tabelas
+## <a name="azure"></a>Azure
 ### <a name="what-do-i-need-in-azure"></a>O que é necessário no Azure?
 É necessário uma assinatura do Azure, um cofre do Recovery Services, uma conta de armazenamento e uma rede virtual. O cofre, a conta de armazenamento e a rede devem estar na mesma região.
 
@@ -40,7 +41,7 @@ Durante a replicação, os dados são replicados para o armazenamento do Azure e
 Você precisa de uma conta de armazenamento LRS ou GRS. É recomendável usar GRS para que os dados sejam resilientes caso ocorra uma interrupção regional, ou se a região principal não puder ser recuperada. O armazenamento Premium fornece suportado.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Minha conta do Azure precisa de permissões para criar VMs?
-Se você for um administrador de assinaturas, terá as permissões de replicação necessárias. Caso contrário, precisará de permissões para criar uma VM do Azure no grupo de recursos e na rede virtual especificados durante a configuração do Site Reocvery e as permissões para gravar na conta de armazenamento selecionada. [Saiba mais](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+Se você é um administrador da assinatura, tem as permissões de replicação necessárias. Caso contrário, precisará de permissões para criar uma VM do Azure no grupo de recursos e na rede virtual especificados durante a configuração do Site Recovery e as permissões para gravar na conta de armazenamento selecionada. [Saiba mais](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 
 
@@ -71,7 +72,7 @@ Sim, o ExpressRoute pode ser utilizado para replicar VMs para o Azure. O Site Re
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Por que não é possível replicar em VPN?
 
-Ao replicar para o Azure, o tráfego de replicação alcança os pontos de extremidade públicos de uma conta do Armazenamento do Microsoft Azure. Desse modo, somente será possível replicar pela Internet pública com o ExpressRoute (emparelhamento público) e a VPN não funciona. 
+Quando você replica para o Azure, o tráfego de replicação atinge os pontos de extremidade públicos de uma conta de Armazenamento do Azure. Assim, você só pode replicar pela Internet pública com o ExpressRoute (emparelhamento público) e a VPN não funciona. 
 
 
 
@@ -94,8 +95,12 @@ Sim, é possível excluir discos da replicação.
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>É possível replicar VMs com discos dinâmicos?
 Discos dinâmicos podem ser replicados. O disco do sistema operacional deve ser um disco básico.
 
-### <a name="can-i-add-a-new-vm-to-an-existing-replication-group"></a>É possível adicionar uma nova VM a um grupo de replicação existente?
-Sim.
+### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>Se eu usar grupos de replicação para consistência de várias VMs, posso adicionar uma nova VM a um grupo de replicação existente?
+Sim, você pode adicionar novas VMs a um grupo de replicação existente quando ativar a replicação para elas. Você não pode adicionar uma VM a um grupo de replicação existente após a replicação ser iniciada e não é possível criar um grupo de replicação para VMs existentes.
+
+### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Posso modificar as VMs que estão replicando adicionando ou redimensionando discos?
+
+Para replicação do VMware no Azure, você pode modificar o tamanho do disco. Se você quiser adicionar novos discos, precisará adicionar o disco e reativar a proteção para a VM.
 
 ## <a name="configuration-server"></a>Servidor de configuração
 
@@ -116,7 +121,7 @@ Analise os [pré-requisitos](vmware-azure-deploy-configuration-server.md#prerequ
 É recomendável utilizar a última versão do modelo de OVF para [criar a VM do servidor de configuração](vmware-azure-deploy-configuration-server.md). Se por algum motivo isso não for possível, por exemplo, não tiver acesso ao servidor VMware, você poderá [baixar o arquivo de Instalação Unificada](physical-azure-set-up-source.md) do portal e executá-lo em uma VM. 
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Um servidor de configuração pode replicar para mais de uma região?
-Nº Para fazer isso, é necessário configurar um servidor de configuração em cada região.
+Não. Para fazer isso, é necessário configurar um servidor de configuração em cada região.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>É possível hospedar um servidor de configuração no Azure?
 Embora seja possível, a VM do Azure em execução no servidor de configuração precisa comunicar-se com a infraestrutura VMware e VMs locais. A sobrecarga provavelmente não é viável.

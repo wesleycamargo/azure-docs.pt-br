@@ -1,25 +1,20 @@
 ---
-title: Use o agente de Backup do Azure para fazer backup de arquivos e pastas | Microsoft Docs
+title: Use o agente de Backup do Azure para fazer backup de arquivos e pastas
 description: Use o agente de Backup do Microsoft Azure para fazer backup de seus arquivos e pastas do Windows no Azure. Crie um cofre de Serviços de Recuperação, instale o agente de Backup, definir a política de backup e execute o backup inicial nos arquivos e pastas.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: cofre de backup; fazer backup de um Windows server; backup do windows;
-ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 1/5/2018
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 38f98a29edc2a0bfb0141a0a6fabad2727175f29
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.topic: conceptual
+ms.date: 8/5/2018
+ms.author: markgal
+ms.openlocfilehash: fd988e2209d8a6547ec30edb4ee62fc8ff2c803d
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619948"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Fazer backup de um cliente ou servidor do Windows Azure usando o modelo de implantação do Gerenciador de Recursos
 Este artigo explica como fazer backup dos seus arquivos e pastas do Windows Server (ou cliente Windows) no Azure com o Backup do Azure usando o modelo de implantação do Gerenciador de recursos.

@@ -1,23 +1,18 @@
 ---
-title: Proteger aplicativos Web com o Gateway de Aplicativo do Azure - PowerShell | Microsoft Docs
+title: Proteger aplicativos Web com o Gateway de Aplicativo Azure AD - PowerShell
 description: Este artigo oferece orientação sobre como configurar aplicativos Web como hosts back-end em um gateway de aplicativo novo ou existente.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.topic: article
+ms.date: 8/1/2018
 ms.author: victorh
-ms.openlocfilehash: 28b200fc3fceac0995248b68963b9a79856262a7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: e4b69e6fa587a5d375a1684c982715f8a7ea8166
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579622"
 ---
 # <a name="configure-app-service-web-apps-with-application-gateway"></a>Configurar Aplicativos Web do Serviço de Aplicativo com o Gateway de Aplicativo 
 
@@ -31,8 +26,11 @@ O exemplo a seguir adiciona um aplicativo Web como membro do pool de back-ends p
 # FQDN of the web app
 $webappFQDN = "<enter your webapp FQDN i.e mywebsite.azurewebsites.net>"
 
+# Retrieve the resource group
+$rg = Get-AzureRmResourceGroup -Name 'your resource group name'
+
 # Retrieve an existing application gateway
-$gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName
+$gw = Get-AzureRmApplicationGateway -Name 'your application gateway name' -ResourceGroupName $rg.ResourceGroupName
 
 # Define the status codes to match for the probe
 $match=New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399

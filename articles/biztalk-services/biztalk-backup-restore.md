@@ -1,11 +1,11 @@
 ---
-title: "Criar e restaurar um backup nos Serviços BizTalk | Microsoft Docs"
-description: "Os serviços BizTalk incluem backup e restauração. Saiba como criar e restaurar um backup e determinar do que é feito backup. MABS, WABS"
+title: Criar e restaurar um backup nos Serviços BizTalk | Microsoft Docs
+description: Os serviços BizTalk incluem backup e restauração. Saiba como criar e restaurar um backup e determinar do que é feito backup. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 59f91173-4683-48df-abd5-41262bfce6df
 ms.service: biztalk-services
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 45365092f5bcd1a8d309c10404a7437c494a8967
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 90cf2d0ddbba47a856bf1299a101c5185873b5d8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214405"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>Serviços BizTalk: backup e restauração
 
@@ -133,7 +134,7 @@ Se o Banco de Dados de Acompanhamento for excluído e o banco de dados precisar 
 ## <a name="next"></a>Avançar
 Para criar Serviços BizTalk do Azure, vá para [Serviços BizTalk: Provisionamento](http://go.microsoft.com/fwlink/p/?LinkID=302280). Para começar a criar aplicativos, visite [Serviços BizTalk do Azure (a página pode estar em inglês)](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 * [Fazer o backup do Serviço BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [Restaurar o Serviço BizTalk do backup](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)

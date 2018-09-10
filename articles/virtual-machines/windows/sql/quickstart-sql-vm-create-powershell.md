@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 228d2852d9554d378dc663e74460da7ab80d4b24
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: bebb153d5ff840a0eed7d6afffccd03a5236592d
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42023039"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Início Rápido: criar uma máquina virtual do Windows do SQL Server com o Azure PowerShell
 
@@ -82,7 +83,7 @@ Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior.
 
    # Create a virtual network
    $Vnet = New-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
-      -Name VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
+      -Name $VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
 
    # Create a public IP address and specify a DNS name
    $Pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `

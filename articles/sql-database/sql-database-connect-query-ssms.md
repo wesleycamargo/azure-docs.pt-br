@@ -8,19 +8,20 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 04/01/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 0d930cc200d8f8df30927ba7d2f942b2eb8a85a7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9177ad9cc4cbb668599d35b295ab939cea148a5a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412807"
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Use o SQL Server Management Studio para conectar e consultar dados
 
 [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) é um ambiente integrado para gerenciar qualquer infraestrutura do SQL, do SQL Server para o Banco de Dados SQL do Microsoft Windows. Este guia rápido demonstra como usar o SSMS para conectar um banco de dados SQL do Azure, em seguida, usar instruções Transact-SQL para consultar, inserir, atualizar e excluir os dados no banco de dados. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
@@ -148,7 +149,6 @@ Use o código a seguir para excluir o novo produto que você adicionou anteriorm
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre como criar e gerenciar servidores e bancos de dados com o Transact-SQL, confira [Saiba mais sobre servidores de bancos de dados e banco de dados SQL do Azure](sql-database-servers-databases.md).
 - Para saber mais sobre o SSMS, consulte [Usar o SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - Para se conectar e consultar usando o Portal do Azure, consulte [Conectar e consultar com o editor de consultas do SQL do Portal do Azure](sql-database-connect-query-portal.md).
 - Para conectar e consultar usando o Visual Studio Code, veja [Conectar e consultar com o Visual Studio Code](sql-database-connect-query-vscode.md).

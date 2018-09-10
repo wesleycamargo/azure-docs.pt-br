@@ -2,10 +2,9 @@
 title: Guia de IA do Azure para soluções de manutenção preditiva | Microsoft Docs
 description: Uma descrição completa da ciência de dados que oferece soluções de manutenção preditiva em vários setores verticais.
 services: machine-learning
-documentationcenter: ''
 author: fboylu
-manager: jhubbard
-editor: cgronlun
+manager: cgronlun
+editor: ''
 ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -15,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 581e9d586f007fe0cd28d60b5558594777656ca8
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972376"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -415,7 +415,7 @@ A seção final deste guia fornece uma lista de modelos de solução PdM, tutori
 | # | Title | DESCRIÇÃO |
 |--:|:------|-------------|
 | 1 | [Exemplo da Microsoft Azure Machine Learning de Manutenção Preditiva](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |Exemplo de PdM de prever falha sobre as próximas unidades de tempo N. Este exemplo é gravado como um projeto do Azure Machine Learning Workbench e é ideal para iniciantes de PdM. [Documentação adicional](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) relacionada a este exemplo.|
-| 2 | [Modelo da Solução de Manutenção Preditiva do Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Uma estrutura de ponta a ponta para demonstrar os vários cenários de PdM. Esse modelo apresenta dois cenários: a primeira é um novo caso de uso da classificação de condição de falha em tempo real. O segundo cenário é simplesmente uma integração da solução [1] para este modelo de solução. Demonstra como reutilizar a mesma infraestrutura implantada para adicionar outros cenários novos ou existentes.|
+| 2 | [Modelo da Solução de Manutenção Preditiva do Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Um modelo de solução de software livre que demonstra a modelagem de ML e uma infraestrutura completa do Azure com capacidade de dar suporte a cenários de Manutenção Preditiva no contexto de monitoramento remoto de IoT. |
 | 3 | [Aprendizado profundo para manutenção preditiva](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook com solução de demonstração do uso de redes LSTM (memória de prazo curto-longo) (uma classe de redes neurais recorrente) para manutenção preditiva, com um [postagem de blog sobre esse exemplo](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guia de modelagem de manutenção preditiva em R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guia de modelagem PdM com scripts em R.|
 | 5 | [Manutenção preditiva do Azure para o setor aeroespacial](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Um dos modelos de solução de PdM primeiro com base na versão 1.0 do ML do Azure para manutenção de aeronave. Este guia que se originou desse projeto. |
@@ -434,7 +434,7 @@ O Microsoft Azure oferece conteúdo gratuito e treinamento em prática e conceit
 |:-------------------|--------------|
 | [Desenvolvedor de AI no Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Público |
 | [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | Público |
-| [Aprendizado do Azure AI do GitHub](http://azure.github.io/learnanalytics/public) | Público |
+| [Aprendizado do Azure AI do GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Público |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Público |
 | [Microsoft AI Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Público |

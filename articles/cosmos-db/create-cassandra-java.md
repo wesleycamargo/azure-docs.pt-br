@@ -4,21 +4,19 @@ description: Este guia de início rápido mostra como usar a API Cassandra do Az
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: ef611081-0195-4ad8-9b54-b313588e5754
 ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
 ms.custom: quick start connect, mvc
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 720e566206a5b85a03c64de798418c3061e308e6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e0344aadbbf263fa3c84ee37f2527eb41b19b7d8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38629080"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Guia de início rápido: Compilar um aplicativo Web do Cassandra com o Java e o Azure Cosmos DB
 
@@ -222,7 +220,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, uma coleção Cassandra usando o Data Explorer e executar um aplicativo para fazer a mesma coisa programaticamente. Agora, é possível importar dados adicionais na coleção do Azure Cosmos DB. 
+Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, um banco de dados e um contêiner Cassandra usando o Data Explorer e executar um aplicativo para fazer a mesma coisa programaticamente. Agora, é possível importar dados adicionais para o contêiner do Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importar dados do Cassandra para o Azure Cosmos DB](cassandra-import-data.md)

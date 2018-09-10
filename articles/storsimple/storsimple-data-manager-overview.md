@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/26/2018
+ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271897"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011934"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Visão geral da solução do Gerenciador de Dados do StorSimple
 
@@ -82,10 +82,17 @@ Se sua região do Gerenciador de Dados for diferente da sua região de definiç�
 
 ![Definição de serviço e trabalho em regiões diferentes](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
-## <a name="gdpr-compliance"></a>Conformidade de GDPR
+## <a name="managing-personal-information"></a>Gerenciando informações pessoais
 
-O [GDPR (Regulamento Geral sobre a Proteção de Dados)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é uma lei de privacidade e proteção de dados da União Europeia (UE). O GDPR contém muitos requisitos sobre como coletar, armazenar e usar informações pessoais. As regras GDPR são impostas em empresas, agências governamentais e outras organizações que operam da UE e coletam, analisam dados vinculados para residentes da UE. Você verá se o ícone do Gerenciador de Dados do StorSimple está em conformidade com o GDPR. O serviço do Gerenciador de Dados não coleta dados pessoais.
-Para mais informações, revise a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
+O Gerenciador de Dados do StorSimple não coleta nem exibe informações pessoais. Para mais informações, revise a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
+
+## <a name="known-limitations"></a>Limitações conhecidas
+
+Atualmente, o serviço tem as seguintes limitações:
+- Atualmente, o Gerenciador de Dados do StorSimple não funciona com volumes que são criptografados com o BitLocker. Se tentar executar o serviço com uma unidade criptografada, você verá falhas de trabalho.
+- Alguns metadados de arquivos (incluindo ACLs) não serão mantidos nos dados transformados.
+- Esse serviço funciona apenas com volumes NTFS.
+- Tamanhos de caminho do arquivo precisarão ser menores que 256 caracteres, caso contrário o trabalho falhará.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,24 +1,26 @@
 ---
-title: "Visão geral dos Azure Active Directory Domain Services | Microsoft Docs"
-description: "Visão geral de Azure Active Directory Domain Services"
+title: Visão geral dos Azure Active Directory Domain Services | Microsoft Docs
+description: Visão geral de Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 2c00d324adfc1b71d436cb017214af98ff3002cf
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 4467c193b5ff70a304b4ec5f632276ca14551b08
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39501984"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>Visão geral

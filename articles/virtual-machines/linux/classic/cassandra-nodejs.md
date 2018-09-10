@@ -1,11 +1,11 @@
 ---
 title: Executar um cluster Cassandra no Linux no Azure a partir do Node.js
-description: "Como executar um cluster Cassandra no Linux em máquinas virtuais do Azure de um aplicativo Node.js"
+description: Como executar um cluster Cassandra no Linux em máquinas virtuais do Azure de um aplicativo Node.js
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: craigshoemaker
 manager: routlaw
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
 ms.service: virtual-machines-linux
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b1945c68f0e320c834ae93a590f420403263a0fd
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098933"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Executar um cluster Cassandra no Linux no Azure com Node.js
 
@@ -60,7 +61,7 @@ Observe que, no momento da redação deste artigo, o Azure não permite o mapeam
 
 **Sementes de cluster:** é importante selecionar os nós que estejam altamente disponíveis para sementes, pois os nós mais novos se comunicam com os nós de propagação para descobrir a topologia do cluster. Um nó de cada conjunto de disponibilidade será designado como nó de propagação para evitar pontos únicos de falha.
 
-**Fator de replicação e nível de consistência:** a alta disponibilidade interna do Cassandra e a durabilidade dos dados são caracterizadas pelo Fator de Replicação (RF - número de cópias de cada linha armazenada no cluster) e pelo Nível de Consistência (número de réplicas a serem lidas/gravadas antes de retornar o resultado ao chamador). O fator de replicação é especificado durante a criação de KEYSPACE (semelhante a um banco de dados relacional), enquanto o nível de consistência é especificado durante a emissão da consulta CRUD. Confira a documentação do Cassandra em [Configurando para consistência](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) para obter detalhes de consistência e a fórmula para o cálculo de quorum.
+**Fator de replicação e nível de consistência:** a alta disponibilidade interna do Cassandra e a durabilidade dos dados são caracterizadas pelo Fator de Replicação (RF - número de cópias de cada linha armazenada no cluster) e pelo Nível de Consistência (número de réplicas a serem lidas/gravadas antes de retornar o resultado ao chamador). O fator de replicação é especificado durante a criação de KEYSPACE (semelhante a um banco de dados relacional), enquanto o nível de consistência é especificado durante a emissão da consulta CRUD. Confira a documentação do Cassandra em [Configurando para consistência](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html) para obter detalhes de consistência e a fórmula para o cálculo de quorum.
 
 O Cassandra dá suporte a dois tipos de modelos de integridade de dados – Consistência e Consistência Eventual; o Fator de Replicação e o Nível de Consistência juntos determinam se os dados são consistentes assim que uma operação de gravação é concluída ou se estão eventualmente consistentes. Por exemplo, a especificação de QUORUM como o Nível de Consistência garante sempre a Consistência de dados durante qualquer nível de consistência, abaixo do número de réplicas a ser gravado, conforme necessário, para alcançar o QUORUM (por exemplo, UM) resulta em dados sendo eventualmente consistentes.
 
@@ -74,8 +75,8 @@ Configuração de cluster de Cassandra de região única:
 | Fator de replicação (RF) |3 |Número de réplicas de uma determinada linha |
 | Nível de consistência (gravação) |QUORUM [(RF/2) +1= 2] O resultado da fórmula é arredondado para baixo |Grava no máximo 2 réplicas antes que a resposta seja enviada ao chamador; a 3ª réplica é gravada como eventualmente consistente. |
 | Nível de consistência (leitura) |QUORUM [(RF/2) +1 = 2] O resultado da fórmula é arredondado para baixo |Grava 2 réplicas antes de enviar a resposta ao chamador. |
-| Estratégia de replicação |NetworkTopologyStrategy consulte [Replicação de dados](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) na documentação de Cassandra para obter mais informações |Entende a topologia de implantação e coloca as réplicas em nós para que todas as réplicas não terminem no mesmo rack |
-| Informante |GossipingPropertyFileSnitch, consulte [Opções](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) na documentação do Cassandra para obter mais informações |NetworkTopologyStrategy usa um conceito de informante para compreender a topologia. GossipingPropertyFileSnitch oferece maior controle ao mapear cada nó para rack e data center. O cluster faz uso de fofocas para propagar essas informações. Isso é muito mais simples na configuração de IP dinâmico em relação a PropertyFileSnitch |
+| Estratégia de replicação |NetworkTopologyStrategy consulte [Replicação de dados](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) na documentação de Cassandra para obter mais informações |Entende a topologia de implantação e coloca as réplicas em nós para que todas as réplicas não terminem no mesmo rack |
+| Informante |GossipingPropertyFileSnitch, consulte [Opções](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) na documentação do Cassandra para obter mais informações |NetworkTopologyStrategy usa um conceito de informante para compreender a topologia. GossipingPropertyFileSnitch oferece maior controle ao mapear cada nó para rack e data center. O cluster faz uso de fofocas para propagar essas informações. Isso é muito mais simples na configuração de IP dinâmico em relação a PropertyFileSnitch |
 
 **Considerações do Azure para o cluster do Cassandra:** o recurso de Máquinas Virtuais do Microsoft Azure usa o Armazenamento de Blob do Azure para persistência de disco e o Armazenamento do Azure salva três réplicas de cada disco para alta durabilidade. Isso significa que cada linha de dados inserida em uma tabela do Cassandra já é armazenada em três réplicas. Portanto, a consistência dos dados será atendida mesmo se o RF (Fator de Replicação) for 1. O principal problema com o Fator de Replicação ser 1 é que o aplicativo terá um tempo de inatividade, mesmo se um único nó do Cassandra falhar. No entanto, se um nó estiver inativo para os problemas (por exemplo, falhas de hardware, software do sistema) reconhecidos pelo Controlador de Malha do Azure, ele provisiona um novo nó em seu lugar usando as mesmas unidades de armazenamento. O provisionamento de um novo nó para substituir o antigo pode levar alguns minutos.  Da mesma forma, para atividades de manutenção planejada como alterações do sistema operacional convidado, atualizações do Cassandra e alterações de aplicativo, o Controlador de Malha do Azure executa atualizações sem interrupções de nós no cluster.  Atualizações sem interrupção também podem desativar alguns nós por vez; portanto, o cluster pode apresentar um breve tempo de inatividade para algumas partições. No entanto, os dados não são perdidos devido à redundância interna do Armazenamento do Microsoft Azure.  
 
@@ -109,8 +110,8 @@ Para um sistema que precisa de consistência alta, um LOCAL_QUORUM para o nível
 | Fator de replicação (RF) |3 |Número de réplicas de uma determinada linha |
 | Nível de consistência (gravação) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] O resultado da fórmula é arredondado para baixo |2 nós são gravados no primeiro data center de forma síncrona; os 2 nós adicionais necessários para o quorum são gravados assincronamente no 2º data center. |
 | Nível de consistência (leitura) |LOCAL_QUORUM ((RF/2) +1) = 2 O resultado da fórmula é arredondado para baixo |As solicitações de leitura são satisfeitas por meio de apenas uma região; 2 nós são lidos antes de que a resposta seja enviada de volta ao cliente. |
-| Estratégia de replicação |NetworkTopologyStrategy consulte [Replicação de dados](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) na documentação de Cassandra para obter mais informações |Entende a topologia de implantação e coloca as réplicas em nós para que todas as réplicas não terminem no mesmo rack |
-| Informante |GossipingPropertyFileSnitch consulte [Informantes](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) na documentação de Cassandra para obter mais informações |NetworkTopologyStrategy usa um conceito de informante para compreender a topologia. GossipingPropertyFileSnitch oferece maior controle ao mapear cada nó para rack e data center. O cluster faz uso de fofocas para propagar essas informações. Isso é muito mais simples na configuração de IP dinâmico em relação a PropertyFileSnitch |
+| Estratégia de replicação |NetworkTopologyStrategy consulte [Replicação de dados](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) na documentação de Cassandra para obter mais informações |Entende a topologia de implantação e coloca as réplicas em nós para que todas as réplicas não terminem no mesmo rack |
+| Informante |GossipingPropertyFileSnitch consulte [Informantes](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) na documentação de Cassandra para obter mais informações |NetworkTopologyStrategy usa um conceito de informante para compreender a topologia. GossipingPropertyFileSnitch oferece maior controle ao mapear cada nó para rack e data center. O cluster faz uso de fofocas para propagar essas informações. Isso é muito mais simples na configuração de IP dinâmico em relação a PropertyFileSnitch |
 
 ## <a name="the-software-configuration"></a>A CONFIGURAÇÃO DO SOFTWARE
 As seguintes versões de software são usadas durante a implantação:
@@ -119,7 +120,7 @@ As seguintes versões de software são usadas durante a implantação:
 <tr><th>Software</th><th>Fonte</th><th>Versão</th></tr>
 <tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
+<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
@@ -355,7 +356,7 @@ O processo acima pode ser executado usando o Portal do Azure: use um computador 
         #Tested with Azure Powershell - November 2014
         #This powershell script deployes a number of VMs from an existing image inside an Azure region
         #Import your Azure subscription into the current Powershell session before proceeding
-        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
 
         #fundamental variables - change these to reflect your subscription
         $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"

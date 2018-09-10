@@ -3,53 +3,36 @@ title: Consultas SQL para o Azure Cosmos DB | Microsoft Docs
 description: Saiba mais sobre a sintaxe SQL, os conceitos sobre banco de dados e as consultas SQL do Azure Cosmos DB. O SQL pode ser usado como uma linguagem de consulta JSON no Azure Cosmos DB.
 keywords: sintaxe sql, consulta sql, consultas sql, linguagem de consulta json, conceitos de banco de dados e consultas sql, funções agregadas
 services: cosmos-db
-documentationcenter: ''
 author: LalithaMV
 manager: kfile
 editor: monicar
-ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
-ms.date: 03/26/2018
+ms.topic: conceptual
+ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: 725dfa2e76ae03f17a17991c523e85e9c69a69ec
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a3a1f376c36004851d6e64f2fa037bebfc24665b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287751"
 ---
-# <a name="sql-queries-for-azure-cosmos-db"></a>Consultas SQL para o Azure Cosmos DB
+# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Consultar dados do Azure Cosmos DB com consultas SQL
 
-O Microsoft Azure Cosmos DB dá suporte à consulta de documentos usando a linguagem SQL como uma linguagem de consulta JSON em contas de API do SQL. O Azure Cosmos DB é verdadeiramente sem esquemas. Em virtude de seu comprometimento com o modelo de dados JSON diretamente dentro do mecanismo do banco de dados, ele fornece a indexação automática de documentos JSON sem a necessidade de esquemas explícitos ou da criação de índices secundários.
+O Microsoft Azure Cosmos DB dá suporte à consulta de documentos usando a linguagem SQL como uma linguagem de consulta JSON em contas de API do SQL. Ao projetar a linguagem de consulta do Azure Cosmos DB, os dois objetivos a seguir são considerados:
 
-Ao criar a linguagem de consulta para o Cosmos DB, temos dois objetivos em mente:
+* Em vez de inventar uma nova linguagem de consulta, criamos o Azure Cosmos DB para oferecer suporte ao SQL, uma das linguagens de consulta mais conhecidas e conhecidas. O Azure Cosmos DB SQL fornece um modelo de programação formal para consultas ricas sobre documentos JSON.  
 
-* Em vez de inventar uma nova linguagem de consulta JSON, queremos oferecer suporte ao SQL. A SQL é uma das linguagens de consulta mais conhecidas e populares. O SQL do Cosmos DB fornece um modelo de programação formal para consultas avançadas em documentos JSON.
-* Como um banco de dados de documentos JSON capaz de executar o JavaScript diretamente no mecanismo do banco de dados, queríamos usar o modelo de programação do JavaScript como os alicerces da nossa linguagem de consulta. A API do SQL é baseada no sistema de tipos, avaliação de expressão e invocação de função do JavaScript. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, consultas espaciais e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos. 
+* O Azure Cosmos DB usa o modelo de programação do JavaScript como base para a linguagem de consulta. A API do SQL é baseada no sistema de tipos, avaliação de expressão e invocação de função do JavaScript. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, consultas espaciais e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos. 
 
-Nós acreditamos que esses recursos sejam fundamentais para reduzir o atrito entre o aplicativo e o banco de dados e cruciais para a produtividade do desenvolvedor.
+Este artigo orienta você em alguns exemplos de consultas SQL usando documentos JSON simples. Para saber mais sobre a sintaxe da linguagem do Azure Cosmos DB SQL, consulte o artigo [Referência de Sintaxe SQL](sql-api-sql-query-reference.md). 
 
-Recomendamos que você comece assistindo ao vídeo a seguir, em que o Gerente do Programa Azure Cosmos DB, Andrew Liu, mostra as funcionalidades de consulta do Cosmos DB e demonstra o [Espaço de Consulta](http://www.documentdb.com/sql/demo), em que você pode experimentar o Azure Cosmos DB e executar consultas SQL em nosso conjunto de dados conforme demonstrado no vídeo.
+## <a id="GettingStarted"></a> Comece com comandos SQL
+Vamos criar dois documentos JSON simples e consultar esses dados. Considere dois documentos JSON sobre famílias, insira esses documentos JSON em uma coleção e subsequentemente consulte os dados. Aqui temos um simples documento JSON para as famílias de Andersen e Wakefield, os pais, as crianças (e seus animais de estimação), endereço e informações de registro. O documento tem cadeias de caracteres, números, boolianos, matrizes e propriedades aninhadas. 
 
-> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
->
->
-
-Técnicas de consulta mais avançadas são demonstradas neste vídeo de acompanhamento:
-
-> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
->
->
-
-Em seguida, retorne a este artigo, em que começamos com um tutorial de consulta SQL que apresenta alguns documentos JSON e comandos SQL simples.
-
-## <a id="GettingStarted"></a>Introdução aos comandos SQL no Cosmos DB
-Para ver o SQL do Cosmos DB em ação, vamos começar com alguns documentos JSON simples e analisar algumas consultas simples neles. Considere esses dois documentos JSON sobre duas famílias. Com o Cosmos DB, não precisamos criar nenhum esquema nem índice secundário explicitamente. Basta inserir os documentos JSON em uma coleção do Cosmos DB e, em seguida, realizar a consulta. Aqui, temos um documento JSON simples relacionado à família Andersen, os pais, os filhos (e seus animais de estimação), endereço e informações de registro. O documento tem cadeias de caracteres, números, boolianos, matrizes e propriedades aninhadas. 
-
-**Documento**  
+**Documento1**  
 
 ```JSON
 {
@@ -75,7 +58,7 @@ Para ver o SQL do Cosmos DB em ação, vamos começar com alguns documentos JSON
 
 Aqui está um segundo documento, com uma pequena diferença: `givenName` e `familyName` são usados em vez de `firstName` e `lastName`.
 
-**Documento**  
+**Documento2**  
 
 ```json
 {
@@ -106,16 +89,19 @@ Aqui está um segundo documento, com uma pequena diferença: `givenName` e `fami
 }
 ```
 
-Agora, vamos tentar realizar algumas consultas nestes dados para entender alguns dos principais aspectos da linguagem de consulta SQL do Azure Cosmos DB. Por exemplo, a consulta a seguir retorna documentos cujo campo de ID corresponde a `AndersenFamily`. Por se tratar de um `SELECT *`, a saída da consulta será todo o documento JSON:
+Agora, vamos tentar realizar algumas consultas nestes dados para entender alguns dos principais aspectos da linguagem de consulta SQL do Azure Cosmos DB. 
 
-**Consulta**
+**Consulta1**: Por exemplo, a consulta a seguir retorna os documentos em que o campo de id corresponde a `AndersenFamily`. Como é um `SELECT *`, a saída da consulta é o documento JSON completo, para saber mais sobre a sintaxe, consulte [instrução SELECT](sql-api-sql-query-reference.md#select-query):
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **Resultados**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -133,94 +119,173 @@ Agora, vamos tentar realizar algumas consultas nestes dados para entender alguns
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
+**Consulta2**: considere agora o caso em que precisamos reformatar a saída JSON em uma forma diferente. Esta consulta projeta um novo documento JSON com dois campos selecionados, Nome e Cidade, com a cidade e o estado tendo o mesmo nome. Neste caso, "NY, NY" é correspondente.   
 
-Agora, considere um caso em que precisamos reformatar a saída JSON para um formato diferente. Esta consulta projeta um novo documento JSON com dois campos selecionados, Nome e Cidade, com a cidade e o estado tendo o mesmo nome. Neste caso, "NY, NY" é correspondente.
-
-**Consulta**    
-
+```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family 
     FROM Families f 
     WHERE f.address.city = f.address.state
+```
 
 **Resultados**
 
+```json
     [{
         "Family": {
             "Name": "WakefieldFamily", 
             "City": "NY"
         }
     }]
+```
 
+**Consulta3**: Esta consulta retorna todos os nomes de filhos da família cujo id corresponde a `WakefieldFamily` ordenada pela cidade de residência.
 
-A próxima consulta retorna todos os nomes dos filhos na família cuja identificação corresponde ao `WakefieldFamily` solicitado pela cidade de residência.
-
-**Consulta**
-
+```sql
     SELECT c.givenName 
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
     ORDER BY f.address.city ASC
+```
 
 **Resultados**
 
+```json
     [
       { "givenName": "Jesse" }, 
       { "givenName": "Lisa"}
     ]
+```
 
-
-Gostaríamos de chamar atenção para alguns aspectos de destaque da linguagem de consulta do Cosmos DB nos exemplos que vimos até agora:  
+A seguir estão alguns aspectos da linguagem de consulta do Cosmos DB por meio de exemplos que você já viu até agora:  
 
 * Como o API do SQL trabalha com valores JSON, ele lida com entidades com formato de árvore em vez de linhas e colunas. A linguagem, portanto, possibilita a referência a nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3…..Nodem`, de forma semelhante à SQL relacional relativa à referência bipartida de `<table>.<column>`.   
+
 * A linguagem de consulta estruturada trabalha com dados com menos esquema. Portanto, o sistema de tipos precisa estar vinculado dinamicamente. A mesma expressão pode obter diferentes tipos em diferentes documentos. O resultado de uma consulta é um valor JSON válido, mas não há garantia de que seja de um esquema fixo.  
-* O Cosmos DB dá suporte apenas a documentos JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte a [especificação JSON](http://www.json.org/) para obter mais detalhes.  
+
+* O Azure Cosmos DB dá suporte a apenas documentos JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte a [especificação JSON](http://www.json.org/) para obter mais detalhes.  
+
 * Uma coleção do Cosmos DB é um contêiner de documentos JSON sem esquemas. As relações nas entidades de dados dentro e entre documentos em uma coleção são capturadas implicitamente pela contenção e não pelas relações chave primária e chave estrangeira. Este é um importante aspecto que vale a pena destacar em virtude das junções intradocumentos abordadas mais adiante neste artigo.
 
-## <a id="Indexing"></a> Indexação do Cosmos DB
-Antes de passarmos à sintaxe do SQL, vale a pena explorar o design de indexação no Cosmos DB. 
+## <a id="SelectClause"></a> Selecionar cláusula
 
-O objetivo de índices de bancos de dados é atender a consultas em suas diversas formas com um consumo mínimo de recursos (como CPU, entrada/saída), oferecendo alta produtividade e baixa latência. Frequentemente, a escolha do índice correto para consultar um banco de dados requer muito planejamento e experimentação. Esta abordagem representa um desafio para bancos de dados sem esquemas, nos quais os dados não seguem um esquema rígido e evoluem rapidamente. 
+Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opcionais de acordo com os padrões ANSI-SQL. Normalmente, para cada consulta, a fonte da cláusula FROM é enumerada. Então, o filtro da cláusula WHERE é aplicado para recuperar um subconjunto de documentos JSON. Por fim, a cláusula SELECT é usada para projetar os valores JSON solicitados na lista selecionada. Para aprender sobre a sintaxe, veja [sintaxe SELECT](sql-api-sql-query-reference.md#bk_select_query).
 
-Portanto, quando criamos o subsistema de indexação do Cosmos DB, definimos os seguintes objetivos:
+O exemplo a seguir mostra uma consulta SELECT típica. 
 
-* Indexar documentos sem precisar de um esquema: o subsistema de indexação não requer nenhuma informação de esquema e não faz suposições sobre o esquema dos documentos. 
-* Suporte para pesquisas hierárquicas e relacionais avançadas e eficientes: o índice dá suporte à linguagem de pesquisa do Cosmos DB de maneira eficiente, incluindo suporte para projeções hierárquicas e relacionais.
-* Suporte para consultas consistentes diante do grande volume de gravações: para possibilitar cargas de trabalho com alta produtividade de gravação com consultas consistentes, o índice é atualizado gradativamente, eficientemente e online, em face de um volume contínuo de gravações. A atualização consistente do índice é crucial para atender às consultas no nível de consistência em que o usuário configurou o sistema.
-* Suporte a multilocatário: dado o modelo baseado em reserva para a governança de recurso entre os locatários, as atualizações do índice são realizadas dentro do orçamento dos recursos do sistema (CPU, memória e operações de entrada/saída por segundo) alocados por réplica. 
-* Eficiência no armazenamento: para manter um bom custo-benefício, a sobrecarga do armazenamento em disco do índice é vinculada e previsível. Isto é fundamental porque o Cosmos DB permite que o desenvolvedor faça compensações baseadas em custo entre a sobrecarga do índice em relação ao desempenho da consulta.  
+**Consulta**
 
-Consulte as [amostras do Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net) no MSDN para obter amostras que exibem como configurar a política de indexação de uma coleção. Agora, vejamos os detalhes da sintaxe SQL do Azure Cosmos DB.
+```sql
+    SELECT f.address
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
 
-## <a id="Basics"></a>Noções básicas de uma consulta SQL do Azure Cosmos DB
-Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opcionais de acordo com os padrões ANSI-SQL. Normalmente, para cada consulta, a fonte da cláusula FROM é enumerada. Então, o filtro da cláusula WHERE é aplicado para recuperar um subconjunto de documentos JSON. Por fim, a cláusula SELECT é usada para projetar os valores JSON solicitados na lista selecionada.
+**Resultados**
 
-    SELECT <select_list> 
-    [FROM <from_specification>] 
-    [WHERE <filter_condition>]
-    [ORDER BY <sort_specification]    
+```json
+    [{
+      "address": {
+        "state": "WA", 
+        "county": "King", 
+        "city": "seattle"
+      }
+    }]
+```
 
+### <a name="nested-properties"></a>Propriedades aninhadas
+No exemplo a seguir, estamos projetando duas propriedades aninhadas, `f.address.state` and `f.address.city`.
+
+**Consulta**
+
+```sql
+    SELECT f.address.state, f.address.city
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**Resultados**
+
+```json
+    [{
+      "state": "WA", 
+      "city": "seattle"
+    }]
+```
+
+A projeção tem suporte também para expressões JSON, conforme mostrado no exemplo a seguir:
+
+**Consulta**
+
+```sql
+    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**Resultados**
+
+```json
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle", 
+        "name": "AndersenFamily"
+      }
+    }]
+```
+
+Vejamos a função de `$1` aqui. A cláusula `SELECT` precisa criar um objeto JSON e, como nenhuma chave é fornecida, usamos nomes de variáveis de argumento implícito iniciadas por `$1`. Por exemplo, esta consulta retorna duas variáveis de argumento implícito, rotuladas como `$1` and `$2`.
+
+**Consulta**
+
+```sql
+    SELECT { "state": f.address.state, "city": f.address.city }, 
+           { "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**Resultados**
+
+```json
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle"
+      }, 
+      "$2": {
+        "name": "AndersenFamily"
+      }
+    }]
+```
 
 ## <a id="FromClause"></a>Cláusula FROM
-A cláusula `FROM <from_specification>` é opcional, a menos que a fonte seja filtrada ou projetada mais adiante na consulta. O objetivo desta cláusula é especificar a fonte de dados na qual a consulta deve operar. Normalmente, a coleção inteira é a fonte, mas é possível também especificar um subconjunto da coleção. 
 
-Uma consulta como `SELECT * FROM Families` indica que a coleção Families inteira é a fonte a ser enumerada. Um identificador especial ROOT pode ser usado para representar a coleção em vez de usar o nome da coleção. A lista a seguir contém as regras que são impostas por uma consulta:
+A cláusula FROM <from_specification> é opcional, a menos que a origem seja filtrada ou projetada posteriormente na consulta. Para saber mais sobre a sintaxe, consulte [FROM syntax](sql-api-sql-query-reference.md#bk_from_clause). Uma consulta como `SELECT * FROM Families` indica que a coleção Families inteira é a fonte a ser enumerada. Um identificador especial ROOT pode ser usado para representar a coleção em vez de usar o nome da coleção. A lista a seguir contém as regras que são impostas por uma consulta:
 
-* A coleção pode ter um alias como `SELECT f.id FROM Families AS f`, ou simplesmente `SELECT f.id FROM Families f`. Aqui, `f` é o equivalente de `Families`. `AS` é uma palavra-chave opcional que serve como alias para o identificador.
-* Após receber um alias, a fonte original não pode ser associada. Por exemplo: `SELECT Families.id FROM Families f` é sintaticamente inválido, pois o identificador "Families" não pode mais ser resolvido.
+* A coleção pode ter um alias como `SELECT f.id FROM Families AS f`, ou simplesmente `SELECT f.id FROM Families f`. Aqui, `f` é o equivalente de `Families`. `AS` é uma palavra-chave opcional que serve como alias para o identificador.  
+
+* Após receber um alias, a fonte original não pode ser associada. Por exemplo: `SELECT Families.id FROM Families f` é sintaticamente inválido, pois o identificador "Families" não pode mais ser resolvido.  
+
 * Todas as propriedades que precisam ser referidas devem ser completamente qualificadas. Na falta de aderência a um esquema rígido, esta regra é aplicada para evitar associações ambíguas. Portanto, `SELECT id FROM Families f` é sintaticamente inválido, pois a propriedade `id` não está vinculada.
 
-### <a name="subdocuments"></a>Subdocumentos
+### <a name="get-subdocuments-using-from-clause"></a>Obter subdocumentos usando a cláusula FROM
+
 A fonte também pode ser reduzida a um subconjunto menor. Por exemplo, para enumerar somente uma subárvore de cada documento, a sub-raiz pode então se tornar a fonte, como no exemplo a seguir:
 
 **Consulta**
 
+```sql
     SELECT * 
     FROM Families.children
+```
 
 **Resultados**  
 
+```json
     [
       [
         {
@@ -249,35 +314,42 @@ A fonte também pode ser reduzida a um subconjunto menor. Por exemplo, para enum
         }
       ]
     ]
+```
 
 Embora o exemplo acima tenha usado uma matriz como origem, um objeto também pode ser usado como origem, o que é mostrado no exemplo a seguir: qualquer valor JSON válido (não indefinido) que pode ser encontrado na origem é considerado para inclusão no resultado da consulta. Se algumas famílias não tiverem um valor de `address.state`, elas serão excluídas do resultado da consulta.
 
 **Consulta**
 
+```sql
     SELECT * 
     FROM Families.address.state
+```
 
 **Resultados**
 
+```json
     [
       "WA", 
       "NY"
     ]
-
+```
 
 ## <a id="WhereClause"></a>Cláusula WHERE
-A cláusula WHERE (**`WHERE <filter_condition>`**) é opcional. Ela especifica as condições que os documentos JSON fornecidos pela fonte devem satisfazer para serem incluídas como parte dos resultados. Qualquer documento JSON deve avaliar as condições especificadas como “verdadeiras” para serem consideradas para os resultados. A cláusula WHERE é usada pela camada do índice para determinar o subconjunto absolutamente menor de documentos fonte que pode fazer parte do resultado. 
+A cláusula WHERE (**`WHERE <filter_condition>`**) é opcional. Ela especifica as condições que os documentos JSON fornecidos pela fonte devem satisfazer para serem incluídas como parte dos resultados. Qualquer documento JSON deve avaliar as condições especificadas como “verdadeiras” para serem consideradas para os resultados. A cláusula WHERE é usada pela camada do índice para determinar o subconjunto absolutamente menor de documentos fonte que pode fazer parte do resultado. Para saber mais sobre a sintaxe, consulte [sintaxe WHERE](sql-api-sql-query-reference.md#bk_where_clause).
 
 A consulta a seguir solicita documentos que contêm uma propriedade de nome cujo valor é `AndersenFamily`. Qualquer outro documento que não tiver uma propriedade de nome ou cujo valor não corresponder a `AndersenFamily` será excluído. 
 
 **Consulta**
 
+```sql
     SELECT f.address
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **Resultados**
 
+```json
     [{
       "address": {
         "state": "WA", 
@@ -285,38 +357,23 @@ A consulta a seguir solicita documentos que contêm uma propriedade de nome cujo
         "city": "seattle"
       }
     }]
-
+```
 
 O exemplo anterior mostrou uma consulta de igualdade simples. O API do SQL também dá suporte a diversas expressões escalares. As expressões mais usadas são as binárias e unárias. Referências de propriedade do objeto JSON fonte também são expressões válidas. 
 
 Os operadores binários a seguir têm suporte atualmente em consultas como as exemplificadas:  
 
-<table>
-<tr>
-<td>Aritmético</td>    
-<td>+,-,*,/,%</td>
-</tr>
-<tr>
-<td>Bit a bit</td>    
-<td>|, &, ^, <<, >>, >>> (deslocamento à direita com preenchimento com zero)</td>
-</tr>
-<tr>
-<td>Lógico</td>
-<td>AND, OR, NOT</td>
-</tr>
-<tr>
-<td>Comparação</td>    
-<td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td>
-</tr>
-<tr>
-<td>Cadeia de caracteres</td>    
-<td>|| (concatenado)</td>
-</tr>
-</table>  
-
+|**Tipo de operador**  |**Valores**  |
+|---------|---------|
+|Aritmético    |   +,-,*,/,%   |
+|Bit a bit  |   |, &, ^, <<, >>, >>> (zero-fill right shift)      |
+|Lógico   |   AND, OR, NOT      |
+|Comparação   |    =, !=, &lt;, &gt;, &lt;=, &gt;=, <>     |
+|Cadeia de caracteres  |  || (concatenar)       |
 
 Vejamos algumas consultas que usam valores binários.
 
+```sql
     SELECT * 
     FROM Families.children[0] c
     WHERE c.grade % 2 = 1     -- matching grades == 5, 1
@@ -328,10 +385,11 @@ Vejamos algumas consultas que usam valores binários.
     SELECT *
     FROM Families.children[0] c
     WHERE c.grade >= 5     -- matching grades == 5
+```
 
+Os operadores unários +, -, ~ e NOT também são suportados e podem ser usados dentro de consultas, conforme mostrado nos exemplos a seguir:
 
-Os operadores unários +,-, ~ e NOT também têm suporte e podem ser usados dentro de consultas, como mostrado no exemplo a seguir:
-
+```sql
     SELECT *
     FROM Families.children[0] c
     WHERE NOT(c.grade = 5)  -- matching grades == 1
@@ -339,8 +397,7 @@ Os operadores unários +,-, ~ e NOT também têm suporte e podem ser usados dent
     SELECT *
     FROM Families.children[0] c
     WHERE (-c.grade = -5)  -- matching grades == 5
-
-
+```
 
 Além de operadores binários e unários, as referências de propriedade também são permitidas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o documento JSON que contém a propriedade `isRegistered`, em que o valor da propriedade é igual ao valor JSON `true`. Todos os outros valores (false, null, Indefinido, `<number>`, `<string>`, `<object>`, `<array>` etc.) levam ao documento de origem que está sendo excluído do resultado. 
 
@@ -517,33 +574,40 @@ Indefinido </td>
    </tbody>
 </table>
 
-Para outros operadores de comparação, como >, >=, !=, < e <=, aplicam-se as seguintes regras:   
+Para outros operadores de comparação, como>,> =,! =, <E <=, as seguintes regras se aplicam:   
 
-* Comparação entre resultados de tipos em Indefinido.
+* Comparação entre resultados de tipos em Indefinido.  
 * Comparação entre resultados de dois objetos ou duas matrizes em Indefinido.   
 
 Se o resultado da expressão escalar do filtro for Indefinido, o documento correspondente não seria incluído no resultado, uma ver que Indefinido não corresponde logicamente a “verdadeiro”.
 
-### <a name="between-keyword"></a>Palavra-chave BETWEEN
+## <a name="between-keyword"></a>Palavra-chave BETWEEN
 Você também pode usar a palavra-chave BETWEEN para expressar consultas a intervalos de valores, como na ANSI SQL. BETWEEN pode ser usado em cadeias de caracteres ou números.
 
 Por exemplo, esta consulta retorna todos os documentos de família nos quais a série do primeiro filho vai de 1 a 5 (incluindo ambos). 
 
+```sql
     SELECT *
     FROM Families.children[0] c
     WHERE c.grade BETWEEN 1 AND 5
+```
 
 Diferente da ANSI-SQL, você também pode usar a cláusula BETWEEN na cláusula FROM, como no exemplo a seguir.
 
+```sql
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
-
-Para que os tempos de execução das consultas sejam menores, lembre-se de criar uma política de indexação que use um índice do tipo intervalo para quaisquer caminhos/propriedades numéricas que sejam filtradas na cláusula BETWEEN. 
+```
 
 A principal diferença entre usar BETWEEN na API do SQL e no ANSI SQL é que você pode expressar consultas de intervalo em propriedades de tipos mistos. Por exemplo, você pode designar “série” como um número (5) em alguns documentos e como cadeias de caracteres em outros (“grade4”). Nesses casos, como no JavaScript, uma comparação entre dois tipos diferentes traz um resultado "indefinido" e o documento é ignorado.
 
+> [!NOTE]
+> Para que os tempos de execução das consultas sejam menores, lembre-se de criar uma política de indexação que use um índice do tipo intervalo para quaisquer caminhos/propriedades numéricas que sejam filtradas na cláusula BETWEEN. 
+
 ### <a name="logical-and-or-and-not-operators"></a>Operadores lógicos (AND, OR e NOT)
 Operadores lógicos funcionam em valores boolianos. As tabelas de verdade lógica desses operadores são mostradas nas tabelas a seguir.
+
+**Operador OU**
 
 | OU | True | Falso | Indefinido |
 | --- | --- | --- | --- |
@@ -551,11 +615,15 @@ Operadores lógicos funcionam em valores boolianos. As tabelas de verdade lógic
 | Falso |True |Falso |Indefinido |
 | Indefinido |True |Indefinido |Indefinido |
 
+**E o operador**
+
 | E | True | Falso | Indefinido |
 | --- | --- | --- | --- |
 | True |True |Falso |Indefinido |
 | Falso |Falso |Falso |Falso |
 | Indefinido |Indefinido |Falso |Indefinido |
+
+**NÃO operador**
 
 | NÃO |  |
 | --- | --- |
@@ -563,142 +631,76 @@ Operadores lógicos funcionam em valores boolianos. As tabelas de verdade lógic
 | Falso |True |
 | Indefinido |Indefinido |
 
-### <a name="in-keyword"></a>Palavra-chave IN
+## <a name="in-keyword"></a>Palavra-chave IN
+
 A palavra-chave IN pode ser usada para verificar se um valor especificado corresponde a qualquer dos valores em uma lista. Por exemplo, esta consulta retorna todos os documentos de família cuja ID é "WakefieldFamily" ou então "AndersenFamily". 
 
+```sql
     SELECT *
     FROM Families 
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
+```
 
 Este exemplo retorna todos os documentos cujo estado é qualquer um dos valores especificados.
 
+```sql
     SELECT *
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
+```
 
-### <a name="ternary--and-coalesce--operators"></a>Operadores Ternário (?) e de União (??)
-Os operadores Ternário e de União podem ser usados para compilar expressões condicionais, de modo semelhante a linguagens de programação populares como C# e JavaScript. 
+## <a name="ternary--and-coalesce--operators"></a>Operadores Ternário (?) e de União (??)
 
-O operador Ternário (?) pode ser muito útil para construir novas propriedades JSON com muita rapidez. Por exemplo, agora você pode criar consultas para classificar os níveis de classe em um formato legível, como Iniciante/Intermediário/Avançado, como é mostrado abaixo.
+Os operadores Ternário e de União podem ser usados para compilar expressões condicionais, de modo semelhante a linguagens de programação populares como C# e JavaScript. O operador Ternário (?) pode ser muito útil para construir novas propriedades JSON com muita rapidez. Por exemplo, agora você pode criar consultas para classificar os níveis de classe em um formato legível, como Iniciante/Intermediário/Avançado, como é mostrado abaixo.
 
+```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
      FROM Families.children[0] c
+```
 
 Você também pode aninhar as chamadas no operador, como na consulta a seguir.
 
+```sql
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
+```
 
 Assim como outros operadores de consulta, se as propriedades mencionadas na expressão condicional estiverem faltando em algum documento ou se os tipos comparados forem diferentes, esses documentos serão excluídos dos resultados da consulta.
 
 O operador de União (??) pode ser usado para verificar de modo eficaz a presença de uma propriedade (ou seja, é definido) em um documento. Isso é útil ao consultar dados semiestruturados ou dados de tipos mistos. Por exemplo, a consulta retorna o "lastName" se estiver presente ou o "surname" se não estiver.
 
+```sql
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
+```
 
-### <a id="EscapingReservedKeywords"></a>Acessador de propriedade entre aspas
+## <a id="EscapingReservedKeywords"></a>Acessador de propriedade entre aspas
 Você também pode acessar propriedades usando o operador de propriedade entre aspas `[]`. Por exemplo: `SELECT c.grade` and `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil quando você precisa substituir uma propriedade que contém espaços, caracteres especiais ou compartilha o mesmo nome que uma palavra-chave ou palavra reservada SQL.
 
+```sql
     SELECT f["lastName"]
     FROM Families f
     WHERE f["id"] = "AndersenFamily"
+```
 
+## <a name="aliasing"></a>Atribuição de alias
 
-## <a id="SelectClause"></a>Cláusula SELECT
-A cláusula SELECT (**`SELECT <select_list>`**) é obrigatória e especifica quais valores são recuperados da consulta, exatamente como ocorre em ANSI-SQL. O subconjunto que foi filtrado sobre os documentos fonte é passado à fase de projeção, em que os valores JSON especificados são recuperados e um novo objeto JSON é construído, para cada entrada passada a ele. 
-
-O exemplo a seguir mostra uma consulta SELECT típica. 
-
-**Consulta**
-
-    SELECT f.address
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**Resultados**
-
-    [{
-      "address": {
-        "state": "WA", 
-        "county": "King", 
-        "city": "seattle"
-      }
-    }]
-
-
-### <a name="nested-properties"></a>Propriedades aninhadas
-No exemplo a seguir, estamos projetando duas propriedades aninhadas, `f.address.state` and `f.address.city`.
-
-**Consulta**
-
-    SELECT f.address.state, f.address.city
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**Resultados**
-
-    [{
-      "state": "WA", 
-      "city": "seattle"
-    }]
-
-
-A projeção tem suporte também para expressões JSON, conforme mostrado no exemplo a seguir:
-
-**Consulta**
-
-    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**Resultados**
-
-    [{
-      "$1": {
-        "state": "WA", 
-        "city": "seattle", 
-        "name": "AndersenFamily"
-      }
-    }]
-
-
-Vejamos a função de `$1` aqui. A cláusula `SELECT` precisa criar um objeto JSON e, como nenhuma chave é fornecida, usamos nomes de variáveis de argumento implícito iniciadas por `$1`. Por exemplo, esta consulta retorna duas variáveis de argumento implícito, rotuladas como `$1` and `$2`.
-
-**Consulta**
-
-    SELECT { "state": f.address.state, "city": f.address.city }, 
-           { "name": f.id }
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**Resultados**
-
-    [{
-      "$1": {
-        "state": "WA", 
-        "city": "seattle"
-      }, 
-      "$2": {
-        "name": "AndersenFamily"
-      }
-    }]
-
-
-### <a name="aliasing"></a>Atribuição de alias
 Agora, vamos estender o exemplo acima com a atribuição explícita de alias aos valores. AS é a palavra-chave usada para a atribuição de alias. É opcional, conforme mostrado ao projetar o segundo valor como `NameInfo`. 
 
 Caso uma consulta tenha duas propriedades com o mesmo nome, a atribuição de alias deve ser usada para renomear uma ou as duas propriedades para que elas não sejam ambíguas no resultado projetado.
 
 **Consulta**
-
+```sql
     SELECT 
            { "state": f.address.state, "city": f.address.city } AS AddressInfo, 
            { "name": f.id } NameInfo
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **Resultados**
 
+```json
     [{
       "AddressInfo": {
         "state": "WA", 
@@ -708,44 +710,53 @@ Caso uma consulta tenha duas propriedades com o mesmo nome, a atribuição de al
         "name": "AndersenFamily"
       }
     }]
+```
 
-
-### <a name="scalar-expressions"></a>Expressões escalares
+## <a name="scalar-expressions"></a>Expressões escalares
 Além de referências de propriedade, a cláusula SELECT dá suporte também a expressões escalares como constantes, expressões aritméticas, expressões lógicas etc. Por exemplo, vejamos uma consulta simples do tipo "Olá mundo".
 
 **Consulta**
 
+```sql
     SELECT "Hello World"
+```
 
 **Resultados**
 
+```json
     [{
       "$1": "Hello World"
     }]
-
+```
 
 Este é um exemplo mais complexo que usa uma expressão escalar.
 
 **Consulta**
 
+```sql
     SELECT ((2 + 11 % 7)-2)/3    
+```
 
 **Resultados**
 
+```json
     [{
       "$1": 1.33333
     }]
-
+```
 
 No exemplo a seguir, o resultado da expressão escalar é um booliano.
 
 **Consulta**
 
+```sql
     SELECT f.address.city = f.address.state AS AreFromSameCityState
     FROM Families f    
+```
 
 **Resultados**
 
+```json
     [
       {
         "AreFromSameCityState": false
@@ -754,18 +765,21 @@ No exemplo a seguir, o resultado da expressão escalar é um booliano.
         "AreFromSameCityState": true
       }
     ]
+```
 
-
-### <a name="object-and-array-creation"></a>Criação de objeto e de matriz
+## <a name="object-and-array-creation"></a>Criação de objeto e de matriz
 Outro recurso fundamental da API do SQL é a criação de matriz/objeto. Observe que, no exemplo anterior, criamos um novo objeto JSON. De modo semelhante, é possível construir matrizes, como mostram os exemplos a seguir:
 
 **Consulta**
 
+```sql
     SELECT [f.address.city, f.address.state] AS CityState 
     FROM Families f    
+```
 
 **Resultados**  
 
+```json
     [
       {
         "CityState": [
@@ -780,30 +794,37 @@ Outro recurso fundamental da API do SQL é a criação de matriz/objeto. Observe
         ]
       }
     ]
+```
 
-### <a id="ValueKeyword"></a>Palavra-chave VALUE
+## <a id="ValueKeyword"></a>Palavra-chave VALUE
 A palavra-chave **VALUE** é uma forma de retornar valores JSON. Por exemplo: a consulta mostrada abaixo retorna o `"Hello World"` escalar, em vez de `{$1: "Hello World"}`.
 
 **Consulta**
 
+```sql
     SELECT VALUE "Hello World"
+```
 
 **Resultados**
 
+```json
     [
       "Hello World"
     ]
-
+```
 
 A consulta a seguir retorna o valor JSON sem o rótulo `"address"` nos resultados.
 
 **Consulta**
 
+```sql
     SELECT VALUE f.address
     FROM Families f    
+```
 
 **Resultados**  
 
+```json
     [
       {
         "state": "WA", 
@@ -816,33 +837,40 @@ A consulta a seguir retorna o valor JSON sem o rótulo `"address"` nos resultado
         "city": "NY"
       }
     ]
+```
 
 O exemplo a seguir expande esse procedimento para mostrar como retornar valores JSON primitivos (no nível da folha da árvore JSON). 
 
 **Consulta**
 
+```sql
     SELECT VALUE f.address.state
     FROM Families f    
+```
 
 **Resultados**
 
+```json
     [
       "WA",
       "NY"
     ]
+```
 
-
-### <a name="-operator"></a>* Operador
+## <a name="-operator"></a>* Operador
 O operador especial (*) é suportado para projetar o documento da forma que ele é. Quando usado, ele deve ser o único campo projetado. Embora uma consulta como `SELECT * FROM Families f` seja válida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` não são.
 
 **Consulta**
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **Resultados**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -860,17 +888,21 @@ O operador especial (*) é suportado para projetar o documento da forma que ele 
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
-### <a id="TopKeyword"></a>Operador TOP
+## <a id="TopKeyword"></a>Operador TOP
 A palavra-chave TOP pode ser usada para limitar o número de valores de uma consulta. Quando TOP é usado em conjunto com a cláusula ORDER BY, o conjunto de resultados é limitado ao primeiro número N de valores ordenados; caso contrário, ele retorna o primeiro número N de resultados em uma ordem indefinida. Como melhor prática, em uma instrução SELECT, sempre use uma cláusula ORDER BY com a cláusula TOP. Essa é a única maneira de indicar de modo previsível quais linhas são afetadas pelo TOP. 
 
 **Consulta**
 
+```sql
     SELECT TOP 1 * 
     FROM Families f 
+```
 
 **Resultados**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -888,45 +920,58 @@ A palavra-chave TOP pode ser usada para limitar o número de valores de uma cons
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
 O TOP pode ser usado com um valor constante (conforme mostrado acima) ou com um valor de variável usando consultas parametrizadas. Para obter mais detalhes, veja as consultas parametrizadas abaixo.
 
-### <a id="Aggregates"></a>Funções de agregação
+## <a id="Aggregates"></a>Funções de agregação
 Você também pode executar agregações na cláusula `SELECT`. Funções agregadas executam um cálculo em um conjunto de valores e retornam um único valor. Por exemplo, a consulta a seguir retorna a contagem de documentos de família dentro da coleção.
 
 **Consulta**
 
+```sql
     SELECT COUNT(1) 
     FROM Families f 
+```
 
 **Resultados**
 
+```json
     [{
         "$1": 2
     }]
+```
 
 Você também pode retornar o valor escalar da agregação usando a palavra-chave `VALUE`. Por exemplo, a consulta a seguir retorna a contagem de valores como um único número:
 
 **Consulta**
 
+```sql
     SELECT VALUE COUNT(1) 
     FROM Families f 
+```
 
 **Resultados**
 
+```json
     [ 2 ]
+```
 
 Você também pode executar agregações em combinação com filtros. Por exemplo, a consulta a seguir retorna a contagem de documentos com endereço no estado de Washington.
 
 **Consulta**
 
+```sql
     SELECT VALUE COUNT(1) 
     FROM Families f
     WHERE f.address.state = "WA" 
+```
 
 **Resultados**
 
+```json
     [ 1 ]
+```
 
 A tabela a seguir mostra a lista de funções de agregação com suporte na API do SQL. `SUM` e `AVG` são executados por meio de valores numéricos, enquanto `COUNT`, `MIN` e `MAX` podem ser executados em relação a números, cadeias de caracteres, Boolianos e nulos. 
 
@@ -953,12 +998,15 @@ Por exemplo, aqui está uma consulta que recupera famílias pela ordem do nome d
 
 **Consulta**
 
+```sql
     SELECT f.id, f.address.city
     FROM Families f 
     ORDER BY f.address.city
+```
 
 **Resultados**
 
+```json
     [
       {
         "id": "WakefieldFamily",
@@ -969,17 +1017,21 @@ Por exemplo, aqui está uma consulta que recupera famílias pela ordem do nome d
         "city": "Seattle"    
       }
     ]
+```
 
 E aqui está uma consulta que recupera famílias em ordem de data de criação, que é armazenada como um número que representa a época, ou seja, o tempo decorrido desde 1 de janeiro de 1970, em segundos.
 
 **Consulta**
 
+```sql
     SELECT f.id, f.creationDate
     FROM Families f 
     ORDER BY f.creationDate DESC
+```
 
 **Resultados**
 
+```json
     [
       {
         "id": "WakefieldFamily",
@@ -990,6 +1042,7 @@ E aqui está uma consulta que recupera famílias em ordem de data de criação, 
         "creationDate": 1431620472    
       }
     ]
+```
 
 ## <a id="Advanced"></a>Conceitos avançados de banco de dados e consultas SQL
 
@@ -998,11 +1051,14 @@ Uma nova construção por meio da palavra-chave **IN** na API do SQL, para dar s
 
 **Consulta**
 
+```sql
     SELECT * 
     FROM Families.children
+```
 
 **Resultados**  
 
+```json
     [
       [
         {
@@ -1027,16 +1083,20 @@ Uma nova construção por meio da palavra-chave **IN** na API do SQL, para dar s
         }
       ]
     ]
+```
 
 Agora, vejamos outra consulta que realiza a iteração em filhos na coleção. Observe a diferença na matriz de saída. Este exemplo divide `children` e planifica os resultados em uma única matriz.  
 
 **Consulta**
 
+```sql
     SELECT * 
     FROM c IN Families.children
+```
 
 **Resultados**  
 
+```json
     [
       {
           "firstName": "Henriette Thaulow",
@@ -1057,35 +1117,44 @@ Agora, vejamos outra consulta que realiza a iteração em filhos na coleção. O
           "grade": 8
       }
     ]
+```
 
 Isso pode ser usado ainda para filtrar cada entrada individual da matriz, como mostra o exemplo a seguir:
 
 **Consulta**
 
+```sql
     SELECT c.givenName
     FROM c IN Families.children
     WHERE c.grade = 8
+```
 
 **Resultados**  
 
+```json
     [{
       "givenName": "Lisa"
     }]
+```
 
 Você também pode executar a agregação sobre o resultado da iteração de matriz. Por exemplo, a consulta a seguir conta o número de filhos entre todas as famílias.
 
 **Consulta**
 
+```sql
     SELECT COUNT(child) 
     FROM child IN Families.children
+```
 
 **Resultados**  
 
+```json
     [
       { 
         "$1": 3
       }
     ]
+```
 
 ### <a id="Joins"></a>Junções
 Em um banco de dados relacional, a necessidade de realizar junções entre tabelas é importante. É o padrão lógico para criar esquemas normalizados. De forma contrária, a API do SQL lida com o modelo de dados desnormalizado dos documentos sem esquemas. Trata-se do equivalente lógico de uma “autojunção”.
@@ -1096,26 +1165,32 @@ Os exemplos a seguir mostram como a cláusula junção funciona. No exemplo a se
 
 **Consulta**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN f.NonExistent
+```
 
 **Resultados**  
 
+```json
     [{
     }]
-
+```
 
 No exemplo a seguir, a junção ocorre entre a raiz do documento e a sub-raiz de `children`. Trata-se de um produto cruzado entre dois objetos JSON. O fato de os filhos serem uma matriz não tem efeito sobre a junção, pois estamos lidando com uma única raiz que é a matriz de filhos. Sendo assim, os resultados contêm apenas dois resultados, uma vez que o produto cruzado de cada documento com a matriz resulta em exatamente um documento.
 
 **Consulta**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN f.children
+```
 
 **Resultados**
 
+```json
     [
       {
         "id": "AndersenFamily"
@@ -1124,18 +1199,21 @@ No exemplo a seguir, a junção ocorre entre a raiz do documento e a sub-raiz de
         "id": "WakefieldFamily"
       }
     ]
-
+```
 
 O exemplo a seguir mostra uma junção mais convencional:
 
 **Consulta**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN c IN f.children 
+```
 
 **Resultados**
 
+```json
     [
       {
         "id": "AndersenFamily"
@@ -1147,8 +1225,7 @@ O exemplo a seguir mostra uma junção mais convencional:
         "id": "WakefieldFamily"
       }
     ]
-
-
+```
 
 A primeira coisa a observar é que o `from_source` da cláusula **JOIN** é um iterador. Sendo assim, neste caso o fluxo é o seguinte:  
 
@@ -1162,6 +1239,7 @@ A utilidade real da junção é formar tuplas do produto cruzado em um formato q
 
 **Consulta**
 
+```sql
     SELECT 
         f.id AS familyName,
         c.givenName AS childGivenName,
@@ -1170,9 +1248,11 @@ A utilidade real da junção é formar tuplas do produto cruzado em um formato q
     FROM Families f 
     JOIN c IN f.children 
     JOIN p IN c.pets
+```
 
 **Resultados**
 
+```json
     [
       {
         "familyName": "AndersenFamily", 
@@ -1190,11 +1270,11 @@ A utilidade real da junção é formar tuplas do produto cruzado em um formato q
        "petName": "Shadow"
       }
     ]
-
-
+```
 
 Este exemplo é uma extensão natural do exemplo anterior, e realiza uma junção dupla. Assim, o produto cruzado pode ser visto como o pseudocódigo a seguir:
 
+```
     for-each(Family f in Families)
     {    
         for-each(Child c in f.children)
@@ -1208,6 +1288,7 @@ Este exemplo é uma extensão natural do exemplo anterior, e realiza uma junçã
             }
         }
     }
+```
 
 `AndersenFamily` tem um filho que, por sua vez, tem um animal de estimação. Assim, o produto cruzado traz uma linha (1\*1\*1) desta família. WakefieldFamily, no entanto, tem dois filhos, mas apenas a filha "Jesse" tem animais de estimação. Porém, Jesse tem dois animais de estimação. Assim, o produto cruzado traz 1\*1\*2 = 2 linhas desta família.
 
@@ -1215,6 +1296,7 @@ No próximo exemplo, há um filtro adicional em `pet`. Isto exclui todas as tupl
 
 **Consulta**
 
+```sql
     SELECT 
         f.id AS familyName,
         c.givenName AS childGivenName,
@@ -1224,9 +1306,11 @@ No próximo exemplo, há um filtro adicional em `pet`. Isto exclui todas as tupl
     JOIN c IN f.children 
     JOIN p IN c.pets
     WHERE p.givenName = "Shadow"
+```
 
 **Resultados**
 
+```json
     [
       {
        "familyName": "WakefieldFamily", 
@@ -1234,7 +1318,7 @@ No próximo exemplo, há um filtro adicional em `pet`. Isto exclui todas as tupl
        "petName": "Shadow"
       }
     ]
-
+```
 
 ## <a id="JavaScriptIntegration"></a>Integração do JavaScript
 O Azure Cosmos DB oferece um modelo de programação para executar a lógica de aplicativos baseados em JavaScript diretamente nas coleções, com relação a procedimentos armazenados e gatilhos. Isso possibilita:
@@ -1249,6 +1333,7 @@ A sintaxe da SQL é estendida para dar suporte à lógica de aplicativos persona
 
 Veja abaixo um exemplo de como uma UDF pode ser registrada no banco de dados do Cosmos DB, especificamente em uma coleção de documentos.
 
+```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
        {
            Id = "REGEX_MATCH",
@@ -1260,6 +1345,7 @@ Veja abaixo um exemplo de como uma UDF pode ser registrada no banco de dados do 
        UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
            UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
            regexMatchUdf).Result;  
+```
 
 O exemplo anterior cria um UDF cujo nome é `REGEX_MATCH`. Ele aceita dois valores de cadeia de caracteres JSON `input` and `pattern` , além de verificar, pelo uso da função string.match() do JavaScript, se o primeiro desses valores corresponde ao padrão especificado no segundo.
 
@@ -1272,11 +1358,14 @@ Agora, podemos usar esta UDF em uma consulta em uma projeção. UDFs devem ser q
 
 **Consulta**
 
+```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
     FROM Families
+```
 
 **Resultados**
 
+```json
     [
       {
         "$1": true
@@ -1285,27 +1374,32 @@ Agora, podemos usar esta UDF em uma consulta em uma projeção. UDFs devem ser q
         "$1": false
       }
     ]
+```
 
 A UDF também pode ser usada dentro de um filtro, conforme mostrado no exemplo abaixo, também qualificado com o prefixo "udf." prefixo:
 
 **Consulta**
 
+```sql
     SELECT Families.id, Families.address.city
     FROM Families
     WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
+```
 
 **Resultados**
 
+```json
     [{
         "id": "AndersenFamily",
         "city": "Seattle"
     }]
-
+```
 
 Basicamente, as UDFs são expressões escalares válidas e podem ser usadas em projeções e filtros. 
 
 Para expandir o poder das UDFs, vejamos outro exemplo com lógica condicional:
 
+```javascript
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
            Id = "SEALEVEL",
@@ -1325,17 +1419,20 @@ Para expandir o poder das UDFs, vejamos outro exemplo com lógica condicional:
             UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(
                 UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
                 seaLevelUdf);
-
+```
 
 Abaixo há um exemplo que aplica a UDF.
 
 **Consulta**
 
+```sql
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
     FROM Families f    
+```
 
 **Resultados**
 
+```json
      [
       {
         "city": "seattle", 
@@ -1346,7 +1443,7 @@ Abaixo há um exemplo que aplica a UDF.
         "seaLevel": 410
       }
     ]
-
+```
 
 Como os exemplos anteriores demonstram, as UDFs integram o poder da linguagem JavaScript com a API do SQL para fornecer uma rica interface programável para complexas realizar lógicas condicionais de procedimentos com a ajuda dos recursos de tempo de execução incorporados ao JavaScript.
 
@@ -1362,16 +1459,19 @@ Na API do SQL, ao contrário do que ocorre no SQL tradicional, é frequente que 
 A API do SQL não realiza conversões implícitas, diferente do JavaScript. Por exemplo, uma consulta como `SELECT * FROM Person p WHERE p.Age = 21` corresponde a documentos que contêm a propriedade Age com o valor 21. Qualquer outro documento cuja propriedade Age corresponder a “21” — ou a outras variações potencialmente infinitas como “021”, “21,0”, “0021”, “00021” etc. — não será correspondido. Isso ocorre em oposição ao JavaScript, que os valores das cadeias de caracteres são convertidos implicitamente em números (baseado em operador como, por exemplo: ==). Esta escolha é fundamental para uma correspondência eficiente de índices na API do SQL. 
 
 ## <a name="parameterized-sql-queries"></a>Consultas SQL parametrizadas
-O Cosmos DB dá suporte a consultas com parâmetros expressos com a conhecida notação @. A SQL parametrizada oferece recursos robustos de manuseio e saída das entradas de usuário, evitando a exposição acidental de dados por meio de uma injeção SQL. 
+O Cosmos DB dá suporte a consultas com parâmetros expressos com a conhecida notação \@. A SQL parametrizada oferece recursos robustos de manuseio e saída das entradas de usuário, evitando a exposição acidental de dados por meio de uma injeção SQL. 
 
 Por exemplo, você pode escrever uma consulta que define o sobrenome e o estado do endereço como parâmetros e executá-la para vários valores de sobrenome e estado de endereço, com base na entrada do usuário.
 
+```sql
     SELECT * 
     FROM Families f
     WHERE f.lastName = @lastName AND f.address.state = @addressState
+```
 
 Essa solicitação pode então ser enviada ao Cosmos DB como uma consulta JSON parametrizada, conforme mostrado abaixo.
 
+```sql
     {      
         "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
         "parameters": [          
@@ -1379,15 +1479,18 @@ Essa solicitação pode então ser enviada ao Cosmos DB como uma consulta JSON p
             {"name": "@addressState", "value": "NY"},           
         ] 
     }
+```
 
 O argumento para TOP pode ser definido usando consultas parametrizadas, como mostrado abaixo.
 
+```sql
     {      
         "query": "SELECT TOP @n * FROM Families",     
         "parameters": [          
             {"name": "@n", "value": 10},         
         ] 
     }
+```
 
 Os valores dos parâmetros podem ser qualquer JSON válido (cadeias de caracteres, números, boolianos, nulos, ou mesmo matrizes e JSON aninhado). Além disso, como o Cosmos DB não tem esquemas, os parâmetros não são validados em relação a nenhum tipo.
 
@@ -1438,12 +1541,15 @@ Por exemplo, agora você pode executar consultas como as seguintes:
 
 **Consulta**
 
+```sql
     SELECT VALUE ABS(-4)
+```
 
 **Resultados**
 
+```json
     [4]
-
+```
 A principal diferença entre as funções do Cosmos DB em comparação com o ANSI SQL é que elas são criadas para funcionar bem com os dados de esquemas mistos e sem esquemas. Por exemplo, se você tem um documento em que a propriedade Tamanho está ausente ou tem um valor não numérico, como "desconhecido", o documento é ignorado, em vez de retornar um erro.
 
 ### <a name="type-checking-functions"></a>Funções de verificação de tipo
@@ -1493,11 +1599,15 @@ Usando essas funções, agora você pode executar consultas como as seguintes:
 
 **Consulta**
 
+```sql
     SELECT VALUE IS_NUMBER(-4)
+```
 
 **Resultados**
 
+```json
     [true]
+```
 
 ### <a name="string-functions"></a>Funções de cadeia de caracteres
 As funções escalares a seguir executam uma operação em um valor de cadeia de caracteres de entrada e retornam uma cadeia de caracteres, um valor numérico ou um valor booliano. Aqui temos uma tabela de funções de cadeia de caracteres internas:
@@ -1525,25 +1635,32 @@ Usando essas funções, agora você pode executar consultas como as descritas a 
 
 **Consulta**
 
+```sql
     SELECT VALUE UPPER(Families.id)
     FROM Families
+```
 
 **Resultados**
 
+```json
     [
         "WAKEFIELDFAMILY", 
         "ANDERSENFAMILY"
     ]
+```
 
 Ou concatenar cadeias de caracteres, como neste exemplo:
 
 **Consulta**
 
+```sql
     SELECT Families.id, CONCAT(Families.address.city, ",", Families.address.state) AS location
     FROM Families
+```
 
 **Resultados**
 
+```json
     [{
       "id": "WakefieldFamily",
       "location": "NY,NY"
@@ -1552,22 +1669,26 @@ Ou concatenar cadeias de caracteres, como neste exemplo:
       "id": "AndersenFamily",
       "location": "seattle,WA"
     }]
-
+```
 
 Funções de cadeia de caracteres também podem ser usadas na cláusula WHERE para filtrar os resultados, como no exemplo a seguir:
 
 **Consulta**
 
+```sql
     SELECT Families.id, Families.address.city
     FROM Families
     WHERE STARTSWITH(Families.id, "Wakefield")
+```
 
 **Resultados**
 
+```json
     [{
       "id": "WakefieldFamily",
       "city": "NY"
     }]
+```
 
 ### <a name="array-functions"></a>Funções de matriz
 As funções escalares a seguir executam uma operação em um valor de matriz de entrada e retornam um valor numérico, booliano ou um valor de matriz. Aqui temos uma tabela de funções de matriz internas:
@@ -1583,40 +1704,50 @@ Funções de matriz podem ser usadas para manipular matrizes contidas no JSON. P
 
 **Consulta**
 
+```sql
     SELECT Families.id 
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin", familyName: "Wakefield" })
+```
 
 **Resultados**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
+```
 
 Você pode especificar um fragmento parcial para elementos correspondentes dentro da matriz. A consulta a seguir localiza todos os pais com o `givenName` de `Robin`.
 
 **Consulta**
 
+```sql
     SELECT Families.id 
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
+```
 
 **Resultados**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
-
+```
 
 Aqui está outro exemplo que usa ARRAY_LENGTH para obter o número de filhos por família.
 
 **Consulta**
 
+```sql
     SELECT Families.id, ARRAY_LENGTH(Families.children) AS numberOfChildren
     FROM Families 
+```
 
 **Resultados**
 
+```json
     [{
       "id": "WakefieldFamily",
       "numberOfChildren": 2
@@ -1625,6 +1756,7 @@ Aqui está outro exemplo que usa ARRAY_LENGTH para obter o número de filhos por
       "id": "AndersenFamily",
       "numberOfChildren": 1
     }]
+```
 
 ### <a name="spatial-functions"></a>Funções espaciais
 O Cosmos DB dá suporte às funções internas do OGC (Open Geospatial Consortium) a seguir em consultas geoespaciais. 
@@ -1660,15 +1792,19 @@ As funções espaciais podem ser usadas para executar consultas de proximidade e
 
 **Consulta**
 
+```sql
     SELECT f.id 
     FROM Families f 
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+```
 
 **Resultados**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
+```
 
 Para obter detalhes sobre o suporte geoespacial no Cosmos DB, consulte [Trabalhando com os dados geoespaciais no Azure Cosmos DB](geospatial.md). Com isso, encerramos as funções espaciais e a sintaxe SQL do Cosmos DB. Agora vamos dar uma olhada em como o sistema de consultas LINQ funciona e como ele interage com a sintaxe que vimos até agora.
 
@@ -1684,6 +1820,7 @@ O mapeamento entre objetos .NET e documentos JSON é natural - cada campo de mem
 
 **Classe C#**
 
+```csharp
     public class Family
     {
         [JsonProperty(PropertyName="id")]
@@ -1727,10 +1864,11 @@ O mapeamento entre objetos .NET e documentos JSON é natural - cada campo de mem
     Pet pet = new Pet { givenName = "Fluffy" };
     Address address = new Address { state = "NY", county = "Manhattan", city = "NY" };
     Family family = new Family { Id = "WakefieldFamily", parents = new Parent [] { mother, father}, children = new Child[] { child }, isRegistered = false };
-
+```
 
 **JSON**  
 
+```json
     {
         "id": "WakefieldFamily",
         "parents": [
@@ -1758,7 +1896,7 @@ O mapeamento entre objetos .NET e documentos JSON é natural - cada campo de mem
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
     };
-
+```
 
 
 ### <a name="linq-to-sql-translation"></a>Tradução de LINQ em SQL
@@ -1810,10 +1948,10 @@ A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
 
 **SQL** 
 
+```sql
     SELECT VALUE f.parents[0].familyName
     FROM Families f
-
-
+```
 
 **Expressão lambda do LINQ**
 
@@ -1822,9 +1960,10 @@ A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
 
 **SQL** 
 
+```sql
     SELECT VALUE f.children[0].grade + c
     FROM Families f 
-
+```
 
 
 **Expressão lambda do LINQ**
@@ -1838,10 +1977,11 @@ A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
 
 **SQL** 
 
+```sql
     SELECT VALUE {"name":f.children[0].familyName, 
                   "grade": f.children[0].grade + 3 }
     FROM Families f
-
+```
 
 
 #### <a name="selectmany-operator"></a>Operador SelectMany
@@ -1853,10 +1993,10 @@ A sintaxe é `input.SelectMany(x => f(x))`, em que `f` é uma expressão escalar
 
 **SQL** 
 
+```sql
     SELECT VALUE child
     FROM child IN Families.children
-
-
+```
 
 #### <a name="where-operator"></a>Operador Where
 A sintaxe é `input.Where(x => f(x))`, em que `f` é uma expressão escalar que retorna um valor booliano.
@@ -1867,11 +2007,11 @@ A sintaxe é `input.Where(x => f(x))`, em que `f` é uma expressão escalar que 
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith" 
-
-
+```
 
 **Expressão lambda do LINQ**
 
@@ -1881,11 +2021,12 @@ A sintaxe é `input.Where(x => f(x))`, em que `f` é uma expressão escalar que 
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith"
     AND f.children[0].grade < 3
-
+```
 
 ### <a name="composite-sql-queries"></a>Consultas SQL composta
 Os operadores acima podem ser compostos para formar consultas mais poderosas. Como o Cosmos DB dá suporte a coleções aninhadas, a composição pode ser concatenada ou aninhada.
@@ -1900,11 +2041,11 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 **SQL**
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith"
-
-
+```
 
 **Expressão lambda do LINQ**
 
@@ -1913,10 +2054,11 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 **SQL** 
 
+```sql
     SELECT VALUE f.parents[0].familyName
     FROM Families f
     WHERE f.children[0].grade > 3
-
+```
 
 
 **Expressão lambda do LINQ**
@@ -1926,11 +2068,11 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE ({grade: f.children[0].grade}.grade > 3)
-
-
+```
 
 **Expressão lambda do LINQ**
 
@@ -1939,10 +2081,11 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 **SQL** 
 
+```sql
     SELECT *
     FROM p IN Families.parents
     WHERE p.familyName = "Smith"
-
+```
 
 
 #### <a name="nesting"></a>Aninhamento
@@ -1957,10 +2100,11 @@ Em uma consulta aninhada, a consulta interior é aplicada a cada elemento da col
 
 **SQL** 
 
+```sql
     SELECT VALUE p.familyName
     FROM Families f
     JOIN p IN f.parents
-
+```
 
 **Expressão lambda do LINQ**
 
@@ -1969,11 +2113,12 @@ Em uma consulta aninhada, a consulta interior é aplicada a cada elemento da col
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     JOIN c IN f.children
     WHERE c.familyName = "Jeff"
-
+```
 
 
 **Expressão lambda do LINQ**
@@ -1983,13 +2128,14 @@ Em uma consulta aninhada, a consulta interior é aplicada a cada elemento da col
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     JOIN c IN f.children
     WHERE c.familyName = f.parents[0].familyName
+```
 
-
-## <a id="ExecutingSqlQueries"></a>Execução de consultas SQL
+## <a id="ExecutingSqlQueries"></a>Executar consultas SQL
 O Cosmos DB expõe recursos por meio de uma API REST que pode ser chamada por qualquer linguagem que possa fazer solicitações HTTP/HTTPS. Além disso, o Cosmos DB oferece bibliotecas de programação para várias linguagens populares, como .NET, Node.js, JavaScript e Python. A API REST e as diversas bibliotecas suportam a consulta por meio de SQL. O SDK .NET oferece suporte para consultas no LINQ além da SQL.
 
 Os exemplos a seguir mostram como criar uma consulta e enviá-la a uma conta de banco de dados do Cosmos DB.
@@ -2018,6 +2164,7 @@ Os exemplos a seguir mostram um POST para uma consulta da API do SQL feita em um
 
 **Resultados**
 
+```
     HTTP/1.1 200 Ok
     x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
     x-ms-item-count: 1
@@ -2065,7 +2212,7 @@ Os exemplos a seguir mostram um POST para uma consulta da API do SQL feita em um
        ],
        "count":1
     }
-
+```
 
 O segundo exemplo mostra uma consulta mais complexa que retorna múltiplos resultados da junção.
 
@@ -2091,6 +2238,7 @@ O segundo exemplo mostra uma consulta mais complexa que retorna múltiplos resul
 
 **Resultados**
 
+```
     HTTP/1.1 200 Ok
     x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
     x-ms-item-count: 1
@@ -2119,7 +2267,7 @@ O segundo exemplo mostra uma consulta mais complexa que retorna múltiplos resul
        ],
        "count":3
     }
-
+```
 
 Se os resultados de uma consulta não couberem em uma página de resultados, a API REST retornará um token de continuação por meio do cabeçalho de resposta `x-ms-continuation-token` . Os clientes podem paginar os resultados incluindo o cabeçalho nos resultados subsequentes. O número de resultados por página também pode ser controlado por meio do cabeçalho de número `x-ms-max-item-count` . Se a consulta especificada tiver uma função de agregação como `COUNT`, a página de consulta poderá retornar um valor parcialmente agregado na página de resultados. Os clientes devem executar uma segunda agregação nesses resultados para produzir os resultados finais. Por exemplo, a soma das contagens retornadas nas páginas individuais para retornar a contagem total.
 

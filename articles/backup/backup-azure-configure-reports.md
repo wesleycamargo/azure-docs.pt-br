@@ -1,25 +1,20 @@
 ---
-title: "Configurar relatórios de Backup do Azure"
-description: "Este artigo fala sobre como configurar relatórios do Power BI para Backup do Azure usando o cofre dos Serviços de Recuperação."
+title: Configurar relatórios de Backup do Azure
+description: Configurar relatórios do Power BI para Backup do Azure usando o cofre dos Serviços de Recuperação.
 services: backup
-documentationcenter: 
-author: JPallavi
-manager: vijayts
-editor: 
-ms.assetid: 86e465f1-8996-4a40-b582-ccf75c58ab87
+author: adiganmsft
+manager: shivamg
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/10/2017
-ms.author: pajosh
+ms.topic: conceptual
+ms.date: 07/26/2018
+ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f51d85da1bda0d9483883301b71c20e405724b9b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4839b1aaa56be1ad93fa1dd685ca3176d1cc8a27
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142068"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 Este artigo aborda as etapas para configurar relatórios para o Backup do Azure usando o cofre dos Serviços de Recuperação e acessar esses relatórios usando o Power BI. Depois de executar essas etapas, você poderá ir diretamente para o Power BI para exibir todos os relatórios, personalizar e criar relatórios. 
@@ -29,10 +24,9 @@ Este artigo aborda as etapas para configurar relatórios para o Backup do Azure 
 2. Não há suporte para relatórios do SQL Azure, DPM e Servidor de Backup do Azure no momento.
 3. Você pode exibir relatórios em cofres e em assinaturas, se a mesma conta de armazenamento estiver configurada para cada um dos cofres. A conta de armazenamento selecionada deve estar na mesma região que o cofre dos Serviços de Recuperação.
 4. A frequência de atualização agendada para os relatórios é de 24 horas no Power BI. Você também pode executar uma atualização local dos relatórios no Power BI, nos quais os dados mais recentes na conta de armazenamento do cliente são usados para renderizar relatórios. 
-5. Relatórios de Backup do Azure atualmente não têm suporte nas nuvens Nacionais.
 
-## <a name="prerequisites"></a>pré-requisitos
-1. Criar uma [conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) e configurá-la para relatórios. Essa conta de armazenamento é usada para armazenar dados relacionados a relatórios.
+## <a name="prerequisites"></a>Pré-requisitos
+1. Criar uma [conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md) e configurá-la para relatórios. Essa conta de armazenamento é usada para armazenar dados relacionados a relatórios.
 2. [Criar uma conta do Power BI](https://powerbi.microsoft.com/landing/signin/) para exibir, personalizar e criar seus próprios relatórios usando o portal do Power BI.
 3. Registrar o provedor de recursos **Microsoft.insights** se já não estiver registrado, com a assinatura da conta de armazenamento e também com a assinatura do cofre de Serviços de Recuperação para habilitar os dados de relatório e analisar o fluxo para a conta de armazenamento. Para fazer o mesmo, você deve ir ao portal do Azure > Assinatura > Provedores de recursos e verificar se há esse provedor para registrá-lo. 
 
@@ -80,7 +74,7 @@ Use as etapas a seguir para configurar a conta de armazenamento para o cofre de 
 ## <a name="view-reports-in-power-bi"></a>Exibir relatórios no Power BI 
 Depois de configurar a conta de armazenamento para relatórios usando o cofre de serviços de recuperação, leva cerca de 24 horas para os dados de relatório começarem a fluir. Após 24 horas da configuração da conta de armazenamento, use as etapas a seguir para exibir relatórios no Power BI:
 1. [Entre](https://powerbi.microsoft.com/landing/signin/) no Power BI.
-2. Clique em **Obter Dados** e clique em **Obter** em **Serviços** na Biblioteca de Pacotes de Conteúdo. Use as etapas mencionadas na documentação do [Power BI para acessar o pacote de conteúdo](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
+2. Clique em **Obter Dados** e clique em **Obter** em **Serviços** na Biblioteca de Pacotes de Conteúdo. Use as etapas mencionadas na documentação do [Power BI para acessar o pacote de conteúdo](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
 
      ![Importar o pacote de conteúdo](./media/backup-azure-configure-reports/content-pack-import.png)
 3. Digite o **Backup do Azure** na barra Search e clique em **Obter agora**.

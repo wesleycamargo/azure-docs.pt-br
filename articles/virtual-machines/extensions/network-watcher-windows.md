@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 29f346b2a42f8d12e26bd59fbab86d763d3f29f0
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2f07107ad63ddd04e67528bf4f409dabf4a4d0c0
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944708"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140591"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Agente do Observador de Rede para Windows
 
@@ -29,9 +29,9 @@ ms.locfileid: "33944708"
 O [Observador de Rede do Azure](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço de monitoramento de desempenho, diagnóstico e análise de rede que permite o monitoramento de redes do Azure. A extensão de máquina virtual do Agente do Observador de Rede é um requisito para capturar o tráfego de rede sob demanda e outras funcionalidades avançadas em máquinas virtuais do Azure.
 
 
-Este documento detalha as opções com suporte de plataformas e implantação para a extensão da máquina virtual do Agente do Observador de Rede para Windows. A instalação do agente não interrompe nem requer um reinício da máquina virtual.
+Este documento detalha as opções com suporte de plataformas e implantação para a extensão da máquina virtual do Agente do Observador de Rede para Windows. A instalação do agente não interrompe nem requer um reinício da máquina virtual. É possível implantar a extensão nas máquinas virtuais que você implanta. Se a máquina virtual for implantada por um serviço do Azure, verifique a documentação do serviço para determinar se ele permite ou não a instalação de extensões na máquina virtual.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 

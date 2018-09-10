@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 2f0d9c42e32f2dd1181eac8d74c324b5ff2b0c53
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bb7a0b8c2d0511088282e180a108f8d925f0e4e8
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037949"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Como provisionar máquinas virtuais do SQL Server com o Azure PowerShell
 
@@ -129,7 +130,7 @@ New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-A máquina virtual exige recursos de armazenamento para o disco do sistema operacional para os arquivos de log de dados do SQL Server. Para simplificar, criamos um único disco para ambos. Você pode anexar discos adicionais posteriormente usando o cmdlet [Adicionar Disco do Azure](/powershell/module/azure/add-azuredisk) para colocar seus dados do SQL Server e o log de arquivos em discos dedicados. Use o cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) para criar uma conta de armazenamento standard em seu novo grupo de recursos e com o nome da conta de armazenamento, um nome de SKU de armazenamento e uma localização definida usando as variáveis inicializadas anteriormente.
+A máquina virtual exige recursos de armazenamento para o disco do sistema operacional para os arquivos de log de dados do SQL Server. Para simplificar, criamos um único disco para ambos. Você pode anexar discos adicionais posteriormente usando o cmdlet [Adicionar Disco do Azure](/powershell/module/servicemanagement/azure/add-azuredisk) para colocar seus dados do SQL Server e o log de arquivos em discos dedicados. Use o cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) para criar uma conta de armazenamento standard em seu novo grupo de recursos e com o nome da conta de armazenamento, um nome de SKU de armazenamento e uma localização definida usando as variáveis inicializadas anteriormente.
 
 Execute o cmdlet a seguir para criar sua nova conta de armazenamento.
 

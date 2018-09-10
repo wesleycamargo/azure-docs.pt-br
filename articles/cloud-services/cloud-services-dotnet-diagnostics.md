@@ -1,11 +1,11 @@
 ---
-title: "Como usar o diagnóstico do Azure (.NET) com os Serviços de Nuvem | Microsoft Docs"
-description: "Usando o diagnóstico do Azure para coletar dados dos Serviços de Nuvem do Azure para depuração, medição de desempenho, monitoramento, análise de tráfego e muito mais."
+title: Como usar o diagnóstico do Azure (.NET) com os Serviços de Nuvem | Microsoft Docs
+description: Usando o diagnóstico do Azure para coletar dados dos Serviços de Nuvem do Azure para depuração, medição de desempenho, monitoramento, análise de tráfego e muito mais.
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: adegeo
-ms.openlocfilehash: a8d6b16fa363062e06d48bfc5af2ca37697d5cd8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: jeconnoc
+ms.openlocfilehash: f9f26f14944986bc673a3b7529adb055ad16d058
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003054"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitando o Diagnóstico do Azure nos Serviços de Nuvem do Azure
 Confira [Visão geral do Diagnóstico do Azure](../azure-diagnostics.md) para obter informações preliminares sobre o Diagnóstico do Azure.
@@ -26,7 +27,7 @@ Confira [Visão geral do Diagnóstico do Azure](../azure-diagnostics.md) para ob
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Como habilitar o Diagnostics em uma Função do Trabalho
 Este passo a passo descreve como implementar uma função de trabalho do Azure que emite dados de telemetria usando o .NET EventSource Class. O Diagnóstico do Azure é usado para coletar os dados de telemetria e armazená-los em uma conta de armazenamento do Azure. Ao criar uma função de trabalho, o Visual Studio permite automaticamente O Diagnóstico 1.0 como parte da solução em SDKs do Azure para .NET 2.4 e versões anteriores. As instruções a seguir descrevem o processo de criação da função de trabalho, desabilitando o Diagnóstico 1.0 por meio da solução e implantando o Diagnóstico 1.2 ou 1.3 para sua função de trabalho.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Esse artigo assume que você tem uma assinatura do Azure e está usando o Visual Studio com o SDK do Azure. Se você não tiver uma assinatura do Azure, será possível se inscrever para uma [Avaliação Gratuita][Free Trial]. Certifique-se de [Instalar e configurar o Azure PowerShell, versão 0.8.7 ou posterior][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Etapa 1: criar uma função de trabalho
@@ -142,7 +143,7 @@ namespace WorkerRole1
 2. Adicione um arquivo XML ao projeto **WorkerRole1** clicando com o botão direito do mouse no projeto **WorkerRole1** e selecione **Adicionar** -> **Novo Item…** -> **Itens do Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como "WadExample.xml".
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. Associe o WadConfig.xsd com o arquivo de configuração. Certifique-se de que a janela do editor WadExample.xml é uma janela ativa. Pressione **F4** para abrir a janela **Propriedades**. Clique na propriedade **Schemas** da janela **Propriedades**. Clique em**...** in the **Esquemas** . Clique em **Adicionar…** e navegue até o local onde você salvou o arquivo XSD e selecione o arquivo WadConfig.xsd. Clique em **OK**.
+3. Associe o WadConfig.xsd com o arquivo de configuração. Certifique-se de que a janela do editor WadExample.xml é uma janela ativa. Pressione **F4** para abrir a janela **Propriedades**. Clique na propriedade **Schemas** da janela **Propriedades**. Clique em **...** in the **Esquemas** . Clique em **Adicionar…** e navegue até o local onde você salvou o arquivo XSD e selecione o arquivo WadConfig.xsd. Clique em **OK**.
 
 4. Substitua os conteíudos do arquivo de configuração WadExample.xml com o seguinte XML e salve o arquivo. Este arquivo de configuração define dois contadores de desempenho a serem coletados: um relacionado à utilização da CPU e um ao uso de memória. Após a configuração, defina os quatro eventos correspondentes aos métodos na classe SampleEventSourceWriter.
 

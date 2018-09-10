@@ -11,12 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
-ms.author: carolz
-ms.openlocfilehash: b8d87b44c1cc281153c8b65d24871b95e1bbe4db
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.author: mtillman
+ms.openlocfilehash: 7c55ccd1234dfe6454e506cc8e1e06fff415ffa9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340867"
 ---
 # <a name="azure-active-directory-documentation"></a>Documentação do Azure Active Directory
 
@@ -81,9 +82,9 @@ O Azure AD (Azure Active Directory) é um serviço de gerenciamento de identidad
                         <h3>Autenticação</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-passwords-overview">Senhas</a><br/>
-                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements">Autenticação multifator</a><br/>
+                        <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Autenticação multifator</a><br/>
                         <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
-                        <a href="/azure/active-directory/active-directory-certificate-based-authentication-get-started">Autenticação baseada em certificado</a>
+                        <a href="/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started">Autenticação baseada em certificado</a>
                         </p>
                     </div>
                 </div>
@@ -99,7 +100,7 @@ O Azure AD (Azure Active Directory) é um serviço de gerenciamento de identidad
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">Proteção de identidade</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Acesso condicional</a><br/>
-                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure">Privileged Identity Management</a>
+                        <a href="/azure/active-directory/privileged-identity-management/pim-configure">Privileged Identity Management</a>
                         </p>
                     </div>
                 </div>
@@ -114,8 +115,8 @@ O Azure AD (Azure Active Directory) é um serviço de gerenciamento de identidad
                         <h3>Dispositivos</h3>
                         <p>
                         <a href="/azure/active-directory/device-management-introduction">Gerenciamento de dispositivos</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-registered-devices-windows10-setup">Dispositivos com Windows 10</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-joined-devices-setup">Dispositivos associados</a>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Dispositivos com Windows 10</a><br/>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">Dispositivos associados</a>
                         </p>
                     </div>
                 </div>

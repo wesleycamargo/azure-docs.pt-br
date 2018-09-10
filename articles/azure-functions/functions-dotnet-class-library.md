@@ -3,7 +3,7 @@ title: Referência do desenvolvedor de C# do Azure Functions
 description: Entenda como desenvolver no Azure Functions usando NodeJS.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
-ms.author: tdykstra
-ms.openlocfilehash: c1b04968f83271006240fc0e099175e9017574ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: glenga
+ms.openlocfilehash: ac500ae4a166e7b9f3904a39cb7e2f20ba42a90f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343637"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -61,7 +62,7 @@ public static class SimpleExample
 } 
 ```
 
-O atributo `FunctionName` marca o método como um ponto de entrada da função. O nome deve ser exclusivo em um projeto. Modelos de projeto geralmente criam um método chamado `Run`, mas o nome do método pode ser qualquer nome de método C# válido.
+O atributo `FunctionName` marca o método como um ponto de entrada da função. O nome deve ser exclusivo dentro de um projeto, começar com uma letra e conter apenas letras, números, `_` e `-`, até 127 caracteres. Modelos de projeto geralmente criam um método chamado `Run`, mas o nome do método pode ser qualquer nome de método C# válido.
 
 O atributo de gatilho especifica o tipo de gatilho e associa dados de entrada a um parâmetro de método. A função de exemplo é disparada por uma mensagem de fila, a qual é transmitida para o método no parâmetro `myQueueItem`.
 
@@ -194,11 +195,13 @@ Cada associação tem seus próprios tipos com suporte. Por exemplo, um atributo
 
 ## <a name="binding-to-method-return-value"></a>Associando ao valor de retorno do método
 
-Você pode usar um valor de retorno do método para uma associação de saída, aplicando o atributo ao valor de retorno do método. Para obter exemplos, consulte [Gatilhos e associações](functions-triggers-bindings.md#using-the-function-return-value).
+Você pode usar um valor de retorno do método para uma associação de saída, aplicando o atributo ao valor de retorno do método. Para obter exemplos, consulte [Gatilhos e associações](functions-triggers-bindings.md#using-the-function-return-value). 
+
+Use o valor retornado apenas se uma execução de função com êxito sempre resultar em um valor retornado a ser passado para a associação de saída. Caso contrário, use `ICollector` ou `IAsyncCollector`, conforme mostrado na seção a seguir.
 
 ## <a name="writing-multiple-output-values"></a>Gravando vários valores de saída
 
-Para gravar vários valores em uma associação de saída, use os tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Esses tipos são coleções somente gravação que são gravadas na associação de saída quando o método é concluído.
+Para gravar vários valores em uma associação de saída ou se uma invocação de função com êxito não resultar em nada a ser passado para a associação de saída, use os tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Esses tipos são coleções somente gravação que são gravadas na associação de saída quando o método é concluído.
 
 Este exemplo grava várias mensagens de fila na mesma fila usando `ICollector`:
 
@@ -208,12 +211,12 @@ public static class ICollectorExample
     [FunctionName("CopyQueueMessageICollector")]
     public static void Run(
         [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
-        [Queue("myqueue-items-destination")] ICollector<string> myQueueItemCopy,
+        [Queue("myqueue-items-destination")] ICollector<string> myDestinationQueue,
         TraceWriter log)
     {
         log.Info($"C# function processed: {myQueueItem}");
-        myQueueItemCopy.Add($"Copy 1: {myQueueItem}");
-        myQueueItemCopy.Add($"Copy 2: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 1: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 2: {myQueueItem}");
     }
 }
 ```
@@ -259,6 +262,8 @@ public static class AsyncExample
     }
 }
 ```
+
+Não é possível usar parâmetros `out` em funções assíncronas. Para associações de saída, use o [valor de retorno de função](#binding-to-method-return-value) ou um [objeto coletor](#writing-multiple-output-values).
 
 ## <a name="cancellation-tokens"></a>Tokens de cancelamento
 
@@ -310,6 +315,10 @@ public static class EnvironmentVariablesExample
     }
 }
 ```
+
+As configurações do aplicativo podem ser lidas de variáveis de ambiente ao desenvolver localmente e ao executar no Azure. Ao desenvolver localmente, as configurações do aplicativo são provenientes da coleção `Values` no arquivo *local.settings.json*. Em ambos os ambientes, local e do Azure, `GetEnvironmentVariable("<app setting name>")` recupera o valor da configuração de aplicativo nomeada. Por exemplo, quando você estivesse executando localmente, "Nome do Meu Site" seria retornado se o arquivo *local.settings.json* contivesse `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
+
+A propriedade [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) é uma API alternativa para obter os valores de configuração do aplicativo, mas é recomendável que você use `GetEnvironmentVariable` conforme mostrado aqui.
 
 ## <a name="binding-at-runtime"></a>Associando no tempo de execução
 
@@ -384,23 +393,7 @@ public static class IBinderExampleMultipleAttributes
 
 ## <a name="triggers-and-bindings"></a>Gatilhos e associações 
 
-A tabela a seguir lista os atributos de gatilho e de associação disponíveis em um projeto de biblioteca de classes do Azure Functions. Todos os atributos estão no namespace `Microsoft.Azure.WebJobs`.
-
-| Gatilho | Entrada | Saída|
-|------   | ------    | ------  |
-| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [Blob](functions-bindings-storage-blob.md#input---attributes)| [Blob](functions-bindings-storage-blob.md#output---attributes)|
-| [CosmosDBTrigger](functions-bindings-cosmosdb.md#trigger---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#input---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#output---attributes) |
-| [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [EventHub](functions-bindings-event-hubs.md#output---attributes) |
-| [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||
-| [QueueTrigger](functions-bindings-storage-queue.md#trigger---attributes)|| [Fila](functions-bindings-storage-queue.md#output---attributes) |
-| [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [Barramento de Serviço](functions-bindings-service-bus.md#output---attributes) |
-| [TimerTrigger](functions-bindings-timer.md#attributes) | ||
-| |[ApiHubFile](functions-bindings-external-file.md)| [ApiHubFile](functions-bindings-external-file.md)|
-| |[MobileTable](functions-bindings-mobile-apps.md#input---attributes)| [MobileTable](functions-bindings-mobile-apps.md#output---attributes) | 
-| |[Tabela](functions-bindings-storage-table.md#input---attributes)| [Tabela](functions-bindings-storage-table.md#output---attributes)  | 
-| ||[NotificationHub](functions-bindings-notification-hubs.md#attributes) |
-| ||[SendGrid](functions-bindings-sendgrid.md#attributes) |
-| ||[Twilio](functions-bindings-twilio.md#attributes)| 
+[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

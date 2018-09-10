@@ -6,22 +6,23 @@ author: rachel-msft
 ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: bd4ebbec4506824f00d09a09369ebbeaf9458c19
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: f4253d4259d66b0c5746ef61cfc3cf4f4f2caad3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448893"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MySQL usando a CLI do Azure
 
 ## <a name="backup-happens-automatically"></a>O backup ocorre automaticamente
 O backup do Banco de Dados do Azure para servidores MySQL é feito periodicamente para habilitar os recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de instruções, você precisa:
 - Um [banco de dados e servidor do Banco de Dados do Azure para MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -31,32 +32,6 @@ Para concluir este guia de instruções, você precisa:
 
 > [!IMPORTANT]
 > Este guia de instruções requer que você use a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, no prompt de comando da CLI do Azure, digite `az --version`. Para instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>Adicionar a extensão
-Adicione a extensão de gerenciamento atualizada do Banco de Dados do Azure para MySQL usando o seguinte comando:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Verifique se que você tem a versão de extensão correta instalada. 
-```azurecli-interactive
-az extension list
-```
-
-O retorno JSON deve incluir o seguinte: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Se a versão 0.0.5 não for retornada, execute as etapas abaixo para atualizar a extensão: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Definir configuração de backup
 
@@ -85,7 +60,7 @@ O período de retenção de backup determina até quando a restauração de pont
 ## <a name="server-point-in-time-restore"></a>Restauração pontual do servidor
 Você pode restaurar o servidor para um ponto anterior no tempo. Os dados restaurados são copiados para um novo servidor e o servidor existente é deixado como está. Por exemplo, se uma tabela tiver sido descartada acidentalmente ao meio-dia de hoje, você poderá restaurá-la para um horário um pouco antes do meio-dia. Depois, você pode recuperar a tabela e os dados ausentes da cópia restaurada do servidor. 
 
-Para restaurar o servidor, use o comando [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore) da CLI do Azure.
+Para restaurar o servidor, use o comando [az mysql server restore](/cli/azure/mysql/server#az-mysql-server-restore) da CLI do Azure.
 
 ### <a name="run-the-restore-command"></a>Executar o comando restore
 

@@ -1,42 +1,52 @@
 ---
-title: Integrar uma conta de armazenamento do Azure com a CDN do Azure | Microsoft Docs
-description: "Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer um conteúdo com alta largura de banda armazenando em cache os blobs a partir do Armazenamento do Azure."
+title: Início Rápido – Integrar uma conta de armazenamento do Azure com a CDN do Azure | Microsoft Docs
+description: Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer um conteúdo com alta largura de banda armazenando em cache os blobs a partir do Armazenamento do Azure.
 services: cdn
-documentationcenter: 
-author: zhangmanling
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dksimpson
+manager: cfowler
+editor: ''
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2018
-ms.author: mazha
-ms.openlocfilehash: 022071f7825cb9184bd4c815c09e1c202a0a6f91
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.topic: quickstart
+ms.date: 05/24/2018
+ms.author: v-deasim
+ms.custom: mvc
+ms.openlocfilehash: 05ce8c932e9d3d812e34e23c082d459c3193ea40
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608494"
 ---
-# <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Integrar uma conta de armazenamento do Azure com a CDN do Azure
-Você pode habilitar a Rede de Distribuição de Conteúdo (CDN) do Azure para armazenar em cache o conteúdo do armazenamento do Azure. A CDN do Azure oferece aos desenvolvedores uma solução global para fornecimento de conteúdo de alta largura de banda. Ele consegue armazenar em cache blobs e conteúdo estático de instâncias de computação em nós físicos nos Estados Unidos, na Europa, na Ásia, na Austrália e na América do Sul.
+# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Início Rápido: Integrar uma conta de armazenamento do Azure com a CDN do Azure
+Neste início rápido, você habilita a [Rede de Distribuição de Conteúdo (CDN) do Azure](cdn-overview.md) para armazenar em cache o conteúdo do armazenamento do Azure. A CDN do Azure oferece aos desenvolvedores uma solução global para fornecimento de conteúdo de alta largura de banda. Ele consegue armazenar em cache blobs e conteúdo estático de instâncias de computação em nós físicos nos Estados Unidos, na Europa, na Ásia, na Austrália e na América do Sul.
 
-## <a name="step-1-create-a-storage-account"></a>Etapa 1: Criar uma conta de armazenamento
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
+Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azure.
+
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Use o procedimento a seguir para criar uma nova conta de armazenamento para uma assinatura do Azure. A conta de armazenamento dá acesso aos serviços de Armazenamento do Microsoft Azure. A conta de armazenamento representa o mais alto nível do namespace para acessar cada um dos componentes do serviço de Armazenamento do Microsoft Azure: Blob do Azure, Fila e Tabela. Para obter mais informações, consulte: [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md) .
 
 Para criar uma conta de armazenamento, você deve ser o administrador de serviços ou um coadministrador da assinatura associada.
 
-> [!NOTE]
-> Há vários métodos que você pode usar para criar uma conta de armazenamento, incluindo o Portal do Azure e o PowerShell. Este tutorial demostra como usar o portal do Azure.   
-> 
+Há vários métodos que você pode usar para criar uma conta de armazenamento, incluindo o Portal do Azure e o PowerShell. Este início rápido demostra como usar o portal do Azure.   
 
 **Para criar uma conta de armazenamento para uma assinatura do Azure**
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No canto superior esquerdo, selecione **Criar um recurso**. No painel **Novo**, selecione **Armazenamento** e **Conta de armazenamento - blob, arquivo, tabela, fila**.
+1. No Portal do Azure, no canto superior esquerdo, selecione **Criar um recurso**. 
+
+    O **Novo** painel é exibido.
+
+2. Selecione **Armazenamento** e, em seguida, **Conta de armazenamento – blob, arquivo, tabela, fila**.
     
+    ![Selecionar o recurso de armazenamento](./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png)
+
     O painel **Criar conta de armazenamento** aparece.   
 
     ![Painel Criar conta de armazenamento](./media/cdn-create-a-storage-account-with-cdn/cdn-create-new-storage-account.png)
@@ -54,65 +64,83 @@ Para criar uma conta de armazenamento, você deve ser o administrador de serviç
    
     Esse valor também é usado como o nome da conta de armazenamento no portal ou ao acessar essa conta programaticamente.
     
-4. Use os padrões para **Modelo de implantação**, **Tipo de conta**, **Desempenho** e **Replicação**. 
-    
-5. Para **Assinatura**, selecione a assinatura para usar com a conta de armazenamento.
-    
-6. Para **Grupo de recursos**, selecione ou crie um grupo de recursos. Para obter mais informações sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
-    
-7. Para **Local**, selecione um local para sua conta de armazenamento.
-    
-8. Selecione **Criar**. O processo de criação da conta de armazenamento pode levar vários minutos para ser concluído.
+4. Para o restante das configurações, use os valores especificados na tabela a seguir:
 
-## <a name="step-2-enable-cdn-for-the-storage-account"></a>Etapa 2: Habilitar a CDN para a conta de armazenamento
-
-Você pode habilitar a CDN para sua conta de armazenamento diretamente na sua conta de armazenamento. 
-
-1. Selecione uma conta de armazenamento do painel e selecione **CDN do Azure** no painel esquerdo. Se o botão **CDN do Azure** não estiver visível imediatamente, insira a CDN na caixa **Pesquisar** do painel esquerdo.
+    | Configuração  | Valor |
+    | -------- | ----- |
+    | **Modelo de implantação** | Use o valor padrão. |
+    | **Tipo de conta** | Use o valor padrão. |
+    | **Localidade**    | Selecione **Centro dos EUA** na lista suspensa. |
+    | **Replicação** | Use o valor padrão. |
+    | **Desempenho** | Use o valor padrão. |
+    | **Transferência segura é necessária** | Use o valor padrão. |
+    | **Assinatura** | Selecione uma assinatura do Azure na lista suspensa. |
+    | **Grupo de recursos** | Selecione **Criar novo** e insira *my-resource-group-123* como o nome para seu novo grupo de recursos. Esse nome deve ser globalmente exclusivo. Caso ele já esteja em uso, é possível inserir um nome diferente ou selecionar **Usar existente** e depois **my-resource-group-123** na lista suspensa. <br />Para obter mais informações sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).| 
+    | **Configurar redes virtuais** | Use o valor padrão. |  
     
-    O painel **Rede de Distribuição de Conteúdo do Azure** aparece.
+5. Selecione **Fixar no painel** para salvar a conta de armazenamento em seu painel após sua criação.
+    
+6. Selecione **Criar**. A criação da conta de armazenamento pode levar vários minutos para ser concluída.
+
+## <a name="enable-azure-cdn-for-the-storage-account"></a>Habilitar a CDN do Azure para a conta de armazenamento
+
+Você pode habilitar a CDN do Azure para sua conta de armazenamento diretamente da sua conta de armazenamento. Se você deseja especificar configurações avançadas para o ponto de extremidade CDN, por exemplo, o tipo de otimização, use a [extensão da CDN do Azure](cdn-create-new-endpoint.md) para criar um perfil CDN ou um ponto de extremidade CDN.
+
+1. Selecione uma conta de armazenamento do painel e selecione **CDN do Azure** no painel esquerdo. Se o botão **CDN do Azure** não estiver visível imediatamente, insira a CDN na caixa **Pesquisar** do painel esquerdo para encontrá-lo.
+    
+    A página **CDN do Azure** é exibida.
 
     ![Criar ponto de extremidade da CDN](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png)
     
-2. Crie um novo ponto de extremidade inserindo as informações necessárias:
-    - **Perfil CDN**: crie um novo perfil CDN ou use um existente.
-    - **Tipo de preço**: selecione um tipo de preço somente se você estiver criando um perfil CDN.
-    - **Nome do ponto de extremidade da CDN**: insira um nome de ponto de extremidade de CDN.
+2. Crie um novo ponto de extremidade inserindo as informações necessárias especificadas na tabela a seguir:
 
-    > [!TIP]
-    > Por padrão, um novo ponto de extremidade da CDN criado usa o nome do host de sua conta de armazenamento como o servidor de origem.
+    | Configuração  | Valor |
+    | -------- | ----- |
+    | **Perfil do CDN** | Selecione **Criar novo** e insira *my-cdn-profile-123* como nome de perfil. Esse nome deve ser globalmente exclusivo. Caso ele já esteja em uso, você pode inserir um nome diferente.  |
+    | **Tipo de preços** | Selecione **Verizon Standard** na lista suspensa. |
+    | **Nome do ponto de extremidade do CDN** | Digite *my-endpoint-123* para seu nome de host do ponto de extremidade. Esse nome deve ser globalmente exclusivo. Caso ele já esteja em uso, você pode inserir um nome diferente. Esse nome será usado para acessar os recursos armazenados em cache no domínio _&lt;nome do ponto de extremidade&gt;_.azureedge.net. Por padrão, um novo ponto de extremidade CDN usa o nome do host de sua conta de armazenamento como o servidor de origem.|
 
 3. Selecione **Criar**. Depois que o ponto de extremidade é criado, ele aparece na lista de pontos de extremidade.
 
     ![Um novo ponto de extremidade CDN de armazenamento](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
 
-> [!NOTE]
-> Se você deseja especificar configurações avançadas para o ponto de extremidade CDN, por exemplo, o tipo de otimização, use a [extensão do CDN do Azure](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) para criar um ponto de extremidade CDN, ou perfil CDN.
 
-## <a name="step-3-enable-additional-cdn-features"></a>Etapa 3: Habilitar recursos adicionais da CDN
-
-No painel **CDN do Azure**, selecione o ponto de extremidade da CDN na lista para abrir o painel de configuração da CDN. Você pode habilitar recursos adicionais da CDN para o fornecimento, como compactação, cadeia de caracteres de consulta e filtragem de área geográfica. Você também pode adicionar o mapeamento de domínio personalizado ao seu ponto de extremidade da CDN e habilitar HTTPS do domínio personalizado.
+## <a name="enable-additional-cdn-features"></a>Habilitar recursos adicionais da CDN
+Na página da **CDN do Azure** da conta de armazenamento, selecione o ponto de extremidade da CDN na lista para abrir a página de configuração da CDN. Nessa página, é possível habilitar recursos adicionais da CDN para sua entrega, como [compactação](cdn-improve-performance.md), [armazenamento em cache da cadeia de caracteres de consulta](cdn-query-string.md) e [filtragem de área geográfica](cdn-restrict-access-by-country.md). 
     
 ![Configuração de ponto de extremidade CDN do armazenamento](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
 
-## <a name="step-4-access-cdn-content"></a>Etapa 4: acessar conteúdo da CDN
+## <a name="access-cdn-content"></a>Acesse o conteúdo CDN
 Para acessar o conteúdo armazenado em cache na CDN, utilize a URL da CDN fornecida no portal. O endereço de um blob armazenado em cache tem o seguinte formato:
 
 http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 
 > [!NOTE]
-> Depois que você habilitar o acesso à CDN para uma conta de armazenamento, todos os objetos disponíveis publicamente estarão qualificados para armazenamento em cache de borda da CDN. Se você modificar um objeto que está armazenado em cache na CDN atualmente, o novo conteúdo não estará disponível por meio da CDN até que a CDN atualize seu conteúdo após o período de vida do conteúdo em cache expirar.
+> Depois de habilitar o acesso à CDN do Azure para uma conta de armazenamento, todos os objetos disponíveis publicamente estarão qualificados para armazenamento em cache de POP da CDN. Se você modificar um objeto que está armazenado em cache na CDN atualmente, o novo conteúdo não estará disponível por meio da CDN do Azure até que esta atualize seu conteúdo após o período de vida do conteúdo em cache expirar.
 
-## <a name="step-5-remove-content-from-the-cdn"></a>Etapa 5: remover conteúdo da CDN
+## <a name="remove-content-from-azure-cdn"></a>Remover o conteúdo da CDN do Azure
 Se não desejar mais armazenar em cache um objeto na CDN do Azure, você poderá executar uma das seguintes etapas:
 
 * Torne o contêiner particular em vez de público. Para obter mais informações, confira [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../storage/blobs/storage-manage-access-to-resources.md).
 * Desabilite ou exclua o ponto de extremidade CDN usando o Portal do Azure.
 * Modifique seu serviço hospedado para não responder a solicitações do objeto.
 
-Um objeto que já está armazenado em cache na CDN do Azure permanecerá em cache até que o período de vida útil do objeto expire ou até que o ponto de extremidade seja limpo. Quando o período de vida expira, a CDN do Azure verifica se o ponto de extremidade CDN ainda é válido, e se o objeto ainda pode ser acessado anonimamente. Se não for, o objeto não estará mais armazenado em cache.
+Um objeto que já está armazenado em cache na CDN do Azure permanecerá em cache até que o período de vida útil do objeto expire ou até que o ponto de extremidade seja [limpo](cdn-purge-endpoint.md). Quando o período de vida expira, a CDN do Azure determina se o ponto de extremidade CDN ainda é válido e se o objeto ainda pode ser acessado anonimamente. Se não for, o objeto não estará mais armazenado em cache.
 
-## <a name="additional-resources"></a>Recursos adicionais
-* [Adicionar um domínio personalizado ao seu ponto de extremidade CDN](cdn-map-content-to-custom-domain.md)
-* [Configure HTTPS em um domínio personalizado da CDN do Azure](cdn-custom-ssl.md)
+## <a name="clean-up-resources"></a>Limpar recursos
+Nas etapas anteriores, você criou um perfil CDN e um ponto de extremidade em um grupo de recursos. Salve esses recursos se você deseja ir para as [Próximas etapas](#next-steps) e saiba como adicionar um domínio personalizado em seu ponto de extremidade. No entanto, se você não espera usar esses recursos no futuro, poderá excluí-los ao excluir o grupo de recursos, evitando assim encargos adicionais:
+
+1. No menu à esquerda no portal do Azure, selecione **Grupos de recursos** e, em seguida, selecione **my-resource-group-123**.
+
+2. Na página **Grupo de recursos**, selecione **Excluir grupo de recursos**, digite *my-resource-group-123* na caixa de texto e, em seguida, selecione **Excluir**.
+
+    Essa ação excluirá o grupo de recursos, o perfil e o ponto de extremidade que você criou neste início rápido.
+
+3. Para excluir sua conta de armazenamento, selecione-a no painel e selecione **Excluir** no menu superior.
+
+## <a name="next-steps"></a>Próximas etapas
+Para saber mais sobre como adicionar um domínio personalizado em seu ponto de extremidade CDN, confira o tutorial a seguir:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Adicionar um domínio personalizado ao seu ponto de extremidade da CDN do Azure](cdn-map-content-to-custom-domain.md)
 

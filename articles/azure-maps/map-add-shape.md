@@ -1,22 +1,20 @@
 ---
 title: Adicionar uma forma com Mapas do Azure | Microsoft Docs
 description: Como adicionar uma forma a um mapa de Javascript
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fb9ec0713d3db465cf835346465e70c4455b38ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5315e7d45ef3af838f26422655cf6971af6f903e
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382543"
 ---
 # <a name="add-a-shape-to-a-map"></a>Adicionar uma forma a um mapa
 
@@ -31,9 +29,9 @@ Este artigo mostra como adicionar uma linha, um círculo e um polígono ao mapa.
 
 No código acima, o primeiro bloco de código constrói um objeto de mapa. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-No segundo bloco de código, uma linha é criada. Uma linha é um [Recurso](https://docs.microsoft.com/javascript/api/azure-maps-javascript/feature?view=azure-iot-typescript-latest) de LineString com LineStringProperties como propriedade de Recurso. Use `new atlas.data.Feature(new atlas.data.LineString())` para criar uma linha e definir suas propriedades. 
+No segundo bloco de código, uma linha é criada. Uma linha é um [Recurso](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) de LineString com LineStringProperties como propriedade de Recurso. Use `new atlas.data.Feature(new atlas.data.LineString())` para criar uma linha e definir suas propriedades. 
 
-Uma camada de linhas é uma matriz de linhas. O último bloco de código usa a função [addLineStrings](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addlinestrings) da classe de mapa para adicionar a camada de linhas ao mapa e definir as propriedades da camada de linhas. Consulte as propriedades de uma camada de linhas em [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/linestringlayeroptions?view=azure-iot-typescript-latest).
+Uma camada de linhas é uma matriz de linhas. O último bloco de código usa a função [addLineStrings](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings) da classe de mapa para adicionar a camada de linhas ao mapa e definir as propriedades da camada de linhas. Consulte as propriedades de uma camada de linhas em [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.linestringlayeroptions?view=azure-iot-typescript-latest).
 
 <a id="addACircle"></a>
 
@@ -44,9 +42,9 @@ Uma camada de linhas é uma matriz de linhas. O último bloco de código usa a f
 
 No código acima, o primeiro bloco de código constrói um objeto de mapa. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-No segundo bloco de código, um círculo é criado. Um círculo é um [Recurso](https://docs.microsoft.com/javascript/api/azure-maps-javascript/feature?view=azure-iot-typescript-latest) de [Ponto](https://docs.microsoft.com/javascript/api/azure-maps-javascript/point?view=azure-iot-typescript-latest) com [CircleProperties](https://docs.microsoft.com/javascript/api/azure-maps-javascript/circleproperties?view=azure-iot-typescript-latest) como sua propriedade de recurso. Use `new atlas.data.Feature(new atlas.data.Point())` para criar um círculo e definir suas propriedades.
+No segundo bloco de código, um círculo é criado. Um círculo é um [Recurso](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) de [Ponto](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) com [CircleProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/models.circleproperties?view=azure-iot-typescript-latest) como sua propriedade de recurso. Use `new atlas.data.Feature(new atlas.data.Point())` para criar um círculo e definir suas propriedades.
 
-Uma camada de círculos é uma matriz de círculos. O último bloco de código usa a função [addCircle](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addcircles) da classe de mapa para adicionar a camada de círculos ao mapa e definir as propriedades da camada de círculos. Consulte as propriedades de uma camada de círculos em [CircleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/circlelayeroptions?view=azure-iot-typescript-latest).
+Uma camada de círculos é uma matriz de círculos. O último bloco de código usa a função [addCircle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcircles) da classe de mapa para adicionar a camada de círculos ao mapa e definir as propriedades da camada de círculos. Consulte as propriedades de uma camada de círculos em [CircleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.circlelayeroptions?view=azure-iot-typescript-latest).
 
 <a id="addAPolygon"></a>
 
@@ -56,6 +54,13 @@ Uma camada de círculos é uma matriz de círculos. O último bloco de código u
 
 No código acima, o primeiro bloco de código constrói um objeto de mapa. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-No segundo bloco de código, um polígono é criado. Um polígono é um [Recurso](https://docs.microsoft.com/javascript/api/azure-maps-javascript/feature?view=azure-iot-typescript-latest) de [Polígono](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygon?view=azure-iot-typescript-latest) com [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonproperties?view=azure-iot-typescript-latest) como sua propriedade de recurso. Use `new atlas.data.Feature(new atlas.data.Polygon())` para criar um polígono e definir suas propriedades. Fornece coordenadas ordenadas do caminho do polígono no construtor de polígonos.
+No segundo bloco de código, um polígono é criado. Um polígono é um [Recurso](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) de [Polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest) com [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/models.polygonproperties?view=azure-iot-typescript-latest) como sua propriedade de recurso. Use `new atlas.data.Feature(new atlas.data.Polygon())` para criar um polígono e definir suas propriedades. Fornece coordenadas ordenadas do caminho do polígono no construtor de polígonos.
 
-Uma camada de polígonos é uma matriz de polígonos. O último bloco de código usa a função [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpolygons) da classe de mapa para adicionar a camada de polígonos ao mapa e definir suas propriedades. Consulte as propriedades de uma camada de polígonos em [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonlayeroptions?view=azure-iot-typescript-latest). 
+Uma camada de polígonos é uma matriz de polígonos. O último bloco de código usa a função [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpolygons) da classe de mapa para adicionar a camada de polígonos ao mapa e definir suas propriedades. Consulte as propriedades de uma camada de polígonos em [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.polygonlayeroptions?view=azure-iot-typescript-latest). 
+
+## <a name="next-steps"></a>Próximas etapas
+Para obter mais exemplos de código para adicionar aos seus mapas, consulte os seguintes artigos:
+* [ Adicione um HTML personalizado ](./map-add-custom-html.md)
+* [ Mostrar resultados da pesquisa ](./map-search-location.md)
+
+

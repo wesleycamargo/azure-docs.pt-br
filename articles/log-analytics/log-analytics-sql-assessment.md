@@ -3,7 +3,7 @@ title: Otimizar seu ambiente do SQL Server com o Azure Log Analytics | Microsoft
 description: Com o Azure Log Analytics, você pode usar a solução de Verificação da Integridade do SQL para avaliar o risco e a integridade de seus ambientes em intervalos regulares.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 47f912932f9a0e1383ef5f82d1d3e33b5ababa9c
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: na
+ms.openlocfilehash: 2dcbd0cab055e8a2b2128b1f83f5c080a0887b85
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122513"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimize seu ambiente SQL com a solução de Verificação da Integridade do SQL Server no Log Analytics
 
@@ -39,7 +40,7 @@ Após ter adicionado a solução e a avaliação ser concluída, as informaçõe
 
 ![imagem do painel Verificação da Integridade do SQL](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * A solução de Verificação da Integridade do SQL requer uma versão do .NET Framework 4 com suporte instalada em cada computador com o MMA (Microsoft Monitoring Agent) instalado.  O agente MMA é usado pelo System Center 2016 - Operations Manager e Operations Manager 2012 R2, e o serviço Log Analytics.  
 * A solução oferece suporte ao SQL Server, versões 2012, 2014 e 2016.
@@ -173,8 +174,6 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
 Se houver recomendações que deseja ignorar, você poderá criar um arquivo de texto que será usado pelo Log Analytics para impedir que as recomendações sejam exibidas nos resultados da avaliação.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que serão ignoradas
 1. No portal do Azure, na página do espaço de trabalho Log Analytics de seu espaço de trabalho selecionado, clique no bloco **Pesquisa de Logs**.

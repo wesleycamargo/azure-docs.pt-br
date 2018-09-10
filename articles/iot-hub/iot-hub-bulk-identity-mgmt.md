@@ -1,24 +1,19 @@
 ---
 title: Importar e exportar identidades de dispositivo do Hub IoT do Azure | Microsoft Docs
 description: Como usar o SDK do serviço IoT do Azure para executar operações em massa no Registro de identidade para importar e exportar identidades de dispositivo. As operações de importação permitem criar, atualizar e excluir as identidades de dispositivo em massa.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 97b0e4c4dd8c67fdcd422fb04b7c32815b6c3fdb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: aedf2d0012f5af8ea2eb8e944f06b20c7f1a6bb8
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42142218"
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gerenciar identidades de dispositivo do Hub IoT em massa
 
@@ -30,7 +25,7 @@ As operações de importação e exportação ocorrem no contexto de *Trabalhos*
 
 A classe **RegistryManager** inclui os métodos **ExportDevicesAsync** e **ImportDevicesAsync** que usam a estrutura **Job**. Esses métodos permitem exportar, importar e sincronizar todo o registro de identidade de um Hub IoT.
 
-Este tópico discute o uso da classe **RegistryManager** e do sistema de **trabalho** para executar importações e exportações em massa de dispositivos para e do registro de identidade de um hub IoT. Você também pode usar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para habilitar o provisionamento sem toque e Just-In-Time para um ou mais hubs IoT sem a necessidade de intervenção humana. Para obter mais informações, consulte a [documentação do serviço de provisionamento][lnk-dps].
+Este tópico discute o uso da classe **RegistryManager** e do sistema de **trabalho** para executar importações e exportações em massa de dispositivos para e do registro de identidade de um hub IoT. Você também pode usar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para habilitar o provisionamento sem toque e Just-In-Time para um ou mais hubs IoT sem a necessidade de intervenção humana. Para obter mais informações, consulte a [documentação do serviço de provisionamento](/azure/iot-dps).
 
 
 ## <a name="what-are-jobs"></a>O que são trabalhos?
@@ -38,6 +33,7 @@ Este tópico discute o uso da classe **RegistryManager** e do sistema de **traba
 As operações de registro de identidade usam o sistema de **Trabalho** quando a operação:
 
 * Tem um tempo de execução potencialmente longo em comparação com as operações de tempo de execução padrão.
+
 * Retorna uma grande quantidade de dados para o usuário.
 
 Em vez de ter uma única chamada à API aguardando ou bloqueando o resultado da operação, a operação cria de modo assíncrono um **Trabalho** para o Hub IoT. Então, a operação retorna imediatamente um objeto **JobProperties**.
@@ -46,23 +42,28 @@ O trecho de código de C# a seguir mostra como criar um trabalho de exportação
 
 ```csharp
 // Call an export job on the IoT Hub to retrieve all devices
-JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
+JobProperties exportJob = await 
+  registryManager.ExportDevicesAsync(containerSasUri, false);
 ```
 
 > [!NOTE]
 > Para usar a classe **RegistryManager** no código C#, adicione o pacote NuGet **Microsoft.Azure.Devices** ao projeto. A classe **RegistryManager** está no namespace **Microsoft.Azure.Devices**.
 
-Você pode usar a classe **RegistryManager** para consultar o estado do **Job** usando os metadados de **JobProperties** retornados. Para criar uma instância da classe **RegistryManager**, use o método **CreateFromConnectionString**:
+Você pode usar a classe **RegistryManager** para consultar o estado do **Job** usando os metadados de **JobProperties** retornados. Para criar uma instância da classe **RegistryManager**, use o método **CreateFromConnectionString**.
 
 ```csharp
-RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+RegistryManager registryManager =
+  RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
 ```
 
 Para encontrar a cadeia de conexão do para seu Hub IoT no Portal do Azure:
 
 - Navegue até o seu Hub IoT.
+
 - Selecione **Políticas de acesso compartilhado**.
+
 - Selecione uma política, levando em conta as permissões necessárias.
+
 - Copie a cadeia de conexão do painel no lado direito da tela.
 
 O trecho de código de C# a seguir mostra como verificar a cada cinco segundos para ver se o trabalho finalizou a execução:
@@ -95,7 +96,8 @@ O método **ExportDevicesAsync** exige dois parâmetros:
 * Uma *cadeia de caracteres* que contenha um URI de um contêiner de blobs. Esse URI deve conter um token SAS que conceda acesso de gravação ao contêiner. O trabalho cria um blob de blocos nesse contêiner para armazenar os dados do dispositivo de exportação serializados. O token SAS deve incluir estas permissões:
 
    ```csharp
-   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
+   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
+     | SharedAccessBlobPermissions.Delete
    ```
 
 * Um *booliano* que indica se você deseja excluir chaves de autenticação dos dados de exportação. Se for **false**, as chaves de autenticação serão incluídas na saída de exportação. Caso contrário, as chaves serão exportadas como **null**.
@@ -104,7 +106,8 @@ O seguinte trecho de código em C# mostra como iniciar um trabalho de exportaç�
 
 ```csharp
 // Call an export job on the IoT Hub to retrieve all devices
-JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
+JobProperties exportJob = 
+  await registryManager.ExportDevicesAsync(containerSasUri, false);
 
 // Wait until job is finished
 while(true)
@@ -213,10 +216,12 @@ O método **ImportDevicesAsync** usa dois parâmetros:
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
+
 * Uma *cadeia de caracteres* que contém um URI de um contêiner de blobs do [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/) como *saída* do trabalho. O trabalho cria um blob de blocos nesse contêiner para armazenar quaisquer informações de erro do **Trabalho**de importação concluído. O token SAS deve incluir estas permissões:
 
    ```csharp
-   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
+   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
+     | SharedAccessBlobPermissions.Delete
    ```
 
 > [!NOTE]
@@ -225,7 +230,8 @@ O método **ImportDevicesAsync** usa dois parâmetros:
 O trecho de código de C# a seguir mostra como iniciar um trabalho de importação:
 
 ```csharp
-JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
+JobProperties importJob = 
+   await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
 Esse método também pode ser usado para importar os dados para o dispositivo gêmeo. O formato para a entrada de dados é o mesmo mostrado na seção **ExportDevicesAsync**. Dessa forma, você pode reimportar os dados exportados. O **$metadata** é opcional.
@@ -313,7 +319,8 @@ using (CloudBlobStream stream = await blob.OpenWriteAsync())
 // Call import using the blob to add new devices
 // Log information related to the job is written to the same container
 // This normally takes 1 minute per 100 devices
-JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
+JobProperties importJob =
+   await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 
 // Wait until job is finished
 while(true)
@@ -412,22 +419,14 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 Neste artigo, você aprendeu a realizar operações em massa no registro de identidade em um Hub IoT. Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
-* [Métricas do Hub IoT][lnk-metrics]
-* [Monitoramento de operações][lnk-monitor]
+* [Métricas do Hub IoT](iot-hub-metrics.md)
+* [Monitoramento de operações](iot-hub-operations-monitoring.md)
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Guia do desenvolvedor do Hub IoT][lnk-devguide]
-* [Implantação do IA em dispositivos de borda com o Azure IoT Edge][lnk-iotedge]
+* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
+* [Implantação do IA em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Para explorar usando o Serviço de Provisionamento de Dispositivos do Hub IoT para habilitar o provisionamento sem toque e Just-In-Time, consulte: 
 
-* [Serviço de Provisionamento de Dispositivos no Hub IoT do Azure][lnk-dps]
-
-
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+* [Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](/azure/iot-dps)

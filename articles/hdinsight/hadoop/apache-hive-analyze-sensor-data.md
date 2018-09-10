@@ -1,24 +1,20 @@
 ---
-title: Analisar dados de sensor usando Hive e Hadoop – HDInsight do Azure | Microsoft Docs
+title: Analisar dados de sensor usando Hive e Hadoop – HDInsight do Azure
 description: Saiba como analisar dados do sensor usando o Console de consulta Hive com HDInsight (Hadoop) e depois visualizar os dados no Microsoft Excel usando o PowerView.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: a8ac160c-1cef-45d9-bf36-7beb5a439105
 ms.service: hdinsight
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
-ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: eb3dc93d7cb741a8a3099abe13d00f40c9639705
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f82bac1b478183cad41e1bb9f7dce3fed8b5417b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048891"
 ---
 # <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analisar dados de sensor usando o Console de consulta Hive no Hadoop HDInsight
 
@@ -37,7 +33,7 @@ Neste exemplo, usamos o Hive para processar dados históricos e identificar prob
 
 ![Um diagrama da arquitetura da solução](./media/apache-hive-analyze-sensor-data/hvac-architecture.png)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster do HDInsight (Hadoop): veja [Criar clusters Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) para obter informações sobre como criar um cluster.
 * Microsoft Excel 2013

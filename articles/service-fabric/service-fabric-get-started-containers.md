@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5fcd42a2453bddbfc1c1d1939dd9e63e7e09bdb0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 41246e434f8adade65f39b3471417888f62d7528
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366521"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42139995"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
 > [!div class="op_single_selector"]
@@ -28,22 +28,29 @@ ms.locfileid: "34366521"
 
 Executar um aplicativo existente em um contêiner do Windows em um cluster do Service Fabric não requer alterações no seu aplicativo. Este artigo mostra como criar uma imagem do Docker que contém um aplicativo de web Python [Flask](http://flask.pocoo.org/) e a implantá-lo em um cluster do Service Fabric. Você também compartilhará seu aplicativo em contêineres pelo [Registro de Contêiner do Azure](/azure/container-registry/). Este artigo pressupõe uma compreensão básica sobre o Docker. Saiba mais sobre o Docker lendo a [Visão geral de Docker](https://docs.docker.com/engine/understanding-docker/).
 
-## <a name="prerequisites"></a>pré-requisitos
-Um computador de desenvolvimento executando:
-* Visual Studio 2015 ou Visual Studio 2017.
-* [Ferramentas e SDK do Service Fabric](service-fabric-get-started.md).
-*  Docker para Windows. [Obter Docker CE para o Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique no ícone de bandeja e selecione **Alternar para contêineres do Windows**. Essa etapa é necessária para executar imagens do Docker com base no Windows.
+## <a name="prerequisites"></a>Pré-requisitos
+* Um computador de desenvolvimento executando:
+  * Visual Studio 2015 ou Visual Studio 2017.
+  * [Ferramentas e SDK do Service Fabric](service-fabric-get-started.md).
+  *  Docker para Windows. [Obter Docker CE para o Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique no ícone de bandeja e selecione **Alternar para contêineres do Windows**. Essa etapa é necessária para executar imagens do Docker com base no Windows.
 
-Um cluster do Windows com três ou mais nós em execução no Windows Server 2016 com contêineres - [Criar um cluster](service-fabric-cluster-creation-via-portal.md) ou [experimente o Service Fabric gratuitamente](https://aka.ms/tryservicefabric).
+* Um cluster do Windows com três ou mais nós em execução no Windows Server com contêineres. 
 
-Um registro no Registro de Contêiner do Azure - [Crie um registro de contêiner](../container-registry/container-registry-get-started-portal.md) em sua assinatura do Azure.
+  Neste artigo, a versão (build) do Windows Server com contêineres em execução em nós do cluster deve corresponder em seu computador de desenvolvimento. Isso ocorre porque você compila a imagem do docker em seu computador de desenvolvimento e há restrições de compatibilidade entre versões do sistema operacional do contêiner e o sistema operacional do host no qual ele foi implantado. Para obter mais informações, consulte [Compatibilidade do sistema operacional do contêiner e do sistema operacional do host do Windows Server](#windows-server-container-os-and-host-os-compatibility). 
+  
+  Para determinar a versão do Windows Server com contêineres que você precisa para seu cluster, execute o comando `ver` em um prompt de comando do Windows no computador de desenvolvimento:
+
+  * Se a versão contém *x.x.14323.x*, selecione *WindowsServer 2016-Datacenter-with-Containers* para o sistema operacional ao [criar um cluster](service-fabric-cluster-creation-via-portal.md). Você também pode [experimentar o Service Fabric gratuitamente](https://aka.ms/tryservicefabric) com um cluster de participante.
+  * Se a versão contém *x.x.16299.x*, selecione *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* para o sistema operacional ao [criar um cluster](service-fabric-cluster-creation-via-portal.md). No entanto, não é possível usar um cluster de participante.
+
+* Um registro no Registro de Contêiner do Azure - [Crie um registro de contêiner](../container-registry/container-registry-get-started-portal.md) em sua assinatura do Azure.
 
 > [!NOTE]
-> Ainda não há suporte para a implantação de contêineres em um cluster do Service Fabric no Windows 10 ou em um cluster com Docker CE. Este passo a passo testa localmente usando o mecanismo do Docker no Windows 10 e, por fim, implanta os serviços de contêiner em um cluster do Windows Server no Azure executando o Docker EE. 
+> A implantação de contêineres em um cluster do Service Fabric em execução no Windows 10 tem suporte.  Consulte [este artigo](service-fabric-how-to-debug-windows-containers.md) para obter informações sobre como configurar o Windows 10 para executar contêineres do Windows.
 >   
 
 > [!NOTE]
-> A versão 6.1 do Service Fabric tem suporte para a versão prévia 1709 do Windows Server. A rede aberta e o Serviço DNS do Service Fabric não funcionam com a versão 1709 do Windows Server. 
+> O Service Fabric versões 6.2 e posteriores dá suporte para implantação de contêineres em clusters em execução no Windows Server versão 1709.  
 > 
 
 ## <a name="define-the-docker-container"></a>Defina o contêiner Docker
@@ -160,7 +167,7 @@ Depois de verificar que o contêiner é executado na máquina de desenvolvimento
 
 Execute ``docker login`` para fazer logon em seu registro de contêiner as [credenciais de registro](../container-registry/container-registry-authentication.md).
 
-O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/active-directory-application-objects.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. Ou, você pode fazer logon usando o nome de usuário e a senha do registro.
+O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. Ou, você pode fazer logon usando o nome de usuário e a senha do registro.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -197,6 +204,8 @@ O serviço em contêineres precisa de um ponto de extremidade para comunicação
   </Endpoints>
 </Resources>
 ```
+> [!NOTE]
+> Endpoints adicionais para um serviço podem ser adicionados declarando elementos EndPoint adicionais com valores de propriedade aplicáveis. Cada porta só pode declarar um valor de protocolo.
 
 Definindo um ponto de extremidade, o Service Fabric publica o ponto de extremidade para o Serviço de nomeação. Outros serviços em execução no cluster podem resolver este contêiner. Você também pode executar a comunicação de contêiner para contêiner usando o [proxy reverso](service-fabric-reverseproxy.md). A comunicação é realizada fornecendo a porta de escuta de proxy reverso HTTP e o nome dos serviços com os quais você deseja se comunicar como variáveis de ambiente.
 
@@ -240,6 +249,8 @@ Configure uma porta de host usada para se comunicar com o contêiner. A associa�
     ...
 </ServiceManifestImport>
 ```
+> [!NOTE]
+> PortBindings adicionais para um serviço podem ser adicionados, declarando elementos PortBinding adicionais com valores de propriedade aplicável.
 
 ## <a name="configure-container-registry-authentication"></a>Definir autenticação do registro de contêiner
 Configurar a autenticação de registro de contêiner adicionando `RepositoryCredentials` a `ContainerHostPolicies` do arquivo ApplicationManifest.xml. Adicione a conta e a senha para o registro de contêiner myregistry.azurecr.io, o que permite ao serviço baixar a imagem de contêiner do repositório.
@@ -316,7 +327,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 ```
 
 ## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento
-O Windows dá suporte a dois modos de isolamento para contêineres: processo e Hyper-V. Com o modo de isolamento de processo, todos os contêineres em execução no mesmo computador host compartilham o kernel com o host. Com o modo de isolamento do Hyper-V, os kernels são isolados entre cada contêiner do Hyper-V e o host do contêiner. O modo de isolamento é especificado no elemento `ContainerHostPolicies` no arquivo de manifesto do aplicativo. Os modos de isolamento que podem ser especificados são `process`, `hyperv` e `default`. O modo de isolamento padrão usa `process` por padrão em hosts do Windows Server e usa `hyperv` por padrão em hosts do Windows 10. O trecho a seguir mostra como o modo de isolamento é especificado no arquivo de manifesto do aplicativo.
+O Windows dá suporte a dois modos de isolamento para contêineres: processo e Hyper-V. Com o modo de isolamento de processo, todos os contêineres em execução no mesmo computador host compartilham o kernel com o host. Com o modo de isolamento do Hyper-V, os kernels são isolados entre cada contêiner do Hyper-V e o host do contêiner. O modo de isolamento é especificado no elemento `ContainerHostPolicies` no arquivo de manifesto do aplicativo. Os modos de isolamento que podem ser especificados são `process`, `hyperv` e `default`. O padrão é o modo de isolamento de processo nos hosts do Windows Server. Em hosts do Windows 10, somente o modo de isolamento do Hyper-V tem suporte, assim o contêiner é executado no modo de isolamento do Hyper-V, independentemente de sua configuração de modo de isolamento. O trecho a seguir mostra como o modo de isolamento é especificado no arquivo de manifesto do aplicativo.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
@@ -387,19 +398,44 @@ docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
+## <a name="windows-server-container-os-and-host-os-compatibility"></a>Compatibilidade do sistema operacional do contêiner e do sistema operacional do host do Windows Server
+
+Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional do host. Por exemplo: 
+ 
+- Os contêineres do Windows Server criados usando o Windows Server versão 1709 não funcionam em um host executando o Windows Server versão 2016. 
+- Os contêineres do Windows Server criados usando o Windows Server 2016 no modo de isolamento hiperv somente em um host executando o Windows Server versão 1709. 
+- Com contêineres do Windows Server criados usando o Windows Server 2016, pode ser necessário garantir que a revisão do sistema operacional do contêiner e sistema operacional do host são as mesmas durante a execução no modo de isolamento do processo em um host executando o Windows Server 2016.
+ 
+Para obter mais informações, consulte [Compatibilidade de versão de contêiner do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+
+Considere a compatibilidade do sistema operacional do host e do sistema operacional do contêiner ao compilar e implantar contêineres para o cluster do Service Fabric. Por exemplo: 
+
+- Verifique se que você implanta os contêineres com um sistema operacional compatível com o sistema operacional nos nós do cluster.
+- Certifique-se de que o modo de isolamento especificado para o aplicativo de contêiner é consistente com o suporte para o sistema operacional do contêiner no nó onde ele está sendo implantado.
+- Considere como as atualizações do sistema operacional para os nós do cluster ou contêineres podem afetar sua compatibilidade. 
+
+Recomendamos as seguintes práticas para certificar-se de que os contêineres são implantados corretamente no cluster do Service Fabric:
+
+- Use a marcação de imagem explícita com as imagens do Docker para especificar a versão do sistema operacional do Windows Server a partir da qual um contêiner é criado. 
+- Use a [marcação do SO](#specify-os-build-specific-container-images) em seu arquivo de manifesto do aplicativo para certificar-se de que seu aplicativo é compatível com versões e atualizações diferentes do Windows Server.
+
+> [!NOTE]
+> Com o Service Fabric versão 6.2 e posterior, você pode implantar contêineres baseados no Windows Server 2016 localmente em um host do Windows 10. No Windows 10, os contêineres são executados no modo de isolamento do Hyper-V, independentemente do modo de isolamento definido no manifesto do aplicativo. Para obter mais informações, consulte [Configurar o modo de isolamento](#configure-isolation-mode).   
+>
+ 
 ## <a name="specify-os-build-specific-container-images"></a>Especifique a compilação do sistema operacional das imagens de contêiner específicas 
 
-Os contêineres do Windows Server (modo de isolamento do processo) podem não ser compatíveis com versões mais recentes do sistema operacional. Por exemplo, os contêineres do Windows Server criados usando o Windows Server 2016 não funcionam na versão 1709 do Windows Server. Portanto, se os nós do cluster forem atualizados para a versão mais recente, os serviços de contêiner criados com versões anteriores do sistema operacional poderão falhar. Para contornar isso com a versão 6.1 do tempo de execução e mais recente, o Service Fabric oferece suporte à especificação de várias imagens do sistema operacional por contêiner e marca-as com as versões de compilação do sistema operacional (obtidas com a execução do `winver` em um prompt de comando do Windows). Atualize os manifestos do aplicativo e especificar as substituições de imagem por versão do sistema operacional antes de atualizar o sistema operacional nos nós. O trecho de código a seguir mostra como especificar várias imagens de contêiner no manifesto do aplicativo, **ApplicationManifest.xml**:
+Os contêineres do Windows Server podem não ser compatíveis entre diferentes versões do sistema operacional. Por exemplo, os contêineres do Windows Server criados usando o Windows Server 2016 não funcionam na versão 1709 do Windows Server no modo de isolamento do processo. Portanto, se os nós do cluster forem atualizados para a versão mais recente, os serviços de contêiner criados com versões anteriores do sistema operacional poderão falhar. Para contornar isso com a versão 6.1 do tempo de execução e mais recente, o Service Fabric oferece suporte à especificação de várias imagens do sistema operacional por contêiner e marca-as com as versões de compilação do sistema operacional no manifesto do aplicativo. Você pode obter a versão do sistema operacional executando `winver` em um prompt de comando do Windows. Atualize os manifestos do aplicativo e especificar as substituições de imagem por versão do sistema operacional antes de atualizar o sistema operacional nos nós. O trecho de código a seguir mostra como especificar várias imagens de contêiner no manifesto do aplicativo, **ApplicationManifest.xml**:
 
 
 ```xml
-<ContainerHostPolicies> 
+      <ContainerHostPolicies> 
          <ImageOverrides> 
            <Image Name="myregistry.azurecr.io/samples/helloworldappDefault" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
          </ImageOverrides> 
-     </ContainerHostPolicies> 
+      </ContainerHostPolicies> 
 ```
 A versão de compilação para o WIndows Server 2016 é 14393 e a versão de compilação para a versão 1709 do Windows Server é 16299. O manifesto do serviço continua a especificar apenas uma imagem por serviço de contêiner, como mostra o seguinte:
 
@@ -566,13 +602,13 @@ O tempo de execução do Service Fabric aloca 20 minutos para baixar e extrair a
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
-              "name": " ContainerImageDownloadTimeout ",
+              "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -594,7 +630,7 @@ Com a versão 6.2, e superiores, do tempo de execução do Service Fabric, você
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 

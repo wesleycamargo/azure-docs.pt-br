@@ -6,7 +6,7 @@ Quando você aplicar atualizações do modo de manutenção para o dispositivo S
 > * Antes de entrar no modo de manutenção, verifique se ambos os controladores estão íntegros no portal do Azure. Se o controlador não estiver íntegro, [entre em contato com o Suporte da Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) para saber as próximas etapas.
 > * Quando você estiver no modo de manutenção, você precisa primeiro atualizar um controlador e, em seguida, o outro controlador.
 
-1. Use o PuTTY para conectar-se ao console serial. Siga as instruções detalhadas em [Usar o PuTTy para se conectar ao console serial do dispositivo](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). No prompt de comando, pressione **Enter**. Selecione a Opção 1 para fazer logon no dispositivo com acesso completo.
+1. Use o PuTTY para conectar-se ao console serial. Siga as instruções detalhadas em [Usar o PuTTy para se conectar ao console serial do dispositivo](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). No prompt de comando, pressione **Enter**. Selecione a Opção 1, **Fazer logon com acesso completo**.
 
 2. Para colocar o controlador no modo de manutenção, digite:
     
@@ -14,13 +14,13 @@ Quando você aplicar atualizações do modo de manutenção para o dispositivo S
 
     Ambos os controladores são reiniciados no modo de manutenção.
 
-3. Instale suas atualizações no modo de manutenção. Tipo:
+3. Instale suas atualizações no modo de manutenção. Digite:
 
     `Start-HcsUpdate`
 
     Você recebe uma solicitação para fornecer sua confirmação. Depois de confirmar as atualizações, elas serão instaladas no controlador que está sendo atualmente acessado por você. Depois que as atualizações forem instaladas, o controlador é reiniciado.
 
-4. Monitore o status das atualizações. Faça logon no outro controlador já que o controlador atual está sendo atualizado e não é capaz de processar nenhum outro comando. Tipo:
+4. Monitore o status das atualizações. Faça logon no outro controlador já que o controlador atual está sendo atualizado e não é capaz de processar nenhum outro comando. Digite:
 
     `Get-HcsUpdateStatus`
 

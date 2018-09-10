@@ -1,24 +1,20 @@
 ---
-title: Usar o Hive do Hadoop no Console de Consulta no HDInsight – Azure | Microsoft Docs
+title: Usar o Hive do Hadoop no Console de Consulta no HDInsight
 description: Neste artigo, você aprenderá como usar o Console de Consulta do HDInsight para executar consultas do Hive em um cluster HDInsight Hadoop por meio do seu navegador.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 5ae074b0-f55e-472d-94a7-005b0e79f779
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 04a6ad67fec4145d8f9164743b08f9e105778091
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e080085faa45e0eb330e49edb4450c5a44eb755b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045602"
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>Executar consultas Hive usando o Console de Consulta
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

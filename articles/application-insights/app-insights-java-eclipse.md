@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8e8e63b053cb5bd504a41da9b537354a1dd42968
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795553"
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Introdução ao Application Insights com Java no Eclipse
 O SDK do Application Insights envia telemetria por meio do seu aplicativo Web Java para que você possa analisar o uso e o desempenho. O plug-in Eclipse para o Application Insights instala automaticamente o SDK em seu projeto para que você obtenha telemetria já pronta, além de uma API que você pode usar para escrever telemetria personalizada.   
@@ -32,6 +33,8 @@ Você precisará de:
 * Uma assinatura do [Microsoft Azure](https://azure.microsoft.com/).
 * [Um IDE do Eclipse para desenvolvedores do Java EE](http://www.eclipse.org/downloads/), Indigo ou posterior.
 * Windows 7 ou posterior, ou Windows Server 2008 ou posterior
+
+Se você preferir a estrutura Spring tente o [guia para configurar um aplicativo inicializador Spring Boot para usar o Application Insights](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## <a name="install-the-sdk-on-eclipse-one-time"></a>Instalar o SDK no Eclipse (uma vez)
 Você só precisa fazer isso uma vez por computador. Esta etapa instala um kit de ferramentas que pode então adicionar o SDK para cada projeto Web dinâmico.

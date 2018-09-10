@@ -3,7 +3,7 @@ title: Abrir portas para uma VM do Linux com a CLI 2.0 do Azure | Microsoft Docs
 description: Saiba como abrir uma porta e criar um ponto de extremidade para a VM Linux usando o modelo de implantação do Azure Resource Manager e a CLI 2.0 do Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
@@ -13,15 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: iainfou
-ms.openlocfilehash: 16493d7ecdec0ec1464820be7668dfa19ec1b13c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: cynthn
+ms.openlocfilehash: 7125523b051441a2547560ff3af650ccd91f07a0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928882"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Abrir portas e pontos de extremidade para uma VM Linux com a CLI do Azure
-No Azure, você abre uma porta, ou cria um ponto de extremidade, para uma VM (máquina virtual) criando um filtro de rede ou uma sub-rede ou interface de rede de VM. Coloque os filtros, que controlam o tráfego de entrada e saída, em um Grupo de Segurança de Rede anexado ao recurso que recebe o tráfego. Vamos usar um exemplo comum de tráfego da Web na porta 80. Este artigo mostra como abrir uma porta para uma VM usando a CLI 2.0 do Azure. Você também pode executar essas etapas com a [CLI do Azure 1.0](nsg-quickstart-nodejs.md).
+No Azure, você abre uma porta, ou cria um ponto de extremidade, para uma VM (máquina virtual) criando um filtro de rede ou uma sub-rede ou interface de rede de VM. Coloque os filtros, que controlam o tráfego de entrada e saída, em um Grupo de Segurança de Rede anexado ao recurso que recebe o tráfego. Vamos usar um exemplo comum de tráfego da Web na porta 80. Este artigo mostra como abrir uma porta para uma VM usando a CLI 2.0 do Azure. 
 
 Para criar regras e um Grupo de Segurança de Rede, é necessário ter a última [CLI 2.0 do Azure](/cli/azure/install-az-cli2) instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index#az_login).
 

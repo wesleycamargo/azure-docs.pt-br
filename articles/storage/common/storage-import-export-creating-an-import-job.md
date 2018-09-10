@@ -2,23 +2,18 @@
 title: Criar um trabalho de importação para a Importação/Exportação do Azure | Microsoft Docs
 description: Saiba como criar uma importação para o serviço de Importação/Exportação do Microsoft Azure.
 author: muralikk
-manager: syadav
-editor: syadav
 services: storage
-documentationcenter: ''
-ms.assetid: 8b886e83-6148-4149-9d0f-5d48ec822475
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: a80d2169f346238f997c727f0e9d82666897b608
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.component: common
+ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666012"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Criando um trabalho de importação para o serviço de Importação/Exportação do Azure
 
@@ -62,7 +57,7 @@ Para preparar a unidade:
 
 ## <a name="obtaining-your-shipping-location"></a>Obtendo o local de envio
 
-Antes de criar um trabalho de importação, você precisa obter um nome e o endereço de um local de envio chamando a operação [List Locations](/rest/api/storageimportexport/listlocations). `List Locations` retorna uma lista de locais e seus endereços de correspondência. É possível selecionar uma localização na lista retornada e enviar os discos rígidos para esse endereço. Você também pode usar a operação `Get Location` para obter o endereço para entrega de uma localização específica diretamente.
+Antes de criar um trabalho de importação, você precisa obter um nome e o endereço de um local de envio chamando a operação [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list). `List Locations` retorna uma lista de locais e seus endereços de correspondência. É possível selecionar uma localização na lista retornada e enviar os discos rígidos para esse endereço. Você também pode usar a operação `Get Location` para obter o endereço para entrega de uma localização específica diretamente.
 
  Siga as etapas abaixo para obter a localização de envio:
 

@@ -9,20 +9,21 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 84215daac950f602c815e1ffc5ae6dd5269d9bdf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: efedb7cde06ed03ec330027a18b00bcc897919cf
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576912"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurar uma entidade de serviço do Azure AD para um cluster Kubernetes no contêiner de serviço
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-No Serviço de Contêiner do Azure, um cluster Kubernetes requer uma [entidade de serviço do Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md) para interagir com as APIs do Azure. A entidade de serviço é necessária para gerenciar dinamicamente recursos como [rotas definidas pelo usuário](../../virtual-network/virtual-networks-udr-overview.md) e o [Azure Load Balancer da Camada 4](../../load-balancer/load-balancer-overview.md).
+No Serviço de Contêiner do Azure, um cluster Kubernetes requer uma [entidade de serviço do Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) para interagir com as APIs do Azure. A entidade de serviço é necessária para gerenciar dinamicamente recursos como [rotas definidas pelo usuário](../../virtual-network/virtual-networks-udr-overview.md) e o [Azure Load Balancer da Camada 4](../../load-balancer/load-balancer-overview.md).
 
 
-Este artigo mostra diferentes opções para configurar uma entidade de serviço para o cluster Kubernetes. Por exemplo, se você instalou e configurou a [CLI do Azure 2.0](/cli/azure/install-az-cli2), poderá executar o comando [`az acs create`](/cli/azure/acs#az_acs_create) para criar o cluster Kubernetes e a entidade de serviço ao mesmo tempo.
+Este artigo mostra diferentes opções para configurar uma entidade de serviço para o cluster Kubernetes. Por exemplo, se você instalou e configurou a [CLI do Azure 2.0](/cli/azure/install-az-cli2), poderá executar o comando [`az acs create`](/cli/azure/acs#az-acs-create) para criar o cluster Kubernetes e a entidade de serviço ao mesmo tempo.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Requisitos para a entidade de serviço
@@ -95,7 +96,7 @@ O exemplo a seguir mostra uma maneira de passar os parâmetros com a CLI do Azur
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opção 2: gerar uma entidade de serviço ao criar o cluster com `az acs create`
 
-Se você executar o comando [ `az acs create` ](/cli/azure/acs#az_acs_create) para criar o cluster Kubernetes, terá a opção de gerar uma entidade de serviço automaticamente.
+Se você executar o comando [ `az acs create` ](/cli/azure/acs#az-acs-create) para criar o cluster Kubernetes, terá a opção de gerar uma entidade de serviço automaticamente.
 
 Como ocorre com outras opções de criação do cluster Kubernetes, você pode especificar parâmetros para uma entidade de serviço existente quando executa `az acs create`. No entanto, quando você omite esses parâmetros, a CLI do Azure cria uma automaticamente para uso com o serviço de contêiner. Isso ocorre de forma transparente durante a implantação.
 
@@ -131,7 +132,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 A menos que você especifique uma janela de validade personalizada com o parâmetro `--years` quando você cria uma entidade de serviço, suas credenciais serão válidas por um ano a partir do momento da criação. Quando a credencial expirar, os nós de cluster poderão entrar em um estado **NotReady**.
 
-Para verificar a data de validade de uma entidade de serviço, execute o comando [az ad app show](/cli/azure/ad/app#az_ad_app_show) com o parâmetro `--debug` e procure o valor `endDate` do `passwordCredentials` próximo à parte inferior da saída:
+Para verificar a data de validade de uma entidade de serviço, execute o comando [az ad app show](/cli/azure/ad/app#az-ad-app-show) com o parâmetro `--debug` e procure o valor `endDate` do `passwordCredentials` próximo à parte inferior da saída:
 
 ```azurecli
 az ad app show --id <appId> --debug
@@ -145,7 +146,7 @@ Saída (mostrada aqui truncada):
 ...
 ```
 
-Se suas credenciais de entidade de serviço tiverem expirado, use o comando [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) para atualizar as credenciais:
+Se suas credenciais de entidade de serviço tiverem expirado, use o comando [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) para atualizar as credenciais:
 
 ```azurecli
 az ad sp reset-credentials --name <appId>

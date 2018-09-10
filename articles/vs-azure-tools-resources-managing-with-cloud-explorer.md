@@ -7,22 +7,24 @@ manager: douge
 assetId: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/25/2017
 ms.author: ghogen
-ms.openlocfilehash: 9d8ae465e80ab38c1d7b0f6082865c110c0ff06b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a4be3f063c51f26e1df9ecf4cca4ae0655554750
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141419"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Gerenciar os recursos associados com suas contas do Azure no Visual Studio Cloud Explorer
 O Cloud Explorer permite exibir os recursos e grupos de recursos do Azure, inspecionar suas propriedades e executar ações chave de diagnóstico do desenvolvedor de dentro do Visual Studio. 
 
 O Cloud Explorer é criado na pilha do Azure Resource Manager, assim como o [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Sendo assim, o Cloud Explorer compreende recursos tais como os grupos de recursos do Azure e serviços do Azure como Aplicativos Lógicos e Aplicativos de API; além disso, ele dá suporte a RBAC [(controle de acesso baseado em função)](role-based-access-control/role-assignments-portal.md). 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) com a **Carga de trabalho do Azure** selecionada ou uma versão anterior do Visual Studio com o [Microsoft Azure SDK para .NET 2.9](https://www.microsoft.com/en-us/download/details.aspx?id=51657).
 - Conta do Microsoft Azure – se não tiver uma conta do Azure, você poderá [inscrever-se para uma avaliação gratuita](http://go.microsoft.com/fwlink/?LinkId=623901) ou [ativar seus benefícios de assinante do Visual Studio](http://go.microsoft.com/fwlink/?LinkId=623901).
 

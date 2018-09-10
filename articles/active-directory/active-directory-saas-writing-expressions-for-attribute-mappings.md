@@ -3,21 +3,22 @@ title: Escrevendo expressões para mapeamentos de atributo no Azure Active Direc
 description: Aprenda a usar o mapeamentos de expressão para transformar valores de atributo em um formato aceitável durante o provisionamento automatizado de objetos de aplicativo SaaS no Active Directory do Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
-ms.author: markvi
-ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
+ms.openlocfilehash: 0fa8fc6408a81429dfa9e8d73ef842644591c144
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365932"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
@@ -36,7 +37,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 * Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Acrescentar
@@ -46,7 +47,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
 | **suffix** |Obrigatório |Cadeia de caracteres |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
@@ -59,7 +60,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
 | **inputFormat** |Obrigatório |Cadeia de caracteres |Formato esperado do valor de source. Para formatos com suporte, consulte [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
@@ -75,7 +76,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **separator** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
 | **source1  … sourceN ** |Obrigatório, número de vezes variável |Cadeia de caracteres |Valores de cadeia de caracteres a serem unidos. |
@@ -88,11 +89,23 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Geralmente o nome do atributo. |
 | **iniciar** |Obrigatório |inteiro |Índice na cadeia de caracteres de **source** em que a subcadeia de caracteres deve começar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
 | **length** |Obrigatório |inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
+
+- - -
+### <a name="normalizediacritics"></a>NormalizeDiacritics
+**Função:**<br> NormalizeDiacritics(source)
+
+**Descrição:**<br> Requer um argumento de cadeia de caracteres. Retorna a cadeia de caracteres, mas com nenhum dos caracteres diacríticos substituídos por caracteres não diacríticas equivalentes. Normalmente usado para converter os nomes e sobrenomes que contêm caracteres diacríticos (acentos) em valores legais que podem ser usados em vários identificadores de usuário, como nomes de entidade de segurança do usuário, nomes de conta SAM e endereços de email.
+
+**Parâmetros:**<br> 
+
+| NOME | Obrigatório/repetição | Tipo | Observações |
+| --- | --- | --- | --- |
+| **fonte** |Obrigatório |Cadeia de caracteres | Geralmente um atributo de nome ou sobrenome |
 
 - - -
 ### <a name="not"></a>não
@@ -102,7 +115,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres booliana |Os valores de **source** esperados são "True" ou "False". |
 
@@ -128,8 +141,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
   * Se **source** tiver um valor, usa **oldValueRegexPattern** e **oldValueRegexGroupName** para extrair o valor de substituição da propriedade com **replacementPropertyName**. O valor de substituição é retornado como o resultado
 
 **Parâmetros:**<br> 
-
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
 | **oldValue** |Opcional |Cadeia de caracteres |Valor a ser substituído em **source** ou **template**. |
@@ -143,11 +155,11 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Função:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**Descrição:**<br> Retorna um único appRoleAssignment da lista de todos os appRoleAssignments atribuída a um usuário para um determinado aplicativo. Essa função é necessária para converter o objeto appRoleAssignments em uma cadeia de caracteres de nome de função única. Observe que a prática recomendada é garantir que apenas um appRoleAssignment seja atribuído por usuário por vez, e se várias funções forem atribuídas a cadeia de caracteres de função retornada pode não ser previsível.
+**Descrição:**<br> Requer um argumento de cadeia de caracteres. Retorna a cadeia de caracteres, mas com nenhum dos caracteres diacríticos substituídos por caracteres não diacríticas equivalentes.
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obrigatório |Cadeia de caracteres |Objeto **[appRoleAssignments]**. |
 
@@ -159,7 +171,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |**fonte** a atualizar. |
 
@@ -171,7 +183,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |**Source** a atualizar. |
 | **defaultValue** |Opcional |Cadeia de caracteres |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
@@ -214,16 +226,16 @@ Você precisa gerar um alias de usuário selecionando as três primeiras letras 
 * **ENTRADA** (sobrenome): "Barros"
 * **SAÍDA**: "DaviBarros"
 
-### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Remover diacríticos de uma cadeia de caracteres e converter em minúsculas
-Você precisa remover caracteres especiais de uma cadeia de caracteres e converter caracteres maiúsculos em minúsculos.
+### <a name="remove-diacritics-from-a-string"></a>Remover diacríticos de uma cadeia de caracteres
+Você precisa substituir caracteres que contenham os acentos por caracteres equivalentes que não contenham acentos.
 
 **Expressão:** <br>
-`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+NormalizeDiacritics([givenName])
 
 **Entrada/saída de exemplo:** <br>
 
-* **ENTRADA** (givenName): "Zoë"
-* **SAÍDA**:  "zoe"
+* **INPUT** (givenName): "Zoë"
+* **SAÍDA**:  "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Gerar data como uma cadeia de caracteres em um determinado formato
 Você deseja enviar datas para um aplicativo SaaS em um determinado formato. <br>
@@ -256,7 +268,7 @@ Se o código de estado não corresponder a nenhuma das opções predefinidas, us
 * [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md)
 * [Personalizando os mapeamentos de atributos para provisionamento de usuários](active-directory-saas-customizing-attribute-mappings.md)
 * [Filtros de escopo para provisionamento de usuários](active-directory-saas-scoping-filters.md)
-* [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](active-directory-scim-provisioning.md)
+* [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Notificações de provisionamento de conta](active-directory-saas-account-provisioning-notifications.md)
-* [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS](saas-apps/tutorial-list.md)
 

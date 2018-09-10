@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 08/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 96255ed92e0dc05aa5a215a78a070f60f001e8bc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c4d1170bd2fe4acb135c88191b447f734e312723
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715950"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico
 O Banco de Dados SQL do Microsoft Azure permite um subconjunto de modos de exibição de gerenciamento dinâmico para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou demoradas, gargalos de recursos, planos de consulta ruins e assim por diante. Este tópico fornece informações sobre como detectar problemas de desempenho comuns usando exibições de gerenciamento dinâmico.
@@ -39,8 +40,9 @@ A seguinte consulta retorna o tamanho do seu banco de dados (em megabytes):
 
 ```
 -- Calculates the size of the database.
-SELECT SUM(reserved_page_count)*8.0/1024
-FROM sys.dm_db_partition_stats;
+SELECT SUM(CAST(FILEPROPERTY(name, 'SpaceUsed') AS bigint) * 8192.) / 1024 / 1024 AS DatabaseSizeInMB
+FROM sys.database_files
+WHERE type_desc = 'ROWS';
 GO
 ```
 

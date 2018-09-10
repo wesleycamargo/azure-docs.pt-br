@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: dcc733308f4c0441545dc0d03cca2ca1112812ac
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 4883791a32a65746a72afb63755ecf608dc840d9
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012910"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503818"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um emparelhamento de rede virtual – modelos de implantação e assinaturas diferentes
 
@@ -36,7 +36,7 @@ As etapas para criar um emparelhamento de rede virtual são diferentes, dependen
 
 Não é possível criar um emparelhamento de rede virtual entre duas redes virtuais implantadas por meio do modelo de implantação clássico. Este tutorial usa as redes virtuais existentes na mesma região. Este tutorial emparelha redes virtuais na mesma região. Você também pode emparelhar redes virtuais em [regiões com suporte](virtual-network-manage-peering.md#cross-region) diferentes. É recomendável que você se familiarize com os [requerimentos e as restrições de emparelhamento](virtual-network-manage-peering.md#requirements-and-constraints) antes de emparelhar redes virtuais.
 
-Ao criar um emparelhamento de rede virtual entre redes virtuais em assinaturas diferentes, as assinaturas devem estar ambas associadas ao mesmo locatário do Azure Active Directory. Se você ainda não tem um locatário do Azure Active Directory, você pode [criar um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) rapidamente. É possível conectar redes virtuais em diferentes assinaturas e diferentes locatários do Azure Active Directory usando um [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure.
+Ao criar um emparelhamento de rede virtual entre redes virtuais em assinaturas diferentes, as assinaturas devem estar ambas associadas ao mesmo locatário do Azure Active Directory. Se você ainda não tem um locatário do Azure Active Directory, você pode [criar um](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) rapidamente. É possível conectar redes virtuais em diferentes assinaturas e diferentes locatários do Azure Active Directory usando um [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure.
 
 Você pode usar o [portal do Azure](#portal), a [CLI](#cli) (interface de linha de comando) do Azure ou o [Azure PowerShell](#powershell) para criar um emparelhamento de rede virtual. Clique em um dos links de ferramentas anteriores para ir diretamente para as etapas para a criação de um emparelhamento de rede virtual usando a ferramenta de sua escolha.
 
@@ -107,7 +107,7 @@ Este tutorial usa contas diferentes para cada assinatura. Se você estiver usand
     ```azurecli
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
-5. As etapas restantes devem ser concluídas usando um shell de bash com a CLI do Azure 2.0.4 ou posterior [instalada](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) ou usando o Azure Cloud Shell. O Azure Cloud Shell é um shell Bash gratuito que podem ser executado diretamente no portal do Azure. Ele tem a CLI do Azure instalada e configurada para usar com sua conta. Clique no botão **Experimente** nos scripts a seguir, que abre um Cloud Shell que conecta você à sua conta do Azure. Para opções de como executar scripts da CLI de Bash em um cliente Windows, veja [Execução da CLI do Azure no Windows](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+5. As etapas restantes devem ser concluídas usando um shell de bash com a CLI do Azure 2.0.4 ou posterior [instalada](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) ou usando o Azure Cloud Shell. O Azure Cloud Shell é um shell Bash gratuito que podem ser executado diretamente no portal do Azure. Ele tem a CLI do Azure instalada e configurada para usar com sua conta. Clique no botão **Experimente** nos scripts a seguir, que abre um Cloud Shell que conecta você à sua conta do Azure. Para obter mais sobre como executar scripts da CLI do Azure no cliente Windows, veja [ Instalar um CLI do Azure no Windows ](/cli/azure/install-azure-cli-windows). 
 6. Copie o script a seguir em um editor de texto em seu computador. Substitua `<SubscriptionB-Id>` por sua ID da assinatura. Se você não souber a ID da assinatura, insira o comando `az account show`. O valor da **ID** na saída é sua ID da assinatura. Copie o script modificado, cole-o na sua sessão da CLI 2.0 e, em seguida, pressione `Enter`. 
 
     ```azurecli-interactive

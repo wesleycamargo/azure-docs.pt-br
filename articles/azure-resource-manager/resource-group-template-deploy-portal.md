@@ -4,24 +4,23 @@ description: Use o portal do Azure e o Azure Resource Manager para implantar seu
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: c2232e1ce92eb6198b22bad22b8c3e10bab6bf12
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c16d584f17aa2c209c9c0ec94d35f6fe78ba1907
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494067"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implantar recursos com modelos do Resource Manager e o portal do Azure
 
-Este tópico mostra como usar o [Portal do Azure](https://portal.azure.com) com o [Azure Resource Manager](resource-group-overview.md) para implantar seus recursos do Azure. Para saber sobre como gerenciar seus recursos, confira [Gerenciar recursos do Azure por meio do portal](resource-group-portal.md).
+Este artigo mostra como usar o [portal do Azure](https://portal.azure.com) com o [Azure Resource Manager](resource-group-overview.md) para implantar seus recursos do Azure. Para saber sobre como gerenciar seus recursos, confira [Gerenciar recursos do Azure por meio do portal](resource-group-portal.md).
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
@@ -79,11 +78,14 @@ Após criar um grupo de recursos, você pode implantar recursos nele usando o Ma
 
 Se quiser executar uma implantação, mas não usar nenhum dos modelos no Marketplace, você poderá criar um modelo personalizado que define a infraestrutura para sua solução. Para saber mais sobre a criação de modelos, confira [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 
+> [!NOTE]
+> A interface do portal não oferece suporte ao referenciar um [segredo de um Key Vault](resource-manager-keyvault-parameter.md). Em vez disso, use [PowerShell](resource-group-template-deploy.md) ou [CLI do Azure](resource-group-template-deploy-cli.md) para implantar o modelo localmente ou em um URI externo.
+
 1. Para implantar um modelo personalizado usando o portal, selecione **Criar um recurso** e pesquise por **Implantação de Modelo** até conseguir selecioná-la nas opções.
 
    ![Pesquisar implantação de modelo](./media/resource-group-template-deploy-portal/search-template.png)
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
    ![Selecione criar](./media/resource-group-template-deploy-portal/show-template-option.png)
 
@@ -113,7 +115,7 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
 
 ## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>Implantar recursos de um modelo salvo em sua conta
 
-O portal permite que você salve um modelo em sua conta do Azure e o reimplante mais tarde. Para obter mais informações sobre como trabalhar com esses modelos salvos, confira [Introdução aos modelos privados no Portal do Azure](../marketplace-consumer/mytemplates-getstarted.md).
+O portal permite que você salve um modelo em sua conta do Azure e o reimplante mais tarde. Para obter mais informações sobre os modelos, consulte [Criar e implantar seu primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
 
 1. Para localizar os modelos salvos, selecione **Mais serviços**.
 
@@ -135,4 +137,4 @@ O portal permite que você salve um modelo em sua conta do Azure e o reimplante 
 * Para exibir os logs de auditoria, confira [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
 * Para solucionar erros de implantação, confira [View deployment operations](resource-manager-deployment-operations.md) (Exibir operações de implantação).
 * Para recuperar um modelo de uma implantação ou de um grupo de recursos, confira [Exportar um modelo do Azure Resource Manager a partir dos recursos existentes](resource-manager-export-template.md).
-* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
+* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](/azure/architecture/cloud-adoption-guide/subscription-governance).

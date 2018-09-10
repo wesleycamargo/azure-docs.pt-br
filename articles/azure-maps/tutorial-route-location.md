@@ -1,22 +1,20 @@
 ---
 title: Encontrar rota com os Mapas do Azure | Microsoft Docs
 description: Rotear para um ponto de interesse usando os Mapas do Azure
-services: azure-maps
-keywords: ''
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 73ca61140f05a65ca75cd703ed226773b9a43dfa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 09828fade464c3b7b5f6eedaa16513e9eab49467
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989635"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Rotear para um ponto de interesse usando os Mapas do Azure
 
@@ -27,7 +25,7 @@ Este tutorial mostra como usar sua conta dos Mapas do Azure e o SDK do Serviço 
 > * Definir coordenadas de endereço
 > * Serviço de Roteiros de Consulta para obter o trajeto até o ponto de interesse
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de prosseguir, siga as etapas no tutorial anterior para [criar sua conta dos Mapas do Azure](./tutorial-search-location.md#createaccount) e [obter a chave de assinatura da conta](./tutorial-search-location.md#getkey). 
 

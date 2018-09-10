@@ -3,7 +3,7 @@ title: Início Rápido - Criar uma VM do Linux no Portal do Azure | Microsoft Do
 description: Neste início rápido, você aprende a usar o portal do Azure para criar uma máquina virtual Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/24/2018
-ms.author: iainfou
+ms.date: 07/03/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 18ac0291bff2c0fbfffdd5dfa3097f8a6acb561f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108799"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: criar uma máquina virtual do Linux no portal do Azure
 
@@ -52,19 +53,19 @@ Faça logon no Portal do Azure em http://portal.azure.com
 
 3. Forneça um nome VM, como *myVM*, deixe o tipo de disco como *SSD*, em seguida, forneça um nome de usuário, como *azureuser*.
 
-4. . Para **Tipo de autenticação**, selecione **Chave pública SSH**, em seguida, cole a chave pública na caixa de texto. Tome cuidado para remover qualquer espaço em branco à direita ou à esquerda na sua chave pública.
+4. Para **Tipo de autenticação**, selecione **Chave pública SSH**, em seguida, cole a chave pública na caixa de texto. Tome cuidado para remover qualquer espaço em branco à direita ou à esquerda na sua chave pública.
 
     ![Insira as informações básicas sobre sua VM na folha do portal](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 
-5. Escolha **Criar novo** grupo de recurso, em seguida, forneça um nome, como *myResourceGroup* Escolha seu **local** desejado, em seguida, selecione **Ok**.
+5. Escolha **Criar novo** grupo de recurso, em seguida, forneça um nome, como *myResourceGroup*. Escolha seu **local** desejado, em seguida, selecione **Ok**.
 
 4. Selecione um tamanho para a VM. Você pode filtrar por *Tipo de computação* ou *Tipo de disco*, por exemplo. Uma VM sugerida é do tamanho *D2s_v3*.
 
     ![A captura de tela que mostra os tamanhos da VM](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-5. Em **Configurações**, deixe todos os padrões e selecione **OK**.
+5. Na página **Configurações**, em **Rede** > **Grupo de segurança de rede** > **Selecionar portas de entrada públicas**, selecione **HTTP** e **SSH (22)**. Deixe o restante dos padrões e selecione **OK**.
 
-6. Na página **Resumo**, selecione Criar para iniciar a implantação da máquina virtual.
+6. Na página Resumo, selecione **Criar** para iniciar a implantação da máquina virtual.
 
 7. A VM será fixada ao painel do portal do Azure. Depois que a implantação for concluída, a folha de resumo da VM abrirá automaticamente.
 
@@ -98,14 +99,6 @@ sudo apt-get -y install nginx
 
 Quando terminar, `exit` da sessão SSH e retorne as propriedades da VM no portal do Azure.
 
-## <a name="open-port-80-for-web-traffic"></a>Abra a porta 80 para tráfego da Web
-
-Um Grupo de Segurança de Rede (NSG) protege o tráfego de entrada e saída. Quando uma VM é criada no portal do Azure, uma regra de entrada é criada na porta 22 para conexões SSH. Como essa VM hospeda um servidor Web, uma regra NSG precisa ser criada para a porta 80.
-
-1. Na página de visão geral de VM, selecione **Rede**.
-2. A lista de regras de entrada e saídas existentes é apresentada. Escolha a regra **Adicionar porta de entrada**.
-3. Selecione a opção **Básico** opção na parte superior, em seguida, escolha *HTTP* da lista de serviços disponíveis. A porta 80, uma prioridade e o nome, são fornecidos.
-4. Para criar a regra, selecione **Adicionar**
 
 ## <a name="view-the-web-server-in-action"></a>Ver o servidor Web em ação
 

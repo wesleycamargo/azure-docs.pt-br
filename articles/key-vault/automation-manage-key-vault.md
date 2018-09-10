@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: magoedte
-ms.openlocfilehash: b5f8a1b826717d51729b0bb621bf26e35d4bdd36
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6484c8c9ae1ad109820c3b3912c3a7ea8d49c2a2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140794"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Gerenciar o Cofre da Chave do Azure usando a Automação do Azure
 Este guia apresentará a você o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento de suas chaves e segredos no cofre da chave do Azure.
@@ -31,7 +32,7 @@ A Automação do Azure fornece um mecanismo de execução de fluxo de trabalho a
 Reduza o custo operacional e libere a equipe de TI e DevOps para se concentrar no trabalho que agrega valor de negócios, transferindo as tarefas de gerenciamento de nuvem para serem executadas automaticamente pela Automação do Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>Como a Automação do Azure pode ajudar a gerenciar o cofre da chave do Azure?
-O Cofre de Chaves pode ser gerenciado na Automação do Azure usando os [cmdlets do Cofre de Chave AzureRM](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) e os [cmdlets do Cofre de Chaves Clássico do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx). O módulo do Azure para gerenciar o Cofre da Chave clássico está disponível automaticamente na Automação do Azure, e você pode importar o [módulo AzureRM-KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) para a Automação do Azure, para executar muitas de suas tarefas de gerenciamento do Cofre da Chave dentro do serviço. Você também pode combinar esses cmdlets na automação do Azure com os cmdlets para outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
+O Cofre de Chaves pode ser gerenciado na Automação do Azure usando os [cmdlets do Cofre de Chave AzureRM](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) e os [cmdlets do Cofre de Chaves Clássico do Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure). O módulo do Azure para gerenciar o Cofre da Chave clássico está disponível automaticamente na Automação do Azure, e você pode importar o [módulo AzureRM-KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) para a Automação do Azure, para executar muitas de suas tarefas de gerenciamento do Cofre da Chave dentro do serviço. Você também pode combinar esses cmdlets na automação do Azure com os cmdlets para outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
 
 Com os cmdlets do Cofre de Chaves do Azure, você pode executar as seguintes tarefas, entre outras: 
 

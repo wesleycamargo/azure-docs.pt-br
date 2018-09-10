@@ -1,23 +1,20 @@
 ---
-title: 'Tutorial: Usar API de Streams do Apache Kafka - Azure HDInsight | Microsoft Docs'
+title: 'Tutorial: Usar a API de Streams do Apache Kafka – Azure HDInsight '
 description: Saiba como usar a API de Streams do Apache Kafka com o Kafka no HDInsight. Essa API permite realizar processamento de fluxo entre tópicos no Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2018
-ms.author: larryfr
-ms.openlocfilehash: 8aff28079a0aaa7c02d8a187cb379ecdbedcd854
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0c1b45d7db53bd2eb7c9f058eb1c44c762886b80
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049827"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: API de streams do Apache Kafka
 
@@ -39,7 +36,7 @@ Neste tutorial, você aprenderá como:
 > * Configurar tópicos Kafka
 > * Executar o código
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster Kafka no HDInsight 3.6. Para saber como criar um Kafka no Cluster HDInsight, consulte o documento [Iniciar com Kafka no HDInsight](apache-kafka-get-started.md).
 
@@ -224,7 +221,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
 2. Para enviar registros para o tópico `test`, use o seguinte comando para iniciar o aplicativo produtor:
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
     ```
 
 3. Após a conclusão do produtor, use o seguinte comando para exibir as informações armazenadas no tópico `wordcounts`:
@@ -252,7 +249,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
         jumped  13641
    
     > [!NOTE]
-    > O parâmetro `--from-beggining` configura o consumidor para começar do início dos registros armazenados no tópico. A contagem aumenta sempre que uma palavra é encontrada, logo o tópico contém várias entradas para cada palavra, com uma contagem crescente.
+    > O parâmetro `--from-beginning` configura o consumidor para começar do início dos registros armazenados no tópico. A contagem aumenta sempre que uma palavra é encontrada, logo o tópico contém várias entradas para cada palavra, com uma contagem crescente.
 
 7. Use __Ctrl + C__ para sair do produtor. Continue usando __Ctrl + C__ para sair do aplicativo e do consumidor.
 

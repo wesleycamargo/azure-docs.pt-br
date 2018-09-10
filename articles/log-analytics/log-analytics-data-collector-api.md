@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/03/2018
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: bwren
-ms.openlocfilehash: d42069e8ed72a834973b56df55488955d62e71f2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: na
+ms.openlocfilehash: 3c4c2d8f49fbddc4875d7a4abf5d7629bc8f942e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143937"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados ao Log Analytics com a API do Coletor de dados HTTP (visualização pública)
 Este artigo mostra como usar a API do Coletor de Dados HTTP para enviar dados ao Log Analytics de um cliente da API REST.  Ele descreve como formatar dados coletados pelo seu script ou aplicativo, incluí-los em uma solicitação e ter essa solicitação autorizada pelo Log Analytics.  Os exemplos são fornecidos para PowerShell, C# e Python.
@@ -100,29 +102,33 @@ Os exemplos nas seções a seguir têm o código de exemplo para ajudá-lo a cri
 O corpo da mensagem deve ser em JSON. Ele deve incluir um ou mais registros com os pares de nome e valor de propriedade neste formato:
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 Você pode criar lotes de vários registros em uma única solicitação usando o formato a seguir. Todos os registros devem ser do mesmo tipo de registro.
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-},
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    },
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 ## <a name="record-type-and-properties"></a>Propriedades e o tipo de registro
@@ -273,7 +279,6 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
         -sharedKey $sharedKey `
         -date $rfc1123date `
         -contentLength $contentLength `
-        -fileName $fileName `
         -method $method `
         -contentType $contentType `
         -resource $resource
@@ -381,7 +386,7 @@ namespace OIAPIExample
 
 ```
 
-### <a name="python-sample"></a>Exemplo de Python
+### <a name="python-2-sample"></a>Exemplo de Python 2
 ```
 import json
 import requests
@@ -466,3 +471,5 @@ post_data(customer_id, shared_key, body, log_type)
 
 ## <a name="next-steps"></a>Próximas etapas
 - Usar a [API da pesquisa de log](log-analytics-log-search-api.md) para recuperar dados do repositório do Log Analytics.
+
+- Saiba mais sobre como [criar um pipeline de dados com a API do Coletor de Dados](log-analytics-create-pipeline-datacollector-api.md) usando o fluxo de trabalho de Aplicativos Lógicos para o Log Analytics.

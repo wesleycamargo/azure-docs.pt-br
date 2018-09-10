@@ -5,28 +5,30 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
+ms.component: protection
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3b7bd6f4bea111815f647af09ebaa868696b25bc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 62a55672a4326df585fc84699dfd72424be362dc
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627484"
 ---
 # <a name="configure-named-locations-in-azure-active-directory"></a>Configurar locais nomeados no Azure Active Directory
 
 Com locais nomeados, você pode rotular os intervalos de endereços IP confiáveis em sua organização. O Azure Active Directory usa localizações nomeadas nos seguintes contextos:
 
-- A detecção de [eventos de risco](active-directory-reporting-risk-events.md) para reduzir o número de falsos positivos relatados.  
+- A detecção de [eventos de risco](reports-monitoring/concept-risk-events.md) para reduzir o número de falsos positivos relatados.  
 
-- [Acesso condicional com base em localização](active-directory-conditional-access-locations.md).
+- [Acesso condicional com base em localização](conditional-access/location-condition.md).
 
 
 Este artigo explica como você pode configurar localizações nomeadas em seu ambiente.
@@ -79,7 +81,7 @@ Você pode acessar a página de configuração da localização nomeada na seç�
 
 6. Na página **Novo**, faça o seguinte:
 
-    ![A Nova folha](./media/active-directory-named-locations/56.png)
+    ![A Nova folha](./media/active-directory-named-locations/61.png)
 
     a. Na caixa **Nome**, digite um nome para a localização nomeada.
 
@@ -95,8 +97,8 @@ Para obter mais informações, consulte:
 
 - [Acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-- [Condições de local no acesso condicional do Azure Active Directory](active-directory-conditional-access-locations.md)
+- [Condições de local no acesso condicional do Azure Active Directory](conditional-access/location-condition.md)
 
-- [Eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md).
+- [Eventos de risco do Azure Active Directory](reports-monitoring/concept-risk-events.md).
 
-- [Relatório de entradas arriscadas no portal do Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  
+- [Relatório de entradas arriscadas no portal do Azure Active Directory](reports-monitoring/concept-risky-sign-ins.md).  

@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect - Gerenciamento do AD FS e personalização | Microsoft Docs"
-description: "Gerenciamento do AD FS com o Azure AD Connect e personalização da experiência de entrada do AD FS do usuário com o Azure AD e o PowerShell."
-keywords: "AD FS, ADFS, gerenciamento do AD FS, AAD Connect, Conectar, entrada, personalização do AD FS, reparar confiança, O365, federação, terceira parte confiável"
+title: Azure AD Connect - Gerenciamento do AD FS e personalização | Microsoft Docs
+description: Gerenciamento do AD FS com o Azure AD Connect e personalização da experiência de entrada do AD FS do usuário com o Azure AD e o PowerShell.
+keywords: AD FS, ADFS, gerenciamento do AD FS, AAD Connect, Conectar, entrada, personalização do AD FS, reparar confiança, O365, federação, terceira parte confiável
 services: active-directory
-documentationcenter: 
-author: anandyadavmsft
+documentationcenter: ''
+author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4bba72e0761553c81acda7609898c1b032bdf28a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044412"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerenciar e personalizar os Serviços de Federação do Active Directory usando o Azure AD Connect
 Este artigo descreve como gerenciar e personalizar os Serviços de Federação do Active Directory (AD FS) usando o Azure Active Directory (Azure AD) Connect. Ele também inclui outras tarefas comuns do AD FS que você pode precisar realizar para obter uma configuração completa de um farm do AD FS.
@@ -187,7 +189,7 @@ As seções a seguir fornecem detalhes sobre algumas das tarefas comuns que talv
 Para alterar o logotipo da empresa que é exibido na página de **Entrada**, use o cmdlet e sintaxe do Windows PowerShell a seguir.
 
 > [!NOTE]
-> As dimensões recomendadas para o logotipo são 260x35 a 96 dpi com um tamanho do arquivo máximo de 10 KB.
+> As dimensões recomendadas para o logotipo são de 260 x 35 \@ 96 dpi com um tamanho de arquivo máximo de 10 KB.
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
@@ -223,7 +225,7 @@ Além disso, usando **add** e não **issue**, você evita adicionar uma emissão
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-Essa regra define um sinalizador temporário chamado **idflag** que é definido como **useguid** se não há nenhum **ms-ds-consistencyguid** populado para o usuário. A lógica por trás disso é o fato de que o AD FS não permite declarações vazias. Assim, quando você adiciona as declarações http://contoso.com/ws/2016/02/identity/claims/objectguid e http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid à Regra 1, você só acabará com uma declaração **msdsconsistencyguid** se o valor for populado para o usuário. Se ele não estiver populado, o AD FS verá que ele terá um valor vazio e o descartará imediatamente. Todos os objetos terão **objectGuid**. Portanto, essa declaração sempre estará presente após a Regra 1 ser executada.
+Essa regra define um sinalizador temporário chamado **idflag** que é definido como **useguid** se não há nenhum **ms-ds-consistencyguid** populado para o usuário. A lógica por trás disso é o fato de que o AD FS não permite declarações vazias. Portanto, quando você adicionar as declarações http://contoso.com/ws/2016/02/identity/claims/objectguid e http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid na regra 1, o resultado será uma declaração **msdsconsistencyguid** apenas se o valor for populado para o usuário. Se ele não estiver populado, o AD FS verá que ele terá um valor vazio e o descartará imediatamente. Todos os objetos terão **objectGuid**. Portanto, essa declaração sempre estará presente após a Regra 1 ser executada.
 
 **Regra 3: emitir ms-ds-consistencyguid como a ID imutável, se estiver presente**
 
@@ -244,31 +246,8 @@ Nessa regra, você simplesmente verifica o sinalizador temporário **idflag**. V
 > A sequência dessas regras é importante.
 
 ### <a name="sso-with-a-subdomain-upn"></a>SSO com um subdomínio UPN
-Você pode adicionar mais de um domínio a ser federado usando o Azure AD Connect, conforme descrito em [Adicionar um novo domínio federado](active-directory-aadconnect-federation-management.md#addfeddomain). Você deve modificar a declaração de nome UPN para que a ID do emissor corresponda ao domínio raiz e não ao subdomínio, pois o domínio raiz federado também abrange o filho.
 
-Por padrão, a regra da declaração da ID do emissor é definida como:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![Declaração de ID do emissor padrão](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-A regra padrão simplesmente usa o sufixo do UPN na declaração da ID do emissor. Por exemplo, John é um usuário em sub.contoso.com e contoso.com é federado com o Azure AD. João insere john@sub.contoso.com como o nome de usuário ao entrar no Azure AD. A regra de declaração de ID de emissor padrão no AD FS lida com isso da seguinte maneira:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**Valor de declaração:**  http://sub.contoso.com/adfs/services/trust/
-
-Para ter apenas o domínio raiz no valor de declaração do emissor, altere a regra de declaração para corresponder ao seguinte:
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+Você pode adicionar mais de um domínio a ser federado usando o Azure AD Connect, conforme descrito em [Adicionar um novo domínio federado](active-directory-aadconnect-federation-management.md#addfeddomain). Azure AD Connect versão  1.1.553.0 e mais recente cria a regra de reivindicação correta para issuerID automaticamente. Se você não puder usar o Azure AD Connect versão 1.1.553.0 ou mais recente, é recomendável que a ferramenta [ Regras de Declaração do Azure AD RPT ](https://aka.ms/aadrptclaimrules) seja usada para gerar e definir regras de declaração corretas para a confiança da terceira parte do Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre as [opções de entrada do usuário](active-directory-aadconnect-user-signin.md).

@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 03/16/2018
+ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1437916e62e7c2987c0a1d8c3a5ac4a5f332134d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303548"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003740"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Escolher entre serviços do Azure que entregam mensagens
 
@@ -33,7 +33,7 @@ Há uma distinção importante a observar entre serviços que entregam um evento
 
 Um evento é uma notificação leve de uma condição ou de uma alteração de estado. O editor do evento não tem expectativa sobre como o evento é manipulado. O consumidor do evento decide o que fazer com a notificação. Os eventos podem ser unidades discretas ou parte de uma série.
 
-Eventos discretos relatam alterações de estado e são acionáveis. Para dar continuidade, o consumidor apenas precisa saber o que ocorreu. Os dados do evento contêm informações sobre o que aconteceu, mas não contêm os dados que dispararam o evento. Por exemplo, um evento notifica os consumidores que um arquivo foi criado. Ele pode conter informações gerais sobre o arquivo, mas não contém o arquivo propriamente dito. Eventos discretos são ideais para soluções sem servidor que precisam ser dimensionadas.
+Eventos discretos relatam alterações de estado e são acionáveis. Para dar continuidade, o consumidor apenas precisa saber o que ocorreu. Os dados do evento têm informações sobre o que aconteceu, mas não têm os dados que dispararam o evento. Por exemplo, um evento notifica os consumidores que um arquivo foi criado. Ele pode ter informações gerais sobre o arquivo, mas não contém o próprio arquivo. Eventos discretos são ideais para soluções sem servidor que precisam ser dimensionadas.
 
 Eventos de série relatam uma condição e são analisáveis. Os eventos são ordenados por tempo e inter-relacionados. O consumidor precisa da série sequenciada de eventos para analisar o que ocorreu.
 
@@ -43,7 +43,7 @@ Uma mensagem é composta de dados brutos produzidos por um serviço para serem c
 
 ## <a name="comparison-of-services"></a>Comparação de serviços
 
-| Serviço | Finalidade | type | Quando usar |
+| Serviço | Finalidade | Tipo | Quando usar |
 | ------- | ------- | ---- | ----------- |
 | Grade de Eventos | Programação reativa | Distribuição de eventos (discreto) | Reagir a alterações de status |
 | Hubs de Eventos | Pipeline de Big Data | Streaming de evento (série) | Telemetria e streaming de dados distribuídos |
@@ -53,13 +53,14 @@ Uma mensagem é composta de dados brutos produzidos por um serviço para serem c
 
 A Grade de Eventos é um backplane de eventos que permite a programação reativa e controlada por evento. Ele usa um modelo de publicação/assinatura. Editores emitem eventos, mas não têm nenhuma expectativa sobre quais eventos são manipulados. Os assinantes decidem quais eventos desejam manipular.
 
-A Grade de Eventos está profundamente integrada aos serviços do Azure e pode ser integrada aos serviços de terceiros. Ele simplifica o consumo de eventos e reduz os custos, eliminando a necessidade de sondagem de constante. A Grade de Eventos faz o roteamento de eventos eficiente e confiável e encaminha eventos de recursos do Azure e não Azure. Ela distribui os eventos para os pontos de extremidade do assinante registrado. A mensagem de evento contém as informações necessárias para reagir a alterações em serviços e aplicativos. A Grade de Eventos não é um pipeline de dados e não entrega o objeto real atualizado.
+A Grade de Eventos está profundamente integrada aos serviços do Azure e pode ser integrada aos serviços de terceiros. Ele simplifica o consumo de eventos e reduz os custos, eliminando a necessidade de sondagem de constante. A Grade de Eventos faz o roteamento de eventos eficiente e confiável e encaminha eventos de recursos do Azure e não Azure. Ela distribui os eventos para os pontos de extremidade do assinante registrado. A mensagem de evento tem as informações necessárias para reagir a alterações em serviços e aplicativos. A Grade de Eventos não é um pipeline de dados e não entrega o objeto real atualizado.
 
 Ele tem as seguintes características:
 
 * dinamicamente escalonável
 * baixo custo
 * sem servidor
+* pelo menos uma entrega
 
 ### <a name="event-hubs"></a>Hubs de Eventos
 
@@ -69,6 +70,7 @@ Ele tem as seguintes características:
 
 * baixa latência
 * capaz de receber e processar milhões de eventos por segundo
+* pelo menos uma entrega
 
 ### <a name="service-bus"></a>Barramento de Serviço
 
@@ -80,6 +82,8 @@ Ele tem as seguintes características:
 
 * entrega confiável de mensagens assíncronas (sistema de mensagens empresarial como um serviço) que requer sondagem
 * recursos de sistema de mensagens avançados como PEPS, envio em lote/sessões, transações, colocação de mensagens mortas em fila, controle temporal, roteamento e filtragem e detecção de duplicatas
+* pelo menos uma entrega
+* opcional na entrega em ordem
 
 ## <a name="use-the-services-together"></a>Usar os serviços juntos
 

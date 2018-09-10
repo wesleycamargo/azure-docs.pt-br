@@ -2,8 +2,8 @@
 title: Documentação da Segurança do Azure | Microsoft Docs
 description: A segurança é integrada em todos os aspectos do Azure. O Azure oferece vantagens de segurança exclusivas derivadas da inteligência de segurança global, controles sofisticados voltados para o cliente e infraestrutura de proteção segura. Essa poderosa combinação ajuda a proteger seus aplicativos e dados, dar suporte a seus esforços de conformidade e fornecer segurança econômica para organizações de todos os tamanhos.
 services: security
-author: czeumault
-manager: carolz
+author: arob98
+manager: angrobe
 layout: LandingPage
 ms.assetid: ''
 ms.service: security
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
-ms.author: carolz
-ms.openlocfilehash: 4122afcc730c9c8b312373b77eaf4fd004b2248b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: angrobe
+ms.openlocfilehash: 803f87b1e764d4c3704a5260b8fbe46eaef34e24
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641145"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840359"
 ---
 # <a name="azure-security-documentation"></a>Documentação de Segurança do Azure
 
-A segurança é integrada em todos os aspectos do Azure. O Azure oferece vantagens de segurança exclusivas derivadas da inteligência de segurança global, controles sofisticados voltados para o cliente e infraestrutura de proteção segura. Essa poderosa combinação ajuda a proteger seus aplicativos e dados, dar suporte a seus esforços de conformidade e fornecer segurança econômica para organizações de todos os tamanhos.
+A segurança é integrada a todos os aspectos do Azure. O Azure oferece vantagens de segurança exclusivas derivadas da inteligência de segurança global, controles sofisticados voltados para o cliente e infraestrutura de proteção segura. Essa poderosa combinação ajuda a proteger seus aplicativos e dados, dar suporte a seus esforços de conformidade e fornecer segurança econômica para organizações de todos os tamanhos.
 
 <ul class="cardsFTitle panelContent">
     <li style="-ms-flex: 0 1 100%; flex: 0 1 100%">
@@ -70,12 +70,12 @@ A segurança é integrada em todos os aspectos do Azure. O Azure oferece vantage
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-isolation">
+        <a href="/azure/security/azure-security-infrastructure">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">Como o Azure isola meus recursos de outros clientes do Azure?</p>
+                            <p style="font-size: 1.12rem;">Como a Microsoft protege a infraestrutura do Azure?</p>
                         </div>
                     </div>
                 </div>
@@ -178,7 +178,10 @@ A segurança é integrada em todos os aspectos do Azure. O Azure oferece vantage
                                 <a class="barLink" href="/azure/security/azure-threat-detection">Detecção de ameaças avançada do Azure</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-network-security">Segurança de rede do Azure</a>
+                                <a class="barLink" href="/azure/security/abstract-azure-network-security">Segurança de rede do Azure</a>
+                            </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/abstract-container-security-microsoft-azure">Segurança de contêiner no Microsoft Azure</a>
                             </li>
                         </ul>
                     </div>
@@ -445,7 +448,7 @@ A segurança é integrada em todos os aspectos do Azure. O Azure oferece vantage
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/information-protection/understand-explore/what-is-information-protection">
+        <a href="/azure/information-protection/what-is-information-protection">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">

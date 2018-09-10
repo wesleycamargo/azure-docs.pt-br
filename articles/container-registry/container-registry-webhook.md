@@ -2,17 +2,18 @@
 title: Webhooks de Registro de Contêiner do Azure
 description: Saiba como usar webhooks para disparar eventos quando ocorrerem determinadas ações em seus repositórios de registro.
 services: container-registry
-author: neilpeterson
+author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/02/2017
-ms.author: nepeters
-ms.openlocfilehash: cf71deda9ec9053a91596c17e18fc797995754e2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/20/2017
+ms.author: marsma
+ms.openlocfilehash: c424e81b13c3c60e975d3721693b1f80e00cfdd7
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142038"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Como usar webhooks do Registro de Contêiner do Azure
 
@@ -20,7 +21,7 @@ Um registro de contêiner do Azure armazena e gerencia imagens de contêiner pri
 
 Para obter detalhes sobre solicitações de webhook, consulte [Azure Container Registry webhook schema reference](container-registry-webhook-reference.md) (Referência de esquema de webhook do Registro de Contêiner do Azure).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Registro de Contêiner do Azure – Crie um Registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure](container-registry-get-started-azure-cli.md).
 * CLI do Docker – para configurar o computador local como um host do Docker e acessar os comandos da CLI do Docker, instale o [Mecanismo do Docker](https://docs.docker.com/engine/installation/).
@@ -48,7 +49,7 @@ Formulário de webhook de exemplo:
 
 ## <a name="create-webhook-azure-cli"></a>Criar webhook na CLI do Azure
 
-Para criar um webhook usando a CLI do Azure, use o comando [az acr webhook create](/cli/azure/acr/webhook#az_acr_webhook_create).
+Para criar um webhook usando a CLI do Azure, use o comando [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create).
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -68,7 +69,7 @@ Antes de usar o webhook em ações de exclusão e de push de imagem de contêine
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para testar um webhook ACR com a CLI do Azure, use o comando [az acr webhook ping](/cli/azure/acr/webhook#az_acr_webhook_ping).
+Para testar um webhook ACR com a CLI do Azure, use o comando [az acr webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping).
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
@@ -94,4 +95,14 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ## <a name="next-steps"></a>Próximas etapas
 
+### <a name="webhook-schema-reference"></a>Referência do esquema do Webhook
+
+Para obter detalhes sobre o formato e propriedades das cargas do evento JSON emitidas pelo Registro de Contêiner do Azure, consulte a referência de esquema do webhook:
+
 [Referência de esquema de webhook do Registro de Contêiner do Azure](container-registry-webhook-reference.md)
+
+### <a name="event-grid-events"></a>Eventos da Grade de Eventos
+
+Além dos eventos do webhook do registro nativo discutidos neste artigo, o Registro de Contêiner do Azure pode emitir eventos para a Grade de Eventos:
+
+[Início Rápido: enviar eventos de registro de contêiner para a Grade de Eventos](container-registry-event-grid-quickstart.md)

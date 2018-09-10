@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/03/2017
-ms.author: mbullwin; olegan
-ms.openlocfilehash: 670600d4370be0b675c71d1c6cf09b17c7bd2597
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.date: 07/05/2018
+ms.reviewer: olegan
+ms.author: mbullwin
+ms.openlocfilehash: 9e53fa896f1d958e505d26af430b262be9195605
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869063"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859676"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurar o SDK do Application Insights com ApplicationInsights.config ou.xml
 O SDK .NET do Application Insights consiste em vários pacotes NuGet. O [pacote principal](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria ao Application Insights. Os [pacotes adicionais](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecem *módulos* e *inicializadores* de telemetria para rastreamento automático de telemetria do seu aplicativo e respectivo contexto. Ajustando o arquivo de configuração, você pode habilitar ou desabilitar módulos e inicializadores de telemetria, bem como definir parâmetros para alguns deles.
@@ -46,7 +47,7 @@ Você também pode escrever seu próprio código de rastreamento de dependência
 * [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) .
 
 ### <a name="performance-collector"></a>Coletor de desempenho
-[Coleta contadores de desempenho do sistema](app-insights-performance-counters.md), como CPU, memória e carga de rede de instalações do IIS. Você pode especificar quais contadores coletar, incluindo contadores de desempenho que você configurou por si mesmo.
+[Coleta contadores de desempenho do sistema](app-insights-performance-counters.md) como CPU, memória e carregamento de rede de instalações do IIS. Você pode especificar quais contadores coletar, incluindo contadores de desempenho que você configurou por si mesmo.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
 * [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) .
@@ -129,10 +130,10 @@ Os inicializadores padrão foram todos configurados pelos pacotes do WindowsServ
 
     Os `<Filters>` definem as propriedades de identificação das solicitações.
 * `UserTelemetryInitializer` atualiza as propriedades `Id` e `AcquisitionDate` do contexto `User` para todos os itens de telemetria com valores extraídos do cookie `ai_user` gerado pelo código de instrumentação do JavaScript do Application Insights em execução no navegador do usuário.
-* `WebTestTelemetryInitializer` define a ID do usuário, a ID da sessão e as propriedades da fonte sintética para solicitações HTTP advindas dos [testes de disponibilidade](app-insights-monitor-web-app-availability.md).
+* `WebTestTelemetryInitializer` define a ID de usuário, a ID de sessão e as propriedades de fonte sintética para solicitações HTTP provenientes dos [testes de disponibilidade](app-insights-monitor-web-app-availability.md).
   Os `<Filters>` definem as propriedades de identificação das solicitações.
 
-Para aplicativos .NET em execução no Service Fabric, você pode incluir o pacote do NuGet `Microsoft.ApplicationInsights.ServiceFabric`. Este pacote inclui um `FabricTelemetryInitializer`, que adiciona propriedades do Service Fabric a itens de telemetria. Para obter mais informações, consulte a [página do GitHub](https://go.microsoft.com/fwlink/?linkid=848457) sobre as propriedades adicionadas por este pacote do NuGet.
+Para aplicativos .NET em execução no Service Fabric, você pode incluir o pacote do NuGet `Microsoft.ApplicationInsights.ServiceFabric`. Este pacote inclui um `FabricTelemetryInitializer`, que adiciona propriedades do Service Fabric a itens de telemetria. Para obter mais informações, consulte a [página do GitHub](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) sobre as propriedades adicionadas por este pacote do NuGet.
 
 ## <a name="telemetry-processors-aspnet"></a>Processadores de Telemetria (ASP.NET)
 Processadores de telemetria podem filtrar e modificar cada item de telemetria antes de serem enviado do SDK para o portal.
@@ -270,7 +271,7 @@ Para obter uma nova chave, [crie um novo recurso no portal do Application Insigh
 
 _Disponível a partir de v2.6.0_
 
-A finalidade desse provedor é procurar uma ID do Aplicativo com base em uma Chave de Instrumentação. A ID do aplicativo é incluída em RequestTelemetry e DependencyTelemetry e utilizada para determinar a Correlação no Portal.
+A finalidade desse provedor é procurar uma ID de aplicativo com base em uma chave de instrumentação. A ID do aplicativo é incluída em RequestTelemetry e em DependencyTelemetry e é usada para determinar a correlação no Portal.
 
 Isso está disponível pela configuração de `TelemetryConfiguration.ApplicationIdProvider` no código ou na configuração.
 
@@ -314,9 +315,9 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApp
 
 ### <a name="dictionaryapplicationidprovider"></a>DictionaryApplicationIdProvider
 
-Esse é um provedor estático que depende dos pares de ID do Aplicativo/Chave de Instrumentação configurados.
+Esse é um provedor estático que depende dos pares ID do aplicativo/chave de instrumentação configurados.
 
-Esta classe tem uma propriedade `Defined` que é um Dictionary<string,string> de Chave de Instrumentação para pares de ID do Aplicativo.
+Essa classe tem uma propriedade `Defined` que é um Dictionary<string,string> de pares de chave de instrumentação para ID do aplicativo.
 
 Essa classe tem uma propriedade opcional `Next` que pode ser utilizada para configurar outro provedor a ser usado quando uma Chave de Instrumentação solicitada não existir na configuração.
 

@@ -4,8 +4,8 @@ description: Como configurar a implantação contínua de um registro de contêi
 keywords: serviço de aplicativo do azure, linux, docker, across
 services: app-service
 documentationcenter: ''
-author: ahmedelnably
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-ms.author: aelnably;msangapu
-ms.openlocfilehash: ac35dbd041de50ab8aae1a0fb4c00fe3917a7297
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/29/2018
+ms.author: msangapu
+ms.openlocfilehash: 0f2d4626308eed376b71f1b3df2f9e43f1b2a4f7
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130952"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Implantação contínua com o Aplicativo Web para Contêineres
 
@@ -53,7 +54,8 @@ Obtenha o URL do webhook usando a [CLI do Azure CLI](https://docs.microsoft.com/
 az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
-Para a URL do webhook, o terminal a seguir é necessário: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+Anote a URI do webhook. Você precisará dele na próxima seção.
+`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
 Você pode obter seu `publishingusername` e `publishingpwd` baixando o perfil de publicação do aplicativo Web usando o Portal do Azure.
 
@@ -61,29 +63,10 @@ Você pode obter seu `publishingusername` e `publishingpwd` baixando o perfil de
 
 ## <a name="add-a-webhook"></a>Adicionar um webhook
 
-### <a name="azure-container-registry"></a>Registro de Contêiner do Azure
+Para adicionar um webhook, siga as etapas nestes guias:
 
-1. Na página do portal do registro, selecione **Webhooks**.
-2. Para criar um novo webhook, selecione **Adicionar**. 
-3. No painel **Criar webhook**, nomeie o webhook. Para a URI do webhook, forneça a URL obtida na seção anterior.
-
-Certifique-se de definir o escopo como o repositório que contém a imagem do contêiner.
-
-![Captura de tela do webhook](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
-
-Ao atualizar a imagem, o aplicativo da Web será atualizado automaticamente com a nova imagem.
-
-### <a name="docker-hub"></a>Hub do Docker
-
-Na página do Hub do Docker, selecione **Webhooks** e, em seguida, **CRIAR UM WEBHOOK**.
-
-![Captura de tela de adição do webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
-
-Para a URL do webhook, forneça a URL que você obteve anteriormente.
-
-![Captura de tela de adição do webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
-
-Ao atualizar a imagem, o aplicativo da Web será atualizado automaticamente com a nova imagem.
+- [Registro de Contêiner do Azure](../../container-registry/container-registry-webhook.md) usando a URL de webhook
+- [Webhooks para o Hub do Docker](https://docs.docker.com/docker-hub/webhooks/)
 
 ## <a name="next-steps"></a>Próximas etapas
 

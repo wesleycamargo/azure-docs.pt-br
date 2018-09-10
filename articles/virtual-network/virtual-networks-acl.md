@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: f532ed9ad1254aa8082f212b8190f83bb71767e9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6265a7f9f60b60d7b79e15a04feb0ec76dc59f6d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293111"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>O que é uma lista de controle de acesso do ponto de extremidade?
 
 > [!IMPORTANT]
 > O Azure tem dois [modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) diferentes para criar e trabalhar com recursos: o Gerenciador de Recursos e o Clássico. Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo de implantação do Gerenciador de Recursos. 
 
-Uma ACL (Lista de Controle de Acesso) de ponto de extremidade é uma melhoria de segurança disponível para a sua implantação do Azure. Uma ACL fornece a capacidade para permitir ou negar seletivamente o tráfego para um ponto de extremidade de máquina virtual. Essa capacidade de filtragem de pacotes proporciona uma camada adicional de segurança. Você pode especificar ACLs de rede apenas para pontos de extremidade. Não é possível especificar uma ACL para uma rede virtual ou uma sub-rede específica contida em uma rede virtual. Recomendamos que você use NSGs (grupos de segurança de rede) em vez de ACLs sempre que possível. Para saber mais sobre NSGs, confira [Visão geral do grupo de segurança de rede](security-overview.md)
+Uma ACL (Lista de Controle de Acesso) de ponto de extremidade é uma melhoria de segurança disponível para a sua implantação do Azure. Uma ACL fornece a capacidade para permitir ou negar seletivamente o tráfego para um ponto de extremidade de máquina virtual. Essa capacidade de filtragem de pacotes proporciona uma camada adicional de segurança. Você pode especificar ACLs de rede apenas para pontos de extremidade. Não é possível especificar uma ACL para uma rede virtual ou uma sub-rede específica contida em uma rede virtual. Recomendamos que você use NSGs (grupos de segurança de rede) em vez de ACLs sempre que possível. Ao usar NSGs, a lista de controle de acesso de ponto de extremidade será substituída e não será mais imposta. Para saber mais sobre NSGs, confira [Visão geral do grupo de segurança de rede](security-overview.md)
 
 As ACLs podem ser configuradas usando o PowerShell ou o portal do Azure. Para configurar ACLs usando o PowerShell, confira [Gerenciando listas de controle de acesso para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md). Para configurar uma ACL de rede usando o portal do Azure, consulte [Como configurar pontos de extremidade para uma máquina virtual](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

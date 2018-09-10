@@ -1,27 +1,25 @@
 ---
-title: Como usar o Armazenamento de Tabelas do Azure ou o Azure Cosmos DB no Node.js | Microsoft Docs
-description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure ou o Azure Cosmos DB.
+title: Como usar o Armazenamento de Tabelas do Azure e a API da Tabela do Azure Cosmos DB do Node.js | Microsoft Docs
+description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: nodejs
 author: SnehaGunda
 manager: kfile
-ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 3f1908a6c2d129da44e0719b2cf69cf09baef356
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b88bd3c86d520b10c27746319f807d2f6208bfa
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048168"
 ---
-# <a name="how-to-use-azure-table-storage-from-nodejs"></a>Como usar o armazenamento de Tabela do Azure por meio do Node.js
+# <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como usar o Armazenamento de Tabelas do Azure e a API da Tabela do Azure Cosmos DB do Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Visão geral
 Este artigo mostra como executar cenários comuns usando o serviço de Tabela de Armazenamento do Microsoft Azure ou o Azure Cosmos DB em um aplicativo Node.js.
@@ -38,7 +36,7 @@ Este artigo mostra como executar cenários comuns usando o serviço de Tabela de
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="configure-your-application-to-access-azure-storage"></a>Configurar seu aplicativo para acessar o Armazenamento de Blob
+## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Configurar seu aplicativo para acessar o Armazenamento do Azure ou a API da Tabela do Azure Cosmos DB
 Para usar o Armazenamento do Microsoft Azure ou o Azure Cosmos DB, você precisa do SDK de Armazenamento do Microsoft Azure para Node.js, que inclui um conjunto de bibliotecas de conveniência que comunicam-se com os serviços REST de Armazenamento.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Usar o NPM (Gerenciador de Pacotes de Nós) para obter o pacote
@@ -71,7 +69,7 @@ O módulo do Azure lê as variáveis de ambiente AZURE_STORAGE_ACCOUNT e AZURE_S
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
-## <a name="add-an-azure-comsos-db-connection"></a>Adicionar uma conexão do Azure Cosmos DB
+## <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma conexão do Azure Cosmos DB
 Para adicionar uma conexão do Azure Cosmos DB, crie um objeto **TableService** e especifique o nome da conta, a chave primária e o ponto de extremidade. Copie esses valores em **Configurações** > **Cadeia de Conexão** no Portal do Azure da sua conta do Cosmos DB. Por exemplo: 
 
 ```nodejs

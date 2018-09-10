@@ -1,26 +1,23 @@
 ---
-title: "Codificar mensagens EDIFACT - Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Validar EDI e gerar o XML com o codificador de mensagem EDIFACT no Enterprise Integration Pack para Aplicativo Lógico do Azure"
+title: Codificar mensagens EDIFACT - Aplicativo Lógico do Azure | Microsoft Docs
+description: Validar o EDI e gerar o XML com o codificador de mensagem EDIFACT para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: anneta
-editor: 
-ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 799d444632b67788520be8a777ec656076022583
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e1c990030a9fa9ad25950ccb24b36b82a8c69f5c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122346"
 ---
-# <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificar mensagens EDIFACT para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
+# <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>Codificar mensagens EDIFACT para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
 Com o conector de mensagem EDIFACT de codificação, você pode validar o EDI e as propriedades específicas de parceiro, gerar um documento XML para cada conjunto de transações e gerar uma Confirmação Técnica, Confirmação Funcional, ou ambas.
 Para usar esse conector, você deve adicionar o conector para um gatilho existente em seu aplicativo lógico.

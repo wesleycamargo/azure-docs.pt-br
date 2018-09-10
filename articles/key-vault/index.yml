@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: b797090b98d7ab552c3c342eeea341fd86c331c3
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41927173"
 documentType: LandingData
 title: Documentação do Cofre de Chaves
 metadata:
@@ -15,14 +21,20 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
-  ms.openlocfilehash: 1dd00a68510ef5d1dbb726a3aea4a85897256a5b
-  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-  ms.translationtype: HT
-  ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/28/2018
 abstract:
-  description: Saiba como usar o Cofre de Chaves para proteger e gerenciar as chaves de criptografia e os segredos usados por aplicativos e serviços de nuvem. Os tutoriais, as referências de API e outras documentações mostram como criar e manter as chaves que acessam e criptografam seus recursos e soluções.
+  description: Saiba como usar o Cofre de Chaves para proteger e gerenciar as chaves de criptografia e os segredos usados por aplicativos e serviços de nuvem. Os tutoriais, as referências de API e outras documentações mostram como criar e manter as chaves e segredos que acessam e criptografam seus recursos e soluções.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/key-vault/key-vault-whatis
+      html: <p>Aprenda os conceitos fundamentais relacionados ao Azure Key Vault.</p>
+      image:
+        src: https://docs.microsoft.com/en-us/media/common/i_article.svg
+      title: Conceitos
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
@@ -42,6 +54,14 @@ sections:
         src: media/index/portal.svg
       text: Portal do Azure
       href: /azure/key-vault/quick-create-portal
+    - image:
+        src: media/index/logo_NET.svg
+      text: .NET
+      href: /azure/key-vault/quick-create-net
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/key-vault/quick-create-node
 - title: Tutoriais Passo a Passo
   items:
   - type: list
@@ -53,11 +73,6 @@ sections:
       image:
         src: media/index/get-started.svg
         href: /azure/key-vault/key-vault-use-from-web-application
-    - title: Configurar o Cofre de Chaves do Azure com a rotação de chaves e auditoria de ponta a ponta
-      href: /azure/key-vault/key-vault-key-rotation-log-monitoring
-      image:
-        src: media/index/tutorial.svg
-        href: /azure/key-vault/key-vault-key-rotation-log-monitoring
 - title: Referência
   items:
   - type: list
@@ -65,7 +80,7 @@ sections:
     className: cardsD
     items:
     - title: Linha de comando
-      html: <p><a href="/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault">PowerShell</a></p><p><a href="/cli/azure/keyvault">CLI 2 do Azure</a></p>
+      html: <p><a href="/powershell/module/azurerm.keyvault/">PowerShell</a></p><p><a href="/cli/azure/keyvault">CLI 2 do Azure</a></p>
     - title: Linguagens
       html: <p><a href="/dotnet/api/overview/azure/key-vault">.NET</a></p><p><a href="/java/api/overview/azure/keyvault">Java</a></p><p><a href="/python/api/overview/azure/key-vault">Python</a></p><p><a href="/javascript/api/overview/azure/key-vault">Node.js</a></p>
     - title: REST

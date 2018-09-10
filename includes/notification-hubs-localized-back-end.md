@@ -8,24 +8,25 @@ ms.topic: include
 ms.date: 04/02/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 752feca30fdca663aaf8bd88e6686781b9065682
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 527567ee3f3a939c7358fb6a62271cbe38e16974
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33836674"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915198"
 ---
 Ao enviar notificações de modelo, será necessário somente fornecer um conjunto de propriedades. Nesse cenário, o conjunto de propriedades contém a versão localizada das notícias atuais.
 
-    {
-        "News_English": "World News in English!",
-        "News_French": "World News in French!",
-        "News_Mandarin": "World News in Mandarin!"
-    }
-
-
+```json
+{
+    "News_English": "World News in English!",
+    "News_French": "World News in French!",
+    "News_Mandarin": "World News in Mandarin!"
+}
+```
 
 ### <a name="send-notifications-using-a-c-console-app"></a>Enviar notificações usando um aplicativo do console C#
+
 Esta seção mostra como enviar notificações usando um aplicativo do console. O código transmite notificações para o Microsoft Windows Store e dispositivos iOS. Modifique o método `SendTemplateNotificationAsync` no aplicativo de console que você criou anteriormente, com o código a seguir:
 
 ```csharp
@@ -66,6 +67,7 @@ private static async void SendTemplateNotificationAsync()
 O método SendTemplateNotificationAsync fornece a notícia localizada para **todos** os dispositivos, independentemente da plataforma. O hub de notificação compila e distribui a carga nativa correta para todos os dispositivos inscritos em uma marca específica.
 
 ### <a name="sending-notification-with-mobile-services"></a>Enviar notificação com Serviços Móveis
+
 No agendador de Serviços Móveis, use o script a seguir:
 
 ```csharp
@@ -82,4 +84,3 @@ notificationHubService.send('World', notification, function(error) {
     }
 });
 ```
-

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914832"
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Criar um cluster HPC (computação de alto desempenho) do Windows usando o script de implantação IaaS do HPC Pack
 Execute o script do PowerShell de implantação do HPC Pack IaaS para implantar um cluster HPC Pack 2012 R2 completo para cargas de trabalho do Windows nas máquinas virtuais do Azure. O cluster consiste em um nó principal associado do Active Directory que executa o Windows Server e o Pacote HPC da Microsoft, e os recursos de computação especificados. Se você desejar implantar um cluster de HPC Pack no Azure para cargas de trabalho do Linux, consulte [Criar um cluster de HPC Linux com o script de implantação do HPC Pack IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). 

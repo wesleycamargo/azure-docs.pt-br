@@ -4,21 +4,18 @@ description: Extraia o texto semântico por meio de análise de imagem usando a 
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 271f3231078b8842b040509ccf0406ed2415e5ec
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7f7d447edd0d73084a46aeff81f27b3ab0f072d3
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363937"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286227"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de Análise de Imagens
 
@@ -42,7 +39,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome de entrada      | DESCRIÇÃO                                          |
 |---------------|------------------------------------------------------|
-| imagem         | Tipo complexo. Atualmente só funciona com o campo "/document/normalized_images" produzido pelo indexador de BLOBs do Microsoft Azure quando ```imageAction``` é definido como ```generateNormalizedImages```. Para obter mais informações, confira [este exemplo](#sample-output).|
+| image         | Tipo complexo. Atualmente só funciona com o campo "/document/normalized_images" produzido pelo indexador de BLOBs do Microsoft Azure quando ```imageAction``` é definido como ```generateNormalizedImages```. Para obter mais informações, confira [este exemplo](#sample-output).|
 
 
 
@@ -51,6 +48,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+    "context": "/document/normalized_images/*",
     "visualFeatures": [
         "Tags",
         "Faces",
@@ -136,7 +134,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
                             "celebrities": [
                                 {
                                     "name": "Satya Nadella",
-                                    "faceRectangle": {
+                                    "faceBoundingBox": {
                                         "left": 597,
                                         "top": 162,
                                         "width": 248,
@@ -203,7 +201,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
                     {
                         "age": 44,
                         "gender": "Male",
-                    "faceRectangle": {
+                    "faceBoundingBox": {
                             "left": 593,
                             "top": 160,
                             "width": 250,
@@ -249,4 +247,4 @@ Nos casos de erro a seguir, nenhum elemento é extraído.
 
 + [Habilidades predefinidas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-+ [Criar Indexador (REST)](ref-create-indexer.md)
++ [Criar Indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

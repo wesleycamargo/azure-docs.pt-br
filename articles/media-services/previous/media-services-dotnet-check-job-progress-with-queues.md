@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783415"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Usar o Armazenamento de Fila do Azure para monitorar as notificações de trabalho dos Serviços de Mídia com .NET
 Quando você executa trabalhos de codificação, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode configurar os serviços de mídia para entregar notificações para [Armazenamento de Filas do Azure](../../storage/storage-dotnet-how-to-use-queues.md). Você pode monitorar o andamento do trabalho obtendo notificações do Armazenamento de Filas. 

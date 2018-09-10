@@ -14,20 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fa90d406313d756f3dd852305a6d61db29815192
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 43552ae2d7601a63156ac74104b85a90326ff473
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203402"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144728"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurar logs de fluxo de grupo de segurança de rede com a CLI do Azure
 
 > [!div class="op_single_selector"]
-> - [Portal do Azure](network-watcher-nsg-flow-logging-portal.md)
+> - [portal do Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
+> - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
 Logs de fluxo do Grupo de Segurança de Rede são um recurso do Observador de Rede permite que você exiba informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança de Rede. Esses logs de fluxo são escritos no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino, Protocolo) e se o tráfego foi permitido ou negado.
@@ -52,7 +51,9 @@ O comando para habilitar os logs de fluxo é mostrado no exemplo a seguir:
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
-A conta de armazenamento que você especificar não pode ter regras de rede configuradas para ela que restrinjam o acesso à rede somente aos serviços da Microsoft ou redes virtuais específicas. A conta de armazenamento pode ser a mesma ou uma assinatura diferente do Azure do que o NSG que você habilitar o log de fluxo. Se você usar assinaturas diferentes, ambas devem estar associadas ao mesmo locatário do Microsoft Azure Active Directory. A conta que você usa para cada assinatura deve ter as [permissões necessárias](required-rbac-permissions.md).
+A conta de armazenamento que você especificar não pode ter regras de rede configuradas para ela que restrinjam o acesso à rede somente aos serviços da Microsoft ou redes virtuais específicas. A conta de armazenamento pode ser a mesma ou uma assinatura diferente do Azure do que o NSG que você habilitar o log de fluxo. Se você usar assinaturas diferentes, ambas devem estar associadas ao mesmo locatário do Microsoft Azure Active Directory. A conta que você usa para cada assinatura deve ter as [permissões necessárias](required-rbac-permissions.md). 
+
+Se a conta de armazenamento estiver em um outro grupo de recursos ou assinatura que não seja o grupo de segurança de rede, especifique a ID completa da conta de armazenamento, em vez de seu nome. Por exemplo, se a conta de armazenamento estiver em um grupo de recursos denominado *RG-Storage*, em vez de especificar *storageAccountName* no comando anterior, você especificará */subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*.
 
 ## <a name="disable-network-security-group-flow-logs"></a>Desabilitar os logs do Fluxo de Grupo de Segurança de Rede
 

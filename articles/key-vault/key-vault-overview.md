@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f9648e15c720c076a65e84a95f4160f27eec598d
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: a55c99764cf9d77ab3ee269e3f5b0c2a13ec1ac7
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42023185"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o Cofre da Chave do Azure?
 
@@ -28,19 +29,18 @@ Você tem senhas, cadeias de conexão e outras informações que são necessári
 
 O Key Vault permite que você crie vários contêineres seguros, chamado cofres. Esses cofres contam com HSMs (Módulos de Segurança de Hardware). Os cofres ajudam a reduzir a possibilidade de perda acidental de informações de segurança pela centralização do armazenamento de segredos do aplicativo. Os Key Vaults também controlam e registram o acesso a todas as coisas armazenadas neles. O Azure Key Vault pode tratar da solicitação e da renovação de certificados TLS, fornecendo os recursos necessários para uma solução de gerenciamento de ciclo de vida de certificados robusta.
 
- O Azure Key Vault foi projetado para dar suporte a segredos e chaves do aplicativo. O Key Vault não deve ser usado como um repositório de senhas de usuário.
-
+ O Azure Key Vault foi projetado para dar suporte a qualquer tipo de segredo. Por isso, queremos dizer o Key Vault pode ser usado para armazenar senhas, credenciais de banco de dados, chaves de API e certificados, que podem ser protegidos por software ou por HSM
 ## <a name="why-use-azure-key-vault"></a>Por que usar o Azure Key Vault?
 
 ### <a name="centralize-application-secrets"></a>Centralizar segredos do aplicativo
 
-O armazenamento centralizado de segredos do aplicativo no Azure Key Vault permite que você controle sua distribuição. Isso reduz consideravelmente a probabilidade de os segredos serem vazados acidentalmente. Ao usar o Key Vault, os desenvolvedores de aplicativos não precisam mais armazenar informações de segurança no aplicativo. Isso elimina a necessidade de tornar essa informação parte do código. Por exemplo, um aplicativo pode precisar se conectar a um banco de dados. Em vez de armazenar a cadeia de conexão nos códigos do aplicativo, armazene-o com segurança no Key Vault.
+O armazenamento centralizado de segredos do aplicativo no Azure Key Vault permite que você controle sua distribuição. O Key Vault reduz consideravelmente a probabilidade de os segredos serem vazados acidentalmente. Ao usar o Key Vault, os desenvolvedores de aplicativos não precisam mais armazenar informações de segurança no aplicativo. Isso elimina a necessidade de tornar essa informação parte do código. Por exemplo, um aplicativo pode precisar se conectar a um banco de dados. Em vez de armazenar a cadeia de conexão nos códigos do aplicativo, armazene-o com segurança no Key Vault.
 
 Os aplicativos podem acessar as informações necessárias com segurança por meio de URIs que permitem recuperar versões específicas de um segredo depois que a chave ou o segredo do aplicativo é armazenado no Azure Key Vault. Isso ocorre sem a necessidade de escrever código personalizado para proteger as informações secretas.
 
-### <a name="securely-store-secrets"></a>Armazenar segredos com segurança
+### <a name="securely-store-secrets-and-keys"></a>Armazene segredos e chaves com segurança
 
-As chaves são protegidas pelo Azure, usando HSMs (módulos de segurança de hardware), comprimentos da chave e algoritmos padrão da indústria. Os HSMs usados são validados pelo padrão FIPS (Federal Information Processing Standards) 140-2 Nível 2.
+Os segredos e as chaves são protegidas pelo Azure, usando módulos de segurança de hardware (HSMs), comprimentos da chave e algoritmos padrão da indústria. Os HSMs usados são validados pelo padrão FIPS (Federal Information Processing Standards) 140-2 Nível 2.
 
 O acesso a um cofre de chaves requer a devida autenticação e autorização antes de um chamador (usuário ou aplicativo) poder obter acesso. A autenticação estabelece a identidade do chamador e a autorização determina as operações que ele tem permissão para executar.
 
@@ -48,7 +48,7 @@ A autenticação é feita pelo Azure Active Directory. A autorização pode ser 
 
 Os Azure Key Vaults podem ser qualquer software ou hardware protegido por HSM. Para situações que exijam garantia extra, você pode importar ou gerar chaves em HSMs (módulos de segurança de hardware) que nunca deixam os limites do HSM. A Microsoft usa módulos de segurança de hardware Thales. Você pode usar as ferramentas Thales para mover uma chave de seu HSM para o Azure Key Vault.
 
-Por fim, o Azure Key Vault foi projetado para que a Microsoft não veja nem extraia suas chaves.
+Por fim, o Azure Key Vault foi projetado para que a Microsoft não veja nem extraia seus dados.
 
 ### <a name="monitor-access-and-use"></a>Monitorar o acesso e o uso
 
@@ -64,9 +64,9 @@ Você tem controle sobre os logs e pode protegê-los restringindo o acesso, e ta
 
 Ao armazenar dados valiosos, é necessário executar várias etapas. As informações de segurança devem ser protegidas, elas devem seguir um ciclo de vida e devem estar altamente disponíveis. O Azure Key Vault simplifica grande parte disso:
 
-- Removendo a necessidade de conhecimento interno sobre HSMs.
+- Remoção da necessidade de conhecimento interno sobre Módulos de Segurança de Hardware
 - Escalando verticalmente e rapidamente para atender aos picos de uso da sua organização.
-- Replicando o conteúdo de seu Key Vault dentro de uma região e para uma região secundária. Isso garante a alta disponibilidade e retira a necessidade de qualquer ação do administrador para disparar o failover.
+- Replicando o conteúdo de seu Key Vault dentro de uma região e para uma região secundária. O Key Vault garante a alta disponibilidade e retira a necessidade de qualquer ação do administrador para disparar o failover.
 - Fornecendo opções de administração do Azure padrão por meio do portal, da CLI do Azure e do PowerShell.
 - Automatizando algumas tarefas em certificados que você compra de autoridades de certificação pública, como registro e renovação.
 

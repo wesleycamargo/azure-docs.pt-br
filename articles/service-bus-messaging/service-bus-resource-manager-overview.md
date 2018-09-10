@@ -3,7 +3,7 @@ title: Criar recursos do Barramento de Serviço do Azure usando modelos do Geren
 description: Usar modelos do Azure Resource Manager para automatizar a criação de recursos do Barramento de Serviço
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/11/2018
-ms.author: sethm
-ms.openlocfilehash: c8d84de608ccf3d9a9293c20c07c10a00b73da68
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: spelluru
+ms.openlocfilehash: c1e35f695c33ce33c5862116a7d5711251c0e505
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702105"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Criar recursos do Barramento de Serviço usando modelos do Azure Resource Manager
 
@@ -206,7 +207,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 
 ### <a name="create-the-deployment"></a>Criar a implantação
 
-Para criar a nova implantação, execute o cmdlet `New-AzureRmResourceGroupDeployment` e forneça os parâmetros necessários quando solicitado. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos e o caminho ou a URL para o arquivo do modelo. Caso o parâmetro **Mode** não esteja especificado, o valor padrão de **Incremental** será usado. Para saber mais, consulte [Implantações incrementais e completas](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
+Para criar a nova implantação, execute o cmdlet `New-AzureRmResourceGroupDeployment` e forneça os parâmetros necessários quando solicitado. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos e o caminho ou a URL para o arquivo do modelo. Caso o parâmetro **Mode** não esteja especificado, o valor padrão de **Incremental** será usado. Para saber mais, consulte [Implantações incrementais e completas](../azure-resource-manager/deployment-modes.md).
 
 O comando abaixo solicita os três parâmetros na janela do PowerShell:
 
@@ -226,7 +227,7 @@ Você também pode usar parâmetros embutidos quando executa o cmdlet de implant
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-Para executar uma implantação [completa](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments), defina o parâmetro **Mode** como **Complete**:
+Para executar uma implantação [completa](../azure-resource-manager/deployment-modes.md), defina o parâmetro **Mode** como **Complete**:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

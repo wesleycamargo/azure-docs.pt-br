@@ -1,24 +1,24 @@
 ---
 title: Tutorial – CI/CD do Jenkins para VMs do Azure com o Team Services | Microsoft Docs
 description: Neste tutorial, você aprenderá a configurar a CI (integração contínua) e a CD (implantação contínua) de um aplicativo Node.js usando o Jenkins para VMs do Azure por meio do Release Management no Visual Studio Team Services ou Microsoft Team Foundation Server
-author: ahomer
-manager: douge
-editor: tysonn
+author: tomarcher
+manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: devops
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/19/2017
-ms.author: ahomer
-ms.custom: mvc
-ms.openlocfilehash: fc301edf13f8e6874f0b77440e2b0dc01b2a55fc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 07/31/2018
+ms.author: tarcher
+ms.custom: jenkins
+ms.openlocfilehash: d3a4a81f60f4e70c2c7576c3176e2b4d6de08d04
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390588"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Tutorial: Implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Jenkins e o Visual Studio Team Services
 
@@ -48,7 +48,7 @@ Neste tutorial, você usa o Jenkins para criar um aplicativo Web Node.js. Em seg
 
 *  É necessária uma máquina virtual Linux para um destino de implantação.  Para obter mais informações, consulte [Criar e gerenciar VMs Linux com a CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Abra a porta de entrada 80 para sua máquina virtual. Para obter mais informações, consulte [Criar grupos de segurança de rede usando o Portal do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Abra a porta de entrada 80 para sua máquina virtual. Para obter mais informações, consulte [Criar grupos de segurança de rede usando o Portal do Azure](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic).
 
 ## <a name="get-the-sample-app"></a>Obter o aplicativo de exemplo
 
@@ -168,6 +168,10 @@ Para criar uma definição de versão no Team Services:
 6. Acesse o repositório do Git de origem e modifique o conteúdo do título **h1** no arquivo app/views/index.jade com um texto alterado.
 7. Confirme a alteração.
 8. Depois de alguns minutos, você verá uma nova versão criada na página **Versões** do Team Services ou do Team Foundation Server. Abra a versão para ver a implantação acontecendo. Parabéns!
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Solução de problemas do plug-in do Jenkins
+
+Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIRA do Jenkins](https://issues.jenkins-ci.org/) para o componente específico.
 
 ## <a name="next-steps"></a>Próximas etapas
 

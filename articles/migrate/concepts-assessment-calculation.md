@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos cálculos de avaliação no serviço M
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: be4fb15d96f5598d4b1ddbbaa4befe7f6530152c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 092f0844854c13898fd7f07ce9b7ddea98ff01ed
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203532"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286266"
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -38,11 +38,11 @@ As Migrações para Azure analisam as seguintes propriedades da VM local para id
 
 **Propriedade** | **Detalhes** | **Status de preparação do Azure**
 --- | --- | ---
-**Tempo de inicialização** | O Azure oferece suporte a VMs com tipo de inicialização BIOS, e não UEFI. | Condicionalmente pronta para o Azure se o tipo de inicialização for UEFI.
-**Núcleos** | O número de núcleos em máquinas deve ser igual ou menor que o número máximo de núcleos (32) com suporte para uma VM do Azure.<br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão os núcleos utilizados para comparação. Se um fator de conforto for especificado nas configurações de avaliação, o número de núcleos utilizados será multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, as Migrações para Azure usarão os núcleos alocados, sem aplicar o fator de conforto. | Não pronto se o número de núcleos for maior do que 32.
-**Memória** | O tamanho da memória do computador deve ser igual ou menor que a memória máxima permitida para uma VM do Azure (448 GB). <br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão a memória utilizada para comparação. Se um fator de conforto for especificado, a memória utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver histórico, a memória alocada será usada, sem aplicar o fator de conforto.<br/><br/> | Não pronto se o tamanho da memória for maior que 448 GB.
-**Disco de armazenamento** | O tamanho alocado de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos anexados à máquina deve ser de 65 ou menos, incluindo o disco do sistema operacional. | Não pronto se algum disco tiver tamanho maior que 4 TB ou se houver mais de 65 discos anexadas ao computador.
-**Rede** | Um computador deve ter 32 NICs ou menos conectados a ele. | Não pronto se a máquina tiver mais de 32 NICs
+**Tempo de inicialização** | O Azure oferece suporte a VMs com tipo de inicialização BIOS, e não UEFI. | Condicionalmente pronto se o tipo de inicialização for UEFI.
+**Núcleos** | O número de núcleos em máquinas deve ser igual ou menor que o número máximo de núcleos (32) com suporte para uma VM do Azure.<br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão os núcleos utilizados para comparação. Se um fator de conforto for especificado nas configurações de avaliação, o número de núcleos utilizados será multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, as Migrações para Azure usarão os núcleos alocados, sem aplicar o fator de conforto. | Pronto, se for menor que ou igual aos limites.
+**Memória** | O tamanho de memória do computador deve ser igual ou menor do que a memória máxima (3892 GB na série M do Azure Standard_M128m&nbsp;<sup>2</sup>) permitida para uma VM do Azure. [Saiba mais](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão a memória utilizada para comparação. Se um fator de conforto for especificado, a memória utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver histórico, a memória alocada será usada, sem aplicar o fator de conforto.<br/><br/> | Se estiver pronto dentro dos limites.
+**Disco de armazenamento** | O tamanho alocado de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos anexados à máquina deve ser de 65 ou menos, incluindo o disco do sistema operacional. | Se estiver pronto dentro dos limites.
+**Rede** | Um computador deve ter 32 NICs ou menos conectados a ele. | Se estiver pronto dentro dos limites.
 
 ### <a name="guest-operating-system"></a>Sistema operacional convidado
 Junto com as propriedades da VM, as Migrações para Azure também examinam o sistema operacional convidado da VM local para identificar se a VM pode ser executada no Azure.
@@ -58,23 +58,24 @@ Windows Server 2016 e todos os SPs | O Azure fornece suporte total. | Pronto par
 Windows Server 2012 R2 e todos os SPs | O Azure fornece suporte total. | Pronto para o Azure
 Windows Server 2012 e todos os SPs | O Azure fornece suporte total. | Pronto para o Azure
 Windows Server 2008 R2 com todos os SPs | O Azure fornece suporte total.| Pronto para o Azure
-Windows Server 2003-2008 R2 | Esses sistemas operacionais passaram da data final de suporte e precisam de um [Contrato de Suporte Personalizado (CSA)](https://aka.ms/WSosstatement) para obter suporte no Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
+Windows Server 2008 (32 bits e 64 bits) | O Azure fornece suporte total. | Pronto para o Azure
+Windows Server 2003, 2003 R2 | Esses sistemas operacionais passaram da data final de suporte e precisam de um [Contrato de Suporte Personalizado (CSA)](https://aka.ms/WSosstatement) para obter suporte no Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Esses sistemas operacionais passaram da data final de suporte, o computador pode ser inicializado no Azure, mas não há suporte do sistema operacional fornecido pelo Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
 Cliente do Windows 7, 8 e 10 | O Azure fornece suporte apenas com a assinatura do Visual Studio. | Condicionalmente pronta para o Azure
 Windows Vista, XP Professional | Esses sistemas operacionais passaram da data final de suporte, o computador pode ser inicializado no Azure, mas não há suporte do sistema operacional fornecido pelo Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
 Linux | O Azure endossa esses [sistemas operacionais Linux](../virtual-machines/linux/endorsed-distros.md). Outros sistemas operacionais podem ser inicializados no Azure, mas é recomendado atualizar o sistema operacional para uma versão endossada antes de migrar para o Azure. | Pronto para o Azure se a versão é aprovada.<br/><br/>Condicionalmente pronto se a versão não é aprovada.
 Outros sistemas operacionais<br/><br/> Por exemplo, Oracle Solaris, sistema operacional Apple Mac etc., FreeBSD, etc. | O Azure não endossa esses sistemas operacionais. O computador pode ser inicializado no Azure, mas não há suporte do sistema operacional fornecido pelo Azure. | Condicionalmente pronto para o Azure, é recomendável atualizar o sistema operacional antes de migrar para o Azure.  
-Sistema operacional especificado como *Outros* no vCenter Server | As Migrações para Azure não podem identificar o sistema operacional neste caso. | Preparação desconhecida. Certifique-se de que o sistema operacional em execução dentro da VM tem suporte no Azure.
+Sistema operacional especificado como **Outros** no vCenter Server | As Migrações para Azure não podem identificar o sistema operacional neste caso. | Preparação desconhecida. Certifique-se de que o sistema operacional em execução dentro da VM tem suporte no Azure.
 Sistemas operacionais de 32 bits | O computador pode ser inicializado no Azure, mas o Azure pode não fornecer suporte completo. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional do computador de 32 bits para 64 bits antes de migrar para o Azure.
 
 ## <a name="sizing"></a>Dimensionamento
 
-Depois que uma máquina é marcada como pronta para o Azure, as Migrações para Azure dimensionam a VM e seus discos para o Azure. Se o critério de dimensionamento especificado nas propriedades de avaliação é para fazer o dimensionamento com base no desempenho, as Migrações para Azure consideram o histórico de desempenho do computador para identificar um tamanho de VM no Azure. Esse método é útil em cenários onde você alocou em excesso a VM local, mas a utilização é baixa e você deseja redimensionar as VMs no Azure para salvar o custo.
+Depois que uma máquina é marcada como pronta para o Azure, as Migrações para Azure dimensionam a VM e seus discos para o Azure. Se o critério de dimensionamento especificado nas propriedades de avaliação for de fazer o dimensionamento com base no desempenho, as Migrações para Azure considerarão o histórico de desempenho do computador para identificar o tamanho e o tipo de disco da VM no Azure. Esse método é útil em cenários onde você alocou em excesso a VM local, mas a utilização é baixa e você deseja redimensionar as VMs no Azure para salvar o custo.
 
 > [!NOTE]
 > As Migrações para Azure coletam o histórico de desempenho de máquinas virtuais locais do vCenter Server. Para garantir um redimensionamento correto, verifique se a configuração de estatísticas no vCenter Server está definida para o nível 3 e aguarde pelo menos um dia antes de iniciar a descoberta de máquinas virtuais locais. Se a configuração de estatísticas no vCenter Server for menor que o nível 3, os dados de desempenho de disco e de rede não são coletados.
 
-Se você não deseja considerar o histórico de desempenho para dimensionamento da VM e deseja levar a VM como está para o Azure, você pode especificar o critério de dimensionamento como *como local* e as Migrações para Azure dimensionarão as VMs com base na configuração local sem considerar os dados de utilização. Dimensionamento de disco, nesse caso, ainda se baseará nos dados de desempenho.
+Se você não deseja considerar o histórico de desempenho para dimensionamento da VM e deseja levar a VM como está para o Azure, você pode especificar o critério de dimensionamento como *como local* e as Migrações para Azure dimensionarão as VMs com base na configuração local sem considerar os dados de utilização. O dimensionamento de disco, nesse caso, será feito com base no tipo de armazenamento que você especificar nas propriedades de avaliação (disco Standard ou Premium)
 
 ### <a name="performance-based-sizing"></a>Dimensionamento com base no desempenho
 
@@ -103,25 +104,12 @@ Para dimensionamento com base no desempenho, as Migrações para Azure iniciam c
     - Se houver vários discos qualificados, será recomendado aquele com o menor custo.
 
 ### <a name="as-on-premises-sizing"></a>Como dimensionamento local
-Se o critério de dimensionamento é  *dimensionamento como local*, as Migrações para Azure não consideram o histórico de desempenho das VMs e alocam VMs de acordo com o tamanho alocado no local. No entanto, para o dimensionamento do disco, ele considera o histórico de desempenho de discos para recomendar discos Standard ou Premium.  
-- **Armazenamento**: as Migrações para Azure mapeiam todos os discos anexados à máquina para um disco no Azure.
-
-    > [!NOTE]
-    > As Migrações para Azure oferecem suporte somente a discos gerenciados para avaliação.
-
-    - Para obter a E/S de disco por segundo (IOPS) e a taxa de transferência (MBps) efetivas, as Migrações para Azure multiplicam o IOPS de disco e a taxa de transferência com o fator de conforto. Com base nos valores eficazes da taxa de transferência e IOPS, as Migrações para Azure identificam se o disco deve ser mapeado para um disco padrão ou premium no Azure.
-    - Se as Migrações para Azure não conseguirem encontrar um disco com a IOPS e a taxa de transferência necessárias, ele marcará a máquina como inadequada para o Azure. [Saiba mais](../azure-subscription-service-limits.md#storage-limits) sobre os limites do Azure por disco e VM.
-    - Se ele encontrar um conjunto de discos adequados, as Migrações para Azure selecionarão aqueles que dão suporte ao método de redundância de armazenamento e ao local especificado nas configurações de avaliação.
-    - Se houver vários discos qualificados, elas selecionarão os que têm o menor custo.
-    - Se os dados de desempenho de discos estiverem indisponíveis, todos os discos serão mapeados para os discos padrão no Azure.
-- **Rede**: Para cada adaptador de rede, é recomendado um adaptador de rede no Azure.
-- **Computação**: As Migrações para Azure analisam o número de núcleos e o tamanho da memória da VM local e recomenda uma VM do Azure com a mesma configuração. Se houver vários discos qualificados, será recomendado aquele com o menor custo. Dados de utilização de CPU e memória não são considerados para dimensionamento no local.
+Se o critério de dimensionamento for de *dimensionamento como local*, as Migrações para Azure não considerarão o histórico de desempenho das VMs e dos discos e alocarão uma SKU da VM no Azure de acordo com o tamanho alocado localmente. De forma semelhante ao dimensionamento de disco, elas examinam o tipo de armazenamento especificado nas propriedades de avaliação (Standard/Premium) e recomendam o tipo de disco de acordo com ele. O tipo de armazenamento padrão são os discos Premium.
 
 ### <a name="confidence-rating"></a>Classificação de confiança
+Cada avaliação baseada em desempenho das Migrações para Azure está associada a uma classificação de confiança que varia de 1 a 5 estrelas (1 estrela sendo a mais baixa e 5 estrelas sendo a mais alta). A classificação de confiança é atribuída a uma avaliação com base na disponibilidade de pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a estimar a confiabilidade das recomendações de tamanho fornecidas pelas Migrações para Azure. A classificação de confiança não é aplicável a avaliações locais.
 
-Cada avaliação das Migrações para Azure está associada a uma classificação de confiança que varia de 1 a 5 estrelas (1 estrela sendo a mais baixa e 5 estrelas sendo a mais alta). A classificação de confiança é atribuída a uma avaliação com base na disponibilidade de pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a estimar a confiabilidade das recomendações de tamanho fornecidas pelas Migrações para Azure.
-
-Para o dimensionamento baseado em desempenho da VM, as Migrações para Azure precisam dos dados de utilização da CPU e da memória. Além disso, para o dimensionamento de cada disco anexado à VM, é necessário ter a IOPS de leitura/gravação e a taxa de transferência. Da mesma forma, para cada adaptador de rede conectado à VM, as Migrações para Azure precisam da rede de entrada/saída para fazer o dimensionamento com base no desempenho. Se qualquer um dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelas Migrações para Azure pode não ser confiável. Dependendo da porcentagem de pontos de dados disponível, o nível de confiança para as avaliações é fornecido conforme abaixo:
+Para o dimensionamento com base no desempenho, as Migrações para Azure precisam de dados de utilização da CPU e memória da VM. Além disso, para cada disco anexado à VM, é necessário ter os dados da taxa de transferência e a IOPS do disco. Da mesma forma, para cada adaptador de rede conectado à VM, as Migrações para Azure precisam da entrada/saída da rede para fazer o dimensionamento com base no desempenho. Se qualquer um dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelas Migrações para Azure pode não ser confiável. Dependendo da porcentagem de pontos de dados disponível, o nível de confiança para as avaliações é fornecido conforme abaixo:
 
    **Disponibilidade dos pontos de dados** | **Classificação de confiança**
    --- | ---
@@ -144,7 +132,7 @@ Uma avaliação pode não ter todos os pontos de dados disponíveis devido a um 
 
 Após a conclusão das recomendações de dimensionamento, as Migrações para Azure calcularão os custos de computação e armazenamento pós-migração.
 
-- **Custo de computação**: usando o tamanho recomendado de VM do Azure, as Migrações para Azure usam a API de Cobrança para calcular o custo mensal para a VM. O cálculo leva em conta o sistema operacional, o software assurance, a localização e as configurações de moeda. Ele agrega o custo em todas as máquinas, para calcular o custo total de computação mensal.
+- **Custo de computação**: usando o tamanho recomendado de VM do Azure, as Migrações para Azure usam a API de Cobrança para calcular o custo mensal para a VM. O cálculo leva em conta sistema operacional, Software Assurance, instâncias reservadas, tempo de atividade da VM, localização e configurações de moeda. Ele agrega o custo em todas as máquinas, para calcular o custo total de computação mensal.
 - **Custo de armazenamento**: o custo de armazenamento mensal de uma máquina é calculado agregando o custo mensal de todos os discos anexados à máquina. As Migrações para Azure calculam o custo total de armazenamento mensal agregando os custos de armazenamento de todas as máquinas. Atualmente, o cálculo não leva em consideração as ofertas especificadas nas configurações de avaliação.
 
 Os custos são exibidos na moeda especificada nas configurações de avaliação.

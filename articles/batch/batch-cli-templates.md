@@ -1,33 +1,34 @@
 ---
-title: Executar trabalhos do Lote do Azure de ponta a ponta sem escrever código (Versão Prévia) | Microsoft Docs
-description: Crie arquivos de modelo para a CLI do Azure criar pools de Lote, trabalhos e tarefas.
+title: Executar trabalhos de Lote do Microsoft Azure usando modelos de ponta a ponta | Microsoft Docs
+description: Crie pools de lote, trabalhos e tarefas com arquivos de amostra e a CLI do Azure.
 services: batch
-author: mscurrell
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 12/18/2017
-ms.author: markscu
-ms.openlocfilehash: 0a6e355d8f16fed9022cc2cf55dc09781364f0b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/02/2018
+ms.author: danlep
+ms.openlocfilehash: 50ed5a6b57c3c994f636db5cc975ad1908e50c7d
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493426"
 ---
-# <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usar modelos CLI do Lote do Azure e o arquivo de transferência (Versão prévia)
+# <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usar modelos CLI do Azure de Lote e o arquivo de transferência
 
-Ao usar a CLI do Azure é possível executar trabalhos do Lote sem escrever código.
+Ao usar a extensão do Lote do Microsoft Azure é possível executar trabalhos do Lote sem escrever código.
 
-Criar e usar arquivos de modelo com a CLI do Azure para criar pools de Lote, trabalhos e tarefas. Carregue facilmente os arquivos de entrada de trabalho na conta de armazenamento associada à conta do Lote e baixe os arquivos de saída de trabalho.
+Criar e usar arquivos de modelo JSON com a CLI do Azure para criar pools de Lote, trabalhos e tarefas. Use os comandos de extensão CLI para carregar facilmente os arquivos de entrada de trabalho na conta de armazenamento associada à conta do Lote e baixe os arquivos de saída de trabalho.
 
 ## <a name="overview"></a>Visão geral
 
 Uma extensão da CLI do Azure permite que o Lote seja usado de ponta a ponta por usuários que não são desenvolvedores. Somente com comandos CLI é possível criar um pool, carregar dados de entrada, criar trabalhos e tarefas associadas e baixar os dados de saída resultantes. Nenhum código adicional é necessário. Execute os comandos CLI diretamente ou integre-os aos scripts.
 
-Os modelos do Lote compilam o [suporte do Lote existente na CLI do Azure](batch-cli-get-started.md#json-files-for-resource-creation) para que os arquivos JSON especifiquem os valores de propriedade ao criar pools, trabalhos, tarefas e outros itens. Com modelos de Lote, os seguintes recursos são adicionados além do que é possível com os arquivos JSON:
+Os modelos do Lote compilam o [suporte do Lote existente na CLI do Azure](batch-cli-get-started.md#json-files-for-resource-creation) para que os arquivos JSON especifiquem os valores de propriedade ao criar pools, trabalhos, tarefas e outros itens. Os modelos do lote adicionam os seguintes recursos:
 
 -   Parâmetros podem ser definidos. Quando o modelo é usado, somente os valores de parâmetro são especificados para criar o item, com outros valores de propriedade de item sendo especificados no corpo do modelo. Um usuário que entende o Lote e os aplicativos a serem executados pelo Lote pode criar modelos especificando os valores de propriedade de pool, de trabalho e de tarefa. Um usuário menos familiarizado com o Lote e/ou os aplicativos só precisa especificar os valores para os parâmetros definidos.
 
@@ -46,25 +47,22 @@ Por exemplo, [ffmpeg](http://ffmpeg.org/) é um aplicativo popular que processa 
 
 ## <a name="installation"></a>Instalação
 
-Instale uma extensão da CLI do Lote do Azure para usar os recursos de modelo e transferência de arquivos.
+Para instalar a extensão de CLI do Lote do Microsoft Azure, primeiro [instale CLI do Azure 2.0](/cli/azure/install-azure-cli), ou execute a CLI do Azure no [Azure Cloud Shell](../cloud-shell/overview.md).
 
-Para obter instruções sobre como instalar a CLI do Azure, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
-
-Depois que a CLI do Azure tiver sido instalada, instale a última versão da extensão do Lote, usando o comando da CLI a seguir:
+Instale a última versão da extensão do Lote, usando o comando da CLI do Azure seguir:
 
 ```azurecli
 az extension add --name azure-batch-cli-extensions
 ```
 
-Para obter mais informações sobre a extensão do Lote, consulte [Extensões de CLI do Lote do Microsoft Azure para Windows, Mac e Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
+Para obter mais informações sobre as opções de instalação adicionais e extensão da CLI do lote, consulte o [repositório GitHub](https://github.com/Azure/azure-batch-cli-extensions).
+
+
+Para usar os recursos de extensão da CLI, você precisa de uma conta do Lote do Microsoft Azure e, para os comandos que transferir arquivos para e do armazenamento, uma conta de armazenamento vinculada.
+
+Para fazer logon em uma conta do lote com a CLI do Azure, consulte [Gerenciar recursos do lote com a CLI do Azure](batch-cli-get-started.md).
 
 ## <a name="templates"></a>Modelos
-
-A CLI do Lote do Azure permite que os itens como pools, trabalhos e tarefas sejam criados, especificando um arquivo JSON contendo os valores e nomes de propriedades. Por exemplo: 
-
-```azurecli
-az batch pool create –-json-file AppPool.json
-```
 
 Os modelos do Lote do Azure são semelhantes aos modelos do Azure Resource Manager, na funcionalidade e na sintaxe. Eles são arquivos JSON que contêm valores e nomes de propriedade do item, mas adicionam os conceitos principais a seguir:
 
@@ -119,7 +117,7 @@ A seguir, um exemplo de um modelo que cria um pool de VMs do Linux com o ffmpeg 
                 "imageReference": {
                     "publisher": "Canonical",
                     "offer": "UbuntuServer",
-                    "sku": "16.04.0-LTS",
+                    "sku": "16.04-LTS",
                     "version": "latest"
                 },
                 "nodeAgentSKUId": "batch.node.ubuntu 16.04"
@@ -145,6 +143,25 @@ Se o arquivo de modelo foi nomeado _pool-ffmpeg.json_, invoque o modelo conforme
 az batch pool create --template pool-ffmpeg.json
 ```
 
+A CLI solicita que você forneça valores para o `poolId` e `nodeCount` parâmetros. Você também pode fornecer os parâmetros em um arquivo JSON. Por exemplo: 
+
+```json
+{
+  "poolId": {
+    "value": "mypool"
+  },
+  "nodeCount": {
+    "value": 2
+  }
+}
+```
+
+Se o arquivo JSON de parâmetros foi nomeado *pool-ffmpeg.json*, invoque o modelo conforme a seguir:
+
+```azurecli
+az batch pool create --template pool-ffmpeg.json --parameters pool-parameters.json
+```
+
 ### <a name="job-templates"></a>Modelos de trabalho
 
 Os modelos de trabalho dão suporte a recursos de modelo padrão de parâmetros e variáveis. Eles também são suporte para o constructo de nível superior a seguir:
@@ -153,7 +170,7 @@ Os modelos de trabalho dão suporte a recursos de modelo padrão de parâmetros 
 
     -   Com base em uma definição de tarefa, cria várias tarefas para um trabalho. Três tipos de fábrica de tarefas têm suporte – limpeza paramétrica, tarefa por arquivo e coleção de tarefas.
 
-O seguinte é um exemplo de um modelo que cria um trabalho para transcodificar arquivos de vídeo MP4 com ffmpeg para uma das duas resoluções mais baixas. Cria uma tarefa por arquivo de vídeo de origem:
+O seguinte é um exemplo de um modelo que cria um trabalho para transcodificar arquivos de vídeo MP4 com ffmpeg para uma das duas resoluções mais baixas. Cria uma tarefa por arquivo de vídeo de origem. Consulte [grupos de arquivos e transferência de arquivos](#file-groups-and-file-transfer) para obter mais informações sobre grupos de arquivos para o trabalho de entrada e saída.
 
 ```json
 {
@@ -235,9 +252,23 @@ Se o arquivo de modelo foi nomeado _job-ffmpeg.json_, invoque o modelo conforme 
 az batch job create --template job-ffmpeg.json
 ```
 
+Como anteriormente, a CLI solicita que você forneça valores para os parâmetros. Você também pode fornecer os parâmetros em um arquivo JSON.
+
+### <a name="use-templates-in-batch-explorer"></a>Use os modelos no Azure Batch Explorer
+
+Você pode carregar um modelo de CLI do lote para o aplicativo de desktop do [Azure Batch Explorer](https://github.com/Azure/BatchExplorer) (anteriormente chamado BatchLabs) para criar um trabalho ou pool do lote. Você também pode selecionar a partir de modelos predefinidos de pool e o trabalho na Galeria do Azure Batch Explorer.
+
+Para carregar um modelo:
+
+1. No Azure Batch Explorer, selecione **Galeria** > **Modelos locais**.
+
+2. Selecione, ou arraste e solte, um pool local ou o modelo de trabalho.
+
+3. Selecione **Usar este modelo**e siga os prompts na tela.
+
 ## <a name="file-groups-and-file-transfer"></a>Transferência de arquivos e grupos de arquivo
 
-A maioria dos trabalhos e tarefas exigem arquivos de entrada e produzem arquivos de saída. Geralmente, os arquivos de entrada e os arquivos de saída são transferidos, do cliente para o nó ou do nó para o cliente. A extensão de CLI do Lote do Azure abstrai a transferência de arquivo e utiliza a conta de armazenamento que é criada por padrão para cada conta do Lote.
+A maioria dos trabalhos e tarefas exigem arquivos de entrada e produzem arquivos de saída. Geralmente, os arquivos de entrada e os arquivos de saída são transferidos, do cliente para o nó ou do nó para o cliente. A extensão de CLI do Lote do Azure abstrai a transferência de arquivo e utiliza a conta de armazenamento que você pode associar à conta do Lote.
 
 Um grupo de arquivo é igual a um contêiner que é criado na conta de armazenamento do Azure. O grupo de arquivo pode ter subpastas.
 
@@ -251,15 +282,16 @@ az batch file download --file-group ffmpeg-output --local-path
     c:\output_lowres_videos
 ```
 
-Modelos de pool e de trabalho permitem que os arquivos armazenados em grupos de arquivo sejam especificados para cópia em nós de pool ou transferidos de nós de pool para um grupo de arquivo. Por exemplo, o modelo de trabalho especificado anteriormente, o grupo de arquivo "ffmpeg-input" é especificado para a fábrica de tarefas como o local dos arquivos de vídeo de origem copiados para o nó para transcodificação; o grupo de arquivos “ffmpeg-output” é o local onde os arquivos de saída transcodificados são copiados do nó que executa cada tarefa.
+Modelos de pool e de trabalho permitem que os arquivos armazenados em grupos de arquivo sejam especificados para cópia em nós de pool ou transferidos de nós de pool para um grupo de arquivo. Por exemplo, no trabalho de modelo especificado anteriormente, o grupo de arquivos *ffmpeg-input* é especificado para a fábrica de tarefas como o local dos arquivos de vídeo de origem copiados para baixo até o nó para transcodificação. O grupo de arquivos *ffmpeg-output* é o local onde os arquivos de saída transcodificados são copiados do nó que executa cada tarefa.
 
 ## <a name="summary"></a>Resumo
 
-Atualmente, o suporte à transferência de arquivo e de modelo foi adicionado somente à CLI do Azure. A meta é expandir o público que pode usar o Lote para usuários que não precisam desenvolver código usando as APIs de Lote, tais como pesquisadores, usuários de TI e assim por diante. Sem codificação, os usuários com conhecimento do Azure, do Lote e dos aplicativos a serem executados pelo Lote podem criar modelos para criação de pools e trabalhos. Com os parâmetros de modelo, os usuários sem conhecimento detalhado do Lote e dos aplicativos podem usar esses modelos.
+Atualmente, o suporte à transferência de arquivo e de modelo foi adicionado somente à CLI do Azure. A meta é expandir o público que pode usar o Lote para usuários que não precisam desenvolver código usando as APIs de Lote, tais como pesquisadores, usuários de TI. Sem codificação, os usuários com conhecimento do Azure, do Lote e dos aplicativos a serem executados pelo Lote podem criar modelos para criação de pools e trabalhos. Com os parâmetros de modelo, os usuários sem conhecimento detalhado do Lote e dos aplicativos podem usar esses modelos.
 
-Experimente a extensão do Lote para a CLI do Azure e forneça comentários ou sugestões, seja nos comentários deste artigo ou no [fórum do Lote do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
+Experimente a extensão do Lote para a CLI do Azure e forneça comentários ou sugestões, seja nos comentários deste artigo ou no [repositório da Comunidade do Lote](https://github.com/Azure/Batch).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Veja a postagem de blog de modelos do Lote: [Executando trabalhos do Lote do Azure usando a CLI do Azure – não há necessidade de código](https://azure.microsoft.com/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
 - Documentação detalhada de instalação e uso, amostras e código-fonte estão disponíveis no [repositório GitHub do Azure](https://github.com/Azure/azure-batch-cli-extensions).
+
+- Saiba mais sobre como usar o [Gerenciador do lote](https://github.com/Azure/BatchExplorer) para criar e gerenciar recursos do lote.

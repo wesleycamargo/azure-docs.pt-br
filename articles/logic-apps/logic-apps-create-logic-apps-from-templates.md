@@ -1,25 +1,21 @@
 ---
 title: Criar fluxos de trabalho com modelos - Aplicativo Lógico do Azure | Microsoft Docs
-description: Compilar fluxos de trabalho mais rápidos usando modelos de aplicativo lógico
-author: kevinlam1
-manager: anneta
-editor: ''
+description: Criar fluxos de trabalho mais rapidamente usando modelos de aplicativo lógico no Aplicativo Lógico do Azure
 services: logic-apps
-documentationcenter: ''
-ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
 ms.topic: article
+ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
-ms.author: LADocs; klam
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2e939143d7181722df17ea7837658d96272e3a3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 10191a4fbab325dcd5134b082f050188c6798079
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122113"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Criar fluxos de trabalho de aplicativo lógico com modelos predefinidos
 

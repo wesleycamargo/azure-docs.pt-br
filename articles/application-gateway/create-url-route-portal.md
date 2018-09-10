@@ -11,11 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 6b45b00de53822224afbfb3a15dbc6790deb11ce
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7e8f06e2d1b489b79218514d8b115c389f057d56
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056109"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicativo com regras de roteamentos com base no caminho usando o portal do Azure
 
@@ -103,7 +104,7 @@ Neste exemplo, você criará três máquinas virtuais a serem usadas como servid
 2. Execute o comando a seguir para instalar o IIS na máquina virtual: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -141,8 +142,8 @@ Neste exemplo, você criará três máquinas virtuais a serem usadas como servid
 
 1. Clique em **Regras** e, em seguida, clique em **Baseadas no caminho**.
 2. Digite *rule2* para o nome.
-3. Digite *Imagens* para o nome do primeiro caminho. Digite */images/** para o caminho. Selecione **imagesBackendPool** para o pool de back-end.
-4. Digite *Vídeo* para o nome do segundo caminho. Digite */video/** para o caminho. Selecione **videoBackendPool** para o pool de back-end.
+3. Digite *Imagens* para o nome do primeiro caminho. Insira */images/*\* para o caminho. Selecione **imagesBackendPool** para o pool de back-end.
+4. Digite *Vídeo* para o nome do segundo caminho. Insira */video/*\* para o caminho. Selecione **videoBackendPool** para o pool de back-end.
 
     ![Criar uma regra baseada em caminho](./media/create-url-route-portal/application-gateway-route-rule.png)
 
@@ -154,11 +155,11 @@ Neste exemplo, você criará três máquinas virtuais a serem usadas como servid
 
     ![Registrar o endereço IP público do gateway de aplicativo](./media/create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Como http://http://40.121.222.19.
+2. Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Como http://40.121.222.19.
 
     ![Testar a URL de base no gateway de aplicativo](./media/create-url-route-portal/application-gateway-iistest.png)
 
-3. Altere a URL para http://&lt;ip-address&gt;:8080/video/test.htm, substituindo &lt;ip-address&gt; pelo seu endereço IP e você verá algo parecido com o exemplo a seguir:
+3. Altere a URL para http://&lt;ip-address&gt;:8080/images/test.htm, substituindo &lt;ip-address&gt; pelo seu endereço IP e você verá algo parecido com o exemplo a seguir:
 
     ![Testar a URL de imagens no gateway de aplicativo](./media/create-url-route-portal/application-gateway-iistest-images.png)
 

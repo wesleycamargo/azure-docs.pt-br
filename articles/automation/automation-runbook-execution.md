@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ff58e22f8b9b837ec272cd2cd6193da80a7b718e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195413"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42141400"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
 Quando você inicia um runbook na Automação do Azure, um trabalho é criado. Um trabalho é uma instância única de execução de um runbook. Um trabalhador da Automação do Azure é atribuído para executar cada tarefa. Enquanto os trabalhadores são compartilhados por várias contas do Azure, os trabalhos de diferentes contas de automação ficam isolados uns dos outros. Você não tem controle sobre qual trabalhador atende a solicitação do seu trabalho. Um único runbook pode ter vários trabalhos em execução ao mesmo tempo. O ambiente de execução para trabalhos da mesma conta de Automação do Azure pode ser reutilizado. Quando você exibe a lista de runbooks no Portal do Azure, ela lista o status de todos os trabalhos iniciados para cada runbook. Você pode exibir a lista de trabalhos para cada runbook a fim de acompanhar o status de cada um. Para obter uma descrição das diferentes opções de status de trabalho, confira [Status de trabalho](#job-statuses).
 
-[!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 O diagrama a seguir mostra o ciclo de vida de um trabalho de runbook para [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) e [runbooks de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
 
@@ -88,7 +88,7 @@ Você pode usar as etapas a seguir para exibir os trabalhos de um runbook.
 
 ## <a name="retrieving-job-status-using-windows-powershell"></a>Recuperando o status do trabalho usando o Windows PowerShell
 
-Você pode usar o [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) para recuperar os trabalhos criados para um runbook e os detalhes de um trabalho específico. Se você inicia um runbook com o Windows PowerShell usando [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), ele retorna o trabalho resultante. Use [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)Output para obter a saída de um trabalho.
+Você pode usar o [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) para recuperar os trabalhos criados para um runbook e os detalhes de um trabalho específico. Se você inicia um runbook com o Windows PowerShell usando [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), ele retorna o trabalho resultante. Use [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) para obter a saída de um trabalho.
 
 Os comandos de exemplo a seguir recuperam o último trabalho para um exemplo de runbook e exibe seu status, os valores fornecidos para os parâmetros de runbook e a saída do trabalho.
 
@@ -137,7 +137,7 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 Para compartilhar recursos entre todos os runbooks na nuvem, a Automação do Azure descarregará temporariamente qualquer trabalho depois que ele for executado por três horas. Durante esse tempo, os trabalhos para [runbooks com base no PowerShell](automation-runbook-types.md#powershell-runbooks) são interrompidos e não são reiniciados. O status do trabalho mostrará **Parado**. Esse tipo de runbook é sempre retomado desde o início, já que não dá suporte a pontos de verificação.
 
-[Os runbooks baseados em Fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) são retomados do seu último [ponto de verificação](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). Depois de ser executado por três horas, o trabalho do runbook será suspenso pelo serviço e seu status mostrará **Em execução, aguardando recursos**. Quando uma área restrita fica disponível, o runbook é reiniciado automaticamente pelo serviço de Automação e é retomado do último ponto de verificação. Este é o comportamento normal do fluxo de trabalho do PowerShell para suspender/reiniciar. Se o runbook exceder novamente as três horas de tempo de execução, o processo se repetirá mais três vezes. Após a terceira reinicialização, se o runbook ainda não tiver sido concluído nas três horas, o trabalho do runbook será considerado como uma falha e o status do trabalho será exibido como **Falhou, aguardando recursos**. Nesse caso, você receberá a seguinte exceção com a falha.
+[Os runbooks baseados em Fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) são retomados do seu último [ponto de verificação](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). Depois de ser executado por três horas, o trabalho do runbook é suspenso pelo serviço e seu status mostra **Em execução, aguardando recursos**. Quando uma área restrita fica disponível, o runbook é reiniciado automaticamente pelo serviço de Automação e é retomado do último ponto de verificação. Este é o comportamento normal do fluxo de trabalho do PowerShell para suspender/reiniciar. Se o runbook exceder novamente as três horas de tempo de execução, o processo se repetirá mais três vezes. Após a terceira reinicialização, se o runbook ainda não tiver sido concluído nas três horas, o trabalho do runbook será considerado como uma falha e o status do trabalho será exibido como **Falhou, aguardando recursos**. Nesse caso, você receberá a seguinte exceção com a falha.
 
 *O trabalho não pode continuar a execução porque foi removido repetidamente do mesmo ponto de verificação. Verifique se o Runbook não executa operações demoradas sem persistir o estado.*
 
@@ -145,7 +145,9 @@ Isso serve para proteger o serviço contra runbooks em execução indefinidament
 
 Se o runbook não tiver nenhum ponto de verificação ou o trabalho não atingir o primeiro ponto de verificação antes de ser descarregado, ele será reiniciado desde o início.
 
-Quando você cria um runbook, verifique se o tempo para executar atividades entre dois pontos de verificação não ultrapassa as três horas. Talvez seja necessário adicionar pontos de verificação ao seu runbook para que não alcance esse limite de três horas ou ultrapasse as operações de execução. Por exemplo, o runbook pode executar uma reindexação em um grande banco de dados SQL. Se essa operação única não for concluída dentro do limite adequado, o trabalho é descarregado e reiniciado desde o início. Nesse caso, você deve dividir a operação de reindexação em várias etapas, como a reindexação de uma tabela de cada vez, e inserir um ponto de verificação após cada operação para que o trabalho possa continuar após a conclusão da última operação.
+Para tarefas de execução longa, é recomendável usar um [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Os Hybrid Runbook Workers não são limitados por fração justa e não têm uma limitação de quanto tempo um runbook pode ser executado.
+
+Se estiver usando um runbook de Fluxo de trabalho do PowerShell no Azure, ao criar um runbook, verifique se o tempo para executar as atividades entre dois pontos de verificação não excede três horas. Talvez seja necessário adicionar pontos de verificação ao seu runbook para que não alcance esse limite de três horas ou ultrapasse as operações de execução. Por exemplo, o runbook pode executar uma reindexação em um grande banco de dados SQL. Se essa operação única não for concluída dentro do limite adequado, o trabalho é descarregado e reiniciado desde o início. Nesse caso, você deve dividir a operação de reindexação em várias etapas, como a reindexação de uma tabela de cada vez, e inserir um ponto de verificação após cada operação para que o trabalho possa continuar após a conclusão da última operação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,22 +3,18 @@ title: Métricas do Barramento de Serviço no Azure Monitor (versão prévia) | 
 description: Use o Monitoramento do Azure para monitorar entidades de Barramento de Serviço
 services: service-bus-messaging
 documentationcenter: .NET
-author: christianwolf42
+author: spelluru
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 3660f0a6794a2fd784ec8846177da7effe7fe681
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.date: 05/31/2018
+ms.author: spelluru
+ms.openlocfilehash: b4865c1ba7532910ef0b4a41a5a19d2880e37d6e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698954"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas do Barramento de Serviço do Azure no Azure Monitor (versão prévia)
 
@@ -26,11 +22,14 @@ As métricas do Barramento de Serviço fornecem o estado dos recursos na sua ass
 
 O Azure Monitor fornece interfaces de usuário unificadas para monitoramento entre os diferentes serviços do Azure. Para obter mais informações, consulte [Monitoramento no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e o exemplo [Recuperar métricas do Azure Monitor com o .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) no GitHub.
 
+> [!IMPORTANT]
+> Quando não houver nenhuma interação com uma entidade por 2 horas, as métricas começarão a mostrar "0" como um valor até que a entidade não esteja mais ociosa.
+
 ## <a name="access-metrics"></a>Métricas de acesso
 
 O Azure Monitor fornece várias maneiras de acessar as métricas. Você pode acessar as métricas por meio do [Portal do Azure](https://portal.azure.com) ou usar as APIs do Azure Monitor (REST e .NET) e as soluções de análise como o Log Analytics e os Hubs de Eventos. Para obter mais informações, consulte [Métricas do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
-As métricas estão habilitadas por padrão e você pode acessar os dados dos últimos 30 dias. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Isso pode ser configurado em [configurações de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) no Azure Monitor.
+As métricas estão habilitadas por padrão e você pode acessar os dados dos últimos 30 dias. Se você precisar manter os dados por um período de tempo maior, você pode arquivar os dados de métrica em uma conta de Armazenamento do Azure. Isso pode ser configurado em [configurações de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) no Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Acessar as métricas no portal
 
@@ -64,8 +63,16 @@ Conta o número de solicitações de gerenciamento de dados e de operações.
 | Solicitações de entrada (versão prévia) | O número de solicitações feitas ao serviço de Barramento de Serviço durante um período específico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Solicitações bem-sucedidas (versão prévia)|O número de solicitações bem-sucedidas feitas ao serviço de Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Erros do servidor (versão prévia)|O número de solicitações não processadas devido a um erro no serviço de Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Erros do usuário (versão prévia)|O número de solicitações não processadas devido a erros do usuário durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Erros do Usuário (versão prévia – veja a subseção a seguir)|O número de solicitações não processadas devido a erros do usuário durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Solicitações restritas (versão prévia)|O número de solicitações que foram restringidas porque o uso foi excedido.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+
+### <a name="user-errors"></a>Erros do usuário
+
+Os dois tipos de erros a seguir são classificados como erros do usuário:
+
+1. Erros do lado do cliente (em HTTP, seriam os erros 400).
+2. Erros que ocorrem durante o processamento de mensagens, como [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
+
 
 ## <a name="message-metrics"></a>Métricas de mensagens
 

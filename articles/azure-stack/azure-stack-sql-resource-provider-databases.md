@@ -1,5 +1,5 @@
 ---
-title: Bancos de dados fornecida pelo adaptador SQL RP na pilha do Azure | Microsoft Docs
+title: Usando bancos de dados fornecidos pelo provedor de recursos do adaptador de SQL no Azure Stack | Microsoft Docs
 description: Como criar e gerenciar bancos de dados SQL provisionados usando o provedor de recursos do adaptador de SQL
 services: azure-stack
 documentationCenter: ''
@@ -11,48 +11,70 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/18/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2808847642639069e60102b195ac97957c8593f0
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 2f286c48822956c82f99808092c26f6637be5cb1
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968819"
 ---
 # <a name="create-sql-databases"></a>Criar bancos de dados SQL
-Autoatendimento bancos de dados são fornecidos através da experiência do portal de usuário. Um usuário precisa de uma assinatura que tenha uma oferta, que contém o serviço de banco de dados.
 
-1. Entrar para o [Azure pilha](azure-stack-poc.md) portal do usuário (administradores de serviço também podem usar o portal de administração).
+Você pode criar e gerenciar bancos de dados de autoatendimento no portal do usuário. Um usuário do Azure Stack precisa de uma assinatura com uma oferta que inclui o serviço de banco de dados SQL.
 
-2. Clique em **+ novo** &gt; **dados + armazenamento "** &gt; **o banco de dados do SQL Server** &gt; **adicionar**.
+1. Entrar para o [do Azure Stack](azure-stack-poc.md) portal do usuário.
 
-3. Preencha o formulário com os detalhes do banco de dados, incluindo um **nome do banco de dados**, **tamanho máximo**e altere os outros parâmetros conforme necessário. Você será solicitado a escolher uma SKU para seu banco de dados. Como servidores de hospedagem são adicionados, eles serão atribuídos a uma SKU. Bancos de dados são criados nesse pool de servidores que compõem o SKU de hospedagem.
+2. Selecione **+ novo** &gt; **dados + armazenamento** &gt; **banco de dados do SQL Server** &gt; **adicionar**.
 
-  ![Novo banco de dados](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+3. Sob **Create Database**, insira as informações necessárias, como **nome do banco de dados** e **Size máximo em MB**.
 
-  >[!NOTE]
-  > O tamanho do banco de dados deve ser pelo menos de 64 MB. Ele pode ser aumentado usando as configurações.
+   >[!NOTE]
+   >O tamanho do banco de dados deve ser pelo menos 64 MB, que você pode aumentar depois de implantar o banco de dados.
 
-4. Preencha as configurações de logon: **logon de banco de dados**, e **senha**. Essas configurações são as credenciais de autenticação do SQL que é criada para o acesso a somente esse banco de dados. O nome de usuário de logon deve ser globalmente exclusivo. Crie uma nova configuração de logon ou selecione um existente. Você pode reutilizar as configurações de logon para outros bancos de dados usando o mesmo SKU.
+   Defina as outras configurações conforme necessário para o seu ambiente.
 
-    ![Criar um novo logon de banco de dados](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+4. Sob **Create Database**, selecione **SKU**. Sob **selecionar uma SKU**, selecione a SKU do banco de dados.
 
+   ![Criar banco de dados](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
-5. Enviar o formulário e aguarde até que a implantação fosse concluída.
+   >[!NOTE]
+   >Como os servidores de hospedagem são adicionados ao Azure Stack, eles serão atribuídos a uma SKU. Bancos de dados são criados no pool de servidores em um SKU de hospedagem.
 
-    Na folha de resultante, observe o campo "Cadeia de caracteres de Conexão". Você pode usar essa cadeia de caracteres em qualquer aplicativo que requer acesso ao SQL Server (por exemplo, um aplicativo web) na pilha do Azure.
+5. Selecione **Login**.
+6. Sob **selecione um logon**, escolha um logon existente ou selecione **+ criar um novo logon**.
+7. Sob **novo logon**, insira um nome para **logon de banco de dados** e um **senha**.
 
-    ![Recuperar a cadeia de caracteres de conexão](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+   >[!NOTE]
+   >Essas configurações são a credencial de autenticação do SQL que é criada para o seu acesso a somente esse banco de dados. O nome de usuário de logon deve ser globalmente exclusivo. Você pode reutilizar as configurações de logon para outros bancos de dados que usam a mesma SKU.
 
-## <a name="delete-sql-alwayson-databases"></a>Excluir bancos de dados SQL AlwaysOn
-Quando um banco de dados AlwaysOn do SQL é excluído do provedor de recursos, é excluída com êxito do primário e o grupo de disponibilidade do AlwaysOn, mas por Design, SQL AG coloca o banco de dados na restauração de estado em cada réplica e não descarta o banco de dados, a menos que o disparou. Se um banco de dados não for descartado, as réplicas secundárias vai para estado não sincronizando. Adicionar um novo banco de dados novamente para o grupo de disponibilidade com o mesmo por meio de RP ainda funciona.
+   ![Criar um novo logon de banco de dados](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
-## <a name="verify-sql-alwayson-databases"></a>Verifique se os bancos de dados SQL AlwaysOn
-Bancos de dados AlwaysOn devem mostrar que sincronizadas e estão disponíveis em todas as instâncias e no grupo de disponibilidade. Após o failover, o banco de dados deve se conectar diretamente. Você pode usar o SQL Server Management Studio para verificar a sincronização de um banco de dados:
+8. Selecione **Okey** para concluir a implantação de banco de dados.
 
-![Verifique se o AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+Sob **Essentials**, que é mostrado depois que o banco de dados é implantado, anote as **cadeia de caracteres de Conexão**. Você pode usar essa cadeia de caracteres em qualquer aplicativo que precisa acessar o banco de dados do SQL Server.
 
+![Recuperar a cadeia de conexão](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+
+## <a name="sql-always-on-databases"></a>Bancos de dados SQL Always On
+
+Por design, bancos de dados AlwaysOn são tratados de maneira diferente em um ambiente de servidor autônomo. Para obter mais informações, consulte [apresentando o SQL Server Always On grupos de disponibilidade em máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
+
+### <a name="verify-sql-always-on-databases"></a>Verifique se os bancos de dados SQL Always On
+
+A captura de tela a seguir mostra como você pode usar o SQL Server Management Studio para examinar o status do banco de dados no SQL Always On.
+
+![Status do banco de dados AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+
+Bancos de dados AlwaysOn devem mostrar como Synchronized e está disponível para todas as instâncias do SQL e são exibidos em grupos de disponibilidade. Na captura de tela anterior, o exemplo de banco de dados é newdb1 e seu status será **newdb1 (sincronizado)**.
+
+### <a name="delete-an-alwayson-database"></a>Excluir um banco de dados do AlwaysOn
+
+Quando você exclui um banco de dados AlwaysOn do SQL do provedor de recursos, o SQL exclui o banco de dados da réplica primária e do grupo de disponibilidade.
+
+SQL, em seguida, coloca o banco de dados no estado Restoring nas outras réplicas e não descartar o banco de dados, a menos que o disparou. Se o banco de dados não é descartado, as réplicas secundárias entram em um estado não sincronizando.
 
 ## <a name="next-steps"></a>Próximas etapas
 

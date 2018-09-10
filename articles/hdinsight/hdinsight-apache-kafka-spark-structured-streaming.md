@@ -1,22 +1,20 @@
 ---
-title: 'Tutorial: Streaming Estruturado do Apache Spark com Kafka – Azure HDInsight | Microsoft Docs'
+title: 'Tutorial: Fluxo estruturado do Apache Spark com Kafka – Azure HDInsight '
 description: Saiba como usar o streaming do Apache Spark para transmitir dados para dentro ou fora do Apache Kafka. Neste tutorial, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: larryfr
-ms.openlocfilehash: 8c7c1b37102e94f00ac6077958952eb52b342668
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: jasonh
+ms.openlocfilehash: 11169e45d5fbdc5e51b81c06d814524a7b09c614
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108282"
 ---
 # <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Tutorial: Usar o fluxo estruturado do Spark com Kafka no HDInsight
 
@@ -35,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 Quando você terminar as etapas neste documento, lembre-se de excluir os clusters para evitar cobranças em excesso.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Familiaridade com o uso de anotações do Jupyter com Spark no HDInsight. Para obter mais informações, confira o documento [Carregar dados e executar consultas com o Spark no HDInsight](spark/apache-spark-load-data-run-query.md).
 
@@ -161,11 +159,11 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters Kafka e Sp
 4. Por fim, marque **Fixar no painel** e selecione **Comprar**. 
 
 > [!NOTE]
-> Pode levar até 20 minutos para criar os clusters.
+> A criação de clusters pode levar até 20 minutos.
 
 ## <a name="upload-the-notebook"></a>Carregar o bloco de anotações
 
-Para carregar o bloco de anotação do projeto para seu Spark no cluster HDInsight, use as etapas a seguir:
+Para carregar o bloco de anotações do projeto para o Spark no cluster HDInsight, use as etapas a seguir:
 
 1. Faça o download do projeto de [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
 

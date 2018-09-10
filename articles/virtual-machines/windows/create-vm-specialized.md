@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: cynthn
-ms.openlocfilehash: be7933b038fb5a648249e9b0c73415bff778930b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 34bfe7733c60337d6ab7d81c498d2fb0fd15e1fd
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012777"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338479"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>Criar uma VM do Windows a partir de um disco especializado usando PowerShell
 
@@ -47,7 +47,7 @@ Para saber mais, confira [Azure PowerShell Versioning](/powershell/azure/overvie
 
 ## <a name="option-1-use-an-existing-disk"></a>Opção 1: usar um disco existente
 
-Se você tinha uma VM que foi excluída e quiser reutilizar o disco do sistema operacional para criar uma nova, use [Get-AzureRmDisk](/azure/powershell/get-azurermdisk).
+Se você tinha uma VM que foi excluída e quiser reutilizar o disco do sistema operacional para criar uma nova, use [Get-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermdisk?view=azurermps-6.8.1).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'

@@ -1,37 +1,30 @@
 ---
-title: Perguntas frequentes do agente de Backup do Azure | Microsoft Docs
+title: Perguntas frequentes sobre o agente de Backup do Azure
 description: 'Respostas a perguntas comuns sobre: como funciona o agente de backup do Azure, o backup e os limites de retenção.'
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
 keywords: backup e recuperação de desastre; serviço de backup
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 7/18/2017
-ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 8777b2265666a4505a3432aca6683e2510519cac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.date: 8/6/2018
+ms.author: saurse;trinadhk
+ms.openlocfilehash: 177e44bce7d8f159892d78c7003945ba55ef4b84
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577874"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Perguntas sobre o agente de Backup do Azure
 Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do agente de Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
-
-[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="configure-backup"></a>Configurar o backup
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Onde posso baixar o agente mais recente do Backup do Azure? <br/>
 Você pode baixar o agente mais recente para fazer backup do Windows Server, do System Center DPM ou do cliente Windows [daqui](http://aka.ms/azurebackup_agent). Se você quiser fazer backup de uma máquina virtual, use o Agente de VM (que instala automaticamente a extensão apropriada). O Agente de VM já está presente em máquinas virtuais criadas na galeria do Azure.
 
 ### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>Ao configurar o agente do Backup do Azure, preciso inserir as credenciais do cofre. As credenciais do cofre expiram?
-Sim, as credenciais do cofre expiram após 48 horas. Se o arquivo expirar, faça logon no Portal do Azure e baixe os arquivos de credenciais de cofre no seu cofre.
+Sim, as credenciais do cofre expiram após 48 horas. Se o arquivo expirar, faça logon no portal do Azure e baixe os arquivos de credenciais de cofre no seu cofre.
 
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>Em que tipos de unidades posso fazer backup de arquivos e pastas? <br/>
 Você não pode fazer backup das unidades/volumes a seguir:
@@ -63,13 +56,17 @@ Com certeza. O Backup do Azure fornece backup no nível de VM para as máquinas 
 Sim. Instale o agente de Backup do Azure no SO convidado do Windows e faça backup de arquivos e de pastas em um armazenamento temporário. Os trabalhos de backup falham assim que os dados do armazenamento temporário são apagados. Além disso, se os dados de armazenamento temporário tiverem sido excluídos, você só poderá restaurar em um armazenamento não volátil.
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>Qual é o requisito de tamanho mínimo para a pasta de cache? <br/>
-O tamanho da pasta de cache determina a quantidade de dados submetida a backup. Sua pasta de cache deve ter 5% do espaço necessário para o armazenamento de dados.
+O tamanho da pasta de cache determina a quantidade de dados submetida a backup. O volume da sua pasta de cache deve estar com pelo menos entre 5-10% de espaço livre, quando comparado ao tamanho total dos dados de backup. Se o volume tiver menos que 5% de espaço livre, ou aumente o tamanho do volume, ou [mova a pasta de cache para um volume com suficiente espaço livre](backup-azure-file-folder-backup-faq.md#backup).
 
 ### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Como registro meu servidor em outro datacenter?<br/>
 Os dados de backup são enviados ao datacenter do cofre para o qual ele está registrado. A maneira mais fácil de alterar o datacenter é desinstalar o agente e reinstalá-lo e registrar um novo cofre que pertença ao datacenter desejado.
 
 ### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>O agente de Backup do Azure funciona em um servidor que usa a eliminação de duplicação do Windows Server 2012? <br/>
 Sim. O serviço do agente converte os dados com eliminação de duplicação para dados normais quando prepara a operação de backup. Ele então otimiza os dados para backup, criptografa os dados e envia os dados criptografados para o serviço de backup online.
+
+## <a name="prerequisites-and-dependencies"></a>Pré-requisitos e dependências
+### <a name="what-features-of-microsoft-azure-recovery-services-mars-agent-require-net-framework-452-and-higher"></a>Quais recursos do agente do Serviços de Recuperação do Microsoft Azure (MARS) requerem o .NET framework 4.5.2 e superior?
+O recurso [Restauração Instantânea](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) que possibilita a restauração de arquivos e pastas de individuais do assistente *Recuperar Dados* assistente requer o .NET Framework 4.5.2 ou superior.
 
 ## <a name="backup"></a>Backup
 ### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Como posso alterar o local de cache especificado para o agente de Backup do Azure?<br/>
@@ -97,8 +94,8 @@ Assim que a criação do backup for concluída com êxito no novo local de cache
 ### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Onde posso colocar a pasta de cache para o Agente de Backup do Azure para que ele funcione conforme o esperado?<br/>
 Os locais a seguir para a pasta de cache não são recomendados:
 
-* Compartilhamento de rede ou Mídia Removível: a pasta de cache deve ser local para o servidor que precisa de backup usando o backup online. Não há suporte para os locais de rede ou para a mídia removível como unidades USB.
-* Volumes Offline: a pasta de cache deve estar online para o backup esperado com o Agente de Backup do Azure.
+* Compartilhamento de rede ou Mídia Removível: a pasta de cache deve ser local para o servidor que precisa de backup usando o backup online. Não há suporte para os locais de rede ou para a mídia removível como unidades USB
+* Volumes Offline: a pasta de cache deve estar online para o backup esperado com o Agente de Backup do Azure
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Existe algum atributo da pasta de cache que não tenha suporte?<br/>
 Os atributos a seguir, ou suas combinações, não têm suporte para a pasta de cache:
@@ -116,8 +113,7 @@ A pasta de cache e o VHD dos metadados não têm os atributos necessários para 
 
 ## <a name="manage-backups"></a>Gerenciar backups
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>O que acontece se eu renomear um servidor Windows que está fazendo backup de dados no Azure?<br/>
-Ao renomear um servidor, todos os backups configurados atualmente serão interrompidos.
-Registre o novo nome do servidor no Cofre de Backup. Ao registrar o novo nome com o cofre, a primeira operação de backup é um backup *completo*. Se você precisar recuperar dados de backup para o cofre com o nome antigo do servidor, use a opção [**Outro servidor**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) no assistente **Recuperar dados**.
+Ao renomear um servidor, todos os backups configurados atualmente serão interrompidos. Registre o novo nome do servidor no Cofre de Backup. Ao registrar o novo nome com o cofre, a primeira operação de backup é um backup *completo*. Se você precisar recuperar dados de backup para o cofre com o nome antigo do servidor, use a opção [**Outro servidor**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) no assistente **Recuperar dados**.
 
 ### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Qual é o comprimento máximo do caminho do arquivo que pode ser especificado no Backup do Azure usando o agente de Backup do Azure? <br/>
 O agente de Backup do Azure baseia-se em NTFS. A [especificação de comprimento de caminho de arquivo é limitada pela API do Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se os arquivos que você deseja proteger tiverem um comprimento de caminho de arquivo maior do que o que é permitido pela API do Windows, faça backup da pasta pai ou da unidade de disco.  

@@ -1,23 +1,24 @@
 ---
-title: "Mensagens de pré-busca do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Melhore o desempenho realizando a pré-busca de mensagens do Barramento de Serviço do Azure."
+title: Mensagens de pré-busca do Barramento de Serviço do Azure | Microsoft Docs
+description: Melhore o desempenho realizando a pré-busca de mensagens do Barramento de Serviço do Azure.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
-ms.author: sethm
-ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: spelluru
+ms.openlocfilehash: ff0e3124168927d03816079a4f5ab322663459ac
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702445"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Executar a pré-busca de mensagens do Barramento de Serviço do Azure
 
@@ -39,9 +40,9 @@ A pré-busca também funciona da mesma forma com as APIs [OnMessage](/dotnet/api
 
 A Pré-busca acelera o fluxo de mensagens ao ter uma mensagem prontamente disponível para recuperação local quando e antes de o aplicativo solicitar uma. Esse ganho de taxa de transferência é o resultado de uma compensação que o autor do aplicativo deve tomar explicitamente:
 
-Com o modo de recebimento [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete), todas as mensagens adquiridas no buffer de pré-busca não estão mais disponíveis na fila e residem apenas no buffer de pré-busca na memória até serem recebidas no aplicativo por meio das APIs **Receive**/**ReceiveAsync** ou **OnMessage**/**OnMessageAsync**. Se o aplicativo for encerrado antes que as mensagens sejam recebidas no aplicativo, essas mensagens serão perdidas de forma irrecuperável.
+Com o modo de recebimento [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode), todas as mensagens adquiridas no buffer de pré-busca não estão mais disponíveis na fila e residem apenas no buffer de pré-busca na memória até serem recebidas no aplicativo por meio das APIs **Receive**/**ReceiveAsync** ou **OnMessage**/**OnMessageAsync**. Se o aplicativo for encerrado antes que as mensagens sejam recebidas no aplicativo, essas mensagens serão perdidas de forma irrecuperável.
 
-No modo de recebimento [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode.peeklock), as mensagens buscadas no buffer de Pré-busca são obtidas no buffer em um estado bloqueado e têm o tempo limite para o bloqueio sendo contado. Se o buffer de pré-busca for grande e processamento demorar tanto que o bloqueio da mensagem expira enquanto reside no buffer de pré-busca ou até mesmo enquanto o aplicativo está processando a mensagem, poderão ocorrer eventos confusos para o aplicativo lidar.
+No modo de recebimento [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock), as mensagens buscadas no buffer de Pré-busca são obtidas no buffer em um estado bloqueado e têm o tempo limite para o bloqueio sendo contado. Se o buffer de pré-busca for grande e processamento demorar tanto que o bloqueio da mensagem expira enquanto reside no buffer de pré-busca ou até mesmo enquanto o aplicativo está processando a mensagem, poderão ocorrer eventos confusos para o aplicativo lidar.
 
 O aplicativo pode adquirir uma mensagem com um bloqueio expirado ou prestes a expirar. Nesse caso, o aplicativo pode processar a mensagem, mas depois descobrir que não pode concluir devido à expiração do bloqueio. O aplicativo pode verificar a propriedade [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) (que está sujeita à defasagem de tempo entre o agente e o relógio do computador local). Se o bloqueio de mensagem tiver expirado, o aplicativo deverá ignorar a mensagem. Nenhuma chamada à API ou com a mensagem deverá ser feita. Se a mensagem não estiver expirada, mas a expiração for iminente, o bloqueio poderá ser renovado e estendido pelo período de bloqueio padrão chamando [message.RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)
 

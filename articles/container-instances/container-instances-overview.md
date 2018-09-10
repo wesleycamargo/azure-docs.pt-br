@@ -6,14 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 03/29/2018
+ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 2da61d52e43857237f6e231c03ea62ba5eefdadd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 953d1dfd633f2fee52a2e6d197c6f32e7ab053f7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160443"
 ---
 # <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
 
@@ -46,6 +47,8 @@ Para recuperar e persistir estados com as Instâncias de Contêiner do Azure, n�
 As Instâncias de Contêiner do Azure podem agendar contêineres do Windows e do Linux com a mesma API. Basta especificar o tipo de sistema operacional ao criar seus [grupos de contêiner](container-instances-container-groups.md).
 
 Alguns recursos são atualmente restritos a contêineres do Linux. Enquanto trabalhamos para trazer paridade de recursos para contêineres do Windows, você pode encontrar diferenças da plataforma atual em [Cotas e disponibilidade de região para Instâncias de Contêiner do Azure](container-instances-quotas.md).
+
+As Instâncias de Contêiner do Azure dão suporte a imagens do Windows com base nas versões de Canal de Manutenção de Longo Prazo (LTSC). Versões do Canal Semestral (SAC) do Windows como 1709 e 1803 não são suportadas.
 
 ## <a name="co-scheduled-groups"></a>Grupos coagendados
 

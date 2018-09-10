@@ -1,4 +1,3 @@
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Adicionar as informações de registro do aplicativo ao aplicativo
 
 Nesta etapa, você precisa adicionar a ID do Cliente ao projeto.

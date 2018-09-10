@@ -1,29 +1,25 @@
 ---
-title: Gerenciar clusters de Hadoop no HDInsight com o PowerShell – Azure | Microsoft Docs
+title: Gerenciar clusters de Hadoop no HDInsight com o PowerShell – Azure
 description: Saiba como realizar tarefas administrativas para os clusters Hadoop no HDInsight usando o PowerShell do Azure.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
-ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
+ms.reviewer: jasonh
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 656ad3673835bb30499931d20fe715e85418b1c3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 7abd75347d7bd2673a9e6040ee15def6638de440
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43096575"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gerenciar clusters Hadoop no HDInsight Usando o PowerShell do Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-O Azure PowerShell pode ser usado para controlar e automatizar a implantação e o gerenciamento de suas cargas de trabalho no Azure. Neste artigo, você aprenderá como gerenciar clusters Hadoop no Azure HDInsight usando o Azure PowerShell. Para obter a lista de cmdlets do HDInsight PowerShell, consulte [Referência ao cmdlets do HDInsight][hdinsight-powershell-reference].
+O Azure PowerShell pode ser usado para controlar e automatizar a implantação e o gerenciamento de suas cargas de trabalho no Azure. Neste artigo, você aprenderá como gerenciar clusters Hadoop no Azure HDInsight usando o Azure PowerShell. Para obter a lista de cmdlets do HDInsight PowerShell, consulte [Referência ao cmdlets do HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Pré-requisitos**
 
@@ -31,7 +27,7 @@ Antes de começar este artigo, você deve ter os seguintes itens:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## <a name="install-azure-powershell"></a>Instalar o Azure Powershell
+## <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 Se você instalou o Azure PowerShell versão 0.9x, deve desinstalá-lo antes de instalar uma versão mais recente.
@@ -133,7 +129,7 @@ Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount
 ## <a name="grantrevoke-access"></a>Conceder/revogar acesso
 Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviços têm pontos de extremidade RESTful):
 
-* ODBC
+* ODBCODBC
 * JDBC
 * Ambari
 * Oozie
@@ -235,7 +231,7 @@ Consulte [Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho n
 Veja [Carregar dados no HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Veja também
-* [Documentação de referência do cmdlet do HDInsight][hdinsight-powershell-reference]
+* [Documentação de referência do cmdlet do HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Administrar o HDInsight usando o Portal do Azure][hdinsight-admin-portal]
 * [Administrar o HDInsight usando uma interface de linha de comando][hdinsight-admin-cli]
 * [Criar clusters HDInsight][hdinsight-provision]

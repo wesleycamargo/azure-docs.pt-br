@@ -2,36 +2,33 @@
 title: Provisionar a produtividade do Azure Cosmos DB | Microsoft Docs
 description: Saiba como definir a produtividade provisionada para contêineres, coleções, grafos e tabelas do Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
-documentationcenter: ''
-ms.assetid: f98def7f-f012-4592-be03-f6fa185e1b1e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
-ms.author: sngun
-ms.openlocfilehash: 925167c6b4a7f173726ec094c2847a16ca3d0ef4
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.topic: conceptual
+ms.date: 07/03/2018
+ms.author: andrl
+ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037865"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter a taxa de transferência de contêineres e banco de dados do Microsoft Azure Cosmos DB
 
-Você pode definir a produtividade de um contêiner do Azure Cosmos DB ou de um conjunto de contêineres usando o portal do Azure ou usando os SDKs do cliente. Quando você provisiona a produtividade para um conjunto de contêineres, todos esses contêineres compartilham a produtividade provisionada. O provisionamento da produtividade para contêineres individuais garantirá a reserva de produtividade para esse contêiner específico. Por outro lado, o provisionamento da produtividade para um banco de dados permite compartilhar a produtividade entre todos os contêineres que pertencem a esse banco de dados. Dentro de um banco de dados do Azure Cosmos DB, você pode ter um conjunto de contêineres que compartilham a produtividade, bem como contêineres, que têm produtividade dedicada. 
+Você pode definir a produtividade de um contêiner do Azure Cosmos DB ou de um conjunto de contêineres usando o portal do Azure ou usando os SDKs do cliente. 
 
-Com base na produtividade provisionada, o Azure Cosmos DB alocará partições físicas para hospedar seu(s) contêiner(es) e divide/redistribui os dados entre partições conforme eles aumentam.
+**Taxa de transferência da provisão para um contêiner individual:** Quando você provisiona a produtividade para um conjunto de contêineres, todos esses contêineres compartilham a produtividade provisionada. O provisionamento da produtividade para contêineres individuais garantirá a reserva de produtividade para esse contêiner específico. Ao atribuir RU/s no nível do contêiner individual, os contêineres podem ser criados como *fixos* ou *ilimitados*. Contêineres de tamanho fixo têm um limite máximo de 10 GB e taxa de transferência de 10.000 RU/s. Para criar um contêiner ilimitado, você deve especificar uma taxa de transferência mínima de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que seus dados talvez precisem ser divididos em várias partições, é necessário selecionar uma chave de partição que tenha alta cardinalidade (100 milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, você garante que seu contêiner/tabela/gráfico e solicitações possam ser colocados em escala de maneira uniforme pelo Azure Cosmos DB. 
 
-Ao atribuir RU/s no nível do contêiner individual, os contêineres podem ser criados como *fixos* ou *ilimitados*. Contêineres de tamanho fixo têm um limite máximo de 10 GB e taxa de transferência de 10.000 RU/s. Para criar um contêiner ilimitado, você deve especificar uma taxa de transferência mínima de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que seus dados talvez precisem ser divididos em várias partições, é necessário selecionar uma chave de partição que tenha alta cardinalidade (100 milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, você garante que seu contêiner/tabela/gráfico e solicitações possam ser colocados em escala de maneira uniforme pelo Azure Cosmos DB. 
+**Taxa de transferência de provisionamento para uma definição de contêineres ou um banco de dados:** o provisionamento da produtividade para um banco de dados permite compartilhar a produtividade entre todos os contêineres que pertencem a esse banco de dados. Dentro de um banco de dados do Azure Cosmos DB, você pode ter um conjunto de contêineres que compartilham a produtividade, bem como contêineres, que têm produtividade dedicada. Ao atribuir RU/s em um conjunto de contêineres, os contêineres pertencentes a esse conjunto são tratados como contêineres *ilimitados* e devem especificar uma chave de partição.
 
-Ao atribuir RU/s em um conjunto de contêineres, os contêineres pertencentes a esse conjunto são tratados como contêineres *ilimitados* e devem especificar uma chave de partição.
+Com base na produtividade provisionada, o Azure Cosmos DB alocará partições físicas para hospedar seu(s) contêiner(es) e divide/redistribui os dados entre partições conforme eles aumentam. O provisionamento de produtividade no nível do contêiner e no nível do banco de dados são ofertas separadas e mudar entre elas requer a migração de dados de origem para destino. Isso significa que você precisa criar um novo banco de dados ou uma nova coleção e, em seguida, migrar os dados usando a [biblioteca do executor em massa](bulk-executor-overview.md) ou o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). A imagem a seguir ilustra o provisionamento de taxa de transferência em níveis diferentes:
 
 ![Unidades de solicitação de provisionamento para contêineres individuais e conjunto de contêineres](./media/request-units/provisioning_set_containers.png)
 
-Este artigo orienta você pelas etapas necessárias para configurar a produtividade em diferentes níveis de uma conta do Azure Cosmos DB. 
+Nas próximas seções, você apenderá as etapas necessárias para configurar a produtividade em diferentes níveis de uma conta do Microsoft Azure Cosmos DB. 
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Provisionar a produtividade usando o portal do Azure
 
@@ -48,7 +45,7 @@ Este artigo orienta você pelas etapas necessárias para configurar a produtivid
    |ID do banco de dados  |  Forneça um nome exclusivo para identificar o banco de dados. O banco de dados é um contêiner lógico de uma ou mais coleções. Os nomes de banco de dados devem conter de 1 a 255 caracteres e não podem conter /, \\, #, ?, ou um espaço à direita. |
    |ID da coleção  | Forneça um nome exclusivo para identificar a coleção. As IDs de coleção têm os mesmos requisitos de caracteres que os nomes de banco de dados. |
    |Capacidade de armazenamento   | Esse valor representa a capacidade de armazenamento do banco de dados. Ao provisionar a produtividade para uma coleção individual, a capacidade de armazenamento pode ser **fixa (10 GB)** ou **ilimitada**. A capacidade de armazenamento ilimitada exige que você defina uma chave de partição para seus dados.  |
-   |Throughput   | Cada coleção e banco de dados podem ter a produtividade em unidades de solicitação por segundo.  Para capacidade de armazenamento fixa, a produtividade mínima é 400 unidades de solicitação por segundo (RU/s); para capacidade de armazenamento ilimitado, a produtividade mínima é definida como 1000 RU/s.|
+   |Produtividade   | Cada coleção e banco de dados podem ter a produtividade em unidades de solicitação por segundo.  Para capacidade de armazenamento fixa, a produtividade mínima é 400 unidades de solicitação por segundo (RU/s); para capacidade de armazenamento ilimitado, a produtividade mínima é definida como 1000 RU/s.|
 
 6. Depois de inserir valores para esses campos, selecione **OK** para salvar as configurações.  
 
@@ -91,6 +88,8 @@ Este artigo orienta você pelas etapas necessárias para configurar a produtivid
 
 Abaixo estão algumas considerações para ajudá-lo a decidir sobre a estratégia de reserva de produtividade.
 
+### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>Considerações ao provisionamento de produtividade no nível de banco de dados
+
 Considere provisionar a produtividade no nível de banco de dados (ou seja, para o conjunto de contêineres) nos seguintes casos:
 
 * Se você tiver uma dúzia ou mais de contêineres que podem compartilhar a produtividade em alguns ou todos eles.  
@@ -100,6 +99,8 @@ Considere provisionar a produtividade no nível de banco de dados (ou seja, para
 * Se você quiser considerar picos não planejados de cargas de trabalho usando a produtividade em pool no nível do banco de dados.  
 
 * Em vez configurar a produtividade em um contêiner individual, você está interessado em obter a produtividade agregada em um conjunto de contêineres no banco de dados.
+
+### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>Considerações ao provisionamento de produtividade no nível de contêiner
 
 Considere provisionar a produtividade em um contêiner individual nos seguintes casos:
 
@@ -138,6 +139,7 @@ A tabela a seguir lista a produtividade disponível para cada contêiner:
 
 ## <a name="set-throughput-by-using-sql-api-for-net"></a>Definir a produtividade usando a API do SQL do .NET
 
+### <a name="set-throughput-at-the-container-level"></a>Definir a taxa de transferência no nível do contêiner
 Segue um trecho de código para criar um contêiner com 3.000 unidades de solicitação por segundo para um contêiner individual usando SDK do .NET da API do SQL:
 
 ```csharp
@@ -151,13 +153,15 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
+### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>Definir taxa de transferência para um conjunto de contêineres no nível do banco de dados
+
 Segue um trecho de código para provisionar 100.000 unidades de solicitação por segundo em um conjunto de contêineres usando SDK do .NET da API do SQL:
 
 ```csharp
 // Provision 100,000 RU/sec at the database level. 
 // sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
 // dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
+Database database = await client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 });
 
 DocumentCollection sharedCollection1 = new DocumentCollection();
 sharedCollection1.Id = "sharedCollection1";
@@ -180,7 +184,7 @@ await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollectio
 
 O Microsoft Azure Cosmos DB opera em um modelo de reserva na produtividade. Ou seja, você será cobrado pela quantidade de produtividade *reservada*, independentemente do quanto da produtividade estiver em *uso*. À medida que a carga, os dados e os padrões de uso do aplicativo mudarem, você poderá aumentar ou reduzir verticalmente o número de RUs reservadas por meio de SDKs ou usando o [Portal do Azure](https://portal.azure.com).
 
-Cada contêiner, ou conjunto de contêineres, é mapeado para um recurso `Offer` no Azure Cosmos DB, que tem metadados sobre a produtividade provisionada. Altere a produtividade alocada procurando o recurso de oferta correspondente de um contêiner e, em seguida, atualizando-o com o novo valor de produtividade. Aqui está um trecho de código para alterar a taxa de transferência de um contêiner para 5.000 unidades de solicitação por segundo usando o SDK do .NET:
+Cada contêiner, ou conjunto de contêineres, é mapeado para um recurso `Offer` no Azure Cosmos DB, que tem metadados sobre a produtividade provisionada. Altere a produtividade alocada procurando o recurso de oferta correspondente de um contêiner e, em seguida, atualizando-o com o novo valor de produtividade. Aqui está um trecho de código para alterar a taxa de transferência de um contêiner para 5.000 unidades de solicitação por segundo usando o SDK do .NET. Após alterar a taxa de transferência, atualize todas as janelas existentes do portal do Azure para a taxa de transferência alterada a ser exibida. 
 
 ```csharp
 // Fetch the resource to be updated
@@ -222,7 +226,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>Obter a taxa de transferência com o uso comando GetLastRequestStatistics da API do MongoDB
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obter a taxa de transferência usando métricas de do portal API do MongoDB
+
+A maneira mais simples de obter uma boa estimativa de encargos da unidade de solicitação para o banco de dados de API MongoDB é usar as métricas do [Portal do Azure](https://portal.azure.com). Com os gráficos *Número de solicitações* e *Custo da Solicitação*, você pode obter uma estimativa de quantas unidades de solicitação cada operação está consumindo, e quantas unidades de solicitação elas consomem com relação às outras operações.
+
+![Métricas do portal da API MongoDB][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de taxa de transferência reservados na API MongoDB
+Aplicativos que excedem a taxa de transferência para um contêiner ou um conjunto de contêineres serão limitados até que a taxa fique abaixo do nível da taxa de transferência provisionado. Quando ocorrer uma limitação, o back-end terminará a solicitação com um `16500`código de erro - `Too Many Requests`. Por padrão, a API MongoDB tentará novamente até 10 vezes antes de retornar um `Too Many Requests` código de erro. Se você estiver recebendo muitos códigos de erro `Too Many Requests` códigos de erro, considere adicionar uma repetição de lógico em suas rotinas de manuseio de erro do aplicativo ou [ aumentar a taxa e transferência provisionada para o contêiner](set-throughput.md).
+
+## <a id="GetLastRequestStatistics"></a> Obter cobrança de solicitação usando APIs do MongoDB Comando GetLastRequest Statistics
 
 A API MongoDB dá suporte a um comando personalizado *getLastRequestStatistics*, para recuperar o encargo de solicitação para operações determinadas.
 
@@ -249,15 +262,6 @@ Um método para estimar a quantidade de produtividade reservada exigida pelo apl
 > Se você tiver tipos de itens que são muito diferentes em termos de tamanho e número de propriedades indexadas, registre o encargo de unidades de solicitação da operação aplicável associado a cada *tipo* de item típico.
 > 
 > 
-
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obter a taxa de transferência usando métricas de do portal API do MongoDB
-
-A maneira mais simples de obter uma boa estimativa de encargos da unidade de solicitação para o banco de dados de API MongoDB é usar as métricas do [Portal do Azure](https://portal.azure.com). Com os gráficos *Número de solicitações* e *Custo da Solicitação*, você pode obter uma estimativa de quantas unidades de solicitação cada operação está consumindo, e quantas unidades de solicitação elas consomem com relação às outras operações.
-
-![Métricas do portal da API MongoDB][1]
-
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de taxa de transferência reservados na API MongoDB
-Aplicativos que excedem a taxa de transferência para um contêiner ou um conjunto de contêineres serão limitados até que a taxa fique abaixo do nível da taxa de transferência provisionado. Quando ocorrer uma limitação, o back-end terminará a solicitação com um `16500`código de erro - `Too Many Requests`. Por padrão, a API MongoDB tentará novamente até 10 vezes antes de retornar um `Too Many Requests` código de erro. Se você estiver recebendo muitos códigos de erro `Too Many Requests` códigos de erro, considere adicionar uma repetição de lógico em suas rotinas de manuseio de erro do aplicativo ou [ aumentar a taxa e transferência provisionada para o contêiner](set-throughput.md).
 
 ## <a name="throughput-faq"></a>Perguntas frequentes sobre taxa de transferência
 

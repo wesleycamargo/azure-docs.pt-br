@@ -10,16 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5c231ce09add63c6e46dee0c76bbe64c438ff820
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 85a7b133655a3b1e4ca60c28e695e3057b293fdc
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504508"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Como habilitar aplicativos clientes nativos para interagir com aplicativos de proxy
 
@@ -29,7 +30,7 @@ O Proxy de Aplicativo dá suporte a aplicativos cliente nativos aceitando os tok
 
 ![Relação entre os usuários finais, o Active Directory do Azure e os aplicativos publicados](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Use a Biblioteca de Autenticação do Azure AD, que trata da autenticação e dá suporte a vários ambientes de cliente, para publicar aplicativos nativos. O Proxy de Aplicativo se encaixa no [cenário de Aplicativo Nativo para API Web](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api). 
+Use a Biblioteca de Autenticação do Azure AD, que trata da autenticação e dá suporte a vários ambientes de cliente, para publicar aplicativos nativos. O Proxy de Aplicativo se encaixa no [cenário de Aplicativo Nativo para API Web](../develop/authentication-scenarios.md#native-application-to-web-api). 
 
 Este artigo explica as quatro etapas para publicar um aplicativo nativo com o Proxy de Aplicativo e a Biblioteca de Autenticação do Azure AD. 
 
@@ -45,9 +46,9 @@ Configure seu aplicativo nativo da seguinte maneira:
 4. Especifique um nome para o aplicativo, selecione **Nativo** como o tipo de aplicativo e forneça o URI de Redirecionamento para seu aplicativo. 
 
    ![Criar um novo registro de aplicativo](./media/application-proxy-configure-native-client-application/create.png)
-5. Clique em **Criar**.
+5. Selecione **Criar**.
 
-Para obter informações mais detalhadas sobre como criar um novo registro de aplicativo, confira [Integrando aplicativos ao Azure Active Directory](./../develop/active-directory-integrating-applications.md).
+Para obter informações mais detalhadas sobre como criar um novo registro de aplicativo, confira [Integrando aplicativos ao Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 
 ## <a name="step-3-grant-access-to-other-applications"></a>Etapa 3: conceder acesso a outros aplicativos
@@ -95,6 +96,6 @@ Quando a ADAL é editada com esses parâmetros, os usuários devem ser capazes d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o fluxo do aplicativo nativo, confira [Aplicativo nativo para API Web](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
+Para saber mais sobre o fluxo do aplicativo nativo, confira [Aplicativo nativo para API Web](../develop/authentication-scenarios.md#native-application-to-web-api)
 
 Saiba mais sobre como configurar o [Logon único para o proxy de aplicativo](application-proxy-single-sign-on.md)

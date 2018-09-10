@@ -3,7 +3,7 @@ title: Gerenciar registros DNS no DNS do Azure usando a CLI do Azure 2.0 | Micro
 description: Gerenciando conjuntos de registros DNS e registros no DNS do Azure ao hospedar seu domínio no DNS do Azure. Todos os comandos da CLI 2.0 para operações em conjuntos de registros e registros.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
-ms.author: kumud
-ms.openlocfilehash: d7a90cb46c25e4e01b89bbf4da563685e92a7249
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: victorh
+ms.openlocfilehash: 41366f29ecf5dcd6ffe23148acd61100681620df
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174247"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Gerenciar registros e conjuntos de registros DNS no DNS do Azure usando a CLI do Azure 2.0
 
@@ -55,7 +56,7 @@ O exemplo a seguir cria um registro A chamado *www* na zona *contoso.com* no gru
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-Para criar um conjunto de registros em vértices da zona (nesse caso, "contoso.com"), use o nome do Registro \"\@\", incluindo as aspas:
+Para criar um conjunto de registros em vértices da zona (nesse caso, "contoso.com"), use o nome do Registro "\@", incluindo as aspas:
 
 ```azurecli
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
@@ -118,7 +119,7 @@ az network dns record-set cname set-record --resource-group myresourcegroup --zo
 
 ### <a name="create-an-mx-record"></a>Criar um registro MX
 
-Neste exemplo, usamos o nome do conjunto de registros \"\@\" para criar o registro MX no vértice da zona (nesse caso, "contoso.com").
+Neste exemplo, usamos o nome do conjunto de registros "\@" para criar o registro MX no vértice da zona (nesse caso, "contoso.com").
 
 ```azurecli
 az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
@@ -140,7 +141,7 @@ az network dns record-set ptr add-record --resource-group myresourcegroup --zone
 
 ### <a name="create-an-srv-record"></a>Criar um registro SRV
 
-Ao criar um [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique o *\_serviço* e o *\_protocolo* no nome do conjunto de registros. Não é necessário incluir \“\@\” no nome do conjunto de registros ao criar um conjunto de registros SRV definido no ápice da zona.
+Ao criar um [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique o *\_serviço* e o *\_protocolo* no nome do conjunto de registros. Não é necessário incluir "\@" no nome do conjunto de registros ao criar um conjunto de registros SRV definido no ápice da zona.
 
 ```azurecli
 az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com

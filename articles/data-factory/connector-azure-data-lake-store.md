@@ -1,5 +1,5 @@
 ---
-title: Copiar dados para/do Azure Data Lake Store usando o Data Factory.| Microsoft Docs
+title: Copiar dados de/para o Azure Data Lake Storage Gen1 usando o Data Factory | Microsoft Docs
 description: Saiba como copiar dados de armazenamentos de dados de origem com suporte para o Azure Data Lake Store ou do Data Lake Store para armazenamentos de coletor com suporte, usando o Data Factory.
 services: data-factory
 author: linda33wj
@@ -9,25 +9,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 522a285d16901f1237a2ed5463e64d0cbf4bb8c9
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 735b152f55a9309e5d5dd85dac64a607de6417b0
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011570"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443962"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copiar dados para ou do Azure Data Lake Store usando o Azure Data Factory
+# <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiar dados de/para o Azure Data Lake Storage Gen1 usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-azure-datalake-connector.md)
-> * [Versão 2 – Versão prévia](connector-azure-data-lake-store.md)
+> * [Versão 1](v1/data-factory-azure-datalake-connector.md)
+> * [Versão atual](connector-azure-data-lake-store.md)
 
-Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados para e do Azure Data Lake Store. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está em GA (disponibilidade geral), consulte [Conector do Azure Data Lake Store na V1](v1/data-factory-azure-datalake-connector.md).
+Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de/para o Azure Data Lake Storage Gen1 (conhecido anteriormente como Azure Data Lake Store). Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -43,7 +40,13 @@ Especificamente, este conector do Azure Data Lake Store dá suporte à:
 
 ## <a name="get-started"></a>Introdução
 
+> [!TIP]
+> Para obter um passo a passo de como usar o conector do Azure Data Lake Store, consulte [Carregar dados no Azure Data Lake Store](load-azure-data-lake-store.md).
+
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+
+>[!NOTE]
+>Ao utilizar a Ferramenta Copiar Dados para criar um pipeline de cópia ou usar a interface do usuário do ADF para executar testes de pastas de navegação/conexão durante a criação, a permissão da entidade de serviço ou MSI no nível raiz será exigida. A execução da atividade de cópia poderá funcionar, desde que a permissão seja concedida aos dados a serem copiados. Você pode ignorar as operações de criação se precisar limitar a permissão.
 
 As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao Azure Data Lake Store.
 
@@ -53,8 +56,8 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Data Lake S
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como **AzureDataLakeStore**. | sim |
-| dataLakeStoreUri | Informações sobre a conta do Azure Data Lake Store. Essas informações usam um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | sim |
+| Tipo | A propriedade type deve ser definida como **AzureDataLakeStore**. | SIM |
+| dataLakeStoreUri | Informações sobre a conta do Azure Data Lake Store. Essas informações usam um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | SIM |
 | subscriptionId | ID de assinatura do Azure à qual a conta do Data Lake Store pertence. | Obrigatório para coletor |
 | resourceGroupName | Nome do grupo de recursos do Azure ao qual a conta do Data Lake Store pertence. | Obrigatório para coletor |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
@@ -74,16 +77,16 @@ Para usar a autenticação de entidade de serviço, registre uma entidade de apl
 
 >[!IMPORTANT]
 > Verifique se você concedeu a permissão apropriada à entidade de serviço no Azure Data Lake Store:
->- **Como fonte**, no Data explorer -> Access, conceder pelo menos permissão **leitura + Execução** para listar e copie os arquivos na pasta/subpastas, ou permissão de **Leitura** para copiar um único arquivo e optar por adicionar como **uma permissão de acesso e uma entrada de permissão padrão**. Nenhum requisito de controle de acesso no nível da conta (IAM).
->- **Como o coletor**, no Data explorer -> Access, conceda pelo menos a permissão **Gravar + Executar** para criar itens filho na pasta e escolha para adicionar como **permissão de acesso e entrada de permissão padrão**. Se você usar o Azure IR para copiar (tanto a origem quanto o coletor que estão na nuvem) no controle de acesso (IAM), conceda pelo menos a função **Leitor** para permitir que o Data Factory detecte a região da Data Lake Store. Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir.
+>- **Como fonte**, no Data Explorer -> Access, conceder pelo menos permissão **Leitura + Execução** para listar e copiar os arquivos em pastas/subpastas ou permissão **Leitura** para copiar um único arquivo, e escolha adicionar a **Esta pasta e todos os filhos** para recursivas e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Nenhum requisito de controle de acesso no nível da conta (IAM).
+>- **Como coletor**, no Data Explorer -> Access, conceda pelo menos acesso **Gravação + Execução** para criar itens filhos na pasta e escolha adicionar a **Esta pasta e todos os filhos** para recursivo e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Se você usar o Azure IR para copiar (tanto a origem quanto o coletor que estão na nuvem) no controle de acesso (IAM), conceda pelo menos a função **Leitor** para permitir que o Data Factory detecte a região da Data Lake Store. Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir.
 
 Há suporte para as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| servicePrincipalId | Especifique a ID do cliente do aplicativo. | sim |
-| servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
-| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | sim |
+| servicePrincipalId | Especifique a ID do cliente do aplicativo. | SIM |
+| servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
+| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | SIM |
 
 **Exemplo:**
 
@@ -122,8 +125,8 @@ Para usar a autenticação de identidade do serviço gerenciado (MSI):
 
 >[!IMPORTANT]
 > Verifique se você concedeu a permissão apropriada à identidade de serviço do data factory no Azure Data Lake Store:
->- **Como fonte**, no Data explorer -> Access, conceder pelo menos permissão **leitura + Execução** para listar e copie os arquivos na pasta/subpastas, ou permissão de **Leitura** para copiar um único arquivo e optar por adicionar como **uma permissão de acesso e uma entrada de permissão padrão**. Nenhum requisito de controle de acesso no nível da conta (IAM).
->- **Como o coletor**, no Data explorer -> Access, conceda pelo menos a permissão **Gravar + Executar** para criar itens filho na pasta e escolha para adicionar como **permissão de acesso e entrada de permissão padrão**. Se você usar o Azure IR para copiar (tanto a origem quanto o coletor que estão na nuvem) no controle de acesso (IAM), conceda pelo menos a função **Leitor** para permitir que o Data Factory detecte a região da Data Lake Store. Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir.
+>- **Como fonte**, no Data Explorer -> Access, conceder pelo menos permissão **Leitura + Execução** para listar e copiar os arquivos em pastas/subpastas ou permissão **Leitura** para copiar um único arquivo, e escolha adicionar a **Esta pasta e todos os filhos** para recursivas e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Nenhum requisito de controle de acesso no nível da conta (IAM).
+>- **Como coletor**, no Data Explorer -> Access, conceda pelo menos acesso **Gravação + Execução** para criar itens filhos na pasta e escolha adicionar a **Esta pasta e todos os filhos** para recursivo e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Se você usar o Azure IR para copiar (tanto a origem quanto o coletor que estão na nuvem) no controle de acesso (IAM), conceda pelo menos a função **Leitor** para permitir que o Data Factory detecte a região da Data Lake Store. Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir.
 
 No Azure Data Factory, você não precisa especificar nenhuma propriedade além das informações do Data Lake Store gerais no serviço vinculado.
 
@@ -155,9 +158,9 @@ Para copiar dados para/do Azure Data Lake Store, defina a propriedade type do co
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureDataLakeStoreFile** |sim |
-| folderPath | Caminho para a pasta no Data Lake Store. O filtro curinga não é suportado. Exemplo: rootfolder/subfolder/ |sim |
-| fileName | **Filtro de nome ou curinga** para os arquivos em "folderPath" especificado. Se você não especificar um valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta. <br/><br/>Os curingas permitidos são: `*` (vários caracteres) e `?` (caractere único).<br/>– Exemplo 1: `"fileName": "*.csv"`<br/>– Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` para se seu nome de arquivo real curinga ou esse caractere de escape dentro de escape.<br/><br/>Quando fileName não é especificado para um dataset de saída e **preserveHierarchy** ão é especificado no coletor de atividade, a atividade de cópia gera automaticamente o nome do arquivo com o seguinte formato: "*Data. [Activity run id GUID]. [GUID se FlattenHierarchy]. [Formato se configurado]. [Compressão se configurado]*". Um exemplo é "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |Não  |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureDataLakeStoreFile** |SIM |
+| folderPath | Caminho para a pasta no Data Lake Store. O filtro curinga não é suportado. Exemplo: rootfolder/subfolder/ |SIM |
+| fileName | **Filtro de nome ou curinga** para os arquivos em "folderPath" especificado. Se você não especificar um valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta. <br/><br/>Para filtro, os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único).<br/>– Exemplo 1: `"fileName": "*.csv"`<br/>– Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` para se seu nome de arquivo real curinga ou esse caractere de escape dentro de escape.<br/><br/>Quando fileName não é especificado para um dataset de saída e **preserveHierarchy** ão é especificado no coletor de atividade, a atividade de cópia gera automaticamente o nome do arquivo com o seguinte formato: "*Data. [Activity run id GUID]. [GUID se FlattenHierarchy]. [Formato se configurado]. [Compressão se configurado]*". Um exemplo é "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |Não  |
 | formato | Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quiser analisar ou gerar arquivos com um formato específico, haverá suporte para os seguintes tipos de formatos de arquivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não (somente para o cenário de cópia binária) |
 | compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Os níveis com suporte são **Ideal** e **O mais rápido**. |Não  |
 
@@ -202,7 +205,7 @@ Para copiar dados do Azure Data Lake Store, defina o tipo de fonte na atividade 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureDataLakeStoreSource** |sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureDataLakeStoreSource** |SIM |
 | recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. Observe que quando o recursivo estiver definido como verdadeiro e o coletor for um armazenamento baseado em arquivo, subpasta/pasta vazia não será copiada/criada no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não  |
 
 **Exemplo:**
@@ -243,7 +246,7 @@ Para copiar dados para o Azure Data Lake Store, defina o tipo de coletor na ativ
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do coletor da atividade de cópia deve ser definida como: **AzureDataLakeStoreSink** |sim |
+| Tipo | A propriedade type do coletor da atividade de cópia deve ser definida como: **AzureDataLakeStoreSink** |SIM |
 | copyBehavior | Define o comportamento de cópia quando a fonte for de arquivos de armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (padrão)</b>: preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>- FlattenHierarchy</b>: todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm o nome gerado automaticamente. <br/><b>- MergeFiles</b>: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente. | Não  |
 
 **Exemplo:**

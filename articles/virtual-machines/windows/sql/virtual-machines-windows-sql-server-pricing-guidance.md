@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/02/2018
+ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: 71c86af9d4dcdf1026b4f539574b9932ef1cfc89
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a748532de7e8b8e910e335b67a693c4470861bf1
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32767793"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003552"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Diretrizes de preços para VMs do Azure do SQL Server
 
@@ -66,7 +66,7 @@ Você tem duas opções de pagamento para licenciamento dessas edições do SQL 
 
 **Pagar a licença do SQL Server por uso** significa que o custo por segundo da execução da VM do Azure inclui o custo da licença do SQL Server. Você pode ver os preços para as diferentes edições do SQL Server (Web, Standard e Enterprise) na página de preços de VMs do Azure para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
-O custo é o mesmo para todas as versões do SQL Server (2012 SP3 a 2017). O custo do licenciamento por segundo depende do número de núcleos da VM, que é um padrão para todas as opções de licenciamento do SQL Server.
+O custo é o mesmo para todas as versões do SQL Server (2012 SP3 a 2017). O custo de licenciamento por segundo depende do número de vCPUs da VM.
 
 O pagamento do licenciamento do SQL Server por uso é recomendável para:
 
@@ -90,9 +90,12 @@ Para criar uma VM do Azure do SQL Server 2017 com uma dessas imagens de pagament
 >
 >Ele não inclui os custos de licenciamento adicionais do SQL Server para as edições Enterprise, Standard e Web. Para obter a estimativa de preços mais precisa, selecione o sistema operacional e a edição do SQL Server na página de preços para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="bring-your-own-license-byol"></a>BYOL (Traga sua própria licença)
+## <a id="byol"></a> Traga sua própria licença (BYOL)
 
 **Trazer sua própria licença do SQL Server por meio da Mobilidade de Licença**, também conhecida como **BYOL**, significa usar uma Licença de Volume existente do SQL Server com Software Assurance em uma VM do Azure. Uma VM do SQL Server usando BYOL é cobrada somente pelo custo da respectiva execução e não pelo licenciamento do SQL Server, considerando que você já tenha adquirido licenças e o Software Assurance por meio de um programa de Licenciamento por Volume.
+
+> [!IMPORTANT]
+> As imagens BYOL requeremum Enterprise Agreement com Software Assurance. Não estão disponíveis como parte do Parceiro de Solução de Nuvem (CSP) o Azure neste momento.
 
 > [!NOTE]
 > Atualmente, as imagens BYOL só estão disponíveis para máquinas virtuais do Windows. No entanto, você pode instalar manualmente do SQL Server em uma VM somente Linux. Consulte as diretrizes nas [Perguntas Frequentes de VM Linux do SQL](../../linux/sql/sql-server-linux-faq.md).
@@ -128,7 +131,7 @@ Para evitar custos desnecessários, escolha um tamanho de máquina virtual ideal
 
 ### <a id="machinesize"></a> Dimensionar corretamente a VM
 
-O custo de licenciamento do SQL Server está diretamente relacionado ao número de núcleos. Escolha um tamanho de VM que corresponda às necessidades esperadas para CPU, memória, armazenamento e largura de banda de E/S. Para obter uma lista completa das opções de tamanho de computador, consulte [Tamanhos de VM do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) e [Tamanhos de VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+O custo de licenciamento do SQL Server está diretamente relacionado ao número de vCPUs. Escolha um tamanho de VM que corresponda às necessidades esperadas para CPU, memória, armazenamento e largura de banda de E/S. Para obter uma lista completa das opções de tamanho de computador, consulte [Tamanhos de VM do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) e [Tamanhos de VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Há novos tamanhos de computador que funcionam bem com certos tipos de cargas de trabalho do SQL Server. Esses tamanhos de máquinas mantêm altos níveis de memória, armazenamento e largura de banda de E/S, mas eles têm uma contagem inferior de núcleos virtualizados. Por exemplo, considere o exemplo a seguir:
 
@@ -140,7 +143,7 @@ Há novos tamanhos de computador que funcionam bem com certos tipos de cargas de
 > [!IMPORTANT]
 > Este é um exemplo pontual. Para as especificações mais recentes, consulte os artigos sobre tamanhos de computador e página de preços do Azure para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-No exemplo anterior, você pode ver que as especificações de **Standard_DS14v2** e **Standard_DS14-4v2** são idênticos, exceto para vCPUs. O sufixo **-4v2** no final do tamanho de computador **Standard_DS14-4v2** indica o número de vCPUs ativas. Já que os custos de licenciamento do SQL Server estão vinculados ao número de núcleos, isso reduz significativamente o custo da VM em cenários em que as vCPUs extras não são necessárias. Este é um exemplo e há vários tamanhos de computador com vCPUs restritas que são identificados com esse padrão de sufixo. Para obter mais informações, consulte a postagem de blog [Anunciando novos tamanhos de VM do Azure para um trabalho de banco de dados mais econômico](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
+No exemplo anterior, você pode ver que as especificações de **Standard_DS14v2** e **Standard_DS14-4v2** são idênticos, exceto para vCPUs. O sufixo **-4v2** no final do tamanho de computador **Standard_DS14-4v2** indica o número de vCPUs ativas. Já que os custos de licenciamento do SQL Server estão vinculados ao número de vCPUs, isso reduz significativamente o custo da VM em cenários em que as vCPUs extras não são necessárias. Este é um exemplo e há vários tamanhos de computador com vCPUs restritas que são identificados com esse padrão de sufixo. Para obter mais informações, consulte a postagem de blog [Anunciando novos tamanhos de VM do Azure para um trabalho de banco de dados mais econômico](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 ### <a name="shut-down-your-vm-when-possible"></a>Desligue a VM quando possível
 

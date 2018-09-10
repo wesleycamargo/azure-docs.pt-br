@@ -1,25 +1,20 @@
 ---
-title: Gerenciar clusters Hadoop no HDInsight usando o portal do Azure | Microsoft Docs
+title: Gerenciar clusters Hadoop no HDInsight usando o portal do Azure
 description: Aprenda a criar e gerenciar clusters HDInsight usando o portal do Azure.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: jgao
-ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: jasonh
+ms.openlocfilehash: 0e584343e568c5cd0d91a1e6ff51dc899c5434d7
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361964"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106522"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters Hadoop no HDInsight Usando o portal do Azure
 
@@ -62,7 +57,7 @@ Você deve especificar uma assinatura do Azure, quando você cria um cluster HDI
     1. Entre no [Portal do Azure](https://portal.azure.com).
     2. Clique em **Assinatura** no menu à esquerda. Ele tem um ícone amarelo de chave. Você verá uma lista de assinaturas.
     3. Clique na assinatura que você usa para criar clusters. 
-    4. Clique em **Minhas permissões**.  Isso mostra a [função](../role-based-access-control/overview.md#built-in-roles) na assinatura. Você precisa de pelo menos acesso de Colaborador para criar o cluster do HDInsight.
+    4. Clique em **Minhas permissões**.  Isso mostra a [função](../role-based-access-control/built-in-roles.md) na assinatura. Você precisa de pelo menos acesso de Colaborador para criar o cluster do HDInsight.
 
 - Para usar um grupo de recursos existente:
 
@@ -105,7 +100,7 @@ Se você receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionR
     * **Monitoramento**: monitore o cluster no Azure Log Analytics.
     * **Propriedades**: exiba as propriedades do cluster.
     * **Contas de armazenamento**: exibir as contas de armazenamento e as chaves. As contas de armazenamento são configuradas durante o processo de criação do cluster.
-    * **Acesso ao Data Lake Store**: configurar o acesso ao Data Lake Store.  Consulte [Criar clusters do HDInsight com o Data Lake Store usando o portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * **Acesso ao Data Lake Store**: configurar o acesso ao Data Lake Store.  Consulte [Início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
     * **Resource Health**: consulte [Visão geral do Azure Resource Health](../service-health/resource-health-overview.md).
     * **Nova solicitação de suporte**: permite que você crie um tíquete de suporte com o suporte da Microsoft.
     
@@ -280,9 +275,9 @@ Em seguida, o Ambari altera a senha em todos os nós no cluster.
 
    | Campo | Valor |
    | --- | --- |
-   | NOME |Alterar senha SSH |
+   | Nome |Alterar senha SSH |
    | URI do script Bash |O URI do arquivo changepassword.sh |
-   | Nós (Principal, Trabalho, Nimbus, Supervisor, Zookeeper etc.) |✓ para todos os tipos de nós listados |
+   | Nós (Principal, Trabalho, Nimbus, Supervisor, Zookeeper etc.) |✓ para todos os tipos de nó listados |
    | parâmetros |Insira o nome de usuário SSH e a nova senha. Deve haver um espaço entre o nome de usuário e a senha. |
    | Persistir esta ação de script... |Deixe este campo desmarcado. |
 5. Selecione **Criar** para aplicar o script. Quando o script for concluído, você poderá se conectar ao cluster usando SSH com a nova senha.
@@ -290,7 +285,7 @@ Em seguida, o Ambari altera a senha em todos os nós no cluster.
 ## <a name="grantrevoke-access"></a>Conceder/revogar acesso
 Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviços têm pontos de extremidade RESTful):
 
-* ODBC
+* ODBCODBC
 * JDBC
 * Ambari
 * Oozie
@@ -305,7 +300,7 @@ Por padrão, esses serviços são concedidos para acesso. Você pode revogar/con
 1. Conecte-se no [Portal][azure-portal].
 2. Clique em **Assinaturas**. Cada assinatura tem um nome e uma ID.
 
-Cada cluster é vinculado a uma assinatura do Azure. A ID da assinatura é mostrada no bloco **Fundamentos** do cluster. Consulte [Listar e mostrar clusters](#list-and-show-clusters).
+Cada cluster é vinculado a uma assinatura do Azure. A ID da assinatura é mostrada no bloco **Fundamentos** do cluster. Confira [Listar e mostrar clusters](#list-and-show-clusters).
 
 ## <a name="find-the-resource-group"></a>Encontrar o grupo de recursos
 No modo Azure Resource Manager, cada cluster HDInsight é criado com um grupo do Azure Resource Manager. O grupo do Resource Manager ao qual um cluster pertence aparece em:
@@ -353,7 +348,7 @@ Usando o portal do Azure, você pode procurar conteúdos do contêiner padrão.
 8. Clique no nome de contêiner padrão.
 
 ## <a name="monitor-cluster-usage"></a>Monitorar o uso do cluster
-A seção **Uso** da folha do cluster do HDInsight exibe informações sobre o número de núcleos disponíveis para sua assinatura para uso com o HDInsight, bem como o número de núcleos alocados para esse cluster e como eles são alocados para os nós presentes no cluster. Consulte [Listar e mostrar clusters](#list-and-show-clusters).
+A seção **Uso** da folha do cluster do HDInsight exibe informações sobre o número de núcleos disponíveis para sua assinatura para uso com o HDInsight, bem como o número de núcleos alocados para esse cluster e como eles são alocados para os nós presentes no cluster. Confira [Listar e mostrar clusters](#list-and-show-clusters).
 
 > [!IMPORTANT]
 > Para monitorar os serviços fornecidos pelo cluster HDInsight, você deve usar o Ambari Web ou a API REST do Ambari. Para saber mais sobre como usar o Ambari, consulte [Gerenciar clusters HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md)

@@ -1,11 +1,11 @@
 ---
-title: "Exemplo de script da CLI do Azure - Criar um aplicativo de função para execução sem servidor | Microsoft Docs"
-description: "Exemplo de script da CLI do Azure - Criar um Aplicativo de funções para execução sem servidor"
+title: Exemplo de script da CLI do Azure - Criar um aplicativo de função para execução sem servidor | Microsoft Docs
+description: Exemplo de script da CLI do Azure - Criar um Aplicativo de funções para execução sem servidor
 services: functions
 documentationcenter: functions
 author: syntaxc4
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.service: functions
@@ -13,14 +13,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 10/04/2017
-ms.author: cfowler
+ms.date: 07/03/2018
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e868f07a8c24948655d81c7db1859d819b01c062
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1d70e6468b8f9944df04e41a6fffb719e0cb8a04
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435298"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Criar um aplicativo de funções para execução de código sem servidor
 
@@ -46,14 +47,14 @@ Esse script cria um Aplicativo de funções do Azure usando o [plano de consumo]
 
 Cada comando na tabela redireciona para a documentação específica do comando. Este script usa os seguintes comandos:
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de armazenamento do Azure. |
-| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Cria um aplicativo de funções. |
+| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria uma conta de armazenamento do Azure. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
 Exemplos adicionais de scripts da CLI do Azure Functions podem ser encontrados na [Documentação do Azure Functions](../functions-cli-samples.md).

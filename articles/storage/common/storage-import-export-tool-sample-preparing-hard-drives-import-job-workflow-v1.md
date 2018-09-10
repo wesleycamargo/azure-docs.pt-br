@@ -1,31 +1,26 @@
 ---
-title: "Fluxo de trabalho de exemplo para preparo dos discos rígidos de um trabalho de importação do serviço de Importação/Exportação do Azure — v1 | Microsoft Docs"
-description: "Veja um passo a passo para o processo completo de preparo de unidades para um trabalho de importação no serviço de Importação/Exportação do Azure."
+title: Fluxo de trabalho de exemplo para preparo dos discos rígidos de um trabalho de importação do serviço de Importação/Exportação do Azure — v1 | Microsoft Docs
+description: Veja um passo a passo para o processo completo de preparo de unidades para um trabalho de importação no serviço de Importação/Exportação do Azure.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 6eb1b1b7-c69f-4365-b5ef-3cd5e05eb72a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 66e85bd3e9e43ae360d0507f5bdf3596abbeb7d1
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: common
+ms.openlocfilehash: ae792df428d897277e15df9db3ff6f99a5b8859e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527279"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Fluxo de trabalho de exemplo para preparo dos discos rígidos para um trabalho de importação
 Este tópico explica o processo completo de preparar unidades para um trabalho de importação.  
   
 Este exemplo importa os seguintes dados para uma conta de armazenamento do Azure no Windows denominada `mystorageaccount`:  
   
-|Local|Descrição|  
+|Local padrão|DESCRIÇÃO|  
 |--------------|-----------------|  
 |H:\Video|Uma coleção de vídeos, 5 TB no total.|  
 |H:\Photo|Uma coleção de fotos, 30 GB no total.|  
@@ -49,7 +44,7 @@ Em seguida, para determinar quantos discos rígidos são necessários, calcule o
   
 Neste exemplo, duas unidades de disco rígido de 3 TB devem ser suficientes. No entanto, como o diretório de origem `H:\Video` tem 5 TB de dados e a capacidade do disco rígido único é de apenas 3 TB, será necessário dividir `H:\Video` em dois diretórios menores, `H:\Video1` e `H:\Video2`, antes de executar a Ferramenta de Importação/Exportação do Microsoft Azure. Esta etapa gera os seguintes diretórios de origem:  
   
-|Local|Tamanho|Blob de destino ou diretório virtual|  
+|Local padrão|Tamanho|Blob de destino ou diretório virtual|  
 |--------------|----------|-------------------------------------------|  
 |H:\Video1|2.5 TB|https://mystorageaccount.blob.core.windows.net/video|  
 |H:\Video2|2.5 TB|https://mystorageaccount.blob.core.windows.net/video|  

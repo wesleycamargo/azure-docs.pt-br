@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 08/20/2018
 ms.author: juliako
-ms.openlocfilehash: 2d3219f6f2617fec941e308febb2e47efa184170
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9e8dc926fd796e82ea531aba6cb3a682649dff41
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246336"
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure
 
@@ -66,17 +67,16 @@ A tabela a seguir fornece um guia de comparação dos dois tipos de Canal com su
 
 | Recurso | Canal de passagem | Canal padrão |
 | --- | --- | --- |
-| A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não  |sim |
+| A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não  |SIM |
 | Resolução máxima, número de camadas |1080p, 8 camadas, 60+fps |720p, 6 camadas, 30 fps |
 | Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Preço |Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia “Vídeo ao vivo” |Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo de execução máximo |24x7 |8 horas |
-| Suporte para inserção de imagens fixas |Não  |sim |
-| Suporte para sinalização de anúncios |Não  |sim |
-| Legendas CEA 608/708 de passagem |sim |sim |
-| Capacidade de recuperação de interrupções breves no feed de contribuição |sim |Não (O canal começará a exibir imagens fixas após um período superior a 6 segundos sem dados de entrada) |
-| Suporte para GOPs de entrada não uniforme |sim |Não – a entrada deve ser GOPs de 2 s fixos |
-| Suporte para entrada de taxa de quadros variável |sim |Não – a entrada deve ser uma taxa de quadros fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. No entanto, o codificador não poderá reduzir para 10 quadros por segundo. |
+| Suporte para inserção de imagens fixas |Não  |SIM |
+| Suporte para sinalização de anúncios |Não  |SIM |
+| Legendas CEA 608/708 de passagem |SIM |SIM |
+| Suporte para GOPs de entrada não uniforme |SIM |Não – a entrada deve ser GOPs de 2 s fixos |
+| Suporte para entrada de taxa de quadros variável |SIM |Não – a entrada deve ser uma taxa de quadros fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. No entanto, o codificador não poderá reduzir para 10 quadros por segundo. |
 | Desligamento automático de Canais quando há perda do feed de entrada |Não  |Após 12 horas, se não houver nenhum Programa em execução |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Trabalhando com canais que recebem a transmissão ao vivo de taxa de bits múltipla de codificadores locais (passagem)

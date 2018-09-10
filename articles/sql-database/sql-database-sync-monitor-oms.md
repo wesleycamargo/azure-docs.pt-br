@@ -1,25 +1,26 @@
 ---
-title: Monitorar a Sincronização de Dados SQL do Azure (versão prévia) com o Log Analytics | Microsoft Docs
-description: Saiba como monitorar a Sincronização de Dados SQL do Azure (versão prévia) usando o Log Analytics
+title: Monitorar a Sincronização de Dados SQL do Azure com o Log Analytics | Microsoft Docs
+description: Saiba como monitorar a Sincronização de Dados SQL do Azure usando Log Analytics
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 1b22b4ddf9fa4880b814efc3f8c3f1fc6ec7d141
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3bad71834d11b640bbc3577bf67c10357fad36dc
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618303"
 ---
-# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Monitorar a Sincronização de Dados SQL (versão prévia) com o Log Analytics 
+# <a name="monitor-sql-data-sync-with-log-analytics"></a>Monitorar Sincronização de Dados SQL com o Log Analytics 
 
 Para verificar o log de atividades da Sincronização de Dados SQL e detectar erros e avisos, anteriormente você precisava verificar a Sincronização de Dados SQL manualmente no portal do Azure ou usar o PowerShell ou a API REST. Siga as etapas deste artigo para configurar uma solução personalizada que melhora a experiência de monitoramento da Sincronização de Dados. Personalize essa solução de acordo com seu cenário.
 
-Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-sync-data.md).
+Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md).
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Painel de Monitoramento para todos os Grupos de Sincronização 
 
@@ -53,7 +54,7 @@ Baixe os dois seguintes exemplos:
 
 -   [Modo de exibição do Log Analytics de Sincronização de Dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se você configurou o seguinte:
 
@@ -200,8 +201,6 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:
     -   [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
-
--   [Baixe a documentação da API REST de Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Para saber mais sobre o Banco de Dados SQL, veja:
 

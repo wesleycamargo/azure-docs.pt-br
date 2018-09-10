@@ -9,10 +9,11 @@ ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: ab4c5b98ed9f6fcc8c271797db2d81dcc7ec4449
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38755458"
 ---
 A tabela a seguir relaciona as cotas e limites específicos para os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Para saber mais sobre os preços dos Hubs de Eventos, veja os [preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 

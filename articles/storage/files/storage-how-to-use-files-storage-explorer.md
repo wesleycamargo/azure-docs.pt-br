@@ -2,23 +2,18 @@
 title: Gerenciar compartilhamentos de arquivos usando o Gerenciador de Armazenamento do Azure
 description: Aprenda como usar o Gerenciador de Armazenamento do Azure para gerenciar arquivos do Azure.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
-ms.openlocfilehash: 1953ee18fe878c33a1a0965937f64056278875cf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: files
+ms.openlocfilehash: e8989cadd331021a3e35fc559421bbdd08f0b4fb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521187"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Gerenciar compartilhamentos de arquivos com o Gerenciador de Armazenamento do Azure 
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Este artigo percorre os fundamentos de trabalhar com compartilhamentos de arquivos do Azure usando o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). O Gerenciador de Armazenamento é uma ferramenta para o cliente popular disponível para Windows, macOS e Linux. Você pode usar o Gerenciador de Armazenamento para gerenciar compartilhamentos de arquivo e outros recursos de armazenamento.
@@ -96,7 +91,7 @@ O andamento do download é exibido no painel **Atividades** na parte inferior da
 
 ## <a name="create-and-modify-share-snapshots"></a>Criar e modificar instantâneos de compartilhamento
 Um instantâneo preserva um ponto no tempo para uma cópia de um compartilhamento de arquivos do Azure. Instantâneos de compartilhamento de arquivos são semelhantes a outras tecnologias que você talvez já conheça:
-- [Serviço de Cópias de Sombra de Volume (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) para sistemas de arquivos Windows, como NTFS e ReFS
+- [Serviço de Cópias de Sombra de Volume (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de arquivos Windows, como NTFS e ReFS
 - Instantâneos do [LVM (Gerenciador de Volumes Lógicos)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
 - Instantâneos do [Sistema de arquivos da Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS
 

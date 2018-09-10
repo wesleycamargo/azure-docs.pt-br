@@ -1,11 +1,11 @@
 ---
-title: "Analisar a segurança de rede com exibição de grupo de segurança do Observador de Rede do Azure - PowerShell | Microsoft Docs"
-description: "Este artigo descreve como usar o PowerShell para analisar a segurança de uma máquina virtual com o modo de exibição de Grupo de Segurança."
+title: Analisar a segurança de rede com exibição de grupo de segurança do Observador de Rede do Azure - PowerShell | Microsoft Docs
+description: Este artigo descreve como usar o PowerShell para analisar a segurança de uma máquina virtual com o modo de exibição de Grupo de Segurança.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 04e76b49-6a1b-4d0f-9a9b-51cf2f4df5a2
 ms.service: network-watcher
 ms.devlang: na
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3983055cd580c263d39b908c61a16ed14353c9a4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9cc06e97730ac846e8aa42c2cee77dfe17be99bb
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089639"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analisar a segurança de máquina Virtual com o modo de exibição de grupo de segurança usando o PowerShell
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-security-group-view-cli.md)
+> - [CLI do Azure](network-watcher-security-group-view-cli.md)
 > - [API REST](network-watcher-security-group-view-rest.md)
 
 Exibição de grupo de segurança retorna as regras de segurança de rede configurados e eficaz que são aplicadas a uma máquina virtual. Esse recurso é útil para auditoria e diagnosticar grupos de segurança de rede e as regras configuradas em uma VM para garantir que o tráfego está sendo corretamente permitido ou negado. Neste artigo, mostraremos como recuperar as regras de segurança configuradas e em vigor para uma máquina virtual usando o PowerShell
@@ -34,7 +34,7 @@ Exibição de grupo de segurança retorna as regras de segurança de rede config
 
 Nesse cenário, execute o cmdlet `Get-AzureRmNetworkWatcherSecurityGroupView` para recuperar as informações de regra de segurança.
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
+Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de rede](network-watcher-create.md) para criar um Observador de rede.
 
 ## <a name="scenario"></a>Cenário
 

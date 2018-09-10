@@ -4,24 +4,23 @@ description: Descreve como rastrear operações assíncronas no Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: f62212f0488e4d1be49b419615b3a16b80033fd9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 601f4a899393d8ddd5ea698d4d01ade7141ee91f
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142071"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Rastrear operações assíncronas no Azure
-Algumas operações REST do Azure são executadas de forma assíncrona porque a operação não pode ser concluída com rapidez. Este tópico descreve como controlar o status das operações assíncronas por meio de valores retornados na resposta.  
+Algumas operações REST do Azure são executadas de forma assíncrona porque a operação não pode ser concluída com rapidez. Este artigo descreve como controlar o status das operações assíncronas por meio de valores retornados na resposta.  
 
 ## <a name="status-codes-for-asynchronous-operations"></a>Códigos de status de operações assíncronas
 Uma operação assíncrona inicialmente retorna um dos seguintes códigos de status HTTP:
@@ -34,13 +33,13 @@ Quando a operação for concluída com êxito, ela retorna um dos seguintes:
 * 200 (OK)
 * 204 (Sem Conteúdo) 
 
-Consulte a [Documentação da API REST](/rest/api/) para ver as respostas para a operação que você está executando. 
+Consulte a [Documentação da API REST](/rest/api/) para ver as respostas para a operação que você está executando.
 
 ## <a name="monitor-status-of-operation"></a>Monitorar o status da operação
 As operações REST assíncronas retornam valores de cabeçalho, que você pode usar para determinar o status da operação. Há potencialmente três valores de cabeçalho a examinar:
 
 * `Azure-AsyncOperation` ‑ A URL para verificar o status da operação em andamento. Se a operação retornar esse valor, sempre o use (em vez de Location) para acompanhar o status da operação.
-* `Location` ‑ A URL para determinar quando uma operação foi concluída. Use esse valor somente quando Azure-AsyncOperation não é retornado.
+* `Location` ‑ A URL para determinar quando uma operação foi concluída. Use esse valor somente quando Azure-AsyncOperation não for retornado.
 * `Retry-After` ‑ O número de segundos de espera antes de verificar o status da operação assíncrona.
 
 No entanto, nem toda operação assíncrona retorna todos esses valores. Por exemplo, você precisará avaliar o valor do cabeçalho Azure-AsyncOperation para uma operação e o valor do cabeçalho Location para outra operação. 

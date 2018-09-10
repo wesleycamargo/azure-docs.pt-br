@@ -3,18 +3,19 @@ title: Práticas recomendadas de carregamento de dados – SQL Data Warehouse do
 description: Recomendações e otimizações de desempenho para carregar dados no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 48b0f0300ab563e8388c9e99f4f90cd24c56678d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a2cc5b02744c04752ba11cbba14fe95c487d737c
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248110"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Práticas recomendadas para carregar dados no SQL Data Warehouse do Azure
 Recomendações e otimizações de desempenho para carregar dados no SQL Data Warehouse do Azure. 
@@ -68,7 +69,7 @@ Por exemplo: considere os esquemas de banco de dados, schema_A para o departamen
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
-```   
+```
 
 Agora os user_A e user_B são bloqueados do esquema do outro departamento.
 
@@ -121,15 +122,15 @@ Exemplo:
 
 A chave original é criada
 
-    ```sql
-    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
-    ``` 
+```sql
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+``` 
 
 Altere a chave 1 para a chave 2
 
-    ```sq;
-    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
-    ```
+```sql
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+```
 
 Não é necessária nenhuma outra alteração nas fontes de dados externas subjacentes.
 

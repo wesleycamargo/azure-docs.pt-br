@@ -1,23 +1,24 @@
 ---
-title: "Filtros de tópico do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Filtrar tópicos do Barramento de Serviço do Azure"
+title: Filtros de tópico do Barramento de Serviço do Azure | Microsoft Docs
+description: Filtrar tópicos do Barramento de Serviço do Azure
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: 305c017bd49f233c10479e2c33ec8db72cae3aa7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: a1616150ebf696654bc0ca9a79d39c3877c363d9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699379"
 ---
 # <a name="topic-filters-and-actions"></a>Ações e filtros de tópico
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181813"
 ---
 # <a name="azure-status"></a>Status do Azure
 [Status do Azure](https://azure.microsoft.com/status/) fornece uma exibição global da integridade dos serviços do Azure. Com o status do Azure, você pode obter informações atualizadas sobre a disponibilidade do serviço. Todos têm acesso ao status do Azure e pode exibir todos os serviços que a integridade do serviço de relatório. 

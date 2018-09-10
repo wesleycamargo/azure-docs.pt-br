@@ -1,24 +1,26 @@
 ---
-title: "Resolver erros de diretórios incompatíveis para domínios gerenciados do Azure AD Domain Services | Microsoft Docs"
-description: "Compreenda e resolva erros de diretórios incompatíveis para domínios gerenciados existentes do Azure AD Domain Services"
+title: Resolver erros de diretórios incompatíveis para domínios gerenciados do Azure AD Domain Services | Microsoft Docs
+description: Compreenda e resolva erros de diretórios incompatíveis para domínios gerenciados existentes do Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: maheshu
-ms.openlocfilehash: 24e11769e9b403bc00157e3f60869effa6a9633f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f791993a95534f66097e3e7e22141bf34e311f21
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504542"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolva erros de diretórios incompatíveis para domínios gerenciados existentes do Azure AD Domain Services
 Você tem um domínio gerenciado dos Azure AD Domain Services. Quando navega para o portal do Azure e exibe o domínio gerenciado, você vê a seguinte mensagem de erro:

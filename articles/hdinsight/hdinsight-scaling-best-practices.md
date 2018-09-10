@@ -1,24 +1,20 @@
 ---
-title: Dimensionar tamanhos de cluster – Azure HDInsight | Microsoft Docs
+title: Dimensionar tamanhos de cluster – Azure HDInsight
 description: Dimensione um cluster HDInsight para sua carga de trabalho.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 8b76d7d0441a5c1c25ad17b73083ec0e4feef1fe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d554cdf5e89898874811ea113985fac4b332fac6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109924"
 ---
 # <a name="scale-hdinsight-clusters"></a>Dimensionar clusters HDInsight
 

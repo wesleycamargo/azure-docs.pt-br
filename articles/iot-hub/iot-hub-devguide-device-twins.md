@@ -1,25 +1,19 @@
 ---
 title: Compreender dispositivos gêmeos no Hub IoT do Azure| Microsoft Docs
 description: Guia de desenvolvedor ‑ use dispositivos gêmeos para sincronizar os dados de estado e de configuração entre os dispositivos e o Hub IoT
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef048967bc08fed1a108872d2d7eecc2a66993fa
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: e94b023275f3992bea9595195688eebf42f0f229
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186781"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
 
@@ -382,7 +376,7 @@ Para experimentar alguns dos conceitos descritos neste artigo, consulte os tutor
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
-[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-twin-properties]: tutorial-device-twins.md
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow

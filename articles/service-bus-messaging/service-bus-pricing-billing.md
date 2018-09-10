@@ -1,11 +1,11 @@
 ---
-title: "Preços e cobrança do Barramento de Serviço | Microsoft Docs"
-description: "Visão geral da estrutura de preços de Barramento de Serviço."
+title: Preços e cobrança do Barramento de Serviço | Microsoft Docs
+description: Visão geral da estrutura de preços de Barramento de Serviço.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 8ccb44b5009588c28bc79bb45e1a7640ead6c817
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.author: spelluru
+ms.openlocfilehash: 9f899afef175afa2509dc60e0920dc387f8a7c5e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702554"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Barramento de Serviço, preços e cobrança
 
@@ -38,7 +39,10 @@ A camada **Standard** apresenta preços graduados para operações executadas co
 
 A camada **Premium** fornece isolamento de recursos na camada de CPU e memória, de modo que a carga de trabalho do cliente seja executada isoladamente. Esse contêiner de recurso é chamado de *unidade do sistema de mensagens*. Cada namespace premium é alocado para pelo menos uma unidade do sistema de mensagens. Você pode adquirir 1, 2 ou 4 unidades do sistema de mensagens para cada namespace Premium do Barramento de serviço. Uma única carga de trabalho ou entidade pode abranger várias unidades do sistema de mensagens, e o número de unidades do sistema de mensagens pode ser alterado à vontade, embora a cobrança seja feita por taxas diárias ou de 24 horas. O resultado é um desempenho previsível e repetível para sua solução baseada no Barramento de Serviço. Esse desempenho não é apenas o mais previsível e disponível, mas também o mais rápido.
 
-Observe que o custo base da faixa Standard é cobrado apenas uma vez por mês por assinatura do Azure. Isso significa que depois de criar um namespace individual do Barramento de Serviço na camada Standard, você poderá criar quantos namespaces Standard adicionais desejar na mesma assinatura do Azure, sem incorrer em encargos base adicionais.
+> [!NOTE]
+> Tópicos e assinaturas só estão disponíveis no Standard ou Premium preço; a camada básica oferece suporte a apenas filas.
+
+O custo base da faixa Standard é cobrado apenas uma vez por mês por assinatura do Azure. Isso significa que depois de criar um namespace individual do Barramento de Serviço na camada Standard, você poderá criar quantos namespaces Standard adicionais desejar na mesma assinatura do Azure, sem incorrer em encargos base adicionais.
 
 A tabela [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/) resume as diferenças funcionais entre as camadas Standard e Premium.
 

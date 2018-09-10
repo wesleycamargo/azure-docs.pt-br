@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 5d13c711d7d71df7469e6408ce78cf0df611632b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e447c04f4a94f2fb534ecb0605595a90816431e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638289"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Codificar com uma escada de taxa de bits gerada automaticamente
 
@@ -27,18 +28,18 @@ Este artigo explica como usar o codificador padrão nos Serviços de Mídia para
 
 ### <a name="encoding-for-streaming"></a>Codificar para streaming
 
-Como o nome sugere, se você usar o **AdaptiveStreaming** predefinido durante a criação de uma transformação de codificação, você obterá uma saída que é adequada para distribuição via protocolos de streaming como HLS, DASH, CMAF, etc. Ao usar este **AdaptiveStreaming** predefinido, o codificador inteligente determina quantas camadas de vídeos devem ser geradas e, em quais taxas de bits e a resolução. O Ativo de saída contém arquivos MP4 onde áudio codificado AAC e vídeo codificado H.264 não são intercalados.
+Quando você usa o **AdaptiveStreaming** predefinido em **Transformar**, você obtém uma saída que é adequada para distribuição via protocolos de streaming como HLS e DASH. Ao usar esta predefinição, o serviço determina de forma inteligente quantas camadas de vídeos devem ser geradas e, em quais taxas de bits e a resolução. O conteúdo de saída contém arquivos MP4 onde áudio codificado AAC e vídeo codificado H.264 não são intercalados.
 
 Para ver um exemplo de como essa predefinição é usada, consulte [Transmitir um arquivo por streaming](stream-files-dotnet-quickstart.md).
 
 ## <a name="output"></a>Saída
 
-Esta seção exibe três exemplos de camadas de vídeo de saída produzidas pelo codificador dos Serviços de Mídia como resultado da codificação com a predefinição do **AdaptiveStreaming**. Em todos os casos, a saída vai conter o arquivo MP4 somente de áudio com áudio estéreo codificado a 128 kbps.
+Esta seção exibe três exemplos de camadas de vídeo de saída produzidas pelo codificador dos Serviços de Mídia como resultado da codificação com a predefinição do **AdaptiveStreaming**. Em todos os casos, a saída contém um arquivo MP4 somente de áudio com áudio estéreo codificado a 128 kbps.
 
 ### <a name="example-1"></a>Exemplo 1
 Fonte com altura "1080" e taxa de quadros "29.970" produz seis camadas de vídeo:
 
-|Camada|Altura|Largura|Taxa de bits (Kbps)|
+|Camada|Altura|Largura|Taxa de bits (kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -50,7 +51,7 @@ Fonte com altura "1080" e taxa de quadros "29.970" produz seis camadas de vídeo
 ### <a name="example-2"></a>Exemplo 2
 Fonte com altura "720" e taxa de quadros "23.970" produz cinco camadas de vídeo:
 
-|Camada|Altura|Largura|Taxa de bits (Kbps)|
+|Camada|Altura|Largura|Taxa de bits (kbps)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -61,7 +62,7 @@ Fonte com altura "720" e taxa de quadros "23.970" produz cinco camadas de vídeo
 ### <a name="example-3"></a>Exemplo 3
 Fonte com altura "360" e taxa de quadros "29.970" produz três camadas de vídeo:
 
-|Camada|Altura|Largura|Taxa de bits (Kbps)|
+|Camada|Altura|Largura|Taxa de bits (kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

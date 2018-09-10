@@ -1,26 +1,22 @@
 ---
-title: Introdução à linguagem U-SQL | Microsoft Docs
-description: Aprenda os conceitos básicos da linguagem U-SQL.
+title: Introdução à linguagem U-SQL no Azure Data Lake Analytics
+description: Conheça os fundamentos da linguagem U-SQL no Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
-manager: saveenr
-editor: cgronlun
+ms.author: saveenr
+ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 06/23/2017
-ms.author: saveenr
-ms.openlocfilehash: e7efdac8b032055b5344f34f5f9ad2679bddb107
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1822ac9b539aa196601c6c07ccc8d0544fd5f3dd
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042421"
 ---
-# <a name="get-started-with-u-sql"></a>Introdução ao U-SQL
+# <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Introdução à U-SQL no Azure Data Lake Analytics
 U-SQL é uma linguagem que combina o SQL declarativo com o C# imperativo para permitir que você processe dados em qualquer escala. Por meio da capacidade de consulta distribuída escalonável do U-SQL, você pode analisar, de modo eficiente, dados entre repositórios relacionais como o Banco de Dados SQL do Azure. Com o U-SQL, você pode processar dados não estruturados aplicando o esquema na leitura e inserindo lógica personalizada e UDFs. Além disso, o U-SQL inclui extensibilidade que lhe dá controle refinado sobre como executar em escala. 
 
 ## <a name="learning-resources"></a>Recursos de aprendizagem
@@ -29,7 +25,7 @@ U-SQL é uma linguagem que combina o SQL declarativo com o C# imperativo para pe
 * Para obter informações detalhadas sobre a **sintaxe da linguagem U-SQL**, consulte a [U-SQL Language Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348) (Referência da linguagem U-SQL).
 * Para entender a **filosofia de design do U-SQL**, confira a postagem do blog do Visual Studio [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/) (Apresentando o U-SQL – Uma linguagem que torna fácil o processamento de Big Data).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de percorrer os exemplos do U-SQL nesse documento, leia e conclua o [Tutorial: Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Esse tutorial explica a mecânica do uso do U-SQL com as Ferramentas do Azure Data Lake para Visual Studio.
 

@@ -2,23 +2,19 @@
 title: Solucionar problemas de Arquivos do Azure no Linux | Microsoft Docs
 description: Solução de problemas de Arquivos do Azure no Linux
 services: storage
-documentationcenter: ''
-author: genlin
-manager: willchen
-editor: na
+author: jeffpatt24
 tags: storage
 ms.service: storage
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: 7b5567359e7ca87d26e05d336337b55af364031e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: jeffpatt
+ms.component: files
+ms.openlocfilehash: 0f99913ab252b94d475f920bd734e68ff5f3b3d3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525113"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solucionar problemas de Arquivos do Azure no Linux
 
@@ -42,11 +38,11 @@ Reduza o número de identificadores abertos simultâneos fechando alguns deles e
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Cópia de arquivos bidirecional lenta dos Arquivos do Azure no Linux
 
--   Se você não tem um requisito de tamanho de E/S mínimo específico, recomendamos que você use 1 MB de tamanho de E/S para um desempenho ideal.
--   Se você sabe o tamanho final de um arquivo que está estendendo com gravações e o software não apresenta problemas de compatibilidade quando a parte final não escrita do arquivo contém zeros, defina o tamanho do arquivo antecipadamente, em vez de realizar cada gravação como uma gravação de extensão.
--   Use o método de cópia correto:
-    -   Use o [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para todas as transferências entre dois compartilhamentos de arquivo.
-    -   Use o [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre compartilhamentos de arquivos e um computador local.
+- Se você não tiver um requisito mínimo de tamanho de E / S específico, recomendamos usar 1 MiB como o tamanho de E / S para um desempenho ideal.
+- Se você souber o tamanho final de um arquivo que está sendo estendido usando gravações e seu software não apresentar problemas de compatibilidade quando uma parte não escrita do arquivo contiver zeros, defina o tamanho do arquivo antecipadamente em vez de fazer com que cada gravação seja estendida.
+- Use o método de cópia correto:
+    - Use o [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para todas as transferências entre dois compartilhamentos de arquivo.
+    - Use o [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre compartilhamentos de arquivos e um computador local.
 
 <a id="error112"></a>
 ## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>“Erro de montagem (112): o host está inativo” devido a um tempo limite de reconexão
@@ -57,7 +53,7 @@ Um erro de montagem “112” ocorre no cliente Linux quando o cliente ficou oci
 
 A conexão pode ficar ociosa pelos seguintes motivos:
 
--   Falhas de comunicação de rede que impedem o restabelecimento de uma conexão TCP com o servidor quando a opção de montagem “reversível” padrão é usada
+-   Falhas de comunicação de rede que impedem o restabelecimento de uma conexão TCP com o servidor quando a opção de montagem "soft" padrão é usada
 -   Correções de reconexão recentes que não estão presentes nos kernels mais antigos
 
 ### <a name="solution"></a>Solução
@@ -65,15 +61,15 @@ A conexão pode ficar ociosa pelos seguintes motivos:
 Esse problema de reconexão no kernel do Linux agora foi corrigido como parte das seguintes alterações:
 
 - [Corrigir a reconexão para não adiar a sessão smb3 por muito tempo após a reconexão do soquete](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
--   [Chamar o serviço de eco imediatamente após a reconexão do soquete](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
--   [CIFS: corrigir uma possível corrupção de memória durante a reconexão](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
--   [CIFS: corrigir um possível bloqueio duplo de mutex durante a reconexão (para kernel v4.9 e posterior)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
+- [Chamar o serviço de eco imediatamente após a reconexão do soquete](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
+- [CIFS: corrigir uma possível corrupção de memória durante a reconexão](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS: corrigir um possível bloqueio duplo de mutex durante a reconexão (para kernel v4.9 e posterior)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
 No entanto, essas alterações ainda podem não ter sido portadas para todas as distribuições do Linux. Essa correção e outras correções de reconexão foram feitas nos seguintes kernels populares do Linux: 4.4.40, 4.8.16 e 4.9.1. Obtenha essa correção fazendo upgrade para uma dessas versões recomendadas de kernel.
 
 ### <a name="workaround"></a>Solução alternativa
 
-Resolva esse problema especificando uma montagem rígida. Isso força o cliente a aguardar até que uma conexão seja estabelecida ou até que ela seja interrompida explicitamente e possa ser usada para evitar erros devido a tempos limite de rede. No entanto, essa solução alternativa pode causar esperas indefinidas. Esteja preparado para interromper conexões, conforme necessário.
+Resolva esse problema especificando uma montagem rígida. Isso força o cliente a esperar até que uma conexão seja estabelecida ou até que seja explicitamente interrompida e possa ser usada para evitar erros devido a tempos limites de rede. No entanto, essa solução alternativa pode causar esperas indefinidas. Esteja preparado para interromper conexões, conforme necessário.
 
 Se você não pode atualizar para as últimas versões do kernel, resolva esse problema mantendo um arquivo no compartilhamento de arquivos do Azure no qual se grava a cada 30 segundos ou menos. Essa deve ser uma operação de gravação, como regravar a data de criação ou de modificação no arquivo. Caso contrário, você poderá obter resultados em cache e a operação poderá não disparar a reconexão.
 
@@ -138,22 +134,26 @@ As causas comuns desse problema são:
 
 - Você está usando um cliente de distribuição Linux incompatível. Recomendamos que você use as seguintes distribuições Linux para se conectar ao compartilhamento de arquivos do Azure:
 
-    - Ubuntu Server 14.04+ 
-    - RHEL 7+ 
-    - CentOS 7+ 
-    - Debian 8 
-    - openSUSE 13.2+ 
-    - SUSE Linux Enterprise Server 12
+* **Versões mínimas recomendadas com recursos de montagem correspondentes (SMB versão 2.1 vs SMB versão 3.0)**    
+    
+    |   | SMB 2.1 <br>(Montagens em VMs na mesma região do Azure) | SMB 3.0 <br>(Montagens de local e entre regiões) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
 - Utilitários CIFS não estão instalados no cliente.
-- A versão mínima de SMB/CIFS 2.1 não está instalada no cliente.
+- O SMB/CIFS mínimo a versão 2.1 não está instalado no cliente.
 - Não há suporte para a criptografia do SMB 3.0 no cliente. A criptografia do SMB 3.0 está disponível no Ubuntu 16.4 e versões posteriores, bem como no SUSE 12.3 e versões posteriores. Outras distribuições exigem kernel 4.11 e versões posteriores.
 - Você está tentando se conectar a uma conta de armazenamento usando a porta TCP 445, que não tem suporte.
-- Você está tentando tentar se conectar ao compartilhamento de arquivos do Azure de uma VM do Azure e a VM não está localizada na mesma região que a conta de armazenamento.
+- Você está tentando se conectar ao compartilhamento de arquivos do Azure de uma VM do Azure, e a VM não está localizada na mesma região que a conta de armazenamento.
 
 ### <a name="solution"></a>Solução
 
-Para resolver o problema, use a [Ferramenta de solução de problemas para erros de montagem de Arquivos do Azure no Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Essa ferramenta ajuda a validar o cliente que está executando o ambiente, detectar a configuração de cliente incompatível que causaria falha de acesso para Arquivos do Azure, fornece diretrizes prescritivas autocorreção e coleta os rastreamentos de diagnóstico.
+Para resolver o problema, use a [Ferramenta de solução de problemas para erros de montagem de Arquivos do Azure no Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Essa ferramenta ajuda a validar o ambiente de execução do cliente, detectar a configuração de cliente incompatível que causaria falha de acesso para os arquivos do Azure, fornece orientação prescritiva sobre a correção automática e coleta os rastreamentos de diagnóstico.
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: não é possível acessar '&lt;caminho&gt;': erro de entrada/saída
 
@@ -169,6 +169,31 @@ Atualize o kernel do Linux para as seguintes versões que têm correção para e
 - 4.9.48+
 - 4.12.11+
 - Todas as versões que sejam maiores ou iguais a 4.13
+
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Não é possível criar links simbólicos - ln: falhou ao criar link simbólico 't': Operação não suportada
+
+### <a name="cause"></a>Causa
+Por padrão, a montagem de compartilhamentos de arquivos do Azure no Linux usando o CIFS não permite o suporte a links simbólicos. Você verá um erro vincular isso:
+```
+ln -s linked -n t
+ln: failed to create symbolic link 't': Operation not supported
+```
+### <a name="solution"></a>Solução
+O cliente CIFS do Linux não suporta a criação de links simbólicos ao estilo do Windows sobre o protocolo SMB2 / 3. Atualmente, o cliente Linux suporta outro estilo de links simbólicos chamado [Mishall + French symlinks] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) para operações de criação e acompanhamento. Clientes que precisam de links simbólicos podem usar a opção de montagem "mfsymlinks". “Mfsymlinks” geralmente são recomendados porque esse também é o formato usado pelos Macs.
+
+Para poder usar links simbólicos, adicione o seguinte ao final do seu comando de montagem CIFS:
+
+```
+,mfsymlinks
+```
+
+Portanto, o comando será algo parecido com:
+
+```
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+```
+
+Uma vez adicionado, você poderá criar links simbólicos conforme sugerido no [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 

@@ -3,23 +3,21 @@ title: Correspondência de P e R usando o Azure Machine Learning Workbench | Mic
 description: Como usar vários métodos de aprendizado de máquina eficazes para corresponder consultas em aberto a pares de perguntas/respostas de perguntas frequentes pré-existentes.
 services: machine-learning
 documentationcenter: ''
-author: mezmicrosoft
-editor: mezmicrosoft
-ms.assetid: ''
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: rastala
+ms.author: roastala
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.author: mez
-manager: tihazen
-ms.openlocfilehash: 081ca444aee5cd3d426ee569a98bf54c7923af79
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 33d95e0c17e8b9b18313cb0854532337ec76cfd1
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140813"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Correspondência de P e R usando o Azure Machine Learning Workbench
 Responder a perguntas abertas é difícil e geralmente requer esforço manual de SMEs (especialistas no assunto). Para ajudar a reduzir as demandas em SMEs internos, as empresas geralmente criam listas de Perguntas frequentes como uma forma de auxiliar os usuários. Este exemplo demonstra vários métodos de aprendizado de máquina eficazes para corresponder consultas em aberto a pares de pergunta/respostas de perguntas frequentes pré-existentes. Este exemplo demonstra um processo de desenvolvimento fácil para criar essa solução usando o Azure Machine Learning Workbench. 
@@ -39,7 +37,7 @@ As principais etapas necessárias para fornecer essa solução são as seguintes
 4. Treine modelos de classificação de texto e avalie o desempenho do modelo.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os pré-requisitos para executar este exemplo são os seguintes:
 
@@ -80,7 +78,7 @@ A combinação desses três conjuntos de dados cria pares de P e R em que uma re
 
 O esquema de dados e os links de download direto dos três conjuntos de dados podem ser encontrados na tabela a seguir:
 
-| Conjunto de dados | Campo | type | DESCRIÇÃO
+| Conjunto de dados | Campo | Tipo | DESCRIÇÃO
 | ----------|------------|------------|--------
 | [perguntas](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | ID | Cadeia de caracteres | A ID exclusiva da pergunta (chave primária)
 |  | AnswerId | Cadeia de caracteres | A ID exclusiva da resposta por pergunta
@@ -100,7 +98,7 @@ O exemplo de correspondência de P e R é apresentado por meio de três tipos de
 
 Os arquivos neste exemplo são organizados da seguinte maneira.
 
-| Nome do Arquivo | type | DESCRIÇÃO
+| Nome do Arquivo | Tipo | DESCRIÇÃO
 | ----------|------------|--------
 | `Image` | Pasta | A pasta usada para salvar as imagens para o arquivo LEIAME
 | `notebooks` | Pasta | A pasta Blocos de anotações do Jupyter

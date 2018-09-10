@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: adicionando um provedor SAML do Salesforce usando políticas personalizadas | Microsoft Docs'
+title: Adicionando um provedor SAML do Salesforce usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
 description: Saiba mais sobre como criar e gerenciar políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 06/11/2017
+ms.topic: conceptual
+ms.date: 08/15/2018
 ms.author: davidmu
-ms.openlocfilehash: 1ccf5c58eab9df9016224a91ddda952a05457e2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 5b7621bde0be02b4656c4678438b94499bb82b5b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43345030"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C: entrar usando contas do Salesforce via SAML
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/23/2018
 
 Este artigo mostra como usar [políticas personalizadas](active-directory-b2c-overview-custom.md) para configurar a entrada de usuários de uma organização específica do Salesforce.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="azure-ad-b2c-setup"></a>Configuração do Azure AD B2C
 
@@ -66,11 +66,11 @@ Para ajudar o Azure AD B2C a se comunicar com o Salesforce, você precisa obter 
 4. Em **Configurações do Aplicativo Web**, marque a caixa de seleção **Habilitar SAML**.
 5. No campo **ID da Entidade**, digite a URL a seguir. Certifique-se substituir o valor de `tenantName`.
       ```
-      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 6. No campo **URL ACS**, digite a URL a seguir. Certifique-se substituir o valor de `tenantName`.
       ```
-      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
+      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
 7. Deixe os valores padrão para todas as outras configurações.
 8. Role até a parte inferior da lista e, em seguida, clique em **Salvar**.
@@ -150,7 +150,7 @@ Você precisa definir o Salesforce como um provedor de declarações para que os
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username"/>
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="externalIdp"/>
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
           </OutputClaims>
           <OutputClaimsTransformations>

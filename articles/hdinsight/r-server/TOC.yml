@@ -1,6 +1,6 @@
 - name: Documentação do HDInsight do Azure
   href: /azure/hdinsight
-- name: Servidor R no HDInsight
+- name: ML Services no HDInsight
   items:
     - name: Visão geral
       href: r-server-overview.md
@@ -9,7 +9,7 @@
       maintainContext: true
 - name: Introdução
   items:
-    - name: Começar com Servidor R
+    - name: Iniciar com ML Services
       href: r-server-get-started.md
     - name: Instalar aplicativos HDInsight
       href: ../hdinsight-apps-install-applications.md
@@ -19,11 +19,11 @@
       maintainContext: true
 - name: Como
   items:
-    - name: Usar Servidor R
+    - name: Usar ML Services
       items:
-        - name: Gerenciar o cluster do Microsoft R Server
+        - name: Gerenciar cluster de ML Services
           href: r-server-hdinsight-manage.md
-        - name: Operar o cluster do Microsoft R Server
+        - name: Operacionalizar cluster de ML Services
           href: r-server-operationalize.md
         - name: Opções de armazenamento
           href: r-server-storage.md
@@ -43,7 +43,7 @@
     - name: Usar ferramentas do HDInsight
       items:
         - name: Ferramentas para Visual Studio
-          href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
           maintainContext: true
         - name: Ferramentas para VSCode
           href: ../hdinsight-for-vscode.md
@@ -276,13 +276,10 @@
         - name: Conectar o HDInsight à rede local
           href: ../connect-on-premises-network.md
           maintainContext: true
-    - name: Monitoramento usando OMS
+    - name: Monitoramento usando Log Analytics
       items:
         - name: Usar Log Analytics do Azure
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Painéis específicos do cluster
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Usar consultas com o Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -311,6 +308,10 @@
     - name: Notas de versão
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Notas de versão arquivadas
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Obtenha ajuda no fórum

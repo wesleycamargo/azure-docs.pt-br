@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293709"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicativos Web no Serviço de Aplicativo do Azure
 
@@ -45,7 +46,7 @@ A folha **Configurações do aplicativo** tem configurações agrupadas em vári
 Por razões técnicas, a habilitação do Java para seu aplicativo desabilita as opções .NET, PHP e Python.
 
 <a name="platform"></a>
-**Plataforma**. Seleciona se o seu aplicativo é executado em ambiente de 32 ou 64 bits. O ambiente de 64-bit requere o modo Básico ou Padrão. Modos Livre e Compartilhado são sempre executados em um ambiente de 32 bits.
+**Plataforma**. Seleciona se o seu aplicativo é executado em ambiente de 32 ou 64 bits. O ambiente de 64 bits exige camada Básico ou Standard. A camada Gratuita e Compartilhada sempre é executada em um ambiente de 32 bits.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -55,6 +56,13 @@ Por razões técnicas, a habilitação do Java para seu aplicativo desabilita as
 **Sempre ativado**. Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um determinado período de tempo. Isso permite ao sistema conservar recursos. No modo Básico ou Padrão, você pode habilitar a opção **Sempre Ativado** para manter o aplicativo carregado o tempo todo. Se o aplicativo executar WebJobs contínuos ou executar WebJobs disparados com uma expressão CRON, você deverá habilitar a opção **Sempre ativo** ou os trabalhos Web poderão não ser executados de forma confiável.
 
 **Versão do Pipeline Gerenciado**. Configurar o IIS [modo de pipeline]. Deixar este conjunto como Integrado (o padrão), a menos que você tenha um aplicativo herdado que exija uma versão anterior do IIS.
+
+**Versão HTTP**. Defina como **2.0** para habilitar suporte para o protocolo [HTTPS/2](https://wikipedia.org/wiki/HTTP/2). 
+
+> [!NOTE]
+> A maioria dos navegadores modernos dá suporte para protocolo HTTP/2 somente em TLS, enquanto o tráfego não criptografado continua usando HTTP / 1.1. Para garantir que os navegadores do cliente conectam o aplicativo com HTTP/2, [compre um Certificado do Serviço de Aplicativo](web-sites-purchase-ssl-web-site.md) para o domínio personalizado do aplicativo, ou [associe um certificado de terceiros](app-service-web-tutorial-custom-ssl.md).
+
+**Afinidade ARR**. Em um aplicativo escalado horizontalmente para várias instâncias de VM, os cookies Afinidade ARR garantem que o cliente seja roteado para a mesma instância durante a vida útil da sessão. Para melhorar o desempenho de aplicativos sem estado, defina essa opção para **Off**.   
 
 **Troca Automática**. Se você habilitar a Troca Automática para um slot de implantação, o Serviço de Aplicativo alternará automaticamente o aplicativo Web em produção quando você enviar uma atualização por push para esse slot. Para saber mais, consulte [Implantar em slots de preparo para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-staged-publishing.md).
 
@@ -66,6 +74,8 @@ Esta seção contém pares de nome/valor que seu aplicativo Web carregará na in
 
 * Para aplicativos .NET, essas configurações serão injetadas em sua configuração `AppSettings` em tempo de execução, substituindo as configurações existentes. 
 * Os aplicativos PHP, Python, Java e Nó podem acessar essas configurações como variáveis do ambiente em tempo de execução. Para cada configuração do aplicativo, são criadas duas variáveis; uma com o nome especificado pela entrada de configuração do aplicativo, e outra com um prefixo de APPSETTING_. Ambas contêm o mesmo valor.
+
+As configurações do aplicativo são sempre criptografadas quando armazenadas (criptografadas em repouso).
 
 ### <a name="connection-strings"></a>Cadeias de conexão
 Cadeia de conexão para recursos vinculados. 
@@ -80,6 +90,8 @@ Para aplicativos PHP, Python, Java e Nó essas configurações estarão disponí
 * Personalizado: `CUSTOMCONNSTR_`
 
 Por exemplo, se uma cadeia de conexão MySql fosse nomeado `connectionstring1`, ela seria acessada pela variável de ambiente `MYSQLCONNSTR_connectionString1`.
+
+As cadeias de conexão são sempre criptografadas quando armazenadas (criptografadas em repouso).
 
 ### <a name="default-documents"></a>Documentos padrão
 O documento padrão é a página da Web exibida na URL raiz de um site.  O primeiro arquivo correspondente na lista é usado. 

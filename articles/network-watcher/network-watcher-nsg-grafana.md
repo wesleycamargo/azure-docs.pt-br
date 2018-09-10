@@ -1,31 +1,32 @@
 ---
-title: "Gerenciar logs de fluxo do Grupo de Segurança de Rede com o Observador de Rede e o Grafana | Microsoft Docs"
-description: "Gerenciar e analisar os logs de fluxo do Grupo de Segurança de Rede no Azure usando o Observador de Rede e o Grafana."
+title: Gerenciar logs de fluxo do Grupo de Segurança de Rede com o Observador de Rede e o Grafana | Microsoft Docs
+description: Gerenciar e analisar os logs de fluxo do Grupo de Segurança de Rede no Azure usando o Observador de Rede e o Grafana.
 services: network-watcher
 documentationcenter: na
-author: kumudD
-manager: timlt
-editor: 
+author: mattreatMSFT
+manager: vitinnan
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: kumud
-ms.openlocfilehash: 44cf074223c88b8fa539144c0d948e68ae6cbd13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mareat
+ms.openlocfilehash: e375476536e7fe150e3aabcae7cee942deac02d5
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145707"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerenciar e analisar os logs de fluxo do Grupo de Segurança de Rede usando o Observador de Rede e o Grafana
 
 [Os logs de fluxo do NSG (Grupo de Segurança de Rede)](network-watcher-nsg-flow-logging-overview.md) fornecem informações que podem ser usadas para entender a entrada e a saída de tráfego IP em interfaces de rede. Esses logs de fluxo exibem os fluxos de entrada e saída baseados em regras do NSG. A NIC de fluxo se aplica às informações de 5 tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino e Protocolo) e se o tráfego foi permitido ou negado.
 
-Você pode ter muitos NSGs em sua rede com o registro em log de fluxo habilitado. Essa quantidade de dados de registro em log torna difícil a análise e a obtenção de insights de seus logs. Este artigo fornece uma solução para gerenciar centralmente esses logs de fluxo do NSG usando o Grafana, uma ferramenta gráfica de software livre, o ElasticSearch, uma pesquisa distribuída e mecanismo de análise e o Logstash, que é um pipeline de processamento de dados do servidor do lado do servidor de software livre.  
+Você pode ter muitos NSGs em sua rede com o registro em log de fluxo habilitado. Essa quantidade de dados de registro em log torna difícil a análise e a obtenção de insights de seus logs. Este artigo fornece uma solução para gerenciar centralmente esses logs de fluxo do NSG usando o Grafana, uma ferramenta de grafo de software livre, o ElasticSearch, uma pesquisa distribuída e mecanismo de análise e o Logstash, que é um pipeline de processamento de dados do servidor do lado do servidor de software livre.  
 
 ## <a name="scenario"></a>Cenário
 
@@ -62,7 +63,7 @@ Você pode usar o Logstash para mesclar os logs de fluxo formatados em JSON para
 
 3. Adicione o seguinte conteúdo ao arquivo. Altere a chave de acesso e o nome da conta de armazenamento para refletir os detalhes da conta de armazenamento:
 
-    ```bash
+   ```bash
     input {
       azureblob
       {
@@ -132,9 +133,10 @@ Você pode usar o Logstash para mesclar os logs de fluxo formatados em JSON para
         index => "nsg-flow-logs"
       }
     }
-    ```
+   ```
 
-O arquivo de configuração do Logstash fornecido é composto de três partes: a entrada, o filtro e a saída. A seção de entrada designa a fonte de entrada de logs que o Logstash processará. Nesse caso, vamos usar um plug-in de entrada do "azureblob" (instalado nas etapas a seguir) que permitirá acessar os arquivos de JSON do log de fluxo do NSG armazenado no armazenamento de blobs. 
+O arquivo de configuração do Logstash fornecido é composto de três partes: a entrada, o filtro e a saída.
+A seção de entrada designa a fonte de entrada de logs que o Logstash processará. Nesse caso, vamos usar um plug-in de entrada do "azureblob" (instalado nas etapas a seguir) que permitirá acessar os arquivos de JSON do log de fluxo do NSG armazenado no armazenamento de blobs. 
 
 A seção de filtro, em seguida, mescla cada arquivo de log do fluxo para que cada tupla de fluxo e suas propriedades associadas se tornem um evento de Logstash separado.
 
@@ -187,17 +189,17 @@ Em seguida, você precisa adicionar o índice do ElasticSearch que contém os lo
 
 #### <a name="create-a-dashboard"></a>Criar um painel
 
-Agora que você configurou com êxito o Grafana para ler o índice do ElasticSearch que contém os logs de fluxo do NSG, você poderá criar e personalizar os painéis. Para criar um novo painel, selecione **Criar seu primeiro painel**. A configuração de exemplo de gráfico a seguir mostra os fluxos segmentados por regra do NSG:
+Agora que você configurou com êxito o Grafana para ler o índice do ElasticSearch que contém os logs de fluxo do NSG, você poderá criar e personalizar os painéis. Para criar um novo painel, selecione **Criar seu primeiro painel**. A configuração de exemplo de grafo a seguir mostra os fluxos segmentados por regra do NSG:
 
-![Gráfico do painel](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig3.png)
+![Grafo do painel](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig3.png)
 
 A captura de tela a seguir mostra um gráfico e um grafo mostrando os fluxos principais e sua frequência. Os fluxos também são mostrados por regra do NSG e fluxos por decisão. O Grafana é altamente personalizável, portanto, é recomendável que você crie painéis para atender às suas necessidades de monitoramentos específicas. O exemplo a seguir mostra um painel típico:
 
-![Gráfico do painel](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
+![Grafo do painel](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
 ## <a name="conclusion"></a>Conclusão
 
-Ao integrar o Observador de Rede com o ElasticSearch e o Grafana, você tem uma maneira centralizada e conveniente de gerenciar e visualizar os logs de fluxo do NSG, bem como outros dados. O Grafana tem vários outros recursos gráficos avançados que também podem ser usados para gerenciar os logs de fluxo e entender melhor o tráfego de rede. Agora que você tem uma instância do Grafana configurada e conectada ao Azure, fique à vontade para continuar a explorar outras funcionalidades que ele oferece.
+Ao integrar o Observador de Rede com o ElasticSearch e o Grafana, você tem uma maneira centralizada e conveniente de gerenciar e visualizar os logs de fluxo do NSG, bem como outros dados. O Grafana tem vários outros recursos de grafos avançados que também podem ser usados para gerenciar os logs de fluxo e entender melhor o tráfego de rede. Agora que você tem uma instância do Grafana configurada e conectada ao Azure, fique à vontade para continuar a explorar outras funcionalidades que ele oferece.
 
 ## <a name="next-steps"></a>Próximas etapas
 

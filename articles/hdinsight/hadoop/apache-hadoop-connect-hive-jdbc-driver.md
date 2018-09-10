@@ -1,24 +1,20 @@
 ---
-title: Consultar o Hive por meio do driver JDBC – Azure HDInsight | Microsoft Docs
+title: Consultar o Hive por meio do driver JDBC - Azure HDInsight
 description: Use o driver JDBC de um aplicativo Java para enviar consultas do Hive ao Hadoop no HDInsight. Conecte-se de forma programática e do cliente SQL SQuirrel.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 928f8d2a-684d-48cb-894c-11c59a5599ae
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: larryfr
-ms.openlocfilehash: 9700408dad36591fc26aa159524f33965b9d1324
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: da2b3484f80f7116664cf5a25c7de99da723f202
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041685"
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Consultar o Hive por meio do driver JDBC no HDInsight
 
@@ -28,7 +24,7 @@ Saiba como usar o driver JDBC de um aplicativo Java para enviar consultas do Hiv
 
 Para obter mais informações sobre a Interface JDBC do Hive, consulte [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um Hadoop no cluster do HDInsight.
 

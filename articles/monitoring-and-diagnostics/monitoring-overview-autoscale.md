@@ -1,24 +1,19 @@
 ---
-title: "Visão geral do dimensionamento automático em Aplicativos Web, Serviços de Nuvem e Máquinas Virtuais do Microsoft Azure | Microsoft Docs"
-description: "Visão Geral do dimensionamento automático no Microsoft Azure. Aplica-se a Máquinas Virtuais, Serviços de Nuvem e Aplicativos Web."
+title: Visão geral do dimensionamento automático em Aplicativos Web, Serviços de Nuvem e Máquinas Virtuais
+description: Dimensionamento automático no Microsoft Azure. É aplicável a Máquinas Virtuais, conjuntos de dimensionamento de máquinas virtuais, Serviços de Nuvem e Aplicativos Web.
 author: rboucher
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.component: autoscale
+ms.openlocfilehash: 4eeca81e08a0ecae9ba41ccdd2bf8a2f395f579c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264663"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Visão geral do dimensionamento automático em Aplicativos Web, Serviços de Nuvem e Máquinas Virtuais do Microsoft Azure
 Este artigo descreve o que é dimensionamento automático do Microsoft Azure, seus benefícios e como começar a usá-lo.  
@@ -107,7 +102,7 @@ Você pode configurar o dimensionamento automático via
 * [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Serviços com suporte para o dimensionamento automático
-| O Barramento de | Esquema e Documentos |
+| Serviço | Esquema e Documentos |
 | --- | --- |
 | Aplicativos Web |[Dimensionamento de Aplicativos Web](insights-how-to-scale.md) |
 | Serviços de Nuvem |[Dimensionamento Automático de um Serviço de Nuvem](../cloud-services/cloud-services-how-to-scale-portal.md) |

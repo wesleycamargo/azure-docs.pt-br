@@ -1,33 +1,34 @@
 ---
 title: Gerenciar o cluster Kubernetes do Azure com a interface do usuário da Web
-description: Usar o painel do Kubernetes no AKS
+description: Saiba como usar o painel de interface do usuário web Kubernetes interno com o serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
-ms.author: nepeters
+ms.date: 07/09/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: af48af596e86e0eb09fe45deabe13beedef57cd2
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307918"
 ---
-# <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Painel do Kubernetes com o AKS (Serviço de Kubernetes do Azure)
+# <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Acesse o painel do Kubernetes com o AKS (Serviço de Kubernetes do Azure)
 
-A CLI do Azure pode ser usada para iniciar o Painel do Kubernetes. Este documento explica desde o painel do Kubernetes com a CLI do Azure e também aborda algumas operações básicas do painel. Para obter mais informações sobre o painel do Kubernetes, consulte [Painel de interface do usuário Web do Kubernetes][kubernetes-dashboard].
+Kubernetes inclui um painel da web que pode ser usado para operações básicas de gerenciamento. Este artigo mostra como acessar o painel do Kubernetes usando a CLI do Azure e, em seguida, orienta você por meio de algumas operações básicas do painel. Para obter mais informações sobre o painel do Kubernetes, consulte [Painel de interface do usuário Web do Kubernetes][kubernetes-dashboard].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-As etapas detalhadas neste documento pressupõem que você tenha criado um cluster AKS e estabelecido uma conexão kubectl com o cluster. Se você precisar desses itens, consulte o [Início rápido do AKS][aks-quickstart].
+As etapas detalhadas neste documento pressupõem que você tenha criado um cluster do AKS e estabelecido uma conexão `kubectl` com o cluster. Se você precisar criar um cluster AKS, consulte o [Início rápido do AKS][aks-quickstart].
 
-Você também precisa da CLI do Azure versão 2.0.27 ou posterior instalada e configurada. Execute az --version para localizar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
+Você também precisa da CLI do Azure versão 2.0.27 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Iniciar o painel do Kubernetes
 
-Use o comando `az aks browse` para iniciar o painel do Kubernetes. Ao executar esse comando, substitua o nome de cluster e do grupo de recursos.
+Para iniciar o painel de Kubernetes, use o [comando de navegação][az-aks-browse] az aks. O exemplo abaixo abre o painel para o cluster nomeado *myAKSCluster* em um grupo de recursos chamado *myResourceGroup*:
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
@@ -35,9 +36,26 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 
 Este comando cria um proxy entre o sistema de desenvolvimento e a API do Kubernetes, e abre um navegador da Web para o painel do Kubernetes.
 
+### <a name="for-rbac-enabled-clusters"></a>Para clusters habilitados para RBAC
+
+Se o cluster do AKS usa RBAC, um *ClusterRoleBinding* deve ser criado antes de poder acessar o painel corretamente. Por padrão, o painel do Kubernetes é implantado com um mínimo de acesso de leitura e exibe os erros de acesso do RBAC. O painel do Kubernetes não oferece suporte a credenciais fornecidas pelo usuário para determinar o nível de acesso, em vez disso, ele usa as funções concedidas à conta de serviço. Um administrador de cluster pode optar por conceder acesso adicional para o *painel do kubernetes* conta de serviço, no entanto, isso pode ser um vetor para elevação de privilégios. Você também pode integrar a autenticação do Active Directory para fornecer um nível mais granular de acesso.
+
+Para criar uma associação, use o comando [kubectl criar clusterrolebinding] [ kubectl-create-clusterrolebinding] conforme mostrado no exemplo a seguir. 
+
+> [!WARNING]
+> Essa associação de exemplo não se aplica a todos os componentes de autenticação adicional e pode levar a uso inseguro. O painel do Kubernetes está aberto para qualquer pessoa com acesso à URL. Não expor publicamente o painel do Kubernetes.
+>
+> Para obter mais informações sobre como usar os métodos de autenticação diferentes, consulte o wiki do painel do Kubernetes em [controles de acesso][dashboard-authentication].
+
+```console
+kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+```
+
+Agora você pode acessar o painel do Kubernetes no seu cluster habilitado pelo RBAC. Para iniciar o painel de Kubernetes, use o comando [aks browse][az-aks-browse] para iniciar o painel do Kubernetes.
+
 ## <a name="run-an-application"></a>Executar um aplicativo
 
-No painel do Kubernetes, clique no botão **Criar** na janela superior direita. Dê o nome `nginx` para a implantação e digite `nginx:latest` para o nome das imagens. Em **Serviço**, selecione **Externo** e insira `80` para a porta e a porta de destino.
+No painel do Kubernetes, clique no botão **Criar** na janela superior direita. Dê o nome `nginx` para a implantação e insira `nginx:latest` para o nome da imagem de contêiner. Em **Serviço**, selecione **Externo** e insira `80` para a porta e a porta de destino.
 
 Quando estiver pronto, clique em **Implantar** para criar a implantação.
 
@@ -80,7 +98,11 @@ Para obter mais informações sobre o painel do Kubernetes, consulte a documenta
 
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+[dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
+[kubectl-create-clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[az-aks-browse]: /cli/azure/aks#az-aks-browse

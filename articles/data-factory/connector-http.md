@@ -10,24 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 08/24/2018
 ms.author: jingwang
-ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5afb2fccd5c7b8ca306079941837d854c0b21349
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091710"
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiar dados de ponto de extremidade HTTP usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-http-connector.md)
-> * [Versão 2 – Versão prévia](connector-http.md)
+> * [Versão 1](v1/data-factory-http-connector.md)
+> * [Versão atual](connector-http.md)
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um ponto de extremidade HTTP. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está em GA (disponibilidade geral), consulte [Conector de HTTP na V1](v1/data-factory-http-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -56,10 +54,10 @@ As propriedades a seguir têm suporte para o serviço vinculado de HTTP:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **HttpServer**. | sim |
-| url | URL base para o Servidor Web | sim |
-| enableServerCertificateValidation | Especifique se deseja habilitar a validação do certificado SSL do servidor ao se conectar ao ponto de extremidade HTTP. | Não, o padrão é true |
-| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são: **Anônimo**, **Básico**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Consulte as seções abaixo desta tabela para mais propriedades e amostras JSON para esses tipos de autenticação, respectivamente. | sim |
+| Tipo | A propriedade type deve ser definida como: **HttpServer**. | SIM |
+| url | URL base para o Servidor Web | SIM |
+| enableServerCertificateValidation | Especifique se deseja habilitar a validação do certificado SSL do servidor ao se conectar ao ponto de extremidade HTTP. Quando o servidor HTTPS estiver usando um certificado autoassinado, defina como false. | Não, o padrão é true |
+| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são: **Anônimo**, **Básico**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Consulte as seções abaixo desta tabela para mais propriedades e amostras JSON para esses tipos de autenticação, respectivamente. | SIM |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando a autenticação Básica, Digest ou Windows
@@ -68,8 +66,8 @@ Defina a propriedade "authenticationType" como **Básica**, **Digest** ou **Wind
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| userName | Nome de usuário para acessar o ponto de extremidade HTTP. | sim |
-| Senha | Senha do usuário (userName). Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
+| userName | Nome de usuário para acessar o ponto de extremidade HTTP. | SIM |
+| Senha | Senha do usuário (userName). Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
 
 **Exemplo**
 
@@ -164,13 +162,16 @@ Para copiar dados de HTTP, defina a propriedade type do conjunto de dados como *
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **HttpFile** | sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **HttpFile** | SIM |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, apenas a URL especificada na definição do serviço vinculado é usada. | Não  |
 | requestMethod | Método Http.<br/>Os valores permitidos são **Get** (padrão) ou **Post**. | Não  |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não  |
 | requestBody | O corpo da solicitação HTTP. | Não  |
 | formato | Se você quiser **recuperar dados de ponto de extremidade HTTP no estado em que se encontram**, sem analisá-los e copiá-los em um repositório baseado em arquivo, ignore a seção de formato nas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quiser analisar o conteúdo da resposta HTTP durante a cópia, há suporte para os seguintes tipos de formato de arquivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs.md#orc-format) e [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não  |
 | compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Os níveis com suporte são **Ideal** e **O mais rápido**. |Não  |
+
+>[!NOTE]
+>O tamanho de carga de solicitação HTTP compatível é de cerca de 500 KB. Se o tamanho da carga que você deseja passar para seu ponto de extremidade da Web for maior do que isso, considere dividi-la em partes menores.
 
 **Exemplo 1: usando o método Get (padrão)**
 
@@ -221,7 +222,7 @@ Para copiar dados de HTTP, defina o tipo de fonte na atividade de cópia como **
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HttpSource** | sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HttpSource** | SIM |
 | httpRequestTimeout | O tempo limite (TimeSpan) para a solicitação HTTP obter uma resposta. É o tempo limite para obter uma resposta e não o tempo limite para ler dados de resposta.<br/> O valor padrão é: 00:01:40  | Não  |
 
 **Exemplo:**

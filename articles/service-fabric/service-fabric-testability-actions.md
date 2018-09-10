@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 087a0f12f765b55c2e2976abd93d791409ff6d44
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 27c6671c170f4c03c63270772651051830d8e4ec
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757614"
 ---
 # <a name="testability-actions"></a>Ações da Possibilidade de Teste
 Para simular uma infraestrutura não confiável, o Service Fabric do Azure fornece a você, o desenvolvedor, maneiras de simular várias falhas e transições de estado reais. Elas são expostas como ações de possibilidade de teste. As ações são as APIs de nível baixo que causam uma injeção de falha específica, transição de estado ou validação. Ao combinar essas ações, você pode criar cenários de teste abrangentes para seus serviços.
@@ -41,8 +42,8 @@ Para validação de melhor qualidade, execute a carga de trabalho de serviço e 
 | CleanTestState |Remove todo o estado de teste do cluster em caso de desligamento repentino do driver de teste. |CleanTestStateAsync |Remove-ServiceFabricTestState |Não aplicável |
 | InvokeDataLoss |Induz a perda de dados em uma partição de serviço. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Normal |
 | InvokeQuorumLoss |Coloca uma determinada partição de serviço com estado na perda de quórum. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Normal |
-| Mover primária |Move a réplica primária especificada do serviço com estado para o nó de cluster especificado. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Normal |
-| Mover secundária |Move a réplica secundária atual de um serviço com  estado para outro nó de cluster. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Normal |
+| MovePrimary |Move a réplica primária especificada do serviço com estado para o nó de cluster especificado. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Normal |
+| MoveSecondary |Move a réplica secundária atual de um serviço com  estado para outro nó de cluster. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Normal |
 | RemoveReplica |Simula uma falha de réplica removendo uma réplica de um cluster. Isso fecha a réplica e faz a transição dela para a função “Nenhum”, removendo todo o seu estado do cluster. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Normal |
 | RestartDeployedCodePackage |Simula uma falha de processo do pacote de códigos reiniciando um pacote de códigos implantado em um nó em um cluster. Isso anula o processo do pacote de códigos, o que reiniciará todas as réplicas de serviço do usuário hospedadas nesse processo. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Anormais |
 | RestartNode |Simula uma falha de nó de cluster da Malha de Serviço reinicializando um nó. |RestartNodeAsync |Restart-ServiceFabricNode |Anormais |

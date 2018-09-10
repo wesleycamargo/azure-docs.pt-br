@@ -1,22 +1,19 @@
 ---
 title: Cobertura de roteamento nos Mapas do Azure | Microsoft Docs
 description: Saiba mais sobre a cobertura de rota nos Mapas do Azure
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
-ms.date: 3/6/2018
-ms.topic: article
+ms.date: 03/06/2018
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: b924bb2f2000c55f1a5a44dc1644f2b348b2b0cf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: 80d98fd8108d0b64f9c25b82d6d79f60fcdd771e
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42139767"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de rotas nos Mapas do Azure
 

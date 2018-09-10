@@ -1,24 +1,22 @@
 ---
-title: 'Início rápido: Executar um trabalho do Spark no Azure Databricks usando o portal do Azure | Microsoft Docs'
+title: 'Início rápido: Executar um trabalho de Spark no Azure Databricks usando o portal do Azure'
 description: O início rápido mostra como usar o Portal do Azure para criar um espaço de trabalho do Azure Databricks, um cluster do Apache Spark e executar um trabalho do Spark.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
+ms.service: azure-databricks
+author: jasonwhowell
+ms.author: jasonh
 manager: cgronlun
 editor: cgronlun
-ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/23/2018
-ms.author: nitinme
+ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 19dcdeefe4a65f5c0fab06766a0fa40838df8b08
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: cd6a3b768077880d47462d1db559a4884cceb84a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022653"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
@@ -36,11 +34,11 @@ Faça logon no [Portal do Azure](https://portal.azure.com).
 
 Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando o Portal do Azure. 
 
-1. No portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**. 
+1. No Portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**. 
 
     ![Databricks no portal do Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks no portal do Azure")
 
-3. Em **Serviço do Azure Databricks**, forneça os valores para criar um espaço de trabalho do Databricks.
+2. Em **Serviço do Azure Databricks**, forneça os valores para criar um espaço de trabalho do Databricks.
 
     ![Criar um espaço de trabalho do Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Criar um espaço de trabalho do Azure Databricks")
 
@@ -62,6 +60,9 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster Spark no Databricks
 
+> [!NOTE] 
+> Para usar uma conta gratuita para criar o cluster do Azure Databricks, antes de criar o cluster, vá até o seu perfil e altere sua assinatura para **pré-pago**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/en-us/free/).  
+
 1. No portal do Azure, vá para o espaço de trabalho do Databricks que você criou e clique em **Inicializar Espaço de Trabalho**.
 
 2. Você é redirecionado para o portal do Azure Databricks. No portal, clique em **Cluster**.
@@ -82,14 +83,34 @@ Nesta seção, você deve cria um espaço de trabalho do Azure Databricks usando
 
 Para obter mais informações sobre como criar clusters, consulte [Criar um cluster Spark no Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
+
+## <a name="download-a-sample-data-file"></a>Baixar um arquivo de dados de exemplo
+Baixe um arquivo de dados JSON de exemplo e salve-o no armazenamento de Blobs do Azure.
+
+1. Baixe este arquivo de dados JSON de exemplo [do Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) no seu computador local. Clique com o botão direito e em salvar como para salvar o arquivo bruto localmente. 
+
+2. Se você ainda não tiver uma conta de armazenamento, crie uma. 
+   - No Portal do Azure, selecione **Criar um recurso**.  Selecione a categoria **Armazenamento** e selecione **Contas de armazenamento**  
+   - Forneça um nome exclusivo para a conta de armazenamento.
+   - Selecione **Tipo de conta**: **Armazenamento de Blobs**
+   - Selecione um nome para o **Grupo de recursos**. Use o mesmo grupo de recursos no qual o espaço de trabalho do Databricks foi criado.
+   
+   Para saber mais informações, consulte [Criar uma conta de armazenamento de Blobs do Azure](../storage/common/storage-quickstart-create-account.md). 
+
+3. Crie um contêiner de armazenamento na conta de Armazenamento de Blobs e carregue o arquivo JSON de exemplo no contêiner. Também é possível usar o portal do Azure ou o [Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar o arquivo.
+
+   - Abra a conta de armazenamento no portal do Azure.
+   - Selecione **Blobs**.
+   - Selecione **+ Contêiner** para criar um novo contêiner vazio.
+   - Forneça um **Nome** para o contêiner, como `databricks`. 
+   - Selecione o nível de acesso **privado (acesso não anônimo)**.
+   - Depois que o contêiner for criado, selecione o nome do contêiner.
+   - Selecione o botão **Carregar**.
+   - Na página **Arquivos**, selecione o **ícone de pasta** para procurar e selecionar o arquivo de exemplo `small_radio_json.json` para upload. 
+   - Selecione **Carregar** para carregar o arquivo.
+   
+   
 ## <a name="run-a-spark-sql-job"></a>Executar um trabalho SQL do Spark
-
-Antes de iniciar esta seção, você deve concluir os pré-requisitos a seguir:
-
-* [Criar uma conta de Armazenamento de Blobs do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-* Baixar um arquivo JSON de exemplo [do Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Carregar o arquivo JSON de exemplo na conta de armazenamento de Blobs do Azure que você criou. Você pode usar o [Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar arquivos.
-
 Execute as seguintes tarefas para criar um bloco de notas em Databricks, configurar o bloco de notas para ler dados de uma conta de armazenamento de Blob do Azure e executar um trabalho SQL do Spark nos dados.
 
 1. No painel esquerdo, clique em **Espaço de trabalho**. Na lista suspensa do **Espaço de trabalho**, clique em **Criar** e depois em **Bloco de notas**.

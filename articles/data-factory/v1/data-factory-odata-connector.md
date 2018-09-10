@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55fde1a1a61f8ec0479cd264b2ce4dd37789c5a4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: be2150147d950d708404aff53ce0aa4e0776ac33
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051160"
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Mover dados De uma origem de OData usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](data-factory-odata-connector.md)
-> * [Versão 2 – Versão prévia](../connector-odata.md)
+> * [Versão 1](data-factory-odata-connector.md)
+> * [Versão 2 (versão atual)](../connector-odata.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está em versão prévia, consulte [OData connector in V2](../connector-odata.md) (Conector do OData na V2).
+> Este artigo se aplica à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do OData na V2 ](../connector-odata.md).
 
 
 Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de uma origem OData. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.

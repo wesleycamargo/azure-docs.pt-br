@@ -8,20 +8,21 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: a881b08874a157b0d6781ec3859b05eeaeba6676
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cebd98ec31ae6089c20952924c39ee240cb5d6a2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002691"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
 
 Junto com o [catálogo de serviços do Kubernetes ][kubernetes-service-catalog], o Service Broker Aberto para Azure (OSBA) permite que desenvolvedores utilizem serviços gerenciados pelo Azure no Kubernetes. Este guia se concentra na implantação do Serviço de catálogo do Kubernetes, Service Broker Aberto para Azure (OSBA) e aplicativos que usam serviços gerenciados pelo Azure usando o Kubernetes.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure
 
-* CLI 2.0 do Azure: [instale localmente][azure-cli-install], ou use-o no [Azure Cloud Shell][azure-cloud-shell].
+* CLI do Azure: [instale localmente][azure-cli-install], ou use-o no [Azure Cloud Shell][azure-cloud-shell].
 
 * CLI 2.7+ do Helm: [instale localmente][helm-cli-install], ou use-o no [Azure Cloud Shell][azure-cloud-shell].
 
@@ -43,13 +44,19 @@ Agora, adicione o gráfico do catálogo de serviços para o repositório do Helm
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
-Por fim, instale o catálogo de serviços com o gráfico do Helm:
+Por fim, instale o catálogo de serviços com o gráfico do Helm. Se o cluster for habilitado em RBAC, execute este comando.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false
 ```
 
-Depois que o gráfico de comando foi executado, verifique que `servicecatalog` aparece na saída do seguinte comando:
+Se o cluster não for habilitado em RBAC, execute este comando.
+
+```azurecli-interactive
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set controllerManager.healthcheck.enabled=false
+```
+
+Depois que o gráfico Helm tiver sido executado, verifique que `servicecatalog` aparece na saída do seguinte comando:
 
 ```azurecli-interactive
 kubectl get apiservice
@@ -68,7 +75,7 @@ v1beta1.storage.k8s.io               10
 
 ## <a name="install-open-service-broker-for-azure"></a>Instalar o Service Broker Aberto para Azure
 
-A próxima etapa é instalar o [Service Broker Aberto para Azure][open-service-broker-azure], que inclui o catálogo para os serviços gerenciados do Azure. Exemplos de serviços do Azure disponíveis são o Banco de Dados do Azure para PostgreSQL, o Cache Redis do Azure, o Banco de Dados do Azure para MySQL, o Banco de Dados do Azure Cosmos DB, o Banco de Dados SQL, entre outros.
+A próxima etapa é instalar o [Service Broker Aberto para Azure][open-service-broker-azure], que inclui o catálogo para os serviços gerenciados do Azure. Exemplos de serviços do Azure disponíveis são o Banco de Dados do Azure para PostgreSQL, o Banco de Dados do Azure para MySQL, o Banco de Dados SQL do Azure.
 
 Comece adicionando o Service Broker Aberto para o repositório do Helm do Azure:
 

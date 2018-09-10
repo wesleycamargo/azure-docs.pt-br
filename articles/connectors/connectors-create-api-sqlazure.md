@@ -1,32 +1,28 @@
 ---
 title: Conectar-se ao SQL Server ou ao Banco de Dados SQL do Azure – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Criar conexões com o SQL Server local e Banco de Dados SQL Azure na nuvem dos Aplicativos Lógicos do Azure
-services: logic-apps
-documentationcenter: ''
+description: Como acessar e gerenciar bancos de dados SQL locais ou de nuvem automatizando fluxos de trabalho com os Aplicativo Lógico do Azure
 author: ecfan
-manager: cfowler
-editor: ''
-tags: connectors
-ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
-ms.topic: article
-ms.date: 05/15/2018
+manager: jeconnoc
 ms.author: estfan
-ms.openlocfilehash: 4917f784c07919155e006711026899ce7712fecb
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.date: 05/15/2018
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164791"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38544016"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Conectar-se ao SQL Server ou ao Banco de Dados SQL do Azure dos Aplicativos Lógicos do Azure
 
-Este artigo mostra como você pode acessar dados no banco de dados SQL de dentro de um aplicativo lógico com o conector do SQL Server. Dessa forma, você pode criar Aplicativos Lógicos que automatizam tarefas e fluxos de trabalho para gerenciar seus dados. O conector funciona tanto para [SQL Server local](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) quanto para [Banco de Dados SQL do Azure na nuvem](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
+Este artigo mostra como você pode acessar dados no banco de dados SQL de dentro de um aplicativo lógico com o conector do SQL Server. Dessa forma, você pode automatizar tarefas, processos e fluxos de trabalho que gerenciam dados e recursos SQL com a criação de aplicativos lógicos. O conector funciona tanto para [SQL Server local](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) quanto para [Banco de Dados SQL do Azure na nuvem](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
 
-Você pode criar Aplicativos Lógicos que são executados quando disparados por eventos no banco de dados SQL ou em outros sistemas, como Dynamics CRM Online. Seus Aplicativos Lógicos também podem obter, inserir ou excluir dados, além de executar consultas SQL ou procedimentos armazenados. Por exemplo, você pode criar um aplicativo lógico que verifica automaticamente se há novos registros Dynamics CRM Online, adiciona itens ao banco de dados SQL para quaisquer novos registros e envia alertas de email.
+Você pode criar Aplicativos Lógicos que são executados quando disparados por eventos no Banco de Dados SQL ou em outros sistemas, como Dynamics CRM Online. Seus aplicativos lógicos também podem obter, inserir e excluir dados, além de executar consultas SQL e procedimentos armazenados. Por exemplo, você pode criar um aplicativo lógico que verifica automaticamente se há novos registros Dynamics CRM Online, adiciona itens ao banco de dados SQL para quaisquer novos registros e envia alertas de email.
 
 Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. Se você não estiver familiarizado com os Aplicativos Lógicos, examine [O que são Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início rápido: crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, consulte a <a href="https://docs.microsoft.com/connectors/sql/" target="blank">Referência do conector do SQL Server</a>.
 

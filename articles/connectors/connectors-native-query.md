@@ -1,11 +1,11 @@
 ---
-title: "Adicionar a ação de consulta nos aplicativos lógicos | Microsoft Docs"
-description: "Visão geral da ação de consulta para executar ações, como filtrar matriz."
-services: 
-documentationcenter: 
+title: Adicionar a ação de consulta nos aplicativos lógicos | Microsoft Docs
+description: Visão geral da ação de consulta para executar ações, como filtrar matriz.
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27962638"
 ---
 # <a name="get-started-with-the-query-action"></a>Introdução à ação de consulta
 Usando a ação de consulta, você pode trabalhar com lotes e matrizes para executar os fluxos de trabalho para:

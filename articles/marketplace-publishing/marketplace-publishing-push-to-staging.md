@@ -3,8 +3,8 @@ title: Preparar e testar sua oferta para implantação no Azure Marketplace | Mi
 description: Instruções detalhadas sobre como fornecer conteúdo de marketing, configurar planos de preços e testar sua oferta antes de implantar o Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
-ms.author: mbaldwin
-ms.openlocfilehash: 5bec9ac89487a824b9de9209547f0b96fa5fe678
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: hascipio
+ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714952"
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Concluir a criação de oferta com conteúdo de marketing
 Nesta etapa do processo de publicação, você precisará de fornecer determinados conteúdos de marketing e detalhes sobre a sua oferta e/ou SKUs no Azure Marketplace. Por exemplo, você irá fornecer uma descrição do seu produto, logotipos da empresa, planos de preços, detalhes de planos e outras informações necessárias para enviar sua oferta de e/ou SKU para preparação. Essas informações são usadas como conteúdo de marketing no portal do Azure. Você começará esse processo no [portal de publicação][link-pubportal].
@@ -140,7 +141,7 @@ Para ofertas de Máquina Virtual, depois que uma oferta/SKU é listada no Azure 
 |  | Apenas base | Apenas consumo | Base + Consumo |
 | --- | --- | --- | --- |
 | Imagem de máquina virtual |Não  |Sim |Não  |
-| Serviço do desenvolvedor |sim |Sim |sim |
+| Serviço do desenvolvedor |SIM |sim |SIM |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. Definir seus preços da VM
 No momento, para as máquinas virtuais, temos os **três tipos de modelos de cobrança a seguir:**

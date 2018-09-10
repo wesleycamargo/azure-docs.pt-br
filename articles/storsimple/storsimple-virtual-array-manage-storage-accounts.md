@@ -1,11 +1,11 @@
 ---
 title: Gerenciar credenciais de conta de armazenamento da StorSimple Virtual Array | Microsoft Docs
-description: "Explica como você pode usar a página Configurar do StorSimple Device Manager para adicionar, editar, excluir ou girar as chaves de segurança para credenciais de conta de armazenamento associadas à Matriz Virtual StorSimple."
+description: Explica como você pode usar a página Configurar do StorSimple Device Manager para adicionar, editar, excluir ou girar as chaves de segurança para credenciais de conta de armazenamento associadas à Matriz Virtual StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 234bf8bb-d5fe-40be-9d25-721d7482bc3b
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111704"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar credenciais da conta de armazenamento para o StorSimple Virtual Array
 

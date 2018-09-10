@@ -1,14 +1,14 @@
 ---
-title: "Armazenar dados não estruturados usando o Azure Cosmos DB e Functions | Microsoft Docs"
-description: "Armazenar dados não estruturados usando o Azure Functions e o Cosmos DB"
+title: Armazenar dados não estruturados usando o Azure Cosmos DB e Functions | Microsoft Docs
+description: Armazenar dados não estruturados usando o Azure Functions e o Cosmos DB
 services: functions
 documentationcenter: functions
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, functions, processamento de eventos, Cosmos DB, computação dinâmica, arquitetura sem servidor"
-ms.assetid: 
+editor: ''
+tags: ''
+keywords: azure functions, functions, processamento de eventos, Cosmos DB, computação dinâmica, arquitetura sem servidor
+ms.assetid: ''
 ms.service: functions
 ms.devlang: csharp
 ms.topic: quickstart
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27767546"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Armazenar dados não estruturados usando o Azure Functions e o Azure Cosmos DB
 

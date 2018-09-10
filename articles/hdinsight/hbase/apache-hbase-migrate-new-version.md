@@ -1,24 +1,20 @@
 ---
-title: Migrar um cluster HBase para uma nova versão – HDInsight do Azure | Microsoft Docs
+title: Migrar um cluster HBase para uma nova versão – Azure HDInsight
 description: Como migrar clusters HBase para uma nova versão.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 2ab0bc792777b73f878bc1728c0d8310ecf41167
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 64b3762c40cc2e01944d78c546ebe267503526a7
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049323"
 ---
 # <a name="migrate-an-hbase-cluster-to-a-new-version"></a>Migrar um cluster HBase para uma nova versão
 

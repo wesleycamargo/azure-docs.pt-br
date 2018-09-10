@@ -4,16 +4,16 @@ description: Este artigo orienta você na criação e gerenciamento por meio de 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5405566b5254c553eac584acc1653449b51ddffc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a83402316854b23fe85bff813dc9f5665bccd1fb
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195872"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34794801"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas por meio de programação e exibir dados de conformidade
 
@@ -24,7 +24,7 @@ Este artigo orienta você na criação e gerenciamento por meio de programação
 Antes de começar, verifique se os seguintes pré-requisitos são cumpridos:
 
 1. Caso ainda não tenha feito, instale o [ARMClient](https://github.com/projectkudu/ARMClient). É uma ferramenta que envia solicitações HTTP para APIs baseadas no Azure Resource Manager.
-2. Atualize seu módulo do PowerShell do AzureRM para a versão mais recente. Para obter mais informações sobre a versão mais recente, consulte o Azure PowerShell [.
+2. Atualize seu módulo do PowerShell do AzureRM para a versão mais recente. Para obter mais informações sobre a versão mais recente, consulte o [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 3. Registre o provedor de recursos de Informações de Política usando Azure PowerShell para garantir que sua assinatura funcione com o provedor de recursos. Para registrar um provedor de recursos, você deve ter permissão para executar a operação de ação de registro para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário. Execute o seguinte comando para registrar o provedor de recursos:
 
   ```azurepowershell-interactive
@@ -113,15 +113,19 @@ Use o procedimento a seguir para criar uma definição de política.
   }
   ```
 
-2. Crie a definição de política usando a seguinte chamada:
+2. Crie a definição de política usando uma das seguintes chamadas:
 
   ```
-  armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+  # For defining a policy in a subscription
+  armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+
+  # For defining a policy in a management group
+  armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
   ```
 
-  Substitua o &lt;subscriptionId&gt; anterior pela ID da assinatura pretendida.
+  Substitua o {subscriptionId} anterior pela ID da sua assinatura ou {managementGroupId} pela ID do seu [grupo de gerenciamento](../azure-resource-manager/management-groups-overview.md).
 
-Para obter mais informações sobre a estrutura da consulta, consulte [Definições de Políticas – Criar ou Atualizar](/rest/api/resources/policydefinitions/createorupdate).
+  Para obter mais informações sobre a estrutura da consulta, confira [Definições de políticas – criar ou atualizar](/rest/api/resources/policydefinitions/createorupdate) e [Definições de políticas – criar ou atualizar em grupo de gerenciamento](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 Use o procedimento a seguir para criar uma atribuição de política e atribuir a definição de política no nível do grupo de recursos.
 
@@ -200,99 +204,6 @@ A ID de definição de política para a definição de política que você criou
 
 Para obter mais informações sobre como gerenciar políticas de recursos com a CLI do Azure, consulte [Políticas de Recursos da CLI do Azure](/cli/azure/policy?view=azure-cli-latest).
 
-## <a name="identify-non-compliant-resources"></a>Identificar recursos sem conformidade
-
-Em uma atribuição, um recurso não está em conformidade se ele não segue as regras de iniciativa ou política. A tabela a seguir mostra como os diferentes efeitos da política funcionam com a avaliação da condição para o estado de conformidade resultante:
-
-| Estado do recurso | Efeito | Avaliação da política | Estado de conformidade |
-| --- | --- | --- | --- |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Sem conformidade |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Em conformidade |
-| Novo | Auditoria, AuditIfNotExist\* | True | Sem conformidade |
-| Novo | Auditoria, AuditIfNotExist\* | Falso | Em conformidade |
-
-\* Os efeitos de Acrescentar, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE. Os efeitos também exigem que a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
-
-Para entender melhor como os recursos são sinalizados como sem conformidade, vamos usar o exemplo de atribuição de política criado anteriormente.
-
-Por exemplo, suponha que você tenha um grupo de recursos – ContsoRG, com algumas contas de armazenamento (realçadas em vermelho) que são expostas para redes públicas.
-
-![Contas de armazenamento expostas a redes públicas](media/policy-insights/resource-group01.png)
-
-Neste exemplo, você precisa estar atento aos riscos de segurança. Agora que você criou uma atribuição de política, ela é avaliada em relação a todas as contas de armazenamento no grupo de recursos ContosoRG. Ela realiza auditoria nas três contas de armazenamento sem conformidade, consequentemente alterando seus estados para **sem conformidade**.
-
-![Auditoria de contas de armazenamento sem conformidade](media/policy-insights/resource-group03.png)
-
-Use o procedimento a seguir para identificar recursos em um grupo de recursos que não estejam em conformidade com a atribuição de política. No exemplo, os recursos são contas de armazenamento no grupo de recursos ContosoRG.
-
-1. Obtenha a ID de atribuição da política executando os seguintes comandos:
-
-  ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
-  $policyAssignment.PolicyAssignmentId
-  ```
-
-  Para saber mais sobre a obtenção da ID de atribuição da política, consulte [Get-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
-
-2. Execute o seguinte comando para obter as IDs de recurso dos recursos sem conformidade copiados para um arquivo JSON:
-
-  ```
-  armclient POST "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
-  ```
-
-3. Os resultados deverão se assemelhar ao exemplo a seguir:
-
-  ```json
-  {
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-      "@odata.count": 3,
-      "value": [{
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount1Id>"
-          },
-          {
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount2Id>"
-          },
-          {
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount3ID>"
-          }
-      ]
-  }
-  ```
-
-Os resultados são equivalentes aos que você geralmente veria listados em **Recursos sem conformidade** na [exibição do Portal do Azure](assign-policy-definition.md#identify-non-compliant-resources).
-
-Atualmente, os recursos sem conformidade somente são identificados usando o Portal do Azure e com solicitações HTTP. Para obter mais informações sobre como consultar os estados de política, consulte o artigo de referência de API [Estado da Política](/rest/api/policy-insights/policystates).
-
-## <a name="view-policy-events"></a>Exibir eventos de política
-
-Quando um recurso é criado ou atualizado, um resultado da avaliação da política é gerado. Os resultados são chamados _Eventos de Política_. Execute a consulta a seguir para exibir todos os eventos de política associados à atribuição de política.
-
-```
-armclient POST "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2017-12-12-preview"
-```
-
-Seus resultados devem se parecer com o exemplo a seguir:
-
-```json
-{
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default",
-    "@odata.count": 1,
-    "value": [{
-        "@odata.id": null,
-        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default/$entity",
-        "NumAuditEvents": 3
-    }]
-}
-```
-
-Como os estados de política, você só pode exibir eventos de política com solicitações HTTP. Para obter mais informações sobre como consultar os eventos de política, consulte o artigo de referência de [Eventos de Política](/rest/api/policy-insights/policyevents).
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Examine os seguintes artigos para obter mais informações sobre os comandos e consultas neste artigo.
@@ -301,3 +212,4 @@ Examine os seguintes artigos para obter mais informações sobre os comandos e c
 - [Módulos do PowerShell do Azure RM](/powershell/module/azurerm.resources/#policies)
 - [Comandos de Política da CLI do Azure](/cli/azure/policy?view=azure-cli-latest)
 - [Referência da API REST do provedor de recursos de Informações de Política](/rest/api/policy-insights)
+- [Organizar seus recursos com grupos de gerenciamento do Azure](../azure-resource-manager/management-groups-overview.md)

@@ -1,25 +1,20 @@
 ---
-title: Usar o Apache Kafka com o HDInsight no Azure Hub IoT | Microsoft Docs
+title: Use o Apache Kafka no HDInsight com o Microsoft Azure Hub IoT
 description: Saiba como usar o Apache Kafka no HDInsight com o Microsoft Azure Hub IoT. O projeto Hub IoT do Microsoft Azure do Kafka Connect fornece uma fonte e conector de coletor para o Kafka. O conector de origem pode ler dados de Hub IoT e o conector de coletor grava o Hub IoT.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/15/2018
-ms.author: larryfr
-ms.openlocfilehash: 33fdb5b099efc40fec94a860b21cda75ced44fe9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 282fc6a1525238fba05c4f472b74d7eb55a49130
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266992"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042874"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Use o Apache Kafka no HDInsight com o Microsoft Azure Hub IoT
 
@@ -35,7 +30,7 @@ O diagrama a seguir mostra o fluxo de dados entre o Hub IoT do Microsoft zure e 
 
 Para obter mais informações sobre a estrutura a API de Conexão, consulte [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

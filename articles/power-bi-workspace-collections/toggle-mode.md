@@ -2,25 +2,19 @@
 title: Alternar entre o modo de exibição e o modo de edição para relatórios nas Coleções de Espaços de Trabalho do Power BI | Microsoft Docs
 description: Saiba como alternar entre o modo de exibição e o modo de edição para seus relatórios nas Coleções de Espaços de Trabalho do Power BI.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
-ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 23a8c4f0dd626a623df56de9546258a23d549d1a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 19a576440742684849ffc74092162be7008621ba
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045011"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Alternar entre o modo de exibição e o modo de edição para relatórios nas Coleções de Espaços de Trabalho do Power BI
 

@@ -4,7 +4,7 @@ description: Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWe
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c78b764b66e677144186831b6139fd6a0aae7e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f6b0ea7479910f7026974e37f8c05099453c0b26
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366351"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42145301"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -288,7 +288,7 @@ ms.locfileid: "34366351"
 [virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
-[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
+[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
@@ -540,9 +540,10 @@ Podemos encontrar alguns cenários em que você como cliente deseja mover uma VM
 Se você usar Managed Disks, poderá migrar para o Armazenamento Premium:
 
 1. Desalocar a máquina virtual
-2. Se necessário, redimensione a máquina virtual para um tamanho que dê suporte ao Armazenamento Premium (por exemplo, DS ou GS)
-3. Altere o tipo de conta do Disco Gerenciado para Premium (SSD)
-4. Inicie a máquina virtual
+1. Se necessário, redimensione a máquina virtual para um tamanho que dê suporte ao Armazenamento Premium (por exemplo, DS ou GS)
+1. Altere o tipo de conta do Disco Gerenciado para Premium (SSD)
+1. Altere o armazenamento em cache dos discos de dados conforme recomendado no capítulo [Cache para VMs e discos de dados][dbms-guide-2.1]
+1. Inicie a máquina virtual
 
 ### <a name="deployment-of-vms-for-sap-in-azure"></a>Implantação de VMs para SAP no Azure
 O Microsoft Azure oferece várias maneiras de implantar VMs e discos associados. Assim, é importante entender as diferenças, uma vez que as preparações das VMs podem ser diferentes dependendo da forma de implantação. Em geral, analisamos os cenários descritos nos capítulos a seguir.
@@ -1160,7 +1161,7 @@ A instalação e operação do SRS funcionam tão bem funcionalmente em uma VM h
 O ASE HADR por meio do servidor de replicação do SAP NÃO tem suporte neste momento. Ele pode ser testado com e liberado para plataformas Microsoft Azure no futuro.
 
 ## <a name="specifics-to-oracle-database-on-windows"></a>Informações específicas do Banco de Dados Oracle no Windows
-O software Oracle tem suporte pela Oracle para ser executado no Microsoft Windows Hyper-V e no Azure. Para obter detalhes sobre o suporte geral do Windows Hyper-V e Azure, consulte: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+O software Oracle tem suporte pela Oracle para ser executado no Microsoft Windows Hyper-V e no Azure. 
 
 Após o suporte geral, o cenário específico de aplicativos SAP que utilizam os Bancos de Dados Oracle também tem suporte. Os detalhes são indicados nesta parte do documento.
 
@@ -1198,7 +1199,7 @@ O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta di
 Todas as outras áreas gerais, como o monitoramento do SAP ou Conjuntos de Disponibilidade do Azure, se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o Banco de Dados Oracle.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Especificidades do Oracle Database no Oracle Linux
-O software Oracle tem suporte pela Oracle para ser executado no Microsoft Windows Hyper-V e no Azure. Para obter detalhes sobre o suporte geral do Windows Hyper-V e Azure, consulte: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+O software Oracle tem suporte pela Oracle para ser executado no Microsoft Windows Hyper-V e no Azure. 
 
 Após o suporte geral, o cenário específico de aplicativos SAP que utilizam os Bancos de Dados Oracle também tem suporte. Os detalhes são indicados nesta parte do documento.
 

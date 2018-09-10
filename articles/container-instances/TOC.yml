@@ -39,14 +39,20 @@
   items:
     - name: Implantar
       items:
-        - name: Implantar grupos com vários contêineres
+        - name: Grupos com vários contêineres - YAML
+          href: container-instances-multi-container-yaml.md
+        - name: Grupos com vários contêineres - Resource Manager
           href: container-instances-multi-container-group.md
         - name: Implantar a partir do Registro de Contêiner do Azure
           href: container-instances-using-azure-container-registry.md
         - name: Definir variáveis de ambiente (env)
           href: container-instances-environment-variables.md
+        - name: Configurar investigações de atividade
+          href: container-instances-liveness-probe.md
     - name: Gerenciar
       items:
+        - name: Atualizar contêineres em execução
+          href: container-instances-update.md
         - name: Executar um comando (exec)
           href: container-instances-exec.md
         - name: Monitorar CPU e uso de memória
@@ -55,7 +61,7 @@
           href: container-instances-log-analytics.md
     - name: Executar cargas de trabalho
       items:
-        - name: Executar tarefas em contêineres
+        - name: Executar tarefas com políticas de reinicialização
           href: container-instances-restart-policy.md
         - name: Agentes de compilação Jenkins na ACI
           href: container-instances-jenkins.md

@@ -1,17 +1,18 @@
 ---
 title: Usando o Terraform com o Azure
-description: "Introdução ao uso do Terraform para controlar a versão e implantar a infraestrutura do Azure."
+description: Introdução ao uso do Terraform para controlar a versão e implantar a infraestrutura do Azure.
 ms.service: virtual-machines-linux
-keywords: "terraform, devops, visão geral, planejar, aplicar, automatizar"
+keywords: terraform, devops, visão geral, planejar, aplicar, automatizar
 author: binderjoe
 ms.author: jbinder
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 667752d8830cdac5e2338fd3ed7904917123be94
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5d313bda6a1067e6d023f62fb26704f9aee5c7bf
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114465"
 ---
 # <a name="terraform-with-azure"></a>Terraform com o Azure
 

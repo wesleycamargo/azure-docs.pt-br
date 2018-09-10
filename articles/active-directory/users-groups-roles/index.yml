@@ -1,0 +1,52 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 153c3884d3802259fafac82650d79534472d7641
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "40209028"
+documentType: LandingData
+title: Documentação de gerenciamento do usuário do Azure Active Directory
+metadata:
+  document_id: 
+  title: Usuários, grupos, funções e documentação de licenças do Azure Active Directory
+  description: Saiba como usar os usuários, grupos, funções e licenças para gerenciar a autenticação para os serviços de nuvem do Azure em seu locatário.
+  services: active-directory
+  ms.component: users-groups-roles
+  author: curtand
+  manager: mtillman
+  ms.service: active-directory
+  ms.topic: landing-page
+  ms.date: 08/12/2018
+  ms.author: curtand
+abstract:
+  description: As ferramentas de gerenciamento de usuários do Azure AD, como grupos e atribuições de função do administrador, ajudarão a realizar as principais tarefas mais rápido e acompanhar o crescimento. Você pode atribuir licenças, acessar os aplicativos de SaaS dos grupos, em vez de indivíduos, ou delegar permissões para distribuir a sobrecarga do gerenciamento de identidades do Azure AD.
+sections:
+- title: Guia de início rápido de 5 minutos
+  items:
+  - type: paragraph
+    text: Saiba como usar as ferramentas de gerenciamento no Azure Active Directory
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Adicionar usuários ao Azure AD</a>
+    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Atribuir licenças aos usuários</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Inscrever-se no Azure AD Premium</a>
+    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Definir o vencimento dos grupos criados pelo usuário</a>
+    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Definir a política de nomenclatura dos grupos criados pelo usuário</a>
+- title: Tutoriais passo a passo
+  items:
+  - type: paragraph
+    text: Saiba como preencher dinamicamente grupos no Azure Active Directory
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Criar um grupo preenchido dinamicamente</a>
+- title: Referência
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Links de referência
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Cmdlets do PowerShell do Azure AD</a></p>

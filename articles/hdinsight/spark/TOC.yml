@@ -27,9 +27,9 @@
       href: apache-spark-use-bi-tools.md
     - name: Executar trabalho de streaming
       href: apache-spark-eventhub-streaming.md
-    - name: Criar aplicativo de aprendizado de máquina
+    - name: Criar um aplicativo de aprendizado de máquina
       href: apache-spark-ipython-notebook-machine-learning.md
-    - name: Criar um aplicativo spark usando IntelliJ
+    - name: Criar um aplicativo do Spark no IntelliJ
       href: apache-spark-create-standalone-application.md
 - name: Como
   items:
@@ -61,7 +61,7 @@
     - name: Usar ferramentas do HDInsight
       items:
         - name: Ferramentas para Visual Studio
-          href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
           maintainContext: true
         - name: Ferramentas para VSCode
           href: ../hdinsight-for-vscode.md
@@ -160,9 +160,6 @@
         - name: Use Matiz
           href: ../hdinsight-hadoop-hue-linux.md
           maintainContext: true
-        - name: Usar R
-          href: ../hdinsight-hadoop-r-scripts-linux.md
-          maintainContext: true
         - name: Usar o Solr
           href: ../hdinsight-hadoop-solr-install-linux.md
           maintainContext: true
@@ -212,6 +209,8 @@
       items:
         - name: Gerenciar recursos de cluster
           href: apache-spark-resource-manager.md
+        - name: Gerenciar aplicativos do spark usando o Servidor de Histórico estendido
+          href: apache-azure-spark-history-server.md
         - name: Definir configurações do Spark
           href: apache-spark-settings.md
         - name: Otimizar trabalhos do Spark
@@ -320,6 +319,8 @@
       items:
         - name: Depurar trabalhos Spark
           href: apache-spark-job-debugging.md
+        - name: Depurar trabalhos do Spark por meio do Grafo do Trabalho
+          href: apache-azure-spark-history-server.md
         - name: Use o IntelliJ para depurar o trabalho do Spark
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Solucionar problemas de um cluster HDInsight lento ou falhando
@@ -394,13 +395,10 @@
         - name: Conectar o HDInsight à rede local
           href: ../connect-on-premises-network.md
           maintainContext: true
-    - name: Monitoramento usando OMS
+    - name: Monitoramento usando Log Analytics
       items:
         - name: Usar Log Analytics do Azure
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Painéis específicos do cluster
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Usar consultas com o Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -429,6 +427,10 @@
     - name: Notas de versão
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Notas de versão arquivadas
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Obtenha ajuda no fórum

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 57ad5d5d2e7e068f47d51408527f1f7553917279
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2d4091d8ad6a778405ee6bb916c399e0b144f21d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441520"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introdução a nós de computação Linux em um cluster de HPC Pack no Azure
 Configure um cluster do [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) no Azure que contenha um nó de cabeçalho que executa o Windows Server e vários nós de computação que executam uma distribuição do Linux com suporte. Explore as opções para mover dados entre nós Linux e o nó principal do Windows do cluster. Saiba como enviar trabalhos do HPC Linux para o cluster.
@@ -40,7 +41,7 @@ Este artigo mostra duas opções para implantar um cluster do HPC Pack no Azure 
 
 Para obter mais informações sobre as opções de implantação de cluster do HPC Pack, consulte [Opções para criar e gerenciar um cluster de HPC (computação de alto desempenho ) no Azure com o Microsoft HPC Pack](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 * **Assinatura do Azure** : você pode usar a assinatura no serviço Azure Global ou no Azure China. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 * **Cota para núcleos** – talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós de cluster com tamanhos de VM de vários núcleos. Para aumentar a cota, abra uma solicitação de atendimento ao cliente online gratuitamente.
 * **Distribuições Linux** -atualmente, o HPC Pack dá suporte às distribuições Linux a seguir para nós de computação. Você pode usar as versões do Marketplace dessas distribuições quando disponíveis ou fornecer as suas próprias.
@@ -63,24 +64,24 @@ Pré-requisitos adicionais para implantar o cluster usando o script de implanta�
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>Opção de implantação 1. Use um modelo do Resource Manager
 1. Vá para o modelo [cluster HPC Pack para cargas de trabalho do Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) no Azure Marketplace e clique em **Implantar**.
-2. No portal do Azure, examine as informações e clique em **Criar**.
+1. No portal do Azure, examine as informações e clique em **Criar**.
    
     ![Criação de portal][portal]
-3. Na folha **Noções básicas** , insira um nome para o cluster, que também será o nome da VM do nó principal. Você pode escolher um grupo de recursos existente ou criar um novo grupo de recursos para a implantação em um local que está disponível para você. O local afeta a disponibilidade de determinados tamanhos de VM e outros serviços do Azure (consulte [produtos disponíveis por região](https://azure.microsoft.com/regions/services/)).
-4. Na folha **Configurações do nó de cabeçalho** , para uma primeira implantação, geralmente você aceitará as configurações padrão. 
+1. Na folha **Noções básicas** , insira um nome para o cluster, que também será o nome da VM do nó principal. Você pode escolher um grupo de recursos existente ou criar um novo grupo de recursos para a implantação em um local que está disponível para você. O local afeta a disponibilidade de determinados tamanhos de VM e outros serviços do Azure (consulte [produtos disponíveis por região](https://azure.microsoft.com/regions/services/)).
+1. Na folha **Configurações do nó de cabeçalho** , para uma primeira implantação, geralmente você aceitará as configurações padrão. 
    
    > [!NOTE]
    > A **URL do script pós-configuração** é uma configuração opcional para especificar um script do Windows PowerShell publicamente disponível que você deseja executar na VM do nó principal depois que ela estiver em execução. 
    > 
    > 
-5. Na folha **Configurações de nós de computação** , selecione um padrão de nomenclatura para os nós, o número e o tamanho dos nós e a distribuição Linux a implantar.
-6. Na folha **Configurações de infraestrutura** , insira nomes para a rede virtual e o domínio do Active Directory, para as credenciais de administrador do domínio e da VM e um padrão de nomenclatura para as contas de armazenamento.
+1. Na folha **Configurações de nós de computação** , selecione um padrão de nomenclatura para os nós, o número e o tamanho dos nós e a distribuição Linux a implantar.
+1. Na folha **Configurações de infraestrutura** , insira nomes para a rede virtual e o domínio do Active Directory, para as credenciais de administrador do domínio e da VM e um padrão de nomenclatura para as contas de armazenamento.
    
    > [!NOTE]
    > O HPC Pack usa o domínio do Active Directory para autenticar usuários de cluster. 
    > 
    > 
-7. Depois de executar os testes de validação e examinar os termos de uso, clique em **Comprar**.
+1. Depois de executar os testes de validação e examinar os termos de uso, clique em **Comprar**.
 
 ### <a name="deployment-option-2-use-the-iaas-deployment-script"></a>Opção de implantação 2. Usar o script de implantação de IaaS do HPC Pack
 A seguir estão pré-requisitos adicionais para implantar o cluster usando o script de implantação de IaaS do HPC Pack:
@@ -134,12 +135,12 @@ Modifique o arquivo como necessário para seu ambiente e a configuração de clu
 **Para executar o script de implantação de IaaS do HPC Pack**
 
 1. Abra o console do Windows PowerShell no computador cliente como administrador.
-2. Altere o diretório para a pasta onde os scripts estão instalados (E:\IaaSClusterScript neste exemplo).
+1. Altere o diretório para a pasta onde os scripts estão instalados (E:\IaaSClusterScript neste exemplo).
    
     ```powershell
     cd E:\IaaSClusterScript
     ```
-3. Execute o comando a seguir para implantar o cluster HPC Pack. Este exemplo supõe que o arquivo de configuração esteja localizado em E:\HPCDemoConfig.xml
+1. Execute o comando a seguir para implantar o cluster HPC Pack. Este exemplo supõe que o arquivo de configuração esteja localizado em E:\HPCDemoConfig.xml
    
     ```powershell
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
@@ -222,7 +223,7 @@ Como alternativa, monte uma pasta compartilhada do nó de cabeçalho em nós do 
     ![Permissões de compartilhamento de arquivo][fileshareperms]
    
     ![Compartilhamento de arquivos][filesharing]
-2. Abra uma janela do Windows PowerShell e execute os seguintes comandos:
+1. Abra uma janela do Windows PowerShell e execute os seguintes comandos:
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -251,7 +252,7 @@ O serviço NFS permite que você compartilhe e migre arquivos entre computadores
     ![Permissões de compartilhamento NFS NTFS][nfsperm]
    
     ![Propriedades de gerenciamento de NFS][nfsmanage]
-2. Abra uma janela do Windows PowerShell e execute os seguintes comandos:
+1. Abra uma janela do Windows PowerShell e execute os seguintes comandos:
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare

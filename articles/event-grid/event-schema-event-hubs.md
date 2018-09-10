@@ -3,20 +3,22 @@ title: Esquema de eventos de hubs de eventos da Grade de Eventos do Azure
 description: Descreve as propriedades que são fornecidas para eventos de hubs de evento com a Grade de Eventos do Azure
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6fac70a8837245e6d60a5a61db8a22ab718d4b49
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e301f3895126ed52b8d4c1f046f69dfcedb3563c
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145259"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Esquema de eventos da Grade de Eventos do Azure para hubs de eventos
 
 Este artigo fornece as propriedades e o esquema para eventos de hubs de evento. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
+
+Para obter uma lista de scripts de exemplo e tutoriais, consulte [origem do evento dos Hubs de eventos](event-sources.md#event-hubs).
 
 ### <a name="available-event-types"></a>Tipos de evento disponíveis
 
@@ -55,7 +57,7 @@ Este exemplo de evento mostra o esquema de um evento dos Hubs de Eventos gerado 
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | type | DESCRIÇÃO |
+| Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
@@ -68,7 +70,7 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | type | DESCRIÇÃO |
+| Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | fileUrl | string | O caminho para o arquivo de captura. |
 | FileType | string | O tipo de arquivo para o arquivo de captura. |

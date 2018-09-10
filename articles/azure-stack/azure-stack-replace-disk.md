@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30311314"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Substituir um disco físico na pilha do Azure
 

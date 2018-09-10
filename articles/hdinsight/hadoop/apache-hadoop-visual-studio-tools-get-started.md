@@ -1,28 +1,21 @@
 ---
-title: Conectar-se ao Azure HDInsight usando as Ferramentas do Data Lake para Visual Studio | Microsoft Docs
+title: Conectar-se ao Azure HDInsight usando as Ferramentas do Data Lake para Visual Studio
 description: Saiba como instalar e usar as Ferramentas do Data Lake para Visual Studio para se conectar a clusters Hadoop no Azure HDInsight e executar consultas do Hive.
 keywords: ferramentas do hadoop, consulta hive, visual studio, hadoop do visual studio
-services: HDInsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ce9c572a-1e98-46bf-9581-13a9767f1fa5
+services: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.custom: hdinsightactive, hdiseo17may2017
+ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 1707a681315fbb53f21df95664188463968bb855
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0c90dfe0aa76bd4f27bbc6f9a5e7e30c76595ea1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202468"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050140"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>Usar Ferramentas do Data Lake para Visual Studio a fim de se conectar ao Azure HDInsight e executar consultas Hive
 
@@ -56,7 +49,7 @@ As Ferramentas do Data Lake estão instaladas por padrão no Visual Studio 2017.
 
 Se não tiver instalado o Visual Studio, use o [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) para instalar as versões mais recentes do Visual Studio Community e o Azure SDK:
 
-![Captura de tela do Web Platforms Installer das Ferramentas do Data Lake para Visual Studio.] (./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.wpi.png "Usar o Web Platform Installer para instalar as Ferramentas do Data Lake para Visual Studio")
+![Captura de tela do Web Platforms Installer das Ferramentas do Data Lake para Visual Studio.](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.wpi.png "Usar o Web Platform Installer para instalar as Ferramentas do Data Lake para Visual Studio")
 
 ### <a name="update-the-tools"></a>Atualizar as ferramentas
 

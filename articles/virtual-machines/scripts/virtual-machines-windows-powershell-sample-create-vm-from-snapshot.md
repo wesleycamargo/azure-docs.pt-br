@@ -1,13 +1,13 @@
 ---
-title: "Exemplo de script do Azure PowerShell – Criar uma VM de um instantâneo | Microsoft Docs"
-description: "Exemplo de script do Azure PowerShell – Criar uma VM de um instantâneo"
+title: Exemplo de script do Azure PowerShell – Criar uma VM de um instantâneo | Microsoft Docs
+description: Exemplo de script do Azure PowerShell – Criar uma VM de um instantâneo
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: ramankum
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23116714"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>Criar uma máquina virtual de um instantâneo com o PowerShell
 

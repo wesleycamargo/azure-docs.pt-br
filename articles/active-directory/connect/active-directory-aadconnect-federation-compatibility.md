@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 08/23/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e7239ae88c6b4e56fa7c49f64c30fe602d8ec5fe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3b2313b79c57a95af40d29bca3d7522c83e10e4c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32148838"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818707"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Lista de compatibilidade de federação do AD do Azure
-O Azure Active Directory fornece logon único e segurança aprimorada de acesso ao aplicativo para o Office 365 e outros serviços do Microsoft Online para implementações híbridas e apenas de nuvem, sem a necessidade de qualquer solução de terceiros. O Office 365, como a maioria dos serviços online da Microsoft, é integrado ao Azure Active Directory para autorização, autenticação e serviços de diretório. O Azure Active Directory também fornece logon único a milhares de aplicativos SaaS e aplicativos Web locais. Consulte a [galeria de aplicativos](https://azuremarketplace.microsoft.com/marketplace/apps) do Azure Active Directory para aplicativos SaaS com suporte. 
+O Azure Active Directory fornece logon único e segurança aprimorada de acesso ao aplicativo para o Office 365 e outros serviços do Microsoft Online para implementações híbridas e apenas de nuvem, sem a necessidade de qualquer solução de terceiros. O Office 365, como a maioria dos serviços online da Microsoft, é integrado ao Azure Active Directory para autorização, autenticação e serviços de diretório. O Azure Active Directory também fornece logon único a milhares de aplicativos SaaS e aplicativos Web locais. Consulte a [galeria de aplicativos](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) do Azure Active Directory para aplicativos SaaS com suporte. 
 
 ## <a name="idp-validation"></a>Validação de IDP
 Se sua organização usa uma solução de federação de terceiros, você pode configurar o logon único para os usuários do Active Directory local com os Serviços Online da Microsoft, como o Office 365, desde que a solução de federação de terceiros seja compatível com o Azure Active Directory.  Para dúvidas sobre a compatibilidade, entre em contato com seu provedor de identidade.  Se você quiser ver uma lista de provedores de identidade testados anteriormente quanto à compatibilidade com o Microsoft Azure Active Directory, pela Microsoft, clique em [aqui](https://www.microsoft.com/download/details.aspx?id=56843). 

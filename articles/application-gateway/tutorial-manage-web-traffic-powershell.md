@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 3/22/2018
+ms.date: 6/5/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2ca90677f7aff0b6664a67e73128a987c8f3f36c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0ece839777747ac7f3683f6f475f3af9d050190e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355909"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920247"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Gerenciar o tráfego da web com um gateway de aplicativo usando o Azure PowerShell
 
@@ -194,7 +194,8 @@ Set-AzureRmVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
+  -ImageReferenceVersion latest `
+  -OsDiskCreateOption FromImage
 
 Set-AzureRmVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `
@@ -216,7 +217,7 @@ New-AzureRmVmss `
 ### <a name="install-iis"></a>Instalar o IIS
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss

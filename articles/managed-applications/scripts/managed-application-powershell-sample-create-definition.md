@@ -1,6 +1,6 @@
 ---
-title: "Exemplo de script do Azure PowerShell – Criar uma definição de aplicativo gerenciado | Microsoft Docs"
-description: "Exemplo de script do Azure PowerShell – Criar uma definição de aplicativo gerenciado"
+title: Exemplo de script do Azure PowerShell – Criar uma definição de aplicativo gerenciado | Microsoft Docs
+description: Exemplo de script do Azure PowerShell – Criar uma definição de aplicativo gerenciado
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23636986"
 ---
 # <a name="create-a-managed-application-definition-with-powershell"></a>Crie uma definição de aplicativo gerenciado com o PowerShell
 

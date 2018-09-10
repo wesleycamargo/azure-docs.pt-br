@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 3779b32aa1397b2ca0e05e2627241c0bfb7a8622
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ee06039242afe5b5e92cf2fecc4c3fa9bff0b78b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214362"
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI usou o Azure para acelerar o ciclo de desenvolvimento e aprimorar o serviço de atendimento ao cliente e o desempenho
 ![Logotipo da CSI/Daxko](./media/sql-database-implementation-daxko/csidaxkologo25.png)

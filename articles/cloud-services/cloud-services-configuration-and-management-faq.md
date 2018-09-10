@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 8cb7cd84e68420006e7c598c224580c9150ab1c7
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 30a23010f326189ffd5886407d70e357abb9c53e
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070491"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037876"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -41,6 +41,7 @@ Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento
 
 - [Quais são os recursos futuros do serviço de nuvem no portal do Azure que podem ajudar a gerenciar e monitorar aplicativos?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [Por que o IIS para de gravar no diretório de log?](#why-does-iis-stop-writing-to-the-log-directory)
+- [Como habilitar o registro em log do WAD para serviços de nuvem?](#how-do-i-enable-wad-logging-for-cloud-services)
 
 **Configuração de rede**
 
@@ -125,7 +126,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Capacidade de escolher o blob ou local para o seu csdef e de carregar localização de cscfg em breve. Usando [New-AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), você pode definir o valor de cada local.
+Capacidade de escolher o blob ou local para o seu csdef e de carregar localização de cscfg em breve. Usando [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-4.0.0), você pode definir o valor de cada local.
 
 Capacidade de monitorar as métricas no nível de instância. Recursos de monitoramentos adicionais estão disponíveis em [como monitorar Serviços De Nuvem](cloud-services-how-to-monitor.md).
 
@@ -138,6 +139,15 @@ Você esgotou a cota de armazenamento local para gravar no diretório de log. 
 Para obter mais informações, consulte um dos seguintes documentos:
 * [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](cloud-services-dotnet-diagnostics-storage.md)
 * [Logs do IIS param de gravar no serviço de nuvem](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+
+### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Como habilitar o registro em log do WAD para serviços de nuvem?
+Você pode habilitar o log do Windows Azure Diagnostics (WAD) através das seguintes opções:
+1. [Ativar a partir do Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [Ativar pelo código .Net](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+3. [Ativar através do Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+
+Para obter as configurações atuais do WAD do seu Serviço em Nuvem, você pode usar [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) pscmd ou pode visualizá-lo no portal a partir da folha "Serviços em Nuvem -> Extensões".
+
 
 ## <a name="network-configuration"></a>Configuração de rede
 
@@ -204,10 +214,10 @@ Para obter mais informações, consulte [HTTP/2 on IIS](https://blogs.iis.net/da
 
 ## <a name="permissions"></a>Permissões
 
-### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Como implementar Acesso Baseado em Função para Serviços de Nuvem?
-Serviços de Nuvem não dão suporte ao modelo RBAC (Controle de Acesso Baseado em Função), uma vez que ele não é um serviço do baseado no Azure Resource Manager.
+### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Como implementar acesso baseado em função para Serviços de Nuvem?
+Serviços de Nuvem não dão suporte ao modelo RBAC (controle de acesso baseado em função), uma vez que ele não é um serviço do baseado no Azure Resource Manager.
 
-Consulte [RBAC do Azure versus administradores de assinatura clássica](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators).
+Consulte [Entender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ## <a name="remote-desktop"></a>Área de trabalho remota
 
@@ -285,7 +295,7 @@ As definições do diário são não configuráveis, assim, não é possível de
 É possível habilitar a extensão Antimalware usando o script do PowerShell na Tarefa de Inicialização. Siga as etapas nestes artigos para implementá-la: 
  
 - [Criar uma tarefa de inicialização do PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 Para obter mais informações sobre cenários de implantação do Antimalware e como habilitá-lo no portal, consulte [Antimalware Deployment Scenarios](../security/azure-security-antimalware.md#antimalware-deployment-scenarios) (Cenários de implantação de Antimalware).
 

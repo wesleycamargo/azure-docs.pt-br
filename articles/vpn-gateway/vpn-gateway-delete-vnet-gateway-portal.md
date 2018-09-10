@@ -1,16 +1,16 @@
 ---
 title: 'Excluir um gateway de rede virtual: Portal do Azure: Resource Manager | Microsoft Docs'
-description: "Exclua um gateway de rede virtual usando o portal do Azure no modelo de implantação do Resource Manager."
+description: Exclua um gateway de rede virtual usando o portal do Azure no modelo de implantação do Resource Manager.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
@@ -20,6 +20,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593449"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Exclua um gateway de rede virtual usando o portal
 

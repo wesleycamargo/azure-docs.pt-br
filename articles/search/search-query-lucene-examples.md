@@ -1,58 +1,109 @@
 ---
 title: Exemplos de consulta Lucene para Azure Search | Microsoft Docs
-description: Sintaxe de consulta Lucene para pesquisa difusa, pesquisa por proximidade, aumento de termos, pesquisa com expressão regular e pesquisa com curinga.
-author: LiamCa
-manager: jlembicz
+description: Sintaxe de consulta Lucene para pesquisa difusa, pesquisa por proximidade, aumento de termos, pesquisa com expressão regular e pesquisas com curinga em um serviço do Azure Search.
+author: HeidiSteen
+manager: cgronlun
 tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: liamca
-ms.openlocfilehash: 46e03834cb307ea103a8794616f6f38227881272
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/09/2018
+ms.author: heidist
+ms.openlocfilehash: b5a3e2eac218ba2aa6958ffc56bd59f5b513cf48
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42140181"
 ---
-# <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exemplos de sintaxe de consulta Lucene para criar consultas no Azure Search
-Ao construir consultas do Azure Search, você pode usar a [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) padrão ou a alternativa [Lucene Query Parser no Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). O Analisador de Consulta Lucene dá suporte a constructos de consulta mais complexos, como consultas com escopo de campo, pesquisa difusa, pesquisa por proximidade, aumento de termo e pesquisa de expressão regular.
+# <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Exemplos de consulta de sintaxe Lucene para criar consultas avançadas no Azure Search
+Ao construir consultas para o Azure Search, você pode substituir o padrão [analisador de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) com mais expansiva [Lucene Query Parser no Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para formular a consulta especializada e avançada definições. 
 
-Neste artigo, execute exemplos em etapas, que demonstram as operações de consulta disponíveis ao usar a sintaxe completa.
+O Analisador de Consultas Lucene suporta construções de consulta complexas, como consultas com escopo de campo, pesquisa de caractere curinga de prefixo e difuso, pesquisa de proximidade, reforço de termos e pesquisa de expressão regular. A energia adicional vem com requisitos adicionais de processamento, portanto, você deve esperar um tempo de execução um pouco mais longo. Neste artigo, execute exemplos em etapas, que demonstram as operações de consulta disponíveis ao usar a sintaxe completa.
 
-## <a name="viewing-the-examples-in-jsfiddle"></a>Exibindo os exemplos no JSFiddle
-
-Todos os exemplos deste artigo são consultas executáveis que são executadas em um índice do Search pré-carregado no [JSFiddle](https://jsfiddle.net), um editor de códigos online para teste de script e HTML. 
-
-Para executá-los, clique com o botão direito do mouse nas URLs de exemplo de consulta para abrir o JSFiddle em uma janela separada do navegador.
-
-> [!NOTE]
-> Os exemplos a seguir aproveitam um índice de pesquisa que consiste em trabalhos disponíveis com base em um conjunto de dados fornecido pela iniciativa [OpenData da cidade de Nova York](https://nycopendata.socrata.com/) . Esses dados não devem ser considerados atuais ou completos. O índice está em um serviço de área restrita fornecido pela Microsoft. Você não precisa de uma assinatura do Azure ou do Azure Search para experimentar essas consultas.
+> [!Note]
+> Muitas construções de consulta especializadas habilitadas por meio da sintaxe de consulta Lucene completa não são [texto analisado](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), o que pode ser surpreendente caso espera-se a lematização. A análise lexical é realizada somente em termos completos (uma consulta de termo ou de frase). Tipos de consulta com termos incompletos (consulta de prefixo, consulta de curinga, consulta de regex, consulta difusa) são adicionados diretamente à árvore de consulta, ignorando o estágio de análise. A única transformação realizada em termos de consulta incompletos é colocá-los em letras minúsculas. 
 >
 
+## <a name="formulate-requests-in-postman"></a>Formular solicitações em Postman
+
+Os exemplos a seguir utilizam um índice de pesquisa de Trabalhos de Nova Iorque que consiste em trabalhos disponíveis com base em um conjunto de dados fornecido pelo [OpenData da cidade de Nova Iorque](https://opendata.cityofnewyork.us/). Esses dados não devem ser considerados atuais ou completos. O índice está em um serviço de área restrita fornecido pela Microsoft, o que significa que não é necessária uma assinatura do Azure ou Azure Search para experimentar essas consultas.
+
+O que é necessário é o Postman ou uma ferramenta equivalente para emitir solicitação HTTP em GET. Para obter mais informações, consulte [explorar com clientes REST](search-fiddler.md).
+
+### <a name="set-the-request-header"></a>Definir o cabeçalho de solicitação
+
+1. No cabeçalho de solicitação, defina **Content-Type** para `application/json`.
+
+2. Adicione uma**api-key** e defina-a para essa cadeia de caracteres: `252044BE3886FE4A8E3BAA4F595114BB`. Essa é uma chave de consulta para o serviço de pesquisa de área restrita que hospeda o índice Trabalhos de Nova Iorque.
+
+Após especificar o cabeçalho de solicitação, você poderá reutilizá-lo para todas as consultas neste artigo, trocando apenas a cadeia de caracteres **search=**. 
+
+  ![Cabeçalho da solicitação do Postman](media/search-query-lucene-examples/postman-header.png)
+
+### <a name="set-the-request-url"></a>Definir a URL da solicitação
+
+A solicitação é um comando GET emparelhado com uma URL que contém a cadeia de caracteres de pesquisa e o ponto de extremidade do Azure Search.
+
+  ![Cabeçalho da solicitação do Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+
+A composição de URL possui os elementos a seguir:
+
++ **`https://azs-playground.search.windows.net/`** é um serviço de pesquisa de área restrita mantido pela equipe de desenvolvimento do Azure Search. 
++ **`indexes/nycjobs/`** é o índice Trabalhos de Nova Iorque na coleção de índices desse serviço. O nome do serviço e índice são obrigatórios na solicitação.
++ **`docs`** é a coleção de documentos que contém todo o conteúdo pesquisável. A chave de API de consulta fornecida no cabeçalho da solicitação somente funciona em operações de leitura direcionando a coleção de documentos.
++ **`api-version=2017-11-11`** define a versão da API, que é um parâmetro obrigatório em todas as solicitações.
++ **`search=*`** é a cadeia de caracteres de consulta, que na consulta inicial é nula, retornando os primeiros 50 resultados (por padrão).
+
+## <a name="send-your-first-query"></a>Enviar a primeira consulta
+
+Como uma etapa de verificação, cole a solicitação a seguir no GET e clique em **Enviar**. Os resultados são retornados como documentos JSON detalhados. Você pode copiar e colar essa URL no primeiro exemplo abaixo.
+
+  ```http
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
+  ```
+
+A cadeia de caracteres de consulta, **`search=*`**, é uma pesquisa não especificada equivalente à pesquisa nula ou vazia. Não é especialmente útil, mas é a pesquisa mais simples que você pode fazer.
+
+Opcionalmente, é possível adicionar **`$count=true`** à URL para retornar uma contagem dos documentos que correspondem aos critérios de pesquisa. Em uma cadeia de pesquisa vazia, esses são todos os documentos no índice (cerca de 2800 no caso de NYC Jobs).
 
 ## <a name="how-to-invoke-full-lucene-parsing"></a>Como invocar a análise completa do Lucene
 
+Adicione **queryType=full** para invocar a sintaxe de consulta completa, substituindo a sintaxe de consulta simples padrão. 
+
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&search=*
+```
+
 Todos os exemplos deste artigo especificam o parâmetro de pesquisa **queryType=full**, indicando que a sintaxe completa é tratada pelo Analisador de Consulta Lucene. 
 
-**Exemplo 1** : clique com o botão direito do mouse no seguinte trecho de código da consulta para abri-la em uma nova página do navegador que carrega o JSFiddle e executa a consulta:
+## <a name="example-1-field-scoped-query"></a>Exemplo 1: consulta com escopo de campo
 
-* [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
+Este primeiro exemplo não é específico do analisador, mas nós o conduzimos para introduzir o primeiro conceito de consulta fundamental: contenção. Este exemplo abrange a execução da consulta e a resposta para apenas alguns campos específicos. Saber como estruturar uma resposta JSON legível é importante quando sua ferramenta é Postman ou Search Explorer. 
 
-Na nova janela do navegador, a origem JavaScript e a saída HTML são apresentados lado a lado. O script referencia uma consulta completa (não apenas o trecho, conforme mostrado no link). A consulta completa é mostrada nas URLs de cada exemplo. 
+Por uma questão de brevidade, a consulta direciona apenas o campo *business_title* e especifica que somente os títulos da empresa sejam retornados. A sintaxe é **searchFields** para restringir a execução da consulta apenas ao campo business_title e **selecione** para especificar quais campos são incluídos na resposta.
 
-Essa consulta retorna documentos de nosso índice New York City Jobs (nycjobs, carregado em um serviço de área restrita). Para resumir, a consulta especifica o retorno apenas de cargos executivos. A consulta subjacente completa é a seguinte:
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
+```
 
-    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
+A resposta para essa consulta deve ser semelhante à captura de tela a seguir.
 
-O parâmetro **searchFields** restringe a pesquisa apenas ao campo de título de negócios. O **queryType** é definido como **full**, que instrui o Azure Search a usar o Lucene Query Parser para essa consulta.
+  ![Resposta de exemplo do Postman](media/search-query-lucene-examples/postman-sample-results.png)
 
-> [!NOTE]
-> Para saber o contexto do processamento da consulta, consulte [Como funciona a pesquisa de texto completo no Azure Search](search-lucene-query-architecture.md). Para obter mais informações sobre parâmetros de pesquisa, consulte [Pesquisar documentos (API REST do serviço Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
->
+Você deve ter notado a pontuação de pesquisa na resposta. Pontuações uniformes de 1 ocorrem quando não há classificação, seja porque a pesquisa não foi pesquisa de texto completo ou porque nenhum critério foi aplicado. Para pesquisa nula sem critérios, as linhas retornam em ordem arbitrária. Quando você incluir critérios reais, verá as pontuações da pesquisa evoluir para valores significativos.
 
-### <a name="fielded-query-operation"></a>Operação de consulta por campo
-Você pode modificar os exemplos deste artigo especificando uma construção **nomedocampo:termodepesquisa** para definir uma operação de consulta por campo, em que o campo é uma única palavra e o termo de pesquisa também é uma única palavra ou uma frase, opcionalmente com operadores boolianos. Alguns exemplos incluem o seguinte:
+## <a name="example-2-intra-field-filtering"></a>Exemplo 2: Filtragem do campo redes internas
+
+A sintaxe Lucene completa dá suporte a expressões dentro de um campo. Essa consulta pesquisa cargos com o termo sênior neles, mas não júnior:
+
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:senior+NOT+junior
+```
+
+  ![Resposta de exemplo do Postman](media/search-query-lucene-examples/intrafieldfilter.png)
+
+Ao especificar uma construção **fieldname:searchterm**, é possível definir uma operação de consulta em campo, em que o campo é uma palavra única e o termo de pesquisa também é uma frase ou uma palavra única, opcionalmente com operadores boolianos. Alguns exemplos incluem o seguinte:
 
 * business_title:(sênior NOT júnior)
 * state:(“Nova York” AND “Nova Jersey”)
@@ -61,66 +112,94 @@ Coloque várias cadeias de caracteres entre aspas se quiser que ambas as cadeias
 
 O campo especificado em **nomedocampo:termodepesquisa** deve ser um campo pesquisável. Confira [Create Index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) (Criar índice [API REST do Serviço Azure Search]) para obter detalhes sobre como os atributos de índice são usados em definições de campo.
 
-**Exemplo 2** – clique com o botão direito do mouse no seguinte trecho de consulta Essa consulta pesquisa cargos executivos com o termo sênior, mas não júnior:
+## <a name="example-3-fuzzy-search"></a>Exemplo 3: pesquisa difusa
 
-* [&queryType=full&search= business_title:senior NOT junior](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
+A sintaxe Lucene completa também dá suporte à pesquisa difusa, combinando em termos que têm uma construção semelhante. Para fazer uma pesquisa difusa, acrescente o símbolo til `~` ao final de uma única palavra com um parâmetro opcional, um valor entre 0 e 2, que especifica a distância de edição. Por exemplo, `blue~` ou `blue~1` retornariam mar, amar e maré.
 
-## <a name="fuzzy-search-example"></a>Exemplo de pesquisa difusa
-Uma pesquisa difusa encontra correspondências em termos com uma construção semelhante. De acordo com a [documentação do Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), as pesquisas imprecisas se baseiam na [distância de Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
+Essa consulta pesquisa trabalhos com o termo "associado" (deliberadamente com ortografia incorreta):
 
-Para fazer uma pesquisa difusa, acrescente o símbolo til “~” ao final de uma única palavra com um parâmetro opcional, um valor entre 0 e 2, que especifica a distância de edição. Por exemplo, "mar~" ou "mar~1" retornaria mar, amar e maré.
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:asosiate~
+```
+  ![Resposta de pesquisa difusa](media/search-query-lucene-examples/fuzzysearch.png)
 
-**Exemplo 3** : clique com o botão direito do mouse no trecho código de consulta a seguir. Essa consulta pesquisa os trabalhos com o termo associado (onde ele é escrito incorretamente):
-
-* [&queryType=full&search= business_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
+De acordo com a [documentação do Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), as pesquisas imprecisas se baseiam na [distância de Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
 > [!Note]
-> Consultas difusas não são [analisadas](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), o que poderá ser uma surpresa se você esperar a lematização. A análise lexical é realizada somente em termos completos (uma consulta de termo ou de frase). Tipos de consulta com termos incompletos (consulta de prefixo, consulta de curinga, consulta de regex, consulta difusa) são adicionados diretamente à árvore de consulta, ignorando o estágio de análise. A única transformação realizada em termos de consulta incompletos é colocá-los em letras minúsculas.
+> As consultas difusas não são [analisadas](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). Tipos de consulta com termos incompletos (consulta de prefixo, consulta de curinga, consulta de regex, consulta difusa) são adicionados diretamente à árvore de consulta, ignorando o estágio de análise. A única transformação realizada em termos de consulta incompletos é colocá-los em letras minúsculas.
 >
 
-## <a name="proximity-search-example"></a>Exemplo de pesquisa por proximidade
+## <a name="example-4-proximity-search"></a>Exemplo 4: pesquisa por proximidade
 As pesquisas de proximidade são usadas para localizar termos que estejam próximos um do outro em um documento. Insira um símbolo til "~" no final de uma frase seguida pelo número de palavras que criam o limite de proximidade. Por exemplo, "hotel aeroporto"~5 encontrará os termos hotel e aeroporto em cinco palavras uma da outra em um documento.
 
-**Exemplo 4** : clique com o botão direito do mouse na consulta. Procure trabalhos com o termo “analista sênior”, onde ele estiver separado por até uma palavra:
+Nessa consulta, para trabalhos com o termo "analista sênior", em que é separado por até uma palavra:
 
-* [&queryType=full&search=business_title:"senior analyst"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~1
+```
+  ![Consulta de proximidade](media/search-query-lucene-examples/proximity-before.png)
 
-**Exemplo 5** : experimente novamente remover as palavras entre o termo "analista sênior".
+Tente novamente removendo as palavras entre o termo "analista sênior". Observe que 8 documentos são retornados para essa consulta, em oposição a 10 para a consulta anterior.
 
-* [&queryType=full&search=business_title:"senior analyst"~0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~0
+```
 
-## <a name="term-boosting-examples"></a>Exemplos de aumento de termo
-O aumento de termos refere-se ao aumento da classificação de um documento caso ele contenha o termo aumentado, em relação aos documentos que não contêm o termo. Isso é diferente dos perfis de pontuação, já que os perfis de pontuação aumentam determinados campos, em vez de termos específicos. O exemplo a seguir ajuda a ilustrar as diferenças.
+## <a name="example-5-term-boosting"></a>Exemplo 5: aumento de termos
+O aumento de termos refere-se ao aumento da classificação de um documento caso ele contenha o termo aumentado, em relação aos documentos que não contêm o termo. Para aumentar um termo, use o sinal de interpolação, "^", com um fator de aumento (um número) no final do termo que você está pesquisando. 
+
+Nessa consulta para "antes", pesquise trabalhos com o termo *analista de computador* e observe que não há resultados com as palavras *computador* e *analista*, mas os trabalhos de *computador* estão no topo dos resultados.
+
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst
+```
+  ![Aumento antes de termos](media/search-query-lucene-examples/termboostingbefore.png)
+
+Na consulta para "depois" repita a pesquisa, dessa vez, aumentando os resultados com o termo *analista* em relação ao termo *computador*, caso ambas as palavras não existam. 
+
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst%5e2
+```
+Uma versão em formato mais legível por humanos da consulta acima é `search=business_title:computer analyst^2`. Para uma consulta que funcione, `^2` é codificado como `%5E2`, o que é mais difícil de ver.
+
+  ![Aumento depois de termos](media/search-query-lucene-examples/termboostingafter.png)
+
+O aumento de termos difere dos perfis de pontuação, em que os perfis de pontuação aumentam determinados campos, em vez de termos específicos. O exemplo a seguir ajuda a ilustrar as diferenças.
 
 Considere um perfil de pontuação que aumente as correspondências em um determinado campo, como **gênero** no exemplo de índice de loja de música. O aumento de termos pode ser usado para melhorar a posição de determinados termos de pesquisa. Por exemplo, "rock^2 eletrônico" melhorará a posição dos documentos que contêm os termos de pesquisa no campo **gênero** , à frente de outros campos pesquisáveis no índice. Além disso, os documentos com o termo de pesquisa "rock" serão mais bem classificados do que o outro termo de pesquisa "eletrônico" como resultado do valor de aumento de termo (2).
 
-Para aumentar um termo, use o sinal de interpolação, "^", com um fator de aumento (um número) no final do termo que você está pesquisando. Quanto maior o fator de aumento, mais relevante será o termo em relação a outros termos de pesquisa. Por padrão, o fator de aumento é 1. Embora o fator de aumento deva ser positivo, ele pode ser menor do que 1 (por exemplo, 0,2).
+Ao definir o nível do fator, quanto maior o fator de aumento, mais relevante será o termo em relação a outros termos de pesquisa. Por padrão, o fator de aumento é 1. Embora o fator de aumento deva ser positivo, ele pode ser menor do que 1 (por exemplo, 0,2).
 
-**Exemplo 6** - clique com o botão direito do mouse na consulta. Procure trabalhos com o termo "analista de computador", onde podemos ver que não há resultados com ambas as palavras, computador e analista, ainda que trabalhos de analista estejam na parte superior dos resultados.
 
-* [&queryType=full&search=business_title:computer analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+## <a name="example-6-regex"></a>Exemplo 6: Regex
 
-**Exemplo 7** - tente novamente, desta vez aumentando os resultados com o termo computador em relação ao termo analista, caso ambas palavras não existam.
-
-* [&queryType=full&search=business_title:computer^2 analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
-
-## <a name="regular-expression-example"></a>Exemplo de expressão regular
 Uma pesquisa de expressão regular encontra uma correspondência com base no conteúdo entre as barras "/", como documentado na [classe RegExp](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
-**Exemplo 8** : clique com o botão direito do mouse na consulta. Procure trabalhos com o termo Sênior ou Júnior.
+Nessa consulta, pesquise trabalhos com o termo Sênior ou Júnior: `search=business_title:/(Sen|Jun)ior/``.
 
-* `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:/(Sen|Jun)ior/
+```
 
-A URL para este exemplo não será renderizada corretamente na página. Como solução alternativa, copie a URL abaixo e cole-a no endereço de URL do navegador: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+  ![Consulta de regex](media/search-query-lucene-examples/regex.png)
 
-## <a name="wildcard-search-example"></a>Exemplo de pesquisa de curinga
+> [!Note]
+> Consultas Regex não são [analisadas](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). A única transformação realizada em termos de consulta incompletos é colocá-los em letras minúsculas.
+>
+
+## <a name="example-7-wildcard-search"></a>Exemplo 7: pesquisa com curinga
 Você pode usar a sintaxe geralmente reconhecida para pesquisas com vários caracteres curinga (\*) ou um caractere curinga (?). Observe que o analisador de consulta Lucene oferece suporte ao uso desses símbolos com um único termo e não uma frase.
 
-**Exemplo 9** - clique com o botão direito do mouse na consulta. Procure os trabalhos que contenham o prefixo 'prog', que inclui cargos com os termos programação e o programador neles.
+Nessa consulta, pesquise trabalhos que contenham o prefixo 'prog', que incluiria títulos de negócios com os termos programação e programador. Não é possível usar um símbolo * ou ? como o primeiro caractere de uma pesquisa.
 
-* [&queryType=full&$select=business_title&search=business_title:prog*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:prog*)
+```GET
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:prog*
+```
+  ![Consulta de caractere curinga](media/search-query-lucene-examples/wildcard.png)
 
-Não é possível usar um símbolo * ou ? como o primeiro caractere de uma pesquisa.
+> [!Note]
+> Consultas com curingas não são [analisadas](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). A única transformação realizada em termos de consulta incompletos é colocá-los em letras minúsculas.
+>
 
 ## <a name="next-steps"></a>Próximas etapas
 Tente especificar o Analisador de Consulta Lucene em seu código. Os links a seguir explicam como configurar consultas de pesquisa para o .NET e para a API REST. Os links usam a sintaxe simples padrão e, portanto, será necessário aplicar o que você aprendeu neste artigo para especificar o **queryType**.
@@ -128,6 +207,9 @@ Tente especificar o Analisador de Consulta Lucene em seu código. Os links a seg
 * [Consultar seu índice do Azure Search usando o SDK do .NET](search-query-dotnet.md)
 * [Consultar seu índice do Azure Search usando a API REST](search-query-rest-api.md)
 
-## <a name="see-also"></a>Consulte também
+Referência de sintaxe adicional, arquitetura de consulta e exemplos podem ser encontrados nos links a seguir:
 
- [Como funciona a pesquisa de texto completo no Azure Search](search-lucene-query-architecture.md)
++ [Exemplos de consulta de sintaxe simples](search-query-simple-examples.md)
++ [Como funciona a pesquisa de texto completo no Azure Search](search-lucene-query-architecture.md)
++ [Sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Sintaxe de consulta Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)

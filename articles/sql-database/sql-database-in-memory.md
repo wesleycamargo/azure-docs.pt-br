@@ -6,15 +6,15 @@ author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 07/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: b4f8388fdf104253aad07de77e89c30df4e4b128
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f4e056e9f8461085df6ae447672e2c9ec91aa3ca
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195161"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092395"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho usando tecnologias In-Memory no Banco de Dados SQL
 
@@ -72,7 +72,7 @@ Vídeos detalhados sobre as tecnologias:
 
 O OLTP in-memory inclui tabelas com otimização de memória, que são usadas para armazenar dados do usuário. Essas tabelas precisam caber na memória. Como você gerencia a memória diretamente no serviço do Banco de Dados SQL, temos o conceito de uma cota para dados de usuário. Esse conceito é conhecido como *Armazenamento de OLTP In-Memory*.
 
-Cada tipo de preço de banco de dados independente e cada tipo de preço de pool elástico com suporte incluem determinada quantidade de Armazenamento do OLTP in-memory. Consulte [Limites de recursos baseados em DTU](sql-database-dtu-resource-limits.md) e [Limites de recursos baseados em vCore](sql-database-vcore-resource-limits.md).
+Cada tipo de preço de banco de dados independente e cada tipo de preço de pool elástico com suporte incluem determinada quantidade de Armazenamento do OLTP in-memory. Consulte [Limites de recurso baseado em DTU – banco de dados individual](sql-database-dtu-resource-limits-single-databases.md), [Limites de recurso baseado em DTU – pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md), [Limites de recurso baseado em vCore – bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [Limites de recurso baseado em vCore – pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Os itens a seguir contam para seu limite de armazenamento do OLTP in-memory:
 
@@ -93,7 +93,7 @@ Com os pools elásticos, o armazenamento do OLTP in-memory é compartilhado entr
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Tamanho dos dados e armazenamento para índices columnstore
 
-Os índices columnstore não precisam caber na memória. Portanto, o único limite para o tamanho dos índices é o tamanho máximo do banco de dados geral, que está documentado nos artigos [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md).
+Os índices columnstore não precisam caber na memória. Portanto, o único limite para o tamanho dos índices é o tamanho máximo do banco de dados geral, que está documentado nos artigos [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
 Ao usar os índices columnstore clusterizados, a compactação vertical é usada para o armazenamento de tabelas base. Essa compactação pode reduzir consideravelmente o volume de armazenamento dos dados do usuário, o que significa que você pode colocar mais dados no banco de dados. E a compactação pode ser ainda maior com a [compactação de arquivamento vertical](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). A quantidade de compactação que pode ser obtida depende da natureza dos dados, mas uma compactação de 10 vezes não é incomum.
 
@@ -153,7 +153,7 @@ Para ver uma demonstração de desempenho mais simples, porém, mais visualmente
 
 #### <a name="installation-steps"></a>Etapas de instalação
 
-1. No [Portal do Azure](https://portal.azure.com/), crie um banco de dados Premium ou Comercialmente Crítico (versão prévia) em um servidor. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT. Para obter instruções detalhadas, consulte [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started-portal.md).
+1. No [portal do Azure](https://portal.azure.com/), crie um banco de dados Premium ou Comercialmente Crítico em um servidor. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT. Para obter instruções detalhadas, consulte [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started-portal.md).
 
 2. Conecte-se ao banco de dados com o SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -521,7 +521,7 @@ Em um banco de dados com o tipo de preço P2, você pode esperar um ganho de des
 
 #### <a name="tools"></a>Ferramentas
 
-- [Portal do Azure](https://portal.azure.com/)
+- [portal do Azure](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

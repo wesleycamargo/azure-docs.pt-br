@@ -1,25 +1,18 @@
 ---
 title: Passo a passo da solução pré-configurada de monitoramento remoto | Microsoft Docs
 description: Uma descrição do monitoramento remoto pré-configurado da solução de IoT do Azure e sua arquitetura.
-services: ''
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
-manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-suite
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8cb6c3087bac460069a689f7b109a20aa9125ae9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184906"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Passo a passo da solução pré-configurada de monitoramento remoto
 
@@ -35,7 +28,7 @@ Este artigo explica alguns dos principais elementos da solução de monitorament
 
 O seguinte diagrama descreve os componentes lógicos da solução pré-configurada:
 
-![Arquitetura lógica](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+![Arquitetura lógica](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
 
 ## <a name="microservices--docker-containers"></a>Microsserviços e contêineres do Docker
 Monitoramento remoto é a primeira das nossas soluções pré-configuradas a utilizar uma arquitetura de microsserviços. A solução está disponível no [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) e [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
@@ -274,8 +267,8 @@ Nesta página no portal de solução, você pode:
 
 As postagens de blog do TechNet abaixo fornecem mais detalhes sobre a solução pré-configurada de monitoramento remoto:
 
-* [IoT Suite - Under the Hood - Remote Monitoring (Monitoramento remoto)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-v1-under-the-hood-remote-monitoring.aspx)
-* [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices (Adicionando dispositivos ativos e simulados)](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-v1-remote-monitoring-adding-live-and-simulated-devices.aspx)
+* [IoT Suite - Under the Hood - Remote Monitoring (Monitoramento remoto)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+* [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices (Adicionando dispositivos ativos e simulados)](https://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
 Você pode continuar a introdução ao IoT Suite lendo os seguintes artigos:
 

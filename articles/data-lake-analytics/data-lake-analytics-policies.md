@@ -1,25 +1,20 @@
 ---
-title: Gerenciar políticas do Azure Data Lake Analytics | Microsoft Docs
+title: Gerenciar políticas do Azure Data Lake Analytics
 description: Saiba como usar políticas para controlar o uso de uma conta do Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/30/2018
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: db2712f0b57f2a5d60eae4aec21a4070c7a907a3
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.reviewer: jasonwhowell
+ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
+ms.topic: conceptual
+ms.date: 04/30/2018
+ms.openlocfilehash: f84cb59e7d4fd7d8301d22348ca066a7f9d9e94e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771216"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048811"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>Gerenciar o Azure Data Lake Analytics usando políticas
 

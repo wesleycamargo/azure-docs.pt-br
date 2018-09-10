@@ -1,7 +1,7 @@
 ---
-title: "Guia de início rápido: enviar um fluxo de trabalho usando entradas de arquivo FASTQ | Microsoft Docs"
+title: 'Guia de início rápido: enviar um fluxo de trabalho usando entradas de arquivo FASTQ | Microsoft Docs'
 titleSuffix: Azure
-description: "O guia de início rápido pressupõe que você tem o cliente msgen instalado e executou com êxito os dados de exemplo por meio do serviço."
+description: O guia de início rápido pressupõe que você tem o cliente msgen instalado e executou com êxito os dados de exemplo por meio do serviço.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684476"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs"></a>Enviar um fluxo de trabalho usando entradas do arquivo FASTQ
 

@@ -6,166 +6,59 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a4067db9955b804f126e889fa73641f69fef56ab
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6f57bc41cddc997a69f92ba4e8ca66faaeb29738
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424595"
 ---
-# <a name="troubleshoot-container-and-deployment-issues-in-azure-container-instances"></a>Solucionar problemas de contêiner e implantação em Instâncias de Contêiner do Azure
+# <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
 
-Este artigo mostra como solucionar problemas ao implantar contêineres para Instâncias de Contêiner do Azure. Ele também descreve alguns dos problemas comuns que você pode encontrar.
+Este artigo mostra como solucionar problemas ao gerenciar ou implantar contêineres para Instâncias de Contêiner do Azure.
 
-## <a name="view-logs-and-stream-output"></a>Exibir os logs e o fluxo de saída
+## <a name="naming-conventions"></a>Convenções de nomenclatura
 
-Quando você tiver um contêiner com comportamento inadequado, inicie exibindo logs com [az container logs][az-container-logs]e transmita sua saída padrão e erro padrão com [az container attach][az-container-attach].
+Ao definir a especificação de contêiner, alguns parâmetros exigem aderência às restrições de nomenclatura. Abaixo está uma tabela com requisitos específicos para o contêiner de propriedades do grupo. Para obter mais informações sobre convenções de nomenclatura do Azure, consulte [Convenções de nomenclatura][azure-name-restrictions] no Azure Architecture Center.
 
-### <a name="view-logs"></a>Exibir logs
+| Escopo | Comprimento | Capitalização | Caracteres válidos | Padrão sugerido | Exemplo |
+| --- | --- | --- | --- | --- | --- | --- |
+| Nome do grupo de contêineres | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Nome do contêiner | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Portas de contêiner | Entre 1 e 65535 |Número inteiro |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
+| Rótulo do nome DNS | 5 a 63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`frontend-site1` |
+| Variável de ambiente | 1-63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e sublinhado (_) em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`MY_VARIABLE` |
+| Nome do volume | 5 a 63 |Não diferencia maiúsculas de minúsculas |Letras minúsculas, números e hifens em qualquer lugar, exceto o primeiro ou último caractere. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |
 
-Para exibir logs do seu código de aplicativo em um contêiner, você pode usar o comando [az container logs][az-container-logs].
+## <a name="os-version-of-image-not-supported"></a>Não há suporte para a versão do SO da imagem
 
-A seguir está a saída do log do contêiner de exemplo baseado em tarefa em [Executar uma tarefa em contêineres em ACI](container-instances-restart-policy.md), depois de ter alimentado-o uma URL inválida para processar:
+Se você especificar uma imagem sem suporte das Instâncias de Contêiner do Azure, um erro `OsVersionNotSupported` será retornado. O erro é semelhante ao seguinte, onde `{0}` é o nome da imagem que você tentou implantar:
 
-```console
-$ az container logs --resource-group myResourceGroup --name mycontainer
-Traceback (most recent call last):
-  File "wordcount.py", line 11, in <module>
-    urllib.request.urlretrieve (sys.argv[1], "foo.txt")
-  File "/usr/local/lib/python3.6/urllib/request.py", line 248, in urlretrieve
-    with contextlib.closing(urlopen(url, data)) as fp:
-  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
-    return opener.open(url, data, timeout)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 532, in open
-    response = meth(req, response)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 642, in http_response
-    'http', request, response, code, msg, hdrs)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 570, in error
-    return self._call_chain(*args)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
-    result = func(*args)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 650, in http_error_default
-    raise HTTPError(req.full_url, code, msg, hdrs, fp)
-urllib.error.HTTPError: HTTP Error 404: Not Found
-```
-
-### <a name="attach-output-streams"></a>Anexar fluxos de saída
-
-O comando [az container attach][az-container-attach] fornece informações de diagnóstico durante a inicialização do contêiner. Depois que o contêiner for iniciado, ele transmite STDOUT e STDERR para o console local.
-
-Por exemplo, aqui está a saída do contêiner com base em tarefa na [Executar uma tarefa em contêineres em ACI](container-instances-restart-policy.md), depois de ter fornecido a uma URL válida para processar um arquivo de texto grande:
-
-```console
-$ az container attach --resource-group myResourceGroup --name mycontainer
-Container 'mycontainer' is in state 'Unknown'...
-Container 'mycontainer' is in state 'Waiting'...
-Container 'mycontainer' is in state 'Running'...
-(count: 1) (last timestamp: 2018-03-09 23:21:33+00:00) pulling image "microsoft/aci-wordcount:latest"
-(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Successfully pulled image "microsoft/aci-wordcount:latest"
-(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Created container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
-(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Started container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
-
-Start streaming logs:
-[('the', 22979),
- ('I', 20003),
- ('and', 18373),
- ('to', 15651),
- ('of', 15558),
- ('a', 12500),
- ('you', 11818),
- ('my', 10651),
- ('in', 9707),
- ('is', 8195)]
-```
-
-## <a name="get-diagnostic-events"></a>Obtendo eventos de diagnóstico
-
-Se o contêiner não implantar com êxito, você deve examinar as informações de diagnóstico fornecidas pelo provedor de recursos das Instâncias de Contêiner do Azure. Para exibir os eventos para o contêiner, execute o comando [az container show][az-container-show]:
-
-```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer
-```
-
-A saída inclui as propriedades principais do contêiner, juntamente com eventos de implantação (exibidos aqui truncados):
-
-```JSON
+```json
 {
-  "containers": [
-    {
-      "command": null,
-      "environmentVariables": [],
-      "image": "microsoft/aci-helloworld",
-      ...
-        "events": [
-          {
-            "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:49+00:00",
-            "lastTimestamp": "2017-12-21T22:50:49+00:00",
-            "message": "pulling image \"microsoft/aci-helloworld\"",
-            "name": "Pulling",
-            "type": "Normal"
-          },
-          {
-            "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:59+00:00",
-            "lastTimestamp": "2017-12-21T22:50:59+00:00",
-            "message": "Successfully pulled image \"microsoft/aci-helloworld\"",
-            "name": "Pulled",
-            "type": "Normal"
-          },
-          {
-            "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:59+00:00",
-            "lastTimestamp": "2017-12-21T22:50:59+00:00",
-            "message": "Created container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
-            "name": "Created",
-            "type": "Normal"
-          },
-          {
-            "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:59+00:00",
-            "lastTimestamp": "2017-12-21T22:50:59+00:00",
-            "message": "Started container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
-            "name": "Started",
-            "type": "Normal"
-          }
-        ],
-        "previousState": null,
-        "restartCount": 0
-      },
-      "name": "mycontainer",
-      "ports": [
-        {
-          "port": 80,
-          "protocol": null
-        }
-      ],
-      ...
-    }
-  ],
-  ...
+  "error": {
+    "code": "OsVersionNotSupported",
+    "message": "The OS version of image '{0}' is not supported."
+  }
 }
 ```
 
-## <a name="common-deployment-issues"></a>Tarefas de implantação comuns
+Esse erro geralmente ocorre ao implantar imagens do Windows que baseiam-se em uma versão do SAC (Canal Semestral). Por exemplo, o as versões 1709 e 1803 do Windows são versões de SAC e geram esse erro após a implantação.
 
-As seções a seguir descrevem problemas comuns que representam a maioria dos erros na implantação de contêiner:
+As Instâncias de Contêiner do Azure dão suporte a imagens do Windows com base apenas nas versões LTSC (Canal de Manutenção de Longo Prazo). Para atenuar esse problema ao implantar contêineres do Windows, sempre implante imagens baseadas em LTSC.
 
-* [Não há suporte para versão da imagem](#image-version-not-supported)
-* [Não é possível efetuar pull da imagem](#unable-to-pull-image)
-* [Contêiner sai e reinicia continuamente](#container-continually-exits-and-restarts)
-* [Contêiner leva muito tempo para iniciar](#container-takes-a-long-time-to-start)
-* [Erro de “Recurso não disponível”](#resource-not-available-error)
-
-## <a name="image-version-not-supported"></a>Não há suporte para versão da imagem
-
-Se você especificar uma imagem, cujas Instâncias de Contêiner do Azure não poderá dar suporte, um erro `ImageVersionNotSupported` será retornado. O valor do erro é `The version of image '{0}' is not supported.` e atualmente se aplica às imagens do Windows 1709. Para atenuar esse problema, use uma imagem do Windows LTS. O suporte para imagens do Windows 1709 está em andamento.
+Para obter detalhes sobre as versões LTSC e SAC do Windows, consulte [Visão geral do Canal Semestral do Windows Server][windows-sac-overview].
 
 ## <a name="unable-to-pull-image"></a>Não é possível efetuar pull da imagem
 
-Se o Instâncias de Contêiner do Azure não for capaz de efetuar pull da imagem inicialmente, ele tentará novamente por um período, até eventualmente falhar. Se não for possível efetuar pull da imagem, eventos como a seguir serão mostrados na saída do comando [az container show][az-container-show]:
+Se as Instâncias de Contêiner do Azure não puderem efetuar pull da imagem inicialmente, elas tentarão novamente durante um período de tempo. Se a operação de pull de imagem continuar a falhar, o ACI eventualmente falhará na implantação e um erro `Failed to pull image` será exibido.
+
+Para resolver esse problema, exclua a instância de contêiner e tente a implantação novamente. Certifique-se de que a imagem existe no registro e que você digitou corretamente o nome da imagem.
+
+Se não for possível efetuar pull da imagem, eventos como a seguir serão mostrados na saída do [az container show][az-container-show]:
 
 ```bash
 "events": [
@@ -196,13 +89,11 @@ Se o Instâncias de Contêiner do Azure não for capaz de efetuar pull da imagem
 ],
 ```
 
-Para resolver, excluir o contêiner e tente novamente realizar a implantação dele, prestando atenção para digitar corretamente o nome da imagem.
-
 ## <a name="container-continually-exits-and-restarts"></a>Contêiner sai e reinicia continuamente
 
 Se o contêiner é executado até a conclusão e reinicia automaticamente, talvez seja necessário definir uma [política de reinício](container-instances-restart-policy.md) de **Em caso de Falha** ou **Nunca**. Se você especificar **Em caso de Falha** e ainda continuar sendo reiniciado, pode haver um problema com o aplicativo ou script executado em seu contêiner.
 
-A API de Instâncias de Contêiner inclui uma propriedade `restartCount`. Para verificar o número de reinicializações de um contêiner, você pode usar o comando [az container show][az-container-show] na CLI do Azure 2.0. No seguinte exemplo de saída (que foi truncado para fins de brevidade), você pode ver a propriedade `restartCount` no final da saída.
+A API de Instâncias de Contêiner inclui uma propriedade `restartCount`. Para verificar o número de reinícios de um contêiner, é possível usar o comando [az container show][az-container-show] na CLI do Azure. No seguinte exemplo de saída (que foi truncado para fins de brevidade), você pode ver a propriedade `restartCount` no final da saída.
 
 ```json
 ...
@@ -252,11 +143,11 @@ Os dois principais fatores que contribuem para o tempo de inicialização do con
 * [Tamanho da imagem](#image-size)
 * [Local da imagem](#image-location)
 
-Imagens do Windows têm [considerações adicionais](#use-recent-windows-images).
+Imagens do Windows têm [considerações adicionais](#cached-windows-images).
 
 ### <a name="image-size"></a>Tamanho da imagem
 
-Se o contêiner leva muito tempo para iniciar mas eventualmente tem êxito, comece observando o tamanho da sua imagem de contêiner. Já que o Instâncias de Contêiner do Azure efetua pull de sua imagem de contêiner sob demanda, o tempo de inicialização que você experiencia está diretamente relacionado ao tamanho dela.
+Se o contêiner leva muito tempo para iniciar mas eventualmente tem êxito, comece observando o tamanho da sua imagem de contêiner. Como as Instâncias de Contêiner do Azure efetuam pull da imagem de contêiner sob demanda, o tempo de inicialização efetivo está diretamente relacionado ao tamanho delas.
 
 Você pode exibir o tamanho da sua imagem de contêiner usando o comando `docker images` na CLI do Docker:
 
@@ -272,7 +163,7 @@ A chave para manter os tamanhos de imagem pequenos é garantir que sua imagem fi
 
 Outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização do contêiner é hospedar a imagem de contêiner no [Registro de Contêiner do Azure](/azure/container-registry/) na mesma região em que você pretende implantar as instâncias de contêiner. Isso reduz o caminho de rede que a imagem de contêiner precisa percorrer, reduzindo significativamente o tempo de download.
 
-### <a name="use-recent-windows-images"></a>Usar imagens recentes do Windows
+### <a name="cached-windows-images"></a>Imagens armazenadas em cache do Windows
 
 Instâncias de Contêiner do Azure usa um mecanismo de cache para ajudar a acelerar o tempo de inicialização de contêiner para imagens com base em determinadas imagens do Windows.
 
@@ -280,6 +171,10 @@ Para garantir o menor tempo de inicialização do contêiner do Windows, use uma
 
 * [Windows Server 2016][docker-hub-windows-core] (somente LTS)
 * [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+
+### <a name="windows-containers-slow-network-readiness"></a>Preparação de rede lenta de contêineres do Windows
+
+Contêineres do Windows não podem estar sujeito a nenhuma conectividade de entrada ou saída para até cinco segundos em criação inicial. Após a configuração inicial, a rede de contêineres deverá de retomada apropriadamente.
 
 ## <a name="resource-not-available-error"></a>Erro de recurso não disponível
 
@@ -294,12 +189,19 @@ Esse erro indica que devido à carga pesada na região em que você está tentan
 * Implantar em uma região diferente do Azure
 * Implantar em um momento posterior
 
+## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Não é possível conectar à API do Docker subjacente ou executar contêineres com privilégios
+
+As Instâncias de Contêiner do Azure não expõem acesso direto para a infraestrutura subjacente que hospeda grupos de contêineres. Isso inclui o acesso à API do Docker em execução no host do contêiner e contêineres com privilégios em execução. Se exigir interação com o Docker, verifique a [Documentação de referência do REST](https://aka.ms/aci/rest) para ver o que é compatível com a API do ACI. Se faltar alguma coisa, envie uma solicitação nos [Fóruns de comentários do ACI](https://aka.ms/aci/feedback).
+
+## <a name="next-steps"></a>Próximas etapas
+Saiba como [recuperar eventos e logs de contêiner](container-instances-get-logs.md) para ajudar a depurar seus contêineres.
+
 <!-- LINKS - External -->
+[azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
+[windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
 [docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az_container_attach
-[az-container-logs]: /cli/azure/container#az_container_logs
-[az-container-show]: /cli/azure/container#az_container_show
+[az-container-show]: /cli/azure/container#az-container-show

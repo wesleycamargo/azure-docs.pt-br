@@ -5,20 +5,21 @@ services: cdn
 author: SyntaxC4
 ms.service: cdn
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: 210698ffdc523f59220d4215a982f77361c9b6a4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e431e7c45dc2cb41db5b9fa762abc908cc76b375
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34665275"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Criar um novo perfil CDN
 
 Um perfil CDN é um contêiner para pontos de extremidade CDN e especifica um tipo de preço.
 
-1. No Portal do Azure, no canto superior esquerdo, selecione **Criar um recurso**.
+1. No Portal do Azure, no canto superior esquerdo, selecione **Criar um recurso**. 
     
     O **Novo** painel é exibido.
    
@@ -28,22 +29,22 @@ Um perfil CDN é um contêiner para pontos de extremidade CDN e especifica um ti
 
     O painel **Perfil CDN** é exibido.
 
-    Use as configurações especificadas na tabela que acompanha a imagem.
+3. Para as configurações de perfil da CDN, use os valores especificados na tabela a seguir:
    
-    ![Novo perfil CDN](./media/cdn-create-profile/cdn-new-profile.png)
-
     | Configuração  | Valor |
     | -------- | ----- |
-    | **Nome** | Insira *my-cdn-profile-123* como nome de perfil. Esse nome deve ser globalmente exclusivo. Se ele já estiver em uso, você pode inserir um diferente. |
-    | **Assinatura** | Selecione uma assinatura do Azure na lista suspensa.|
-    | **Grupo de recursos** | Selecione **Criar novo** e insira *my-resource-group-123* como o nome para seu novo grupo de recursos. Esse nome deve ser globalmente exclusivo. Se ele já estiver em uso, você pode inserir um diferente. | 
+    | **Nome** | Insira *my-cdn-profile-123* como nome de perfil. Esse nome deve ser globalmente exclusivo. Caso ele já esteja em uso, você pode inserir um nome diferente. |
+    | **Assinatura** | Selecione uma assinatura do Azure na lista suspensa. |
+    | **Grupo de recursos** | Selecione **Criar novo** e insira *my-resource-group-123* como o nome para seu novo grupo de recursos. Esse nome deve ser globalmente exclusivo. Caso ele já esteja em uso, é possível inserir um nome diferente ou selecionar **Usar existente** e depois **my-resource-group-123** na lista suspensa. | 
     | **Localização do grupo de recursos** | Selecione **Centro dos EUA** na lista suspensa. |
     | **Tipo de preços** | Selecione **Verizon Standard** na lista suspensa. |
     | **Criar um novo ponto de extremidade CDN** | Deixe não selecionado. |  
    
-3. Selecione **Fixar no painel** para salvar o perfil em seu painel após sua criação.
-    
-4. Selecione **Criar** para criar o perfil. 
+    ![Novo perfil CDN](./media/cdn-create-profile/cdn-new-profile.png)
 
-    Para perfis da **CDN Standard do Azure da Microsoft**, a conclusão do perfil é finalizada em duas horas. 
+4. Selecione **Fixar no painel** para salvar o perfil em seu painel após sua criação.
+    
+5. Selecione **Criar** para criar o perfil. 
+
+    Somente para perfis da **CDN Standard do Azure da Microsoft**, a conclusão do perfil é finalizada em duas horas. 
 

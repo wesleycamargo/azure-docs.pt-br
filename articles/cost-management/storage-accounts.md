@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 76a9fc586a1932b8b5e664b6c964f0c7d3eac4d4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dab7100c97fab7e086352916ec222ec70a0d0400
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145469"
 ---
 # <a name="configure-storage-accounts-for-cost-management"></a>Configurar contas de armazenamento para Gerenciamento de Custos
 
@@ -22,11 +23,11 @@ ms.lasthandoff: 04/28/2018
 
 Você pode salvar relatórios de gerenciamento de custo no portal de Cloudyn, armazenamento do Azure ou AWS buckets de armazenamento. Salvar seus relatórios no portal de Cloudyn é gratuito. No entanto, salvar seus relatórios para o armazenamento de seu provedor serviço de nuvem é opcional e incorre em custos adicionais. Este artigo o ajudará a configurar contas de armazenamento do Azure e buckets de armazenamento Amazon Web Services (AWS) para armazenar seus relatórios.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você deve ter uma conta de armazenamento do Azure ou uma bucket de armazenamento da Amazon.
 
-Se você não tiver uma conta de armazenamento do Azure, você precisa criar uma. Para saber mais sobre como criar uma nova conta de armazenamento, confira [Criar uma nova conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Se você não tiver uma conta de armazenamento do Azure, você precisa criar uma. Para saber mais sobre como criar uma nova conta de armazenamento, confira [Criar uma nova conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 
 Se você não tiver um bucket de serviço de armazenamento AWS (S3), você precisa criar um. Para saber mais sobre como criar um bucket S3, confira [Criar um Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html).
 
@@ -34,12 +35,12 @@ Se você não tiver um bucket de serviço de armazenamento AWS (S3), você preci
 
 Configurar o armazenamento do Azure para uso pelo Gerenciamento de Custo é simples. Obtenha detalhes sobre a conta de armazenamento e copie-os no portal de Cloudyn.
 
-1. Faça logon no Portal do Azure em http://portal.azure.com.
+1. Entre no Portal do Azure em http://portal.azure.com.
 2. Clique em **Todos os Serviços**, selecione **contas de Armazenamento**, role para a conta de armazenamento que você deseja usar e, em seguida, selecione a conta.
 3. No menu da sua conta de armazenamento em **Configurações**, escolha **Chaves de acesso**.
 4. Copie o **nome da conta de armazenamento** e a **cadeia de caracteres de Conexão** em key1.  
 ![Chaves de acesso de armazenamento do Azure](./media/storage-accounts/azure-storage-access-keys.png)  
-5. Abra o portal da Cloudyn no portal do Azure ou navegue até https://azure.cloudyn.com e faça login.
+5. Abra o portal da Cloudyn por meio do portal do Azure ou navegue até https://azure.cloudyn.com e entre.
 6. Clique no símbolo de engrenagem e, em seguida, selecione **Gerenciamento de Armazenamento de Relatórios**.
 7. Clique em **Adicionar novo +** e certifique-se de que o Microsoft Azure está selecionado. Cole o nome da conta de armazenamento do Azure na área **Nome**. Colar a **cadeia de caracteres de conexão** na área de trabalho correspondente. Insira um nome de contêiner e então clique em **Salvar**.  
 ![Armazenamento Cloudyn configurado para o Azure](./media/storage-accounts/azure-cloudyn-storage.png)
@@ -147,7 +148,7 @@ Você também pode definir permissão para criar relatórios sobre o bucket S3 u
 
 ### <a name="add-aws-report-storage-to-cloudyn"></a>Adicionar armazenamento de relatório AWS Cloudyn
 
-1. Abra o portal da Cloudyn no portal do Azure ou navegue até https://azure.cloudyn.com e faça login.
+1. Abra o portal da Cloudyn por meio do portal do Azure ou navegue até https://azure.cloudyn.com e entre.
 2. Clique no símbolo de engrenagem e, em seguida, selecione **Gerenciamento de Armazenamento de Relatórios**.
 3. Clique em **Adicionar novo +** e certifique-se de que o AWS está selecionado.
 4. Selecione um bucket de armazenamento e de conta. O nome da partição de armazenamento AWS é preenchido automaticamente.  

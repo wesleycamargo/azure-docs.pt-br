@@ -2,23 +2,21 @@
 title: 'BD Cosmos do Azure: compilar um aplicativo Web com o .NET e com a API do MongoDB | Microsoft Docs'
 description: Apresenta um exemplo de código .NET que pode ser usado para se conectar à API do MongoDB do BD Cosmos do Azure e consultá-la
 services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
+author: slyons
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/19/2018
-ms.author: sngun
-ms.openlocfilehash: bab2728db7cdb410e995c30d69642c968ef6567d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.date: 05/22/2018
+ms.author: sclyon
+ms.openlocfilehash: a87b4c50beea21f9d7721b60ae691eeafaedfc05
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42023789"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>BD Cosmos do Azure: compilar um aplicativo Web da API do MongoDB com o .NET e com o Portal do Azure
 
@@ -38,6 +36,8 @@ Caso ainda não tenha o Visual Studio, baixe o [Visual Studio 2017 Community Edi
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
+
+O exemplo descrito neste artigo é compatível com MongoDB.Driver versão 2.6.1.
 
 ## <a name="clone-the-sample-app"></a>Clonar o aplicativo de exemplo
 
@@ -81,10 +81,7 @@ Todos os trechos de código a seguir são retirados do arquivo Dal.cs no diretó
         MongoIdentity identity = new MongoInternalIdentity(dbName, userName);
         MongoIdentityEvidence evidence = new PasswordEvidence(password);
 
-        settings.Credentials = new List<MongoCredential>()
-        {
-            new MongoCredential("SCRAM-SHA-1", identity, evidence)
-        };
+        settings.Credential = new MongoCredential("SCRAM-SHA-1", identity, evidence);
 
         MongoClient client = new MongoClient(settings);
     ```
@@ -164,5 +161,5 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure e executar um aplicativo Web usando a API para MongoDB. Agora, é possível importar outros dados para sua conta do Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importar dados no BD Cosmos do Azure para a API do MongoDB](mongodb-migrate.md)
+> [Importar dados no Azure Cosmos DB para a API do MongoDB](mongodb-migrate.md)
 

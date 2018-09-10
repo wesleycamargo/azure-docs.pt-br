@@ -1,11 +1,11 @@
 ---
-title: "Gerenciar problemas de proteção de ponto de extremidade com a Central de Segurança do Azure | Microsoft Docs"
-description: "Saiba como gerenciar problemas de proteção de ponto de extremidade na Central de Segurança do Azure."
+title: Gerenciar problemas de proteção de ponto de extremidade com a Central de Segurança do Azure | Microsoft Docs
+description: Saiba como gerenciar problemas de proteção de ponto de extremidade na Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/24/2017
+ms.locfileid: "23497344"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gerenciar problemas de proteção de ponto de extremidade com a Central de Segurança do Azure
 A Central de Segurança do Azure monitora o status da proteção antimalware e relata isso na folha Problemas de proteção de ponto de extremidade. A Central de Segurança realça os problemas, como ameaças detectadas e proteção insuficiente, que podem tornar seus computadores e VMs (máquinas virtuais) vulneráveis a ameaças de antimalware. Ao usar as informações em **Problemas de proteção de ponto de extremidade**, você pode identificar um plano para solucionar os problemas identificados.

@@ -6,15 +6,16 @@ author: jovanpop-msft
 ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 0813/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f05f6f785ec8466fc6d0ae2c94c975312ef37fa2
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141815"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure em relação ao SQL Server 
 
@@ -207,6 +208,10 @@ Não há suporte na Instância Gerenciada para as instruções DBCC não documen
 - Não há suporte para `DBCC TRACEOFF`. Consulte [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
 - Não há suporte para `DBCC TRACEON`. Consulte [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
 
+### <a name="distributed-transactions"></a>Transações distribuídas
+
+Nem o MSDTC nem [ Elastic Transactions ](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) são atualmente suportados na Instância Gerenciada.
+
 ### <a name="extended-events"></a>Eventos Estendidos 
 
 Não há suporte para alguns destinos específicos do Windows para XEvents:
@@ -262,7 +267,7 @@ Não há suporte para tabelas externas que fazem referência aos arquivos no arm
 
 ### <a name="replication"></a>Replicação 
  
-A Replicação ainda não é compatível. Para saber mais sobre a Replicação, consulte [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication).
+Há suporte para replicação na Instância Gerenciada. Para saber mais sobre a Replicação, consulte [Replicação do SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>Instrução RESTAURAR 
  
@@ -366,21 +371,19 @@ Para obter informações sobre o SQL Server Agent, consulte [SQL Server Agent](h
 Não há suporte para os itens a seguir: 
 - `FILESTREAM` 
 - `FILETABLE` 
-- `EXTERNAL TABLE` 
+- `EXTERNAL TABLE`
 - `MEMORY_OPTIMIZED`  
 
 Para obter informações sobre a criação e alteração de tabelas, consulte [CRIAR TABELA](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) e [ALTERAR TABELA](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
- 
+
 ## <a name="Changes"></a> Alterações de comportamento 
  
 As seguintes variáveis, funções e exibições retornam resultados diferentes:  
 - `SERVERPROPERTY('EngineEdition')` retorna um valor 8. Essa propriedade identifica exclusivamente a Instância Gerenciada. Consulte [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` retorna o nome da instância curto, por exemplo, 'myserver'. Consulte [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` retorna NULL, porque o conceito de instância como existe para o SQL Server não se aplica à Instância Gerenciada. Consulte [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` returna o nome completo 'conectável' do DNS, por exemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consulte [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` - retorna o nome completo 'conectável' do DNS, como `myinstance.domain.database.windows.net`, para propriedades 'name' e 'data_source'. Consulte [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVERNAME` retorna o nome completo 'conectável' do DNS, como `my-managed-instance.wcus17662feb9ce98.database.windows.net`. Consulte [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
-- `SYS.SERVERS` - retorna o nome completo 'conectável' do DNS, como `myinstance.domain.database.windows.net`, para propriedades 'name' e 'data_source'. Consulte [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVICENAME` retorna NULL, pois não faz sentido no ambiente de Instância Gerenciada. Consulte [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
+- `@@SERVICENAME` retorna NULL, porque o conceito de serviço como existe para o SQL Server não se aplica à Instância Gerenciada. Consulte [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - Há suporte para `SUSER_ID`. Retorna NULL se o logon do AAD não estiver em sys.syslogins. Consulte [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - Não há suporte para `SUSER_SID`. Retorna dados incorretos (problema temporário conhecido). Consulte [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
 - `GETDATE()` e outras funções internas de data/hora sempre retornam a hora no fuso horário UTC. Consulte [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
@@ -395,9 +398,12 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
 Cada Instância Gerenciada tem até 35 TB de armazenamento reservado para o espaço em Disco Premium do Azure e cada arquivo de banco de dados é colocado em um disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. O espaço não utilizado no disco não é cobrado, mas a soma total dos tamanhos de Disco Premium do Azure não pode exceder 35 TB. Em alguns casos, uma Instância Gerenciada que não precise de 8 TB no total pode exceder o limite de 35 TB do Azure em tamanho de armazenamento, devido à fragmentação interna. 
 
-Por exemplo, uma Instância Gerenciada pode ter um arquivo com tamanho de 1,2 TB que usa um disco de 4 TB e 248 arquivos com 1 GB cada que são colocados em 248 discos com tamanho de 128 GB. Nesse exemplo, o tamanho do armazenamento em disco total é de 1 x 4 TB + 248 x 128 GB = 35 TB. No entanto, o tamanho total de instâncias reservadas para bancos de dados é de 1 x 1,2 TB + 248 GB x 1 = 1,4 TB. Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição muito específica de arquivos, uma Instância Gerenciada pode alcançar o limite de armazenamento do Disco Premium do Azure onde você não esperaria. 
+Por exemplo, uma instância gerenciada pode ter um arquivo de 1,2 TB de tamanho que é colocado em um disco de 4 TB e 248 arquivos ins um tamanho 1 GB que são colocados em discos separados de 128 GB. Neste exemplo, 
+* o tamanho do armazenamento em disco total é de 1 x 4 TB + 248 x 128 GB = 35 TB. 
+* total de espaço reservado para os bancos de dados na instância é de 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
+Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição muito específica de arquivos, uma Instância Gerenciada pode alcançar os 35TB reservados para o Disco Premium do Azure onde você não esperaria. 
 
-Não deve haver nenhum erro em bancos de dados existentes e eles podem crescer sem problemas se os novos arquivos não são adicionados, mas novos bancos de dados não podem ser criados ou restaurados porque não há espaço suficiente para novas unidades de disco, mesmo que o tamanho total de todos os bancos de dados não alcance o limite de tamanho de instância. O erro retornado nesse caso não é claro.
+Neste exemplo bancos de dados existentes continuarão a funcionar e pode crescer sem problemas, desde que não sejam adicionados novos arquivos. No entanto os novos bancos de dados não pode ser criados ou restaurados porque não há espaço suficiente para novas unidades de disco, mesmo se o tamanho total de todos os bancos de dados não alcançar o limite de tamanho de instância. O erro retornado nesse caso não é claro.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configuração incorreta da chave SAS durante a restauração do banco de dados
 

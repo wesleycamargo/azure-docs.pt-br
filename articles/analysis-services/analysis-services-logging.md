@@ -3,16 +3,17 @@ title: Log de diagnósticos para o Azure Analysis Services | Microsoft Docs
 description: Saiba mais sobre como configurar o log de diagnósticos do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 396ee2fc132abb5fbfd29bf5fffe9b1388b9a964
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d19e45710aca3e1e18be6c4529da6474a97bc59f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448734"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar o log de diagnósticos
 
@@ -56,7 +57,6 @@ Selecionar **Mecanismo** registra todos [xEvents](https://docs.microsoft.com/sql
 
 |Nome da operação  |Ocorre quando  |
 |---------|---------|
-|CreateGateway     |   Usuário configura um gateway no servidor      |
 |ResumeServer     |    Retomar um servidor     |
 |SuspendServer    |   Pausar um servidor      |
 |DeleteServer     |    Excluir um servidor     |

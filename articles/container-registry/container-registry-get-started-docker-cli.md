@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d729a45b28ad02a652c265974d46fe1aaf752198
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 24cccd4745d611196046168f0125e7ef2a184e15
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576484"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Envie sua primeira imagem para um registro de contêiner privado do Docker usando a CLI do Docker
 
@@ -21,20 +22,20 @@ Um registro de contêiner do Azure armazena e gerencia imagens de contêiner pri
 
 Nas etapas a seguir, você baixará uma [imagem Nginx](https://store.docker.com/images/nginx) oficial do registro do Hub do Docker público, a rotulará para seu registro de contêiner do Azure privado, enviará por push para o registro e, em seguida, efetuará pull dela do registro.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* **Registro de Contêiner do Azure** - crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure 2.0](container-registry-get-started-azure-cli.md).
+* **Registro de Contêiner do Azure** - crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure](container-registry-get-started-azure-cli.md).
 * **CLI do Docker** – para configurar o computador local como um host do Docker e acessar os comandos da CLI do Docker, instale o [Docker](https://docs.docker.com/engine/installation/).
 
 ## <a name="log-in-to-a-registry"></a>Fazer logon em um registro
 
-Há [várias maneiras de autenticar](container-registry-authentication.md) no registro de contêiner privado. É o método recomendado ao trabalhar em uma linha de comando com o comando [logon de acr az](/cli/azure/acr?view=azure-cli-latest#az_acr_login) da CLI do Azure. Por exemplo, para fazer logon em um registro chamado *meuregistro*:
+Há [várias maneiras de autenticar](container-registry-authentication.md) no registro de contêiner privado. É o método recomendado ao trabalhar em uma linha de comando com o comando [logon de acr az](/cli/azure/acr?view=azure-cli-latest#az-acr-login) da CLI do Azure. Por exemplo, para fazer logon em um registro chamado *meuregistro*:
 
 ```azurecli
 az acr login --name myregistry
 ```
 
-Você também pode fazer logon com o [logon do docker](https://docs.docker.com/engine/reference/commandline/login/). O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/active-directory-application-objects.md) do Azure Active Directory. Por exemplo, você pode [atribuir uma entidade de serviço](container-registry-authentication.md#service-principal) ao registro para um cenário de automação.
+Você também pode fazer logon com o [logon do docker](https://docs.docker.com/engine/reference/commandline/login/). O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, você pode [atribuir uma entidade de serviço](container-registry-authentication.md#service-principal) ao registro para um cenário de automação.
 
 ```Bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -115,7 +116,7 @@ Se você não precisar mais da imagem Nginx, poderá excluí-la localmente com o
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Para remover as imagens de seu registro de contêiner do Azure, você pode usar o comando [az acr repository delete](/cli/azure/acr/repository#az_acr_repository_delete) da CLI do Azure. Por exemplo, o comando a seguir exclui o manifesto referenciado por uma marca, quaisquer dados da camada associada e todas as outras marcas que façam referência ao manifesto.
+Para remover as imagens de seu registro de contêiner do Azure, você pode usar o comando [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete) da CLI do Azure. Por exemplo, o comando a seguir exclui o manifesto referenciado por uma marca, quaisquer dados da camada associada e todas as outras marcas que façam referência ao manifesto.
 
 ```azurecli
 az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest

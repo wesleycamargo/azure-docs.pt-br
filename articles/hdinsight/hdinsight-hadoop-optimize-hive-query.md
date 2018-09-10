@@ -2,23 +2,19 @@
 title: Otimizar consultas do Hive no Azure HDInsight | Microsoft Docs
 description: Saiba como otimizar suas consultas do Hive no HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: e844b4f1e9898347da6af589dbfe41bf2ad3ab69
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 1fd3ff89fc8428f03d22f4aa195dabf0e988ef57
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106480"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Otimizar consultas do Hive no Azure HDInsight | Microsoft Docs
 

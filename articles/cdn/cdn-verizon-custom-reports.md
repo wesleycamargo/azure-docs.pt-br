@@ -1,12 +1,12 @@
 ---
-title: "Relatórios personalizados da Verizon | Microsoft Docs"
-description: "É possível exibir os padrões de uso da CDN usando os seguintes relatórios: largura de banda, dados transferidos, ocorrências, status do cache, taxa de ocorrências no cache, dados IPV4/IPV6 transferidos."
+title: Relatórios personalizados da Verizon | Microsoft Docs
+description: 'É possível exibir os padrões de uso da CDN usando os seguintes relatórios: largura de banda, dados transferidos, ocorrências, status do cache, taxa de ocorrências no cache, dados IPV4/IPV6 transferidos.'
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26343881"
 ---
 # <a name="custom-reports-from-verizon"></a>Relatórios personalizados da Verizon
 

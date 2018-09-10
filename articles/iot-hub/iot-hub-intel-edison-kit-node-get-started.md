@@ -1,32 +1,27 @@
 ---
 title: Intel Edison para nuvem (Node.js) - Conectar o Intel Edison ao Hub IoT do Azure | Microsoft Docs
 description: Neste tutorial, aprenda a configurar e conectar o Intel Edison ao Hub IoT do Azure para o Intel Edison enviar dados para a plataforma de nuvem do Azure.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: azure iot intel edison, intel edison iot hub, intel edison envia dados para a nuvem, intel edison para nuvem
-ms.assetid: a7c9cf2d-c102-41b0-aa45-41285c6877eb
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: nodejs
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+ms.topic: conceptual
+ms.date: 04/11/2018
 ms.author: rangv
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78dd623d021daa7f8cb0d52dd4e438aebe81e924
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5adb6e6119856879e52836a8d3a797a7b40c6fe8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214423"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>Conectar o Intel Edison ao Hub IoT do Azure (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-Neste tutorial, você começa aprendendo as noções básicas de como trabalhar com o Intel Edison. Em seguida, aprenderá a conectar seus dispositivos diretamente à nuvem usando o [Hub IoT do Azure](iot-hub-what-is-iot-hub.md).
+Neste tutorial, você começa aprendendo as noções básicas de como trabalhar com o Intel Edison. Em seguida, aprenderá a conectar seus dispositivos diretamente à nuvem usando o [Hub IoT do Azure](about-iot-hub.md).
 
 Não tem um dispositivo ainda? Comece [aqui](https://azure.microsoft.com/develop/iot/starter-kits)
 

@@ -1,25 +1,19 @@
 ---
 title: Entender os SDKs do IoT Azure | Microsoft Docs
 description: Guia do desenvolvedor ‑ Informações e links para os vários SDKs de serviço e de dispositivo do IoT do Azure que você pode usar para criar os aplicativos do dispositivo e de back-end.
-services: iot-hub
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: c5c9a497-bb03-4301-be2d-00edfb7d308f
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: dobett
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71d02e3f8bf0757d7ea0622e76b95acda1fefc95
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 710de8021abfa5b1fc17491af6b8b9f2bdd3a19f
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919030"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Entender e usar os SDKs de Hub IoT do Azure
 
@@ -61,6 +55,10 @@ SDK do dispositivo de Hub IoT do Azure para Python:
 * Instalar do arquivo [pip][lnk-pip-device]
 * [Código-fonte][lnk-python-sdk]
 
+SDK do dispositivo do Hub IoT para iOS: 
+* Instalar de [CocoaPod][lnk-cocoa-device]
+* [Exemplos][lnk-ios-sample]
+
 > [!NOTE]
 > Consulte os arquivos Leiame nos repositórios GitHub para obter informações sobre como usar os gerenciadores de pacotes específicos à linguagem e à plataforma para instalar binários e dependências em seu computador de desenvolvimento.
 > 
@@ -68,6 +66,7 @@ SDK do dispositivo de Hub IoT do Azure para Python:
 
 ### <a name="os-platform-and-hardware-compatibility"></a>Compatibilidade de plataforma do sistema operacional e hardware
 
+Plataformas com suporte para os SDKs que podem ser encontradas neste [documento](iot-hub-device-sdk-platform-support.md).
 Para saber mais sobre a compatibilidade do SDK com dispositivos de hardware específicos, consulte o [Catálogo de dispositivos certificados pelo Azure para IoT][lnk-certified] ou repositório individual.
 
 ## <a name="azure-iot-service-sdks"></a>SDKs do serviço IoT do Azure
@@ -97,11 +96,20 @@ SDK de serviço de Hub IoT do Azure para C:
 * Faça o download de [apt-get, MBED, Arduino IDE ou Nuget][lnk-c-package]
 * [Código-fonte][lnk-c-sdk]
 
+SDK do serviço do Hub IoT para iOS: 
+* Instalar de [CocoaPod][lnk-cocoa-service]
+* [Exemplos][lnk-ios-sample]
+
 > [!NOTE]
 > Consulte os arquivos Leiame nos repositórios GitHub para obter informações sobre como usar os gerenciadores de pacotes específicos à linguagem e à plataforma para instalar binários e dependências em seu computador de desenvolvimento.
 
 
+
 ## <a name="next-steps"></a>Próximas etapas
+
+Os SDKs de IoT do Azure também fornecem um conjunto de ferramentas para ajudá-lo com o desenvolvimento:
+* [iothub-diagnostics](https://github.com/Azure/iothub-diagnostics): uma ferramenta de linha de comando de plataforma cruzada para ajudar a diagnosticar problemas relacionados à conexão com o IoT Hub.
+* [Gerenciador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer): um aplicativo de desktop do Windows para se conectar ao seu IoT Hub.
 
 Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 
@@ -110,6 +118,7 @@ Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 * [Cotas e limitações][lnk-devguide-quotas]
 * [Suporte ao MQTT do Hub IoT][lnk-devguide-mqtt]
 * [Referência de API REST do Hub IoT][lnk-rest-ref]
+* [Suporte de plataforma do SDK do IoT do Azure](iot-hub-device-sdk-platform-support.md)
 
 <!-- Links and images -->
 
@@ -135,7 +144,7 @@ Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 [lnk-npm-service]: https://www.npmjs.com/package/azure-iothub
 [lnk-nuget-csharp-device]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-csharp-service]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-c-package]: https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md
+[lnk-c-package]: https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md
 [lnk-pip-device]: https://pypi.python.org/pypi/azure-iothub-device-client/
 [lnk-pip-service]: https://pypi.python.org/pypi/azure-iothub-service-client/
 
@@ -145,3 +154,6 @@ Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-benefits-blog]: https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/
+[lnk-cocoa-device]: https://cocoapods.org/pods/AzureIoTHubClient
+[lnk-ios-sample]: https://github.com/Azure-Samples/azure-iot-samples-ios
+[lnk-cocoa-service]: https://cocoapods.org/pods/AzureIoTHubServiceClient

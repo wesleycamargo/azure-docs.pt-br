@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 0197aabbb3a0594ed8a7c54282491298fdf7cd23
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444622"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o .NET
 > [!div class="op_single_selector"]
@@ -136,7 +137,7 @@ O código faz o seguinte:
                 var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
                 Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                // It is recommended to validate AccestFiles before upload. 
+                // It is recommended to validate AssetFiles before upload. 
                 Console.WriteLine("Start uploading of {0}", assetFile.Name);
                 uploadTasks.Add(assetFile.UploadAsync(filePath, blobTransferClient, locator, CancellationToken.None));
             }
@@ -198,16 +199,18 @@ O exemplo a seguir demonstra a adição de dois novos IngestManifestAssets que a
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
 ```
 
-Você pode usar qualquer aplicativo de cliente de alta velocidade capaz de carregar os arquivos de ativo para o URI do contêiner de armazenamento de blobs fornecido pela propriedade **IIngestManifest.BlobStorageUriForUpload** do IngestManifest. Um serviço de upload de alta velocidade notável é [Aspera sob demanda para o aplicativo Azure](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6). Você também pode escrever o código para carregar os arquivos de ativos conforme mostrado no exemplo de código a seguir.
+Você pode usar qualquer aplicativo de cliente de alta velocidade capaz de carregar os arquivos de ativo para o URI do contêiner de armazenamento de blobs fornecido pela propriedade **IIngestManifest.BlobStorageUriForUpload** do IngestManifest. 
+
+O código a seguir mostra como usar o SDK .NET para carregar os arquivos de ativos.
 
 ```csharp
-    static void UploadBlobFile(string destBlobURI, string filename)
+    static void UploadBlobFile(string containerName, string filename)
     {
         Task copytask = new Task(() =>
         {
             var storageaccount = new CloudStorageAccount(new StorageCredentials(_storageAccountName, _storageAccountKey), true);
             CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
-            CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
+            CloudBlobContainer blobContainer = blobClient.GetContainerReference(containerName);
 
             string[] splitfilename = filename.Split('\\');
             var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);

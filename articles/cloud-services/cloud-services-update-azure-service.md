@@ -1,11 +1,11 @@
 ---
-title: "Como atualizar um serviço de nuvem | Microsoft Docs"
-description: "Saiba como atualizar os serviços de nuvem no Azure. Saiba como uma atualização em um serviço de nuvem é realizada para garantir a disponibilidade."
+title: Como atualizar um serviço de nuvem | Microsoft Docs
+description: Saiba como atualizar os serviços de nuvem no Azure. Saiba como uma atualização em um serviço de nuvem é realizada para garantir a disponibilidade.
 services: cloud-services
-documentationcenter: 
-author: Thraka
+documentationcenter: ''
+author: jpconnock
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: 36d4ee9dabd39f4103d17455e47521b378af6ebb
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: jeconnoc
+ms.openlocfilehash: 2f5a82fac18ab34bfa9d6b46f553227ed44a994a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008086"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
 
@@ -53,18 +54,18 @@ A tabela a seguir mostra as alterações permitidas em um serviço durante uma a
 
 | Alterações permitidas na hospedagem, serviços e funções | Atualização in-loco | Em estágios (permuta de VIP) | Excluir e reimplantar |
 | --- | --- | --- | --- |
-| Versão do sistema operacional |Sim |Sim |Sim |
-| Nível de confiança do .NET |Sim |Sim |Sim |
-| Tamanho da máquina virtual<sup>1</sup> |Sim<sup>2</sup> |Sim |Sim |
-| Configurações de armazenamento local |Apenas aumento<sup>2</sup> |Sim |Sim |
-| Adicionar ou remover funções em um serviço |Sim |Sim |Sim |
-| Número de instâncias de uma função específica |Sim |Sim |Sim |
-| Número ou tipo de pontos de extremidade de um serviço |Sim<sup>2</sup> |Não |Sim |
-| Nomes e valores dos parâmetros de configuração |Sim |Sim |Sim |
-| Valores (mas não nomes) dos parâmetros de configuração |Sim |Sim |Sim |
-| Adicionar novos certificados |Sim |Sim |Sim |
-| Alterar certificados existentes |Sim |Sim |Sim |
-| Implantar novo código |Sim |Sim |Sim |
+| Versão do sistema operacional |SIM |sim |SIM |
+| Nível de confiança do .NET |SIM |sim |SIM |
+| Tamanho da máquina virtual<sup>1</sup> |Sim<sup>2</sup> |SIM |SIM |
+| Configurações de armazenamento local |Apenas aumento<sup>2</sup> |SIM |SIM |
+| Adicionar ou remover funções em um serviço |SIM |sim |SIM |
+| Número de instâncias de uma função específica |SIM |sim |SIM |
+| Número ou tipo de pontos de extremidade de um serviço |Sim<sup>2</sup> |Não  |SIM |
+| Nomes e valores dos parâmetros de configuração |SIM |sim |SIM |
+| Valores (mas não nomes) dos parâmetros de configuração |SIM |sim |SIM |
+| Adicionar novos certificados |SIM |sim |SIM |
+| Alterar certificados existentes |SIM |sim |SIM |
+| Implantar novo código |SIM |sim |SIM |
 
 <sup>1</sup>Alteração de tamanho limitado ao subconjunto de tamanhos disponíveis para o serviço de nuvem.
 
@@ -188,4 +189,4 @@ O diagrama a seguir ilustra como é a distribuição de um serviço que contém 
 ## <a name="next-steps"></a>Próximas etapas
 [Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)  
 [Como monitorar serviços de nuvem](cloud-services-how-to-monitor.md)  
-[Como configurar os Serviços de Nuvem](cloud-services-how-to-configure-portal.md)  
+[Como configurar serviços de nuvem](cloud-services-how-to-configure-portal.md)  

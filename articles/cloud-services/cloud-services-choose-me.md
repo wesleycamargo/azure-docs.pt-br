@@ -1,9 +1,9 @@
 ---
-title: "Opções de computação do Azure – Serviços de Nuvem do Azure | Microsoft Docs"
-description: "Saiba mais sobre opções de hospedagem de computação do Azure e como elas funcionam: Serviço de Aplicativo, Serviços de Nuvem do Azure e Máquinas Virtuais"
+title: O que são os Serviços de Nuvem do Azure | Microsoft Docs
+description: Saiba mais sobre o que são os Serviços de Nuvem do Azure.
 services: cloud-services
-documentationcenter: 
-author: Thraka
+documentationcenter: ''
+author: jpconnock
 manager: timlt
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
 ms.service: multiple
@@ -12,21 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: 2871a8c02db0ffc6d9033724e7c9f4a454afef8e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: jeconnoc
+ms.openlocfilehash: 6af4533a4ab374071b904cc4b03ca239a3e83364
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011654"
 ---
-# <a name="should-i-choose-azure-cloud-services-or-something-else"></a>Devo escolher os Serviços de Nuvem do Azure ou algo mais?
-Os Serviços de Nuvem do Azure são a escolha certa para você? A Azure fornece diferentes modelos de hospedagem para executar aplicativos. Cada um deles fornece um conjunto diferente de serviços. Qual deles escolher depende exatamente do que você está tentando fazer.
-
-[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
-
-<a name="tellmecs"></a>
-
-## <a name="tell-me-about-azure-cloud-services"></a>Fale-me sobre os Serviços de Nuvem do Azure
+# <a name="overview-of-azure-cloud-services"></a>Visão geral dos Serviços de Nuvem do Azure
 Os Serviços de Nuvem do Azure são um exemplo de uma [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (Plataforma como Serviço). Como o [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), essa tecnologia foi desenvolvida para dar suporte aos aplicativos escalonáveis, confiáveis e baratos de operar. Da mesma forma que o Serviço de Aplicativo é hospedado em máquinas virtuais (VMs), os Serviços de Nuvem do Azure também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software em VMs que usam os Serviços de Nuvem do Azure acessá-las remotamente.
 
 ![Diagrama dos Serviços de Nuvem do Azure](./media/cloud-services-choose-me/diagram.png)

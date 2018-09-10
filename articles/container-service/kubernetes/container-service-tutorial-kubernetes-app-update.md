@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f54179329b521cc861e90f023ff0b010b7ce1f75
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9cb5769d7f54a1036bf14199c87961c95ed2e7ce
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432399"
 ---
 # <a name="update-an-application-in-kubernetes"></a>Atualizar um aplicativo no Kubernetes
 
@@ -79,7 +80,7 @@ Navegue até http://localhost:8080 para ver o aplicativo atualizado.
 
 Marque a imagem `azure-vote-front` com o loginServer do registro de contêiner. 
 
-Obter o nome do servidor de logon com o comando [az acr list](/cli/azure/acr#az_acr_list).
+Obter o nome do servidor de logon com o comando [az acr list](/cli/azure/acr#az-acr-list).
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -99,7 +100,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## <a name="deploy-update-application"></a>Implantar aplicativo de atualização
 
-Para garantir o tempo de atividade máximo, várias instâncias do pod de aplicativos devem estar em execução. Verifique essa configuração com o comando [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get).
+Para garantir o tempo de atividade máximo, várias instâncias do pod de aplicativos devem estar em execução. Verifique essa configuração com o comando [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
 ```bash
 kubectl get pod
@@ -122,13 +123,13 @@ Se não houver vários pods executando a imagem do azure-vote-front, dimensione 
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Para atualizar o aplicativo, utilize o comando [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set). Atualize `<acrLoginServer>` com o servidor de logon ou o nome do host do registro de contêiner.
+Para atualizar o aplicativo, utilize o comando [kubectl set](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set). Atualize `<acrLoginServer>` com o servidor de logon ou o nome do host do registro de contêiner.
 
 ```azurecli-interactive
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Para monitorar a implantação, use o comando [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get). Conforme o aplicativo atualizado é implantado, os pods são encerrados e recriados com a nova imagem de contêiner.
+Para monitorar a implantação, use o comando [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get). Conforme o aplicativo atualizado é implantado, os pods são encerrados e recriados com a nova imagem de contêiner.
 
 ```azurecli-interactive
 kubectl get pod

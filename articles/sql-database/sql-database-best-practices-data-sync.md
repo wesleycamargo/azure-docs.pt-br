@@ -1,24 +1,25 @@
 ---
-title: Práticas recomendadas para a Sincronização de Dados SQL do Azure (versão prévia) | Microsoft Docs
-description: Conheça as práticas recomendadas para configurar e executar a Sincronização de Dados SQL do Azure (versão prévia).
+title: Práticas Recomendadas para a Sincronização de Dados SQL do Azure | Microsoft Docs
+description: Conheça as práticas recomendadas para configurar e executar a Sincronização de Dados SQL do Azure.
 services: sql-database
-ms.date: 04/01/2018
-ms.topic: article
+ms.date: 08/20/2018
+ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 7ce7830d853a77b54706201fa614e9f4bee637a4
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 96fff35b95a63e4f806258eff59d08afb2db0ffd
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141658"
 ---
-# <a name="best-practices-for-sql-data-sync-preview"></a>Práticas recomendadas para a Sincronização de Dados SQL (Versão prévia) 
+# <a name="best-practices-for-sql-data-sync"></a>Práticas recomendadas para a Sincronização de Dados SQL 
 
-Este artigo descreve as práticas recomendadas para a Sincronização de Dados SQL do Azure (versão prévia).
+Este artigo descreve as práticas recomendadas para a Sincronização de Dados SQL do Azure.
 
-Para obter uma visão geral da Sincronização de Dados SQL (versão prévia), veja [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-sync-data.md).
+Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a> Segurança e confiabilidade
 
@@ -49,10 +50,10 @@ O banco de dados do SQL Azure oferece suporte a apenas um único conjunto de cre
 
 #### <a name="sql-database-instance-size"></a>Tamanho da instância do Banco de Dados SQL
 
-Quando você criar uma nova instância do Banco de Dados SQL, defina o tamanho máximo para que ele sempre seja maior que o banco de dados que você implanta. Se você não definir o tamanho máximo maior do que o banco de dados implantado, a sincronização falhará. Embora a Sincronização de Dados SQL (versão prévia) não ofereça o crescimento automático, você pode executar o comando `ALTER DATABASE` para aumentar o tamanho do banco de dados após ele ter sido criado. Não deixe de permanecer dentro dos limites de tamanho da instância do Banco de Dados SQL.
+Quando você criar uma nova instância do Banco de Dados SQL, defina o tamanho máximo para que ele sempre seja maior que o banco de dados que você implanta. Se você não definir o tamanho máximo maior do que o banco de dados implantado, a sincronização falhará. Embora a Sincronização de Dados SQL não ofereça o crescimento automático, você pode executar o comando `ALTER DATABASE` para aumentar o tamanho do banco de dados após ele ter sido criado. Não deixe de permanecer dentro dos limites de tamanho da instância do Banco de Dados SQL.
 
 > [!IMPORTANT]
-> A Sincronização de Dados SQL (versão prévia) armazena metadados adicionais com cada banco de dados. Não deixe de considerar esses metadados ao calcular o espaço necessário. A quantidade de sobrecarga adicionada é relacionada à largura das tabelas (por exemplo, tabelas estreitas exigem mais sobrecarga) e a quantidade de tráfego.
+> A Sincronização de Dados SQL armazena metadados adicionais com cada banco de dados. Não deixe de considerar esses metadados ao calcular o espaço necessário. A quantidade de sobrecarga adicionada é relacionada à largura das tabelas (por exemplo, tabelas estreitas exigem mais sobrecarga) e a quantidade de tráfego.
 
 ### <a name="table-considerations-and-constraints"></a> Restrições e considerações de tabela
 
@@ -62,32 +63,32 @@ Você não precisa incluir todas as tabelas que estão em um banco de dados em u
 
 #### <a name="primary-keys"></a>Chaves primárias
 
-Cada tabela em um grupo de sincronização deve ter uma chave primária. O serviço Sincronização de Dados SQL (versão prévia) não pode sincronizar uma tabela que não tem uma chave primária.
+Cada tabela em um grupo de sincronização deve ter uma chave primária. O serviço Sincronização de Dados SQL não pode sincronizar uma tabela que não tem uma chave primária.
 
-Antes de usar a Sincronização de Dados SQL (versão prévia) em produção, teste o desempenho de sincronização inicial e em andamento.
+Antes de usar a Sincronização de Dados SQL em produção, teste o desempenho de sincronização inicial e em andamento.
 
 ### <a name="provisioning-destination-databases"></a> Provisionamento de bancos de dados de destino
 
-A Sincronização de Dados SQL (versão prévia) fornece provisionamento automático de banco de dados básico.
+A Sincronização de Dados SQL fornece provisionamento automático de banco de dados básico.
 
-Esta seção discute as limitações do provisionamento da Sincronização de Dados SQL (versão prévia).
+Esta seção discute as limitações do provisionamento da Sincronização de Dados SQL.
 
 #### <a name="autoprovisioning-limitations"></a>Limitações de provisionamento automático
 
-A Sincronização de Dados SQL (versão prévia) tem as seguintes limitações em provisionamento automático:
+A Sincronização de Dados SQL tem as seguintes limitações para provisionamento automático:
 
--   Selecione somente as colunas que são criadas na tabela de destino.  
-    As colunas que não fazem parte do grupo de sincronização não são provisionadas nas tabelas de destino.
--   Índices são criados somente para as colunas selecionadas.  
-    Se o índice da tabela de origem tem colunas que não fazem parte do grupo de sincronização, esses índices não são provisionados nas tabelas de destino.  
+-   Selecione somente as colunas que são criadas na tabela de destino. As colunas que não fazem parte do grupo de sincronização não são provisionadas nas tabelas de destino.
+-   Índices são criados somente para as colunas selecionadas. Se o índice da tabela de origem tem colunas que não fazem parte do grupo de sincronização, esses índices não são provisionados nas tabelas de destino.  
 -   Índices em colunas de tipo XML não são provisionados.  
 -   Restrições CHECK não são provisionadas.  
 -   Os gatilhos existentes nas tabelas de origem não são provisionados.  
 -   Exibições e procedimentos armazenados não são criados no banco de dados de destino.
+-   EM UPDATE CASCADE e ON DELETE CASCADE ações em restrições de chave estrangeira não são recriadas nas tabelas de destino.
+-   Se você tiver colunas decimais ou numéricas com uma precisão maior que 28, a Sincronização de Dados SQL poderá encontrar um problema de estouro de conversão durante a sincronização. É recomendável que você limite a precisão de colunas decimais ou numéricas a 28 ou menos.
 
 #### <a name="recommendations"></a>Recomendações
 
--   Use o recurso de provisionamento automático da Sincronização de Dados SQL (versão prévia) somente quando você estiver experimentando o serviço.  
+-   Use o recurso de provisionamento automático da Sincronização de Dados SQL somente quando você estiver experimentando o serviço.  
 -   Para a produção, provisione o esquema de banco de dados.
 
 ### <a name="locate-hub"></a> Onde localizar o banco de dados hub
@@ -113,7 +114,7 @@ Nesta seção, discutiremos a sincronização inicial de um grupo de sincroniza�
 
 #### <a name="how-initial-sync-works"></a>Como funciona a sincronização inicial
 
-Quando você criar um grupo de sincronização, comece com os dados em apenas um banco de dados. Se você tiver dados em vários bancos de dados, a Sincronização de Dados SQL (versão prévia) tratará cada linha como um conflito a ser resolvido. Esta resolução de conflitos causa lentidão na sincronização inicial. Se você tiver dados em vários bancos de dados, a sincronização inicial poderá levar entre vários dias e meses, dependendo do tamanho do banco de dados.
+Quando você criar um grupo de sincronização, comece com os dados em apenas um banco de dados. Se você tiver dados em vários bancos de dados, a Sincronização de Dados SQL tratará cada linha como um conflito a ser resolvido. Esta resolução de conflitos causa lentidão na sincronização inicial. Se você tiver dados em vários bancos de dados, a sincronização inicial poderá levar entre vários dias e meses, dependendo do tamanho do banco de dados.
 
 Se os bancos de dados estiverem em datacenters diferentes, cada linha deverá percorrer os diferentes datacenters. Isso aumenta o custo de uma sincronização inicial.
 
@@ -208,16 +209,15 @@ Em vez disso, primeiro remova um banco de dados de um grupo de sincronização. 
 Se você tentar remover um banco de dados e, em seguida, editar um grupo de sincronização sem primeiro implantar as alterações, uma ou outra operação falhará. A interface do portal pode se tornar inconsistente. Se isto ocorrer, atualize a página para restaurar o estado correto.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre a Sincronização de Dados SQL (versão prévia), veja:
+Para obter mais informações sobre a Sincronização de Dados SQL, consulte:
 
--   [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-sync-data.md)
--   [Configurar a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-get-started-sql-data-sync.md)
--   [Monitorar a Sincronização de Dados SQL do Azure (versão prévia) com o Log Analytics](sql-database-sync-monitor-oms.md)
--   [Solucionar problemas com a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-troubleshoot-data-sync.md)  
--   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL (versão prévia):  
+-   [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md)
+-   [Configurar a Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)
+-   [Monitorar a Sincronização de Dados SQL do Azure com o Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Solucionar problemas com a Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)  
+-   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:  
     -   [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Baixe a documentação da API REST de Sincronização de Dados SQL (versão prévia)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 Para saber mais sobre Bancos de Dados SQL, confira:
 

@@ -1,11 +1,11 @@
 ---
-title: "Analisar estatísticas de uso com os Relatórios HTTP Avançados da CDN do Azure | Microsoft Docs"
-description: "Saiba como criar relatórios HTTP avançados na CDN do Microsoft Azure. Esses relatórios fornecem informações detalhadas sobre a atividade da CDN."
+title: Analisar estatísticas de uso com os Relatórios HTTP Avançados da CDN do Azure | Microsoft Docs
+description: Saiba como criar relatórios HTTP avançados na CDN do Microsoft Azure. Esses relatórios fornecem informações detalhadas sobre a atividade da CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22999031"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analisar estatísticas de uso com os relatórios HTTP avançados da CDN do Azure
 ## <a name="overview"></a>Visão geral

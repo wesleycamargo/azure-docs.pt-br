@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: bc6f25c7a8a779d949fbd09f9a9a9a37ec83f56a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9072a25b55bf461ad7dcc8393b98a66d87866d48
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144148"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Particionar Reliable Services do Service Fabric
 Este artigo fornece uma introdução aos conceitos básicos de particionamento de Reliable Services do Azure Service Fabric. O código-fonte usado no artigo também está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -362,6 +363,9 @@ Uma vez que queremos literalmente ter uma partição por letra, podemos usar 0 c
     ![Captura de tela do navegador](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 O código-fonte completo do exemplo está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+
+## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services e subprocessos de bifurcação de ator
+O Service Fabric não dá suporte a serviços confiáveis e, subsequentemente, a subprocessos confiáveis de bifurcação de atores. Um exemplo do não suporte é que [CodePackageActivationContext](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser usado para registrar um subprocesso sem suporte, e tokens de cancelamento serão enviados somente para processos registrados, resultando em todos os tipos de problemas, como falhas de atualização, quando os subprocessos não fecham depois que o processo pai recebe um token de cancelamento. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações sobre os conceitos de malha do serviço, consulte:

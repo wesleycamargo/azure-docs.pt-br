@@ -1,12 +1,12 @@
 ---
-title: "Failover do StorSimple e recuperação de desastre para um dispositivo físico StorSimple da série 8000 | Microsoft Docs"
-description: "Saiba como fazer o failover do dispositivo físico StorSimple da série 8000 para outro dispositivo físico."
+title: Failover do StorSimple e recuperação de desastre para um dispositivo físico StorSimple da série 8000 | Microsoft Docs
+description: Saiba como fazer o failover do dispositivo físico StorSimple da série 8000 para outro dispositivo físico.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108264"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Fazer failover para um dispositivo físico StorSimple da série 8000
 

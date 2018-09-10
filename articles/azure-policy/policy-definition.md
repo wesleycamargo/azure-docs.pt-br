@@ -2,19 +2,18 @@
 title: Estrutura de definição da Política do Azure
 description: Descreve como a definição de diretiva de recurso é usada pela Política do Azure para estabelecer convenções para recursos em sua organização, descrevendo quando a diretiva é aplicada e qual efeito tomar.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
-ms.topic: article
+ms.date: 08/16/2018
+ms.topic: conceptual
 ms.service: azure-policy
-ms.custom: ''
-ms.openlocfilehash: a56fa61c6d77ab50dc1342c5a7feeaf1c579697d
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+manager: carmonm
+ms.openlocfilehash: ac561be75306cab6b73b457a7d450bd640aac067
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057243"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818690"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -65,7 +64,7 @@ Por exemplo, o JSON a seguir mostra uma política que limita os locais em que os
 }
 ```
 
-Todos os exemplos de modelo do Azure Policy estão em [Modelos para o Azure Policy](json-samples.md).
+Todos os exemplos do Azure Policy estão em [Exemplos de política](json-samples.md).
 
 ## <a name="mode"></a>Mode
 
@@ -108,7 +107,7 @@ Na propriedade de metadados, você pode usar **strongType**  para fornecer uma l
 - `"existingResourceGroups"`
 - `"omsWorkspace"`
 
-Na regra de política, você fazer referência a parâmetros com a seguinte sintaxe:
+Na regra de política, você faz referência a parâmetros com a seguinte sintaxe de função de valor de implantação `parameters`:
 
 ```json
 {
@@ -193,7 +192,8 @@ Uma condição avalia se um **campo** atende a determinados critérios. As condi
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Ao usar as condições **like** e **notLike**, você pode fornecer um curinga (*) no valor.
+Ao usar as condições **like** e **notLike**, você pode fornecer um curinga (`*`) no valor.
+O valor não deve conter mais do que um caractere curinga (`*`).
 
 Ao usar as condições **match** e **notMatch**, forneça `#` para representar um dígito, `?` para uma letra e outro caractere para representar o caractere real. Para exemplos, consulte [Permitir vários padrões de nome](scripts/allow-multiple-name-patterns.md).
 
@@ -205,28 +205,19 @@ Há suporte para os seguintes campos:
 
 - `name`
 - `fullName`
-  - Retorna o nome completo do recurso, incluindo quaisquer pais (por exemplo, "myServer / myDatabase")
+  - Retorna o nome completo do recurso. O nome completo de um recurso é o nome do recurso precedido dos nomes dos recursos pai (por exemplo, "myServer/myDatabase").
 - `kind`
 - `type`
 - `location`
 - `tags`
-- `tags.tagName`
-- `tags[tagName]`
-  - Essa sintaxe de colchete dá suporte a nomes de marca que contenham pontos
+- `tags.<tagName>`
+  - Em que **\<tagName\>** é o nome da marca para a qual validar a condição.
+  - Exemplo: `tags.CostCenter` em que **CostCenter** é o nome da marca.
+- `tags[<tagName>]`
+  - Essa sintaxe de colchete é compatível com nomes de marca que contêm pontos.
+  - Em que **\<tagName\>** é o nome da marca para a qual validar a condição.
+  - Exemplo: `tags.[Acct.CostCenter]` em que **Acct.CostCenter** é o nome da marca.
 - aliases de propriedade - para obter uma lista, confira [Aliases](#aliases).
-
-### <a name="alternative-accessors"></a>Acessadores alternativos
-
-**Campo** é o acessador primário usado nas regras de política. Ele inspeciona diretamente o recurso que está sendo avaliado. No entanto, a política dá suporte a outro acessador, **fonte**.
-
-```json
-"source": "action",
-"equals": "Microsoft.Compute/virtualMachines/write"
-```
-
-**Fonte** só oferece suporte a um valor, **ação**. Ação retorna a ação de autorização da solicitação que está sendo avaliada. Ações de autorização são expostas na seção de autorização de [Log de atividades](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
-
-Quando a política está avaliando os recursos existentes no plano de fundo, ela define **ação** para uma ação de autorização `/write` no tipo do recurso.
 
 ### <a name="effect"></a>Efeito
 
@@ -253,6 +244,55 @@ O valor pode ser uma cadeia de caracteres ou um objeto no formato JSON.
 Com **AuditIfNotExists** e **DeployIfNotExists**, você pode avaliar a existência de um recurso relacionado e aplicar uma regra e um efeito correspondente quando esse recurso não existir. Por exemplo, você pode exigir que um observador de rede seja implantado para todas as redes virtuais.
 Para obter um exemplo de como fazer auditoria quando uma extensão da máquina virtual não está implantada, consulte [Auditoria se não existir extensão](scripts/audit-ext-not-exist.md).
 
+Para obter detalhes completos sobre cada efeito, ordem de avaliação, propriedades e exemplos, confira [Compreendendo os efeitos da Política](policy-effects.md).
+
+### <a name="policy-functions"></a>Funções de política
+
+Um subconjunto de [Funções de modelo do Resource Manager](../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso dentro de uma regra de política. As funções atualmente com suporte são:
+
+- [parâmetros](../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
+- [concat](../azure-resource-manager/resource-group-template-functions-array.md#concat)
+- [resourceGroup](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
+- [subscription](../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+
+Além disso, a função `field` está disponível para as regras de política. Essa função é principalmente para uso com **AuditIfNotExists** e **DeployIfNotExists** para referenciar campos no recurso que está sendo avaliado. Um exemplo disso pode ser visto no [exemplo DeployIfNotExists](policy-effects.md#deployifnotexists-example).
+
+#### <a name="policy-function-examples"></a>Exemplos de função de política
+
+Este exemplo de regra de política usa a função de recurso `resourceGroup` para obter a propriedade **name**, combinada com a matriz `concat` e o objeto de função para criar uma condição `like` que impõe o nome do recurso para iniciar com o nome do grupo de recursos.
+
+```json
+{
+    "if": {
+        "not": {
+            "field": "name",
+            "like": "[concat(resourceGroup().name,'*')]"
+        }
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+Este exemplo de regra de política usa a função de recurso `resourceGroup` para obter o valor de matriz de propriedade **tags** da marca **CostCenter** no grupo de recursos e acrescentá-lo à marca **CostCenter** no novo recurso.
+
+```json
+{
+    "if": {
+        "field": "tags.CostCenter",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "tags.CostCenter",
+            "value": "[resourceGroup().tags.CostCenter]"
+        }]
+    }
+}
+```
+
 ## <a name="aliases"></a>Aliases
 
 Você pode usar aliases de propriedade para acessar propriedades específicas para um tipo de recurso. Os aliases permitem restringir quais valores ou condições são permitidas para uma propriedade em um recurso. Cada alias é mapeado para caminhos em diferentes versões de API para um tipo de recurso específico. Durante a avaliação de política, o mecanismo de políticas obtém o caminho de propriedade para essa versão de API.
@@ -269,33 +309,44 @@ A lista de aliases sempre está aumentando. Para descobrir quais aliases são at
   $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
   $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
   $authHeader = @{
-      'Content-Type'='application/json'
-      'Authorization'='Bearer ' + $token.AccessToken
+    'Authorization'='Bearer ' + $token.AccessToken
+  }
+
+  # Create a splatting variable for Invoke-RestMethod
+  $invokeRest = @{
+    Uri = 'https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases'
+    Method = 'Get'
+    ContentType = 'application/json'
+    Headers = $authHeader
   }
 
   # Invoke the REST API
-  $response = Invoke-RestMethod -Uri 'https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases' -Method Get -Headers $authHeader
+  $response = Invoke-RestMethod @invokeRest
 
-  # Create an Array List to hold discovered aliases
-  $aliases = New-Object System.Collections.ArrayList
+  # Create an List to hold discovered aliases
+  $aliases = [System.Collections.Generic.List[pscustomobject]]::new()
 
-  foreach ($ns in $response.value) {
-      foreach ($rT in $ns.resourceTypes) {
-          if ($rT.aliases) {
-              foreach ($obj in $rT.aliases) {
+  foreach ($ns in $response.value)
+  {
+      foreach ($rT in $ns.resourceTypes)
+      {
+          if ($rT.aliases)
+          {
+              foreach ($obj in $rT.aliases)
+              {
                   $alias = [PSCustomObject]@{
-                      Namespace       = $ns.namespace
-                      resourceType    = $rT.resourceType
-                      alias           = $obj.name
+                      Namespace    = $ns.namespace
+                      resourceType = $rT.resourceType
+                      alias        = $obj.name
                   }
-                  $aliases.Add($alias) | Out-Null
+                  $aliases.Add($alias)
               }
           }
       }
   }
 
-  # Output the list, sort, and format. You can customize with Where-Object to limit as desired.
-  $aliases | Sort-Object -Property Namespace, resourceType, alias | Format-Table
+  # Output the list and sort it by Namespace, resourceType and alias. You can customize with Where-Object to limit as desired.
+  $aliases | Sort-Object -Property Namespace, resourceType, alias
   ```
 
 - CLI do Azure
@@ -303,7 +354,10 @@ A lista de aliases sempre está aumentando. Para descobrir quais aliases são at
   ```azurecli-interactive
   # Login first with az login if not using Cloud Shell
 
-  # Get Azure Policy aliases for a specific Namespace
+  # List namespaces
+  az provider list --query [*].namespace
+
+  # Get Azure Policy aliases for a specific Namespace (such as Azure Automation -- Microsoft.Automation)
   az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
   ```
 
@@ -393,4 +447,4 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine os exemplos de modelo do Azure Policy estão em [Modelos para o Azure Policy](json-samples.md).
+- Revisar mais exemplos em [exemplos do Azure Policy](json-samples.md).

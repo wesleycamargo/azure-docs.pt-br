@@ -1,24 +1,26 @@
 ---
-title: "Solucionar problemas de extensão da VM do Azure Log Analytics | Microsoft Docs"
-description: "Descreva os sintomas, as causas e a resolução dos problemas mais comuns com a extensão de VM do Log Analytics para VMs do Azure para Windows e Linux."
+title: Solucionar problemas de extensão da VM do Azure Log Analytics | Microsoft Docs
+description: Descreva os sintomas, as causas e a resolução dos problemas mais comuns com a extensão de VM do Log Analytics para VMs do Azure para Windows e Linux.
 services: log-analytics
-documentationcenter: 
-author: MGoedtel
+documentationcenter: ''
+author: mgoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: d1e70d8f9fb929e3877c88fd4c1169a0c76ac2a6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 700d6b2c3bcd39aed38bf75556bcdcb59d1ab78b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128802"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Solução de problemas da extensão de VM de Log Analytics
 Este artigo fornece ajuda para solucionar erros que você pode encontrar com a extensão de VM do Log Analytics para máquinas virtuais Windows e Linux em execução no Microsoft Azure e sugere soluções possíveis para resolvê-los.

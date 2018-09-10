@@ -1,25 +1,20 @@
 ---
-title: Desenvolvimento de ação de script com o HDInsight baseado em Linux – Azure | Microsoft Docs
+title: Desenvolvimento de ação de script com o HDInsight baseado em Linux
 description: Saiba como usar scripts Bash para personalizar os clusters HDInsight baseados em Linux. O recurso de ação de script do HDInsight permite executar scripts durante ou após a criação do cluster. Scripts podem ser usados para alterar as configurações do cluster ou instalar software adicional.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: cf4c89cd-f7da-4a10-857f-838004965d3e
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: d5df67021e997df3a6344701f50be4871a11386d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 0225115fb6c74f736e6a5fba09414dc2ebafd84e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104816"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -283,7 +278,7 @@ Scripts usados para personalizar um cluster devem ser armazenados em um dos segu
 
 * Um URI __que pode ser lido publicamente__. Por exemplo, uma URL para dados armazenados no OneDrive, Dropbox ou outro serviço de hospedagem de arquivos.
 
-* Uma __conta do Azure Data Lake Store__ que está associada com o cluster HDInsight. Para obter mais informações sobre o uso do Azure Data Lake Store com o HDInsight, veja [Criar um cluster HDInsight com o Repositório Data Lake](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* Uma __conta do Azure Data Lake Store__ que está associada com o cluster HDInsight. Para obter mais informações sobre como usar o Azure Data Lake Store com HDInsight, consulte o [Guia de início rápido: configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]
     > A entidade de serviço que HDInsight usa para acessar o Data Lake Store deve ter acesso de leitura para o script.
@@ -376,5 +371,5 @@ Substitua `INFILE` com o arquivo que contém a BOM. `OUTFILE` deve ser um novo n
 ## <a name="seeAlso"></a>Próximas etapas
 
 * Saiba como [Personalizar os clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md)
-* Use a [referência do SDK do .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) para saber mais sobre a criação de aplicativos .NET que gerenciam o HDInsight
+* Use a [referência do SDK do .NET do HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) para saber mais sobre a criação de aplicativos .NET que gerenciam o HDInsight
 * Use a [API REST do HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para aprender a usar o REST para executar ações de gerenciamento em clusters HDInsight.

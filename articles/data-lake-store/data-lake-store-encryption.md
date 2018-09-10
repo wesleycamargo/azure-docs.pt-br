@@ -4,21 +4,16 @@ description: A criptografia no Azure Data Lake Store ajuda a proteger seus dados
 services: data-lake-store
 documentationcenter: ''
 author: esung22
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 2328f7e233025d9f9ee9113aa28fb74754dd9193
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c3f79348cb5d80639d76ad1a8ba82fcfa56ebed1
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43310806"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Criptografia de dados no Azure Data Lake Store
 
@@ -60,9 +55,9 @@ Aqui está uma breve comparação dos recursos fornecidos por dois modos de gere
 |  | Chaves gerenciadas de serviço | Chaves gerenciadas do cliente |
 | --- | --- | --- |
 |Como os dados são armazenados?|Sempre criptografados antes de serem armazenados.|Sempre criptografados antes de serem armazenados.|
-|Qual é a Chave de Criptografia Mestra armazenada?|Cofre da Chave|Cofre da Chave|
+|Qual é a Chave de Criptografia Mestra armazenada?|Key Vault|Key Vault|
 |Qualquer chave de criptografia é armazenada de modo transparente fora do Key Vault? |Não |Não |
-|A MEK pode recuperada pelo Key Vault?|Nº Após a MEK ser armazenada no Key Vault, ela só pode ser usada para criptografia e descriptografia.|Nº Após a MEK ser armazenada no Key Vault, ela só pode ser usada para criptografia e descriptografia.|
+|A MEK pode recuperada pelo Key Vault?|Não. Após a MEK ser armazenada no Key Vault, ela só pode ser usada para criptografia e descriptografia.|Não. Após a MEK ser armazenada no Key Vault, ela só pode ser usada para criptografia e descriptografia.|
 |Quem possui a instância e a MEK do Key Vault?|O serviço do Data Lake Store|Você é o proprietário da instância do Key Vault, que pertence à sua própria assinatura do Azure. A MEK no Key Vault pode ser gerenciada pelo software ou hardware.|
 |O cliente pode revogar o acesso para a MEK para o serviço do Data Lake Store?|Não |Sim. Você pode gerenciar listas de controle de acesso no Key Vault e remover entradas de controle de acesso para a identidade do serviço para o serviço do Data Lake Store.|
 |Você pode excluir permanentemente a MEK?|Não |Sim. Se você excluir a MEK do Key Vault, os dados na conta do Data Lake Store não podem ser descriptografados por ninguém, incluindo o serviço do Data Lake Store. <br><br> Se você fez explicitamente um backup da MEK antes da exclui-la do Key Vault, a MEK pode ser restaurada e os dados podem ser recuperados. No entanto, se você não tiver feito um backup da MEK antes de exclui-la do Key Vault, os dados na conta do Data Lake Store nunca poderão ser descriptografados.|
@@ -79,9 +74,9 @@ Além dessa diferença de quem gerencia a MEK e a instância do Key Vault no qua
 
 Há três tipos de chaves que são usadas no design de criptografia de dados. A tabela a seguir fornece um resumo:
 
-| Chave                   | Abreviação | Associado a | Local de armazenamento                             | type       | Observações                                                                                                   |
+| Chave                   | Abreviação | Associado a | Local de armazenamento                             | Tipo       | Observações                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
-| Chave de criptografia mestra | MEK          | Uma conta Data Lake Store | Cofre da Chave                              | Assimétrica | Pode ser gerenciado pelo Data Lake Store ou por você.                                                              |
+| Chave de criptografia mestra | MEK          | Uma conta Data Lake Store | Key Vault                              | Assimétrica | Pode ser gerenciado pelo Data Lake Store ou por você.                                                              |
 | Chave de criptografia de dados   | DEK          | Uma conta Data Lake Store | Armazenamento persistente, gerenciado pelo serviço do Data Lake Store | Simétrica  | A DEK é criptografada pela MEK. A DEK criptografada é a que está armazenada em mídia persistente. |
 | Chave de criptografia de bloco  | BEK          | Um bloco de dados | Nenhum                                         | Simétrica  | A BEK é derivada da DEK e do bloco de dados.                                                      |
 
@@ -112,7 +107,7 @@ O diagrama a seguir ilustra esses conceitos:
 
 Quando você estiver usando chaves gerenciados pelo cliente, você pode alterar a MEK. Para saber como configurar uma conta do Data Lake Store com chaves gerenciadas pelo cliente, consulte a [Introdução](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Quando você configurou a conta de armazenamento do Data Lake Store, você optou por usar suas próprias chaves. Essa opção não pode ser alterada depois que a conta foi criada. As etapas a seguir pressupõem que você está usando as chaves gerenciadas pelo cliente (isto é, você escolheu suas próprias chaves do Key Vault).
 

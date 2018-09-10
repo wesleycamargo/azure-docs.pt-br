@@ -1,31 +1,24 @@
 ---
-title: "Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio | Microsoft Docs"
-description: "Saiba como usar o Modo de Exibição de Execução de Vértice para examinar trabalhos do Data Lake Analytics."
+title: Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio
+description: Este artigo descreve como usar o modo de exibição de Execução de Vértice para examinar trabalhos do Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: 
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/13/2016
+author: mumian
 ms.author: jgao
-ms.openlocfilehash: b788e7bc8ded86ebd49cc0be73e5b4e1bcbeaba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: jasonwhowell
+ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
+ms.topic: conceptual
+ms.date: 10/13/2016
+ms.openlocfilehash: 9f834d697c0d3fe537bbdb190b0ba0d0f294ac87
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041006"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio
 Saiba como usar o Modo de Exibição de Execução de Vértice para examinar trabalhos do Data Lake Analytics.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-Você precisa de conhecimento básico do uso das Ferramentas do Data Lake para Visual Studio para desenvolver scripts U-SQL.  Confira [Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 ## <a name="open-the-vertex-execution-view"></a>Abrir o Modo de Exibição de Execução de Vértice
 Abra um trabalho de U-SQL em Ferramentas do Data Lake para Visual Studio. Clique em **Exibição de Execuções de Vértice** no canto inferior esquerdo. Talvez você receba uma solicitação para carregar perfis primeiro e isso pode demorar algum tempo dependendo de sua conectividade de rede.

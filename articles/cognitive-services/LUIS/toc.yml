@@ -1,0 +1,372 @@
+items:
+- name: Documentação do LUIS
+  href: index.yml
+- name: Visão geral
+  items:
+  - name: O que é Reconhecimento Vocal?
+    href: what-is-luis.md
+- name: Guia de início rápido
+  items:
+  - name: Compilar um domínio de domínio predefinido
+    href: luis-get-started-create-app.md
+  - name: Usar APIs
+    items:
+    - name: Obter a intenção
+      items:
+      - name: C#
+        href: luis-get-started-cs-get-intent.md
+      - name: Go
+        href: luis-get-started-go-get-intent.md
+      - name: Java
+        href: luis-get-started-java-get-intent.md
+      - name: JavaScript
+        href: luis-get-started-js-get-intent.md
+      - name: Node.js
+        href: luis-get-started-node-get-intent.md
+      - name: PHP
+        href: luis-get-started-php-get-intent.md
+      - name: Python
+        href: luis-get-started-python-get-intent.md
+      - name: Ruby
+        href: luis-get-started-ruby-get-intent.md
+    - name: Alterar modelo
+      items:
+      - name: C#
+        href: luis-get-started-cs-add-utterance.md
+      - name: Go
+        href: luis-get-started-go-add-utterance.md
+      - name: Java
+        href: luis-get-started-java-add-utterance.md
+      - name: JavaScript
+        href: luis-get-started-javascript-add-utterance.md
+      - name: Node.js
+        href: luis-get-started-node-add-utterance.md
+      - name: PHP
+        href: luis-get-started-php-add-utterance.md
+      - name: Python
+        href: luis-get-started-python-add-utterance.md
+      - name: Ruby
+        href: luis-get-started-ruby-add-utterance.md
+  expanded: true
+- name: Tutoriais
+  items:
+  - name: Compilar aplicativo
+    items:
+    - name: 1. Com domínio personalizado
+      href: luis-quickstart-intents-only.md
+    - name: 2. Adicionar entidades e intenções predefinidas
+      href: luis-tutorial-prebuilt-intents-entities.md
+    - name: 3. Adicionar entidade de expressão regular
+      href: luis-quickstart-intents-regex-entity.md
+    - name: 4. Adicionar listar de entidades
+      href: luis-quickstart-intent-and-list-entity.md
+    - name: 5. Adicionar entidade hierárquica
+      href: luis-quickstart-intent-and-hier-entity.md
+    - name: 6. Adicionar entidade composta
+      href: luis-tutorial-composite-entity.md
+    - name: 7. Adicionar entidade simples e lista de frases
+      href: luis-quickstart-primary-and-secondary-data.md
+    - name: 8. Adicionar entidade KeyPhrase
+      href: luis-quickstart-intent-and-key-phrase.md
+    - name: 9. Adicionar análise de sentimento
+      href: luis-quickstart-intent-and-sentiment-analysis.md
+  - name: Melhorar o aplicativo
+    items:
+    - name: Examinar declarações de ponto de extremidade
+      href: luis-tutorial-review-endpoint-utterances.md
+    - name: Com teste de lote
+      href: luis-tutorial-batch-testing.md
+    - name: Com padrões
+      href: luis-tutorial-pattern.md
+    - name: Com as funções
+      href: luis-tutorial-pattern-roles.md
+    - name: Com a entidade Pattern.any
+      href: luis-tutorial-pattern-any.md
+- name: Exemplos
+  items:
+  - name: Exemplos de código
+    href: https://github.com/Microsoft/LUIS-Samples
+- name: Conceitos
+  items:
+  - name: Práticas recomendadas
+    href: luis-concept-best-practices.md
+  - name: Planejar seu aplicativo
+    href: luis-how-plan-your-app.md
+  - name: Aplicativo criador
+    items:
+    - name: Ciclo de criação
+      href: luis-concept-app-iteration.md
+    - name: Colaboração
+      href: luis-concept-collaborator.md
+    - name: Controle de versão
+      href: luis-concept-version.md
+  - name: Modelo de design
+    items:
+    - name: Intenções
+      href: luis-concept-intent.md
+    - name: Entidades
+      href: luis-concept-entity-types.md
+    - name: Declarações
+      href: luis-concept-utterance.md
+    - name: Funções
+      href: luis-concept-roles.md
+  - name: Melhorar o desempenho do aplicativo
+    items:
+    - name: Pontuação de previsão
+      href: luis-concept-prediction-score.md
+    - name: Examinar enunciados de ponto de extremidade
+      href: luis-concept-review-endpoint-utterances.md
+    - name: Listas de frase
+      href: luis-concept-feature.md
+    - name: Padrões
+      href: luis-concept-patterns.md
+  - name: Gerenciamento de dados
+    items:
+    - name: Alterando dados
+      href: luis-concept-data-alteration.md
+    - name: Convertendo dados
+      href: luis-concept-data-conversion.md
+    - name: Extraindo dados
+      href: luis-concept-data-extraction.md
+    - name: Armazenamento de dados
+      href: luis-concept-data-storage.md
+  - name: Teste
+    items:
+    - name: Teste interativo
+      href: luis-concept-test.md
+    - name: Teste em lote
+      href: luis-concept-batch-test.md
+  - name: Enterprise
+    items:
+    - name: Estratégias de design
+      href: luis-concept-enterprise.md
+  - name: Segurança
+    items:
+    - name: Acesso ao aplicativo
+      href: luis-concept-security.md
+    - name: Chaves de criação e de ponto de extremidade
+      href: luis-concept-keys.md
+- name: Guias de instruções
+  items:
+  - name: Iniciar um novo aplicativo
+    href: luis-how-to-start-new-app.md
+  - name: Compilar modelo
+    items:
+    - name: Adicionar tentativas
+      href: luis-how-to-add-intents.md
+    - name: Adicionar declarações
+      href: luis-how-to-add-example-utterances.md
+    - name: Adicionar entidades
+      href: luis-how-to-add-entities.md
+    - name: Com APIs
+      items:
+      - name: Compilar aplicativo programaticamente usando o Node.js
+        href: luis-tutorial-node-import-utterances-csv.md
+      - name: Usar a entidade de lista para corresponder ao texto exato usando o Node.js
+        href: luis-tutorial-list-entity.md
+  - name: Integração
+    items:
+    - name: Com API de Verificação Ortográfica do Bing v7
+      href: luis-tutorial-bing-spellcheck.md
+    - name: Com Serviço de fala
+      href: luis-tutorial-speech-to-intent.md
+    - name: Com um bot
+      items:
+      - name: Bot do aplicativo Web
+        items:
+        - name: Node.js
+          href: luis-nodejs-tutorial-build-bot-framework-sample.md
+        - name: C#
+          href: luis-csharp-tutorial-build-bot-framework-sample.md
+      - name: Application Insights
+        items:
+        - name: Node.js
+          href: luis-tutorial-function-appinsights.md
+        - name: C#
+          href: luis-tutorial-bot-csharp-appinsights.md
+  - name: Melhorar a precisão da previsão
+    items:
+    - name: Examinar enunciados de ponto de extremidade
+      href: luis-how-to-review-endoint-utt.md
+    - name: Adicionar lista de frase
+      href: luis-how-to-add-features.md
+    - name: Adicionar padrões
+      href: luis-how-to-model-intent-pattern.md
+  - name: Treinar
+    href: luis-how-to-train.md
+  - name: Teste
+    items:
+    - name: Teste interativo
+      href: luis-interactive-test.md
+    - name: Teste em lote
+      href: luis-how-to-batch-test.md
+  - name: Publicar aplicativo
+    href: luis-how-to-publish-app.md
+  - name: Usar modelos predefinidos
+    items:
+    - name: Usar entidades
+      href: luis-prebuilt-entities.md
+    - name: Usar domínios
+      href: luis-how-to-use-prebuilt-domains.md
+  - name: Gerenciar aplicativo
+    items:
+    - name: Usando o dashboard
+      href: luis-how-to-use-dashboard.md
+    - name: Criar chaves de ponto de extremidade
+      href: luis-how-to-azure-subscription.md
+    - name: Adicionar chaves de ponto de extremidade ao aplicativo
+      href: luis-how-to-manage-keys.md
+    - name: Gerenciar versões
+      href: luis-how-to-manage-versions.md
+    - name: Gerenciar autores e colaboradores
+      href: luis-how-to-collaborate.md
+    - name: Gerenciar chave de criação
+      href: luis-how-to-account-settings.md
+    - name: Gerenciar uso do ponto de extremidade
+      items:
+      - name: Exibir o uso do ponto de extremidade com o PowerShell
+        href: luis-how-to-manage-from-cloud-shell.md
+      - name: Distribuir a cota de ponto de extremidade entre chaves com o Gerenciador de tráfego
+        href: luis-traffic-manager.md
+  - name: Migrar para API V2
+    href: luis-migration-api-v1-to-v2.md
+  - name: Encontrar região programaticamente
+    items:
+    - name: Usando C#
+      href: luis-find-region-csharp.md
+    - name: Usando o Node.js
+      href: luis-find-region-nodejs.md
+- name: Referência
+  items:
+  - name: Privacidade do usuário
+    href: luis-user-privacy.md
+  - name: Regiões
+    href: luis-reference-regions.md
+  - name: Limites
+    href: luis-boundaries.md
+  - name: Idiomas com suporte
+    href: luis-supported-languages.md
+  - name: Referência de entidade predefinida
+    items:
+    - name: Entidades por cultura
+      href: luis-reference-prebuilt-entities.md
+    - name: Entidade de idade
+      href: luis-reference-prebuilt-age.md
+    - name: Entidade de moeda
+      href: luis-reference-prebuilt-currency.md
+    - name: Entidade DatetimeV2
+      href: luis-reference-prebuilt-datetimev2.md
+    - name: Entidade de dimensão
+      href: luis-reference-prebuilt-dimension.md
+    - name: Entidades preteridas
+      href: luis-reference-prebuilt-deprecated.md
+    - name: Entidade de email
+      href: luis-reference-prebuilt-email.md
+    - name: Entidade de KeyPhrase
+      href: luis-reference-prebuilt-keyphrase.md
+    - name: Entidade de número
+      href: luis-reference-prebuilt-number.md
+    - name: Entidade ordinal
+      href: luis-reference-prebuilt-ordinal.md
+    - name: Entidade de porcentagem
+      href: luis-reference-prebuilt-percentage.md
+    - name: Entidade de número de telefone
+      href: luis-reference-prebuilt-phonenumber.md
+    - name: Entidade de temperatura
+      href: luis-reference-prebuilt-temperature.md
+    - name: Entidade de URL
+      href: luis-reference-prebuilt-url.md
+  - name: Referência de domínio predefinido
+    href: luis-reference-prebuilt-domains.md
+  - name: APIs de criação V2
+    href: https://aka.ms/luis-authoring-apis
+  - name: API do ponto de extremidade V2
+    href: https://aka.ms/luis-endpoint-apis
+  - name: Códigos HTTP
+    href: luis-reference-response-codes.md
+  - name: CLI do Azure 2.0
+    href: https://aka.ms/az-cli-cognitiveservices
+  - name: PowerShell do Azure RM
+    href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: SDKs
+    items:
+    - name: C#
+      items:
+      - name: .
+        href: https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/LUIS
+      - name: Exemplos
+        href: https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS
+      - name: NuGet – criação
+        href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/
+      - name: NuGet – tempo de execução
+        href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/
+    - name: Go
+      items:
+      - name: .
+        href: https://aka.ms/luis-sdk-go
+    - name: Java
+      items:
+      - name: .
+        href: https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/data-plane/language/luis
+      - name: Exemplos
+        href: https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding
+    - name: Node.js
+      items:
+      - name: SDK – criação
+        href: https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring
+      - name: SDK – tempo de execução
+        href: https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime
+      - name: Exemplos
+        href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/luis
+    - name: Python
+      items:
+      - name: .
+        href: https://pypi.org/project/azure-cognitiveservices-language-luis/
+      - name: Exemplos
+        href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis
+- name: Relacionados
+  items:
+  - name: Serviço de Bot do Azure
+    href: https://dev.botframework.com/
+  - name: C# do SDK 3.x do construtor de bot
+    href: https://github.com/Microsoft/BotBuilder
+  - name: C# do SDK 4x do construtor de bot
+    href: https://github.com/Microsoft/botbuilder-dotnet
+  - name: QnA Maker
+    href: https://qnamaker.ai/
+  - name: API de Fala do Bing
+    href: https://azure.microsoft.com/services/cognitive-services/speech/
+  - name: API de Verificação Ortográfica do Bing
+    href: https://azure.microsoft.com/services/cognitive-services/spell-check/
+  - name: Análise de texto
+    href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
+  - name: Reconhecedores de Texto
+    href: https://github.com/Microsoft/Recognizers-Text
+- name: Recursos
+  items:
+  - name: Disponibilidade regional
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Roteiro do Azure
+    href: https://aka.ms/luis-roadmap
+  - name: Glossário
+    href: luis-glossary.md
+  - name: Perguntas frequentes
+    href: luis-resources-faq.md
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/LUIS
+  - name: UserVoice
+    href: https://aka.ms/luis-uservoice-forum
+  - name: Search
+    href: https://docs.microsoft.com/search/index?search=LUIS
+  - name: Blog
+    href: https://blog.botframework.com/category/luis/
+  - name: Base de Dados de Conhecimento
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
+ms.openlocfilehash: a64c1a61193e6c998eeb8d9953ca3382277f27e3
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841999"

@@ -3,7 +3,7 @@ title: Exibir dados do aplicativo do Azure Application Insights | Microsoft Docs
 description: Use a solução Conector do Application Insights para diagnosticar problemas de desempenho e entender o que os usuários fazem com seu aplicativo quando ele é monitorado com o Application Insights.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -11,18 +11,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2017
+ms.topic: conceptual
+ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 4d2837a99c10f1600eb457e20cd7473f9f931302
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125980"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gerenciamento Conector do Application Insights (versão prévia)
 
 ![Símbolo do Application Insights](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
+
+>[!NOTE]
+> Com o suporte da [consultas de recursos cruzados](log-analytics-cross-workspace-search.md), a solução de gerenciamento de conector do Application Insights não é mais necessária e será preterida. A partir de julho, você não poderá vincular os novos recursos do Application Insights a espaços de trabalho do Log Analytics. Os painéis e os links existentes continuarão a funcionar até novembro de 2018. Para obter mais informações, consulte [portal do OMS mudar para o Azure](log-analytics-oms-portal-transition.md).
 
 A solução Conector do Application Insights ajuda você a diagnosticar problemas de desempenho e entender o que os usuários fazem com seu aplicativo quando ele é monitorado com o [Application Insights](../application-insights/app-insights-overview.md). Exibições da mesma telemetria de aplicativo que os desenvolvedores visualizam no Application Insights estão disponíveis no Log Analytics. No entanto, ao integrar os aplicativos do Application Insights com o Log Analytics, a visibilidade dos aplicativos aumenta, pois os dados do aplicativo e da operação ficam em um único lugar. Ter as mesmas exibições ajuda na colaboração com os desenvolvedores de aplicativos. As exibições comuns podem ajudar a reduzir o tempo para detectar e resolver problemas do aplicativo e da plataforma.
 
@@ -44,7 +49,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 | [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | Não  | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não  | A solução não coleta informações do armazenamento do Azure. |
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Para acessar as informações do Conector do Application Insights, você deve ter uma assinatura do Azure
 - É necessário ter, pelo menos, um recurso do Application Insights configurado.
@@ -84,7 +89,6 @@ Clique no bloco **Application Insights** para abrir o painel **Application Insig
 
 O painel inclui as folhas mostradas na tabela. Cada folha lista os 10 principais itens que correspondem aos critérios da folha para o escopo e o intervalo de tempo especificados. É possível executar uma pesquisa de logs que retorna todos os registros ao clicar em **Ver todos** na parte inferior da folha ou ao clicar no cabeçalho da folha.
 
-[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Coluna** | **Descrição** |
 | --- | --- |
@@ -172,7 +176,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 | Propriedade | DESCRIÇÃO |
 | --- | --- |
-| type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Hora do registro |
 | ApplicationId | Chave de instrumentação do aplicativo do Application Insights |
@@ -221,7 +225,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="exception-specific-fields"></a>Campos específicos à exceção
 
-| type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Exceção |
 | ExceptionType | Tipo de exceção |
@@ -240,7 +244,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 | Propriedade | DESCRIÇÃO |
 | --- | --- |
-| type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | TelemetryType | Solicitação |
 | ResponseCode | Resposta HTTP enviada ao cliente |
 | RequestSuccess | Indica êxito ou falha. Verdadeiro ou falso. |

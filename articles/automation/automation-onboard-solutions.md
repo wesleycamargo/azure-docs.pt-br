@@ -7,13 +7,14 @@ author: eamonoreilly
 ms.author: eamono
 manager: carmonm
 ms.topic: tutorial
-ms.date: 03/16/2018
+ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 97db493b77483d68860c6124f1063bc4a743c3be
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5cf09753645d8238232e064af2ba1a301a2a7217
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41919095"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Integrar soluções de atualização e controle de alterações à Automação do Azure
 
@@ -26,7 +27,7 @@ Neste tutorial, você aprenderá a integrar automaticamente soluções de Atuali
 > * Importar o runbook de integração
 > * Iniciar o runbook
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, os itens a seguir são necessários:
 
@@ -36,7 +37,7 @@ Para concluir este tutorial, os itens a seguir são necessários:
 
 ## <a name="onboard-an-azure-vm"></a>Integrar uma VM do Azure
 
-Há várias maneiras integrar computadores, por exemplo, você pode integrar a solução de uma máquina virtual [a partir da sua conta de Automação do Azure](automation-onboard-solutions-from-vm.md) ou por [runbook](automation-onboard-solutions-from-automation-account.md). Este tutorial percorre a habilitação do Gerenciamento de Atualizações por meio de um runbook. Para integrar Máquinas Virtuais do Azure em larga escala, uma VM existente deverá ser integrada ao controle de alterações ou à solução de gerenciamento de atualizações. Nesta etapa, você integra uma máquina virtual ao gerenciamento de atualizações e ao controle de alterações.
+Há várias maneiras de integrar computadores, por exemplo, você pode integrar a solução [de uma máquina virtual](automation-onboard-solutions-from-vm.md), [procurando em vários computadores](automation-onboard-solutions-from-browse.md), [a partir da sua conta de Automação](automation-onboard-solutions-from-automation-account.md) ou por runbook. Este tutorial percorre a habilitação do Gerenciamento de Atualizações por meio de um runbook. Para integrar Máquinas Virtuais do Azure em larga escala, uma VM existente deverá ser integrada ao controle de alterações ou à solução de gerenciamento de atualizações. Nesta etapa, você integra uma máquina virtual ao gerenciamento de atualizações e ao controle de alterações.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Habilitar Controle de Alterações e Inventário
 

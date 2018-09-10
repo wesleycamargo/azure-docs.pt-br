@@ -7,14 +7,16 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 1229a66ec84b4272337a5dd1e17942e46b25e9a0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 211f60b9c25b4bd20769f6a4840afaecf8373b9f
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782338"
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Criar cluster DSVM e Spark HDI como destinos de computação
 
@@ -67,14 +69,14 @@ Para o campo _vmSize_, você pode usar qualquer tamanho de VM com suporte listad
 >[!TIP]
 > Para [Cargas de trabalho de aprendizagem profunda](how-to-use-gpu.md), é possível implantar em VMs com base em GPU.
 
-- [VMs de Uso Geral](/virtual-machines/linux/sizes-general.md)
+- [VMs de Uso Geral](../../virtual-machines/linux/sizes-general.md)
   - Standard_DS2_v2 
   - Standard_DS3_v2 
   - Standard_DS4_v2 
   - Standard_DS12_v2 
   - Standard_DS13_v2 
   - Standard_DS14_v2 
-- [VMs com base em GPU](/virtual-machines/linux/sizes-gpu.md)
+- [VMs com base em GPU](../../virtual-machines/linux/sizes-gpu.md)
   - Standard_NC6 
   - Standard_NC12 
   - Standard_NC24 
@@ -148,7 +150,7 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## <a name="expand-the-dsvm-os-disk"></a>Expandir o disco do SO da DSVM
-O Ubuntu DSVM vem com um disco de sistema operacional de 50 GB e um disco de dados de 100 GB. O Docker armazena suas imagens do disco de dados conforme mais espaço estiver disponível nesse local. Quando usado como destino de computação para o Azure ML, esse disco pode ser usado pelo mecanismo do Docker puxando imagens do Docker e criando camadas de conda sobre ele. Você pode precisar aumentar o tamanho do disco (como 200 GB) para evitar o erro de "disco cheio" quando estiver no meio de uma execução. Consulte [Como expandir os discos rígidos virtuais em uma VM Linux com a CLI do Azure](../../virtual-machines/linux/expand-disks.md) para saber como fazer isso facilmente na azure-cli. 
+O Ubuntu DSVM vem com um disco de sistema operacional de 50 GB e um disco de dados de 100 GB. O Docker armazena suas imagens do disco de dados conforme mais espaço estiver disponível nesse local. Quando usado como destino de computação para o Azure ML, esse disco pode ser usado pelo mecanismo do Docker puxando imagens do Docker e criando camadas de conda sobre ele. Talvez seja necessário expandir o disco para um tamanho maior (por exemplo, 200 GB) para evitar o erro de "disco cheio" enquanto estiver no meio de uma execução. Consulte [Como expandir os discos rígidos virtuais em uma VM Linux com a CLI do Azure](../../virtual-machines/linux/expand-disks.md) para saber como fazer isso facilmente na azure-cli. 
 
 ## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Criar um Apache Spark para cluster Azure HDInsight no portal do Azure
 

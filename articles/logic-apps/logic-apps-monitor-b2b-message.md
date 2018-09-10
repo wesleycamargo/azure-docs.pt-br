@@ -1,27 +1,23 @@
 ---
-title: Monitorar transações B2B e configurar o log – Aplicativo Lógico do Azure | Microsoft Docs
-description: Monitorar mensagens AS2, X12 e EDIFACT e iniciar o log de diagnósticos da conta de integração
-author: padmavc
-manager: anneta
-editor: ''
+title: Monitorar mensagens B2B e configurar o registro em log – Aplicativo Lógico do Azure | Microsoft Docs
+description: Monitorar mensagens AS2, X12 e EDIFACT. Configurar o log de diagnósticos da conta de integração no Aplicativo Lógico do Azure.
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 6afab12b9e2d6e8686ecbc95be9743afbe70d98c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: decc0271ae0e7c359f72648d7c4d0076892285da
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125168"
 ---
-# <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>Monitorar e configurar o log de diagnósticos para a comunicação B2B nas contas de integração
+# <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Monitorar mensagens B2B e configurar o registro em log para contas de integração no Aplicativo Lógico do Azure
 
 Depois de configurar a comunicação B2B entre dois processos ou aplicativos de negócios em execução por meio de sua conta de integração, essas entidades poderão trocar mensagens entre si. Para confirmar se essa comunicação funciona conforme esperado, configure o monitoramento de mensagens AS2, X12 e EDIFACT, juntamente com o log de diagnósticos da conta de integração por meio do serviço [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Esse serviço monitora os ambientes locais e em nuvem, ajudando a manter a disponibilidade e o desempenho, além de coletar detalhes e eventos de tempo de execução para uma depuração mais avançada. Use também [os dados de diagnóstico com outros serviços](#extend-diagnostic-data), como o Armazenamento do Azure e os Hubs de Eventos do Azure.
 

@@ -3,21 +3,23 @@ title: Problemas ao entrar em um aplicativo local usando o proxy de aplicativo d
 description: Solução de problemas comuns que ocorrem quando você não consegue entrar em um aplicativo local integrado ao Azure AD usando o Proxy de Aplicativo do Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 5aba26d14ba0ee8e8ee58f62deb8a82ad147a8aa
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.topic: conceptual
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 9a60dc685fa23527aabaaea250c4584f33040b7c
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365614"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas ao entrar em um aplicativo local usando o proxy de aplicativo do Azure AD
 

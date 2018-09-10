@@ -1,21 +1,25 @@
 ---
 title: Examinar seu acesso | Microsoft Docs
 description: Examinar seu acesso com o Azure Active Directory
-author: markwahl-msft
+services: active-directory
+author: rolyon
 manager: mtillman
-editor: 
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/19/2017
-ms.author: billmath
-ms.openlocfilehash: ded64234d4b40c594a0b92e15e5a446d4ae176b6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.topic: conceptual
+ms.component: compliance
+ms.date: 07/16/2018
+ms.author: rolyon
+ms.reviewer: mwahl
+ms.openlocfilehash: f85f83ff103818b826ca2c61c41fbbef67e98c14
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622221"
 ---
 # <a name="review-your-access"></a>Examinar seu acesso
 
@@ -23,7 +27,11 @@ O Azure Active Directory (Azure AD) simplifica como as empresas gerenciam o aces
 
 ## <a name="open-an-access-review"></a>Abrir uma análise de acesso
 
-Para ver as revisões de acesso pendentes, selecione o link no email. Se você não tiver o email, será possível localizar as revisões de acesso fazendo o seguinte:
+Para ver as revisões de acesso pendentes, clique no link de acesso à revisão no email. A partir de agosto de 2018, as notificações por email para funções do Azure AD tem terão design atualizado. A seguir, é mostrado um exemplo de email enviado quando um usuário é convidado para ser um revisor.
+
+![Email de acesso à revisão](./media/active-directory-azure-ad-controls-how-to-review-your-access/new-ar-email.png)
+
+Se você não tiver o email, será possível localizar as revisões de acesso fazendo o seguinte:
 
 1. Entre no [Painel de acesso do Azure AD](https://myapps.microsoft.com).
 

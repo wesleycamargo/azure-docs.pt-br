@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 06/19/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efa8c2603d6ff4493656cda41306a5dad46bc5f3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 50d9ea88afc0e7d96d71b2ab26c8a8489ae41fee
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719637"
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>Configurar drivers de GPU para VMs da série N executando Windows 
-Para aproveitar os recursos de GPU das VMs da série N do Azure executando uma versão com suporte do Windows Server ou Windows, os drivers gráficos NVIDIA devem ser instalados. Este artigo apresenta etapas de instalação do driver depois que você implanta uma VM da série N. Também há informações de instalação de driver disponíveis para [VMs Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam o Windows, instale os drivers de GPU NVIDIA. A [Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) instala drivers CUDA ou GRID NVIDIA apropriados em VMs da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como modelos do Azure PowerShell ou do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) para saber quais são os sistemas operacionais compatíveis e as etapas de implantação.
+
+Se você optar por instalar os drivers de GPU manualmente, este artigo fornecerá os sistemas operacionais compatíveis, os drivers e as etapas de instalação e verificação. As informações de instalação manual de driver também estão disponíveis para [VMs do Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para especificações básicas, capacidades de armazenamento e detalhes de disco, consulte [tamanhos de VM Windows da GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
@@ -53,7 +56,7 @@ Para consultar o estado do dispositivo GPU, execute o utilitário de linha de co
 
 ## <a name="rdma-network-connectivity"></a>Conectividade de rede RDMA
 
-A conectividade de rede RDMA pode ser habilitada em VMs da série N habilitadas para RDMA, como a NC24r, implantada no mesmo conjunto de disponibilidade ou conjunto de dimensionamento de VM. A extensão HpcVmDrivers deve ser adicionada para instalar drivers de dispositivo de rede do Windows que habilitam a conectividade RDMA. Para adicionar a extensão de VM a uma VM da série N habilitada para RDMA, use cmdlets do [Azure PowerShell](/powershell/azure/overview) para o Azure Resource Manager.
+A conectividade de rede RDMA pode ser habilitada em VMs da série N compatível com RDMA, como NC24r implantado no mesmo conjunto de disponibilidade ou em um único grupo de posicionamento em um conjunto de dimensionamento de VM. A extensão HpcVmDrivers deve ser adicionada para instalar drivers de dispositivo de rede do Windows que habilitam a conectividade RDMA. Para adicionar a extensão de VM a uma VM da série N habilitada para RDMA, use cmdlets do [Azure PowerShell](/powershell/azure/overview) para o Azure Resource Manager.
 
 Para instalar a última extensão HpcVMDrivers versão 1.1 em uma VM compatível com RDMA existente chamada myVM na região Oeste dos EUA:
   ```PowerShell
@@ -66,6 +69,6 @@ A rede RDMA dá suporte ao tráfego da Interface de transmissão de mensagens (M
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Os desenvolvedores que criam aplicativos com aceleração de GPU para GPUs NVIDIA Tesla também podem baixar e instalar o [CUDA Toolkit 9.1](https://developer.nvidia.com/cuda-downloads). Para obter mais informações, consulte o [Guia de instalação do CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
+* Desenvolvedores compilando aplicativos acelerados por GPU para GPUs NVIDIA Tesla também podem baixar e instalar o [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads). Para obter mais informações, consulte o [Guia de instalação do CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 
 

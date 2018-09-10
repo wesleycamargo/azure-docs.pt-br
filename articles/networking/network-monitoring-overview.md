@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0656cfcc2dcded284be1a337f797681117f3b313
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141856"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitoramento de rede 
 
@@ -34,7 +35,7 @@ Monitor de Desempenho de Rede (NPM) é um conjunto de recursos, cada um deles é
 * Microsserviços/aplicativos multiníveis críticos à missão
 * Aplicativos baseado em web e locais de usuários (HTTP/HTTPs) 
 
-O Monitor de Desempenho, Monitor do ExpressRoute e Monitor do Ponto de Extremidade de Serviço estão monitorando os recursos dentro do NPM e são descritos abaixo.
+O Monitor de Desempenho, Monitor do ExpressRoute e Monitor da Conectividade de Serviço estão monitorando os recursos dentro do NPM e são descritos abaixo.
 
 ## <a name="performance-monitor"></a>Monitorar Desempenho
 
@@ -56,12 +57,13 @@ Para obter mais informações, consulte os seguintes artigos:
 
 ## <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
-NPM para o ExpressRoute oferece monitoramento abrangente de ExpressRoute para conexões de emparelhamento privadas. Você pode monitorar desempenho e conectividade E2E entre as filiais e o Azure por meio do ExpressRoute. Os principais recursos são:
+NPM para o ExpressRoute oferece monitoramento abrangente do ExpressRoute para conexões de emparelhamento da Microsoft e conexões de emparelhamento privadas do Azure. Você pode monitorar desempenho e conectividade E2E entre as filiais e o Azure por meio do ExpressRoute. Os principais recursos são:
 
 * Detecção automática de circuitos ER associados à sua assinatura
 * Detecção da topologia de rede do local para seus aplicativos de nuvem
-* Planejamento de capacidade, análise de utilização e utilização de largura de banda por Rede Virtual
+* Planejamento de capacidade, análise de utilização de largura de banda
 * Monitoramento e alertas em caminhos primários e secundários
+* Monitoramento de conectividade para serviços do Azure como Office 365, Dynamics 365,... via ExpressRoute
 * Detectar degradação de conectividade para VNets
 
 ![Mapa geográfico mostrando o tráfego entre as regiões](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -71,9 +73,9 @@ Para obter mais informações, consulte os seguintes artigos:
 * [Configurar o Monitor de Desempenho de Rede para ExpressRoute](../expressroute/how-to-npm.md)
 * [Postagem no blog](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>Monitor de Ponto de Extremidade de Serviço
+## <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
-Com o monitoramento de ponto de extremidade de serviço, você pode testar a acessibilidade de aplicativos e detectar gargalos de desempenho entre locais, redes de transporte e data centers de nuvem/privada.
+Com o monitoramento da Conectividade de Serviço, você pode testar a acessibilidade de aplicativos e detectar gargalos de desempenho entre locais, redes de transporte e data centers de nuvem/privada.
 
 * Monitorar a conectividade de rede de ponta a ponta para aplicativos
 * Correlacionar a entrega de aplicativos com o desempenho da rede, detectar o local exato de degradação ao longo do caminho entre o usuário e o aplicativo

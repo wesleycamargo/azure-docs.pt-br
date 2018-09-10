@@ -9,17 +9,18 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 2438914449ff609d149fca20f2f3756576877752
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a68baa0c04dd90236e99cf010c96b1876fb4638
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425703"
 ---
 # <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Tutorial: implantar um contêiner em Instâncias de Contêiner do Azure
 
 Este é o tutorial final de uma série de três partes. Anteriormente na série, [uma imagem de contêiner foi criada](container-instances-tutorial-prepare-app.md) e [enviada por push ao Registro de Contêiner do Azure](container-instances-tutorial-prepare-acr.md). Este artigo conclui a série implantando o contêiner em Instâncias de Contêiner do Azure.
 
-Neste tutorial, você:
+Neste tutorial, você irá:
 
 > [!div class="checklist"]
 > * Implantará o contêiner do Registro de Contêiner do Azure nas Instâncias de Contêiner do Azure
@@ -55,7 +56,7 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 Agora, use o comando [az container create][az-container-create] para implantar o contêiner. Substitua `<acrLoginServer>` e `<acrPassword>` pelos valores obtidos dos dois comandos anteriores. Substitua `<acrName>` pelo nome do seu Registro de contêiner.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
 Em alguns segundos, você deverá receber uma resposta inicial do Azure. O valor `--dns-name-label` deve ser exclusivo dentro da região do Azure em que você criar a instância do contêiner. Modifique o valor no comando anterior caso receba uma mensagem de erro de **rótulo do nome DNS** ao executar o comando.
@@ -137,8 +138,8 @@ Agora que você tem as noções básicas, siga em frente para saber mais sobre I
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-container-create]: /cli/azure/container#az_container_create
-[az-container-show]: /cli/azure/container#az_container_show
-[az-group-delete]: /cli/azure/group#az_group_delete
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show
+[az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [prepare-app]: ./container-instances-tutorial-prepare-app.md

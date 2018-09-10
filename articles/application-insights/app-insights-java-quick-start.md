@@ -5,16 +5,18 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.reviewer: lagayhar
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 0198614f34b5e4ad31d9cf19f6799913dc71e21f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b36e4598f5ff20b921c5cd150ae19be233cc2d14
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246506"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Começar a monitorar o aplicativo Web Java
 
@@ -22,7 +24,7 @@ Com o Azure Application Insights, você pode monitorar facilmente o aplicativo W
 
 Este guia de início rápido lhe ajuda a adicionar o SDK do Application Insights para um projeto Web dinâmico Java existente.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido:
 
@@ -33,6 +35,8 @@ Para concluir este guia de início rápido:
 Se você não tiver um projeto Web dinâmico Java, você poderá criar um com o [guia de início rápido Criar um aplicativo Web Java](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+Se você preferir a estrutura Spring tente o [guia para configurar um aplicativo inicializador Spring Boot para usar o Application Insights](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
@@ -86,25 +90,25 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
 1. Agora você pode reabrir a página **Visão Geral** do Application Insights no Portal do Azure, na qual você recuperou sua chave de instrumentação, para exibir detalhes sobre o seu aplicativo em execução atualmente.
 
-   ![Menu Visão Geral do Application Insights](./media/app-insights-java-quick-start/0008-j.png)
+   ![Menu Visão Geral do Application Insights](./media/app-insights-java-quick-start/overview-001.png)
 
 2. Clique em **Mapa do aplicativo** para obter um layout visual das relações de dependência entre os componentes do aplicativo. Cada componente mostra KPIs como alertas, desempenho, falhas e carregamento.
 
-   ![Mapa de aplicativo](./media/app-insights-java-quick-start/005-j.png)
+   ![Mapa de aplicativo](./media/app-insights-java-quick-start/application-map-001.png)
 
 3. Clique no ícone **Análise do Aplicativo** ![ícone Mapa do Aplicativo](./media/app-insights-java-quick-start/006.png). Isso abre a **Análise do Application Insights**, que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights. Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
 
    ![Grafo de análise de solicitações de usuário durante um período de tempo](./media/app-insights-java-quick-start/0010-j.png)
 
-4. Volte para a página **Visão Geral** e examine a **linha do tempo de Visão Geral de Integridade**.  Esse painel fornece estatísticas sobre a integridade do aplicativo, incluindo o número de solicitações de entrada, a duração dessas solicitações e as falhas que ocorrem.
+4. Volte para a página **Visão geral** e examine os gráficos KPI.  Esse painel fornece estatísticas sobre a integridade do aplicativo, incluindo o número de solicitações de entrada, a duração dessas solicitações e as falhas que ocorrem.
 
-   ![Grafos de linha do tempo de Visão Geral de Integridade](./media/app-insights-java-quick-start/0009-j.png)
+   ![Grafos de linha do tempo de Visão Geral de Integridade](./media/app-insights-java-quick-start/overview-perf.png)
 
    Para habilitar o gráfico **Tempo de Carregamento da Exibição de Página** para popular usando dados de **telemetria do lado do cliente**, adicione esse script a cada página que você desejar acompanhar:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

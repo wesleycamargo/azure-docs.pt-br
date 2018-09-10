@@ -1,24 +1,26 @@
 ---
 title: 'Azure Active Directory Domain Services: entre em contato conosco | Microsoft Docs'
-description: "Entre em contato com a equipe de produto de Serviços de Domínio do Azure AD"
+description: Entre em contato com a equipe de produto de Serviços de Domínio do Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/23/2017
 ms.author: maheshu
-ms.openlocfilehash: c342d34c66af334bfb7cccffd2e1ee700dd46bef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eda5d76e46ddb9cfcee9ee7554f31ee432938358
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502760"
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Azure AD Domain Services: entre em contato conosco
 ## <a name="contact-the-product-team"></a>Entre em contato com a equipe do produto
@@ -34,4 +36,4 @@ Certifique-se de incluir o seguinte, para que possamos investigar o problema.
 ## <a name="provide-feedback"></a>Forneça comentários
 Apreciamos seus comentários sobre os Serviços de Domínio do Azure AD por meio do **[canal do Azure Active Directory User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/)**.
 
-Verifique se você prefixou sua pergunta ou seus comentários com as palavras **'AADDS'**para que chegue até nós.
+Verifique se você prefixou sua pergunta ou seus comentários com as palavras **'AADDS'** para que chegue até nós.

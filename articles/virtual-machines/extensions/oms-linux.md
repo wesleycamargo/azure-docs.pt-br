@@ -1,9 +1,9 @@
 ---
-title: Extensão da máquina virtual do OMS Azure para Linux | Microsoft Docs
-description: Implante o agente do OMS na máquina virtual Linux usando uma extensão da máquina virtual.
+title: Extensão da máquina virtual do Log Analytics do Azure para Linux | Microsoft Docs
+description: Implante o agente do Log Analytics na máquina virtual do Linux usando uma extensão da máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,42 +13,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/16/2018
-ms.author: danis
-ms.openlocfilehash: dcc5637b159341fc4b6cc8130b1807c8a2f604fc
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.date: 05/21/2018
+ms.author: roiyz
+ms.openlocfilehash: 58827e8abd6394b1c9359ecbabbee37193a34706
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261818"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414287"
 ---
-# <a name="oms-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do OMS para Linux
+# <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Log Analytics para Linux
 
 ## <a name="overview"></a>Visão geral
 
-O Log Analytics fornece recursos de monitoramento, alertas e correção de alertas nos ativos locais e da nuvem. A extensão da máquina virtual do agente do OMS para Linux é publicada e recebe suporte da Microsoft. A extensão instala o agente do OMS em máquinas virtuais do Azure e registra máquinas virtuais em um espaço de trabalho do Log Analytics existente. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da máquina virtual do OMS para Linux.
+O Log Analytics fornece recursos de monitoramento, alertas e correção de alertas nos ativos locais e da nuvem. A extensão da máquina virtual do agente do Log Analytics para Linux é publicada e recebe suporte da Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um espaço de trabalho do Log Analytics existente. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da máquina virtual do Log Analytics para Linux.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A extensão do agente do OMS pode ser executada nessas distribuições do Linux.
+A extensão do agente do Log Analytics pode ser executada nessas distribuições do Linux.
 
 | Distribuição | Versão |
 |---|---|
 | CentOS Linux | 5, 6 e 7 (x86/x64) |
 | Oracle Linux | 5, 6 e 7 (x86/x64) |
 | Red Hat Enterprise Linux Server | 5, 6 e 7 (x86/x64) |
-| Debian GNU/Linux | 6, 7 e 8 (x86/x64) |
+| Debian GNU/Linux | 6, 7, 8 e 9 (x86/x64) |
 | Ubuntu | 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64) |
 | SUSE Linux Enterprise Server | 11 e 12 (x86/x64) |
 
 ### <a name="agent-and-vm-extension-version"></a>Versão do Agente e da Extensão de VM
-A tabela a seguir fornece um mapeamento da versão da extensão de VM OMS e o pacote do agente do OMS para cada versão. Há um link para as notas de versão da versão do pacote do agente do OMS. As notas de versão incluem detalhes sobre correções de bug e novos recursos disponíveis para uma determinada liberação de agente.  
+A tabela a seguir fornece um mapeamento da versão da extensão de VM do Log Analytics e o pacote do agente do Log Analytics para cada versão. Há um link para as notas de versão da versão do pacote do agente do Log Analytics. As notas de versão incluem detalhes sobre correções de bug e novos recursos disponíveis para uma determinada liberação de agente.  
 
-| Versão da extensão de VM Linux do OMS | Versão do pacote do agente do OMS | 
+| Versão da extensão de VM do Linux do Log Analytics | Versão do pacote do agente do Log Analytics | 
 |--------------------------------|--------------------------|
-| 1.6.42.0 | [1.6.42.0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
+| 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
 | 1.4.58.7 | [14.2-125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
@@ -62,15 +62,15 @@ A tabela a seguir fornece um mapeamento da versão da extensão de VM OMS e o pa
 
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A Central de Segurança do Azure provisiona o agente do OMS e o conecta a um espaço de trabalho do Log Analytics criado pela ASC na sua assinatura do Azure automaticamente. Se você estiver usando a Central de Segurança do Azure, não execute as etapas neste documento. Isso substitui o espaço de trabalho configurado e interrompe a conexão com a Central de Segurança do Azure.
+A Central de Segurança do Azure provisiona o agente do Log Analytics e o conecta a um espaço de trabalho do Log Analytics criado pela ASC na sua assinatura do Azure automaticamente. Se você estiver usando a Central de Segurança do Azure, não execute as etapas neste documento. Isso substitui o espaço de trabalho configurado e interrompe a conexão com a Central de Segurança do Azure.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
-A extensão do Agente do OMS para Linux requer que a máquina virtual de destino esteja conectada à Internet. 
+A extensão do Agente do Log Analytics para Linux requer que a máquina virtual de destino esteja conectada à Internet. 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão do Agente do OMS. A extensão requer a ID do espaço de trabalho e a chave do espaço de trabalho no espaço de trabalho do Log Analytics de destino. Esses valores podem ser [encontrados no seu espaço de trabalho do Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) no portal do Azure. Como a chave do espaço de trabalho deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
+O JSON a seguir mostra o esquema para a extensão do Agente do Log Analytics. A extensão requer a ID do espaço de trabalho e a chave do espaço de trabalho no espaço de trabalho do Log Analytics de destino. Esses valores podem ser [encontrados no seu espaço de trabalho do Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) no portal do Azure. Como a chave do espaço de trabalho deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
 
 ```json
 {
@@ -84,7 +84,7 @@ O JSON a seguir mostra o esquema para a extensão do Agente do OMS. A extensão 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.4",
+    "typeHandlerVersion": "1.6",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -102,14 +102,14 @@ O JSON a seguir mostra o esquema para a extensão do Agente do OMS. A extensão 
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
 | Tipo | OmsAgentForLinux |
-| typeHandlerVersion | 1.4 |
+| typeHandlerVersion | 1.6 |
 | workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
-Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem configuração pós-implantação, tal como integração ao Log Analytics. Um modelo do Resource Manager de exemplo que inclui a extensão de VM do agente do OMS pode ser encontrado na [Galeria de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem configuração pós-implantação, tal como integração ao Log Analytics. Um modelo do Resource Manager de exemplo que inclui a extensão de VM do agente do Log Analytics pode ser encontrado na [Galeria de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
@@ -127,7 +127,7 @@ O exemplo a seguir pressupõe que a extensão de VM está aninhada dentro do rec
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.4",
+    "typeHandlerVersion": "1.6",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -152,7 +152,7 @@ Ao inserir o JSON da extensão na raiz do modelo, o nome do recurso inclui uma r
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.4",
+    "typeHandlerVersion": "1.6",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -165,7 +165,7 @@ Ao inserir o JSON da extensão na raiz do modelo, o nome do recurso inclui uma r
 
 ## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
 
-A CLI do Azure pode ser usado para implantar a extensão da VM do Agente do OMS para uma máquina virtual existente. Substitua *workspaceId* e *workspaceKey* pelos de seu espaço de trabalho do Log Analytics. 
+A CLI do Azure pode ser usado para implantar a extensão da VM do Agente do Log Analytics para uma máquina virtual existente. Substitua *workspaceId* e *workspaceKey* pelos de seu espaço de trabalho do Log Analytics. 
 
 ```azurecli
 az vm extension set \
@@ -173,7 +173,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.4 --protected-settings '{"workspaceKey": "omskey"}' \
+  --version 1.6 --protected-settings '{"workspaceKey": "omskey"}' \
   --settings '{"workspaceId": "omsid"}'
 ```
 

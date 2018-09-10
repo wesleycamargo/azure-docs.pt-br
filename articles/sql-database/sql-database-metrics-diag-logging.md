@@ -3,19 +3,20 @@ title: Métricas de banco de dados SQL do Azure e log de diagnósticos | Microso
 description: Saiba mais sobre como configurar o Banco de Dados SQL do Azure para armazenar o uso de recursos, a conectividade e as estatísticas de execução de consulta.
 services: sql-database
 documentationcenter: ''
-author: veljko-msft
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vvasic
-ms.openlocfilehash: c18d4d175bace79fefedc09fb887e707b8c066d9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: ba305b66d4b7230f2706136587c4183f81c5e9c3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365756"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525494"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico 
 O Banco de Dados SQL do Azure pode emitir métrica e logs de diagnóstico para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
@@ -193,7 +194,7 @@ A maneira mais fácil de configurar onde os bancos de dados registram suas métr
 
 ### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>Instalar a solução de Análise de SQL da galeria
 
-1. Depois que o recurso do Log Analytics é criado e seus dados estão fluindo nele, instale a solução de Análise de SQL do Azure. Na home page, no menu lateral, selecione **	Galeria de Soluções**. Na galeria, selecione a solução de **Análise de SQL do Azure** e clique em **Adicionar**.
+1. Depois que o recurso do Log Analytics é criado e seus dados estão fluindo nele, instale a solução de Análise de SQL do Azure. Na página inicial, no menu lateral, selecione **Galeria de Soluções**. Na galeria, selecione a solução de **Análise de SQL do Azure** e clique em **Adicionar**.
 
    ![Solução de monitoramento](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
@@ -266,14 +267,16 @@ Saiba como [baixar métricas e logs de diagnóstico do Armazenamento](../storage
 |Pool elástico|O percentual de eDTU, eDTU usado, limite de eDTU, percentual de CPU, percentual de leitura de dados físicos, percentual de gravação de log, percentual de sessões, percentual de funcionários, armazenamento, percentual de armazenamento, limite de armazenamento, percentual de armazenamento XTP |
 |||
 
+### <a name="logs"></a>Logs
+
 ### <a name="query-store-runtime-statistics"></a>Estatísticas de tempo de execução do Repositório de consultas
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|ID do locatário.|
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
-|type|Sempre: AzureDiagnostics|
+|Tipo|Sempre: AzureDiagnostics|
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics|
 |OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent|
@@ -285,7 +288,7 @@ Saiba como [baixar métricas e logs de diagnóstico do Armazenamento](../storage
 |ElasticPoolName_s|Nome do pool elástico ao qual o banco de dados pertence, se houver.|
 |DatabaseName_s|Nome do banco de dados.|
 |ResourceId|URI de recurso.|
-|query_hash_s|Hash de consulta.|
+|query_hash_s|Query hash.|
 |query_plan_hash_s|Hash do plano de consulta.|
 |statement_sql_handle_s|Identificador de sql da instrução.|
 |interval_start_time_d|Inicie o datetimeoffset do intervalo em número de tiques de 1900-1-1.|
@@ -319,12 +322,12 @@ Saiba mais sobre os [Dados de estatísticas de tempo de execução do Repositór
 
 ### <a name="query-store-wait-statistics"></a>Estatísticas de espera do Repositório de consultas
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|ID do locatário.|
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
-|type|Sempre: AzureDiagnostics|
+|Tipo|Sempre: AzureDiagnostics|
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: QueryStoreWaitStatistics|
 |OperationName|Nome da operação. Sempre: QueryStoreWaitStatisticsEvent|
@@ -357,12 +360,12 @@ Saiba mais sobre os [Dados de estatísticas de espera no Repositório de Consult
 
 ### <a name="errors-dataset"></a>Conjunto de dados de erros
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|ID do locatário.|
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
-|type|Sempre: AzureDiagnostics|
+|Tipo|Sempre: AzureDiagnostics|
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: Erros|
 |OperationName|Nome da operação. Sempre: ErrorEvent|
@@ -386,12 +389,12 @@ Saiba mais sobre as [Mensagens de erro do SQL Server](https://msdn.microsoft.com
 
 ### <a name="database-wait-statistics-dataset"></a>Conjunto de dados das estatísticas de espera do banco de dados
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|ID do locatário.|
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
-|type|Sempre: AzureDiagnostics|
+|Tipo|Sempre: AzureDiagnostics|
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: DatabaseWaitStatistics|
 |OperationName|Nome da operação. Sempre: DatabaseWaitStatisticsEvent|
@@ -405,7 +408,7 @@ Saiba mais sobre as [Mensagens de erro do SQL Server](https://msdn.microsoft.com
 |ResourceId|URI de recurso.|
 |wait_type_s|Nome do tipo de espera.|
 |start_utc_date_t [UTC]|Hora de início do período de medida.|
-|end_utc_date_t [UTC]|Hora de término do período de medida.|
+|end_utc_date_t [UTC]|Hora de início do período de medida.|
 |delta_max_wait_time_ms_d|Tempo máximo de espera por execução|
 |delta_signal_wait_time_ms_d|Tempo total de espera do sinal.|
 |delta_wait_time_ms_d|Tempo total de espera no período.|
@@ -415,12 +418,12 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 
 ### <a name="time-outs-dataset"></a>Conjunto de dados de tempos limite
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|ID do locatário.|
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
-|type|Sempre: AzureDiagnostics|
+|Tipo|Sempre: AzureDiagnostics|
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: tempos limite|
 |OperationName|Nome da operação. Sempre: TimeoutEvent|
@@ -438,12 +441,12 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 
 ### <a name="blockings-dataset"></a>Conjunto de dados de boqueios
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|ID do locatário.|
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
-|type|Sempre: AzureDiagnostics|
+|Tipo|Sempre: AzureDiagnostics|
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
 |Categoria|Nome da categoria. Sempre: blocos|
 |OperationName|Nome da operação. Sempre: BlockEvent|
@@ -459,6 +462,57 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 |resource_owner_type_s|Proprietário do bloqueio.|
 |blocked_process_filtered_s|XML de relatório de processo bloqueado.|
 |duration_d|Duração do bloqueio em microssegundos.|
+
+### <a name="deadlocks-dataset"></a>Conjunto de dados de deadlocks
+
+|Propriedade|Descrição|
+|---|---|
+|TenantId|ID do locatário.|
+|SourceSystem|Sempre: Azure|
+|TimeGenerated [UTC] |Carimbo de data/hora de quando o log foi gravado.|
+|Tipo|Sempre: AzureDiagnostics|
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
+|Categoria|Nome da categoria. Sempre: Deadlocks|
+|OperationName|Nome da operação. Sempre: Deadlocks|
+|Recurso|Nome do recurso.|
+|ResourceType|Nome do tipo de recurso. Sempre: SERVIDORES/BANCOS DE DADOS|
+|SubscriptionId|GUID de assinatura ao qual o banco de dados pertence.|
+|ResourceGroup|Nome do grupo de recursos ao qual o banco de dados pertence.|
+|LogicalServerName_s|Nome do servidor ao qual o banco de dados pertence.|
+|ElasticPoolName_s|Nome do pool elástico ao qual o banco de dados pertence, se houver.|
+|DatabaseName_s|Nome do banco de dados. |
+|ResourceId|URI de recurso.|
+|deadlock_xml_s|Relatório de deadlock XML.|
+
+### <a name="automatic-tuning-dataset"></a>Conjunto de dados de ajuste automático
+
+|Propriedade|Descrição|
+|---|---|
+|TenantId|ID do locatário.|
+|SourceSystem|Sempre: Azure|
+|TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
+|Tipo|Sempre: AzureDiagnostics|
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
+|Categoria|Nome da categoria. Sempre: AutomaticTuning|
+|Recurso|Nome do recurso.|
+|ResourceType|Nome do tipo de recurso. Sempre: SERVIDORES/BANCOS DE DADOS|
+|SubscriptionId|GUID de assinatura ao qual o banco de dados pertence.|
+|ResourceGroup|Nome do grupo de recursos ao qual o banco de dados pertence.|
+|LogicalServerName_s|Nome do servidor ao qual o banco de dados pertence.|
+|LogicalDatabaseName_s|Nome do banco de dados.|
+|ElasticPoolName_s|Nome do pool elástico ao qual o banco de dados pertence, se houver.|
+|DatabaseName_s|Nome do banco de dados.|
+|ResourceId|URI de recurso.|
+|RecommendationHash_s|Hash exclusivo de recomendação de ajuste automático.|
+|OptionName_s|Opções de ajuste automático.|
+|Schema_s|Esquema de banco de dados.|
+|Table_s|Tabela afetada.|
+|IndexName_s|Nome do índice.|
+|IndexColumns_s|Nome da coluna.|
+|IncludedColumns_s|Colunas incluídas.|
+|EstimatedImpact_s|Estimado impacto recomendação de ajuste automático JSON.|
+|Event_s|Tipo de evento de ajuste automático.|
+|Timestamp_t|Última atualização de carimbo de hora.|
 
 ### <a name="intelligent-insights-dataset"></a>Conjunto de dados do Insights inteligentes
 Saiba mais sobre o [formato de log do Insights Inteligentes](sql-database-intelligent-insights-use-diagnostics-log.md).

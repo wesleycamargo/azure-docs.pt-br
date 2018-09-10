@@ -1,24 +1,25 @@
 ---
-title: "Segurança de comunicações - Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
+title: Segurança de comunicações - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: 7e8afc02c738a2bba445b1d84b7cb899dfbb93a0
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301547"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Estrutura de segurança: Segurança de comunicações | Atenuações 
 | Produto/Serviço | Artigo |
@@ -145,7 +146,7 @@ Essa regra funciona retornando um código de status de protocolo HTTP 301 (redir
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Folha de dados do OWASP sobre Segurança de Transporte Estrito HTTP](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Etapas** | <p>A Segurança de Transporte Estrito HTTP (HSTS) é um aperfeiçoamento de segurança opcional, que é especificado por um aplicativo Web por meio de um cabeçalho de resposta especial. Depois que um navegador em conformidade recebe o cabeçalho, esse navegador impede que todas as comunicações sejam enviadas pelo HTTP para o domínio especificado e envia todas as comunicações pelo HTTPS. Ele também impede cliques via HTTPS em prompts de navegadores.</p><p>Para implementar a HSTS, o seguinte cabeçalho de resposta precisa ser configurado globalmente para um site, por meio de um código ou de um arquivo de configuração. A HSTS Strict-Transport-Security: max-age=300; includeSubDomains impede as seguintes ameaças:</p><ul><li>O usuário marca ou digita http://example.com e fica sujeito a um ataque MITM (man-in-the-middle): a HSTS automaticamente redireciona as solicitações de HTTP para HTTPS para o domínio de destino.</li><li>O aplicativo da Web que se destina a ser puramente HTTPS acaba contendo links HTTP ou envia pelo HTTP: a HSTS automaticamente redireciona as solicitações de HTTP para HTTPS para o domínio de destino.</li><li>Um ataque MITM tenta interceptar o tráfego de um usuário utilizando um certificado inválido e espera que o usuário aceite o certificado incorreto: a HSTS não permite que um usuário substitua a mensagem de certificado inválido.</li></ul>|
+| **Etapas** | <p>A Segurança de Transporte Estrito HTTP (HSTS) é um aperfeiçoamento de segurança opcional, que é especificado por um aplicativo Web por meio de um cabeçalho de resposta especial. Depois que um navegador em conformidade recebe o cabeçalho, esse navegador impede que todas as comunicações sejam enviadas pelo HTTP para o domínio especificado e envia todas as comunicações pelo HTTPS. Ele também impede cliques via HTTPS em prompts de navegadores.</p><p>Para implementar a HSTS, o seguinte cabeçalho de resposta precisa ser configurado globalmente para um site, por meio de um código ou de um arquivo de configuração. A HSTS Strict-Transport-Security: max-age=300; includeSubDomains impede as seguintes ameaças:</p><ul><li>O usuário marca ou digita http://example.com e fica sujeito a um ataque man-in-the-middle: a HSTS automaticamente redireciona as solicitações de HTTP para HTTPS para o domínio de destino</li><li>O aplicativo da Web que se destina a ser puramente HTTPS acaba contendo links HTTP ou envia pelo HTTP: a HSTS automaticamente redireciona as solicitações de HTTP para HTTPS para o domínio de destino.</li><li>Um ataque MITM tenta interceptar o tráfego de um usuário utilizando um certificado inválido e espera que o usuário aceite o certificado incorreto: a HSTS não permite que um usuário substitua a mensagem de certificado inválido.</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Garantir a validação de certificado e a criptografia da conexão do SQL Server
 
@@ -287,7 +288,7 @@ namespace CertificatePinningExample
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **Etapas** | A configuração do aplicativo deve garantir que o HTTPS seja usado para todos os acessos a informações confidenciais.<ul><li>**EXPLICAÇÃO:** se um aplicativo contiver informações confidenciais e não usar a criptografia no nível da mensagem, ele só poderá se comunicar por meio de um canal de transporte criptografado.</li><li>**RECOMENDAÇÕES:** verifique se o transporte HTTP está desabilitado e habilite o transporte HTTPS em vez disso. Por exemplo, substitua `<httpTransport/>` pela marcação `<httpsTransport/>`. Não confie em uma configuração de rede (firewall) para garantir que o aplicativo seja acessado apenas por um canal seguro. Do ponto de vista filosófico, o aplicativo não deve depender da rede para garantir sua segurança.</li></ul><p>Do ponto de vista prático, as pessoas responsáveis pela segurança da rede nem sempre monitoram os requisitos de segurança do aplicativo à medida que eles evoluem.</p>|
 
 ## <a id="message-protection"></a>WCF: definir o nível de proteção da segurança de mensagens como EncryptAndSign

@@ -1,11 +1,11 @@
 ---
-title: "Escala distribuída geograficamente com ambientes de Serviço de Aplicativo"
-description: "Saiba como escalonar horizontalmente os aplicativos que usam a distribuição geográfica com o Gerenciador de Tráfego e os Ambientes de Serviço de Aplicativo."
+title: Escala distribuída geograficamente com ambientes de Serviço de Aplicativo
+description: Saiba como escalonar horizontalmente os aplicativos que usam a distribuição geográfica com o Gerenciador de Tráfego e os Ambientes de Serviço de Aplicativo.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
-ms.openlocfilehash: 21f747239e565aba79a84c8e946a71e306b64968
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc85139dfa3589baf6505fac2269f8755dcaddc8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213241"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala distribuída geograficamente com ambientes de Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral

@@ -1,22 +1,22 @@
 ---
 title: Como enviar eventos para um ambiente do Azure Time Series Insights | Microsoft Docs
 description: Este tutorial explica como criar e configurar o hub de eventos e executar um aplicativo de exemplo para eventos por push a serem exibidos no Azure Time Series Insights.
-services: time-series-insights
 ms.service: time-series-insights
-author: venkatgct
-ms.author: venkatja
-manager: jhubbard
-editor: MarkMcGeeAtAquent
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+services: time-series-insights
+author: ashannon7
+ms.author: anshan
+manager: cshankar
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 2621b7fd7a72c4ac3c8cbe7b166a6504f316e3d5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 30b83c54d314934f1de170955eec22e7b2a264b8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629745"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envie eventos para um ambiente de Análise de Séries Temporais usando o hub de eventos
 Este artigo explica como criar e configurar o hub de eventos e executar um aplicativo de exemplo para eventos por push. Se você tiver um hub de eventos existente com eventos no formato JSON, ignore este tutorial e exibir seu ambiente na [Análise de Séries Temporais](https://insights.timeseries.azure.com).

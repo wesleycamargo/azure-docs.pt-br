@@ -3,22 +3,24 @@ title: Revisões de acesso do Azure AD | Microsoft Docs
 description: Você pode controlar a associação de grupos e o acesso a aplicativos para atender às iniciativas de governança, gerenciamento de riscos e conformidade da sua organização usando as revisões de acesso do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
+ms.component: compliance
 ms.date: 05/02/2018
-ms.author: billmath
-ms.openlocfilehash: 02711f4fd54051f726a3823112230247df4776d1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.reviewer: mwahl
+ms.openlocfilehash: 5cff051c30074eaf1bbcc44f20783bc63cd0ec04
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193689"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620538"
 ---
 # <a name="azure-ad-access-reviews"></a>Revisões de acesso do Azure AD
 
@@ -41,4 +43,4 @@ As revisões de acesso do Azure AD (Azure Active Directory) permitem que as orga
 - [Gerenciar o acesso de convidado com revisões de acesso do Azure AD](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Gerenciar os programas e os controles para análises de acesso do Azure AD](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Como criar uma revisão de acesso para os membros de um grupo ou para o acesso a um aplicativo](active-directory-azure-ad-controls-create-access-review.md)
-- [Criar uma revisão de acesso de usuários em uma função administrativa do Azure AD](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Criar uma revisão de acesso de usuários em uma função administrativa do Azure AD](privileged-identity-management/pim-how-to-start-security-review.md)

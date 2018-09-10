@@ -1,18 +1,19 @@
 ---
-title: "Testar resultados para replicação de VMs Hyper-V de nuvens VMM em um site secundário com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo fornece informações sobre os testes de desempenho para a replicação de VMs do Hyper-V em nuvens de VMM para um site secundário usando o Azure Site Recovery."
+title: Testar resultados para replicação de VMs Hyper-V de nuvens VMM em um site secundário com o Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece informações sobre os testes de desempenho para a replicação de VMs do Hyper-V em nuvens de VMM para um site secundário usando o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: e15f435a3f32b8908b5b93bccc6c57710ab589bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cae9e5f2a50bc97be7c5cb42e490d8ba44666c91
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056871"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Testar resultados para replicação do Hyper-V para um site secundário
 
@@ -107,7 +108,7 @@ Os resultados mostram claramente que o Site Recovery, junto com a Réplica do Hy
 
 | Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores Hyper-V no cluster:  <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25 tem 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 a 2.20GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
+| Servidores Hyper-V no cluster:  <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25 tem 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
 | Servidor VMM |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Site secundário
@@ -119,9 +120,9 @@ Os resultados mostram claramente que o Site Recovery, junto com a Réplica do Hy
 
 | Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores Hyper-V no cluster:  <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 a 2.30GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
-| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 a 2.20GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
-| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 a 2.20GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
+| Servidores Hyper-V no cluster:  <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2,30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
+| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
+| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
 | Servidor VMM |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Cargas de trabalho do servidor

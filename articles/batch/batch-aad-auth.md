@@ -15,11 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: c28af5a9773cc362663831346b58f599aed6ea9a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 1f9a2b786db59ecfee6ede53b2b789d84651c975
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577111"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
@@ -65,15 +66,15 @@ Use o **ponto de extremidade de recursos do Lote do Azure** para adquirir um tok
 
 A primeira etapa do uso do Azure AD para realizar a autenticação é registrar seu aplicativo em um locatário do Azure AD. O registro do aplicativo permite que você chame a [ADAL][aad_adal] (Biblioteca de Autenticação do Active Directory) do Azure por meio do código. A ADAL fornece uma API para realizar a autenticação no Azure AD por meio do aplicativo. O registro do aplicativo é necessário se você pretende usar a autenticação integrada ou uma entidade de serviço.
 
-Ao registrar o aplicativo, você fornece informações sobre ele ao Azure AD. O Microsoft Azure AD, em seguida, fornece um ID do aplicativo (também chamado de *ID do Cliente*) que você usa para associar o aplicativo ao Microsoft Azure AD no tempo de execução. Para saber mais sobre a ID do aplicativo, veja [Objetos de aplicativo e de entidade de serviço no Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+Ao registrar o aplicativo, você fornece informações sobre ele ao Azure AD. O Microsoft Azure AD, em seguida, fornece um ID do aplicativo (também chamado de *ID do Cliente*) que você usa para associar o aplicativo ao Microsoft Azure AD no tempo de execução. Para saber mais sobre a ID do aplicativo, veja [Objetos de aplicativo e de entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registrar o aplicativo Lote, siga as etapas da seção [Adicionar um aplicativo](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) em [Integração de aplicativos com o Azure Active Directory][aad_integrate]. Se você registrar o aplicativo como um Aplicativo Nativo, poderá especificar qualquer URI válido para o **URI de Redirecionamento**. Ele não precisa ser um ponto de extremidade real.
+Para registrar o aplicativo Lote, siga as etapas da seção [Adicionar um aplicativo](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) em [Integração de aplicativos com o Azure Active Directory][aad_integrate]. Se você registrar o aplicativo como um Aplicativo Nativo, poderá especificar qualquer URI válido para o **URI de Redirecionamento**. Ele não precisa ser um ponto de extremidade real.
 
 Depois de registrar o aplicativo, você verá a ID do aplicativo:
 
 ![Registrar seu aplicativo Lote no Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
-Para obter mais informações sobre como registrar um aplicativo no Azure AD, consulte [Cenários de autenticação do Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md).
+Para obter mais informações sobre como registrar um aplicativo no Azure AD, consulte [Cenários de autenticação do Azure AD](../active-directory/develop/authentication-scenarios.md).
 
 ## <a name="get-the-tenant-id-for-your-active-directory"></a>Obter a ID do locatário para o Active Directory
 
@@ -171,7 +172,7 @@ Os exemplos de código desta seção mostram como realizar a autenticação com 
 
 ### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Exemplo de código: Usando a autenticação integrada do Azure AD com o .NET do Lote
 
-Para autenticar com a autenticação integrada por meio do .NET do Lote, referencie o pacote [.NET do Lote do Azure](https://www.nuget.org/packages/Azure.Batch/) e o pacote [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
+Para autenticar com a autenticação integrada por meio do .NET do Lote, referencie o pacote [.NET do Lote do Azure](https://www.nuget.org/packages/Microsoft.Azure.Batch/) e o pacote [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 
 Inclua as seguintes intruções `using` no seu código:
 
@@ -373,13 +374,13 @@ Use as credenciais da entidade de serviço para abrir um objeto **BatchServiceCl
 
 * Para saber mais sobre o Azure AD, veja a [documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Exemplos mais detalhados que mostram como usar o ADAL estão disponíveis na biblioteca [Amostras de código do Azure](https://azure.microsoft.com/resources/samples/?service=active-directory).
 
-* Para saber mais sobre entidades de serviço, consulte [Objetos de aplicativo e de entidade de serviço no Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Para criar uma entidade de serviço usando o portal do Azure, consulte [Usar o portal para criar um aplicativo e uma entidade de serviço do Active Directory que pode acessar recursos](../resource-group-create-service-principal-portal.md). Você também pode criar uma entidade de serviço com o PowerShell ou a CLI do Azure.
+* Para saber mais sobre entidades de serviço, consulte [Objetos de aplicativo e de entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Para criar uma entidade de serviço usando o portal do Azure, consulte [Usar o portal para criar um aplicativo e uma entidade de serviço do Active Directory que pode acessar recursos](../resource-group-create-service-principal-portal.md). Você também pode criar uma entidade de serviço com o PowerShell ou a CLI do Azure.
 
 * Para autenticar aplicativos do Gerenciamento de Lotes usando o Azure AD, consulte [Autenticar soluções do Gerenciamento de Lotes de com o Active Directory](batch-aad-auth-management.md).
 
 * Para obter um exemplo com Python de como criar um cliente do Lote autenticado usando um token do Microsoft Azure AD, consulte o exemplo [Implantar imagem personalizada do Lote do Azure com um script Python](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md).
 
-[aad_about]: ../active-directory/active-directory-whatis.md "O que é o Azure Active Directory?"
+[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "O que é o Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Cenários de autenticação do Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrando aplicativos com o Azure Active Directory"

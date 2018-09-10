@@ -19,7 +19,7 @@ Ao usar as configurações básicas e seleciona apenas uma assinatura, o Cloud S
 O compartilhamento de arquivos é montado como `clouddrive` no seu diretório `$Home`. Isso é uma ação única e o compartilhamento de arquivos será montado automaticamente nas sessões subsequentes. 
 
 > [!NOTE]
-> Por questões de segurança, cada usuário deve provisionar seu próprio armazenamento.  Para o controle de acesso baseado em função (RBAC), os usuários devem ter acesso de colaborador ou superior.
+> Por questões de segurança, cada usuário deve provisionar a própria conta de armazenamento.  No caso do RBAC (controle de acesso baseado em função), os usuários devem ter acesso de colaborador ou superior, no nível da conta de armazenamento.
 
 No Bash, o compartilhamento de arquivos também contém uma imagem de 5 GB criada para você e que automaticamente mantém os dados em seu diretório `$Home`. 
 
@@ -27,7 +27,7 @@ No Bash, o compartilhamento de arquivos também contém uma imagem de 5 GB criad
 
 Usando a opção avançada, você pode associar recursos existentes. Quando aparecer o prompt de instalação de armazenamento, selecione **Mostrar configurações avançadas** para exibir opções adicionais. Os menus suspensos são filtrados para sua região do Cloud Shell, o armazenamento redundante localmente e as contas de armazenamento com redundância geográfica atribuídos.
 
-No Bash, os compartilhamentos de arquivos existentes recebem uma imagem de 5 GB criada para você manter seu diretório `$Home`.
+Os compartilhamentos de arquivos recebem uma imagem de 5 GB criada para você manter o diretório `$Home`.
 
 ![A configuração do grupo de recursos](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
@@ -42,7 +42,7 @@ Para localizar sua região atribuída, você pode:
 * Fazer referência ao nome da conta de armazenamento criada para você (por exemplo: `cloud-shell-storage-westus`)
 * Execute `env` e localize a variável `ACC_LOCATION`
 
-Há um computador do Cloud Shell nas regiões a seguir:
+Há computadores do Cloud Shell nas regiões a seguir:
 |Área|Região|
 |---|---|
 |Américas|Leste dos EUA, Centro-Sul dos EUA, Oeste dos EUA|

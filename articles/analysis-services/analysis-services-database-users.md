@@ -3,20 +3,21 @@ title: Gerenciar usuários e funções de banco de dados no Azure Analysis Servi
 description: Saiba como gerenciar usuários e funções de banco de dados em um servidor do Analysis Services no Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3c35fb1ee70544b8b01bbadaf72ee38145179b27
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8c777d5376614f7afe59342dc5a9fbfa37ca4556
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441049"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerenciar usuários e funções de banco de dados
 
-No nível do modelo de banco de dados, todos os usuários devem pertencer a uma função. As funções definem os usuários com permissões específicas para o modelo de banco de dados. Qualquer usuário ou grupo de segurança adicionado a uma função deve ter uma conta em um locatário do Azure AD na mesma assinatura que o servidor.
+No nível do modelo de banco de dados, todos os usuários devem pertencer a uma função. As funções definem os usuários com permissões específicas para o modelo de banco de dados. Qualquer usuário ou grupo de segurança adicionado a uma função deve ter uma conta em um locatário do Azure AD na mesma assinatura que o servidor. 
 
 Como você define as funções é diferente dependendo da ferramenta usada, mas o efeito é o mesmo.
 
@@ -26,6 +27,9 @@ As permissões de função incluem:
 *  **Leitura** – os usuários podem usar um aplicativo cliente para se conectar e analisar os dados do modelo de banco de dados.
 
 Ao criar um projeto de modelo tabular, você cria funções e adiciona usuários ou grupos a essas funções usando o Gerenciador de Funções no SSDT. Quando implantado em um servidor, você usa o SSMS, [cmdlets do PowerShell para Analysis Services](https://msdn.microsoft.com/library/hh758425.aspx) ou [TMSL](https://msdn.microsoft.com/library/mt614797.aspx) (Linguagem de Scripts do Modelo Tabular) para adicionar ou remover funções e membros de usuário.
+
+> [!NOTE]
+> Grupos de segurança devem ter a propriedade `MailEnabled` definida como `True`.
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Para adicionar ou gerenciar funções e usuários no SSDT  
   

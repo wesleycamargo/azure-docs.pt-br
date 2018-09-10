@@ -3,9 +3,8 @@ title: Comparação do Serviço de Aplicativo, Máquinas Virtuais, Service Fabri
 description: Saiba como escolher entre o Serviço de Aplicativo, as Máquinas Virtuais, o Service Fabric e os Serviços de Nuvem do Azure para hospedar aplicativos Web.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
-author: ggailey777
-manager: erikre
-editor: jimbe
+author: cephalin
+manager: jeconnoc
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
 ms.service: app-service-web
 ms.workload: web
@@ -13,19 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 07/07/2016
-ms.author: glenga
+ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f930cec984a8b92e00ec613ce3bba91a40518911
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022805"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação de Serviço de Aplicativo, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure
-## <a name="overview"></a>Visão geral
+
 O Azure oferece várias maneiras de hospedar sites da Web: [Serviço de Aplicativo do Azure][Azure App Service], [Máquinas Virtuais][Virtual Machines], [Service Fabric][Service Fabric] e [Serviços de Nuvem][Cloud Services]. Este artigo ajuda você a entender as opções e fazer a escolha certa para seu aplicativo Web.
 
-O Serviço de Aplicativo do Azure é a melhor opção para a maioria dos aplicativos Web. A implantação e o gerenciamento estão integrados na plataforma, os sites podem ser dimensionados rapidamente para suportar altas cargas de tráfego e o gerenciador de balanceamento de carga e tráfego integrado oferece alta disponibilidade. Você pode mover sites existentes para o Serviço de Aplicativo do Azure facilmente com uma [ferramenta de migração online](https://www.migratetoazure.net/), usar um aplicativo de software livre da Galeria de Aplicativos Web ou criar um novo site usando a estrutura e as ferramentas de sua escolha. O recurso [WebJobs][WebJobs] facilita a adição do processamento de trabalhos em segundo plano ao seu aplicativo Web do Serviço de Aplicativo.
+O Serviço de Aplicativo do Azure é a melhor opção para a maioria dos aplicativos Web. A implantação e o gerenciamento estão integrados na plataforma, os sites podem ser dimensionados rapidamente para suportar altas cargas de tráfego e o gerenciador de balanceamento de carga e tráfego integrado oferece alta disponibilidade. Você pode mover sites existentes para o Serviço de Aplicativo do Azure facilmente com uma [ferramenta de migração online][migrate-tool], usar um aplicativo de software livre da Galeria de Aplicativos Web ou criar um novo site usando a estrutura e as ferramentas de sua escolha. O recurso [WebJobs][WebJobs] facilita a adição do processamento de trabalhos em segundo plano ao seu aplicativo Web do Serviço de Aplicativo.
 
 O Service Fabric será uma boa opção se você estiver criando um novo aplicativo ou reescrevendo um existente para usar uma arquitetura de microsserviço. Os aplicativos, que são executados em um pool compartilhado de computadores, podem começar pequenos e aumentar para uma escala massiva de centenas ou milhares de computadores, conforme a necessidade. Os serviços com estado facilitam o armazenamento consistente e confiável do estado do aplicativo, e o Service Fabric gerencia automaticamente o particionamento do serviço, o dimensionamento e a disponibilidade para você.  O Service Fabric também permite a API Web com OWIN (Open Web Interface for .NET) e ASP.NET Core.  Em comparação com o Serviço de Aplicativo, o Service Fabric também fornece mais controle sobre a infraestrutura subjacente, ou acesso direto a ela. Você pode acessar remotamente seus servidores ou configurar as tarefas de inicialização do servidor. Os Serviços de Nuvem são semelhantes ao Service Fabric no nível de controle vs. facilidade de uso, mas como agora se trata de um serviço herdado, o Service Fabric é recomendado para novo desenvolvimento.
 
@@ -50,7 +50,7 @@ A tabela a seguir compara os recursos do Serviço de Aplicativo, Serviços de Nu
 | Camada intermediária de host de uma arquitetura multicamada |X |X |X |X |Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. |
 | Suporte integrado do MySQL como serviço |X |X | | | |
 | Suporte para ASP.NET, classic ASP, Node.js, PHP, Python |X |X |X |X |O Service Fabric oferece suporte à criação de um front-end da Web o usando [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) ou você pode implantar qualquer tipo de aplicativo (Node.js, Java etc.) como um [executável convidado](../service-fabric/service-fabric-guest-executables-introduction.md). |
-| Dimensionamento para várias instâncias sem reimplantação |X |X |X |X |Máquinas Virtuais podem ser dimensionadas para várias instâncias, mas os serviços em execução nessas máquinas devem ser escritos para lidar com este dimensionamento. Você precisa configurar um balanceador de carga para rotear solicitações entre máquinas e criar um Grupo de Afinidade para impedir reinícios simultâneos de todas as instâncias devido a manutenções ou falhas de hardware. |
+| Dimensionamento para várias instâncias sem reimplantação |X |X |X |X |Máquinas Virtuais podem ser dimensionadas para várias instâncias, mas os serviços em execução nessas máquinas devem ser escritos para lidar com este dimensionamento. Você precisa configurar um balanceador de carga para rotear solicitações entre as máquinas e verifique se você tem mais de uma instância VM no [conjunto de disponibilidade](../virtual-machines/windows/manage-availability.md). |
 | Suporte para SSL |X |X |X |X |Para aplicativos Web do Serviço de Aplicativo, o SSL para nomes de domínio personalizados só tem suporte no modo Básico e Padrão. Para obter informações sobre como usar o SSL com os aplicativos Web, consulte [Configurar um certificado SSL para um site do Azure](app-service-web-tutorial-custom-ssl.md). |
 | Integração do Visual Studio |X |X |X |X | |
 | Depuração Remota |X |X |X | | |
@@ -97,7 +97,7 @@ O Serviço de Aplicativo do Azure é uma ótima solução para hospedar sites co
 * Integre-se com o Active Directory
 
 ### <a id="iis6"></a> Tenho um aplicativo IIS6 em execução no Windows Server 2003.
-O Serviço de Aplicativo do Azure torna fácil evitar os custos com infraestrutura associados à migração de aplicativos IIS6 mais antigos. A Microsoft criou [ferramentas de migração de fácil uso e instruções de migração detalhadas](https://www.migratetoazure.net/) que permitem que você verifique a compatibilidade e identifique mudanças que precisam ser feitas. A integração com Visual Studio, TFS e ferramentas de CMS comuns torna mais fácil implantar aplicativos IIS6 diretamente na nuvem. Uma vez implantado, o Portal do Azure oferece ferramentas de gerenciamento robustas que permitem reduzir verticalmente para gerenciar os custos e atender à demanda conforme o necessário. Com a ferramenta de migração, você pode:
+O Serviço de Aplicativo do Azure torna fácil evitar os custos com infraestrutura associados à migração de aplicativos IIS6 mais antigos. A Microsoft criou [ferramentas de migração de fácil uso e instruções de migração detalhadas][migrate-tool] que permitem que você verifique a compatibilidade e identifique mudanças que precisam ser feitas. A integração com Visual Studio, TFS e ferramentas de CMS comuns torna mais fácil implantar aplicativos IIS6 diretamente na nuvem. Uma vez implantado, o Portal do Azure oferece ferramentas de gerenciamento robustas que permitem reduzir verticalmente para gerenciar os custos e atender à demanda conforme o necessário. Com a ferramenta de migração, você pode:
 
 * Migrar rápida e facilmente seu aplicativo Web do Windows Server 2003 legado para a nuvem.
 * Escolha deixar seu banco de dados SQL conectado localmente para criar um aplicativo híbrido.
@@ -191,3 +191,4 @@ Para se familiarizar com as opções escolhidas para seu aplicativo, consulte os
 <!-- IMG List -->
 
 [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
+[migrate-tool]: https://www.movemetothecloud.net/

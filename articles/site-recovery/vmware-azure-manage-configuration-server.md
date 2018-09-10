@@ -1,44 +1,50 @@
 ---
 title: Gerenciar o servidor de configuração para a recuperação após desastres do VMware com o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como gerenciar um servidor de configuração existente de recuperação de desastre do VMware para o Azure com o Azure Site Recovery.
-services: site-recovery
-author: AnoopVasudavan
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 07/06/2018
+ms.author: raynew
+ms.openlocfilehash: df5b2ecce2a5c9d7c263ee0acc3a49b859b93f7f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346113"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Gerenciar o servidor de configuração para VMs VMware
 
 Você configura um servidor de configuração local quando você usa o [Azure Site Recovery](site-recovery-overview.md) para recuperação de desastre de VMs VMware e servidores físicos para o Azure. O servidor de configuração coordena a comunicação entre o ambiente de VMware local e o Azure e gerencia a replicação de dados. Este artigo resume as tarefas comuns para gerenciar o servidor de configuração depois de implantado.
 
 
+
 ## <a name="modify-vmware-settings"></a>Modificar as configurações de VMware
 
-Modificar as configurações do servidor de VMware que conecta o servidor de configuração.
+Você pode acessar o servidor de configuração da seguinte maneira:
+    - Entre na VM na qual ela está implantada e inicie o Azure Site Recovery Configuration Manager no atalho da área de trabalho.
+    - Como alternativa, você pode acessar o servidor de configuração remotamente a partir de **https://*ConfigurationServerName*/:44315 /**. Entre com credenciais de administrador.
+   
+### <a name="modify-vmware-server-settings"></a>Modifique as configurações do servidor VMware
 
-1. Conecte-se ao computador que executa o servidor de configuração.
-2. Inicie o Gerenciador de Configurações do Azure Site Recovery a partir de um atalho da área de trabalho. Ou abra [este link](https://configuration-server-name/IP:44315).
-3. Selecione **Gerenciar Servidor vCenter/servidor vSPhere ESXi** e proceda da seguinte forma:
+1. Para associar outro servidor VMware ao servidor de configuração, após a entrada, selecione **Adicionar vCenter Server/servidor vSphere ESXi**.
+2. Digite os detalhes e, em seguida, selecione **OK**.
 
-    * Para associar um servidor diferente do VMwareao servidor de configuração, selecione **Adicionar Servidor vCenter/servidor vSPhere ESXi**. Insira os detalhes do servidor.
 
-    * Para atualizar as credenciais usadas para se conectar ao servidor do VMware para a descoberta automática de VMs do VMware, selecione em **Editar**. Digite as novas credenciais e selecione **OK**.
+### <a name="modify-credentials-for-automatic-discovery"></a>Modificar as credenciais para a descoberta automática
+
+1. Para atualizar as credenciais usadas para conectar-se ao servidor VMware para descoberta automática de VMs do VMware, após o login, selecione **Editar**.
+2. Digite as novas credenciais e selecione **OK**.
 
     ![Modificar VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
+
 
 ## <a name="modify-credentials-for-mobility-service-installation"></a>Modificar credenciais para instalação do Serviço de Mobilidade
 
 Modifique as credenciais usadas para instalar automaticamente o Serviço de Mobilidade nas VMs do VMware que você habilitar para replicação.
 
-1. Conecte-se ao computador que executa o servidor de configuração.
-2. Inicie o Gerenciador de Configurações do Site Recovery a partir de um atalho da área de trabalho. Ou abra [este link](https://configuration-server-name/IP:44315).
-3. Selecione em **Gerenciar credenciais de máquina virtual**e digite as novas credenciais. A seguir, selecione **OK** para atualizar as configurações.
+1. Depois de entrar, selecione **gerenciar credenciais de máquina virtual**
+2. Digite as novas credenciais e selecione **OK**.
 
     ![Modificar as credenciais de Serviço de Mobilidade](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
@@ -46,15 +52,15 @@ Modifique as credenciais usadas para instalar automaticamente o Serviço de Mobi
 
 Modificar as configurações de proxy usadas pela máquina do servidor de configuração para acesso à internet para o Azure. Se você tiver uma máquina de servidor de processo, além do servidor de processo padrão em execução na máquina do servidor de configuração, modifique as definições em ambos os computadores.
 
-1. Conecte-se ao computador que executa o servidor de configuração.
-2. Inicie o Gerenciador de Configurações do Site Recovery a partir de um atalho da área de trabalho. Ou abra [este link](https://configuration-server-name/IP:44315).
-3. Selecione **Gerenciar conectividade** e atualize os valores de proxy. Selecione **Salvar** para atualizar as configurações.
+1. Depois de entrar no servidor de configuração, selecione **gerenciam a conectividade**.
+2. Atualize os valores de proxy. Selecione **Salvar** para atualizar as configurações.
 
 ## <a name="add-a-network-adapter"></a>Adicione um adaptador de rede
 
-O modelo Open Virtualization Format (OVF) implanta a VM do servidor de configuração com um único adaptador de rede. Você pode [adicionar mais um adaptador à máquina virtual)](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), mas é preciso adicioná-lo antes de registrar o servidor de configuração no cofre.
+O modelo Open Virtualization Format (OVF) implanta a VM do servidor de configuração com um único adaptador de rede.
 
-Para adicionar um adaptador depois de registrar o servidor de configuração no cofre, adicione o adaptador nas propriedades da VM. Em seguida, registre o servidor no cofre.
+- Você pode [adicionar outro adaptador à VM](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), mas precisa adicioná-lo antes de registrar o servidor de configuração no cofre.
+- Para adicionar um adaptador depois de registrar o servidor de configuração no cofre, adicione o adaptador nas propriedades da VM. Então você precisa registrar novamente o servidor no cofre.
 
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Registrar um servidor de configuração no mesmo cofre
@@ -65,94 +71,112 @@ Você pode registrar novamente o servidor de configuração no mesmo cofre se ne
   1. No cofre, abra **gerenciar** > **infra-estrutura do Azure Site Recovery** > **Servidores de Configuração**.
   2. Em **Servidores**, selecione **Baixar a chave de registro** para baixar o arquivo de credenciais do cofre.
   3. Conecte-se ao computador do servidor de configuração.
-  4. Em **%ProgramData%\ASR\home\svagent\bin**, abra **cspsconfigtool.exe**.
-  5. Na guia **Registro do Cofre**, selecione **Procurar** e localize o arquivo de credenciais do cofre que você baixou.
+  4. Em **%ProgramData%\ASR\home\svsystems\bin**, abra **cspsconfigtool.exe**.
+  5. Sobre o **registro do cofre** guia, selecione **procurar**e localize o arquivo de credenciais de cofre que você baixou.
   6. Se necessário, forneça os detalhes do servidor proxy. Em seguida, selecione **Registrar**.
   7. Abra uma janela de comando do PowerShell de administrador e execute o comando a seguir:
-
-      ```
+   ```
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
-      net stop obengine
-      net start obengine
-      ```
+   ```
 
-## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
+      >[!NOTE] 
+      >Para obter os **certificados mais recentes** do servidor de configuração para o servidor de processo de expansão, execute o comando *“<Unidade de Instalação \ Recuperação do Site do Azure do Microsoft \ agent \ cdpcli.exe>" --registermt*
 
-Você executa pacotes cumulativos de atualização para atualizar o servidor de configuração. As atualizações podem ser aplicadas até versões N-4. Por exemplo: 
+  8. Finalmente, reinicie o obengine executando o seguinte comando.
+  ```
+          net stop obengine
+          net start obengine
 
-- Se executar 9.7, 9.8, 9.9 ou 9.10, você poderá atualizar diretamente para 9.11.
-- Se executar 9.6 ou anterior e quiser atualizar para 9.11, você deverá primeiramente atualizar para a versão 9.7. antes de 9.11.
+## Upgrade the configuration server
 
-Os links para pacotes cumulativos de atualização para todas as versões do servidor de configuração estão disponíveis no [página de atualizações wiki](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+You run update rollups to update the configuration server. Updates can be applied for up to N-4 versions. For example:
 
-Atualize o servidor da seguinte maneira:
+- If you run 9.7, 9.8, 9.9, or 9.10, you can upgrade directly to 9.11.
+- If you run 9.6 or earlier and you want to upgrade to 9.11, you must first upgrade to version 9.7. before 9.11.
 
-1. Baixe o arquivo instalador da atualização no servidor de configuração.
-2. Clique duas vezes para executar o instalador.
-3. O instalador detecta a versão atual em execução no computador.
-4. Selecione **OK** para confirmar e executar o upgrade. 
+Links to update rollups for upgrading to all versions of the configuration server are available in the [wiki updates page](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
 
+Upgrade the server as follows:
 
-## <a name="delete-or-unregister-a-configuration-server"></a>Excluir ou cancelar o registro de um Servidor de Configuração
+1. In the vault, go to **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
+2. If an update is available, a link appears in the **Agent Version** > column.
+    ![Update](./media/vmware-azure-manage-configuration-server/update2.png)
+3. Download the update installer file to the configuration server.
 
-1. Desabilite [Desabilitar a proteção](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para todas as VMs no servidor de configuração.
-2. [Desassociar](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) e [Excluir](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) todas as políticas de Replicação do Servidor de Configuração.
-3. [Exclua](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) todos os servidores vCenter/hosts vSphere associados ao servidor de configuração.
-4. No cofre, abra **Infraestrutura do Site Recovery** > **Servidores de Configuração**.
-5. Clique no servidor de configuração que deseja remover. Em seguida, na página **Detalhes**, selecione **Excluir**.
+    ![Update](./media/vmware-azure-manage-configuration-server/update1.png)
 
-    ![Excluir um servidor de configuração](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
+4. Double-click to run the installer.
+5. The installer detects the current version running on the machine. Click **Yes** to start the upgrade.
+6. When the upgrade completes the server configuration validates.
+
+    ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
+    
+7. Click **Finish** to close the installer.
+
+## Delete or unregister a configuration server
+
+1. [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all VMs under the configuration server.
+2. [Disassociate](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) and [delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) all replication policies from the configuration server.
+3. [Delete](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) all vCenter servers/vSphere hosts that are associated with the configuration server.
+4. In the vault, open **Site Recovery Infrastructure** > **Configuration Servers**.
+5. Select the configuration server that you want to remove. Then, on the **Details** page, select **Delete**.
+
+    ![Delete configuration server](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
    
 
-### <a name="delete-with-powershell"></a>Excluir com o PowerShell
+### Delete with PowerShell
 
-Opcionalmente, você pode excluir o servidor de configuração usando o PowerShell.
+You can optionally delete the configuration server by using PowerShell.
 
-1. [Instale](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) o módulo Azure PowerShell.
-2. Conecte à sua conta do Azure usando este comando:
+1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) the Azure PowerShell module.
+2. Sign in to your Azure account by using this command:
     
     `Connect-AzureRmAccount`
-3. Selecione a assinatura do cofre.
+3. Select the vault subscription.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
-3.  Definir o contexto do cofre.
+3.  Set the vault context.
     
     ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    $vault = get-AzureRmRecoveryServicesVault-nome <name of your vault> conjunto AzureRmSiteRecoveryVaultSettings - ARSVault $vault
     ```
-4. Recupere o servidor de configuração.
+4. Retrieve the configuration server.
 
     `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
-6. Excluir o servidor de configuração.
+6. Delete the configuration server.
 
     `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
 
 > [!NOTE]
-> Você pode usar a opção **-Force** em RRemove-AzureRmSiteRecoveryFabric para exclusão forçada do servidor de configuração.
+> You can use the **-Force** option in Remove-AzureRmSiteRecoveryFabric for forced deletion of the configuration server.
  
+## Generate configuration server Passphrase
+
+1. Sign in to your configuration server, and then open a command prompt window as an administrator.
+2. To change the directory to the bin folder, execute the command **cd %ProgramData%\ASR\home\svsystems\bin**
+3. To generate the passphrase file, execute **genpassphrase.exe -v > MobSvc.passphrase**.
+4. Your passphrase will be stored in the file located at **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
+
+## Renew SSL certificates
+
+The configuration server has an inbuilt web server, which orchestrates activities of the Mobility Service, process servers, and master target servers connected to it. The web server uses an SSL certificate to authenticate clients. The certificate expires after three years and can be renewed at any time.
+
+### Check expiry
+
+For configuration server deployments before May 2016, certificate expiry was set to one year. If you have a certificate that is going to expire, the following occurs:
+
+- When the expiry date is two months or less, the service starts sending notifications in the portal, and by email (if you subscribed to Site Recovery notifications).
+- A notification banner appears on the vault resource page. For more information, select the banner.
+- If you see an **Upgrade Now** button, it indicates that some components in your environment haven't been upgraded to 9.4.xxxx.x or higher versions. Upgrade the components before you renew the certificate. You can't renew on older versions.
+
+### Renew the certificate
+
+1. In the vault, open **Site Recovery Infrastructure** > **Configuration Server**. Select the required configuration server.
+2. The expiry date appears under **Configuration Server health**.
+3. Select **Renew Certificates**. 
 
 
-## <a name="renew-ssl-certificates"></a>Renovar certificados SSL
+## Next steps
 
-O servidor de configuração tem uma servidor de Web embutido, que coordena as atividades do Serviço de Mobilidade, dos servidores de processo e do servidores de destino mestre conectados a ele. O servidor da web usa um certificado SSL para autenticar clientes. O certificado expira depois de três anos e pode ser renovado a qualquer momento.
-
-### <a name="check-expiry"></a>Verificar expiração
-
-Para implantações de servidor de configuração antes de maio de 2016, a expiração do certificado foi definida para um ano. Se você tiver um certificado prestes a expirar, ocorrerá o seguinte:
-
-- Quando a data de expiração é de dois meses ou menos, o serviço começa a enviar notificações no portal e por email (se você tiver assinado as notificações do Site Recovery).
-- Uma faixa de notificação será exibida na página de recursos do cofre. Para obter mais informações, selecione a faixa.
-- Se você vir um botão **Atualizar agora**, isso indica que alguns componentes em seu ambiente não foram atualizados para a versão 9.4.xxxx.x ou superiores. Atualize os componentes antes de renovar o certificado. Não é possível renovar versões mais antigas.
-
-### <a name="renew-the-certificate"></a>Renovar o certificado
-
-1. No cofre, abra **Infraestrutura do Site Recovery** > **Servidor de Configuração**. Selecione o servidor de configuração necessário.
-2. A data de expiração aparece sob **Integridade do servidor de configuração**.
-3. Selecione **Renovar Certificados**. 
-
-
-## <a name="next-steps"></a>Próximas etapas
-
-Analise os tutoriais para configurar a recuperação de desastre de [VMs VMware](vmware-azure-tutorial.md) para o Azure.
+Review the tutorials for setting up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.

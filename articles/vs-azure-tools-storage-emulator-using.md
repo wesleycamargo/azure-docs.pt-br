@@ -2,23 +2,22 @@
 title: Configurando e usando o Emulador de Armazenamento com o Visual Studio | Microsoft Docs
 description: Configurando e usando o emulador de armazenamento com o Visual Studio
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: c8e7996f-6027-4762-806e-614b93131867
-ms.service: storage
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: c8e7996f-6027-4762-806e-614b93131867
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: c4f4c89eccd1faa4c947048a6d634c4cf8483cb6
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e4a72729cfe69a810e0eec0a0ac6ddb87a468932
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141855"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurando e usando o emulador de armazenamento com o Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]

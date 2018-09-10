@@ -1,27 +1,30 @@
+items:
 - name: Conceitos básicos do Azure IoT
   href: ../iot-fundamentals/index.yml
 - name: Documentação dos Mapas do Azure
   href: index.yml
 - name: Visão geral
   items:
-    - name: Sobre o Azure Mapas
-      href: about-azure-maps.md
+  - name: O que é o Azure Mapas?
+    href: about-azure-maps.md
 - name: Guia de início rápido
   items:
-    - name: Criar um aplicativo de mapa
-      href: quick-demo-map-app.md
+  - name: Criar um aplicativo de mapa
+    href: quick-demo-map-app.md
 - name: Tutoriais
   items:
-    - name: 1 - Pesquisar pontos de interesse
-      href: tutorial-search-location.md
-    - name: 2- Rotear para um destino
-      href: tutorial-route-location.md
-    - name: 3 - Várias rotas por modo de viagem
-      href: tutorial-prioritized-routes.md
+  - name: 1 - Pesquisar pontos de interesse
+    href: tutorial-search-location.md
+  - name: 2- Rotear para um destino
+    href: tutorial-route-location.md
+  - name: 3 - Várias rotas por modo de viagem
+    href: tutorial-prioritized-routes.md
 - name: Conceitos
   items:
-    - name: Níveis de zoom e grade lado a lado
-      href: zoom-levels-and-tile-grid.md
+  - name: Níveis de zoom e grade lado a lado
+    href: zoom-levels-and-tile-grid.md
+  - name: Cobertura
+    items:
     - name: Cobertura da geocodificação
       href: geocoding-coverage.md
     - name: Cobertura do tráfego
@@ -30,95 +33,135 @@
       href: render-coverage.md
     - name: Cobertura de roteamento
       href: routing-coverage.md
-    - name: Pesquisar categorias
-      href: search-categories.md
-    - name: Idiomas com suporte
-      href: supported-languages.md
-    - name: Modelo de consumo
-      href: consumption-model.md
+  - name: Idiomas com suporte
+    href: supported-languages.md
+  - name: Estilos de mapa com suporte
+    href: supported-map-styles.md
 - name: Guias de instruções
   items:
-    - name: Gerenciar contas do Azure Mapas
+  - name: Gerenciar contas do Azure Mapas
+    items:
+    - name: Gerenciar contas e chaves
+      href: how-to-manage-account-keys.md
+    - name: Obter métricas de uso
+      href: how-to-view-api-usage.md
+  - name: Obter dados de mapa de APIs REST
+    items:
+    - name: Pesquisar um endereço
+      href: how-to-search-for-address.md
+  - name: Criar mapas de JavaScript
+    items:
+    - name: Usar o controle de mapa
+      href: how-to-use-map-control.md
+    - name: Criar um mapa
+      href: map-create.md
+    - name: Escolher um estilo de mapa
+      href: choose-map-style.md
+    - name: Adicionar controles de mapa
+      href: map-add-controls.md
+    - name: Adicionar um PIN
+      href: map-add-pin.md
+    - name: Adicionar um pop-up
+      href: map-add-popup.md
+    - name: Adicionar uma forma
+      href: map-add-shape.md
+    - name: Adicionar HTML personalizado
+      href: map-add-custom-html.md
+    - name: Serviços
       items:
-        - name: Gerenciar contas e chaves
-          href: how-to-manage-account-keys.md
-    - name: Obter dados de mapa de APIs REST
-      items:
-        - name: Pesquisar um endereço
-          href: how-to-search-for-address.md
-    - name: Criar mapas de JavaScript
-      items:
-        - name: Usar o controle de mapa
-          href: how-to-use-map-control.md
-        - name: Criar um mapa
-          href: map-create.md
-        - name: Adicionar um PIN
-          href: map-add-pin.md
-        - name: Adicionar um pop-up
-          href: map-add-popup.md
-        - name: Adicionar uma forma
-          href: map-add-shape.md
-        - name: Adicionar HTML personalizado
-          href: map-add-custom-html.md
-        - name: Mostrar resultados da pesquisa
-          href: map-search-location.md
-        - name: Obter informações de uma coordenada
-          href: map-get-information-from-coordinate.md
-        - name: Mostrar instruções de A para B
-          href: map-route.md
-        - name: Mostrar o tráfego
-          href: map-show-traffic.md
-        - name: Interagir com eventos de mouse
-          href: map-events.md
+      - name: Mostrar resultados da pesquisa
+        href: map-search-location.md
+      - name: Obter informações de uma coordenada
+        href: map-get-information-from-coordinate.md
+      - name: Mostrar instruções de A para B
+        href: map-route.md
+    - name: Mostrar o tráfego
+      href: map-show-traffic.md
+    - name: Interagir com eventos de mouse
+      href: map-events.md
+    - name: Aplicativos de mapa acessíveis
+      href: map-accessibility.md
 - name: Referência
   items:
-    - name: API de Serviços - REST
-      href: 'https://docs.microsoft.com/rest/api/maps/'
-    - name: API do Controle de Mapeamento - Javascript
-      href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+  - name: Extensões de API e parâmetro
+    items:
+    - name: Modelo de consumo do veículo
+      href: consumption-model.md
+    - name: Estender formato GeoJSON
+      href: extend-geojson.md
+    - name: Categorias de pesquisa com suporte
+      href: supported-search-categories.md
+  - name: REST
+    items:
+    - name: Serviço de geolocalização
+      href: https://docs.microsoft.com/rest/api/maps/geolocation
+    - name: Serviço de Renderização
+      href: https://docs.microsoft.com/rest/api/maps/render
+    - name: Serviço de Roteamento
+      href: https://docs.microsoft.com/rest/api/maps/route
+    - name: Serviço Search
+      href: https://docs.microsoft.com/rest/api/maps/search
+    - name: Serviço de Fuso horário
+      href: https://docs.microsoft.com/rest/api/maps/timezone
+    - name: Serviço de Tráfego
+      href: https://docs.microsoft.com/rest/api/maps/traffic
+    - name: Gerenciamento de contas de mapas
+      href: https://docs.microsoft.com/rest/api/maps-management
+  - name: JavaScript
+    items:
+    - name: Controle de mapa
+      href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
+    - name: Módulo de serviço
+      href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
 - name: Relacionados
   items:
-    - name: Soluções
-      items:
-        - name: Soluções pré-configuradas do IoT Suite
-          href: /azure/iot-suite
-        - name: Central da IoT
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-    - name: Serviços de plataforma
-      items:
-        - name: Hub IoT
-          href: /azure/iot-hub
-        - name: Provisionamento de Dispositivos no Hub IoT
-          href: /azure/iot-dps
-        - name: Mapas
-          href: /azure/azure-maps
-        - name: SDKs do Serviço
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Microsoft Edge
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: SDKs do dispositivo IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+  - name: Soluções
+    items:
+    - name: Aceleradores de solução do IoT
+      href: /azure/iot-suite
+    - name: Central da IoT
+      href: https://docs.microsoft.com/microsoft-iot-central/
+  - name: Serviços de plataforma
+    items:
+    - name: Hub IoT
+      href: /azure/iot-hub
+    - name: Provisionamento de Dispositivos no Hub IoT
+      href: /azure/iot-dps
+    - name: Mapas
+      href: /azure/azure-maps
+    - name: SDKs do Serviço
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Microsoft Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: SDKs do dispositivo IoT
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Recursos
   items:
-    - name: Centro de Desenvolvedores do IoT do Azure
-      href: 'https://azure.microsoft.com/develop/iot/'
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/azure-maps'
-    - name: Calculadora de preço
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Atualizações de serviço
-      href: 'https://azure.microsoft.com/updates'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-maps'
-    - name: Estudos de casos técnicos
-      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: vídeos
-      href: 'https://azure.microsoft.com/documentation/videos'
+  - name: Centro de Desenvolvedores do IoT do Azure
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: Fórum do MSDN
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/azure-maps
+  - name: Calculadora de preço
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Atualizações de serviço
+    href: https://azure.microsoft.com/updates
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-maps
+  - name: Estudos de casos técnicos
+    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+  - name: vídeos
+    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
+ms.openlocfilehash: 0cf84e9b73831c1ead82f7cd01efb94ac312883d
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022808"

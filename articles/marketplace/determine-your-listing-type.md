@@ -1,118 +1,91 @@
 ---
-title: Determinar seu tipo de lista no Azure Marketplace
+title: Determinar a opção de publicação no Azure Marketplace | Azure
 description: Este artigo descreve os critérios de qualificação e os parceiros de requisitos de publicação tentando entender como publicar aplicativos no Azure Marketplace.
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: ellacroi
-manager: msmbaldwin
+author: jm-aditi-ms
+manager: pabutler
 editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
+ms.assetid: ''
 ms.service: marketplace
 ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: cd4959eb516f82f2d6e0afd2accfd8ac3d5b3e96
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: a85cd5287f6947ec17dc19291a70d6dd081e1827
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069559"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035853"
 ---
-# <a name="determine-the-listing-type-right-for-your-offer"></a>Determine o tipo de listagem correto para sua oferta
+# <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
+A opção de publicação que você escolher para a oferta estará relacionada diretamente aos requisitos de qualificação e benefícios de GTM do Marketplace. Mais importante, a seleção de opção de publicação e o tipo de oferta no Portal do Cloud Partner definem como será a interação dos usuários com sua oferta do Marketplace.
 
-Cada vitrine oferece suporte a várias opções de publicação e tipos de ofertas. Selecione um tipo de oferta que melhor represente seus detalhes de aplicativos e serviços. Todas as opções de publicação darão aos parceiros acesso ao compartilhamento de cliente potencial. 
+Você pode habilitar as opções de publicação selecionando um tipo de oferta e, em seguida, criar uma oferta do Marketplace no Portal do Cloud Partner. Para fazer isso, você precisará entender os seguintes conceitos principais do Marketplace: opções de publicação, tipos de oferta e de configuração e as chamadas de ação, que determinarão como e onde sua oferta será apresentada nas vitrines do Marketplace.
 
+![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
 
-## <a name="list"></a>Listar
-
-Use Entre em Contato Comigo quando uma participação de nível de avaliação ou transação não for viável. O benefício dessa abordagem é permitir que os editores com uma solução no mercado comecem imediatamente a receber clientes potenciais que possam ser consolidados nas ofertas fundamentais para iniciar seu impulso comercial. No entanto, a desvantagem é que o engajamento do cliente é limitado, em comparação com outros tipos de ofertas.
-
->[!IMPORTANT]
->O envolvimento do cliente e melhor com ofertas de Avaliação e Transação. O valor de Contate-me é o cliente potencial que você recebe, então se você escolher esse tipo de lista, certifique-se de que o destino do cliente pontecial está configurado e você está pronto para maximizar o cliente potencial. 
-
-Quando a oferta consistir principalmente de serviços profissionais (por exemplo, avaliações, implementações, workshops), use o tipo de oferta Serviços de Consultoria. O escopo, a duração e o preço da oferta devem ser fixados, devem ser para um único cliente e devem ser realizados no local.
-
-## <a name="trial"></a>Avaliação
-
-Fornecer uma experiência de avaliação aumenta o nível de engajamento oferecido aos clientes e, portanto, uma exposição mais avançada da sua solução. Uma avaliação permite que os clientes explorem sua solução antes de comprar. Com uma experiência de avaliação você terá maiores oportunidades de promoção nas vitrines e pode esperar por clientes potenciais cada vez mais valiosos, a partir do compromisso com o cliente.
- 
-Todas as opções de avaliação são implantadas em no ambiente de avaliação e/ou assinatura do Azure, em vez de no ambiente do cliente ou assinatura do Azure. As Avaliações devem ser conduzidas pelo cliente sem compras adicionais e mínimas, se houver, configurações adicionais para completar um caso de uso simples. As Avaliações devem incluir suporte gratuito pelo menos durante o período de avaliação. Os usuários de avaliação devem ser consolidados e monitorados ao longo de um caminho de avaliação deliberado para obter melhores resultados. Os editores são incentivados a utilizar ambos os clientes potenciais do marketplace e a inteligência no aplicativo do próprio editor para monitorar e gerenciar usuários de avaliação.
-
-Há três cenários típicos de avaliação:
-
-**Avaliação gratuita**
-
-Use uma avaliação gratuita quando a solução ou o aplicativo oferecer uma avaliação gratuita para experimentar com base em SaaS. Essa opção conduz clientes potenciais de alta qualidade de clientes interessados, para ajudá-lo a iniciar o seu impulso comercial. Avaliações gratuitas podem ser apresentadas como contas de avaliação de uso limitado ou duração limitada. Eles devem incluir um plano de ação para acelerar a conversão para uso pago do software.
-
-|**Opção de avaliação**  |**Principais benefícios**  |**Escolha essa opção se...**  |
-|---------|---------|---------|
-|**Avaliação gratuita**    |     Permite que um cliente teste o produto antes de comprar um método automático para converter para uso pago. Também permite provas de conceito para o cliente e o engajamento conjunto com as equipes de vendas da Microsoft. |     A solução é uma máquina virtual ou modelo de solução.<br><br> A solução é uma oferta de SaaS e você oferece um produto de SaaS multilocatário. <br><br>Você tem uma experiência de primeira execução para colocar um cliente em atividade e execução rapidamente. <br><br>Você tem um único locatário, mas está adicionando os clientes como usuários convidados.|
-
-**Test Drive**
-
-Use um test drive quando a solução for implantada através de uma ou mais máquinas virtuais por meio de aplicativos IaaS ou SaaS. O benefício dessa abordagem é o provisionamento automatizado de uma solução de virtualização ou ambiente de solução completo, formulado em um "tour guiado" hospedado pelo parceiro da solução para a avaliação do cliente sem custo adicional para o cliente. O cliente não precisa ser um cliente do Azure existente para ajudar a gerar clientes potenciais de qualidade superior.
-
-Há benefícios adicionais para um test drive:
-
-- 27% das pesquisas de usuários no marketplace são refinadas pelos usuários para mostrar apenas ofertas com test drives. 
-- As ofertas com test drives geram 38% mais clientes potenciais que as ofertas sem test drive. 
-- 36% das novas aquisições de clientes no marketplace originam-se de clientes que participaram de um test drive. 
-- Tests drive permitem que vendedores de campo da Microsoft entendam melhor o produto para esforços de venda conjunta.
-
-|**Opção de avaliação**  |**Principais benefícios**  |**Escolha essa opção se...**  |
-|---------|---------|---------|
-|**Test drive**     |     Permite que um cliente teste o produto antes de comprar. Também fornece uma experiência interativa de sua solução em uma configuração pré-configurada. |   Sua solução é uma máquina virtual, um modelo de solução ou um aplicativo SaaS com um locatário único, ou é complicado de provisionar. <br><br>Você não tem um método para converter sua avaliação para uma oferta paga. |
-
-**Demonstração Interativa**
-
-Conduza os clientes através de uma experiência guiada do seu produto usando uma demonstração interativa. O benefício dessa opção é que você pode fornecer uma experiência de avaliação sem provisionamento complicado para soluções complexas. Essa opção oferece aos clientes uma visão geral da solução. E permite que editores comecem a receber os clientes potenciais que podem ser acrescentados em ofertas fundamentais para iniciar seu impulso comercial. 
-
-|**Opção de avaliação**  |**Principais benefícios**  |**Escolha essa opção se...**  |
-|---------|---------|---------|
-|**Demonstração interativa**    |  Permite que os clientes vejam seu produto em ação sem a complexidade da configuração.       |    A solução requer uma configuração complexa que seria difícil de obter no período da avaliação.     |
-
-## <a name="transaction"></a>Transação
-
-No Azure Marketplace, use uma *máquina virtual* quando a solução for implantada como um dispositivo virtual na assinatura do cliente. As máquinas virtuais são totalmente comercializadas por meio de Pagamento Conforme o Uso ou modelos de licenciamento habilitados para BYOL (traga sua própria licença). A Microsoft hospeda a transação comercial e fatura o cliente em nome do editor. O editor obtém o benefício de aproveitar o relacionamento de pagamento preferido do cliente com a Microsoft, incluindo o Contrato Enterprise. 
-
->[!NOTE]
->Neste momento, os compromissos monetários de um Enterprise Agreement podem ser usados em relação ao uso do aplicativo virtual do Azure, mas não em relação aos valores de licença para software do editor.
-
->[!NOTE]
->Você pode restringir a descoberta e a implantação de sua máquina virtual a um conjunto específico de clientes listando a imagem e o preço como uma oferta Privada. Ofertas privadas desbloqueiam a capacidade para editores criarem ofertas exclusivas para seus clientes mais próximos e oferecerem software personalizado e condições a eles. Estes termos personalizados permitem editores acenderem uma variedade de cenários, incluindo negócios de campos especializados com preços e termos especializados como também acesso antecipado a software de versão limitada. Isso permite que editores ofereçam preços específicos ou produtos a um conjunto limitado de clientes criando um novo SKU com esses detalhes. Saiba mais sobe [Ofertas Privadas](https://azure.microsoft.com/en-us/blog/private-offers-on-azure-marketplace/).
-
-Use um *modelo de solução do Azure Application* quando uma solução requerer implantação adicional e automação de configuração além da solução de virtualização. Os modelos de solução podem automatizar o provisionamento de um ou mais recursos da máquina virtual e, além disso, fornecer recursos de armazenamento e rede. Os modelos de solução podem fornecer benefícios de automação em máquinas virtuais únicas e em ambientes de solução inteiros baseados em IaaS. Saiba mais sobre a construção de modelos de solução em [GitHub](https://github.com/MicrosoftDocs/azure-docs).
-
-Use um *aplicativo gerenciado do Azure* ao implantar uma máquina virtual ou uma solução inteira baseada em IaaS para a assinatura de um cliente – e o editor ou o cliente desejar que a solução seja gerenciada por um terceiro (por exemplo, um SI ou MSP). Saiba mais sobre como criar aplicativos gerenciados em [Visão geral de aplicativos gerenciados do Azure](https://docs.microsoft.com/azure/managed-applications/overview). Para obter uma lista das perguntas frequentes, consulte as [Perguntas frequentes do Marketplace](https://azure.microsoft.com/marketplace/faq/).
-
->[!NOTE]
-> Aplicativos gerenciados devem poder ser implantados por meio do Marketplace. Se a comunicação com o cliente for uma preocupação, observe que você poderá chegar aos clientes interessados se o compartilhamento de cliente potencial estiver habilitado.
-
-Para soluções técnicas baseadas em SaaS, use o tipo de oferta de *aplicativo SaaS* para habilitar clientes do Azure a comprarem sua assinatura para sua solução via Azure Marketplace. Para usar esta capacidade editores devem colocar o preço e cobrarem seu serviço de forma simples e mensal e fornecerem a capacidade de atualizar ou cancelar o serviço a qualquer momento. Assim como máquinas virtuais, a Microsoft hospeda a transação comercial e fatura o cliente em nome do editor. Para cobrar um Aplicativo SaaS como uma assinatura, editores habilitam seus próprios API de serviço de gerenciamento de assinatura para comunicarem-se diretamente com os APIs de fornecimento do Azure Marketplace para dar suporte ao provisionamento de serviço, atualizações e cancelamentos do portal do Azure.
-
-Use *contêineres* para publicar sua solução como uma imagem contêiner Docker para ser provisionada a um serviço contêiner do Azure baseado em Kubernetes, como o Azure Kubernetes Service ou Instâncias de Contêiner do Azure, as escolhas do usuário sobre o tempo de execução do contêiner com base em Kubernetes. Microsoft atualmente tem suporte gratuito e modelos licenciados habilitados BYOL com mais capacidade de comércio vindo nos próximos meses, incluindo assinatura e opções de cobrança baseadas em consumo.
-
-## <a name="azure-certified-program"></a>Programa Azure Certified
-
-Todas as Máquinas Virtuais publicadas no Microsoft Azure Marketplace são testadas para o programa Azure Certified. O programa:
-
-- Garante aos clientes que sua máquina virtual é compatível com a plataforma Windows Azure e o modelo de vendas do Marketplace.
-- Testas a conformidade de segurança de imagens on-line, incluindo vírus e malware.
-- Habilita notificações no nível de oferta para aprimorar a promoção para clientes corporativos da Microsoft como uma solução validada.
-- Para obter mais informações, visite [Microsoft Azure Certificado](https://azure.microsoft.com/en-us/marketplace/programs/certified/).
-
-## <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Processos de publicação por produto para Office, Dynamics e Power BI
-Para aplicativos AppSource que estendem Office, Dynamics e Power BI, você pode saber mais sobre os requisitos específicos na documentação específica do produto nesta seção. 
+>[!Note]
+>A tabela acima descreve como sua solução ou serviço é mapeado para a vitrine, a opção de publicação e o tipo de oferta usado para apresentar sua oferta no Marketplace.
 
 
-|Produto |Publicando informações  |
-|---------|---------|
-|Office 365     |    Revise o [processo e as diretrizes de publicação]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store).     |
-|Dynamics 365 for Finance and Operations  |   Ao compilar para a Enterprise Edition, revise o [processo e as diretrizes de publicação](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
-|Dynamics 365 for Customer Engagement |Revise o [processo e as diretrizes de publicação](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource). |
-|Power BI   |     Revise o [processo e as diretrizes de publicação]( https://docs.microsoft.com/power-bi/developer/office-store).    |
-|Cortana Intelligence     |    Saiba mais sobre o [Cortana no AppSource](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
-|Ofertas de consultoria do AppSource     |  Revise as [diretrizes e saiba como enviar sua oferta](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf).    |
+Neste artigo, você aprenderá...
+<ul><li>    Como determinar a vitrine apropriada para sua solução </ul></li>
+<ul><li>    Quais opções de publicação e chamadas de ação estão disponíveis em cada vitrine </ul></li>
+<ul><li>    Quais tipos de oferta estão disponíveis para cada opção de publicação </ul></li>
+
+
+## <a name="selecting-a-storefront-publishing-option-and-offer-type-for-your-solution"></a>Selecionar uma vitrine, opção de publicação e tipo de oferta para sua solução
+
+Antes de selecionar uma opção de publicação, é importante entender os requisitos de qualificação de vitrine para aplicativos, serviços e soluções do Marketplace:
+
+Os aplicativos do **Azure Marketplace** são soluções técnicas de "bloco de construção", integradas ao Azure ou criadas para ele. Serviços de consultoria do Azure Marketplace são ofertas de serviços profissionais que ajudam os clientes a começarem a usar o Azure, ou a aprenderem a usá-lo mais rápido.
+
+Aplicativos **AppSource** são soluções de linha de negócios que podem ser integradas ao Azure ou criadas para: Dynamics 365, Office 365, Power BI ou Power Apps. Serviços de consultoria do AppSource são ofertas de serviços profissionais que ajudam os clientes a começarem a usar o Dynamics 365 e o Power BI.
+
+Uma vez você se tiver se registrado para se tornar um editor e recebido acesso ao Portal do Cloud Partner para criar, configurar e publicar as ofertas do Marketplace, você:
+
+<ul>1.  Compreenderá como a vitrine para sua oferta será determinada</ul>
+<ul>2.  Escolherá uma opção de publicação para sua oferta</ul>
+<ul>3.  Selecionará um tipo de oferta e examinará os requisitos de qualificação</ul>
+<ul>4.  Criará e configurará a oferta para publicação no Portal do Cloud Partner</il></ul>
+
+## <a name="understand-storefront-selection"></a>Entenderá a seleção de vitrines
+
+A vitrine em que a oferta será apresentada, o Azure Marketplace e/ou o AppSource, será determinada automaticamente pelos detalhes da oferta e pelo público-alvo, bem como pelas categorias e setores selecionados por você ao criar a oferta no Portal do Cloud Partner. 
+
+>[!Note]
+>"Listagem de cruzada" (somente para aplicativos SaaS): quando uma lista ou oferta baseada em avaliação atende aos critérios tanto para um público de usuários técnicos quanto para os comerciais, sua oferta é listada em ambas as vitrines. Saiba mais sobre as opções de publicação abaixo.
+
+## <a name="choose-a-publishing-option"></a>Selecione uma opção de publicação
+
+As opções de publicação disponíveis oferecem envolvimento do cliente diferenciado, dando-lhe acesso ao compartilhamento de leads e [benefícios do Go-To-Market](https://partner.microsoft.com/en-US/reach-customers/gtm). Selecione entre três opções possíveis de publicação antes de usar o Portal do Cloud Partner para criar uma oferta do Marketplace. Observe as chamadas de ação que correspondem à opção de publicação:
+
+**Lista** – listagem simples de seu aplicativo ou serviço que permite que um usuário do Marketplace solicite a conexão com o cliente por meio da chamada de ação **Entre em Contato Comigo**.
+
+**Avaliação** – use o Marketplace para melhorar a capacidade de descoberta e automatizar o provisionamento da experiência de avaliação do seu aplicativo, permitindo que os usuários em potencial usem sua experiência no aplicativo SaaS, IaaS ou da Microsoft sem nenhum custo, por tempo limitado, antes de comprar. A chamada de ação usada para a opção de publicação de avaliação é uma entre: **Avaliação Gratuita** e **Test Drive**.
+
+**Transact** – o aplicativo é executado no Azure e pode ser provisionado como um recurso diretamente na assinatura do Azure do cliente quando o cliente seleciona a chamada de ação Obter Agora. Suas taxas de licença de software, opcionalmente, podem ser compradas e cobradas pelo meio de pagamento e nas condições de escolha do cliente, e você pode optar por oferecer acesso por tempo limitado à sua **avaliação gratuita de software** (disponível apenas para o Azure Marketplace). 
+
+## <a name="select-an-offer-type"></a>Selecionar um tipo de oferta
+
+Após decidir sobre uma opção de publicação, você estará pronto para selecionar o tipo de oferta que será usado para apresentar sua oferta. 
+
+A oferta é o objeto de publicação que você criará, publicará e gerenciará no Portal do Cloud Partner. A estrutura de oferta, incluindo os metadados, os artefatos e outro conteúdo usado para apresentar a oferta no Marketplace, é definida pelo tipo de oferta.
+
+Antes de criar uma oferta, você deve escolher um tipo de oferta. O tipo de oferta corresponderá ao tipo de solução, aplicativo, ou oferta de serviço que você deseja publicar, bem como seu alinhamento com produtos e serviços Microsoft. 
+
+Um único tipo de oferta pode ser configurado diferentemente no Portal do Cloud Partner para habilitar diferentes opções de publicação, chamadas de ação, preços ou provisionamento. A opção de publicação e a configuração do tipo de oferta também são alinhados aos requisitos técnicos e de qualificação da oferta. 
+
+Verifique se você examinou os requisitos de qualificação de tipo de oferta e de vitrine neste [Guia do Editor](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide) e os requisitos técnicos de publicação antes de criar sua oferta.
+
+## <a name="next-steps"></a>Próximas etapas
+
+*   Examine os requisitos de qualificação nas opções de publicação pela seção de tipo de oferta para finalizar a seleção e a configuração de sua oferta.
+*   Examine os padrões de publicação por vitrine eletrônica para obter exemplos de como sua solução é mapeada para uma configuração e tipo de oferta.
+*   Faça logon no [Portal do Cloud Partner](https://cloudpartner.azure.com) para criar e configurar a oferta.
+
+

@@ -2,17 +2,18 @@
 title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: virtual-machines
-author: cynthn
+author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: cynthn
+ms.date: 07/05/2018
+ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f203e056df00fb1a9b1e7e43930955040dfce4aa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39030026"
 ---
 O Azure realiza atualizações periodicamente para aumentar a confiabilidade, o desempenho e a segurança da infraestrutura de host para máquinas virtuais. Essas atualizações vão desde a aplicação de patch de componentes de software no ambiente de hospedagem (como sistema operacional, hipervisor e vários agentes implantados no host), a atualização de componentes de rede até o encerramento de hardware. A maioria dessas atualizações é realizada sem nenhum impacto nas máquinas virtuais hospedadas. No entanto, há casos em que as atualizações possuem um impacto:
 
@@ -20,9 +21,9 @@ O Azure realiza atualizações periodicamente para aumentar a confiabilidade, o 
 
 - Se a manutenção requer uma reinicialização, você receberá um aviso informando para quando a manutenção está planejada. Nesses casos, você também terá uma janela de tempo, onde você pode iniciar a manutenção, em um momento que mais oportuno para você.
 
-Esta página descreve como o Microsoft Azure executa os dois tipos de manutenção. Para obter mais informações sobre eventos não planejados (interrupções), consulte Gerenciar a disponibilidade das máquinas virtuais para [Windows] (../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Esta página descreve como o Microsoft Azure executa os dois tipos de manutenção. Para obter mais informações sobre eventos não planejados (interrupções), consulte Gerenciar a disponibilidade das máquinas virtuais para [Windows](../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Aplicativos em execução em uma máquina virtual podem coletar informações sobre atualizações futuras por meio do Serviço de Metadados do Azure para [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) ou [Linux] (... / articles/virtual-machines/linux/instance-metadata-service.md).
+Aplicativos em execução em uma máquina virtual podem coletar informações sobre atualizações futuras por meio do Serviço de Metadados do Azure para [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) ou [Linux](../articles/virtual-machines/linux/instance-metadata-service.md).
 
 Para obter instruções sobre como gerenciar a manutenção planejada, consulte “Administrando notificações de manutenção planejada” para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
@@ -30,7 +31,7 @@ Para obter instruções sobre como gerenciar a manutenção planejada, consulte 
 
 Quando as atualizações não exigirem uma reinicialização completa, preservar os mecanismos de manutenção de memória e usado para limitar o impacto à máquina virtual. A máquina virtual será pausada por aproximadamente 30 segundos, preservando a memória RAM, enquanto o ambiente de hospedagem aplica os patches e as atualizações necessárias, ou moverá a VM para um host já atualizado. A máquina virtual é reiniciada e o relógio da máquina virtual é sincronizado automaticamente. 
 
-Para VMs em conjuntos de disponibilidade, os domínios de atualização são atualizados um de cada vez. Todas as VMs em um domínio de atualização (UD) são pausadas, atualizadas e, em seguida, reiniciadas antes da manutenção planejada passar para o próximo UD.
+Essas operações de manutenção não reiniciáveis são o domínio de falha aplicado pelo domínio de falha e o andamento é interrompido quando algum sinal de aviso de integridade é recebido.
 
 Alguns aplicativos podem ser afetados por esses tipos de atualizações. Os aplicativos que executam processamento de eventos em tempo real, transmissão de mídia ou transcodificação, ou cenários de rede de alta produtividade, podem não ser projetados para tolerar uma pausa de 30 segundos. <!-- sooooo, what should they do? --> No caso da VM estar sendo movida para um host diferente, algumas cargas de trabalho confidenciais poderão notar uma ligeira degradação do desempenho em alguns minutos que levam a pausar a máquina Virtual. 
 
@@ -43,26 +44,26 @@ A **janela de autoatendimento** permite que você inicie a manutenção em suas 
 
 Quando você inicia a manutenção de autoatendimento, a VM é movida para um nó que já tenha sido atualizado e liga-o novamente. Como a VM é reiniciada, o disco temporário é perdido e os endereços IP dinâmicos associados ao adaptador de rede virtual são atualizados.
 
-Se você iniciar a manutenção de autoatendimento e ocorrer um erro durante o processo, a operação é interrompida, a VM não é atualizada e ela também é removida da iteração da manutenção planejada. Você será contatado em um momento posterior com um novo agendamento e receberá uma nova oportunidade para realizar a manutenção de autoatendimento. 
+Se você iniciar a manutenção de autoatendimento e ocorrer um erro durante o processo, a operação é interrompida, a VM não é atualizada e você obterá a opção de tentar novamente a manutenção de autoatendimento. 
 
 Quando a janela de autoatendimento tiver passado, a **janela de manutenção agendada** começa. Durante essa janela de tempo você ainda pode consultar a janela de manutenção, mas não será mais possível iniciar a manutenção por conta própria.
 
 Para obter informações sobre como gerenciar a manutenção que exige reinicialização, consulte “Notificações de manutenção planejada” para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
 
-## <a name="availability-considerations-during-planned-maintenance"></a>Considerações sobre disponibilidade durante a manutenção planejada 
+### <a name="availability-considerations-during-scheduled-maintenance"></a>Considerações sobre disponibilidade durante a manutenção planejada 
 
 Se você decidir aguardar até a janela de manutenção planejada, há algumas coisas a serem consideradas para manter a disponibilidade mais alta de suas VMs. 
 
-### <a name="paired-regions"></a>Regiões emparelhadas
+#### <a name="paired-regions"></a>Regiões emparelhadas
 
-Cada região do Azure é emparelhada com outra região na mesma área geográfica, formando juntas um par regional. Durante a manutenção planejada, o Azure atualizará somente as VMs em uma única região de um par de regiões. Por exemplo, ao atualizar as Máquinas Virtuais no Centro-Norte dos EUA, o Azure não atualizará qualquer Máquina Virtual no Centro-Sul dos EUA ao mesmo tempo. No entanto, outras regiões, como o Norte da Europa, podem estar em manutenção simultaneamente com Leste dos EUA. Noções básicas sobre como funcionam os pares de região podem ajudá-lo a melhor distribuir suas VMs entre regiões. Para obter mais informações, consulte [pares de regiões do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Cada região do Azure é emparelhada com outra região na mesma área geográfica, formando juntas um par regional. Durante a manutenção agendada, o Azure atualizará somente as VMs em uma única região de um par de regiões. Por exemplo, ao atualizar as Máquinas Virtuais no Centro-Norte dos EUA, o Azure não atualizará qualquer Máquina Virtual no Centro-Sul dos EUA ao mesmo tempo. No entanto, outras regiões, como o Norte da Europa, podem estar em manutenção simultaneamente com Leste dos EUA. Noções básicas sobre como funcionam os pares de região podem ajudá-lo a melhor distribuir suas VMs entre regiões. Para obter mais informações, consulte [pares de regiões do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-### <a name="availability-sets-and-scale-sets"></a>Conjuntos de disponibilidade e conjuntos de dimensionamento
+#### <a name="availability-sets-and-scale-sets"></a>Conjuntos de disponibilidade e conjuntos de dimensionamento
 
 Ao implantar uma carga de trabalho usando VMs do Azure, é possível criar as VMs em um conjunto de disponibilidade para fornecer alta disponibilidade para o aplicativo. Isso garante que, durante uma interrupção ou eventos de manutenção, pelo menos uma máquina virtual estará disponível.
 
 Em um conjunto de disponibilidade, VMs individuais são distribuídas em até 20 domínios de atualização (UDs). Durante a manutenção planejada, somente um único domínio de atualização é afetado em um período específico. Lembre-se de que a ordem dos domínios de atualização que são afetados não necessariamente acontece de forma sequencial. 
 
-Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que permite implantar e gerenciar um conjunto de VMs idênticas como um único recurso. O conjunto de dimensionamento é implantado automaticamente nos domínios de atualização, como VMs em um conjunto de disponibilidade. Assim como com conjuntos de disponibilidade, com conjuntos de dimensionamento somente um domínio de atualização é afetado em um determinado momento.
+Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que permite implantar e gerenciar um conjunto de VMs idênticas como um único recurso. O conjunto de dimensionamento é implantado automaticamente nos domínios de atualização, como VMs em um conjunto de disponibilidade. Assim como com conjuntos de disponibilidade, com conjuntos de dimensionamento somente um domínio de atualização é afetado em um determinado momento durante a manutenção agendada.
 
 Para obter mais informações sobre como configurar as máquinas virtuais para alta disponibilidade, consulte Gerenciar a disponibilidade de suas máquinas virtuais do [Windows](../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).

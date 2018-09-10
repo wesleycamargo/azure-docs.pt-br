@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 70d5c777f98a1e09125c7ef42ba597009bde084b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c13da6ff7c864ffa365dbad33d6eb0cf2e35fa42
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146289"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ativos de certificado na Automação do Azure
 
@@ -82,7 +83,7 @@ New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -N
 
 ## <a name="using-a-certificate"></a>Usando um certificado
 
-Para usar um certificado, use a atividade **Get-AutomationCertificate**. Não é possível usar o cmdlet [Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx), pois ele retorna informações sobre o ativo de certificado, mas não sobre o próprio certificado.
+Para usar um certificado, use a atividade **Get-AutomationCertificate**. Não é possível usar o cmdlet [Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-6.6.0), pois ele retorna informações sobre o ativo de certificado, mas não sobre o próprio certificado.
 
 ### <a name="textual-runbook-sample"></a>Exemplo de runbook textual
 

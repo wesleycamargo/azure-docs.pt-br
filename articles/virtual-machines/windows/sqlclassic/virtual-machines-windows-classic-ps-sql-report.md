@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: edfae3a56bc13e4c41a1676bfc0f4e8cf4cd9d30
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 32be46fb0c41909ce8a8014b13843970555d366f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145709"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo
 > [!IMPORTANT] 
@@ -39,7 +40,7 @@ Este tópico descreve e fornece orientação para a implantação e a configura�
   * Para aumentar a cota de núcleos, entre em contato com o [Suporte do Azure](https://azure.microsoft.com/support/options/). Para saber mais sobre o tamanho da VM, consulte [Tamanhos de máquinas virtuais do Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Script do Windows PowerShell**: o tópico supõe que você tenha um conhecimento funcional básico do Windows PowerShell. Para saber mais sobre como usar o Windows PowerShell, consulte o seguinte:
   
-  * [Iniciando o Windows PowerShell no Windows Server](https://technet.microsoft.com/library/hh847814.aspx)
+  * [Iniciando o Windows PowerShell no Windows Server](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell)
   * [Introdução ao Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## <a name="step-1-provision-an-azure-virtual-machine"></a>Etapa 1: provisionar uma máquina virtual do Azure
@@ -585,7 +586,7 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
   
   * [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)
-  * [SQL Server Data Tools e SQL Server Business Intelligence (SSDT-BI)](http://curah.microsoft.com/30004/sql-server-data-tools-ssdt-and-sql-server-business-intelligence)
+  * [SQL Server Data Tools e SQL Server Business Intelligence (SSDT-BI)](https://docs.microsoft.com/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi)
 * **SQL Server Data Tools: Remoto**: no computador local, crie um projeto do Reporting Services no SQL Server Data Tools que contenha os relatórios do Reporting Services. Configure o projeto para conectar-se à URL do serviço Web.
   
     ![propriedades de projeto ssdt para projeto SSRS](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
@@ -597,8 +598,7 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
 
 ## <a name="more-information"></a>Mais informações
 ### <a name="resources"></a>Recursos
-* Para obter um conteúdo semelhante relacionado a uma implantação de servidor único do Business Intelligence do SQL Server e do SharePoint 2013, consulte [Usar o Windows PowerShell para Criar uma VM do Azure com o BI do SQL Server e o SharePoint 2013](https://msdn.microsoft.com/library/azure/dn385843.aspx).
-* Para obter um conteúdo semelhante relacionado a uma implantação com vários servidores do Business Intelligence do SQL Server e do SharePoint 2013, consulte [Implantar o Business Intelligence do SQL Server nas Máquinas Virtuais do Azure](https://msdn.microsoft.com/library/dn321998.aspx).
+* Para obter um conteúdo semelhante relacionado a uma implantação de servidor único do Business Intelligence do SQL Server e do SharePoint 2013, consulte [Usar o Windows PowerShell para Criar uma VM do Azure com o BI do SQL Server e o SharePoint 2013](https://blogs.technet.microsoft.com/ptsblog/2013/10/24/use-powershell-to-create-a-windows-azure-vm-with-sql-server-bi-and-sharepoint-2013/).
 * Para obter informações gerais relacionadas às implantações do Business Intelligence do SQL Server nas Máquinas Virtuais do Azure, consulte [Business Intelligence do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-classic-ps-sql-bi.md).
 * Para saber mais sobre o custo dos encargos de computação do Azure, consulte a guia Máquinas Virtuais da [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
 

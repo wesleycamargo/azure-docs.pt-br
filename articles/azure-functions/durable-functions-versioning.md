@@ -1,12 +1,12 @@
 ---
-title: "Controle de Versão nas Funções Duráveis – Azure"
-description: "Saiba como implementar o Controle de Versão na extensão de Funções Duráveis do Azure Functions."
+title: Controle de Versão nas Funções Duráveis – Azure
+description: Saiba como implementar o Controle de Versão na extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22991281"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controle de Versão nas Funções Duráveis (Azure Functions)
 

@@ -3,7 +3,7 @@ title: Coletar logs e as métricas do serviço do Azure para o Log Analytics | M
 description: Configure o diagnóstico nos recursos do Azure para gravar logs e métricas no Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: dec2abdf68b3a38706549b4b655e33bc7abca1a3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452664"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Coletar logs e as métricas do serviço do Azure para uso no Log Analytics
 
@@ -43,7 +44,7 @@ Há quatro maneiras diferentes de coletar logs e métricas para os serviços do 
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | Diagnostics |             | |
 | Namespace do Hub de Eventos     | Microsoft.EventHub/namespaces           | Diagnostics | Diagnostics | |
 | Hubs IoT                | Microsoft.Devices/IotHubs               |             | Diagnostics | |
-| Cofre da Chave               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
+| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
 | Balanceadores de Carga          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
 | Aplicativos Lógicos              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
 | Grupos de segurança de rede | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Análise de Grupo de Segurança de Rede do Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
@@ -56,7 +57,7 @@ Há quatro maneiras diferentes de coletar logs e métricas para os serviços do 
 | Máquinas Virtuais        | Microsoft.Compute/virtualMachines       | Extensão   | Extensão <br> Diagnostics  | |
 | Conjuntos de dimensionamento de Máquinas Virtuais | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostics | |
 | Farms do servidor Web        | Microsoft.Web/serverfarms               |             | Diagnostics | |
-| Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostics | [Análise dos Aplicativos Web do Azure (Visualização)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) |
+| Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostics | [Análise dos Aplicativos Web do Azure (Visualização)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]

@@ -3,8 +3,8 @@ title: Visão geral sobre os diversos portais necessários para criar uma oferta
 description: Visão geral sobre os diversos portais necessários para criar uma oferta de Marketplace
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 ms.assetid: 89ce82b3-c28a-4b0d-b37a-db3112160a4e
 ms.service: marketplace
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: mbaldwin
-ms.openlocfilehash: 663d9a01b80b0c41e37037b0cbec10c93511d24c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: hascipio
+ms.openlocfilehash: 093d3ee3ecce89c86a12e7e216072ece57f82f9d
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715906"
 ---
 # <a name="portals-you-will-need"></a>Portais que você precisará
 Antes de iniciar o processo de publicação de uma oferta, vamos apresentar os diversos portais que serão necessários. Abaixo está o resumo sobre os portais - Centro de Desenvolvedores, Portal de Publicação do Azure e Portal do Azure - na ordem em que você vai interagir com eles.                                                                            

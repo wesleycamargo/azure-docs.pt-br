@@ -1,22 +1,19 @@
 ---
 title: Personalizar a interface do usuário da solução Monitoramento Remoto – Azure | Microsoft Docs
 description: Este artigo fornece informações sobre como acessar o código-fonte para a interface do usuário do acelerador da solução Monitoramento Remoto e fazer algumas personalizações.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/17/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 94bd864215ad80b299db09b6237f2cebe63feb88
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 36e63d26bf7ada2d23fa3cd9fddbb5ba90494527
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126015"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizar o acelerador da solução Monitoramento Remoto
 
@@ -37,6 +34,8 @@ As etapas a seguir descrevem o processo de configurar um ambiente local para o d
     ```sh
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
+
+    Você só deve habilitar o acesso SSH durante o desenvolvimento e teste. Se você habilitar o SSH, [você deve desabilitá-lo novamente assim que possível](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines).
 
 1. Use o portal do Azure ou a [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para localizar o nome e o endereço IP público de sua máquina virtual. Por exemplo: 
 
@@ -367,8 +366,9 @@ A página **Painel** exibe os KPIs no painel **KPIs do Sistema KPIs**. Esses KPI
 
       ...
     });
+    ```
 
-1. Include the new **warningAlarmsChange** KPI in the state data used to render the UI:
+1. Inclua a nova KPI **warningAlarmsChange** nos dados de estado usados para renderizar a interface do usuário:
 
     ```nodejs
     const {

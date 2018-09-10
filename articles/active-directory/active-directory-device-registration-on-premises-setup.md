@@ -6,21 +6,23 @@ documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 editor: ''
+ms.component: devices
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 0ce4497a8bebf9078363509c1f962728ab4189f8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 38d024de0fd2490d33f7c06498d3ff8d0d06e503
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146299"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurando o acesso condicional local usando o registro de dispositivo do Azure Active Directory
 Quando você exige que os usuários usem o ingresso no local de trabalho para seus dispositivos pessoais no serviço de registro de dispositivo do Azure AD (Azure Active Directory), seus dispositivos poderão ser marcados como conhecidos para sua organização. Veja abaixo um guia passo a passo para habilitar o acesso condicional em aplicativos locais usando o AD FS (Serviços de Federação do Active Directory) no Windows Server 2012 R2.
@@ -46,7 +48,7 @@ Essas funcionalidades estão disponíveis para os clientes que compram uma licen
 * Licença do Azure Active Directory Premium
 * Serviços de Federação do Windows Server 2012 R2, configurados para logon único ao Azure AD
 * Proxy de Aplicativo Web do Windows Server 2012 R2 
-* Azure AD Connect (Microsoft Azure Active Directory Connect) [(Baixar o Azure AD Connect)](http://www.microsoft.com/en-us/download/details.aspx?id=47594)
+* Azure AD Connect (Microsoft Azure Active Directory Connect) [(Baixar o Azure AD Connect)](http://www.microsoft.com/download/details.aspx?id=47594)
 * Domínio verificado
 
 ## <a name="known-issues-in-this-release"></a>Problemas conhecidos nesta versão
@@ -163,7 +165,7 @@ Há muitas maneiras diferentes de comunicar essa URL para seus usuários. Por ex
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Ingressar um dispositivo Windows 7 usando o registro de dispositivo do Azure Active Directory
 Para registrar dispositivos Windows 7 ingressados no domínio, é necessário implantar o [pacote de software de registro de dispositivo](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Para obter instruções sobre como usar o pacote, veja [Pacotes do Windows Installer para computadores sem Windows 10](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
+Para obter instruções sobre como usar o pacote, veja [Pacotes do Windows Installer para computadores sem Windows 10](devices/hybrid-azuread-join-control.md#control-windows-down-level-devices).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Verificar se foi feito o write-back dos dispositivos registrados no Active Directory
 Exiba e verifique se foi feito o write-back dos objetos de dispositivo no Active Directory usando o LDP.exe ou o Editor ADSI. Ambos estão disponíveis com as ferramentas do administrador do Active Directory.

@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 6f16b7524bc8c268ed3a2314b8b88d25eb2f4325
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ff4daf350783e02141a6afea815165ccecfe0116
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42145066"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop do Azure HDInsight
 Neste passo a passo, usamos o [TDSP (Processo de ciência de dados da equipe)](overview.md) em um cenário de ponta a ponta. Usamos um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](http://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Para manipular a classificação binária e multiclasse e tarefas preditivas de regressão, criamos modelos dos dados com o Azure Machine Learning. 
@@ -73,7 +75,7 @@ Determine o tipo de previsões que você deseja fazer com base na análise de da
 
 Você pode configurar um ambiente do Azure para análises avançadas que empregue um cluster HDInsight em três etapas:
 
-1. [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md): essa conta de armazenamento é usada para armazenar dados no armazenamento de Blobs do Azure. Os dados usados em clusters HDInsight também estão localizados aqui.
+1. [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md): essa conta de armazenamento é usada para armazenar dados no armazenamento de Blobs do Azure. Os dados usados em clusters HDInsight também estão localizados aqui.
 2. [Personalizar os clusters do Hadoop do Azure HDInsight para Processo e Tecnologia de Análise Avançada](customize-hadoop-cluster.md). Esta etapa cria um cluster HDInsight Hadoop com o Anaconda Python 2.7 de 64 bits instalado em todos os nós. Há duas etapas importantes a serem lembradas durante a personalização de seu cluster HDInsight.
    
    * Lembre-se de vincular a conta de armazenamento criada na etapa 1 ao cluster HDInsight ao criá-lo. Essa conta de armazenamento acessa dados que são processados no cluster.
@@ -826,7 +828,7 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 ## <a name="references"></a>Referências
 •   [Página de download de Viagens de Táxi de NYC, de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
 •   [Dados de Viagem de Táxi de FOILing NYC, de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•   [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•   [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png

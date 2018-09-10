@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 95793aac3c25563e3af39f3c47cebdd06e25e35f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c9d1874fb611b349403736593fdc9eccc45d2d4d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140793"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Enviar notificações entre plataformas a usuários com Hubs de Notificação
 Em um tutorial anterior, [Notificar usuários com os Hubs de Notificação], você aprendeu a enviar notificações por push a todos os dispositivos registrados para um usuário autenticado específico. Nesse tutorial, várias solicitações eram necessárias para enviar uma notificação a cada plataforma de cliente com suporte. Os Hubs de Notificação do Azure dão suporte a modelos, com os quais é possível especificar como um dispositivo específico deseja receber notificações. Esse método simplifica o envio de notificações de multiplaforma. 
@@ -104,8 +105,8 @@ Agora que você concluiu este tutorial, saiba mais sobre Hubs de Notificação e
 
 
 <!-- URLs. -->
-[Push to users ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Push to users Mobile Services]: /manage/services/notification-hubs/notify-users/
+[Push to users ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Push to users Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md

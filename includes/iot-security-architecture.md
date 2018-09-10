@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 62856d4743d853d5685503b5c21faedc46575e55
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1137f1dac9570b56dc202194e5f94dfd72c31c9f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39029964"
 ---
 # <a name="internet-of-things-security-architecture"></a>Arquitetura de segurança da Internet das Coisas
 
@@ -28,7 +29,7 @@ Muitas equipes de desenvolvimento fazem um excelente trabalho capturando os requ
 
 ### <a name="when-to-threat-model"></a>Quando fazer o modelo de risco
 
-A [modelagem de risco](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) oferece o valor máximo quando incorporada na fase de design. Ao realizar o design, você tem a maior flexibilidade para fazer alterações para eliminar as ameaças. A eliminação de ameaças por design é o resultado desejado. É muito mais fácil do que adicionar mitigações, testá-las e garantir que elas permaneçam atualizadas e, além disso, essa eliminação nem sempre é possível. Conforme o produto amadurece, fica mais difícil eliminar as ameaças, o que acaba exigindo mais trabalho e concessões muito mais complexas do que a modelagem de risco no início do desenvolvimento.
+A [modelagem de risco](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) oferece o valor máximo quando incorporada na fase de design. Ao realizar o design, você tem a maior flexibilidade para fazer alterações para eliminar as ameaças. A eliminação de ameaças por design é o resultado desejado. É muito mais fácil do que adicionar mitigações, testá-las e garantir que elas permaneçam atualizadas e, além disso, essa eliminação nem sempre é possível. Conforme o produto amadurece, fica mais difícil eliminar as ameaças, o que acaba exigindo mais trabalho e concessões muito mais complexas do que a modelagem de risco no início do desenvolvimento.
 
 ### <a name="what-to-threat-model"></a>O que incluir no modelo de risco
 
@@ -175,7 +176,7 @@ Em cada uma das categorias descritas na arquitetura de IoT do Azure, este exempl
 
 | **Componente** | **Ameaça** | **Mitigação** | **Risco** | **Implementação** |
 | --- | --- | --- | --- | --- |
-| Dispositivo |S |Atribuição de identidade para o dispositivo e autenticação do dispositivo |Substituir o dispositivo ou parte dele por outro dispositivo. Como saber se você está se comunicando com o dispositivo certo? |Autenticar o dispositivo, usando o protocolo TLS ou IPsec. A infraestrutura deve dar suporte ao uso da PSK (chave pré-compartilhada) nos dispositivos que não conseguem lidar com a criptografia assimétrica completa. Aproveite o Azure AD, o [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
+| Dispositivo |S |Atribuição de identidade para o dispositivo e autenticação do dispositivo |Substituir o dispositivo ou parte dele por outro dispositivo. Como saber se você está se comunicando com o dispositivo certo? |Autenticar o dispositivo, usando o protocolo TLS ou IPsec. A infraestrutura deve dar suporte ao uso da PSK (chave pré-compartilhada) nos dispositivos que não conseguem lidar com a criptografia assimétrica completa. Aproveite o Azure AD, o [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Aplicação de mecanismos à prova de violações no dispositivo, por exemplo, tornando difícil e até mesmo impossível extrair as chaves e outros materiais de criptografia do dispositivo. |O risco é se alguém está violando o dispositivo (interferência física). Como ter certeza de que o dispositivo não foi adulterado. |A mitigação mais eficaz é uma funcionalidade de TPM (trusted platform module) que permite armazenar chaves em circuitos on-chip especiais nos quais as chaves não podem ser lidas, mas apenas usadas para operações de criptografia que utilizam a chave, mas nunca a divulgam. Criptografia de memória do dispositivo. Gerenciamento de chaves para o dispositivo. Assinar o código. | |
 || E |Ter controle de acesso do dispositivo. Esquema de autorização. |Se o dispositivo permitir que ações individuais sejam executadas com base em comandos de uma fonte externa, ou até mesmo sensores comprometidos, isso permite que o ataque execute operações não acessíveis de outra forma. |Ter um esquema de autorização para o dispositivo | |
 | Gateway de campo |S |Autenticação do gateway de campo no gateway de nuvem (por exemplo, baseada em certificado, PSK ou em declarações.) |Se alguém pode falsificar o gateway de campo, pode se apresentar como qualquer dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). As mesmas preocupações de confirmação e armazenamento de chave dos dispositivos em geral, o melhor caso é usar o TPM. Extensão de 6LowPAN para o IPsec para dar suporte a WSN (Redes de Sensores Sem Fio). |

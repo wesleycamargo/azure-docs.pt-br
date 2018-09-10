@@ -1,32 +1,27 @@
 ---
-title: Gerenciar o Azure Data Lake Analytics usando o SDK do Azure para Node.js | Microsoft Docs
-description: Saiba como gerenciar contas, fontes de dados, trabalhos e usuários da Análise Data Lake usando o SDK do Azure para Node.js
+title: Gerenciar a Análise Azure Data Lake usando o SDK do Azure para Node.js
+description: Este artigo descreve como usar o SDK do Azure para Node.js para gerenciar contas, fontes de dados, trabalhos e usuários do Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: f11695df74e30f7ba9b1459f443a720208e542c4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: jasonwhowell
+ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: 0603a60ea73d47dd6107ee80afc5c776ff8c83bc
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047104"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Gerenciar a Análise Azure Data Lake usando o SDK do Azure para Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-O SDK do Azure para Node.js pode ser usado para gerenciar contas, trabalhos e catálogos da Análise Azure Data Lake. Para ver o tópico de gerenciamento usando outras ferramentas, clique na guia Selecionar acima.
+Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalhos do Azure Data Lake Analytics usando o SDK do Azure para Node.js. 
 
-Agora, ele oferece suporte a:
-
+As seguintes versões têm suporte:
 * **Versão do Node.js: 0.10.0 ou superior**
 * **Versão da API REST para Conta: 2015-10-01-preview**
 * **Versão da API REST para Catálogo: 2015-10-01-preview**

@@ -1,24 +1,20 @@
 ---
-title: Monitorar o desempenho do cluster – Azure HDInsight | Microsoft Docs
+title: Monitorar o desempenho do cluster – Azure HDInsight
 description: Como monitorar um cluster HDInsight quanto a capacidade e desempenho.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2017
 ms.author: maxluk
-ms.openlocfilehash: 9bf49631da58de86ffa1881bca976cab86677805
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 434b3ecf65aaa5ecea81f5a9773f1bc6e8f6f2be
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092320"
 ---
 # <a name="monitor-cluster-performance"></a>Monitorar o desempenho do cluster
 

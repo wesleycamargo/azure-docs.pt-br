@@ -1,23 +1,20 @@
 ---
 title: Introdução aos dispositivos gêmeos do Hub IoT do Azure (Java) | Microsoft Docs
 description: Como usar dispositivos gêmeos do Hub IoT do Azure para adicionar marcas e usar uma consulta do Hub IoT. Use o SDK do dispositivo IoT do Azure para Java para implementar o aplicativo de dispositivo e o SDK do serviço IoT do Azure para Java para implementar um aplicativo de serviço que adiciona as marcas e executa a consulta do Hub IoT.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: 8611b55f6e4f33f8946d8c7c481163166d24049c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b8884cafbf250b9d7a88219b5647addafee9904a
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186893"
 ---
 # <a name="get-started-with-device-twins-java"></a>Introdução ao dispositivos gêmeos (Java)
 
@@ -353,8 +350,8 @@ Neste tutorial, você configurou um novo hub IoT no portal do Azure e depois cri
 
 Veja os recursos a seguir para saber como:
 
-* Envie telemetria de dispositivos com o tutorial [Introdução ao Hub IoT](iot-hub-java-java-getstarted.md).
-* Controle dispositivos interativamente (como ativar uma ventoinha de um aplicativo controlado pelo usuário) com o tutorial [Usar métodos diretos](iot-hub-java-java-direct-methods.md).
+* Envie telemetria de dispositivos com o tutorial [Introdução ao Hub IoT](quickstart-send-telemetry-java.md).
+* Controle dispositivos interativamente (como ativar uma ventoinha de um aplicativo controlado pelo usuário) com o tutorial [Usar métodos diretos](quickstart-control-device-java.md).
 
 <!-- Images. -->
 [7]: ./media/iot-hub-java-java-twin-getstarted/invoke-method.png

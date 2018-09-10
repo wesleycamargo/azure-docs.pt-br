@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32182065"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexação do Armazenamento de Tabelas do Azure com o Azure Search
 Este artigo mostra como usar o Azure Search para indexar dados armazenados no Armazenamento de Tabelas do Azure.

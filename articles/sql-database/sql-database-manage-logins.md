@@ -1,33 +1,32 @@
 ---
 title: Usuários e logons do SQL do Azure | Microsoft Docs
-description: Saiba mais sobre o gerenciamento de segurança de banco de dados SQL, especialmente sobre como gerenciar o acesso ao banco de dados e a segurança de logon por meio da conta de entidade de segurança no nível do servidor.
+description: Saiba mais sobre o gerenciamento de segurança de Banco de Dados SQL e SQL Data Warehouse, especialmente sobre como gerenciar o acesso ao banco de dados e a segurança de logon por meio da conta de entidade de segurança no nível do servidor.
 keywords: segurança do banco de dados SQL, gerenciamento de segurança de banco de dados, segurança de logon, segurança de banco de dados, acesso ao banco de dados
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
-ms.topic: article
-ms.date: 03/16/2018
+ms.topic: conceptual
+ms.date: 08/15/2018
 ms.author: carlrab
-ms.openlocfilehash: 54bf692f35e2529fe7d0b14684c9acc7d66b9903
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7dbd2585628c64f5baf7df6083e38217d00953be
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141613"
 ---
-# <a name="controlling-and-granting-database-access"></a>Controle e concessão de acesso de banco de dados
+# <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controlando e concedendo acesso de banco de dados a Banco de Dados SQL e SQL Data Warehouse
 
-Após as regras de firewall terem sido configuradas, as pessoas poderão se conectar a um Banco de Dados SQL como uma das contas de administrador, como o proprietário do banco de dados ou como um usuário do banco de dados.  
+Após as regras de firewall terem sido configuradas, as pessoas poderão se conectar ao [Banco de Dados SQL do Azure](sql-database-technical-overview.md) e ao [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) como uma das contas de administrador, como o proprietário do banco de dados ou como um usuário do banco de dados.  
 
 >  [!NOTE]  
 >  Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse. 
->
 
 > [!TIP]
 > Para obter um tutorial, consulte [Proteger o Banco de Dados SQL do Azure](sql-database-security-tutorial.md).
->
-
 
 ## <a name="unrestricted-administrative-accounts"></a>Contas administrativas irrestritas
 Há duas contas administrativas (**Administrador do servidor** e **Administrador do Active Directory**) que agem como administradores. Para identificar essas contas de administrador do servidor SQL, abra o portal do Azure e navegue até as propriedades do servidor SQL.
@@ -37,17 +36,17 @@ Há duas contas administrativas (**Administrador do servidor** e **Administrador
 - **Administrador do servidor**   
 Quando você cria um servidor SQL no Azure, você deve designar um **Logon de administrador do servidor**. O servidor SQL cria essa conta como um logon no banco de dados mestre. Essa conta é conectada usando a autenticação do SQL Server (nome de usuário e senha). Só pode existir uma dessas contas.   
 - **Administrador do Azure Active Directory**   
-Uma conta do Azure Active Directory, seja ela individual ou de grupo de segurança, também pode ser configurada como um administrador. A configuração de um administrador do Azure AD é opcional, mas é necessário configurar um administrador do Azure AD a fim de usar as contas do Azure AD para se conectar ao Banco de Dados SQL. Para saber mais sobre como configurar o acesso ao Azure Active Directory, consulte [Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](sql-database-aad-authentication.md) e [Suporte do SSMS para MFA do Azure AD com o Banco de Dados SQL e o SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+Uma conta do Azure Active Directory, seja ela individual ou de grupo de segurança, também pode ser configurada como um administrador. A configuração de um administrador do Azure AD é opcional, mas é **preciso** configurar um administrador do Azure AD a fim de usar as contas do Azure AD para se conectar ao Banco de Dados SQL. Para saber mais sobre como configurar o acesso ao Azure Active Directory, consulte [Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](sql-database-aad-authentication.md) e [Suporte do SSMS para MFA do Azure AD com o Banco de Dados SQL e o SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
  
 
 As contas do **Administrador do servidor** e do **Administrador do Azure AD** têm as seguintes características:
-- Essas são as únicas contas que podem se conectar automaticamente a qualquer Banco de Dados SQL no servidor. (Para se conectar a um banco de dados do usuário, outras contas devem ser o proprietário do banco de dados, ou ter uma conta de usuário do banco de dados do usuário.)
+- São as únicas contas que podem se conectar automaticamente a qualquer Banco de Dados SQL no servidor. (Para se conectar a um banco de dados do usuário, outras contas devem ser o proprietário do banco de dados, ou ter uma conta de usuário do banco de dados do usuário.)
 - Essas contas inserem bancos de dados de usuário, pois o usuário `dbo` e elas têm todas as permissões nos bancos de dados do usuário. (O proprietário de um banco de dados do usuário também insere o banco de dados como o usuário `dbo`.) 
-- Essas contas não inserem o banco de dados `master`, pois o usuário `dbo` e elas têm permissões limitadas no mestre. 
-- Essas contas não são membros da função de servidor fixo do SQL Server padrão `sysadmin`, que não está disponível no Banco de Dados SQL.  
-- Essas contas podem criar, alterar e remover bancos de dados, logons, usuários nas regras de firewall mestre e de nível de servidor.
-- Essas contas podem adicionar e remover membros das funções `dbmanager` e `loginmanager`.
-- Essas contas podem visualizar a tabela do sistema `sys.sql_logins`.
+- Não insira o banco de dados `master` como o usuário `dbo` e tenha permissões limitadas no mestre. 
+- **Não** são membros da função de servidor fixo do SQL Server padrão `sysadmin`, que não está disponível no Banco de Dados SQL.  
+- Podem criar, alterar e remover bancos de dados, logons, usuários nas regras de firewall mestre e de nível de servidor.
+- Podem adicionar e remover membros das funções `dbmanager` e `loginmanager`.
+- Podem exibir a tabela do sistema `sys.sql_logins`.
 
 ### <a name="configuring-the-firewall"></a>Configuração do firewall
 Quando o firewall no nível do servidor é configurado para um endereço IP individual ou para um intervalo de endereços IP, o **Administrador do servidor SQL** e o **Administrador do Azure Active Directory** podem se conectar ao banco de dados mestre e a todos os bancos de dados do usuário. O firewall no nível do servidor inicial pode ser configurado por meio do [portal do Azure](sql-database-get-started-portal.md), usando o [PowerShell](sql-database-get-started-powershell.md) ou usando a [API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Depois que uma conexão é estabelecida, as regras de firewall adicionais no nível do servidor também podem ser configuradas usando o [Transact-SQL](sql-database-configure-firewall-settings.md).
@@ -88,7 +87,7 @@ Uma dessas funções administrativas é a função **dbmanager**. Os membros des
    
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
-   CREATE USER Tran WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
+   CREATE USER Ann WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 

@@ -3,7 +3,7 @@ title: Aplicativo Node.js usando Socket.io – Azure
 description: Saiba como usar socket.io em um aplicativo node.js hospedado no Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: adegeo
-ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: jeconnoc
+ms.openlocfilehash: 0fae47f248d5662b69a0d1a12c82b7ded33badd6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011308"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001976"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Criar um aplicativo de bate-papo Node.js com Socket.IO em um serviço de nuvem do Azure
 
@@ -29,7 +29,7 @@ Abaixo, uma captura de tela do aplicativo concluído:
 
 ![Uma janela do navegador exibindo o serviço hospedado no Azure][completed-app]  
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Verifique se os seguintes produtos e versões estão instalados para concluir com êxito o exemplo deste artigo:
 
 * Instalar o [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -152,9 +152,9 @@ Seu aplicativo agora está sendo executado no Azure e pode retransmitir mensagen
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu como criar um aplicativo de chat básico hospedado em um Serviço de Nuvem do Azure. Para saber como hospedar esse aplicativo em um Site do Azure, confira [Criar um aplicativo de chat do Node.js com Socket.IO em um Site da Web do Azure][chatwebsite].
 
-Para obter mais informações, consulte também o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+Para obter mais informações, consulte também o [Centro de desenvolvedores do Node.js](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
 
-[chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
+[chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
 [Azure SLA]: http://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node

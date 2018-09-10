@@ -3,8 +3,8 @@ title: Amostra de script do Azure PowerShell – IIS com DSC | Microsoft Docs
 description: Amostra de script do Azure PowerShell – IIS com DSC
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -14,12 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
-ms.author: nepeters
-ms.openlocfilehash: c80c2a3229866833dbbe188ec5150a7095816ea8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: cynthn
+ms.openlocfilehash: 7269165da046a688dd27aa9f5b325896ad3f65e7
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41962284"
 ---
 # <a name="create-an-iis-vm-with-powershell"></a>Criar uma VM IIS com o PowerShell
 
@@ -33,7 +34,7 @@ Esse script cria uma Máquina Virtual do Azure que executa o Windows Server 2016
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-dsc/create-windows-vm-iis-dsc.ps1 "Create VM IIS DSC")]
 
-## <a name="clean-up-deployment"></a>Limpar a implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -49,7 +50,7 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Cria a máquina virtual e a conecta à placa de rede, a rede virtual, à sub-rede e ao grupo de segurança de rede. Este comando também abre a porta 80 e define as credenciais administrativas. |
-| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Adicione uma extensão de VM à máquina virtual. Neste exemplo, a extensão de script personalizado é usada para instalar o IIS. |
+| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Adicione uma extensão de VM à máquina virtual. Neste exemplo, a extensão DSC é usada para instalar o IIS. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Remove um grupo de recursos e todos os recursos contidos nele. |
 
 ## <a name="next-steps"></a>Próximas etapas

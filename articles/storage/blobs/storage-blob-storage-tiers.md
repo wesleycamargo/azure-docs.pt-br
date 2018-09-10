@@ -2,23 +2,18 @@
 title: Armazenamento quente, frio e de arquivo morto para blobs | Microsoft Docs
 description: Armazenamento frequente, esporádico e de arquivo para contas de armazenamento do Azure.
 services: storage
-documentationcenter: ''
 author: kuhussai
-manager: jwillis
-editor: ''
-ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: 21b09d9c428f9c29e0048faa32ce5349a127be89
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: blobs
+ms.openlocfilehash: b3279006d1ff947b76dd8fbba1438972e5f3ad8b
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630955"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequentes, esporádicas e de arquivo
 
@@ -76,6 +71,9 @@ Blobs em todos os três camadas de armazenamento podem coexistir na mesma conta.
 
 > [!NOTE]
 > O armazenamento de arquivos e as camadas no nível do blob só oferecem suporte aos blobs de bloco. Também não é possível alterar a camada de um blob de blocos que tenha instantâneos.
+
+### <a name="blob-lifecycle-management"></a>Gerenciamento de ciclo de vida de blob
+O gerenciamento do ciclo de vida do armazenamento de blob (visualização) oferece uma política rica e baseada em regras que você pode usar para fazer a transição dos dados para a melhor camada de acesso e para expirar os dados no final do ciclo de vida. Ver [gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) para saber mais.  
 
 ### <a name="blob-level-tiering-billing"></a>Cobrança da camada no nível do blob
 
@@ -151,7 +149,7 @@ Sim, você pode alterar a camada de armazenamento padrão definindo o atributo *
 
 **Posso configurar minha camada de acesso de conta padrão para arquivar?**
 
-Nº Apenas as camadas de armazenamento frequente e esporádica podem ser definidas como a camada de acesso de conta padrão. A camada arquivo só pode ser definida no nível do objeto.
+Não. Apenas as camadas de armazenamento frequente e esporádica podem ser definidas como a camada de acesso de conta padrão. A camada arquivo só pode ser definida no nível do objeto.
 
 **Em quais regiões ficam disponíveis as camadas de armazenamento frequente, esporádica e arquivo?**
 
@@ -192,6 +190,8 @@ O armazenamento de dados e outros limites são definidos no nível da conta e n�
 ### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Avaliar os mais acessados, os menos acessados e os arquivados em contas do Armazenamento de Blobs GPv2
 
 [Verificar a disponibilidade de frequente, esporádica e de arquivo por região](https://azure.microsoft.com/regions/#services)
+
+[Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [Avaliar o uso de suas contas de armazenamento atuais, habilitando as métricas do Armazenamento do Azure](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

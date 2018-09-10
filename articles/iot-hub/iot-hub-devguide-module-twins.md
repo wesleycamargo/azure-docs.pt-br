@@ -1,26 +1,19 @@
 ---
 title: Compreender módulos gêmeos no Hub IoT do Azure| Microsoft Docs
 description: Guia de desenvolvedor ‑ use módulos gêmeos para sincronizar os dados de estado e de configuração entre os dispositivos e o Hub IoT
-services: iot-hub
-documentationcenter: .net
 author: chrissie926
-manager: timlt
-editor: ''
-ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e6f52da6f7524828cef928c2ee5d5cd92a1de1e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8f567ba43c1657783f9898863aef980627800481
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201067"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436312"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Entender e usar módulos gêmeos no Hub IoT
 
@@ -326,7 +319,7 @@ Versões também são úteis quando um agente observador (por exemplo, o aplicat
 ## <a name="next-steps"></a>Próximas etapas
 Para experimentar alguns dos conceitos descritos neste artigo, consulte os tutoriais do Hub IoT a seguir:
 
-* [Introdução à identidade do módulo e ao módulo gêmeo do Hub IoT usando back-up .NET e dispositivo .NET][lnk-module-twin-tutorial]
+* [Introdução à identidade do módulo e ao módulo gêmeo do Hub IoT usando back-end .NET e dispositivo .NET][lnk-module-twin-tutorial]
 
 <!-- links and images -->
 

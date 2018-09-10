@@ -1,24 +1,20 @@
 ---
-title: Alta disponibilidade com o Apache Kafka - Azure HDInsight | Microsoft Docs
+title: Alta disponibilidade com o Apache Kafka - Azure HDInsight
 description: Saiba como garantir a alta disponibilidade com o Apache Kafka no Azure HDInsight. Saiba como reequilibrar réplicas da partição no Kafka para que eles fiquem em domínios de falha diferentes dentro da região do Azure que contém o HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-editor: cgronlun
-manager: jhubbard
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 13b57957bac728befd9c79e7aff262c538b02b54
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: bd3b02d54e0a65411e45f0422a0d245645d59096
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049964"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Alta disponibilidade de seus dados com o Apache Kafka no HDInsight
 

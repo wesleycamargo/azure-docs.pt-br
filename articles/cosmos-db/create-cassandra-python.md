@@ -2,23 +2,21 @@
 title: 'Início rápido: API Cassandra com Python – Azure Cosmos DB | Microsoft Docs'
 description: Este guia de início rápido mostra como usar a API do Apache Cassandra do Azure Cosmos DB para criar um aplicativo de perfil com Python
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 4ebc883e-c512-4e34-bd10-19f048661159
 ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
 ms.custom: quick start connect, mvc
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 49ec500db23eeea29baaeeafe9ad39e9b1a5b25a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8f662f1d7b39e1757786193911e9fd2623b0a09a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214577"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Guia de início rápido: compilar um aplicativo do Cassandra com o Python e o Azure Cosmos DB
 
@@ -26,7 +24,7 @@ Este guia de início rápido mostra como usar o Python e a [API Cassandra](cassa
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, tabelas, valores-chave e bancos de dados de gráfico, todos os quais se beneficiam de recursos de distribuição global e escala horizontal e no núcleo do Azure Cosmos DB.   
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Como alternativa, você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem ônus e sem compromisso.
 
@@ -119,7 +117,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como os recurso
     session.execute(batch)
     ```
 
-* Consulta para obter todos os valores de chave.
+* Consulta para obter todos os pares chave-valor.
 
     ```Python
     rows = session.execute('SELECT * FROM uprofile.user')
@@ -211,7 +209,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar uma coleção usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do Cosmos DB. 
+Neste início rápido, você aprendeu a criar uma conta do Azure Cosmos DB, como criar um contêiner usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importar dados do Cassandra para o Azure Cosmos DB](cassandra-import-data.md)

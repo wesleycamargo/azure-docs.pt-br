@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 842cd6f67a04bec0ed06282bdeeea8b8a51c0667
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146293"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação do Git local para o Serviço de Aplicativo do Azure
 
@@ -25,7 +26,7 @@ Este guia de instruções mostra como implantar seu código para o [Serviço de 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir as etapas neste guia de instruções:
 
@@ -38,42 +39,27 @@ Para usar um repositório de amostra para acompanhar, execute o seguinte comando
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-## <a name="prepare-your-repository"></a>Preparar o repositório
-
-Certifique-se de que a raiz do repositório tenha os arquivos corretos em seu projeto.
-
-| Tempo de execução | Arquivos do diretório raiz |
-|-|-|
-| ASP.NET (somente Windows) | _*.sln_, _*.csproj_ ou _default.aspx_ |
-| ASP.NET Core | _*.sln_ ou _*.csproj_ |
-| PHP | _index.php_ |
-| Ruby (somente Linux) | _Gemfile_ |
-| Node.js | _server.js_, _app.js_ ou _package.json_ com um script de início |
-| Python (somente Windows) | _\*.py_, _requirements.txt_ ou _runtime.txt_ |
-| HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_ ou _iisstart.htm_ |
-| Trabalhos Web | _\<nome_trabalho>/run.\<extension>_ em _App\_Data/jobs/continuous_ (para WebJobs contínuos) ou _App\_Data/jobs/triggered_ (para WebJobs disparados). Para saber mais, veja a [documentação de WebJobs Kudu](https://github.com/projectkudu/kudu/wiki/WebJobs) |
-| Funções | Confira [Implantação contínua para Azure Functions](../azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements). |
-
-Para personalizar a implantação, você pode incluir um arquivo _.deployment_ na raiz do repositório. Para saber mais, confira [Personalizar implantações](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) e [Script de implantação personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
-
-> [!NOTE]
-> Certifique-se de `git commit` todas as alterações que deseja implantar.
->
->
+[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user.md)]
+## <a name="deploy-from-local-git-with-kudu-builds"></a>Implantar do Git local com builds Kudu
 
-## <a name="enable-git-for-your-app"></a>Habilitar o Git para o seu aplicativo
+A maneira mais fácil de habilitar a implantação do Git local no seu aplicativo com o servidor de build do Kudu é usar o Cloud Shell.
 
-Para habilitar a implantação do Git para um aplicativo do Serviço de Aplicativo existente, execute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git) no Cloud Shell.
+### <a name="create-a-deployment-user"></a>Crie um usuário de implantação
+
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
+
+### <a name="enable-local-git-with-kudu"></a>Habilitar Git local com Kudu
+
+Para habilitar a implantação do Git local no seu aplicativo com o servidor de build do Kudu, execute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) no Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
 ```
 
-Para criar um aplicativo habilitado para Git em vez disso, execute [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) no Cloud Shell com o parâmetro `--deployment-local-git`.
+Para criar um aplicativo habilitado para Git em vez disso, execute [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) no Cloud Shell com o parâmetro `--deployment-local-git`.
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
@@ -97,7 +83,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-## <a name="deploy-your-project"></a>Implante o seu projeto
+### <a name="deploy-your-project"></a>Implante o seu projeto
 
 De volta na _janela do terminal local_, adicione um remoto do Azure ao repositório Git local. Substitua a _\<url>_ pela URL do Git remoto que você obteve de [Habilitar o Git para o seu aplicativo](#enable-git-for-you-app).
 
@@ -113,13 +99,58 @@ git push azure master
 
 Você pode ver a automação específica do tempo de execução na saída, como MSBuild para ASP.NET, `npm install` para Node.js e `pip install` para o Python. 
 
-Depois que a implantação for concluída, o seu aplicativo no Portal do Azure agora deve ter um registro de seu `git push` na página **Opções de Implantação**.
+Navegue até seu aplicativo para verificar se o conteúdo foi implantado.
 
-![](./media/app-service-deploy-local-git/deployment_history.png)
+## <a name="deploy-from-local-git-with-vsts-builds"></a>Implantar do Git local com builds VSTS
+
+> [!NOTE]
+> Para o Serviço de Aplicativo criar as definições de versão e de build necessárias em sua conta do VSTS, sua conta do Azure deve ter a função de **Proprietário** em sua assinatura do Azure.
+>
+
+Para habilitar a implantação do Git local no seu aplicativo com o servidor de build do Kudu, navegue até o aplicativo no [portal do Azure](https://portal.azure.com).
+
+No painel de navegação esquerdo da página do aplicativo, clique em **Centro de Implantação** > **Git Local** > **Continuar**. 
+
+![](media/app-service-deploy-local-git/portal-enable.png)
+
+Clique em **Entrega Contínua do VSTS** > **Continuar**.
+
+![](media/app-service-deploy-local-git/vsts-build-server.png)
+
+Na página **Configurar**, configure uma nova conta do VSTS ou especifique uma conta existente. Ao terminar, clique em **Continuar**.
+
+> [!NOTE]
+> Se deseja usar uma conta do VSTS existente que não esteja listada, [vincule a conta do VSTS à sua assinatura do Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+
+Na página **Teste**, escolha se deseja habilitar testes de carga. Em seguida, clique em **Continuar**.
+
+Dependendo do [tipo de preço](https://azure.microsoft.com/pricing/details/app-service/plans/) do seu plano do Serviço de Aplicativo, talvez você possa ver uma página **Implantar no preparo**. Escolha se deseja habilitar slots de implantação e clique em **Continuar**.
+
+Na página **Resumo**, verifique as opções e clique em **Concluir**.
+
+Pode levar alguns minutos para que a conta do VSTS esteja pronta. Quando estiver pronta, copie a URL do repositório Git no centro de implantação.
+
+![](media/app-service-deploy-local-git/vsts-repo-ready.png)
+
+De volta na _janela do terminal local_, adicione um remoto do Azure ao repositório Git local. Substitua _\<url>_ pela URL da última etapa.
+
+```bash
+git remote add vsts <url>
+```
+
+Envie por push para o Azure remoto para implantar seu aplicativo com o comando a seguir. Quando solicitado pelo Gerenciador de Credenciais do Git, entre com seu usuário do visualstudio.com. Para métodos de autenticação adicionais, consulte [Visão geral da autenticação do VSTS](/vsts/git/auth-overview?view=vsts).
+
+```bash
+git push vsts master
+```
+
+Depois que a implantação for concluída, você poderá encontrar o progresso do build em `https://<vsts_account>.visualstudio.com/<project_name>/_build` e o progresso da implantação em `https://<vsts_account>.visualstudio.com/<project_name>/_release`.
 
 Navegue até seu aplicativo para verificar se o conteúdo foi implantado.
 
-## <a name="troubleshooting"></a>solução de problemas
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## <a name="troubleshooting-kudu-deployment"></a>Solução de problemas de implantação do Kudu
 
 Estes são erros ou problemas comuns ao usar o Git para publicar em um aplicativo do Serviço de Aplicativo no Azure:
 

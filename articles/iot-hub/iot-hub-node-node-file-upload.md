@@ -1,24 +1,20 @@
 ---
 title: Carregar arquivos dos dispositivos no Hub IoT do Azure com o Nó | Microsoft Docs
 description: Como carregar arquivos de um dispositivo para a nuvem usando o SDK do dispositivo IoT do Azure para o Node.js. Os arquivos carregados são armazenados em um contêiner de Azure Storage Blob.
-services: iot-hub
-documentationcenter: nodejs
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 06/28/2017
-ms.author: v-masebo;dobett
-ms.openlocfilehash: b28a02462fe7a5a7f831102b3707fe03f84342ad
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: dobett
+ms.openlocfilehash: 936063e1419d5e2261033ea74d75687eade928e8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187309"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT
 
@@ -29,7 +25,7 @@ Este tutorial baseia-se no código do tutorial [Enviar mensagens da nuvem para o
 - Fornecer com segurança um URI de blob do Azure a um dispositivo para carregamento de um arquivo.
 - Usar as notificações de carregamento de arquivo do Hub IoT para disparar o processamento do arquivo no back-end do aplicativo.
 
-O tutorial [Introdução ao Hub IoT](iot-hub-node-node-getstarted.md) demonstra a funcionalidade básica de mensagens de dispositivo para nuvem do Hub IoT. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo: 
+O tutorial [Introdução ao Hub IoT](quickstart-send-telemetry-node.md) demonstra a funcionalidade básica de mensagens de dispositivo para nuvem do Hub IoT. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo: 
 
 * Arquivos grandes que contêm imagens
 * vídeos

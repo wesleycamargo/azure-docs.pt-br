@@ -14,11 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 0410e0176d5c853e1110fe3460c7d9314e7fd397
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: cded90d4f36e353241bb594bae35b7c7e03599b9
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435989"
 ---
 # <a name="what-is-api-management"></a>O que é Gerenciamento de API?
 
@@ -91,7 +92,7 @@ Além desses grupos de sistema, os administradores podem criar grupos personaliz
 Para obter mais informações, confira [Como criar e utilizar grupos][How to create and use groups].
 
 ## <a name="developers"> </a> Desenvolvedores
-Os desenvolvedores representam as contas de usuários em uma instância de serviço de Gerenciamento de API. Os desenvolvedores podem ser criados ou convidados para se juntar aos administradores ou podem fazer a inscrição no [Portal do desenvolvedor][Developer portal]. Cada desenvolvedor é um membro de um ou mais grupos e pode assinar os produtos que tornam visíveis esses grupos.
+Os desenvolvedores representam as contas de usuários em uma instância de serviço de Gerenciamento de API. Os desenvolvedores podem ser criados ou convidados para se juntar aos administradores ou podem fazer a inscrição no [Portal do desenvolvedor][Developer portal]. Cada desenvolvedor é um membro de um ou mais grupos, e pode assinar produtos que dão visibilidade a esses grupos.
 
 Quando os desenvolvedores assinam um produto, recebem as chaves principal e secundária para esse produto. Essa chave é usada quando eles fazem chamadas às APIs dos produtos.
 

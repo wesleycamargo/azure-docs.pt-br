@@ -10,24 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 17043ef3450554dd4ea272a4b7732367bae8e369
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38581259"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços vinculados no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-create-datasets.md)
-> * [Versão 2 – Versão prévia](concepts-datasets-linked-services.md)
+> * [Versão 1](v1/data-factory-create-datasets.md)
+> * [Versão atual](concepts-datasets-linked-services.md)
 
-Este artigo descreve o que são conjuntos de dados, como eles são definidos no formato JSON e como são usados em pipelines V2 do Azure Data Factory. 
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está em GA (disponibilidade geral), consulte [Conjuntos de dados no Data Factory V1](v1/data-factory-create-datasets.md).
+Este artigo descreve o que são conjuntos de dados, como eles são definidos no formato JSON e como são usados em pipelines do Azure Data Factory. 
 
 Se estiver conhecendo o Azure Data Factory agora, consulte [Introdução ao Azure Data Factory](introduction.md) para obter uma visão geral. 
 
@@ -219,13 +217,13 @@ As diretrizes a seguir ajudam você a compreender quando incluir informações d
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 Você pode criar conjuntos de dados usando uma dessas ferramentas ou SDKs: [API do .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), modelo do Azure Resource Manager e Portal do Azure
 
-## <a name="v1-vs-v2-datasets"></a>Conjuntos de dados V1 versus V2
+## <a name="current-version-vs-version-1-datasets"></a>Conjuntos de dados da versão atual vs. versão 1
 
-Aqui estão algumas diferenças entre conjuntos de dados v1 e v2 do Data Factory: 
+A seguir, são apresentadas algumas diferenças entre os conjuntos de dados do Data Factory e Data Factory versão 1: 
 
-- Não há suporte para a propriedade externa no v2. Ela é substituída por um [gatilho](concepts-pipeline-execution-triggers.md).
-- Não há suporte para as propriedades de disponibilidade e política no V2. A hora de início de um pipeline depende de [gatilhos](concepts-pipeline-execution-triggers.md).
-- Não há suporte para conjuntos de dados com escopo (conjuntos de dados definidos em um pipeline) no V2. 
+- A propriedade externa não é tem suporte na versão atual. Ela é substituída por um [gatilho](concepts-pipeline-execution-triggers.md).
+- Não há suporte para as propriedades de disponibilidade e política na versão atual. A hora de início de um pipeline depende de [gatilhos](concepts-pipeline-execution-triggers.md).
+- Não há suporte para conjuntos de dados com escopo (conjuntos de dados definidos em um pipeline) na versão atual. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes tutoriais para obter instruções passo a passo para criar pipelines e conjuntos de dados usando uma destas ferramentas ou SDKs. 

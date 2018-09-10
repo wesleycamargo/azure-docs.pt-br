@@ -1,25 +1,26 @@
 ---
-title: 'Visão geral: Executar uma análise de acesso no Privileged Identity Management para recursos do Azure | Microsoft Docs'
-description: Este documento descreve como realizar uma análise de acesso no PIM para recursos do Azure.
+title: Usar um painel de recursos para executar uma revisão de acesso – Azure | Microsoft Docs
+description: Descreve como usar um painel de recursos para executar uma análise de acesso no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
-editor: mwahl
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: pim
 ms.date: 03/30/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 61be9873cac462c096599680a6e071e104f3a54c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 20172cf7413397aedc4b3c32d0f1419531a2588a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200613"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188490"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Use um painel de recursos para executar uma revisão de acesso
 
@@ -39,4 +40,6 @@ No lado direito do grafo de ativações, dois gráficos exibem a distribuição 
 
 Abaixo dos gráficos, você pode ver o número de usuários e grupos com novas atribuições de função dos últimos 30 dias e uma lista de funções, classificadas por atribuições totais (em ordem decrescente).
 
+## <a name="next-steps"></a>Próximas etapas
 
+- [Começar uma revisão de acesso para funções de recurso do Azure no PIM](pim-resource-roles-start-access-review.md) 

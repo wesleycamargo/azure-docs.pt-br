@@ -11,12 +11,13 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
-ms.date: 04/13/2018
-ms.openlocfilehash: 18761c02cc423affe7b1050700e560b1f0b0594d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 07/18/2018
+ms.openlocfilehash: 9bd1690003fd37b6c2edd0f0421cf8d0e74f8cb5
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144169"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 Esta visão geral descreve estratégias para resolver problemas comuns ao usar o serviço Microsoft Genomics. Para perguntas frequentes gerais, consulte [Perguntas comuns](frequently-asked-questions-genomics.md). 
@@ -64,7 +65,7 @@ Para resolver esse problema, examine se os arquivos fastq enviados ao fluxo de t
 
 
 ### <a name="error-uploading-bam-file-output-blob-already-exists-and-the-overwrite-option-was-set-to-false"></a>Erro ao carregar arquivo .bam. Blob de saída já existe e a opção de substituição foi definida como False.
-Se você vir a mensagem de erro a seguir, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, a pasta de saída já contém um arquivo de saída com o mesmo nome.  Exclua o arquivo de saída existente ou ative a opção de substituição no arquivo de configuração. Em seguida, envie novamente o fluxo de trabalho.
+Se a seguinte mensagem de erro for exibida, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, a pasta de saída já conterá um arquivo de saída com o mesmo nome.  Exclua o arquivo de saída existente ou ative a opção de substituição no arquivo de configuração. Em seguida, envie novamente o fluxo de trabalho.
 
 ### <a name="when-to-contact-microsoft-genomics-support"></a>Quando entrar em contato com o Suporte do Microsoft Genomics
 Se você vir as mensagens de erro a seguir, ocorreu um erro interno. 
@@ -72,9 +73,7 @@ Se você vir as mensagens de erro a seguir, ocorreu um erro interno.
 * `Error locating input files on worker machine`
 * `Process management failure`
 
-Tente enviar novamente o fluxo de trabalho. Se você continuar a ter falhas de trabalho, ou se você tiver outras dúvidas, contate o suporte do Microsoft Genomics a partir do portal do Azure.
-
-![Entre em contato com suporte no portal do Azure](./media/troubleshooting-guide/genomics-contact-support.png "Entre em contato com suporte no portal do Azure")
+Tente enviar novamente o fluxo de trabalho. Se você continuar a ter falhas de trabalho, ou se você tiver outras dúvidas, contate o suporte do Microsoft Genomics a partir do portal do Azure. Informações adicionais sobre como enviar uma solicitação de suporte podem ser encontradas [aqui](file-support-ticket-genomics.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como solucionar problemas e resolver problemas comuns com o serviço Microsoft Genomics. Para obter mais informações e perguntas frequentes mais gerais, consulte [Perguntas comuns](frequently-asked-questions-genomics.md). 

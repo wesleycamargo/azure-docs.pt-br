@@ -3,22 +3,24 @@ title: Erro “Não é Possível Acessar este Aplicativo Corporativo” ao usar 
 description: Como resolver problemas comuns de acesso com aplicativos do Proxy de Aplicativo do Azure AD.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: b9a643dab98fa685bb4873705c177a834af831ce
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.topic: conceptual
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 80d25e7751e7fb676887879eefae85e5a6a04cd1
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156085"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367157"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível Acessar este Aplicativo Corporativo" ao usar um aplicativo de Proxy de Aplicativo
 
@@ -108,7 +110,7 @@ Agora, abra um navegador e tente acessar o aplicativo novamente. Você deve ser 
 
 Se você continuar vendo o erro, vá para o computador no qual o Conector está instalado, abra um navegador e tente alcançar a URL interna usada para o aplicativo. O Conector atua como outro cliente do mesmo computador. Se você não conseguir alcançar o aplicativo, investigue por que esse computador não consegue alcançar o aplicativo ou use um conector em um servidor que possa acessar o aplicativo.
 
-Se você pode alcançar o aplicativo do computador, pesquise problemas ou erros com o próprio Conector. É possível ver alguns erros comuns no [Documento de solução de problemas](active-directory-application-proxy-troubleshoot.md#connector-errors). Você também pode examinar diretamente os logs do Conector para identificar quaisquer erros. Muitas de nossas mensagens de erro podem compartilhar recomendações mais específicas para correções. Para saber como exibir os logs, consulte [nossa documentação de conectores](manage-apps/application-proxy-connectors.md#under-the-hood).
+Se você pode alcançar o aplicativo do computador, pesquise problemas ou erros com o próprio Conector. É possível ver alguns erros comuns no [Documento de solução de problemas](manage-apps/application-proxy-troubleshoot.md#connector-errors). Você também pode examinar diretamente os logs do Conector para identificar quaisquer erros. Muitas de nossas mensagens de erro podem compartilhar recomendações mais específicas para correções. Para saber como exibir os logs, consulte [nossa documentação de conectores](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](manage-apps/application-proxy-connectors.md)

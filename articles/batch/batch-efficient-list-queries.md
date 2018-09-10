@@ -12,27 +12,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 08/02/2017
+ms.date: 06/26/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 330350d6ac6838ea5b09763fe1f73fab1934710c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6bc31e8541797930583e41fb6efbb6473cd4b894
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004448"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Criar consultas para listar recursos do Lote com eficiência
 
-Aqui, você aprenderá a melhorar o desempenho do aplicativo do Lote do Azure reduzindo a quantidade de dados retornados pelo serviço quando consulta trabalhos, tarefas e nós de computação com a biblioteca [.NET do Lote][api_net].
+Aqui, você aprenderá a melhorar o desempenho do aplicativo do Lote do Azure reduzindo a quantidade de dados retornados pelo serviço quando consulta trabalhos, tarefas, nós de computação e outros recursos com a biblioteca [.NET do Lote][api_net].
 
 Quase todos os aplicativos do Lote precisam executar algum tipo de monitoramento ou outra operação que consulta o serviço de Lote, geralmente em intervalos regulares. Por exemplo, para determinar se há qualquer tarefa em fila restante em um trabalho, você deve obter dados sobre cada tarefa no trabalho. Para determinar o status de nós em seu pool, você deve obter os dados em cada nó no pool. Este artigo explica como executar essas consultas da forma mais eficiente.
 
 > [!NOTE]
-> O serviço de Lote fornece suporte de API especial para o cenário comum de tarefas de contagem em um trabalho. Em vez de usar uma consulta de lista para elas, você pode chamar a operação [Obter Contagens de Tarefas][rest_get_task_counts]. Obter Contagens de Tarefas indica quantas tarefas estão pendentes, em execução ou concluídas e quantas tarefas tiveram êxito ou falharam. Obter Contagens de Tarefas é mais eficiente do que uma consulta de lista. Para obter mais informações, consulte [Contar tarefas para um trabalho por estado (versão prévia)](batch-get-task-counts.md). 
->
-> A operação obter contagens de tarefa não está disponível em versões do serviço de Lote anteriores a 2017-06-01.5.1. Se você estiver usando uma versão mais antiga do serviço, use uma consulta de lista para contar tarefas em um trabalho em vez disso.
->
-> 
+> O serviço de Lote fornece suporte de API especial para o cenário comum de tarefas de contagem em um trabalho e contagem de nós de computação no pool do Lote. Em vez de usar uma consulta de lista para elas, você pode chamar as operações [Obter Contagens de Tarefas][rest_get_task_counts] e [Listar Contagens de Nós do Pool][rest_get_node_counts]. Essas operações são mais eficientes do que uma consulta de lista, mas retornam informações mais limitadas. Consulte [Contar tarefas e nós de computação por estado](batch-get-resource-counts.md). 
+
 
 ## <a name="meet-the-detaillevel"></a>Atender DetailLevel
 Em um aplicativo do Lote de produção, as entidades, como trabalhos, tarefas e nós de computação, podem chegar a milhares. Quando você solicita informações sobre esses recursos, uma quantidade de dados potencialmente grande deve "cruzar a transmissão" do serviço do Lote para seu aplicativo em cada consulta. Limitando o número de itens e o tipo de informação retornada por uma consulta, você pode aumentar a velocidade de suas consultas e, portanto, o desempenho de seu aplicativo.
@@ -181,7 +179,7 @@ Os nomes de propriedade nas cadeias de caracteres de filtro, seleção e expans�
 ## <a name="example-construct-a-filter-string"></a>Exemplo: construir uma cadeia de caracteres filter
 Ao construir uma cadeia de caracteres filter para [ODATADetailLevel.FilterClause][odata_filter], consulte a tabela acima em “Mapeamentos para cadeias de caracteres filter” para localizar a página da documentação da API REST correspondente à operação de lista que você deseja executar. Você encontrará as propriedades e os operadores com suporte na primeira tabela com várias linhas nessa página. Se quiser recuperar todas as tarefas cujo código de saída era diferente de zero, por exemplo, essa linha em [Listar as tarefas associadas a um trabalho][rest_list_tasks] especificará a cadeia de caracteres da propriedade aplicável e os operadores permitidos:
 
-| Propriedade | Operações permitidas | type |
+| Propriedade | Operações permitidas | Tipo |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -192,7 +190,7 @@ Assim, a cadeia de caracteres de filtro para listar todas as tarefas com um cód
 ## <a name="example-construct-a-select-string"></a>Exemplo: construir uma cadeia de caracteres select
 Para construir um [ODATADetailLevel.SelectClause][odata_select], consulte a tabela acima em “Mapeamentos para as cadeias de caracteres select” e navegue até a página da API REST correspondente ao tipo de entidade listada. Você encontrará as propriedades selecionáveis e os operadores com suporte na primeira tabela de várias linha nessa página. Se quiser recuperar apenas a ID e a linha de comando de cada tarefa em uma lista, por exemplo, você encontrará essas linhas na tabela aplicável em [Obter informações sobre uma tarefa][rest_get_task]:
 
-| Propriedade | type | Observações |
+| Propriedade | Tipo | Observações |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -247,15 +245,12 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 ### <a name="parallel-node-tasks"></a>Tarefas paralelas do nó
 [Maximizar o uso de recursos de computação do Lote do Azure com tarefas de nó simultâneas](batch-parallel-node-tasks.md) é outro artigo relacionado ao desempenho de aplicativos do Lote. Alguns tipos de cargas de trabalho podem aproveitar a execução de tarefas paralelas nos nós de computação maiores, porém em menor número. Consulte o [cenário de exemplo](batch-parallel-node-tasks.md#example-scenario) no artigo para obter detalhes sobre esse cenário.
 
-### <a name="batch-forum"></a>Fórum do Lote
-O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobre o Lote e fazer perguntas sobre o serviço. Acesse diretamente as postagens “fixas” úteis e poste suas dúvidas conforme elas surgirem enquanto você cria suas soluções do Lote.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
 [odata_ctor]: https://msdn.microsoft.com/library/azure/dn866178.aspx
@@ -299,4 +294,5 @@ O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobr
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
-[rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job
+[rest_get_task_counts]: /rest/api/batchservice/get-the-task-counts-for-a-job
+[rest_get_node_counts]: /rest/api/batchservice/account/listpoolnodecounts

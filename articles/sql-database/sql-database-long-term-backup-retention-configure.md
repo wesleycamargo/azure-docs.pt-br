@@ -6,23 +6,20 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: df3d843516bce30253c23080716e606dfb56f25e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6f0d8a3a09ce000ddff078614c4febfc44ac941f
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211554"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264936"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure
 
 Você pode configurar o banco de dados do SQL do Azure com uma política de [retenção de backup de longo prazo](sql-database-long-term-retention.md) (LTR) para reter automaticamente os backups no armazenamento de blobs do Azure por até 10 anos. Em seguida, você pode recuperar um banco de dados usando esses backups pelo Portal do Azure ou o PowerShell.
-
-> [!NOTE]
-> Como parte da versão inicial da versão prévia desse recurso de outubro de 2016, os backups foram armazenados no cofre do Serviço de Recuperação de Serviços do Azure. Esta atualização remove essa dependência, mas para haver compatibilidade com versões anteriores a API original terá suporte até 31 de maio de 2018. Se você precisar interagir com backups no cofre de Recuperação de Serviços do Azure, consulte [Retenção de backup de longo prazo usando o cofre de Serviço de Recuperação de Serviços do Azure](sql-database-long-term-backup-retention-configure-vault.md). 
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Usar o Portal do Azure para configurar políticas de retenção de longo prazo e restaurar backups
 
@@ -32,29 +29,21 @@ As seções a seguir mostram como usar o Portal do Azure para configurar a reten
 
 Você pode configurar o Banco de Dados SQL para [reter backups automatizados](sql-database-long-term-retention.md) por um período maior que o período de retenção da camada de serviços. 
 
-1. No Portal do Azure, selecione o SQL Server e, em seguida, clique em **Retenção de backup de longo prazo**.
+1. No portal do Azure, selecione o servidor SQL e clique em **Gerenciar Backups**. Na guia **Configurar políticas**, selecione o banco de dados no qual você deseja definir ou modificar políticas de retenção de backup de longo prazo.
 
-   ![link da retenção de backup de longo prazo](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
+   ![link gerenciar backups](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-2. Na guia **Configurar políticas**, selecione o banco de dados no qual você deseja definir ou modificar políticas de retenção de backup de longo prazo.
-
-   ![selecionar banco de dados](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
-
-3. No painel **Configurar políticas**, selecione se deseja reter backups semanais, mensais ou anuais e especifique o período de retenção para cada um. 
+2. No painel **Configurar políticas**, selecione se deseja reter backups semanais, mensais ou anuais e especifique o período de retenção para cada um. 
 
    ![configurar políticas](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
-4. Quando concluir, clique em **Aplicar**.
+3. Quando concluir, clique em **Aplicar**.
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Exibir os backups e restaurar de um backup usando o Portal do Azure
 
 Exiba os backups que são mantidos para um banco de dados específico com uma política LTR e restaure a partir desses backups. 
 
-1. No Portal do Azure, selecione o SQL Server e, em seguida, clique em **Retenção de backup de longo prazo**.
-
-   ![link da retenção de backup de longo prazo](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
-
-2. Na guia **Backups disponíveis**, selecione o banco de dados para o qual você deseja ver os backups disponíveis.
+1. No portal do Azure, selecione o servidor SQL e clique em **Gerenciar Backups**. Na guia **Backups disponíveis**, selecione o banco de dados para o qual você deseja ver os backups disponíveis.
 
    ![selecionar banco de dados](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 
@@ -70,7 +59,7 @@ Exiba os backups que são mantidos para um banco de dados específico com uma po
 
 6. Na barra de ferramentas, clique no ícone de notificação para exibir o status do trabalho de restauração.
 
-   ![progresso do trabalho de restauração no cofre](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![progresso do trabalho de restauração](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. Quando o trabalho de restauração for concluído, abra a página **Bancos de dados SQL** para exibir o banco de dados recém-restaurado.
 
@@ -83,8 +72,10 @@ Exiba os backups que são mantidos para um banco de dados específico com uma po
 As seções a seguir mostram como usar o PowerShell para configurar a retenção de backup de longo prazo, exibir backups no armazenamento do SQL do Azure e restaurar a partir de um backup no armazenamento do SQL do Azure.
 
 > [!IMPORTANT]
-> Você precisa usar o powershell do AzureRM mais recente para configurar diretivas LTR V2. A versão atual é [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview), esta é uma versão de visualização, use esse comando para instalá-lo: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
-> Para obter orientação sobre como instalar a versão de pré-lançamento, consulte o módulo [ Obter PowerShellGet](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). A versão de maio de 2018 do powershell AzureRM estará disponível em alguns dias (deve ser 18/5/2018), você pode ignorar a opção - AllowPrelease ao instalar a versão de lançamento quando estiver disponível e use o seguinte comando" `Install-Module -Name AzureRM.Sql -Force`.
+> Há suporte para a API de LTR V2 nas seguintes versões do PowerShell:
+- [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) ou mais recente
+- [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) ou mais recente
+> 
 
 ### <a name="create-an-ltr-policy"></a>Criar uma política LTR
 

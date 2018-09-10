@@ -9,11 +9,12 @@ ms.topic: quickstart
 ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b68468cd8174d658d04d8e67433a8f18884493bd
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 07632e85719e2d0d446b8f718dbc64d2e9d77617
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441356"
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Início Rápido: Criar o primeiro contêiner nas Instâncias de Contêiner do Azure
 
@@ -25,7 +26,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][azure-acc
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Você pode usar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir esse guia de início rápido. Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.27 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure][azure-cli-install].
+Você pode usar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir esse guia de início rápido. Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.27 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -123,7 +124,7 @@ Quando você conclui o contêiner, remova-o usando o comando [az container delet
 az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
-Para verificar se o contêiner foi excluído, execute o comando [az container list](/cli/azure/container#az_container_list):
+Para verificar se o contêiner foi excluído, execute o comando [az container list](/cli/azure/container#az-container-list):
 
 ```azurecli-interactive
 az container list --resource-group myResourceGroup --output table
@@ -149,13 +150,13 @@ Para experimentar as opções para contêineres em execução em um sistema de o
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az_container_attach
-[az-container-create]: /cli/azure/container#az_container_create
-[az-container-delete]: /cli/azure/container#az_container_delete
-[az-container-list]: /cli/azure/container#az_container_list
-[az-container-logs]: /cli/azure/container#az_container_logs
-[az-container-show]: /cli/azure/container#az_container_show
-[az-group-create]: /cli/azure/group#az_group_create
+[az-container-attach]: /cli/azure/container#az-container-attach
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-delete]: /cli/azure/container#az-container-delete
+[az-container-list]: /cli/azure/container#az-container-list
+[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show
+[az-group-create]: /cli/azure/group#az-group-create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
 [service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

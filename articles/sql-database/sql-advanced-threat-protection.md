@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 5/17/2018
 ms.author: ronitr
 ms.reviewer: carlrab
-ms.openlocfilehash: da21a0b66d86b4cc3e2dc59bdd972d4e24d7e5ec
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 8881f66a73a2368696ee16cc0f9bb0b16d2f6d7e
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305556"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42139972"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Proteção Avançada contra Ameaças para o Banco de Dados SQL do Microsoft Azure
 
-Proteção Avançada contra Ameaças SQL é um pacote unificado para recursos de segurança avançados do SQL. Ela inclui funcionalidades para descobrir e classificar dados confidenciais, gerenciar vulnerabilidades de seu banco de dados e detectar atividades irregulares que possam indicar uma ameaça ao seu banco de dados. Fornece um local único para habilitar e gerenciar esses recursos. 
+Proteção Avançada contra Ameaças SQL é um pacote unificado para recursos de segurança avançados do SQL. Ele inclui a funcionalidade para descobrir e classificar dados confidenciais, identificando e atenuante banco de dados vulnerabilidades potenciais e detectar atividades anormais que podem indicar uma ameaça para seu banco de dados. Fornece um local único para habilitar e gerenciar esses recursos. 
 
 ## <a name="overview"></a>Visão geral
 

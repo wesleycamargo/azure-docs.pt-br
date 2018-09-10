@@ -1,24 +1,25 @@
 ---
-title: "Autenticação e autorização de Retransmissão do Azure | Microsoft Docs"
-description: "Visão geral da autenticação SAS (Assinatura de Acesso Compartilhado) na Retransmissão do Azure"
+title: Autenticação e autorização de Retransmissão do Azure | Microsoft Docs
+description: Visão geral da autenticação SAS (Assinatura de Acesso Compartilhado) na Retransmissão do Azure
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
-ms.author: sethm
-ms.openlocfilehash: 86a9cf2c1106180ba5c8c65849042784bfd2afcd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: spelluru
+ms.openlocfilehash: fff484f2ee6722083a34383b8960931cb37b8316
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700439"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticação e autorização da Retransmissão do Azure
 

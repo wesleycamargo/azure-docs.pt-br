@@ -2,8 +2,8 @@
 title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 services: functions
-author: tdykstra
-manager: cfowler
+author: ggailey777
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: ''
@@ -12,18 +12,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/26/2017
-ms.author: tdykstra
-ms.openlocfilehash: bd5603b8f0e15eeae9dd3799d4e10952e115680f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 08/22/2018
+ms.author: glenga
+ms.openlocfilehash: 46c1cb0a0cb3104e3705e4a7d4ef0dd894a7c2d7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194260"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819039"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
 As configurações de aplicativo em um aplicativo de funções contém opções de configuração global que afetam todas as funções desse aplicativo de funções. Quando você executa localmente, essas configurações estão em variáveis de ambiente. Este artigo lista as configurações de aplicativo disponíveis nos aplicativos de funções.
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md]
 
 Há outras opções de configuração global no arquivo [host.json](functions-host-json.md) e no arquivo [local.settings.json](functions-run-local.md#local-settings-file).
 
@@ -127,7 +129,7 @@ Apenas para planos de consumo. Cadeia de conexão para a conta de armazenamento 
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
-## <a name="websitecontentshare"></a>WEBSITE_CONTENTSHARE
+## <a name="websitecontentshare"></a>WEBSITE\_CONTENTSHARE
 
 Apenas para planos de consumo. O caminho do arquivo para o código do aplicativo de funções e a configuração. Usado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. O padrão é uma cadeia única que começa com o nome do aplicativo de funções. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -153,6 +155,19 @@ O padrão é "6.5.0".
 |Chave|Valor de exemplo|
 |---|------------|
 |WEBSITE\_NODE\_DEFAULT_VERSION|6.5.0|
+
+## <a name="websiterunfromzip"></a>EXECUTAR\_SITE\_DO\_ZIP
+
+Permite que seu aplicativo de funções execute de um arquivo de pacote montado.
+
+> [!NOTE]
+> Essa configuração é para um recurso de visualização.
+
+|Chave|Valor de exemplo|
+|---|------------|
+|EXECUTAR\_SITE\_DO\_ZIP|1|
+
+Os valores válidos são `1` ou uma URL que resolve para o local de um arquivo de pacote de implantação. Quando definido como `1`, o pacote deve estar na pasta `d:\home\data\SitePackages`. Ao usar a implantação em zip com essa configuração, o pacote é automaticamente carregado para esse local.  Para obter mais informações, veja [Executar suas funções de um arquivo de pacote](run-functions-from-deployment-package.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

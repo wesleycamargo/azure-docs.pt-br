@@ -6,13 +6,14 @@ author: jj09
 manager: jlembicz
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/14/2016
+ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: d95abab1d1a489deba2ebc260e1e32963aa5639e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6fed5a8afe6030038752d540bfabbc446c57db2c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124144"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introdução ao Azure Search em Java
 > [!div class="op_single_selector"]
@@ -27,9 +28,9 @@ Para executar este exemplo, você deve ter um serviço de Azure Search, no qual 
 
 Para compilar e testar este exemplo, usamos o seguinte software:
 
-* [Eclipse IDE para desenvolvedores de Java EE](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Certifique-se de baixar a versão EE. Uma das etapas de verificação requer um recurso que está apenas nesta edição.
-* [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
+* [Eclipse IDE para desenvolvedores de Java EE](https://www.eclipse.org/downloads/packages/release/photon/r/eclipse-ide-java-ee-developers). Certifique-se de baixar a versão EE. Uma das etapas de verificação requer um recurso que está apenas nesta edição.
+* [JDK 8u181](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>Sobre os dados
 Este exemplo de aplicativo usa dados do [Serviço Geológico dos Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados no estado de Rhode Island, para reduzir o tamanho do conjunto de dados. Vamos usar esses dados para criar um aplicativo de pesquisa que retorna prédios de referência, como hospitais e escolas, bem como características geológicas como rios, lagos e picos.
@@ -50,7 +51,7 @@ A lista a seguir descreve os arquivos que são relevantes para este exemplo.
 * SearchServiceHelper.java: uma classe auxiliar que fornece métodos estáticos
 * Document.Java: fornece o modelo de dados
 * config.properties: define a URL do serviço Search e a chave de Api
-* Pom.xml: uma dependência do Maven
+* pom.xml: uma dependência do Maven
 
 <a id="sub-2"></a>
 
@@ -158,7 +159,7 @@ Este é o primeiro tutorial do Azure Search com base em Java e no conjunto de da
 
 Se você já tiver algum conhecimento sobre o Azure Search, use este exemplo como um trampolim para experimentos adicionais, talvez aumentando a [página de pesquisa](search-pagination-page-layout.md) ou implementando [navegação facetada](search-faceted-navigation.md). Você também pode melhorar a página de resultados da pesquisa adicionando contagens e documentos em lote para que os usuários possam percorrer os resultados.
 
-Ainda não conhece o Azure Search? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode exibir os links em nossa [Lista de vídeos e Tutorial](search-video-demo-tutorial-list.md) para acessar mais informações.
+Ainda não conhece o Azure Search? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. 
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG

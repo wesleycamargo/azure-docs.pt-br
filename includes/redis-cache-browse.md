@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32297596"
 ---
 Se você não fixar o seu cache no dashboard, pode encontrar seu fache no [Portal do Azure](https://portal.azure.com) usando **Todos os serviços**.
 

@@ -2,21 +2,22 @@
 title: Solucionar problemas de replicação para VM VMware e replicação de servidor físico para Azure com Azure Site Recovery | Microsoft Docs
 description: Este artigo fornece solução de problemas para problemas comuns de replicação ao replicar VMs VMware e servidores físicos para Azure com Azure Site Recovery.
 services: site-recovery
-author: asgang
+author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: asgang
-ms.openlocfilehash: 9291840428c9a8d7ba5d65bc94ce5964728316f3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 07/06/2018
+ms.author: ramamill
+ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126010"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solução de problemas de replicação para VMs VMware e servidores físicos
 
-ou pode receber uma mensagem de erro específica ao proteger as máquinas virtuais VMware ou servidores físicos usando o Azure Site Recovery. Este artigo descreve alguns problemas comuns que você pode encontrar ao replicar VMs VMware e servidores físicos no Azure, utilizando [Azure Site Recovery](site-recovery-overview.md).
+Você pode receber uma mensagem de erro específica ao proteger suas máquinas virtuais VMware ou servidores físicos usando o Azure Site Recovery. Este artigo descreve alguns problemas comuns que você pode encontrar ao replicar VMs VMware e servidores físicos no Azure, utilizando [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="initial-replication-issues"></a>Problemas de replicação inicial.
 
@@ -73,25 +74,7 @@ Se não for possível conectar-se, em seguida, verifique se o problema de acesso
 
 * **Verifique se o firewall baseado em URL no Servidor de Processo não está bloqueando o acesso**: se você estiver usando regras de firewall baseada em URL no servidor, verifique se as URLs a seguir são adicionadas à configuração do firewall.
 
-  `*.accesscontrol.windows.net:` Usado para controle de acesso e gerenciamento de identidades
-
-  `*.backup.windowsazure.com:` Usado para transferência de dados de replicação e orquestração
-
-  `*.blob.core.windows.net:` Usado para acessar a conta de armazenamento que armazena os dados replicados
-
-  `*.hypervrecoverymanager.windowsazure.com:` Usado para operações de gerenciamento de replicação e orquestração
-
-  `time.nist.gov` e `time.windows.com`: Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
-
-URLs para a **Nuvem do Azure Governamental**:
-
-`* .ugv.hypervrecoverymanager.windowsazure.us`
-
-`* .ugv.backup.windowsazure.us`
-
-`* .ugi.hypervrecoverymanager.windowsazure.us`
-
-`* .ugi.backup.windowsazure.us`
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 * **Verifique se as Configurações de Proxy no Servidor de Processo não estão bloqueando o acesso**.  Se você estiver usando um Servidor Proxy, certifique-se de que o nome do servidor proxy é resolvido pelo servidor DNS.
 Para verificar o que você forneceu no momento da instalação do Servidor de Configuração. Vá para a chave do registro

@@ -1,24 +1,19 @@
 ---
-title: Chamar um webhook em um alerta de log de atividades do Azure | Microsoft Docs
-description: "Saiba como rotear eventos de log de atividades para outros serviços para ações personalizadas. Por exemplo, você pode enviar mensagens SMS, registrar bugs ou notificar uma equipe por meio do serviço de chat/mensagens."
+title: Chamar um webhook em um alerta de log de atividades do Azure (clássico)
+description: Saiba como rotear eventos de log de atividades para outros serviços para ações personalizadas. Por exemplo, você pode enviar mensagens SMS, registrar bugs ou notificar uma equipe por meio do serviço de chat/mensagens.
 author: johnkemnetz
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 64d333d1-7f37-4a00-9d16-dda6e69a113b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 9872c30d123f0a7443e28dc58ee0d4e16572a390
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.component: alerts
+ms.openlocfilehash: e825d0f2487c20c8c7f3d210d7180b07742d7173
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262453"
 ---
 # <a name="call-a-webhook-on-an-azure-activity-log-alert"></a>Chamar um webhook em alertas de log de atividades do Azure
 É possível usar webhooks para encaminhar uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Você pode usar um webhook em um alerta para encaminhá-lo para serviços que enviam mensagens de SMS, para registrar bugs, notificar uma equipe por meio de serviços de chat ou envio de mensagens ou qualquer outra ação. Você também pode configurar um alerta de log de atividades para enviar um email quando um alerta for ativado.

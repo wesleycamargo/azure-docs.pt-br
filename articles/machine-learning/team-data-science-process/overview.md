@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: b1f677bb-eef5-4acb-9b3b-8a5819fb0e78
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: 4a73b988863a27f872c695cf209d2c46c6bb5f89
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125752"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipe?
 
@@ -65,7 +67,7 @@ As metas, tarefas e artefatos de documentação de cada estágio do ciclo de vid
 
 O diagrama a seguir fornece um modo de exibição de grade das tarefas (em azul), e os artefatos (em verde) associados a cada estágio do ciclo de vida (no eixo horizontal) para essas funções (no eixo vertical). 
 
-![Funções e tarefas de TDSP](./media/overview/tdsp-tasks-by-roles.png)
+[ ![Funções e tarefas do TDSP](./media/overview/tdsp-tasks-by-roles.png) ](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ## <a name="standardized-project-structure"></a>Estrutura de projeto padronizada
 
@@ -79,7 +81,7 @@ Fornecemos modelos para a estrutura de pastas e documentos obrigatórios em loca
 - modelar métricas de desempenho como curvas de ROC ou MSE
 
 
-![Diretórios de TDSP](./media/overview/tdsp-dir-structure.png)
+[ ![Diretórios do TDSP](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
 
 A estrutura de diretórios pode ser clonada no [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -92,11 +94,11 @@ O TDSP fornece recomendações para o gerenciamento de infraestrutura compartilh
 - clusters de big data (Hadoop ou Spark) 
 - serviços de machine learning. 
 
-A infraestrutura de análise e armazenamento pode ser local ou na nuvem. É nela que os conjuntos de dados brutos e processados são armazenados. Essa infraestrutura permite a reprodução da análise. Também evita a duplicação, o que pode resultar em inconsistências e custos de infraestrutura desnecessários. As ferramentas são fornecidas para provisionar os recursos compartilhados, acompanhá-los e permitir que cada membro da equipe se conecte a esses recursos com segurança. Também é uma prática recomendada que os membros do projeto criem um ambiente de computação consistente. Assim, membros diferentes da equipe podem replicar e validar experiências.
+A infraestrutura de análise e armazenamento pode ser local ou na nuvem. É nela que os conjuntos de dados brutos e processados são armazenados. Essa infraestrutura permite a reprodução da análise. Também evita a duplicação, o que pode resultar em inconsistências e custos de infraestrutura desnecessários. As ferramentas são fornecidas para provisionar os recursos compartilhados, acompanhá-los e permitir que cada membro da equipe se conecte a esses recursos com segurança. Também é uma boa prática que os membros do projeto criem um ambiente de computação consistente. Assim, membros diferentes da equipe podem replicar e validar experiências.
 
 Confira um exemplo de uma equipe que trabalha em vários projetos e compartilha vários componentes da infraestrutura de análise em nuvem.
 
-![Infraestrutura do TDSP](./media/overview/tdsp-analytics-infra.png)
+[ ![Infraestrutura do TDSP](./media/overview/tdsp-analytics-infra.png) ](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Ferramentas e utilitários para execução do projeto

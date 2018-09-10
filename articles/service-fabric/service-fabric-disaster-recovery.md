@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206429"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação de desastre no Azure Service Fabric
 Uma parte crítica da entrega de alta disponibilidade é garantir que os serviços possam sobreviver a todos os tipos diferentes de falhas. Isso é especialmente importante para falhas não planejadas e fora de seu controle. Este artigo descreve alguns modos de falha comuns que poderão se transformar em desastres se não forem modelados e gerenciados corretamente. Ele também aborda mitigações e ações a serem tomadas se, ainda assim, um desastre acontecer. A meta é limitar ou eliminar o risco de que haja tempo de inatividade ou perda de dados quando ocorrerem falhas, sejam elas planejadas ou não.

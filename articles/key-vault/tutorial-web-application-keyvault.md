@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 146ea04081a4adebe4a6e9249bb1fe34ba76e3a4
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 91e2047998d6e743691821c631e15c94cd63cf15
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305167"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41917887"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Tutorial: Configurar um aplicativo Web do Azure para ler um segredo do Cofre de Chaves
 
@@ -44,9 +44,9 @@ az login
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*.
 
 ```azurecli
 # To list locations: az account list-locations --output table
@@ -128,8 +128,8 @@ Há dois pacotes do NuGet que o aplicativo Web precisa ter instalado. Para insta
 3. Marque a caixa de seleção próxima à caixa de pesquisa. **Incluir pré-lançamento**
 4. Procure os dois pacotes do NuGet listados abaixo e aceite que eles sejam adicionados à solução:
 
-    * [Microsoft.Azure.Services.AppAuthentication (versão prévia)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - facilita a busca de tokens de acesso para cenários de autenticação Serviço para Serviço do Azure. 
-    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) - contém métodos para interagir com o Cofre de Chaves.
+    * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - facilita a busca de tokens de acesso para cenários de autenticação Serviço para Serviço do Azure. 
+    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - contém métodos para interagir com o Cofre de Chaves.
 
 5. Use o Gerenciador de Soluções para abrir `Program.cs` e substituir o conteúdo do arquivo Program.cs pelo código a seguir. Substitua ```<YourKeyVaultName>``` pelo nome do seu cofre de chaves:
 
@@ -142,37 +142,36 @@ Há dois pacotes do NuGet que o aplicativo Web precisa ter instalado. Para insta
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureKeyVault;
     
-        namespace WebKeyVault
-        {
-        public class Program
-        {
-        public static void Main(string[] args)
-        {
-        BuildWebHost(args).Run();
-        }
-    
-            public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((ctx, builder) =>
-                {
-                    var keyVaultEndpoint = GetKeyVaultEndpoint();
-                    if (!string.IsNullOrEmpty(keyVaultEndpoint))
-                    {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                            keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-                    }
-                }
-             )
-                .UseStartup<Startup>()
-                .Build();
-    
-            private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
-        }
-        }
+    namespace WebKeyVault
+    {
+       public class Program
+       {
+           public static void Main(string[] args)
+           {
+               BuildWebHost(args).Run();
+           }
+
+           public static IWebHost BuildWebHost(string[] args) =>
+           WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((ctx, builder) =>
+               {
+                   var keyVaultEndpoint = GetKeyVaultEndpoint();
+                   if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                   {
+                       var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                       var keyVaultClient = new KeyVaultClient(
+                           new KeyVaultClient.AuthenticationCallback(
+                               azureServiceTokenProvider.KeyVaultTokenCallback));
+                       builder.AddAzureKeyVault(
+                           keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                   }
+               }
+            ).UseStartup<Startup>()
+             .Build();
+
+           private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
+         }
+    }
     ```
 
 6. Use o Gerenciador de Soluções para navegar até a seção **Páginas** e abra `About.cshtml`. Substitua o conteúdo de **About.cshtml.cs** pelo código abaixo:
@@ -206,14 +205,15 @@ Há dois pacotes do NuGet que o aplicativo Web precisa ter instalado. Para insta
 7. No menu principal, escolha **Depurar** > **Iniciar sem Depuração**. Quando o navegador aparecer, navegue até a página **Sobre**. O valor para o AppSecret é exibido.
 
 >[!IMPORTANT]
-> Se você receber um erro HTTP 502.5 - A mensagem de falha de processo verifica o nome do Cofre de Chaves especificado em `Program.cs`
+> Se você receber um erro HTTP 502.5 - mensagem de Falha do Processo
+> > então verifique se o nome do Key Vault especificado no `Program.cs`
 
 ## <a name="publish-the-web-application-to-azure"></a>Publicar o aplicativo Web no Azure
 
 1. Acima do editor, selecione **WebKeyVault**.
 2. Selecione **Publicar**, em seguida, **Iniciar**.
 3. Crie um novo **Serviço de Aplicativo**, selecione **Publicar**.
-4. Clique em **Criar**.
+4. Selecione **Criar**.
 
 >[!IMPORTANT]
 > Uma janela do navegador será aberta e você verá um 502.5 - Mensagem de falha de processo. Isso é esperado. Você precisará conceder os direitos de identidade do aplicativo para ler os segredos do Cofre de Chaves.

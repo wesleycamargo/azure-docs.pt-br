@@ -4,18 +4,18 @@ description: Obter ajuda para resolver problemas com a extensão NPS da Autentic
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 07/14/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: aa140bceb5f7ad5e638f747fa8d88803c27f02a3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 4097fab5610bf4bee6c14c65d3b45e0de818a0cc
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867658"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160902"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão NPS da Autenticação Multifator do Azure
 
@@ -52,14 +52,14 @@ Caso você encontre erros na extensão NPS da Autenticação Multifator do Azure
 | Código do erro | Mensagem de erro | Etapas para solucionar problemas |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | O locatário chamador não tem permissões de acesso para fazer a autenticação do usuário | Verifique se o domínio do locatário e o domínio do nome UPN são os mesmos. Por exemplo, verifique se user@contoso.com está tentando se autenticar no locatário da Contoso. O UPN representa um usuário válido para o locatário no Azure. |
-| **AuthenticationMethodNotConfigured** | O método de autenticação especificado não foi configurado para o usuário | Solicite ao usuário para adicionar ou verificar seus métodos de verificação de acordo com as instruções em [Gerenciar as configurações da verificação em duas etapas](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). |
+| **AuthenticationMethodNotConfigured** | O método de autenticação especificado não foi configurado para o usuário | Solicite ao usuário para adicionar ou verificar seus métodos de verificação de acordo com as instruções em [Gerenciar as configurações da verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
 | **AuthenticationMethodNotSupported** | Não há suporte para o método de autenticação especificado. | Colete todos os logs que incluem esse erro e [contate o suporte](#contact-microsoft-support). Quando você contatar o suporte, forneça o nome de usuário e o método de verificação secundário que disparou o erro. |
-| **BecAccessDenied** | Acesso negado de retorno de chamada a MSODS Bec. Provavelmente, o nome de usuário não está definido no locatário | O usuário está presente no Active Directory local, mas não está sincronizado no Azure AD pelo AD Connect. Ou o usuário está ausente no locatário. Adicione o usuário ao Azure AD e solicite a ele para adicionar seus métodos de verificação de acordo com as instruções em [Gerenciar as configurações da verificação em duas etapas](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). |
+| **BecAccessDenied** | Acesso negado de retorno de chamada a MSODS Bec. Provavelmente, o nome de usuário não está definido no locatário | O usuário está presente no Active Directory local, mas não está sincronizado no Azure AD pelo AD Connect. Ou o usuário está ausente no locatário. Adicione o usuário ao Azure AD e solicite a ele para adicionar seus métodos de verificação de acordo com as instruções em [Gerenciar as configurações da verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
 | **InvalidFormat** ou **StrongAuthenticationServiceInvalidParameter** | O número de telefone está em um formato que não pode ser reconhecido | Solicite ao usuário para corrigir seus números de telefone de verificação. |
 | **InvalidSession** | A sessão especificada é inválida ou pode ter expirado | A sessão levou mais de três minutos para ser concluída. Verifique se o usuário está inserindo o código de verificação ou respondendo à notificação do aplicativo em até três minutos após o início da solicitação de autenticação. Se isso não resolver o problema, verifique se não há nenhuma latência de rede entre o cliente, Servidor NAS, Servidor NPS e o ponto de extremidade do Azure MFA.  |
-| **NoDefaultAuthenticationMethodIsConfigured** | Nenhum método de autenticação padrão foi configurado para o usuário | Solicite ao usuário para adicionar ou verificar seus métodos de verificação de acordo com as instruções em [Gerenciar as configurações da verificação em duas etapas](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). Verifique se o usuário escolheu um método de autenticação padrão e configurou desse método para sua conta. |
+| **NoDefaultAuthenticationMethodIsConfigured** | Nenhum método de autenticação padrão foi configurado para o usuário | Solicite ao usuário para adicionar ou verificar seus métodos de verificação de acordo com as instruções em [Gerenciar as configurações da verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md). Verifique se o usuário escolheu um método de autenticação padrão e configurou desse método para sua conta. |
 | **OathCodePinIncorrect** | Código e PIN incorretos inseridos. | Esse erro não é esperado na extensão do NPS. Se o usuário ver esse erro, [contate o suporte](#contact-microsoft-support) para obter ajuda na solução de problemas. |
-| **ProofDataNotFound** | Os dados de prova não foram configurados para o método de autenticação especificado. | Solicite ao usuário para tentar outro método de verificação ou adicionar um novo método de verificação de acordo com as instruções em [Gerenciar as configurações da verificação em duas etapas](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). Se o usuário continuar vendo esse erro depois de confirmar que o método de verificação está configurado corretamente, [contate o suporte](#contact-microsoft-support). |
+| **ProofDataNotFound** | Os dados de prova não foram configurados para o método de autenticação especificado. | Solicite ao usuário para tentar outro método de verificação ou adicionar um novo método de verificação de acordo com as instruções em [Gerenciar as configurações da verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md). Se o usuário continuar vendo esse erro depois de confirmar que o método de verificação está configurado corretamente, [contate o suporte](#contact-microsoft-support). |
 | **SMSAuthFailedWrongCodePinEntered** | Código e PIN incorretos inseridos. (OneWaySMS) | Esse erro não é esperado na extensão do NPS. Se o usuário ver esse erro, [contate o suporte](#contact-microsoft-support) para obter ajuda na solução de problemas. |
 | **TenantIsBlocked** | O locatário está bloqueado | [Contate o suporte](#contact-microsoft-support) com a ID de Diretório da página de propriedades do Azure AD no portal do Azure. |
 | **UserNotFound** | O usuário especificado não foi encontrado | O locatário não está mais visível como ativo no Azure AD. Verifique se sua assinatura está ativa e se você tem os aplicativos de terceiros necessários. Também verifique se o locatário na entidade de certificado é conforme esperado e se o certificado ainda é válido e está registrado na entidade de serviço. |
@@ -96,7 +96,7 @@ Se você encontrar um desses erros, recomendamos que [contate o suporte](#contac
 
 ### <a name="troubleshoot-user-accounts"></a>Solução de problemas de contas de usuário
 
-Se os usuários estiverem [tendo problemas com a verificação em duas etapas](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md), ajude-os a diagnosticar os problemas por conta própria. 
+Se os usuários estiverem [tendo problemas com a verificação em duas etapas](../user-help/multi-factor-authentication-end-user-troubleshoot.md), ajude-os a diagnosticar os problemas por conta própria. 
 
 ### <a name="contact-microsoft-support"></a>Contatar Suporte da Microsoft
 

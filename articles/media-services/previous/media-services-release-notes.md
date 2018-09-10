@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 07/24/2018
 ms.author: juliako
-ms.openlocfilehash: 62f5ae4a9152d3f1b1641cc69136bf472527ba2a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cdfd19f2dfd599eacaa0759b63c94767e760a874
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140807"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
 Estas notas de versão para os Serviços de Mídia do Azure resumem as alterações de versões anteriores e os problemas conhecidos.
@@ -34,7 +35,7 @@ Estas notas de versão para os Serviços de Mídia do Azure resumem as alteraç�
 | Problema | DESCRIÇÃO |
 | --- | --- |
 | Vários cabeçalhos HTTP comuns não são fornecidos na API REST. |Se você desenvolver aplicativos de Serviços de Mídia usando a API REST, verá que não há compatibilidade com alguns campos de cabeçalho HTTP comuns (incluindo CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID). Os cabeçalhos serão adicionados em uma atualização futura. |
-| Não é permitida a codificação por porcentagem. |Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade Name não pode ter quaisquer dos seguintes [caracteres reservados para codificação por porcentagem](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um "." para a extensão de nome de arquivo. |
+| Não é permitida a codificação por porcentagem. |Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao criar URLs para o conteúdo de streaming (por exemplo, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade Name não pode ter quaisquer dos seguintes [caracteres reservados para codificação por porcentagem](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um "." para a extensão de nome de arquivo. |
 | O método ListBlobs que faz parte do SDK do Armazenamento do Azure versão 3.x falha. |Os Serviços de Mídia geram URLs SAS com base na versão de [12/02/2012](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) . Se desejar que o SDK de Armazenamento liste os blobs em um contêiner de blob, use o método [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) que faz parte do SDK de Armazenamento versão 2.x. |
 | O mecanismo de limitação dos Serviços de Mídia restringe o uso dos recursos para aplicativos que fazem solicitações excessivas ao serviço. O serviço pode retornar o código de status HTTP 503, "Serviço Não Disponível". |Para obter mais informações, confira a descrição do código de status HTTP 503 em [Códigos de erro dos Serviços de Mídia](media-services-encoding-error-codes.md). |
 | Ao consultar entidades, no máximo 1.000 entidades são retornadas ao mesmo tempo porque a REST versão 2 pública limita os resultados da consulta a 1.000 resultados. |Use Skip e Take (.NET)/ top (REST), conforme descrito [neste exemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
@@ -44,6 +45,10 @@ Estas notas de versão para os Serviços de Mídia do Azure resumem as alteraç�
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Histórico de versão da API REST
 Para obter informações sobre o histórico de versões da API REST dos Serviços de Mídia, consulte a [Referência da API REST dos Serviços de Mídia do Azure].
+
+## <a name="july-2018"></a>Julho de 2018
+
+Com a versão mais recente do serviço, há pequenas alterações de formatação às mensagens de erro retornadas pelo serviço quando uma tarefa falhar em relação a como ela é dividida em duas ou mais linhas.
 
 ## <a name="may-2018"></a>Maio de 2018 
 
@@ -169,7 +174,6 @@ A equipe do SDK do Azure publicou uma nova versão do pacote [SDK do Azure para 
 
 Para obter mais informações, consulte:
 
-* O blog do [SDK dos Serviços de Mídia para PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/).
 * As [amostras de código](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) a seguir ajudam você a começar rapidamente:
   * **vodworkflow_aes.php**: esse arquivo PHP mostra como usar a criptografia dinâmica AES-128 e o serviço de entrega de chaves. Ele se baseia o exemplo .NET explicado em [Usar a criptografia dinâmica AES-128 e o serviço de entrega de chaves](media-services-protect-with-aes128.md).
   * **vodworkflow_aes.php**: esse arquivo PHP mostra como usar a criptografia dinâmica PlayReady e o serviço de entrega de licenças. Ele se baseia o exemplo .NET explicado em [Usar a criptografia dinâmica comum PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md).
@@ -208,9 +212,7 @@ Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-medi
 
 ## <a id="august_changes_15"></a>Versão de agosto de 2015
 * O SDK do Serviços de Mídia para Java versão 0.8.0 e novos exemplos estão agora disponíveis. Para obter mais informações, consulte:
-  
-  * [Esta postagem no blog](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
-  * [O repositório de amostras de Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+    
 * A atualização do Player de Mídia do Azure compatível com fluxo de vários áudios. Para saber mais, confira [esta postagem no blog](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
 ## <a id="july_changes_15"></a>Versão de julho de 2015
@@ -368,7 +370,7 @@ As seguintes correções de erro foram feitas ao Empacotador e Criptografador do
 
 ## <a id="may_changes_14"></a>Versão de maio de 2014
 ### <a id="may_14_changes"></a>Atualizações gerais dos Serviços de Mídia
-Agora é possível usar o [empacotamento dinâmico] para transmitir HLS versão 3. Para transmitir HLS versão 3, adicione o seguinte formato para o caminho do localizador de origem: * .ism/manifest(format=m3u8-aapl-v3). Para saber mais, confira [este blog](http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/).
+Agora é possível usar o [empacotamento dinâmico] para transmitir HLS versão 3. Para transmitir HLS versão 3, adicione o seguinte formato para o caminho do localizador de origem: * .ism/manifest(format=m3u8-aapl-v3). Para obter mais informações, confira [este fórum](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
 O empacotamento dinâmico agora também é compatível com a entrega de HLS (versões 3 e 4) criptografado com PlayReady com base em Smooth Streaming estaticamente criptografado com PlayReady. Para obter informações sobre como criptografar Smooth Streaming com PlayReady, consulte [Proteger Smooth Streaming com PlayReady](http://msdn.microsoft.com/library/azure/dn189154.aspx).
 
@@ -398,7 +400,7 @@ As alterações em 3.0.0.1 e 3.0.0.2 incluem:
 * Foram corrigidos problemas relacionados ao uso de consultas LINQ com declarações OrderBy.
 * As soluções de teste em [GitHub] foram divididas em testes baseados em unidade e testes baseados em cenário.
 
-Para saber mais sobre as alterações, confira: [Versões 3.0.0.1 e 3.0.0.2 do SDK do .NET dos Serviços de Mídia](http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/).
+Para saber mais sobre as alterações, confira: [Versões 3.0.0.1 e 3.0.0.2 do SDK do .NET dos Serviços de Mídia](http://gtrifonov.com/2014/02/07/windows-azure-media-services-net-sdk-3-0-0-2-release/index.html).
 
 As seguintes alterações foram feitas na versão 3.0.0.3:
 

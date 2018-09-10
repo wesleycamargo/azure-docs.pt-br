@@ -1,23 +1,20 @@
 ---
-title: 'Tutorial: Carregar dados e executar consultas em um cluster do Apache Spark no Azure HDInsight | Microsoft Docs'
+title: 'Tutorial: Carregar dados e executar consultas em um cluster do Apache Spark no Azure HDInsight '
 description: Aprenda a carregar dados e executar consultas interativas em clusters do Spark no Azure HDInsight.
 services: azure-hdinsight
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jasonh
 ms.date: 05/17/2018
-ms.openlocfilehash: eeb0f8134d21d42c8401f58828160d613e8ef92b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d59f04c5dde522f3d193f345ac59147ece9d86f0
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302042"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047550"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas em um cluster do Apache Spark no Azure HDInsight
 
@@ -30,7 +27,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Concluir [Criar um cluster do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 

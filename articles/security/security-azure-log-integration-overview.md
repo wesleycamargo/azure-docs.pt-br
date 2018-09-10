@@ -12,32 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2018
+ms.date: 06/07/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 6d91692a64a4d3def80990a439fe0a0898bf2f09
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3c875060a7abdf4431026e79ce966efdc89e4e77
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236171"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Introdução à Integração de Logs do Azure
 
-Você pode usar a Integração do Logs do Azure para integrar registros brutos de recursos do Azure a seus sistemas de SIEM (Segurança da Informação e Gerenciamento de Evento) locais. Use a Integração de Logs do Azure apenas se um conector para [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) não for disponibilizada pelo seu fornecedor SIEM.
+>[!IMPORTANT]
+> O recurso Integração de log do Azure será preterido em 01/06/2019. Os downloads de AzLog serão desabilitados em 27 de junho de 2018. Para obter diretrizes sobre o que fazer, veja a postagem [Usar o monitor do Azure para a integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
-É o método preferencial para integrar os logs do Azure usando o conector do Azure Monitor do seu fornecedor SIEM. Para usar o conector, siga as instruções em [Monitorar o monitoramento de transmissão para hubs de eventos de dados](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). 
+A Integração do Logs do Azure foi disponibilizada para simplificar a tarefa de integrar registros do Azure aos seus sistemas de SIEM (Segurança da Informação e Gerenciamento de Evento) locais.
 
-No entanto, se o fornecedor do SIEM não fornecer um conector para o Azure Monitor, você poderá usar a Integração de Logs do Azure como solução temporária até que o conector esteja disponível. A Integração de Logs do Azure é uma opção apenas se a Integração de Logs do Azure oferece suporte ao seu SIEM.
+ O método recomendado para integração de logs do Azure é usar conectores do seu fornecedor de SIEM. O Azure Monitor oferece a capacidade de transmitir os logs em hubs de eventos, e os fornecedores de SIEM podem gravar conectores para integrá-los ainda mais no SIEM.  Para ver uma descrição de como isso funciona, siga as instruções em [Monitorar o monitoramento de transmissão para hubs de eventos de dados](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). O artigo também lista os SIEMs nos quais conectores diretos do Azure já estão disponíveis.  
 
 > [!IMPORTANT]
 > Se o seu interesse principal é coletar logs de máquina virtual, a maioria dos fornecedores de SIEM inclui essa opção em sua solução. O uso do conector do fornecedor SIEM sempre é a opção preferencial.
+
+A documentação sobre o recurso de Integração de Logs do Azure será mantida até o recurso ser preterido.
+
+Leia para saber mais sobre o recurso de Integração de Logs do Azure:
 
 A Integração de Logs do Azure coleta eventos do Windows de logs do Visualizador de Eventos do Windows, [Logs de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Alertas da Central de Segurança do Azure](../security-center/security-center-intro.md) e [Logs de Diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) de recursos do Azure. A integração ajuda a sua solução de SIEM a oferecer um painel unificado para todos os seus ativos, locais ou na nuvem. Você pode usar um painel para receber, agregar, correlacionar e analisar os alertas para eventos de segurança.
 
 > [!NOTE]
 > Atualmente, a Integração de Logs do Azure é compatível apenas com as nuvens do Azure comercial e Azure Governamental. Não há suporte para outras nuvens.
 
-![Diagrama do processo de Integração de Logs do Azure][1]
+![O processo de Integração de Logs do Azure][1]
 
 ## <a name="what-logs-can-i-integrate"></a>Quais logs posso integrar?
 
@@ -54,8 +60,8 @@ Se nenhuma outra opção estiver disponível, considere usar a Integração de L
 |SIEM | O cliente já usa o Integrador de Logs do Azure | O cliente está avaliando as opções de integração do SIEM|
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | Inicie a migração para o [complemento do Azure Monitor para Splunk](https://splunkbase.splunk.com/app/3534/). | Use o [conector Splunk](https://splunkbase.splunk.com/app/3534/). |
-|**QRadar** | Migre para ou comece a usar o conector QRadar documentado na última seção [Transmitir dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). | Use o conector QRadar documentado na última seção [Transmitir dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). |
-|**ArcSight** | Continue a usar o Integrador de Logs do Azure até que um conector esteja disponível. Em seguida, migre para a solução baseada no conector.  | Considere usar o Log Analytics do Azure como alternativa. Não integre à Integração de Logs do Azure, a menos que você esteja disposto a passar pelo processo de migração quando o conector estiver disponível. |
+|**QRadar** | Migre ou comece a usar o conector QRadar documentado na última seção [Transmitir dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). | Use o conector QRadar documentado na última seção [Transmitir dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). |
+|**ArcSight** | Continue a usar o integrador de log do Azure até que um conector esteja disponível, em seguida, migre para a solução baseada no conector.  | Considere usar o Log Analytics do Azure como alternativa. Não integre à Integração de Logs do Azure, a menos que você esteja disposto a passar pelo processo de migração quando o conector estiver disponível. |
 
 > [!NOTE]
 > Embora a Integração do Log do Azure seja uma solução gratuita, há custos de armazenamento do Azure associados ao armazenamento de informações do arquivo de log.

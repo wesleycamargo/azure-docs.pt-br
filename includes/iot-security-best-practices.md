@@ -9,10 +9,11 @@ ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 2c6f5cf2d89da0c2418ac58ca5d47a8aa05e732f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38944596"
 ---
 # <a name="internet-of-things-security-best-practices"></a>Práticas recomendadas de segurança de Internet das Coisas
 
@@ -60,7 +61,7 @@ A seguir estão as práticas recomendadas para operadores de solução de IoT:
 * **Manter o sistema atualizado**: verifique se todos os sistemas operacionais e drivers do dispositivo estão atualizados para as versões mais recentes. Se você ativar as atualizações automáticas no Windows 10 (IoT ou outras SKUs), a Microsoft vai mantê-las atualizadas, fornecendo um sistema operacional seguro para dispositivos IoT. Manter outros sistemas atualizados (como o Linux) ajuda a garantir que eles também estejam protegidos contra ataques mal-intencionados.
 * **Proteger contra atividades mal-intencionadas**: se o sistema operacional permitir, instale as funcionalidades antivírus e antimalware mais recentes em cada sistema operacional do dispositivo. Essa prática pode ajudar a atenuar a maioria das ameaças externas. Você pode proteger os sistemas operacionais mais modernos contra ameaças seguindo as etapas apropriadas.
 * **Auditar frequentemente**: auditar problemas relacionados à infraestrutura de IoT é essencial ao responder a incidentes de segurança. A maioria dos sistemas operacionais fornece o log de eventos internos que deve ser analisado com frequência para certificar-se de que não ocorreu nenhuma violação de segurança. Informações de auditoria podem ser enviadas como um fluxo de telemetria separado para o serviço de nuvem, em que serão analisadas.
-* **Proteger fisicamente a infraestrutura de IoT**: os pior ataques de segurança contra infraestrutura de são iniciados usando o acesso físico aos dispositivos. Uma prática de segurança importante é proteger contra o uso mal-intencionado de portas USB e outros acessos físicos. Um ponto importante para descobrir violações que podem ter ocorrido é registrar o acesso físico em log, tal como o uso da porta USB. Novamente, o Windows 10 (IoT e outros SKUs) habilita o registro em log detalhado desses eventos.
+* **Proteger fisicamente a infraestrutura de IoT**: os piores ataques de segurança contra infraestrutura de são iniciados usando o acesso físico aos dispositivos. Uma prática de segurança importante é proteger contra o uso mal-intencionado de portas USB e outros acessos físicos. Um ponto importante para descobrir violações que podem ter ocorrido é registrar o acesso físico em log, tal como o uso da porta USB. Novamente, o Windows 10 (IoT e outros SKUs) habilita o registro em log detalhado desses eventos.
 * **Proteger credenciais da nuvem**: credenciais de autenticação da nuvem usadas para configurar e operar uma implantação de IoT são possivelmente a maneira mais fácil para acessar e comprometer um sistema de IoT. Proteja as credenciais alterando a senha com frequência e evitando o uso dessas credenciais em computadores públicos.
 
 As funcionalidades de diferentes dispositivos IoT variam. Alguns dispositivos podem ser computadores executando sistemas operacionais de desktop comuns, e outros dispositivos podem estar executando sistemas operacionais muito leves. As práticas recomendadas de segurança descritas anteriormente podem ser aplicáveis a esses dispositivos em graus variados. Se fornecidas, as práticas recomendadas de segurança e de implantação do fabricante desses dispositivos deverão ser seguidas.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23109844"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Usar o StorSimple Snapshot Manager para criar e gerenciar grupos de volumes
 ## <a name="overview"></a>Visão geral
@@ -106,7 +107,7 @@ Use o procedimento a seguir para editar um grupo de volumes.
 #### <a name="to-edit-a-volume-group"></a>Para editar um grupo de volumes
 1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
 2. No painel **Escopo**, expanda o nó **Grupos de Volumes**, clique com o botão direito do mouse no nome de um grupo de volumes e clique em **Editar**.
-3. A caixa de diálogo **Criar um grupo de volumes** é exibida. Você pode alterar as entradas **Nome**, **Aplicativos** e **Volumes**.
+3. A caixa de diálogo Criar um grupo de volumes é exibida. Você pode alterar as entradas **Nome**, **Aplicativos** e **Volumes**.
 4. Clique em **OK** para salvar as alterações.
 
 ## <a name="delete-a-volume-group"></a>Excluir um grupo de volumes

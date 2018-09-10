@@ -6,20 +6,20 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 8/15/2018
 ms.author: victorh
-ms.openlocfilehash: b125f707e8de17764701e981736a53492e5e756c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 48bd548ec977d2dc4dd3b5b2f34df04562a6e918
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356929"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145455"
 ---
 # <a name="renew-application-gateway-certificates"></a>Renovar certificados de Gateway do Aplicativo
 
 Em algum momento, você precisará renovar seus certificados se você tiver configurado o gateway de aplicativo para criptografia SSL.
 
-Você pode renovar um certificado associado a um ouvinte usando o portal do Azure ou o PowerShell do Azure:
+Você pode renovar um certificado associado a um ouvinte usando o portal do Azure, o Azure PowerShell ou a CLI do Azure:
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -31,9 +31,9 @@ Carregue o novo certificado PFX, atribua um nome, digite a senha e, em seguida, 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Para renovar seu certificado usando o Microsoft Azure PowerShell, use o seguinte cmdlet:
+Para renovar seu certificado usando o Azure PowerShell, use o seguinte script:
 
-```PowerShell
+```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
   -ResourceGroupName <ResourceGroup> `
   -Name <AppGatewayName>
@@ -45,6 +45,18 @@ $password = ConvertTo-SecureString `
 
 set-azureRmApplicationGatewaySSLCertificate -Name <oldcertname> `
 -ApplicationGateway $appgw -CertificateFile <newcertPath> -Password $password
+
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
+```
+## <a name="azure-cli"></a>CLI do Azure
+
+```azurecli-interactive
+az network application-gateway ssl-cert update \
+  -n "<CertName>" \
+  --gateway-name "<AppGatewayName>" \
+  -g "ResourceGroupName>" \
+  --cert-file <PathToCerFile> \
+  --cert-password "<password>"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30840320"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>Filtro de entrada e saída de exemplo do script de tráfego de rede da VM
 

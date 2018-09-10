@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/07/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: d0b3ce1fcabbc69c30e316a69e492da7c75d23ef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a1e8c53263093554bb616ec130cd17a0d6d4339c
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207478"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302908"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implantar um aplicativo .NET em um contêiner do Windows no Azure Service Fabric
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 > * Criar um registro de contêiner do Azure
 > * Implantar um aplicativo do Service Fabric no Azure
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Instalar o [Docker CE para Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) de forma que você possa executar contêineres no Windows 10.
@@ -51,6 +51,8 @@ Verifique se o aplicativo Fabrikam fibra CallCenter é compilado e executado sem
 
 ## <a name="containerize-the-application"></a>Colocar o aplicativo em um contêiner
 Clique com o botão direito do mouse no projeto **FabrikamFiber.Web** > **Adicionar** > **Suporte do Orquestrador do Contêiner**.  Selecione **Service Fabric** como o orchestrator do contêiner e clique em **OK**.
+
+Clique em **Sim** para alternar o Docker para contêineres do Windows agora.
 
 Um novo projeto de aplicativo do Service Fabric **FabrikamFiber.CallCenterApplication** é criado na solução.  Um Dockerfile é adicionado ao projeto **FabrikamFiber.Web** existente.  Um diretório **PackageRoot** também é adicionado ao projeto **FabrikamFiber.Web**, que contém o manifesto do serviço e as configurações para o novo serviço FabrikamFiber.Web. 
 
@@ -120,16 +122,17 @@ Novamente no projeto **FabrikamFiber.Web**, atualize a cadeia de conexão no arq
 >Você pode usar qualquer SQL Server que preferir para a depuração local, desde que ele seja acessível no host. No entanto, **localdb** não dá suporte à comunicação `container -> host`. Se você desejar usar outro banco de dados SQL ao criar um build de versão de seu aplicativo Web, adicione outra cadeia de conexão ao arquivo *web.release.config*.
 
 ## <a name="run-the-containerized-application-locally"></a>Executar o aplicativo em contêineres localmente
-Pressione **F5** para executar e depurar o aplicativo em um contêiner no cluster de desenvolvimento do Service Fabric.
+Pressione **F5** para executar e depurar o aplicativo em um contêiner no cluster de desenvolvimento do Service Fabric. Clique em **Sim** se for exibida uma caixa de mensagem pedindo para conceder permissões de leitura e execução para o grupo “ServiceFabricAllowedUsers” para o seu diretório de projeto do Visual Studio.
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
-Agora que o aplicativo é executado localmente, comece a preparar a implantação no Azure.  As imagens de contêiner precisam ser armazenadas em um registro de contêiner.  Criar um [registro de contêiner do Azure](/azure/container-registry/container-registry-intro) usando o script a seguir.  Antes de implantar o aplicativo no Azure, você pode enviar por push a imagem de contêiner para esse registro.  Quando o aplicativo for implantado no cluster no Azure, a imagem de contêiner é extraída desse registro.
+Agora que o aplicativo é executado localmente, comece a preparar a implantação no Azure.  As imagens de contêiner precisam ser armazenadas em um registro de contêiner.  Criar um [registro de contêiner do Azure](/azure/container-registry/container-registry-intro) usando o script a seguir. O nome do registro de contêiner é visível por outras assinaturas do Azure, portanto ele deve ser exclusivo.
+Antes de implantar o aplicativo no Azure, você pode enviar por push a imagem de contêiner para esse registro.  Quando o aplicativo for implantado no cluster no Azure, a imagem de contêiner é extraída desse registro.
 
 ```powershell
 # Variables
 $acrresourcegroupname = "fabrikam-acr-group"
 $location = "southcentralus"
-$registryname="fabrikamregistry"
+$registryname="fabrikamregistry$(Get-Random)"
 
 New-AzureRmResourceGroup -Name $acrresourcegroupname -Location $location
 
@@ -143,7 +146,9 @@ Você pode:
 - Criar um cluster de teste no Visual Studio. Essa opção permite que você crie um cluster seguro diretamente no Visual Studio com suas configurações preferenciais. 
 - [Criar um cluster seguro a partir de um modelo](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
-Ao criar o cluster, escolha um SKU que seja compatível com contêineres em execução (por exemplo, o Windows Server 2016 Datacenter com contêineres). Este tutorial cria um cluster do Visual Studio, que é ideal para cenários de teste. Se você criar um cluster de alguma outra forma, ou usar um cluster existente, você pode copiar e colar o ponto de extremidade de conexão ou escolhê-lo em sua assinatura. 
+Este tutorial cria um cluster do Visual Studio, que é ideal para cenários de teste. Se você criar um cluster de alguma outra forma, ou usar um cluster existente, você pode copiar e colar o ponto de extremidade de conexão ou escolhê-lo em sua assinatura. 
+
+Ao criar o cluster, escolha um SKU que ofereça suporte a contêineres em execução. O sistema operacional Windows Server nos seus nós de cluster devem ser compatíveis com o sistema operacional Windows Server do seu contêiner. Para obter mais informações, consulte [Compatibilidade do sistema operacional contêiner e do sistema operacional do host do Windows Server](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Por padrão, este tutorial cria uma imagem do Docker com base no Windows Server 2016 LTSC. Contêineres com base nesta imagem serão executados em clusters criados com o Windows Server 2016 Datacenter com contêineres. No entanto, se você cria um cluster ou usa um cluster existente com base no Windows Server Datacenter Core 1709 com contêineres, você deve alterar a imagem do sistema operacional do Windows Server na qual o contêiner se baseia. Abra o **Dockerfile** no projeto **FabrikamFiber.Web**, comente a instrução `FROM` existente (com base em `windowsservercore-ltsc`) e remova os comentários da instrução `FROM` com base em `windowsservercore-1709`. 
 
 1. Clique com o botão direito do mouse no projeto de aplicativo **Fabrikam.CallCenterApplication** no Gerenciador de Soluções e escolha **Publicar**.
 
@@ -215,9 +220,12 @@ Agora que o aplicativo está pronto, você poderá implantá-lo no cluster no Az
 
 ![aplicativo Publicar][publish-app]
 
-Acompanhe o progresso da implantação na janela de saída.  Quando o aplicativo for implantado, abra um navegador e digite o endereço do cluster e a porta do aplicativo. Por exemplo, http://http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+Acompanhe o progresso da implantação na janela de saída.  Quando o aplicativo for implantado, abra um navegador e digite o endereço do cluster e a porta do aplicativo. Por exemplo, http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Exemplo de Fabrikam Web][fabrikam-web-page-deployed]
+
+## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configurar a Integração e Implantação Contínuas (CI/CD) com o cluster do Service Fabric
+Para saber como usar o VSTS para configurar a implantação de aplicativos de CI/CD para um cluster do Service Fabric, confira [Tutorial: implantar um aplicativo com CI/CD em um cluster do Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). O processo descrito no tutorial é o mesmo para este projeto (FabrikamFiber), basta ignorar o download do exemplo de Votação e substituir FabrikamFiber como o nome do repositório, em vez de Votação.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Se você tiver terminado, certifique-se de remover todos os recursos que você criou.  A maneira mais simples é remover os grupos de recursos que contêm o cluster do Service Fabric, o Banco de Dados SQL do Azure e o Registro de Contêiner do Azure.

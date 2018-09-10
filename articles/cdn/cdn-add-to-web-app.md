@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: de8b354cf0199d36d5e0b1410a9f79d4a9e3e05c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: efd8e93f32020d1ef3695e7fc6b9907374275848
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359774"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608382"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar o CDN do Azure para um aplicativo web do Serviço de Aplicativo do Azure
 
@@ -55,6 +55,9 @@ Para criar o aplicativo Web com que você trabalhará, execute o [Início rápid
 
 Abra um navegador e navegue até o [portal do Azure](https://portal.azure.com).
 
+### <a name="dynamic-site-acceleration-optimization"></a>Otimização de aceleração de site dinâmico
+Se você quiser otimizar seu ponto de extremidade de CDN para aceleração de site dinâmico (DSA), use o [portal de CDN](cdn-create-new-endpoint.md) para criar sei perfil e ponto de extremidade. Com a [otimização de DSA](cdn-dynamic-site-acceleration.md) da CDN do Azure, o desempenho de páginas da Web com conteúdo dinâmico é melhorado de maneira significativa. Para obter instruções sobre como otimizar um ponto de extremidade de CDN para DSA no portal de CDN, consulte [Configuração do ponto de extremidade de CDN para acelerar a entrega de arquivos dinâmicos](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). Caso contrário, se você não quiser otimizar seu novo ponto de extremidade, use o portal da Web do aplicativo para criá-lo usando as etapas da próxima seção. Observe que para perfis **CDN do Azure da Verizon**, não é possível alterar a otimização de um ponto de extremidade CDN depois que ele foi criado.
+
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Como criar um perfil do CDN e um ponto de extremidade
 
 No painel de navegação esquerdo, selecione **Serviços de aplicativos** e, em seguida, selecione o aplicativo que você criou no [Início rápido do HTML estático](../app-service/app-service-web-get-started-html.md).
@@ -64,9 +67,6 @@ No painel de navegação esquerdo, selecione **Serviços de aplicativos** e, em 
 Na página **Serviço de aplicativo**, na seção **Configurações**, selecione **Rede > Configurar CDN do Azure para seu aplicativo**.
 
 ![Selecione CDN no portal](media/cdn-add-to-web-app/portal-select-cdn.png)
-
-### <a name="dynamic-site-acceleration-optimization"></a>Otimização de aceleração de site dinâmico
-Se você deseja otimizar seu ponto de extremidade de CDN para aceleração de site dinâmico (DSA), use o portal de CDN para criar diretamente o ponto de extremidade. Com a [otimização de DSA](cdn-dynamic-site-acceleration.md) da CDN do Azure, o desempenho de páginas da Web com conteúdo dinâmico é melhorado de maneira significativa. Para obter mais informações sobre como otimizar um ponto de extremidade de CDN para DSA a partir do portal de CDN, consulte [configuração de ponto de extremidade CDN para acelerar o fornecimento de arquivos dinâmicos](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). Para perfis **CDN do Azure do Verizon**, não é possível alterar a otimização de um ponto de extremidade CDN depois que ele foi criado.
 
 Na página da **Rede de distribuição de conteúdo do Azure**, forneça as configurações do **ponto de extremidade novo** conforme especificado na tabela.
 

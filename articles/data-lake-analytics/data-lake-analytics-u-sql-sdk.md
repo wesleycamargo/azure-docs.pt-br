@@ -1,28 +1,23 @@
 ---
-title: Escalar a execução e o teste locais do U-SQL com o SDK do U-SQL do Azure Data Lake | Microsoft Docs
-description: Saiba como usar o SDK do U-SQL do Azure Data Lake para escalar a execução e o teste locais de trabalhos do U-SQL com a linha de comando e interfaces de programação na estação de trabalho local.
+title: Executar e testar trabalhos de U-SQL localmente usando o SDK do U-SQL do Azure Data Lake
+description: Saiba como executar e testar trabalhos de U-SQL localmente usando a linha de comando e as interfaces de programação na estação de trabalho local.
 services: data-lake-analytics
-documentationcenter: ''
-author: ''
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/01/2017
+author: yanacai
 ms.author: yanacai
-ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.reviewer: jasonwhowell
+ms.topic: conceptual
+ms.date: 03/01/2017
+ms.openlocfilehash: ae5334dcb93e34569131ab51dca99c310831082d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052080"
 ---
-# <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Escalar a execução e o teste locais do U-SQL com o SDK do U-SQL do Azure Data Lake
+# <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com o SDK do U-SQL do Azure Data Lake
 
-Ao desenvolver o script U-SQL, é comum executar e testá-lo localmente antes enviá-lo para a nuvem. O Azure Data Lake fornece um pacote NuGet chamado SDK do U-SQL do Azure Data Lake para este cenário, por meio do qual é possível escalar a execução e o teste locais do U-SQL com facilidade. Também é possível integrar esse teste do U-SQL ao sistema de CI (Integração Contínua) para automatizar a compilação e o teste.
+Ao desenvolver o script U-SQL, é comum executar e testá-lo localmente antes enviá-lo para a nuvem. O Azure Data Lake fornece um pacote NuGet chamado SDK do U-SQL do Azure Data Lake para este cenário, por meio do qual é possível escalar a execução e o teste do U-SQL com facilidade. Também é possível integrar esse teste do U-SQL ao sistema de CI (Integração Contínua) para automatizar a compilação e o teste.
 
 Se você se preocupa em como executar e depurar o script U-SQL no local manualmente com ferramentas de GUI, é possível usar as Ferramentas do Azure Data Lake para Visual Studio para essa finalidade. Saiba mais [aqui](data-lake-analytics-data-lake-tools-local-run.md).
 
@@ -77,7 +72,7 @@ Ao executar o script U-SQL localmente, um diretório de trabalho é criado duran
 | | |\_ScopeCodeGenEngine\_.*|Saída do compilador|Código nativo gerado|
 | | |assemblies referenciados|Referência de assembly|Arquivos de assembly referenciado|
 | | |deployed_resources|Implantação de recursos|Arquivos da implantação de recursos|
-| | |xxxxxxxx.xxx[1..n]\_\*.*|Log de execução|Log das etapas de execução|
+| | |xxxxxxxx.xxx[1..n]\_\*.\*|Log de execução|Log das etapas de execução|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Usar o SDK da linha de comando
@@ -212,12 +207,12 @@ O comando **execute** é usado para executar os resultados compilados.
 
 Estes são os argumentos opcionais para **execute**:
 
-|Argumento|DESCRIÇÃO|
-|--------|-----------|
-|-DataRoot [valor padrão '']|Raiz de dados para a execução de metadados. A variável de ambiente **LOCALRUN_DATAROOT** passa a ser o padrão.|
-|-MessageOut [valor padrão '']|Despeje as mensagens do console em um arquivo.|
-|-Parallel [valor padrão '1']|Indicador para executar as etapas de execução local geradas com o nível de paralelismo especificado.|
-|-Verbose [valor padrão 'False']|Indicador para mostrar saídas detalhadas do tempo de execução.|
+|Argumento|Valor padrão|DESCRIÇÃO|
+|--------|-------------|-----------|
+|-DataRoot | '' |Raiz de dados para a execução de metadados. A variável de ambiente **LOCALRUN_DATAROOT** passa a ser o padrão.|
+|-MessageOut | '' |Despeje as mensagens do console em um arquivo.|
+|-Parallel | '1' |Indicador para executar as etapas de execução local geradas com o nível de paralelismo especificado.|
+|-Verbose | 'False' |Indicador para mostrar saídas detalhadas do tempo de execução.|
 
 Aqui está um exemplo de uso:
 
@@ -337,13 +332,13 @@ O LocalRunHelper.exe fornece as interfaces de programação para a compilação 
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parâmetro|type|DESCRIÇÃO|
+|Parâmetro|Tipo|DESCRIÇÃO|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para mensagens de saída, definido como nulo para usar o Console|
 
 **Propriedades**
 
-|Propriedade|type|DESCRIÇÃO|
+|Propriedade|Tipo|DESCRIÇÃO|
 |--------|----|-----------|
 |AlgebraPath|string|O caminho para o arquivo de álgebra (o arquivo de álgebra é um dos resultados da compilação)|
 |CodeBehindReferences|string|Se o script tiver referências code-behind adicionais, especifique os caminhos separados por “;”|

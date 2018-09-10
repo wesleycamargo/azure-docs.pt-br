@@ -1,27 +1,22 @@
 ---
-title: 'Introdução: proteger VMs do Azure com um cofre de serviços de recuperação | Microsoft Docs'
+title: 'Introdução: proteger VMs do Azure com um cofre de serviços de recuperação'
 description: Proteger as VMs do Azure com um cofre de serviços de recuperação. Use backups de VMs implantadas pelo Gerenciador de Recursos, VMs implantadas clássicas, VMs de Armazenamento Premium, VMs Criptografadas, VMs em Discos Gerenciados para proteger seus dados. Crie e registre um cofre de Serviços de Recuperação. Registre as VMs, crie uma política e proteger as VMs no Azure.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keyword: backups; vm backup
-ms.assetid: 45e773d6-c91f-4501-8876-ae57db517cd1
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/18/2018
-ms.author: markgal;jimpark;sogup
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 701accb107931bd1f4472d8999102fecb4fd6373
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+keywords: backups; backup de VM
+ms.openlocfilehash: c3bb198a65f907080023af707080f60c9c1fccbf
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310597"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398882"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure no cofre dos Serviços de Recuperação
 

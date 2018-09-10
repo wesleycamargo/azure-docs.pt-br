@@ -2,25 +2,27 @@
 title: Use o Visual Studio e o .NET para consultar o Banco de Dados SQL do Azure | Microsoft Docs
 description: Este tópico mostra como usar o Visual Studio para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL.
 services: sql-database
+ms.workload: azure-vs
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
-ms.custom: devcenter
+ms.custom: devcenter, vs-azure
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: d785436f157fb694ccf4447db91f28b25c9f2a3a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 1e56d3160e42e3f722f3f9ccb8a6de82ac3bfb83
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186051"
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Usar o .NET (C#) com o Visual Studio para se conectar e consultar um banco de dados SQL do Azure
 
 Este início rápido demonstra como usar o [.NET Framework](https://www.microsoft.com/net/) a fim de criar um programa C# com o Visual Studio para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, tenha o seguinte:
 
@@ -53,7 +55,7 @@ Para concluir este início rápido, tenha o seguinte:
 3. Selecione **Aplicativo de Console** e insira *sqltest* como o nome do projeto.
 4. Clique em **OK** para criar e abrir o novo projeto no Visual Studio
 4. No Gerenciador de Soluções, clique com o botão direito do mouse em **sqltest** e clique em **Gerenciar Pacotes NuGet**. 
-5. Em **Procurar**, procure ```System.Data.SqlClient``` e, quando encontrado, selecione-o.
+5. Na guia **Procurar**, pesquise ```System.Data.SqlClient``` e quando encontrar, selecione.
 6. Na página **System.Data.SqlClient**, clique em **Instalar**.
 7. Quando a instalação for concluída, revise as alterações e então clique em **OK** para fechar a janela **Visualização**. 
 8. Se uma janela **Aceitação da Licença** for exibida, clique em **Aceito**.

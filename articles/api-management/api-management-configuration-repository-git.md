@@ -1,8 +1,8 @@
 ---
-title: "Configurar o serviço de Gerenciamento de API usando o Git - Azure | Microsoft Docs"
-description: "Saiba como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git"
+title: Configurar o serviço de Gerenciamento de API usando o Git - Azure | Microsoft Docs
+description: Saiba como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
 editor: mattfarm
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42142222"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 
@@ -218,15 +219,15 @@ A configuração final, `$ref-policy`, é mapeada para o arquivo de instruções
 ### <a name="apis-folder"></a>pasta apis
 A pasta `apis` contém uma pasta para cada API na instância do serviço que contém os itens a seguir.
 
-* `apis\<api name>\configuration.json` - é a configuração da API e contém informações sobre a URL do serviço de back-end e as operações. Essas são as mesmas informações que retornariam se você chamasse [Obter uma API específica](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) com `export=true` no formato `application/json`.
-* `apis\<api name>\api.description.html` - é a descrição da API e corresponde à propriedade `description` da [entidade da API](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
-* `apis\<api name>\operations\` - esta pasta contém os arquivos `<operation name>.description.html` que são mapeados para as operações na API. Cada arquivo contém a descrição de uma única operação na API que mapeia para a propriedade `description` da [entidade de operação](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) na API REST.
+* `apis\<api name>\configuration.json` - é a configuração da API e contém informações sobre a URL do serviço de back-end e as operações. Essas são as mesmas informações que retornariam se você chamasse [Obter uma API específica](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) com `export=true` no formato `application/json`.
+* `apis\<api name>\api.description.html` - é a descrição da API e corresponde à propriedade `description` da [entidade da API](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` - esta pasta contém os arquivos `<operation name>.description.html` que são mapeados para as operações na API. Cada arquivo contém a descrição de uma única operação na API que mapeia para a propriedade `description` da [entidade de operação](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) na API REST.
 
 ### <a name="groups-folder"></a>pasta groups
 A pasta `groups` contém uma pasta para cada grupo definido na instância do serviço.
 
-* `groups\<group name>\configuration.json` - é a configuração do grupo. Essas são as mesmas informações que retornariam se você chamasse a operação [Obter um grupo específico](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) .
-* `groups\<group name>\description.html` - é a descrição do grupo e corresponde à propriedade `description` da [entidade de grupo](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
+* `groups\<group name>\configuration.json` - é a configuração do grupo. Essas são as mesmas informações que retornariam se você chamasse a operação [Obter um grupo específico](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) .
+* `groups\<group name>\description.html` - é a descrição do grupo e corresponde à propriedade `description` da [entidade de grupo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>pasta policies
 A pasta `policies` contém as instruções da política para a instância de seu serviço.
@@ -245,8 +246,8 @@ A pasta `portalStyles` contém folhas de estilo e configuração para personaliz
 ### <a name="products-folder"></a>pasta products
 A pasta `products` contém uma pasta para cada produto definida na instância do serviço.
 
-* `products\<product name>\configuration.json` - é a configuração do produto. Essas são as mesmas informações que retornariam se você chamasse a operação [Obter um produto específico](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) .
-* `products\<product name>\product.description.html` - é a descrição do produto e corresponde à propriedade `description` da [entidade do produto](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) na API REST.
+* `products\<product name>\configuration.json` - é a configuração do produto. Essas são as mesmas informações que retornariam se você chamasse a operação [Obter um produto específico](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) .
+* `products\<product name>\product.description.html` - é a descrição do produto e corresponde à propriedade `description` da [entidade do produto](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) na API REST.
 
 ### <a name="templates"></a>modelos
 A pasta `templates` contém a configuração dos [modelos de email](api-management-howto-configure-notifications.md) na instância do serviço.
@@ -258,8 +259,8 @@ A pasta `templates` contém a configuração dos [modelos de email](api-manageme
 Para saber mais sobre outras maneiras de gerenciar sua instância de serviço, confira:
 
 * Gerenciar a instância de seu serviço usando os seguintes cmdlets do PowerShell
-  * [Referência de cmdlets do PowerShell para implantação de serviços](https://msdn.microsoft.com/library/azure/mt619282.aspx)
-  * [Referência de cmdlet do PowerShell para gerenciamento de serviços](https://msdn.microsoft.com/library/azure/mt613507.aspx)
+  * [Referência de cmdlets do PowerShell para implantação de serviços](https://docs.microsoft.com/powershell/module/wds)
+  * [Referência de cmdlet do PowerShell para gerenciamento de serviços](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Gerenciar a instância de seu serviço usando a API REST
   * [Referência de API REST do Gerenciamento de API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

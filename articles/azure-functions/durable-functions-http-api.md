@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: aa5c46a4d0ca55339e8f26a3e577d03bf4b504b2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 3c000e268c4c926991c3f1928f226065a436c6d2
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "36264878"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs HTTP nas Funções Duráveis (Azure Functions)
 
@@ -193,6 +194,81 @@ Aqui está um exemplo de carga de resposta, incluindo o histórico de execução
 ```
 
 A resposta **HTTP 202** também inclui um cabeçalho de resposta **Local** que faz referência à mesma URL que o campo `statusQueryGetUri` mencionado anteriormente.
+
+### <a name="get-all-instances-status"></a>Obter status de todas as instâncias
+
+Também é possível consultar o status de todas as instâncias. Remova `instanceId` da solicitação 'Obter status da instância'. Os parâmetros são os mesmos que os do status 'Obter status da instância.' 
+
+#### <a name="request"></a>Solicitação
+
+Para o Functions 1.0, o formato da solicitação é o seguinte:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+O formato do Functions 2.0 tem todos os mesmos parâmetros, mas um prefixo de URL ligeiramente diferente: 
+
+```http
+GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+#### <a name="response"></a>Response
+
+Aqui está um exemplo de cargas de resposta, incluindo o status de orquestração (formatado para legibilidade):
+
+```json
+[
+    {
+        "instanceId": "7af46ff000564c65aafbfe99d07c32a5",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-06-04T10:46:39Z",
+        "lastUpdatedTime": "2018-06-04T10:46:47Z"
+    },
+    {
+        "instanceId": "80eb7dd5c22f4eeba9f42b062794321e",
+        "runtimeStatus": "Running",
+        "input": null,
+        "customStatus": null,
+        "output": null,
+        "createdTime": "2018-06-04T15:18:28Z",
+        "lastUpdatedTime": "2018-06-04T15:18:38Z"
+    },
+    {
+        "instanceId": "9124518926db408ab8dfe84822aba2b1",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-06-04T10:46:54Z",
+        "lastUpdatedTime": "2018-06-04T10:47:03Z"
+    },
+    {
+        "instanceId": "d100b90b903c4009ba1a90868331b11b",
+        "runtimeStatus": "Pending",
+        "input": null,
+        "customStatus": null,
+        "output": null,
+        "createdTime": "2018-06-04T15:18:39Z",
+        "lastUpdatedTime": "2018-06-04T15:18:39Z"
+    }
+]
+```
+
+> [!NOTE]
+> Essa operação pode ser muito cara em termos de E/S de Armazenamento do Microsoft Azure, se houver muitas linhas na tabela Instâncias. Mais detalhes sobre a tabela de Instâncias podem ser encontrados na documentação [Desempenho e escala nas Funções Duráveis (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-perf-and-scale#instances-table).
+> 
 
 ### <a name="raise-event"></a>Acionar evento
 

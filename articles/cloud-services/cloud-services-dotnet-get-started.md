@@ -3,7 +3,7 @@ title: Introdução aos Serviços de Nuvem do Azure e ao ASP.NET | Microsoft Doc
 description: Saiba como criar um aplicativo de múltiplas camadas usando ASP.NET MVC e o Azure. O aplicativo é executado em um serviço de nuvem, com uma função Web e de trabalho. Ele utiliza Entity Framework, o Banco de Dados SQL e filas e blobs de Armazenamento do Azure.
 services: cloud-services, storage
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
-ms.author: adegeo
-ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jeconnoc
+ms.openlocfilehash: 819a2f81ca5403a3656bf713cf0ee3ae58050a4b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003106"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
 
@@ -45,7 +46,7 @@ Este tutorial mostra como executar front-end e back-end no serviço de nuvem do 
 * Como carregar arquivos e armazená-los no serviço Blob do Azure.
 * Como usar o serviço Fila do Azure para comunicação entre camadas.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 O tutorial assume que você conhece os [conceitos básicos sobre os serviços de nuvem do Azure](cloud-services-choose-me.md) como terminologia de *função web* e de *função de trabalho*.  Também assumimos que você sabe como trabalhar com projetos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou de [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) no Visual Studio. O aplicativo função Web usa MVC, mas a maior parte do tutorial também aplica-se a Formulários da Web.
 
 Você também pode executar o aplicativo localmente sem uma assinatura do Azure, mas precisará de uma para implantar o aplicativo na nuvem. Se não tem uma conta, você pode [ativar os benefícios de assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [inscrever-se em uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -177,7 +178,7 @@ Em um aplicativo do mundo real, geralmente você cria contas separadas para dado
 
     Quando a conta de armazenamento do serviço de nuvem estiver em outros datacenters (outras regiões), a latência será maior e você será cobrado pela largura de banda fora do data center. A largura de banda em um data center é gratuita.
 
-    O grupos de afinidade do Azure fornecem um mecanismo para minimizar a distância entre os recursos em um data center, o que pode reduzir a latência. Este tutorial não usa grupos de afinidade. Para obter mais informações, consulte [Como criar um grupo de afinidade no Azure](http://msdn.microsoft.com/library/jj156209.aspx).
+    O grupos de afinidade do Azure fornecem um mecanismo para minimizar a distância entre os recursos em um data center, o que pode reduzir a latência. Este tutorial não usa grupos de afinidade. Para obter mais informações, consulte [Como criar um grupo de afinidade no Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx).
 7. Clique em **Criar**.
 
     ![Nova conta de armazenamento](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -290,7 +291,7 @@ A configuração `<Instances>` especifica o número de máquinas virtuais onde o
 
     ![Etapa configurações](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    As configurações padrão na guia **Avançado** são adequadas para este tutorial. Para obter mais informações sobre a guia avançada, consulte [Assistente de publicação de aplicativo do Azure](http://msdn.microsoft.com/library/hh535756.aspx).
+    As configurações padrão na guia **Avançado** são adequadas para este tutorial. Para obter mais informações sobre a guia avançada, consulte [Assistente de publicação de aplicativo do Azure](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
 4. Na etapa **Resumo**, clique em **Publicar**.
 
     ![Etapa de resumo](./media/cloud-services-dotnet-get-started/pubsummary.png)

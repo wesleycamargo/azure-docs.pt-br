@@ -8,11 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
-ms.openlocfilehash: 335781a8048e1497b74f0ecf9bef337c923d95b7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 713e5304ca54039413f68ebc189dd049e77cdaa0
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527568"
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Introdução ao Azure Search no Node.js
 > [!div class="op_single_selector"]
@@ -100,7 +101,7 @@ Este é o primeiro tutorial do Azure Search com base no Node.js e no conjunto de
 
 Se você já tiver alguma experiência com o Azure Search, use este exemplo como um trampolim para experimentar sugestões (consultas de preenchimento automático ou de digitação antecipada), filtros e navegação facetada. Você também pode melhorar a página de resultados da pesquisa adicionando contagens e documentos em lote para que os usuários possam percorrer os resultados.
 
-Ainda não conhece o Azure Search? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode exibir os links em nossa [Lista de vídeos e Tutorial](search-video-demo-tutorial-list.md) para acessar mais informações.
+Ainda não conhece o Azure Search? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. 
 
 <!--Image references-->
 [1]: ./media/search-get-started-Nodejs/create-search-portal-1.PNG

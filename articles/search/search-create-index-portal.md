@@ -1,48 +1,46 @@
 ---
-title: Criar um índice (portal – Azure Search) | Microsoft Docs
-description: Criar um índice usando o Portal do Azure.
+title: Criar um índice do Azure Search no portal | Microsoft Docs
+description: Saiba como criar um índice do Azure Search usando designers de índice de portal internos.
 manager: cgronlun
 author: heidisteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: quickstart
-ms.date: 06/20/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 722f1eb989fb8c160def4024b1aa967a47b87697
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bb1ba5e860dab237b3f6e16205b5e4cbad45e6e3
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203862"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990839"
 ---
-# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Criar um índice do Azure Search usando o portal do Azure
+# <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Como criar um índice do Azure Search usando o portal do Azure
 
-Use o designer de índices interno no portal do Azure para criar um protótipo ou criar um [índice de pesquisa](search-what-is-an-index.md) para ser executado no serviço do Azure Search. 
+O Azure Search inclui um designer de índice interno no portal, útil para protótipos ou para criar um [índice de pesquisa](search-what-is-an-index.md) hospedado no seu serviço do Azure Search. A ferramenta é usada para a construção de esquemas. Quando você salva a definição, um índice vazio se torna totalmente expresso no Azure Search. Como carregar dados pesquisáveis neles é com você.
 
-Como alternativa, crie um índice usando as APIs [.NET](search-create-index-dotnet.md) ou [REST](search-create-index-rest-api.md).
+O designer de índice é apenas uma abordagem para criar um índice. Programaticamente, é possível criar um índice usando APIs do [.NET](search-create-index-dotnet.md) ou [REST](search-create-index-rest-api.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você tenha uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) e um [serviço do Azure Search](search-create-service-portal.md).  
+Este artigo pressupõe que você tenha uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) e um [serviço do Azure Search](search-create-service-portal.md).
 
-## <a name="find-your-search-service"></a>Encontrar o serviço de pesquisa
-1. Entre na página do portal do Azure e examine os [serviços de pesquisa para sua assinatura](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Selecione o serviço Azure Search.
+## <a name="open-index-designer-and-name-an-index"></a>Abra o designer de índice e nomeie um índice
 
-## <a name="name-the-index"></a>Nomear o índice
+1. Entre no [portal do Azure](https://portal.azure.com) e abra o painel de serviço. Você pode clicar em **Todos os serviços** na barra de navegação para procurar os “serviços de pesquisa” existentes na assinatura atual. 
 
-1. Clique no botão **Adicionar índice** na barra de comandos na parte superior da página.
-2. Dê um nome ao seu índice do Azure Search 
+2.  Clique no botão **Adicionar índice** na barra de comandos na parte superior da página.
+
+3. Dê um nome ao seu índice de Azure Search. Os nomes de índices são referenciados nas operações de indexação e de consulta. O nome do índice se torna parte da URL do ponto de extremidade usada nas conexões com o índice e para enviar solicitações HTTP na API REST do Azure Search.
+
    * Comece com uma letra.
    * Use apenas letras minúsculas, dígitos ou traços (“-”).
    * Limite o nome a 60 caracteres.
 
-  O nome do índice se torna parte da URL do ponto de extremidade usada nas conexões com o índice e para enviar solicitações HTTP na API REST do Azure Search.
-
 ## <a name="define-the-fields-of-your-index"></a>Definir os campos do índice
 
-A composição de índice inclui uma *coleção Campos* que define os dados pesquisáveis no índice. Mais especificamente, ela especifica a estrutura de documentos carregada separadamente. A coleção Campos inclui campos obrigatórios e opcionais, nomeados e digitados, com os atributos de índice para determinar como o campo pode ser usado.
+A composição de índice inclui uma *coleção Campos* que define os dados pesquisáveis no índice. Ao todo, a coleção de campos especifica a estrutura de documentos que você pode carregar separadamente. Uma coleção Campos inclui campos obrigatórios e opcionais, nomeados e tipados, com os atributos de índice que determinam como o campo pode ser usado.
 
 1. Na folha **Adicionar Índice**, clique em **Campos >** para abrir a folha de definição de campo. 
 
@@ -63,6 +61,7 @@ A criação de um índice no portal faz uso intensivo do teclado. Minimize as et
 2. Em seguida, use as caixas de seleção na parte superior de cada atributo para habilitar em massa a configuração de todos os campos e, depois, desmarque as caixas seletivamente para os poucos campos que não precisarão dela. Por exemplo, os campos de cadeia de caracteres normalmente são pesquisáveis. Dessa forma, você poderá clicar em **Recuperável** e **Pesquisável** para retornar os valores do campo nos resultados da pesquisa, bem como para permitir a pesquisa de texto completo no campo. 
 
 <a name="design"></a>
+
 ## <a name="design-guidance-for-setting-attributes"></a>Diretrizes de design para configuração de atributos
 
 Embora seja possível adicionar novos campos a qualquer momento, as definições de campo existentes são bloqueadas durante o tempo de vida do índice. Por esse motivo, os desenvolvedores geralmente usam o portal para criar índices simples, testar ideias ou usar as páginas do portal para pesquisar uma configuração. A iteração frequente em um design de índice será mais eficiente se você seguir uma abordagem baseada em código, de modo que você possa recriar o índice com facilidade.

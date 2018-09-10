@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jdial
-ms.openlocfilehash: 09f3a1e1d9c6796cb55ae8f0ab18bf8e1b3fa198
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 7d0f0367a4126e7cecd34b39e6e5065e7d4fd90a
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077751"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287100"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>As permissões de controle de acesso baseadas em função são necessárias para usar os recursos do Observador de Rede.
 
-O controle de acesso baseado em função (RBAC) do Azure permite que você atribua apenas as ações específicas aos membros de sua organização que eles precisam para concluir suas responsabilidades atribuídas. Para usar recursos do Observador de Rede, a conta com a qual você faz logon no Azure deve ser atribuída às funções internas de [Proprietário](/role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [Colaborador](/role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor) ou [Colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) ou atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) que recebe as ações listadas para cada recurso do Observador de Rede nas seções a seguir. Para saber mais sobre os recursos do Observador de Rede, consulte [O que é o Observador de Rede?](network-watcher-monitoring-overview.md).
+O controle de acesso baseado em função (RBAC) do Azure permite que você atribua apenas as ações específicas aos membros de sua organização que eles precisam para concluir suas responsabilidades atribuídas. Para usar recursos do Observador de Rede, a conta com a qual você faz logon no Azure deve ser atribuída às funções internas de [Proprietário](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [Colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor) ou [Colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) ou atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) que recebe as ações listadas para cada recurso do Observador de Rede nas seções a seguir. Para saber mais sobre os recursos do Observador de Rede, consulte [O que é o Observador de Rede?](network-watcher-monitoring-overview.md).
 
 ## <a name="network-watcher"></a>Observador de Rede
 

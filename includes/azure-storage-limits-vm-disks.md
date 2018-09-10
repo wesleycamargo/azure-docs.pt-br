@@ -3,9 +3,17 @@ As Máquinas Virtuais do Azure têm suporte para a anexação de vários discos 
 > [!IMPORTANT]
 > Para obter o desempenho ideal, limite a quantidade de discos altamente utilizados anexados à máquina virtual para evitar possíveis limitações. Se todos os discos conectados não forem altamente usados ao mesmo tempo, então a máquina virtual pode dar suporte a um número maior de discos.
 
-* **Para o Azure Managed Disks:** o limite de discos para discos gerenciados funciona por região e por tipo de disco. O limite máximo, e também limi padrão, é de 10.000 discos gerenciados por região e por tipo de disco para uma assinatura. Por exemplo, você pode criar até 10.000 discos gerenciados standard e também 10.000 discos gerenciados premium em uma região, por assinatura.
+* **Para o Azure Managed Disks:** 
 
-    Os instantâneos gerenciados e as imagens são contados em relação ao limite de Managed Disks.
+> | Recurso | Limite padrão | Limite máximo |
+> | --- | --- | --- |
+> | Managed Disks Standard | 10.000 | 50.000 |
+> | Managed Disks SSD Standard | 10.000 | 50.000 |
+> | Managed Disks Premium | 10.000 | 50.000 |
+> | Instantâneos de Standard_LRS | 10.000 | 50.000 |
+> | Instantâneos de Standard_ZRS | 10.000 | 50.000 |
+> | Instantâneos Premium_LRS | 10.000 | 50.000 |
+> | Imagem Gerenciada | 10.000 | 50.000 |
 
 * **Para contas de armazenamento padrão:** uma conta de armazenamento padrão tem uma taxa de solicitação total máxima de 20.000 IOPS. O total de IOPS em todos os discos da máquina virtual de uma conta de armazenamento padrão não deve exceder esse limite.
   

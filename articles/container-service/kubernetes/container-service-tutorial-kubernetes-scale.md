@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f643c09f00b23cd14e85e83ed0cf7ab7a13c7646
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429875"
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Dimensionar pods Kubernetes e a infraestrutura do Kubernetes
 
@@ -38,7 +39,7 @@ Se você ainda não realizou essas etapas e deseja continuar acompanhando, retor
 
 ## <a name="manually-scale-pods"></a>Dimensionar pods manualmente
 
-Até o momento, a instância de Redis e front-end do Azure Vote foi implantada, cada uma com uma réplica única. Para verificar, execute o comando [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get).
+Até o momento, a instância de Redis e front-end do Azure Vote foi implantada, cada uma com uma réplica única. Para verificar, execute o comando [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
 ```azurecli-interactive
 kubectl get pods
@@ -52,13 +53,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Altere manualmente o número de compartimentos na implantação `azure-vote-front` usando o comando [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale). Este exemplo aumenta o número para 5.
+Altere manualmente o número de compartimentos na implantação `azure-vote-front` usando o comando [kubectl scale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale). Este exemplo aumenta o número para 5.
 
 ```azurecli-interactive
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Execute [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) para verificar se o Kubernetes está criando os pods. Após aproximadamente um minuto, os pods adicionais estão em execução:
+Execute [kubectl get pods](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) para verificar se o Kubernetes está criando os pods. Após aproximadamente um minuto, os pods adicionais estão em execução:
 
 ```azurecli-interactive
 kubectl get pods
@@ -90,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-O exemplo a seguir usa o comando [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) para dimensionar automaticamente o número de pods na implantação `azure-vote-front`. Aqui, se a utilização da CPU exceder 50%, o dimensionador automático aumenta os pods para um máximo de 10.
+O exemplo a seguir usa o comando [kubectl autoscale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale) para dimensionar automaticamente o número de pods na implantação `azure-vote-front`. Aqui, se a utilização da CPU exceder 50%, o dimensionador automático aumenta os pods para um máximo de 10.
 
 
 ```azurecli-interactive
@@ -114,7 +115,7 @@ Após alguns minutos, com carga mínima no aplicativo Azure Vote, o número de r
 
 ## <a name="scale-the-agents"></a>Dimensionar os agentes
 
-Se você criou o cluster Kubernetes usando comandos padrão no tutorial anterior, ele tem três nós de agente. Você pode ajustar o número de agentes manualmente se você planeja ter mais ou menos cargas de trabalho de contêiner no cluster. Use o comando [az acs scale](/cli/azure/acs#az_acs_scale) e especifique o número de agentes com o parâmetro `--new-agent-count`.
+Se você criou o cluster Kubernetes usando comandos padrão no tutorial anterior, ele tem três nós de agente. Você pode ajustar o número de agentes manualmente se você planeja ter mais ou menos cargas de trabalho de contêiner no cluster. Use o comando [az acs scale](/cli/azure/acs#az-acs-scale) e especifique o número de agentes com o parâmetro `--new-agent-count`.
 
 O exemplo a seguir aumenta o número de nós de agente para 4 no cluster Kubernetes chamado *myK8sCluster*. Esse comando leva alguns minutos para ser concluído.
 

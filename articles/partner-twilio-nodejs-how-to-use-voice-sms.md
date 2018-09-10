@@ -1,11 +1,11 @@
 ---
 title: Usando o Twilio para voz, VoIP e mensagens SMS no Azure
-description: "Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos de códigos escritos em Node.js."
-services: 
+description: Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos de códigos escritos em Node.js.
+services: ''
 documentationcenter: nodejs
 author: devinrader
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: f558cbbd-13d2-416f-b9b1-33a99c426af9
 ms.service: multiple
 ms.workload: na
@@ -14,11 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: wpickett
-ms.openlocfilehash: f347540c78be712fc46d1d36b47ca4e23a62e28a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3434c4712252e52f8a03c729524d116216a64f8d
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42139981"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Usando o Twilio para voz, VoIP e mensagens SMS no Azure
 Este guia demonstra como compilar aplicativos que se comunicam com o Twilio e o node.js no Azure.
@@ -251,7 +252,7 @@ Esperamos que você aprecie escrever com o node.js e o Twilio no Azure!
 [npm]: http://npmjs.org
 [express]: http://expressjs.com
 [voipnode]: http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
-[docs]: http://twilio.github.io/twilio-node/
+[docs]: https://www.twilio.com/docs/libraries/reference/twilio-node/
 [votr]: http://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html
 [pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png

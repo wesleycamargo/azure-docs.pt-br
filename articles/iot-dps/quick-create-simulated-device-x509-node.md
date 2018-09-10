@@ -1,22 +1,21 @@
 ---
 title: Provisionar um dispositivo X.509 simulado no Hub IoT do Azure usando o Node.js | Microsoft Docs
 description: Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Node.js para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
-services: iot-dps
-keywords: ''
-author: bryanla
-ms.author: v-masebo;bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 957a0e1561b384468ab22ccdb0a71aea7cbcf1c1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1a3015a458a579b0aadf51d610db512eb908352b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023187"
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Node.js para o Serviço de Provisionamento de Dispositivos no Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -25,7 +24,7 @@ Essas etapas mostram como criar uma entrada de registro no Serviço de Provision
 
 Se você não estiver familiarizado com o processo de provisionamento automático, analise também os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+[!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente 
 
@@ -42,6 +41,14 @@ Se você não estiver familiarizado com o processo de provisionamento automátic
     >
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Criar um certificado de dispositivo X.509 autoassinado e entrada de registro individual
+
+Nesta seção, você usará um certificado X.509 autoassinado, é importante ter em mente o seguinte:
+
+* Os certificados autoassinados são somente para teste e não devem ser usado na produção.
+* A data de validade padrão para um certificado autoassinado é de um ano.
+
+Você usará o código de exemplo do [SDK do Azure IoT para Node.js](https://github.com/Azure/azure-iot-sdk-node.git) para criar o certificado a ser usado na entrada de registro individual do dispositivo simulado.
+
 
 1. Abra um prompt de comando. Clone o repositório do GitHub para os exemplos de código:
     
@@ -85,7 +92,7 @@ O [SDK do dispositivo Node.js do Hub IoT do Azure](https://github.com/Azure/azur
 
 1. No portal do Azure, selecione a folha **Visão Geral** do seu Serviço de Provisionamento de Dispositivos e anote os valores de **_Ponto de Extremidade do Dispositivo Global_** e **_Escopo de ID_**.
 
-    ![Extrair informações de ponto de extremidade do DPS na folha do portal](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
+    ![Extrair informações do ponto de extremidade do Serviço de Provisionamento de Dispositivo na folha do portal](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
 
 2. Copie o _certificado_ e a _chave_ para a pasta de exemplo.
 

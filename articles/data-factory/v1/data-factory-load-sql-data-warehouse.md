@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3266e4b571878eb55c55e235ecb10995cbd58439
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5fb4034d49982d600fe5b0de17d0b198e3ee653e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246361"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Data Factory
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se estiver usando a versão 2 do serviço Data Factory, que está em versão prévia, consulte [Copiar dados para ou do SQL Data Warehouse do Azure ao usar a versão 2 do Data Factory](../connector-azure-sql-data-warehouse.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Copiar dados para ou do SQL Data Warehouse do Azure usando o Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
 O [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é um banco de dados baseado em nuvem e expansível com capacidade de processar volumes imensos de dados, relacionais e não relacionais.  Criado em arquitetura MPP (processamento paralelo maciço), o SQL Data Warehouse é otimizado para cargas de trabalho do data warehouse corporativas.  Ele oferece a elasticidade da nuvem com a flexibilidade de dimensionar o armazenamento e a computação de modo independente.
@@ -45,8 +46,8 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
 >
 >
 
-## <a name="prerequisites"></a>pré-requisitos
-* Armazenamento de Blobs do Azure: esse teste usa o Armazenamento de Blobs do Azure (GRS) para armazenar o conjunto de dados de teste do TPC-H.  Se você não tiver uma conta de armazenamento do Azure, aprenda [como criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+## <a name="prerequisites"></a>Pré-requisitos
+* Armazenamento de Blobs do Azure: esse teste usa o Armazenamento de Blobs do Azure (GRS) para armazenar o conjunto de dados de teste do TPC-H.  Se você não tiver uma conta de armazenamento do Azure, aprenda [como criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md).
 * Dados do [TPC-H](http://www.tpc.org/tpch/): usaremos o TPC-H como o conjunto de dados de teste.  Para fazer isso, você precisa usar `dbgen` do kit de ferramentas do TPC-H, o que ajuda você a gerar o conjunto de dados.  Você pode baixar código-fonte para `dbgen` de [Ferramentas TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) e compilá-lo por conta própria ou então baixar o binário compilado de [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Execute dbgen.exe com os comandos a seguir para gerar um arquivo simples de 1 TB para a tabela `lineitem` dividido em 10 arquivos:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
@@ -127,7 +128,7 @@ Com as etapas de pré-requisito concluídas, agora estamos prontos para configur
    6. Clique em **Criar**.
 4. Depois que a criação for concluída, você verá a folha **Data Factory**, conforme mostrado na seguinte imagem:
 
-   ![Página inicial da data factory](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
+   ![Página inicial do data factory](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
 5. Na home page do Data Factory, clique no bloco **Copiar dados** para iniciar o **Assistente de Cópia**.
 
    > [!NOTE]

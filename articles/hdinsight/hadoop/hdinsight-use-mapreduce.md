@@ -1,24 +1,20 @@
 ---
-title: MapReduce com Hadoop no HDInsight | Microsoft Docs
+title: Usar o MapReduce com Hadoop no Azure HDInsight
 description: Saiba como executar trabalhos do MapReduce no Hadoop em clusters HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7f321501-d62c-4ffc-b5d6-102ecba6dd76
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 131e3065da4ccfb20d63856844a302a94806fd19
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3b9cc70a1adc55850923f2313f17be435257117d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044862"
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Usar o MapReduce no Hadoop do HDInsight
 

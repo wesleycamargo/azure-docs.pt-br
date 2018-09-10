@@ -1,11 +1,11 @@
 ---
-title: "Saiba mais sobre a Limitação nos Serviços BizTalk | Microsoft Docs"
-description: "Saiba mais sobre os limites de limitação e comportamentos de tempo de execução resultantes para os serviços BizTalk. A limitação é baseada no uso de memória e número de mensagens. MABS, WABS"
+title: Saiba mais sobre a Limitação nos Serviços BizTalk | Microsoft Docs
+description: Saiba mais sobre os limites de limitação e comportamentos de tempo de execução resultantes para os serviços BizTalk. A limitação é baseada no uso de memória e número de mensagens. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: f6663cf2-cda4-4bac-855e-27d2ad5c4fa4
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102079"
 ---
 # <a name="biztalk-services-throttling"></a>Serviços BizTalk: limitação
 
@@ -32,7 +33,7 @@ A tabela a seguir lista os limites e origem da limitação:
 |  | Descrição | Limite baixo | Limite alto |
 | --- | --- | --- | --- |
 | Memória |% de memória total de sistema disponível/PageFileBytes. <p><p>O total de PageFileBytes disponível é aproximadamente 2 vezes a RAM do sistema. |60% |70% |
-| Processamento de mensagem |Número de processamento de mensagens simultaneamente |40 vezes o número de núcleos |100 vezes o número de núcleos |
+| Processamento de mensagem |Número de processamento de mensagens simultaneamente |40 * número de núcleos |100 * número de núcleos |
 
 Quando um limite alto é atingido, os Serviços BizTalk do Azure começam a ser limitados. A limitação é interrompida quando um limite baixo é atingido. Por exemplo, seu serviço estiver usando 65% da memória do sistema. Nesta situação, o serviço não sofre limitação. Seu serviço começa usando 70% da memória do sistema. Nessa situação, o serviço começa a ser limitado e continua até que o serviço use 60% da memória do sistema (limite baixo).
 

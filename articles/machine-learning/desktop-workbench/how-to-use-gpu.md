@@ -7,23 +7,25 @@ ms.author: roastala
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 1bd8f28b472361470fa8020149a9af0c690fbc52
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f3b6c4f6af14615511400650662fe7a350c172ba
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144780"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Como usar a GPU no Azure Machine Learning
 A GPU (Unidade de Processamento Gráfico) é amplamente usada para processar tarefas de computação intensa que geralmente podem acontecer durante o treinamento de alguns modelos de rede neural profunda. Ao usar as GPUs, você pode reduzir significativamente o tempo de treinamento dos modelos. Neste documento, você aprenderá a configurar o Azure ML Workbench para usar [DSVM (Máquina Virtual de Ciência de Dados)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) equipada com GPUs como destino de execução. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 - Para percorrer este guia de instruções, você precisa primeiro [instalar o Azure ML Workbench](../service/quickstart-installation.md).
 - Você precisa ter acesso a computadores equipados com GPUs NVidia.
     - Você pode executar os scripts diretamente no computador local (Windows ou macOS) com GPUs.
-    - Você também pode executar scripts em um contêiner do Docker em um computador com GPUs.
+    - Você também pode executar scripts em um contêiner do Docker em um computador Linux com GPUs...
 
 ## <a name="execute-in-local-environment-with-gpus"></a>Executar em Ambiente _local_ com GPUs
 Você pode instalar o Azure ML Workbench em um computador equipado com GPUs e executar em um ambiente _local_. Isso pode ser:
@@ -39,8 +41,8 @@ Nesse caso, nenhuma configuração especial é necessária no Azure ML Workbench
 REM install latest TensorFlow with GPU support
 C:\MyProj> pip install tensorflow-gpu
 
-REM install Microsoft Cognitive Toolkit 2.1 (1-bit SGD) with GPU support on Windows
-C:\MyProj> pip install https://cntk.ai/PythonWheel/GPU-1bit-SGD/cntk-2.1-cp35-cp35m-win_amd64.whl
+REM install Microsoft Cognitive Toolkit 2.5 with GPU support on Windows
+C:\MyProj> pip install https://cntk.ai/PythonWheel/GPU/cntk_gpu-2.5.1-cp35-cp35m-win_amd64.whl
 ```
 
 3. Grave código do Python que aproveite as bibliotecas de aprendizado profundo.
@@ -115,19 +117,8 @@ name: project_environment
 dependencies:
   - python=3.5.2
   - pip: 
-    # use the Linux build of Microsoft Cognitive Toolkit 2.1 with GPU support
-    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
-```
-
-Você também pode usar a versão de SGD de 1 bit do Kit de Ferramentas Cognitivas Microsoft que oferece melhorias de desempenho em VMs de várias GPUs. Observe [o requisito de licença para SGD de 1 bit](https://docs.microsoft.com/cognitive-toolkit/cntk-1bit-sgd-license).
-
-```yaml
-name: project_environment
-dependencies:
-  - python=3.5.2
-  - pip:    
-    # use the Linux build of the Microsoft Cognitive Toolkit 2.1 with 1-bit SGD and GPU support
-    - https://cntk.ai/PythonWheel/GPU-1bit-SGD/cntk-2.1-cp35-cp35m-linux_x86_64.whl
+    # use the Linux build of Microsoft Cognitive Toolkit 2.5 with GPU support
+    - https://cntk.ai/PythonWheel/GPU/cntk_gpu-2.5.1-cp35-cp35m-win_amd64.whl
 ```
 
 ### <a name="execute"></a>Executar

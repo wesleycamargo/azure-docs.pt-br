@@ -2,24 +2,22 @@
 title: Tutorial de MongoDB, Angular e Node para Azure - parte 4 | Microsoft Docs
 description: Parte 4 da série de tutoriais sobre como criar um aplicativo do MongoDB com Angular e Node no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB
 services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
+author: johnpapa
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: sngun
+ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: c9f0c6f18645a8d3a5a069aa55fec0ba8e9ba547
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 583400dba7077ebab3ce80d6a03b26f13a659b35
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696863"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Criar um aplicativo do MongoDB com Angular e Azure Cosmos DB - parte 4: criar uma conta do Azure Cosmos DB usando a CLI do Azure
 
@@ -35,7 +33,7 @@ A Parte 4 do tutorial se baseia na [Parte 3](tutorial-develop-mongodb-nodejs-par
 
 > [!VIDEO https://www.youtube.com/embed/hfUM-AbOh94]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas na [Parte 3](tutorial-develop-mongodb-nodejs-part3.md) do tutorial. 
 
@@ -52,7 +50,7 @@ Nesta seção do tutorial, você pode usar o Azure Cloud Shell (em seu navegador
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
-Criar uma conta do Azure Cosmos DB com o comando [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create).
+Criar uma conta do Azure Cosmos DB com o comando [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create).
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB

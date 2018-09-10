@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 08/29/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6a42f4b5b54056424bc3e2d865408ad6711403e0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ec56f9fdf21459857c8115222da921b6681a3ac5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247229"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Ativar assinaturas e contas do Azure com o Gerenciamento de Custos do Azure
 
@@ -35,7 +36,7 @@ Se sua conta tiver a função **Colaborador**, você não tem a permissão adequ
 
 ### <a name="check-azure-active-directory-permissions"></a>Verificar as permissões do Azure Active Directory
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. No portal do Azure, selecione **Azure Active Directory**.
 3. No Azure Active Directory, selecione **Configurações de Usuário**.
 4. Verifique a opção **Registros do Aplicativo**.
@@ -59,7 +60,7 @@ Quando você adiciona uma assinatura a uma atualização de conta, você concede
 1. Se você quiser atualizar uma assinatura _não ativa_ que já existe no Gerenciamento de Custos do Azure no Gerenciamento de Contas, clique no símbolo de lápis de edição à direita do _GUID de locatário_ pai. As assinaturas são agrupadas em um locatário pai, portanto, evite ativar assinaturas individualmente.
     ![Redescobrir assinaturas](./media/activate-subs-accounts/existing-sub.png)
 2. Se necessário, insira a ID de locatário. Se você não souber sua ID de locatário, use as seguintes etapas para localizá-lo:
-    1. Faça logon no [Portal do Azure](https://portal.azure.com).
+    1. Entre no [Portal do Azure](https://portal.azure.com).
     2. No portal do Azure, selecione **Azure Active Directory**.
     3. Para obter a ID de locatário, selecione **Propriedades** do seu locatário do Azure AD.
     4. Copie o GUID em ID de Diretório. Esse valor é a ID do locatário.
@@ -95,14 +96,39 @@ Veja como corrigir os problemas:
 1. Seu revendedor precisa habilitar _marcação_ para sua conta. Para obter instruções, consulte o [Guia de integração de cliente indireto](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 2. Você gera a chave de Contrato Enterprise do Azure para usar com o Gerenciamento de Custos do Azure. Para obter instruções, consulte [Registrar um Contrato Enterprise do Azure e exibir dados de custo](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
-Somente um administrador do serviço Azure pode habilitar o Gerenciamento de Custos. As permissões de coadministrador são insuficientes.
-
 Habilite a API de cobrança do Azure antes de gerar a chave de API do Contrato Enterprise do Azure para configurar o Gerenciamento de Custos do Azure seguindo as instruções em:
 
 - [Visão geral das APIs de Relatórios para clientes Enterprise](../billing/billing-enterprise-api.md)
 - [API de relatórios do Microsoft Azure Enterprise Portal](https://ea.azure.com/helpdocs/reportingAPI) em **Habilitando o acesso a dados para a API**
 
 Você também precisa conceder permissões para administradores de departamento, proprietários de conta e administradores de empresa para _exibir encargos_ com a API de cobrança.
+
+Somente um administrador do serviço Azure pode habilitar o Gerenciamento de Custos. As permissões de coadministrador são insuficientes. No entanto, você pode contornar o requisito do administrador. É possível solicitar que o administrador do Active Directory do Azure conceda permissão para autorizar o **CloudynAzureCollector** com um script do PowerShell. O script a seguir concede permissão para registrar a Entidade de Serviço do Azure Active Directory **CloudynAzureCollector**. Quando executada com êxito, a operação termina com o navegador mostrando a URL http://localhost:8080/CloudynJava.
+
+```
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#Tenant - enter your tenant ID or Name
+$tenant = "<ReplaceWithYourTenantID>"
+
+#Cloudyn Collector application ID
+$appId = "83e638ef-7885-479f-bbe8-9150acccdb3d"
+
+#URL to activate the consent screen
+$url = "https://login.windows.net/"+$tenant+"/oauth2/authorize?api-version=1&response_type=code&client_id="+$appId+"&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2FCloudynJava&prompt=consent"
+
+#Choose your browser, the default is Internet Explorer
+
+#Chrome
+#[System.Diagnostics.Process]::Start("chrome.exe", "--incognito $url")
+
+#Firefox
+#[System.Diagnostics.Process]::Start("firefox.exe","-private-window $url" )
+
+#IExplorer
+[System.Diagnostics.Process]::Start("iexplore.exe","$url -private" )
+
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

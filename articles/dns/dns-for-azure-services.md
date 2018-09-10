@@ -1,11 +1,11 @@
 ---
-title: "Usando o DNS do Azure com outros serviços do Azure | Microsoft Docs"
-description: "Noções básicas sobre como usar o DNS do Azure a fim de resolver o nome para outros serviços do Azure"
+title: Usando o DNS do Azure com outros serviços do Azure | Microsoft Docs
+description: Noções básicas sobre como usar o DNS do Azure a fim de resolver o nome para outros serviços do Azure
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure dns
 ms.assetid: e9b5eb94-7984-4640-9930-564bb9e82b78
 ms.service: dns
@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
-ms.author: kumud
-ms.openlocfilehash: 6d052bc82c35aa3f2fdf5b5820e3901bd5c4080d
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: victorh
+ms.openlocfilehash: 39fe23d7289dc78736dd5a85d4100af82b1d7b4a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398208"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Como o Azure DNS funciona com outros serviços do Azure
 
@@ -31,11 +32,11 @@ O DNS do Azure é um serviço hospedado de gerenciamento de DNS e resolução de
 
 A tabela a seguir descreve os tipos de registro com suporte que podem ser usados para vários serviços do Azure. Como você pode ver nessa tabela, o DNS do Azure dá suporte apenas a registros DNS para recursos de rede voltados para a Internet. O DNS do Azure não pode ser usado para a resolução de nome de endereços internos, privadas.
 
-| Serviço do Azure | Interface de rede | Descrição |
+| Serviço do Azure | Interface de rede | DESCRIÇÃO |
 | --- | --- | --- |
 | Gateway de Aplicativo |[IP público de front-end](dns-custom-domain.md#public-ip-address) |Você pode criar um registro CNAME ou DNS A. |
-| Balanceador de carga |[IP público de front-end](dns-custom-domain.md#public-ip-address)  |Você pode criar um registro CNAME ou DNS A. O Balanceador de Carga pode ter um endereço IP público do IPv6 que é atribuído dinamicamente. Portanto, você deve criar um registro CNAME para um endereço IPv6. |
-| Gerenciador de Tráfego |Nome público |Você só pode criar um CNAME que mapeia para o nome trafficmanager.net atribuído ao seu perfil do Gerenciador de Tráfego. Para saber mais, confira [Como o Gerenciador de Tráfego funciona](../traffic-manager/traffic-manager-overview.md#traffic-manager-example). |
+| Load Balancer |[IP público de front-end](dns-custom-domain.md#public-ip-address)  |Você pode criar um registro CNAME ou DNS A. O Balanceador de Carga pode ter um endereço IP público do IPv6 que é atribuído dinamicamente. Portanto, você deve criar um registro CNAME para um endereço IPv6. |
+| Gerenciador de Tráfego |Nome público |Você só pode criar um CNAME que mapeia para o nome trafficmanager.net atribuído ao seu perfil do Gerenciador de Tráfego. Para saber mais, confira [Como o Gerenciador de Tráfego funciona](../traffic-manager/traffic-manager-how-it-works.md). |
 | Serviço de Nuvem |[IP público](dns-custom-domain.md#public-ip-address) |Para endereços IP alocados estaticamente, você pode criar um registro DNS A. Para endereços IP alocados dinamicamente, você deve criar um registro CNAME que mapeia para o nome *cloudapp.net* .|
 | Serviço de Aplicativo | [IP externo](dns-custom-domain.md#app-service-web-apps) |Para endereços IP externos, você pode criar um registro DNS A. Caso contrário, você deve criar um registro CNAME que mapeia para o nome azurewebsites.net. Para saber mais, confira [Mapear um nome de domínio personalizado para um aplicativo do Azure](../app-service/app-service-web-tutorial-custom-domain.md) |
 | VMs do Resource Manager |[IP público](dns-custom-domain.md#public-ip-address) |As VMs do Gerenciador de Recursos pode ter endereços IP públicos. Uma VM com um endereço IP público também pode estar por trás de um balanceador de carga. Você pode criar um registro DNS A ou CNAME para o endereço público. Esse nome personalizado pode ser usado para ignorar o VIP no balanceador de carga. |

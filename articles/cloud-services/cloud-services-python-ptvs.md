@@ -3,7 +3,7 @@ title: Introdução aos Serviços de Nuvem do Azure e ao Python | Microsoft Docs
 description: Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho.
 services: cloud-services
 documentationcenter: python
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
@@ -13,18 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: f6bd89c160387abbb2b0339a5a5f62d998c0c84e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: jeconnoc
+ms.openlocfilehash: d9871b399ff06fb08d817c0d892b667b4ef0242d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41917519"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções Web e de trabalho do Python com Ferramentas Python para Visual Studio
 
 Este artigo oferece uma visão geral do uso das funções Web e de trabalho do Python por meio das [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio]. Saiba como usar o Visual Studio para criar e implantar um Serviço de Nuvem básico que usa Python.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * [Visual Studio 2013, 2015 ou 2017](https://www.visualstudio.com/)
 * [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Ferramentas do SDK do Azure para VS 2013][Azure SDK Tools for VS 2013] ou  
@@ -41,7 +42,7 @@ Para saber mais, confira [O que é um Serviço de Nuvem?].
 
 > [!NOTE]
 > *Procurando criar um site simples?*
-> Se o seu cenário envolver apenas um front-end de site simples, considere usar um recurso Aplicativos Web leve no Serviço de Aplicativo do Azure. Você pode atualizar facilmente para um serviço de nuvem conforme o site cresce e suas necessidades mudam. Consulte o <a href="/develop/python/">Centro de Desenvolvedores do Python</a> para obter artigos que abordem o desenvolvimento do recurso Aplicativos Web no Serviço de Aplicativo do Azure.
+> Se o seu cenário envolver apenas um front-end de site simples, considere usar um recurso Aplicativos Web leve no Serviço de Aplicativo do Azure. Você pode atualizar facilmente para um serviço de nuvem conforme o site cresce e suas necessidades mudam. Consulte o [Centro de Desenvolvedores do Python](https://azure.microsoft.com/develop/python/) para obter artigos que abordem o desenvolvimento do recurso Aplicativos Web no Serviço de Aplicativo do Azure.
 > <br />
 > 
 > 
@@ -361,7 +362,7 @@ Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funçõ
 
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
-[Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
+[Cloud Service Projects]: https://docs.microsoft.com/visualstudio/python/python-azure-cloud-service-project-template
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=746482
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=746481
 [Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483

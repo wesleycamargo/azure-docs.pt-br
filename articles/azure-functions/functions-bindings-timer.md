@@ -3,8 +3,8 @@ title: Gatilho de temporizador para o Azure Functions
 description: Entenda como usar gatilhos de temporizador no Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
+author: ggailey777
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
@@ -14,14 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
-ms.author: tdykstra
+ms.date: 08/08/2018
+ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 270228e73243e6b2670e7ccb30765526a5db6463
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141010"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions 
 
@@ -29,13 +30,17 @@ Este artigo explica como trabalhar com gatilhos de temporizador no Azure Functio
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Pacotes
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
-O gatilho de timer é fornecido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/).
+O gatilho de timer é fornecido no [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet, versão 2. x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pacotes - Functions 2. x
+
+O gatilho de timer é fornecido no [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet, versão 2. x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/).
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="example"></a>Exemplo
 
@@ -45,6 +50,7 @@ Consulte o exemplo específico a um idioma:
 * [Script do C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="c-example"></a>Exemplo de C#
 
@@ -146,6 +152,21 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+### <a name="java-example"></a>Exemplo do Java
+
+A função de exemplo a seguir é disparada e executada a cada cinco minutos. A anotação `@TimerTrigger` na função define o agendamento usando o mesmo formato de cadeia de caracteres que as [expressões CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 ## <a name="attributes"></a>Atributos
 
 Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), utilize o atributo [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
@@ -200,13 +221,13 @@ A propriedade `IsPastDue` é `true` quando a invocação da função atual é po
 
 ## <a name="cron-expressions"></a>Expressões CRON 
 
-Uma expressão CRON para o gatilho de temporizador do Azure Functions inclui seis campos: 
+O Azure Functions usa a biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar expressões CRON. Uma expressão CRON inclui seis campos:
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
 Cada campo pode ter um dos seguintes tipos de valores:
 
-|type  |Exemplo  |Quando disparado  |
+|Tipo  |Exemplo  |Quando disparado  |
 |---------|---------|---------|
 |Um valor específico |<nobr>"0 5 * * * *"</nobr>|em hh:05:00, em que hh é cada hora (uma vez por hora)|
 |Todos os valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|em 5:mm: 00 diariamente, em que mm é cada minuto da hora (60 vezes por dia)|
@@ -214,19 +235,26 @@ Cada campo pode ter um dos seguintes tipos de valores:
 |Um conjunto de valores (`,` operador)|<nobr>"5,8,10 * * * * *"</nobr>|em hh:mm:05, hh:mm:08 e hh:mm:10, em que hh é cada minuto de cada hora (3 vezes por minuto)|
 |Um valor de intervalo (`/` operador)|<nobr>"0 */5 * * * *"</nobr>|em hh:05:00, hh:10:00, hh:15:00 e assim por diante por meio de hh:55:00, em que hh é cada hora (12 vezes por hora)|
 
+Para especificar meses ou dias, você pode usar valores numéricos, nomes ou abreviações de nomes:
+
+* Por dias, os valores numéricos são 0 a 6, onde 0 começa com o domingo.
+* Nomes estão em inglês. Por exemplo, `Monday`, `January`.
+* Os nomes não diferenciam maiúsculas de minúsculas.
+* Os nomes podem ser abreviados. Três letras é o comprimento de abreviação recomendada.  Por exemplo, `Mon`, `Jan`. 
+
 ### <a name="cron-examples"></a>Exemplos de CRON
 
 Aqui estão alguns exemplos de expressões CRON, que você pode usar para o gatilho de temporizador no Azure Functions.
 
 |Exemplo|Quando disparado  |
 |---------|---------|
-|"0 */5 * * * *"|uma vez a cada cinco minutos|
-|"0 0 * * * *"|uma vez a cada hora|
-|"0 0 */2 * * *"|uma vez a cada duas horas|
-|"0 0 9-17 * * *"|uma vez a cada hora entre 9h e 17h|
-|"0 30 9 * * *"|às 9h30 todos os dias|
-|"0 30 9 * * 1-5"|às 9h30 todo dia útil|
-
+|`"0 */5 * * * *"`|uma vez a cada cinco minutos|
+|`"0 0 * * * *"`|uma vez a cada hora|
+|`"0 0 */2 * * *"`|uma vez a cada duas horas|
+|`"0 0 9-17 * * *"`|uma vez a cada hora entre 9h e 17h|
+|`"0 30 9 * * *"`|às 9h30 todos os dias|
+|`"0 30 9 * * 1-5"`|às 9h30 todo dia útil|
+|`"0 30 9 * Jan Mon"`|em 9H30 toda segunda-feira em janeiro|
 >[!NOTE]   
 >Você pode encontrar exemplos de expressão CRON online, mas muitas delas omitem o campo `{second}`. Se você copiar de um deles, adicione o campo `{second}` ausente. Geralmente, você desejará um zero nesse campo, não um asterisco.
 
@@ -239,14 +267,16 @@ O fuso horário padrão usado com as expressões CRON é a Hora Universal Coorde
 Por exemplo, a *Hora padrão da costa leste dos EUA* é UTC-05:00. Para que o timer dispare às 10:00 AM EST diariamente, use a seguinte expressão CRON que considera o fuso horário UTC:
 
 ```json
-"schedule": "0 0 15 * * *",
+"schedule": "0 0 15 * * *"
 ``` 
 
 Ou criar uma configuração de aplicativo para seu aplicativo de funções denominada `WEBSITE_TIME_ZONE` e definir o valor como **Horário padrão da costa leste dos EUA**.  Em seguida, usa a seguinte expressão CRON: 
 
 ```json
-"schedule": "0 0 10 * * *",
+"schedule": "0 0 10 * * *"
 ``` 
+
+Quando você usa `WEBSITE_TIME_ZONE`, o horário é ajustado para as alterações de hora no fuso horário específico, como o horário de verão. 
 
 ## <a name="timespan"></a>timespan
 
@@ -272,7 +302,11 @@ Se você compartilhar uma conta de Armazenamento em vários aplicativos de funç
 
 ## <a name="retry-behavior"></a>Tentar comportamento novamente
 
-Ao contrário do gatilho de fila, o gatilho de temporizador não tenta novamente após a falha de uma função. Quando uma função falha, ele não é chamado novamente até o próximo horário no agendamento.
+Ao contrário do gatilho de fila, o gatilho de temporizador não tenta novamente após a falha de uma função. Quando uma função falha, ele não é chamado novamente até a próxima vez na agenda.
+
+## <a name="troubleshooting"></a>solução de problemas
+
+Para obter informações sobre o que fazer quando o gatilho de timer não funcionar conforme o esperado, confira [Investigar e relatar problemas com funções disparadas de timer não acionadas](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
 ## <a name="next-steps"></a>Próximas etapas
 

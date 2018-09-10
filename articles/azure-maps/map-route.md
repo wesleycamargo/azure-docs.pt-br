@@ -1,22 +1,20 @@
 ---
 title: Mostrar direções com Mapas do Azure | Microsoft Docs
 description: Como exibir as direções entre dois locais em um mapa de Javascript
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: codepen
-ms.openlocfilehash: 9007afd1bc4d2361addc2a554fab1330174e88e7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 52462c1c5a2a1a9698a2b51708e63b1bb1664f6e
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745529"
 ---
 # <a name="show-directions-from-a-to-b"></a>Mostrar direções de A para B 
 
@@ -31,7 +29,7 @@ No código acima, o primeiro bloco de código constrói um objeto de mapa. Você
 
 O segundo bloco de código cria e adiciona pins no mapa para representar os pontos de início e de fim da rota. Você pode ver [adicionar um pin no mapa](map-add-pin.md) para obter instruções.
 
-O terceiro bloco de código usa a função [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds) da classe de mapa para definir a caixa delimitadora do mapa com base nos pontos de início e de fim da rota.
+O terceiro bloco de código usa a função [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) da classe de mapa para definir a caixa delimitadora do mapa com base nos pontos de início e de fim da rota.
 
 O quarto bloco de código envia um [XMLHttpRequest](https://xhr.spec.whatwg.org/) para [API de Rota dos Mapas do Azure](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
@@ -41,7 +39,11 @@ O último bloco de código analisa a resposta de entrada. Para uma resposta bem-
 
 Saiba mais sobre as classes e métodos usados neste artigo: 
 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds)
-    * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addlinestrings)
-    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds)
+    * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings)
+    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins)
+
+Para obter mais exemplos de código para adicionar aos seus mapas, consulte os seguintes artigos: 
+* [Mostrar tráfego no mapa](./map-show-traffic.md)
+* [Interagindo com o mapa – eventos do mouse](./map-events.md)

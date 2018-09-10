@@ -1,8 +1,8 @@
 ---
-title: "Como configurar a autenticação mútua TLS para Aplicativo Web"
-description: "Saiba como configurar o aplicativo Web para usar a autenticação de certificado do cliente no TLS."
+title: Como configurar a autenticação mútua TLS para Aplicativo Web
+description: Saiba como configurar o aplicativo Web para usar a autenticação de certificado do cliente no TLS.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: db69852cffd1ff331ac4a640b04ea4360d00bf75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 894a77be05de131ab122f18c62d209e9829357f9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056201"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Como configurar a autenticação mútua TLS para Aplicativo Web
 ## <a name="overview"></a>Visão geral
-Você pode restringir o acesso ao aplicativo Web do Azure, permitindo diferentes tipos de autenticação para ele. Uma maneira de fazer isso é autenticar usando um certificado de cliente quando a solicitação for por TLS/SSL. Esse mecanismo é chamado de autenticação mútua TLS ou autenticação de certificado do cliente, e este artigo mostra detalhadamente como configurar o aplicativo Web para usar a autenticação de certificado do cliente.
+Você pode restringir o acesso ao aplicativo Web do Azure, permitindo diferentes tipos de autenticação para ele. Uma maneira de fazer isso é autenticar usando um certificado de cliente quando a solicitação for por TLS/SSL. Esse mecanismo é chamado de autenticação mútua TLS ou autenticação de certificado de cliente e este artigo mostrará detalhadamente como configurar seu aplicativo Web para usar a autenticação de certificado de cliente.
 
 > **Observação:** se acessar seu site via HTTP e não HTTPS, você não receberá nenhum certificado de cliente. Por isso, se seu aplicativo exigir certificados de cliente, você não deve permitir solicitações ao seu aplicativo via HTTP.
 > 
@@ -31,13 +32,13 @@ Você pode restringir o acesso ao aplicativo Web do Azure, permitindo diferentes
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="configure-web-app-for-client-certificate-authentication"></a>Configurar o aplicativo Web para autenticação de certificado do cliente
-Para que seu aplicativo web exija certificados do cliente, você precisa adicionar a definição de site clientCertEnabled para seu aplicativo Web e defini-lo como true. Atualmente, essa configuração não está disponível por meio da experiência de gerenciamento no Portal e será necessário usar a API REST para isso.
+Para configurar o aplicativo Web para exigir certificados de cliente, você precisa adicionar a configuração de site clientCertEnabled ao aplicativo Web e defini-la como true. Essa configuração também pode ser configurada no portal do Azure, na folha de certificados SSL.
 
-Você pode usar a [ferramenta ARMClient](https://github.com/projectkudu/ARMClient) para facilitar a chamada à API REST. Depois de fazer logon com a ferramenta, você precisará emitir o seguinte comando:
+Você pode usar a [ferramenta ARMClient](https://github.com/projectkudu/ARMClient) para facilitar a chamada à API REST. Depois de entrar na ferramenta, emita o seguinte comando:
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
 
-substituindo tudo que está entre {} pelas informações do seu aplicativo Web e criando um arquivo chamado enableclientcert.json com o seguinte conteúdo JSON:
+substituindo tudo que está entre {} pelas informações do aplicativo Web e criando um arquivo chamado enableclientcert.json com o seguinte conteúdo JSON:
 
     {
         "location": "My Web App Location",
@@ -46,11 +47,11 @@ substituindo tudo que está entre {} pelas informações do seu aplicativo Web e
         }
     }
 
-Não se esqueça de alterar o valor de “location” em todo lugar que o aplicativo Web estiver localizado; por exemplo, região central do norte dos EUA ou oeste dos EUA.
+Lembre-se de alterar o valor de "local" para onde seu aplicativo Web está localizado, por exemplo, Centro-Norte dos EUA ou Oeste dos EUA.
 
 Você também pode usar https://resources.azure.com para inverter a propriedade `clientCertEnabled` para `true`.
 
-> **Observação:** se você executar o ARMClient no Powershell, precisará usar o símbolo @ como o caractere de escape para o arquivo JSON com um acento grave `.
+> **Observação:** se você executar o ARMClient do Powershell, você deverá usar um acento grave ` como o caractere de escape para o símbolo \@ para o arquivo JSON.
 > 
 > 
 

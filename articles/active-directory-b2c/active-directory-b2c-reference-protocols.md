@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: protocolos de autenticação | Microsoft Docs'
-description: Como compilar aplicativos usando os protocolos com suporte do Azure Active Directory B2C
+title: Protocolos de autenticação no Azure Active Directory B2C | Microsoft Docs
+description: Como compilar aplicativos diretamente usando os protocolos compatíveis com o Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: 9159a1ff55ada7f2c3bdcc60a15eae5ddc7e08b2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 6cfa3e0cb23f13b50c0fb7cd4f07a8d53c0f3186
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340759"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: protocolos de autenticação
 O Azure AD B2C (Azure Active Directory B2C) fornece identidade como um serviço para seus aplicativos, com suporte a dois protocolos padrão de mercado, o OpenID Connect e o OAuth 2.0. O serviço está em conformidade com o padrão, mas pode haver diferenças sutis entre duas implementações quaisquer desses protocolos. 
@@ -34,8 +34,8 @@ Todo aplicativo que usa o Azure AD B2C precisa ser registrado em seu diretório 
 Depois de registrar seu aplicativo, ele se comunicará com o Azure AD (Azure Active Directory), enviando solicitações para o ponto de extremidade:
 
 ```
-https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
-https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize
+https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 ```
 
 Em quase todos os fluxos do OAuth e do OpenID Connect, há quatro partes envolvidas na troca:

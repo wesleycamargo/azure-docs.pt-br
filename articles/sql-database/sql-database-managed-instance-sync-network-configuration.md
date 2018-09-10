@@ -2,18 +2,19 @@
 title: Serviço de Aplicativo do Azure - configuração de rede de sincronização | Microsoft Docs
 description: Este artigo descreve como sincronizar sua configuração de rede a o plano de hospedagem do Serviço de Aplicativo do Azure.
 ms.service: sql-database
-author: srdjan-bozovic
-manager: cguyer
+author: srdan-bozovic-msft
+manager: craigg
 ms.custom: managed instance
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1968f736dbfc24495e4e932f9c8c5955dc607133
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 57c4dd523a5dffc48a2d2d403d2a440a8d6cde95
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257881"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Sincronizar a configuração de rede ao plano de hospedagem do Serviço de Aplicativo do Azure
 

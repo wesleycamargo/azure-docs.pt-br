@@ -1,22 +1,25 @@
 ---
-title: "Examinar o acesso usando as revisões de acesso do Azure AD | Microsoft Docs"
-description: "Saiba como revisar o acesso usando análises de acesso do Azure Active Directory."
+title: Examinar o acesso usando as revisões de acesso do Azure AD | Microsoft Docs
+description: Saiba como revisar o acesso usando análises de acesso do Azure Active Directory.
 services: active-directory
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: 
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/19/2017
-ms.author: billmath
-ms.openlocfilehash: 98658a2b9fdd0ede98b3f6c10a19af527a8677cc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.topic: conceptual
+ms.component: compliance
+ms.date: 07/16/2018
+ms.author: rolyon
+ms.reviewer: mwahl
+ms.openlocfilehash: f9ab4f5ad863fa5460b5a7ad68f00f154a16f8f0
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617880"
 ---
 # <a name="review-access-with-azure-ad-access-reviews"></a>Examinar o acesso com as revisões de acesso do Azure AD
 
@@ -24,7 +27,11 @@ O Azure Active Directory (Azure AD) simplifica como as empresas gerenciam o aces
 
 ## <a name="open-an-access-review"></a>Abrir uma análise de acesso
 
-Para ver as revisões de acesso pendentes, selecione o link no email. Se você não tiver o email, será possível localizar as revisões de acesso fazendo o seguinte:
+Para ver as revisões de acesso pendentes, clique no link de acesso à revisão no email. A partir de agosto de 2018, as notificações por email para funções do Azure AD tem terão design atualizado. A seguir, é mostrado um exemplo de email enviado quando um usuário é convidado para ser um revisor. 
+
+![Email de acesso à revisão](./media/active-directory-azure-ad-controls-perform-access-review/new-ar-email.png)
+
+Se você não tiver o email, será possível localizar as revisões de acesso fazendo o seguinte:
 
 1. Entre no [Painel de acesso do Azure AD](https://myapps.microsoft.com).
 
@@ -36,7 +43,7 @@ Para ver as revisões de acesso pendentes, selecione o link no email. Se você n
 
 Ao selecionar uma análise de acesso na lista, você verá os nomes de usuários que precisam ser revisados. Você poderá ver apenas um nome – o seu – se a solicitação era examinar seu próprio acesso.
 
-Para cada linha na lista, você pode decidir se deseja aprovar ou negar o acesso do usuário. Selecione a linha e escolha se deseja aprovar ou negar. (Se não conhece o usuário, você pode indicar isso também.)
+Para cada linha na lista, você pode decidir se deseja aprovar ou negar o acesso do usuário. Selecione a linha e escolha se deseja aprovar ou negar. (Se você não conhecer o usuário, poderá indicar isso também.)
 
 O revisor pode exigir que você forneça uma justificativa de aprovação de acesso contínuo ou de associação a um grupo.
 

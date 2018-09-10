@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 957a68c80f9fcc07ef6f84b2b08f344745a58d95
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866017"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -61,8 +62,16 @@ Exemplo:
 
 **P: O Azure AD Connect Health dá suporte à Nuvem do Azure Alemanha?**
 
-O Azure AD Connect Health tem uma [instalação](active-directory-aadconnect-health-agent-install.md) do Azure Alemanha. Todos os dados para os clientes da nuvem alemã são mantidos na nuvem do Azure Alemanha.
+Não há suporte para o Azure AD Connect Health na nuvem da Alemanha, exceto para o [recurso de relatório de erros de sincronização](active-directory-aadconnect-health-sync.md#object-level-synchronization-error-report-preview). 
 
+| Funções | Recursos | Há suporte na nuvem da Alemanha |
+| ------ | --------------- | --- |
+| Connect Health para sincronização | Monitoramento/insights/alertas/análise | Não  |
+|  | Relatório de erros de sincronização | sim |
+| Connect Health para ADFS | Monitoramento/insights/alertas/análise | Não  |
+| Connect Health para ADDS | Monitoramento/insights/alertas/análise | Não  |
+
+Para garantir a conectividade do agente do Connect Health para sincronização, configure o [requisito de instalação](active-directory-aadconnect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) corretamente.   
 
 ## <a name="installation-questions"></a>Perguntas sobre a instalação
 
@@ -85,7 +94,7 @@ Os números a seguir são uma aproximação:
 
 **P: Será necessário reinicializar meus servidores durante a instalação dos agentes do Azure AD Connect Health?**
 
-Nº A instalação dos agentes não exigirá a reinicialização do servidor. No entanto, a instalação de algumas das etapas de pré-requisito pode exigir uma reinicialização do servidor.
+Não. A instalação dos agentes não exigirá a reinicialização do servidor. No entanto, a instalação de algumas das etapas de pré-requisito pode exigir uma reinicialização do servidor.
 
 Por exemplo, no Windows Server 2008 R2, a instalação do .NET Framework 4.5 requer a reinicialização do servidor.
 
@@ -102,7 +111,7 @@ Se precisar configurar um proxy durante o registro do agente, talvez seja necess
 
 **P: O Azure AD Connect Health dá suporte à autenticação básica ao se conectar a proxies HTTP?**
 
-Nº Um mecanismo para especificar o nome de usuário/senha arbitrariamente para fins de autenticação básica não tem suporte.
+Não. Um mecanismo para especificar o nome de usuário/senha arbitrariamente para fins de autenticação básica não tem suporte.
 
 **P: Quais portas de firewall eu preciso abrir para o agente do Azure AD Connect Health funcione?**
 

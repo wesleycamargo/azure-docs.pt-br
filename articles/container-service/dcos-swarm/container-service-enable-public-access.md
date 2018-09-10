@@ -1,6 +1,6 @@
 ---
-title: "Habilitar o acesso ao aplicativo de contêiner de DC/SO do Azure"
-description: "Como habilitar o acesso público aos contêineres de DC/SO no Serviço de Contêiner do Azure."
+title: Habilitar o acesso ao aplicativo de contêiner de DC/SO do Azure
+description: Como habilitar o acesso público aos contêineres de DC/SO no Serviço de Contêiner do Azure.
 services: container-service
 author: sauryadas
 manager: madhana
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26332272"
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Habilitar acesso público a um aplicativo do Serviço de Contêiner do Azure
 

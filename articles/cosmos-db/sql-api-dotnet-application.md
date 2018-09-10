@@ -3,28 +3,28 @@ title: 'Tutorial do ASP.NET MVC para Azure Cosmos DB: desenvolvimento de aplicat
 description: Tutorial do ASP.NET MVC para criar um aplicativo Web MVC usando o Azure Cosmos DB. Você armazenará o JSON e acessará dados de um aplicativo de lista de tarefas pendentes hospedado em sites do Azure ‒ tutorial passo a passo do ASP NET MVC.
 keywords: tutorial do asp.net mvc, desenvolvimento de aplicativos web, aplicativo web mvc, passo a passo do tutorial do asp net mvc
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
+ms.workload: azure-vs
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.custom: devcenter
-ms.openlocfilehash: 1193ef84f8edf701f98e50d92a67426e36c40218
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.custom: devcenter, vs-azure
+ms.openlocfilehash: f62388c649d576cc4b52ebea0af1e9c8743f3127
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42440282"
 ---
 # <a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: desenvolvimento de aplicativo Web com o Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js – v2.0 Preview](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
 > * [Python](sql-api-python-application.md)
 > 
@@ -239,7 +239,7 @@ A primeira coisa a fazer aqui é adicionar uma classe que contenha toda a lógic
         using System.Configuration;
         using System.Linq.Expressions;
         using System.Threading.Tasks;
-        using System.Net
+        using System.Net;
         
     Agora substitua este código 
    

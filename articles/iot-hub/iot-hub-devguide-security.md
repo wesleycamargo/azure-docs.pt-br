@@ -1,24 +1,19 @@
 ---
 title: Entender a segurança de Hub IoT do Azure | Microsoft Docs
 description: Guia do desenvolvedor ‑ como controlar o acesso ao Hub IoT para aplicativos de dispositivos e de back-end. Inclui informações sobre tokens de segurança e suporte a certificados x. 509.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 45631e70-865b-4e06-bb1d-aae1175a52ba
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/12/2018
+services: iot-hub
+ms.topic: conceptual
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 25a1c05dc3e72d14482ee6bd1b26a8355cfc7dd9
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 227723ecea1401247f0df87bccfe058fb2273647
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145342"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -40,14 +35,17 @@ Você deve ter permissões adequadas para acessar qualquer um dos pontos de extr
 
 Você pode conceder [permissões](#iot-hub-permissions) das seguintes maneiras:
 
-* **Políticas de acesso compartilhado no nível do Hub IoT**. As políticas de acesso compartilhado podem conceder qualquer combinação de [permissões](#iot-hub-permissions). Você pode definir políticas no [portal do Azure][lnk-management-portal] ou de forma programática usando as [APIs REST do provedor de recursos do Hub IoT][lnk-resource-provider-apis]. Um hub IoT recém-criado tem as seguintes políticas padrão:
+* **Políticas de acesso compartilhado no nível do Hub IoT**. As políticas de acesso compartilhado podem conceder qualquer combinação de [permissões](#iot-hub-permissions). É possível definir políticas no [portal do Azure][lnk-management-portal] programaticamente, usando as [APIs REST de Recursos do Hub IoT][lnk-resource-provider-apis] ou usando a CLI [az iot hub policy](https://docs.microsoft.com/cli/azure/iot/hub/policy?view=azure-cli-latest). Um hub IoT recém-criado tem as seguintes políticas padrão:
+  
+  | Política de acesso compartilhado | Permissões |
+  | -------------------- | ----------- |
+  | iothubowner | Toda Permissão |
+  | propriedade serviço | Permissões **ServiceConnect** |
+  | dispositivo | Permissões **DeviceConnect** |
+  | registryRead | Permissões **RegistryRead** |
+  | registryReadWrite | Permissões **RegistryRead** e **RegistryWrite** |
 
-  * **iothubowner**: política com todas as permissões.
-  * **service**: política com a permissão **ServiceConnect**.
-  * **device**: política com a permissão **DeviceConnect**.
-  * **registryRead**: política com a permissão **RegistryRead**.
-  * **registryReadWrite**: política com as permissões **RegistryRead** e RegistryWrite.
-  * **Credenciais de segurança de acordo com o dispositivo**. Cada Hub IoT contém um [registro de identidade do dispositivo][lnk-identity-registry]. É possível configurar as credenciais de segurança para cada dispositivo nesse Registro de identidade concedendo permissões de **DeviceConnect** com escopo nos pontos de extremidade correspondentes do dispositivo.
+* **Credenciais de segurança de acordo com o dispositivo**. Cada Hub IoT contém um [registro de identidade do dispositivo][lnk-identity-registry]. É possível configurar as credenciais de segurança para cada dispositivo nesse Registro de identidade concedendo permissões de **DeviceConnect** com escopo nos pontos de extremidade correspondentes do dispositivo.
 
 Por exemplo, em uma solução de IoT típica:
 
@@ -93,7 +91,9 @@ O HTTPS implementa a autenticação incluindo um token válido no cabeçalho da 
 
 Nome de usuário (a DeviceId diferencia maiúsculas de minúsculas): `iothubname.azure-devices.net/DeviceId`
 
-Senha (Gerar token SAS com a ferramenta [gerenciador de dispositivo][lnk-device-explorer]): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+Senha (é possível gerar um token de SAS com a ferramenta [device explorer][lnk-device-explorer], o comando de extensão da CLI [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) ou a [extensão do kit de ferramentas do IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)):
+
+`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > Os [SDKs do Hub IoT do Azure][lnk-sdks] geram tokens automaticamente durante a conexão com o serviço. Em alguns casos, os SDKs do IoT do Azure não dão suporte a todos os protocolos ou a todos os métodos de autenticação.
@@ -270,7 +270,7 @@ O resultado, que concede acesso a todas as funcionalidades para o dispositivo1, 
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> É possível gerar um token SAS usando a ferramenta .NET [Gerenciador de dispositivo][lnk-device-explorer] ou o utilitário de linha de comando multiplataforma baseado em Python [a extensão IoT para a CLI do Azure 2.0][lnk-IoT-extension-CLI-2.0].
+> É possível gerar um token de SAS com a ferramenta [device explorer][lnk-device-explorer], o comando de extensão da CLI [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) ou a [extensão do kit de ferramentas do IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ### <a name="use-a-shared-access-policy"></a>Usar uma política de acesso compartilhado
 
@@ -310,7 +310,7 @@ Um gateway de protocolo poderia usar o mesmo token para todos os dispositivos, s
 
 Os componentes de serviço só podem gerar tokens de segurança usando políticas de acesso compartilhado que concedem as permissões apropriadas, conforme explicado anteriormente.
 
-Estas são as funções de serviço expostas nos pontos de extremidade:
+Veja as funções de serviço expostas nos pontos de extremidade:
 
 | Ponto de extremidade | Funcionalidade |
 | --- | --- |
@@ -350,11 +350,13 @@ Os certificados compatíveis incluem:
 
 Um dispositivo pode usar um certificado X.509 ou um token de segurança para autenticação, mas não ambos.
 
-Para obter mais informações sobre autenticação usando a autoridade de certificação, consulte o [Entendimento conceitual de certificados CA X. 509](iot-hub-x509ca-concept.md).
+Para obter mais informações sobre autenticação usando autoridade de certificação, consulte [Autenticação de dispositivo usando Certificados de Autoridade de Certificação X.509](iot-hub-x509ca-overview.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registrar um certificado X.509 para um dispositivo
 
 O [SDK do Serviço IoT do Azure para C#][lnk-service-sdk] (versão 1.0.8 ou superior) dá suporte ao registro de um dispositivo que usa um certificado X.509 para autenticação. Outras APIs, como a importação/exportação de dispositivos também oferece suporte a certificados X.509.
+
+Também é possível usar o comando de extensão da CLI [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) para configurar certificados X.509 para dispositivos.
 
 ### <a name="c-support"></a>Suporte a C\#
 
@@ -413,7 +415,7 @@ Estas são as principais etapas do padrão de serviço do token:
 
 O serviço de token pode definir a expiração do token como desejado. Quando o token expira, o Hub IoT rompe a conexão do dispositivo/módulo. Em seguida, o dispositivo/módulo deve solicitar um novo token ao serviço de token. Um tempo de expiração curto aumenta a carga no dispositivo/módulo e no serviço de token.
 
-Para que um dispositivo/módulo se conecte ao seu hub, você ainda deve adicioná-lo ao registro de identidades do Hub IoT, mesmo se ele estiver usando um token e não uma chave para se conectar. Portanto, você pode continuar a usar o controle de acesso por dispositivo/por módulo habilitando ou desabilitando as identidades de dispositivo/módulo no [registro de identidade][lnk-identity-registry]. Essa abordagem reduz os riscos de usar tokens com tempos de expiração longos.
+Para que um dispositivo/módulo conecte-se ao hub, você ainda deverá adicioná-lo ao registro de identidade do Hub IoT — mesmo que esteja usando um token e não uma chave para conectar. Portanto, você pode continuar a usar o controle de acesso por dispositivo/por módulo habilitando ou desabilitando as identidades de dispositivo/módulo no [registro de identidade][lnk-identity-registry]. Essa abordagem reduz os riscos de usar tokens com tempos de expiração longos.
 
 ### <a name="comparison-with-a-custom-gateway"></a>Comparação com um gateway personalizado
 
@@ -467,7 +469,7 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, consul
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-openssl]: https://www.openssl.org/
-[lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
+[lnk-selfsigned]: https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate
 
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens
@@ -490,8 +492,6 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, consul
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
-
-[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-getstarted-tutorial]: quickstart-send-telemetry-node.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md

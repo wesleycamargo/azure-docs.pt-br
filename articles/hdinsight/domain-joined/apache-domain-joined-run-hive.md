@@ -1,27 +1,25 @@
 ---
 title: Configurar políticas do Hive no HDInsight ingressado no domínio - Azure
-description: Saiba como...
+description: Saiba como configurar as políticas do Ranger Apache para o Hive em um serviço do Azure HDInsight ingressado no domínio.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: omidm
-ms.openlocfilehash: bd99e5fda80663b37c60d972742b16c27b92cf55
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 55abb5331da24c3914075c21579e5082853b3c1f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042073"
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurar políticas do Hive no HDInsight ingressado no domínio
 Saiba como configurar políticas do Ranger Apache para o Hive. Neste artigo, você criará duas políticas do Ranger para restringir o acesso a hivesampletable. O hivesampletable fornecido com clusters HDInsight. Depois de configurar as políticas, você usa o Excel e o driver ODBC para conectar-se a tabelas do Hive no HDInsight.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Um cluster HDInsight associado a um domínio. Confira [Configurar clusters HDInsight associados ao domínio](apache-domain-joined-configure.md).
 * Uma estação de trabalho com Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone ou Office 2010 Professional Plus.
 

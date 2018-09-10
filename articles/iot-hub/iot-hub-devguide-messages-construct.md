@@ -1,24 +1,19 @@
 ---
 title: Entender o formato de mensagem do Hub IoT do Azure| Microsoft Docs
 description: Guia do desenvolvedor - descreve o formato e o conteúdo esperado de mensagens do Hub IoT.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/20/2018
+services: iot-hub
+ms.topic: conceptual
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 5979c0d79a0abd9897fd3970ccea1d9ba07f9dfd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a1296565384e60117d883a1f1407362482ba1a3e
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125006"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -70,11 +65,11 @@ Valores e nomes de propriedade são limitados a caracteres ASCII, portanto, o co
 
 Para obter informações sobre limites de tamanho de mensagem no Hub IoT, consulte [cotas do Hub IoT e limitação][lnk-quotas].
 
-Para saber como criar e ler mensagens do Hub IoT em várias linguagens de programação, consulte os tutoriais de [Introdução][lnk-get-started].
+Para saber como criar e ler mensagens do Hub IoT em várias linguagens de programação, consulte os [Inícios Rápidos][lnk-get-started].
 
 [lnk-messaging]: iot-hub-devguide-messaging.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md

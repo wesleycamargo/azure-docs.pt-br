@@ -4,22 +4,22 @@ description: Executar a atualização de sistema operacional para o SAP HANA no 
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2018
+ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1354b67ade78a0da1578ef9d98c3b1e8edb41cd4
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: cff9be3b074dde4a0335675663133a8df81ae62d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077741"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114585"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do Sistema Operacional
 Este documento descreve os detalhes sobre as atualizações de sistema operacional em Instâncias Grandes de HANA.
@@ -29,33 +29,10 @@ Este documento descreve os detalhes sobre as atualizações de sistema operacion
 
 No momento do provisionamento da unidade HLI, a equipe de operações da Microsoft instalará o sistema operacional. Ao longo do tempo, você deverá manter o sistema operacional (exemplo: patches, ajustes, atualizações etc.) na unidade HLI.
 
-Antes de fazer as alterações principais no sistema operacional (por exemplo, atualizar um sistema operacional), você **deverá** considerar a seguinte matriz de compatibilidade. Você **deverá** também contatar a equipe de Operações da Microsoft abrindo um tíquete de suporte para consultar antes de iniciar as atividades principais do sistema operacional, como atualização.
+Antes das principais mudanças do sistema operacional (por exemplo, Atualização SP1 a SP2), você deve contatar a equipe da Microsoft Operations ao abrir m tíquete de suporte para consultar.
+
 
 Para a matriz de suporte das diferentes versões do SAP HANA com as diferentes versões do Linux, consulte [Nota SAP nº 2235581](https://launchpad.support.sap.com/#/notes/2235581).
-
-A compatibilidade a seguir foi testada para os HLIs. Se o servidor de HLI estiver fora da matriz de compatibilidade, entre em contato com o suporte de operação da Microsoft.
-
-## <a name="for-type-i-class-sku-category"></a>Para a categoria de SKU de classe Tipo I
-
-| Configuração | SUSE12 SP1 | SUSE12 SP2 | RHEL 7.2 | RHEL 7.3|
-| --- | --- | --- | --- | --- |
-| Firmware de Servidor | 3.1(2b) | 3.1(2b) | 3.1(2b) | 3.1(2b) |
-| Versão de ENIC | 2.3.0.44 | 2.3.0.44 | 2.3.0.30 | 2.3.0.44 |
-| Versão de FNIC | 1.6.0.34 | 1.6.0.34 | 1.6.0.27 | 1.6.0.36 |
-| EDAC | Desabilitado | Desabilitado | Desabilitado | Desabilitado |
-| Versão do kernel | 4.4.21-69-default | 3.12.49-11-default | 3.10.0-327.el7.x86_64 | 3.10.0-693.17.1 |
-
-
-## <a name="for-type-ii-class-sku-category"></a>Para a categoria de SKU de classe Tipo II
-
-| Configuração | SUSE12 SP1 | SUSE12 SP2 | RHEL 7.2 | RHEL 7.3|
-| --- | --- | --- | --- | --- |
-| Versão do Firmware de RMC | 1.1.121  | 1.1.121  | 1.1.121  | 1.1.121 |
-| Versão do Firmware de BMC | 1.0.43   | 1.0.43   | 1.0.43   | 1.0.43  |
-| Versão de Software Foundation Server (SFS) | 2.16    | 2.16    | 2.14/2.16   | 2.16   |
-| BIOS | 5.2.6    | 5.2.6    | 5.2.6    | 5.2.6   |
-| Versão de i40e    | 2.0.19     | 2.0.19     | 1.5.10-k    | 1.5.10-k   |
-| Versão do kernel    | 3.12.49-11.1     | 4.4.21-69.1     | 3.10.0-327    | 3.10.0-693.17.1   |
 
 
 ## <a name="known-issues"></a>Problemas conhecidos

@@ -3,22 +3,20 @@ title: Cadeia de conexão do MongoDB para a conta do Azure Cosmos DB | Microsoft
 description: Saiba como conectar seu aplicativo do MongoDB a uma conta do Azure Cosmos DB usando uma cadeia de conexão do MongoDB.
 keywords: cadeia de conexão do mongodb
 services: cosmos-db
-author: AndrewHoh
+author: slyons
 manager: kfile
-documentationcenter: ''
-ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/19/2017
-ms.author: anhoh
-ms.openlocfilehash: dfdcb458d0f81c0ddb9399ee8b89a52c4cbc6270
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: sclyon
+ms.openlocfilehash: ad8d6fe36c289c4c9e37689e1c7d755dc3bf9048
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037959"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar um aplicativo do MongoDB ao Azure Cosmos DB
 Saiba como conectar seu aplicativo do MongoDB a uma conta do Azure Cosmos DB usando uma cadeia de conexão do MongoDB. Você pode usar um banco de dados do Azure Cosmos DB como o armazenamento de dados para seu aplicativo MongoDB. 
@@ -28,7 +26,7 @@ Este tutorial fornece duas maneiras de recuperar informações da cadeia de cone
 - [O método de início rápido](#QuickstartConnection), para uso com drivers do .NET, Node.js, Shell do MongoDB, Java e Python
 - [O método de cadeia de conexão personalizada](#GetCustomConnection), para uso com outros drivers
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure. Se você ainda não tiver uma, crie agora mesmo uma [conta gratuita do Azure](https://azure.microsoft.com/free/). 
 - Uma conta do Azure Cosmos DB. Para instruções, consulte [Compilar um aplicativo Web da API MongoDB com o .NET e o Portal do Azure](create-mongodb-dotnet.md).

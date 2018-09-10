@@ -9,15 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: mbullwin; pharring
-ms.openlocfilehash: 66339e5f5d2cc7447df0f8faf70d2d9fd45db738
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: pharring
+ms.author: mbullwin
+ms.openlocfilehash: d4c27c8297fb5a2ad13a245279a206d00fc4f8b1
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159128"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144118"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicativos .NET
 
@@ -164,7 +165,7 @@ Os ambientes a seguir são suportados:
 
 ### <a name="configure-snapshot-collection-for-other-net-applications"></a>Configurar a coleta de instantâneo para outros aplicativos .NET
 
-1. Se seu aplicativo ainda não está instrumentado com o Application Insights, começar por [habilitando Application Insights e definindo a chave de instrumentação](app-insights-windows-desktop.md).
+1. Se seu aplicativo ainda não está instrumentado com o Application Insights, comece [habilitando o Application Insights e definindo a chave de instrumentação](app-insights-windows-desktop.md).
 
 2. Adicione o pacote do NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo.
 
@@ -234,7 +235,7 @@ O Coletor de Instantâneo é implementado como um [Processador do Application In
 Cada vez que o aplicativo chama [TrackException](app-insights-asp-net-exceptions.md#exceptions), o Coletor de Instantâneo calcula uma ID do problema do tipo de exceção sendo gerada e o método que a gerou.
 Cada vez que o aplicativo chama TrackException, um contador é incrementado para a ID do Problema apropriada. Quando o contador alcançar o valor `ThresholdForSnapshotting`, a ID do Problema será adicionada a um Plano de Coleta.
 
-O Coletor de Instantâneo também monitora exceções geradas assinando o evento [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception). Quando esse evento for acionado, a ID do Problema da exceção será calculada e comparada com as IDs de Problema no Plano de Coleta.
+O Snapshot Collector também monitora as exceções geradas assinando o evento [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception). Quando esse evento for acionado, a ID do Problema da exceção será calculada e comparada com as IDs de Problema no Plano de Coleta.
 Se houver uma correspondência, será criado um instantâneo do processo em execução. O instantâneo será atribuído a um identificador exclusivo e a exceção será marcada com esse identificador. Depois que o manipulador FirstChanceException retornar, a exceção lançada será processada como normal. Por fim, a exceção acessa o método TrackException novamente, em que, junto com o identificador de instantâneo, será relatada ao Application Insights.
 
 O processo principal continuará a executar e atender o tráfego para os usuários com pouca interrupção. Enquanto isso, o instantâneo será entregue ao processo Carregador de Instantâneo. O Carregador de Instantâneo criará um minidespejo e o carregará no Application Insights junto com qualquer arquivo de símbolo (.pdb) relevante.
@@ -250,7 +251,8 @@ O processo principal continuará a executar e atender o tráfego para os usuári
 ## <a name="current-limitations"></a>Limitações atuais
 
 ### <a name="publish-symbols"></a>Publicar símbolos
-O Depurador de Instantâneo requer que os arquivos de símbolo no servidor de produção decodifiquem variáveis e ofereçam uma experiência de depuração no Visual Studio. A versão 15.2 do Visual Studio 2017 publica símbolos para builds de versão por padrão ao publicar no Serviços de Aplicativos. Em versões anteriores, você precisa adicionar a seguinte linha ao arquivo `.pubxml` de seu perfil de publicação para que os símbolos sejam publicados no modo de versão:
+O Depurador de Instantâneo requer que os arquivos de símbolo no servidor de produção decodifiquem variáveis e ofereçam uma experiência de depuração no Visual Studio.
+A versão 15.2 (ou superior) do Visual Studio 2017 publica símbolos para builds de versão por padrão ao publicar no Serviço de Aplicativo. Em versões anteriores, você precisa adicionar a seguinte linha ao arquivo `.pubxml` de seu perfil de publicação para que os símbolos sejam publicados no modo de versão:
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
@@ -347,14 +349,14 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
     DateTime=2018-03-09T01:47:19.4614027Z
 ```
 
-Para aplicativos que _não_ estão hospedados no Serviço de Aplicativo, os logs de carregador estão na mesma pasta que o minidespejos: `%TEMP%\Dumps\<ikey>` (onde `<ikey>` é a sua chave de instrumentação).
+Para aplicativos que _não_ estão hospedados no Serviço de Aplicativo, os logs de carregador estão na mesma pasta que o minidespejo: `%TEMP%\Dumps\<ikey>` (em que `<ikey>` é sua chave de instrumentação).
 
 ### <a name="troubleshooting-cloud-services"></a>Solucionando problemas dos Serviços de Nuvem
 Para funções nos Serviços de Nuvem, a pasta temporária padrão pode ser muito pequena para conter os arquivos de minidespejo, levando a instantâneos perdidos.
 O espaço necessário depende do conjunto de trabalho total do seu aplicativo e o número de instantâneos simultâneos.
 O conjunto de trabalho de uma função Web do ASP.NET de 32 bits tem normalmente entre 200 MB e 500 MB.
 Permita pelo menos dois instantâneos simultâneos.
-Por exemplo, se seu aplicativo usar 1 GB do conjunto de trabalho total, você deve garantir que há pelo menos 2 GB de espaço em disco para armazenar os instantâneos.
+Por exemplo, se seu aplicativo usa 1 GB do conjunto de trabalho total, você deve garantir que há pelo menos 2 GB de espaço em disco para armazenar instantâneos.
 Siga estas etapas para configurar a função Serviço de Nuvem com um recurso local dedicado para instantâneos.
 
 1. Adicione um novo recurso de local para seu Serviço de Nuvem ao editar o arquivo de definição (.csdef) do Serviço de Nuvem. O exemplo a seguir define um recurso chamado `SnapshotStore` com um tamanho de 5 GB.
@@ -399,6 +401,49 @@ Siga estas etapas para configurar a função Serviço de Nuvem com um recurso lo
       <!-- Other SnapshotCollector configuration options -->
     </Add>
    </TelemetryProcessors>
+   ```
+
+### <a name="overriding-the-shadow-copy-folder"></a>Substituição da pasta de cópia de sombra
+
+Quando é iniciado, o Snapshot Collector tenta encontrar uma pasta no disco que seja adequada para executar o processo do Carregador de instantâneo. A pasta escolhida é conhecida como a pasta de cópia de sombra.
+
+O Snapshot Collector verifica alguns locais bem conhecidos, certificando-se de ter as permissões para copiar os binários do carregador de instantâneos. As variáveis de ambiente a seguir são usadas:
+- Fabric_Folder_App_Temp
+- LOCALAPPDATA
+- APPDATA
+- TEMP
+
+Se não for possível encontrar uma pasta adequada, o Snapshot Collector relatará um erro afirmando que _"Não foi possível localizar uma pasta de cópia de sombra adequada."_
+
+Se a cópia falhar, o Snapshot Collector relatará um erro `ShadowCopyFailed`.
+
+Se o carregador não puder ser iniciado, o Snapshot Collector relatará um erro de `UploaderCannotStartFromShadowCopy`. O corpo da mensagem frequentemente contém `System.UnauthorizedAccessException`. Esse erro geralmente ocorre porque o aplicativo está sendo executado em uma conta com permissões reduzidas. A conta tem permissão para gravar na pasta de cópia de sombra, mas não tem permissão para executar o código.
+
+Uma vez que esses erros geralmente ocorrem durante a inicialização, eles geralmente serão seguidos por um erro `ExceptionDuringConnect` afirmando que houve _"Falha ao iniciar o carregador."_
+
+Para solucionar esses erros, você pode especificar a pasta de cópia de sombra manualmente por meio da opção de configuração `ShadowCopyFolder`. Por exemplo, usando ApplicationInsights.config:
+
+   ```xml
+   <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Override the default shadow copy folder. -->
+      <ShadowCopyFolder>D:\SnapshotUploader</ShadowCopyFolder>
+      <!-- Other SnapshotCollector configuration options -->
+    </Add>
+   </TelemetryProcessors>
+   ```
+
+Ou, se estiver usando appsettings.json com um aplicativo .NET Core:
+
+   ```json
+   {
+     "ApplicationInsights": {
+       "InstrumentationKey": "<your instrumentation key>"
+     },
+     "SnapshotCollectorConfiguration": {
+       "ShadowCopyFolder": "D:\\SnapshotUploader"
+     }
+   }
    ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Usar a pesquisa do Application Insights para encontrar exceções com instantâneos

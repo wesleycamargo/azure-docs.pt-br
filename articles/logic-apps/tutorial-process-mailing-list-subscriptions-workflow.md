@@ -1,25 +1,21 @@
 ---
 title: Criar fluxos de trabalho de aprovação para processar solicitações de lista de endereçamento - Aplicativos Lógicos do Azure | Microsoft Docs
-description: Este tutorial mostra como criar fluxos de trabalho de aprovação automáticos para o processamento de assinaturas de listas de endereçamento com os Aplicativos Lógicos do Azure
-author: ecfan
-manager: anneta
-editor: ''
+description: 'Tutorial: Como criar fluxos de trabalho de aprovação automáticos para processar assinaturas da lista de endereçamento com Aplicativos Lógicos do Azure'
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: 4765a38689d5476331c593b89e54f94d4bd310c3
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122862"
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>Gerenciar solicitações da lista de correspondência com um aplicativo lógico
 
@@ -43,19 +39,19 @@ Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalh
 
 Caso você não tenha uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">crie uma conta gratuita do Azure</a> antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta do MailChimp. Crie uma lista chamada "test-members-ML" em que o aplicativo lógico pode adicionar endereços de email para membros aprovados. Se você não tiver uma conta, [inscreva-se em uma conta gratuita](https://login.mailchimp.com/signup/) e saiba [como criar uma lista](https://us17.admin.mailchimp.com/lists/#). 
 
 * Uma conta de email com o Outlook do Office 365 ou o Outlook.com que dê suporte a fluxos de trabalho de aprovação. Este artigo usa o Outlook do Office 365. Se você usar uma conta de email diferente, as etapas gerais serão as mesmas, mas a interface do usuário poderá parecer um pouco diferente.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> com suas credenciais da conta do Azure.
 
 ## <a name="create-your-logic-app"></a>Criar seu aplicativo lógico
 
-1. No portal principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicativo Lógico**.
+1. No menu principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicativo Lógico**.
 
    ![Criar aplicativo lógico](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
 

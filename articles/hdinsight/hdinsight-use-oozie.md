@@ -1,25 +1,21 @@
 ---
-title: Usar o Oozie do Hadoop no HDInsight | Microsoft Docs
+title: Usar o Oozie do Hadoop no HDInsight
 description: Usar o Oozie do Hadoop no HDInsight, uma solução de big data. Saiba como definir um fluxo de trabalho do Oozie e enviar um trabalho do Oozie.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 870098f0-f416-4491-9719-78994bf4a369
+author: jasonwhowell
+ms.reviewer: jasonh
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0558432c0d74e2c9fcec108182a4dbafa332904
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f5a6616403d7e3fc7944c26bbbcbfa9fbfb4fff5
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050488"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho no HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -56,7 +52,7 @@ O fluxo de trabalho que você deve implementar seguindo as instruções neste tu
 > 
 > 
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte item:
 
 * **Uma estação de trabalho com o PowerShell do Azure.** 

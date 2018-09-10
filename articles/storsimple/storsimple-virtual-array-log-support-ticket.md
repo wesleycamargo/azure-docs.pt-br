@@ -1,11 +1,11 @@
 ---
-title: "Registrar tíquete de suporte por meio do StorSimple Device Manager | Microsoft Docs"
-description: "Descreve o diagnóstico do Gerenciador de Dispositivos StorSimple e explica como usá-lo na solução de problemas da Matriz Virtual StorSimple."
+title: Registrar tíquete de suporte por meio do StorSimple Device Manager | Microsoft Docs
+description: Descreve o diagnóstico do Gerenciador de Dispositivos StorSimple e explica como usá-lo na solução de problemas da Matriz Virtual StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: a0c394df-957b-49b3-a283-38824f8847fd
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109994"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Usar o serviço do Gerenciador de Dispositivos StorSimple para registrar uma solicitação de Suporte para a Matriz Virtual StorSimple
 

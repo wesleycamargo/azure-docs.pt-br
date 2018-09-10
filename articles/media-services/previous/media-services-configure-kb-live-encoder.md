@@ -14,15 +14,15 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: juliako;dbgeorge
-ms.openlocfilehash: 25077cd9338a2764c6dff9e755812033685f6641
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a36e12080cbbcb1a98bf786a6634959362cb52a7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666442"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Haivision KB para enviar uma transmissão ao vivo de taxa de bits única
 > [!div class="op_single_selector"]
-> * [Elemental Live](media-services-configure-elemental-live-encoder.md)
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -32,7 +32,7 @@ Este tópico mostra como configurar o [codificador ativo Havision KB](https://ww
 
 Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver no Mac ou Linux, use o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 *   Acesso a um codificador Haivision KB, executando o SW v5.01 ou superior.
 * [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
 * Verifique se há um Ponto de Extremidade de Streaming em execução. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)

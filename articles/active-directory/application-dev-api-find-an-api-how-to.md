@@ -1,23 +1,25 @@
 ---
-title: "Como localizar uma API específica necessária para um aplicativo personalizado | Microsoft Docs"
-description: "Como configurar as permissões que você precisa para acessar uma API em particular em seu aplicativo personalizado do Azure AD"
+title: Como localizar uma API específica necessária para um aplicativo personalizado | Microsoft Docs
+description: Como configurar as permissões que você precisa para acessar uma API em particular em seu aplicativo personalizado do Azure AD
 services: active-directory
-documentationcenter: 
-author: ajamess
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: e3d15db2e00c2cd5b52dd6c486f61ee88d922d79
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.openlocfilehash: f15e84d6efa30d2e66c7ff1d92551bece94938e7
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363339"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Como localizar uma API específica necessária para um aplicativo personalizado
 

@@ -1,24 +1,21 @@
 ---
 title: Como usar o Armazenamento de Filas do Ruby | Microsoft Docs
-description: "Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Exemplos gravados no Ruby."
+description: Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Exemplos gravados no Ruby.
 services: storage
-documentationcenter: ruby
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 59c2d81b-db9c-46ee-ade2-2f0caae6b1e6
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 0d7624d47a6924a5c8dec66b47ac0887ff493879
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.component: queues
+ms.openlocfilehash: 907175ac341632d2ba0048ab486392b949f83626
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145048"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Como usar o Armazenamento de fila do Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -159,4 +156,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 * Visite o [Blog da Equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * Visite o repositório [SDK do Azure para o nó](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
 
-Para fazer uma comparação entre o serviço Fila do Azure discutido neste artigo e as filas do Barramento de Serviço do Azure discutidas no artigo [How to use Service Bus Queues](/develop/ruby/how-to-guides/service-bus-queues/) (Como usar o Barramento de Serviço), confira [Filas do Azure e filas do Barramento de Serviço — comparações e contrastes](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Para fazer uma comparação entre o serviço Fila do Azure discutido neste artigo e as filas do Barramento de Serviço do Azure discutidas no artigo [How to use Service Bus Queues](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) (Como usar o Barramento de Serviço), confira [Filas do Azure e filas do Barramento de Serviço — comparações e contrastes](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

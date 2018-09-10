@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c5aaf9869326f2de86d3bff33f36e8f967f3e6fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249012"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar serviços confiáveis com estado
 Há dois conjuntos de definições de configuração para Reliable Services. Um conjunto é global para todos os Reliable Services no cluster, enquanto o outro conjunto é específico para um determinado Reliable Service.
@@ -35,7 +36,7 @@ A configuração do Reliable Service global é especificada no manifesto do clus
 | SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado usado por todos os serviços confiáveis em todos os nós no cluster que não especificam o SharedLogPath na configuração específica de seu serviço. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
 | SharedLogSizeInMB |Megabytes |8192 |Especifica o número de MB do espaço em disco a ser alocado estatisticamente para o log compartilhado. O valor deve ser de 2048 ou superior. |
 
-No Azure ARM ou no modelo JSON local, o exemplo abaixo mostra como alterar o log de transações compartilhado que é criado para dar apoio às coleções confiáveis para serviços com estado.
+No ARM do Azure ou no modelo JSON local, o exemplo abaixo mostra como alterar o log de transações compartilhado que é criado como um apoio para as coletas confiáveis de serviços com estado.
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -82,6 +83,11 @@ Por padrão, o tempo de execução do Service Fabric do Azure procura nomes de s
 ### <a name="replicator-security-configuration"></a>Configuração de segurança do replicador
 As configurações de segurança do replicador servem para proteger o canal de comunicação que é usado durante a replicação. Isso significa que os serviços não poderão ver o tráfego de replicação uns dos outros, garantindo que os dados com alta disponibilidade também estejam seguros. Por padrão, uma seção de configuração de segurança vazia evita a segurança de replicação.
 
+> [!IMPORTANT]
+> Em nós Linux, certificados devem estar formatados como PEM. Para saber mais sobre como localizar e configurar certificados para Linux, consulte [Configurar certificados em Linux](./service-fabric-configure-certificates-linux.md). 
+> 
+> 
+
 ### <a name="default-section-name"></a>Nome padrão da seção
 ReplicatorSecurityConfig
 
@@ -118,6 +124,7 @@ ReplicatorConfig
 | SharedLogId |GUID |"" |Especifica um GUID exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogId for especificado, SharedLogPath também deverá ser especificado. |
 | SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
 | SlowApiMonitoringDuration |Segundos |300 |Define o intervalo de monitoramento para as chamadas da API gerenciadas. Exemplo: o usuário fez o backup da função de callback. Após o intervalo, um relatório de integridade de aviso será enviado para o Gerenciador de Integridade. |
+| LogTruncationIntervalSeconds |Segundos |0 |Intervalo configurável no qual o truncamento de log será iniciado em cada réplica. Ele é usado para garantir que o log também seja truncado com base no tempo em vez de apenas no tamanho do log. Essa configuração também força a eliminação de entradas excluídas no dicionário confiável. Por isso, ele pode ser usado para garantir que os itens excluídos sejam removidos em tempo hábil. |
 
 ### <a name="sample-configuration-via-code"></a>Amostra de configuração via código
 ```csharp

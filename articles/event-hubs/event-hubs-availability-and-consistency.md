@@ -1,31 +1,32 @@
 ---
-title: "Disponibilidade e consistência em Hubs de eventos do Azure | Microsoft Docs"
-description: "Como fornecer o máximo de disponibilidade e consistência com os Hubs de Eventos do Azure usando partições."
+title: Disponibilidade e consistência em Hubs de eventos do Azure | Microsoft Docs
+description: Como fornecer o máximo de disponibilidade e consistência com os Hubs de Eventos do Azure usando partições.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8f3637a1-bbd7-481e-be49-b3adf9510ba1
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
-ms.author: sethm
-ms.openlocfilehash: be1398e9b0a10efcd694e46d6322d5d7b9e7a843
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: 9b4d992d690bb3237f8c92e44020c0ac83978d7e
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140192"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência nos Hubs de Eventos
 
 ## <a name="overview"></a>Visão geral
 Os Hubs de Eventos do Azure usam um [modelo de particionamento](event-hubs-features.md#partitions) para melhorar a disponibilidade e a paralelização dentro de um único hub de eventos. Por exemplo, se um hub de eventos tiver quatro partições e uma delas estiver sendo movida de um servidor para outro em uma operação de balanceamento de carga, você ainda poderá enviar e receber das outras três partições. Além disso, ter mais partições permite que você tenha mais leitores simultâneos processando seus dados, melhorando sua taxa de transferência agregada. Noções básicas sobre as implicações de particionamento e ordenação em um sistema distribuído é um aspecto fundamental do design de soluções.
 
-Para ajudar a explicar a compensação entre ordenação e disponibilidade, confira o [Teorema CAP](https://en.wikipedia.org/wiki/CAP_theorem), também conhecido como teorema de Brewer. Este teorema discute a escolha entre consistência, disponibilidade e tolerância a partição.
+Para ajudar a explicar a compensação entre ordenação e disponibilidade, confira o [Teorema CAP](https://en.wikipedia.org/wiki/CAP_theorem), também conhecido como teorema de Brewer. Este teorema discute a escolha entre consistência, disponibilidade e tolerância a partição. Ele informa que para os sistemas particionados por rede sempre há uma compensação entre a consistência e a disponibilidade.
 
 O teorema de Brewer define a consistência e a disponibilidade como a seguir:
 * Tolerância a partição: a capacidade de um sistema de processamento de dados continuar processando dados mesmo que ocorra uma falha de partição.

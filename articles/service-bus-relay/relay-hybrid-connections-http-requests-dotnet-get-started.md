@@ -3,7 +3,7 @@ title: Introdução às Conexões Híbridas de Retransmissão do Azure de pedido
 description: Escreva um aplicativo de console C# para Conexões Híbridas da Retransmissão do Azure de pedidos HTTP em .NET.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
@@ -12,13 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/15/2017
-ms.author: sethm
-ms.openlocfilehash: 743e5c5a44f2ed9e6f6d2df9388ef3f01c501bff
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 08/16/2018
+ms.author: spelluru
+ms.openlocfilehash: 4f7aa0b0c5142237f3b6fc66bb8593302c95f5af
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41924715"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Introdução às Conexões Híbridas de Retransmissão de pedidos HTTP no .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -33,7 +34,7 @@ Conexões Híbridas requer um componente de cliente e um componente de servidor.
 3. Escreva um aplicativo de console do servidor (ouvinte) para receber pedidos.
 4. Escreva um aplicativo de console de cliente (remetente) para enviar pedidos.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 

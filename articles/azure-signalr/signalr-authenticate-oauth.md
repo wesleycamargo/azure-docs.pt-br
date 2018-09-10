@@ -3,7 +3,7 @@ title: Tutorial para autenticar clientes de serviço do Azure SignalR | Microsof
 description: Neste tutorial, você aprenderá como autenticar clientes de serviço do Azure SignalR
 services: signalr
 documentationcenter: ''
-author: wesmc7777
+author: sffamily
 manager: cfowler
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/17/2018
-ms.author: wesmc
-ms.openlocfilehash: 748e5839233b9d71b9ed072d0cfe45f018471c52
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 06/13/2018
+ms.author: zhshang
+ms.openlocfilehash: 4856f4cdba7618884a42341f16d4828cb062e75c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667643"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Tutorial: autenticação do Serviço do Azure SignalR
 
@@ -51,7 +52,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir o tutorial, você deve ter os pré-requisitos a seguir:
 
@@ -87,9 +88,10 @@ Para concluir o tutorial, você deve ter os pré-requisitos a seguir:
 
 ### <a name="update-the-startup-class-to-support-github-authentication"></a>Atualizar a classe de inicialização para oferecer suporte à autenticação do GitHub
 
-1. Adicione uma referência para a versão mais recente do pacote e restauração *Microsoft.AspNetCore.Authentication.Cookies* de todos os pacotes.
+1. Adicione uma referência aos pacotes mais recentes do *Microsoft.AspNetCore.Authentication.Cookies* e do *AspNet.Security.OAuth.GitHub* e restaure todos os pacotes.
 
         dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+        dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
         dotnet restore
 
 1. Abra *Startup.cs*e adicione `using` instruções para os namespaces a seguir:
@@ -477,7 +479,7 @@ connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
 #Add an app setting to the web app for the SignalR connection
 az webapp config appsettings set --name $WebAppName \
     --resource-group $ResourceGroupName \
-    --settings "Azure:SignalR:ConnectionString=$connstring" 
+    --settings "Azure__SignalR__ConnectionString=$connstring" 
 
 #Add the app settings to use with GitHub authentication
 az webapp config appsettings set --name $WebAppName \

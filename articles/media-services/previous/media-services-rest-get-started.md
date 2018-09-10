@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: juliako
-ms.openlocfilehash: f0241278343ba4383caef5bb52bc4f1ece2bec7e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 757ba9e999bfbb46be96e653e7939d91bdf67679
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287118"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introdução ao fornecimento de conteúdo sob demanda usando a REST
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -33,7 +34,7 @@ Clique na imagem para exibi-la em tamanho normal.
 
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Os seguintes pré-requisitos são necessários para começar a desenvolver com os serviços de mídia com APIs REST.
 
 * Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -53,7 +54,7 @@ As tarefas a seguir são mostradas neste guia de início rápido.
 >[!NOTE]
 >Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não upload). Para saber mais, confira [este artigo](media-services-dotnet-manage-entities.md#limit-access-policies).
 
-Para obter detalhes sobre as entidades do REST do AMS usadas neste artigo, consulte [Referência de API REST dos Serviços de Mídia do Azure](/rest/api/media/services/azure-media-services-rest-api-reference). Além disso, consulte [Conceitos dos Serviços de Mídia do Azure](media-services-concepts.md).
+Para obter detalhes sobre as entidades do REST do AMS usadas neste artigo, consulte [Referência de API REST dos Serviços de Mídia do Azure](https://docs.microsoft.com/en-us/rest/api/media/services/azure-media-services-rest-api-reference). Além disso, consulte [Conceitos dos Serviços de Mídia do Azure](media-services-concepts.md).
 
 >[!NOTE]
 >Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
@@ -266,11 +267,9 @@ Uma URL SAS tem o seguinte formato:
 
 Algumas considerações se aplicam:
 
-* Você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. Para saber mais, consulte Localizador.
+* Você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. 
 * Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor de StartTime deve estar no seguinte formato DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").    
-* Pode haver um 30 a 40 segundos de atraso após a criação de um localizador quando ele está disponível para uso. Esse problema se aplica a URL SAS e localizadores de origem.
-
-Para saber mais sobre localizadores SAS, consulte [este](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
+* Pode haver um 30 a 40 segundos de atraso após a criação de um localizador quando ele está disponível para uso. Esse problema se aplica a [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) e localizadores de origem.
 
 O exemplo a seguir mostra como criar um localizador URL SAS, conforme definido pela propriedade Type no corpo da solicitação ("1" para um localizador SAS e "2" para um localizador de origem sob demanda). A propriedade **Path** retornada contém a URL que você deve usar para carregar seu arquivo.
 
@@ -406,7 +405,7 @@ Se for bem-sucedido, será retornado o seguinte:
 
 ## <a id="encode"></a>Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável
 
-Após a inserção de Ativos nos Serviços de Mídia, a mídia poderá ser codificada, transmultiplexada, marcada com marca d'água e assim por diante, antes que seja entregue aos clientes. Essas atividades são agendadas e executadas em contraste com várias instâncias de função de plano de fundo para garantir a disponibilidade e desempenho elevados. Essas atividades são chamadas de Trabalhos, e cada Trabalho é composto por Tarefas atômicas, que fazem o trabalho real no arquivo do Ativo. (Para saber mais, consulte as descrições de [Trabalho](/rest/api/media/services/job), [Tarefa](/rest/api/media/services/task)).
+Após a inserção de Ativos nos Serviços de Mídia, a mídia poderá ser codificada, transmultiplexada, marcada com marca d'água e assim por diante, antes que seja entregue aos clientes. Essas atividades são agendadas e executadas em contraste com várias instâncias de função de plano de fundo para garantir a disponibilidade e desempenho elevados. Essas atividades são chamadas de Trabalhos, e cada Trabalho é composto por Tarefas atômicas, que fazem o trabalho real no arquivo do Ativo. (Para saber mais, consulte as descrições de [Trabalho](https://docs.microsoft.com/en-us/rest/api/media/operations/job), [Tarefa](https://docs.microsoft.com/en-us/rest/api/media/operations/task)).
 
 Como foi mencionado anteriormente, ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Os Serviços de Mídia podem empacotar dinamicamente um conjunto de arquivos MP4 com taxa de bit adaptável em um dos seguintes formatos: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
 
@@ -693,7 +692,7 @@ O código a seguir mostra como solicitar a ID do ativo de saída.
 
 ## <a id="publish_get_urls"></a>Publicar o ativo e obter URLs de download progressivo e streaming com API REST
 
-Para transmitir ou baixar um ativo, primeiro você precisa "publicá-lo" criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizador: OnDemandOrigin, usados para transmitir mídia por streaming (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e SAS (Assinatura de Acesso), usados para baixar arquivos de mídia. Para saber mais sobre localizadores SAS, consulte [este](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
+Para transmitir ou baixar um ativo, primeiro você precisa "publicá-lo" criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizador: OnDemandOrigin, usados para transmitir mídia por streaming (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e SAS (Assinatura de Acesso), usados para baixar arquivos de mídia. 
 
 Depois de criar os localizadores, você pode criar as URLs usadas para transmitir ou baixar os arquivos.
 

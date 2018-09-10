@@ -1,27 +1,23 @@
 ---
-title: Cenário sem servidor - Criação de um painel de informações do cliente com o Azure | Microsoft Docs
-description: Saiba como você pode gerenciar os comentários dos clientes, dados de mídia social e muito mais, criando um painel de controle do cliente com Aplicativos Lógicos do Azure e Azure Functions
-keywords: ''
+title: Cenário sem servidor – criar um painel de informações do cliente com os serviços do Azure | Microsoft Docs
+description: Saiba como você pode gerenciar os comentários dos clientes, dados de mídia social e muito mais, criando um painel de controle do cliente com Aplicativo Lógico do Azure e Azure Functions
 services: logic-apps
-author: jeffhollan
-manager: SyntaxC4
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: estfan, LADocs
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 0a31a71305a4729575c5266b3a6138004d2dbdc6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9d6d74c4afb4d1cd62e5946b7e6f8c401e7ef2aa
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124637"
 ---
-# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar de um painel de informações do cliente em streaming com Aplicativos Lógicos do Azure e Azure Functions
+# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar um painel de informações do cliente em streaming com o Aplicativo Lógico e Azure e o Azure Functions
 
 Ferramentas sem servidor do Azure que ajudam você a rapidamente criar e hospedar aplicativos na nuvem, sem precisar pensar sobre a infraestrutura. Nesse tutorial, você pode criar um painel que terá como gatilho os comentários de cliente, analisará os comentários com o aprendizado de máquina e publicará informações em uma fonte como o Power BI ou Azure Data Lake.
 

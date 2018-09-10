@@ -3,8 +3,8 @@ title: Guia para a criação de um modelo de solução para o Marketplace | Micr
 description: Instruções detalhadas sobre como criar, certificar e implantar um Modelo de Solução de imagem com múltiplas VMs para compra no Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
 ms.service: marketplace
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: mbaldwin
-ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: hascipio; v-divte
+ms.openlocfilehash: 0e1c049596b5231ad72590fc17a73cd5aa457e4d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246341"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guia para criar um modelo de solução para o Azure Marketplace
 Após concluir a etapa 1, [Criação da conta e registro][link-acct-creation], falamos sobre a criação de um modelo de solução compatível com o Azure em [Pré-requisitos técnicos para criar um modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md). Agora, orientaremos você pelas etapas de criação de um modelo de solução para várias VMs no [Portal de Publicação][link-pubportal] para o Azure Marketplace.
@@ -59,7 +60,7 @@ Agora que você criou seu modelo de solução e carregou o arquivo zip, siga as 
 Você também pode se interessar por estes artigos relacionados:
 
 * Imagens de VM: [Sobre Imagens da Máquina Virtual no Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-* Extensões de VM: [Visão geral sobre Agente de VM](https://msdn.microsoft.com/library/azure/dn832621.aspx) e [Extensões de VM e Extensões de VM e recursos do Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+* Extensões da VM: [Extensões e recursos da VM do Azure](../virtual-machines/extensions/features-windows.md)
 * Azure Resource Manager: [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e [Exemplos de modelos simples](https://github.com/rjmax/ArmExamples)
 * Limites da conta de armazenamento: [como monitorar o limite da conta de armazenamento](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) e [Armazenamento Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 

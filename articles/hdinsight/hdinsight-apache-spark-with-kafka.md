@@ -1,24 +1,21 @@
 ---
-title: Streaming do Apache Spark com Kafka – Azure HDInsight | Microsoft Docs
+title: Streaming do Apache Spark com Kafka – Azure HDInsight
 description: Saiba como usar o Apache Spark para transmitir dados dentro ou fora do Apache Kafka usando o DStreams. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight.
 keywords: exemplo de kafka, zookeeper kafka, streaming do kafka para Spark, exemplo de streaming do spark com o kafka
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: larryfr
-ms.openlocfilehash: a9463b5983b5f41683a5cfe416ca125bf2810062
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: d06e9d26051fbfafc4d717ec180e8760157aefd9
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094159"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Exemplo de streaming do Apache Spark (DStream) com o Kafka no HDInsight
 

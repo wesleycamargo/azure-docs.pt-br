@@ -10,16 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f00c22a5a7bde69136c674c1362e3a9d65dd7934
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577179"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess
 
@@ -37,7 +38,7 @@ Como os conectores do Proxy de Aplicativo direcionam o tráfego remoto a todos o
 
 Como esse cenário é oferecido por meio de uma parceria entre o Azure Active Directory e o PingAccess, você precisa de licenças para os dois serviços. No entanto, as assinaturas do Azure Active Directory Premium incluem uma licença básica PingAccess que abrange até 20 aplicativos. Se você precisar publicar mais de 20 aplicativos com base em cabeçalho, poderá adquirir uma licença adicional do PingAccess. 
 
-Para obter mais informações, consulte [Edições do Active Directory do Azure](../active-directory-whatis.md).
+Para obter mais informações, consulte [Edições do Active Directory do Azure](../fundamentals/active-directory-whatis.md).
 
 ## <a name="publish-your-application-in-azure"></a>Publicar seu aplicativo no Azure
 
@@ -139,7 +140,7 @@ Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detal
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Opcional - Atualizar a API do Graph para enviar campos personalizados
 
-Para obter uma lista de tokens de segurança que o Azure AD envia para autenticação, confira [Referência de token do Azure AD](./../develop/active-directory-token-and-claims.md). Se você precisar de uma declaração personalizada que envia outros tokens, use Explorador do Graph ou o manifesto do aplicativo no Portal do Azure para definir o campo *acceptMappedClaims* do aplicativo como **True**.    
+Para obter uma lista de tokens de segurança que o Azure AD envia para autenticação, confira [Referência de token do Azure AD](../develop/v1-id-and-access-tokens.md). Se você precisar de uma declaração personalizada que envia outros tokens, use Explorador do Graph ou o manifesto do aplicativo no Portal do Azure para definir o campo *acceptMappedClaims* do aplicativo como **True**.    
 
 Este exemplo usa o Explorador do Graph:
 
@@ -182,4 +183,4 @@ Depois de concluir todas essas etapas, seu aplicativo estará pronto para execu�
 
 - [Configurar o PingAccess para Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [Como o Proxy de Aplicativo do Azure AD fornece logon único?](application-proxy-single-sign-on.md)
-- [Solucionar problemas de Proxy de Aplicativo](../active-directory-application-proxy-troubleshoot.md)
+- [Solucionar problemas de Proxy de Aplicativo](application-proxy-troubleshoot.md)

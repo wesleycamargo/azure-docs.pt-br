@@ -1,8 +1,8 @@
 ---
-title: "Como usar o serviço de email SendGrid (PHP) | Microsoft Docs"
-description: "Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos em PHP."
+title: Como usar o serviço de email SendGrid (PHP) | Microsoft Docs
+description: Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos em PHP.
 documentationcenter: php
-services: 
+services: ''
 manager: sendgrid
 editor: mollybos
 author: thinkingserious
@@ -14,11 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 846002264d5f709f7cef6bba67927fc8959a9ccb
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145449"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Como usar serviço de email SendGrid do PHP
 Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são escritas em PHP.
@@ -34,7 +35,7 @@ SendGrid é um [serviço de email baseado em nuvem] que fornece uma [entrega de 
 * Encaminhamento de consultas dos clientes
 * Notificações de email de seu aplicativo
 
-Para obter mais informações, consulte [https://sendgrid.com][https://sendgrid.com].
+Para obter mais informações, confira [https://sendgrid.com][https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Criar uma conta do SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -46,7 +47,7 @@ O uso do SendGrid em um aplicativo PHP Azure não exige configuração ou codifi
 É possível enviar emails usando o SMTP ou a API Web fornecida pelo SendGrid.
 
 ### <a name="smtp-api"></a>API do SMTP
-Para enviar email usando a API do SMTP do SendGrid, use o *Swift Mailer*, uma biblioteca baseada em componente para envio de emails de aplicativos PHP. Você pode baixar a biblioteca do *Swift Mailer* em [http://swiftmailer.org/download][http://swiftmailer.org/download] v5.3.0 (use o [Compositor] para instalar o Swift Mailer). O envio de email pela biblioteca envolve a criação de instâncias do <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> e classes do <span class="auto-style2">Swift\_Message</span>, a definição das propriedades adequadas e a chamada do método <span class="auto-style2">Swift\_Mailer::send</span>.
+Para enviar email usando a API do SMTP do SendGrid, use o *Swift Mailer*, uma biblioteca baseada em componente para envio de emails de aplicativos PHP. Você pode baixar a biblioteca do *Swift Mailer* em [http://swiftmailer.org/download][https://swiftmailer.symfony.com/] v5.3.0 (use o [Compositor] para instalar o Swift Mailer). O envio de email pela biblioteca envolve a criação de instâncias do <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> e classes do <span class="auto-style2">Swift\_Message</span>, a definição das propriedades adequadas e a chamada do método <span class="auto-style2">Swift\_Mailer::send</span>.
 
     <?php
      include_once "vendor/autoload.php";
@@ -383,10 +384,10 @@ Exemplo:
 Agora que você já conhece as noções básicas do serviço de email SendGrid, siga estes links para saber mais.
 
 * Documentação do SendGrid: <https://sendgrid.com/docs>
-* Biblioteca de SendGrid PHP: <https://github.com/sendgrid/sendgrid-php>
-* Oferta especial do SendGrid para clientes Azure: <https://sendgrid.com/windowsazure.html>
+* Biblioteca do SendGrid PHP: <https://github.com/sendgrid/sendgrid-php>
+* Oferta especial do SendGrid para clientes do Azure: <https://sendgrid.com/windowsazure.html>
 
-Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php/).
+Para saber mais, veja também a [Central de desenvolvedores do PHP](https://azure.microsoft.com/develop/php/).
 
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing

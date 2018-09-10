@@ -13,13 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 59d6b960a40910b8b2fe72f6c3b149608ee8b8ad
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116156"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Máquina Virtual da Ciência de Dados do Linux no Azure
 Este passo a passo mostra como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux. A Máquina Virtual da Ciência de Dados do Linux (DSVM) é uma imagem da máquina virtual disponível no Azure pré-instalada com uma coleção de ferramentas usadas comumente para a análise de dados e o aprendizado de máquina. Os principais componentes do software são detalhados no tópico [Provisionar a Máquina Virtual da Ciência de Dados do Linux](linux-dsvm-intro.md) . A imagem da VM facilita começar a fazer a ciência de dados em minutos, sem precisar instalar e configurar cada uma das ferramentas individualmente. Você pode dimensionar facilmente a VM, se necessário, e parar quando não estiver em uso. Portanto, esse recurso é elástico e econômico.
@@ -28,7 +29,7 @@ As tarefas da ciência de dados demonstradas neste passo a passo seguem as etapa
 
 Analisamos o conjunto de dados [baseado em spam](https://archive.ics.uci.edu/ml/datasets/spambase) neste passo a passo. Este é um conjunto de emails marcados como spam ou ham (ou seja, não são spam) e também contém algumas estatísticas sobre o conteúdo dos emails. As estatísticas incluídas serão analisadas na próxima seção, exceto uma.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de criar uma Máquina Virtual da Ciência de Dados do Linux, você deve ter o seguinte:
 
 * Uma **assinatura do Azure**. Se você não tiver uma, consulte [Criar sua conta gratuita do Azure hoje](https://azure.microsoft.com/free/).
@@ -41,7 +42,7 @@ Antes de criar uma Máquina Virtual da Ciência de Dados do Linux, você deve te
 O conjunto de dados [baseado em spam](https://archive.ics.uci.edu/ml/datasets/spambase) é um conjunto de dados relativamente pequeno que contém somente 4.601 exemplos. Esse é um tamanho conveniente usado ao demonstrar alguns dos principais recursos da VM da Ciência de Dados, quando ela mantém os requisitos de recursos modestos.
 
 > [!NOTE]
-> Este passo a passo foi criado em Máquina Virtual da Ciência de Dados do Linux de tamanho D2 v2. Esse tamanho da DSVM é capaz de lidar com os procedimentos neste passo a passo.
+> Este passo a passo foi criado em uma Máquina Virtual de Ciência de Dados do Linux de tamanho D2 v2 (CentOS Edition). Esse tamanho da DSVM é capaz de lidar com os procedimentos neste passo a passo.
 >
 >
 
@@ -76,12 +77,8 @@ Para obter cópias dos exemplos de código usados neste passo a passo, clone o r
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-Abra uma janela de terminal e inicie uma nova sessão de R com o console interativo de R.
+Abra uma janela de terminal e inicie uma nova sessão R com o console interativo R ou use o RStudio pré-instalado no computador.
 
-> [!NOTE]
-> Você também pode usar o RStudio para os procedimentos a seguir. Para instalar o RStudio, execute este comando em um terminal: `./Desktop/DSVM\ tools/installRStudio.sh`
->
->
 
 Para importar os dados e configurar o ambiente, execute:
 
@@ -192,6 +189,7 @@ Selecione **Tokens de Autorização** no menu de sobrecarga e observe o **Token 
 
 Carregue o pacote **AzureML** e defina os valores das variáveis com seu token e ID do espaço de trabalho na sessão R da DSVM:
 
+    if(!require("AzureML")) install.packages("AzureML")
     require(AzureML)
     wsAuth = "<authorization-token>"
     wsID = "<workspace-id>"
@@ -206,29 +204,28 @@ Iremos simplificar o modelo para tornar esta demonstração mais fácil de imple
 
 Precisamos de uma função de previsão que usa os recursos como uma entrada e retorna os valores previstos:
 
-    predictSpam <- function(char_freq_dollar, word_freq_remove, word_freq_hp) {
-        predictDF <- predict(model.rpart, data.frame("char_freq_dollar" = char_freq_dollar,
-        "word_freq_remove" = word_freq_remove, "word_freq_hp" = word_freq_hp))
-        return(colnames(predictDF)[apply(predictDF, 1, which.max)])
+    predictSpam <- function(newdata) {
+      predictDF <- predict(model.rpart, newdata = newdata)
+      return(colnames(predictDF)[apply(predictDF, 1, which.max)])
     }
+
 
 Publique a função predictSpam para o AzureML usando a função **publishWebService** :
 
-    spamWebService <- publishWebService("predictSpam",
-        "spamWebService",
-        list("char_freq_dollar"="float", "word_freq_remove"="float","word_freq_hp"="float"),
-        list("spam"="int"),
-        wsID, wsAuth)
+    spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
+
 
 Essa função usa a **predictSpam**, cria um serviço Web denominado **spamWebService** com entradas e saídas definidas e retorna informações sobre o novo ponto de extremidade.
 
-Exiba os detalhes do serviço Web publicado, incluindo seu ponto de extremidade de API e acesse as chaves com o comando:
+Exiba os detalhes do último serviço Web publicado, incluindo o ponto de extremidade de API e as chaves de acesso com o comando:
 
-    spamWebService[[2]]
+    s<-tail(services(ws, name = "spamWebService"), 1)
+    ep <- endpoints(ws,s)
+    ep
 
 Para experimentar nas primeiras 10 linhas do conjunto de teste:
 
-    consumeDataframe(spamWebService$endpoints[[1]]$PrimaryKey, spamWebService$endpoints[[1]]$ApiLocation, smallTestSet[1:10, 1:3])
+    consume(ep, smallTestSet[1:10, ])
 
 
 ## <a name="use-other-tools-available"></a>Usar outras ferramentas disponíveis
@@ -284,7 +281,7 @@ Para fazer previsões:
 
 Para mostrar como publicar um ponto de extremidade do AzureML, criaremos um modelo mais simples das três variáveis como fizemos quando publicamos o modelo R anteriormente.
 
-    X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
+    X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
     clf = svm.SVC()
     clf.fit(X, y)

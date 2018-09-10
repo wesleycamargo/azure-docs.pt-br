@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33934523"
 abstract:
   description: O Azure Policy ajuda você a gerenciar e impedir problemas de TI com definições de políticas que impõem regras e efeitos para seus recursos. Quando você usa o Azure Policy, os recursos permanecem compatíveis com seus padrões empresariais e contratos de nível de serviço. Aprenda a criar, atribuir e gerenciar definições de políticas com nossos guias de início rápido, tutoriais e exemplos.
 sections:

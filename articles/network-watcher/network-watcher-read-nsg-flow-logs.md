@@ -5,7 +5,7 @@ services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,21 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 58474286352ff3f00b31e65a565c2b64a656a177
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 63407382762a814ded4529caa109d76e987c9505
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286437"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler logs de fluxo NSG
 
 Saiba como ler entradas de logs de fluxo NSG com o PowerShell.
 
-Logs de fluxo NSG são armazenados em uma conta de armazenamento no [blobs de blocos](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Blobs de bloco são compostos por blocos menores. Cada log é um blob de blocos separado gerado a cada hora. Novos logs são gerados a cada hora, os logs são atualizados com as novas entradas intervalos de alguns minutos com os dados mais recentes. Neste artigo, você aprenderá a ler partes dos logs de fluxo.
+Logs de fluxo NSG são armazenados em uma conta de armazenamento no [blobs de blocos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Blobs de bloco são compostos por blocos menores. Cada log é um blob de blocos separado gerado a cada hora. Novos logs são gerados a cada hora, os logs são atualizados com as novas entradas intervalos de alguns minutos com os dados mais recentes. Neste artigo, você aprenderá a ler partes dos logs de fluxo.
 
 ## <a name="scenario"></a>Cenário
 
-No cenário a seguir, você tem um exemplo de log de fluxo que é armazenado em uma conta de armazenamento. Vamos percorrer como você pode ler os eventos mais recentes seletivamente nos logs de fluxo NSG. Neste artigo, usaremos PowerShell, no entanto, os conceitos abordados no artigo não estão limitados à linguagem de programação e são aplicáveis a todos as linguagens com suporte na APIs de armazenamento do Azure
+No cenário a seguir, você tem um exemplo de log de fluxo que é armazenado em uma conta de armazenamento. Vamos ver como ler os eventos mais recentes seletivamente nos logs de fluxo NSG. Neste artigo, você usa o PowerShell, no entanto, os conceitos abordados no artigo não estão limitados à linguagem de programação e são aplicáveis a todas as linguagens com suporte na APIs de Armazenamento do Microsoft Azure.
 
 ## <a name="setup"></a>Configuração
 
@@ -38,44 +39,45 @@ Antes de começar, você deve habilitar o registro em log de fluxo do grupo de s
 O PowerShell a seguir define as variáveis necessárias para consultar o blob de log do fluxo NSG e lista de blocos dentro do blob de blocos [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3). Atualize o script para conter os valores válidos para o seu ambiente.
 
 ```powershell
-# The SubscriptionID to use
-$subscriptionId = "00000000-0000-0000-0000-000000000000"
+function Get-NSGFlowLogBlockList {
+    [CmdletBinding()]
+    param (
+        [string] [Parameter(Mandatory=$true)] $subscriptionId,
+        [string] [Parameter(Mandatory=$true)] $NSGResourceGroupName,
+        [string] [Parameter(Mandatory=$true)] $NSGName,
+        [string] [Parameter(Mandatory=$true)] $storageAccountName,
+        [string] [Parameter(Mandatory=$true)] $storageAccountResourceGroup,
+        [string] [Parameter(Mandatory=$true)] $macAddress,
+        [datetime] [Parameter(Mandatory=$true)] $logTime
+    )
 
-# Resource group that contains the Network Security Group
-$resourceGroupName = "<resourceGroupName>"
+    process {
+        # Retrieve the primary storage account key to access the NSG logs
+        $StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccountResourceGroup -Name $storageAccountName).Value[0]
 
-# The name of the Network Security Group
-$nsgName = "NSGName"
+        # Setup a new storage context to be used to query the logs
+        $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
-# The storage account name that contains the NSG logs
-$storageAccountName = "<storageAccountName>" 
+        # Container name used by NSG flow logs
+        $ContainerName = "insights-logs-networksecuritygroupflowevent"
 
-# The date and time for the log to be queried, logs are stored in hour intervals.
-[datetime]$logtime = "06/16/2017 20:00"
+        # Name of the blob that contains the NSG flow log
+        $BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${NSGResourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${NSGName}/y=$($logTime.Year)/m=$(($logTime).ToString("MM"))/d=$(($logTime).ToString("dd"))/h=$(($logTime).ToString("HH"))/m=00/macAddress=$($macAddress)/PT1H.json"
 
-# Retrieve the primary storage account key to access the NSG logs
-$StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
+        # Gets the storage blog
+        $Blob = Get-AzureStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
 
-# Setup a new storage context to be used to query the logs
-$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+        # Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
+        $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
 
-# Container name used by NSG flow logs
-$ContainerName = "insights-logs-networksecuritygroupflowevent"
+        # Stores the block list in a variable from the block blob.
+        $blockList = $CloudBlockBlob.DownloadBlockList()
 
-# The MAC Address of the Network Interface
-$macAddress = "000D3AFA8650"
-
-# Name of the blob that contains the NSG flow log
-$BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${nsgName}/y=$($logtime.Year)/m=$(($logtime).ToString("MM"))/d=$(($logtime).ToString("dd"))/h=$(($logtime).ToString("HH"))/m=00/macAddress=$($macAddress)/PT1H.json"
-
-# Gets the storage blog
-$Blob = Get-AzureStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
-
-# Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
-$CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
-
-# Stores the block list in a variable from the block blob.
-$blockList = $CloudBlockBlob.DownloadBlockList()
+        # Return the Block List
+        $blockList
+    }
+}
+$blockList = Get-NSGFlowLogBlockList -subscriptionId "00000000-0000-0000-0000-000000000000" -NSGResourceGroupName "resourcegroupname" -storageAccountName "storageaccountname" -storageAccountResourceGroup "sa-rg" -macAddress "000D3AF8196E" -logTime "03/07/2018 22:00"
 ```
 
 A variável `$blockList` retorna uma lista dos blocos no blob. Cada blob de blocos contém pelo menos dois blocos.  O primeiro bloco tem um comprimento de `21` bytes, esse bloco contém os colchetes de abertura do log json. O outro bloco consiste nos colchetes de fechamento e tem um comprimento de `9` bytes.  Como você pode ver, o log de exemplo a seguir contém sete entradas, cada uma sendo uma entrada individual. Todas as novas entradas no log são adicionadas ao final logo antes do bloco final.
@@ -96,7 +98,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Ler o blob de blocos
 
-Em seguida, precisamos ler a variável `$blocklist` para recuperar os dados. Neste exemplo, iterarmos na lista de blocos, lemos os bytes de cada bloco e os colocamos em uma matriz. Usamos o método [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) para recuperar os dados.
+Em seguida, você precisa ler a variável `$blocklist` para recuperar os dados. Neste exemplo, iterarmos na lista de blocos, lemos os bytes de cada bloco e os colocamos em uma matriz. Use o método [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) para recuperar os dados.
 
 ```powershell
 # Set the size of the byte array to the largest block
@@ -130,7 +132,7 @@ $valuearray += $value
 }
 ```
 
-Agora a matriz `$valuearray` contém o valor de cadeia de caracteres de cada bloco. Para verificar a entrada, obtenha do segundo ao último valor da matriz executando `$valuearray[$valuearray.Length-2]`. Não queremos o último valor, ele é apenas o colchete de fechamento.
+Agora a matriz `$valuearray` contém o valor de cadeia de caracteres de cada bloco. Para verificar a entrada, obtenha do segundo ao último valor da matriz executando `$valuearray[$valuearray.Length-2]`. Você não quer o último valor, pois é apenas o colchete de fechamento.
 
 Os resultados desse valor são mostrados no exemplo a seguir:
 
@@ -155,7 +157,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ```
 
 Esse cenário é um exemplo de como ler entradas nos logs de fluxo NSG sem precisar analisar o log inteiro. Você pode ler as novas entradas no log conforme elas são gravadas usando a ID do bloco ou acompanhando o tamanho dos blocos armazenados no blob de blocos. Isso permite que você leia apenas as novas entradas.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

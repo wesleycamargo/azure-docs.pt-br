@@ -3,18 +3,19 @@ title: Restaurar um Azure SQL Data Warehouse (PowerShell) | Microsoft Docs
 description: Tarefas do PowerShell para restaurar um Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 332b80d5c6dbe0b46a6fb793d3c0c04574744b19
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fde06a9c7c0f0b225840c3b5a49d00fbfbcf33d9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306259"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Restaurar um Azure SQL Data Warehouse (PowerShell)
 > [!div class="op_single_selector"]
@@ -171,7 +172,7 @@ Para saber mais sobre os recursos de continuidade dos negócios das edições do
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
-[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
+[Restore-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/

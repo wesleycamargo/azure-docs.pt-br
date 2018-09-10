@@ -1,46 +1,30 @@
-# [Documentação do Azure Marketplace](index.md)  
+# [Documentação do Azure Marketplace e do AppSource](index.md)  
 
-## [Guia do editor do Azure Marketplace e do AppSource](./marketplace-publishers-guide.md)  
-### Visão Geral e Benefícios  
-### Vitrines  
-#### [Comparando AppSource e Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
-#### [Desenvolva seu negócio com o AppSource](./grow-your-business-with-appsource.md)  
-##### [Compilar Sua Página de Destino](./build-your-landing-page.md)  
-##### [Habilitar compartilhamento de clientes potenciais](./enable-lead-sharing.md)  
-##### [Benefícios GTM no marketplace](./gtm-benefits.md)  
-##### [Promover Seus Negócios com a Microsoft](./promote-your-business-with-microsoft.md)  
-#### [Aumentar sua empresa com o Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  
-##### [Compilar Sua Página de Destino](./build-your-landing-page.md)  
-##### [Habilitar compartilhamento de clientes potenciais](./enable-lead-sharing.md)  
-##### [Benefícios GTM no marketplace](./gtm-benefits.md)  
-##### [Promover Seus Negócios com a Microsoft](./promote-your-business-with-microsoft.md)  
+## [Visão geral e benefícios do Marketplace e do AppSource](./marketplace-publishers-guide.md)  
 
-### Como Publicar em vitrines no marketplace  
-#### [Determinar o Tipo de Lista para Sua Solução](./determine-your-listing-type.md)  
-#### [Tornar-se um fornecedor em vitrines no marketplace](./become-publisher.md)  
-#### [Requisitos por Tipo de Listagem](./listing-type-requirements.md)  
+### [Torne-se um editor no Marketplace](./become-publisher.md)  
+#### [Criar uma conta Microsoft](./guidelines.md)
+#### [Registrar no Centro de Desenvolvimento](./register-dev-center.md) 
+#### [Opções de cobrança do Azure Marketplace](./billing-options-azure-marketplace.md)  
+#### [Atribuição de uso do cliente do parceiro do Azure](./azure-partner-customer-usage-attribution.md)
 
-### Listas de Verificação da Publicação  
-#### [Lista de Verificação da Publicação para AppSource](./publishing-checklist-appsource.md)  
-#### [Lista de Verificação da Publicação para Azure Marketplace](./publishing-checklist-azure-marketplace.md)  
+### [Vitrines](./comparing-appsource-azure-marketplace.md)  
 
-### Suporte  
-#### [Suporte para AppSource](./support-appsource.md)  
-#### [Suporte para Azure Marketplace](./support-azure-marketplace.md)  
+### [Determine a opção de publicação para sua solução](./determine-your-listing-type.md)  
 
-### Guias  
-#### [Serviços de Consultoria do Azure Marketplace](consulting-services.md)  
-#### [Guia de publicação técnico do aplicativo SaaS do Azure Marketplace](marketplace-saas-applications-technical-publishing-guide.md) 
+### Guia de publicação por tipo de oferta 
+#### [Máquinas virtuais](./marketplace-virtual-machines.md)
+#### [Aplicativos do Azure: modelos de solução](./marketplace-solution-templates.md)
+#### [Aplicativos do Azure: aplicativos gerenciados](./marketplace-managed-apps.md)
+#### [Aplicativos SaaS](./marketplace-saas-applications-technical-publishing-guide.md) 
+#### [Contêineres](./marketplace-containers.md)
+#### [Serviço de consultoria](./consulting-services.md)  
+#### [Guia de publicação do Power BI, Office 365, Dynamics 365](./appsource-offer-publishing-guide.md)
+#### [Habilite sua experiência de avaliação do Marketplace usando o Azure Active Directory](./enable-trial-using-azure-ad.md)
 
-### Diretrizes  
-#### [Diretrizes](./guidelines.md)  
-#### [Registrar no Centro de Desenvolvimento](./register-dev-center.md)  
-#### [Adicionar Informações do Banco e de Imposto](./add-bank-tax-info.md)  
-#### [Habilitar Avaliação usando o Azure AD](./enable-trial-using-azure-ad.md)  
-#### [Opções de Cobrança do Azure Marketplace](./billing-options-azure-marketplace.md)  
+### [Amplie seus negócios com o Marketplace](./grow-your-business-with-azure-marketplace.md)  
+#### [Soluções preferenciais](./preferred-solutions.md) 
+
+### [Suporte para o Azure Marketplace e AppSource](./support-azure-marketplace.md)  
 
 ## [Portal de Parceiros de Nuvem](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
-
-## Recursos  
-### [Roteiro do Azure](https://azure.microsoft.com/roadmap/)  
-### [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)  

@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 08/16/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 9a8e4e95f2f4de6475243de196519d94e87a9297
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7d27b95f9c7d21f49f547534ca99a44657062abc
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366538"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140191"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou excluir um emparelhamento da rede virtual
 
-Saiba como criar, alterar ou excluir um emparelhamento de rede virtual. O emparelhamento de rede virtual permite que você conecte duas redes virtuais por meio da rede de backbone do Azure. Depois de emparelhadas, as duas redes virtuais ainda são gerenciadas como recursos separados. Se você é novo em emparelhamento de redes virtuais, pode saber mais sobre isso na [visão geral de emparelhamento de rede virtual](virtual-network-peering-overview.md) ou concluindo um [tutorial](tutorial-connect-virtual-networks-portal.md).
+Saiba como criar, alterar ou excluir um emparelhamento de rede virtual. O peering de rede virtual permite que você conecte redes virtuais na mesma região e entre regiões (também conhecido como Global VNet Peering) por meio da rede do backbone do Azure. Depois de emparelhadas, as duas redes virtuais ainda são gerenciadas como recursos separados. Se você é novo em emparelhamento de redes virtuais, pode saber mais sobre isso na [visão geral de emparelhamento de rede virtual](virtual-network-peering-overview.md) ou concluindo um [tutorial](tutorial-connect-virtual-networks-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -112,11 +112,11 @@ Se você deseja que as redes virtuais se comuniquem, às vezes, mas não sempre,
 
 ## <a name="requirements-and-constraints"></a>Requisitos e restrições 
 
-- <a name="cross-region"></a>Você pode parear redes virtuais na mesma região ou em regiões diferentes. As seguintes restrições não se aplicam quando ambas as redes virtuais estão na *mesma* região, mas sim quando elas estão pareadas globalmente: 
-    - As redes virtuais podem existir em qualquer região de nuvem pública do Azure, mas não em nuvens nacionais do Azure.
-    - Os recursos em uma rede virtual não podem se comunicar com o endereço IP de um balanceador de carga interno do Azure na rede virtual emparelhada. O balanceador de carga e os recursos que se comunicam com ele devem estar na mesma rede virtual.
-    - Você não pode usar gateways remotos ou permitir o tráfego de gateway. Para usar gateways remotos ou permitir tráfego de gateway, ambas as redes virtuais no emparelhamento devem existir na mesma região. 
-- As redes virtuais podem estar na mesma assinatura ou em assinaturas diferentes. Quando as redes virtuais estão em diferentes assinaturas, ambas as assinaturas devem ser associadas ao mesmo locatário do Azure Active Directory. Se você ainda não tiver um locatário do AD, [crie um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) rapidamente. Você pode usar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar duas redes virtuais que existem em diferentes assinaturas associadas a diferentes locatários do Active Directory.
+- <a name="cross-region"></a>Você pode parear redes virtuais na mesma região ou em regiões diferentes. O peering de redes virtuais em diferentes regiões também é chamado de *peering global*. 
+- Ao criar um emparelhamento global, as redes virtuais emparelhadas podem existir em qualquer região de nuvem pública do Azure, mas não em nuvens nacionais do Azure. Você pode apenas espiar redes virtuais na mesma região em nuvens nacionais.
+- Os recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador de carga interno do Azure em uma rede virtual com cobertura global. O balanceador de carga e os recursos que se comunicam com ele devem estar em uma rede virtual na mesma região. No entanto, se as redes virtuais emparelhadas estiverem na mesma região, os recursos nas redes virtuais podem se comunicar com o endereço IP de front end de um balanceador de carga interno do Azure em qualquer rede virtual no emparelhamento.
+- Você não pode usar gateways remotos ou permitir trânsito de gateway em redes virtuais emparelhadas globalmente. Para usar gateways remotos ou permitir trânsito de gateway, as redes virtuais emparelhadas devem estar na mesma região.
+- As redes virtuais podem estar na mesma assinatura ou em assinaturas diferentes. Ao usar redes virtuais em diferentes assinaturas, ambas as assinaturas devem ser associadas ao mesmo locatário do Azure Active Directory. Se você ainda não tiver um locatário do AD, [crie um](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) rapidamente. Você pode usar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar duas redes virtuais que existem em diferentes assinaturas associadas a diferentes locatários do Active Directory.
 - As redes virtuais que você emparelhar devem ter espaços de endereço IP não sobrepostos.
 - Você não pode adicionar ou excluir intervalos de endereços do espaço de endereço de uma rede virtual após ela ser emparelhada com outra rede virtual. Para adicionar ou remover intervalos de endereço, exclua o emparelhamento, adicione ou remova os intervalos de endereço e, em seguida, recrie o emparelhamento. Para adicionar ou remover intervalos de endereços de redes virtuais, consulte [Gerenciar redes virtuais](manage-virtual-network.md).
 - Você pode emparelhar duas redes virtuais implantadas por meio do Resource Manager ou uma rede virtual implantado por meio do Resource Manager com uma rede virtual implantada por meio do modelo de implantação clássico. Não é possível emparelhar duas redes virtuais criadas por meio do modelo de implantação clássico. Se você não estiver familiarizado com os modelos de implantação do Azure, leia o artigo [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Você pode usar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar duas redes virtuais criadas usando o modelo de implantação clássico.
@@ -162,6 +162,6 @@ Se sua conta não está atribuída a uma das funções anteriores, ela deve ser 
     |Um Resource Manager, um clássico  |[Idêntica](create-peering-different-deployment-models.md)|
     |                                   |[Diferente](create-peering-different-deployment-models-subscriptions.md)|
 
-* Saiba como criar uma [topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
+* Saiba como criar uma [topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * Criar um emparelhamento de rede virtual usando [PowerShell](powershell-samples.md) ou os scripts de exemplo da [CLI do Azure](cli-samples.md) ou usando os modelos do [Azure Resource Manager](template-samples.md)
 * Criar e aplicar a [Política do Azure](policy-samples.md) para redes virtuais

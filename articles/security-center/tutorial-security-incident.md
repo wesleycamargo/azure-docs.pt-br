@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774039"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Responder a incidentes de segurança
 A Central de Segurança analisa continuamente as cargas de trabalho de nuvem híbrida usando a análise avançada e a inteligência contra ameaças para lhe avisar a existência de atividades mal-intencionadas. Além disso, você pode integrar à Central de Segurança alertas de outros produtos e serviços de segurança, bem como criar alertas personalizados com base em indicadores próprios ou fontes de inteligência. Após a geração de um alerta, é necessária uma ação rápida para investigação e correção da questão. Neste tutorial, você aprenderá a:

@@ -13,16 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: cjiang
-ms.openlocfilehash: bce4b58d4197eee34be43a4dc852c6f43e0e18b4
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8368055ed017d8a9e9af92ae6461086abf1d0cff
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448806"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Inscreva-se para obter uma assinatura do Office 365 com sua conta do Azure
-Se você for assinante do Azure, você poderá usar sua conta do Azure para se inscrever para obter uma assinatura do Office 365. Se você fizer parte de uma organização que tem uma assinatura do Azure, será possível criar uma assinatura do Office 365 para usuários em seu Azure AD (Azure Active Directory) existente. Inscreva-se no Office 365 usando uma conta com permissões de Administrador Global ou de Administrador de Cobrança no seu locatário do Azure Active Directory. Para obter mais informações, consulte [Check my account permissions in Azure AD (Verificar minhas permissões de conta no Azure AD)](#RoleInAzureAD) e [Atribuindo funções de administrador no Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
+Se você for assinante do Azure, você poderá usar sua conta do Azure para se inscrever para obter uma assinatura do Office 365. Se você fizer parte de uma organização que tem uma assinatura do Azure, será possível criar uma assinatura do Office 365 para usuários em seu Azure AD (Azure Active Directory) existente. Inscreva-se no Office 365 usando uma conta com permissões de Administrador Global ou de Administrador de Cobrança no seu locatário do Azure Active Directory. Para obter mais informações, consulte [Check my account permissions in Azure AD (Verificar minhas permissões de conta no Azure AD)](#RoleInAzureAD) e [Atribuindo funções de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 Se você já tiver uma conta do Office 365 e uma assinatura do Azure, você poderá [Associar um locatário do Office 365 a uma assinatura do Azure](billing-add-office-365-tenant-to-azure-subscription.md).
 
@@ -49,7 +50,7 @@ Está tudo pronto para você. Se você criou a assinatura do Office 365 para sua
 
     ![Captura de tela de usuários do centro de administração do Office 365](./media/billing-use-existing-azure-account-office-365-subscription/16-office-365-admin-center-users.png)
 
-Depois de se inscrever, a assinatura do Office 365 é adicionada à mesma instância do Azure Active Directory à qual sua assinatura do Azure pertence. Para obter mais informações, consulte [More about Azure and Office 365 subscriptions (Mais sobre as assinaturas do Azure e do Office 365)](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) e [Como as assinaturas do Azure são associadas ao Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Depois de se inscrever, a assinatura do Office 365 é adicionada à mesma instância do Azure Active Directory à qual sua assinatura do Azure pertence. Para obter mais informações, consulte [More about Azure and Office 365 subscriptions (Mais sobre as assinaturas do Azure e do Office 365)](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) e [Como as assinaturas do Azure são associadas ao Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a id="RoleInAzureAD"></a>Verifique as permissões da minha conta no Azure AD
 1. Entre no [portal do Azure](https://portal.azure.com/).

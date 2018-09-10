@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4fa610f144277b73bb6d555d46e63a01c413e07e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e1964b7f46259e54c65aeb46aa795713922c3504
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114605"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager
 Este artigo descreve a estrutura de um modelo do Azure Resource Manager. Ele apresenta as diferentes seções de um modelo e as propriedades que estão disponíveis nessas seções. O modelo consiste em JSON e expressões que podem ser usados na criação de valores para sua implantação. Para ver um tutorial passo a passo sobre como criar um modelo, confira [Criar seu primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Formato de modelo
-Em sua estrutura mais simples, um modelo contém os seguintes elementos:
+Em sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 ```json
 {
@@ -40,15 +41,15 @@ Em sua estrutura mais simples, um modelo contém os seguintes elementos:
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
-| $schema |sim |Local do arquivo de esquema JSON que descreve a versão da linguagem do modelo. Use a URL mostrada no exemplo anterior. |
-| contentVersion |sim |Versão do modelo (como 1.0.0.0). Você pode fornecer qualquer valor para esse elemento. Ao implantar recursos com o modelo, esse valor pode ser usado para garantir que o modelo certo esteja sendo usado. |
+| $schema |SIM |Local do arquivo de esquema JSON que descreve a versão da linguagem do modelo. Use a URL mostrada no exemplo anterior. |
+| contentVersion |SIM |Versão do modelo (como 1.0.0.0). Você pode fornecer qualquer valor para esse elemento. Use esse valor para documentar alterações significativas em seu modelo. Ao implantar recursos com o modelo, esse valor pode ser usado para garantir que o modelo certo esteja sendo usado. |
 | parâmetros |Não  |Valores que são fornecidos quando a implantação é executada para personalizar a implantação dos recursos. |
 | variáveis |Não  |Valores que são usados como fragmentos JSON no modelo para simplificar expressões de linguagem do modelo. |
 | funções |Não  |Funções definidas pelo usuário que estão disponíveis no modelo. |
-| recursos |sim |Tipos de recursos que são implantados ou atualizados em um grupo de recursos. |
+| recursos |SIM |Tipos de recursos que são implantados ou atualizados em um grupo de recursos. |
 | outputs |Não  |Valores que são retornados após a implantação. |
 
-Cada elemento contém propriedades que você pode definir. O seguinte exemplo contém a sintaxe completa de um modelo:
+Cada elemento tem propriedades que você pode definir. O seguinte exemplo mostra a sintaxe completa de um modelo:
 
 ```json
 {
@@ -213,6 +214,8 @@ Dentro de seu modelo, você pode criar suas próprias funções. Essas funções
 Ao definir uma função de usuário, há algumas restrições:
 
 * A função não pode acessar variáveis.
+* A função não pode acessar os parâmetros do modelo. Ou seja, a [função dos parâmetros](resource-group-template-functions-deployment.md#parameters) está restrita aos parâmetros da função.
+* A função não pode chamar outras funções definidas pelo usuário.
 * A função não pode usar a [função de referência](resource-group-template-functions-resource.md#reference).
 * Os parâmetros para a função não podem ter valores padrão.
 
@@ -310,4 +313,4 @@ Você pode exceder alguns limites de modelo usando um modelo aninhado. Para sabe
 * Para exibir modelos completos para muitos tipos diferentes de soluções, consulte os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que podem ser usadas em um modelo, consulte [Funções do Modelo do Azure Resource Manager](resource-group-template-functions.md).
 * Para combinar vários modelos durante a implantação, consulte [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Talvez seja necessário usar recursos que existam em um grupo de recursos diferente. Essa situação é comum ao trabalhar com contas de armazenamento ou redes virtuais compartilhadas com vários grupos de recursos. Para obter mais informações, consulte a [função resourceId](resource-group-template-functions-resource.md#resourceid).
+* Para obter recomendações sobre a criação de modelos do Resource Managers que podem ser utilizados no Azure global, nas nuvens soberanas do Azure e no Azure Stack, consulte [Desenvolver modelos do Azure Resource Manager para consistência de nuvem](templates-cloud-consistency.md).

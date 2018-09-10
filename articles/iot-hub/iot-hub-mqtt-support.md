@@ -1,25 +1,19 @@
 ---
 title: Entender o suporte do MQTT do Hub IoT do Azure | Microsoft Docs
 description: Guia do desenvolvedor ‑ suporte para dispositivos que se conectam a um ponto de extremidade do Hub IoT voltado para o dispositivo usando o protocolo MQTT. Inclui informações sobre suporte interno do MQTT nos SDKs do dispositivo IoT do Azure.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: elioda
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b058f716c2435b70244c9293b1c5d897ec215f7f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2e45422ca6a861894193600eff17f192bc20b357
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42146081"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o hub IoT usando o protocolo MQTT
 
@@ -27,6 +21,8 @@ O Hub IoT permite que os dispositivos comuniquem-se com os pontos de extremidade
 
 * [MQTT v3.1.1][lnk-mqtt-org] na porta 8883
 * MQTT v3.1.1 sobre WebSocket na porta 443.
+
+O Hub IoT não é um agente MQTT completo e não dá suporte a todos os comportamentos especificados no padrão MQTT v3.1.1. Este artigo descreve como dispositivos podem usar comportamentos com suporte do MQTT para comunicar-se com o Hub IoT.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -85,7 +81,16 @@ Se um dispositivo não puder usar os SDKs do dispositivo, ele poderá se conecta
 
   Para saber mais sobre como gerar tokens SAS, confira a seção de dispositivo de [Usar tokens de segurança do Hub IoT][lnk-sas-tokens].
 
-  Durante o teste, você também pode usar a ferramenta [gerenciador de dispositivo][lnk-device-explorer] para gerar rapidamente um token SAS que pode ser copiado e colado em seu próprio código:
+  Ao testar, você também pode usar a extensão [Azure IoT Toolkit de plataforma cruzada para o código do Visual Studio](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) ou a ferramenta [Device Explorer][lnk-device-explorer] para gerar rapidamente um token SAS que você pode copiar e colar em seu próprio código:
+
+Para o Kit de ferramentas do IoT do Azure:
+
+  1. Expanda a guia **AZURE IOT HUB DEVICES** no canto inferior esquerdo do Visual Studio Code.
+  2. Clique com o botão direito no dispositivo e selecione **Generate SAS Token for Device**.
+  3. Definir **tempo de expiração** e pressione 'Enter'.
+  4. O token SAS é criado e copiado para a área de transferência.
+
+Para Device Explorer:
 
   1. Acesse a guia **Gerenciamento** no **Gerenciador de Dispositivo**.
   2. Clique em **Token SAS** (parte superior direita).

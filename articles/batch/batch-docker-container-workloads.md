@@ -8,25 +8,26 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 05/07/2018
+ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 8c9f772c9d3908e450961239797f6ce2bd4982e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a85db0315a2ee8aa9fd34b8c18893f4cb1068528
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885869"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090955"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no Lote do Azure
 
-O Lote do Azure permite executar e dimensionar um grande número trabalhos de computação em lote no Azure. Até agora, as tarefas do Lote foram executadas diretamente em VMs (máquinas virtuais) em um pool do Lote, mas agora você pode configurar um pool do Lote para executar tarefas em contêineres do Docker. Este artigo mostra como usar o SDK do .NET para o Lote para criar um pool de nós de computação que dão suporte às tarefas do contêiner em execução e como executar as tarefas do contêiner no pool.
+O Lote do Azure permite executar e dimensionar um grande número trabalhos de computação em lote no Azure. Tarefas em lote podem executar diretamente em máquinas virtuais (nós) em um pool do Lote, mas também é possível configurar um pool do Lote para executar tarefas em contêineres compatíveis com Docker nos nós. Este artigo mostra como criar um pool de nós de computação que dão suporte a tarefas de contêiner em execução e, em seguida, executar tarefas de contêiner no pool. 
 
-O uso de contêineres fornece uma maneira fácil para executar tarefas do Lote sem a necessidade de gerenciar um ambiente e as dependências para executar aplicativos. Os contêineres implantam aplicativos como unidades leves, portáteis, autossuficientes que podem ser executadas em vários ambientes. Por exemplo, você pode criar e testar um contêiner localmente e carregar a imagem do contêiner em um registro no Azure ou em outro lugar. O modelo de implantação do contêiner faz com que o ambiente de tempo de execução do seu aplicativo esteja sempre corretamente instalado e configurado, independentemente de onde você hospeda o aplicativo. As tarefas baseadas em contêiner no Lote também podem aproveitar os recursos de tarefas que não são de contêiner, incluindo pacotes de aplicativos e o gerenciamento de arquivos de recurso e arquivos de saída. 
+Você deve estar familiarizado com os conceitos de contêiner e como criar um pool do Lote e um trabalho. Os exemplos de código usam SDKs para Python e .NET do Lote. Também é possível usar outras ferramentas e SDKs do Lote, incluindo o portal do Azure para criar pools do Lote habilitados para o contêiner e para executar tarefas de contêiner.
 
-Este artigo supõe familiaridade com conceitos de contêiner do Docker e como criar um pool e um trabalho do Lote usando o SDK do .NET. Os trechos de código destinam-se para uso em um aplicativo cliente, como o [exemplo DotNetTutorial](batch-dotnet-get-started.md), e são exemplos de código em que você precisa dar suporte a aplicativos de contêiner no Lote.
+## <a name="why-use-containers"></a>Por que usar contêineres?
 
+O uso de contêineres fornece uma maneira fácil para executar tarefas do Lote sem a necessidade de gerenciar um ambiente e as dependências para executar aplicativos. Os contêineres implantam aplicativos como unidades leves, portáteis e autossuficientes que podem ser executadas em vários ambientes diferentes. Por exemplo, você pode criar e testar um contêiner localmente e carregar a imagem do contêiner em um registro no Azure ou em outro lugar. O modelo de implantação do contêiner garante que o ambiente de tempo de execução do aplicativo sempre seja instalado e configurado corretamente, independente de onde você hospeda o aplicativo. As tarefas baseadas em contêiner no Lote também podem aproveitar os recursos de tarefas que não são de contêiner, incluindo pacotes de aplicativos e o gerenciamento de arquivos de recurso e arquivos de saída. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Versões do SDK**: os SDKs do Lote começam a dar suporte a imagens de contêiner nas seguintes versões:
     * API REST do Lote versão 2017-09-01.6.0
@@ -37,107 +38,135 @@ Este artigo supõe familiaridade com conceitos de contêiner do Docker e como cr
 
 * **Contas**: em sua assinatura do Azure, você precisa criar uma conta do Lote e, opcionalmente, uma conta do Armazenamento do Azure.
 
-* **Uma imagem de VM compatível**: há suporte para contêineres apenas nos pools criados com a Configuração de Máquina Virtual com base nas imagens detalhadas na seção a seguir, "Imagens de máquina virtual compatíveis". Caso você forneça uma imagem personalizada, o aplicativo precisará usar a [autenticação do Azure AD](batch-aad-auth.md) (Azure Active Directory) para executar cargas de trabalho baseadas em contêiner. 
+* **Uma imagem de VM compatível**: há suporte para contêineres apenas nos pools criados com a Configuração de Máquina Virtual com base nas imagens detalhadas na seção a seguir, "Imagens de máquina virtual compatíveis". Se você fornecer uma imagem personalizada, consulte as considerações na seção a seguir e os requisitos em [Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md). 
 
+### <a name="limitations"></a>Limitações
+
+* O Lote dá suporte a RDMA apenas para contêineres em execução em pools Linux
+
+* Para cargas de trabalho de contêiner do Windows, é recomendável escolher um tamanho de VM com vários núcleos para o pool
 
 ## <a name="supported-virtual-machine-images"></a>Imagens de máquina virtual com suporte
 
-Você precisa usar uma imagem do Windows ou Linux compatível para criar um pool de nós de computação da VM para cargas de trabalho de contêiner.
+Use uma das imagens a seguir com suporte do Windows ou Linux para criar um conjunto de nós de computação da VM para cargas de trabalho de contêiner. Para obter mais informações sobre imagens do Marketplace compatíveis com Lote, consulte [lista de imagens de máquinas virtuais](batch-linux-nodes.md#list-of-virtual-machine-images). 
 
 ### <a name="windows-images"></a>Imagens do Windows
 
-Para cargas de trabalho de contêiner do Windows, o Lote atualmente dá suporte a imagens personalizadas que você cria nas máquinas virtuais que executam o Docker no Windows, ou você pode usar o Windows Server 2016 Datacenter com a imagem de contêineres do Azure Marketplace. Esta imagem é compatível com a ID de SKU do agente do nó `batch.node.windows amd64`. O tipo de contêiner com suporte é atualmente limitado ao Docker.
+Para cargas de trabalho de contêiner do Windows, o Lote atualmente dá suporte para imagem do **Windows Server 2016 Datacenter com Contêineres** no Azure Marketplace. Apenas imagens de contêiner do Docker têm suporte no Windows.
+
+Também é possível criar imagens personalizadas de VMs executando Docker no Windows.
 
 ### <a name="linux-images"></a>Imagens do Linux
 
-Para cargas de trabalho de contêiner do Linux, o Lote atualmente dá suporte somente a imagens personalizadas que você cria nas VMs que executam o Docker nas seguintes versões do Linux: Ubuntu 16.04 LTS ou CentOS 7.3. Se você optar por fornecer sua própria imagem personalizada do Linux, confira as instruções em [Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md).
+Para cargas de trabalho de contêiner do Linux, atualmente o Lote dá suporte para as imagens a seguir do Linux publicadas pelo Lote do Microsoft Azure no Azure Marketplace:
 
-Para o suporte ao Docker, instale o [Docker CE (Community Edition)](https://www.docker.com/community-edition) ou o [Docker EE (Enterprise Edition)](https://www.docker.com/enterprise-edition).
+* **CentOS para pools de contêiner do Lote do Azure**
 
-Se você quiser tirar proveito do desempenho de GPU dos tamanhos de VM NC ou NV do Azure, precisará instalar drivers NVIDIA na imagem. Além disso, você precisa instalar e executar o utilitário de mecanismo do Docker para GPUs NVIDIA, o [Docker NVIDIA](https://github.com/NVIDIA/nvidia-docker).
+* **CentOS (com drivers RDMA) para pools de contêiner do Lote do Azure**
 
-Para acessar a rede RDMA do Azure, use os tamanhos de VM compatíveis com RDMA, como A8, A9, H16r, H16mr ou NC24r. Os drivers RDMA necessários estão instalados nas imagens CentOS 7.3 HPC e Ubuntu 16.04 LTS do Azure Marketplace. Outras configurações podem ser necessárias para executar cargas de trabalho de MPI. Confira [Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pool do Lote](batch-pool-compute-intensive-sizes.md).
+* **Ubuntu Server para pools de contêiner do Lote do Azure**
 
+* **Ubuntu Server (com drivers RDMA) para pools de contêiner do Lote do Azure**
 
-## <a name="limitations"></a>Limitações
+Há suporte para essas imagens apenas para uso em pools do Lote do Azure. Elas apresentam:
 
-* O Lote dá suporte a RDMA apenas para contêineres em execução em pools Linux.
+* Um tempo de execução do contêiner [Moby](https://github.com/moby/moby) 
 
+* Drivers de GPU NVIDIA pré-instalados, para agilizar a implantação em VMs da série N do Azure
 
-## <a name="authenticate-using-azure-active-directory"></a>Autenticar usando o Azure Active Directory
+* Imagens com ou sem drivers RDMA pré-instalados. Esses drivers permitem que os nós do pool acessem a rede RDMA do Azure quando implantados em tamanhos de VM compatíveis com RDMA  
 
-Se você usar uma imagem de VM personalizada para criar o pool do Lote, o aplicativo cliente deverá fazer a autenticação usando a autenticação integrada do Azure AD (a autenticação de chave compartilhada não funciona). Antes de executar o aplicativo, registre-o no Azure AD para estabelecer uma identidade para ele e especificar suas permissões para outros aplicativos.
+Também é possível criar imagens personalizadas de VMs executando Docker em uma das distribuições do Linux compatíveis com Lote. Se você optar por fornecer sua própria imagem personalizada do Linux, confira as instruções em [Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md).
 
-Além disso, quando você usar uma imagem de VM personalizada, precisará conceder controle de acesso IAM ao aplicativo para acessar a imagem de VM. No portal do Azure, clique em **Todos os recursos**, selecione a imagem de contêiner e, na seção **IAM (controle de acesso)** da página da imagem, clique em **Adicionar**. Na página **Adicionar permissões**, especifique uma **Função**, em **Atribuir acesso a**, selecione **Usuário, grupo ou aplicativo do Azure AD** e, em **Selecionar**, insira o nome do aplicativo.
+Para suporte de Docker em uma imagem personalizada, instale o [Docker Community Edition (CE)](https://www.docker.com/community-edition) ou [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition).
 
-No aplicativo, passe um token de autenticação do Azure AD ao criar o cliente do Lote. Caso esteja desenvolvendo com o SDK do .NET para o Lote, use [BatchClient.Open](/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_), conforme descrito em [Autenticar soluções do serviço do Lote no Active Directory](batch-aad-auth.md).
+Considerações adicionais para usar uma imagem personalizada do Linux:
 
+* Para aproveitar o desempenho da GPU dos tamanhos da série N do Azure ao usar uma imagem personalizada, pré-instale os drivers da NVIDIA. Além disso, é necessário instalar o Docker Engine Utility para GPUs NVIDIA, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
 
-## <a name="reference-a-vm-image-for-pool-creation"></a>Fazer referência a uma imagem de VM para a criação de pool
-
-No código do aplicativo, forneça uma referência para a imagem de VM para ser usada na criação dos nós de computação do pool. Você pode fazer isso criando um objeto [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference). Você pode especificar a imagem a ser usada em uma das seguintes maneiras:
-
-* Se você estiver usando uma imagem personalizada, forneça um identificador de recurso do Azure Resource Manager para a imagem de máquina virtual. O identificador da imagem tem um formato de caminho, conforme mostrado no exemplo abaixo:
-
-  ```csharp
-  // Provide a reference to a custom image using an image ID
-  ImageReference imageReference = new ImageReference("/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.Compute/images/<imageName>");
-  ```
-
-    Para obter essa ID da imagem no portal do Azure, abra **Todos os recursos**, selecione a imagem personalizada e, na seção **Visão geral** da página da imagem, copie o caminho na **ID de recurso**.
-
-* Se estiver usando uma imagem do [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based), forneça um grupo de parâmetros que descrevem a imagem: editor, tipo de oferta, SKU e a versão da imagem, conforme listado em [Lista de imagens de máquina virtual](batch-linux-nodes.md#list-of-virtual-machine-images):
-
-  ```csharp
-  // Provide a reference to an Azure Marketplace image for
-  // "Windows Server 2016 Datacenter with Containers"
-  ImageReference imageReference = new ImageReference(
-    publisher: "MicrosoftWindowsServer",
-    offer: "WindowsServer",
-    sku: "2016-Datacenter-with-Containers",
-    version: "latest");
-  ```
+* Para acessar a rede RDMA do Azure, use um tamanho de VM compatível com RDMA. Os drivers RDMA necessários são instalados nas imagens CentOS HPC e Ubuntu com suporte pelo Batch. Outras configurações podem ser necessárias para executar cargas de trabalho de MPI. Confira [Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pool do Lote](batch-pool-compute-intensive-sizes.md).
 
 
 ## <a name="container-configuration-for-batch-pool"></a>Configuração do contêiner para o pool do Lote
 
-Para permitir que um pool do Lote execute cargas de trabalho de contêiner, é necessário especificar as configurações [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) no objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) do pool.
+Para permitir que um pool do Lote execute cargas de trabalho de contêiner, é necessário especificar as configurações [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) no objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) do pool. (Este artigo fornece links para a referência de API do .NET do Lote. Configurações correspondentes estão na [API do Python](/python/api/azure.batch) do Lote.)
 
-Crie um pool habilitado para contêiner com ou sem imagens de contêiner pré-buscadas, conforme mostrado nos exemplos a seguir. O processo de pull (ou pré-busca) permite que você carregue previamente imagens de contêiner do Hub do Docker ou de outro registro de contêiner na Internet. A vantagem da pré-busca de imagens de contêiner é que quando as tarefas começam a ser executadas, elas não precisam esperar que a imagem de contêiner seja baixada. A configuração do contêiner efetua pull de imagens de contêiner para as VMs quando o pool é criado. As tarefas executadas no pool podem fazer referência à lista de imagens de contêiner e a opções de execução do contêiner.
+Crie um pool habilitado para contêiner com ou sem imagens de contêiner pré-buscadas, conforme mostrado nos exemplos a seguir. O processo de pull (ou pré-busca) permite que você carregue previamente imagens de contêiner do Hub do Docker ou de outro registro de contêiner na Internet. Para obter o melhor desempenho, use um [Registro de contêiner do Azure](../container-registry/container-registry-intro.md) na mesma região da conta do Lote.
 
+A vantagem da pré-busca de imagens de contêiner é que quando as tarefas começam a ser executadas, elas não precisam esperar que a imagem de contêiner seja baixada. A configuração do contêiner efetua pull de imagens de contêiner para as VMs quando o pool é criado. As tarefas executadas no pool podem fazer referência à lista de imagens de contêiner e a opções de execução do contêiner.
 
 
 ### <a name="pool-without-prefetched-container-images"></a>Pool sem imagens de contêiner de pré-busca
 
-Para configurar um pool habilitado para contêiner sem imagens de contêiner pré-buscadas, defina os objetos `ContainerConfiguration` e `VirtualMachineConfiguration`, conforme mostrado no exemplo a seguir. Isso e os exemplos a seguir presumem que você está usando uma imagem personalizada do Ubuntu 16.04 LTS com o Mecanismo do Docker instalado.
+Para configurar um pool habilitado para contêiner sem imagens de contêiner pré-buscadas, defina os objetos `ContainerConfiguration` e `VirtualMachineConfiguration`, conforme mostrado no exemplo do Python. Este exemplo usa a imagem de pools de contêiner do Ubuntu Server para Lote do Azure do Marketplace.
 
-```csharp
-// Specify container configuration. This is required even though there are no prefetched images.
-ContainerConfiguration containerConfig = new ContainerConfiguration();
 
-// VM configuration
-VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
-    imageReference: imageReference,
-    containerConfiguration: containerConfig,
-    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+```python
+image_ref_to_use = batch.models.ImageReference(
+        publisher='microsoft-azure-batch',
+        offer='ubuntu-server-container',
+        sku='16-04-lts',
+        version='latest')
 
-// Create pool
-CloudPool pool = batchClient.PoolOperations.CreatePool(
-    poolId: poolId,
-    targetDedicatedComputeNodes: 4,
-    virtualMachineSize: "Standard_NC6",
-    virtualMachineConfiguration: virtualMachineConfiguration);
+"""
+Specify container configuration. This is required even though there are no prefetched images.
+"""
 
-// Commit pool creation
-pool.Commit();
+container_conf = batch.models.ContainerConfiguration()
+
+new_pool = batch.models.PoolAddParameter(
+        id=pool_id,
+        virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+            image_reference=image_ref_to_use,
+            container_configuration=container_conf,
+            node_agent_sku_id='batch.node.ubuntu 16.04'),
+        vm_size='STANDARD_D1_V2',
+        target_dedicated_nodes=1)
+...
 ```
 
 
 ### <a name="prefetch-images-for-container-configuration"></a>Imagens de pré-busca para configuração do contêiner
 
-Para executar a pré-busca de imagens de contêiner no pool, adicione a lista de imagens de contêiner (`containerImageNames`) à `ContainerConfiguration` e nomeie a lista de imagens. O exemplo a seguir pressupõe que você está usando uma imagem personalizada do Ubuntu 16.04 LTS, e fez a pré-busca de uma imagem de TensorFlow do [Hub do Docker](https://hub.docker.com). Este exemplo inclui uma tarefa inicial que é executada no host de VM em nós do pool. Você pode executar uma tarefa inicial no host, por exemplo, para montar um servidor de arquivos que pode ser acessado por meio dos contêineres.
+Para pré-buscar imagens de contêiner no pool, adicione a lista de imagens de contêiner (`container_image_names`, no Python) para `ContainerConfiguration`. 
+
+O exemplo básico do Python a seguir mostra como pré-buscar uma imagem de contêiner padrão do Ubuntu a partir do [Hub do Docker](https://hub.docker.com).
+
+```python
+image_ref_to_use = batch.models.ImageReference(
+    publisher='microsoft-azure-batch',
+    offer='ubuntu-server-container',
+    sku='16-04-lts',
+    version='latest')
+
+"""
+Specify container configuration, fetching the official Ubuntu container image from Docker Hub. 
+"""
+
+container_conf = batch.models.ContainerConfiguration(container_image_names=['ubuntu'])
+
+new_pool = batch.models.PoolAddParameter(
+    id=pool_id,
+    virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+        image_reference=image_ref_to_use,
+        container_configuration=container_conf,
+        node_agent_sku_id='batch.node.ubuntu 16.04'),
+    vm_size='STANDARD_D1_V2',
+    target_dedicated_nodes=1)
+...
+```
+
+
+O exemplo C# do exemplo a seguir pressupõe que você deseja pré-buscar uma imagem do TensorFlow a partir do [Hub do Docker](https://hub.docker.com). Este exemplo inclui uma tarefa inicial que é executada no host de VM em nós do pool. Você pode executar uma tarefa inicial no host, por exemplo, para montar um servidor de arquivos que pode ser acessado por meio dos contêineres.
 
 ```csharp
+
+ImageReference imageReference = new ImageReference(
+    publisher: "microsoft-azure-batch",
+    offer: "ubuntu-server-container",
+    sku: "16-04-lts",
+    version: "latest");
+
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
@@ -157,15 +186,13 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
     virtualMachineConfiguration: virtualMachineConfiguration, startTaskContainer);
-
-// Commit pool creation
-pool.Commit();
+...
 ```
 
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Imagens de pré-busca de um registro de contêiner privado
 
-Você também pode executar a pré-busca de imagens de contêiner ao fazer a autenticação em um servidor de registro de contêiner privado. No exemplo a seguir, os objetos `ContainerConfiguration` e `VirtualMachineConfiguration` usam uma imagem personalizada do Ubuntu 16.04 LTS e realizam a pré-busca de uma imagem privada do TensorFlow de um Registro de Contêiner do Azure privado.
+Você também pode executar a pré-busca de imagens de contêiner ao fazer a autenticação em um servidor de registro de contêiner privado. No exemplo a seguir, os objetos `ContainerConfiguration` e `VirtualMachineConfiguration` pré-buscam uma imagem privada do TensorFlow de um registro de contêiner do Azure privado. A referência da imagem é a mesma do exemplo anterior.
 
 ```csharp
 // Specify a container registry
@@ -192,9 +219,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
     virtualMachineConfiguration: virtualMachineConfiguration);
-
-// Commit pool creation
-pool.Commit();
+...
 ```
 
 
@@ -206,14 +231,35 @@ Use a propriedade `ContainerSettings` das classes de tarefa para definir configu
 
 Se você executar tarefas em imagens de contêiner, a [tarefa nuvem](/dotnet/api/microsoft.azure.batch.cloudtask) e a [tarefa do gerenciador de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) exigirão configurações de contêiner. No entanto, [iniciar tarefa](/dotnet/api/microsoft.azure.batch.starttask), [tarefa de preparação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e [tarefa de liberação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) não exigem configurações de contêiner (ou seja, podem ser executados em um contexto de contêiner ou diretamente no nó).
 
-Quando você define as configurações do contêiner, todos os diretórios recursivamente abaixo de `AZ_BATCH_NODE_ROOT_DIR` (a raiz dos diretórios do Lote do Azure no nó) são mapeadas para o contêiner, todas as variáveis de ambiente são mapeadas para o contêiner e a linha de comando da tarefa é executada no contêiner.
+A linha de comando para uma tarefa de contêiner do Azure Batch é executada em um diretório de trabalho no contêiner que é muito semelhante ao ambiente que o Batch configura para uma tarefa regular (sem contêiner):
 
-O exemplo de código em [Imagens para a configuração do contêiner de pré-busca](#prefetch-images-for-container-configuration) mostrou como você pode especificar uma configuração de contêiner para uma tarefa inicial. O exemplo de código abaixo mostra como especificar a configuração do contêiner para uma tarefa de nuvem:
+* Todos os diretórios recursivamente abaixo de `AZ_BATCH_NODE_ROOT_DIR`(a raiz dos diretórios do Azure Batch no nó) são mapeados para o contêiner
+* Todas as variáveis de ambiente de tarefas são mapeadas no contêiner
+* O diretório de trabalho do aplicativo é definido da mesma forma que para uma tarefa normal, para que você possa usar recursos como pacotes de aplicativos e arquivos de recursos
+
+Como o Batch altera o diretório de trabalho padrão em seu contêiner, a tarefa é executada em um local diferente do ponto de entrada do contêiner típico (por exemplo, `c:\`por padrão em um contêiner do Windows ou `/` no Linux). Certifique-se de que a linha de comando da tarefa ou o ponto de entrada do contêiner especifique um caminho absoluto, caso ainda não esteja configurado dessa maneira.
+
+O trecho de código do Python a seguir mostra uma linha de comando básica em execução em um contêiner do Ubuntu obtido do Hub do Docker. As opções de execução do contêiner são argumentos adicionais para o comando `docker create` executado pela tarefa. Aqui, a opção `--rm` remove o contêiner após a conclusão da tarefa.
+
+```python
+task_id = 'sampletask'
+task_container_settings = batch.models.TaskContainerSettings(
+    image_name='ubuntu', 
+    container_run_options='--rm')
+task = batch.models.TaskAddParameter(
+    id=task_id,
+    command_line='/bin/echo hello',
+    container_settings=task_container_settings
+)
+
+```
+
+O exemplo C# a seguir mostra as configurações básicas do contêiner para uma tarefa de nuvem:
 
 ```csharp
 // Simple container task command
 
-string cmdLine = "<my-command-line>";
+string cmdLine = "c:\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
     imageName: "tensorflow/tensorflow:latest-gpu",
@@ -234,3 +280,5 @@ CloudTask containerTask = new CloudTask (
 * Para saber mais sobre como instalar e usar o Docker CE no Linux, confira a documentação do [Docker](https://docs.docker.com/engine/installation/).
 
 * Para saber mais sobre como usar imagens personalizadas, confira [Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md).
+
+* Saiba mais sobre o [projeto Moby](https://mobyproject.org/), uma estrutura para criar sistemas baseados em contêiner.

@@ -1,27 +1,25 @@
 ---
-title: Como usar o serviço de tabela de armazenamento do Azure ou API da tabela do Azure Cosmos DB do PHP | Microsoft Docs
-description: Saiba como usar a API do serviço Tabela do PHP para criar e excluir tabelas e inserir, excluir e consultar a tabela.
+title: Como usar o serviço de tabela de armazenamento do Azure ou a API da tabela do Azure Cosmos DB do PHP | Microsoft Docs
+description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: php
 author: SnehaGunda
 manager: kfile
-ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: php
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: af193c5ec7993d44fe67216843eb18f459718cfe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7ca8e786a8284fd958948e313b79e34a6f502120
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920509"
 ---
-# <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Como usar o serviço de tabela de armazenamento do Azure ou API da tabela do Cosmos DB do PHP
+# <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Como usar o serviço de Tabela de Armazenamento do Azure ou a API da tabela do Azure Cosmos DB do PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Visão geral
 Este guia mostra como executar cenários comuns usando o serviço de Tabelas de Armazenamento do Azure e a API de Tabela do Azure Cosmos DB. Os exemplos são escritos em PHP e usam a [Biblioteca do Cliente de PHP da Tabela Armazenamento do Azure][download]. Os cenários abrangidos incluem **criar e excluir uma tabela** e **inserir, excluir e consultar entidades em uma tabela**. Para obter mais informações sobre o serviço Tabela do Azure, consulte a seção [Próximas etapas](#next-steps) .
@@ -123,7 +121,7 @@ O objeto **TableRestProxy** permite que você crie uma tabela com o método **cr
 require_once 'vendor\autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create Table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -150,7 +148,7 @@ Para adicionar uma entidade a uma tabela, crie um novo objeto **Entidade** e pas
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 
@@ -186,7 +184,7 @@ A classe **TableRestProxy** oferece dois métodos alternativos para inserir enti
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 
@@ -229,7 +227,7 @@ O método **TableRestProxy->getEntity** permite que você recupere uma única en
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -258,7 +256,7 @@ As consultas de entidade são construídas com filtros (para obter mais informa�
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -291,7 +289,7 @@ O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -324,7 +322,7 @@ Uma consulta pode recuperar um subconjunto de propriedades da entidade. Essa té
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\QueryEntitiesOptions;
 
 // Create table REST proxy.
@@ -363,7 +361,7 @@ Você pode atualizar uma entidade existente usando os métodos **Entidade->setPr
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 
@@ -397,7 +395,7 @@ Para excluir uma entidade, passe o nome da tabela e a `PartitionKey` e `RowKey` 
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -434,7 +432,7 @@ O exemplo a seguir mostra como executar as operações **insertEntity** e **dele
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 use MicrosoftAzure\Storage\Table\Models\BatchOperations;
@@ -485,7 +483,7 @@ Finalmente, para excluir uma tabela, passe o nome da tabela para o método **Tab
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -509,7 +507,7 @@ Agora que você aprendeu os conceitos básicos do serviço Tabela do Azure e Azu
 
 * [O Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
 
-* [Central de Desenvolvimento do PHP](/develop/php/).
+* [Central de Desenvolvimento do PHP](https://azure.microsoft.com/develop/php/).
 
 [download]: https://packagist.org/packages/microsoft/azure-storage-table
 [require_once]: http://php.net/require_once

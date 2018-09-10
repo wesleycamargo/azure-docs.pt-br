@@ -1,29 +1,23 @@
 ---
-title: Consultar um índice (portal - Azure Search) | Microsoft Docs
-description: Emita uma consulta de pesquisa no Gerenciador de Pesquisa do Portal do Azure.
+title: Search Explorer para consultar índices no Azure Search | Microsoft Docs
+description: Saiba como usar o Search Explorer para consultar índices no Azure Search.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 07/10/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: a3592bd0c304dfb78374eeba432c0d28203980c9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 520d9e7b1899c54d922ff6fb77e0901f9609b029
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004126"
 ---
-# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Consultar um índice do Azure Search usando o Search Explorer no portal do Azure
-> [!div class="op_single_selector"]
-> * [Visão geral](search-query-overview.md)
-> * [Portal](search-explorer.md)
-> * [.NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
-> 
-> 
+# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Como usar o Search Explorer para consultar índices no Azure Search 
 
-Este artigo mostra como consultar um índice do Azure Search usando o **Search Explorer** no portal do Azure. Você pode usar o Search Explorer para enviar cadeias de caracteres de consulta Lucene simples ou completas para qualquer índice existente em seu serviço.
+Este artigo mostra como consultar um índice existente do Azure Search usando o **Search Explorer** no portal do Azure. Você pode usar o Search Explorer para enviar cadeias de caracteres de consulta Lucene simples ou completas para qualquer índice existente em seu serviço.
 
 ## <a name="open-the-service-dashboard"></a>Abrir o painel de serviço
 1. Clique em **Todos os recursos** no menu à esquerda do [portal do Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).

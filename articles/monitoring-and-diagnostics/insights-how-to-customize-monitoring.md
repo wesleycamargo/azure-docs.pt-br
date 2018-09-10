@@ -1,24 +1,19 @@
 ---
-title: "Visão Geral das métricas no Microsoft Azure | Microsoft Docs"
-description: "Saiba como personalizar gráficos de monitoramento no Azure."
+title: Visão geral das métricas no Azure Monitor
+description: Saiba como personalizar gráficos de monitoramento no Azure.
 author: rboucher
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: c36031eb-4df5-4cd5-9479-311d493a40d2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: robb
-ms.openlocfilehash: 3f9ebb0f5737714dd685f0dcc1ff4b1c0c89528f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: metrics
+ms.openlocfilehash: 44daf6461a062e75435ec6f70fbc3cf10327e799
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213037"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Visão Geral das métricas no Microsoft Azure
 Todos os serviços do Azure monitoram métricas-chave que permitem que você monitore a integridade, o desempenho, a disponibilidade e o uso de seus serviços. Você pode exibir essas métricas no portal do Azure e também pode usar a [API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) ou o [SDK .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) para acessar o conjunto completo de métricas programaticamente.
@@ -30,7 +25,7 @@ Você pode criar um gráfico com as métricas relativas a qualquer período de t
 
 1. No [Portal do Azure](https://portal.azure.com/), clique em **Navegar**e, em seguida, clique em um recurso que você esteja interessado em monitorar.
 2. A seção **Monitoramento** contém as métricas mais importantes para cada recurso do Azure. Por exemplo, um aplicativo Web tem **Solicitações e erros**, enquanto que uma máquina virtual teria **Percentual de CPU** e **Leitura e gravação de disco**: ![Lente de monitoramento](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
-3. Clicar em qualquer gráfico mostrará a folha **Métrica** . Na folha, além do gráfico, há uma tabela que mostra as agregações das métricas (como média, mínima e máxima, para o intervalo de tempo que você escolheu). Abaixo disso estão as regras de alerta para o recurso.
+3. Clicar em qualquer gráfico mostrará a folha **Métrica** . Na folha, além do grafo, há uma tabela que mostra as agregações das métricas (como média, mínima e máxima, para o intervalo de tempo que você escolheu). Abaixo disso estão as regras de alerta para o recurso.
     ![Folha Métrica](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 4. Para personalizar as linhas que aparecem, clique no botão **Editar** no gráfico ou no comando **Editar gráfico** na folha Métrica.
 5. Na folha Editar consulta, você pode fazer três coisas:

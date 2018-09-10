@@ -1,23 +1,20 @@
 ---
-title: Usar a interface do usuário do Tez com o HDInsight baseado em Windows – Azure | Microsoft Docs
+title: Usar a interface de usuário do Tez com o HDInsight baseado em Windows - Azure
 description: Saiba como usar a interface de usuário do Tez para depurar trabalhos do Tez no HDInsight baseado no Windows.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: a55bccb9-7c32-4ff2-b654-213a2354bd5c
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4201fb76ef9b0e711fd48972db86c356d72e6671
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ff47d0a71e97ce4ec9fd04e1d0cb9e5592192d53
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112180"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Usar a interface de usuário do Tez para depurar trabalhos no HDInsight baseado no Windows
 A interface do usuário do Tez pode ser usada para depurar os trabalhos do Hive que usam o Tez como o mecanismo de execução. A interface do usuário do Tez visualiza o trabalho como um grafo de itens conectados, é possível detalhar cada item e recuperar estatísticas e informações de registro.
@@ -25,7 +22,7 @@ A interface do usuário do Tez pode ser usada para depurar os trabalhos do Hive 
 > [!IMPORTANT]
 > As etapas deste documento exigem um cluster HDInsight que usa Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Um cluster HDInsight baseado no Windows. Para obter as etapas de criação de um novo cluster, confira [Introdução ao uso do HDInsight baseado no Windows](hdinsight-hadoop-tutorial-get-started-windows.md).
 
   > [!IMPORTANT]

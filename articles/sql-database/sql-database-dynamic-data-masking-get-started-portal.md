@@ -6,18 +6,19 @@ author: ronitr
 manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: ronitr
-ms.openlocfilehash: c77ccbd85f6dd31ae2ecfb3d2965e384a1915e28
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8f7720555a3cfc39ce9e9b5ad2c392bab74b64ca
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144740"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introdução à máscara de dados dinâmicos do Banco de Dados SQL com o portal do Azure
 
-Este artigo mostra como implementar a [máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md) com o Portal do Azure. Você também pode implementar a máscara de dados dinâmicos usando [cmdlets de Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) ou a [API REST](https://msdn.microsoft.com/library/dn505719.aspx).
+Este artigo mostra como implementar a [máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md) com o Portal do Azure. Você também pode implementar a máscara de dados dinâmicos usando [cmdlets de Banco de Dados SQL do Azure](https://docs.microsoft.com/powershell/module/azurerm.sql/) ou a [API REST](https://msdn.microsoft.com/library/dn505719.aspx).
 
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Configurar o mascaramento de dados dinâmicos para o banco de dados usando o portal do Azure
@@ -53,4 +54,4 @@ Este artigo mostra como implementar a [máscara de dados dinâmicos](sql-databas
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma visão geral da máscara de dados dinâmicos, consulte [máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md).
-* Você também pode implementar a máscara de dados dinâmicos usando [cmdlets de Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) ou a [API REST](https://msdn.microsoft.com/library/dn505719.aspx).
+* Você também pode implementar a máscara de dados dinâmicos usando [cmdlets de Banco de Dados SQL do Azure](https://docs.microsoft.com/powershell/module/azurerm.sql/) ou a [API REST](https://msdn.microsoft.com/library/dn505719.aspx).

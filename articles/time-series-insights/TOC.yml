@@ -16,6 +16,8 @@
       href: tutorial-explore-js-client-lib.md
     - name: Criar um ambiente TSI
       href: tutorial-create-populate-tsi-environment.md
+    - name: Criar um aplicativo web de página única web TSI
+      href: tutorial-create-tsi-sample-spa.md
 - name: Conceitos
   items:
     - name: Planejar seu ambiente
@@ -99,7 +101,7 @@
     - name: Solicitações de dados do cliente
       href: time-series-insights-customer-data-requests.md
     - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
     - name: Calculadora de preço

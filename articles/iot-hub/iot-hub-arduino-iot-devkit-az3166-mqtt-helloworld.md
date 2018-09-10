@@ -1,24 +1,20 @@
 ---
-title: Enviar mensagens para um servidor MQTT usando a biblioteca de clientes MQTT | Microsoft Docs.
-description: Use o DevKit como um cliente para enviar mensagens para um servidor MQTT.
-services: iot-hub
-documentationcenter: ''
+title: Enviar mensagens para um servidor MQTT usando a biblioteca de clientes MQTT do Azure | Microsoft Docs
+description: Use o DevKit como um cliente para enviar mensagens para um servidor MQTT
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 073ac7cf2d8d8d5dac6a5a4f9b9d4e3d1af6f095
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fc74613e00adc459f7a7b0a16c6f773fe4bf601d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593648"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Enviar mensagens para um servidor MQTT
 
@@ -41,7 +37,7 @@ Siga o [Guia de Introdução](https://docs.microsoft.com/azure/iot-hub/iot-hub-a
 
 ## <a name="open-the-project-folder"></a>Abrir a pasta do projeto
 
-1. Desconecte o DevKit de seu computador, se ele já estiver conectado.
+1. Se o Kit de Desenvolvimento já estiver conectado ao seu computador, desconecte-o.
 
 2. Iniciar o VS Code.
 
@@ -61,7 +57,7 @@ Digite `Ctrl+P` (macOS: `Cmd+P`) para executar `task device-upload`. Quando o up
 ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
-> Você pode receber uma mensagem de erro "Erro: AZ3166: pacote desconhecido". Esse erro ocorre quando o índice do pacote de quadro não é atualizado corretamente. Para resolver esse erro, consulte as [Perguntas Frequentes](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> Você pode receber uma mensagem de erro "Erro: AZ3166: pacote desconhecido". Esse erro ocorre quando o índice do pacote de quadro não é atualizado corretamente. Para resolver esse erro, consulte a [seção de desenvolvimento de perguntas frequentes sobre o Kit de Desenvolvimento de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Teste do projeto
 
@@ -79,19 +75,19 @@ O Serial Monitor exibe todas as mensagens enviadas pelo esboço de exemplo. O es
 
 ## <a name="problems-and-feedback"></a>Comentários e problemas
 
-Se você encontrar problemas, consulte [Perguntas frequentes](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou conecte-se usando canais abaixo:
+Se você encontrar problemas, consulte [as perguntas frequentes do Kit de Desenvolvedores de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou entre em contato conosco usando os seguintes canais:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="see-also"></a>Consulte também
 
-* [Como conectar o IoT DevKit AZ3166 ao Hub IoT na nuvem]({{"/docs/getting-started/" | absolute_url }})
-* [Shake, Shake para um Tweet]({{"/docs/projects/shake-shake/" | absolute_url }})
+* [Como conectar o IoT DevKit AZ3166 ao Hub IoT na nuvem](iot-hub-arduino-iot-devkit-az3166-get-started.md)
+* [Shake, Shake para um Tweet](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu a configurar seu MXChip Iot DevKit como um cliente MQTT e usar a biblioteca de clientes MQTT para enviar mensagens a um agente MQTT, aqui estão as próximas etapas sugeridas:
 
 * [Visão geral do acelerador de solução de Monitoramento Remoto do Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Conectar um dispositivo MXChip IoT DevKit ao aplicativo Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Conectar um dispositivo MXChip IoT DevKit ao seu aplicativo Azure IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

@@ -9,17 +9,18 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 7a7d2aa61f25bc4782c6a1a6744e329935477f8c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5c3cf162caf5cf9aa88b012257d4caab37b7893c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424204"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
 
 O Registro de Contêiner do Azure é um registro privado baseado no Azure para imagens de contêiner do Docker. Este artigo descreve como implantar imagens de contêiner armazenadas em um registro de contêiner do Azure nas Instâncias de Contêiner do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 **Registro de Contêiner do Azure**: você precisa de um registro de contêiner do Azure - e pelo menos uma imagem de contêiner no registro - para concluir as etapas deste artigo. Se você precisar de um registro, consulte [Criar um registro de contêiner usando a CLI do Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -159,5 +160,5 @@ Para obter mais informações sobre a autenticação do Registro de Contêiner d
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-container-create]: /cli/azure/container#az_container_create
+[az-container-create]: /cli/azure/container#az-container-create
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set

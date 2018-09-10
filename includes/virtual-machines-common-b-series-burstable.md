@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 8a7207328f49488b0df8f6e1e0ed86c6f965d32f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 533fa1a8491a701571011f407b338e04fb6a7e8b
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34307430"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40183405"
 ---
 A família de VMs da série B permite que você escolha o tamanho de VM que oferece o nível necessário da linha de base de desempenho para sua carga de trabalho, com a capacidade de aumentar o desempenho da CPU em até 100% de um Intel® Broadwell E5-2673 v4 2.3 GHz ou vCPU do processador do Intel® Haswell 2.4 GHz E5-2673 v3.
 
@@ -59,7 +59,7 @@ Se eu usar os 120 créditos acumulados fora de pico e subtrair os 96 créditos q
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>P: a série B dá suporte a discos de dados de Armazenamento Premium?
 **R**: sim, todos os tamanhos da série B dão suporte a discos de dados de Armazenamento Premium.   
     
-### <a name="q-why-is-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>P: Meus créditos restantes estão definidos como 0 depois uma reimplantação ou uma parada/inicio?
+### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>P: Por que meu conjunto de créditos restantes está definido como 0 após uma reimplantação ou parar/iniciar?
 **R** : Quando uma VM for “REIMPLANTADA”, ou seja, a VM se move para outro nó e o crédito acumulado é perdido. Se a VM for iniciada/interrompida, mas permanecer no mesmo nó, a VM retém o crédito acumulado. Sempre que a VM iniciar de novo em um nó, ele recebe uma crédito inicial, para Standard_B8ms de 240 minutos.
 
     

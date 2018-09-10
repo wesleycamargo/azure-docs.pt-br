@@ -1,25 +1,19 @@
 ---
-title: "Conceitos de desenvolvedor do Catálogo de Dados | Microsoft Docs"
-description: "Introdução aos conceitos principais no modelo conceitual do Catálogo de Dados do Azure, conforme exposto pela API REST do Catálogo."
+title: Conceitos de desenvolvedor do Catálogo de Dados do Azure
+description: Introdução aos conceitos principais no modelo conceitual do Catálogo de Dados do Azure, conforme exposto pela API REST do Catálogo.
 services: data-catalog
-documentationcenter: 
 author: spelluru
-manager: jhubbard
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 48d4a33f7667786f2eb8851ed69dedc206e777ae
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 753b4660c8ca47f12aace87a254b93a88db8aaa7
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052904"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceitos de desenvolvedor do Catálogo de Dados do Azure
 O **Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que fornece recursos para descoberta de fonte de dados e metadados de fonte de dados de crowdsourcing. Os desenvolvedores podem usar o serviço por meio de suas APIs REST. Entender os conceitos implementados no serviço é importante para os desenvolvedores integrarem com êxito o **Catálogo de Dados do Azure**.
@@ -308,7 +302,7 @@ A entidade de segurança especial &lt;Everyone&gt; tem a objectId "00000000-0000
         ]
     }
 
-  **Atribuir proprietários e restringir a visibilidade de um item raiz existente**: **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+  **Atribua proprietários e restrinja a visibilidade de um item de raiz existente**: **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
     {
         "roles": [

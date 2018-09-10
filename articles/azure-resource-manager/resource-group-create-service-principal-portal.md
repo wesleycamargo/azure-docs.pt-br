@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a8784a8e29e65d8abea566b5a2bf41a2ae6cadf0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282231"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar recursos
 
-Quando você tiver um código que precisa acessar ou modificar os recursos, deverá configurar um aplicativo do Azure AD (Active Directory). Você pode atribuir as permissões necessárias para o aplicativo do AD. Essa abordagem é preferível executar o aplicativo com suas próprias credenciais, porque você pode atribuir permissões para a identidade do aplicativo que são diferentes de suas próprias permissões. Normalmente, essas permissões são restritas a exatamente o que o aplicativo precisa fazer.
+Quando você tiver um código que precisa acessar ou modificar os recursos, deverá configurar um aplicativo do Azure AD (Active Directory). Desse modo, será possível atribuir as permissões necessárias ao aplicativo do AD. Essa abordagem é preferível executar o aplicativo com suas próprias credenciais, porque você pode atribuir permissões para a identidade do aplicativo que são diferentes de suas próprias permissões. Normalmente, essas permissões são restritas a exatamente o que o aplicativo precisa fazer.
 
 Este artigo mostra como executar essas etapas no portal. Ele se concentra em um aplicativo de locatário único que se destina a ser executado dentro de uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
 
@@ -46,7 +47,7 @@ Para concluir este artigo, você deve ter permissões suficientes para registrar
 
    ![exibir registros de aplicativo](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Se a configuração de registros de aplicativo estiver definida como **Não**, somente os [administradores globais](../active-directory/active-directory-assign-admin-roles-azure-portal.md) poderão registrar aplicativos. Verifique se sua conta é de administrador para o locatário do Azure AD. Selecione **Visão geral** e examine as informações do usuário. Se a conta estiver atribuída com a função de usuário, mas a configuração de registro de aplicativo (da etapa anterior) estiver limitada a usuários administradores, peça ao administrador para atribuir a você a função de administrador global ou para permitir que os usuários registrem aplicativos.
+1. Se a configuração de registros de aplicativo estiver definida como **Não**, somente os [administradores globais](../active-directory/users-groups-roles/directory-assign-admin-roles.md) poderão registrar aplicativos. Verifique se sua conta é de administrador para o locatário do Azure AD. Selecione **Visão geral** e examine as informações do usuário. Se a conta estiver atribuída com a função de usuário, mas a configuração de registro de aplicativo (da etapa anterior) estiver limitada a usuários administradores, peça ao administrador para atribuir a você a função de administrador global ou para permitir que os usuários registrem aplicativos.
 
    ![localizar usuário](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
@@ -155,7 +156,7 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
 
    ![escolher adicionar](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. Selecione a função que deseja atribuir ao aplicativo. A imagem a seguir mostra a função **Leitor**.
+1. Selecione a função que deseja atribuir ao aplicativo. Para permitir que o aplicativo execute ações como **reiniciar**, **iniciar** e **parar** instâncias, será necessário selecionar a função **Colaborador**. A imagem a seguir mostra a função **Leitor**.
 
    ![escolher função](./media/resource-group-create-service-principal-portal/select-role.png)
 

@@ -1,24 +1,20 @@
 ---
-title: Arquitetura de Hadoop - Microsoft Azure HDInsight | Microsoft Docs
+title: Arquitetura do Hadoop - Azure HDInsight
 description: Descreve o armazenamento e processamento do Hadoop em Clusters HDInsight.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 5ec5f1f24d3bf953115bfa5023faf81df132f510
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 039a16e7c33a1b3c09c91103c372553e282b6028
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108258"
 ---
 # <a name="hadoop-architecture-in-hdinsight"></a>Arquitetura de Hadoop no HDInsight
 

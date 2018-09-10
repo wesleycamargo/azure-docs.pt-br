@@ -1,30 +1,32 @@
 ---
-title: "Visão geral dos recursos de Hubs de eventos do Azure | Microsoft Docs"
-description: "Visão geral e detalhes sobre os recursos de Hubs de Eventos do Azure"
+title: Visão geral dos recursos de Hubs de eventos do Azure | Microsoft Docs
+description: Visão geral e detalhes sobre os recursos de Hubs de Eventos do Azure
 services: event-hubs
 documentationcenter: .net
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: 
-ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/02/2018
-ms.author: sethm
-ms.openlocfilehash: aaedb8ed2be85017b17a2015ff2fcaaf76c20058
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 08/08/2018
+ms.author: shvija
+ms.openlocfilehash: c4a9a3189f3de101528871e4dba95bf7a76b9846
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746907"
 ---
 # <a name="event-hubs-features-overview"></a>Visão geral dos recursos de Hubs de Eventos
 
-Os Hubs de Evento do Azure é um serviço de processamento de evento escalonável que recebe e processa grandes volumes de eventos e dados, com baixa latência e alta confiabilidade. Consulte [O que são Hubs de Eventos?](event-hubs-what-is-event-hubs.md) para obter uma visão geral de alto nível do serviço.
+Os Hubs de Evento do Azure é um serviço de processamento de evento escalonável que recebe e processa grandes volumes de eventos e dados, com baixa latência e alta confiabilidade. Confira [O que são Hubs de Eventos?](event-hubs-what-is-event-hubs.md) para obter uma visão geral de alto nível.
 
 Este artigo se baseia nas informações do [artigo de visão geral](event-hubs-what-is-event-hubs.md) e fornece detalhes técnicos e de implementação sobre recursos e componentes dos Hubs de Eventos.
+
+## <a name="namespace"></a>Namespace
+Um namespace de Hubs de Eventos fornece um contêiner de escopo exclusivo, referenciado pelo [nome de domínio totalmente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), em que você cria uma ou mais hubs de eventos tópicos Kafka. 
 
 ## <a name="event-publishers"></a>Editores de eventos
 
@@ -36,7 +38,7 @@ Você pode publicar um evento por meio do AMQP 1.0 ou HTTPS. Hubs de Eventos for
 
 A opção de usar AMQP ou HTTPS é específica para o cenário de uso. O AMQP requer o estabelecimento de um soquete bidirecional persistente, além do TLS (segurança de nível de transporte) ou SSL/TLS. O AMQP tem custos mais altos de rede ao inicializar a sessão, mas o HTTPS requer SSL adicional de sobrecarga para cada solicitação. O AMQP tem um melhor desempenho para editores frequentes.
 
-![Hubs de evento](./media/event-hubs-features/partition_keys.png)
+![Hubs de Eventos](./media/event-hubs-features/partition_keys.png)
 
 Os Hubs de Eventos garantem que todos os eventos que compartilham um valor de chave de partição sejam entregues na ordem e para a mesma partição. Se forem usadas chaves de partição com políticas de editor, a identidade do editor e o valor da chave de partição devem corresponder. Caso contrário, ocorrerá um erro.
 
@@ -44,7 +46,7 @@ Os Hubs de Eventos garantem que todos os eventos que compartilham um valor de ch
 
 Os Hubs de Eventos permitem um controle granular sobre os editores de eventos por meio de *políticas do editor*. As políticas do editor são recursos de tempo de execução criado para facilitar um grande número de editores de eventos independentes. Com as políticas do editor, cada editor usa seu próprio identificador exclusivo ao publicar eventos em um hub de eventos usando o mecanismo a seguir:
 
-```
+```http
 //[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
 ```
 
@@ -60,11 +62,11 @@ Os Hubs de Evento fornecem streaming de mensagens por meio de um padrão de cons
 
 Uma partição é uma sequência ordenada de eventos que é mantida em um hub de eventos. À medida que novos eventos chegam, eles são adicionados ao final dessa sequência. Uma partição pode ser pensada como "log de confirmação".
 
-![Hubs de evento](./media/event-hubs-features/partition.png)
+![Hubs de Eventos](./media/event-hubs-features/partition.png)
 
 Os Hubs de Eventos mantêm os dados por um período de retenção configurado que se aplica a todas as partições no hub de eventos. Eventos expiram periodicamente; não é possível excluí-los explicitamente. Como as partições são independentes e contêm sua própria sequência de dados, elas geralmente crescem a taxas diferentes.
 
-![Hubs de evento](./media/event-hubs-features/multiple_partitions.png)
+![Hubs de Eventos](./media/event-hubs-features/multiple_partitions.png)
 
 O número de partições é especificado na criação do Hub de Eventos e deve estar entre 2 e 32. A contagem de partições não é mutável, portanto você deve considerar a escala de longo prazo ao definir a contagem de partições. As partições são um mecanismo de organização de dados relacionados ao paralelismo de downstream necessário no consumo de aplicativos. O número de partições em um hub de eventos está diretamente relacionado ao número de leitores simultâneos que você espera ter. Você pode aumentar o número de partições para mais de 32 entrando em contato com a equipe de Hubs de Eventos.
 
@@ -92,7 +94,10 @@ Qualquer entidade que lê dados de evento de um hub de eventos é um *consumidor
 
 O mecanismo de publicação/assinatura dos Hubs de Evento é habilitado por meio de *grupos de consumidores*. Um grupo de consumidores é uma exibição (estado, posição ou deslocamento) de todo um hub de eventos. Os grupos de consumidores habilitam vários aplicativos de consumo para ter um modo de exibição separado do fluxo de eventos e para ler o fluxo de forma independente em seu próprio ritmo e com seus próprios deslocamentos.
 
-Em um arquitetura de processamento de fluxo, cada aplicativo downstream equivale a um grupo de consumidores. Se você quiser gravar dados de evento em um armazenamento de longo prazo, isso quer dizer que esse aplicativo gravador de armazenamento é um grupo de consumidores. O processamento de eventos complexos pode então ser executado por outro grupo separado de consumidores. Você pode acessar partições somente por meio de um grupo de consumidores. Pode haver no máximo cinco leitores simultâneos em uma partição por grupo de consumidores. No entanto **recomenda-se que haja apenas um receptor ativo em uma partição por grupo de consumidores**. Sempre há um grupo de consumidores padrão em um hub de eventos, e você pode criar até 20 grupos de consumidores para um hub de eventos de camada padrão.
+Em um arquitetura de processamento de fluxo, cada aplicativo downstream equivale a um grupo de consumidores. Se você quiser gravar dados de evento em um armazenamento de longo prazo, isso quer dizer que esse aplicativo gravador de armazenamento é um grupo de consumidores. O processamento de eventos complexos pode então ser executado por outro grupo separado de consumidores. Você pode acessar partições somente por meio de um grupo de consumidores. Sempre há um grupo de consumidores padrão em um hub de eventos, e você pode criar até 20 grupos de consumidores para um hub de eventos de camada padrão.
+
+Pode haver no máximo cinco leitores simultâneos em uma partição por grupo de consumidores. No entanto **recomenda-se que haja apenas um receptor ativo em uma partição por grupo de consumidores**. Dentro de uma única partição, cada leitor recebe todas as mensagens. Se você tiver vários leitores na mesma partição, processará mensagens duplicadas. Você precisa lidar com isso em seu código, o que pode não ser trivial. No entanto, é uma abordagem válida em alguns cenários.
+
 
 Veja estes exemplos de convenção de URI de grupo de consumidores:
 
@@ -103,13 +108,13 @@ Veja estes exemplos de convenção de URI de grupo de consumidores:
 
 A figura a seguir mostra a arquitetura de processamento de fluxo dos Hubs de Eventos:
 
-![Hubs de evento](./media/event-hubs-features/event_hubs_architecture.png)
+![Hubs de Eventos](./media/event-hubs-features/event_hubs_architecture.png)
 
 ### <a name="stream-offsets"></a>Deslocamentos de fluxo
 
 Um *deslocamento* é a posição de um evento dentro de uma partição. Você pode pensar em um deslocamento como um cursor do lado do cliente. O deslocamento é uma numeração em bytes do evento. Esse deslocamento permite que um consumidor de eventos (leitor) especifique um ponto no fluxo de eventos a partir do qual deseja começar a ler eventos. Você pode especificar o deslocamento como um carimbo de data hora ou um valor de deslocamento. Os consumidores são responsáveis por armazenar seu próprios valores de deslocamento fora do serviço de Hubs de Evento. Dentro de uma partição, cada evento inclui um deslocamento.
 
-![Hubs de evento](./media/event-hubs-features/partition_offset.png)
+![Hubs de Eventos](./media/event-hubs-features/partition_offset.png)
 
 ### <a name="checkpointing"></a>Ponto de verificação
 
@@ -123,7 +128,7 @@ Todos os consumidores de Hubs de Eventos se conectam por meio de uma sessão do 
 
 #### <a name="connect-to-a-partition"></a>Conectar-se a uma partição
 
-Ao se conectar a partições, é uma prática comum usar um mecanismo de concessão para coordenar conexões de leitores a partições específicas. Dessa forma, é possível que cada partição em um grupo de consumidores tenha apenas um leitor ativo. Os leitores de ponto de verificação, de concessão e de gerenciamento são simplificados pelo uso da classe [EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) para clientes .NET. O Host do processador de eventos é um agente de consumidor inteligente.
+Ao se conectar a partições, é uma prática comum usar um mecanismo de concessão para coordenar conexões de leitores a partições específicas. Dessa forma, é possível que cada partição em um grupo de consumidores tenha apenas um leitor ativo. Os leitores de ponto de verificação, de concessão e de gerenciamento são simplificados pelo uso da classe [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) para clientes .NET. O Host do processador de eventos é um agente de consumidor inteligente.
 
 #### <a name="read-events"></a>Ler eventos
 
@@ -146,14 +151,14 @@ Os Hubs de Eventos têm uma arquitetura paralela altamente dimensionável e há 
 
 A capacidade de transferência dos Hubs de Eventos é controlada pelas *unidades de transferência*. As unidades de taxa de transferência são unidades de capacidade pré-adquiridas. Uma única unidade de transferência inclui a seguinte capacidade:
 
-* Entrada: até 1 MB por segundo ou 1000 eventos por segundo (o que ocorrer primeiro)
-* Saída: até 2 MB por segundo
+* Entrada: até 1 MB por segundo ou 1000 eventos por segundo (o que ocorrer primeiro).
+* Entrada: até 2 MB por segundo ou 4096 eventos por segundo.
 
-Além da capacidade de unidades de transferência adquiridas, a entrada está limitada e uma [ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) é retornada. A saída não gera exceções de limitação, mas ainda é limitada à capacidade das unidades de produtividade adquiridas. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace. Você pode gerenciar unidades de produtividade na folha **Escala** dos namespaces no [portal do Azure](https://portal.azure.com). Você também pode gerenciar unidades de produtividade programaticamente usando as [APIs de Hubs de Eventos](event-hubs-api-overview.md).
+Além da capacidade de unidades de transferência adquiridas, a entrada está limitada e uma [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) é retornada. A saída não gera exceções de limitação, mas ainda é limitada à capacidade das unidades de produtividade adquiridas. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace. Você pode gerenciar unidades de produtividade na folha **Escala** dos namespaces no [portal do Azure](https://portal.azure.com). Você também pode gerenciar unidades de produtividade programaticamente usando as [APIs de Hubs de Eventos](event-hubs-api-overview.md).
 
-As unidades de taxa de transferência são cobradas por hora e são pré-adquiridas. Depois de adquiridas, as unidades de taxa de transferência são cobradas por um mínimo de uma hora. Até 20 unidades de produtividade podem ser adquiridas para um namespace de Hubs de Eventos e elas são compartilhadas entre todos os Hubs de Eventos no namespace.
+As unidades de taxa de transferência são pré-adquiridas e cobradas por hora. Depois de adquiridas, as unidades de taxa de transferência são cobradas por um mínimo de uma hora. Até 20 unidades de produtividade podem ser adquiridas para um namespace de Hubs de Eventos e elas são compartilhadas entre todos os Hubs de Eventos no namespace.
 
-Você poderá adquirir mais unidades de produtividade, em blocos de 20 até 100 unidades de produtividade, entrando em contato com o suporte do Azure. Além disso, você também pode comprar blocos de 100 unidades de transferência.
+Você poderá adquirir mais unidades de produtividade, em blocos de 20 até 100 unidades de produtividade, entrando em contato com o suporte do Azure. Além desse limite, você pode comprar blocos de 100 unidades de produtividade.
 
 É recomendável balancear partições e unidades de produtividade para obter uma escala ideal. Uma única partição tem uma escala máxima de uma unidade de transferência. O número de unidades de taxa de transferência deve ser menor ou igual ao número de partições em um hub de eventos.
 

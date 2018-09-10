@@ -10,11 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/20/2018
-ms.openlocfilehash: c1acb568598184974b65d666075032e74aa49eb3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 002ec2f99e488af76654c2391416e4b90e16e4c0
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050220"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Guia de início rápido: criar um Banco de Dados do Azure para servidor PostgreSQL no portal do Azure
 
@@ -22,7 +23,7 @@ O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado usado para e
 
 Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 Abra o navegador da Web e acesse o [portal](https://portal.azure.com/). Insira suas credenciais para entrar no portal. A exibição padrão é o painel de serviço.
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Criar um Banco de Dados do Azure para o servidor PostgreSQL
@@ -50,7 +51,7 @@ Para criar um Banco de Dados do Azure para o servidor PostgreSQL, execute as seg
     Senha |Sua senha| Uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha deve conter caracteres das três seguintes categorias: letras maiúsculas, letras minúsculas, números (0 a 9) e caracteres não alfanuméricos (!, $, #, %, etc.).
     Local padrão|A região mais próxima dos usuários| A localização mais próxima dos usuários.
     Versão|A última versão| A versão mais recente do PostgreSQL, a menos que você tenha requisitos específicos.
-    Tipo de preço  | **Uso geral**, **Gen 4**, **2 vCores**, **5 GB**, **7 dias**, **Com redundância geográfica** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Tipo de preço**. Em seguida, selecione a guia **Uso Geral**. *Gen 4*, *2 vCores*, *5 GB*, e *7 dias* são os valores padrão para **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
+    Tipo de preço | **Uso geral**, **Gen 4**, **2 vCores**, **5 GB**, **7 dias**, **Com redundância geográfica** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Tipo de preço**. Em seguida, selecione a guia **Uso Geral**. *Gen 4*, *2 vCores*, *5 GB*, e *7 dias* são os valores padrão para **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
 
     > [!IMPORTANT]
     > O logon de administrador do servidor e a senha especificada aqui são necessários para fazer logon no servidor e em seus bancos de dados posteriormente neste Guia de início rápido. Lembre-se ou registre essas informações para o uso posterior.
@@ -63,7 +64,7 @@ Para criar um Banco de Dados do Azure para o servidor PostgreSQL, execute as seg
 
     ![O painel “Notificações”](./media/quickstart-create-database-portal/3-notifications.png)
    
-  Por padrão, um banco de dados **postgres** é criado no servidor. O banco de dados [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) é um banco de dados padrão destinado ao uso dos usuários, de utilitários e de aplicativos de terceiros. 
+   Por padrão, um banco de dados **postgres** é criado no servidor. O banco de dados [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) é um banco de dados padrão destinado ao uso dos usuários, de utilitários e de aplicativos de terceiros. (O outro banco de dados padrão é o **azure_maintenance**. Sua função é separar os processos de serviço gerenciado das ações do usuário. Não é possível acessar este banco de dados).
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall no nível de servidor
 
@@ -84,6 +85,10 @@ O Banco de Dados do Azure para PostgreSQL cria um firewall no nível do servidor
     AllowAllIps | 0.0.0.0 | 255.255.255.255
 
      ![Definir regras de firewall](./media/quickstart-create-database-portal/5-firewall-2.png)
+     
+      > [!NOTE]
+      > Para as instâncias de produção, você só deve definir suas regras de firewall para aceitar solicitações de entrada dos endereços IP conhecidos.  Essas configurações são apenas para exemplificar.
+      >
 
 4. Na barra de ferramentas superior da página **Segurança da conexão**, selecione **Salvar**. Aguarde até que a notificação será exibida informando que a atualização da segurança da conexão foi concluída com êxito antes de continuar.
 
@@ -198,7 +203,7 @@ pgAdmin é uma ferramenta de software livre usada com PostgreSQL. Instale o pgAd
     Função | Deixar em branco | Não é necessário fornecer um nome de função neste momento. Deixe o campo em branco.
     Modo SSL | *Exigir* | Você pode definir o modo SSL na guia SSL do pgAdmin. Por padrão, todos os Bancos de Dados do Azure para servidores PostgreSQL são criados com a imposição de SSL ligada. Para desligar a imposição de SSL, confira [Imposição de SSL](./concepts-ssl-connection-security.md).
     
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 6. No painel **Navegador** à esquerda, expanda o nó **Servidores**. Selecione o servidor, por exemplo, **mydemoserver**. Clique nele para se conectar a ele.
 

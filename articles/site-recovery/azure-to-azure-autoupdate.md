@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: add80b17c76e7262f55e50cd07d4e9b053cfa1ff
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209824"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922744"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do Serviço de Mobilidade no Azure para a replicação do Azure
 
@@ -29,6 +29,11 @@ Quando você permite que o Site Recovery gerencie atualizações, um runbook glo
 
 > [!NOTE]
 > A habilitação de atualizações automáticas não exige a reinicialização das VMs do Azure nem afeta a replicação em andamento.
+
+> [!NOTE]
+> A cobrança pelos trabalhos usados pela conta de automação baseia-se no número de minutos de tempo de execução do trabalho usados no mês e, por padrão, 500 minutos são incluídos como unidades gratuitas em uma conta de automação. A execução do trabalho diariamente equivale a **alguns segundos até cerca de um minuto** e será **coberta pelos créditos gratuitos**.
+
+UNIDADES GRATUITAS INCLUÍDAS (POR MÊS)**   PREÇO Tempo de execução do trabalho    500 minutos ₹0,14/minuto
 
 ## <a name="enable-automatic-updates"></a>Habilitar as atualizações automáticas
 
@@ -64,7 +69,7 @@ Se houver um problema com as atualizações automáticas, você será notificado
 Caso você tenha tentado habilitar as atualizações automáticas, mas não teve êxito, consulte a solução de problemas abaixo.
 
 **Erro**: você não tem permissões para criar uma conta Executar como do Azure (entidade de serviço) e conceder a função Colaborador à entidade de serviço. 
-- Ação recomendada: certifique-se de que a conta conectada é atribuída ao “Colaborador” e repita a operação.
+- Ação recomendada: certifique-se de que a conta conectada é atribuída ao “Colaborador” e repita a operação. Veja [este](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) documento para obter mais informações sobre como atribuir as permissões corretas.
  
 Depois que as atualizações automáticas forem ativadas, a maioria dos problemas pode ser reparada pelo serviço do Site Recovery e exige que você clique no botão “**Reparar**”.
 

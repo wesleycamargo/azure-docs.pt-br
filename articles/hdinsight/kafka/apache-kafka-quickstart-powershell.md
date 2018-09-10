@@ -1,24 +1,20 @@
 ---
-title: Introdução ao Apache Kafka - Início Rápido do Azure HDInsight | Microsoft Docs
+title: Introdução ao Apache Kafka – Início Rápido do Azure HDInsight | Microsoft Docs
 description: Neste início rápido, você aprenderá a criar um cluster Apache Kafka no Azure HDInsight usando o Azure PowerShell. Você também aprenderá sobre tópicos, assinantes e consumidores de Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/16/2018
-ms.author: larryfr
-ms.openlocfilehash: ce5555068ac4a9160657b5c2f204172c828bea50
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 756733ec98912685af438861d54db0d18e15a947
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046443"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Kafka no cluster HDInsight
 
@@ -104,6 +100,7 @@ New-AzureStorageContainer -Name $containerName -Context $storageContext
 Crie um Kafka no cluster do HDInsight com [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
 
 ```powershell
+# Create a Kafka 1.0 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
 $httpCredential = Get-Credential -Message "Enter the cluster login credentials" `
     -UserName "admin"
@@ -115,6 +112,9 @@ $clusterType="Kafka"
 $clusterOS="Linux"
 $disksPerNode=2
 
+$kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$kafkaConfig.Add("kafka", "1.0")
+
 New-AzureRmHDInsightCluster `
         -ResourceGroupName $resourceGroup `
         -ClusterName $clusterName `
@@ -123,8 +123,9 @@ New-AzureRmHDInsightCluster `
         -ClusterType $clusterType `
         -OSType $clusterOS `
         -Version $clusterVersion `
+        -ComponentVersion $kafkaConfig `
         -HttpCredential $httpCredential `
-        -DefaultStorageAccountName "$storageAccount.blob.core.windows.net" `
+        -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
         -DefaultStorageAccountKey $storageKey `
         -DefaultStorageContainer $clusterName `
         -SshCredential $sshCredentials `

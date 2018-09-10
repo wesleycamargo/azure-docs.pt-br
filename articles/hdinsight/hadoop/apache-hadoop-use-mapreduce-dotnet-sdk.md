@@ -1,24 +1,20 @@
 ---
-title: Enviar trabalhos MapReduce usando o SDK do .NET do HDInsight – Azure | Microsoft Docs
+title: Enviar trabalhos MapReduce usando o SDK do .NET do Azure HDInsight
 description: Saiba como enviar trabalhos MapReduce para o Hadoop do Azure HDInsight usando o SDK do .NET do HDInsight.
-editor: cgronlun
-manager: jhubbard
+ms.reviewer: jasonh
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 068d63b7c96dd6729ebc46fb92a136be43b84385
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: b2a79b73015419dc48a1a731e01ac9c8e1fc27f8
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041493"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Executar trabalhos MapReduce usando o SDK do .NET do HDInsight
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -30,7 +26,7 @@ Saiba como enviar trabalhos MapReduce usando o SDK do .NET do HDInsight. Os clus
 > 
 > 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este artigo, você deve ter os seguintes itens:
 
 * **Um cluster Hadoop no HDInsight**. Confira a [Introdução ao uso do Hadoop baseado em Linux no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
@@ -178,6 +174,6 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 * Para enviar um trabalho de Hive, consulte [Executar consultas Hive usando o SDK do .NET HDInsight](apache-hadoop-use-hive-dotnet-sdk.md).
 * Para criar clusters HDInsight, confira [Create Linux-based Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) (Criar clusters Hadoop baseados em Linux no HDInsight).
 * Para gerenciar clusters HDInsight, consulte [Gerenciar clusters Hadoop no HDInsight](../hdinsight-administer-use-portal-linux.md).
-* Para aprender sobre o SDK do .NET do HDInsight, consulte [referência do SDK do .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx).
+* Para aprender sobre o SDK do .NET do HDInsight, consulte [referência do SDK do .NET do HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 * Para autenticação não interativa no Azure, confira [Criar aplicativos .NET HDInsight de autenticação não interativa](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 

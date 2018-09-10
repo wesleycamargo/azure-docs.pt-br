@@ -1,202 +1,184 @@
 ---
-title: 'Azure Active Directory B2C: KMSI| Microsoft Docs'
-description: Um tópico demonstrando como configurar “mantenha-me conectado”
+title: Mantenha-Me Conectado no Azure Active Directory B2C | Microsoft Docs
+description: Aprenda a configurar o KMSI (Mantenha-me conectado) no Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 09/05/2016
+ms.topic: conceptual
+ms.date: 08/27/2018
 ms.author: davidmu
-ms.openlocfilehash: 073ba8eef7f2f42d1c308fb20d3bfdbfc8d321b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 6d58a62ef70cb5bacb44a3a9832516a30fc91ffa
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248052"
 ---
-# <a name="azure-active-directory-b2c-enable-keep-me-signed-in-kmsi"></a>Azure Active Directory B2C: habilitar “Mantenha-me conectado no (KMSI)”  
+# <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Habilitar o KMSI (Mantenha-me conectado) no Azure Active Directory B2C
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure AD B2C agora permite que seus aplicativos Web e nativos habilitem a funcionalidade “Mantenha-me conectado no (KMSI)”. Esse recurso concede acesso a usuários que estejam retornando ao aplicativo sem solicitar a reinserção de nome de usuário e senha. Esse acesso é revogado quando o usuário faz logoff. 
+É possível habilitar a funcionalidade KMSI (Mantenha-me conectado) para seus aplicativos Web e nativos no Azure Active Directory (Azure AD) B2C. Esse recurso concede acesso ao aplicativo para usuários que estejam retornando, sem solicitar a reinserção de nome de usuário e senha. Esse acesso é revogado quando o usuário sai do serviço. 
 
-Não é recomendável que os usuários marquem essa opção em computadores públicos. 
+Os usuários não devem habilitar essa opção em computadores públicos. 
 
-![img](images/kmsi.PNG)
+![Habilitar a opção mantenha-me conectado](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="prerequisites"></a>pré-requisitos
+Um locatário do Azure AD B2C que está configurado para permitir inscrição e entrada em conta local. Caso não tenha um locatário, você pode criar um usando as etapas em [Tutorial: Criar um locatário do Azure Active Directory B2C](tutorial-create-tenant.md).
 
-Um locatário do Azure AD B2C configurado para permitir inscrição/entrada em conta local, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
+## <a name="add-a-content-definition-element"></a>Adicionar um elemento de definição de conteúdo 
 
-## <a name="how-to-enable-kmsi"></a>Como habilitar KMSI
+No elemento **BuildingBlocks** do seu arquivo de extensão, adicione em elemento **ContentDefinitions**. 
 
-Faça as seguintes alterações à sua política de extensões de estrutura confiável.
+1. No elemento **ContentDefinitions**, adicione um elemento **ContentDefinition** com um identificador de `api.signuporsigninwithkmsi`.
+2. No elemento **ContentDefinition**, adicione os elementos **LoadUri**, **RecoveryUri** e **DataUri**. O valor `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` do elemento **DataUri** é um identificador compreensível por computador que abre uma caixa de seleção do KMSI nas páginas de entrada. Esse valor não deve ser alterado. 
 
-## <a name="adding-a-content-definition-element"></a>Adicionando um elemento de definição de conteúdo 
+    ```XML
+    <BuildingBlocks>
+      <ContentDefinitions>
+        <ContentDefinition Id="api.signuporsigninwithkmsi">
+          <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
+          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0</DataUri>
+          <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+          </Metadata>
+        </ContentDefinition>
+      </ContentDefinitions>
+    </BuildingBlocks>                       
+    ```
 
-O nó `BuildingBlocks` do seu arquivo de extensão deve incluir um elemento `ContentDefinitions`. 
+## <a name="add-a-sign-in-claims-provider-for-a-local-account"></a>Adicionar um provedor de declarações de entrada para uma conta local  
 
-1. Na seção `ContentDefinitions`, defina um novo `ContentDefinition` com a ID `api.signuporsigninwithkmsi`.
-2. Seu novo `ContentDefinition` deve incluir `LoadUri`, `RecoveryUri` e `DataUri` da seguinte maneira.
-3. Datauri`urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` é um identificador compreensível por computador que abre uma caixa de seleção KMSI nas páginas de entrada. Não altere esse valor. 
+É possível definir a entrada de conta local como provedor de declarações usando o elemento **ClaimsProvider** no arquivo de extensão da sua política:
 
-```XML
-  <BuildingBlocks>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.signuporsigninwithkmsi">
-        <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
-        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0</DataUri>
-        <Metadata>
-          <Item Key="DisplayName">Signin and Signup</Item>
-        </Metadata>
-      </ContentDefinition>
-    </ContentDefinitions>
-  </BuildingBlocks>                       
-```
+1. Abra o arquivo *TrustFrameworkExtensions.xml* no seu diretório de trabalho. 
+2. Localize o elemento **ClaimsProviders**. Caso ele não exista, adicione-o sob o elemento raiz. O [pacote de inicialização](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) inclui um provedor de declarações de entrada de conta local. 
+3. Adicione um elemento **ClaimsProvider** com o **DisplayName** e o **TechnicalProfile** conforme mostrado neste exemplo:
 
+    ```XML
+    <ClaimsProviders>
+      <ClaimsProvider>
+        <DisplayName>Local Account SignIn</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="login-NonInteractive">
+            <Metadata>
+              <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
+              <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
+            </Metadata>
+            <InputClaims>
+              <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
+              <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
+            </InputClaims>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    </ClaimsProviders>
+    ```
 
+### <a name="add-the-application-identifiers-to-your-custom-policy"></a>Adicionar os identificadores do aplicativo à política personalizada
 
-## <a name="add-a--local-account-sign-in-claims-provider"></a>Adicionar um provedor de declarações de entrada de conta local 
+Adicione os identificadores do aplicativo ao arquivo *TrustFrameworkExtensions.xml*.
 
-Você pode definir A Entrada em Conta Local como um provedor de declarações para o nó `<ClaimsProvider>` no arquivo de extensão de sua política:
+1. No arquivo *TrustFrameworkExtensions.xml*, localize o elemento **TechnicalProfile** com o identificador de `login-NonInteractive` e o elemento **TechnicalProfile** com um identificador de `login-NonInteractive-PasswordChange` e substitua todos os valores de `IdentityExperienceFrameworkAppId` pelo identificador de aplicativo do aplicativo Identity Experience Framework, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
 
-1. Abra o arquivo de extensão (TrustFrameworkExtensions.xml) no diretório de trabalho. 
-2. Localize a seção `<ClaimsProviders>`. Caso ela não exista, adicione-a sob o nó raiz.
-3. O pacote inicial de [Introdução](active-directory-b2c-get-started-custom.md) vem com um provedor de declarações de “Entradas de Conta Local”. 
-4. Caso contrário, adicione um novo nó `<ClaimsProvider>` da seguinte maneira:
+    ```
+    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+    ```
 
-```XML
-<ClaimsProviders>
-    <ClaimsProvider>
-      <DisplayName>Local Account SignIn</DisplayName>
-      <TechnicalProfiles>
-         <TechnicalProfile Id="login-NonInteractive">
-           <Metadata>
-            <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
-            <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
-           </Metadata>
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
-           </InputClaims>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
- </ClaimsProviders>
-```
+2. Substitua todos os valores de `ProxyIdentityExperienceFrameworkAppId` pelo identificador de aplicativo do aplicativo Proxy Identity Experience Framework, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
+3. Salve o arquivo de extensões.
 
-### <a name="add-the-application-ids-to-your-custom-policy"></a>Adicionar as IDs do Aplicativo à política personalizada
+## <a name="create-a-kmsi-enabled-user-journey"></a>Criar um percurso do usuário habilitado por KMSI
 
-Adicione as IDs de aplicativo ao arquivo de extensões (`TrustFrameworkExtensions.xml`):
+Adicione o provedor de declarações de entrada para uma conta local ao seu percurso do usuário. 
 
-1. No arquivo de extensões (TrustFrameworkExtensions.xml), localize os elementos `<TechnicalProfile Id="login-NonInteractive">` e `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
+1. Abra o arquivo base da sua política. Por exemplo, *TrustFrameworkBase.xml*.
+2. Localize o elemento **UserJourneys** e copie o conteúdo inteiro do elemento **UserJourney** que usa o identificador de `SignUpOrSignIn`.
+3. Abra o arquivo de extensão. Por exemplo, *TrustFrameworkExtensions.xml* e localize o elemento **UserJourneys**. Se o elemento não existir, adicione um.
+4. Cole todo o elemento **UserJourney** que copiou como um filho do elemento **UserJourneys**.
+5. Altere o valor do identificador para o novo percurso do usuário. Por exemplo, `SignUpOrSignInWithKmsi`.
+6. Por fim, na primeira etapa de orquestração, altere o valor de **ContentDefinitionReferenceId** para `api.signuporsigninwithkmsi`. A configuração desse valor habilita a caixa de seleção no percurso do usuário. 
+7. Salve e faça o upload desse arquivo e verifique se todas as validações são bem-sucedidas.
 
-2. Substitua todas as instâncias do `IdentityExperienceFrameworkAppId` pela ID do aplicativo Identity Experience Framework conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md). Veja um exemplo:
+    ```XML
+    <UserJourneys>
+      <UserJourney Id="SignUpOrSignInWithKmsi">
+        <OrchestrationSteps>
+          <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsigninwithkmsi">
+            <ClaimsProviderSelections>
+              <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
+            </ClaimsProviderSelections>
+            <ClaimsExchanges>
+              <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <OrchestrationStep Order="2" Type="ClaimsExchange">
+            <Preconditions>
+              <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+                <Value>objectId</Value>
+                <Action>SkipThisOrchestrationStep</Action>
+              </Precondition>
+            </Preconditions>
+            <ClaimsExchanges>
+              <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <!-- This step reads any user attributes that we may not have received when in the token. -->
+          <OrchestrationStep Order="3" Type="ClaimsExchange">
+            <ClaimsExchanges>
+              <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <OrchestrationStep Order="4" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        </OrchestrationSteps>
+        <ClientDefinition ReferenceId="DefaultWeb" />
+      </UserJourney>
+    </UserJourneys>
+    ```
 
-   ```
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
-   ```
+## <a name="create-a-relying-party-file"></a>Criar um arquivo de terceira parte confiável
 
-3. Substitua todas as instâncias do `ProxyIdentityExperienceFrameworkAppId` pela ID do aplicativo Proxy Identity Experience Framework conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
+Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou.
 
-4. Salve o arquivo de extensões.
+1. Faça uma cópia do arquivo *SignUpOrSignIn.xml* no seu diretório de trabalho e, em seguida, renomeie-o. Por exemplo, *SignUpOrSignInWithKmsi.xml*.
+2. Abra o novo arquivo e atualize o atributo **PolicyId** para a **TrustFrameworkPolicy** com um valor exclusivo. Esse é o nome da sua política. Por exemplo, `SignUpOrSignInWithKmsi`.
+3. Altere o atributo **ReferenceId** para o elemento **DefaultUserJourney** para coincidir com o identificador do novo percurso do usuário que você criou. Por exemplo, `SignUpOrSignInWithKmsi`.
 
-## <a name="create-a-kmsi-in-enabled-user-journey"></a>Criar um KMSI no percurso de usuário habilitado
+    O KMSI foi configurado usando o elemento **UserJourneyBehaviors**. O atributo **KeepAliveInDays** controla por quanto tempo o usuário permanece conectado. No exemplo a seguir, a sessão do KMSI expira automaticamente depois de `7` dias, não importa a frequência com que o usuário realiza a autenticação sem confirmação. A configuração do valor **KeepAliveInDays** para `0` desativa a funcionalidade KMSI. Por padrão, esse valor é `0`. Se o valor de **SessionExpiryType** for `Rolling`, a sessão do KMSI será estendida por `7` dias sempre que o usuário executar a autenticação sem confirmação.  Caso `Rolling` seja selecionado, mantenha o número de dias no mínimo. 
 
-Agora você precisa adicionar o provedor de declarações de Entrada de Conta Local ao seu percurso de usuário. 
+    O valor de **SessionExpiryInSeconds** representa o horário de expiração de uma sessão de SSO. Ele é usado internamente pelo Azure AD B2C para verificar se a sessão do KMSI expirou ou não. O valor de **KeepAliveInDays** determina o valor Expires/Max-Age do cookie de SSO no navegador da Web. Ao contrário de **SessionExpiryInSeconds**, **KeepAliveInDays** é usado para impedir o navegador de limpar o cookie quando for fechado. Um usuário só poderá entrar sem autenticação se o cookie da sessão SSO existir, o que é controlado por **KeepAliveInDays**, e não tiver expirado, o que é controlado por **SessionExpiryInSeconds**. É recomendável definir o valor de **SessionExpiryInSeconds** para ser o tempo equivalente de **KeepAliveInDays** em segundos, conforme mostrado no exemplo a seguir.
 
-1. Abra o arquivo base da política (por exemplo, TrustFrameworkBase.xml).
-2. Localize o elemento `<UserJourneys>` e copie todo o nó `<UserJourney>`, que inclui `Id="SignUpOrSignIn"`.
-3. Abra o arquivo de extensão (por exemplo, TrustFrameworkExtensions.xml) e localize o elemento `<UserJourneys>`. Se o elemento não existir, adicione um.
-4. Cole todo o nó `<UserJourney>` copiado como um filho do elemento `<UserJourneys>`.
-5. Renomeie a ID do novo Percurso do Usuário (por exemplo, renomeie como `SignUpOrSignInWithKmsi`).
-6. Por fim, em `OrchestrationStep 1`, altere `ContentDefinitionReferenceId` para `api.signuporsigninwithkmsi`, conforme definido nas etapas anteriores. Isso habilita a caixa de seleção no percurso do usuário. 
-7. Agora você concluiu a modificação do arquivo de extensão. Salve e carregue esse arquivo. Certifique-se de que todas as validações tenham êxito.
+    ```XML
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />
+      <UserJourneyBehaviors>
+        <SingleSignOn Scope="Tenant" KeepAliveInDays="7" />
+        <SessionExpiryType>Absolute</SessionExpiryType>
+        <SessionExpiryInSeconds>604800</SessionExpiryInSeconds>
+      </UserJourneyBehaviors>
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
 
-```XML
-<UserJourneys>
-    <UserJourney Id="SignUpOrSignInWithKmsi">
-      <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsigninwithkmsi">
-          <ClaimsProviderSelections>
-            <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
-          </ClaimsProviderSelections>
-          <ClaimsExchanges>
-            <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="2" Type="ClaimsExchange">
-          <Preconditions>
-            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-              <Value>objectId</Value>
-              <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-          </Preconditions>
-          <ClaimsExchanges>
-            <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <!-- This step reads any user attributes that we may not have received when in the token. -->
-        <OrchestrationStep Order="3" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="4" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-      </OrchestrationSteps>
-      <ClientDefinition ReferenceId="DefaultWeb" />
-    </UserJourney>
-  </UserJourneys>
-```
-
-## <a name="create-a-relying-party-rp-file"></a>Criar um arquivo de RP (terceira parte confiável)
-
-Em seguida, atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou:
-
-1. Faça uma cópia de SignUpOrSignIn.xml em seu diretório de trabalho. Em seguida, renomeie-a (por exemplo, SignUpOrSignInWithKmsi.xml).
-
-2. Abra o novo arquivo e atualize o atributo `PolicyId` de `<TrustFrameworkPolicy>` com um valor exclusivo. Esse é o nome da sua política (por exemplo, SignUpOrSignInWithKmsi).
-
-3. Modifique o atributo `ReferenceId` em `<DefaultUserJourney>` para que ele corresponda a `Id` do novo percurso do usuário criado (por exemplo, SignUpOrSignInWithKmsi).
-
-4. KMSI está configurado no `UserJourneyBehaviors`. 
-
-5. **`KeepAliveInDays`** controla por quanto tempo o usuário permanece conectado. No exemplo a seguir, a sessão KMSI expira automaticamente depois de 14 dias, não importa a frequência com que o usuário realiza a autenticação sem confirmação.
-
-   Configurar o valor `KeepAliveInDays` como 0 desativa a funcionalidade KMSI. Por padrão, esse valor é 0
-
-6. Se **`SessionExpiryType`** for *Sem interrupção*, a sessão KMSI será estendida por 14 dias sempre que o usuário executar a autenticação sem confirmação.  Se *Sem interrupção* for selecionado, recomendamos que você mantenha o número de dias em um mínimo. 
-
-       <RelyingParty>
-       <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />
-       <UserJourneyBehaviors>
-         <SingleSignOn Scope="Tenant" KeepAliveInDays="14" />
-         <SessionExpiryType>Absolute</SessionExpiryType>
-         <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
-       </UserJourneyBehaviors>
-       <TechnicalProfile Id="PolicyProfile">
-         <DisplayName>PolicyProfile</DisplayName>
-         <Protocol Name="OpenIdConnect" />
-         <OutputClaims>
-           <OutputClaim ClaimTypeReferenceId="displayName" />
-           <OutputClaim ClaimTypeReferenceId="givenName" />
-           <OutputClaim ClaimTypeReferenceId="surname" />
-           <OutputClaim ClaimTypeReferenceId="email" />
-           <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-         </OutputClaims>
-         <SubjectNamingInfo ClaimType="sub" />
-       </TechnicalProfile>
-       </RelyingParty>
-
-7. Salve as alterações e, em seguida, carregue o arquivo.
-
-8. Para testar a política personalizada que você carregou, no portal do Azure, vá até a folha de política e, em seguida, clique em **Executar agora**.
-
-
-## <a name="link-to-sample-policy"></a>Link para a política de exemplo
+4. Salve as alterações e, em seguida, faça o upload do arquivo.
+5. Para testar a política personalizada que você carregou, no portal do Azure, vá até a página de política e, em seguida, clique em **Executar agora**.
 
 Você pode encontrar a política de exemplo [aqui](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
 

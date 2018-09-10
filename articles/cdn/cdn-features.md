@@ -15,16 +15,18 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 3368a8a14a3d1314e4c7ecae9256071f1fe646f9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 7ec4961a78b2207c9990b787c4a0f9cc9c2e7931
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257862"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237107"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Comparar recursos do produto CDN do Azure
 
 A CDN (Rede de Distribuição de Conteúdo) do Azure inclui quatro produtos: **Azure CDN Standard da Microsoft** (em versão prévia), **Azure CDN Standard da Akamai**, **Azure CDN Standard da Verizon** e **Azure CDN Premium da Verizon**. 
+
+Para saber mais sobre como migrar um perfil do **Azure CDN Standard da Verizon** para **Azure CDN Premium da Verizon**, veja [Migrar um perfil do Azure CDN de Standard Verizon para Premium Verizon](cdn-migrate.md).
 
 A tabela a seguir compara os recursos disponíveis em cada produto.
 
@@ -41,7 +43,6 @@ A tabela a seguir compara os recursos disponíveis em cada produto.
 | Configurações de cache/cabeçalho (usando [regras de cache](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
 | Configurações de cache/cabeçalho (usando o [mecanismo de regras](cdn-rules-engine.md))  |  | | |**&#x2713;** |
 | [Cache de cadeia de caracteres de consulta](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Cache regional  |**&#x2713;** |  |  |  |
 | Pilha dupla IPv4/IPv6 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Suporte do HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||

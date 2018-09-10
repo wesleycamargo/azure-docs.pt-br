@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194039"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 Em todo o ciclo de vida de seus aplicativos, talvez seja necessário modificar ou atualizar o conjunto de escala de máquina virtual. Essas atualizações podem incluir como atualizar a configuração do conjunto de escala, ou alterar a configuração do aplicativo. Este artigo descreve como modificar uma escala existente com as APIs REST, o Azure PowerShell ou o CLI do Azure 2.0.

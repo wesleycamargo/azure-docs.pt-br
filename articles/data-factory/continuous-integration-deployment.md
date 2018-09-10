@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 16eec117514d040dc91b5d18b73d4cc6025c901e
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310971"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145065"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração e implementação contínuas no Azure Data Factory
 
@@ -48,20 +48,24 @@ Selecione **Carregar arquivo** para selecionar o modelo do Resource Manager expo
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
+**Cadeias de caracteres de Conexão**. Você pode encontrar as informações necessárias para criar strings de conexão nos artigos sobre os conectores individuais. Por exemplo, para o Banco de Dados SQL do Azure, consulte [Copiar dados para ou do Banco de Dados SQL do Azure usando o Azure Data Factory](connector-azure-sql-database.md). Para verificar a cadeia de conexão correta – para um serviço vinculado, por exemplo, você também pode abrir a exibição de código para o recurso na IU do Data Factory. No modo de exibição de código, no entanto, a parte da chave de senha ou conta da seqüência de conexão é removida. Para abrir a visualização de código, selecione o ícone realçado na captura de tela a seguir.
+
+![Abra a visualização de código para ver a string de conexão](media/continuous-integration-deployment/continuous-integration-codeview.png)
+
 ## <a name="continuous-integration-lifecycle"></a>Ciclo de vida da integração contínua
 Este é todo o ciclo de vida de integração e implementação contínuas que você pode usar depois de habilitar a integração do GIT do VSTS na interface de usuário do Data Factory:
 
 1.  Configure um data factory de desenvolvimento com VSTS no qual todos os desenvolvedores possam criar recursos de Data Factory como pipelines, conjuntos de dados e assim por diante.
 
-2.  Em seguida, os desenvolvedores podem modificar recursos como pipelines. À medida que fazem as modificações, eles podem selecionar **Depurar** para ver como o pipeline é executado com as alterações mais recentes.
+1.  Em seguida, os desenvolvedores podem modificar recursos como pipelines. À medida que fazem as modificações, eles podem selecionar **Depurar** para ver como o pipeline é executado com as alterações mais recentes.
 
-3.  Depois que os desenvolvedores estiverem satisfeitos com as alterações, eles poderão criar uma solicitação de pull em seu branch para o branch mestre (ou branch de colaboração) para que as alterações sejam revisadas por colegas.
+1.  Depois que os desenvolvedores estiverem satisfeitos com as alterações, eles poderão criar uma solicitação de pull em seu branch para o branch mestre (ou branch de colaboração) para que as alterações sejam revisadas por colegas.
 
-4.  Depois que as alterações estiverem no branch mestre, eles poderão publicar o factory de desenvolvimento selecionando **Publicar**.
+1.  Depois que as alterações estiverem no branch mestre, eles poderão publicar o factory de desenvolvimento selecionando **Publicar**.
 
-5.  Quando a equipe estiver pronta para promover alterações ao factory de teste e ao factory de produção, ela poderá exportar o modelo do Resource Manager do branch mestre ou de qualquer outro branch caso o branch mestre aceite o Data Factory de desenvolvimento dinâmico.
+1.  Quando a equipe estiver pronta para promover alterações ao factory de teste e ao factory de produção, ela poderá exportar o modelo do Resource Manager do branch mestre ou de qualquer outro branch caso o branch mestre aceite o Data Factory de desenvolvimento dinâmico.
 
-6.  O modelo do Resource Manager exportado pode ser implantado com arquivos de parâmetro diferentes para o factory de teste e o factory de produção.
+1.  O modelo do Resource Manager exportado pode ser implantado com arquivos de parâmetro diferentes para o factory de teste e o factory de produção.
 
 ## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatizar a integração contínua com versões do VSTS
 
@@ -81,52 +85,19 @@ Estas são as etapas para configurar uma versão do VSTS para que você possa au
 
 1.  Vá para a página do VSTS no mesmo projeto configurado com o Data Factory.
 
-2.  Clique no menu superior **Build e versão** &gt; **Versões** &gt; **Criar definição de versão**.
+1.  Clique no menu superior **Build e versão** &gt; **Versões** &gt; **Criar definição de versão**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-3.  Selecione o modelo **Processo vazio**.
+1.  Selecione o modelo **Processo vazio**.
 
-4.  Insira o nome do seu ambiente.
+1.  Insira o nome do seu ambiente.
 
-5.  Adicione um artefato de Git e selecione o mesmo repositório configurado com o Data Factory. Escolha `adf\_publish` como a branch padrão com a versão padrão mais recente.
+1.  Adicione um artefato de Git e selecione o mesmo repositório configurado com o Data Factory. Escolha `adf_publish` como a branch padrão com a versão padrão mais recente.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-6.  Obtenha os segredos do Azure Key Vault. Há duas maneiras de lidar cos segredos:
-
-    a.  Adicione os segredos ao arquivo de parâmetros:
-
-       -   Crie uma cópia do arquivo de parâmetros que é carregado para o branch de publicação e defina os valores dos parâmetros que você deseja obter do cofre de chaves com o seguinte formato:
-
-        ```json
-        {
-            "parameters": {
-                "azureSqlReportingDbPassword": {
-                    "reference": {
-                        "keyVault": {
-                            "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-                        },
-                        "secretName": " < secret - name > "
-                    }
-                }
-            }
-        }
-        ```
-
-       -   Quando você usa esse método, o segredo é extraído do cofre de chaves automaticamente.
-
-       -   O arquivo de parâmetros também deve estar no branch de publicação.
-
-    b.  Adicione uma [tarefa do Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
-
-       -   Selecione a guia **Tarefas** guia, crie uma nova tarefa, procure **Azure Key Vault** e adicione-o.
-
-       -   Na tarefa do Key Vault, escolha a assinatura na qual você criou o cofre de chaves, forneça as credenciais se necessário e, em seguida, escolha o cofre de chaves.
-
-       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
-
-7.  Adicione uma tarefa de Implantação do Azure Resource Manager:
+1.  Adicione uma tarefa de Implantação do Azure Resource Manager:
 
     a.  Crie a nova tarefa, procure **Implantação de Grupo de Recursos do Azure**e adicione-o.
 
@@ -134,7 +105,7 @@ Estas são as etapas para configurar uma versão do VSTS para que você possa au
 
     c.  Selecione a ação **Criar ou atualizar grupo de recursos**.
 
-    d.  Selecione **...** no campo “**Modelo**”. Procure o modelo do Gerenciador de Recursos (*ARMTemplateForFactory.json*) que foi criado pela ação de publicação no portal. Procure esse arquivo na pasta raiz do branch `adf\_publish`.
+    d.  Selecione **...** no campo **Modelo**. Procure o modelo do Gerenciador de Recursos (*ARMTemplateForFactory.json*) que foi criado pela ação de publicação no portal. Procure esse arquivo na pasta `<FactoryName>` do `adf_publish` branch.
 
     e.  Faça o mesmo para o arquivo de parâmetros. Escolha o arquivo correto, dependendo de se você criou uma cópia ou se está usando o arquivo padrão *ARMTemplateParametersForFactory.json*.
 
@@ -142,11 +113,48 @@ Estas são as etapas para configurar uma versão do VSTS para que você possa au
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-8.  Salve a definição da versão.
+1.  Salve a definição da versão.
 
-9.  Crie uma nova versão dessa definição de versão.
+1.  Crie uma nova versão dessa definição de versão.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
+
+### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Opcional - Obtenha os segredos do Azure Key Vault
+
+Se tiver segredos para passar em um modelo do Azure Resource Manager, é recomendável usar o Azure Key Vault com a versão do VSTS.
+
+Há duas maneiras de lidar cos segredos:
+
+1.  Adicione os segredos ao arquivo de parâmetros. Para obter mais informações, consulte [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+
+    -   Crie uma cópia do arquivo de parâmetros que é carregado para o branch de publicação e defina os valores dos parâmetros que você deseja obter do cofre de chaves com o seguinte formato:
+
+    ```json
+    {
+        "parameters": {
+            "azureSqlReportingDbPassword": {
+                "reference": {
+                    "keyVault": {
+                        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
+                    },
+                    "secretName": " < secret - name > "
+                }
+            }
+        }
+    }
+    ```
+
+    -   Quando você usa esse método, o segredo é extraído do cofre de chaves automaticamente.
+
+    -   O arquivo de parâmetros também deve estar no branch de publicação.
+
+1.  Adicione uma [tarefa do Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) antes da Implantação do Azure Resource Manager descrita na seção anterior:
+
+    -   Selecione a guia **Tarefas** guia, crie uma nova tarefa, procure **Azure Key Vault** e adicione-o.
+
+    -   Na tarefa do Key Vault, escolha a assinatura na qual você criou o cofre de chaves, forneça as credenciais se necessário e, em seguida, escolha o cofre de chaves.
+
+    ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-vsts-agent"></a>Conceder permissões para o agente do VSTS
 A tarefa do Azure Key Vault pode falhar na primeira vez com um erro de Acesso Negado. Faça o download dos logs da versão e localize o arquivo `.ps1` com o comando para conceder permissões para o agente do VSTS. Você pode executar o comando diretamente ou pode copiar a ID de entidade de segurança do arquivo e adicionar a política de acesso manualmente no Portal do Azure. (*Obter* e *Listar* são as permissões mínimas necessárias).
@@ -156,30 +164,21 @@ A implantação poderá falhar se você tentar atualizar gatilhos ativos. Para a
 
 1.  Na guia de Tarefas da versão do VSTS, procure **Azure Powershell** e adicione-o.
 
-2.  Escolha **Azure Resource Manager** como tipo de conexão e selecione sua assinatura.
+1.  Escolha **Azure Resource Manager** como tipo de conexão e selecione sua assinatura.
 
-3.  Escolha **Script Embutido** como tipo de script e, em seguida, forneça seu código. O exemplo abaixo interrompe os gatilhos:
+1.  Escolha **Script Embutido** como tipo de script e, em seguida, forneça seu código. O exemplo abaixo interrompe os gatilhos:
 
     ```powershell
-    $armTemplate="$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json"
+    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 
-    $templateJson = Get-Content "$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json" | ConvertFrom-Json
-
-    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName
-    $DataFactoryName -ResourceGroupName $ResourceGroupName
-
-    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $\_.name -Force }
+    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 Você pode seguir etapas semelhantes e usar um código semelhante (com a função `Start-AzureRmDataFactoryV2Trigger`) para reiniciar os gatilhos depois da implantação.
 
-## <a name="sample-template-and-script"></a>Exemplo de modelo e script
-Estes são dois exemplos que você pode usar para começar a integração contínua e a implantação para o Data Factory:
-
--   Um exemplo de modelo de implantação que você pode importar no VSTS.
--   Um exemplo de script para interromper gatilhos antes da implantação e para reiniciar gatilhos depois. O script também inclui o código para excluir os recursos que foram removidos.
+## <a name="sample-deployment-template"></a>Modelo de implantação de exemplo
 
 Este é um exemplo de modelo de implantação que você pode importar no VSTS.
 
@@ -719,7 +718,9 @@ Este é um exemplo de modelo de implantação que você pode importar no VSTS.
 }
 ```
 
-Este é um exemplo de script para interromper gatilhos antes da implantação e para reiniciar gatilhos depois:
+## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Script de amostra para parar e reiniciar gatilhos e limpar
+
+Aqui está um exemplo de script para parar os gatilhos antes da implantação e reiniciar os gatilhos posteriormente. O script também inclui código para excluir recursos que foram removidos.
 
 ```powershell
 param
@@ -793,5 +794,93 @@ else {
     $deletedlinkedservices | ForEach-Object { Remove-AzureRmDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
     Write-Host "Deleting integration runtimes"
     $deletedintegrationruntimes | ForEach-Object { Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+}
+```
+
+## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usar parâmetros personalizados com o modelo do Resource Manager
+
+Você pode definir parâmetros personalizados para o modelo do Resource Manager. Basta ter um arquivo chamado `arm-template-parameters-definition.json` na pasta raiz do repositório. (O nome do arquivo precisa corresponder exatamente ao nome mostrado aqui.) O Data Factory tenta ler o arquivo do branch que você está trabalhando no momento, não apenas do branch de colaboração. Quando nenhum arquivo é encontrado, o Data Factory usa as definições padrão.
+
+O exemplo a seguir mostra um arquivo de parâmetros de amostra. Use este exemplo como referência para criar seu próprio arquivo de parâmetros personalizado. Quando o arquivo que você fornece não estiver no formato JSON correto, o Data Factory gera uma mensagem de erro no console do navegador e reverte para as definições padrão mostradas na interface do usuário do Data Factory.
+
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {},
+    "Microsoft.DataFactory/factories/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "ssisProperties": {
+                    "catalogInfo": {
+                        "catalogServerEndpoint": "=",
+                        "catalogAdminUserName": "=",
+                        "catalogAdminPassword": {
+                            "value": "-::secureString"
+                        }
+                    },
+                    "customSetupScriptProperties": {
+                        "sasToken": {
+                            "value": "-::secureString"
+                        }
+                    }
+                },
+                "linkedInfo": {
+                    "key": {
+                        "value": "-::secureString"
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "userName": "=",
+                    "accessKeyId": "=",
+                    "servicePrincipalId": "=",
+                    "userId": "=",
+                    "clientId": "=",
+                    "clusterUserName": "=",
+                    "clusterSshUserName": "=",
+                    "hostSubscriptionId": "=",
+                    "clusterResourceGroup": "=",
+                    "subscriptionId": "=",
+                    "resourceGroupName": "=",
+                    "tenant": "=",
+                    "dataLakeStoreUri": "=",
+                    "baseUrl": "=",
+                    "connectionString": "|:-connectionString:secureString"
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/datasets": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
+            }
+        }
+    }
 }
 ```

@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: ac288575d29699d03728e74b73ed7359dd7252e2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 52730ae24f4917ab593914c390df798f7f58dbde
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144775"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster do Service Fabric
 Um cluster do Azure Service Fabric é um recurso que pertence a você. É sua responsabilidade proteger os clusters para ajudar a impedir que usuários não autorizados se conectem a eles. Um cluster seguro é especialmente importante quando você está executando cargas de trabalho de produção no cluster. Embora seja possível criar um cluster não seguro, se ele expuser pontos de extremidade de gerenciamento na Internet pública, usuários anônimos poderão se conectar a ele. Clusters desprotegidos não são compatíveis com cargas de trabalho de produção. 
@@ -39,7 +40,7 @@ Os clusters executados em clusters do Azure e clusters autônomos em execução 
 ### <a name="node-to-node-certificate-security"></a>Segurança de certificado de nó para nó
 O Service Fabric usa os certificados do servidor X.509 que você especifica como parte da configuração de tipo de nó ao criar um cluster. Confira no final deste artigo uma visão geral rápida do que são esses certificados e como você pode adquiri-los ou criá-los.
 
-Configure a segurança de certificado durante a criação do cluster por meio do Portal do Azure, do uso de um modelo do Azure Resource Manager ou do uso de um modelo JSON autônomo. Você pode definir um certificado primário e um certificado secundário opcional, que é usado para substituições de certificado. Os certificados primários e secundários que você definir deverão ser diferentes dos certificados de cliente administrador e certificados cliente somente leitura definidos para a [segurança de cliente para nó](#client-to-node-security).
+Configure a segurança de certificado durante a criação do cluster por meio do Portal do Azure, do uso de um modelo do Azure Resource Manager ou do uso de um modelo JSON autônomo. O comportamento padrão do SDK do Service Fabric é implantar e instalar o certificado com o mais distante no futuro certificado de expiração; o comportamento clássico permitia a definição de certificados primários e secundários, permitir rollovers iniciados manualmente e não é recomendado para uso na nova funcionalidade. Os certificados primários que serão utilizados possuem a data de expiração mais longa no futuro, devem ser diferentes dos certificados de cliente admin e de leitura somente que você definiu para [segurança de cliente para nó](#client-to-node-security).
 
 Para saber como configurar a segurança de certificado em um cluster para o Azure, consulte [Configurar um cluster usando um modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
@@ -65,7 +66,11 @@ Para saber como configurar a segurança de certificado em um cluster para o Azur
 Para saber como configurar a segurança de certificado em um cluster para um cluster do Windows Server autônomo, consulte [Proteger um cluster autônomo no Windows usando certificados X.509](service-fabric-windows-cluster-x509-security.md).
 
 ### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Segurança do Azure Active Directory de cliente para nó no Azure
-Para clusters em execução no Azure, você também pode proteger o acesso aos pontos de extremidade de gerenciamento usando o Azure AD (Azure Active Directory). Para aprender como criar os artefatos do Azure AD necessários, como populá-los durante a criação do cluster e como se conectar-se a esses clusters posteriormente, consulte [Configurar um cluster usando um modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
+O Azure AD permite que as organizações (conhecidas como locatários) gerenciem o acesso dos usuários aos aplicativos. Os aplicativos são divididos entre os que têm IU de entrada na Web e os que têm experiência de cliente nativa. Se você ainda não criou um locatário, comece lendo [Como obter um locatário do Active Directory do Azure][active-directory-howto-tenant].
+
+Os clusters do Service Fabric oferecem vários pontos de entrada para a funcionalidade de gerenciamento, incluindo o [Service Fabric Explorer][service-fabric-visualizing-your-cluster] online o [Visual Studio][service-fabric-manage-application-in-visual-studio]. Como resultado, você criará dois aplicativos do Azure AD para controlar o acesso ao cluster, um aplicativo Web e um aplicativo nativo.
+
+Para clusters em execução no Azure, você também pode proteger o acesso aos pontos de extremidade de gerenciamento usando o Azure AD (Azure Active Directory). Para aprender como criar os artefatos necessários do Azure AD e como preenchê-los ao criar o cluster, consulte [Configurar o Azure AD para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
 
 ## <a name="security-recommendations"></a>Recomendações de segurança
 Para clusters do Azure, para segurança de nó para nó, é recomendável usar a segurança do Azure AD para autenticar clientes e certificados.
@@ -80,7 +85,7 @@ Os usuários aos quais é atribuída a função de Administrador têm acesso com
 Defina as funções de cliente de Administrador e de Usuário quando criar o cluster. Atribua as funções fornecendo identidades separadas (por exemplo, usando certificados ou o Azure AD) para cada tipo de função. Para saber mais sobre as configurações de controle de acesso padrão e como alterar as configurações padrão, consulte [Controle de Acesso Baseado em Função para clientes do Service Fabric](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certificados X.509 e Service Fabric
-Os certificados digitais X.509 são usados normalmente para autenticar clientes e servidores. Eles também são usados para criptografar e assinar digitalmente as mensagens. Para obter mais informações sobre certificados digitais X.509, consulte [Trabalhar com certificados](http://msdn.microsoft.com/library/ms731899.aspx).
+Os certificados digitais X.509 são usados normalmente para autenticar clientes e servidores. Eles também são usados para criptografar e assinar digitalmente as mensagens. O Service Fabric usa certificados x.509 para proteger um cluster e fornecer recursos de segurança do aplicativo. Para obter mais informações sobre certificados digitais X.509, consulte [Trabalhar com certificados](http://msdn.microsoft.com/library/ms731899.aspx). Você usa [Key Vault](../key-vault/key-vault-get-started.md) para gerenciar certificados para clusters do Service Fabric no Azure.
 
 Algumas coisas importantes a considerar:
 
@@ -88,17 +93,36 @@ Algumas coisas importantes a considerar:
 * Certificado de teste ou temporário criados usando ferramentas como MakeCert.exe nunca devem ser usados em um ambiente de produção.
 * Você pode usar um certificado autoassinado, mas somente em um cluster de teste. Não use um certificado autoassinado em produção.
 
-### <a name="server-x509-certificates"></a>Certificados X.509 do servidor
-Os certificados de servidor têm a tarefa principal de autenticar o servidor (nó) para clientes ou autenticar um servidor (nó) para um servidor (nó). Quando um cliente ou um nó autentica um nó, uma das verificações iniciais é a do valor do nome comum no campo **Entidade**. Esse nome comum ou um dos SANs (nomes alternativos da entidade) dos certificados deve estar presente na lista de nomes comuns permitidos.
+### <a name="cluster-and-server-certificate-required"></a>Certificado de cluster e de servidor (necessário)
+Esses certificados (um primário e, opcionalmente, um secundário) são necessárias para proteger um cluster e impedir o acesso não autorizado a ele. Esses certificados fornecem autenticação de cluster e servidor.
 
-Para saber como gerar certificados que têm SANs, consulte [Como adicionar um nome alternativo da entidade a um certificado LDAP seguro](http://support.microsoft.com/kb/931351).
+A autenticação de cluster autentica a comunicação de nó a nó para federação de cluster. Somente os nós que podem provar sua identidade com esse certificado podem ingressar no cluster. A autenticação do servidor autentica os pontos de extremidade de gerenciamento do cluster para um cliente de gerenciamento, para que o cliente de gerenciamento saiba que está falando com o cluster real e não com um 'man in the middle'. Esse certificado também fornece um SSL para a API de gerenciamento de HTTPS e para o Service Fabric Explorer sobre HTTPS. Quando um cliente ou um nó autentica um nó, uma das verificações iniciais é a do valor do nome comum no campo **Entidade**. Esse nome comum ou um dos SANs (nomes alternativos da entidade) dos certificados deve estar presente na lista de nomes comuns permitidos.
 
-O campo **Entidade** pode ter vários valores. Cada valor é prefixado com uma inicialização para indicar o tipo de valor. Geralmente, a inicialização é **CN** (de *nome comum*), por exemplo, **CN = www.contoso.com**. O campo **Entidade** pode ficar em branco. Se o campo opcional **Nome Alternativo da Entidade** estiver populado, ele deverá conter o nome comum do certificado e também uma entrada por SAN. Eles são inseridos como valores de **Nome DNS**.
+O certificado deve atender aos seguintes requisitos:
 
-O valor do campo **Finalidades Pretendidas** do certificado deve incluir um valor apropriado, como **Autenticação do Servidor** ou **Autenticação do Cliente**.
+* O certificado deve conter uma chave privada. Esses certificados geralmente têm extensões .pfx ou .pem  
+* O certificado deve ser criado para troca de chaves, que deve ser exportável para um arquivo Troca de Informações Pessoais (.pfx).
+* O **nome da entidade do certificado deve corresponder ao domínio usado para acessar o cluster do Service Fabric**. Essa correspondência é necessária para fornecer um SSL para os pontos de extremidade de gerenciamento de HTTPS e o Service Fabric Explorer do cluster. Você não pode obter um certificado SSL de uma AC (autoridade de certificação) para o domínio *.cloudapp.azure.com. Você deve obter um nome de domínio personalizado para seu cluster. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para seu cluster.
 
-### <a name="client-x509-certificates"></a>Certificados X.509 do cliente
-Normalmente, os certificados do cliente não são emitidos por uma AC de terceiros. Em vez disso, o repositório Pessoal do local atual do usuário geralmente contém os certificados colocados lá por uma autoridade raiz, com um valor de **Finalidades Pretendidas** de **Autenticação do Cliente**. O cliente pode usar esse certificado quando a autenticação mútua é necessária.
+Algumas outras coisas a considerar:
+
+* O campo **Entidade** pode ter vários valores. Cada valor é prefixado com uma inicialização para indicar o tipo de valor. Geralmente, a inicialização é **CN** (de *nome comum*), por exemplo, **CN = www.contoso.com**. 
+* O campo **Entidade** pode ficar em branco. 
+* Se o campo opcional **Nome Alternativo da Entidade** estiver populado, ele deverá conter o nome comum do certificado e também uma entrada por SAN. Eles são inseridos como valores de **Nome DNS**. Para saber como gerar certificados que têm SANs, consulte [Como adicionar um nome alternativo da entidade a um certificado LDAP seguro](http://support.microsoft.com/kb/931351).
+* O valor do campo **Finalidades Pretendidas** do certificado deve incluir um valor apropriado, como **Autenticação do Servidor** ou **Autenticação do Cliente**.
+
+### <a name="application-certificates-optional"></a>Certificados de aplicativo (opcionais)
+Qualquer número de certificados adicionais pode ser instalado em um cluster para fins de segurança do aplicativo. Antes de criar o cluster, considere os cenários de segurança de aplicativos que exigem um certificado a ser instalado em nós, como:
+
+* Criptografia e descriptografia de valores de configuração de aplicativo.
+* Criptografia de dados entre nós durante a replicação.
+
+O conceito para criar clusters seguros é o mesmo, sejam clusters do Linux ou do Windows.
+
+### <a name="client-authentication-certificates-optional"></a>Certificados de autenticação de cliente (opcional)
+Qualquer número de certificados adicionais pode ser especificado para operações do administrador ou do usuário. O cliente pode usar esse certificado quando a autenticação mútua é necessária. Normalmente, os certificados do cliente não são emitidos por uma AC de terceiros. Em vez disso, o armazenamento Pessoal do local atual do usuário geralmente contém certificados de cliente colocados lá por uma autoridade raiz. O certificado deve ter um **valor de Propósito Final** de **Autenticação do Cliente**.  
+
+Por padrão, o certificado de cluster tem privilégios de cliente do administrador. Esses certificados de cliente adicionais não devem ser instalados no cluster, mas são especificados como permitidos na configuração do cluster.  No entanto, os certificados do cliente precisam ser instalados nas máquinas clientes para se conectar ao cluster e executar quaisquer operações.
 
 > [!NOTE]
 > Todas as operações de gerenciamento no cluster do Service Fabric exigem certificados de servidor. Certificados de cliente não podem ser usados para gerenciamento.
@@ -110,3 +134,7 @@ Normalmente, os certificados do cliente não são emitidos por uma AC de terceir
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
+
+[active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md
+[service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
+[service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md

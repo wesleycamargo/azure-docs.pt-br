@@ -1,13 +1,13 @@
 ---
-title: "Alta disponibilidade de vários SIDs da instância do SAP ASCS com clustering de failover do Windows Server e compartilhamento de arquivos no Azure | Microsoft Docs"
-description: "Alta disponibilidade de vários SIDs para instâncias do SAP ASCS com clustering de failover do Windows Server e compartilhamento de arquivos no Azure"
+title: Alta disponibilidade de vários SIDs da instância do SAP ASCS com clustering de failover do Windows Server e compartilhamento de arquivos no Azure | Microsoft Docs
+description: Alta disponibilidade de vários SIDs para instâncias do SAP ASCS com clustering de failover do Windows Server e compartilhamento de arquivos no Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3522e7ef0e3d49ce1bd8bed750b239fa384af8b8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 1e21357eeb795a26874cddb90b4d3a6303b83ac0
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189626"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -226,6 +227,7 @@ _**Figura 1:** Uma instância SAP ASCS/SCS e SOFS implantada em dois clusters_
 > [!IMPORTANT]
 > A instalação deve atender às seguintes condições:
 > * As instâncias do SAP ASCS/SCS deverão compartilhar o mesmo cluster WSFC.
+> * Diferentes compartilhamentos de arquivos de Hosts Globais do SAP que pertencem a diferentes SIDs do SAP precisam compartilhar o mesmo cluster SOFS.
 > * Cada SID do DBMS (sistema de gerenciamento de banco de dados) deve ter seu próprio cluster WSFC dedicado.
 > * Os servidores de aplicativos SAP que pertencem a um SID do sistema SAP deverão ter suas próprias VMs dedicadas.
 
@@ -399,7 +401,7 @@ Clique com o botão direito do mouse no grupo de clusters SOFS **saoglobal2** e 
 _**Figura 6:** Iniciar assistente de "Adicionar compartilhamento de arquivos"_
 
 <br>
-![Figura 7: "Escolher compartilhamento SMB – Rápido"][sap-ha-guide-figure-8018]
+![Figura 7: Escolher "Compartilhamento SMB – Rápido"][sap-ha-guide-figure-8018]
 
 _**Figura 7:** Escolher "Compartilhamento SMB – Rápido"_
 

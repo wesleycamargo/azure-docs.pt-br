@@ -1,7 +1,7 @@
 Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.000 emails mensais gratuitos lhe darão acesso a relatórios e análises avançados e a [todas as APIs][all APIs] (Web, SMTP, Evento, Análise e mais). Para obter informações sobre os serviços adicionais fornecidos por SendGrid, visite a página [Soluções do SendGrid][SendGrid Solutions].
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Para se inscrever em uma conta do SendGrid
-1. Faça logon no [Portal do Azure][Azure portal].
+1. Entre no [Portal do Azure][Azure portal].
 2. No menu à esquerda, clique em **Criar um recurso**.
 
     ![command-bar-new][command-bar-new]
@@ -61,9 +61,9 @@ Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.
 
 Para gerenciar suas configurações de entrega de email, clique no **botão Gerenciar**. Você será redirecionado para o painel do SendGrid.
 
-    ![manage][manage]
+![gerenciar][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+Para obter mais informações sobre o envio de email por meio do SendGrid, visite a [Visão Geral da API Email][Email API Overview].
 
 <!--images-->
 

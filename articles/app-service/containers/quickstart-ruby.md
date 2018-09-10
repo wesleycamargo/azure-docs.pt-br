@@ -13,14 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/10/2017
+ms.date: 08/24/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 0707835cf4d6891397579cc41de49fc0462b4521
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 729ed8ac4568f5f39fd62fadbc8d4d0e4595f7b8
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885282"
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Criar um aplicativo Ruby no Serviço de Aplicativo no Linux
 
@@ -30,7 +31,7 @@ O [Serviço de Aplicativo no Microsoft Azure](app-service-linux-intro.md) fornec
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Instale o Ruby 2.3 ou superior</a>
 * <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
@@ -45,7 +46,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## <a name="run-the-application-locally"></a>Executar o aplicativo localmente
 
-O servidor de trilhos precisa estar executando para o aplicativo funcionar. Altere para o `hello-world` diretório e use o `rails server` comando para iniciar o servidor.
+Execute o aplicativo no local para ver como ele deve ficar quando o implantar no Azure. Abra uma janela do terminal, mude para o diretório `hello-world` e use o comando `rails server` para iniciar o servidor.
 
 ```bash
 cd hello-world\bin
@@ -105,7 +106,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Depois que a implantação for concluída, reinicie o aplicativo Web para a implantação entrar em vigor usando o comando [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart), conforme mostrado aqui:
+Depois que a implantação for concluída, reinicie o aplicativo Web para a implantação entrar em vigor usando o comando [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-restart), conforme mostrado aqui:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup
@@ -128,4 +129,4 @@ http://<app name>.azurewebsites.net
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Ruby on Rails com MySQL](tutorial-ruby-mysql-app.md)
+> [Ruby on Rails com MySQL](tutorial-ruby-postgres-app.md)

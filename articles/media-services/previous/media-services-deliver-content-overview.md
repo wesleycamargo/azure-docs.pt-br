@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783745"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuir conteúdo aos clientes
 Quando você estiver distribuindo conteúdo de streaming ou vídeo sob demanda aos clientes, sua meta será distribuir vídeo de alta qualidade a vários dispositivos sob diferentes condições de rede.

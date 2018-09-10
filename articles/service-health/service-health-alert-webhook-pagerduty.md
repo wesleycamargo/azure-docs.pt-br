@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 6e9fcf20d368e270f9af4551c539acd873335498
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5f6f3f61b5f7a06ac4056499edfb811780838cdc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441870"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>Configurar alertas de integridade do serviço com o PagerDuty
 
@@ -27,13 +28,13 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 ## <a name="creating-a-service-health-integration-url-in-pagerduty"></a>Criando uma URL de integração de integridade do serviço no PagerDuty
 1.  Verifique se você se inscreveu e entrou em sua conta do [PagerDuty](https://www.pagerduty.com/).
 
-2.  Navegue para a seção **Serviços** do PagerDuty.
+1.  Navegue para a seção **Serviços** do PagerDuty.
 
     ![A seção “Serviços” do PagerDuty](./media/webhook-alerts/pagerduty-services-section.png)
 
-3.  Selecione **Adicionar Novo Serviço** ou abra um serviço existente configurado.
+1.  Selecione **Adicionar Novo Serviço** ou abra um serviço existente configurado.
 
-4.  Nas **Configurações de Integração**, selecione o seguinte:
+1.  Nas **Configurações de Integração**, selecione o seguinte:
 
     a. **Tipo de Integração**: Microsoft Azure
 
@@ -41,9 +42,9 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 
     ![As “Configurações de Integração” do PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 
-5.  Preencha todos os outros campos obrigatórios e selecione **Adicionar**.
+1.  Preencha todos os outros campos obrigatórios e selecione **Adicionar**.
 
-6.  Abra essa nova integração e copie e salve a **URL de Integração**.
+1.  Abra essa nova integração e copie e salve a **URL de Integração**.
 
     ![A “URL de Integração” do PagerDuty](./media/webhook-alerts/pagerduty-integration-url.png)
 
@@ -51,7 +52,7 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 ### <a name="for-a-new-action-group"></a>Para um novo grupo de ação:
 1. Siga as etapas 1 a 8 de [Criar um alerta em uma notificação de integridade do serviço para um novo grupo de ação usando o portal do Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 
-2. Defina na lista de **Ações**:
+1. Defina na lista de **Ações**:
 
     a. **Tipo de Ação:** *Webhook*
 
@@ -59,16 +60,16 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 
     c. **Nome:** o nome, alias ou identificador do webhook.
 
-3. Selecione **Salvar** quando concluir a criação do alerta.
+1. Selecione **Salvar** quando concluir a criação do alerta.
 
 ### <a name="for-an-existing-action-group"></a>Para um grupo de ação existente:
 1. No [portal do Azure](https://portal.azure.com/), selecione **Monitor**.
 
-2. Na seção **Configurações**, selecione **Grupos de ação**.
+1. Na seção **Configurações**, selecione **Grupos de ação**.
 
-3. Encontre e selecione o grupo de ação que você deseja editar.
+1. Encontre e selecione o grupo de ação que você deseja editar.
 
-4. Adicione à lista de **Ações**:
+1. Adicione à lista de **Ações**:
 
     a. **Tipo de Ação:** *Webhook*
 
@@ -76,12 +77,12 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 
     c. **Nome:** o nome, alias ou identificador do webhook.
 
-5. Selecione **Salvar** quando concluir a atualização do grupo de ação.
+1. Selecione **Salvar** quando concluir a atualização do grupo de ação.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testando a integração de webhook por meio de uma solicitação HTTP POST
 1. Crie o conteúdo de integridade do serviço que você deseja enviar. Encontre um conteúdo de webhook de integridade do serviço de exemplo em [Webhooks para alertas do log de atividades do Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
-2. Crie uma solicitação HTTP POST, da seguinte maneira:
+1. Crie uma solicitação HTTP POST, da seguinte maneira:
 
     ```
     POST        https://events.pagerduty.com/integration/<IntegrationKey>/enqueue
@@ -90,9 +91,9 @@ Este artigo mostra como configurar notificações de integridade do serviço do 
 
     BODY        <service health payload>
     ```
-3. Você deverá receber um `202 Accepted` com uma mensagem que contém a “ID do evento”.
+1. Você deverá receber um `202 Accepted` com uma mensagem que contém a “ID do evento”.
 
-4. Acesse o [PagerDuty](https://www.pagerduty.com/) para confirmar se a integração foi configurada com êxito.
+1. Acesse o [PagerDuty](https://www.pagerduty.com/) para confirmar se a integração foi configurada com êxito.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).

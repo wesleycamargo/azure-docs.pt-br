@@ -3,8 +3,8 @@ title: Projetar e implementar um banco de dados Oracle no Azure | Microsoft Docs
 description: Projete e implemente um banco de dados Oracle no seu ambiente do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: v-shiuma
-manager: timlt
+author: romitgirdhar
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 6/22/2017
-ms.author: rclaus
-ms.openlocfilehash: b291066137df004625029aef12c3db4d5441a89c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/02/2018
+ms.author: rogirdh
+ms.openlocfilehash: d4c0bbdfb1afcef33727ba4b5b432c5de79168d4
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495213"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projete e implemente um banco de dados Oracle no Azure
 

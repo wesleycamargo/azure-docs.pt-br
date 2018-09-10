@@ -1,25 +1,27 @@
 ---
-title: "Configurações de Política de Grupo e do MDM | Microsoft Docs"
-description: "Fornece informações sobre as configurações de política de grupo e do MDM (gerenciamento de dispositivos móveis) que devem ser usadas em dispositivos corporativos. Essas políticas são aplicadas ao dispositivo inteiro do usuário."
+title: Configurações de Política de Grupo e do MDM | Microsoft Docs
+description: Fornece informações sobre as configurações de política de grupo e do MDM (gerenciamento de dispositivos móveis) que devem ser usadas em dispositivos corporativos. Essas políticas são aplicadas ao dispositivo inteiro do usuário.
 services: active-directory
-keywords: "quais são as configurações da Política e do MDM para o Enterprise State Roaming, Enterprise State Roaming, nuvem do windows"
-documentationcenter: 
-author: tanning
+keywords: quais são as configurações da Política e do MDM para o Enterprise State Roaming, Enterprise State Roaming, nuvem do windows
+documentationcenter: ''
+author: MarkusVi
 manager: mtillman
 editor: curtand
+ms.component: devices
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 588084481ffc5cbbeed34e9527271179fa359ed5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9db0fa29f6af0053d45f9f0238b52ac34fdb464a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223254"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Configurações de Política de Grupo e do MDM
 Use essas configurações da política de grupo e do MDM (gerenciamento de dispositivos móveis) somente em dispositivos corporativos, já que as políticas são aplicadas ao dispositivo inteiro do usuário. A aplicação de uma política MDM para desabilitar a sincronização de configurações para um dispositivo pessoal de propriedade do usuário afetará negativamente o uso do dispositivo. Além disso, outras contas de usuário no dispositivo também serão afetadas pela política.
@@ -30,7 +32,7 @@ As tabelas a seguir descrevem as configurações de política disponíveis.
 ## <a name="mdm-settings"></a>Configurações do MDM
 As configurações da  política de MDM se aplicam ao Windows 10 e ao Windows 10 Mobile.  Há suporte do Windows Mobile 10 somente para roaming baseado em conta da Microsoft por meio da conta do OneDrive do usuário.  Consulte a seção "Dispositivos e pontos de extremidade" para ver detalhes sobre quais dispositivos têm suporte para sincronização baseada no Azure AD.
 
-| Nome | Descrição |
+| NOME | DESCRIÇÃO |
 | --- | --- |
 | Permitir Conexão da Conta da Microsoft |Permite que os usuários se autentiquem usando uma conta da Microsoft no dispositivo |
 | Permitir Sincronizar Configurações |Permite aos usuários mover dados de aplicativo e configurações do Windows. Desabilitar esta política desabilitará a sincronização, bem como backups em dispositivos móveis |
@@ -38,7 +40,7 @@ As configurações da  política de MDM se aplicam ao Windows 10 e ao Windows 10
 ## <a name="group-policy-settings"></a>Configurações de Política de Grupo
 As configurações de Política de Grupo se aplicam a dispositivos Windows 10 ingressados em um domínio do Active Directory. A tabela também inclui as configurações herdadas que apareceriam para gerenciar as configurações de sincronização, mas que não funcionam para o Enterprise State Roaming para Windows 10 e estão indicadas com "Não usar" na descrição.
 
-| Nome | Descrição |
+| NOME | DESCRIÇÃO |
 | --- | --- |
 | Contas: Bloquear Contas da Microsoft |Essa configuração de política impede que os usuários adicionem novas contas da Microsoft a este computador |
 | Não sincronizar |Impede que os usuários movam dados de aplicativo e configurações do Windows |

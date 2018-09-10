@@ -1,24 +1,20 @@
 ---
-title: Acesso aos logs de aplicativo YARN no Hadoop de forma programática – Azure | Microsoft Docs
+title: Acesso aos logs de aplicativo YARN no Hadoop de forma programática – Azure
 description: Acessar logs do aplicativo programaticamente em um cluster de Hadoop no HDInsight.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 0198d6c9-7767-4682-bd34-42838cf48fc5
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: aab7865548c034cb550874c31977b05936dc45b9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e92f9f7bb49b0b7cc33c73a9c5eb2d0ca7532592
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094394"
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Acessar logs de aplicativo YARN no HDInsight baseado em Windows
 Este documento explica como acessar os logs para aplicativos YARN que terminaram em um cluster Hadoop baseado no Windows no Microsoft Azure HDInsight
@@ -28,7 +24,7 @@ Este documento explica como acessar os logs para aplicativos YARN que terminaram
 >
 
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 * Um cluster HDInsight baseado no Windows.  Confira [Crie clusters Hadoop baseados no Windows no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>Servidor de linha do tempo do YARN

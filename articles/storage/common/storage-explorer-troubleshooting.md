@@ -2,24 +2,18 @@
 title: Guia de solução de problemas do Gerenciador de Armazenamento do Azure | Microsoft Docs
 description: Visão geral dos dois recursos de depuração do Azure
 services: virtual-machines
-documentationcenter: ''
 author: Deland-Han
-manager: cshepard
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: common
+ms.openlocfilehash: eb72d92496addacd82e4d30df625b4f9c0c823e5
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777070"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521023"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -31,7 +25,7 @@ Este guia resume as soluções de problemas comuns encontrados no Gerenciador de
 
 Erros de certificado são causados por uma das duas seguintes situações:
 
-1. O aplicativo está conectado por meio de um "proxy transparente", o que significa que um servidor (como o servidor de sua empresa) está interceptando o tráfego HTTPS, descriptografando-o e, em seguida, criptografando usando um certificado autoassinado.
+1. O aplicativo está conectado por meio de um "proxy transparente", o que significa que um servidor (como o servidor de sua empresa) está interceptando o tráfego HTTPS, descriptografando-o e então o criptografando usando um certificado autoassinado.
 2. Você está executando um aplicativo que está injetando um certificado SSL autoassinado para as mensagens HTTPS recebidas. Exemplos de aplicativos que injetam certificados incluem software de inspeção de tráfego de antivírus e rede.
 
 Quando o Gerenciador de Armazenamento vê um assinatura de autoatendimento ou o certificado não confiável, ele não sabe se a mensagem recebida do HTTPS foi alterada. Se você tiver uma cópia do certificado autoassinado, poderá permitir que o Gerenciador de Armazenamento confie nele realizando as seguintes etapas:
@@ -60,17 +54,35 @@ Se você não conseguir encontrar certificados autoassinados usando as etapas an
 
 ## <a name="sign-in-issues"></a>Problemas de credenciais
 
-Se você não conseguir entrar, tente os seguintes métodos:
+### <a name="reauthentication-loop-or-upn-change"></a>Loop de reautenticação ou alteração de UPN
+Se você estiver em um loop de reautenticação ou tiver alterado o UPN de uma das suas contas, tente o seguinte:
+1. Remova todas as contas e, em seguida, feche o Gerenciador de Armazenamento
+2. Exclua a pasta .IdentityService do seu computador. No Windows, a pasta está localizada em `C:\users\<username>\AppData\Local`. Para Mac e Linux, você pode encontrar a pasta na raiz do seu diretório de usuário.
+3. Se você estiver usando Mac ou Linux, também precisará excluir a entrada Microsoft.Developer.IdentityService do repositório de chaves do sistema operacional. No Mac, o repositório de chaves é o aplicativo de "Conjunto de Chaves Gnome". Para o Linux, o aplicativo geralmente é chamado de "Token de autenticação", mas o nome pode ser diferente dependendo da sua distribuição.
 
-* Se você estiver usando macOS e a janela de logon não aparecer na caixa de diálogo "Aguardando para autenticação...", tente [estas etapas](#Resetting-the-Mac-Keychain)
+## <a name="mac-keychain-errors"></a>Erros de conjunto de chaves do Mac
+O conjunto de chaves do macOS, às vezes, pode entrar em um estado que causa problemas para a biblioteca de autenticação do Gerenciador de Armazenamento. Para obter o conjunto de chaves fora desse estado, tente as seguintes etapas:
+1. Feche o Gerenciador de Armazenamento.
+2. Abra o conjunto de chaves (**cmd + espaço**, digite conjunto de chaves, clique enter).
+3. Selecione o conjunto de chaves "logon".
+4. Clique no ícone de cadeado para bloquear o conjunto de chaves (o cadeado será animado para uma posição bloqueada quando concluído, pode levar alguns segundos, dependendo de quais aplicativos que você tiver aberto).
+
+    ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Inicie o Gerenciador de Armazenamento.
+6. Um pop-up deve aparecer dizendo algo como "O hub de serviços quer acessar o conjunto de chaves". Quando aparecer, insira sua senha de conta de administrador do Mac e clique em **Sempre Permitir** (ou **Permitir** se **Sempre Permitir** não estiver disponível).
+7. Tente entrar.
+
+### <a name="general-sign-in-troubleshooting-steps"></a>Etapas gerais de solução de problemas de entrada
+* Se você estiver usando macOS e a janela de logon não aparecer na caixa de diálogo "Aguardando para autenticação...", tente [estas etapas](#Mac-Keychain-Errors)
 * Reiniciar o Gerenciador de Armazenamento
 * Se a janela de autenticação estiver em branco, aguarde pelo menos um minuto antes de fechar a caixa de diálogo de autenticação.
-* Certifique-se de que as configurações de proxy e de certificado estão configuradas adequadamente no seu computador e no Gerenciador de Armazenamento
-* Se você estiver no Windows e ter acesso ao Visual Studio de 2017 no mesmo computador e logon, tente entrar no Visual Studio de 2017
+* Verifique se as suas configurações de proxy e de certificado estejam definidas para o seu computador e o Gerenciador de Armazenamento.
+* Se você estiver no Windows e tiver acesso ao Visual Studio 2017 usando o mesmo computador e logon, tente entrar no Visual Studio 2017. Após um entrar com êxito no Visual Studio 2017, você deve ser capaz de abrir o Gerenciador de Armazenamento e ver sua conta no painel da conta. 
 
 Se nenhum desses métodos funcionar [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="unable-to-retrieve-subscriptions"></a>Não é possível recuperar as assinaturas
+### <a name="missing-subscriptions-and-broken-tenants"></a>Assinaturas ausentes e locatários desfeitos
 
 Se não for possível recuperar as assinaturas após a entrada bem-sucedida, tente os métodos de solução de problemas a seguir:
 
@@ -78,7 +90,7 @@ Se não for possível recuperar as assinaturas após a entrada bem-sucedida, ten
 * Verifique se você entrou usando o ambiente certo (Azure, Azure China, Azure Alemanha, Azure US Government nos ou Ambiente Personalizado).
 * Se você estiver atrás de um proxy, verifique se você configurou o proxy do Gerenciador de Armazenamento apropriadamente.
 * Tente remover e readicionar a conta.
-* Assista o console de ferramentas de desenvolvedor (Ajuda > Ferramentas de desenvolvedor de alternância) enquanto o Gerenciador de Armazenamento está carregando assinaturas. Procure por mensagens de erro (texto vermelho) ou qualquer mensagem que contém o texto "Não foi possível carregar as assinaturas de locatários." Se você vir alguma mensagem a respeito, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* Se houver um link "Obter mais informações", procure e veja quais mensagens de erro estão sendo relatadas para os locatários que estão falhando. Se você não tiver certeza do que fazer com as mensagens de erro que vê, sinta-se à vontade para [abrir um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## <a name="cannot-remove-attached-account-or-storage-resource"></a>Não é possível remover o recurso de conta ou armazenamento anexado
 
@@ -155,19 +167,6 @@ Para distribuições Linux diferentes do Ubuntu 16.04, talvez seja necessário i
 * GCC atualizado
 
 Dependendo da sua distribuição, talvez seja necessário instalar outros pacotes. O Gerenciador de Armazenamento[Notas de Versão](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contém etapas específicas para algumas distribuições.
-
-## <a name="resetting-the-mac-keychain"></a>Redefinindo o conjunto de chaves do Mac
-O conjunto de chaves do macOS, às vezes, pode entrar em um estado que causa problemas para a biblioteca de autenticação do Gerenciador de Armazenamento. Para obter o conjunto de chaves fora desse estado, tente as seguintes etapas:
-1. Feche o Gerenciador de Armazenamento.
-2. Abra o conjunto de chaves (**cmd + espaço**, digite conjunto de chaves, clique enter).
-3. Selecione o conjunto de chaves "logon".
-4. Clique no ícone de cadeado para bloquear o conjunto de chaves (o cadeado será animado para uma posição bloqueada quando concluído, pode levar alguns segundos, dependendo de quais aplicativos que você tiver aberto).
-
-    ![imagem](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
-
-5. Inicie o Gerenciador de Armazenamento.
-6. Um pop up deve aparecer dizendo algo como "Hub do serviço quer acessar o conjunto de chaves", digite sua senha de conta de administrador do Mac e clique em **Permitir sempre** (ou **Permitir** se **Permitir sempre** não estiver disponível).
-7. Tente entrar.
 
 ## <a name="next-steps"></a>Próximas etapas
 

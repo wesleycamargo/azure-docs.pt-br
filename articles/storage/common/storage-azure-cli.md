@@ -2,23 +2,19 @@
 title: Uso da CLI do Azure 2.0 com o Armazenamento do Azure | Microsoft Docs
 description: Saiba como usar a CLI (Interface de Linha de Comando) do Azure 2.0 com o Armazenamento do Azure para criar e gerenciar contas de armazenamento, bem como trabalhar com blobs e arquivos do Azure. O CLI do Azure 2.0 é uma ferramenta de plataforma cruzada escrita em Python.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 99e67b9c8469f08f1cbfc980568eec35694d1ae2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: 12b383267cb90d9305043b52450572add0c1c202
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527483"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Uso da CLI do Azure 2.0 com o Armazenamento do Azure
 
@@ -30,7 +26,7 @@ Os exemplos neste guia supõem o uso do shell Bash no Ubuntu, mas outras platafo
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure. Ele também pressupõe que você é capaz de satisfazer os requisitos de criação de conta especificados abaixo para o serviço do Azure e de Armazenamento.
 
 ### <a name="accounts"></a>Contas
@@ -197,9 +193,20 @@ az storage account create \
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-
 ### <a name="set-default-azure-storage-account-environment-variables"></a>Definir as variáveis de ambiente da conta de armazenamento padrão do Azure
+
 Você pode ter várias contas de armazenamento na sua assinatura do Azure. Para selecionar uma delas para usar em todos os comandos de armazenamento posteriores, você pode definir essas variáveis de ambiente:
+
+Primeiro, exiba as chaves da conta de armazenamento usando o comando [az storage account keys list](/cli/azure/storage/account/keys#list):
+
+```azurecli-interactive
+az storage account keys list \
+    --account-name <account_name> \
+    --resource-group <resource_group> \
+    --output table
+```
+
+Agora que você tem a chave, você pode definir a ele e o nome da conta como variáveis de ambiente:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -222,7 +229,6 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 
 > [!NOTE]
 > Todos os exemplos nas seções a seguir deste artigo pressupõem que você definiu as variáveis de ambiente `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_ACCESS_KEY`.
->
 
 ## <a name="create-and-manage-blobs"></a>Criar e gerenciar blobs
 O Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Esta seção pressupõe que você esteja familiarizado com o conceitos de Armazenamento de Blobs do Azure. Para obter informações detalhadas, confira [Introdução ao Armazenamento de Blobs do Azure usando o .NET](../blobs/storage-dotnet-how-to-use-blobs.md) e [Blob Service Concepts](/rest/api/storageservices/blob-service-concepts) (Conceitos do serviço Blob).

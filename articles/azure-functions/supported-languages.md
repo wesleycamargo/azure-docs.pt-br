@@ -1,24 +1,25 @@
 ---
 title: Linguagens com suporte no Azure Functions
-description: "Saiba quais linguagens são compatíveis (GA) e quais são experimentais ou estão na versão prévia."
+description: Saiba quais linguagens são compatíveis (GA) e quais são experimentais ou estão na versão prévia.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-editor: 
-tags: 
+author: ggailey777
+manager: jeconnoc
+editor: ''
+tags: ''
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/07/2017
-ms.author: tdykstra
-ms.openlocfilehash: 5786a206b258cfe7c48f52ead9b5a4cceb64cd5f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.date: 08/02/2018
+ms.author: glenga
+ms.openlocfilehash: 2de2ebdea41ca35e853b37ab804e516eb7f4df9f
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494441"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Linguagens com suporte no Azure Functions
 
@@ -40,13 +41,13 @@ Há três níveis de suporte:
 
 ### <a name="experimental-languages"></a>Linguagens experimentais
 
-As linguagens experimentais no 1.x não escalam bem e não oferecem suporte a todas as associações. Por exemplo, o Python é lento porque o tempo de execução do Functions executa *python.exe* com cada chamada de função. E, embora o Python seja compatível com associações de HTTP, não é possível acessar o objeto de solicitação.
+As linguagens experimentais na versão 1.x não escalam bem e não oferecem suporte a todas as associações. Por exemplo, o Python é lento porque o tempo de execução do Functions executa *python.exe* com cada chamada de função. E, embora o Python seja compatível com associações de HTTP, não é possível acessar o objeto de solicitação.
 
-O suporte experimental para o PowerShell é limitado à versão 4.0 porque é a que está instalada nas máquinas virtuais em que o aplicativo de funções está sendo executado. Se desejar executar scripts do PowerShell, considere a [Automação do Azure](https://azure.microsoft.com/services/automation/).
-
-O tempo de execução 2.x não oferece suporte a linguagens experimentais. 2.x, adicionaremos suporte para uma linguagem somente quando ela escalar bem e for compatível com gatilhos avançados.
+O suporte experimental para o PowerShell é limitado à versão 5.1 porque é a que está instalada nas máquinas virtuais por padrão em que as máquinas virtuais no aplicativo de funções está sendo executado. Se desejar executar scripts do PowerShell, considere a [Automação do Azure](https://azure.microsoft.com/services/automation/).
 
 Se você quiser usar uma das linguagens que estão disponíveis somente no 1.x, permaneça no tempo de execução 1.x. Mas não use linguagens experimentais para qualquer coisa da qual você dependa, pois não há suporte oficial para elas. Você pode solicitar ajuda [criando problemas de GitHub](https://github.com/Azure/azure-webjobs-sdk-script/issues), mas não devem ser abertos casos de suporte para problemas com linguagens experimentais. 
+
+O tempo de execução versão 2.x não oferece suporte a linguagens experimentais. O suporte para novos idiomas é adicionado somente quando o idioma pode ter suporte em produção. 
 
 ### <a name="language-extensibility"></a>Extensibilidade de linguagem
 

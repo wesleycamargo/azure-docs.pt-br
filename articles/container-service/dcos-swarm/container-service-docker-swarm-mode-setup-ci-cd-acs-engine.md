@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 01126f3eef988eb1787bafea92e7384aad1a703c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c41156383791fb7d72ac02dae919a25a0d15c84
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621055"
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Pipeline de CI/CD completo para implantar um aplicativo com vários contêineres no Serviço de Contêiner do Azure com Mecanismo do ACS e modo Docker Swarm usando o Visual Studio Team Services
 
@@ -43,14 +44,14 @@ Uma breve explicação das etapas:
 7. O modo Docker Swarm no cluster obtém a versão mais recente das imagens 
 8. A nova versão do aplicativo é implantada usando o Docker Stack 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, você precisa concluir as seguintes tarefas:
 
 - [Criar um cluster no modo Swarm no Serviço de Contêiner do Azure com o Mecanismo do ACS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
 - [Conectar-se ao cluster Swarm no Serviço de Contêiner do Azure](../container-service-connect.md)
 - [Criar um registro de contêiner do Azure](../../container-registry/container-registry-get-started-portal.md)
-- [Ter uma conta do Visual Studio Team Services e projeto de equipe criados](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+- [Ter uma conta do Visual Studio Team Services e projeto de equipe criados](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
 - [Dividir o repositório GitHub para sua conta do GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux)
 
 >[!NOTE]

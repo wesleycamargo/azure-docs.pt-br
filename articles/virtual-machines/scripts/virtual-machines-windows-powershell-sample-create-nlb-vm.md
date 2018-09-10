@@ -3,8 +3,8 @@ title: Amostra de script do Azure PowerShell – Criar uma VM NBL Windows | Micr
 description: Amostra de script do Azure PowerShell – Criar uma VM NBL Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -14,13 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 25bcbbcd1615e01a384825d7bd1582a528e91f71
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3b7b784cf732be0b861933c8c3638e08999a30a3
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932051"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Como balancear a carga de tráfego entre máquinas virtuais altamente disponíveis
 
@@ -34,7 +35,7 @@ Este exemplo de script cria todos os componentes necessários para executar vár
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.ps1 "Create VM NLB")]
 
-## <a name="clean-up-deployment"></a>Limpar a implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 

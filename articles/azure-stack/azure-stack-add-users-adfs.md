@@ -1,11 +1,11 @@
 ---
-title: "Adicionar usuários para que o ADFS de pilha do Azure | Microsoft Docs"
-description: "Saiba como adicionar usuários para implantações do AD FS da pilha do Azure"
+title: Adicionar usuários para que o ADFS de pilha do Azure | Microsoft Docs
+description: Saiba como adicionar usuários para implantações do AD FS da pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29554553"
 ---
 # <a name="add-users-in-the-azure-stack-development-kit"></a>Adicionar usuários no Kit de desenvolvimento de pilha do Azure
 

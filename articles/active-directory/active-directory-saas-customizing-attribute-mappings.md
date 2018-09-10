@@ -3,26 +3,27 @@ title: Personalizar mapeamentos de atributo do Azure AD | Microsoft Docs
 description: Saiba quais são os mapeamentos de atributo para aplicativos SaaS no Active Directory do Azure e como você pode modificá-los para atender às necessidades de negócios.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/13/2018
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78d971b47ffceb8d845f21a731176834f004f12c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: accc2e994e7ea361315d5dfb33b257e58410490c
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146098"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar os mapeamentos de atributos de provisionamento de usuário para aplicativos SaaS no Azure Active Directory
-O AD do Microsoft Azure dá suporte para provisionamento de usuário para aplicativos SaaS de terceiros, como Salesforce, Google Apps e outros. Se você tiver provisionamento de usuário para um aplicativo SaaS de terceiros habilitado, o portal do Azure controla seus valores de atributo na forma de uma configuração chamada "mapeamento de atributos."
+O AD do Microsoft Azure dá suporte para provisionamento de usuário para aplicativos SaaS de terceiros, como Salesforce, Google Apps e outros. Se você tiver provisionamento de usuário para um aplicativo SaaS de terceiros habilitado, o portal do Azure controla seus valores de atributo na forma de mapeamento de atributos.
 
 Há um conjunto pré-configurado de atributos e mapeamentos de atributos entre objetos de usuário do Azure AD e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos além de Usuários, como Grupos. <br> 
  Você pode personalizar mapeamentos de atributo padrão de acordo com suas necessidades comerciais. Isso significa que você pode alterar ou excluir mapeamentos de atributos existentes ou criar novos mapeamentos de atributos.
@@ -55,7 +56,7 @@ Com mapeamentos de atributo, você controla como os atributos são preenchidos e
   Para saber mais, consulte [Escrever expressões para mapeamentos de atributo no Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 * **Nenhum** – o atributo de destino é deixado inalterado. No entanto, se o atributo de destino estiver vazio, ele será preenchido com o valor padrão que você especificar.
 
-Além desses quatro tipos de mapeamentos de atributo básicos, os mapeamentos de atributo personalizados dão suporte ao conceito de uma atribuição de valor **padrão** opcional. A atribuição do valor padrão assegura que um atributo de destino seja preenchido com um valor, se não houver um valor no AD do Azure nem no objeto de destino. A configuração mais comum é deixar isso em branco.
+Além desses quatro tipos básicos, os mapeamentos de atributo personalizados dão suporte ao conceito de uma atribuição de valor **padrão** opcional. A atribuição do valor padrão assegura que um atributo de destino seja preenchido com um valor, se não houver um valor no AD do Azure nem no objeto de destino. A configuração mais comum é deixar isso em branco.
 
 
 ### <a name="understanding-attribute-mapping-properties"></a>Noções básicas de propriedades de mapeamento de atributo
@@ -83,7 +84,7 @@ O provisionamento de grupo pode ser opcionalmente ativado ou desabilitado, selec
 Os atributos provisionados como parte dos objetos de Grupo podem ser personalizados da mesma maneira como os objetos de Usuário, como descrito anteriormente. 
 
 >[!TIP]
->O provisionamento dos objetos de grupo (propriedades e membros) é um conceito distinto de [atribuir grupos](active-directory-coreapps-assign-user-azure-portal.md) para um aplicativo. É possível atribuir um grupo a um aplicativo, mas somente provisionar os objetos de usuário contidos no grupo. O provisionamento de objetos de grupo completos não é necessário para usar grupos em atribuições.
+>O provisionamento dos objetos de grupo (propriedades e membros) é um conceito distinto de [atribuir grupos](manage-apps/assign-user-or-group-access-portal.md) para um aplicativo. É possível atribuir um grupo a um aplicativo, mas somente provisionar os objetos de usuário contidos no grupo. O provisionamento de objetos de grupo completos não é necessário para usar grupos em atribuições.
 
 
 ## <a name="editing-the-list-of-supported-attributes"></a>Editando a lista de atributos com suporte
@@ -97,8 +98,7 @@ Os aplicativos e sistemas que dão suporte à personalização da lista de atrib
 * Salesforce
 * ServiceNow
 * Workday
-* Azure Active Directory
-* Active Directory local (como parte do conector de provisionamento do usuário do Workday)
+* Active Directory do Azure ([atributos do Azure AD Graph API padrão](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e há suporte para extensões de diretório personalizado)
 * Aplicativos que dão suporte ao [SCIM 2.0](https://tools.ietf.org/html/rfc7643), onde os atributos definidos no [esquema principal](https://tools.ietf.org/html/rfc7643) precisam ser adicionados
 
 >[!NOTE]
@@ -121,7 +121,7 @@ Ao editar a lista de atributos com suporte, as seguintes propriedades são forne
 * **Vários valores?** - Se o atributo dá suporte ou não para vários valores.
 * **Diferenciar maiúsculas e minúsculas?** - Se os valores dos atributos são ou não avaliados com diferenciação de maiúsculas e minúsculas.
 * **Expressão de API** - Não usar, a menos que instruído a fazer isso pela documentação de um conector de provisionamento específico (como o Workday).
-* **Referência de Atributo de Objeto** - Se este é um atributo de tipo de Referência, então esse menu permite que você selecione a tabela e o atributo no aplicativo de destino que contém o valor associado ao atributo. Por exemplo, se você tiver um atributo chamado "Departamento" cujo valor armazenado faz referência a um objeto em uma tabela separada de "Departamentos", selecione "Departments.Name". Observe que as tabelas de referência e os campos primários de ID suportados para um determinado aplicativo são pré-configurados e atualmente não podem ser editados usando o portal do Azure, mas podem ser editados usando a [API do Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+* **Referência de Atributo de Objeto** - Se este é um atributo de tipo de Referência, então esse menu permite que você selecione a tabela e o atributo no aplicativo de destino que contém o valor associado ao atributo. Por exemplo, se você tiver um atributo chamado "Departamento" cujo valor armazenado faz referência a um objeto em uma tabela separada de "Departamentos", selecione "Departments.Name". Observe que as tabelas de referência e os campos primários de ID suportados para um determinado aplicativo são pré-configurados e atualmente não podem ser editados usando o portal do Azure, mas podem ser editados usando a [API do Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 Para adicionar um novo atributo, role até o final da lista de atributos com suporte, preencha os campos acima usando as entradas fornecidas e selecione **Adicionar Atributo**. Selecione **Salvar** quando terminar de adicionar atributos. Em seguida, será necessário recarregar a guia **Provisionamento** para que os novos atributos fiquem disponíveis no editor de mapeamento de atributo.
 
@@ -149,8 +149,8 @@ A seleção dessa opção efetivamente forçará uma ressincronização de todos
 * [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md)
 * [Escrevendo expressões para mapeamentos de atributo](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Filtros de escopo para provisionamento de usuários](active-directory-saas-scoping-filters.md)
-* [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](active-directory-scim-provisioning.md)
-* [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
+* [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](manage-apps/use-scim-to-provision-users-and-groups.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS](saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png

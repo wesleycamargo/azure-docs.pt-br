@@ -7,15 +7,17 @@ manager: douge
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: d06fde0dc6c289a09b9fe4c9e2ffbb50c3027490
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 26f303318320eb8b039503666841e518f75348e4
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144781"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao Armazenamento de Filas do Azure e aos Serviços Conectados do Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -26,10 +28,10 @@ O Armazenamento de Filas do Azure fornece mensagens na nuvem entre os componente
 
 Este tutorial mostra como gravar código ASP.NET para alguns cenários comuns usando entidades do Armazenamento de Filas do Azure. Esses cenários incluem tarefas comuns como criar uma fila do Azure e adicionar, modificar, ler e remover mensagens da fila.
 
-##<a name="prerequisites"></a>pré-requisitos
+##<a name="prerequisites"></a>Pré-requisitos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Práticas recomendadas de desempenho para o SQL Server no Azure | Microsoft Docs
-description: Fornece as práticas recomendadas para aprimoramento do desempenho do SQL Server em VMs do Microsoft Azure.
+title: Diretrizes de desempenho para o SQL Server no Azure | Microsoft Docs
+description: Fornece diretrizes para otimização do desempenho do SQL Server em VMs do Microsoft Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/19/2018
+ms.date: 08/24/2018
 ms.author: jroth
-ms.openlocfilehash: 9d3fbbab76f16a8546c431d5acf913bf419edeb4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3a61c20b922b60e3135d9f9e53928462887a602e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886178"
 ---
-# <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure
+# <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Diretrizes de desempenho para o SQL Server em Máquinas Virtuais do Azure
 
 ## <a name="overview"></a>Visão geral
 
@@ -38,7 +39,7 @@ Veja a seguir uma lista de verificação rápida para obter o melhor desempenho 
 
 | Área | Otimizações |
 | --- | --- |
-| [Tamanho da VM](#vm-size-guidance) |[DS3](../sizes-general.md) ou superior para o SQL Enterprise Edition.<br/><br/>[DS2](../sizes-general.md) ou superior para os SQL Standard e Web Editions. |
+| [Tamanho da VM](#vm-size-guidance) |[DS3_v2](../sizes-general.md) ou superior para o SQL Enterprise Edition.<br/><br/>[DS2_v2](../sizes-general.md) ou superior para o SQL Standard Edition e Web Edition. |
 | [Armazenamento](#storage-guidance) |Use o [Armazenamento Premium](../premium-storage.md). O armazenamento padrão é recomendado somente para desenvolvimento/teste.<br/><br/>Mantenha a [conta de armazenamento](../../../storage/common/storage-create-storage-account.md) e a VM do SQL Server na mesma região.<br/><br/>Desabilite o [armazenamento com redundância geográfica](../../../storage/common/storage-redundancy.md) (replicação geográfica) do Azure na conta de armazenamento. |
 | [Discos](#disks-guidance) |Use um mínimo de 2 [discos P30](../premium-storage.md#scalability-and-performance-targets) (1 para arquivos de log e 1 para arquivos de dados e TempDB, ou distribua dois ou mais discos e armazene todos os arquivos em um único volume).<br/><br/>Evite usar o sistema operacional ou discos temporários para armazenamento de banco de dados ou registro em log.<br/><br/>Habilite o caching nos discos que hospedam os arquivos de dados e os arquivos de dados TempDB.<br/><br/>Não habilite o caching em discos que hospedam o arquivo de log.<br/><br/>Importante: interrompa o serviço do SQL Server ao alterar as configurações de cache para um disco de VM do Azure.<br/><br/>Particione vários discos de dados do Azure para obter maior taxa de transferência de E/S.<br/><br/>Formate com os tamanhos de alocação documentados. |
 | [E/S](#io-guidance) |Habilite a compactação de página do banco de dados.<br/><br/>Habilite a inicialização instantânea de arquivos para arquivos de dados.<br/><br/>Limite o crescimento automático no banco de dados.<br/><br/>Desabilite a redução automática no banco de dados.<br/><br/>Mova todos os bancos de dados para discos de dados, incluindo bancos de dados do sistema.<br/><br/>Mova o log de erros do SQL Server e os diretórios de arquivos de rastreamento para discos de dados<br/><br/>Configure os locais do arquivo de banco de dados e backup padrão.<br/><br/>Habilite as páginas bloqueadas.<br/><br/>Aplique correções de desempenho do SQL Server. |
@@ -48,10 +49,12 @@ Para saber mais sobre *como* e *por que* fazer essas otimizações, examine os d
 
 ## <a name="vm-size-guidance"></a>Diretrizes de tamanho de VM
 
-Para aplicativos sensíveis ao desempenho, é recomendável o uso dos seguintes [tamanhos de máquinas virtuais](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json):
+Para aplicativos sensíveis ao desempenho, é recomendável o uso dos seguintes [tamanhos de máquinas virtuais](../sizes.md):
 
-* **SQL Server Enterprise Edition**: DS3 ou superior
-* **SQL Server Standard e Web Editions**: DS2 ou superior
+* **SQL Server Enterprise Edition**: DS3_v2 ou superior
+* **SQL Server Standard Edition e Web Edition**: DS2_v2 ou superior
+
+As VMs da [série DSv2](../sizes-general.md#dsv2-series) dão suporte ao armazenamento premium, que é recomendado para obter o melhor desempenho. Os tamanhos recomendados aqui são linhas de base, mas o tamanho real da máquina a ser selecionado dependerá das suas demandas de carga de trabalho. As VMs da série DSv2 são VMs de uso geral, ideais para uma variedade de cargas de trabalho, enquanto outros tamanhos de máquinas são otimizados para tipos de carga de trabalho específicos. Por exemplo, a [série M](../sizes-memory.md#m-series) oferece o nível mais alto de contagem de vCPU e de memória, para as maiores cargas de trabalho do SQL Server. A [série GS](../sizes-memory.md#gs-series) e a [série DSv2 11 a 15](../sizes-memory.md#dsv2-series-11-15) são otimizadas para requisitos de memória grande. Essas duas série também estão disponíveis em [tamanhos limitados de núcleos](../../windows/constrained-vcpu.md), o que economiza em custos de cargas de trabalho com demandas de computação inferiores. As máquinas da [série Ls](../sizes-storage.md) são otimizadas para níveis altos de taxa de transferência e de E/S de disco. É importante considerar sua carga de trabalho específica do SQL Server e aplicá-la à sua seleção de série e tamanho de VM.
 
 ## <a name="storage-guidance"></a>Orientação de armazenamento
 

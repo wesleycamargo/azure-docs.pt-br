@@ -1,27 +1,24 @@
 ---
-title: "Conectores webhook para Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Como usar gatilhos e ações de webhook para realizar ações como Filtrar Matriz de aplicativos lógicos"
+title: Criar ações ou fluxos de trabalho baseados em eventos – Aplicativo Lógico do Azure | Microsoft Docs
+description: Automatizar ações ou fluxos de trabalho baseados em evento usando webhooks e o Aplicativo Lógico do Azure
 services: logic-apps
-author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
-tags: connectors
-ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+tags: connectors
 ms.date: 07/21/2016
-ms.author: jehollan; LADocs
-ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 7b1886321ca4afd4b4710bd9fddf16d2d5eb224b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126580"
 ---
-# <a name="get-started-with-the-webhook-connector"></a>Introdução ao conector de webhook
+# <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Criar ações ou fluxos de trabalho baseados em evento usando webhooks e o Aplicativo Lógico do Azure
 
 Com a ação e o gatilho do webhook, você pode disparar, pausar e retomar fluxos para realizar estas tarefas:
 

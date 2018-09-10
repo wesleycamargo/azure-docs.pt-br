@@ -1,8 +1,8 @@
 ---
-title: "Credenciais de implantação do Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Saiba como usar as credenciais de implantação do Serviço de Aplicativo do Azure."
+title: Credenciais de implantação do Serviço de Aplicativo do Azure | Microsoft Docs
+description: Saiba como usar as credenciais de implantação do Serviço de Aplicativo do Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -13,11 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: d66b5aa4eb2ad90596dfe9e26bbc18996c967295
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a17260770f0b2e0a73585ce4108bd5625ac22229
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436141"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
 O [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) oferece suporte a dois tipos de credenciais para a [implantação local do Git](app-service-deploy-local-git.md) e a [implantação de FTP/S](app-service-deploy-ftp.md). Elas não são as mesmas credenciais do Azure Active Directory.
@@ -45,7 +46,7 @@ Para configurar as credenciais de usuário:
 1. No [Portal do Azure](https://portal.azure.com), clique em Serviço de Aplicativo > **&lt;qualquer_aplicativo>** > **Credenciais de implantação**.
 
     > [!NOTE]
-    > No portal, você deve ter pelo menos um aplicativo antes de poder acessar a página de credenciais de implantação. No entanto, com a [CLI do Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set), é possível configurar credenciais de usuário sem um aplicativo existente.
+    > No portal, você deve ter pelo menos um aplicativo antes de poder acessar a página de credenciais de implantação. No entanto, com a [CLI do Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set), é possível configurar credenciais de usuário sem um aplicativo existente.
 
 2. Configure o nome de usuário e a senha e, em seguida, clique em **Salvar**.
 

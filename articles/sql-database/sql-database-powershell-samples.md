@@ -11,13 +11,14 @@ ms.service: sql-database
 ms.custom: overview-samples, mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2245964cab3361e0f298cf35d26e8b0a1b8456f0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 81f39c2ecc014ee53dcff2fab88ff0f890e1a610
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091874"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Amostras do Azure PowerShell para o Banco de Dados SQL do Azure
 
@@ -31,7 +32,7 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 |**Configurar a replicação geográfica e o failover**||
 | [Configurar e fazer failover de um banco de dados individual usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell configura a replicação geográfica ativa para um único Banco de Dados SQL do Azure e faz o failover desse banco de dados para a réplica secundária. |
 | [Configurar e fazer failover de um banco de dados em pool usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell configura a replicação geográfica ativa para um único Banco de Dados SQL do Azure em um pool elástico SQL e faz o failover dele para a réplica secundária. |
-| [Configurar e realizar o failover de um grupo de failover para um banco de dados individual (versão prévia)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell configura um grupo de failover para uma instância de servidor de Banco de Dados SQL do Azure, adiciona um banco de dados ao grupo de failover e realiza o failover dele para o servidor secundário |
+| [Configurar e fazer failover de um grupo de failover para um banco de dados individual](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell configura um grupo de failover para uma instância de servidor de Banco de Dados SQL do Azure, adiciona um banco de dados ao grupo de failover e realiza o failover dele para o servidor secundário |
 |**Dimensionar um banco de dados individual e um pool elástico**||
 | [Dimensionar um banco de dados individual](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitora as métricas de desempenho de um Banco de Dados SQL do Azure, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho. |
 | [Dimensionar um pool elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitora as métricas de desempenho de um pool elástico do Banco de Dados SQL do Azure, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho.  |

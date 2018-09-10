@@ -3,7 +3,7 @@ title: Métodos de criação de certificado
 description: Maneiras de criar um certificado no Key Vault.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: 7b71c6a8daa97300ecf3b37ec6ab47207fece98e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: bryanla
+ms.openlocfilehash: a2314eaac26688881dcf60f264f039081439db6a
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141199"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificado
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/11/2018
 
 -   **Criar um certificado autoassinado:** isso criará um par de chaves públicas-privadas e associá-lo a um certificado. O certificado será assinado por sua própria chave.  
 
--    **Criar um novo certificado manualmente:** isso criará um par de chaves públicas-privadas e gerará uma solicitação de assinatura de certificado x.509. A solicitação de assinatura pode ser assinada por sua autoridade de registro ou a autoridade de certificação. O certificado x509 assinado pode ser mesclado com o par de chaves pendente para concluir o certificado do KV no Key Vault. Embora esse método requeira mais etapas, ele oferece maior segurança porque a chave privada é criada no Key Vault e restrita a ele. Isso é explicado no diagrama a seguir.  
+-    **Criar um novo certificado manualmente:** isso criará um par de chaves públicas-privadas e gerará uma solicitação de assinatura de certificado x.509. A solicitação de assinatura pode ser assinada por sua autoridade de registro ou a autoridade de certificação. O certificado X.509 assinado pode ser mesclado com o par de chaves pendente para concluir o certificado do KV no Key Vault. Embora esse método requeira mais etapas, ele oferece maior segurança porque a chave privada é criada no Key Vault e restrita a ele. Isso é explicado no diagrama a seguir.  
 
 ![Criar um certificado com sua própria autoridade de certificação](media/certificate-authority-1.png)  
 
@@ -59,9 +60,9 @@ Quando uma solicitação para criar um certificado do KV for concluída, o statu
  Quando um certificado do KV é criado pela primeira vez, uma chave endereçável e um segredo também são criados com o mesmo nome que o certificado. Se o nome já estiver em uso, a operação falhará com um código de status http 409 (conflito).
 A chave endereçável e o segredo obtêm seus atributos dos atributos do certificado do KV. A chave endereçável e o segredo criados dessa maneira são marcados como chaves e segredos gerenciados, cujo tempo de vida é gerenciado pelo Key Vault. As chaves e os segredos são somente leitura. Observação: se um certificado do KV expirar ou for desabilitado, a chave e o segredo correspondentes se tornarão inoperantes.  
 
- Se essa for a primeira operação para criar um certificado do KV, uma política será necessária.  Uma política também pode ser fornecida com sucessivas operações de criação para substituir o recurso de política. Se uma política não for fornecida, o recurso de política no serviço será usado para criar uma próxima versão do certificado do KV. Observe que enquanto uma solicitação para criar uma próxima versão está em andamento, o certificado do KV atual e a chave endereçável e o segredo correspondente permanecem inalterados.  
+ Se essa for a primeira operação para criar um certificado do KV, uma política será necessária.  Uma política também pode ser fornecida com sucessivas operações de criação para substituir o recurso de política. Se uma política não for fornecida, o recurso de política do serviço é usado para criar uma versão posterior do certificado KV. Observe que enquanto uma solicitação para criar a próxima versão estiver em andamento, o certificado KV atual e a chave endereçável e o segredo correspondentes, permanecem inalterados.  
 
-## <a name="self-issued-certificate"></a>Certificado autoemitido
+## <a name="self-issued-certificate"></a>Certificado auto-emitido
  Para criar um certificado autoemitido, defina o nome do emissor como "Auto" na política do certificado, conforme mostrado no trecho a seguir da política de certificado.  
 
 ```  
@@ -88,7 +89,7 @@ A criação de certificado pode ser concluída manualmente ou usando um emissor 
 |DigiCert|O Key Vault oferece certificados SSL OV ou EV com DigiCert|
 |GlobalCert|O Key Vault oferece certificados SSL OV ou EV com GlobalSign|
 
- Para obter mais informações, incluindo a disponibilidade geográfica dos provedores de emissor, consulte [Emissores de certificado](/rest/api/keyvault/certificate-issuers.md).
+ Um emissor do certificado é uma entidade representada no Azure Key Vault (KV) como um recurso CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado KV; nome do emissor, provedor, credenciais e outros detalhes administrativos.
 
 Observe que quando um pedido é feito com o provedor do emissor, ele pode aceitar ou substituir as extensões de certificado x509 e o período de validade do certificado com base no tipo de certificado.  
 

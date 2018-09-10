@@ -1,12 +1,12 @@
 ---
-title: "Gerenciar um Plano do Serviço de Aplicativo no Azure | Microsoft Docs"
-description: "Saiba como executar diferentes tarefas para gerenciar um Plano do Serviço de Aplicativo."
-keywords: "serviço de aplicativo, serviço de aplicativo do azure, escala, escalonável, plano de serviço de aplicativo, trocar, criar, gerenciar, gerenciamento"
+title: Gerenciar um Plano do Serviço de Aplicativo no Azure | Microsoft Docs
+description: Saiba como executar diferentes tarefas para gerenciar um Plano do Serviço de Aplicativo.
+keywords: serviço de aplicativo, serviço de aplicativo do azure, escala, escalonável, plano de serviço de aplicativo, trocar, criar, gerenciar, gerenciamento
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 1dfe8a903e19ff524a1c4a0228e6aefcbe9ff183
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449352"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerenciar um plano do Serviço de Aplicativo no Azure
 
@@ -34,7 +35,7 @@ Você pode criar um Plano do Serviço de Aplicativo vazio ou pode criar um plano
 
 1. No [Portal do Azure](https://portal.azure.com), selecione **Novo** > **Web + móvel** e, em seguida, selecione **Aplicativo Web** ou outro tipo de aplicativo de Serviço de Aplicativo.
 
-2. Selecione ou crie o Plano do Serviço de Aplicativo para o novo aplicativo.
+1. Selecione ou crie o Plano do Serviço de Aplicativo para o novo aplicativo.
 
    ![Crie um aplicativo no portal do Azure.][createWebApp]
 
@@ -58,13 +59,13 @@ Você pode mover um aplicativo para outro Plano do Serviço de Aplicativo, desde
 
 1. No [portal do Azure](https://portal.azure.com), navegue até o aplicativo que você deseja mover.
 
-2. No menu, procure a seção **Plano do Serviço de Aplicativo**.
+1. No menu, procure a seção **Plano do Serviço de Aplicativo**.
 
-3. Selecione **Alterar Plano do Serviço de Aplicativo** para abrir o seletor **Plano do Serviço de Aplicativo**.
+1. Selecione **Alterar Plano do Serviço de Aplicativo** para abrir o seletor **Plano do Serviço de Aplicativo**.
 
    ![Seletor de plano do Serviço de Aplicativo.][change] 
 
-4. No seletor de **plano do Serviço de Aplicativo**, selecione um plano existente para onde mover esse aplicativo.   
+1. No seletor de **plano do Serviço de Aplicativo**, selecione um plano existente para onde mover esse aplicativo.   
 
 > [!IMPORTANT]
 > A página de **Plano do Serviço de Aplicativo** é filtrada pelos seguintes critérios: 

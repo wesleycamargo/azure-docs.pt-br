@@ -5,32 +5,29 @@ keywords: como melhorar o desempenho do banco de dados
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.devlang: java
+ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: ace817bc7a703ed2aa1dcd71f7d84f91ee16cce6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a2bd840c4e93755988cf1638a6c0bdcb6b6207d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696373"
 ---
+# <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Dicas de desempenho para o Azure Cosmos DB e Java
+
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
-> 
 
-# <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Dicas de desempenho para o Azure Cosmos DB e Java
 O Azure Cosmos DB é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e produtividade. Você não precisa fazer alterações importantes de arquitetura nem escrever um código complexo para dimensionar seu banco de dados com o Azure Cosmos DB. Aumentar e reduzir é tão fácil quanto fazer uma única chamada da API ou uma [chamada do método do SDK](set-throughput.md#set-throughput-java). No entanto, como o Azure Cosmos DB é acessado por meio de chamadas de rede, há otimizações do lado do cliente que você pode fazer para obter o desempenho máximo ao usar o [SDK do SQL Java](documentdb-sdk-java.md).
 
-Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?", considere as seguintes opções:
+Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?" considere as seguintes opções:
 
 ## <a name="networking"></a>Rede
 <a id="direct-connection"></a>
@@ -39,8 +36,8 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     Como um cliente se conecta ao Azure Cosmos DB tem implicações importantes sobre o desempenho, especialmente em termos da latência observada do lado do cliente. Há uma definição de configuração chave disponível para configurar o [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) do cliente – a [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode).  Os dois ConnectionModes disponíveis são:
 
-   1. [Gateway (padrão)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode.gateway)
-   2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode.directhttps)
+   1. [Gateway (padrão)](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_mode)
+   2. [DirectHttps](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_mode)
 
     O modo Gateway é compatível com todas as plataformas SDK e é o padrão configurado.  Se seu aplicativo for executado em uma rede corporativa com restrições de firewall rígidas, o Gateway será a melhor opção, já que ele usa a porta HTTPS padrão e um único ponto de extremidade. Porém, a compensação do desempenho é que o Modo gateway envolve um salto de rede adicional sempre que os dados são lidos ou gravados no Azure Cosmos DB. Por isso, o Modo DirectHttps oferece um melhor desempenho devido a menos saltos de rede. 
 
@@ -132,7 +129,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     Para obter mais informações, consulte [Políticas de indexação do Azure Cosmos DB](indexing-policies.md).
 
-## <a name="throughput"></a>Throughput
+## <a name="throughput"></a>Produtividade
 <a id="measure-rus"></a>
 
 1. **Medir e ajustar para o uso mais baixo de unidades/segundo da solicitação**
@@ -153,7 +150,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     A carga de solicitação retornada nesse cabeçalho é uma fração de sua taxa de transferência provisionada. Por exemplo, se você tem 2000 RUs/s provisionados e se a consulta anterior retornar 1000 documentos de 1 KB, o custo da operação será 1000. Assim, em um segundo, o servidor mantém apenas duas dessas solicitações antes de limitar as solicitações subsequentes. Para saber mais, consulte [Unidades de solicitação](request-units.md) e a [calculadora das unidades de solicitação](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
-2. **Lidar com uma limitação da taxa/taxa de solicitação muito grande**
+1. **Lidar com uma limitação da taxa/taxa de solicitação muito grande**
 
     Quando um cliente tentar exceder a taxa de transferência reservada para uma conta, não haverá nenhuma degradação de desempenho no servidor e nenhum uso da capacidade da taxa além do nível reservado. O servidor encerrará antecipadamente a solicitação com RequestRateTooLarge (código de status HTTP 429) e retornará o cabeçalho [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) indicando a quantidade de tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação.
 

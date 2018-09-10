@@ -2,18 +2,20 @@
 title: Tutorial - Permitir autenticação de aplicativos de desktop com contas usando o Azure Active Directory B2C | Microsoft Docs
 description: Tutorial sobre como usar o Azure Active Directory B2C para fornecer o logon do usuário para um aplicativo de desktop .NET.
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: parja
+author: davidmu1
+manager: mtillman
+ms.author: davidmu
 ms.date: 2/28/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 86d8b105828bdb2a83eac24aebf227b9ae7615e2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 18db911782e03d17f0b2e2ace3f8b00ddfdebf70
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599924"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Tutorial - Permitir autenticação de aplicativos de desktop com contas usando o Azure Active Directory B2C
 
@@ -28,14 +30,14 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Criar seu próprio [locatário do Azure AD B2C](active-directory-b2c-get-started.md)
 * [Instale o Visual Studio 2017](https://www.visualstudio.com/downloads/) com as cargas de trabalho de **desenvolvimento de desktop .NET** e de **desenvolvimento para a Web e ASP.NET**.
 
 ## <a name="register-desktop-app"></a>Registrar o aplicativo de desktop
 
-Aplicativos precisam ser [registrados](../active-directory/develop/active-directory-dev-glossary.md#application-registration) em seu locatário antes de poderem receber [tokens de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) do Azure Active Directory. O registro do aplicativo cria uma [id do aplicativo](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) para o aplicativo no locatário. 
+Aplicativos precisam ser [registrados](../active-directory/develop/developer-glossary.md#application-registration) em seu locatário antes de poderem receber [tokens de acesso](../active-directory/develop/developer-glossary.md#access-token) do Azure Active Directory. O registro do aplicativo cria uma [id do aplicativo](../active-directory/develop/developer-glossary.md#application-id-client-id) para o aplicativo no locatário. 
 
 Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
 
@@ -53,7 +55,7 @@ Entre no [portal do Azure](https://portal.azure.com/) como administrador global 
     | ------------ | ------- | -------------------------------------------------- |
     | **Nome** | Meu aplicativo WPF de exemplo | Insira um **Nome** que descreve seu aplicativo para os consumidores. | 
     | **Incluir aplicativo Web/API Web** | Não  | Selecione **Não** para um aplicativo de desktop. |
-    | **Incluir cliente nativo** | sim | Como este é um aplicativo de desktop ele é considerado um cliente nativo. |
+    | **Incluir cliente nativo** | SIM | Como este é um aplicativo de desktop ele é considerado um cliente nativo. |
     | **URI de redirecionamento** | Valores padrão | Identificador exclusivo para o qual o Azure AD B2C redireciona o agente do usuário em uma resposta do OAuth 2.0. |
     | **URI de Redirecionamento Personalizado** | `com.onmicrosoft.contoso.appname://redirect/path` | Insira Políticas `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path` enviam tokens para esse URI. |
     
@@ -84,7 +86,7 @@ Para inscrever usuários para acesso e conectá-los no aplicativo de desktop, cr
     | **Nome** | SiUpIn | Insira um **Nome** para a política. O nome da política é prefixado com **b2c_1_**. Use o nome da política completa **b2c_1_SiUpIn** no código de exemplo. | 
     | **Provedor de identidade** | Inscrição de email | O provedor de identidade usado para identificar o usuário exclusivamente. |
     | **Atributos de inscrição** | Nome de exibição e CEP | Selecione os atributos a serem coletados do usuário durante a inscrição. |
-    | **Declarações do aplicativo** | Nome de exibição, CEP, Usuário é novo, ID de objeto do usuário | Selecione as [declarações](../active-directory/develop/active-directory-dev-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | **Declarações do aplicativo** | Nome de exibição, CEP, Usuário é novo, ID de objeto do usuário | Selecione as [declarações](../active-directory/develop/developer-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token). |
 
 2. Clique em **Criar** para criar a sua política. 
 
@@ -101,7 +103,7 @@ Para permitir que os usuários redefinam suas informações de perfil de usuári
     | **Nome** | SiPe | Insira um **Nome** para a política. O nome da política é prefixado com **b2c_1_**. Use o nome da política completa **b2c_1_SiPe** no código de exemplo. | 
     | **Provedor de identidade** | Entrada na conta local | O provedor de identidade usado para identificar o usuário exclusivamente. |
     | **Atributos de perfil** | Nome de exibição e CEP | Selecione os atributos que os usuários podem modificar durante a edição de perfil. |
-    | **Declarações do aplicativo** | Nome de exibição, CEP, ID de Objeto do Usuário | Selecione as [declarações](../active-directory/develop/active-directory-dev-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) após uma edição de perfil bem-sucedida. |
+    | **Declarações do aplicativo** | Nome de exibição, CEP, ID de Objeto do Usuário | Selecione as [declarações](../active-directory/develop/developer-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token) após uma edição de perfil bem-sucedida. |
 
 2. Clique em **Criar** para criar a sua política. 
 
@@ -117,7 +119,7 @@ Para habilitar a redefinição de senha no seu aplicativo, você precisará cria
     | ------------ | ------- | -------------------------------------------------- |
     | **Nome** | SSPR | Insira um **Nome** para a política. O nome da política é prefixado com **b2c_1_**. Use o nome da política completa **b2c_1_SSPR** no código de exemplo. | 
     | **Provedor de identidade** | Redefinição de senha usando endereço de email | É o provedor de identidade usado para identificar o usuário exclusivamente. |
-    | **Declarações do aplicativo** | ID de objeto do usuário | Selecione as [declarações](../active-directory/develop/active-directory-dev-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) após uma redefinição de senha bem-sucedida. |
+    | **Declarações do aplicativo** | ID de objeto do usuário | Selecione as [declarações](../active-directory/develop/developer-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token) após uma redefinição de senha bem-sucedida. |
 
 2. Clique em **Criar** para criar a sua política. 
 

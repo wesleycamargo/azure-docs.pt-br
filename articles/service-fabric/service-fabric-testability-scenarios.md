@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208740"
 ---
 # <a name="testability-scenarios"></a>Cenários da possibilidade de teste
 Sistemas grandes distribuídos como infraestruturas de nuvem não são confiáveis por natureza. O Service Fabric do Azure permite aos desenvolvedores gravar os serviços para serem executados em infraestruturas não confiáveis. Para gravar serviços de alta qualidade, os desenvolvedores precisam ser capazes de induzir essa infraestrutura não confiável a testar a estabilidade dos seus serviços.

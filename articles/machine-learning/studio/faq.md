@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: 4ea48300e83e1faa1250d2fba7c37a82825c820f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 31676ea43acc495bf0cb6a249901e5b64ef217b7
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782923"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Perguntas frequentes (FAQ) sobre o Azure Machine Learning: cobrança, recursos, limitações e suporte
 Aqui estão algumas perguntas frequentes e as respostas correspondentes sobre o Azure Machine Learning, um serviço de nuvem para o desenvolvimento de modelos de previsão e soluções de operacionalização por meio de serviços Web. Essas perguntas frequentes fornecem perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -73,7 +75,7 @@ Você também pode usar a pasta de trabalho de exemplo do Microsoft Excel que é
 
 **Quais são as principais atualizações no Azure Machine Learning?**
 
-Para ver as atualizações mais recentes, confira [O que há de novo no Azure Machine Learning](whats-new.md).
+Para ver as atualizações mais recentes, confira [O que há de novo no Azure Machine Learning](../../active-directory/fundamentals/whats-new.md).
 
 ## <a name="machine-learning-studio-questions"></a>Perguntas sobre o Machine Learning Studio
 ### <a name="import-and-export-data-for-machine-learning"></a>Importar e exportar dados para o Machine Learning
@@ -173,7 +175,7 @@ Não, atualmente há suporte apenas para treinamento programático.
 
 **Posso visualizar as camadas de um Modelo de Rede Neural usando o módulo interno?**
 
-Nº
+Não.
 
 **Posso criar meus próprio módulos em C# ou em outra linguagem?**
 
@@ -210,7 +212,7 @@ Use as APIs de novos treinamentos. Para obter mais informações, consulte [Trei
 ### <a name="create"></a>Criar
 **Posso implantar o modelo localmente ou em um aplicativo que não tem uma conexão com a Internet?**
 
-Nº
+Não.
 
 **Há uma latência de linha de base que é esperada para todos os serviços Web?**
 
@@ -251,7 +253,7 @@ Atualmente, o ponto de extremidade padrão é provisionado com 20 solicitações
 
 **Trabalhos em R são distribuídos entre nós?**
 
-Nº  
+Não.  
 
 **Quantos dados posso usar para treinamento?**
 
@@ -280,7 +282,7 @@ Linhas e colunas são têm a limitação do .NET de Int Máximo: 2.147.483.647.
 
 **Posso ajustar o tamanho da máquina virtual que executa o serviço Web?**
 
-Nº  
+Não.  
 
 ## <a name="security-and-availability"></a>Segurança e disponibilidade
 **Quem pode acessar o ponto de extremidade http para o serviço Web por padrão? Como faço para restringir o acesso ao ponto de extremidade?**
@@ -310,7 +312,7 @@ Você também pode encontrar treinamento na [Microsoft Virtual Academy](http://w
 
 **Como fazer para obter suporte ao Azure Machine Learning?**
 
-Para obter suporte técnico para o Azure Machine Learning, vá para [Suporte do Azure](/support/options/) e selecione **Machine Learning**.
+Para obter suporte técnico para o Azure Machine Learning, vá para [Suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Machine Learning**.
 
 O Azure Machine Learning também possui um fórum de comunidade no MSDN, em que é possível fazer perguntas sobre o Azure Machine Learning. A equipe do Azure Machine Learning monitora o fórum. Acesse o [Fórum do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
@@ -472,7 +474,7 @@ Sim, os serviços Web clássicos ainda estão disponíveis no Azure Machine Lear
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Camadas Gratuita e Standard do Machine Learning
 **O que está incluído na Camada gratuita do Azure Machine Learning?**
 
-A camada Gratuita do Azure Machine Learning tem o objetivo de fornecer uma introdução abrangente ao Azure Machine Learning Studio. Tudo o que você precisa é de uma conta da Microsoft para se conectar. A Camada gratuita inclui acesso gratuito a um espaço de trabalho do Azure Machine Learning Studio por [conta da Microsoft](https://www.microsoft.com/account/default.aspx). Nessa camada, você pode usar até 10 GB de armazenamento e colocar em operação modelos como APIs de preparo. Cargas de trabalho de camada gratuita não são cobertas por um SLA e destinam-se ao desenvolvimento e uso pessoal. 
+A camada Gratuita do Azure Machine Learning tem o objetivo de fornecer uma introdução abrangente ao Azure Machine Learning Studio. Tudo o que você precisa é de uma conta da Microsoft para se conectar. A Camada gratuita inclui acesso gratuito a um espaço de trabalho do Azure Machine Learning Studio por [conta da Microsoft](https://account.microsoft.com/account). Nessa camada, você pode usar até 10 GB de armazenamento e colocar em operação modelos como APIs de preparo. Cargas de trabalho de camada gratuita não são cobertas por um SLA e destinam-se ao desenvolvimento e uso pessoal. 
 
 Os espaços de trabalho da camada gratuita têm as limitações a seguir:
 

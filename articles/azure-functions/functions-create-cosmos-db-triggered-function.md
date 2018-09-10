@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 9ba7d8c403a7778a52b858a41ad41bca405cb199
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ec594a4ba3a794ca1b4c52962ff190b86dce5a81
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051350"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função disparada pelo Azure Cosmos DB
 
@@ -28,11 +29,14 @@ Saiba como criar uma função disparada quando dados são adicionados ou alterad
 
 ![Exiba a mensagem nos logs.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
 + Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+> [!NOTE]
+> [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="create-an-azure-function-app"></a>Criar um Aplicativo de funções do Azure
 

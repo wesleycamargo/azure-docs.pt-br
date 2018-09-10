@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b7141d028c496b75b061c17aa19ad6c73c0588c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d4b906bd966da66659d23b935f7dbbd44b33899a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164407"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296434"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Conectar uma conta do Google Cloud Platform
 
@@ -60,7 +60,7 @@ Para coletar informações de ativo e uso, o Gerenciamento de Custos precisa das
 
 ## <a name="add-a-google-cloud-account-to-cost-management"></a>Adicionar uma conta do Google Cloud ao Gerenciamento de Custos
 
-1. Abra o portal da Cloudyn no Portal do Azure ou navegue até [https://azure.cloudyn.com](https://azure.cloudyn.com/) e faça login.
+1. Abra o portal da Cloudyn por meio do portal do Azure ou navegue até [https://azure.cloudyn.com](https://azure.cloudyn.com/) e entre.
 2. Clique em **Configurações** (símbolo de engrenagem) e, em seguida, selecione **Contas do Cloud**.
 3. Em **Gerenciamento de Contas**, selecione a guia **Contas do Google** e, em seguida, clique em **Adicionar novo +**.
 4. Em **Nome da Conta do Google**, insira o endereço de email da conta de cobrança e clique em **Próximo**.

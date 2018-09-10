@@ -1,22 +1,20 @@
 ---
 title: Provisionar um dispositivo usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs
 description: Provisionar o dispositivo para um único Hub IoT usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
-services: iot-dps
-keywords: ''
-author: dsk-2015
-ms.author: dkshir
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/12/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9f151a8fbcdc20124467a1db290f6a05f574e4fe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1b9d6342d30c5f5e9ef80213664447c48a62494c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521893"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Provisionar o dispositivo para um Hub IoT usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
 
@@ -27,7 +25,7 @@ No tutorial anterior, você aprendeu como configurar um dispositivo para se cone
 > * Iniciar o dispositivo
 > * Verificar se o dispositivo está registrado
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de prosseguir, não deixe de configurar seu dispositivo conforme discutido no tutorial [Configurar um dispositivo para provisionar usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](./tutorial-set-up-device.md).
 
@@ -51,7 +49,7 @@ Esta etapa envolve adicionar os artefatos de segurança exclusivos do dispositiv
 
 Há duas maneiras de registrar o dispositivo no Serviço de Provisionamento de Dispositivos:
 
-- **Grupos de registro** Isso representa um grupo de dispositivos que compartilham um mecanismo de atestado específico. É recomendável usar um grupo de registro para um grande número de dispositivos que compartilham uma configuração inicial desejada ou para dispositivos que vão todos para o mesmo locatário.
+- **Grupos de registro** Isso representa um grupo de dispositivos que compartilham um mecanismo de atestado específico. É recomendável usar um grupo de registro para um grande número de dispositivos que compartilham uma configuração inicial desejada ou para dispositivos que vão todos para o mesmo locatário. Para obter mais informações sobre o atestado de identidade para grupos de registro, consulte [Segurança](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
     [![Adicionar um registro de grupo para atestado de X.509 no portal](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
@@ -69,26 +67,29 @@ Agora registre o dispositivo com sua instância do Serviço de Provisionamento d
 
 Após o registro, o serviço de provisionamento fica aguardando que um desses dispositivos inicialize e se conecte com ele em algum momento. Quando o dispositivo é inicializado pela primeira vez, a biblioteca do SDK do cliente interage com o chip para extrair os artefatos de segurança do dispositivo e verifica o registro com o Serviço de Provisionamento de Dispositivos. 
 
-## <a name="start-the-device"></a>Iniciar o dispositivo
+## <a name="start-the-iot-device"></a>Iniciar o dispositivo IoT
 
-Neste ponto, a configuração a seguir está pronta para registro do dispositivo:
+Seu dispositivo IoT pode ser um dispositivo real ou um dispositivo simulado. Após o dispositivo IoT ter sido registrado com uma instância do serviço de provisionamento de dispositivos, o dispositivo agora pode inicializar e chamar o serviço de provisionamento para ser reconhecido usando o mecanismo de atestado. Depois que o serviço de provisionamento reconhecer o dispositivo, ele será atribuído a um Hub IoT. 
 
-1. Seu dispositivo ou grupo de dispositivos são registrados no Serviço de Provisionamento de Dispositivos e 
-2. O dispositivo está pronto com o mecanismo de atestado configurado e podendo ser acessado pelo aplicativo usando o SDK do cliente do Serviço de Provisionamento de Dispositivos.
+Exemplos de dispositivo simulado, usando o atestado de TPM e X.509, estão incluídos para C, Java, C#, Node.js e Python. Por exemplo, um dispositivo simulado usando TPM e o [SDK do Azure IoT C](https://github.com/Azure/azure-iot-sdk-c) seguiria o processo abordado na seção [Simular a primeira sequência de inicialização para um dispositivo](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device). O mesmo dispositivo usando o atestado de certificado X.509 seria referente a esta seção de [sequência de inicialização](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device).
 
-Inicie o dispositivo para permitir que seu aplicativo cliente inicie o registro com o Serviço de Provisionamento de Dispositivos.  
+Consulte o [Guia de instruções para o MXChip IoT DevKit](how-to-connect-mxchip-iot-devkit.md) como um exemplo para um dispositivo real.
+
+Inicie o dispositivo para permitir que o aplicativo cliente do seu dispositivo inicie o registro com o Serviço de Provisionamento de Dispositivos.  
 
 ## <a name="verify-the-device-is-registered"></a>Verificar se o dispositivo está registrado
 
-Uma vez que o dispositivo é inicializado, as ações a seguir devem ocorrer. Consulte o aplicativo de exemplo do simulador de TPM [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) para obter mais detalhes. 
+Quando o dispositivo inicializar, as ações a seguir deverão ocorrer:
 
 1. O dispositivo envia uma solicitação de registro para o Serviço de Provisionamento de Dispositivos.
 2. Para dispositivos do TPM, o Serviço de Provisionamento de Dispositivos envia de volta um desafio de registro que é respondido pelo dispositivo. 
 3. Após um registro bem-sucedido, o Serviço de Provisionamento de Dispositivos envia o URI do Hub IoT, a ID do dispositivo e a chave criptografada de volta para o dispositivo. 
 4. O aplicativo cliente do Hub IoT no dispositivo se conecta então ao seu hub. 
-5. Após a conexão bem-sucedida ao hub, você verá o dispositivo aparecer no **Device Explorer** do Hub IoT. 
+5. Após a conexão bem-sucedida ao hub, você verá o dispositivo aparecer no gerenciador de **Dispositivos IoT** do Hub IoT. 
 
     ![Conexão bem-sucedida ao hub no portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
+
+Para obter mais informações, consulte o aplicativo de exemplo do simulador de TPM [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c). 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu como:

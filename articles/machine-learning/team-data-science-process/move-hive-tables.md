@@ -8,17 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cff9280d-18ce-4b66-a54f-19f358d1ad90
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 7634a8bdc7492d674801a256a4d5bb73170311ee
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ccfa3f8681b220d01f8347abd58140e2621f4282
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122278"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do Armazenamento de Blobs do Azure
 Neste tópico, são apresentadas consultas genéricas do Hive que criam tabelas do Hive e carregam dados do armazenamento de blobs do Azure. Também são fornecida algumas orientações sobre o particionamento de tabelas Hive e sobre como usar a formatação ORC (Colunar de Linha Otimizado) para melhorar o desempenho da consulta.
@@ -27,7 +29,7 @@ Este **menu** vincula-se a tópicos que descrevem a inclusão de dados em ambien
 
 [!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo supõe que você:
 
 * Criou uma conta de armazenamento do Azure. Se precisar de instruções, consulte [Sobre Contas de Armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
@@ -84,7 +86,7 @@ Quando a consulta Hive é mais complicada e tem várias linhas, não é prático
 Por padrão, após a consulta Hive ser enviada na Linha de Comando do Hadoop, o andamento do trabalho de Mapear/Reduzir será impresso na tela. Para suprimir a impressão da tela de andamento do trabalho de Mapear/Reduzir, você pode usar um argumento `-S` ("S" em letra maiúscula) na linha de comando da seguinte maneira:
 
     hive -S -f "<path to the .hql file>"
-.    hive -S -e "<Hive queries>"
+    hive -S -e "<Hive queries>"
 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Enviar consultas de Hive no console de comando de Hive.
 Você também pode entrar primeiro no console de comando de Hive executando o comando `hive` na Linha de Comando do Hadoop e enviar consultas de Hive no console de comando de Hive. Aqui está um exemplo. Neste exemplo, as duas caixas vermelhas realçam os comandos usados para inserir o console de comando de Hive e a consulta de Hive enviada no console de comando de Hive, respectivamente. A caixa verde realça a saída da consulta de Hive.

@@ -1,24 +1,20 @@
 ---
-title: Use a ação de Script para instalar o Solr em cluster Hadoop – Azure | Microsoft Docs
+title: Use a ação de Script para instalar o Solr em cluster Hadoop – Azure
 description: Saiba como personalizar o cluster HDInsight com o Solr usando a Ação de Script.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: b1e6f338-8ac1-4b38-bbb5-2f7388b9de3b
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2016
-ms.author: nitinme
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: caabe0fea6286c9439e8929b054d771868dcb6f1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e0c1f2ecbe86eda5161324bfe84c7cf8f7d31d60
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110747"
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Instalar e usar o Solr em clusters HDInsight baseados no Windows
 
@@ -148,21 +144,27 @@ Você deve começar com indexação Solr, com alguns arquivos de dados. Em segui
            http://localhost:8983/solr/replication?command=backup
 
        Você verá uma resposta semelhante a essa:
-
-           <?xml version="1.0" encoding="UTF-8"?>
-           <response>
+            
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+          <response>
              <lst name="responseHeader">
                <int name="status">0</int>
                <int name="QTime">9</int>
              </lst>
-             <str name="status">OK</str>
-           </response>
-   2. Na sessão remota, navegue até {HOME_DO_SOLR}\{\{Coleção}\data. Para o cluster criado usando o script de exemplo, esse caminho deve ser **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. Neste local, você deve ver uma pasta de instantâneos criada com um nome semelhante ao **snapshot.* timestamp***.
+            <str name="status">OK</str>
+          </response>
+      ```
+      
+   2. Na sessão remota, navegue até {HOME_DO_SOLR}\{\{Coleção}\data. Para o cluster criado por meio do script de exemplo, isso deverá ser `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Neste local, você deve ver uma pasta de instantâneos criada com um nome semelhante ao **snapshot.* timestamp***.
+   
    3. Compacte a pasta de capturas de tela e carregue-la no armazenamento de Blob do Azure. Na linha de comando do Hadoop, navegue até o local da pasta de capturas de tela usando o seguinte comando:
 
-             hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+      ```
+      hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+      ```
 
-       Este comando copia a capturas de tela para /example/data/ sob o contêiner na conta de armazenamento padrão associada ao cluster.
+   Este comando copia a capturas de tela para /example/data/ sob o contêiner na conta de armazenamento padrão associada ao cluster.
 
 ## <a name="install-solr-using-aure-powershell"></a>Instalar o Solr usando o Azure PowerShell
 Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  O exemplo demonstra como instalar o Spark usando o Azure PowerShell. É necessário personalizar o script para usar [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).

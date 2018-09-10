@@ -40,7 +40,7 @@
   items:
     - name: O que é um Load Balancer Standard?
       href: load-balancer-standard-overview.md
-    - name: Investigações do Balanceador de Carga
+    - name: Investigações de integridade
       href: load-balancer-custom-probe-overview.md
     - name: Portas de alta disponibilidade
       href: load-balancer-ha-ports-overview.md
@@ -74,6 +74,8 @@
       href: load-balancer-standard-public-zone-redundant-cli.md
     - name: VMs com balanceamento de carga em uma zona (CLI)
       href: load-balancer-standard-public-zonal-cli.md
+    - name: Criar um Azure Load Balancer usando a API REST
+      href: create-load-balancer-rest-api.md
     - name: Criar Load Balancer Basic (modelo)
       href: load-balancer-get-started-internet-arm-template.md
     - name: Criar Load Balancer público com IPv6
@@ -106,6 +108,8 @@
           href: load-balancer-multiple-ip-powershell.md
     - name: Análise de log para Balanceador de Carga do Azure
       href: load-balancer-monitor-log.md
+    - name: Obter métricas do Load Balancer com REST
+      href: load-balancer-query-metrics-rest-api.md
     - name: Configurar portas de alta disponibilidade para o Load Balancer interno
       href: load-balancer-configure-ha-ports.md
     - name: Solucionar problemas

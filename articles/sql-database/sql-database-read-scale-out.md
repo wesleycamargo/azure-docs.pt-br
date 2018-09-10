@@ -6,15 +6,15 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
-ms.date: 04/23/2018
+ms.topic: conceptual
+ms.date: 8/27/2018
 ms.author: sashan
-ms.openlocfilehash: d2472867c71aedf35e537a29d3912b9e423de2e2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c0fa4a9868aa19032888aa50a0d300dd2e88fcca
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185419"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124810"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura (visualização)
 
@@ -22,7 +22,11 @@ ms.locfileid: "32185419"
 
 ## <a name="overview-of-read-scale-out"></a>Visão geral da expansão de leitura
 
-Cada banco de dados na camada Premium ([modelo de compra com base em DTU](sql-database-service-tiers-dtu.md)) ou na camada Comercialmente Crítico ([modelo de compra com base em vCore (versão prévia)](sql-database-service-tiers-vcore.md)) é provisionado automaticamente com várias réplicas Always ON para oferecer suporte ao SLA de disponibilidade. Essas réplicas são provisionadas com o mesmo nível de desempenho que a réplica de leitura-gravação usada pelas conexões de banco de dados regulares. O recurso **Expansão de leitura** permite que você balanceie a carga de cargas de trabalho somente leitura do Banco de Dados SQL do Microsoft Azure usando a capacidade de réplicas somente leitura em vez de compartilhar a réplica de leitura-gravação. Dessa forma, a carga de trabalho somente leitura serão isoladas da carga de trabalho principal de leitura/gravação e não afetarão o desempenho. O recurso destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análises e, portanto, poderiam obter benefícios de desempenho usando essa capacidade adicional sem nenhum custo extra.
+Cada banco de dados na camada Premium ([modelo de compra com base em DTU](sql-database-service-tiers-dtu.md)) ou na camada Comercialmente Crítico ([modelo de compra com base em vCore](sql-database-service-tiers-vcore.md)) é provisionado automaticamente com várias réplicas AlwaysON para oferecer suporte ao SLA de disponibilidade.
+
+![Réplicas somente leitura](media/sql-database-managed-instance/business-critical-service-tier.png)
+
+Essas réplicas são provisionadas com o mesmo nível de desempenho que a réplica de leitura-gravação usada pelas conexões de banco de dados regulares. O recurso **Escala de leitura** permite que você balanceie a carga de cargas de trabalho somente leitura do Banco de Dados SQL do Microsoft Azure usando a capacidade de uma das réplicas somente leitura em vez de compartilhar a réplica de leitura-gravação. Dessa forma, a carga de trabalho somente leitura serão isoladas da carga de trabalho principal de leitura/gravação e não afetarão o desempenho. O recurso destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análises e, portanto, poderiam obter benefícios de desempenho usando essa capacidade adicional sem nenhum custo extra.
 
 Para usar o recurso Expansão de leitura com um determinado banco de dados, você deve habilitá-lo ao criar o banco de dados ou posteriormente, alterando a configuração usando o PowerShell invocando os cmdlets [et-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ou por meio da API REST do Azure Resource Manager usando o método [Bancos de dados - Criar ou Atualizar](/rest/api/sql/databases/createorupdate). 
 
@@ -43,7 +47,7 @@ Um dos benefícios do Always On é que as réplicas sempre estão no estado tran
 
 ## <a name="connecting-to-a-read-only-replica"></a>Conectar-se a uma réplica somente leitura
 
-Quando você habilita a expansão de leitura para um banco de dados, a opção `ApplicationIntent` na cadeia de conexão fornecida pelo cliente determina se a conexão é roteada para a réplica de gravação ou para uma réplica somente leitura. Especificamente, se o valor `ApplicationIntent` é `ReadWrite` (o valor padrão), a conexão será direcionada para a réplica de leitura-gravação do banco de dados. Isso é idêntico ao comportamento existente. Se o valor `ApplicationIntent` é `ReadOnly`, a conexão é roteada para uma réplica legível.
+Quando você habilita a expansão de leitura para um banco de dados, a opção `ApplicationIntent` na cadeia de conexão fornecida pelo cliente determina se a conexão é roteada para a réplica de gravação ou para uma réplica somente leitura. Especificamente, se o valor `ApplicationIntent` é `ReadWrite` (o valor padrão), a conexão será direcionada para a réplica de leitura-gravação do banco de dados. Isso é idêntico ao comportamento existente. Se o valor de `ApplicationIntent` é `ReadOnly`, a conexão é roteada para uma réplica somente leitura.
 
 Por exemplo, a seguinte cadeia de conexão conecta o cliente a uma réplica somente leitura (substituindo os itens nos chevrons pelos valores corretos para o seu ambiente e descartando os chevrons):
 
@@ -61,9 +65,12 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>
 
 Você pode verificar se você está conectado a uma réplica somente leitura ao executar a consulta a seguir. Ela retornará READ_ONLY quando conectado a uma réplica somente leitura.
 
+
 ```SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
+> [!NOTE]
+> Em um determinado momento qualquer apenas uma das réplicas de AlwaysON fica acessível por sessões somente leitura.
 
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Habilitar e desabilitar a Expansão de leitura usando o Microsoft Azure PowerShell
 
@@ -106,6 +113,14 @@ Body:
 ```
 
 Para obter mais informações, consulte [Bancos de dados - Criar ou Atualizar](/rest/api/sql/databases/createorupdate).
+
+## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Usar escala de leitura com bancos de dados replicados geograficamente
+
+Se estiver usando escala de leitura para balancear a carga de cargas de trabalho somente leitura em um banco de dados que é replicado geograficamente (por exemplo, um membro de um grupo de failover), verifique se a escala de leitura está habilitada nos bancos de dados primário e secundário replicado geograficamente. Isso garantirá o mesmo efeito de balanceamento de carga quando seu aplicativo se conectar ao novo primário após o failover. Se estiver se conectando ao banco de dados secundário geograficamente replicado com escala de leitura habilitada, suas sessões com `ApplicationIntent=ReadOnly` serão roteadas para uma das réplicas da mesma forma que roteamos conexões no banco de dados primário.  As sessões sem `ApplicationIntent=ReadOnly` serão roteadas para a réplica primária do secundário replicado geograficamente, que também é somente leitura. Como o banco de dados secundário replicado geograficamente tem um ponto de extremidade diferente do banco de dados primário, historicamente para acessar o secundário não era necessário configurar o `ApplicationIntent=ReadOnly`. Para garantir a compatibilidade com versões anteriores, o `sys.geo_replication_links` DMV mostra `secondary_allow_connections=2` (qualquer conexão de cliente é permitida).
+
+> [!NOTE]
+> Durante a versão prévia, não realizamos rodízio nem qualquer outro roteamento balanceado de carga entre as réplicas locais do banco de dados secundário. 
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

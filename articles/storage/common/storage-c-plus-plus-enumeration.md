@@ -1,24 +1,19 @@
 ---
 title: Listar recursos de Armazenamento do Azure com a Biblioteca de Cliente de Armazenamento para C++ | Microsoft Docs
-description: "Saiba como usar a APIs de listagem na Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++ para enumerar contêineres, blobs, filas, tabelas e entidades."
-documentationcenter: .net
+description: Saiba como usar a APIs de listagem na Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++ para enumerar contêineres, blobs, filas, tabelas e entidades.
 services: storage
 author: dineshmurthy
-manager: jahogg
-editor: tysonn
-ms.assetid: 33563639-2945-4567-9254-bc4a7e80698f
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
-ms.openlocfilehash: 9844412739f4f6f95416f81347f0f2eeeca62bea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 0a105122eccdfa671c806389908762941f23200c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525300"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar recursos do Armazenamento do Azure no C++
 As operações de listagem são fundamentais para muitos cenários de desenvolvimento com o Armazenamento do Azure. Este artigo descreve como enumerar os objetos no Armazenamento do Azure usando a listagem APIs fornecidas na Biblioteca de Cliente do Armazenamento do Microsoft Azure para C++ com mais eficiência.
@@ -39,7 +34,7 @@ A Biblioteca de Cliente do Armazenamento fornece uma variedade de métodos de co
 Cada um desses métodos é mostrado usando sobrecargas diferentes para diferentes cenários.
 
 ## <a name="asynchronous-versus-synchronous"></a>Assíncrono versus síncrono
-Como a Biblioteca de Cliente de Armazenamento para C++ é construída sobre a [Biblioteca C++ REST](https://github.com/Microsoft/cpprestsdk), nós oferecemos inerentemente suporte a operações assíncronas usando [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por exemplo:
+Como a Biblioteca de Cliente de Armazenamento para C++ é construída sobre a [Biblioteca C++ REST](https://github.com/Microsoft/cpprestsdk), nós oferecemos inerentemente suporte a operações assíncronas usando [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por exemplo: 
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;

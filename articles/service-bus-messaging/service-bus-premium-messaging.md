@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 1b2c9b3a0b7565e7de40d4dc0e623a62313b79db
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: spelluru
+ms.openlocfilehash: 8e53cc5487a64fbd0c3a9ca26fc405756f09ce71
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698726"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço
 
@@ -56,7 +57,7 @@ Se você tiver código em execução no sistema de mensagens padrão e deseja po
 
 ## <a name="get-started-with-premium-messaging"></a>Introdução ao sistema de mensagens Premium
 
-A introdução ao Sistema de Mensagens Premium é simples e o processo é semelhante ao do Sistema de Mensagens Padrão. Comece pela [criação de um namespace](service-bus-create-namespace-portal.md) no [portal do Azure](https://portal.azure.com). Verifique se você selecionou **Premium** em **Escolher seu tipo de preço**.
+A introdução ao Sistema de Mensagens Premium é simples e o processo é semelhante ao do Sistema de Mensagens Padrão. Comece pela [criação de um namespace](service-bus-create-namespace-portal.md) no [portal do Azure](https://portal.azure.com). Verifique se você selecionou **Premium** em **Tipo de preços**. Clique em **Exibição de detalhes de preço completos** para obter mais informações sobre cada camada.
 
 ![criar-premium-namespace][create-premium-namespace]
 
@@ -64,7 +65,7 @@ Você também pode criar um [Namespace Premium usando modelos do Azure Resource 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o Sistema de Mensagens do Barramento de Serviço, confira os tópicos a seguir.
+Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes links:
 
 * [Introdução ao Sistema de Mensagens Premium do Barramento de Serviço do Azure (postagem de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introdução ao Sistema de Mensagens Premium do Barramento de Serviço do Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)

@@ -14,14 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 633501b03a362fbd07e14e308e18488f03af5af5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069187"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de integridade no Azure Resource Health
 Abaixo, temos uma lista completa de todas as verificações executadas por meio do Resource Health segundo o tipo do recurso.
+
+## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
+|Verificações executadas|
+|---|
+|<ul><li>O servidor está em funcionamento?</li><li>O servidor está funcionando fora da memória?</li><li>O servidor está iniciando?</li><li>O servidor está recuperando?</li></ul>|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 |Verificações executadas|
@@ -36,7 +42,7 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsoftcdnprofile"></a>Microsoft.CDN/profile
 |Verificações executadas|
 |---|
-|<ul> <li>Algum ponto de extremidade foi interrompido, removido ou configurado incorretamente?</li><li>O portal complementar pode ser acessado para operações de configuração da CDN?</li><li>Há problemas contínuos de entrega com os pontos de extremidade da CDN?</li><li>Os usuários podem alterar a configuração de seus recursos da CDN?</li><li>Alterações de configuração estão sendo propagadas com a velocidade esperada?</li><li>Os usuários podem gerenciar a configuração da CDN usando o PowerShell, a API ou o Portal do Azure?</li> </ul>|
+|<ul> <li>O portal complementar pode ser acessado para operações de configuração da CDN?</li><li>Há problemas contínuos de entrega com os pontos de extremidade da CDN?</li><li>Os usuários podem alterar a configuração de seus recursos da CDN?</li><li>Alterações de configuração estão sendo propagadas com a velocidade esperada?</li><li>Os usuários podem gerenciar a configuração da CDN usando o PowerShell, a API ou o Portal do Azure?</li> </ul>|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.classiccompute/virtualmachines
 |Verificações executadas|
@@ -56,13 +62,13 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Verificações executadas|
 |---|
-|<ul><li>Os usuários podem enviar trabalhos para o Data Lake Analytics na região?</li><li>Trabalhos básicos são executados e concluídos com êxito na região?</li><li>Os usuários podem listar itens de catálogo na região?</li>|
+|<ul><li>Os usuários tiveram problemas ao enviar ou listar seus trabalhos do Data Lake Analytics?</li><li>As tarefas do Data Lake Analytics não podem ser concluídas para erros do sistema?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
 |Verificações executadas|
 |---|
-|<ul><li>Os usuários podem carregar dados para o Data Lake Store na região?</li><li>Os usuários podem baixar dados do Data Lake Store na região?</li></ul>|
+|<ul><li>Os usuários tiveram problemas para fazer o upload de dados para o Data Lake Store?</li><li>Os usuários tiveram problemas para fazer o upload de dados para o Data Lake Store?</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
@@ -74,6 +80,11 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 |Verificações executadas|
 |---|
 |<ul><li>Alguma solicitação do banco de dados ou da coleção deixou de ser atendida devido a uma indisponibilidade de serviço do Azure Cosmos DB?</li><li>Alguma solicitação de documentos deixou de ser atendida devido a uma indisponibilidade de serviço do Azure Cosmos DB?</li></ul>|
+
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+|Verificações executadas|
+|---|
+|<ul><li>As solicitações para a falha do cofre de chave são decorrentes dos problemas da plataforma Azure KeyVault?</li><li>As solicitações para o cofre de chave estão sendo limitadas devido a muitas solicitações feitas pelo cliente?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Verificações executadas|
@@ -104,6 +115,11 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 |Verificações executadas|
 |---|
 |<ul><li> Houve logons no banco de dados?</li></ul>|
+
+## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
+|Verificações executadas|
+|---|
+|<ul><li>As solicitações para ler dados da conta de Armazenamento falham devido a problemas da plataforma do Azure Storage?</li><li>As solicitações para gravar dados da conta de Armazenamento falham devido a problemas da plataforma do Azure Storage?</li><li>O cluster de Armazenamento em que a conta de armazenamento reside está indisponível?</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |Verificações executadas|

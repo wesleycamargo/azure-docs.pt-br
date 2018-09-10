@@ -1,6 +1,6 @@
 ---
-title: "Visão geral da continuidade dos negócios com o Banco de Dados do Azure para PostgreSQL"
-description: "Visão geral da continuidade dos negócios com o Banco de Dados do Azure para PostgreSQL."
+title: Visão geral da continuidade dos negócios com o Banco de Dados do Azure para PostgreSQL
+description: Visão geral da continuidade dos negócios com o Banco de Dados do Azure para PostgreSQL.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29693114"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Visão geral da continuidade dos negócios com o Banco de Dados do Azure para PostgreSQL
 

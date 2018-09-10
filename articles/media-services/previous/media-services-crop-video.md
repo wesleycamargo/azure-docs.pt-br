@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782945"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Cortar vídeos com o Codificador de Mídia Padrão
 Você pode usar o MES (Codificador de Mídia Padrão) para cortar a entrada de seu vídeo. Corte é o processo de seleção de uma janela retangular no quadro de vídeo e codificação apenas dos pixels nessa janela. O diagrama a seguir ajuda a ilustrar o processo.

@@ -1,25 +1,26 @@
 ---
-title: "Logs de diagnóstico dos Hubs de Eventos do Azure | Microsoft Docs"
-description: "Saiba como configurar logs de diagnóstico para hub de eventos no Azure."
-keywords: 
-documentationcenter: 
+title: Logs de diagnóstico dos Hubs de Eventos do Azure | Microsoft Docs
+description: Saiba como configurar logs de diagnóstico para hub de eventos no Azure.
+keywords: ''
+documentationcenter: ''
 services: event-hubs
-author: banisadr
-manager: 
-editor: 
-ms.assetid: 
+author: ShubhaVijayasarathy
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/30/2018
-ms.author: sethm
-ms.openlocfilehash: 451fc42f573db2b60985912cfa63617e04f09e6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 07/02/2018
+ms.author: shvija
+ms.openlocfilehash: d4ed53cf1f0d21e488631434b60309602169b59a
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004643"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Logs de diagnóstico dos Hubs de Eventos
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 02/01/2018
 
 ## <a name="enable-diagnostic-logs"></a>Habilitar logs de diagnóstico
 
-Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de diagnóstico:
+Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de diagnóstico, siga estas etapas:
 
 1.  No [Portal do Azure](https://portal.azure.com), em **Monitoramento + Gerenciamento**, clique em **Logs de diagnóstico**.
 
@@ -69,7 +70,7 @@ Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cad
 
 As cadeias de caracteres JSON do log de arquivo morto incluem os elementos listados na seguinte tabela:
 
-NOME | DESCRIÇÃO
+Nome | Descrição
 ------- | -------
 TaskName | Descrição da tarefa que falhou.
 ActivityId | ID interna, usada para acompanhamento.
@@ -79,7 +80,7 @@ eventHub | Nome completo do hub de eventos (inclui o nome do namespace).
 partitionId | Partição do Hub de Eventos usada para gravação.
 archiveStep | ArchiveFlushWriter
 startTime | Hora de início da falha.
-failures | Número de vezes que a falha ocorreu.
+falhas | Número de vezes que a falha ocorreu.
 durationInSeconds | Duração da falha.
 Message | Mensagem de erro.
 categoria | ArchiveLogs
@@ -107,7 +108,7 @@ O código a seguir é um exemplo de uma cadeia de caracteres JSON do log de arqu
 
 As cadeias de caracteres JSON do log operacional incluem os elementos listados na seguinte tabela:
 
-NOME | DESCRIÇÃO
+Nome | Descrição
 ------- | -------
 ActivityId | ID interna, usada para fins de rastreamento.
 EventName | Nome da operação.  

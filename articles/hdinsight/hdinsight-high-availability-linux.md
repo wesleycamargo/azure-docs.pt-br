@@ -1,25 +1,21 @@
 ---
-title: Alta disponibilidade para Hadoop – Azure HDInsight | Microsoft Docs
+title: Alta disponibilidade para Hadoop – Azure HDInsight
 description: Saiba como clusters HDInsight melhoram a confiabilidade e a disponibilidade usando um nó principal adicional. Saiba como isso afeta os serviços do Hadoop, como o Ambari e o Hive, e também como se conectar individualmente com cada nó principal usando SSH.
 services: hdinsight
-editor: cgronlun
-manager: cgronlun
-author: Blackmist
-documentationcenter: ''
-tags: azure-portal
+ms.reviewer: jasonh
+author: jasonwhowell
 keywords: alta disponibilidade hadoop
-ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: larryfr
-ms.openlocfilehash: 974ed70fbda88dfcb775e021474583f7afb0576b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: c10ff022d54510c4fb81bf1f922aeaaf4e9036bb
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104847"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade dos clusters Hadoop em HDInsight
 
@@ -62,9 +58,9 @@ Os nós de trabalho executam a análise de dados real quando um trabalho é envi
 
 Um nó de borda não participa ativamente na análise de dados dentro do cluster. Ele é usado por desenvolvedores ou cientistas de dados ao trabalhar com o Hadoop. O nó de borda reside na mesma Rede Virtual do Azure que os outros nós no cluster e pode acessar diretamente todos os outros nós. O nó de borda pode ser usado sem retirar recursos dos serviços críticos do Hadoop ou de trabalhos de análise.
 
-Atualmente, o Servidor R no HDInsight é o único tipo de cluster que fornece um nó de borda por padrão. Para o Servidor R no HDInsight, o nó de borda é usado para testar o código R localmente no nó antes de enviá-lo ao cluster para o processamento distribuído.
+Atualmente, o ML Services no HDInsight é o único tipo de cluster que fornece um nó de borda por padrão. Para o ML Services no HDInsight, o nó de borda é usado para testar o código R localmente no nó antes de enviá-lo ao cluster para o processamento distribuído.
 
-Para saber mais sobre como usar um nó de borda com tipos de cluster diferentes do Servidor de R, consulte o documento [Usar nós de borda no HDInsight](hdinsight-apps-use-edge-node.md).
+Para obter informações sobre como usar um nó de borda com outros tipos de cluster, consulte o documento [Usar nós de borda no HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## <a name="accessing-the-nodes"></a>Acessando os nós
 

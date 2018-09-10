@@ -1,11 +1,11 @@
 ---
-title: "Solucionar problemas de implantação da VM Windows no Azure| Microsoft Docs"
-description: "Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Windows no Azure"
+title: Solucionar problemas de implantação da VM Windows no Azure| Microsoft Docs
+description: Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Windows no Azure
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
@@ -13,14 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fff29f6cfed4989386ca5bbd12184dce525add76
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3d406d6d8f6432b3555e34876854147c4945f7a8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39631680"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solucionar problemas de implantação ao criar uma nova VM Windows no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -53,7 +54,7 @@ Para iniciar a solução de problemas, colete os logs de atividades para identif
 
 **Resolução**
 
-Para resolver ambos os erros, use o [Add-AzureRmVhd para carregar o VHD original](https://msdn.microsoft.com/library/mt603554.aspx), disponível localmente, com a mesma configuração usada para o SO (generalizado/especializado). Para carregar como generalizado, lembre-se de executar sysprep primeiro.
+Para resolver ambos os erros, use o [Add-AzureRmVhd para carregar o VHD original](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd), disponível localmente, com a mesma configuração usada para o SO (generalizado/especializado). Para carregar como generalizado, lembre-se de executar sysprep primeiro.
 
 **Erros de captura:**
 

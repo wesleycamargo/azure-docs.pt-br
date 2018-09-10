@@ -1,24 +1,20 @@
 ---
-title: Usar o Hive do Hadoop e a área de trabalho remota no HDInsight – Azure | Microsoft Docs
+title: Usar o Hive do Hadoop e área de trabalho remota no HDInsight - Microsoft Azure
 description: Aprenda a conectar-se a um cluster do Hadoop no HDInsight usando a área de trabalho remota e então executar consultas Hive usando a Interface de Linha de Comando do Hive.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 8c228e35-d58a-4f22-917a-1d20c9da89b4
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 70eab088ce87d8a62d3f258b70aaec5e2e147d0e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 34d0623fe8547c57c52236a117d66cb75d7717b9
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051892"
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Usar o Hive com Hadoop no HDInsight com Remote Desktop.
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

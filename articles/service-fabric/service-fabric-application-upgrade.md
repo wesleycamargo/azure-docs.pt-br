@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207971"
 ---
 # <a name="service-fabric-application-upgrade"></a>Atualização de aplicativos do Service Fabric
 Um aplicativo do Azure Service Fabric é uma coleção de serviços. Durante uma atualização, a Malha do Serviço compara o novo [manifesto do aplicativo](service-fabric-application-and-service-manifests.md) com a versão anterior e determina quais serviços as atualizações do aplicativo exigem. O Service Fabric compara os números de versão nos manifestos de serviço com os números de versão na versão anterior. Se um serviço não foi alterado, ele não foi atualizado.

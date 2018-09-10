@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3a82fa0464cd98c1e056e097018ba22ac19d72ac
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246354"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação de desastre de servidores físicos locais para o Azure
 
@@ -27,18 +28,25 @@ Este tutorial mostra como configurar a recuperação de desastre de servidores W
 > * Criar uma política de replicação
 > * Habilitar a replicação para um servidor
 
-## <a name="prerequisites"></a>pré-requisitos
+[revisar a arquitetura](concepts-hyper-v-to-azure-architecture.md) para esse cenário de recuperação de desastre.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
-- Verifique se você entende os [componentes e a arquitetura do cenário](physical-azure-architecture.md).
+- Verifique se você entende os [componentes e a arquitetura](physical-azure-architecture.md) para este cenário.
 - Examine os [requisitos de suporte](vmware-physical-secondary-support-matrix.md) de todos os componentes.
 - Verifique se os servidores que você deseja replicar estão em conformidade com os [requisitos de VM do Azure](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare o Azure. Você precisa de uma assinatura do Azure, de uma rede virtual do Azure e de uma conta de armazenamento.
 - Prepare uma conta para a instalação automática do serviço de Mobilidade em cada servidor que você deseja replicar.
 
-> [!NOTE]
-> Antes de começar, observe que após fazer failover para o Azure, os servidores físicos não poderão fazer failback para computadores físicos locais. Somente é possível fazer failback para VMs VMware. 
+Antes de começar, observe se:
+
+- Após fazer failover para o Azure, os servidores físicos não poderão fazer failback para computadores físicos locais. Somente é possível fazer failback para VMs VMware. 
+- Este tutorial configura a recuperação de desastres do servidor físico no Azure com as configurações mais simples. Se você quiser saber mais sobre outras opções, leia nosso guias:
+    - Configure a [origem da replicação](physical-azure-set-up-source.md), incluindo o servidor de configuração de recuperação de Site.
+    - Configure o [destino de replicação](physical-azure-set-up-target.md).
+    - Configure uma [política de replicação](vmware-azure-set-up-replication.md) e [habilite a replicação](vmware-azure-enable-replication.md).
 
 
 ### <a name="set-up-an-azure-account"></a>Configurar uma conta do Azure
@@ -68,7 +76,7 @@ Configurar uma [rede do Azure](../virtual-network/quick-create-portal.md).
 
 ## <a name="set-up-an-azure-storage-account"></a>Configure uma conta de armazenamento do Azure
 
-Configure uma [conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Configure uma [conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md).
 
 - O Site Recovery replica máquinas locais para o armazenamento do Azure. As VMs do Azure são criadas a partir do armazenamento após o failover.
 - A conta de armazenamento deve estar na mesma região do cofre de Serviços de Recuperação.
@@ -116,19 +124,25 @@ Defina o servidor de configuração, registre-o no cofre e descubra VMs.
 
 Antes de começar, faça o seguinte: 
 
-- Na máquina do servidor de configuração, certifique-se de que o relógio do sistema esteja sincronizado com um [Servidor de Horário](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Ele deve ser correspondente. Se ele estiver 15 minutos adiantado ou atrasado, a instalação poderá falhar.
-- Verifique se o computador pode acessar estas URLs:       [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+#### <a name="verify-time-accuracy"></a>Verificar a precisão de tempo
+Na máquina do servidor de configuração, certifique-se de que o relógio do sistema esteja sincronizado com um [Servidor de Horário](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Ele deve ser correspondente. Se ele estiver 15 minutos adiantado ou atrasado, a instalação poderá falhar.
 
-- As regras de firewall baseadas em endereço IP devem permitir a comunicação com o Azure.
-- Permita os [Intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443).
-- Permita os intervalos de endereços IP para a região do Azure da sua assinatura e para o Oeste dos EUA (usados para Controle de Acesso e Gerenciamento de Identidade).
+#### <a name="verify-connectivity"></a>Verificar conectividade
+Verifique se o computador pode acessar estas URLs com base no ambiente: 
 
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+
+As regras de firewall baseadas em endereço IP devem permitir a comunicação com todas as URLs do Azure listadas acima pela porta HTTPS (443). Para simplificar e limitar os Intervalos de IP, é recomendável fazer a filtragem de URL.
+
+- **IPs comerciais** – permita os [Intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443). Permita que os intervalos de endereços IP para a região do Azure de sua assinatura deem suporte ao AAD, ao Backup, à Replicação e às URLs de Armazenamento.  
+- **IPs Governamentais** – permita os [Intervalos de IP do Datacenter do Azure Governamental](https://www.microsoft.com/en-us/download/details.aspx?id=57063) e a porta HTTPS (443) em todas as regiões US Gov (Virgínia, Texas, Arizona e Iowa) para dar suporte ao AAD, ao Backup, à Replicação e às URLs de Armazenamento.  
+
+#### <a name="run-setup"></a>Executar a instalação
 Execute a Instalação Unificada como Administrador Local, para instalar o servidor de configuração. O servidor de processo e o servidor de destino mestre também são instalados, por padrão, no servidor de configuração.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 Após a conclusão do registro, o servidor de configuração será exibido na página **Configurações** > **Servidores** no cofre.
-
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de origem
 

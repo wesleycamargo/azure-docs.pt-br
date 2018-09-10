@@ -7,21 +7,25 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2017
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: b278f5c4c8c87590205aca13a50a82fe8712d909
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e84a4b0c1f3496bc26f4a8830f7a08ddd5506338
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503716"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do Red Hat Enterprise Linux 7 em um domínio gerenciado
 Este artigo mostra como ingressar em uma máquina virtual do RHEL (Red Hat Enterprise Linux) 7 em um domínio gerenciado dos Serviços de Domínio do Azure AD.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Para executar as tarefas listadas neste artigo, você precisa do seguinte:  
@@ -34,7 +38,7 @@ Para executar as tarefas listadas neste artigo, você precisa do seguinte:
 
 ## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Provisionar uma máquina virtual do Red Hat Enterprise Linux
 Provisione uma máquina virtual RHEL 7 no Azure usando qualquer um dos seguintes métodos:
-* [Portal do Azure](../virtual-machines/linux/quick-create-portal.md)
+* [portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
 * [PowerShell do Azure](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -82,17 +86,17 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE] 
+     > [!NOTE]
      > **Solução de problemas:** se *realm discover* não puder localizar o domínio gerenciado:
      * Verifique se o domínio pode ser acessado da máquina virtual (tente executar o ping).
      * Verifique se a máquina virtual, de fato, foi implantada na mesma rede virtual na qual o domínio gerenciado está disponível.
      * Verifique se você atualizou as configurações do servidor DNS para a rede virtual para apontar para os controladores de domínio do domínio gerenciado.
      >
 
-2. Inicialize o Kerberos. No terminal SSH, digite o seguinte comando: 
+2. Inicialize o Kerberos. No terminal SSH, digite o seguinte comando:
 
-    > [!TIP] 
-    > * Certifique-se de especificar um usuário que pertence ao grupo 'Administradores do DC do AAD’. 
+    > [!TIP]
+    > * Certifique-se de especificar um usuário que pertence ao grupo 'Administradores do DC do AAD’.
     > * Especifique o nome de domínio em letras maiúsculas, caso contrário, o kinit falhará.
     >
 
@@ -100,9 +104,9 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
     kinit bob@CONTOSO100.COM
     ```
 
-3. Ingresse a máquina no domínio. No terminal SSH, digite o seguinte comando: 
+3. Ingresse a máquina no domínio. No terminal SSH, digite o seguinte comando:
 
-    > [!TIP] 
+    > [!TIP]
     > Use a mesma conta de usuário especificada na etapa anterior ('kinit').
     >
 

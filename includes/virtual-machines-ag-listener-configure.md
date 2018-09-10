@@ -88,5 +88,30 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
     b. Defina os parâmetros de cluster executando o script do PowerShell em um dos nós do cluster.  
 
+Repita as etapas acima para definir os parâmetros do cluster para o endereço de IP do cluster WSFC.
+
+1. Obtenha o nome do endereço IP do endereço IP do Cluster WSFC. Em **Gerenciador de Cluster de Failover** em **recursos principais de Cluster**, localize **Nome do Servidor**.
+
+1. Clique com o botão direito do mouse em **Endereço de IP** e escolha **Propriedades**.
+
+1. Copie o **Nome** do endereço IP. Pode ser `Cluster IP Address`. 
+
+1. <a name="setwsfcparam"></a>Definir os parâmetros do cluster no PowerShell.
+    
+    a. Copie o script do PowerShell a seguir em uma de suas instâncias do SQL Server. Atualize as variáveis para o seu ambiente.     
+    
+    ```PowerShell
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+    [int]$ProbePort = <nnnnn>
+    
+    Import-Module FailoverClusters
+    
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    ```
+
+    b. Defina os parâmetros de cluster executando o script do PowerShell em um dos nós do cluster.  
+
     > [!NOTE]
     > Se suas instâncias do SQL Server estiverem em regiões separadas, você precisará executar o script do PowerShell duas vezes. Na primeira vez, use o `$ILBIP` e `$ProbePort` da primeira região. Na segunda vez, use o `$ILBIP` e `$ProbePort` da segunda região. O nome da rede de cluster e o nome do recurso de IP do cluster são os mesmos. 

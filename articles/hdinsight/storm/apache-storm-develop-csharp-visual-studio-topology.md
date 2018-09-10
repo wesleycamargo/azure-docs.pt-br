@@ -1,25 +1,20 @@
 ---
-title: Topologias Apache Storm com Visual Studio e C# – Azure HDInsight | Microsoft Docs
+title: Topologias Apache Storm com Visual Studio e C# – Azure HDInsight
 description: Aprenda como criar topologias Storm em C#. Crie uma topologia de contagem de palavras simples no Visual Studio usando as ferramentas do Hadoop para Visual Studio.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: ''
-ms.devlang: java
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e35d795fb65c837f7a4152920f701da5bf8f506
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 371f8c1d69482381e3a400da6010825bc3ac7c1a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697774"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para Apache Storm usando ferramentas do Data Lake para Visual Studio
 
@@ -46,9 +41,9 @@ Para usar uma topologia do C# com um cluster baseado em Linux, você deverá atu
 
 Você pode desenvolver topologias C# com SCP.NET, usando uma das seguintes versões do Visual Studio:
 
-* Visual Studio 2012 com [Atualização 4](http://www.microsoft.com/download/details.aspx?id=39305)
+* Visual Studio 2012 com Atualização 4
 
-* Visual Studio 2013 com [Atualização 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+* Visual Studio 2013 com Atualização 4 ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
 * Visual Studio 2015 ou [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
@@ -79,23 +74,23 @@ namespace ConsoleApplication2
    {
        static void Main(string[] args)
        {
-           string javaHome = Environment.GetEnvironmentVariable(“JAVA_HOME”);
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
            if (!string.IsNullOrEmpty(javaHome))
            {
-               string jarExe = Path.Combine(javaHome + @”\bin”, “jar.exe”);
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
                if (File.Exists(jarExe))
                {
-                   Console.WriteLine(“JAVA Is Installed properly”);
+                   Console.WriteLine("JAVA Is Installed properly");
                     return;
                }
                else
                {
-                   Console.WriteLine(“A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.”);
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
                }
            }
            else
            {
-             Console.WriteLine(“A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.”);
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
            }
        }  
    }

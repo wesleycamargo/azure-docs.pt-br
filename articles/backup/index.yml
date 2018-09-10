@@ -1,30 +1,31 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação de Backup do Azure"
+title: Documentação de Backup do Azure
 metadata:
-  title: "Documentação do Backup do Azure - Tutoriais, Referência de API | Microsoft Docs"
-  description: "O Backup do Azure permite que você faça backup dos dados para servidores locais, máquinas virtuais, cargas de trabalho virtualizadas, do SQL server, SharePoint server e muito mais. Aprenda a fazer backup e restaurar seus dados com nossos inícios rápidos, tutoriais e exemplos."
+  title: Documentação do Backup do Azure - Tutoriais, Referência de API | Microsoft Docs
+  description: O Backup do Azure permite que você faça backup dos dados para servidores locais, máquinas virtuais, cargas de trabalho virtualizadas, do SQL server, SharePoint server e muito mais. Aprenda a fazer backup e restaurar seus dados com nossos inícios rápidos, tutoriais e exemplos.
   services: backup
-  author: czeumault
-  manager: carolz
+  author: markgalioto
+  manager: carmonm
   ms.service: backup
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/11/2017
-  ms.author: carolz
-  ms.openlocfilehash: f2654916ee61a548537c8887ff7d1923fb6f29ac
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.date: 05/22/2018
+  ms.author: markgal
+  ms.openlocfilehash: b2907330477c62cce2ee5e9498cc4445580161a2
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34606844"
 abstract:
-  description: "O Backup do Azure permite que você faça backup dos dados para servidores locais, máquinas virtuais, cargas de trabalho virtualizadas, do SQL server, SharePoint server e muito mais. Aprenda a fazer backup e restaurar seus dados com nossos inícios rápidos, tutoriais e exemplos."
+  description: Use o Backup do Azure para proteger os dados nos servidores locais, máquinas virtuais, cargas de trabalho virtualizadas, SQL server, SharePoint server e muito mais. Aprenda a fazer backup e restaurar seus dados com nossos inícios rápidos, tutoriais e exemplos.
 sections:
-- title: "Guia de início rápido de 5 minutos"
+- title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: "Saiba como fazer backup de uma máquina virtual do Azure no Azure."
+    text: Saiba como fazer backup de uma máquina virtual do Azure no Azure.
   - type: list
     style: icon48
     items:
@@ -43,13 +44,13 @@ sections:
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: "Saiba como fazer backup e recuperar máquinas virtuais no Azure ou do Windows Server."
+    text: Saiba como fazer backup e recuperar máquinas virtuais no Azure ou do Windows Server.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"tutorial-backup-vm-at-scale\">Fazer backup de várias VMs do Azure</a>"
+    - html: <a href="tutorial-backup-vm-at-scale">Fazer backup de várias VMs do Azure</a>
     - html: <a href="tutorial-restore-disk">Restaurar um disco e criar uma VM recuperada</a>
-    - html: "<a href=\"tutorial-restore-files\">Restaurar arquivos para uma Máquina Virtual no Azure</a>"
+    - html: <a href="tutorial-restore-files">Restaurar arquivos para uma Máquina Virtual no Azure</a>
     - html: <a href="tutorial-backup-windows-server-to-azure">Fazer backup de um Windows Server para o Azure</a>
     - html: <a href="tutorial-backup-restore-files-windows-server">Recuperar arquivos do Azure para um Windows Server</a>
 - title: Exemplos
@@ -61,13 +62,15 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/azure/backup/powershell-backup-samples">PowerShell do Azure</a>
-- title: "Referência"
+- title: Referência
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: Linha de comando
-      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">PowerShell do Azure</a></p>
+      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">PowerShell do Azure</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">CLI do Azure</a></p>
     - title: Linguagens
       html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/backup/">Referência da API de Backup do Azure</a></p>

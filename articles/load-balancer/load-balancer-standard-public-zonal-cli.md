@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 0932195bb95ab9610f723245bfed7fedb01001f9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b4bb0cdb9be59ae35b640ef67b12c382bb621a19
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433563"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Criar um Load Balancer Standard público com frontend de zona usando a CLI do Azure
 
@@ -32,14 +33,14 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, certifique-se de que você instalou a versão mais recente do [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e entrou em uma conta do Azure com [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login).
+Se você optar por instalar e usar a CLI localmente, certifique-se de que você instalou a versão mais recente da [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e entrou em uma conta do Azure com [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
 
 > [!NOTE]
  O suporte para Zonas de Disponibilidade está disponível para selecionar recursos e regiões do Azure e famílias de tamanho de VM. Para obter mais informações sobre como começar e com quais recursos, regiões e famílias de tamanhos de VM do Azure você pode experimentar as zonas de disponibilidade, confira [Visão geral das Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, entre em contato em [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abra um tíquete de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
+Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
 O seguinte exemplo cria um grupo de recursos chamado *myResourceGroupLB* no local *westeurope*:
 
@@ -70,7 +71,7 @@ Esta seção fornece detalhes sobre como criar e configurar os componentes do ba
 - uma regra de balanceador de carga que define como o tráfego é distribuído para as VMs.
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
-Crie um balanceador de carga Standard com [az network lb create](/cli/azure/network/lb#az_network_lb_create). O exemplo a seguir cria um balanceador de carga nomeado *myLoadBalancer* e atribui o endereço *myPublicIP* para a configuração de IP de front-end.
+Crie um balanceador de carga Standard com [az network lb create](/cli/azure/network/lb#az-network-lb-create). O exemplo a seguir cria um balanceador de carga nomeado *myLoadBalancer* e atribui o endereço *myPublicIP* para a configuração de IP de front-end.
 
 ```azurecli-interactive
 az network lb create \
@@ -84,7 +85,7 @@ az network lb create \
 
 ## <a name="create-health-probe-on-port-80"></a>Criar investigação de integridade na porta 80
 
-Uma investigação de integridade verifica todas as instâncias da máquina virtual para se certificar de que ela pode enviar o tráfego de rede. A instância de máquina virtual com verificações de investigação com falha é removida do balanceador de carga até ele ficar online novamente e as verificações de investigação determinarem sua integridade. Crie uma investigação de integridade com az network lb probe create para monitorar a integridade das máquinas virtuais. Para criar uma investigação de integridade TCP, consulte [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). O exemplo a seguir cria uma investigação de integridade chamada *myHealthProbe*:
+Uma investigação de integridade verifica todas as instâncias da máquina virtual para se certificar de que ela pode enviar o tráfego de rede. A instância de máquina virtual com verificações de investigação com falha é removida do balanceador de carga até ele ficar online novamente e as verificações de investigação determinarem sua integridade. Crie uma investigação de integridade com az network lb probe create para monitorar a integridade das máquinas virtuais. Para criar uma investigação de integridade TCP, consulte [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create). O exemplo a seguir cria uma investigação de integridade chamada *myHealthProbe*:
 
 ```azurecli-interactive
 az network lb probe create \
@@ -96,7 +97,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>Criar regra do balanceador de carga para a porta 80
-Uma regra de balanceador de carga define a configuração de IP de front-end para o tráfego de entrada e o pool de IP de back-end para receber o tráfego, junto com as portas de origem e de destino necessárias. Crie uma regra do balanceador de carga *myLoadBalancerRuleWeb* com [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) para escutar a porta 80 no pool de front-end *myFrontEndPool* e enviar o tráfego de rede com carga balanceada ao pool de endereços de back-end *myBackEndPool* também usando a porta 80.
+Uma regra de balanceador de carga define a configuração de IP de front-end para o tráfego de entrada e o pool de IP de back-end para receber o tráfego, junto com as portas de origem e de destino necessárias. Crie uma regra do balanceador de carga *myLoadBalancerRuleWeb* com [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) para escutar a porta 80 no pool de front-end *myFrontEndPool* e enviar o tráfego de rede com carga balanceada ao pool de endereços de back-end *myBackEndPool* também usando a porta 80.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -116,7 +117,7 @@ Antes de implantar algumas VMs e poder testar o balanceador de carga, crie os re
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Crie uma rede virtual nomeada *myVnet* com uma sub-rede nomeada *mySubnet* no myResourceGroup usando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
+Crie uma rede virtual nomeada *myVnet* com uma sub-rede nomeada *mySubnet* no myResourceGroup usando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
 
 ```azurecli-interactive
@@ -129,7 +130,7 @@ az network vnet create \
 
 ### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-Crie o grupo de segurança de rede nomeado *myNetworkSecurityGroup* para definir conexões de entrada para a rede virtual com [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create).
+Crie o grupo de segurança de rede nomeado *myNetworkSecurityGroup* para definir conexões de entrada para a rede virtual com [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
 ```azurecli-interactive
 az network nsg create \
@@ -137,7 +138,7 @@ az network nsg create \
 --name myNetworkSecurityGroup
 ```
 
-Crie uma regra de grupo de segurança de rede nomeada *myNetworkSecurityGroupRule* para a porta 80 com [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create).
+Crie uma regra de grupo de segurança de rede nomeada *myNetworkSecurityGroupRule* para a porta 80 com [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create).
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -154,7 +155,7 @@ az network nsg rule create \
 --priority 200
 ```
 ### <a name="create-nics"></a>Criar NICs
-Crie três NICs virtuais com [az network nic create](/cli/azure/network/nic#az_network_nic_create) e associe-as ao endereço IP Público e ao grupo de segurança de rede. O exemplo a seguir cria três NICs virtuais. (Uma NIC virtual para cada VM criada para seu aplicativo nas etapas a seguir). Você pode criar VMs e NICs virtuais adicionais a qualquer momento e adicioná-las ao balanceador de carga:
+Crie três NICs virtuais com [az network nic create](/cli/azure/network/nic#az-network-nic-create) e associe-as ao endereço IP Público e ao grupo de segurança de rede. O exemplo a seguir cria três NICs virtuais. (Uma NIC virtual para cada VM criada para seu aplicativo nas etapas a seguir). Você pode criar VMs e NICs virtuais adicionais a qualquer momento e adicioná-las ao balanceador de carga:
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -218,7 +219,7 @@ runcmd:
 ```
 
 ### <a name="create-the-zonal-virtual-machines"></a>Criar as máquinas virtuais zonais
-Crie as VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo a seguir cria três VMs na zona 1 e gera chaves SSH, se elas ainda não existirem:
+Crie as VM com [az vm create](/cli/azure/vm#az-vm-create). O exemplo a seguir cria três VMs na zona 1 e gera chaves SSH, se elas ainda não existirem:
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -234,7 +235,7 @@ done
 ```
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
-Obtenha o endereço IP público do balanceador de carga usando [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). 
+Obtenha o endereço IP público do balanceador de carga usando [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
 
 ```azurecli-interactive
   az network public-ip show \

@@ -3,16 +3,17 @@ title: Como usar o armazenamento de objeto (Blob) do C++ - Azure | Microsoft Doc
 description: Armazene dados não estruturados na nuvem com o armazenamento (objeto) de Blobs do Azure.
 services: storage
 author: MichaelHauss
-manager: jeconnoc
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: d3297ae7bc4a5ac7e2a43d9d44a05365004b685f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: blobs
+ms.openlocfilehash: d0b0f8ef2fcc4307482b4ccffcb46410eaba33d5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306197"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Como usar o armazenamento de Blobs do C++
 

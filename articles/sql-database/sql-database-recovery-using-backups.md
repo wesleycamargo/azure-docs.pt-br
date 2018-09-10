@@ -6,16 +6,16 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f40bd7954bbf079c87f8312bff731b68d1acb7dc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75805cad43f015f1741193ec5a1ead1fa7603f41
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192757"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144154"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
 O Banco de Dados SQL fornece essas opções para recuperação de banco de dados usando [backups automáticos de banco de dados](sql-database-automated-backups.md) e [backups de retenção de longo prazo](sql-database-long-term-retention.md). Você pode restaurar de um backup de banco de dados para:
@@ -32,7 +32,7 @@ Um banco de dados restaurado incorre em um custo de armazenamento extra nas segu
 - Restauração de P11 – P15 para S4 ou S12 ou P1– P6 se o tamanho máximo do banco de dados for superior a 500 GB.
 - Restauração de P1–P6 para S4-S12 se o tamanho máximo do banco de dados for superior a 250 GB.
 
-O custo extra ocorre porque o tamanho máximo do banco de dados restaurado é maior do que a quantidade de armazenamento incluída para o nível de desempenho, e qualquer armazenamento extra provisionado acima da quantidade incluída recebe uma cobrança extra.  Para obter detalhes de preço do armazenamento extra, confira a página [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).  Se a quantidade real de espaço usado for menor do que a quantidade de armazenamento incluída, esse custo extra poderá ser evitado por meio da redução do tamanho máximo do banco de dados para a quantidade incluída. Para obter mais informações sobre tamanhos de armazenamento de banco de dados e alterar o tamanho máximo do banco de dados, consulte [limites de recursos baseados em DTU de banco de dados individuais](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels) e [Limites de recursos baseados em vCore do banco de dados individuais](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+O custo extra ocorre porque o tamanho máximo do banco de dados restaurado é maior do que a quantidade de armazenamento incluída para o nível de desempenho, e qualquer armazenamento extra provisionado acima da quantidade incluída recebe uma cobrança extra.  Para obter detalhes de preço do armazenamento extra, confira a página [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).  Se a quantidade real de espaço usado for menor do que a quantidade de armazenamento incluída, esse custo extra poderá ser evitado por meio da redução do tamanho máximo do banco de dados para a quantidade incluída.  
 
 > [!NOTE]
 > [Backups de banco de dados automatizados](sql-database-automated-backups.md) são usadas quando você cria uma [cópia de banco de dados](sql-database-copy.md). 
@@ -61,7 +61,7 @@ Para uma assinatura única, há algumas limitações no número de solicitaçõe
 Não há nenhuma funcionalidade interna para restauração em massa. O [banco de dados SQL do Azure: o script recuperação de servidor completa](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) é um exemplo de uma maneira de realizar essa tarefa.
 
 > [!IMPORTANT]
-> Para recuperar usando backups automatizados, você deverá ser um membro da função Contribuidor do SQL Server na assinatura ou o proprietário da assinatura. Você pode recuperar usando o Portal do Azure, o PowerShell ou a API REST. Você não pode usar o Transact-SQL. 
+> Para recuperar usando backups automatizados, você deverá ser um membro da função Contribuidor do SQL Server na assinatura ou o proprietário da assinatura - consulte [RBAC: funções internas](../role-based-access-control/built-in-roles.md). Você pode recuperar usando o Portal do Azure, o PowerShell ou a API REST. Você não pode usar o Transact-SQL. 
 > 
 
 ## <a name="point-in-time-restore"></a>Restauração pontual

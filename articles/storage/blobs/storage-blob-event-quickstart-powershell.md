@@ -2,29 +2,28 @@
 title: Encaminhar eventos de Armazenamento de Blobs do Azure para um ponto de extremidade da Web personalizado - PowerShell | Microsoft Docs
 description: Use a Grade de Eventos do Azure para assinar eventos de Armazenamento de Blobs.
 services: storage,event-grid
-keywords: ''
 author: david-stanford
 ms.author: dastanfo
-ms.date: 01/30/2018
+ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 9ea51f6ea55c62fdd01efb155d26fade3941ce41
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.component: blobs
+ms.openlocfilehash: c7c5bab9441d59d5d12b9f9c087f3d6d5f78bf39
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261431"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747133"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Encaminhar eventos de armazenamento de Blobs para um ponto de extremidade da Web personalizado com PowerShell
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você usa Azure PowerShell para assinar eventos de Armazenamento de Blobs, acionar um evento e exibir o resultado. 
 
-Normalmente, você envia eventos para um ponto de extremidade que responde ao evento, como um webhook ou uma Função do Azure. Para simplificar o exemplo mostrado neste artigo, os eventos são enviados para uma URL que apenas coleta as mensagens. Essa URL é criada usando a ferramenta de terceiros [Hookbin](https://hookbin.com/).
+Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
 
-> [!NOTE]
-> **Hookbin** não é destinado ao uso de alta taxa de transferência. O uso dessa ferramenta é meramente demonstrativo. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta. Além disso, tenha em mente que o **Hookbin** obtém [tratamento especial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint) pela Grade de Eventos do Azure. Para facilitar o teste, a Grade de Eventos envia eventos sem requerer uma resposta correta às solicitações de validação de assinatura (que aconteceria [caso contrário](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details)).
+Ao concluir, você verá que os dados do evento foram enviados para um aplicativo Web.
 
-Quando você concluir as etapas descritas neste artigo, verá que os dados do evento foi enviados para um ponto de extremidade.
+![Exibir resultados](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
 ## <a name="setup"></a>Configuração
 
@@ -37,9 +36,6 @@ Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e 
 ```powershell
 Connect-AzureRmAccount
 ```
-
-> [!NOTE]
-> A disponibilidade para eventos de Armazenamento está vinculada à [disponibilidade](../../event-grid/overview.md) da Grade de Eventos e estará disponível em outras regiões, como a Grade de Eventos.
 
 Este exemplo usa **westus2** e armazena a seleção em uma variável para uso.
 
@@ -62,7 +58,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Para usar eventos de armazenamento de Blobs, você precisa de uma [conta de armazenamento Blob](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou uma [conta de armazenamento de uso geral v2](../common/storage-account-options.md#general-purpose-v2). As contas de **uso geral v2 (GPv2)** são contas de armazenamento que fornecem suporte a todos os recursos de todos os serviços de armazenamento, incluindo Blobs, Arquivos, Filas e Tabelas. Uma **conta de armazenamento Blob** é uma conta de armazenamento especializada para armazenar dados não estruturados como blobs (objetos) no Armazenamento do Microsoft Azure. As contas de armazenamento de Blobs são como contas de armazenamento de finalidade geral existentes e compartilham todos os excelentes recursos de durabilidade, disponibilidade, escalabilidade e desempenho que você usa atualmente, incluindo 100% de consistência de API para blobs de bloco e blobs de acréscimo. Para aplicativos que exigem apenas o armazenamento de blobs em bloco ou acréscimo, recomendamos o uso de contas de Armazenamento de Blobs.  
+Para usar eventos de armazenamento de Blobs, você precisa de uma [conta de armazenamento Blob](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou uma [conta de armazenamento de uso geral v2](../common/storage-account-options.md#general-purpose-v2-accounts). As contas de **uso geral v2 (GPv2)** são contas de armazenamento que fornecem suporte a todos os recursos de todos os serviços de armazenamento, incluindo Blobs, Arquivos, Filas e Tabelas. Uma **conta de armazenamento Blob** é uma conta de armazenamento especializada para armazenar dados não estruturados como blobs (objetos) no Armazenamento do Microsoft Azure. As contas de armazenamento de Blobs são como contas de armazenamento de finalidade geral existentes e compartilham todos os excelentes recursos de durabilidade, disponibilidade, escalabilidade e desempenho que você usa atualmente, incluindo 100% de consistência de API para blobs de bloco e blobs de acréscimo. Para aplicativos que exigem apenas o armazenamento de blobs em bloco ou acréscimo, recomendamos o uso de contas de Armazenamento de Blobs.  
 
 Criar uma conta de armazenamento de Blob com replicação LRS usando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) e, em seguida, recupere o contexto da conta de armazenamento que define a conta de armazenamento a ser usada. Ao agir em uma conta de armazenamento, você pode referenciar o contexto em vez de fornecer repetidamente as credenciais. Esse exemplo cria uma conta de armazenamento chamada **gridstorage** com LRS (armazenamento com redundância local). 
 
@@ -83,23 +79,43 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto de extremidade de mensagem
 
-Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem do evento. Em vez de escrever código para responder ao evento, vamos criar um ponto de extremidade que coleta as mensagens, para que você possa exibi-las. O Hookbin é uma ferramenta de terceiros que permite criar um ponto de extremidade e exibir as solicitações enviadas a ele. Vá até [Hookbin](https://hookbin.com/) e clique em **Criar Novo Ponto de Extremidade**. Copie a URL do bin e substitua `<bin URL>` no script a seguir.
+Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem do evento. Normalmente, o ponto de extremidade executa ações com base nos dados de evento. Para simplificar este início rápido, você implanta um [aplicativo Web criado previamente](https://github.com/Azure-Samples/azure-event-grid-viewer) que exibe as mensagens de eventos. A solução implantada inclui um plano do Serviço de Aplicativo, um aplicativo Web do Aplicativo do Serviço de e o código-fonte do GitHub.
+
+Substitua `<your-site-name>` por um nome exclusivo para o aplicativo Web. O nome do aplicativo Web deve ser exclusivo, pois é parte de uma entrada DNS.
 
 ```powershell
-$binEndPoint = "<bin URL>"
+$sitename="<your-site-name>"
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
+  -siteName $sitename `
+  -hostingPlanName viewerhost
 ```
+
+A implantação pode levar alguns minutos para ser concluída. Depois que a implantação for bem-sucedida, exiba seu aplicativo Web para garantir que ele esteja em execução. Em um navegador da Web, navegue até: `https://<your-site-name>.azurewebsites.net`
+
+Você deve ver o site sem mensagens exibidas no momento.
+
+[!INCLUDE [event-grid-register-provider-powershell.md](../../../includes/event-grid-register-provider-powershell.md)]
 
 ## <a name="subscribe-to-your-storage-account"></a>Assinar a sua conta de armazenamento
 
-Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar. O exemplo a seguir assina a conta de armazenamento que você criou e transmite a URL do Hookbin como o ponto de extremidade para notificação de eventos. 
+Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar. O exemplo a seguir assina a conta de armazenamento que você criou e transmite a URL do aplicativo Web como o ponto de extremidade para a notificação de eventos. O ponto de extremidade para seu aplicativo Web deve incluir o sufixo `/api/updates/`.
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
+$endpoint="https://$sitename.azurewebsites.net/api/updates"
+
 New-AzureRmEventGridSubscription `
   -EventSubscriptionName gridBlobQuickStart `
-  -Endpoint $binEndPoint `
+  -Endpoint $endpoint `
   -ResourceId $storageId
 ```
+
+Exiba novamente o seu aplicativo Web e observe que um evento de validação de assinatura foi enviado a ele. Selecione o ícone de olho para expandir os dados de evento. A Grade de Eventos envia o evento de validação de modo que o ponto de extremidade possa verificar se ele deseja receber os dados de evento. O aplicativo Web inclui o código para validar a assinatura.
+
+![Exibição do evento de assinatura](./media/storage-blob-event-quickstart-powershell/view-subscription-event.png)
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Acionar um evento do Armazenamento de Blobs
 
@@ -114,7 +130,7 @@ echo $null >> gridTestFile.txt
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-Você disparou o evento e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Navegue até a URL do ponto de extremidade que você criou anteriormente. Ou clique em Atualizar no navegador. Você verá o evento que acabou de ser enviado. 
+Você disparou o evento e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Exiba seu aplicativo Web para ver o evento que você acabou de enviar.
 
 ```json
 [{

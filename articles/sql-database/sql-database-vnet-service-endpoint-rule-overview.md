@@ -3,26 +3,29 @@ title: Pontos de extremidade e regras de serviço de rede virtual para o Banco d
 description: Marque uma sub-rede como um ponto de extremidade de serviço de Rede virtual. Em seguida, o ponto de extremidade como uma regra de rede virtual para a ACL de seu banco de dados SQL do Azure. Seu Banco de dados SQL do Microsoft Azure então aceita a comunicação de todas as máquinas virtuais e outros nós na sub-rede.
 services: sql-database
 ms.service: sql-database
-author: MightyPen
+ms.prod_service: sql-database, sql-data-warehouse
+author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
-ms.topic: article
-ms.date: 04/19/2018
-ms.reviewer: genemi
+ms.topic: conceptual
+ms.date: 08/28/2018
+ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: 9f72ce802f5a2a07ad310968152ab359b4a6c31b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32778165"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143803"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Use pontos de extremidade e regras de serviço de rede virtual para o Banco de dados SQL do Azure
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados SQL do Azure e SQL Data Warehouse
 
-*Regras de rede Virtual* são um recurso de segurança de firewall que controla se o servidor do banco de dados SQL do Azure aceita comunicações que sejam enviadas de sub-redes particulares em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é a melhor opção para permitir a comunicação segura com seu banco de dados SQL do Azure.
+*Regras de rede virtual* são um recurso de segurança do firewall que controla se o [Banco de Dados SQL](sql-database-technical-overview.md) do Azure ou o servidor do [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas de sub-redes particulares em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é a melhor opção para permitir a comunicação segura com seu banco de dados SQL do Azure.
+
+> [!NOTE]
+> Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
 
 Para criar uma regra de rede virtual, primeiro, é preciso que haja um [ponto de extremidade de serviço de rede virtual] [ vm-virtual-network-service-endpoints-overview-649d] para a regra de referência.
-
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>Como criar uma regra de rede virtual
 
@@ -141,7 +144,6 @@ Para o Banco de Dados SQL do Azure, o recurso de regras de rede virtual tem as s
 Ao usar pontos de extremidade de serviço para o Banco de Dados SQL do Azure, veja as considerações a seguir:
 
 - **Saída para IPs públicos do Banco de Dados SQL do Azure é necessária**: NSGs (Grupos de Segurança de Rede) devem ser abertos para IPs do Banco de Dados SQL do Azure para permitir a conectividade. Você pode fazer isso usando o NSG [Marcas de Serviço](../virtual-network/security-overview.md#service-tags) para o Banco de Dados SQL do Azure.
-- **Não há suporte para o Banco de Dados do Azure para PostgreSQL e MySQL**: pontos de extremidade de serviço não têm suporte para o Banco de Dados do Azure para PostgreSQL ou MySQL. A habilitação de pontos de extremidade de serviço para o Banco de Dados SQL interromperá a conectividade com esses serviços. Há uma mitigação para isso, e você deve entrar em contato com *dmalik@microsoft.com* para obter mais informações.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -179,15 +181,14 @@ O Armazenamento do Azure implementou o mesmo recurso que permite que você limit
 Se optar por usar esse recurso com uma conta de Armazenamento que está sendo usada por um Azure SQL Server, você poderá encontrar problemas. A seguir há uma lista e uma discussão sobre os recursos do Azure SQLDB que são afetados por isso.
 
 #### <a name="azure-sqldw-polybase"></a>PolyBase do Azure SQLDW
-O PolyBase normalmente é usado para carregar dados no Azure SQLDW de contas de Armazenamento. Se a conta de Armazenamento da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes de VNet, a conectividade do PolyBase à conta será interrompida. Há uma mitigação para isso, e você deve entrar em contato com *dmalik@microsoft.com* para obter mais informações.
+O PolyBase normalmente é usado para carregar dados no Azure SQLDW de contas de Armazenamento. Se a conta de Armazenamento da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes de VNet, a conectividade do PolyBase à conta será interrompida. Há uma mitigação para isso, e você pode entrar em contato com o Suporte da Microsoft para obter mais informações.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Auditoria de blob do Azure SQLDB
 A auditoria de blob envia por push logs de auditoria para sua própria conta de armazenamento. Se essa conta de armazenamento usar o recurso de pontos de extremidade de serviço VENT, a conectividade do Azure SQLDB à conta de armazenamento será interrompida.
 
-
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionando uma regra de Firewall da VNET ao servidor sem a ativação de pontos de extremidade de serviço da VNET
 
-Há muito tempo antes que esse recurso fosse aprimorado, era necessário ativar os pontos de extremidade de serviço da VNET antes de implementar uma regra dinâmica da VNET no Firewall. Os pontos de extremidade relacionados a determinada sub-rede da VNET de um Banco de Dados SQL do Azure. No entanto, a partir de janeiro de 2018, você pode contornar esse requisito definindo o sinalizador **IgnoreMissingServiceEndpoint**.
+Há muito tempo antes que esse recurso fosse aprimorado, era necessário ativar os pontos de extremidade de serviço da VNet antes de implementar uma regra dinâmica da VNet no Firewall. Os pontos de extremidade relacionados a determinada sub-rede da VNET de um Banco de Dados SQL do Azure. No entanto, a partir de janeiro de 2018, você pode contornar esse requisito definindo o sinalizador **IgnoreMissingServiceEndpoint**.
 
 A simples configuração de uma regra de Firewall não ajuda a proteger o servidor. Você também precisa ativar os pontos de extremidade de serviço da VNET para que a segurança entre em vigor. Quando você ativa os pontos de extremidade de serviço, a sub-rede da VNET passa por um tempo de inatividade até concluir a transição de desativado para ativado. Isso é especialmente verdadeiro no contexto de VNETs grandes. Use o sinalizador **IgnoreMissingServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
 
@@ -242,7 +243,7 @@ Internamente, os cmdlets do PowerShell para ações de VNet do SQL chamam APIs R
 
 - [Regras de Rede Virtual do Microsoft Azure: Operações][rest-api-virtual-network-rules-operations-862r]
 
-#### <a name="prerequisites"></a>pré-requisitos
+#### <a name="prerequisites"></a>Pré-requisitos
 
 Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de serviço de rede virtual específico *nome do tipo* relevante para o banco de dados SQL do Azure.
 
@@ -319,7 +320,7 @@ O recurso da regra de rede virtual para o Banco de Dados SQL do Azure se tornou 
 
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
-[expressroute-indexmd-744v]: ../expressroute/index.md
+[expressroute-indexmd-744v]: ../expressroute/index.yml
 
 [rbac-what-is-813s]:../role-based-access-control/overview.md
 

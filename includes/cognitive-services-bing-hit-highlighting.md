@@ -10,7 +10,7 @@ O Bing oferece a opção de usar caracteres Unicode ou marcas HTML como marcador
   
 Se `textDecorations` for **true**, o Bing pode incluir os marcadores a seguir em cadeias de exibição de respostas. Se não houver nenhum equivalente HTML, a célula de tabela HTML está vazia.
 
-|Unicode|HTML|Descrição
+|Unicode|HTML|DESCRIÇÃO
 |-|-|-
 |U+E000|\<b>|Marca o início do termo de consulta (realce de ocorrências)
 |U+E001|\</b>|Marca o final do termo de consulta
@@ -35,7 +35,7 @@ Se `textDecorations` for **true**, o Bing pode incluir os marcadores a seguir em
 |U+E018|\<sup>|Marca o início do conteúdo sobrescrito
 |U+E019|\</sup>|Marca o final do conteúdo sobrescrito
 
-O exemplo a seguir mostra uma resposta `Computation` que contém os marcadores de subscrito para um termo de consulta log(2). O campo `expression` contém os marcadores apenas se ' textDecoration é **true**.
+O exemplo a seguir mostra uma resposta `Computation` que contém os marcadores de subscrito para um termo de consulta log(2). O campo `expression` conterá os marcadores somente se `textDecoration` for **true**.
 
 ![marcadores de computação](./media/cognitive-services-bing-hit-highlighting/bing-markers-computation.PNG) 
 

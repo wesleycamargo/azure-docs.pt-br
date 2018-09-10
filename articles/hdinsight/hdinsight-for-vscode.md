@@ -1,24 +1,20 @@
 ---
-title: Ferramentas do Azure HDInsight – use o Visual Studio Code para o Hive, o LLAP ou pySpark | Microsoft Docs
+title: Ferramentas do Azure HDInsight – use o Visual Studio Code para o Hive, o LLAP ou pySpark
 description: Saiba como usar as Ferramentas do Azure HDInsight para Visual Studio Code para criar e enviar consultas e scripts.
-Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-services: HDInsight
-documentationcenter: ''
+keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
+services: hdinsight
 author: jejiang
-manager: ''
-editor: jgao
-tags: azure-portal
-ms.assetid: ''
-ms.service: HDInsight
-ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 10/27/2017
+ms.openlocfilehash: b66658bde818e2b4cce2cbc0dc5b419ba33dc737
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108821"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usar a Ferramenta do Azure HDInsight para Visual Studio Code
 
@@ -29,7 +25,7 @@ Saiba como usar as Ferramentas do Azure HDInsight para VS Code (Visual Studio Co
 
 Os itens a seguir são necessários para concluir as etapas neste artigo:
 
-- Um cluster HDInsight. Para criar um cluster, consulte [Introdução ao HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- Um cluster HDInsight. Para criar um cluster, consulte [Introdução ao HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono só é necessário para Linux e MacOS.
 
@@ -112,7 +108,7 @@ Antes de enviar scripts para clusters HDInsight a partir do VS Code, você preci
    ![caixa de diálogo para vincular cluster](./media/hdinsight-for-vscode/link-cluster-process.png)
 
    > [!NOTE]
-   > O nome de usuário e a senha vinculados serão usados se o cluster for registrado na assinatura do Azure e vinculado um cluster. 
+   > O nome de usuário e a senha vinculados serão usados se o cluster foi registrado na assinatura do Azure e vinculou um cluster. 
    
 3. É possível ver um cluster vinculado, usando o comando**Listar cluster**. Agora, você pode enviar um script para esse cluster vinculado.
 

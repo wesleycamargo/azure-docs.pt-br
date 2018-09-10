@@ -1,12 +1,12 @@
 ---
-title: "Exemplo de Script da CLI do Azure – Criar Conta do Lote – Serviço em lotes | Microsoft Docs"
-description: "Exemplo de Script da CLI do Azure – Criar uma conta do Lote em modo de Serviço em lotes"
+title: Exemplo de Script da CLI do Azure – Criar Conta do Lote – Serviço em lotes | Microsoft Docs
+description: Exemplo de Script da CLI do Azure – Criar uma conta do Lote em modo de Serviço em lotes
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: ced93032203c33dc4cda362d30192ee8eb37d944
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86a04393761b79d76339c111d5c5c8b76dc983c2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431201"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Exemplo da CLI: criar uma conta do Lote em modo de Serviço em lotes
 
@@ -32,7 +33,7 @@ Caso opte por instalar e usar a CLI localmente, este artigo exige que seja execu
 
 [!code-azurecli-interactive[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Execute o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
@@ -42,18 +43,18 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Cria a conta do Lote. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de armazenamento. |
-| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | Atualiza as propriedades da conta do Lote.  |
-| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | Recupera os detalhes da conta do Lote especificada.  |
-| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | Recupera as chaves de acesso da conta do Lote especificada.  |
-| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentica na conta do Lote especificada para interação adicional com a CLI.  |
-| [az group delete](/cli/azure/group#az_group_delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Cria a conta do Lote. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria uma conta de armazenamento. |
+| [az batch account set](/cli/azure/batch/account#az-batch-account-set) | Atualiza as propriedades da conta do Lote.  |
+| [az batch account show](/cli/azure/batch/account#az-batch-account-show) | Recupera os detalhes da conta do Lote especificada.  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az-batch-account-keys-list) | Recupera as chaves de acesso da conta do Lote especificada.  |
+| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Autentica na conta do Lote especificada para interação adicional com a CLI.  |
+| [az group delete](/cli/azure/group#az-group-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

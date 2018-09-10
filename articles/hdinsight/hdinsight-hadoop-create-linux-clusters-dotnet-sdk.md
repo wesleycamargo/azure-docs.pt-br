@@ -1,24 +1,20 @@
 ---
-title: Criar clusters Hadoop usando .NET – Azure HDInsight | Microsoft Docs
+title: Criar clusters Hadoop usando .NET – Azure HDInsight
 description: Aprenda a criar clusters Hadoop, HBase, Storm ou Spark no Linux para o HDInsight usando o SDK do .NET para HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 8523b012d6ceaf116e6849abaf8952bbde8b41b3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 08/16/2018
+ms.author: mamccrea
+ms.openlocfilehash: ea5c0d3b9f444601607ebcda8d139797eb8dd2ec
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093904"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Criar clusters baseados em Linux no HDInsight usando o SDK do .NET
 
@@ -32,12 +28,12 @@ Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .N
 >
 > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Uma conta de armazenamento do Azure**. Consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* **Uma conta de armazenamento do Azure**. Consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 * **Visual Studio 2013, Visual Studio 2015 ou Visual Studio 2017**.
 
 ## <a name="create-clusters"></a>Criar clusters
@@ -164,12 +160,12 @@ Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .N
             static TokenCloudCredentials GetTokenCloudCredentials(string TenantId, string ClientId, string SubscriptionId)
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
-                var tokenAuthResult = authContext.AcquireToken("https://management.core.windows.net/", 
+                var tokenAuthResult = authContext.AcquireTokenAsync("https://management.core.windows.net/",
                     ClientId, 
                     new Uri("urn:ietf:wg:oauth:2.0:oob"), 
-                    PromptBehavior.Always, 
+                    new PlatformParameters(PromptBehavior.Always), 
                     UserIdentifier.AnyUser);
-                return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
+                return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.Result.AccessToken);
             }
             /// <summary>
             /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
@@ -386,7 +382,7 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Desenvolvimento de aplicativos Java para HBase no HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clusters Storm
-* [Desenvolver topologias Java para Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Desenvolvimento de aplicativos Java para Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
 * [Usar componentes de Python no Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
@@ -395,6 +391,7 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Executar trabalhos remotamente em um cluster do Spark usando Livy](spark/apache-spark-livy-rest-interface.md)
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
+
 ### <a name="run-jobs"></a>Executar trabalhos
 * [Executar trabalhos do Hive no HDInsight usando o SDK do .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [Executar trabalhos do Pig no HDInsight usando o SDK do .NET](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)

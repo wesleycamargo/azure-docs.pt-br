@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: proteger seus serviços RESTful usando autenticação básica HTTP'
-description: Proteger suas trocas de declarações da API REST personalizadas no Azure AD B2C usando a autenticação básica HTTP
+title: Proteger seus serviços RESTful usando autenticação básica HTTP no Azure Active Directory B2C | Microsoft Docs
+description: Proteger suas trocas de declarações da API REST personalizadas no Azure AD B2C usando a autenticação básica HTTP.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 749157d16c1c394b173545dddb8751d58fdcfd56
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: f157602ce3a9c5b6f15a03ad816d8aece4e22805
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339160"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteja seus serviços RESTful usando a autenticação básica HTTP
 
@@ -27,7 +27,7 @@ Este artigo mostra como adicionar autenticação básica HTTP ao serviço RESTfu
 
 Para obter mais informações, consulte [Autenticação básica na API Web ASP.NET](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Execute as etapas descritas no artigo [Integrar as trocas de declarações da API REST ao percurso do usuário do Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md).
 
 ## <a name="step-1-add-authentication-support"></a>Etapa 1: Adicionar suporte à autenticação
@@ -326,7 +326,7 @@ Depois que o serviço RESTful estiver protegido pela ID (nome de usuário) e seg
       "exp": 1507125903,
       "nbf": 1507122303,
       "ver": "1.0",
-      "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+      "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
       "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
       "acr": "b2c_1a_signup_signin",
       "nonce": "defaultNonce",

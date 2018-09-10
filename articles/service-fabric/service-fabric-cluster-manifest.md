@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e0fed608ac9dd02a6fe5563eefc30edb63d224b1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 37859a117c88238089a681e3814c2a52f62bfce4
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412576"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster autônomo no Windows
 Este artigo descreve como configurar um cluster autônomo do Microsoft Azure Service Fabric utilizando o arquivo ClusterConfig.json. Este arquivo será utilizado para especificar informações sobre os nós do cluster, as configurações de segurança, assim como a topologia de rede em termos de domínio de atualização e falha.
@@ -46,9 +47,6 @@ As configurações de cluster geral abordam as configurações gerais específic
 Você pode atribuir qualquer nome amigável ao cluster do Service Fabric, atribuindo a ele a variável name. O clusterConfigurationVersion é o número de versão do cluster. Aumente-o toda vez que você atualizar seu cluster do Service Fabric. Deixe apiVersion com o valor padrão.
 
 ## <a name="nodes-on-the-cluster"></a>Nós no cluster
-
-    <a id="clusternodes"></a>
-
 Você pode configurar os nós no cluster de seu Service Fabric usando a seção nodes, como mostra o trecho de código a seguir:
 
     "nodes": [{
@@ -87,9 +85,7 @@ A seção propriedades no ClusterConfig.json é usada para configurar o cluster 
 ### <a name="reliability"></a>Confiabilidade
 O conceito de reliabilityLevel define o número de réplicas ou as instâncias dos serviços de sistema do Service Fabric que podem ser executados em nós do cluster primários. Determina a confiabilidade desses serviços e, portanto, do cluster. O valor é calculado pelo sistema na hora da criação e da atualização do cluster.
 
-    <a id="reliability"></a>
-
-### <a name="diagnostics"></a>Diagnostics
+### <a name="diagnostics"></a>Diagnósticos
 Na seção diagnosticsStore, você pode configurar parâmetros para habilitar o diagnóstico e solucionar problemas de falhas de nó e do cluster, conforme mostra o seguinte trecho de código: 
 
     "diagnosticsStore": {
@@ -123,9 +119,6 @@ A seção security é necessária para um cluster autônomo seguro do Service Fa
 Os metadados são uma descrição de seu cluster seguro e podem ser definidos de acordo com sua configuração. O ClusterCredentialType e o ServerCredentialType determinam o tipo de segurança que o cluster e os nós implementam. Eles podem ser definidos como *X509* para segurança baseada em certificados ou como *Windows* para segurança baseada no Azure Active Directory. O restante da seção segurança se baseia no tipo de segurança. Para saber como preencher o restante da seção de segurança, confira [Segurança baseada em certificados em um cluster autônomo](service-fabric-windows-cluster-x509-security.md) ou [Segurança do Windows em um cluster autônomo](service-fabric-windows-cluster-windows-security.md).
 
 ### <a name="node-types"></a>Tipos de nó
-
-    <a id="nodetypes"></a>
-
 A seção nodeTypes descreve o tipo de nó que seu cluster tem. Pelo menos um tipo de nó deve ser especificado para um cluster, como mostrado no seguinte trecho de código: 
 
     "nodeTypes": [{

@@ -10,17 +10,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 04/02/2018
+ms.topic: conceptual
+ms.reviewer: Dale.Koetke
+ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 221d0d8a78a46cad9f1994e9313b21e2867d9563
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771391"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139786"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gerenciar preços e volume de dados no Application Insights
+
+> [!NOTE]
+> Este artigo descreve como analisar o uso de dados Insights de aplicativos.  Consulte os artigos a seguir para informações relacionadas.
+> - [Monitorando o uso e os custos estimados](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) descreve como visualizar o uso e os custos estimados em vários recursos de monitoramento do Azure para diferentes modelos de preços. Também descreve como alterar seu modelo de preços.
 
 Os preços do [Azure Application Insights][start] baseiam-se no volume de dados por aplicativo. Cada recurso do Application Insights é cobrado como um serviço separado e contribui para a cobrança da sua assinatura do Azure.
 
@@ -89,7 +94,7 @@ O volume de dados enviados é limitado de três formas:
 
     Tome cuidado ao definir o limite diário. A intenção deve ser *nunca atingir o limite diário*. Se atingir o limite diário, você perderá os dados para o restante do dia e não poderá monitorar seu aplicativo. Para alterar o limite diário, use a opção **Limite de volume diário**. Você pode acessar essa opção no painel **Uso e custos estimados** (isso está descrito em mais detalhes mais adiante neste artigo).
     Removemos a restrição de alguns tipos de assinatura com crédito que não pôde ser usado no Application Insights. Anteriormente, se a assinatura tivesse um limite de gastos, a caixa de diálogo de limite diário teria instruções sobre como remover esse limite e permitir que ele fosse aumentado para mais de 32,3 MB/dia.
-* **Limitação:** esta opção limita a taxa de dados para 32.000 eventos por segundo, com média de 1 minuto.
+* **Limitação:** esta opção limita a taxa de dados para 32.000 eventos por segundo, com média de 1 minuto por chave de instrumentação.
 
 *O que acontece se o aplicativo exceder a taxa de limitação?*
 

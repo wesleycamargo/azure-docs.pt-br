@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: bfd9552a0d7c3b1e631fcc1a25d240608754c6a3
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639020"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorar a comunicação de rede entre as duas máquinas virtuais usando o portal do Azure
 
@@ -141,7 +142,7 @@ Por padrão, o Azure permite comunicação por todas as portas entre VMs na mesm
 
 5. Desde que o monitor de conexão testes em intervalos de 60 segundos, aguarde alguns minutos e, em seguida, no lado esquerdo do portal, selecione **Observador de Rede**, em seguida, **monitor de Conexão**e, em seguida, selecione o  **myVm1-myVm2(22)** monitorar novamente. Os resultados são diferentes agora, conforme mostrado na figura a seguir:
 
-    ![Falha de detalhes do monitor] (./media/connection-monitor/vm-monitor-fault. png)
+    ![Falha nos detalhes do monitor](./media/connection-monitor/vm-monitor-fault.png)
 
     Você pode ver que há um ícone de ponto de exclamação vermelho na coluna status para o **myvm2529** interface de rede.
 

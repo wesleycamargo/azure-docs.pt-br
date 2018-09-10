@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: celested
-ms.reviewer: dastrock
-ms.openlocfilehash: c1c86f21d5a99cf251b0b83f41576c2cdaf96dfb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin, dastrock
+ms.openlocfilehash: 803dd69aed91f6e33c354d01d3f5419597d98de9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115877"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrar do Serviço de Controle de Acesso do Azure
 
@@ -56,7 +57,7 @@ Para usar esses componentes, você deve criar um ou mais namespaces do Controle 
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-Toda a comunicação com o STS e as operações de gerenciamento são feitas nesta URL. Você pode usar diferentes caminhos para finalidades diferentes. Para determinar se os aplicativos ou serviços usam o Controle de Acesso, monitore todo o tráfego para https://<namespace>.accesscontrol.windows.net. Qualquer tráfego para essa URL é gerenciado pelo Controle de Acesso e precisa ser interrompido. 
+Toda a comunicação com o STS e as operações de gerenciamento são feitas nesta URL. Você pode usar diferentes caminhos para finalidades diferentes. Para determinar se os aplicativos ou serviços usam o Controle de Acesso, monitore todo o tráfego para https://&lt;namespace&gt;. accesscontrol.windows.net. Qualquer tráfego para essa URL é gerenciado pelo Controle de Acesso e precisa ser interrompido. 
 
 A exceção a isso é qualquer tráfego para `https://accounts.accesscontrol.windows.net`. O tráfego para essa URL já é gerenciado por um serviço diferente e **não** é afetado pela substituição do Controle de Acesso. 
 

@@ -1,27 +1,22 @@
 ---
 title: Usando o Controle de Acesso Baseado em Função para gerenciar o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como aplicar e usar o RBAC (Controle de Acesso Baseado em Função) para gerenciar suas implantações do Azure Site Recovery
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
+author: mayanknayar
+ms.topic: conceptual
 ms.author: manayar
-ms.openlocfilehash: 072e3bc2e1a13476b43fb72c8631453e2ffa3b27
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: dfd880b6ff3a7e199ea259acc5e5ec59f89c897d
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071598"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919719"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Usar o Controle de Acesso Baseado em Função para gerenciar implantações do Azure Site Recovery
+# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Use o controle de acesso baseado em função para gerenciar o acesso à recuperação do site
 
 O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode separar as responsabilidades dentro de sua equipe e conceder somente permissões de acesso específicas aos usuários conforme necessário para executar trabalhos específicos.
 

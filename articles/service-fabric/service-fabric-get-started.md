@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/14/2018
+ms.date: 08/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: fd70636a40ac08fb4b47c6ea53ae3c702d271ea8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 48e04d3bdd783d1dc04ac5cc77c4183ef5f87865
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204892"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818432"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar seu ambiente de desenvolvimento no Windows
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "34204892"
 
 Para compilar e executar os [aplicativos do Azure Service Fabric][1] em seu computador de desenvolvimento do Windows, instale o tempo de execução do Service Fabric, o SDK e as ferramentas. Você também precisa [habilitar a execução dos scripts do Windows PowerShell](#enable-powershell-script-execution) incluídos no SDK.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="supported-operating-system-versions"></a>Versões de sistema operacional com suporte
 Há suporte de desenvolvimento para as seguintes versões de sistema operacional:
 
@@ -64,10 +64,10 @@ Se só precisar do SDK, você poderá instalar este pacote:
 * [Instalar o SDK do Microsoft Azure Service Fabric][core-sdk]
 
 As versões atuais são:
-* SDK e Ferramentas do Service Fabric, 3.1.274
-* Tempo de execução do Service Fabric, 6.2.274
-* Ferramentas do Service Fabric para Visual Studio 2015, 2.1.20180510.2
-* O Visual Studio 2017 15.7 inclui as Ferramentas do Service Fabric para Visual Studio 2.1.20180423.1 
+* SDK do Service Fabric e Ferramentas 3.2.176
+* Tempo de execução do Service Fabric 6.3.176
+* Ferramentas do Service Fabric para Visual Studio 2015 2.3.10710.3
+* O Visual Studio 2017 15.7 inclui as Ferramentas do Service Fabric para Visual Studio 2.3.10710.1 
 
 Para obter uma lista das versões com suporte, consulte [suporte ao Service Fabric](service-fabric-support.md)
 
@@ -77,20 +77,19 @@ A Malha do Serviço usa scripts do Windows PowerShell para criar um cluster de d
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
+## <a name="install-docker-optional"></a>Instalar o Docker (opcional)
+[O Service Fabric é um orquestrador de contêineres](service-fabric-containers-overview.md) para implantação de microsserviços em um cluster de computadores. Para executar aplicativos de contêiner do Windows no cluster de desenvolvimento local, você deve primeiro instalar o Docker for Windows. Obtenha o [Docker CE for Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique no ícone de bandeja e selecione **Alternar para contêineres do Windows**. Essa etapa é necessária para executar imagens do Docker com base no Windows.
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você terminou de configurar seu ambiente de desenvolvimento, comece a compilar e executar aplicativos.
 
 * [Criar seu primeiro aplicativo do Service Fabric no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 * [Saiba como implantar e gerenciar aplicativos no seu cluster local](service-fabric-get-started-with-a-local-cluster.md)
-* [Preparar um ambiente de desenvolvimento do Linux no Windows](service-fabric-local-linux-cluster-windows.md)
 * [Saiba mais sobre os modelos de programação: Reliable Services e Reliable Actors](service-fabric-choose-framework.md)
-* [Backup e restauração periódicos no Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 * [Confira os exemplos de código do Service Fabric no GitHub](https://aka.ms/servicefabricsamples)
 * [Visualizar o cluster usando o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * [Siga o roteiro de aprendizagem do Service Fabric para obter uma introdução abrangente à plataforma](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
-* [Automatizar patches do sistema operacional no cluster](service-fabric-patch-orchestration-application.md)
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Página da campanha do Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"

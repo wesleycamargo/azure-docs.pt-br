@@ -1,26 +1,28 @@
 ---
-title: "Chamar uma função do Azure do Microsoft Flow | Microsoft Docs"
-description: "Crie um conector personalizado e, em seguida, chame uma função usando esse conector."
+title: Chamar uma função do Azure do Microsoft Flow | Microsoft Docs
+description: Crie um conector personalizado e, em seguida, chame uma função usando esse conector.
 services: functions
-keywords: "aplicativos de nuvem, serviços de nuvem, Microsoft Flow, processos de negócios, aplicativo de negócios"
-documentationcenter: 
-author: mgblythe
+keywords: aplicativos de nuvem, serviços de nuvem, Microsoft Flow, processos de negócios, aplicativo de negócios
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38467737"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Chamar uma função do Microsoft Flow
 

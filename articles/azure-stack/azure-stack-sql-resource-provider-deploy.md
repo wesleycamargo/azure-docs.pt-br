@@ -1,6 +1,6 @@
 ---
-title: Bancos de dados SQL na pilha do Azure | Microsoft Docs
-description: Saiba como você pode implantar bancos de dados SQL como um serviço na pilha do Azure e as etapas rápidas para implantar o adaptador de provedor de recursos do SQL Server.
+title: Usando bancos de dados SQL no Azure Stack | Microsoft Docs
+description: Saiba como você pode implantar os bancos de dados SQL como um serviço no Azure Stack e os passos rápidos para implantar o adaptador de provedor de recursos do SQL Server.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,84 +11,95 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 8643e75a24ff7840b71dfaceae9934cdda566d30
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 08ab76e587c4e2c8b8afe9cb27e9df59a5924475
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604413"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842033"
 ---
-# <a name="use-sql-databases-on-microsoft-azure-stack"></a>Usar bancos de dados SQL na pilha do Microsoft Azure
-Use o provedor de recursos do SQL Server do Azure pilha para expor bancos de dados SQL como um serviço de pilha do Azure. O serviço de provedor de recursos do SQL é executado no provedor de recursos SQL VM, que é uma máquina de virtual do Windows Server core.
+# <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Implantar o provedor de recursos do SQL Server no Azure Stack
 
-## <a name="prerequisites"></a>Pré-requisitos
-Existem vários pré-requisitos que precisam estar em vigor antes de implantar o provedor de recursos do SQL de pilha do Azure. Execute as seguintes etapas em um computador que possa acessar o ponto de extremidade privilegiado VM:
-
-- Se você ainda não tiver feito isso, [registrar Azure pilha](.\azure-stack-registration.md) com o Azure para que você pode fazer o download de itens do marketplace do Azure.
-- Adicionar o núcleo do Windows Server necessário VM Marketplace do Azure pilha baixando o **core do Windows Server 2016** imagem. Se você precisar instalar uma atualização, você pode colocar um único. Pacote MSU no caminho do local de dependência. Se mais de um. Arquivo MSU for encontrado, haverá falha na instalação de provedor de recursos do SQL.
-- Baixar o provedor de recursos do SQL binário e, em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário. O provedor de recursos possui uma pilha de Azure de correspondente mínima de compilação. Certifique-se de baixar o binário correto para a versão da pilha do Azure que você está executando:
-
-    |Versão da pilha do Azure|Versão de SQL RP|
-    |-----|-----|
-    |Versão 1804 (1.0.180513.1)|[SQL RP versão 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
-    |Versão 1802 (1.0.180302.1)|[SQL RP versão 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
-    |Versão 1712 (1.0.180102.3, 1.0.180103.2 ou 1.0.180106.1 (sistemas integrados))|[SQL RP versão 1.1.14.0](https://aka.ms/azurestacksqlrp1712)|
-    |     |     |
-- Para instalações de sistemas integrados somente, você deve fornecer o certificado PKI de PaaS SQL conforme descrito na seção de certificados de PaaS opcional de [requisitos de PKI de implantação do Azure pilha](.\azure-stack-pki-certs.md#optional-paas-certificates), colocando o arquivo. pfx no local especificado pelo **DependencyFilesLocalPath** parâmetro.
-
-## <a name="deploy-the-sql-resource-provider"></a>Implantar o provedor de recursos do SQL
-Após ter preparado com êxito para instalar o provedor de recursos do SQL, todos os pré-requisitos de reunião, agora você pode executar o **DeploySqlProvider.ps1** script para implantar o provedor de recursos do SQL. O script DeploySqlProvider.ps1 é extraído como parte do binário do provedor de recursos do SQL que você baixou correspondente à sua versão de pilha do Azure. 
+Use o provedor de recursos do SQL Server do Azure Stack para expor bancos de dados SQL como um serviço do Azure Stack. O provedor de recursos do SQL é executado como um serviço em uma máquina virtual do Server Core do Windows Server 2016 (VM).
 
 > [!IMPORTANT]
-> O sistema onde o script está sendo executado deve ser um sistema Windows 10 ou Windows Server 2016 com a versão mais recente do tempo de execução .NET instalada.
+> O provedor de recursos é suportado para criar itens em servidores, esse host SQL ou MySQL. Criado em um servidor de host de itens que não são criados pelo provedor de recursos podem resultar em um estado incompatível.
 
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para implantar o provedor de recursos do SQL, abra um console do PowerShell (administrativo) novos com privilégios elevado e altere o diretório onde você extraiu os arquivos binários do provedor de recursos SQL.
+Existem vários pré-requisitos que precisam estar em vigor antes de implantar o provedor de recursos do SQL do Azure Stack. Para atender a esses requisitos, conclua as etapas a seguir em um computador que possa acessar o ponto de extremidade com privilégios VM:
+
+- Se você ainda não fez isso, [registrar o Azure Stack](azure-stack-registration.md) com o Azure para que você possa baixar itens do marketplace do Azure.
+- Você deve instalar os módulos do Azure e o Azure Stack PowerShell no sistema onde você executará essa instalação. Esse sistema deve ser uma imagem do Windows 10 ou Windows Server 2016 com a versão mais recente do tempo de execução .NET. Ver [instalar o PowerShell para o Azure Stack](.\azure-stack-powershell-install.md).
+- Adicionar o núcleo do Windows Server necessário VM no Marketplace do Azure Stack baixando a **Windows Server 2016 Datacenter - Server Core** imagem.
+- Baixe o provedor de recursos do SQL binário e, em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário. O provedor de recursos tem um mínimo correspondente do Azure Stack compilar.
+
+    |Versão mínima do Azure Stack|Versão do SQL RP|
+    |-----|-----|
+    |Versão 1804 (1.0.180513.1)|[SQL RP versão 1.1.24.0](https://aka.ms/azurestacksqlrp)
+    |     |     |
+
+- Certifique-se de datacenter integration pré-requisitos forem atendidos:
+
+    |Pré-requisito|Referência|
+    |-----|-----|
+    |Encaminhamento condicional do DNS está definido corretamente.|[Integração do datacenter do Azure Stack - DNS](azure-stack-integrate-dns.md)|
+    |Portas de entrada para provedores de recursos estão abertas.|[Azure Stack integration data center – publicar pontos de extremidade](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |A entidade do certificado PKI e SAN está definidas corretamente.|[Azure Stack implantação PKI pré-requisitos obrigatórios](azure-stack-pki-certs.md#mandatory-certificates)[pré-requisitos de certificado de PaaS do implantação do Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
+
+### <a name="certificates"></a>Certificados
+
+_Para instalações de sistemas integrados apenas_. Você deve fornecer o certificado de PKI de PaaS do SQL descrito na seção de certificados PaaS opcional [requisitos de PKI de implantação do Azure Stack](.\azure-stack-pki-certs.md#optional-paas-certificates). Coloque o arquivo. pfx no local especificado o **DependencyFilesLocalPath** parâmetro. Não fornece um certificado para sistemas ASDK.
+
+## <a name="deploy-the-sql-resource-provider"></a>Implantar o provedor de recursos do SQL
+
+Depois que você tem todos os pré-requisitos instalados, execute as **DeploySqlProvider.ps1** script para implantar o provedor de recursos do SQL. O script DeploySqlProvider.ps1 é extraído como parte do binário de provedor de recursos do SQL que você baixou para a sua versão do Azure Stack.
+
+Para implantar o provedor de recursos do SQL, abra uma **novo** com privilégios elevados a janela do PowerShell (não o PowerShell ISE) e vá para o diretório onde você extraiu os arquivos binários do provedor de recursos SQL. É recomendável usar uma nova janela do PowerShell para evitar possíveis problemas causados por módulos do PowerShell que já estão carregados.
+
+Execute o script DeploySqlProvider.ps1, que conclui as seguintes tarefas:
+
+- Carrega os certificados e outros artefatos em uma conta de armazenamento no Azure Stack.
+- Publica pacotes da Galeria para que você possa implantar bancos de dados SQL usando a Galeria.
+- Publica um pacote da Galeria para a implantação de servidores de hospedagem.
+- Implanta uma VM usando a imagem do Windows Server 2016 core baixado e, em seguida, instala o provedor de recursos do SQL.
+- Registra um registro DNS local que é mapeado para seu provedor de recursos VM.
+- Registra o provedor de recursos com o local do Azure Resource Manager para a conta do operador.
 
 > [!NOTE]
-> Use uma nova janela do console do PowerShell para evitar problemas que possam surgir incorretos módulos do PowerShell que já estão carregados no sistema.
-
-Execute o script DeploySqlProvider.ps1, que executa as seguintes etapas:
-- Carrega os certificados e outros artefatos para uma conta de armazenamento na pilha do Azure.
-- Publica pacotes da Galeria para que você possa implantar bancos de dados SQL por meio da Galeria.
-- Publica um pacote de galeria para implantar servidores de hospedagem.
-- Implanta uma máquina virtual usando a imagem do Windows Server 2016 que foi criada na etapa 1 e, em seguida, instala o provedor de recursos.
-- Registra um registro DNS local que é mapeado para o provedor de recursos VM.
-- Registra o provedor de recursos com o local do Azure Gerenciador de recursos (usuário e administrador).
-- Opcionalmente, instala uma única atualização do Windows durante a instalação do RP.
-
-Implantação do provedor de recursos SQL começa e cria o grupo de recursos system.local.sqladapter. Ele pode levar até 75 minutos para concluir as quatro implantações necessárias para este grupo de recursos.
+> Quando a implantação de provedor de recursos do SQL é iniciado, o **system.local.sqladapter** grupo de recursos é criado. Ele pode levar até 75 minutos para concluir as implantações necessárias para esse grupo de recursos.
 
 ### <a name="deploysqlproviderps1-parameters"></a>Parâmetros de DeploySqlProvider.ps1
-Você pode especificar esses parâmetros na linha de comando. Se você não fizer isso, ou se qualquer parâmetro de validação falhar, você precisará fornecer os parâmetros necessários.
+
+Você pode especificar os parâmetros da linha de comando a seguir. Se você não fizer isso, ou se nenhuma validação de parâmetro falhar, você será solicitado a fornecer os parâmetros necessários.
 
 | Nome do parâmetro | DESCRIÇÃO | Comentário ou o valor padrão |
 | --- | --- | --- |
 | **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _Obrigatório_ |
-| **AzCredential** | As credenciais para a conta de administrador de serviço de pilha do Azure. Use as mesmas credenciais que você usou para implantar a pilha do Azure. | _Obrigatório_ |
-| **VMLocalCredential** | As credenciais de conta de administrador local do provedor de recursos SQL VM. | _Obrigatório_ |
+| **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Use as mesmas credenciais que você usou para implantar o Azure Stack. | _Obrigatório_ |
+| **VMLocalCredential** | As credenciais para a conta de administrador local do provedor de recursos SQL VM. | _Obrigatório_ |
 | **PrivilegedEndpoint** | O endereço IP ou nome DNS do ponto de extremidade com privilégios. |  _Obrigatório_ |
-| **DependencyFilesLocalPath** | O arquivo. pfx do certificado deve ser colocado nesse diretório também. | _Opcional_ (_obrigatório_ para sistemas integrados) |
+| **AzureEnvironment** | O ambiente do azure da conta de administrador de serviço que você usou para implantar o Azure Stack. Necessário somente se não for ADFS. Nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se um China Azure Active Directory, usando o **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | Para sistemas integrados somente, o arquivo. pfx do certificado deve ser colocado neste diretório. Opcionalmente, você pode copiar um pacote de MSU do Windows Update. | _Opcional_ (_obrigatório_ para sistemas integrados) |
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx. | _Obrigatório_ |
 | **MaxRetryCount** | O número de vezes que você deseja repetir a cada operação se houver uma falha.| 2 |
-| **RetryDuration** | O intervalo de tempo limite entre as repetições, em segundos. | 120 |
-| **Desinstalar** | Remove o provedor de recursos e todos os respectivos recursos (consulte as observações a seguir). | Não  |
+| **RetryDuration** | O intervalo de tempo limite entre novas tentativas, em segundos. | 120 |
+| **Desinstalar** | Remove o provedor de recursos e todos os recursos associados (consulte as observações a seguir). | Não  |
 | **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  |
 
->[!NOTE]
-> SKUs podem demorar até uma hora para ser visível no portal. Você não pode criar um banco de dados até que o SKU é criado.
-
-
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Implantar o provedor de recursos do SQL usando um script personalizado
-Para evitar inserir manualmente as informações necessárias quando o script DeploySqlProvider.ps1 é executado, você pode personalizar o exemplo de script a seguir alterando as informações de conta padrão e as senhas conforme necessário:
+
+Para eliminar qualquer configuração manual ao implantar o provedor de recursos, você pode personalizar o script a seguir. Altere as informações de conta padrão e as senhas, conforme necessário para sua implantação do Azure Stack.
 
 ```powershell
-# Install the AzureRM.Bootstrapper module and set the profile.
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module  -Name AzureStack -RequiredVersion 1.4.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -99,45 +110,45 @@ $privilegedEndpoint = "AzS-ERCS01"
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
 
-# The service admin account (can be Azure Active Directory or Active Directory Federation Services).
+# The service admin account can be Azure Active Directory or Active Directory Federation Services.
 $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set credentials for the new resource provider VM local administrator account
+# Set credentials for the new resource provider VM local administrator account.
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
-# And the cloudadmin credential that's required for privileged endpoint access.
+# Add the cloudadmin credential that's required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Change directory to the folder where you extracted the installation files.
-# Then adjust the endpoints.
-$tempDir\DeploySQLProvider.ps1 `
+# Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
+. $tempDir\DeploySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
     -PrivilegedEndpoint $privilegedEndpoint `
     -DefaultSSLCertificatePassword $PfxPass `
     -DependencyFilesLocalPath $tempDir\cert
+
  ```
 
-## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Verifique se a implantação usando o portal de pilha do Azure
-As etapas nesta seção podem ser usadas para garantir que o provedor de recursos do SQL foi implantado com êxito.
+Quando o script de instalação do provedor de recursos for concluída, atualize seu navegador para garantir que você pode ver as atualizações mais recentes.
 
-> [!NOTE]
->  Depois de concluir a execução do script de instalação, você precisa atualizar o portal para ver os itens de folha e a Galeria de administrador.
+## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Verifique se a implantação usando o portal do Azure Stack
 
-1. Entre no portal de administração como o administrador do serviço.
+Você pode usar as seguintes etapas, verifique se o provedor de recursos do SQL é implantado com êxito.
 
-2. Verifique se a implantação foi bem-sucedida. Vá para **grupos de recursos**. Selecione o **system.\< local\>.sqladapter** grupo de recursos. Verifique se todas as implantações de quatro foi bem-sucedida.
-
-      ![Verifique se a implantação do provedor de recursos do SQL](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-
+1. Entre no portal de administração como o administrador de serviço.
+2. Selecione **grupos de recursos**.
+3. Selecione o **system.\< local\>.sqladapter** grupo de recursos.
+4. Na página de resumo para visão geral do grupo de recursos, não deve haver nenhuma implantação com falha.
+      ![Verificar a implantação de provedor de recursos do SQL](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+5. Por fim, selecione **máquinas virtuais** no portal de administração para verificar que o provedor de recursos do SQL VM com êxito criado e está em execução.
 
 ## <a name="next-steps"></a>Próximas etapas
 

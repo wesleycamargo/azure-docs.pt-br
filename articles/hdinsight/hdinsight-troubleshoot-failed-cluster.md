@@ -1,24 +1,20 @@
 ---
-title: Solucionar problemas de um cluster de HDInsight lento ou falhando - HDInsight do Azure | Microsoft Docs
+title: Solucionar problemas de um cluster de HDInsight lento ou falhando - HDInsight do Azure
 description: Diagnosticar e solucionar problemas de um cluster HDInsight lento ou falhando.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.author: ashishth
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
-ms.author: ashishth
-ms.openlocfilehash: bd026169062788fa7587cb6357b3764fbfdb24fb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f18e667e86c310e4d2950ba195911307aec5426d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047018"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Solucionar problemas de um cluster HDInsight lento ou falhando
 

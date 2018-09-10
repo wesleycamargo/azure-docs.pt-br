@@ -1,24 +1,19 @@
 ---
-title: "Formato do arquivo de log da Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba mais sobre o formato dos arquivos de log criados quando etapas são executadas para um trabalho do serviço de Importação/Exportação."
+title: Formato do arquivo de log da Importação/Exportação do Azure | Microsoft Docs
+description: Saiba mais sobre o formato dos arquivos de log criados quando etapas são executadas para um trabalho do serviço de Importação/Exportação.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: b842a80762989c34ae278a397cc49c088ff77fb2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525511"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Formato de arquivo de log de serviço de Importação/Exportação do Azure
 Quando o serviço de importação/exportação do Microsoft Azure executa uma ação em uma unidade como parte de um trabalho de importação ou exportação, os logs são gravados para bloquear blobs na conta de armazenamento associado ao trabalho.  
@@ -38,8 +33,8 @@ A tabela a seguir mostra as opções possíveis:
   
 |Método de autenticação|Valor de `ImportExportStatesPath`Elemento|Local dos Blobs de Log|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|Chave da conta de armazenamento|Valor padrão|Um contêiner denominado `waimportexport`, que é o contêiner padrão. Por exemplo:<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
-|Chave da conta de armazenamento|Valores especificados pelo usuário|Um contêiner nomeado pelo usuário. Por exemplo:<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
+|Chave da conta de armazenamento|Valor padrão|Um contêiner denominado `waimportexport`, que é o contêiner padrão. Por exemplo: <br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|Chave da conta de armazenamento|Valores especificados pelo usuário|Um contêiner nomeado pelo usuário. Por exemplo: <br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
 |SAS do contêiner|Valor padrão|Um diretório virtual chamado `waimportexport`, que é o nome padrão, sob o contêiner especificado na SAS.<br /><br /> Por exemplo, se a SAS especificada para o trabalho é `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, então o local do log será`https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |SAS do contêiner|Valores especificados pelo usuário|Um diretório virtual nomeado pelo usuário, sob o contêiner especificado na SAS.<br /><br /> Por exemplo, se a SAS especificada para o trabalho é `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, e o diretório virtual especificado for denominado `mylogblobs`, então o local do log será `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
@@ -106,7 +101,7 @@ properties-status ::=
 
 A tabela a seguir descreve os elementos do arquivo de log.  
   
-|Elemento XML|Tipo|Descrição|  
+|Elemento XML|Tipo|DESCRIÇÃO|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|Elemento XML|Representa um log de unidade.|  
 |`Version`|Atributo, cadeia de caracteres|A versão do formato do log.|  
@@ -115,9 +110,9 @@ A tabela a seguir descreve os elementos do arquivo de log.
 |`Blob`|Elemento XML aninhado|Representa um blob.|  
 |`Blob/BlobPath`|Cadeia de caracteres|O URI do blob.|  
 |`Blob/FilePath`|Cadeia de caracteres|Caminho relativo até o arquivo na unidade.|  
-|`Blob/Snapshot`|DateTime|A versão de instantâneo do blob, apenas para um trabalho de exportação.|  
+|`Blob/Snapshot`|Datetime|A versão de instantâneo do blob, apenas para um trabalho de exportação.|  
 |`Blob/Length`|Número inteiro|O comprimento total do blob em bytes.|  
-|`Blob/LastModified`|DateTime|A data/hora em que o blob foi modificado pela última vez, apenas para um trabalho de exportação.|  
+|`Blob/LastModified`|Datetime|A data/hora em que o blob foi modificado pela última vez, apenas para um trabalho de exportação.|  
 |`Blob/ImportDisposition`|Cadeia de caracteres|A disposição de importação do blob, para um trabalho de importação.|  
 |`Blob/ImportDisposition/@Status`|Atributo, cadeia de caracteres|O status de disposição de importação.|  
 |`PageRangeList`|Elemento XML aninhado|Representa uma lista de intervalos de página para um blobs de página.|  
@@ -150,7 +145,7 @@ A tabela a seguir descreve os elementos do arquivo de log.
 # <a name="drive-status-codes"></a>Códigos de status da unidade  
 A tabela a seguir lista os códigos de status para o processamento de uma unidade.  
   
-|Código de status|Descrição|  
+|Código de status|DESCRIÇÃO|  
 |-----------------|-----------------|  
 |`Completed`|A unidade concluiu o processamento sem erros.|  
 |`CompletedWithWarnings`|A unidade concluiu o processamento com avisos em um ou mais blobs de acordo com as disposições de importação especificadas para os blobs.|  
@@ -179,7 +174,7 @@ A tabela a seguir lista os códigos de status para o processamento de uma unidad
 ## <a name="blob-status-codes"></a>Códigos de status de blobs  
 A tabela a seguir lista os códigos de status para o processamento de um blob.  
   
-|Código de status|Descrição|  
+|Código de status|DESCRIÇÃO|  
 |-----------------|-----------------|  
 |`Completed`|O blob concluiu o processamento sem erros.|  
 |`CompletedWithErrors`|O blob concluiu o processamento com erros em um ou mais intervalos de páginas ou blocos, metadados ou propriedades.|  
@@ -198,7 +193,7 @@ A tabela a seguir lista os códigos de status para o processamento de um blob.
 ## <a name="import-disposition-status-codes"></a>Códigos de status de disposição de importação  
 A tabela a seguir lista os códigos de status para resolver uma disposição de importação.  
   
-|Código de status|Descrição|  
+|Código de status|DESCRIÇÃO|  
 |-----------------|-----------------|  
 |`Created`|O blob foi criado.|  
 |`Renamed`|O blob foi renomeado de acordo com a disposição de importação de renomeação. O elemento `Blob/BlobPath` contém o URI para o blob renomeado.|  
@@ -209,7 +204,7 @@ A tabela a seguir lista os códigos de status para resolver uma disposição de 
 ## <a name="page-rangeblock-status-codes"></a>Códigos de status do intervalo de página/bloco  
 A tabela a seguir lista os códigos de status para o processamento de um intervalo de páginas ou de um bloco.  
   
-|Código de status|Descrição|  
+|Código de status|DESCRIÇÃO|  
 |-----------------|-----------------|  
 |`Completed`|O intervalo de páginas ou bloco concluiu o processamento sem erros.|  
 |`Committed`|O bloco foi confirmado, mas não na lista completa de blocos porque outros blocos têm falha ou a própria lista de blocos falhou.|  
@@ -225,7 +220,7 @@ A tabela a seguir lista os códigos de status para o processamento de um interva
 ## <a name="metadata-status-codes"></a>Códigos de status de metadados  
 A tabela a seguir lista os códigos de status para o processamento dos metadados do blob.  
   
-|Código de status|Descrição|  
+|Código de status|DESCRIÇÃO|  
 |-----------------|-----------------|  
 |`Completed`|Os metadados concluíram o processamento sem erros.|  
 |`FileNameInvalid`|O nome do arquivo de metadados é inválido.|  
@@ -243,7 +238,7 @@ A tabela a seguir lista os códigos de status para o processamento dos metadados
 ## <a name="properties-status-codes"></a>Códigos de status das propriedades  
 A tabela a seguir lista os códigos de status para o processamento das propriedades do blob.  
   
-|Código de status|Descrição|  
+|Código de status|DESCRIÇÃO|  
 |-----------------|-----------------|  
 |`Completed`|As propriedades concluíram o processamento sem erros.|  
 |`FileNameInvalid`|O nome do arquivo de propriedades é inválido.|  

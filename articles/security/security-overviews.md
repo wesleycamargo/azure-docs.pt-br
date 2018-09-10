@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181524"
 ---
 # <a name="azure-security-technical-overviews"></a>Visão geral técnica de segurança do Azure
 

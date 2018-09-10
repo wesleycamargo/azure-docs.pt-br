@@ -1,25 +1,22 @@
 ---
-title: Conector do Dropbox no Aplicativo Lógico do Azure | Microsoft Docs
-description: Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. Conecte-se ao Dropbox para gerenciar seus arquivos. Você pode executar várias ações, como carregar, atualizar, obter e excluir arquivos no Dropbox.
-services: logic-apps
-documentationcenter: .net,nodejs,java
+title: Conectar ao Dropbox – Aplicativo Lógico do Azure | Microsoft Docs
+description: Carregar e gerenciar arquivos com as APIs REST do Dropbox e o Aplicativo Lógico do Azure
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-ms.assetid: cb0ae033-aba7-4ac9-beaa-be561a0f0cac
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: estfan
 ms.date: 07/15/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 7ac72cf5b18fa19bc0294abc67bf0a7089774a89
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 256a0b34d5050e17abe5bb98ca0c13ab0b61787e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094431"
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Introdução ao conector do Dropbox
 Conecte-se ao Dropbox para gerenciar seus arquivos. Você pode executar várias ações, como carregar, atualizar, obter e excluir arquivos no Dropbox.
@@ -27,7 +24,7 @@ Conecte-se ao Dropbox para gerenciar seus arquivos. Você pode executar várias 
 Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-dropbox"></a>Conectar-se ao Dropbox
-Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao Dropbox, é preciso ter uma *conexão* com o Dropbox. Para criar uma conexão, é preciso fornecer as credenciais normalmente usadas para acessar o serviço ao qual você deseja se conectar. Desse modo, no exemplo do Dropbox, são necessárias as credenciais da sua conta no Dropbox para criar a conexão com o Dropbox. [Saiba mais sobre conexões]()
+Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao Dropbox, é preciso ter uma *conexão* com o Dropbox. Para criar uma conexão, é preciso fornecer as credenciais normalmente usadas para acessar o serviço ao qual você deseja se conectar. Desse modo, no exemplo do Dropbox, são necessárias as credenciais da sua conta no Dropbox para criar a conexão com o Dropbox. 
 
 ### <a name="create-a-connection-to-dropbox"></a>Criar uma conexão com o Dropbox
 > [!INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]

@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/23/2016
-ms.author: mbullwin; borooji
-ms.openlocfilehash: 987ae184a0812f24df99a0b6e6543c8be55a9e79
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: mbullwin
+ms.openlocfilehash: 2f8a22c6cda6c63a225fbfe8fba4cf4c8396b53e
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140184"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrando e pré-processando a telemetria no SDK do Application Insights
 
@@ -53,7 +54,7 @@ Para filtrar a telemetria, escreva um processador de telemetria e registre-o no 
 
     Observe que os Processadores de Telemetria criam uma cadeia de processamento. Ao criar uma instância de um processador de telemetria, você transmite um link para o próximo processador na cadeia. Quando um ponto de dados de telemetria é transmitido para o método Process, ele faz seu trabalho e, em seguida, chama o próximo Processador de Telemetria da cadeia.
 
-    ``` C#
+    ```csharp
 
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -100,7 +101,7 @@ Para filtrar a telemetria, escreva um processador de telemetria e registre-o no 
     ```
 1. Insira isto no ApplicationInsights.config:
 
-```XML
+```xml
 
     <TelemetryProcessors>
       <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
@@ -140,7 +141,7 @@ Os TelemetryClients criados depois desse ponto usarão seus processadores.
 #### <a name="synthetic-requests"></a>Solicitações sintéticas
 Filtre os bots e os testes Web. Embora o Metrics Explorer ofereça a opção para filtrar fontes sintéticas, essa opção reduz o tráfego filtrando-as no SDK.
 
-``` C#
+```csharp
 
     public void Process(ITelemetry item)
     {
@@ -181,7 +182,7 @@ Se desejar diagnosticar chamadas lentas, filtre as rápidas.
 >
 >
 
-``` C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -254,6 +255,7 @@ Se você fornecer um inicializador de telemetria, ele é chamado sempre que qual
 
 Em ApplicationInsights.config:
 
+```xml
     <ApplicationInsights>
       <TelemetryInitializers>
         <!-- Fully qualified type name, assembly name: -->
@@ -261,6 +263,7 @@ Em ApplicationInsights.config:
         ...
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
 *Como alternativa,* você pode instanciar o inicializador no código, por exemplo em Global.aspx.cs:
 
@@ -277,6 +280,25 @@ Em ApplicationInsights.config:
 [Ver mais deste exemplo.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
 <a name="js-initializer"></a>
+
+### <a name="java-telemetry-initializers"></a>Inicializadores de telemetria do Java
+
+[Documentação do SDK do Java](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility._telemetry_initializer?view=azure-java-stable)
+
+```Java
+public interface TelemetryInitializer
+{ /** Initializes properties of the specified object. * @param telemetry The {@link com.microsoft.applicationinsights.telemetry.Telemetry} to initialize. */
+
+void initialize(Telemetry telemetry); }
+```
+
+Em seguida, registre o inicializador personalizado em seu arquivo applicationinsights. XML.
+
+```xml
+<Add type="mypackage.MyConfigurableContextInitializer">
+<Param name="some_config_property" value="some_value" />
+</Add>
+```
 
 ### <a name="javascript-telemetry-initializers"></a>Inicializadores de telemetria JavaScript
 *JavaScript*

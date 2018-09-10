@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 0ecfade830b2123257b8039d5f0c26f19f3f3fc6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5943357bc421bbae0caef7f0acd7aa3364813826
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597511"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de Gerenciamento de API
 Este artigo descreve a sintaxe das expressões de política C# 7. Cada expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) fornecida implicitamente e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos do .NET Framework.  
@@ -170,7 +171,7 @@ Para mais informações:
 |Variável de contexto|Valores de métodos, propriedades e parâmetros permitidos|  
 |----------------------|-------------------------------------------------------|  
 |context|Api: IApi<br /><br /> Implantação<br /><br /> Decorrido: TimeSpan - intervalo de tempo entre o valor de carimbo de data/hora e a hora atual<br /><br /> LastError<br /><br /> Operação<br /><br /> Produto<br /><br /> Solicitação<br /><br /> RequestId: Guid - identificador exclusivo de solicitação<br /><br /> Response<br /><br /> Assinatura<br /><br /> Carimbo de data/hora: DataHora - ponto no tempo em que a solicitação foi recebida<br /><br /> Rastreamento: bool - indica que se o rastreamento está ativado ou desativado <br /><br /> Usuário<br /><br /> Variáveis: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
-|context.Api|Id: string<br /><br /> IsRevisionCurrent: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: IUrl<br /><br /> Version: string |  
+|context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: IUrl<br /><br /> Version: string |  
 |context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificados: IReadOnlyDictionary<string, X509Certificate2>|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Para obter mais informações sobre context.LastError, consulte [Error handling](api-management-error-handling-policies.md) (Tratamento de erro).|  
 |context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|  

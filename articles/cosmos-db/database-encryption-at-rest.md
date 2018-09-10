@@ -2,22 +2,19 @@
 title: 'Criptografia de banco de dados em repouso: Azure Cosmos DB | Microsoft Docs'
 description: Saiba como o Azure Cosmos DB fornece criptografia padrão de todos os dados.
 services: cosmos-db
-author: voellm
+author: rafats
 manager: kfile
-documentationcenter: ''
-ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2017
-ms.author: voellm
-ms.openlocfilehash: 831fa2b6b9afb39bff715ef54cc41e11ee903e50
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: rafats
+ms.openlocfilehash: 2b54f8c7d9f6427f3104d3c64c65cc555f68738a
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037856"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Criptografia de banco de dados em repouso do Azure Cosmos DB
 

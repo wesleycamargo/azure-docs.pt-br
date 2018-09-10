@@ -2,18 +2,19 @@
 title: Guia de início rápido - cluster do Docker CE para Linux
 description: Aprenda rapidamente a criar um cluster do Docker CE para os contêineres do Linux no Serviço de Contêiner do Azure com a CLI do Azure.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/26/2018
-ms.author: nepeters
+ms.date: 07/16/2018
+ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: cd52982fc650d5fd3b4edd8513946a721306a451
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d3438f42753cba82a28d16be2b63926c4762b26b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421926"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Implantar um cluster do Docker CE
 
@@ -27,12 +28,12 @@ Se você optar por instalar e usar a CLI localmente, este guia de início rápid
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados.
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *ukwest*.
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *westus2*.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location ukwest
+az group create --name myResourceGroup --location westus2
 ```
 
 Saída:
@@ -40,7 +41,7 @@ Saída:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "ukwest",
+  "location": "westus2",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -52,7 +53,7 @@ Saída:
 
 ## <a name="create-docker-swarm-cluster"></a>Criar um cluster do Docker Swarm
 
-Crie um cluster do Docker CE no Serviço de Contêiner do Azure com o comando [az acs create](/cli/azure/acs#az_acs_create). 
+Crie um cluster do Docker CE no Serviço de Contêiner do Azure com o comando [az acs create](/cli/azure/acs#az-acs-create). Para obter informações sobre a disponibilidade de região do Docker CE, consulte [Regiões do ACS para Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 O exemplo a seguir cria um cluster chamado *mySwarmCluster* com um nó mestre do Linux e três nós de agente do Linux.
 
@@ -60,7 +61,7 @@ O exemplo a seguir cria um cluster chamado *mySwarmCluster* com um nó mestre do
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-Em alguns casos, como em uma avaliação limitada, uma assinatura do Azure terá acesso limitado aos recursos do Azure. Se a implantação falhar devido à limitação nos núcleos disponíveis, reduza a contagem de agentes padrão, adicionando `--agent-count 1` ao comando [az acs create](/cli/azure/acs#az_acs_create). 
+Em alguns casos, como em uma avaliação limitada, uma assinatura do Azure terá acesso limitado aos recursos do Azure. Se a implantação falhar devido à limitação nos núcleos disponíveis, reduza a contagem de agentes padrão, adicionando `--agent-count 1` ao comando [az acs create](/cli/azure/acs#az-acs-create). 
 
 Após alguns minutos, o comando é concluído e retorna informações formatadas em JSON sobre o cluster.
 
@@ -152,7 +153,7 @@ Navegue até o FQDN do pool de agentes do Swarm para testar o aplicativo de Voto
 ![Imagem de navegação para o Voto do Azure](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Excluir cluster
-Quando o cluster não for mais necessário, você poderá usar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o serviço de contêiner e todos os recursos relacionados.
+Quando o cluster não for mais necessário, você poderá usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o serviço de contêiner e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

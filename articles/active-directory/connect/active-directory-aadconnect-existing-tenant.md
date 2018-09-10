@@ -1,24 +1,26 @@
 ---
-title: "Azure AD Connect: Quando você já tiver o Azure AD | Microsoft Docs"
-description: "Este tópico descreve como usar o Connect quando você tem um locatário existente do Azure AD."
+title: 'Azure AD Connect: Quando você já tiver o Azure AD | Microsoft Docs'
+description: Este tópico descreve como usar o Connect quando você tem um locatário existente do Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 44d9aa988e8344f76ddb5430e2aacbd4c818c033
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969394"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: quando você tem um locatário existente
 A maioria dos tópicos sobre como usar o Azure AD Connect pressupõe que você inicie com um novo locatário do Azure AD e que não exista nenhum usuário nem outros objetos. Mas, se você tiver começado com um locatário do Azure AD, o preencheu com usuários e outros objetos, e agora deseja usar o Connect, este tópico é para você.
@@ -47,6 +49,9 @@ A seção anterior e o aviso devem ser considerados no planejamento. Se existem 
 
 Se você correspondeu os objetos com uma correspondência flexível, o **sourceAnchor** será adicionado ao objeto no Azure AD para que uma correspondência rígida possa ser usada posteriormente.
 
+>[!IMPORTANT]
+> A Microsoft não recomenda a sincronização de contas de locais com contas administrativas pré-existentes no Azure Active Directory.
+
 ### <a name="hard-match-vs-soft-match"></a>Correspondência rígida x correspondência flexível
 Para uma nova instalação do Connect, não há nenhuma diferença prática entre uma correspondência rígida e uma correspondência flexível. A diferença está em uma situação de recuperação de desastre. Se você tiver perdido o seu servidor com o Azure AD Connect, reinstale uma nova instância para não perder os dados. Um objeto com um sourceAnchor é enviado para o Connect durante a instalação inicial. Então a correspondência poderá ser avaliada pelo cliente (Azure AD Connect), que é muito mais rápido do que fazer o mesmo no Azure AD. Uma correspondência rígida é avaliada pelo Connect e pelo Azure AD. Uma correspondência flexível é avaliada apenas pelo Azure AD.
 
@@ -56,7 +61,7 @@ Para grupos habilitados para email e contatos, você pode fazer uma correspondê
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Criação de um Active Directory local novo a partir dos dados no Azure AD
 Alguns clientes começam com uma solução somente em nuvem com o Azure AD e não têm um AD local. Mais tarde, eles desejam consumir recursos locais e criar um AD local com base nos dados do Azure AD. O Azure AD Connect não pode ajudá-lo nesse cenário. Ele não cria os usuários locais e não tem capacidade de definir a senha local igual à do Azure AD.
 
-Se oferecer suporte a LOBs (aplicativos de linha de negócios) é o único motivo para adicionar o AD local, considere usar o [Azure AD Domain Services](../../active-directory-domain-services/index.md).
+Se oferecer suporte a LOBs (aplicativos de linha de negócios) é o único motivo para adicionar o AD local, considere usar o [Azure AD Domain Services](../../active-directory-domain-services/index.yml).
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).

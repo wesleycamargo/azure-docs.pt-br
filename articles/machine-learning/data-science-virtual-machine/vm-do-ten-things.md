@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: a5f0961a99eac805e82cbc5e5d61c485f8661ba0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ce73d1ef5425ee2fe66655571a6d6bbbff372af5
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502801"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados do Windows
 
@@ -53,7 +54,7 @@ Você pode usar linguagens como R e Python para fazer a análise de dados direta
 
 Para R, você pode usar um IDE como o RStudio que pode ser encontrado no menu Iniciar ou na área de trabalho ou Ferramentas do R para Visual Studio. A Microsoft forneceu bibliotecas adicionais sobre o Open Source/CRAN-R para permitir a análise escalonável e a capacidade de analisar dados maiores que o tamanho da memória permitido fazendo análise paralela em partes. 
 
-Para Python, você pode usar um IDE como o Visual Studio Community Edition, que tem a extensão PTVS (Ferramentas Python para Visual Studio) pré-instalada. Por padrão, somente o Python 3.6, o ambiente de conda raiz é configurado em PTVS. Para habilitar o Anaconda Python 2.7, é preciso fazer o seguinte:
+Para Python, você pode usar um IDE como o Visual Studio Community Edition, que tem a extensão PTVS (Ferramentas Python para Visual Studio) pré-instalada. Por padrão, somente o Python 3.6, o ambiente do conda raiz, é configurado em PTVS. Para habilitar o Anaconda Python 2.7, é preciso fazer o seguinte:
 
 * Criar ambientes personalizados para cada versão navegando até **Ferramentas** -> **Ferramentas Python** -> **Ambientes Python** e clicando em "**+ Personalizado**" no Visual Studio 2015 Community Edition
 * Forneça uma descrição e defina o caminho de prefixo do ambiente como *c:\anaconda\envs\python2* para o Anaconda Python 2.7
@@ -63,9 +64,9 @@ Veja a aparência do ambiente personalizado configurado no Visual Studio.
 
 ![Configuração do PTVS](./media/vm-do-ten-things/PTVSSetup.png)
 
-Confira a [documentação do PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) para obter mais detalhes sobre como criar os Ambientes Python.
+Confira a [documentação do PTVS](http://aka.ms/ptvsdocs) para obter mais detalhes sobre como criar os Ambientes Python.
 
-Agora você está pronto para criar um novo projeto em Python. Navegue até **Arquivo** -> **Novo** -> **Projeto** -> **Python** e selecione o tipo de aplicativo Python que você está criando. Você pode definir o ambiente do Python para o projeto atual como a versão que quiser (Anaconda 2.7 ou 3.6): clique com botão direito do mouse no **Ambiente Python**, selecione **Adicionar/Remover Ambientes Python** e, em seguida, selecione o ambiente desejado. Saiba mais sobre como trabalhar com o PTVS na página de [documentação](https://github.com/Microsoft/PTVS/wiki) do produto.
+Agora você está pronto para criar um novo projeto em Python. Navegue até **Arquivo** -> **Novo** -> **Projeto** -> **Python** e selecione o tipo de aplicativo Python que você está criando. Você pode definir o ambiente do Python para o projeto atual na versão desejada (Anaconda 2.7 ou 3.6): clique com o botão direito do mouse no **Ambiente Python**, selecione **Adicionar/Remover Ambientes Python** e, em seguida, selecione o ambiente desejado. É possível encontrar mais informações sobre como trabalhar com PTVS na [documentação](http://aka.ms/ptvsdocs) do produto.
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Usando um Notebook Jupyter para explorar e modelar seus dados com o Python ou R
 O Notebook Jupyter é um poderoso ambiente que fornece um "IDE" baseado em navegador para exploração e modelagem de dados. É possível usar Python 2, Python 3 ou R (ambos software livre e Microsoft R Server) em um Notebook Jupyter.
@@ -74,10 +75,10 @@ Para iniciar o Notebook Jupyter, clique no ícone do menu Iniciar/ícone da áre
 
 Assim que iniciar o Jupyter, você verá um diretório que contém alguns notebooks de exemplo pré-empacotados com a DSVM. Agora você pode:
 
-* clicar no notebook e ver o código.
+* Clicar no notebook para exibir o código.
 * Executar cada célula pressionando **SHIFT-ENTER**.
-* executar o notebook inteiro clicando em **Célula** -> **Executar**
-* criar um novo notebook clicando no ícone Jupyter (canto superior esquerdo), clicando no botão **Novo** à direita e escolhendo a linguagem do notebook (também conhecida como kernels).   
+* Executar o notebook inteiro clicando em **Célula** -> **Executar**.
+* Criar um novo notebook clicando no ícone Jupyter (canto superior esquerdo), clicando no botão **Novo** à direita e escolhendo a linguagem do notebook (também conhecida como kernels).   
 
 > [!NOTE]
 > Atualmente há suporte para kernels Python 2.7, Python 3.6, R, Julia e PySpark no Jupyter. O kernel R dá suporte à programação no R de software livre, bem como o Microsoft R de alto desempenho.   
@@ -87,12 +88,12 @@ Assim que iniciar o Jupyter, você verá um diretório que contém alguns notebo
 Uma vez no notebook, você pode explorar seus dados, criar o modelo e testar o modelo usando suas bibliotecas escolhidas.
 
 ## <a name="3-build-models-using-r-or-python-and-operationalize-them-using-azure-machine-learning"></a>3. Compilar os modelos usando R e Python e operacionalizá-los usando o Machine Learning do Azure
-Depois de criar e validar o modelo, a próxima etapa geralmente é implantá-lo na produção. Isso permite aos aplicativos cliente invocar as previsões do modelo em tempo real ou em m modo de lote. O Machine Learning do Azure fornece um mecanismo para operacionalizar um modelo compilado em R ou Python.
+Depois de criar e validar o modelo, a próxima etapa geralmente é implantá-lo na produção. Isso permite aos aplicativos cliente invocar as previsões do modelo em tempo real ou em modo de lote. O Machine Learning do Azure fornece um mecanismo para operacionalizar um modelo compilado em R ou Python.
 
 Quando você operacionaliza seu modelo no Azure Machine Learning, um serviço Web é exposto, o que permite aos clientes fazer chamadas REST que são passadas nos parâmetros de entrada e recebem previsões do modelo como saídas.   
 
 > [!NOTE]
-> Se ainda não tiver se inscrito no Azure Machine Learning, você poderá obter um espaço de trabalho Gratuito ou Standard visitando a página inicial do [Azure Machine Learning Studio](https://studio.azureml.net/) e clicando em "Introdução".   
+> Se ainda não tiver se inscrito no Azure Machine Learning, você poderá obter um espaço de trabalho gratuito ou padrão visitando a página inicial do [Azure Machine Learning Studio](https://studio.azureml.net/) e clicando em "Introdução".   
 > 
 > 
 
@@ -250,7 +251,7 @@ No Visual Studio, você pode fazer a mesma operação de clonagem. A captura de 
 
 ![Git no Visual Studio](./media/vm-do-ten-things/VSGit.PNG)
 
-Encontre mais informações sobre como usar Git para trabalhar com o repositório GitHub nos vários recursos disponíveis em github.com. O [roteiro](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) é uma referência útil.
+Encontre mais informações sobre como usar Git para trabalhar com o repositório GitHub nos vários recursos disponíveis em github.com. O [roteiro](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) é uma referência útil.
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7. Acessar vários serviços de análise e dados do Azure
 ### <a name="azure-blob"></a>Blob do Azure
@@ -372,7 +373,7 @@ Você pode usar o **Gerenciador do Azure Data Lake** para carregar dados dos arq
 
 ![Azure_Data_Lake_UploadData](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
 
-Você também pode compilar um pipeline de dados para operacionalizar para produção o movimento de dados, de ou para o Azure Data Lake, usando o [Azure Data Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Veja este [artigo](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) que vai orientá-lo pelas etapas de criação dos pipelines de dados.
+Compile também um pipeline de dados para operacionalizar a movimentação de dados, entre o Azure Data Lake, usando o [Azure Data Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Veja este [artigo](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) que vai orientá-lo pelas etapas de criação dos pipelines de dados.
 
 **Ler dados no Blob do Azure para Data Lake: U-SQL**
 
@@ -616,7 +617,7 @@ Vamos examinar o número de registros em cada mês e as frequências de gorjetas
 
 ![Gráfico das frequências de dicas](./media/vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
 
-Você também pode computar a distância entre o local de captura e o destino do passageiro e compará-la com a distância da corrida.
+Você também pode computar a distância entre o local de captura e o local de entrega e compará-la com a distância do trajeto.
 
     queryString = """
                     select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
@@ -785,7 +786,7 @@ Após alguns instantes, você pode ver que os dados foram carregados nos cluster
 
 **Ler dados do HDI usando o Machine Learning: módulo de leitor**
 
-Você também pode usar o módulo de **leitor** no Machine Learning Studio para acessar o banco de dados no cluster Hadoop. Insira as credenciais dos clusters HDI e da Conta de Armazenamento do Microsoft Azure para habilitar o build de modelos de aprendizado de máquina usando o banco de dados nos clusters HDI.
+Você também pode usar o módulo de **leitor** no Machine Learning Studio para acessar o banco de dados no cluster Hadoop. Insira as credenciais dos clusters HDI e da Conta de Armazenamento do Microsoft Azure para habilitar a criação de modelos de aprendizado de máquina usando o banco de dados nos clusters HDI.
 
 ![Propriedades do módulo de leitor](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
 
@@ -801,19 +802,19 @@ Você pode provisionar o SQL Data Warehouse do Azure seguindo as instruções fo
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 O Azure Cosmos DB é um banco de dados NoSQL na nuvem. Ele permite trabalhar com documentos como JSON, bem como armazenar e consultar os documentos.
 
-Veja a seguir as etapas de pré-requisitos a seguir para acessar o Azure Cosmos DB na DSVM:
+Veja a seguir as etapas necessárias para acessar o Azure Cosmos DB na DSVM:
 
 1. O SDK de Python do Azure Cosmos DB já está instalado no DSVM (execute ```pip install pydocumentdb --upgrade``` pelo prompt de comando para atualizar)
 2. Criar uma conta do Azure Cosmos DB e um banco de dados no [Portal do Azure](https://portal.azure.com)
 3. Baixar a “Ferramenta de Migração do Azure Cosmos DB” [aqui](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) e extrai-la em um diretório de sua escolha
 4. Importar dados JSON (dados de vulcão) armazenados em um [blob público](https://cahandson.blob.core.windows.net/samples/volcano.json) no Cosmos DB com os parâmetros de comando a seguir para a ferramenta de migração (dtui.exe no diretório no qual você instalou a Ferramenta de Migração do Cosmos DB). Insira os locais de origem e destino com estes parâmetros:
    
-    /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
+    `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
 Depois de importar os dados, você pode acessar o Jupyter e abrir o notebook chamado *DocumentDBSample*, que contém o código python para acessar o Azure Cosmos DB e fazer algumas consultas básicas. Você pode aprender mais sobre o Cosmos DB visitando a [página de documentação](https://docs.microsoft.com/azure/cosmos-db/) do serviço.
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Criar relatórios e painel usando o Power BI Desktop
-Você pode visualizar o arquivo JSON Volcano exemplo anterior do Cosmos DB no Power BI para obter informações visuais dos dados. As etapas detalhadas estão disponíveis no [artigo sobre o Power BI](../../cosmos-db/powerbi-visualize.md). Aqui estão as etapas de alto nível:
+Visualize o arquivo JSON Volcano do exemplo anterior do Cosmos DB no Power BI para obter informações visuais dos dados. As etapas detalhadas estão disponíveis no [artigo sobre o Power BI](../../cosmos-db/powerbi-visualize.md). Aqui estão as etapas de alto nível:
 
 1. Abra o Power BI Desktop e execute "Obter Dados". Especifique a URL como: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. Você deverá ver os registros JSON importados como uma lista
@@ -853,7 +854,7 @@ Você pode escalar verticalmente a DSVM para atender às necessidades do seu pro
 > 
 > 
 
-Se precisar lidar com análise em larga escala e precisar de mais capacidade de CPU e/ou memória e/ou disco, você poderá encontrar uma ampla opção de tamanhos de VM em termos de núcleos de CPU, instâncias baseadas em GPU aprendizado profundo, capacidade de memória e tipos de disco (incluindo unidades de estado sólido) que atendam às suas necessidades de computação e orçamento. A lista completa de VMs e seus preços de computação por hora estão disponíveis na página [Preço de Máquinas Virtuais do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/) .
+Se precisar lidar com análise em grande escala e precisar de maior capacidade de CPU, memória ou disco, você encontrará mais opções de tamanhos de VM em termos de núcleos de CPU, instâncias baseadas em GPU para aprendizado profundo, capacidade de memória e tipos de disco (incluindo unidades de estado sólido) que atendam às suas necessidades de computação e orçamento. A lista completa de VMs e seus preços de computação por hora estão disponíveis na página [Preço de Máquinas Virtuais do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/) .
 
 Da mesma forma, se sua necessidade de capacidade de processamento de VM for reduzida (por exemplo: você moveu uma grande carga de trabalho para um cluster Hadoop ou um Spark), você poderá reduzir verticalmente o cluster no [portal do Azure](https://portal.azure.com) e acessar as configurações da sua instância VM. Veja uma captura de tela.
 
@@ -862,7 +863,7 @@ Da mesma forma, se sua necessidade de capacidade de processamento de VM for redu
 ## <a name="10-install-additional-tools-on-your-virtual-machine"></a>10. Instalar ferramentas adicionais na sua máquina virtual
 Há várias ferramentas internas previamente compiladas no DSVM que podem resolver muitas das necessidades comuns de análise de dados. Isso economiza tempo ao evitar ter que instalar e configurar seus ambientes um por um e economiza dinheiro porque você paga apenas os recursos que usar.
 
-Você pode utilizar outros serviços de análise e dados do Azure listados neste artigo para aprimorar seu ambiente de análise. Em alguns casos, suas necessidades podem exigir ferramentas adicionais, incluindo algumas ferramentas de terceiros. Você tem acesso administrativo completo na máquina virtual para instalar novas ferramentas necessárias. Também é possível instalar pacotes adicionais no Python e no R que não foram pré-instalados. Para Python, você pode usar ```conda``` ou ```pip```. Para R, você pode usar o ```install.packages()``` no console do R ou usar o IDE e escolher "**Pacotes** -> **Instalar Pacotes...**".
+Utilize outros serviços de análise e dados do Azure listados neste artigo para aprimorar seu ambiente de análise. Em alguns casos, suas necessidades podem exigir ferramentas adicionais, incluindo algumas ferramentas de terceiros. Você tem acesso administrativo completo na máquina virtual para instalar novas ferramentas necessárias. Também é possível instalar pacotes adicionais no Python e no R que não foram pré-instalados. Para Python, você pode usar ```conda``` ou ```pip```. Para R, você pode usar o ```install.packages()``` no console do R ou usar o IDE e escolher "**Pacotes** -> **Instalar Pacotes...**".
 
 ## <a name="summary"></a>Resumo
 Essas são apenas algumas das coisas que você pode fazer na Máquina Virtual de Ciência de Dados da Microsoft. Há muito mais coisas que você fazer para torná-la um ambiente eficaz de análise.

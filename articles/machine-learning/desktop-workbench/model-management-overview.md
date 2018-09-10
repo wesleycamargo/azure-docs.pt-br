@@ -2,19 +2,19 @@
 title: Visão geral conceitual Gerenciamento de Modelos do Azure Machine Learning | Microsoft Docs
 description: Este documento explica os conceitos de Gerenciamento de Modelos do Azure Machine Learning.
 services: machine-learning
-author: nk773
-ms.author: padou
-manager: mwinkle
-ms.reviewer: jasonwhowell, mldocs
+author: hjerezmsft
+ms.author: hjerez
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 89f95753248f74c7f6cb9ca1f680a01b07dd43d1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 041f7147f171514d941555ff2f6144bac2062b06
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141863"
 ---
 # <a name="azure-machine-learning-model-management"></a>Gerenciamento de Modelos do Azure Machine Learning
 

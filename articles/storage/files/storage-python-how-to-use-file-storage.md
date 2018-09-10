@@ -1,24 +1,20 @@
 ---
 title: Desenvolvimento para Arquivos do Azure com Python | Microsoft Docs
-description: "Saiba como desenvolver aplicativos e serviços Python que usam os Arquivos do Azure para armazenar dados de arquivo."
+description: Saiba como desenvolver aplicativos e serviços Python que usam os Arquivos do Azure para armazenar dados de arquivo.
 services: storage
-documentationcenter: python
-author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
+author: wmgries
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
-ms.openlocfilehash: cee6ece907950724f6ad4a86c489a5f07dfcaaec
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.component: files
+ms.openlocfilehash: 37c42c5a680b8768d0882ad97fb3f3f2ed4ab821
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140183"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Desenvolvimento para o Arquivos do Azure com Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -33,7 +29,7 @@ Este tutorial demonstrará as noções básicas do uso do Python para desenvolve
 * Carregar, baixar e excluir um arquivo
 
 > [!Note]  
-> Como os Arquivos do Azure podem ser acessados via SMB, é possível criar aplicativos simples que acessam o Compartilhamento de Arquivos do Azure usando as classes e funções padrão de E/S do Python. Este artigo descreverá como criar aplicativos que usam o SDK do Python do Armazenamento do Azure, que usa a [API REST dos Arquivos do Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para se comunicar com os Arquivos do Azure.
+> Como os Arquivos do Azure podem ser acessados via SMB, é possível criar aplicativos simples que acessam o Compartilhamento de Arquivos do Azure usando as classes e funções padrão de E/S do Python. Este artigo descreverá como criar aplicativos que usam o SDK do Python do Armazenamento do Azure, que usa a [API REST dos Arquivos do Azure](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) para se comunicar com os Arquivos do Azure.
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Baixar e instalar o SDK do Armazenamento do Azure para Python
 
@@ -69,7 +65,7 @@ O objeto `FileService` permite que você trabalhe com compartilhamentos, diretó
 file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
-## <a name="create-an-azure-file-share"></a>Criar um Compartilhamento de Arquivos do Azure
+## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
 No exemplo de código a seguir, é possível usar um objeto `FileService` para criar o compartilhamento, se ele não existir.
 
 ```python
@@ -181,6 +177,6 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu como manipular s Arquivos do Azure com o Python, siga estes links para saber mais.
 
-* [Centro de desenvolvedores do Python](/develop/python/)
+* [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/)
 * [API REST de serviços de armazenamento do Azure](http://msdn.microsoft.com/library/azure/dd179355)
 * [SDK do Armazenamento do Microsoft Azure para Python](https://github.com/Azure/azure-storage-python)

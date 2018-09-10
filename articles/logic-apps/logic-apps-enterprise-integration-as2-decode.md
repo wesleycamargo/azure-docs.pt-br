@@ -1,26 +1,23 @@
 ---
-title: "Decodificar mensagens AS2 – Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Como usar o decodificador AS2 no Enterprise Integration Pack para o Aplicativo Lógico do Azure"
+title: Decodificar mensagens AS2 – Aplicativo Lógico do Azure | Microsoft Docs
+description: Decodificar mensagens AS com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: anneta
-editor: 
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 01/27/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 4acae9f1837069c494985ff1456979490485f609
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
+ms.date: 08/08/2018
+ms.openlocfilehash: 06ffa6bddc1340ad548f9baf30eba65ba503bf73
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128274"
 ---
-# <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens AS2 para o Aplicativo Lógico do Azure com o Enterprise Integration Pack 
+# <a name="decode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>Decodificar mensagens AS2 com o Aplicativo Lógico do Azure e o Enterprise Integration Pack 
 
 Para estabelecer confiabilidade e segurança ao transmitir mensagens, use o conector Decodificar mensagens AS2. Esse conector fornece a assinatura digital, descriptografia e confirmações por meio de MDN (notificações de disposição de mensagem).
 
@@ -66,6 +63,7 @@ Veja os itens necessários:
 
     ![Selecione Corpo e Cabeçalhos de saídas de Solicitação](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
+
 ## <a name="as2-decoder-details"></a>Detalhes do decodificador AS2
 
 O conector Decodificar AS2 executa estas tarefas: 
@@ -74,6 +72,7 @@ O conector Decodificar AS2 executa estas tarefas:
 * Verifica a assinatura (se configurado)
 * Descriptografa as mensagens (se configurado)
 * Descompacta as mensagens (se configurado)
+* Verificar e não permitir duplicatas de ID de mensagem (se configuradas)
 * Reconcilia um MDN recebido com a mensagem de saída original
 * Atualiza e correlaciona os registros no banco de dados de não repúdio
 * Grava os registros para o relatório de status do AS2
@@ -81,6 +80,13 @@ O conector Decodificar AS2 executa estas tarefas:
 * Determina se um MDN é necessário e se ele deve ser síncrono ou assíncrono com base na configuração no contrato do AS2
 * Gera um MDN síncrono ou assíncrono (com base nas configurações do contrato)
 * Define as propriedades e os tokens de correlação no MDN
+
+
+  > [!NOTE]
+  > Se você usar o Azure Key Vault para o gerenciamento de certificado, certifique-se de que você configurar as chaves para permitir que o **descriptografar** operação.
+  > Caso contrário, a decodificação de AS2 falhará.
+  >
+  > ![Descriptografias de cofre de chaves](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>Experimente este exemplo
 

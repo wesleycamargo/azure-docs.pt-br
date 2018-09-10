@@ -1,11 +1,11 @@
 ---
-title: "Conectar um computador a uma rede virtual usando autenticação de certificado Ponto a site: Portal Clássico do Azure | Microsoft Docs"
-description: "Criar uma conexão de gateway de VPN ponto a site usando o portal clássico do Azure."
+title: 'Conectar um computador a uma rede virtual usando autenticação de certificado Ponto a site: Portal Clássico do Azure | Microsoft Docs'
+description: Criar uma conexão de gateway de VPN ponto a site usando o portal clássico do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29464251"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Configurar uma conexão Ponto a Site a uma autenticação de certificado usando VNet (clássico): Portal do Azure
 

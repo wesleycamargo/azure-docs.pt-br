@@ -1,20 +1,21 @@
 ---
-title: Executar tarefas em contêineres nas Instâncias de Contêiner do Azure
+title: Executar tarefas em contêineres em Instâncias de Contêiner do Azure com políticas de reinício
 description: Saiba como usar as Instâncias de Contêiner do Azure para executar tarefas que são executadas até a conclusão, como na compilação, teste ou trabalhos de renderização de imagem.
 services: container-instances
 author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 07/26/2018
 ms.author: marsma
-ms.openlocfilehash: 3bbe3e891423b6ad62a1d1093daef304206f3d76
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f4d30a9902261c0e785a1af36a7c1c7a8a0fec46
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444938"
 ---
-# <a name="run-a-containerized-task-in-azure-container-instances"></a>Executar uma tarefa em contêiner nas Instâncias de Contêiner do Azure
+# <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contêineres com políticas de reinício
 
 A facilidade e a velocidade de implantação de contêineres nas Instâncias de Contêiner do Azure fornece uma plataforma atraente para executar tarefas de execução única como compilação, teste e renderização de imagem em uma instância de contêiner.
 
@@ -172,7 +173,7 @@ Para obter detalhes sobre como persistir a saída de seus contêineres que são 
 [aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
+[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
 [azure-cli-install]: /cli/azure/install-azure-cli

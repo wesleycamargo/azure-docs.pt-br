@@ -7,15 +7,17 @@ manager: douge
 assetId: 658dc064-4a4e-414b-ae5a-a977a34c930d
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: 0beeb8fb7f7e46db97e179f3eacf3c68dd92cff3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 74f5508586d073bcccc54894cce6fcde1b83fe18
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143951"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Navegar e gerenciar recursos de armazenamento usando o Gerenciador de Servidores
 
@@ -156,7 +158,7 @@ A imagem a seguir mostra uma fila que contém duas mensagens:
 
 ![Exibindo uma fila](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-Para obter mais informações sobre a manipulação de filas no código, consulte a [Introdução ao Armazenamento de Filas do Azure usando o .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Para saber mais sobre o serviço Web para filas de serviços de armazenamento, consulte [Conceitos do serviço Fila](http://go.microsoft.com/fwlink/?LinkId=264788). Para saber mais sobre como enviar mensagens a uma fila de serviços de armazenamento usando o Visual Studio, consulte [Enviando mensagens para uma fila de serviços de armazenamento](https://msdn.microsoft.com/library/azure/jj649344.aspx).
+Para obter mais informações sobre a manipulação de filas no código, consulte a [Introdução ao Armazenamento de Filas do Azure usando o .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Para saber mais sobre o serviço Web para filas de serviços de armazenamento, consulte [Conceitos do serviço Fila](http://go.microsoft.com/fwlink/?LinkId=264788). Para saber mais sobre como enviar mensagens a uma fila de serviços de armazenamento usando o Visual Studio, consulte [Enviando mensagens para uma fila de serviços de armazenamento](https://docs.microsoft.com/azure/visual-studio/vs-storage-cloud-services-getting-started-queues).
 
 > [!NOTE]
 > Filas de serviços de armazenamento são diferentes de filas do Barramento de Serviço do Azure. Para obter mais informações sobre filas do barramento de serviço, consulte [Filas do barramento de serviço, tópicos e assinaturas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
@@ -218,7 +220,7 @@ Você pode personalizar o conjunto de entidades que aparecem em uma tabela, se u
 1. Após criar a consulta, feche a caixa de diálogo. O formulário de texto resultante da consulta aparece em uma caixa de texto como um filtro do WCF Data Services.
 1. Para executar a consulta, selecione o ícone de triângulo verde.
 
-Você também pode filtrar dados de entidade que aparecem no Designer de tabela se inserir uma cadeia de caracteres de filtro do WCF Data Services diretamente na caixa de texto de filtro. Esse tipo de cadeia de caracteres é semelhante a uma cláusula SQL WHERE, mas é enviado ao servidor como uma solicitação HTTP. Para obter informações sobre como construir cadeias de caracteres de filtro, consulte [Construir cadeias de caracteres de filtro para o Designer de tabela](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+Você também pode filtrar dados de entidade que aparecem no Designer de tabela se inserir uma cadeia de caracteres de filtro do WCF Data Services diretamente na caixa de texto de filtro. Esse tipo de cadeia de caracteres é semelhante a uma cláusula SQL WHERE, mas é enviado ao servidor como uma solicitação HTTP. Para obter informações sobre como construir cadeias de caracteres de filtro, consulte [Construir cadeias de caracteres de filtro para o Designer de tabela](https://docs.microsoft.com/azure/vs-azure-tools-table-designer-construct-filter-strings).
 
 A ilustração a seguir mostra um exemplo de uma cadeia de caracteres de filtro válida:
 

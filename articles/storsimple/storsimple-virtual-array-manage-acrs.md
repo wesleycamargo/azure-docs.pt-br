@@ -2,10 +2,10 @@
 title: Gerenciar registros de controle de acesso para o StorSimple Virtual Array | Microsoft Docs
 description: Descreve como gerenciar registros de controle de acesso (ACRs) para determinar quais hosts podem se conectar a um volume na matriz Virtual StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e154bb4f-faab-4d92-a593-900c3ddc9595
 ms.service: storsimple
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2ce65aa4efba735305208f7a6d761bc2814d1b8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718879"
 ---
 # <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar os registros de controle de acesso para o StorSimple Virtual Array
 

@@ -2,24 +2,20 @@
 title: Criar modelos de implantação para Aplicativo Lógico do Azure | Microsoft Docs
 description: Criar modelos do Azure Resource Manager para implantar aplicativos lógicos
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: SyntaxC4
-editor: ''
-ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.custom: H1Hack27Feb2017
+ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.author: LADocs; estfan
-ms.openlocfilehash: 91d93a02bb9bf48c5bda0304c9d3d52c22e30209
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 68e655490470db6aade53c6f3523d0c9d87c3fbd
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123458"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Criar modelos do Azure Resource Manager para implantar aplicativos lógicos
 

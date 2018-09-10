@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204627"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modelar um aplicativo no Malha do Serviço
 Este artigo fornece uma visão geral do modelo de aplicativo do Azure Service Fabric e descreve como definir um aplicativo e um serviço por meio de arquivos de manifesto.

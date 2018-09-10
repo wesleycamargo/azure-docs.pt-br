@@ -1,29 +1,25 @@
 ---
-title: "Instruções de comutação - Executar etapas baseadas em valores específicos - Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Execute as diferentes etapas com base nos valores de objetos, expressões ou tokens em aplicativos lógicos"
+title: Adicionar instruções switch a fluxos de trabalho – Aplicativo Lógico do Azure | Microsoft Docs
+description: Como criar instruções switch que controlam as ações de fluxo de trabalho com base em valores específicos no Aplicativo Lógico do Azure
 services: logic-apps
-keywords: "Instrução switch"
-author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
-ms.assetid: 
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: e1f515189be8a5659af0f6c29b3fac0550abc9f9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: e15f89d4b7e33ce7e28676c219344f7d7d9cd465
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299609"
 ---
-# <a name="switch-statements-run-different-steps-based-on-specific-values-in-logic-apps"></a>Instruções de comutação: Executar diferentes etapas baseadas em valores específicos em aplicativos lógicos
+# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar instruções switch que executam ações de fluxo de trabalho com base em valores específicos no Aplicativo Lógico do Azure
 
-Para executar as diferentes etapas com base nos valores de um objeto, expressão ou token, use uma instrução de *comutação*. Essa estrutura avalia o objeto, a expressão ou o token, escolhe o caso que coincide com o resultado e executa etapas para somente esse caso. Apenas um caso deve corresponder ao resultado quando a instrução switch for executada.
+Para executar ações específicas com base nos valores de objetos, expressões ou tokens, adicione uma instrução *switch*. Essa estrutura avalia o objeto, a expressão ou o token, escolhe o caso que coincide com o resultado e executa ações específicas apenas para esse caso. Apenas um caso deve corresponder ao resultado quando a instrução switch for executada.
 
 Por exemplo, suponhamos que você deseje um aplicativo lógico que execute etapas diferentes com base em uma opção selecionada no e-mail. Neste exemplo, o aplicativo lógico verifica o feed de RSS de um site para o novo conteúdo. Quando um novo item aparece no feed de RSS, o aplicativo lógico envia e-mail a um aprovador. Baseado em se o aprovador seleciona "Aprovar" ou "Rejeitar", o aplicativo lógico segue etapas diferentes.
 

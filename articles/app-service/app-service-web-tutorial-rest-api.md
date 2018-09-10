@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4b5e432a9c553f5221f138b19a180f92420e6058
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b468240d1a9aaf0511358433a8beee7e6442e145
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445014"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: hospedar uma API RESTful com CORS no Serviço de Aplicativo do Azure
 
@@ -36,7 +37,7 @@ Você pode seguir as etapas deste tutorial no macOS, no Linux e no Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -167,7 +168,7 @@ Na produção, o aplicativo de navegador teria uma URL pública em vez da URL de
 
 ### <a name="enable-cors"></a>Habilitar CORS 
 
-No Cloud Shell, habilite o CORS para URL do cliente usando o comando [ `az resource update` ](/cli/azure/resource#az_resource_update). Substitua o espaço reservado _&lt;appname>_.
+No Cloud Shell, habilite o CORS para URL do cliente usando o comando [ `az resource update` ](/cli/azure/resource#az-resource-update). Substitua o espaço reservado _&lt;appname>_.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01

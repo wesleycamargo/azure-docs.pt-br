@@ -7,16 +7,18 @@ manager: douge
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: a87ed8630f86cf004a05cdb2ae8b34c479cdaf32
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2e446bad042965e8466e74b9b1abd8661ea88f8b
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142029"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicionando um Active Directory do Azure usando Serviços Conectados no Visual Studio
 
@@ -26,9 +28,10 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
 
 No momento, o serviço conectado do Active Directory não dá suporte a aplicativos ASP.NET Core.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Conta do Azure: se não tiver uma conta do Azure, você poderá [inscrever-se para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar seus benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- **Visual Studio 2015 ou posterior**. [Baixe o Visual Studio 2017 agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Conectar-se ao Azure Active Directory usando a caixa de diálogo Serviços Conectados
 
@@ -72,5 +75,5 @@ Quando você adiciona o serviço conectado ao assistente, o Visual Studio adicio
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Cenários de autenticação do Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Adicionar entrada com a Microsoft para um aplicativo Web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
+- [Adicionar entrada com a Microsoft para um aplicativo Web ASP.NET](quickstart-v1-aspnet-webapp.md)

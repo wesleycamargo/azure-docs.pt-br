@@ -3,18 +3,19 @@ title: Perguntas frequentes sobre o Azure SQL Data Warehouse | Microsoft Docs
 description: Este artigo lista as perguntas frequentes sobre o Azure SQL Data Warehouse de clientes e desenvolvedores
 services: sql-data-warehouse
 author: acomet
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306733"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Perguntas frequentes sobre o SQL Data Warehouse
 
@@ -87,7 +88,7 @@ R: Orc, RC, Parquet e texto simples delimitado
 
 P: Ao que posso me conectar do SQL DW usando o PolyBase? 
 
-R: O [Azure Data Lake Store] e o [Azure Storage Blobs]
+R: O [Repositório Azure Data Lake] e o [Blobs de armazenamento do Azure]
 
 P: A aplicação de computação é possível ao conectar aos Azure Storage Blobs ou ao ADLS? 
 
@@ -105,14 +106,14 @@ Para obter mais informações sobre o SQL Data Warehouse como um todo, consulte 
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Cadeias de conexão]: ./sql-data-warehouse-connection-strings.md
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Tíquetes de Suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Tíquetes de suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Segurança]: ./sql-data-warehouse-overview-manage-security.md
 [Conformidade da Microsoft]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
 [limites de capacidade]: ./sql-data-warehouse-service-capacity-limits.md
 [tipos de dados]: ./sql-data-warehouse-tables-data-types.md
 [Recursos de tabela sem suporte]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
-[Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[solicitação de recursos de projetos de Banco de Dados]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
+[Repositório Azure Data Lake]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
+[Blobs de armazenamento do Azure]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Solicitação de recursos de projetos de Banco de Dados]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 [Visão geral]: ./sql-data-warehouse-overview-faq.md

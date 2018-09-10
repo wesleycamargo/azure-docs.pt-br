@@ -3,21 +3,23 @@ title: Como configurar a atribuição de aplicativo de autoatendimento | Microso
 description: Habilite o acesso do aplicativo de autoatendimento para permitir que os usuários encontrem seus próprios aplicativos
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: asteen
-ms.openlocfilehash: cf70da4933f5513b75f84aef01dec1ef902eab85
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: barbkess
+ms.openlocfilehash: 89eb80dbb749b2f50ca3f1fc097c205b62b6b4a4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445289"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Como configurar a atribuição de aplicativo de autoatendimento
 
@@ -88,4 +90,4 @@ Após você concluir a configuração do aplicativo de autoatendimento, os usuá
 Essas aprovações dão suporte a fluxos de trabalho de aprovação únicos, o que significa que, se você especificar vários aprovadores, qualquer aprovador individual poderá aprovar o acesso ao aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Configuração do Azure Active Directory para gerenciamento de grupo de autoatendimento](active-directory-accessmanagement-self-service-group-management.md)
+[Configuração do Azure Active Directory para gerenciamento de grupo de autoatendimento](users-groups-roles/groups-self-service-management.md)

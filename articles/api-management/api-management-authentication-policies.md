@@ -1,11 +1,11 @@
 ---
-title: "Políticas de autenticação de Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba mais sobre as políticas de autenticação disponíveis para uso no Gerenciamento de API do Azure."
+title: Políticas de autenticação de Gerenciamento de API do Azure | Microsoft Docs
+description: Saiba mais sobre as políticas de autenticação disponíveis para uso no Gerenciamento de API do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26127752"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  

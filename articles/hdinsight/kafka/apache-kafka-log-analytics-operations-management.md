@@ -1,24 +1,20 @@
 ---
-title: Log Analytics para Apache Kafka – Azure HDInsight | Microsoft Docs
+title: Log Analytics para Apache Kafka – Azure HDInsight
 description: Saiba como usar o Log Analytics para analisar logs do cluster Apache Kafka no Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 9f366631ced4392831ad9ed97898a88b3290cd22
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/15/2018
+ms.openlocfilehash: d07c37803c94d7fa39d398a97796fecbad373af4
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047819"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analise logs do Apache Kafka no HDInsight
 
@@ -39,7 +35,7 @@ As etapas para habilitar o Log Analytics para o HDInsight são as mesmas para to
     >
     > * O nome do cluster HDInsight.
     > * A ID do espaço de trabalho do Log Analytics. Você pode encontrar a ID do espaço de trabalho no seu espaço de trabalho do Log Analytics.
-    > * A chave primária da conexão do Log Analytics. Para localizar a chave primária, selecione a instância do Log Analytics e, em seguida, __Portal do OMS__. No portal do OMS, selecione __Configurações__, __Fontes Conectadas__ e, em seguida, __Servidores Linux__.
+    > * A chave primária da conexão do Log Analytics. Para localizar a chave primária, abra o espaço de trabalho no portal do Azure, selecione __Configurações Avançadas__ no menu à esquerda. Em configurações Avançadas, selecione __Fontes Conectadas__>__Servidores Linux__.
 
 
 > [!IMPORTANT]

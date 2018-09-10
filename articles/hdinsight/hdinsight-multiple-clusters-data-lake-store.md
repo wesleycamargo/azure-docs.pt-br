@@ -1,29 +1,26 @@
 ---
-title: Usar múltiplos clusters HDInsight com uma conta do Azure Data Lake Store – Azure | Microsoft Docs
+title: Usar múltiplos clusters HDInsight com uma conta do Azure Data Lake Store - Azure
 description: Saiba como usar mais de um cluster HDInsight com uma única conta do Data Lake Store
 keywords: armazenamento hdinsight, hdfs, dados estruturados, dados não estruturados, data lake store
 services: hdinsight,storage
-documentationcenter: ''
-tags: azure-portal
-author: nitinme
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 48e5a8d270701c43276e1d248d8ea4dc748d15b2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 0e74406d79484483053ca7d4b89b096c3f70e298
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095117"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Usar múltiplos clusters HDInsight com uma conta do Azure Data Lake Store
 
 Começando com o HDInsight versão 3.5, você pode criar clusters HDInsight com contas de armazenamento do Azure Data Lake Store como o sistema de arquivos padrão.
-O Data Lake Store dá suporte a armazenamento ilimitado, o que o torna ideal não apenas para hospedagem de grandes quantidades de dados, mas também para hospedar vários clusters HDInsight que compartilham uma única conta do Data Lake Store. Para obter instruções sobre como criar um cluster HDInsight com o Data Lake Store como o armazenamento, consulte [Criar clusters HDInsight com o Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+O Data Lake Store dá suporte a armazenamento ilimitado, o que o torna ideal não apenas para hospedagem de grandes quantidades de dados, mas também para hospedar vários clusters HDInsight que compartilham uma única conta do Data Lake Store. Para obter instruções sobre como criar um cluster HDInsight com o Data Lake Storage como o armazenamento, consulte o [Guia de início rápido: configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 Este artigo fornece recomendações para o administrador do Data Lake Store configurar uma única conta compartilhada do Data Lake Store que pode ser usada em vários clusters HDInsight **ativos**. Essas recomendações se aplicam à hospedagem de vários clusters do Hadoop seguros e também não seguros em uma conta compartilhada do Data Lake Store.
 
@@ -38,7 +35,7 @@ Utilizaremos uma hierarquia de pastas de dois níveis para explicar as recomenda
 Para habilitar essa estrutura de pasta para ser efetivamente usada pelos clusters HDInsight, o administrador do Data Lake Store deve atribuir permissões apropriadas, conforme descrito na tabela. As permissões mostradas na tabela correspondem a ACLs de acesso e ACLs não padrão. 
 
 
-|Pasta  |Permissões  |usuário proprietário  |grupo proprietário  | Usuário nomeado | Permissões de usuário nomeado | Grupo nomeado | Permissões de grupo nomeado |
+|Pasta  |Permissões  |Usuário proprietário  |Grupo proprietário  | Usuário nomeado | Permissões de usuário nomeado | Grupo nomeado | Permissões de grupo nomeado |
 |---------|---------|---------|---------|---------|---------|---------|---------|
 |/ | rwxr-x--x  |administrador |administrador  |Entidade de serviço |--x  |FINGRP   |r-x         |
 |/clusters | rwxr-x--x |administrador |administrador |Entidade de serviço |--x  |FINGRP |r-x         |
@@ -50,7 +47,7 @@ Na tabela,
 - **Entidade de serviço** é a entidade de serviço do Azure Active Directory (AAD) associada à conta.
 - **FINGRP** é um grupo de usuários criado no AAD que contém os usuários da organização Finance.
 
-Para obter instruções sobre como criar um aplicativo do AAD (que também cria uma entidade de serviço), consulte [Criar um aplicativo do AAD](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Para obter instruções sobre como criar um grupo de usuários no AAD, consulte [Gerenciamento de grupos no Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
+Para obter instruções sobre como criar um aplicativo do AAD (que também cria uma entidade de serviço), consulte [Criar um aplicativo do AAD](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Para obter instruções sobre como criar um grupo de usuários no AAD, consulte [Gerenciamento de grupos no Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Veja alguns pontos principais a considerar.
 
@@ -59,7 +56,7 @@ Veja alguns pontos principais a considerar.
 - No caso em que entidades de serviço do AAD diferentes podem criar clusters em **/clusters/finance**, o sticky bit (quando definido na pasta **finance**) assegura que as pastas criadas por uma entidade de serviço não possam ser excluídas pela outra.
 - Depois que a estrutura de pastas e as permissões estiverem em vigor, o processo de criação de cluster HDInsight criará um local de armazenamento específico do cluster em **/clusters/finance/**. Por exemplo, o armazenamento de um cluster com o nome fincluster01 poderia ser **/clusters/finance/fincluster01**. A propriedade e as permissões para as pastas criadas pelo cluster HDInsight são mostrados na tabela apresentada aqui.
 
-    |Pasta  |Permissões  |usuário proprietário  |grupo proprietário  | Usuário nomeado | Permissões de usuário nomeado | Grupo nomeado | Permissões de grupo nomeado |
+    |Pasta  |Permissões  |Usuário proprietário  |Grupo proprietário  | Usuário nomeado | Permissões de usuário nomeado | Grupo nomeado | Permissões de grupo nomeado |
     |---------|---------|---------|---------|---------|---------|---------|---------|
     |/clusters/finanace/ fincluster01 | rwxr-x---  |Entidade de Serviço |FINGRP  |- |-  |-   |-  | 
    
@@ -96,6 +93,6 @@ Defina permissões de leitura-execução **outros** por meio da hierarquia, por 
 
 ## <a name="see-also"></a>Consulte também
 
-* [Criar um cluster HDInsight com o Repositório Data Lake como armazenamento](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 
 

@@ -6,15 +6,16 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 19e8e9d22938fa8a18299d67aa77824aaae3f6da
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: b59dba541394c105370cfd3af0768a8477ddb4e6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39347565"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Comparação da colaboração B2B e B2C no Azure Active Directory
 
@@ -28,7 +29,7 @@ Identidades suportadas: funcionários com contas corporativas ou escolares, parc
 Qual diretório são os usuários do parceiro encontram-se: usuários de parceiros da organização externa são gerenciados no mesmo diretório que os funcionários, mas anotados especialmente. Eles podem ser gerenciados da mesma forma que os funcionários, podem ser adicionados aos mesmos grupos e assim por diante  | Qual diretório as entidades de usuário do cliente estão: no diretório do aplicativo. Gerenciado separadamente do diretório de parceiros e funcionários da organização (se houver).
 Há suporte para SSO (logon único) em todos os aplicativos conectados ao Azure AD. Por exemplo, é possível fornecer acesso ao Office 365 ou a aplicativos locais, além de outros aplicativos SaaS, como o Salesforce ou Workday.  |  Há suporte para SSO para aplicativos de clientes dentro dos locatários do B2C do AD do Azure. Não há suporte para SSO para Office 365 nem para outros aplicativos SaaS da Microsoft SaaS que não sejam da Microsoft.
 Ciclo de vida do parceiro: gerenciado pela organização convidada/host.  | Ciclo de vida do cliente: autoatendido ou gerenciado pelo aplicativo.
-Política de segurança e conformidade: gerenciada pela organização convidada/host.  | Política de segurança e conformidade: gerenciada pelo aplicativo.
+Política de segurança e conformidade: Gerenciado pela organização host / convidativa (por exemplo, com [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Política de segurança e conformidade: gerenciada pelo aplicativo.
 Identidade visual: uso da marca da organização convidada/host.  |    Identidade visual: gerenciada pelo aplicativo. Geralmente, tende a ser da marca do produto com o esmaecimento da organização na tela de fundo.
 Mais informações em: [Postagem de Blog](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Documentação](what-is-b2b.md)  | Mais informações em: [Página](https://azure.microsoft.com/services/active-directory-b2c/), [Documentação](https://docs.microsoft.com/azure/active-directory-b2c/)
 

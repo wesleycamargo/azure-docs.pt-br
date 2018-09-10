@@ -7,21 +7,25 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/16/2017
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 6c7290db73645a4e1e745142f266aabc6df735df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1574a6a4cf727198b17f5c62488d12be12d928f4
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502025"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do CoreOS Linux em um domínio gerenciado
 Este artigo mostra como ingressar uma máquina virtual CoreOS Linux a um domínio gerenciado do Azure AD Domain Services.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Para executar as tarefas listadas neste artigo, você precisa do seguinte:
@@ -34,7 +38,7 @@ Para executar as tarefas listadas neste artigo, você precisa do seguinte:
 
 ## <a name="provision-a-coreos-linux-virtual-machine"></a>Provisionar uma máquina virtual CoreOS Linux
 Provisione uma máquina virtual CoreOS no Azure usando qualquer um dos seguintes métodos:
-* [Portal do Azure](../virtual-machines/linux/quick-create-portal.md)
+* [portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
 * [PowerShell do Azure](../virtual-machines/linux/quick-create-powershell.md)
 

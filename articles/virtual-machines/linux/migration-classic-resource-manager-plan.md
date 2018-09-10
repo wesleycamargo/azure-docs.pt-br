@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 19dd6a693daf0b54c7df448f21bdb098d9bbdcac
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653494"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 Embora o Azure Resource Manager ofereça vários recursos incríveis, é fundamental planejar sua jornada de migração para garantir que tudo ocorra sem problemas. Gastar tempo no planejamento garantirá que não ocorram problemas durante a execução das atividades de migração. 
@@ -51,7 +52,7 @@ Dependendo do tamanho dos requisitos técnicos, das regiões geográficas e das 
 
 ### <a name="patterns-of-success"></a>Padrões de sucesso
 
-Os clientes de sucesso têm planos detalhados para quando as perguntas acima são abordadas, documentadas e controladas.  Garanta que os planos de migração são comunicados em larga escala para os patrocinadores e stakeholders.  Esteja munido com o conhecimento sobre as opções de migração; é altamente recomendável ler todo este conjunto de documentos sobre migração abaixo.
+Os clientes de sucesso têm planos detalhados para quando as perguntas anteriores são abordadas, documentadas e controladas.  Garanta que os planos de migração são comunicados em larga escala para os patrocinadores e stakeholders.  Esteja munido com o conhecimento sobre as opções de migração; é altamente recomendável ler todo este conjunto de documentos sobre migração abaixo.
 
 * [Visão geral da migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -1,7 +1,24 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 1c7f006c066a4f1505a642af04a1ef027fde0a44
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34666935"
+---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Habilitar registro em log com as configurações de diagnóstico
 
 1. Entre no [portal do Azure][lnk-portal] e navegue até o seu Hub IoT.
-1. Selecione **Configurações de diagnóstico**.
+1. Selecionar **configurações de Diagnóstico**.
 1. Selecione **Ativar diagnóstico**.
 
    ![Ativar diagnóstico][1]

@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 566b1e731f137863e9d4bc284d8868d408c7a575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367266"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640193"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Como processar e extrair informações de imagens em cenários da pesquisa cognitiva
 
@@ -45,7 +45,7 @@ Defina o parâmetro **parsingMode** `json`(para indexar cada blob como um único
 O padrão de 2000 pixels para a largura e altura máximas das imagens normalizadas se baseia nos tamanhos máximos compatíveis com a [habilidade de OCR](cognitive-search-skill-ocr.md) e a [habilidade de análise de imagem](cognitive-search-skill-image-analysis.md). Se você aumentar os limites máximos, o processamento poderá falhar em imagens maiores.
 
 
-Especifique o imageAction na [definição do indexador](ref-create-indexer.md) da seguinte maneira:
+Especifique o imageAction na [definição do indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) da seguinte maneira:
 
 ```json
 {
@@ -218,7 +218,7 @@ Como um auxiliar, se você precisar transformar coordenadas normalizadas no espa
 ```
 
 ## <a name="see-also"></a>Consulte também
-+ [Criar indexador (REST)](ref-create-indexer.md)
++ [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Habilidade Analisar Imagem](cognitive-search-skill-image-analysis.md)
 + [Habilidade OCR](cognitive-search-skill-ocr.md)
 + [Habilidade Mesclar Texto](cognitive-search-skill-textmerger.md)

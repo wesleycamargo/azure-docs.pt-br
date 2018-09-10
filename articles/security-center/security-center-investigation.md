@@ -3,35 +3,41 @@ title: Investigar os incidentes e alertas na Central de Segurança do Azure | Mi
 description: Este documento ajuda você a usar o recurso de investigação na Central de Segurança do Azure para investigar alertas e incidentes de segurança.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
-ms.openlocfilehash: bab7b64a1635639991d639fb838b7118e234aa5b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/29/2018
+ms.author: terrylan
+ms.openlocfilehash: 010c641c247552a8994c9d1c945cd585148fadf9
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340783"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Investigar os incidentes e alertas na Central de Segurança do Azure (Versão prévia)
 Este documento ajuda você a usar o recurso de investigação na Central de Segurança do Azure para investigar alertas e incidentes de segurança.
 
 ## <a name="what-is-investigation-in-security-center"></a>O que é a investigação na Central de Segurança?
 O recurso de investigação na Central de Segurança permite que você faça triagem, compreenda o escopo e rastreie a causa raiz de um possível [incidente de segurança](https://docs.microsoft.com/azure/security-center/security-center-incident).
- 
+
 A intenção é facilitar o processo de investigação vinculando todas as entidades ([alertas de segurança](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), usuários, computadores e incidentes) envolvidas com o incidente que você está investigando.  A Central de Segurança pode fazer isso correlacionando os dados relevantes com as entidades envolvidas e expondo essa correlação usando um grafo dinâmico que ajuda você a navegar pelos objetos e a visualizar informações relevantes.
+
+> [!NOTE]
+> [Alertas personalizados](security-center-custom-alert.md) não têm suporte no recurso de investigação da Central de segurança.
+>
+>
 
 
 ## <a name="how-investigation-works"></a>Como a investigação funciona?
 A investigação é composta por um grafo que ocupa a área central do painel de investigação. O grafo sempre se concentra em uma entidade específica e apresenta as entidades que estão relacionadas a ela. Uma entidade pode ser um alerta de segurança, um usuário, um computador ou um incidente.
- 
+
 ![Mapa](./media/security-center-investigation/security-center-investigation-fig1.png)
 
 O usuário pode navegar de uma entidade para outra clicando no grafo. O grafo centraliza na entidade selecionada e nas entidades relacionadas automaticamente. As entidades que não são mais relevantes podem ser removidas do grafo.
@@ -42,7 +48,7 @@ Enquanto o usuário está navegando para entidades diferentes, o caminho de inve
 ![Caminho](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Informações gerais
-Quando uma entidade é apresentada no grafo, as guias mostram outras informações sobre essa entidade. A guia **Informações** apresenta informações gerais sobre a entidade de várias fontes de informação disponíveis. 
+Quando uma entidade é apresentada no grafo, as guias mostram outras informações sobre essa entidade. A guia **Informações** apresenta informações gerais sobre a entidade de várias fontes de informação disponíveis.
 
 ![Informações gerais](./media/security-center-investigation/security-center-investigation-fig3.png)
 
@@ -70,7 +76,7 @@ A guia **Exploração** permite que o investigador examine os dados relacionados
 
 ### <a name="timeline"></a>Linha do tempo
 
-A maioria dos dados apresentados no grafo e nas diversas guias é relevante para um período de tempo específico. Esse escopo de hora é definido usando o seletor de escopo de tempo no canto superior esquerdo do grafo. O investigador tem vários métodos para selecionar o escopo de tempo. 
+A maioria dos dados apresentados no grafo e nas diversas guias é relevante para um período de tempo específico. Esse escopo de hora é definido usando o seletor de escopo de tempo no canto superior esquerdo do grafo. O investigador tem vários métodos para selecionar o escopo de tempo.
 
 ![Linha do tempo](./media/security-center-investigation/security-center-investigation-fig7.png)
 
@@ -102,7 +108,7 @@ Você pode iniciar a investigação de um incidente de segurança ou de um alert
 
     ![Painel de investigação](./media/security-center-investigation/security-center-investigation-fig9.png)
 
-Daqui, você pode explorar as entidades que estão associadas ao incidente e explorar mais detalhes sobre cada uma delas. 
+Daqui, você pode explorar as entidades que estão associadas ao incidente e explorar mais detalhes sobre cada uma delas.
 
 ## <a name="see-also"></a>Consulte também
 Neste documento, você aprendeu a usar o recurso de investigação na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
@@ -110,7 +116,6 @@ Neste documento, você aprendeu a usar o recurso de investigação na Central de
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerenciar alertas e responder a incidentes de segurança na Central de Segurança.
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md). Saiba como monitorar a integridade dos recursos do Azure.
 * [Noções básicas de alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
-* [Guia de solução de problemas da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como solucionar problemas comuns na Central de Segurança. 
+* [Guia de solução de problemas da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como solucionar problemas comuns na Central de Segurança.
 * [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md). Encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/). Encontre postagens no blog sobre a conformidade e segurança do Azure.
-

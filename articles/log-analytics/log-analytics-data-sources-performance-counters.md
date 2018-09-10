@@ -1,24 +1,26 @@
 ---
 title: Coletar e analisar contadores de desempenho no Azure Log Analytics | Microsoft Docs
-description: "Os contadores de desempenho são coletados pelo Log Analytics para analisar o desempenho em agentes do Windows e Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Linux e do Windows, cujos detalhes são armazenados no espaço de trabalho, e como analisá-los no portal do Azure."
+description: Os contadores de desempenho são coletados pelo Log Analytics para analisar o desempenho em agentes do Windows e Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Linux e do Windows, cujos detalhes são armazenados no espaço de trabalho, e como analisá-los no portal do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.component: na
+ms.openlocfilehash: b23c170e557d019abf2b9aab8edcb74728bc872d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128768"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Fontes de dados de desempenho do Windows e Linux no Log Analytics
 Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Log Analytics pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Quase em Tempo Real) além de agregar dados de desempenho para análise e relatório de longo prazo.

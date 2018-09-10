@@ -1,24 +1,25 @@
 ---
-title: "Gerenciamento de soluções de parceiros conectados na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento fornece uma orientação de como a Central de Segurança do Azure permite que você monitore rapidamente o status de integridade de suas soluções de parceiro integradas com sua assinatura do Azure."
+title: Gerenciamento de soluções de parceiros conectados na Central de Segurança do Azure | Microsoft Docs
+description: Este documento fornece uma orientação de como a Central de Segurança do Azure permite que você monitore rapidamente o status de integridade de suas soluções de parceiro integradas com sua assinatura do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 181e1e00716987732ee809df6171c2f71087f3e1
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 3d4c9c79ff90ee816719f0179fbb5096b0035854
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144153"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Monitoramento das soluções de parceiros com a Central de Segurança do Azure
 Este artigo explica como gerenciar e monitorar soluções de segurança conectadas na Central de Segurança do Azure.

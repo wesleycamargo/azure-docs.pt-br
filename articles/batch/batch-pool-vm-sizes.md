@@ -1,24 +1,25 @@
 ---
 title: Escolher tamanhos de VM em pools do Lote do Azure | Microsoft Docs
-description: "Como escolher entre os tamanhos de VM disponíveis para nós de computação em pools de Lote do Azure"
+description: Como escolher entre os tamanhos de VM disponíveis para nós de computação em pools de Lote do Azure
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 08/09/2018
 ms.author: danlep
-ms.openlocfilehash: addd1e9314a754b40cc5d49c0299f007580f512f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 1669d5a2237322f72dce3b172c32e7199900a4e0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037895"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do Lote do Azure
 
@@ -40,9 +41,9 @@ Os pools de lote na configuração da máquina virtual oferecem suporte a todos 
 | Série A básica | Basic_A0 (A0) |
 | Séria A | Standard_A0 |
 | Série B | Todos |
-| Série Fsv2 <sup>*</sup> | Todos |
+| Série M | Todos |
 
-<sup>*</sup>Os tamanhos nessa série estão em nossos planos para suporte futuro.
+
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pools na configuração de Serviço de Nuvem
 

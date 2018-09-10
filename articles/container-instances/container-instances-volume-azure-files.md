@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 239150c1e752ce6a4f2a19fa1192cd1a910ebea9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 83c86d8310aff80f148e878261ba33b01846006b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441316"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montar um compartilhamento de arquivos do Azure em Instâncias de Contêiner do Azure
 
@@ -149,5 +150,5 @@ Saiba como montar outros tipos de volume em Instâncias de Contêiner do Azure:
 [storage-explorer]: https://storageexplorer.com
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az_container_create
-[az-container-show]: /cli/azure/container#az_container_show
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show

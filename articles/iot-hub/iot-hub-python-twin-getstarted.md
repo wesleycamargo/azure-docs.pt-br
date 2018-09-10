@@ -1,24 +1,20 @@
 ---
 title: Introdução aos dispositivos gêmeos do Hub IoT do Azure (Python) | Microsoft Docs
 description: Como usar dispositivos gêmeos do Hub IoT do Azure para adicionar marcas e usar uma consulta do Hub IoT. Use os SDKs do IoT do Azure para Python para implementar o aplicativo de dispositivo simulado e um aplicativo de serviço que adiciona as marcações e executa a consulta do Hub IoT.
-services: iot-hub
-documentationcenter: python
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: kgremban
-ms.openlocfilehash: 44b913d5f30a8465219a6793f48d82cfe39d12b2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e75b6bbd688ae6e4422d5caba160095763e84994
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185611"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introdução aos dispositivos gêmeos (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -288,13 +284,13 @@ Veja os recursos a seguir para saber como:
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 
-[lnk-iothub-getstarted]: iot-hub-python-getstarted.md
+[lnk-iothub-getstarted]: quickstart-send-telemetry-python.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/quickstart-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-[lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-twin-how-to-configure]: tutorial-device-twins.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
-[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/20/2018
+ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: e0254cd16c27597c3d52aed19b4c4ece49bac765
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 48df858095cb867954460ec858567e41ed330063
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366385"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39012064"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-azure-virtual-machines"></a>Perguntas frequentes sobre o SQL Server executando nas Máquinas Virtuais do Windows Azure
 
@@ -55,7 +55,7 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
 1. **É possível definir configurações não mostradas na galeria de máquinas virtuais (por exemplo, Windows 2008 R2 + SQL Server 2012)?**
 
-   Nº Para imagens da galeria de máquinas virtuais que incluem o SQL Server, você deve selecionar uma das imagens fornecidas.
+   Não. Para imagens da galeria de máquinas virtuais que incluem o SQL Server, você deve selecionar uma das imagens fornecidas.
 
 ## <a name="creation"></a>Criação
 
@@ -71,11 +71,11 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
 1. **Como instalar minha cópia licenciada do SQL Server em uma VM do Azure?**
 
-   Há duas maneiras de fazer isso. É possível provisionar uma das [imagens de máquina virtual que dão suporte a licenças](virtual-machines-windows-sql-server-iaas-overview.md#BYOL). Outra opção é copiar a mídia de instalação do SQL Server para uma VM do Windows Server e, em seguida, instalar o SQL Server na VM. Por motivos de licenciamento, você deve ter o [License Mobility por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/). Para obter mais informações, consulte [Diretrizes de preço para VMs do Azure do SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md).
+   Há duas maneiras de fazer isso. Você pode provisionar uma das [imagens de máquina virtual que dão suporte a licenças](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), o que também é conhecido como BYOL (traga sua própria licença). Outra opção é copiar a mídia de instalação do SQL Server para uma VM do Windows Server e, em seguida, instalar o SQL Server na VM. No entanto, se você instala manualmente o SQL Server, não há nenhuma integração com o portal e não há suporte para a extensão do SQL Server IaaS Agent, portanto, recursos como o Backup Automatizado e a Aplicação de Patch Automatizada não funcionarão nesse cenário. Por esse motivo, é recomendável usar uma das imagens da galeria do BYOL. Para usar BYOL ou sua própria mídia do SQL Server em uma VM do Azure, você deve ter [Mobilidade de Licenças via Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/). Para obter mais informações, consulte [Diretrizes de preço para VMs do Azure do SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 1. **Posso alterar uma VM para usar minha própria licença do SQL Server se ela foi criada com base em uma das imagens pré-pagas da galeria?**
 
-   Nº Não é possível mudar do licenciamento pago por segundo para o uso de sua própria licença. Crie uma nova máquina virtual do Azure usando uma das [imagens BYOL](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) e, em seguida, migre os bancos de dados para o novo servidor usando [técnicas de migração de dados](virtual-machines-windows-migrate-sql.md) padrão.
+   Não. Não é possível mudar do licenciamento pago por segundo para o uso de sua própria licença. Crie uma nova máquina virtual do Azure usando uma das [imagens BYOL](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) e, em seguida, migre os bancos de dados para o novo servidor usando [técnicas de migração de dados](virtual-machines-windows-migrate-sql.md) padrão.
 
 1. **É necessário pagar para licenciar o SQL Server em uma VM do Azure se ela está sendo usada somente para espera/failover?**
 
@@ -115,6 +115,9 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 1. **Há suporte para FCIs (Instâncias de Cluster de Failover) do SQL Server nas VMs do Azure?**
 
    Sim. É possível [criar um Cluster de Failover do Windows no Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) e usar o S2D (Espaços de Armazenamento Diretos) para o armazenamento de cluster. Como alternativa, você pode usar soluções de clustering ou armazenamento de terceiros, conforme descrito em [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
+
+   > [!IMPORTANT]
+   > Neste momento, a [extensão do SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md) não é compatível com a FCI do SQL Server no Azure. É recomendável que você desinstale a extensão de VMs que participam da FCI. Essa extensão dá suporte a recursos, como Backup Automatizado e Aplicação de Patch Automatizada, além de alguns recursos do portal para SQL. Esses recursos não funcionarão para VMs do SQL depois que o agente for desinstalado.
 
 1. **Qual é a diferença entre VMs do SQL e o serviço de Banco de Dados SQL?**
 

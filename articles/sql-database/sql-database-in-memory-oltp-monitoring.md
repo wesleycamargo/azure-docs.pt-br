@@ -6,20 +6,23 @@ author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: jodebrui
-ms.openlocfilehash: 0802a3b51847236efb64e628ed259dc7776bac4e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f74c9bf06cad8b84d08baf7a0a0504b9cb729bf4
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308672"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Monitorar o armazenamento OLTP In-Memory
-Ao usar o [In-Memory OLTP](sql-database-in-memory.md), os dados em tabelas com otimização de memória e as variáveis de tabela residem no armazenamento OLTP in-memory. Cada camada de serviço Premium e Comercialmente Crítico tem um tamanho máximo de armazenamento OLTP In-Memory, documentado em [Limites de recursos baseados em DTU](sql-database-dtu-resource-limits.md) e [Limites de recursos baseados em vCore](sql-database-vcore-resource-limits.md). Quando esse limite for excedido, as operações insert e update poderão começar a falhar com o erro 41823 para banco de dados independentes e erro 41840 para pools elásticos. Nesse ponto, você precisa excluir dados para obter memória ou atualizar a camada de desempenho do seu banco de dados.
+Ao usar o [In-Memory OLTP](sql-database-in-memory.md), os dados em tabelas com otimização de memória e as variáveis de tabela residem no armazenamento OLTP in-memory. Cada camada de serviço Premium e Comercialmente Crítico tem um tamanho máximo de armazenamento OLTP in-memory. Consulte [Limites de recurso baseado em DTU – banco de dados individual](sql-database-dtu-resource-limits-single-databases.md), [Limites de recurso baseado em DTU – pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md), [Limites de recurso baseado em vCore – bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [Limites de recurso baseado em vCore – pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
+
+Quando esse limite for excedido, as operações insert e update poderão começar a falhar com o erro 41823 para banco de dados independentes e erro 41840 para pools elásticos. Nesse ponto, você precisa excluir dados para obter memória ou atualizar a camada de desempenho do seu banco de dados.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determinar se os dados se ajustam ao limite de armazenamento OLTP na memória
-Determine os limites de armazenamento das diferentes camadas de serviço. Consulte [Limites de recursos baseados em DTU](sql-database-dtu-resource-limits.md) e [Limites de recursos baseados em vCore](sql-database-vcore-resource-limits.md).
+Determine os limites de armazenamento das diferentes camadas de serviço. Consulte [Limites de recurso baseado em DTU – banco de dados individual](sql-database-dtu-resource-limits-single-databases.md), [Limites de recurso baseado em DTU – pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md), [Limites de recurso baseado em vCore – bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [Limites de recurso baseado em vCore – pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
 A estimativa dos requisitos de memória para uma tabela com otimização de memória funciona no SQL Server da mesma forma como no Banco de Dados SQL do Azure. Reserve alguns minutos para examinar este artigo sobre [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 

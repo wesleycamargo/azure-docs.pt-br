@@ -1,89 +1,78 @@
-- name: Documentação do Kit de desenvolvimento de pilha do Azure
+items:
+- name: Documentação do Kit de desenvolvimento do Azure Stack
   href: index.yml
 - name: Visão geral
+  items:
+  - name: O que é o ASDK?
+    href: asdk-what-is.md
+  - name: Notas de versão ASDK
+    href: asdk-release-notes.md
   expanded: true
-  items:
-    - name: O que é o ASDK?
-      href: asdk-what-is.md
-    - name: Notas de versão ASDK
-      href: asdk-release-notes.md
-- name: Tutoriais
-  items:
-    - name: 1. Implantar o ASDK
-      items:
-        - name: Implantar o ASDK - instalador
-          href: asdk-deploy.md
-        - name: Implantar o ASDK - PowerShell
-          href: asdk-deploy-powershell.md
-        - name: Reimplantar o ASDK
-          href: asdk-redeploy.md
-    - name: 2. Adicionar um item do marketplace
-      items:
-        - name: Baixar pelo Azure
-          href: asdk-marketplace-item.md
-        - name: Adicionar a partir de um local de origem
-          href: asdk-marketplace-item-offline.md
-    - name: 3. Oferecer serviços de IaaS
-      href: asdk-offer-services.md
-    - name: 4. Assinar uma oferta
-      href: asdk-subscribe-services.md
-    - name: 5. Ofertas de atualização e planos
-      href: asdk-update-offers.md
-    - name: 6. Criar uma máquina virtual de um modelo
-      href: asdk-create-vm-template.md
 - name: Conceitos
   items:
-    - name: Considerações de planejamento de implantação
-      href: asdk-deploy-considerations.md
-    - name: Arquitetura do kit de desenvolvimento
-      href: asdk-architecture.md
-    - name: Noções básicas de administração de ASDK
-      href: asdk-admin-basics.md
-    - name: Tarefas de avaliação avançadas
-      href: asdk-advanced-eval.md
+  - name: Considerações de planejamento de implantação
+    href: asdk-deploy-considerations.md
+  - name: Arquitetura do kit de desenvolvimento
+    href: asdk-architecture.md
+  - name: Noções básicas de administração de ASDK
+    href: asdk-admin-basics.md
+  - name: Tarefas de avaliação avançada
+    href: asdk-advanced-eval.md
 - name: Como
   items:
-    - name: Instalação de ASDK
-      items:
-        - name: Baixe e extraia o kit de desenvolvimento
-          href: asdk-download.md
-        - name: Preparar o computador de host ASDK
-          href: asdk-prepare-host.md
-        - name: Instalar o ASDK
-          href: asdk-install.md
-        - name: Configuração de pós-implantação
-          href: asdk-post-deploy.md
-    - name: Registrar o ASDK
-      href: asdk-register.md
-    - name: Configurar as configurações de telemetria de pilha do Azure
-      href: asdk-telemetry.md
-    - name: Iniciar e parar o ASDK
-      href: asdk-start-stop.md
-    - name: Solução de Problemas
-      href: asdk-troubleshooting.md
+  - name: Configurar o ASDK
+    items:
+    - name: Baixe e extraia o kit de desenvolvimento
+      href: asdk-download.md
+    - name: Preparar o computador de host ASDK
+      href: asdk-prepare-host.md
+    - name: Implantar o ASDK - Installer
+      href: asdk-install.md
+    - name: Implantar o ASDK - PowerShell
+      href: asdk-deploy-powershell.md
+    - name: Configuração pós-implantação
+      href: asdk-post-deploy.md
+    - name: Reimplantar o ASDK
+      href: asdk-redeploy.md
+  - name: Registrar o ASDK
+    href: asdk-register.md
+  - name: Definir as configurações de telemetria do Azure Stack
+    href: asdk-telemetry.md
+  - name: Iniciar e parar o ASDK
+    href: asdk-start-stop.md
+  - name: Validar um backup do Azure Stack
+    href: asdk-validate-backup.md
+  - name: solução de problemas
+    href: asdk-troubleshooting.md
 - name: Referência
   items:
-    - name: Azure Stack PowerShell
-      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
-    - name: CLI do Azure Stack
-      href: /cli/azure/?view=azure-cli-2017-03-09-profile
-- name: Relacionado
+  - name: Azure Stack PowerShell
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+  - name: CLI do Azure Stack
+    href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: Relacionados
   items:
-    - name: Documentação do Operador do Azure Stack
-      href: /azure/azure-stack/
-    - name: Documentação do Usuário do Azure Stack
-      href: /azure/azure-stack/user/
+  - name: Documentação do Operador do Azure Stack
+    href: /azure/azure-stack/
+  - name: Documentação do Usuário do Azure Stack
+    href: /azure/azure-stack/user/
 - name: Recursos
   items:
-    - name: Roteiro de pilha do Azure
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Fórum do MSDN de pilha do Azure
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Comentários de documentação de pilha do Azure
-      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
-    - name: Informações sobre preços
-      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-stack'
-    - name: Treinamento e certificação
-      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'
+  - name: Roteiro de pilha do Azure
+    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
+  - name: Fórum do MSDN de pilha do Azure
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack
+  - name: Comentários de documentação de pilha do Azure
+    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
+  - name: Informações sobre preço
+    href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-stack
+  - name: Treinamento e certificação
+    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
+ms.openlocfilehash: 49a707294e6018355a2e355bffa2139057ba81f3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023606"

@@ -2,21 +2,21 @@
 title: Documentação do Azure Resource Manager - Tutoriais, Referência de API | Microsoft Docs
 description: Saiba como usar o Resource Manager para implantar e gerenciar os recursos da solução como um grupo e criar modelos para implantação de recursos consistentes e repetíveis.
 services: azure-resource-manager
-author: czeumault
-manager: carolz
+author: tfitzmac
 layout: LandingPage
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 471ed43d5eec54a138262b7c4c89802020683fdc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 07/16/2018
+ms.author: tomfitz
+ms.openlocfilehash: 59b13f38cb7071418d63d26242d6a4c8aaa0dfe2
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116726"
 ---
 # <a name="azure-resource-manager-documentation"></a>Documentação do Azure Resource Manager
 
@@ -125,7 +125,7 @@ Saiba como usar o Resource Manager para implantar, monitorar e gerenciar os recu
                 <div class="card">
                     <div class="cardText">
                         <h3>Linha de comando</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
                         <p><a href="/cli/azure/resource">CLI do Azure</a></p>
                     </div>
                 </div>
@@ -140,7 +140,7 @@ Saiba como usar o Resource Manager para implantar, monitorar e gerenciar os recu
                         <h3>Linguagens</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
+                        <p><a href="/python/azure/">Python</a></p>
                         <p><a href="/azure/templates/">Formato do modelo</a></p>
                         <p><a href="/azure/resource-group-template-functions">Funções de modelo</a></p>
                         <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funções de definição de interface do usuário</a></p>

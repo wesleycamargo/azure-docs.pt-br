@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 5ba13aeb63a72b738aac435b63ebbcfd4eeb7fa9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f196859500d5de883a4de3f21b803c8f83e2f0b2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021405"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Definir as configurações de FabricTransport para os Reliable Actors
 
@@ -50,6 +51,10 @@ O exemplo a seguir mostra como alterar o valor padrão das configurações Opera
 ## <a name="config-package"></a>Pacote de configuração
 
 Você pode usar um [pacote de configuração](service-fabric-application-and-service-manifests.md) para modificar a configuração padrão.
+
+> [!IMPORTANT]
+> Em nós Linux, certificados devem estar formatados como PEM. Para saber mais sobre como localizar e configurar certificados para Linux, consulte [Configurar certificados em Linux](./service-fabric-configure-certificates-linux.md). 
+> 
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Definir as configurações do FabricTransport para o serviço de ator
 

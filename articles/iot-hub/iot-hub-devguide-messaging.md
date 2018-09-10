@@ -1,24 +1,19 @@
 ---
 title: Entender as mensagens do Hub IoT do Azure| Microsoft Docs
 description: Guia do desenvolvedor – Mensagens do dispositivo para a nuvem e da nuvem para o dispositivo com o Hub IoT. Inclui informações sobre formatos de mensagem e protocolos de comunicação com suporte.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 50f95dc1af334468db25bce68f2ca00e0965a28b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b0667f820145f16c75a07ebe1849e20d2de36cc7
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185502"
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>Mensagens de dispositivo para nuvem e nuvem para dispositivo com o Hub IoT
 
@@ -46,7 +41,7 @@ Use mensagens de dispositivo para nuvem a fim de enviar alertas e telemetria de 
 * Saiba mais sobre [mensagens da nuvem para dispositivos][lnk-c2d] do Hub IoT.
 
 [lnk-azure-iot]: ../iot-fundamentals/index.yml
-[lnk-iot-hub-overview]: iot-hub-what-is-iot-hub.md
+[lnk-iot-hub-overview]: about-iot-hub.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md

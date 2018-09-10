@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: ec5470587454a35bc7606a3518d61bd3491d653b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fc74d7fdd082cf497b7cabf30d96509ebe8b6b68
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426010"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gerenciar a expiração do conteúdo da Web na CDN do Azure
 > [!div class="op_single_selector"]
@@ -46,7 +47,7 @@ O método preferencial para configurar um cabeçalho `Cache-Control` do servidor
 
 1. No Portal do Azure, selecione um perfil CDN e selecione o ponto de extremidade para o servidor Web.
 
-2. No painel esquerdo em Configurações, selecione **Regras de cache**.
+1. No painel esquerdo em Configurações, selecione **Regras de cache**.
 
    ![Botão de Regras de cache da CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
@@ -59,13 +60,13 @@ O método preferencial para configurar um cabeçalho `Cache-Control` do servidor
 
 1. Em **Regras de cache globais**, defina **Comportamento de cache da cadeia de caracteres de consulta** para **Ignorar cadeias de consulta** e defina **Comportamento do cache** para **Substituição**.
       
-2. Para **Duração da expiração do cache**, insira 3600 na caixa **Segundos**ou 1 na caixa **Horas**. 
+1. Para **Duração da expiração do cache**, insira 3600 na caixa **Segundos**ou 1 na caixa **Horas**. 
 
    ![Exemplo de regras de cache globais da CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
    Essa regra de cache global define uma duração de cache de uma hora e afeta todas as solicitações para o ponto de extremidade. Ela substitui todos os cabeçalhos HTTP `Cache-Control` ou `Expires` que são enviados pelo servidor de origem especificado pelo ponto de extremidade.   
 
-3. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
 **Para definir os cabeçalhos de Controle de Cache do servidor Web usando regras de cache personalizadas:**
 
@@ -79,7 +80,7 @@ O método preferencial para configurar um cabeçalho `Cache-Control` do servidor
 
     A primeira regra de cache personalizada estabelece uma duração de cache de quatro horas para qualquer arquivo na pasta `/webfolder1` no servidor de origem especificado pelo ponto de extremidade. A segunda regra substitui a primeira regra somente para o arquivo `file1.txt` e define uma duração de cache de duas horas para isso.
 
-2. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Configurando cabeçalhos de Cache-Control usando arquivos de configuração
@@ -112,10 +113,10 @@ Para aplicativos ASP.NET, você controla o comportamento de cache de CDN program
 
 Para armazenar em cache o conteúdo do aplicativo programaticamente no ASP.NET, siga essas etapas:
    1. Verifique se o conteúdo está marcado como armazenável em cache, configurando `HttpCacheability` para `Public`. 
-   2. Defina um validador de cache chamando um dos seguintes métodos `HttpCachePolicy`:
+   1. Defina um validador de cache chamando um dos seguintes métodos `HttpCachePolicy`:
       - Chame `SetLastModified` para definir um valor de carimbo de data/hora para o cabeçalho `Last-Modified`.
       - Chame `SetETag` para definir um valor para o cabeçalho `ETag`.
-   3. Opcionalmente, especifique um tempo de expiração de cache, chamando `SetExpires` para definir um valor para o cabeçalho `Expires`. Caso contrário, as heurísticas de cache padrão descritas anteriormente neste documento se aplicam.
+   1. Opcionalmente, especifique um tempo de expiração de cache, chamando `SetExpires` para definir um valor para o cabeçalho `Expires`. Caso contrário, as heurísticas de cache padrão descritas anteriormente neste documento se aplicam.
 
 Por exemplo, para armazenar em cache o conteúdo por uma hora, adicione o seguinte código C#:  
 

@@ -3,7 +3,7 @@ title: Como usar o Gerenciamento de API do Azure com redes virtuais
 description: Saiba como configurar uma conexão a uma rede virtual no Gerenciamento de API do Azure e acessar serviços Web por meio dela.
 services: api-management
 documentationcenter: ''
-author: antonba
+author: vlvinogr
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 223fa9bc4a19264cc1dcba9830726b30b0f7446c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: deba3ad8a283b111dc94a5361f3fa4e73d95c0b8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355076"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187376"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure, confira [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -29,7 +29,7 @@ O Gerenciamento de API do Azure pode ser implantado na VNET (rede virtual) para 
 > O Gerenciamento de API do Azure oferece suporte às VNets clássicas e do Azure Resource Manager.
 >
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para executar as etapas descritas neste artigo, você precisa ter:
 
@@ -50,22 +50,22 @@ Para executar as etapas descritas neste artigo, você precisa ter:
 
     ![Menu de rede virtual de Gerenciamento de API][api-management-using-vnet-menu]
 4. Selecione o tipo de acesso desejado:
-    
+
     * **Externo**: o portal de desenvolvedor e o gateway de Gerenciamento de API podem ser acessados pela Internet pública por meio de um balanceador de carga externo. O gateway pode acessar recursos na rede virtual.
-    
+
     ![Emparelhamento público][api-management-vnet-public]
-    
+
     * **Interno**: o portal de desenvolvedor e o gateway de Gerenciamento de API só podem ser acessados de dentro da rede virtual por meio de um balanceador de carga interno. O gateway pode acessar recursos na rede virtual.
-    
+
     ![Emparelhamento privado][api-management-vnet-private]`
 
     Agora você verá uma lista de todas as regiões em que o serviço de Gerenciamento de API é disponibilizado. Selecione uma VNET e uma sub-rede para cada região. A lista é preenchida com as redes virtuais clássicas e do Resource Manager disponíveis em sua assinatura do Azure que estão instaladas na região que você está configurando.
-    
+
     > [!NOTE]
     > O **Ponto de Extremidade de Serviço** no diagrama acima inclui Gateway/Proxy, o Portal do Azure, o Portal do Desenvolvedor, GIT e o Ponto de Extremidade de Gerenciamento Direto.
     > O **Ponto de Extremidade de Gerenciamento**, no diagrama acima, é o ponto de extremidade hospedado no serviço para gerenciar a configuração por meio do Portal do Azure e do Powershell.
     > Além disso, observe que, mesmo que o diagrama mostre os endereços IP de seus vários pontos de extremidade, o serviço de Gerenciamento de API responde **somente** em seus nomes de host configurados.
-    
+
     > [!IMPORTANT]
     > Ao implantar uma instância do Gerenciamento de API do Azure a uma VNET do Resource Manager, o serviço deve estar em uma sub-rede dedicada que não contém outros recursos, exceto as instâncias do Gerenciamento de API do Azure. Se for feita uma tentativa de implantar uma instância do Gerenciamento de API do Azure em uma VNET do Resource Manager que contém outros recursos, a implantação falhará.
     >
@@ -75,7 +75,7 @@ Para executar as etapas descritas neste artigo, você precisa ter:
 5. Clique em **Salvar** na parte superior da tela.
 
 > [!NOTE]
-> O endereço VIP da instância do Gerenciamento de API mudará sempre que a VNET for habilitada ou desabilitada.  
+> O endereço VIP da instância do Gerenciamento de API mudará sempre que a VNET for habilitada ou desabilitada.
 > O endereço VIP também será alterado quando o Gerenciamento de API for movido de **Externo** para **Interno** ou vice-versa
 >
 
@@ -110,8 +110,8 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Comunicação do cliente com o Gerenciamento de API|Externo |
 | * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto de extremidade de gerenciamento para o Portal do Azure e o Powershell |Interna |
-| * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|**Dependência no Armazenamento do Microsoft Azure**, Barramento de Serviço do Microsoft Azure e Azure Active Directory (quando aplicável).|Interno e externo | 
-| * / 1433 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|**Acesso aos pontos de extremidade do SQL do Azure** |Interno e externo |
+| * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|**Dependência no Armazenamento do Microsoft Azure**, Barramento de Serviço do Microsoft Azure e Azure Active Directory (quando aplicável).|Interno e externo |
+| * / 1433 |Saída |TCP |VIRTUAL_NETWORK / SQL|**Acesso aos pontos de extremidade do SQL do Azure** |Interno e externo |
 | * / 5672 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|Dependência para registrar em log a política de Hub de Eventos e o agente de monitoramento |Interno e externo |
 | * / 445 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|Dependência do Compartilhamento de Arquivos do Azure para GIT |Interno e externo |
 | * / 1886 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|Necessário para publicar o status da Integridade no Resource Health |Interno e externo |
@@ -126,7 +126,13 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 
 * **Acesos de DNS**: O acesso de saída na porta 53 é necessário para a comunicação com servidores DNS. Se houver um servidor DNS personalizado na outra extremidade de um gateway de VPN, o servidor DNS deverá estar acessível pela sub-rede que hospeda o Gerenciamento de API.
 
-* **Monitoramento de integridade e métricas**: conectividade de rede de saída para os pontos de extremidade do Monitoramento do Azure, que é resolvida nos seguintes domínios: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, prod.warmpath.msftcloudes.com, prod3-black.prod3.metrics.nsatc.net e prod3-red.prod3.metrics.nsatc.net.
+* **Monitoramento de integridade e métricas**: conectividade de rede de saída para pontos de extremidade do Monitoramento do Azure, que são resolvidos sob os seguintes domínios: 
+
+    | Azure Environment | Pontos de extremidade |
+    | --- | --- |
+    | Público do Azure | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li></ul> |
+    | Azure Government | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
+    | Azure China | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
 
 * **Configuração da ExpressRoute**: uma configuração de cliente comum é definir sua própria rota padrão (0.0.0.0/0), que força o tráfego de saída da Internet para o fluxo local. Esse fluxo de tráfego invariavelmente interrompe a conectividade com o Gerenciamento de API do Azure, pois o tráfego de saída é bloqueado localmente ou convertido em NAT para um conjunto irreconhecível de endereços que não funcionam mais com vários pontos de extremidade do Azure. A solução é definir uma (ou mais) [UDRs][UDRs] (rotas definidas pelo usuário) na sub-rede que contém o Gerenciamento de API do Azure. Uma UDR define rotas específicas de sub-rede que serão consideradas no lugar da rota padrão.
   Se possível, é recomendável usar a seguinte configuração:
@@ -136,21 +142,24 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 
 * **Roteamento por meio de soluções de virtualização de rede**: as configurações que usam um UDR com uma rota padrão (0.0.0.0/0) para rotear o tráfego destinado à Internet proveniente da sub-rede do Gerenciamento de API por meio de uma solução de virtualização de rede em execução no Azure, bloquearão o tráfego de gerenciamento proveniente da Internet para a instância do serviço Gerenciamento de API implantada dentro da sub-rede da rede virtual. Não há suporte para essa configuração.
 
->[!WARNING]  
+>[!WARNING]
 >O Gerenciamento de API do Azure não tem suporte com configurações do ExpressRoute que **incorretamente cruzam anúncios de rotas do caminho de emparelhamento público para o caminho de emparelhamento privado**. As configurações de ExpressRoute com emparelhamento público definido receberão anúncios de rota da Microsoft para um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se esses intervalos de endereços forem incorretamente anunciados de modo cruzado no caminho de emparelhamento privado, o resultado final será que todos os pacotes de saída de rede da sub-rede da instância do Gerenciamento de API do Azure serão incorretamente encapsulados à força em uma infraestrutura de rede local do cliente. Esse fluxo de rede interrompe o Gerenciamento de API do Azure. A solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento particular.
 
 
 ## <a name="troubleshooting"> </a>Solução de problemas
-* **Instalação Inicial**: quando a implantação inicial do serviço de Gerenciamento de API em uma sub-rede não for bem-sucedida, é recomendável primeiro implantar uma máquina virtual na mesma sub-rede. Em seguida, acesse a área de trabalho remota na máquina virtual e valide se há conectividade a um de cada recurso abaixo em sua assinatura do azure 
+* **Instalação Inicial**: quando a implantação inicial do serviço de Gerenciamento de API em uma sub-rede não for bem-sucedida, é recomendável primeiro implantar uma máquina virtual na mesma sub-rede. Em seguida, acesse a área de trabalho remota na máquina virtual e valide se há conectividade a um de cada recurso abaixo em sua assinatura do azure
     * Azure Storage Blob
     * Banco de Dados SQL do Azure
+    * Tabela de armazenamento do Azure
 
  > [!IMPORTANT]
  > Após validar a conectividade, certifique-se de remover todos os recursos implantados na sub-rede antes de implantar o Gerenciamento de API na sub-rede.
 
 * **Atualizações Incrementais**: ao fazer alterações em sua rede, consulte a [API NetworkStatus](https://docs.microsoft.com/rest/api/apimanagement/networkstatus) para verificar se o serviço de Gerenciamento de API não perdeu o acesso a nenhum dos recursos críticos dos quais ele depende. O status de conectividade deve ser atualizado a cada 15 minutos.
 
-* **Links de Navegação do Recurso**: ao implantar na sub-rede da VNET do estilo Resource Manager, o Gerenciamento de API reserva a sub-rede criando um Link de navegação do recurso. Se a sub-rede já contiver um recurso de outro provedor, a implantação **falhará**. Da mesma forma, quando você move um serviço de Gerenciamento de API para uma sub-rede diferente ou o exclui, removeremos esse link de navegação do recurso. 
+* **Links de Navegação do Recurso**: ao implantar na sub-rede da VNET do estilo Resource Manager, o Gerenciamento de API reserva a sub-rede criando um Link de navegação do recurso. Se a sub-rede já contiver um recurso de outro provedor, a implantação **falhará**. Da mesma forma, quando você move um serviço de Gerenciamento de API para uma sub-rede diferente ou o exclui, removeremos esse link de navegação do recurso.
+
+* **Os testes de API do portal do Microsoft Azure**: quando uma API no portal do Azure e sua instância de gerenciamento de API de teste está integrada a uma rede virtual interna, os servidores DNS configurados na rede virtual serão usados para resolução de nome. Se você receber um erro 404 durante o teste do portal do Azure, certifique-se de que os servidores DNS para a rede virtual podem resolver corretamente o nome do host de sua instância de Gerenciamento de API. 
 
 ## <a name="subnet-size"> </a> Requisito de tamanho de sub-rede
 O Azure reserva alguns endereços IP em cada sub-rede, os quais não podem ser usados. O primeiro e o último endereço IP das sub-redes são reservados para fins de conformidade de protocolo, juntamente com três outros endereços usados para os serviços do Azure. Para obter mais informações, consulte [Existem restrições quanto ao uso de endereços IP dentro dessas sub-redes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)

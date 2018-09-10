@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 77d766358135f5cdabfe7e9b62e54513c2604ed3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 021ab6cd29634c2e2f17234e188edce2a14449cf
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140190"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Como criar conta autônoma de automação do Azure
 
@@ -40,7 +41,7 @@ Para criar ou atualizar uma conta de Automação e concluir as tarefas descritas
 
 Caso não seja membro da instância do Active Directory da assinatura antes de ser adicionado à função de administrador global/coadministrador da assinatura, você será adicionado ao Active Directory como convidado. Neste cenário, você recebe esta mensagem na página **Adicionar Conta de Automação**: “Você não tem permissões para criar”.
 
-Se um usuário for adicionado à função de administrador global/coadministrator pela primeira vez, você poderá removê-los da instância do Active Directory da assinatura e, em seguida, adicioná-los novamente à função de Usuário completa no Active Directory.
+Se um usuário for adicionado à função de administrador global/coadministrator pela primeira vez, você poderá removê-lo da instância do Active Directory da assinatura e, em seguida, adicioná-lo novamente à função de Usuário completa no Active Directory.
 
 Para verificar as funções de usuário:
 
@@ -67,7 +68,7 @@ Para criar uma conta da Automação do Azure no portal do Azure, execute as segu
   >
   > ![Aviso Adicionar Conta de Automação](media/automation-create-standalone-account/create-account-without-perms.png)
   >
-1. No painel **Adicionar Conta de Automação**, na caixa **Nome**, insira um nome para a nova conta de Automação.
+1. No painel **Adicionar Conta de Automação**, na caixa **Nome**, insira um nome para a nova conta de Automação. Esse nome não pode ser alterado depois de ser escolhido.
 1. Se você tem mais de uma assinatura, na caixa **Assinatura**, especifique a assinatura que deseja usar para a nova conta.
 1. Para **Grupo de recursos**, insira ou selecione um grupo de recursos novo ou existente.
 1. Para **Local**, selecione um local de datacenter do Azure.

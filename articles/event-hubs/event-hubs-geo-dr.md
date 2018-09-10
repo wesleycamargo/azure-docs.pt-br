@@ -1,23 +1,24 @@
 ---
-title: "Recuperação de desastres de área geográfica de Hubs de Eventos do Azure | Microsoft Docs"
-description: "Como usar regiões geográficas para fazer failover e executar a recuperação de desastre nos Hubs de Eventos do Azure"
+title: Recuperação de desastres de área geográfica de Hubs de Eventos do Azure | Microsoft Docs
+description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre nos Hubs de Eventos do Azure
 services: event-hubs
-documentationcenter: 
-author: sethmanheim
+documentationcenter: ''
+author: ShubhaVijayasarathy
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: sethm
-ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.date: 08/14/2018
+ms.author: shvija
+ms.openlocfilehash: 89ecfd93c22fe72fee3befd8d4a722eb41d816af
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747164"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Recuperação de desastres de área geográfica dos Hubs de Eventos do Azure
 
@@ -100,6 +101,17 @@ Observe as seguintes considerações a serem lembradas quanto a esta versão:
 
 4. A sincronização de entidades pode levar algum tempo, cerca de 50 a 100 entidades por minuto.
 
+## <a name="availability-zones-preview"></a>Zonas de Disponibilidade (versão prévia)
+
+O SKU Standard dos Hubs de Eventos também oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro de uma região do Azure. 
+
+> [!NOTE]
+> A versão prévia das Zonas de Disponibilidade tem suporte apenas nas regiões **Centro dos EUA**, **Leste dos EUA 2** e **França Central**.
+
+Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usando o portal do Azure. Os Hubs de Eventos não dão suporte à migração dos namespaces existentes. Você não pode desabilitar a redundância de zona depois de habilitá-la em seu namespace.
+
+![3][]
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * O [exemplo de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) apresenta um fluxo de trabalho simples que cria um emparelhamento de área geográfica e inicia um failover para um cenário de recuperação de desastre.
@@ -113,3 +125,4 @@ Para saber mais sobre Hubs de Eventos, acesse os seguintes links:
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
+[3]: ./media/event-hubs-geo-dr/eh-az.png

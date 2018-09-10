@@ -1,26 +1,19 @@
 ---
-title: Criar alertas do log de atividades e gerenciá-los usando a nova experiência de Alertas no Azure Monitor | Microsoft Docs
-description: Este artigo fornece informações sobre como criar alertas do log de atividades a partir da guia alertas no Azure Monitor
-author: JYOTHIRMAISURI
-manager: vvithal
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: Use alertas do log de atividades na nova experiência de alertas do Azure Monitor
+description: Como criar alertas do log de atividades a partir da guia Alertas (versão prévia) no Azure Monitor. Este artigo detalha a nova experiência do usuário para esse recurso.
+author: jyothirmaisuri
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: ''
-ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.component: alerts
+ms.openlocfilehash: 10cd4e2ea14ab66a44ba2123e025b3d1b91f385c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202813"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263551"
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>Crie alertas do log de atividades usando a nova experiência de alertas
 

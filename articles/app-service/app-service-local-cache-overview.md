@@ -1,13 +1,13 @@
 ---
-title: "Visão geral do cache local do Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Este artigo descreve como habilitar, redimensionar e consultar o status do recurso de Cache Local do Serviço de Aplicativo do Azure"
+title: Visão geral do cache local do Serviço de Aplicativo do Azure | Microsoft Docs
+description: Este artigo descreve como habilitar, redimensionar e consultar o status do recurso de Cache Local do Serviço de Aplicativo do Azure
 services: app-service
 documentationcenter: app-service
-author: SyntaxC4
-manager: yochayk
-editor: 
+author: cephalin
+manager: jpconnock
+editor: ''
 tags: optional
-keywords: 
+keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
 ms.devlang: multiple
@@ -15,14 +15,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
-ms.author: cfowler
-ms.openlocfilehash: 75f2dcb80514105ed663ba1fe5f7adccc05af1fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cephalin
+ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918009"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral do cache local do Serviço de Aplicativo do Azure
+
+> [!NOTE]
+> O cache local não é compatível com aplicativo de funções ou aplicativos do Serviço de Aplicativo em contêiner, como em [Serviço de Aplicativo no Linux](containers/app-service-linux-intro.md).
+
+
 O conteúdo dos aplicativos Web do Azure é armazenado no Armazenamento do Azure e exibido de forma duradoura como um compartilhamento de conteúdo. Esse design tem como objetivo trabalhar com vários aplicativos e tem os seguintes atributos:  
 
 * O conteúdo é compartilhado entre várias instâncias de VM (máquina virtual) do aplicativo Web.
@@ -43,8 +49,8 @@ O recurso Cache Local do Serviço de Aplicativo do Azure fornece uma exibição 
 * O cache local é de leitura/gravação. No entanto, as modificações são descartadas quando o aplicativo Web mover as máquinas virtuais ou for reiniciado. Não utilize o Cache Local para aplicativos que armazenam dados de missão crítica no repositório de conteúdo.
 * Os aplicativos Web podem continuar a gravar arquivos de log e dados de diagnóstico, como fazem atualmente. Arquivos de log e dados, no entanto, são armazenados localmente na máquina virtual. Em seguida, eles são copiados periodicamente para o repositório de conteúdo compartilhado. A cópia para o repositório de conteúdo compartilhado é a melhor opção. Podem ocorrer perdas de write-backs devido a uma falha repentina de uma instância de VM.
 * Há uma alteração na estrutura da pastas das pastas LogFiles e Data para aplicativos Web que usam o Cache Local. Há agora subpastas nas pastas de armazenamento LogFiles e Data que seguem o padrão de nomenclatura de "identificador exclusivo" + carimbo de data/hora. Cada uma das subpastas corresponde a uma instância de VM na qual o aplicativo Web está em execução ou foi executado.  
-* A publicação de alterações no aplicativo Web por meio de qualquer um dos mecanismos de publicação, publicará no repositório de conteúdo compartilhado. Isso ocorre por padrão, pois queremos que o conteúdo publicado seja duradouro. Para atualizar o cache local do aplicativo Web, é necessário reiniciá-lo. Isso parece uma etapa desnecessária? Para tornar o ciclo de vida contínuo, confira as informações neste artigo.
-* D:\Home aponta para o cache local. D:\Local continua apontando para o armazenamento temporário específico da VM.
+* A publicação de alterações no aplicativo Web por meio de qualquer um dos mecanismos de publicação, publicará no repositório de conteúdo compartilhado durável. Para atualizar o cache local do aplicativo Web, é necessário reiniciá-lo. Para tornar o ciclo de vida contínuo, confira as informações neste artigo.
+* D:\Home aponta para o cache local. D:\local continua apontando para o armazenamento temporário específico da VM.
 * A exibição de conteúdo padrão do site do SCM continua sendo aquela do repositório de conteúdo compartilhado.
 
 ## <a name="enable-local-cache-in-app-service"></a>Habilitar o Cache Local no Serviço de Aplicativo

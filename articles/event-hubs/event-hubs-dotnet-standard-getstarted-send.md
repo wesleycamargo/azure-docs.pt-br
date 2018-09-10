@@ -1,24 +1,25 @@
 ---
 title: Enviar eventos para Hubs de Eventos do Azure usando .NET Standard | Microsoft Docs
-description: "Começar a enviar eventos para Hubs de Eventos no .NET Standard"
+description: Começar a enviar eventos para Hubs de Eventos no .NET Standard
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
-ms.author: sethm
-ms.openlocfilehash: f59f88d47bfcb3e761f509a3d87c6d068f44e0db
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: 4cd2fdb2bd8b6a15bc8dc3e4594971a61e1889e7
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41917651"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Introdução ao envio de mensagens para os Hubs de Eventos do Azure no .NET Standard
 
@@ -27,18 +28,18 @@ ms.lasthandoff: 02/03/2018
 
 Este tutorial mostra como escrever um aplicativo do console do .NET Core que envia um conjunto de mensagens para um hub de eventos. É possível executar a solução do [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) no estado em que se encontra, substituindo as cadeias de caracteres `EhConnectionString` e `EhEntityPath` pelos valores do seu hub de eventos. Se preferir, é possível seguir as etapas deste tutorial para criar sua própria solução.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Microsoft Visual Studio 2015 ou 2017](http://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2017, mas também há suporte para o Visual Studio 2015.
 * [Ferramentas do .NET Core do Visual Studio 2015 ou 2017](http://www.microsoft.com/net/core).
 * Uma assinatura do Azure.
-* Um namespace do hub de eventos.
+* [Um namespace de hub de eventos e um hub de eventos](event-hubs-quickstart-portal.md).
 
 Para enviar mensagens para um hub de eventos, este tutorial usa o Visual Studio para escrever um aplicativo de console do C#.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um namespace de Hubs de Eventos e um hub de eventos
 
-A primeira etapa é usar o [Portal do Azure](https://portal.azure.com) para criar um namespace para o tipo do hub de eventos e obter as credenciais de gerenciamento que o aplicativo precisa para se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento descrito [neste artigo](event-hubs-create.md) e, em seguida, continue com as próximas etapas.
+Para criar um namespace e um hub de eventos, siga o procedimento descrito [neste artigo](event-hubs-quickstart-portal.md) e continue com este tutorial.
 
 ## <a name="create-a-console-application"></a>Criar um aplicativo de console
 
@@ -140,8 +141,8 @@ Adicione o pacote NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.org/pack
         public class Program
         {
             private static EventHubClient eventHubClient;
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
 
             public static void Main(string[] args)
             {
@@ -151,11 +152,11 @@ Adicione o pacote NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.org/pack
             private static async Task MainAsync(string[] args)
             {
                 // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                // Typically, the connection string should have the entity path in it, but this simple scenario
-                // uses the connection string from the namespace.
-                var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
+                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
+                // we are using the connection string from the namespace.
+                var connectionStringBuilder = new EventHubsConnectionStringBuilder(EventHubConnectionString)
                 {
-                    EntityPath = EhEntityPath
+                    EntityPath = EventHubName
                 };
 
                 eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
@@ -201,8 +202,8 @@ Parabéns! Agora você enviou mensagens para um hub de eventos.
 Saiba mais sobre os Hubs de Eventos nos seguintes links:
 
 * [Receber eventos de Hubs de Eventos](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Criar um hub de eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 
-[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcore.png
+[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png

@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ba4c9d9cd5f8a43be0f97053c02798e3b84a5f7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4e454030f77a22236da18c8d8a5215667784f7c5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301433"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos do Azure Resource Manager
 
 O Gerenciador de Recursos fornece as seguintes funções para obter valores de recurso:
 
+* [listAccountSas](#list)
 * [listKeys](#listkeys)
 * [listSecrets](#list)
 * [list*](#list)
@@ -38,7 +40,9 @@ Para obter valores de parâmetros, de variáveis ou da implantação atual, veja
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-listsecrets-and-list"></a>listKeys, listSecrets e list*
+## <a name="listaccountsas-listkeys-listsecrets-and-list"></a>listAccountSas, listKeys, listSecrets, e lista*
+`listAccountSas(resourceName or resourceIdentifier, apiVersion, functionValues)`
+
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
 
 `listSecrets(resourceName or resourceIdentifier, apiVersion)`
@@ -49,10 +53,11 @@ Retorna os valores para qualquer tipo de recurso que ofereça suporte à operaç
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |sim |string |Identificador exclusivo para o recurso. |
-| apiVersion |sim |string |Versão de API do estado de tempo de execução do recurso. Normalmente, no formato **aaaa-mm-dd**. |
+| resourceName ou resourceIdentifier |SIM |string |Identificador exclusivo para o recurso. |
+| apiVersion |SIM |string |Versão de API do estado de tempo de execução do recurso. Normalmente, no formato **aaaa-mm-dd**. |
+| functionValues |Não  |objeto | Um objeto que tem valores para a função. Fornecer apenas este objeto para funções que dão suporte ao recebimento de um objeto com valores de parâmetro, como **listAccountSas** em uma conta de armazenamento. | 
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -79,7 +84,7 @@ Outras funções de lista têm formatos diferentes de retorno. Para ver o format
 
 ### <a name="remarks"></a>Comentários
 
-Qualquer operação que começa com **list** pode ser usada como uma função no seu modelo. As operações disponíveis não incluem apenas listKeys, mas também operações como `list`, `listAdminKeys` e `listStatus`. No entanto, você não pode usar **lista** as operações que exigem valores no corpo da solicitação. Por exemplo, o [lista conta SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) operação requer parâmetros de corpo de solicitação como *signedExpiry*, portanto, você não pode usá-lo em um modelo.
+Qualquer operação que começa com **list** pode ser usada como uma função no seu modelo. As operações disponíveis não incluem apenas listKeys, mas também operações como `list`, `listAdminKeys` e `listStatus`. Por exemplo, a operação [SAS da Conta de Lista](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) requer parâmetros de corpo de solicitação como *signedExpiry*. Para usar essa função em um modelo, fornece um objeto com o corpo de valores de parâmetro.
 
 Para determinar quais tipos de recursos têm uma operação de lista, use as seguintes opções:
 
@@ -95,41 +100,72 @@ Para determinar quais tipos de recursos têm uma operação de lista, use as seg
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
 
-Especifique o recurso usando a [função resourceId](#resourceid) ou o formato `{providerNamespace}/{resourceType}/{resourceName}`.
+Especifique o recurso usando o nome de recurso ou o [função resourceId](#resourceid). Ao usar essa função no mesmo modelo que implanta o recurso referenciado, use o nome do recurso.
 
 ### <a name="example"></a>Exemplo
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) a seguir mostra como retornar as chaves primárias e secundárias de uma conta de armazenamento na seção de saídas.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) a seguir mostra como retornar as chaves primárias e secundárias de uma conta de armazenamento na seção de saídas. Ele também retorna um token SAS para a conta de armazenamento. Para obter esse token, ele passa um objeto para a função listAccountSas. Este exemplo destina-se a mostrar como você pode usar as funções da lista. Normalmente, você deve usar o token SAS em um valor de recurso em vez de retorná-lo como um valor de saída. Os valores de saída são armazenados no histórico de implantação e não são seguros. Você deve especificar uma hora de expiração no futuro para que a implantação seja bem-sucedida.
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "storageAccountName": { 
-          "type": "string"
-      }
-  },
-  "resources": [
-    {
-      "name": "[parameters('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "referenceOutput": {
-          "type": "object",
-          "value": "[listKeys(parameters('storageAccountName'), '2016-12-01')]"
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagename": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "southcentralus"
+        },
+        "requestContent": {
+            "type": "object",
+            "defaultValue": {
+                "signedServices": "b",
+                "signedResourceType": "c",
+                "signedPermission": "r",
+                "signedExpiry": "2018-08-20T11:00:00Z",
+                "signedResourceTypes": "s"
+            }
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('storagename')]",
+            "location": "[parameters('location')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "supportsHttpsTrafficOnly": false,
+                "accessTier": "Hot",
+                "encryption": {
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": []
+        }
+    ],
+    "outputs": {
+        "keys": {
+            "type": "object",
+            "value": "[listKeys(parameters('storagename'), '2018-02-01')]"
+        },
+        "accountSAS": {
+            "type": "object",
+            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('requestContent'))]"
+        }
     }
 }
 ``` 
@@ -137,13 +173,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 Para implantar este modelo de exemplo com a CLI do Azure, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storageAccountName=<your-storage-account>
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storagename=<your-storage-account>
 ```
 
 Para implantar este modelo de exemplo com o PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storageAccountName <your-storage-account>
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storagename <your-storage-account>
 ```
 
 <a id="providers" />
@@ -155,9 +191,9 @@ Retorna informações sobre um provedor de recursos e seus tipos de recursos com
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |sim |string |Namespace do provedor |
+| providerNamespace |SIM |string |Namespace do provedor |
 | resourceType |Não  |string |O tipo de recurso no namespace especificado. |
 
 ### <a name="return-value"></a>Valor de retorno
@@ -243,9 +279,9 @@ Retorna um objeto que representa o estado de tempo de execução de um recurso.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |sim |string |Nome ou identificador exclusivo de um recurso. |
+| resourceName ou resourceIdentifier |SIM |string |Nome ou identificador exclusivo de um recurso. |
 | apiVersion |Não  |string |Versão da API do recurso especificado. Inclua esse parâmetro quando o recurso não estiver provisionado no mesmo modelo. Normalmente, no formato **aaaa-mm-dd**. |
 | 'Full' |Não  |string |Valor que especifica se o objeto de recurso completo deve ser retornado. Se você não especificar `'Full'`, apenas o objeto de propriedades do recurso será retornado. O objeto completo inclui valores como a ID do recurso e o local. |
 
@@ -257,7 +293,7 @@ Cada tipo de recurso retorna propriedades diferentes para a função de referên
 
 A função de referência deriva seu valor de um estado de tempo de execução e, portanto, não pode ser usada na seção de variáveis. É possível usá-la na seção de saídas de um modelo ou [modelo vinculado](resource-group-linked-templates.md#link-or-nest-a-template). Não é possível usá-la na seção de saídas de um [modelo aninhado](resource-group-linked-templates.md#link-or-nest-a-template). Para retornar os valores de um recurso implantado em um modelo aninhado, converta seu modelo aninhado em um modelo vinculado. 
 
-Usando a função de referência, você declara implicitamente que um recurso depende de outro recurso se o recurso referenciado é provisionado no mesmo modelo. Você não precisa usar a propriedade dependsOn também. A função não é avaliada até que o recurso referenciado conclua a implantação.
+Usando a função de referência, você implicitamente declarar que um recurso depende de outro recurso se o recurso referenciado é provisionado no mesmo modelo e consulte o recurso pelo seu nome (não a ID de recurso). Você não precisa usar a propriedade dependsOn também. A função não é avaliada até que o recurso referenciado conclua a implantação.
 
 Para ver os valores e nomes de propriedade para um tipo de recurso, crie um modelo que retorne o objeto na seção de saídas . Se você tiver um recurso existente desse tipo, o modelo retornará o objeto sem implantar qualquer recurso. 
 
@@ -535,12 +571,12 @@ Retorna o identificador exclusivo de um recurso. Você pode usar essa função q
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Tipo | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não  |string (no formato GUID) |O valor padrão é a assinatura atual. Especifique esse valor quando você precisar recuperar um recurso em outra assinatura. |
 | resourceGroupName |Não  |string |O valor padrão é o grupo de recursos atual. Especifique esse valor quando você precisar recuperar um recurso em outro grupo de recursos. |
-| resourceType |sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
-| resourceName1 |sim |string |Nome do recurso. |
+| resourceType |SIM |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
+| resourceName1 |SIM |string |Nome do recurso. |
 | resourceName2 |Não  |string |Próximo segmento de nome do recurso se o recurso está aninhado. |
 
 ### <a name="return-value"></a>Valor de retorno
@@ -656,7 +692,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| NOME | type | Valor |
+| NOME | Tipo | Valor |
 | ---- | ---- | ----- |
 | sameRGOutput | Cadeia de caracteres | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | Cadeia de caracteres | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
@@ -729,5 +765,5 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-* Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
+* Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](resource-group-template-deploy.md).
 

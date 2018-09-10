@@ -1,25 +1,19 @@
 ---
-title: Implantar no Serviço de Aplicativo do Azure com o plugin Jenkins | Microsoft Docs
+title: Implantar no Serviço de Aplicativo do Azure usando o plugin Jenkins
 description: Saiba como usar o plugin Jenkins do Serviço de Aplicativo do Azure para implantar um aplicativo Web do Java no Azure no Jenkins
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-ms.assetid: ''
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 7/24/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.service: jenkins
+keywords: jenkins, azure, devops, serviço de aplicativo
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
+ms.date: 07/31/2018
+ms.openlocfilehash: b364dfb033c3af640892bb305d7df3c916dd3fef
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095760"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implantar no Serviço de Aplicativo do Azure usando o plugin Jenkins 
 
@@ -45,7 +39,7 @@ Você pode usar o plugin Jenkins para implantar um aplicativo web em qualquer li
 > [!NOTE]
 > O Java JDK e o Maven são necessários para compilar o projeto Java. Instale esses componentes no mestre do Jenkins ou no agente de VM, caso você use o agente para a integração contínua. 
 
-Para instalar o componente, faça logon na instância do Jenkins com SSH e execute os seguintes comandos:
+Para instalar o componente, entre na instância do Jenkins com SSH e execute os seguintes comandos:
 
 ```bash
 sudo apt-get install -y openjdk-7-jdk
@@ -71,7 +65,7 @@ Para implantar seu projeto em Aplicativos Web, você pode carregar seus artefato
 Antes de configurar o trabalho em Jenkins, você precisa de um plano do Serviço de Aplicativo do Azure e de um aplicativo Web para executar o aplicativo Java.
 
 
-1. Crie um plano do Serviço de Aplicativo do Azure com o tipo de preço **GRÁTIS** usando o [ `az appservice plan create`comando de CLI do Azure](/cli/azure/appservice/plan#az_appservice_plan_create). O plano do Serviço de Aplicativo define os recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um Plano do Serviço de Aplicativo compartilham esses recursos. Recursos compartilhados o ajudam a economizar nos custos ao hospedar vários aplicativos.
+1. Crie um plano do Serviço de Aplicativo do Azure com o tipo de preço **GRÁTIS** usando o [ `az appservice plan create`comando de CLI do Azure](/cli/azure/appservice/plan#az-appservice-plan-create). O plano do Serviço de Aplicativo define os recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um Plano do Serviço de Aplicativo compartilham esses recursos. Recursos compartilhados o ajudam a economizar nos custos ao hospedar vários aplicativos.
 2. Crie um aplicativo Web. Você pode usar o [portal do Azure](/azure/app-service-web/web-sites-configure) ou o seguinte comando da CLI do Azure `az`:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -90,7 +84,7 @@ Antes de configurar o trabalho em Jenkins, você precisa de um plano do Serviço
 ### <a name="set-up-the-jenkins-job"></a>Configurar o trabalho do Jenkins
 
 1. Crie um novo projeto de **estilo livre** no painel do Jenkins.
-2. Configure o campo **Gerenciamento de Código-fonte** para usar o seu fork local do [Aplicativo Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Forneça o valor de **URL do repositório**. Por exemplo: http://github.com/&lt;sua_ID>/javawebappsample.
+2. Configure o campo **Gerenciamento de Código-fonte** para usar o seu fork local do [Aplicativo Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Forneça o valor de **URL do repositório**. Por exemplo: http://github.com/&lt; sua_id > / javawebappsample.
 3. Adicione uma etapa para criar o projeto usando Maven adicionando o comando **Executar shell**. Neste exemplo, precisamos de um comando adicional para renomear o arquivo \*.war na pasta de destino para **ROOT.war**:   
     ```bash
     mvn clean package
@@ -138,12 +132,12 @@ O aplicativo Web no Linux também dá suporte a métodos de implantação tradic
 Antes de configurar o trabalho no Jenkins, você precisa de um aplicativo Web no Linux. Você também precisará de um registro de contêiner para armazenar e gerenciar suas imagens privadas de contêiner Docker. Você pode usar o DockerHub para criar o registro de contêiner. Nesse exemplo, usamos o Registro de Contêiner do Azure.
 
 * [Crie um aplicativo Web no Linux](../app-service/containers/quickstart-nodejs.md).
-* O Registro de Contêiner do Azure é um serviço gerenciado de [Registro Docker](https://docs.docker.com/registry/) com base no software livre Registro Docker versão 2.0. [Crie um registro de contêiner do Azure](/azure/container-registry/container-registry-get-started-azure-cli). Você também pode usar o DockerHub.
+* O Registro de Contêiner do Azure é um serviço [Docker Registry](https://docs.docker.com/registry/) gerenciado com base no software de fonte aberta Docker Registry versão 2.0. [Crie um registro de contêiner do Azure](/azure/container-registry/container-registry-get-started-azure-cli). Você também pode usar o DockerHub.
 
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Configurar o trabalho do Jenkins para o Docker
 
 1. Crie um novo projeto de **estilo livre** no painel do Jenkins.
-2. Configure o campo **Gerenciamento de Código-fonte** para usar o seu fork local do [Aplicativo Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Forneça o valor de **URL do repositório**. Por exemplo: http://github.com/&lt;sua_ID>/javawebappsample.
+2. Configure o campo **Gerenciamento de Código-fonte** para usar o seu fork local do [Aplicativo Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Forneça o valor de **URL do repositório**. Por exemplo: http://github.com/&lt; sua_id > / javawebappsample.
 3. Adicione uma etapa para criar o projeto usando Maven adicionando um comando **Executar shell**. Inclua a seguinte linha no comando:
     ```bash
     mvn clean package
@@ -227,6 +221,10 @@ Para o valor de **URL de registro de Docker**, forneça a URL usando o formato h
 
 3. Vá para http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Substitua &lt;x> e &lt;y> por qualquer número para obter a soma de x + y.
     
+## <a name="troubleshooting-the-jenkins-plugin"></a>O plug-in do Jenkins de solução de problemas
+
+Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIRA do Jenkins](https://issues.jenkins-ci.org/) para o componente específico.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você usou o plugin do Jenkins do Serviço de Aplicativo do Azure para implantar no Azure.

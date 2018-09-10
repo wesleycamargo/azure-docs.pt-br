@@ -1,24 +1,20 @@
 ---
-title: Gerenciar logs para um cluster HDInsight - HDInsight do Azure | Microsoft Docs
+title: Gerenciar logs para um cluster HDInsight - HDInsight do Azure
 description: Determine os tipos, tamanhos e as políticas de retenção para arquivos de log de atividade de HDInsight.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: d3ca9983eee4db09a68bf772b80c9ef841117872
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: aab5be7f98f5fdf6e7304485c3d1fc5ddb7afdba
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106910"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerenciar logs para um cluster HDInsight
 

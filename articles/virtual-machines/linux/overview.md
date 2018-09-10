@@ -15,19 +15,20 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d2e4a014a0f7bb7f94885528abc930d2b243318b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1ac55b728a29ff1bb8129087da5992ffe5f23df9
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42820302"
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
-O Microsoft Azure é uma coleção crescente de serviços de nuvem pública integrados, incluindo análise, Máquinas Virtuais, bancos de dados, mobilidade, rede, armazenamento, e Web&mdash;ideal para hospedar suas soluções.  O Microsoft Azure fornece uma plataforma de computação escalonável que lhe permite pagar apenas pelo que você usa, quando quiser, sem precisar investir em hardware local.  O Azure está pronto quando você está, para escalar suas soluções horizontal e verticalmente, em qualquer escala necessária para atender às necessidades de seus clientes.
+O Microsoft Azure é uma coleção crescente de serviços de nuvem públicos e integrados, incluindo análise, máquinas virtuais, bancos de dados, dispositivo móvel, rede, armazenamento e Web&mdash;, sendo ideal para hospedar suas soluções.  O Microsoft Azure fornece uma plataforma de computação escalonável que lhe permite pagar apenas pelo que você usa, quando quiser, sem precisar investir em hardware local.  O Azure está pronto quando você está, para escalar suas soluções horizontal e verticalmente, em qualquer escala necessária para atender às necessidades de seus clientes.
 
 Se você estiver familiarizado com os diversos recursos do AWS da Amazon, examine o [documento de mapeamento de definição do Azure versus AWS](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/).
 
 ## <a name="regions"></a>Regiões
-Os recursos do Microsoft Azure são distribuídos em várias regiões geográficas em todo o mundo.  Uma "região" representa vários datacenters em uma única área geográfica. No momento, o Azure (a partir de novembro de 2017) tem 36 regiões normalmente disponíveis em todo o mundo com 6 regiões adicionais anunciadas. Uma lista atualizada de regiões existentes e recentemente anunciadas pode ser encontrada na seguinte página:
+Os recursos do Microsoft Azure são distribuídos em várias regiões geográficas em todo o mundo.  Uma "região" representa vários datacenters em uma única área geográfica. O Azure atualmente (desde agosto de 2018) tem 42 regiões geralmente disponíveis em todo o mundo com 12 regiões adicionais anunciadas, com mais regiões globais do que qualquer outro provedor de nuvem. Uma lista atualizada de regiões existentes e recentemente anunciadas pode ser encontrada na seguinte página:
 
 * [Regiões do Azure](https://azure.microsoft.com/regions/)
 
@@ -58,7 +59,7 @@ Para obter uma cultura apropriada do DevOps, toda a infraestrutura deve ser codi
 * [Modelos do Azure](create-ssh-secured-vm-from-template.md)
 * [VMAccess do Azure](using-vmaccess-extension.md)
 
-O Azure está implementando o suporte para [cloud-init](http://cloud-init.io/) na maioria das Distribuições Linux que oferecem suporte a ele.  Atualmente, as VMs do Ubuntu Canonical são implantadas com cloud-init habilitado por padrão.  Red Hats RHEL, CentOS e Fedora dão suporte a cloud-init. No entanto, as imagens do Azure mantidas pelo RedHat atualmente não têm o cloud-init instalado.  Para usar o cloud-init em uma sistema operacional da família RedHat, você deve criar uma imagem personalizada com cloud-init instalado.
+O Azure está implementando o suporte para [cloud-init](http://cloud-init.io/) na maioria das Distribuições Linux que oferecem suporte a ele.  Atualmente, as VMs do Ubuntu Canonical são implantadas com cloud-init habilitado por padrão.  RHEL do Red Hat, CentOS e Fedora dão suporte ao cloud-init, no entanto, as imagens do Azure mantidas pelo Red Hat não têm atualmente o cloud-init instalado.  Para usar o cloud-init em um SO da família Red Hat, você deve criar uma imagem personalizada com o cloud-init instalado.
 
 * [Como usar o cloud-init em VMs Linux do Azure](using-cloud-init.md)
 
@@ -72,7 +73,7 @@ A Microsoft trabalha junto com parceiros para garantir que as imagens disponíve
 
 * Linux no Azure – [Distribuições endossadas](endorsed-distros.md)
 * SUSE – [Azure Marketplace – SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-* Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Red Hat – [Azure Marketplace – Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
 * FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)

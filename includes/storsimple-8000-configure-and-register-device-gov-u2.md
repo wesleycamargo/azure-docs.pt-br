@@ -6,7 +6,7 @@
 3. Você deverá escolher o idioma que deseja definir para seu dispositivo. Especifique a linguagem e pressione **Enter**.
    
     ![O StorSimple configura e registra o dispositivo 1](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
-4. No menu do console serial apresentado, escolha a opção 1 para efetuar logon com acesso completo.
+4. No menu do console serial apresentado, escolha a opção 1 para **Fazer logon com acesso completo**.
    
     ![Dispositivo de registro do StorSimple 2](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice2-gov-include.png)
 5. Conclua as etapas a seguir para definir as configurações de rede necessárias e mínimas para seu dispositivo.

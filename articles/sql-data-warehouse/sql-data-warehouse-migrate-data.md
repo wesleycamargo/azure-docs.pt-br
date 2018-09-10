@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795996"
 ---
 # <a name="migrate-your-data"></a>Migrar seus dados
 Os dados podem ser movidos de diferentes origens no SQL Data Warehouse com uma variedade de ferramentas.  A cópia do ADF, o SSIS e o bcp podem ser usados para cumprir essa meta. No entanto, à medida que o volume de dados aumenta, uma boa prática é dividir em etapas o processo de migração de dados. Isso possibilita a otimização de cada etapa quanto ao desempenho e à resiliência para garantir uma migração de dados tranquila.

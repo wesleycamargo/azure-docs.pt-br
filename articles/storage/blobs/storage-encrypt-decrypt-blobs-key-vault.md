@@ -3,16 +3,17 @@ title: 'Tutorial: Criptografar e descriptografar blobs no Armazenamento do Azure
 description: Como criptografar e descriptografar um blob usando a criptografia do lado do cliente para o Armazenamento do Microsoft Azure com o Azure Key Vault.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: adhurwit
-ms.openlocfilehash: 405ccb44c9daf8d555946e6c68ef318ed2b82505
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.author: tamram
+ms.component: blobs
+ms.openlocfilehash: 4d714d0c345f465fc4911d55f9c57cbfd99087df
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128059"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Cofre da Chave do Azure
 ## <a name="introduction"></a>Introdução
@@ -24,7 +25,7 @@ Para obter informações gerais sobre o Cofre de Chaves do Azure, consulte [O qu
 
 Para obter informações gerais sobre a criptografia de cliente do armazenamento do Azure, consulte [Criptografia do lado do cliente e Cofre de Chaves do Azure para o Armazenamento do Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará do seguinte:
 
 * Uma conta de armazenamento do Azure

@@ -1,13 +1,13 @@
 ---
-title: "Arquitetura e cenários de alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver | Microsoft Docs"
-description: "Arquitetura e cenários de alta disponibilidade para SAP NetWeaver em Máquinas Virtuais do Azure"
+title: Arquitetura e cenários de alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver | Microsoft Docs
+description: Arquitetura e cenários de alta disponibilidade para SAP NetWeaver em Máquinas Virtuais do Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31f3765d807882e65a247819a5999c191f9e7ac5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6612e3fb5368d8d5a4f59c0e5eefc8ef24c04aec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656917"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura de alta disponibilidade e cenários para SAP NetWeaver
 
@@ -146,7 +147,7 @@ ms.lasthandoff: 11/15/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuração de alta disponibilidade de várias SID do SAP)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -248,7 +249,7 @@ A alta disponibilidade do SAP no Azure pode ser classificada em três tipos:
 
 * **Alta disponibilidade de aplicativo SAP**: 
 
-    Para obter toda a alta disponibilidade do sistema SAP, você precisa proteger todos os componentes essenciais do sistema SAP. Por exemplo:
+    Para obter toda a alta disponibilidade do sistema SAP, você precisa proteger todos os componentes essenciais do sistema SAP. Por exemplo: 
     * Servidores de aplicativos SAP redundantes.
     * Componentes exclusivos. Um exemplo pode ser um componente SPOF (ponto único de falha), como uma instância SAP ASCS/SCS ou um DBMS (sistema de gerenciamento de banco de dados).
 
@@ -266,7 +267,7 @@ A base para o cálculo é 30 dias por mês, ou 43.200 minutos. Por exemplo, um t
 
 (Serviço de disponibilidade nº 1/100) * (Serviço de disponibilidade nº 2/100) * (Serviço de disponibilidade nº 3/100) \*…
 
-Por exemplo:
+Por exemplo: 
 
 (99,95/100) * (99,9/100) * (99,9/100) = 0,9975 ou uma disponibilidade geral de 99,75%.
 
@@ -320,7 +321,7 @@ Para saber mais sobre essa abordagem, confira [Usar reinicialização de VM da i
 
 ## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Alta disponibilidade de aplicativos SAP no Azure IaaS
 
-Para obter toda a alta disponibilidade do sistema SAP, você precisa proteger todos os componentes essenciais do sistema SAP. Por exemplo:
+Para obter toda a alta disponibilidade do sistema SAP, você precisa proteger todos os componentes essenciais do sistema SAP. Por exemplo: 
   * Servidores de aplicativos SAP redundantes.
   * Componentes exclusivos. Um exemplo pode ser um componente SPOF (ponto único de falha), como uma instância SAP ASCS/SCS ou um DBMS (sistema de gerenciamento de banco de dados).
 

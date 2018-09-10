@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 79857f05505a59de94d7a6926afe38cceeac34f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5505ec8dd25e5468fad81d4eb26980202425969a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35627528"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -27,6 +28,7 @@ O Gerenciamento de Custos do Azure mostra o uso e os custos para que seja possí
 > * Acompanhar as tendências de uso e custo
 > * Detectar ineficiências de uso
 > * Criar alertas para gastos incomuns ou excesso de gastos
+> * Exportar dados
 
 Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -37,11 +39,11 @@ Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azu
 
 ## <a name="open-the-cloudyn-portal"></a>Abra o portal da Cloudyn
 
-O uso e os custos são examinados no portal da Cloudyn. Abra o portal da Cloudyn no portal do Azure ou navegue até https://azure.cloudyn.com e faça login.
+O uso e os custos são examinados no portal da Cloudyn. Abra o portal da Cloudyn por meio do portal do Azure ou navegue até https://azure.cloudyn.com e entre.
 
 ## <a name="track-usage-and-cost-trends"></a>Acompanhar as tendências de uso e custo
 
-Acompanhe a quantia de dinheiro real gasta com uso e custos usando relatórios Ao Longo do Tempo para identificar tendências. Para começar a verificar tendências, use o relatório de Custo Real ao Longo do Tempo. No menu na parte superior do portal, clique em **Custos** > **Análise de Custo** > **Custo Real ao Longo do Tempo**. Quando você abre o relatório pela primeira vez, não há nenhum grupo ou filtro aplicado.
+Acompanhe a quantia de dinheiro real gasta com uso e custos usando relatórios Ao Longo do Tempo para identificar tendências. Para começar a verificar tendências, use o relatório de Custo Real ao Longo do Tempo. Na parte superior esquerda do portal, clique em **Custos** > **Análise de Custo** > **Custo Real ao Longo do Tempo**. Quando você abre o relatório pela primeira vez, não há nenhum grupo ou filtro aplicado.
 
 Aqui está um exemplo de relatório:
 
@@ -89,12 +91,15 @@ Você pode alertar os stakeholders automaticamente sobre riscos de anomalia de g
 
 Crie um alerta para qualquer gasto usando qualquer relatório de custo. Neste exemplo, use o relatório Custo Real ao Longo do Tempo para ser notificado quando os gastos da VM do Azure se aproximarem do seu orçamento total. Todas as etapas abaixo são necessárias para criar o alerta. No menu na parte superior do portal, clique em **Custos** > **Análise de Custo** > **Custo Real ao Longo do Tempo**. Defina **Grupos** para **Serviço** e defina **Filtrar no serviço** para **Azure/VM**. Na parte superior direita do relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**.
 
-Use a guia **Agendamento** para enviar o relatório para o seu email usando a frequência desejada. Selecione **Enviar por email**. As marcas, o agrupamento e a filtragem que você usar serão incluídos no relatório por email. Clique na guia **Limite** e selecione **Custo Real versus Limite**. Se você tiver um orçamento total de $500.000 e desejar ser notificado quando os custos se aproximarem da metade, crie um **Alerta vermelho** em $250.000 e um **Alerta amarelo** em $240.000. Não inclua vírgulas nos valores inseridos. Em seguida, escolha o número de alertas consecutivos. Quando você receber o número total de alertas especificado, não será enviado mais nenhum alerta. Salve o relatório agendado.
+Na caixa Salvar ou Agendar este relatório, use a guia **Agendamento** para enviar o relatório para o seu email usando a frequência desejada. Selecione **Enviar por email**. As marcas, o agrupamento e a filtragem que você usar serão incluídos no relatório por email. Clique na guia **Limite** e selecione **Custo Real versus Limite**. Se você tiver um orçamento total de $500.000 e desejar ser notificado quando os custos se aproximarem da metade, crie um **Alerta vermelho** em $250.000 e um **Alerta amarelo** em $240.000. Não inclua vírgulas nos valores inseridos. Em seguida, escolha o número de alertas consecutivos. Quando você receber o número total de alertas especificado, não será enviado mais nenhum alerta. Salve o relatório agendado.
 
 ![relatório de exemplo](./media/tutorial-review-usage/schedule-alert01.png)
 
 Você também pode escolher a métrica de limite Percentual de Custo versus Limite para criar alertas. Com essa métrica, você pode usar porcentagens do orçamento, em vez de valores de moeda.
 
+## <a name="export-data"></a>Exportar dados
+
+Assim como você cria alertas para os relatórios, também pode exportar dados de qualquer relatório. Por exemplo, talvez você queira exportar uma lista de contas do Cloudyn ou outros dados do usuário. Para exportar qualquer relatório, abra o relatório e, em seguida, na parte superior direita do relatório, clique em **Ações**. Algumas das ações que talvez você queira executar são **Exportar todos os dados do relatório** para que você possa baixar ou imprimir as informações. Ou, você pode selecionar **Agendar relatório** para agendar o envio do relatório como um email.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -104,6 +109,7 @@ Neste tutorial, você aprendeu como:
 > * Acompanhar as tendências de uso e custo
 > * Detectar ineficiências de uso
 > * Criar alertas para gastos incomuns ou excesso de gastos
+> * Exportar dados
 
 
 Avance para o próximo tutorial para aprender a prever despesas usando dados históricos.

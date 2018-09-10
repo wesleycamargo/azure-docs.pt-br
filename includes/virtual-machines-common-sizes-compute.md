@@ -5,14 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 638b52edb554b6bddb206943fca42b03bdc69060
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 033ae1de25fbaada0c2bce715e6bdd71818b341a
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906795"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -32,6 +33,10 @@ A série Fs fornece todas as vantagens da série F, além do armazenamento Premi
 
 ACU: 195 - 210
 
+Armazenamento Premium: com suporte
+
+Cache de Armazenamento Premium: com suporte
+
 | Tamanho             | da vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | 2 / 875                                        |
@@ -42,7 +47,7 @@ ACU: 195 - 210
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | 8 / 28.000                                     |
 | Standard_F72s_v2<sup>2, 3</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | 8 / 30,000                                     |
 
-<sup>1</sup> *A tecnologia Intel® Hyper-Threading da VM série Fsv2
+<sup>1</sup> A tecnologia Intel® Hyper-Threading da VM série Fsv2
 
 <sup>2</sup> Mais de 64 vCPUs exigem um destes sistemas operacionais convidados com suporte: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux ou CentOS 7.3 ou Oracle Linux 7.3 com LIS 4.2.1
 
@@ -51,6 +56,10 @@ ACU: 195 - 210
 ## <a name="fs-series-sup1sup"></a>FS-series <sup>1</sup>
 
 ACU: 210 - 250
+
+Armazenamento Premium: com suporte
+
+Cache de Armazenamento Premium: com suporte
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -70,6 +79,10 @@ MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 ## <a name="f-series"></a>Série F
 
 ACU: 210 - 250
+
+Armazenamento Premium: sem suporte
+
+Cache de Armazenamento Premium: sem suporte
 
 | Tamanho         | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

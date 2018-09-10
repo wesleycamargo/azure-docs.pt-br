@@ -1,31 +1,30 @@
 ---
 title: Provisionar um dispositivo simulado X.509 no Hub IoT do Azure usando C# | Microsoft Docs
 description: Guia de Início Rápido do Azure – Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo C# para o Serviço de Provisionamento do Dispositivo Hub IoT do Azure
-services: iot-dps
-keywords: ''
-author: bryanla
-ms.author: v-jamebr;bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/18
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 7377ee2b43f6d1a75dff8be37ee8683ec9682990
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cc8db9a11aa4c942f0dcee3dce320a5bb77cf14a
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022728"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo C# para o Serviço de Provisionamento do Dispositivo Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Estas etapas mostram como o [SDK C# do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-csharp) simulou o exemplo do dispositivo X.509 em uma computador de desenvolvimento com o SO Windows e conectou o dispositivo simulado com o Serviço de Provisionamento de Dispositivos e o seu hub IoT.
 
-Se você não estiver familiarizado com o processo de provisionamento automático, analise também os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos do Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
+Se você não estiver familiarizado com o processo de provisionamento automático, analise também os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+[!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento 
@@ -41,6 +40,14 @@ Se você não estiver familiarizado com o processo de provisionamento automátic
     ```
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Criar um certificado de dispositivo X.509 autoassinado e entrada de registro individual
+
+Nesta seção, você usará um certificado X.509 autoassinado, é importante ter em mente o seguinte:
+
+* Os certificados autoassinados são somente para teste e não devem ser usado na produção.
+* A data de validade padrão para um certificado autoassinado é de um ano.
+
+Você usará o código de exemplo do [SDK do Azure IoT para .NET](https://github.com/Azure/azure-iot-sdk-csharp.git) para criar o certificado a ser usado na entrada de registro individual do dispositivo simulado.
+
 
 1. No prompt de comando, altere os diretórios para o diretório do projeto de exemplo de provisionamento do dispositivo X.509.
 
@@ -80,7 +87,7 @@ Se você não estiver familiarizado com o processo de provisionamento automátic
 
 1. Na folha **Visão Geral** do serviço de provisionamento, anote o valor de **_Escopo da ID_**.
 
-    ![Extrair informações de ponto de extremidade do DPS na folha do portal](./media/quick-create-simulated-device-x509-csharp/copy-scope.png) 
+    ![Extrair informações do ponto de extremidade do Serviço de Provisionamento de Dispositivo na folha do portal](./media/quick-create-simulated-device-x509-csharp/copy-scope.png) 
 
 
 2. Digite o seguinte comando para compilar e executar o exemplo de provisionamento de dispositivo X.509. Substitua o valor `<IDScope>` pelo Escopo da ID do serviço de provisionamento. 
@@ -114,4 +121,4 @@ Se você planeja continuar a trabalhar e explorar o dispositivo cliente de exemp
 Neste Guia de Início Rápido, você criou um dispositivo simulado X.509 no seu computador Windows e o provisionou no Hub IoT usando o Serviço de Provisionamento de Dispositivos do Hub IoT do Azure no portal. Para saber como registrar seu dispositivo X.509 programaticamente, continue com o Guia de Início Rápido para registro programático de dispositivos X.509. 
 
 > [!div class="nextstepaction"]
-> [Guia de Início Rápido do Azure – Registre dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Hub IoT do Azure](quick-enroll-device-x509-node.md)
+> [Guia de Início Rápido do Azure – Registre dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Hub IoT do Azure](quick-enroll-device-x509-csharp.md)

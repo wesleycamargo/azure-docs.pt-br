@@ -1,18 +1,17 @@
 ---
 title: Automatizar a instalação do Serviço de Mobilidade para Azure Site Recovery usando o System Center Configuration Manager | Microsoft Docs
 description: Este artigo ajuda a automatizar a instalação do Serviço de Mobilidade usando o System Center Configuration Manager.
-services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 50328fc3b594a9162ffb9f82f699f43f9106640f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 07/06/2018
+ms.author: ramamill
+ms.openlocfilehash: 6aff17908d220557720776a2d7884adc28b5deee
+ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "37917162"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatizar a instalação do Serviço de Mobilidade com o System Center Configuration Manager
 
@@ -27,7 +26,7 @@ Este artigo usa o System Center Configuration Manager 2012 R2 para demonstrar a 
 
 Como alternativa, é possível automatizar a instalação do Serviço de Mobilidade com [DSC de Automação do Azure](vmware-azure-mobility-deploy-automation-dsc.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Uma ferramenta de implantação de software, como o Gerenciador de Configurações, já está implantada no ambiente.
 2. É necessário criar duas [coleções de dispositivos](https://technet.microsoft.com/library/gg682169.aspx), uma para todos os **servidores Windows** e outra para todos os **servidores Linux** que você quer proteger com o Site Recovery.

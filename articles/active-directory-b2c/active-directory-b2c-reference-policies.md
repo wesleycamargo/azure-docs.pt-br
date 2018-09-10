@@ -1,22 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: políticas internas | Microsoft Docs'
-description: Um tópico sobre a estrutura de política extensível do Active Directory B2C do Azure e como criar vários tipos de política
+title: Políticas internas no Azure Active Directory B2C | Microsoft Docs
+description: Um tópico sobre a estrutura da política extensível do Azure Active Directory B2C e sobre como criar vários tipos de política.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 424186a0acfe17cd7cb96f3ba7f8201e8b2b38ec
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: f26db8bcb50fa09a8d2829d477f90cac8c52533f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200341"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337567"
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: políticas internas
 
@@ -35,7 +34,7 @@ As políticas estão disponíveis para uso por meio de uma interface simples do 
 
 ```
 
-https://login.microsoftonline.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
+https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
 &response_mode=form_post                            // 'query', 'form_post' or 'fragment'
@@ -49,7 +48,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-https://login.microsoftonline.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
+https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
 &response_mode=form_post                            // 'query', 'form_post' or 'fragment'

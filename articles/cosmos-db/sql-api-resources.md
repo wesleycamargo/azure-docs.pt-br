@@ -3,23 +3,21 @@ title: Conceitos e modelo de recurso do Azure Cosmos DB | Microsoft Docs
 description: Saiba mais sobre o modelo hierárquico de bancos de dados, coleções, UDF (função definida pelo usuário), documentos, permissões do Azure Cosmos DB para gerenciar recursos e muito mais.
 keywords: Modelo hierárquico, cosmosdb, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69ee7baeda524647dd259ea22bb948b0168fd913
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3ba02e7760d7400b5168a902415f16c4b276b3a7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287946"
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Modelo de recurso hierárquico e principais conceitos do Azure Cosmos DB
 
@@ -32,12 +30,6 @@ Este artigo responde às seguintes perguntas:
 * Como eu acesso um recurso?
 * Como eu trabalho com coleções?
 * Como eu trabalho com procedimentos armazenados, disparadores e UDFs (Funções Definidas pelo Usuário)?
-
-No vídeo a seguir, o gerente de programa do Azure Cosmos DB, Andrew Liu, demonstra como é o modelo de recursos do Azure Cosmos DB. 
-
-> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
->
->
 
 ## <a name="hierarchical-resource-model"></a>Modelo de recursos hierárquico
 Conforme ilustrado pelo diagrama a seguir, o **modelo de recurso** hierárquico do Azure Cosmos DB é formado por conjuntos de recursos em uma conta de banco de dados, cada um endereçável por meio de um URI lógico e estável. Neste artigo, um conjunto de recursos é chamado de **feed**. 

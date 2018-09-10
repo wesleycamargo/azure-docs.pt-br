@@ -3,18 +3,19 @@ title: 'Início rápido: escalar horizontalmente a computação no SQL Data Ware
 description: Dimensione a computação no SQL Data Warehouse do Azure usando T-SQL e SSMS (SQL Server Management Studio). Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7d7d3f6a773fad0b0d4ba0593230af5ff5a1e443
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e499a2a2201e81d40354069c007790e4bcdff671
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43245773"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Início Rápido: dimensionar a computação no SQL Data Warehouse do Azure usando T-SQL
 
@@ -24,7 +25,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Baixe e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Baixe e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
  
 ## <a name="create-a-data-warehouse"></a>Criar um data warehouse
 
@@ -32,7 +33,7 @@ Use o [Início Rápido: Criar e conectar – portal](create-data-warehouse-porta
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Conectar-se ao servidor como administrador do servidor
 
-Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms.md) (SQL Server Management Studio) para estabelecer uma conexão com o SQL Server do Azure.
+Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio) para estabelecer uma conexão com o SQL Server do Azure.
 
 1. Abra o SQL Server Management Studio.
 

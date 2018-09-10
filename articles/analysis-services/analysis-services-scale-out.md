@@ -3,16 +3,17 @@ title: Escala horizontal do Azure Analysis Services | Microsoft Docs
 description: Replicar os servidores do Azure Analysis Services com escala horizontal
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 08/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f89a6bdbe906d490231725cf528396928faebe47
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092087"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -33,6 +34,10 @@ Quando as operações de processamento são concluídas, a sincronização deve 
 
 > [!NOTE]
 > A escala horizontal não aumenta a quantidade de memória disponível para o servidor. Para aumentar a memória, você precisa atualizar seu plano.
+
+## <a name="region-limits"></a>Limites de região
+
+O número de réplicas de consulta que você pode configurar é limitado pela região em que o seu servidor está. Para obter mais informações, veja [Disponibilidade por região](analysis-services-overview.md#availability-by-region).
 
 ## <a name="monitor-qpu-usage"></a>Monitorar o uso de QPU
 

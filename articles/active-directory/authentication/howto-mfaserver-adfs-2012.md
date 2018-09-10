@@ -4,17 +4,18 @@ description: Este artigo descreve como começar a usar a Autenticação Multifat
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 08/25/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 4ed4db6fa2c712c0fd858815d89dd0094dd5cfbd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 663ed2f42f59093252506fc5bb5fe2581d4dd200
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160205"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurar o Servidor de Autenticação Multifator do Azure para trabalhar com o AD FS no Windows Server
 
@@ -78,7 +79,7 @@ Neste ponto, o Servidor de Autenticação Multifator está configurado para ser 
 Execute estas etapas para editar o arquivo MultiFactorAuthenticationAdfsAdapter.config:
 
 1. Defina o nó **UseWebServiceSdk** como **true**.  
-2. Defina o valor **WebServiceSdkUrl** para a URL do SDK do Serviço Web da Autenticação Multifator. Por exemplo: *https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, onde *certificatename* é o nome do seu certificado.  
+2. Defina o valor **WebServiceSdkUrl** para a URL do SDK do Serviço Web da Autenticação Multifator. Por exemplo: *https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, onde *certificatename* é o nome do certificado.  
 3. Edite o script Register-MultiFactorAuthenticationAdfsAdapter.ps1 adicionando `-ConfigurationFilePath &lt;path&gt;` ao fim do comando `Register-AdfsAuthenticationProvider`, em que *&lt;path&gt;* é o caminho completo para o arquivo MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Configurar o SDK do Serviço Web com um nome de usuário e senha

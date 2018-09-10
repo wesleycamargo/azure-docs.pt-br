@@ -1,24 +1,19 @@
 ---
 title: Usando a CLI 1.0 do Azure com o Armazenamento do Azure | Microsoft Docs
-description: "Saiba como usar a CLI (Interface de Linha de Comando) 1.0 do Azure com o Armazenamento do Azure para criar e gerenciar contas de armazenamento, bem como trabalhar com blobs e arquivos do Azure. A CLI do Azure é uma ferramenta de plataforma cruzada"
+description: Saiba como usar a CLI (Interface de Linha de Comando) 1.0 do Azure com o Armazenamento do Azure para criar e gerenciar contas de armazenamento, bem como trabalhar com blobs e arquivos do Azure. A CLI do Azure é uma ferramenta de plataforma cruzada
 services: storage
-documentationcenter: na
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: b502232a-e8f6-4d6c-befd-3476592e0e35
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.component: common
+ms.openlocfilehash: f406f12b3313670e8e2d89296f7c24478bb58c6c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521499"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Usando a CLI 1.0 do Azure com o Armazenamento do Azure
 
@@ -42,7 +37,7 @@ Nos exemplos deste guia, usamos o Ubuntu, mas outras plataformas de sistema oper
 
 **Novo no Azure:** obtenha uma assinatura do Microsoft Azure e uma conta da Microsoft associada a essa assinatura. Para saber mais sobre as opções de compra do Azure, confira [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opções de compra](https://azure.microsoft.com/pricing/purchase-options/) e [Ofertas para membros](https://azure.microsoft.com/pricing/member-offers/) (para membros do MSDN, Microsoft Partner Network e BizSpark, entre outros programas da Microsoft).
 
-Consulte [Atribuindo funções de administrador no Azure AD (Azure Active Directory)](https://msdn.microsoft.com/library/azure/hh531793.aspx) para obter mais informações sobre as assinaturas do Azure.
+Consulte [Atribuindo funções de administrador no Azure AD (Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) para obter mais informações sobre as assinaturas do Azure.
 
 **Depois de criar uma assinatura e conta do Microsoft Azure:**
 

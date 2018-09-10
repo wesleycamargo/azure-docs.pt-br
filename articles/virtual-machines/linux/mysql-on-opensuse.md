@@ -1,11 +1,11 @@
 ---
 title: Instalar o MySQL em uma VM OpenSUSE no Azure | Microsoft Docs
-description: "Saiba como instalar o MySQL em uma máquina virtual Linux OpenSUSE no Azure."
+description: Saiba como instalar o MySQL em uma máquina virtual Linux OpenSUSE no Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 1594e10e-c314-455a-9efb-a89441de364b
 ms.service: virtual-machines-linux
@@ -13,13 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 88bd895cb3a384f1ada0394fe2da206aca86b981
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: a5a6a43c41760e22a7aeb0e97aacc145c69957ff
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006389"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instalar MySQL em uma máquina virtual com o OpenSUSE Linux no Azure
 
@@ -32,13 +33,13 @@ Se optar por instalar e usar a CLI localmente, você precisará da CLI do Azure 
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>Criar uma máquina virtual que executa o OpenSUSE Linux
 
-Em primeiro lugar, crie um grupo de recursos. Neste exemplo, estamos nomeando o grupo de recursos *mySQSUSEResourceGroup* e criando-o na região *Leste dos EUA*.
+Em primeiro lugar, crie um grupo de recursos. Neste exemplo, o grupo de recursos é denominado *mySQSUSEResourceGroup* e ele é criado na região *Leste dos EUA*.
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Crie a VM. Nesse exemplo, estamos nomeando a VM como *myVM*. Além disso, estamos usando um tamanho de VM *Standard_D2s_v3*, mas você deve escolher o [tamanho da VM](sizes.md) que for mais apropriado à carga de trabalho.
+Crie a VM. Nesse exemplo, a VM é denominada *myVM* e o tamanho da VM é *Standard_D2s_v3*, mas você deve escolher o [tamanho da VM](sizes.md) que acredita ser mais adequado para sua carga de trabalho.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -95,19 +96,32 @@ systemctl is-enabled mysql
 
 Isso deverá retornar: habilitado.
 
+Reinicie o servidor.
+
+```bash
+sudo reboot
+```
+
 
 ## <a name="mysql-password"></a>Senha do MySQL
 
-Após a instalação, a senha da raiz do MySQL é vazia por padrão. Execute o script de **instalação\_segura\_mysql** para proteger o MySQL. O script solicita que você altere a senha raiz do MySQL, remova as contas anônimas de usuários, desabilite os logins de raiz remota, remova bancos de dados de teste e recarregue a tabela de privilégios. 
+Após a instalação, a senha da raiz do MySQL é vazia por padrão. Execute o script de **instalação\_segura\_mysql** para proteger o MySQL. O script solicita que você altere a senha raiz do MySQL, remova as contas de usuários anônimos, desabilite as entradas de raiz remota, remova bancos de dados de teste e recarregue a tabela de privilégios. 
+
+Depois que o servidor for reiniciado, ssh para a VM novamente.
+
+```azurecli-interactive  
+ssh 10.111.112.113
+```
+
 
 
 ```bash
 mysql_secure_installation
 ```
 
-## <a name="log-in-to-mysql"></a>Acessar o MySQL
+## <a name="sign-in-to-mysql"></a>Entrar no MySQL
 
-Agora é possível acessar e inserir o prompt do MySQL.
+Agora é possível entrar e inserir o prompt do MySQL.
 
 ```bash  
 mysql -u root -p
@@ -135,7 +149,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
 Nomes e senhas de usuário de banco de dados são usados apenas por scripts conectados ao banco de dados.  Nomes de conta de usuário do banco de dados não representam, necessariamente, contas de usuário reais no sistema.
 
-Habilite o início de outro computador. Neste exemplo, o endereço IP do computador do início de sessão desejado é *10.112.113.114*.
+Habilite a entrada de outro computador. Neste exemplo, o endereço IP do computador do qual permitir a entrada é *10.112.113.114*.
 
 ```   
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';

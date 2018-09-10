@@ -1,22 +1,19 @@
 ---
 title: Serviço de Provisionamento de Dispositivos no Hub IoT – conceitos de provisionamento automático
 description: Este artigo fornece uma visão geral conceitual das fases do provisionamento automático do dispositivo, usando o Serviço de Provisionamento de Dispositivos de IoT, Hub IoT e SDKs de cliente.
-services: iot-dps
-keywords: ''
-author: BryanLa
-ms.author: bryanla
-ms.date: 03/27/2018
+author: wesmc7777
+ms.author: wesmc
+ms.date: 06/01/2018
 ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 025e447995d302c24ab2a7d1c8668857cb47ffdd
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141814"
 ---
 # <a name="auto-provisioning-concepts"></a>Conceitos de provisionamento automático
 
@@ -33,7 +30,7 @@ O provisionamento automático do Azure IoT pode ser dividido em três fases:
 
 2. **Registro de dispositivo** – o processo de tornar a instância do Serviço de Provisionamento de Dispositivos ciente dos dispositivos que tentarão se registrar no futuro. O [Registro](concepts-service.md#enrollment) é realizado configurando as informações de identidade do dispositivo no serviço de provisionamento, como um "registro individual" para um único dispositivo ou um "registro de grupo" para vários dispositivos. A identidade baseia-se no [mecanismo de atestado](concepts-security.md#attestation-mechanism) que o dispositivo foi projetado para usar, que permite que o serviço de provisionamento confirme a autenticidade do dispositivo durante o registro:
 
-   - **TPM**: configurado como um "registro individual", a identidade do dispositivo baseia-se na ID de registro de TPM e a chave de endosso público. Considerando que TPM é uma [especificação]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), o serviço só espera confirmar a especificação, independentemente da implementação do TPM (hardware ou software). Consulte [Provisionamento de dispositivo: atestado de identidade com TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) para obter detalhes sobre atestado baseado em TPM. 
+   - **TPM**: configurado como um "registro individual", a identidade do dispositivo baseia-se na ID de registro de TPM e a chave de endosso público. Considerando que TPM é uma [especificação](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/), o serviço só espera confirmar a especificação, independentemente da implementação do TPM (hardware ou software). Consulte [Provisionamento de dispositivo: atestado de identidade com TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) para obter detalhes sobre atestado baseado em TPM. 
 
    - **X509**: configurado como um "registro individual" ou "registro do grupo", a identidade do dispositivo está baseada em um certificado digital X.509, que é carregado para o registro como um arquivo .pem ou .cer.
 
@@ -62,10 +59,10 @@ Uma série de tutoriais são fornecidos no sumário à esquerda para ajudar a ex
 
 O diagrama a seguir resume as funções e o sequenciamento das operações durante o provisionamento automático do dispositivo:
 <br><br>
-![Sequência de provisionamento automático para um dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png) 
+[![Sequência de provisionamento automático de um dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
-> Opcionalmente, o fabricante também pode executar a operação "Registrar a identidade do dispositivo" usando as APIs do Serviço de Provisionamento de Dispositivos (em vez de por meio do operador). Para obter uma discussão detalhada sobre esse sequenciamento e muito mais, veja o [Registro sem toque de dispositivos com vídeo IoT do Azure](https://myignite.microsoft.com/sessions/55087) (começando no marcador 41:00)
+> Opcionalmente, o fabricante também pode executar a operação "Registrar a identidade do dispositivo" usando as APIs do Serviço de Provisionamento de Dispositivos (em vez de por meio do operador). Para obter uma discussão detalhada sobre esse sequenciamento e muito mais, veja o [Registro sem toque de dispositivos com vídeo IoT do Azure](https://youtu.be/cSbDRNg72cU?t=2460) (começando no marcador 41:00)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,19 +11,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 110297fd60b4a25f959b451f2952f32d66cb8c3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f53c9e2b21e4758bccb6b0f89eb69501df2a6009
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051392"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - Log de alterações da API .NET
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). 
+> Este artigo se aplica à versão 1 do Data Factory. 
 
 Este artigo fornece informações sobre alterações no SDK do Azure Data Factory em uma versão específica. Você pode encontrar o pacote NuGet mais recente do Azure Data Factory [aqui](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 

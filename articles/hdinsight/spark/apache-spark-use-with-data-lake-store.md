@@ -1,33 +1,30 @@
 ---
-title: Usar o Apache Spark para analisar os dados no Azure Data Lake Store | Microsoft Docs
+title: Usar o Apache Spark para analisar os dados no Azure Data Lake Store
 description: Usar o Power BI para analisar os dados armazenados no Azure Data Lake Store
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 1f174323-c17b-428c-903d-04f0e272784c
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: fa6f93231cba46e29206ec312fb82ad120ed45f6
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: aae63b06999c0b8eafa0d42608d32a4d467a900c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041054"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Usar o cluster Spark HDInsight para analisar dados no Data Lake Store
 
 Neste tutorial, você usará no notebook Jupyter disponível com os clusters Spark HDInsight para executar um trabalho que lê dados de uma conta do Data Lake Store.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Conta do Azure Data Lake Store. Siga as instruções em [Introdução ao Azure Data Lake Store usando o portal do Azure](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Cluster Spark HDInsight do Azure com o Data Lake Store como armazenamento. Siga as instruções em [Criar um cluster HDInsight com o Data Lake Store usando o portal do Azure](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* Cluster Spark HDInsight do Azure com o Data Lake Store como armazenamento. Siga as instruções em [guia de início rápido: configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     
 ## <a name="prepare-the-data"></a>Preparar os dados
@@ -138,4 +135,4 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
 * [Criar um aplicativo Scala autônomo para ser executado no cluster do Apache Spark](apache-spark-create-standalone-application.md)
 * [Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ a fim de criar aplicativos Spark para um cluster HDInsight Spark Linux](apache-spark-intellij-tool-plugin.md)
-* [Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse a fim de criar aplicativos Spark para um cluster HDInsight Spark Linux](apache-spark-eclipse-tool-plugin.md)
+* [Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ a fim de criar aplicativos Spark para um cluster HDInsight Spark Linux](apache-spark-eclipse-tool-plugin.md)

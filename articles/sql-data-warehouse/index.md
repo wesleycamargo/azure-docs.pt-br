@@ -3,19 +3,20 @@ title: Documentação do SQL Data Warehouse do Azure – tutoriais, conceitos | 
 description: Saiba como usar um SQL Data Warehouse do Azure, que combina o banco de dados relacional do SQL ao processamento paralelo maciço. Tutoriais e outras documentações mostram como criar, carregar, gerenciar e analisar dados usando um data warehouse.
 services: sql-data-warehouse
 author: hirokib
-manager: craigg-msft
+manager: craigg
 layout: LandingPage
 ms.service: sql-data-warehouse
-ms.topic: landing-page
+ms.topic: overview
 ms.component: design
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: 28e610f2d7b2f7a30045012eeac9c135e428fd62
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4e6f8cd6bd1a84e7c2a6024bf6bcdb1b6b61620c
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287260"
 ---
 # <a name="sql-data-warehouse-documentation"></a>Documentação do SQL Data Warehouse
 

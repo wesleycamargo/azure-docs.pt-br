@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 12/18/2017
-ms.author: lmolkova; mbullwin
-ms.openlocfilehash: 679a5d82fbede4d9c464e137d615fc1367522878
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.topic: conceptual
+ms.date: 08/28/2018
+ms.reviewer: lmolkova
+ms.author: mbullwin
+ms.openlocfilehash: 6d161a49b35bbdfedcb27dd91f9f09dcf7ba4133
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122019"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicativos do console .NET
 O [Application Insights](app-insights-overview.md) permite que você monitore seu aplicativo Web quanto à disponibilidade, desempenho e uso.
@@ -42,7 +44,7 @@ telemetryClient.TrackTrace("Hello World!");
 Você pode inicializar e configurar o Application Insights pelo código ou usando o arquivo `ApplicationInsights.config`. Verifique se a inicialização ocorre o mais cedo possível. 
 
 > [!NOTE]
-> As instruções referentes a **ApplicationInsights.config** são aplicáveis apenas a aplicativos que direcionam .NET Standard e não são aplicáveis a aplicativos .NET Core. 
+> As instruções referentes a **ApplicationInsights.config** são aplicáveis apenas a aplicativos direcionados ao .NET Framework e não são aplicáveis a aplicativos .NET Core.
 
 ### <a name="using-config-file"></a>Usando o arquivo de configuração
 
@@ -55,7 +57,9 @@ TelemetryConfiguration config = TelemetryConfiguration.Active; // Reads Applicat
 Você também pode especificar o caminho para o arquivo de configuração.
 
 ```csharp
-TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration("ApplicationInsights.config");
+using System.IO;
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration(File.ReadAllText("C:\\ApplicationInsights.config"));
+var telemetryClient = new TelemetryClient(configuration);
 ```
 
 Para obter mais informações, consulte [referência do arquivo de configuração](app-insights-configuration-with-applicationinsights-config.md).
@@ -126,59 +130,72 @@ TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesPars
 #### <a name="full-example"></a>Exemplo completo
 
 ```csharp
-static void Main(string[] args)
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DependencyCollector;
+using Microsoft.ApplicationInsights.Extensibility;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+namespace ConsoleApp
 {
-    TelemetryConfiguration configuration = TelemetryConfiguration.Active;
-
-    configuration.InstrumentationKey = "removed";
-    configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
-    configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
-
-    var telemetryClient = new TelemetryClient();
-    using (InitializeDependencyTracking(configuration))
+    class Program
     {
-        // run app...
-        
-        telemetryClient.TrackTrace("Hello World!");
-
-        using (var httpClient = new HttpClient())
+        static void Main(string[] args)
         {
-            // Http dependency is automatically tracked!
-            httpClient.GetAsync("https://microsoft.com").Wait();
+            TelemetryConfiguration configuration = TelemetryConfiguration.Active;
+
+            configuration.InstrumentationKey = "removed";
+            configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
+            configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
+
+            var telemetryClient = new TelemetryClient();
+            using (InitializeDependencyTracking(configuration))
+            {
+                // run app...
+
+                telemetryClient.TrackTrace("Hello World!");
+
+                using (var httpClient = new HttpClient())
+                {
+                    // Http dependency is automatically tracked!
+                    httpClient.GetAsync("https://microsoft.com").Wait();
+                }
+
+            }
+
+            // before exit, flush the remaining data
+            telemetryClient.Flush();
+
+            // flush is not blocking so wait a bit
+            Task.Delay(5000).Wait();
+
         }
 
+        static DependencyTrackingTelemetryModule InitializeDependencyTracking(TelemetryConfiguration configuration)
+        {
+            var module = new DependencyTrackingTelemetryModule();
+
+            // prevent Correlation Id to be sent to certain endpoints. You may add other domains as needed.
+            module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
+            module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.chinacloudapi.cn");
+            module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.cloudapi.de");
+            module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.usgovcloudapi.net");
+            module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("localhost");
+            module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("127.0.0.1");
+
+            // enable known dependency tracking, note that in future versions, we will extend this list. 
+            // please check default settings in https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/DependencyCollector/NuGet/ApplicationInsights.config.install.xdt#L20
+            module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.ServiceBus");
+            module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.EventHubs");
+
+            // initialize the module
+            module.Initialize(configuration);
+
+            return module;
+        }
     }
-
-    // before exit, flush the remaining data
-    telemetryClient.Flush();
-    
-    // flush is not blocking so wait a bit
-    Task.Delay(5000).Wait();
-
 }
 
-static DependencyTrackingTelemetryModule InitializeDependencyTracking(TelemetryConfiguration configuration)
-{
-    var module = new DependencyTrackingTelemetryModule();
-    
-    // prevent Correlation Id to be sent to certain endpoints. You may add other domains as needed.
-    module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
-    module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.chinacloudapi.cn");
-    module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.cloudapi.de");
-    module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.usgovcloudapi.net");
-    module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("localhost");
-    module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("127.0.0.1");
-
-    // enable known dependency tracking, note that in future versions, we will extend this list. 
-    // please check default settings in https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/DependencyCollector/NuGet/ApplicationInsights.config.install.xdt#L20
-    module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.ServiceBus");
-    module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.EventHubs");
-
-    // initialize the module
-    module.Initialize(configuration);
-
-    return module;
-}
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

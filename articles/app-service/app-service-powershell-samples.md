@@ -1,6 +1,6 @@
 ---
-title: "Exemplos do Azure PowerShell - Serviço de Aplicativo | Microsoft Docs"
-description: "Exemplos do Azure PowerShell - Serviço de Aplicativo"
+title: Exemplos do Azure PowerShell - Serviço de Aplicativo | Microsoft Docs
+description: Exemplos do Azure PowerShell - Serviço de Aplicativo
 services: app-service
 documentationcenter: app-service
 author: syntaxc4
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/09/2018
+ms.locfileid: "27713409"
 ---
 # <a name="azure-powershell-samples"></a>Exemplos do Azure PowerShell
 

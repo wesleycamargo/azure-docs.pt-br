@@ -1,19 +1,19 @@
 ---
 title: Proteger o acesso aos dados de um aplicativo na nuvem com o Armazenamento do Azure | Microsoft Docs
-description: Use tokens SAS, criptografia e HTTPS para proteger os dados do aplicativo na nuvem
+description: Use tokens SAS, criptografia e HTTPS para proteger os dados do aplicativo na nuvem.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/06/2018
+ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 09a229d93ee8d5fec36a0cfa765e87bebaafc24d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 71eec62f4468b6b74a15a30be3e472b41c4d45b0
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397764"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger o acesso aos dados de um aplicativo na nuvem
 
@@ -28,7 +28,7 @@ Na terceira parte da série, você aprenderá a:
 
 O [Armazenamento de Blobs do Azure](../common/storage-introduction.md#blob-storage) fornece um serviço robusto para armazenar arquivos de aplicativos. Este tutorial estende o [tópico anterior][previous-tutorial] para mostrar como proteger o acesso à sua conta de armazenamento de um aplicativo Web. Quando você terminar as imagens são criptografadas e o aplicativo Web usa tokens SAS seguros para acessar as imagens em miniatura.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial você deve ter concluído o Tutorial de armazenamento anterior: [Automate resizing uploaded images using Event Grid][previous-tutorial] (Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos). 
 
@@ -80,9 +80,6 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
     // Get reference to the container
     CloudBlobContainer container = blobClient.GetContainerReference(_storageConfig.ThumbnailContainer);
-
-    // Set the permission of the container to public
-    await container.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
     BlobContinuationToken continuationToken = null;
 
@@ -145,7 +142,7 @@ As classes, propriedades e métodos a seguir são usados na tarefa anterior:
 
 [A SSE (Criptografia do Serviço de Armazenamento) do Azure](../common/storage-service-encryption.md) ajuda a proteger seus dados. A SSE criptografa os dados em repouso, tratando da criptografia, descriptografia e gerenciamento de chaves. Todos os dados são criptografados usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, um dos codificadores de blocos mais potentes.
 
-A SSE criptografa automaticamente os dados em todos os níveis de desempenho (Standard e Premium), em todos os modelos de implantação (Azure Resource Manager e Clássico) e em todos os serviços do Armazenamento do Microsoft Azure (Blobs, Filas, Tabelas e Arquivos). 
+A SSE criptografa automaticamente os dados em todos os níveis de desempenho (Standard e Premium), em todos os modelos de implantação (Azure Resource Manager e Clássico) e em todos os serviços do Armazenamento do Azure (Blobs, Filas, Tabelas e Arquivos). 
 
 ## <a name="enable-https-only"></a>Habilitar o HTTPS apenas
 

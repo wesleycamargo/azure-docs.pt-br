@@ -4,45 +4,27 @@ description: Use a operação de cópia e matrizes em um modelo do Gerenciador d
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: ''
-ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: ce442793a9917320b6b2b0a7014a20f885c3720c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 25488295ec046eb0ca7473af76e4618eacb1155d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38600762"
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implantar várias instâncias de um recurso ou propriedade nos modelos do Azure Resource Manager
-Este artigo mostra como implementar um recurso condicionalmente e como iterar em seu modelo do Azure Resource Manager para criar várias instâncias de um recurso.
 
-## <a name="conditionally-deploy-resource"></a>Implantar o recurso condicionalmente
-
-Quando você deve decidir durante a implantação entre criar uma instância ou não criar nenhuma instância de um recurso, use o elemento `condition`. O valor desse elemento é resolvido como verdadeiro ou falso. Quando o valor for true, o recurso é implantado. Quando o valor for false, o recurso não é implantado. Por exemplo, para especificar se uma nova conta de armazenamento é implantada ou uma conta de armazenamento existente é usada, use:
-
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
+Este artigo mostra como iterar no modelo do Azure Resource Manager para criar várias instâncias de um recurso. Caso precise especificar se um recurso é implantado, confira [Elemento condition](resource-manager-templates-resources.md#condition).
 
 ## <a name="resource-iteration"></a>Iteração de recurso
+
 Quando você deve decidir durante a implantação entre criar uma ou mais instâncias de um recurso, adicione um elemento `copy` ao tipo de recurso. No elemento de cópia, você deve especificar o número de iterações e um nome para esse loop. O valor da contagem deve ser um número inteiro positivo e não pode exceder 800. 
 
 O recurso para criar várias vezes recebe o seguinte formato:
@@ -222,13 +204,41 @@ Gerenciador de recursos expande a matriz `copy` durante a implantação. O nome 
       ...
 ```
 
+O elemento de cópia está em uma matriz, assim você pode especificar mais de uma propriedade para o recurso. Adicione um objeto para cada propriedade para criar.
+
+```json
+{
+    "name": "string",
+    "type": "Microsoft.Network/loadBalancers",
+    "apiVersion": "2017-10-01",
+    "properties": {
+        "copy": [
+          {
+              "name": "loadBalancingRules",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          },
+          {
+              "name": "probes",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          }
+        ]
+    }
+}
+```
+
 Você pode usar iteração de recurso e propriedade juntos. Referência a iteração de propriedade por nome.
 
 ```json
 {
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[concat(parameters('vnetname'), copyIndex())]",
-    "apiVersion": "2016-06-01",
+    "apiVersion": "2018-04-01",
     "copy":{
         "count": 2,
         "name": "vnetloop"
@@ -307,6 +317,27 @@ Para criar várias instâncias de uma variável, use o elemento `copy` na seçã
     }
   }
 }
+```
+
+Com essa abordagem, o elemento de cópia está em atraso, de forma que você possa especificar mais de uma variável. Adicione um objeto para cada variável para criar.
+
+```json
+"copy": [
+  {
+    "name": "first-variable",
+    "count": 5,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('first-variable'))]",
+    }
+  },
+  {
+    "name": "second-variable",
+    "count": 3,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('second-variable'))]",
+    }
+  },
+]
 ```
 
 ## <a name="depend-on-resources-in-a-loop"></a>Depender dos recursos em um loop
@@ -406,10 +437,9 @@ Os exemplos a seguir mostram os cenários comuns para a criação de vários rec
 |[Armazenamento de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Implanta várias contas de armazenamento com um número de índice no nome. |
 |[Armazenamento de cópia serial](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Implanta várias contas de armazenamento por vez. O nome inclui o número de índice. |
 |[Armazenamento de cópia com matriz](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Implanta várias contas de armazenamento. O nome inclui um valor de uma matriz. |
-|[VM com Rede Virtual, Armazenamento e IP público novos ou já existentes](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Implanta condicionalmente recursos novos ou existentes com uma máquina virtual. |
 |[Implantação da VM com um número variável de discos de dados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Implanta vários discos de dados com uma máquina virtual. |
 |[Variáveis de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstra as diferentes maneiras de iteração em variáveis. |
-|[Várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implanta várias regras de segurança a um grupo de segurança de rede. Cria as regras de segurança a partir de um parâmetro. |
+|[Várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implanta várias regras de segurança a um grupo de segurança de rede. Cria as regras de segurança a partir de um parâmetro. Para o parâmetro, consulte [vários arquivos de parâmetro NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre as seções de um modelo, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).

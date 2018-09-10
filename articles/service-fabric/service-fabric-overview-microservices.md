@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 16757af0bab7cfd43488118f62300fb167c193a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04342be06430747ef64cb69c27ee93e6896775e5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070836"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Por que usar uma abordagem de microsserviço para construir aplicativos?
 Para nós, desenvolvedores de software, não há qualquer novidade no modo como pensamos sobre a decomposição de um aplicativo em partes componentes. É o paradigma central da orientação de objetos, das abstrações de software e da “componentização”. Atualmente, essa fatoração tende a assumir a forma de classes e interfaces entre as camadas de tecnologia e as bibliotecas compartilhadas. Em geral, uma abordagem em camadas é adotada com um repositório de back-end, lógica de negócios de camada intermediária e uma IU (interface do usuário) de front-end. O que *mudou* nos últimos anos é que nós, como desenvolvedores, estamos compilando aplicativos distribuídos para a nuvem orientados pelos negócios.
@@ -145,9 +146,9 @@ O Service Fabric fornece três áreas amplas para ajudar no build de aplicativos
 ***O Service Fabric não se importa com o modo de criação de seu serviço, e você pode usar qualquer tecnologia. No entanto, fornece APIs de programação internas que facilitam a criação de microsserviços.***
 
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migrando aplicativos existentes para o Service Fabric
-Uma abordagem chave para o Service Fabric é reutilizar o código existente, o que, em seguida, pode ser modernizado com novos microsserviços. Há cinco estágios para modernização do aplicativo, e você pode iniciar e interromper em qualquer um dos estágios. Estes são;
+Uma abordagem chave para o Service Fabric é reutilizar o código existente, o que, em seguida, pode ser modernizado com novos microsserviços. Há cinco estágios para modernização do aplicativo, e você pode iniciar e interromper em qualquer um dos estágios. Estes são:
 
-1) Colocar um aplicativo monolítico tradicional  
+1) Comece com um aplicativo monolítico tradicional.  
 2) Lift and Shift - Usar contêineres ou executáveis de convidado para hospedar o código existente no Service Fabric.  
 3) Modernização - Novos microsserviços adicionados junto com o código em contêineres existente.  
 4) Inovar - Dividir o monolítico em microsserviços puramente com base na necessidade.  
@@ -157,7 +158,7 @@ Uma abordagem chave para o Service Fabric é reutilizar o código existente, o q
 
 É importante enfatizar novamente que é possível **iniciar e parar em qualquer um desses estágios**. Você não é forçado a passar para o próximo estágio. Agora vamos ver exemplos de cada um desses estágios.
 
-**Lift-and-Shift** – um grande número de empresas estão fazendo o lift-and-shift dos aplicativos monolíticos existentes em contêineres por duas razões;
+**Lift-and-Shift** – um grande número de empresas estão fazendo o lift-and-shift dos aplicativos monolíticos existentes em contêineres por duas razões:
 
 - Redução de custos devido à consolidação e à remoção de aplicativos existentes de hardware ou executando a uma densidade mais alta. 
 - Contrato de implantação consistente entre o desenvolvimento e as operações.
@@ -168,7 +169,7 @@ Muitas organizações param aqui. Elas já têm os benefícios de contêineres e
 
 **Modernização** - é a adição de novos serviços junto com o código em contêineres existente. Se você pretende escrever um novo código, é recomendável dar pequenos passos e seguir o caminho dos microsserviços. Isso pode adicionar um novo ponto de extremidade de API REST ou uma nova lógica de negócios. Dessa forma, você inicie a jornada de criação de novos microsserviços e pratica o desenvolvimento e a implantação destes.
 
-**Inovar** - lembra-se daquelas necessidades de alteração de negócio originais no início deste artigo, que estão levando a uma abordagem de microsserviços? Neste estágio da decisão é, elas estão ocorrendo no meu aplicativo atual e nesse caso, preciso começar a dividir o monolito ou a inovar. Um exemplo aqui é quando um banco de dados se torna um gargalo de processamento, pois ele está sendo usado como uma fila de fluxo de trabalho. Conforme o número de solicitações de fluxo de trabalho aumenta o trabalho precisa ser distribuído para dimensionamento. Para essa parte específica do aplicativo que não é dimensionamento, ou quando é necessário atualizar com mais frequência, divida em um microsserviço e inove. 
+**Inovar** - lembra-se daquelas necessidades de alteração de negócio originais no início deste artigo, que estão levando a uma abordagem de microsserviços? Neste estágio da decisão é, elas estão ocorrendo no meu aplicativo atual e nesse caso, preciso começar a dividir o aplicativo de monolito em serviços ou a inovar. Um exemplo aqui é quando um banco de dados sendo usado como uma fila de fluxo de trabalho se torna um gargalo de processamento. Conforme o número de solicitações de fluxo de trabalho aumenta o trabalho precisa ser distribuído para dimensionamento. Para essa parte específica do aplicativo que não é dimensionamento, ou quando é necessário atualizar com mais frequência, divida em um microsserviço e inove. 
 
 **Transformado em microsserviços** - é quando o aplicativo é totalmente composto de (ou decomposto em) microsserviços. Para chegar aqui, você percorreu a jornada dos microsserviços. Você pode iniciar aqui, mas fazer isso sem uma plataforma de microsserviços para ajudá-lo é um investimento significativo. 
 

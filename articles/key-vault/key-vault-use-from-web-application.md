@@ -1,86 +1,83 @@
 ---
-title: Usar o Cofre de Chaves do Azure de um aplicativo Web | Microsoft Docs
-description: Use este tutorial para ajudá-lo a saber como usar o cofre da chave do Azure por meio de um aplicativo Web.
+title: Usar o tutorial do Azure Key Vault a partir de um aplicativo Web | Microsoft Docs
+description: Use este tutorial para ajudá-lo a saber como usar o Azure Key Vault por meio de um aplicativo Web.
 services: key-vault
-author: adhurwit
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.date: 05/10/2018
-ms.author: adhurwit
-ms.openlocfilehash: de8276b22377db37075c6793d0710bb18625446c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.topic: tutorial
+ms.date: 07/20/2018
+ms.author: barclayn
+ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171316"
 ---
-# <a name="use-azure-key-vault-from-a-web-application"></a>Usar cofre da chave do Azure em um aplicativo Web
+# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Tutorial: Usar o Azure Key Vault em um aplicativo Web
 
-## <a name="introduction"></a>Introdução
+Use este tutorial para ajudá-lo a saber como usar o cofre da chave do Azure por meio de um aplicativo Web no Azure. Ele mostra o processo de acessar um segredo de um Azure Key Vault para uso em um aplicativo Web. Em seguida, o tutorial baseia-se nesse processo e usa um certificado em vez de um segredo do cliente. Esse tutorial foi projetado para desenvolvedores da Web que compreendem os fundamentos da criação de aplicativos Web no Azure.
 
-Use este tutorial para ajudá-lo a saber como usar o cofre da chave do Azure por meio de um aplicativo Web no Azure. Ele percorre o processo de acessar um segredo de um cofre de chave do Azure para que possa ser usado no aplicativo Web.
+Neste tutorial, você aprenderá como: 
 
-**Tempo estimado para conclusão:** 15 minutos
+> [!div class="checklist"]
+> * Adicionar configurações do aplicativo ao arquivo web.config
+> * Adicionar método para obter um token de acesso
+> * Recuperar o token ao iniciar o aplicativo
+> * Autenticar com um certificado
 
-Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisará do seguinte:
+Para concluir este tutorial, você precisará dos seguintes itens:
 
-* Um URI para um segredo em um cofre da chave do Azure
-* Uma ID do Cliente e um Segredo do Cliente para um aplicativo Web registrado no Active Directory do Azure que tenha acesso ao seu Cofre da Chave
-* Um aplicativo Web. Mostraremos as etapas para um aplicativo ASP.NET MVC implantado no Azure como um aplicativo Web.
+* Um URI para um segredo em um Azure Key Vault
+* Uma ID do Cliente e um Segredo do Cliente para um aplicativo Web registrado no Azure Active Directory que tenha acesso ao seu Key Vault
+* Um aplicativo Web. Este tutorial mostra as etapas para um aplicativo ASP.NET MVC implantado no Azure como um aplicativo Web.
 
->[!IMPORTANT]
->* Este exemplo depende de uma maneira mais antiga de provisionamento manual das identidades do AAD. Atualmente, há um novo recurso em versão prévia chamado [MSI (Identidade do serviço gerenciada)](https://docs.microsoft.com/azure/active-directory/msi-overview), que pode provisionar automaticamente as identidades do AAD. Confira o seguinte exemplo em [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) para obter mais detalhes.
+Conclua as etapas em [Introdução ao Azure Key Vault](key-vault-get-started.md) para obter o URI para um segredo, ID de cliente, segredo do cliente e registrar o aplicativo. O aplicativo Web acessará o cofre e precisa ser registrado no Azure Active Directory. Ele também precisa ter direitos de acesso ao Key Vault. Caso contrário, volte a Registrar um Aplicativo no tutorial de Introdução e repita as etapas listadas. Para obter mais informações sobre a criação de aplicativos Web do Azure, consulte [Visão geral de aplicativos Web](../app-service/app-service-web-overview.md).
 
-> [!NOTE]
->* É essencial que você conclua as etapas listadas em [Introdução ao cofre da chave do Azure](key-vault-get-started.md) para este tutorial, para que você tenha o URI de um segredo e a ID do cliente e o segredo do cliente para um aplicativo Web.
+Este exemplo depende de provisionamento manual das identidades do Azure Active Directory. Mas a [Identidade de Serviço Gerenciada (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) deve ser usada. MSIs podem provisionar automaticamente as identidades do Azure AD. Para obter mais informações, consulte o exemplo na [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e o tutorial [MSI com o tutorial do Serviço de Aplicativo e Funções](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). Você também pode examinar o [tutorial de MSI](tutorial-web-application-keyvault.md) específico do Key Vault
 
-
-O aplicativo Web que acessará o cofre da chave é aquele que está registrado no Active Directory do Azure e tem acesso ao seu cofre da chave. Se esse não for o caso, volte a Registrar um Aplicativo do tutorial de introdução e repita as etapas listadas.
-
-Esse tutorial foi projetado para desenvolvedores da Web que compreendem os fundamentos da criação de aplicativos Web no Azure. Para obter mais informações sobre aplicativos Web do Azure, consulte [Visão geral de aplicativos Web](../app-service/app-service-web-overview.md).
 
 ## <a id="packages"></a>Adicionar pacotes NuGet
 
 Há dois pacotes que precisam estar instalados para o seu aplicativo Web.
 
-* Biblioteca de autenticação do Active Directory - contém métodos para interagir com o Active Directory do Azure e gerenciar a identidade do usuário
-* Biblioteca de cofre da chave do Azure - contém métodos para interagir com o cofre da chave do Azure
+* Biblioteca de autenticação do Active Directory - possui métodos para interagir com o Active Directory do Azure e gerenciar a identidade do usuário
+* Biblioteca do Azure Key Vault - possui métodos para interagir com o Azure Key Vault
 
 Ambos os pacotes podem ser instalados usando o console do Gerenciador de Pacotes e o comando Install-Package.
 
-```
-// this is currently the latest stable version of ADAL
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+```powershell
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory 
 Install-Package Microsoft.Azure.KeyVault
 ```
 
-## <a id="webconfig"></a>Modificar o Web.config
+## <a id="webconfig"></a>Modificar o web.config
 
-Há três configurações de aplicativo que precisam ser adicionadas ao arquivo web.config da forma a seguir.
+Há três configurações de aplicativo que precisam ser adicionadas ao arquivo web.config da forma a seguir. Adicionaremos os valores reais no portal do Azure para um nível adicional de segurança.
 
-```
+```xml
     <!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
     <add key="ClientId" value="clientid" />
     <add key="ClientSecret" value="clientsecret" />
 
     <!-- SecretUri is the URI for the secret in Azure Key Vault -->
     <add key="SecretUri" value="secreturi" />
+    <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
 
-Se você não for hospedar seu aplicativo como um aplicativo Web do Azure, deve adicionar os valores reais ClientId, Segredo do Cliente e URI de Segredo no web.config. Caso contrário, deixe esses valores fictícios porque vamos adicionar os valores reais no Portal do Azure para um nível adicional de segurança.
+
 
 ## <a id="gettoken"></a>Adicionar método para obter um token de acesso
 
-Para usar a API de cofre da chave é necessário um token de acesso. O cliente do cofre da chave lida com chamadas para a API de cofre da chave, mas você precisa fornecer uma função que obtém o token de acesso.  
-
-A seguir, o código para obter um token de acesso do Active Directory do Azure. Esse código pode ir em qualquer lugar do aplicativo. Gosto de adicionar uma classe Utils ou EncryptionHelper.  
+Para usar a API do Key Vault é necessário um token de acesso. O cliente do Key Vault lida com chamadas para a API de Key Vault, mas você precisa fornecer uma função que obtém o token de acesso. O exemplo a seguir é um código para obter um token de acesso do Azure Active Directory. Esse código pode ir em qualquer lugar do aplicativo. Gosto de adicionar uma classe Utils ou EncryptionHelper.  
 
 ```cs
 //add these using statements
@@ -104,15 +101,15 @@ public static async Task<string> GetToken(string authority, string resource, str
 
     return result.AccessToken;
 }
+// Using Client ID and Client Secret is a way to authenticate an Azure AD application.
+// Using it in your web application allows for a separation of duties and more control over your key management. 
+// However, it does rely on putting the Client Secret in your configuration settings.
+// For some people, this can be as risky as putting the secret in your configuration settings.
 ```
-
-> [!NOTE]
->* Atualmente, o novo recurso MSI (Identidade do Serviço Gerenciada) é a maneira mais fácil de autenticar. Para obter mais detalhes, consulte o seguinte link para ver um exemplo usando o [Key Vault com MSI em um aplicativo no .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e [MSI relacionado ao tutorial Serviço de Aplicativo e Funções](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
->* Usar uma ID do Cliente e um Segredo do Cliente é outra maneira de autenticar um aplicativo do Azure AD. E usá-lo em seu aplicativo Web permite uma separação de funções e mais controle sobre o gerenciamento de chaves. Mas ele se baseia na colocação do Segredo do Cliente nas definições das suas configurações, o que pode ser tão arriscado quanto colocar o segredo que você deseja proteger nas definições da sua configuração. Consulte a seguir, uma discussão sobre como usar uma ID do Cliente e um Certificado em vez da ID do Cliente e o Segredo do Cliente para autenticar o aplicativo Azure AD.
 
 ## <a id="appstart"></a>Recuperar o segredo ao iniciar o aplicativo
 
-Agora precisamos de código para chamar a API do cofre da chave e recuperar o segredo. O código a seguir pode ser colocado em qualquer lugar, desde que seja chamado antes de ser usado. Coloquei esse código no evento Iniciar Aplicativo no Global.asax para que ele seja executado uma vez na inicialização e disponibilize o segredo para o aplicativo.
+Agora precisamos de código para chamar a API do Key Vault e recuperar o segredo. O código a seguir pode ser colocado em qualquer lugar, desde que seja chamado antes de ser usado. Coloquei esse código no evento Iniciar Aplicativo no Global.asax para que ele seja executado uma vez na inicialização e disponibilize o segredo para o aplicativo.
 
 ```cs
 //add these using statements
@@ -123,43 +120,47 @@ using System.Web.Configuration;
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]);
 
-//I put a variable in a Utils class to hold the secret for general  application use.
+//I put a variable in a Utils class to hold the secret for general application use.
 Utils.EncryptSecret = sec.Value;
 ```
 
-## <a id="portalsettings"></a>Adicionar configurações de aplicativo no portal do Azure (opcional)
+## <a id="portalsettings"></a>Adicionar configurações de aplicativo no Portal do Azure
 
-Se você tiver um aplicativo Web do Azure, agora poderá adicionar valores reais ao AppSettings no portal do Azure. Fazendo isso, os valores reais não estarão no web.config, mas protegidos pelo Portal onde você tem recursos de controle de acesso separados. Esses valores serão substituídos pelos valores inseridos no web.config. Certifique-se de que os nomes sejam os mesmos.
+No Aplicativo Web do Azure, agora você pode adicionar valores reais ao AppSettings no portal do Azure. Ao realizar essa etapa, os valores reais não estarão no web.config, mas protegidos pelo Portal onde você tem recursos de controle de acesso separados. Esses valores serão substituídos pelos valores inseridos no web.config. Certifique-se de que os nomes sejam os mesmos.
 
 ![Configurações do aplicativo exibidas no portal do Azure][1]
 
-## <a name="authenticate-with-a-certificate-instead-of-a-client-secret"></a>Autenticar com um Certificado em vez de um Segredo do Cliente
+## <a name="authenticate-with-a-certificate-instead-of-a-client-secret"></a>Autenticar com um Certificado em vez de um segredo do cliente
 
-Outra maneira de autenticar um aplicativo do AD do Azure é usar uma ID do Cliente e um Certificado em vez de uma ID do Cliente e um Segredo do Cliente. A seguir, as etapas para usar um Certificado em um aplicativo Web do Azure:
+Agora que você sabe o que é autenticar um aplicativo do Azure AD usando a ID do Cliente e o Segredo do Cliente, vamos usar uma ID de Cliente e um certificado. Para usar um certificado em um aplicativo Web do Azure, siga as seguintes etapas:
 
-1. Obter ou Criar um Certificado
-2. Associar o Certificado a um aplicativo do AD do Azure
-3. Adicionar código ao seu Aplicativo Web para usar o Certificado
-4. Adicionar um certificado ao seu aplicativo Web
+1. Obtenha ou crie um certificado
+2. Associe o certificado a um aplicativo do Azure AD
+3. Adicione o código ao seu aplicativo Web para usar o certificado
+4. Adicione um certificado ao seu aplicativo Web
 
-### <a name="get-or-create-a-certificate"></a>Obter ou Criar um Certificado
+### <a name="get-or-create-a-certificate"></a>Obtenha ou crie um certificado
 
-Para os nossos objetivos, definiremos um certificado de teste. Veja alguns comandos que você pode usar em um Prompt de Comando do Desenvolvedor para criar um certificado. Altere o diretório em que você deseja que os arquivos de certificado sejam criados.  Além disso, para a data inicial e a data final do certificado, use a data atual mais 1 ano.
+ Faremos um certificado de teste para este tutorial. A seguir está um script para criar um certificado autoassinado. Altere o diretório em que você deseja que os arquivos de certificado sejam criados.  Para a data inicial e a data final do certificado, use a data atual mais 1 ano.
 
+```powershell
+#Create self-signed certificate and export pfx and cer files 
+$PfxFilePath = "c:\data\KVWebApp.pfx" 
+$CerFilePath = "c:\data\KVWebApp.cer" 
+$DNSName = "MyComputer.Contoso.com" 
+$Password ="MyPassword" 
+$SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
+Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
+Export-Certificate -cert $cert -FilePath $CerFilePath 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
-pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
-```
 
-Anote a data de término e a senha para o .pfx (neste exemplo: 31/07/2018 e test123). Você precisará delas mais tarde.
+Anote a data de término e a senha para o .pfx (neste exemplo: 15 de maio de 2019 e MinhaSenha). Você precisará delas para o script a seguir. 
+### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Associe o certificado a um aplicativo do Azure AD
 
-Para saber mais sobre a criação de um certificado de teste, confira [Como criar seu próprio certificado de teste](https://msdn.microsoft.com/library/ff699202.aspx)
+Agora que você tem um certificado, você precisará associá-lo a um aplicativo do Azure AD. A associação pode ser concluída por meio do PowerShell. Execute os seguintes comandos para associar o certificado ao aplicativo do Azure AD:
 
-### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Associar o Certificado a um aplicativo do AD do Azure
-
-Agora que você tem um certificado, precisará associá-lo a um aplicativo Azure AD. No momento, o Portal do Azure não dá suporte a esse fluxo de trabalho; isso pode ser concluído usando o PowerShell. Execute os seguintes comandos para associar o certificado ao aplicativo do Azure AD:
-
-```ps
+```powershell
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 $x509.Import("C:\data\KVWebApp.cer")
 $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
@@ -177,17 +178,18 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "ht
 $x509.Thumbprint
 ```
 
-Depois de executar esses comandos, você verá o aplicativo no AD do Azure. Durante a pesquisa, não se esqueça de escolher "Aplicativos que minha empresa possui" em vez de "Aplicativos que minha empresa usa", na caixa de diálogo de pesquisa.
+Depois de executar esses comandos, você verá o aplicativo no Azure AD. Ao pesquisar os registros do aplicativo, verifique se você selecionou **Meus aplicativos** em vez de “Todos os aplicativos” na caixa de diálogo de pesquisa. 
 
-Para saber mais sobre os Objetos do Aplicativo Azure AD e os Objetos de ServicePrincipal, consulte [Objetos do Aplicativo e Objetos de Entidade de Serviço](../active-directory/active-directory-application-objects.md).
+### <a name="add-code-to-your-web-app-to-use-the-certificate"></a>Adicione o código ao seu aplicativo Web para usar o certificado
 
-### <a name="add-code-to-your-web-app-to-use-the-certificate"></a>Adicionar código ao seu Aplicativo Web para usar o Certificado
+Agora, adicionaremos o código ao seu Aplicativo Web para acessar o certificado e usá-lo para autenticação. 
 
-Agora, adicionaremos o código ao seu Aplicativo Web para acessar o certificado e usá-lo para autenticação.
-
-Primeiro, há código para acessar o certificado.
+Primeiro, há um código para acessar o certificado. Observe que StoreLocation é CurrentUser em vez de LocalMachine. E estamos fornecendo “false” para o método Find porque estamos usando um certificado de teste.
 
 ```cs
+//Add this using statement
+using System.Security.Cryptography.X509Certificates;  
+
 public static class CertificateHelper
 {
     public static X509Certificate2 FindCertificateByThumbprint(string findValue)
@@ -210,7 +212,7 @@ public static class CertificateHelper
 }
 ```
 
-Observe que StoreLocation é CurrentUser em vez de LocalMachine. E estamos fornecendo 'false' para o método Find porque estamos usando um certificado de teste.
+
 
 Em seguida, há o código que usa CertificateHelper e cria um ClientAssertionCertificate necessário para autenticação.
 
@@ -224,7 +226,7 @@ public static void GetCert()
 }
 ```
 
-Este é o novo código para obter o token de acesso. Isso substitui o método GetToken no exemplo anterior. Eu dei a ele um nome diferente por conveniência.
+Este é o novo código para obter o token de acesso. Esse código substitui o método GetToken no exemplo anterior. Eu dei a ele um nome diferente por conveniência. Coloquei todo esse código na classe Utils do projeto do Aplicativo Web para facilidade de uso.
 
 ```cs
 public static async Task<string> GetAccessToken(string authority, string resource, string scope)
@@ -235,33 +237,34 @@ public static async Task<string> GetAccessToken(string authority, string resourc
 }
 ```
 
-Coloquei todo esse código na classe Utils do projeto do Aplicativo Web para facilidade de uso.
 
-A última alteração de código é feita no método Application_Start. Primeiro, precisamos chamar o método GetCert() para carregar o ClientAssertionCertificate. E então alteramos o método de retorno de chamada que fornecemos ao criarmos um novo KeyVaultClient. Observe que isso substitui o código que tínhamos no exemplo anterior.
+
+A última alteração de código é feita no método Application_Start. Primeiro, precisamos chamar o método GetCert() para carregar o ClientAssertionCertificate. E então alteramos o método de retorno de chamada que fornecemos ao criarmos um novo KeyVaultClient. Esse código substitui o código que tínhamos no exemplo anterior.
 
 ```cs
 Utils.GetCert();
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 ```
 
-### <a name="add-a-certificate-to-your-web-app-through-the-azure-portal"></a>Adicionar um certificado ao seu Aplicativo Web por meio do portal do Azure
+### <a name="add-a-certificate-to-your-web-app-through-the-azure-portal"></a>Adicionar um certificado ao seu aplicativo web por meio do Portal do Azure
 
-Adicionar um certificado ao seu Aplicativo Web é um processo simples de duas etapas. Primeiro, vá até o Portal do Azure e navegue até o seu Aplicativo Web. Na folha Configurações do seu Aplicativo Web, clique na entrada "Domínios personalizados e SSL". Na folha que se abre você poderá carregar o Certificado que criou no exemplo anterior, KVWebApp.pfx, certifique-se de que se lembra da senha para o pfx.
+Adicionar um certificado ao seu Aplicativo Web é um processo simples de duas etapas. Primeiro, vá até o portal do Azure e navegue até o seu Aplicativo Web. Em Configurações para o seu Aplicativo Web, clique na entrada para **Configurações de SSL**. Quando ele for aberto, carregue o certificado que você criou no exemplo anterior, KVWebApp.pfx. Certifique-se de que você se lembra da senha do pfx.
 
-![Adicionando um certificado a um Aplicativo Web no portal do Azure][2]
+![Adicionar um certificado a um Aplicativo Web no portal do Azure][2]
 
-A última coisa que você precisa fazer é adicionar uma Configuração de Aplicativo ao Aplicativo Web com o nome WEBSITE\_LOAD\_CERTIFICATES e um valor *. Isso garantirá que todos os Certificados sejam carregados. Se quiser carregar apenas os Certificados obtidos por upload, você poderá inserir uma lista separada por vírgulas das impressões digitais deles.
+A última coisa que você precisa fazer é adicionar uma Configuração de Aplicativo ao Aplicativo Web com o nome WEBSITE\_LOAD\_CERTIFICATES e um valor *. Essa etapa garantirá que todos os Certificados são carregados. Se quiser carregar apenas os Certificados carregados, você poderá inserir uma lista separada por vírgulas das impressões digitais deles.
 
-Para saber mais sobre como adicionar um certificado a um Aplicativo Web, consulte [Usando Certificados em aplicativos de sites do Azure](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
 
-### <a name="add-a-certificate-to-key-vault-as-a-secret"></a>Adicionar um certificado ao Key Vault como um segredo
+## <a name="clean-up-resources"></a>Limpar recursos
+Quando não for mais necessário, exclua o serviço de aplicativo, o Key Vault e o aplicativo do Azure AD que você usou para o tutorial.  
 
-Em vez de carregar o certificado diretamente no serviço de Aplicativo Web, você pode armazená-lo no Key Vault como um segredo e implantá-lo de lá. Esse é um processo em duas etapas que é descrito na postagem de blog [Implantação do certificado do Azure do aplicativo Web por meio do Cofre de Chaves](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)
 
 ## <a id="next"></a>Próximas etapas
+> [!div class="nextstepaction"]
+>[Referência da API de Gerenciamento do Azure Key Vault](/dotnet/api/overview/azure/keyvault/management).
 
-Para referências de programação, consulte [Referência de API do cliente C# do cofre da chave do Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
+ 

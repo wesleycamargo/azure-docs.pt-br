@@ -17,11 +17,12 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: d4e06c7332c12ed26afbf71d1b307c6a6fb2a55b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3298b39fc92f6e5867900ed151149ff936e2733c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492622"
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Guia de início rápido para a Graph API do AD do Azure
 A API do Graph do Active Directory do Azure fornece acesso programático ao AD do Azure por meio de pontos de extremidade OData REST API. Aplicativos podem usar a API do Microsoft Azure AD Graph para realizar operações CRUD (criar, ler, atualizar e excluir) nos objetos e dados do diretório. Por exemplo, você pode usar a API do Microsoft Azure AD Graph para criar um novo usuário, exibir ou atualizar as propriedades do usuário, alterar a senha do usuário, verificar a associação de grupo para acesso baseado em função, desabilitar ou excluir o usuário. Para obter mais informações sobre os recursos da API do Microsoft Azure AD Graph e cenários de aplicativo, consulte a [API do Microsoft Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) e [Pré-requisitos da API do Microsoft Azure AD Graph](https://msdn.microsoft.com/library/hh974476.aspx). 
@@ -78,7 +79,7 @@ Para os fins deste Guia de Início Rápido, você poderá usar o Depurador da We
 
 No exemplo a seguir, o Depurador da Web Fiddler é usado para criar um novo grupo de segurança 'MyTestGroup' no diretório do Azure AD.
 
-**Obter um token de acesso**: para acessar o Graph do AD do Azure, os clientes devem se autenticar no AD do Azure primeiro. Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
+**Obter um token de acesso**: para acessar o Graph do AD do Azure, os clientes devem se autenticar no AD do Azure primeiro. Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](authentication-scenarios.md).
 
 **Compor e executar uma consulta**: execute as etapas a seguir:
 

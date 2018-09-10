@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208804"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrevendo um cluster do Service Fabric
 O Gerenciador de Recursos de Cluster do Service Fabric fornece vários mecanismos para descrever um cluster. Durante o tempo de execução, o Cluster Resource Manager usa essas informações para garantir a alta disponibilidade dos serviços executados no cluster. Ao aplicar essas regras importantes, ele também tenta otimizar o consumo de recursos dentro do cluster.
@@ -191,7 +192,7 @@ Como ambas as abordagens têm vantagens e desvantagens, apresentamos uma abordag
 > [!NOTE]
 >Esse será o comportamento padrão a começar do Service Fabric versão 6.2. 
 >
-A abordagem adaptável usa a lógica “diferença máxima” por padrão e muda para a lógica “segurança de quorum” somente quando necessário. O Gerenciador de Recursos de Cluster decide automaticamente qual estratégia é necessária examinando como o cluster e os serviços são configurados. Para um dado serviço: *se o TargetReplicaSetSize for divisível pelo número de Domínios de Falha e o número de Domínios de Atualização **e** o número de nós for menor ou igual ao (número de Domínios de Falha) * (o número de Domínios de Atualização), o Gerenciador de Recursos de Cluster deverá usar a lógica “baseado em quorum” para o serviço.* Tenha em mente que o Gerenciador de Recursos de Cluster usará essa abordagem para serviços com e sem estado, apesar da perda de quorum não ser relevante para os serviços sem estado.
+A abordagem adaptável usa a lógica “diferença máxima” por padrão e muda para a lógica “segurança de quorum” somente quando necessário. O Gerenciador de Recursos de Cluster decide automaticamente qual estratégia é necessária examinando como o cluster e os serviços são configurados. Para um dado serviço: *se o TargetReplicaSetSize for divisível pelo número de Domínios de Falha e o número de Domínios de Atualização **e** o número de nós for menor ou igual ao (número de Domínios de Falha) \* (o número de Domínios de Atualização), o Gerenciador de Recursos de Cluster deverá usar a lógica “baseado em quorum” para o serviço.* Tenha em mente que o Gerenciador de Recursos de Cluster usará essa abordagem para serviços com e sem estado, apesar da perda de quorum não ser relevante para os serviços sem estado.
 
 Voltemos para o exemplo anterior e consideremos que um cluster agora tem oito nós (o cluster ainda está configurado com cinco Domínios de Falha, cinco Domínios de Atualização e TargetReplicaSetSize de um serviço hospedado no cluster que permanece cinco). 
 

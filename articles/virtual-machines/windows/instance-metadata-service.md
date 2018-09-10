@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: a40971e373a6e2fe6324e06816112e2025506ba8
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: de597424c1be01e651068b7900acbece822610b1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057971"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008368"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -299,7 +299,7 @@ subscriptionId | Assinatura do Azure para a Máquina Virtual | 2017-08-01
 marcas | [Marcas](../../azure-resource-manager/resource-group-using-tags.md) para a sua Máquina Virtual  | 2017-08-01
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para a sua Máquina Virtual | 2017-08-01
 placementGroupId | [Grupo de Posicionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do conjunto de dimensionamento da sua Máquina Virtual | 2017-08-01
-vmScaleSetName | [Nome do ScaleSet de Máquinas Virtuais] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de seu conjunto de dimensionamento de máquinas virtuais | 2017-12-01
+vmScaleSetName | [Nome do conjunto de dimensionamento de máquinas virtuais](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) do seu conjunto de dimensionamento de máquinas virtuais | 2017-12-01
 zona | [Zona de Disponibilidade](../../availability-zones/az-overview.md) da máquina virtual | 2017-12-01 
 IPv4/privateIpAddress | Endereço IPv4 local da máquina virtual | 2017-04-02
 IPv4/privateIpAddress | Endereço IPv4 local da máquina virtual | 2017-04-02
@@ -308,7 +308,7 @@ subnet/prefix | Prefixo de sub-rede, exemplo 24 | 2017-04-02
 ipv6/ipAddress | Endereço IPv6 local da máquina virtual | 2017-04-02 
 macAddress | Endereço mac da máquina virtual | 2017-04-02 
 scheduledevents | Consulte [Eventos agendados](scheduled-events.md) | 2017-08-01
-identidade | Identidade de Serviço Gerenciada (versão prévia) Veja [adquirir um token de acesso](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | {0}01-02-2018{0}
+identidade | Identidade de Serviço Gerenciada (versão prévia) Veja [adquirir um token de acesso](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 01-02-2018
 
 ## <a name="example-scenarios-for-usage"></a>Cenários de exemplo para uso  
 

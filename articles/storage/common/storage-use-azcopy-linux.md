@@ -2,23 +2,18 @@
 title: Copiar ou mover dados para o Armazenamento do Azure com o AzCopy no Linux | Microsoft Docs
 description: Use o utilitário AzCopy no Linux para mover ou copiar dados entre o conteúdo de blob e de arquivo. Copie dados para o Armazenamento do Azure de arquivos locais ou copie dados dentro na mesma conta ou entre contas de armazenamento. Migre facilmente seus dados para o Armazenamento do Azure.
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: 80b112de1fd8417dd64d9d95b7a037ec876d18c7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: common
+ms.openlocfilehash: d674b0a6a16e22ed06577f7306ed6f4b9755dd0e
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42146084"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferir dados com o AzCopy no Linux
 
@@ -34,7 +29,9 @@ Há duas versões do AzCopy que podem ser baixadas. O AzCopy no Linux destina-se
 ### <a name="installation-on-linux"></a>Instalação no Linux
 
 > [!NOTE]
-> Talvez seja necessário instalar as dependências do .NET Core 2.1 destacadas neste [artigo de pré-requisitos do .NET Core](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x), dependendo da sua distribuição. Para distribuições de fluxo principal, como o Ubuntu 16.04 e o RHEL 7, isso geralmente não é necessário.
+> Talvez seja necessário instalar as dependências do .NET Core 2.1 destacadas neste [artigo de pré-requisitos do .NET Core](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x), dependendo da sua distribuição. 
+>
+> Para distribuições do RHEL 7, instale as dependências de ICU e libunwind: ```yum install -y libunwind icu```
 
 A instalação do AzCopy no Linux (v7.2 ou posterior) é tão fácil quanto extrair um pacote tar e executar o script de instalação. 
 
@@ -63,7 +60,7 @@ Adicionar fonte de apt ao repositório de produtos do Linux da Microsoft e insta
 ```bash
 sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
-apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF
 ```
 
 ```bash
@@ -78,7 +75,7 @@ Adicionar fonte de apt ao repositório de produtos do Linux da Microsoft e insta
 ```bash
 echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
-apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF
 ```
 
 ```bash
@@ -345,6 +342,9 @@ azcopy \
     --include "ab" \
     --set-content-type
 ```
+
+### <a name="customizing-the-mime-content-type-mapping"></a>Personalizar o mapeamento de tipo de conteúdo MIME
+O AzCopy usa um arquivo de configuração que contém um mapeamento de extensão de arquivo para o tipo de conteúdo. É possível personalizar esse mapeamento e adicionar novos pares conforme necessário. O mapeamento está localizado em ```/usr/lib/azcopy/AzCopyConfig.json```
 
 ## <a name="blob-copy"></a>Blob: copiar
 ### <a name="copy-single-blob-within-storage-account"></a>Copiar um único blob dentro da conta de armazenamento
@@ -722,4 +722,3 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consult
 * [AzCopy: Transferir dados com o modo reiniciável e um token SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: Using cross-account Copy Blob (AzCopy: usando blob de cópia em várias contas)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Uploading/downloading files for Azure Blobs (AzCopy: Upload/download de arquivos para Blobs do Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-

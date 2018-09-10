@@ -2,24 +2,22 @@
 title: Tutorial de MongoDB, Angular e Node para Azure - parte 3 | Microsoft Docs
 description: Parte 3 da série de tutoriais sobre como criar um aplicativo do MongoDB com Angular e Node no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB.
 services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
+author: johnpapa
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: sngun
+ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: de645f46a889ba05fc54b1c5d2b9da64393d348e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c71e0d221e4605d95dc754127ec44c62a64472f1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702275"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Criar um aplicativo do MongoDB com Angular e Azure Cosmos DB - parte 3: criar a interface do usuário com Angular
 
@@ -36,7 +34,7 @@ A Parte 3 do tutorial se baseia na [Parte 2](tutorial-develop-mongodb-nodejs-par
 
 > [!VIDEO https://www.youtube.com/embed/MnxHuqcJVoM]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas na [Parte 2](tutorial-develop-mongodb-nodejs-part2.md) do tutorial.
 
@@ -55,56 +53,20 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
 
     A janela de terminal exibe a confirmação dos novos componentes.
 
-    ```bash
-    installing component
-      create src\client\app\heroes.component.ts
-      update src\client\app\app.module.ts 
-    ```
+    ![Instalar o componente hero](./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png)
 
     Vamos examinar os arquivos que foram criados e atualizados. 
 
-3. No Visual Studio Code, no painel **Explorer**, navegue até a nova pasta **src\client\app** e abra o novo arquivo **heroes.component.ts** criado pela etapa 2. Esse arquivo de componente TypeScript foi criado pelo comando anterior.
+3. No Visual Studio Code, no painel **Explorer**, navegue até a nova pasta **src\app** e abra o novo arquivo **heroes.component.ts** gerado na pasta do aplicativo. Esse arquivo de componente TypeScript foi criado pelo comando anterior.
 
     > [!TIP]
     > Se a pasta do aplicativo não for exibida no Visual Studio Code, digite CMD+SHIFT+P em um Mac ou Ctrl+Shift+P no Windows para abrir a Paleta de Comando e digite *Recarregar Janela* para acompanhar a alteração do sistema.
-
-    ![Abra o arquivo heroes.component.ts](./media/tutorial-develop-mongodb-nodejs-part3/open-folder.png)
 
 4. Na mesma pasta, abra o arquivo **app.module.ts** e observe que ele adicionou o `HeroesComponent` às declarações na linha 5 e também o importou na linha 10.
 
     ![Abrir o arquivo app-module.ts](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
 
-    Agora que você tem o seu componente Heroes, crie um novo arquivo para o componente heroes HTML. Como criamos um aplicativo mínimo, o HTML devia ir para o mesmo arquivo do TypeScript, mas queremos dividi-lo e criar um arquivo separado.
-
-5. No painel **Explorer**, clique com o botão direito do mouse na pasta **Aplicativo**, clique em **Novo Arquivo**e nomeie o novo arquivo *heroes.component.html*.
-
-6. No arquivo **heroes.component.ts**, exclua as linhas 5 a 9 
-
-    ```ts
-    template: `
-        <p>
-          heroes Works!
-        </p>
-      `,
-      ```
-      e substitua por
-  
-    ```ts
-    templateUrl: './heroes.component.html',
-    ```
-
-    para fazer referência ao novo arquivo HTML.
- 
-    > [!TIP]
-    > Você pode usar as extensões e trechos de código Angular Essentials do John Papa para Visual Studio Code a fim de acelerar o desenvolvimento. 
-    > 1. Clique no botão **Extensões** ![botão Extensões do Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png).
-    > 2. Digite *angular essentials* na caixa de pesquisa.
-    > 3. Clique em **Instalar**. 
-    > 4. Clique no **Recarregar** para usar as novas extensões.
-    > ou baixar em [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). 
-    > ![Extensão Angular Essentials](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
-
-7. Volte para o arquivo **heroes.component.html** copie nesse código. O `<div>` é o contêiner para toda a página. Dentro do contêiner, há uma lista de heroes que precisamos criar para que, ao clicar em um, você possa selecioná-lo e editá-lo ou excluí-lo na interface do usuário. Em seguida, no HTML, temos alguns estilos para que você possa saber qual foi selecionado. Também há uma área de edição para que você possa adicionar um novo hero ou editar uma existente. 
+5. Volte para o arquivo **heroes.component.html** copie nesse código. O `<div>` é o contêiner para toda a página. Dentro do contêiner, há uma lista de heroes que precisamos criar para que, ao clicar em um, você possa selecioná-lo e editá-lo ou excluí-lo na interface do usuário. Em seguida, no HTML, temos alguns estilos para que você possa saber qual foi selecionado. Também há uma área de edição para que você possa adicionar um novo hero ou editar uma existente. 
 
     ```html
     <div>
@@ -143,14 +105,15 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
     </div>
     ```
 
-8. Agora que temos o HTML, precisamos adicioná-lo ao arquivo **heroes.component.ts** para que possa interagir com o modelo. O novo código adicionado ao **heroes.component.ts** abaixo adiciona o modelo ao nosso arquivo de componente. Um construtor que obtém alguns heroes e inicializa o componente de serviço hero para obter todos os dados foi adicionado. Esse código também adiciona todos os métodos necessários para tratar de eventos na interface do usuário. Você pode copiar o código a seguir por cima do código existente em **heroes.component.ts**. 
+7. Agora que temos o HTML, precisamos adicioná-lo ao arquivo **heroes.component.ts** para que possa interagir com o modelo. O código a seguir adiciona o modelo para ao arquivo do componente. Um construtor que obtém alguns heroes e inicializa o componente de serviço hero para obter todos os dados foi adicionado. Esse código também adiciona todos os métodos necessários para tratar de eventos na interface do usuário. Você pode copiar o código a seguir por cima do código existente em **heroes.component.ts**. Devem ser encontrados erros nas áreas Hero e HeroService já que os componentes correspondentes ainda não foram importados, esse erro será corrigido na próxima seção. 
 
     ```ts
     import { Component, OnInit } from '@angular/core';
 
     @Component({
       selector: 'app-heroes',
-      templateUrl: './heroes.component.html'
+      templateUrl: './heroes.component.html',
+      styleUrls: ['./heroes.component.scss']
     })
     export class HeroesComponent implements OnInit {
       addingHero = false;
@@ -210,7 +173,7 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
     }
     ```
 
-9. Em **Explorer**, abra o arquivo **app/app.module.ts** e atualize as linhas 13 (adicionar uma vírgula) e 14 a fim de adicionar uma importação para um `FormsModule`. A seção de importação deve ficar assim:
+8. Em **Explorer**, abra o arquivo **app/app.module.ts** e atualize a seção de importações para adicionar uma importação para um `FormsModule`. A seção de importação deve ficar assim:
 
     ```
     imports: [
@@ -219,7 +182,7 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
     ],
     ```
 
-10. Adicione uma importação ao novo módulo FormsModule na linha 3. 
+9. No arquivo **app/app.module.ts** adicione uma importação ao novo módulo FormsModule na linha 3. 
 
     ```
     import { BrowserModule } from '@angular/platform-browser';
@@ -229,7 +192,7 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
 
 ## <a name="use-css-to-set-the-look-and-feel"></a>Usar CSS para definir a aparência
 
-1. No painel do Explorer, abra o arquivo **src/client/styles.scss**.
+1. No painel do Explorer, abra o arquivo **src/styles.scss**.
 
 2. Copie o código a seguir no arquivo **styles.scss**, substituindo o conteúdo existente do arquivo.
 
@@ -392,34 +355,34 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
 
 Agora que temos o componente, como fazemos para exibi-lo na tela? Vamos modificar os componentes padrão em **app.component.ts**.
 
-1. No painel do Explorer, abra **client/app/app.component.ts**.
-
-2. Nas linhas 6 a 8, altere o título para Heroes e insira o nome do componente que criamos em **heroes.components.ts** (app-heroes) para se referir a esse novo componente. A seção do modelo agora deve ficar assim: 
+1. No painel Explorer, abra **/app/app.component.ts**, altere o título para Heroes e insira o nome do componente que criamos em **heroes.components.ts** (app-heroes) para se referir a esse novo componente. Agora, o conteúdo do arquivo deve estar da seguinte maneira: 
 
     ```ts
-    template: `
+    import { Component } from '@angular/core';
+
+    @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.scss'],
+      template: `
       <h1>Heroes</h1>
       <div class="header-bar"></div>
       <app-heroes></app-heroes>
-    `,
+    `
+    })
+    export class AppComponent {
+      title = 'app';
+    }
+
     ```
 
-3. Há outros componentes de **heroes.components.ts** que estamos referindo, como o componente Hero e, portanto, precisamos criá-lo também. No prompt de comando da CLI do Angular, use o comando a seguir para criar um modelo de hero e um arquivo chamado **hero.ts**, em que g = gerar cl = classe e hero = nome da classe.
+2. Há outros componentes de **heroes.components.ts** que estamos referindo, como o componente Hero e, portanto, precisamos criá-lo também. No prompt de comando da CLI do Angular, use o comando a seguir para criar um modelo de hero e um arquivo chamado **hero.ts**, em que g = gerar cl = classe e hero = nome da classe.
 
     ```bash
     ng g cl hero
     ```
 
-    A janela de terminal exibe a confirmação da nova classe.
-
-    ```bash
-    installing class
-    create src\client\app\hero.ts
-    ```
-
-4. No painel do Explorer, abra **src\client\app\hero.ts**.
-
-5. Em **hero.ts**, substitua o conteúdo do arquivo pelo código a seguir, que adiciona uma classe Hero com uma ID, um nome e uma fala. 
+3. No painel do Explorer, abra **src\app\hero.ts**. Em **hero.ts**, substitua o conteúdo do arquivo pelo código a seguir, que adiciona uma classe Hero com uma ID, um nome e uma fala.
 
     ```ts
       export class Hero {
@@ -429,15 +392,15 @@ Agora que temos o componente, como fazemos para exibi-lo na tela? Vamos modifica
     }
     ```
 
-6. Volte para **heroes.components.ts** e observe que a linha `selectedHero: Hero;` (linha 10), `Hero` tem uma linha vermelha embaixo. 
+4. Volte para **heroes.components.ts** e observe que a linha `selectedHero: Hero;` (linha 10), `Hero` tem uma linha vermelha embaixo. 
 
-7. Clique no termo `Hero`, e o Visual Studio exibe um ícone de lâmpada no lado esquerdo do bloco de código. 
+5. Clique no termo `Hero`, e o Visual Studio exibe um ícone de lâmpada no lado esquerdo do bloco de código. 
 
     ![Lâmpada no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
 
-8. Clique na lâmpada e clique em **Importar Hero de "client/app/hero".** ou **Importar Hero de "./hero".** (A mensagem muda dependendo da sua configuração)
+6. Clique na lâmpada e clique em **Importar Hero de “/app/hero”.** ou **Importar Hero de "./hero".** (A mensagem muda dependendo da sua configuração)
 
-    Uma nova linha de código aparece na linha 2. Se a linha 2 faz referência client/app/hero, modifique-o para que faça referência ao arquivo de hero na pasta local (./hero). A linha 2 deve ser assim:
+    Uma nova linha de código aparece na linha 2. Se a linha 2 faz referência a /app/hero, modifique-a para que faça referência ao arquivo de hero na pasta local (./hero). A linha 2 deve ser assim:
 
    ```
    import { Hero } from "./hero";
@@ -453,23 +416,15 @@ Agora que temos o componente, como fazemos para exibi-lo na tela? Vamos modifica
     ng g s hero -m app.module
     ```
 
-    A saída indica que **hero.service.ts** foi criado e **app.module.ts** foi atualizado.
-  
-    ```bash
-    installing service
-      create src\client\app\hero.service.ts
-      update src\client\app\app.module.ts
-    ```
+2. No Visual Studio Code, volte para **heroes.components.ts**. Observe que na linha `constructor(private heroService: HeroService) {}` (linha 13), `HeroService` tem uma linha vermelha embaixo. Clique em `HeroService` para obter a lâmpada no lado esquerdo do bloco de código. Clique na lâmpada e clique em **Importar HeroService de "./hero.service".** ou **Importar HeroService de “/app/hero.service”.**
+
+    Clicar na lâmpada insere uma nova linha de código na linha 2. Se a linha 2 faz referência à pasta /app/hero.service, modifique-a para que faça referência ao arquivo de hero na pasta local (./hero.service). A linha 2 deve ser assim:
     
-    Em app.module.ts, as linhas de código abaixo foram adicionadas (linhas 6 e 17):
-    
-    ```typescript
-    import { HeroService } from './hero.service';
-    ...
-        providers: [HeroService],
+    ```javascript
+    import { HeroService } from "./hero.service"
     ```
 
-2. No Visual Studio Code, abra **hero.service.ts** e copie o código a seguir, substituindo o conteúdo do arquivo.
+3. No Visual Studio Code, abra **hero.service.ts** e copie o código a seguir, substituindo o conteúdo do arquivo.
 
     ```ts
     import { Injectable } from '@angular/core';
@@ -503,7 +458,7 @@ Agora que temos o componente, como fazemos para exibi-lo na tela? Vamos modifica
 
     Este código usa a versão mais recente do HttpClient que o Angular oferece, que é um módulo que você precisa fornecer e, portanto, vamos fazer isso em seguida.
 
-3. No Visual Studio Code, abra **app.module.ts** e importe o HttpClientModule atualizando a seção de importação para incluir HttpClientModule.
+4. No Visual Studio Code, abra **app.module.ts** e importe o HttpClientModule atualizando a seção de importação para incluir HttpClientModule.
 
     ```ts
     imports: [
@@ -513,18 +468,10 @@ Agora que temos o componente, como fazemos para exibi-lo na tela? Vamos modifica
     ],
     ```
 
-4. Em **app.module.ts**, adicione a instrução de importação HttpClientModule à lista de importações.
+5. Em **app.module.ts**, adicione a instrução de importação HttpClientModule à lista de importações.
 
     ```ts
     import { HttpClientModule } from '@angular/common/http';
-    ```
-
-5. No Visual Studio Code, volte para **heroes.components.ts**. Observe que na linha `constructor(private heroService: HeroService) {}` (linha 13), `HeroService` tem uma linha vermelha embaixo. Clique em `HeroService` para obter a lâmpada no lado esquerdo do bloco de código. Clique na lâmpada e clique em **Importar HeroService de "./hero.service".** ou **Importar HeroService de "client/app/hero.service".**
-
-    Clicar na lâmpada insere uma nova linha de código na linha 2. Se a linha 2 faz referência à pasta client/app/hero.service, modifique-a para que faça referência ao arquivo de hero na pasta local (./hero.service). A linha 2 deve ser assim:
-    
-    ```javascript
-    import { HeroService } from "./hero.service"
     ```
 
 6. Salve todos os arquivos no Visual Studio Code.
@@ -539,7 +486,7 @@ Agora que temos o componente, como fazemos para exibi-lo na tela? Vamos modifica
 
     Se houver algum problema, a janela do terminal exibirá informações sobre os arquivos a serem corrigidos. Quando a compilação for concluída, os novos arquivos vão para a pasta **dist**. Você pode examinar os arquivos novos na pasta **dist** se desejar.
 
-    Agora, vamos executar o aplicativo.
+    Agora vamos executar o aplicativo.
 
 2. No Visual Studio Code, clique no botão **Depurar** ![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) no lado esquerdo e clique no botão **Iniciar depuração** botão ![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
 

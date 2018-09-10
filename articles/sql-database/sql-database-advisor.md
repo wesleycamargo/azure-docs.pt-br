@@ -2,18 +2,20 @@
 title: Recomendações de desempenho - Banco de dados SQL do Azure | Microsoft Docs
 description: O Banco de Dados SQL do Azure fornece recomendações para seus Bancos de Dados SQL que podem melhorar o desempenho de consulta atual.
 services: sql-database
-author: stevestein
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: b88b8a313a03ef2ad72aeb053b89505201c23819
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 2f29326f54a90d79532529175a94b1afc1920bea
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520989"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recomendações de desempenho do Banco de Dados SQL
 

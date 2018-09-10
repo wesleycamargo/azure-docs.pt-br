@@ -10,13 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2018
+ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 42b45d07c8ea326f0daa8f0e6efd7cf567dbfd1b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1fee9e511b251648adb412fe3e4ca01c20c7edc5
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145651"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com redirecionamento interno usando a CLI do Azure
 
@@ -49,7 +50,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos da rede 
 
-Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az_net). É possível adicionar a sub-rede denominada *myBackendSubnet*, que é necessária para os pools de servidores de back-end usando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* usando [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az-net). É possível adicionar a sub-rede denominada *myBackendSubnet*, que é necessária para os pools de servidores de back-end usando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* usando [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -71,7 +72,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicativo
 
-Você pode usar [az network application-gateway create](/cli/azure/application-gateway#create) para criar o gateway do aplicativo denominado *myAppGateway*. Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. O gateway de aplicativo é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que você criou anteriormente. 
+Você pode usar [az network application-gateway create](/cli/azure/network/application-gateway#create) para criar o gateway do aplicativo denominado *myAppGateway*. Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. O gateway de aplicativo é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que você criou anteriormente. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -102,7 +103,7 @@ Pode levar vários minutos para o gateway de aplicativo ser criado. Depois de cr
 
 Um ouvinte é necessário para habilitar o gateway de aplicativo para rotear o tráfego corretamente para o pool de back-end. Neste tutorial, você cria dois ouvintes para os seus dois domínios. Neste exemplo, são criados ouvintes para os domínios *www.contoso.com* e *www.contoso.org*.
 
-Adicione ouvintes de back-end necessários para redirecionar o tráfego usando [az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
+Adicione ouvintes de back-end necessários para redirecionar o tráfego usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -123,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Adicionar a configuração de redirecionamento
 
-Adicione a configuração de redirecionamento que envia tráfego de *www.contoso.org* para o ouvinte de *www.contoso.com* no gateway do aplicativo usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az_network_application_gateway_redirect_config_create).
+Adicione a configuração de redirecionamento que envia tráfego de *www.contoso.org* para o ouvinte de *www.contoso.com* no gateway do aplicativo usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -138,7 +139,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-routing-rules"></a>Adicionar regras de redirecionamento
 
-As regras são processadas na ordem em que são criadas, e o tráfego é redirecionado usando a primeira regra que corresponde à URL enviada para o gateway de aplicativo. A regra básica padrão que foi criada não é necessária neste tutorial. Neste exemplo, você criará duas novas regras, denominadas *contosoComRule* e *contosoOrgRule* e excluirá a regra padrão que foi criada.  Você pode adicionar as regras usando [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
+As regras são processadas na ordem em que são criadas, e o tráfego é redirecionado usando a primeira regra que corresponde à URL enviada para o gateway de aplicativo. A regra básica padrão que foi criada não é necessária neste tutorial. Neste exemplo, você criará duas novas regras, denominadas *contosoComRule* e *contosoOrgRule* e excluirá a regra padrão que foi criada.  Você pode adicionar as regras usando [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -190,13 +191,13 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="create-cname-record-in-your-domain"></a>Criar um registro CNAME em seu domínio
 
-Depois de criar o gateway de aplicativo com seu endereço IP público, é possível obter o endereço DNS e usá-lo para criar um registro CNAME em seu domínio. Use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) para obter o endereço DNS do gateway de aplicativo. Copie o valor de *fqdn* em DNSSettings e use-o como o valor do registro CNAME a ser criado. O uso de registros A não é recomendado, pois o VIP pode mudar quando o gateway de aplicativo for reiniciado.
+Depois de criar o gateway de aplicativo com seu endereço IP público, é possível obter o endereço DNS e usá-lo para criar um registro CNAME em seu domínio. Use [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show) para obter o endereço DNS do gateway de aplicativo. Copie o valor de *fqdn* em DNSSettings e use-o como o valor do registro CNAME a ser criado. O uso de registros A não é recomendado, pois o VIP pode mudar quando o gateway de aplicativo for reiniciado.
 
 ```azurecli-interactive
 az network public-ip show \

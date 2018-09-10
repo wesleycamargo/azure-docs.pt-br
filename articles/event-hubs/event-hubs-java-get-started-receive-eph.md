@@ -2,23 +2,19 @@
 title: Receber eventos de Hubs de Eventos do Azure usando o Java | Microsoft Docs
 description: Comece a receber de Hubs de Eventos usando Java
 services: event-hubs
-documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: 38e3be53-251c-488f-a856-9a500f41b6ca
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
-ms.author: sethm
-ms.openlocfilehash: bf87bed80c142bce6229ad858a33a1c6ede63a23
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 08/26/2018
+ms.author: shvija
+ms.openlocfilehash: ee1339d02fb23282d3589a80385f982eae2865fe
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128159"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Receber eventos de Hubs de Eventos do Azure usando Java
 
@@ -28,7 +24,7 @@ Para obter mais informações, veja [Visão Geral dos Hubs de Eventos][Event Hub
 
 Este tutorial mostra como receber eventos em um hub de eventos usando um aplicativo de console escrito em Java.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
@@ -58,18 +54,18 @@ Para usar EventProcessorHost, você deve ter uma [conta de Armazenamento do Azur
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Crie um projeto Java usando o Host de EventProcessor
 
-A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso em projetos do Maven por meio do [Repositório Central do Maven][Maven Package], e pode ser referenciada usando a seguinte declaração de dependência dentro do arquivo de projeto do Maven. A versão atual é 1.0.0:    
+A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso em projetos do Maven por meio do [Repositório Central do Maven][Maven Package], e pode ser referenciada usando a seguinte declaração de dependência dentro do arquivo de projeto do Maven. A versão atual do artefato azure-eventhubs-eph é 2.0.1 e a versão atual do artefato azure-eventhubs é 1.0.2:    
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.1</version>
 </dependency>
 ```
 
@@ -187,18 +183,14 @@ Para diferentes tipos de ambiente de build, é possível obter explicitamente os
     {
         private int checkpointBatchingCount = 0;
 
-        // OnOpen is called when a new event processor instance is created by the host. In a real implementation, this
-        // is the place to do initialization so that events can be processed when they arrive, such as opening a database
-        // connection.
+        // OnOpen is called when a new event processor instance is created by the host. 
         @Override
         public void onOpen(PartitionContext context) throws Exception
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " is opening");
         }
 
-        // OnClose is called when an event processor instance is being shut down. The reason argument indicates whether the shut down
-        // is because another host has stolen the lease for this partition or due to error or host shutdown. In a real implementation,
-        // this is the place to do cleanup for resources that were opened in onOpen.
+        // OnClose is called when an event processor instance is being shut down. 
         @Override
         public void onClose(PartitionContext context, CloseReason reason) throws Exception
         {
@@ -206,18 +198,13 @@ Para diferentes tipos de ambiente de build, é possível obter explicitamente os
         }
         
         // onError is called when an error occurs in EventProcessorHost code that is tied to this partition, such as a receiver failure.
-        // It is NOT called for exceptions thrown out of onOpen/onClose/onEvents. EventProcessorHost is responsible for recovering from
-        // the error, if possible, or shutting the event processor down if not, in which case there will be a call to onClose. The
-        // notification provided to onError is primarily informational.
         @Override
         public void onError(PartitionContext context, Throwable error)
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " onError: " + error.toString());
         }
 
-        // onEvents is called when events are received on this partition of the Event Hub. The maximum number of events in a batch
-        // can be controlled via EventProcessorOptions. Also, if the "invoke processor after receive timeout" option is set to true,
-        // this method will be called with null when a receive timeout occurs.
+        // onEvents is called when events are received on this partition of the Event Hub. 
         @Override
         public void onEvents(PartitionContext context, Iterable<EventData> events) throws Exception
         {
@@ -225,8 +212,6 @@ Para diferentes tipos de ambiente de build, é possível obter explicitamente os
             int eventCount = 0;
             for (EventData data : events)
             {
-                // It is important to have a try-catch around the processing of each event. Throwing out of onEvents deprives
-                // you of the chance to process any remaining events in the batch. 
                 try
                 {
                     System.out.println("SAMPLE (" + context.getPartitionId() + "," + data.getSystemProperties().getOffset() + "," +
@@ -235,10 +220,7 @@ Para diferentes tipos de ambiente de build, é possível obter explicitamente os
                     
                     // Checkpointing persists the current position in the event stream for this partition and means that the next
                     // time any host opens an event processor on this event hub+consumer group+partition combination, it will start
-                    // receiving at the event after this one. Checkpointing is usually not a fast operation, so there is a tradeoff
-                    // between checkpointing frequently (to minimize the number of events that will be reprocessed after a crash, or
-                    // if the partition lease is stolen) and checkpointing infrequently (to reduce the impact on event processing
-                    // performance). Checkpointing every five events is an arbitrary choice for this sample.
+                    // receiving at the event after this one. 
                     this.checkpointBatchingCount++;
                     if ((checkpointBatchingCount % 5) == 0)
                     {
@@ -259,15 +241,53 @@ Para diferentes tipos de ambiente de build, é possível obter explicitamente os
     }
     ```
 
-> [!NOTE]
-> Este tutorial usa uma única instância do EventProcessorHost. Para aumentar a taxa de transferência, é recomendável executar várias instâncias de EventProcessorHost, preferencialmente em computadores separados.  Isso também fornece redundância. Nesses casos, as diversas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. Se você quiser que vários destinatários processem, cada um, *todos* os eventos, você deve usar o conceito **ConsumerGroup** . Ao receber eventos em máquinas diferentes, pode ser útil especificar nomes para instâncias de EventProcessorHost com base em máquinas (ou funções) nas quais eles foram implantados.
-> 
-> 
+Este tutorial usa uma única instância do EventProcessorHost. Para aumentar a taxa de transferência, é recomendável executar várias instâncias de EventProcessorHost, preferencialmente em computadores separados.  Isso também fornece redundância. Nesses casos, as diversas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. Se você quiser que vários destinatários processem, cada um, *todos* os eventos, você deve usar o conceito **ConsumerGroup** . Ao receber eventos em máquinas diferentes, pode ser útil especificar nomes para instâncias de EventProcessorHost com base em máquinas (ou funções) nas quais eles foram implantados.
+
+## <a name="publishing-messages-to-eventhub"></a>Publicar mensagens no EventHub
+
+Antes que as mensagens sejam recuperadas pelos consumidores, elas precisam primeiro ser publicadas nas partições pelos editores. Vale observar que, quando as mensagens são publicadas no Hub de Eventos de modo síncrono usando o método sendSync() no objeto com.microsoft.azure.eventhubs.EventHubClient, a mensagem foi enviada para uma partição específica ou distribuída a todas as partições disponíveis de forma round robin, dependendo de a chave de partição ser especificada ou não.
+
+Quando uma cadeia de caracteres que representa a chave de partição for especificada, a chave receberá um hash para determinar a qual partição enviar o evento.
+
+Quando a chave de partição não for definida, as mensagens serão distribuídas por round robin a todas as partições disponíveis
+
+```java
+// Serialize the event into bytes
+byte[] payloadBytes = gson.toJson(messagePayload).getBytes(Charset.defaultCharset());
+
+// Use the bytes to construct an {@link EventData} object
+EventData sendEvent = EventData.create(payloadBytes);
+
+// Transmits the event to event hub without a partition key
+// If a partition key is not set, then we will round-robin to all topic partitions
+eventHubClient.sendSync(sendEvent);
+
+//  the partitionKey will be hash'ed to determine the partitionId to send the eventData to.
+eventHubClient.sendSync(sendEvent, partitionKey);
+
+```
+
+## <a name="implementing-a-custom-checkpointmanager-for-eventprocessorhost-eph"></a>Implementar um CheckpointManager personalizado para EventProcessorHost (EPH)
+
+A API fornece um mecanismo para implementar seu gerenciador de ponto de verificação personalizado em cenários em que a implementação padrão não é compatível com o seu caso de uso.
+
+O gerenciador de ponto de verificação padrão usa o armazenamento de blobs. No entanto, se substituir o gerenciador de ponto de verificação usado pelo EPH por sua própria implementação, você poderá usar qualquer armazenamento que quiser para fazer a sua implementação desse gerenciador.
+
+Você precisa criar uma classe que implementa a interface com.microsoft.azure.eventprocessorhost.ICheckpointManager
+
+Use sua implementação personalizada do gerenciador de ponto de verificação (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
+
+Dentro de sua implementação, você pode substituir o mecanismo de ponto de verificação padrão e implementar seus próprios pontos de verificação com base em seu próprio armazenamento de dados (SQL Server, CosmosDB, Cache Redis etc.). É recomendável que o armazenamento usado para fazer sua implementação do gerenciador de ponto de verificação seja acessível para todas as instâncias do EPH que estejam processando eventos para o grupo de consumidores.
+
+Você pode usar qualquer armazenamento de dados que estiver disponível em seu ambiente.
+
+A classe com.microsoft.azure.eventprocessorhost.EventProcessorHost fornece dois construtores que permitem que você substitua o gerenciador de ponto de verificação do EventProcessorHost.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Criar um Hub de Eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 

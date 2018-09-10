@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 82f08341f8c96695a4ceddb19d1b610d70b89f88
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 3c085074863aa166a5766116b6c63b7dc341ad96
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130828"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>SDKs de Grade de Eventos para o gerenciamento e publicação
 
@@ -24,7 +25,7 @@ Os SDKs de gerenciamento permitem criar, atualizar e excluir assinaturas e tópi
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
 * [Go](https://github.com/Azure/azure-sdk-for-go)
-* [Java](https://mvnrepository.com/artifact/com.microsoft.azure.eventgrid-2018-01-01/azure-mgmt-eventgrid)
+* [Java](https://search.maven.org/#search%7Cga%7C1%7Cazure-mgmt-eventgrid)
 * [Node](https://www.npmjs.com/package/azure-arm-eventgrid)
 * [Python](https://pypi.python.org/pypi/azure-mgmt-eventgrid)
 * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid)
@@ -42,6 +43,7 @@ Os SDKs de plano de dados permitem que você publique eventos para tópicos, tom
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* Por aplicativos de exemplo, consulte [exemplos de código da grade de eventos](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
 * Para ver uma introdução à Grade de Eventos, confira [O que é uma Grade de eventos?](overview.md)
 * Para comandos de grade de eventos em CLI do Azure, consulte [CLI do Azure](/cli/azure/eventgrid).
 * Para comandos de grade de eventos em PowerShell, consulte [PowerShell](/powershell/module/azurerm.eventgrid).

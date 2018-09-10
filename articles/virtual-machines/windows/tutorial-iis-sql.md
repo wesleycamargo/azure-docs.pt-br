@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f9fea933dd664955a0bc6f47db775fbc469fd684
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: f8f91a4c039e07b636395ab953b8031d5ffe9958
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343499"
 ---
 # <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutorial: Instalar a pilhaSQL&#47;IIS&#47;.NET em uma VM do Windows com o Microsoft Azure PowerShell
 
@@ -115,7 +116,7 @@ New-AzureRmVm `
     -OpenPorts 3389,1401 
 ```
 
-Use [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) para adicionar a [extensão do SQL Server](/sql/virtual-machines-windows-sql-server-agent-extension.md) à VM do SQL.
+Use [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) para adicionar a [extensão do SQL Server](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) à VM do SQL.
 
 ```azurepowershell-interactive
 Set-AzureRmVMSqlServerExtension `

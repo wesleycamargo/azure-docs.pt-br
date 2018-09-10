@@ -2,22 +2,23 @@
 title: 'Tutorial: Criar e gerenciar um trabalho do Stream Analytics usando o portal do Azure | Microsoft Docs'
 description: Este tutorial ilustra de ponta a ponta como usar o Azure Stream Analytics para analisar chamadas fraudulentas em um fluxo de chamada telefônica.
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 manager: kfile
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 524b15747a275c76fec6c529e4f00d0da1b41420
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 39b39a1d00c91e0ff114a28c13da0d4b6920ec13
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186223"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Criar um trabalho do Stream Analytics para analisar dados de chamada telefônica e visualizar os resultados em um painel do Power BI
-
+ 
 Este tutorial mostra como usar o Azure Stream Analytics para analisar uma chamada telefônica de exemplo que é gerada por um aplicativo cliente. Os dados de chamada telefônica gerados pelo aplicativo cliente contêm algumas chamadas fraudulentas e definiremos um trabalho do Stream Analytics para filtrar essas chamadas.
 
 Neste tutorial, você aprenderá como:
@@ -30,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Testar e iniciar o trabalho  
 > * Visualizar os resultados no Power BI 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se você tem:
 
@@ -53,7 +54,7 @@ Para que o Stream Analytics possa analisar o fluxo de dados de chamadas fraudule
    |NOME     | myEventHubNS        |  Um nome exclusivo para identificar o namespace de hub de eventos.       |
    |Assinatura     |   \<Sua assinatura\>      |   Selecione uma assinatura do Azure em que deseja criar o hub de eventos.      |
    |Grupo de recursos     |   MyASADemoRG      |  Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta.       |
-   |Local padrão     |   Oeste dos EUA 2      |    Local onde o namespace do hub de eventos pode ser implantado.     |
+   |Localização     |   Oeste dos EUA 2      |    Local onde o namespace do hub de eventos pode ser implantado.     |
 
 4. Use as opções padrão nas configurações restantes e selecione **Criar**.  
 
@@ -134,7 +135,7 @@ Agora que você tem um fluxo de eventos de chamada, pode criar um trabalho do St
    |Nome do trabalho     |  ASATutorial       |   Um nome exclusivo para identificar o namespace de hub de eventos.      |
    |Assinatura    |  \<Sua assinatura\>   |   Selecione uma assinatura do Azure em que deseja criar o trabalho.       |
    |Grupo de recursos   |   MyASADemoRG      |   Selecione **Usar existente** e insira um novo nome de grupo de recursos para sua conta.      |
-   |Local padrão   |    Oeste dos EUA 2     |      Local onde o trabalho pode ser implantado. É recomendável colocar o trabalho e o hub de eventos na mesma região para melhor desempenho e para que não seja necessário pagar para transferir dados entre regiões.      |
+   |Localização   |    Oeste dos EUA 2     |      Local onde o trabalho pode ser implantado. É recomendável colocar o trabalho e o hub de eventos na mesma região para melhor desempenho e para que não seja necessário pagar para transferir dados entre regiões.      |
    |Ambiente de hospedagem    | Nuvem        |     Os trabalhos do Stream Analytics podem ser implantados na nuvem ou na borda. O Cloud permite que você implante no Azure Cloud e o Edge permite que você implante em um dispositivo IoT Edge.    |
    |Unidades de transmissão     |    1       |      As unidades de streaming representam os recursos de computação necessários para executar um trabalho. Por padrão, esse valor é definido como 1. Para saber mais sobre como dimensionar unidades de streaming, confira o artigo [Entendendo e ajustando as unidades de streaming](stream-analytics-streaming-unit-consumption.md).      |
 

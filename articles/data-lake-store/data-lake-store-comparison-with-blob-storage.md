@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: f44532f0b0c0927c7b06c7e92a4839c5ce762f6e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0b374e92a1e1d9828bc8c095e29e1dfdfd13275b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492904"
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Comparar o Azure Data Lake Store e o Armazenamento de Blobs do Azure
 A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o Armazenamento de Blobs do Azure em alguns aspectos fundamentais do processamento de big data. O Armazenamento de Blobs do Azure é um repositório de objetos escalonável de finalidade geral que foi criado para uma ampla variedade de cenários de armazenamento. O Azure Data Lake Store é um repositório de grande escala otimizado para cargas de trabalho de análise de big data.
@@ -29,8 +30,8 @@ A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o Ar
 | Estrutura |Sistema de arquivos hierárquico |Repositório de objetos com namespace simples |
 | API |API REST sobre HTTPS |API REST sobre HTTP/HTTPS |
 | API no servidor |[API REST compatível com WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[API REST do Armazenamento de Blobs do Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Cliente do sistema de arquivos Hadoop |sim |sim |
-| Operações de dados – autenticação |Com base em [Identidades do Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) |Com base em segredos compartilhados – [Chaves de Acesso de Conta](../storage/common/storage-create-storage-account.md#manage-your-storage-account) e [Chaves de Assinatura de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
+| Cliente do sistema de arquivos Hadoop |SIM |SIM |
+| Operações de dados – autenticação |Com base em [Identidades do Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Com base em segredos compartilhados – [Chaves de Acesso de Conta](../storage/common/storage-create-storage-account.md#manage-your-storage-account) e [Chaves de Assinatura de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Operações de dados – protocolo de autenticação |OAuth 2.0. As chamadas devem conter um JWT (Token Web JSON) válido emitido pelo Azure Active Directory |HMAC (Código de Autenticação de Mensagem Baseado em Hash). As chamadas devem conter um hash SHA-256 codificado na Base64 em uma parte da solicitação HTTP. |
 | Operações de dados – autorização |ACLs (Listas de Controle de Acesso) POSIX.  ACLs baseadas em identidades do Azure Active Directory podem ser definidas no arquivo e nível de pasta. |Para autorização no nível de conta — use [Chaves de Acesso da Conta](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Para autorização de conta, contêiner ou blob — use [Chaves de Assinatura de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Operações de dados – auditoria |Disponível. Veja mais informações [aqui](data-lake-store-diagnostic-logs.md) . |Disponível |

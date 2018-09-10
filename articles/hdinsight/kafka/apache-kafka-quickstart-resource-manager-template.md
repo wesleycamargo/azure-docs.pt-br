@@ -1,23 +1,19 @@
 ---
-title: Introdução ao Apache Kafka - Início Rápido do Azure HDInsight | Microsoft Docs
+title: Introdução ao Apache Kafka – Início Rápido do Azure HDInsight | Microsoft Docs
 description: Neste início rápido, você aprenderá a criar um cluster Apache Kafka no Azure HDInsight usando o Portal do Azure. Você também aprenderá sobre tópicos, assinantes e consumidores de Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
 ms.custom: mvc,hdinsightactive
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 10d4d4b3c0236cf8a1edd6976fe5af573703b237
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e8f8ad9b7cc14d6a3d28832e4d14ef55e8c530c6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618102"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Kafka no cluster HDInsight
 
@@ -63,7 +59,7 @@ Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https:
     | Grupo de recursos | O grupo de recursos no qual o cluster foi criado. |
     | Local padrão | A região do Azure na qual o cluster foi criado. |
     | Nome do cluster | O nome do cluster do Kafka. |
-    | Nome de usuário de logon do cluster | O nome da conta usada fazer logon nos serviços baseados em HTTPs hospedados no cluster. |
+    | Nome de usuário de logon do cluster | O nome da conta usada para fazer logon nos serviços baseados em HTTPs hospedados no cluster. |
     | Senha de logon do cluster | A senha para o nome de usuário de logon. |
     | Nome de usuário do SSH | O nome de usuário SSH. Essa conta pode acessar o cluster usando SSH. |
     | Senha SSH | A senha para o usuário do SSH. |

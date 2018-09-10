@@ -2,21 +2,22 @@
 title: Autenticação serviço a serviço no Azure Key Vault usando o .NET
 description: Use a biblioteca Microsoft.Azure.Services.AppAuthentication para se autenticar no Azure Key Vault usando o .NET.
 keywords: credenciais de local de autenticação do Azure Key Vault
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 services: key-vault
-ms.author: alleonar
+ms.author: bryanla
 ms.date: 11/15/2017
 ms.topic: article
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: db0b0ca72f41c68e19db6635d9ba0e9144183204
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b158414e7a2954981534fe6fb26c987eb2f4ce67
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140791"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço no Azure Key Vault usando o .NET
 
@@ -188,7 +189,7 @@ Para usar um certificado para entrar no Azure AD:
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
-          CertificateStoreLocation={LocalMachine or CurrentUser}.
+          CertificateStoreLocation={LocalMachine or CurrentUser}
     ```
  
     Substitua _{AppId}_, _{TenantId}_ e _{Thumbprint}_ pelos valores gerados na Etapa 1.
@@ -204,7 +205,7 @@ Para entrar usando uma credencial de segredo compartilhado do Azure AD:
 2. Defina uma variável de ambiente chamada **AzureServicesAuthConnectionString** como:
 
     ```
-    RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}. 
+    RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret} 
     ```
 
     Substitua _{AppId}_, _{TenantId}_ e _{ClientSecret}_ pelos valores gerados na Etapa 1.

@@ -9,10 +9,10 @@ ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: f403e060859df6d1de96a3c0d478d57df2677eee
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "31531048"
 ---
 A seguir, os cenários de alocação comuns que fazem com que uma solicitação de alocação seja fixada. Vamos nos aprofundar em cada cenário posteriormente neste artigo.

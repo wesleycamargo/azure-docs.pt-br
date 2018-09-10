@@ -1,22 +1,31 @@
-- name: Terraform na Documentação do Azure
+items:
+- name: Terraform na documentação do Azure
   href: index.yml
 - name: Visão geral
   items:
-    - name: Sobre o Terraform no Azure
-      href: terraform-overview.md
+  - name: Sobre o Terraform no Azure
+    href: terraform-overview.md
 - name: Guia de início rápido
-  expanded: true
   items:
-    - name: Instalar e configurar o Terraform
-      href: /azure/virtual-machines/linux/terraform-install-configure
-      maintainContext: true
-    - name: Criar uma VM do Linux
-      href: /azure/virtual-machines/linux/terraform-create-complete-vm
-      maintainContext: true
+  - name: Instalar e configurar o Terraform
+    href: /azure/virtual-machines/linux/terraform-install-configure
+    maintainContext: true
+  - name: Criar uma VM do Linux
+    href: /azure/virtual-machines/linux/terraform-create-complete-vm
+    maintainContext: true
+  expanded: true
 - name: Tutoriais
   items:
+  - name: Serviço de Aplicativo
+    items:
     - name: Slots de implantação dos provedores Terraform e Azure
       href: terraform-slot-walkthru.md
+  - name: Contêineres
+    items:
+    - name: Criar um cluster Kubernetes com AKS e Terraform
+      href: terraform-create-k8s-cluster-with-tf-and-aks.md
+  - name: Infraestrutura
+    items:
     - name: Criar uma VM Terraform com MSI habilitada
       href: terraform-vm-msi.md
     - name: Criar um cluster de VMs com módulos do Terraform
@@ -27,17 +36,33 @@
       href: terraform-create-vm-scaleset-network-disks-hcl.md
     - name: Provisionar conjunto de dimensionamento de Máquina Virtual de uma imagem personalizada do Packer
       href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: Ferramentas
+    items:
+    - name: Instalar a extensão do Visual Studio Code do Terraform
+      href: terraform-vscode-extension.md
 - name: Conceitos
   items:
-    - name: Integração do Cloud Shell
-      href: terraform-cloud-shell.md
+  - name: Integração do Azure Cloud Shell
+    href: terraform-cloud-shell.md
 - name: Exemplos
   items:
-    - name: Modelos de configuração
-      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
+  - name: Modelos de configuração
+    href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
 - name: Referência
   items:
-    - name: Registro do módulo do Azure
-      href: 'https://registry.terraform.io/modules/Azure'
-    - name: Referência do Terraform
-      href: 'http://aka.ms/terraform'
+  - name: Registro do módulo do Azure
+    href: https://registry.terraform.io/modules/Azure
+  - name: Referência do Terraform
+    href: http://aka.ms/terraform
+- name: Recursos
+  items:
+  - name: Azure e Terraform
+    href: https://azure.microsoft.com/solutions/devops/terraform/
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: e6c4637618d794f96db8ed9ca8eb063a62f704a1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663529"

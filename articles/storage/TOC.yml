@@ -8,6 +8,8 @@
       href: ./common/storage-decide-blobs-files-disks.md
 - name: Blobs
   href: ./blobs/storage-blobs-introduction.md
+- name: Armazenamento do Data Lake Gen2
+  href: ./data-lake-storage/introduction.md
 - name: Arquivos
   href: ./files/storage-files-introduction.md
 - name: Filas

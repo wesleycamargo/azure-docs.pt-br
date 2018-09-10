@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: MT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 05/04/2018
+  ms.locfileid: "33205424"
 abstract:
   description: O Azure Stack é uma plataforma desktop em nuvem híbrida que possibilita usar serviços do Azure por meio do datacenter da sua empresa ou do seu provedor de serviços. Como desenvolvedor, você pode criar aplicativos no Azure Stack. Você pode implantá-los no Azure Stack, no Azure ou você pode criar aplicativos verdadeiramente híbridos aproveitam a conectividade entre uma nuvem do Azure Stack e o Azure. Saiba como criar recursos e implantar aplicativos com tutoriais e guias de início rápido.<br/><br/>Se você tiver um operador de pilha do Azure que gerencia a infraestrutura e ofertas de serviços, consulte nosso <a href="/azure/azure-stack/">documentação operador</a>.<br/><br/>Se você estiver interessado no Azure pilha Development Kit (ASDK), uma implantação de nó único da pilha do Azure que você pode baixar e usar gratuitamente, um operador de pilha do Azure, consulte nosso <a href="/azure/azure-stack/asdk">documentação ASDK</a>.
 sections:

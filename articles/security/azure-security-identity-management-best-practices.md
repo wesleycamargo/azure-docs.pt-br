@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 6632ab962f3df0cfee8d28d7dad40bad8baf3f50
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e3fe033de05ed42d221795159461048790e1cec8
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493295"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso
 
 Muitos consideram a identidade como a nova camada de limite para segurança, assumindo a função antes exercida pela perspectiva centrada em rede tradicional. Essa evolução do eixo primário para a atenção e investimentos em relação à segurança decorre do fato de que os perímetros de rede estão se tornando cada vez mais porosos e a defesa do perímetro não pode ser tão eficiente quanto era antes da explosão de dispositivos [BYOD](http://aka.ms/byodcg) e aplicativos de nuvem.
 
-Neste artigo, abordaremos uma coleção de práticas recomendadas de segurança de controle de acesso e gerenciamento de identidades do Azure. Essas práticas recomendadas derivam da nossa experiência com o [Azure AD](../active-directory/active-directory-whatis.md) e da experiência de clientes como você.
+Neste artigo, abordaremos uma coleção de práticas recomendadas de segurança de controle de acesso e gerenciamento de identidades do Azure. Essas práticas recomendadas derivam da nossa experiência com o [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) e da experiência de clientes como você.
 
 Para cada prática recomendada, vamos explicar:
 
@@ -64,7 +65,7 @@ Para saber mais sobre a sincronização do Microsoft Azure AD, leia o artigo [In
 
 Quando você tem vários diretórios para gerenciar, isso se torna um problema administrativo não apenas para TI, mas também para os usuários finais, que precisam se lembrar de várias senhas. Usando o [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/), você proporcionará aos usuários a capacidade de usar o mesmo conjunto de credenciais para entrar e acessar os recursos de que precisam, independentemente de ser um recurso local ou na nuvem.
 
-Use o SSO para habilitar os usuários a acessar seus [aplicativos de SaaS](../active-directory/manage-apps/what-is-single-sign-on.md) com base em sua conta organizacional no Azure AD. Isso é aplicável não apenas a aplicativos de SaaS da Microsoft, mas também a outros aplicativos, como [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) e [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). O aplicativo pode ser configurado para usar o Azure AD como um provedor de [identidade baseada em SAML](../active-directory/fundamentals-identity.md). Como controle de segurança, o AD do Azure somente emitirá um token permitindo que eles entrem no aplicativo se receberem acesso usando o AD do Azure. Você pode conceder acesso diretamente ou por meio de um grupo do qual eles fazem parte.
+Use o SSO para habilitar os usuários a acessar seus [aplicativos de SaaS](../active-directory/manage-apps/what-is-single-sign-on.md) com base em sua conta organizacional no Azure AD. Isso é aplicável não apenas a aplicativos de SaaS da Microsoft, mas também a outros aplicativos, como [Google Apps](../active-directory/saas-apps/google-apps-tutorial.md) e [Salesforce](../active-directory/saas-apps/salesforce-tutorial.md). O aplicativo pode ser configurado para usar o Azure AD como um provedor de [identidade baseada em SAML](../active-directory/fundamentals-identity.md). Como controle de segurança, o AD do Azure somente emitirá um token permitindo que eles entrem no aplicativo se receberem acesso usando o AD do Azure. Você pode conceder acesso diretamente ou por meio de um grupo do qual eles fazem parte.
 
 > [!NOTE]
 > a decisão de usar o SSO terá impacto sobre como você integra seu diretório local a seu diretório na nuvem. Se quiser o SSO, você precisará usar a federação, pois a sincronização de diretórios só fornecerá a [mesma experiência de logon](../active-directory/active-directory-aadconnect.md).
@@ -77,7 +78,7 @@ Você pode saber mais sobre o SSO do Azure AD lendo o artigo [Gerenciamento e pe
 
 ## <a name="deploy-password-management"></a>Implantar o gerenciamento de senhas
 
-Em cenários em que você tem vários locatários ou deseja habilitar os usuários a [redefinir suas próprias senhas](../active-directory/active-directory-passwords-update-your-own-password.md), é importante usar políticas de segurança apropriadas para evitar abuso. No Azure, você pode aproveitar a funcionalidade de redefinição de senha de autoatendimento e personalizar as opções de segurança para atender às necessidades de negócios.
+Em cenários em que você tem vários locatários ou deseja habilitar os usuários a [redefinir suas próprias senhas](../active-directory/user-help/active-directory-passwords-update-your-own-password.md), é importante usar políticas de segurança apropriadas para evitar abuso. No Azure, você pode aproveitar a funcionalidade de redefinição de senha de autoatendimento e personalizar as opções de segurança para atender às necessidades de negócios.
 
 É importante obter comentários desses usuários e aprender com as experiências deles ao tentarem executar essas etapas. Com base nessas experiências, elabore um plano para reduzir os problemas potenciais que podem ocorrer durante a implantação para um grupo maior. Também é recomendável que você use o [relatório de Atividade de registro de redefinição de senha](../active-directory/active-directory-passwords-get-insights.md) para monitorar os usuários que estão se registrando.
 
@@ -132,7 +133,7 @@ Registre qualquer aplicativo que terceiriza a autenticação no Azure AD; esse �
 
 As organizações que não impõem o controle de identidade para acessar aplicativos e não orientam seus desenvolvedores sobre como integrar com segurança os aplicativos ao sistema de gerenciamento de identidade podem ser mais suscetíveis ao tipo de ataque de roubo de credenciais, como o [gerenciamento de sessão e autenticação fraco descrito nos 10 melhores do OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet).
 
-Você pode saber mais sobre cenários de autenticação para aplicativos de SaaS lendo [Cenários de autenticação do Azure AD](../active-directory/active-directory-authentication-scenarios.md).
+Você pode saber mais sobre cenários de autenticação para aplicativos de SaaS lendo [Cenários de autenticação do Azure AD](../active-directory/develop/authentication-scenarios.md).
 
 ## <a name="actively-monitor-for-suspicious-activities"></a>Monitorar ativamente as atividades suspeitas
 

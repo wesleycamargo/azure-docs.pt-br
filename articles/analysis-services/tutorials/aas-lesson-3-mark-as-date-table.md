@@ -3,16 +3,17 @@ title: 'Lição 3 do tutorial do Azure Analysis Services: marcar como tabela de 
 description: Descreve como marcar uma tabela de data no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1b7f6252faef02676be6ccb22653f5d4805020df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6627cf74154e66a84f34d5d5bc1d78ed3e0c38a2
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443592"
 ---
 # <a name="mark-as-date-table"></a>Marcar como Tabela de Data
 

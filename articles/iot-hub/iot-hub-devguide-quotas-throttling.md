@@ -1,32 +1,26 @@
 ---
 title: Entender cotas e limitação do Hub IoT do Azure | Microsoft Docs
 description: Guia do desenvolvedor ‑ Descrição das cotas que se aplicam ao Hub IoT e o comportamento de limitação esperado.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 425e1b08-8789-4377-85f7-c13131fae4ce
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 026ff0394e988081bdc581bf001417b13e44427b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 11cec9621ad72cfeaee45e4cd466430e64b9b836
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303589"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145047"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Cotas e limitação do Hub IoT
 
 ## <a name="quotas-and-throttling"></a>Cotas e limitação
-Cada assinatura do Azure pode ter no máximo 10 hubs IoT e pelo menos 1 hub Gratuito.
+Cada assinatura do Azure pode ter no máximo 50 hubs IoT e pelo menos um hub Gratuito.
 
-Cada Hub IoT é provisionado com um determinado número de unidades em uma camada específica. Para saber mais, confira [Preços do Hub IoT do Azure][lnk-pricing]. A camada e o número de unidades determinam a cota diária máxima de mensagens que você pode enviar.
+Cada Hub IoT é provisionado com um determinado número de unidades em uma camada específica. A camada e o número de unidades determinam a cota diária máxima de mensagens que você pode enviar. O tamanho da mensagem usado para calcular a cota diária é de 0,5 KB para um hub de nível gratuito e de 4KB para todos os outros níveis. Para saber mais, confira [Preços do Hub IoT do Azure][lnk-pricing].
 
 A camada também determina os limites de limitação que o Hub IoT aplicam em todas as operações.
 
@@ -49,7 +43,7 @@ A tabela a seguir mostra as limitações impostas. Os valores referem-se a um hu
 | Leituras de (dispositivos e módulos) gêmeos <sup>1</sup> | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
 | Atualizações de (dispositivo e módulo) gêmeos <sup>1</sup> | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
 | Operações de trabalhos<sup>1</sup> <br/> (criar, atualizar, listar, excluir) | 1,67/s/unidade (100/min/unidade) | 1,67/s/unidade (100/min/unidade) | 83,33/s/unidade (5000/min/unidade) |
-| Taxa de transferência de operação de trabalhos por dispositivo<sup>1</sup> | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
+| Operações de dispositivo de trabalhos<sup>1</sup> <br/> (atualizar gêmeos, invocar o método direto) | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
 | Configurações e implantações de borda <sup>1</sup> <br/> (criar, atualizar, listar, excluir) | 0,33/s/unidade (20/min/unidade) | 0,33/s/unidade (20/min/unidade) | 0,33/s/unidade (20/min/unidade) |
 
 

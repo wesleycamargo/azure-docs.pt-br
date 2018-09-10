@@ -12,13 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/30/2018
-ms.author: sethm
-ms.openlocfilehash: c241b8c38aab355729cd1bea318e70e85cf4ff1f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: c8341b40ba7616add1415178a2f0775fbbc66ec1
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920811"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Criar um namespace com o hub de eventos e habilitar a Captura usando um modelo
 
@@ -425,7 +426,7 @@ Você também pode configurar a Captura de Hubs de Eventos por meio do [portal d
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Criar um hub de eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 

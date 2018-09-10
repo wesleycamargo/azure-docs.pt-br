@@ -10,21 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
-ms.openlocfilehash: 40b409964d139641a06186114fb5e06c19971a36
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b3b26869a84b8519ced19a4c93a6d39d6ed20f9b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887356"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050345"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Atividade de filtro no Azure Data Factory
 Você pode usar uma atividade de filtro em um pipeline para aplicar uma expressão de filtro para uma matriz de entrada. 
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Documentação do Data Factory V1](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sintaxe
 

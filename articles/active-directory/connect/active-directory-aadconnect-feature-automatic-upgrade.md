@@ -1,27 +1,29 @@
 ---
-title: "Azure AD Connect: atualização automática | Microsoft Docs"
-description: "Este tópico descreve o recurso interno de atualização automática na sincronização do Azure AD Connect."
+title: 'Azure AD Connect: atualização automática | Microsoft Docs'
+description: Este tópico descreve o recurso interno de atualização automática na sincronização do Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 06/16/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ddf23193e7b9c2fb7a69045be539841dbb6e6249
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: cfb09718c545d55b31250070fed0c8adff9d3fed
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263939"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
-Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
+Esse recurso foi introduzido com a build [1.1.105.0 (lançada em fevereiro de 2016)](active-directory-aadconnect-version-history.md#111050).  Esse recurso foi atualizado na [build 1.1.561](active-directory-aadconnect-version-history.md#115610) e agora dá suporte a cenários adicionais que anteriormente não tinham suporte.
 
 ## <a name="overview"></a>Visão geral
 Verificar se a instalação do Azure AD Connect está sempre atualizada nunca foi tão fácil após o lançamento do recurso de **atualização automática** . Esse recurso é habilitado por padrão para instalações rápidas e atualizações de DirSync. Quando uma nova versão for lançada, a instalação será atualizada automaticamente.
@@ -93,8 +95,8 @@ Esta é uma lista das mensagens mais comuns que você encontrará. Ela não list
 | UpgradeNotSupportedInvalidPersistedState |A instalação não é uma configuração Express ou uma atualização de DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Você tem mais de 100 mil objetos no metaverso. |
 | UpgradeNotSupportedMultiForestSetup |Você está se conectando a mais de uma floresta. A instalação expressa se conecta somente a uma floresta. |
-| UpgradeNotSupportedNonLocalDbInstall |Você não está usando um banco de dados SQL Server Express LocalDB. |
-| UpgradeNotSupportedNonMsolAccount |A [conta do Conector AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) não é mais a conta MSOL_ padrão. |
+| UpgradeNotSupportedNonLocalDbInstall |Você não está usando um banco de dados SQL Server Express LocalDB. |d
+| UpgradeNotSupportedNonMsolAccount |O [conta do conector do AD DS](active-directory-aadconnect-accounts-permissions.md#ad-ds-connector-account) não é mais a conta do msol _ padrão. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | Ao configurar o AAD Connect, você escolheu *Não configurar* ao selecionar o método de entrada. | 
 | UpgradeNotSupportedPtaSignInMethod | Você selecionou Autenticação de passagem como o método de entrada. |
 | UpgradeNotSupportedStagingModeEnabled |O servidor está definido como em [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode). |

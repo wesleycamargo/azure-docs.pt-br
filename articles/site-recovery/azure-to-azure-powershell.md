@@ -7,14 +7,14 @@ manager: abhemraj
 editor: raynew
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: e12d19612e10885f97d4a8023967fb9ba2d1f8cb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 62dd02d53c14635a386a8c6fa3fbfbd6f91a88f7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209858"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921079"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurar a recuperação de desastre para máquinas virtuais do Azure usando o Azure PowerShell
 
@@ -33,7 +33,7 @@ Você aprenderá como:
 > - Fazer failover para a região de recuperação.
 
 > [!NOTE]
-> No momento, o suporte ao PowerShell do Azure Site Recovery para o cenário "*Recuperação de desastre para máquinas virtuais do Azure*" está em versão prévia. Nem todas as funcionalidades de cenário disponíveis por meio do portal podem estar disponíveis por meio do Azure PowerShell. Algumas funcionalidades de cenário sem suporte no momento por meio do Azure PowerShell são:
+> Nem todas as funcionalidades de cenário disponíveis por meio do portal podem estar disponíveis por meio do Azure PowerShell. Algumas funcionalidades de cenário sem suporte no momento por meio do Azure PowerShell são:
 > - A capacidade de replicar máquinas virtuais do Azure que usam discos gerenciados.
 > - A capacidade de especificar que todos os discos em uma máquina virtual devem ser replicados sem a necessidade de especificar explicitamente cada disco da máquina virtual.  
 

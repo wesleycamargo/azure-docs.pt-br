@@ -1,24 +1,19 @@
 ---
-title: "Fluxo de trabalho de exemplo para preparo dos discos rígidos de um trabalho de importação do serviço de Importação/Exportação do Azure | Microsoft Docs"
-description: "Veja um passo a passo para o processo completo de preparo de unidades para um trabalho de importação no serviço de Importação/Exportação do Azure."
+title: Fluxo de trabalho de exemplo para preparo dos discos rígidos de um trabalho de importação do serviço de Importação/Exportação do Azure | Microsoft Docs
+description: Veja um passo a passo para o processo completo de preparo de unidades para um trabalho de importação no serviço de Importação/Exportação do Azure.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.openlocfilehash: 60139ff36b66432620591ceaf201e046ad30217f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: b21c378d58590e33c7b6aeffe627ce5602074fa2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524613"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Fluxo de trabalho de exemplo para preparo dos discos rígidos para um trabalho de importação
 
@@ -28,7 +23,7 @@ Este artigo explica o processo completo de preparar unidades para um trabalho de
 
 Este exemplo importa os seguintes dados para uma conta de armazenamento do Azure denominada `mystorageaccount`:
 
-|Local|Descrição|Tamanho dos dados|
+|Local padrão|DESCRIÇÃO|Tamanho dos dados|
 |--------------|-----------------|-----|
 |H:\Video\ |Uma coleção de vídeos|12 TB|
 |H:\Photo\ |Uma coleção de fotos|30 GB|

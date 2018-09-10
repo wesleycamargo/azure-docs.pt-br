@@ -1,22 +1,23 @@
 ---
-title: "Automatize os processos do Azure Application Insights usando os Aplicativos Lógicos."
-description: "Saiba como você pode automatizar rapidamente os processos repetíveis adicionando o conector do Application Insights ao aplicativo lógico."
+title: Automatize os processos do Azure Application Insights usando os Aplicativos Lógicos.
+description: Saiba como você pode automatizar rapidamente os processos repetíveis adicionando o conector do Application Insights ao aplicativo lógico.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: e17d8076a00cab2cf608fe1a690e4a780a69d56f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4ae5adaf37f49e9909fa80fd31f088ed6ee1b081
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450436"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatize os processos do Application Insights usando os Aplicativos Lógicos
 
@@ -32,7 +33,7 @@ Neste tutorial, você aprenderá como criar um aplicativo lógico que utliza o a
 
 ### <a name="step-1-create-a-logic-app"></a>Etapa 1: criar um aplicativo lógico
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Criar um recurso**, selecione **Web + Celular** e, em seguida, selecione **Aplicativos Lógico**.
+1. Clique em **Criar um recurso**, selecione **Web + Celular** e, em seguida, selecione **Aplicativos Lógico**.
 
     ![Janela Novo aplicativo lógico](./media/automate-with-logic-apps/logicapp1.png)
 
@@ -41,16 +42,16 @@ Neste tutorial, você aprenderá como criar um aplicativo lógico que utliza o a
 
     ![Janela Designer de Aplicativo Lógico](./media/automate-with-logic-apps/logicapp2.png)
 
-2. Na caixa **Frequência**, selecione **Dia** e, na caixa **Intervalo**, digite **1**.
+1. Na caixa **Frequência**, selecione **Dia** e, na caixa **Intervalo**, digite **1**.
 
     ![Janela "Recorrência" do Designer de Aplicativo Lógico](./media/automate-with-logic-apps/step2b.png)
 
 ### <a name="step-3-add-an-application-insights-action"></a>Etapa 3: adicionar uma ação do Application Insights
 1. Clique na caixa **Nova etapa** e depois clique em **Adicionar uma ação**.
 
-2. Na caixa de pesquisa **Escolher uma ação**, digite **Azure Application Insights**.
+1. Na caixa de pesquisa **Escolher uma ação**, digite **Azure Application Insights**.
 
-3. Em **Ações**, clique em **Versão Prévia do Azure Application Insights – Visualizar consulta do Analytics**.
+1. Em **Ações**, clique em **Versão Prévia do Azure Application Insights – Visualizar consulta do Analytics**.
 
     ![Janela "Escolha uma ação" do Designer de Aplicativo Lógico](./media/automate-with-logic-apps/flow2.png)
 
@@ -82,7 +83,7 @@ Quando criar suas próprias consultas, verifique se elas estão funcionando corr
     | evaluate autocluster()
     ```
 
-2. Na caixa **Tipo de Gráfico**, selecione **Tabela Html**.
+1. Na caixa **Tipo de Gráfico**, selecione **Tabela Html**.
 
     ![Janela de configuração de consulta do Analytics](./media/automate-with-logic-apps/flow4.png)
 
@@ -90,13 +91,13 @@ Quando criar suas próprias consultas, verifique se elas estão funcionando corr
 
 1. Clique em **Nova etapa** e, depois, selecione **Adicionar uma ação**.
 
-2. Na caixa de pesquisa, digite **Office 365 Outlook**.
+1. Na caixa de pesquisa, digite **Office 365 Outlook**.
 
-3. Clique em **Office 365 Outlook – Enviar um email**.
+1. Clique em **Office 365 Outlook – Enviar um email**.
 
     ![Seleção do Office 365 Outlook](./media/automate-with-logic-apps/flow2b.png)
 
-4. Na janela **Enviar um email**, faça o seguinte:
+1. Na janela **Enviar um email**, faça o seguinte:
 
    a. Digite o endereço de email do destinatário.
 
@@ -108,7 +109,7 @@ Quando criar suas próprias consultas, verifique se elas estão funcionando corr
 
       ![Configuração do Office 365 Outlook](./media/automate-with-logic-apps/flow5.png)
 
-5. No menu de conteúdo dinâmico, faça o seguinte:
+1. No menu de conteúdo dinâmico, faça o seguinte:
 
     a. Selecione o **Nome do Anexo**.
 

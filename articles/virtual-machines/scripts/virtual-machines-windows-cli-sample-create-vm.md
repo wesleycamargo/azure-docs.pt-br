@@ -1,13 +1,13 @@
 ---
-title: "Exemplo de script da CLI do Azure - Criar uma máquina virtual do Windows Server | Microsoft Docs"
-description: "Exemplo de script da CLI do Azure - Criar uma máquina virtual do Windows Server"
+title: Exemplo de script da CLI do Azure - Criar uma máquina virtual do Windows Server | Microsoft Docs
+description: Exemplo de script da CLI do Azure - Criar uma máquina virtual do Windows Server
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-Windows
 ms.devlang: azurecli
 ms.topic: sample
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: 1bfcb24bb385b38ed1ef80a312e6c1ceb86b2024
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3aec436749918caa229304c35d0bdbe5ed84578f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656119"
 ---
 # <a name="create-a-virtual-machine-with-the-azure-cli"></a>Criar uma máquina virtual com a CLI do Azure
 
@@ -33,7 +34,7 @@ Esse script cria uma Máquina Virtual do Azure que executa o Windows Server 2016
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -43,9 +44,9 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os comandos a seguir para criar um grupo de recursos, uma máquina virtual e todos os recursos relacionados. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os comandos a seguir para criar um grupo de recursos, uma máquina virtual e todos os recursos relacionados. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_create) | Cria uma sub-rede e uma rede virtual do Azure. |

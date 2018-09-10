@@ -6,20 +6,21 @@ documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
-ms.component: barbkess
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/23/2017
+ms.topic: conceptual
+ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1d31b11c3307cc2e54b91e68e1e1a3811ae2ef96
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dbdbe8b83af20f66ad2cc99d2a5665262479b4a9
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364141"
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Como o Proxy de Aplicativo do Azure AD fornece logon único?
 

@@ -10,22 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: b4baced183721d666354667f457f4cc5954b0d11
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: e4ebddc35b402d7a8997d899ce97577e93a27b84
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769821"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444853"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM usando o Azure Data Factory
 
 Este artigo estrutura como usar atividade de cópia no Azure Data Factory para copiar dados de e para Microsoft Dynamics 365 ou Microsoft Dynamics CRM. Ele amplia o artigo [visão geral da Atividade de Cópia](copy-activity-overview.md) que apresenta uma visão geral da Atividade de Cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você usar a versão 1 do Data Factory, que está disponível de forma geral, consulte [Atividade de Cópia na versão 1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -50,7 +47,7 @@ Outros tipos de aplicativo, por exemplo, operações e finanças, Talent, etc. n
 
 ## <a name="get-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao Dynamics.
 
@@ -62,12 +59,12 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como **Dynamics**. | sim |
-| deploymentType | O tipo de implantação da instância do Dynamics. Deve ser **"Online"** para o Dynamics online. | sim |
-| serviceUri | A URL de serviço da instância do Dynamics, por exemplo, `https://adfdynamics.crm.dynamics.com`. | sim |
-| authenticationType | O tipo de autenticação para se conectar a um servidor do Dynamics. Especifique **"Office365"** para o Dynamics online. | sim |
-| Nome de Usuário | Especifique o nome de usuário para se conectar ao Dynamics. | sim |
-| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
+| Tipo | A propriedade type deve ser definida como **Dynamics**. | SIM |
+| deploymentType | O tipo de implantação da instância do Dynamics. Deve ser **"Online"** para o Dynamics online. | SIM |
+| serviceUri | A URL de serviço da instância do Dynamics, por exemplo, `https://adfdynamics.crm.dynamics.com`. | SIM |
+| authenticationType | O tipo de autenticação para se conectar a um servidor do Dynamics. Especifique **"Office365"** para o Dynamics online. | SIM |
+| Nome de Usuário | Especifique o nome de usuário para se conectar ao Dynamics. | SIM |
+| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não para a fonte, Sim para o coletor se o serviço vinculado à fonte não possuir um integration runtime |
 
 >[!IMPORTANT]
@@ -108,14 +105,14 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como **Dynamics**. | sim |
-| deploymentType | O tipo de implantação da instância do Dynamics. Deve ser **"OnPremisesWithIfd"** para o Dynamics local com IFD.| sim |
-| hostName | O nome do host do servidor do Dynamics local. | sim |
+| Tipo | A propriedade type deve ser definida como **Dynamics**. | SIM |
+| deploymentType | O tipo de implantação da instância do Dynamics. Deve ser **"OnPremisesWithIfd"** para o Dynamics local com IFD.| SIM |
+| hostName | O nome do host do servidor do Dynamics local. | SIM |
 | porta | O nome da porta do servidor do Dynamics local. | Não, o padrão é 443 |
-| organizationName | O nome da organização da instância do Dynamics. | sim |
-| authenticationType | O tipo de autenticação para se conectar ao servidor do Dynamics. Especifique **"Ifd"** para o Dynamics local com IFD. | sim |
-| Nome de Usuário | Especifique o nome de usuário para se conectar ao Dynamics. | sim |
-| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | sim |
+| organizationName | O nome da organização da instância do Dynamics. | SIM |
+| authenticationType | O tipo de autenticação para se conectar ao servidor do Dynamics. Especifique **"Ifd"** para o Dynamics local com IFD. | SIM |
+| Nome de Usuário | Especifique o nome de usuário para se conectar ao Dynamics. | SIM |
+| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | SIM |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não para fonte, Sim para o coletor |
 
 >[!IMPORTANT]
@@ -157,7 +154,7 @@ Para copiar dados de e para Dynamics, defina o tipo da propriedade do conjunto d
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como **DynamicsEntity**. |sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como **DynamicsEntity**. |SIM |
 | entityName | O nome lógico da entidade a ser recuperada. | Não para fonte (se "query" na fonte da atividade for especificada), Sim para coletor |
 
 > [!IMPORTANT]
@@ -210,8 +207,11 @@ Para copiar dados do Dynamics, defina o tipo de fonte na atividade de cópia com
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O tipo da propriedade da fonte da atividade de cópia deve ser definido como **DynamicsSource**. | sim |
+| Tipo | O tipo da propriedade da fonte da atividade de cópia deve ser definido como **DynamicsSource**. | SIM |
 | query | FetchXML é uma linguagem de consulta proprietária que é usada no Dynamics (online e local). Veja os exemplos a seguir. Para obter mais informações, consulte [Criar consultas com FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | Não (se "entityName" no conjunto de dados for especificada) |
+
+>[!NOTE]
+>A coluna PK sempre será copiada, mesmo que ela não esteja contida na projeção da coluna que você configurar na consulta FetchXML.
 
 **Exemplo:**
 
@@ -271,8 +271,8 @@ Para copiar dados do Dynamics, defina o tipo de coletor na atividade de cópia c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O tipo de propriedade do coletor da atividade de cópia deve ser definida como **DynamicsSink**. | sim |
-| writeBehavior | O comportamento da operação de gravação.<br/>O valor permitido é **"Upsert"**. | sim |
+| Tipo | O tipo de propriedade do coletor da atividade de cópia deve ser definida como **DynamicsSink**. | SIM |
+| writeBehavior | O comportamento da operação de gravação.<br/>O valor permitido é **"Upsert"**. | SIM |
 | writeBatchSize | A contagem de linhas de dados gravados no Dynamics em cada lote. | Não (o padrão é 10) |
 | ignoreNullValues | Indica se deve ignorar valores nulos de dados de entrada (exceto campos de chave) durante uma operação de gravação.<br/>Os valores permitidos são **True** e **False**.<br>- **True**: deixa os dados no objeto de destino inalterados quando você faz uma operação upsert/atualização. Insira um valor padrão definido quando você faz uma operação insert.<br/>- **False**: atualiza os dados no objeto de destino como NULL quando você faz uma operação upsert/atualização. Insira um valor NULL quando você faz uma operação insert. | Não (padrão é falso) |
 
@@ -333,7 +333,7 @@ Configure o tipo de dados do Data Factory correspondente em uma estrutura do con
 | AttributeType.Double | Duplo | ✓ | ✓ |
 | AttributeType.EntityName | Cadeia de caracteres | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ |
+| AttributeType.Lookup | Guid | ✓ | ✓ (com o único destino associado) |
 | AttributeType.ManagedProperty | BOOLEAN | ✓ | |
 | AttributeType.Memo | Cadeia de caracteres | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |

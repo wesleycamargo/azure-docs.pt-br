@@ -1,22 +1,20 @@
 ---
 title: Manipular eventos de mouse com o Azure Maps | Microsoft Docs
 description: Como criar um mapa interativo do Javascript com eventos de mapa
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d0aad8c51ca2927e2ba7daa7a849ecd3f738ad7f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d8b17affb34ddf31fc2016e0c297b293b4a260c2
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745678"
 ---
 # <a name="interacting-with-the-map--mouse-events"></a>Interagir com o mapa – eventos do mouse 
 
@@ -33,5 +31,10 @@ Executar com o mapa acima e ver os eventos de mouse correspondentes realçados �
 
 Saiba mais sobre as classes e métodos usados neste artigo: 
 
-* [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addeventlistener)
+* [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener)
+
+Para obter mais exemplos de código para adicionar aos mapas, confira o seguinte artigo: 
+* [Mostrar resultados da pesquisa](./map-search-location.md)
+
+Confira nossa [página de exemplo de código](http://aka.ms/AzureMapsSamples) para obter mais cenários de mapeamento.

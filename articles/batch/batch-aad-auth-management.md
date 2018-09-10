@@ -15,11 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: danlep
-ms.openlocfilehash: a16d60dd48efeced7735562884acd26640d36483
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 698212ce1f4e88cda741a78030023f3acdeee9f0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576076"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticar soluções de gerenciamento do lote com o Active Directory
 
@@ -33,9 +34,9 @@ Para saber mais sobre como usar a biblioteca .NET do Gerenciamento do Lote e o e
 
 ## <a name="register-your-application-with-azure-ad"></a>Registrar seu aplicativo no Azure AD
 
-A ADAL [Biblioteca de Autenticação do Active Directory][aad_adal] fornece uma interface programática para o Azure AD para uso em seus aplicativos. Para chamar a ADAL de seu aplicativo, você deve registrar seu aplicativo em um locatário do Azure AD. Quando você registra seu aplicativo, fornece ao Azure AD informações sobre seu aplicativo, incluindo um nome para ele dentro do locatário do Azure AD. Em seguida, o Azure AD fornece uma ID de aplicativo que você usa para associar seu aplicativo ao Azure AD em tempo de execução. Para saber mais sobre a ID do aplicativo, veja [Objetos de aplicativo e de entidade de serviço no Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+A ADAL [Biblioteca de Autenticação do Active Directory][aad_adal] fornece uma interface programática para o Azure AD para uso em seus aplicativos. Para chamar a ADAL de seu aplicativo, você deve registrar seu aplicativo em um locatário do Azure AD. Quando você registra seu aplicativo, fornece ao Azure AD informações sobre seu aplicativo, incluindo um nome para ele dentro do locatário do Azure AD. Em seguida, o Azure AD fornece uma ID de aplicativo que você usa para associar seu aplicativo ao Azure AD em tempo de execução. Para saber mais sobre a ID do aplicativo, veja [Objetos de aplicativo e de entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registrar o aplicativo de exemplo AccountManagement, siga as etapas da seção [Adição de um aplicativo](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) em [Integração de aplicativos ao Azure Active Directory][aad_integrate]. Especifique **aplicativo cliente nativo** para o tipo de aplicativo. O URI do OAuth 2.0 padrão do setor para o **URI de Redirecionamento** é `urn:ietf:wg:oauth:2.0:oob`. Porém, você pode especificar qualquer URI válido (como `http://myaccountmanagementsample`) para o **URI de Redirecionamento**, pois ele não precisa ser um ponto de extremidade real:
+Para registrar o aplicativo de exemplo AccountManagement, siga as etapas da seção [Adição de um aplicativo](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) em [Integração de aplicativos ao Azure Active Directory][aad_integrate]. Especifique **aplicativo cliente nativo** para o tipo de aplicativo. O URI do OAuth 2.0 padrão do setor para o **URI de Redirecionamento** é `urn:ietf:wg:oauth:2.0:oob`. Porém, você pode especificar qualquer URI válido (como `http://myaccountmanagementsample`) para o **URI de Redirecionamento**, pois ele não precisa ser um ponto de extremidade real:
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
@@ -131,9 +132,9 @@ Para saber mais sobre o Azure AD, veja a [documentação do Azure Active Directo
 Para autenticar aplicativos de serviço do lote usando o Azure AD, consulte [Autenticar soluções de serviço do lote no Active Directory](batch-aad-auth.md). 
 
 
-[aad_about]: ../active-directory/active-directory-whatis.md "O que é o Azure Active Directory?"
+[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "O que é o Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Cenários de autenticação do Azure AD"
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Cenários de autenticação do Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrando aplicativos com o Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: http://portal.azure.com

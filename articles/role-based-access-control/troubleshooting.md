@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas no controle de acesso baseado em função (RBAC) do Azure | Microsoft Docs
-description: Obtenha ajuda para problemas ou dúvidas sobre recursos do Controle de Acesso Baseado em Função.
+title: Solucionar problemas de RBAC no Azure | Microsoft Docs
+description: Solucionar problemas com RBAC (controle de acesso baseado em função) do Azure.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -10,29 +10,24 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 07/23/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e1f9fa8e3abd3eee9d85c241000a07794af9d36b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d1a0e46fe348bbc60a4d02a4727a9bb27cb26742
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223289"
 ---
-# <a name="troubleshooting-azure-role-based-access-control"></a>Solução de problemas no controle de acesso baseado em função do Azure 
+# <a name="troubleshoot-rbac-in-azure"></a>Solucionar problemas de RBAC no Azure
 
-Este artigo responde a perguntas comuns sobre os direitos de acesso específicos concedidos com as funções, para que você saiba o que esperar ao usar as funções no Portal do Azure e possa solucionar problemas de acesso. Estas três funções abrangem todos os tipos de recurso:
+Este artigo responde a perguntas comuns sobre o RBAC (controle de acesso baseado em função), para que você saiba o que esperar ao usar as funções no portal do Azure e possa solucionar problemas de acesso.
 
-* Proprietário  
-* Colaborador  
-* Leitor  
+## <a name="web-app-features-that-require-write-access"></a>Recursos de aplicativo Web que exigem acesso para gravação
 
-Os proprietários e colaboradores têm acesso completo a experiência de gerenciamento, mas um colaborador não pode conceder acesso aos outros usuário ou grupos. As coisas ficam um pouco mais interessantes com a função de leitor e é para ela que vamos dedicar algum tempo. Consulte o [Artigo de introdução ao Controle de Acesso Baseado em Função](role-assignments-portal.md) para obter detalhes sobre como conceder acesso.
-
-## <a name="app-service"></a>Serviço de Aplicativo
-### <a name="write-access-capabilities"></a>Recursos do acesso de gravação
 Se você conceder a um usuário o acesso somente leitura a um aplicativo Web, para sua surpresa, alguns recursos estarão desabilitados. As funcionalidades de gerenciamento a seguir exigem o acesso de **gravação** para um aplicativo Web (Colaborador ou Proprietário) e não estarão disponíveis em um cenário somente leitura.
 
 * Comandos (como iniciar, parar, etc.)
@@ -48,8 +43,9 @@ Se você conceder a um usuário o acesso somente leitura a um aplicativo Web, pa
 
 Se você não conseguir acessar nenhum desses blocos, precisará solicitar ao administrador o acesso de Colaborador ao aplicativo Web.
 
-### <a name="dealing-with-related-resources"></a>Lidando com recursos relacionados
-Os aplicativos Web são complicados pela presença de alguns recursos diferentes que interagem. Aqui encontra-se um grupo de recursos típico com alguns sites:
+## <a name="web-app-resources-that-require-write-access"></a>Recursos de aplicativos Web que exigem acesso para gravação
+
+Os aplicativos Web são complicados pela presença de alguns recursos diferentes que interagem. Aqui está um grupo de recursos típico com alguns sites:
 
 ![Grupo de recursos do aplicativo Web](./media/troubleshooting/website-resource-model.png)
 
@@ -69,15 +65,9 @@ Estes itens exigem acesso para **gravação** no **Grupo de recursos** inteiro q
 * Componentes do Application insights  
 * Testes da Web  
 
-## <a name="azure-functions"></a>Funções do Azure
-Alguns recursos do [Azure Functions](../azure-functions/functions-overview.md) exigem acesso de gravação. Por exemplo, se um usuário receber a função Leitor, ele não poderá exibir as funções em um aplicativo de funções. O portal exibirá **(Sem acesso)**.
+## <a name="virtual-machine-features-that-require-write-access"></a>Recursos da máquina virtual que exigem acesso para gravação
 
-![Aplicativos de funções sem acesso](./media/troubleshooting/functionapps-noaccess.png)
-
-Um leitor pode clicar na guia **	Recursos da plataforma** e, em seguida, clicar em **Todas as configurações** para exibir algumas configurações relacionadas a um aplicativo de funções (semelhante a um aplicativo Web), mas não é possível modificar nenhuma dessas configurações.
-
-## <a name="virtual-machine"></a>Máquina virtual
-Como muitos aplicativos Web, alguns recursos na folha da máquina virtual requerem o acesso de gravação para a máquina virtual ou a outros recursos no grupo de recursos.
+Semelhante aos aplicativos Web, alguns recursos na folha da máquina virtual exigem acesso para gravação à máquina virtual ou a outros recursos no grupo de recursos.
 
 As máquinas virtuais são relacionadas a nomes de domínio, redes virtuais, contas de armazenamento e regras de alerta.
 
@@ -96,9 +86,19 @@ Estes exigem acesso para **gravação** tanto na **Máquina virtual** quanto no 
 
 Se você não conseguir acessar nenhum desses blocos, solicite ao administrador o acesso de Colaborador ao Grupo de recursos.
 
-## <a name="see-more"></a>Veja mais
-* [Controle de Acesso Baseado em Função](role-assignments-portal.md): introdução ao RBAC no portal do Azure.
-* [Funções internas](built-in-roles.md): obter detalhes sobre as funções que são incluídas por padrão no RBAC.
-* [Funções personalizadas no Azure RBAC](custom-roles.md): aprenda a criar funções personalizadas para atender às suas necessidades de acesso.
-* [Criar um relatório de histórico de alterações de acesso](change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
+## <a name="azure-functions-and-write-access"></a>Azure Functions e acesso para gravação
+
+Alguns recursos do [Azure Functions](../azure-functions/functions-overview.md) exigem acesso de gravação. Por exemplo, se um usuário receber a função Leitor, ele não poderá exibir as funções em um aplicativo de funções. O portal exibirá **(Sem acesso)**.
+
+![Aplicativos de funções sem acesso](./media/troubleshooting/functionapps-noaccess.png)
+
+Um leitor pode clicar na guia **Recursos da plataforma** e, em seguida, clicar em **Todas as configurações** para exibir algumas configurações relacionadas a um aplicativo de funções (semelhante a um aplicativo Web), mas não pode modificar essas configurações.
+
+## <a name="rbac-changes-are-not-being-detected"></a>Não estão sendo detectadas alterações de RBAC
+
+Às vezes, o Azure Resource Manager armazena em cache configurações e dados para melhorar o desempenho. Ao criar ou excluir atribuições de função, poderá demorar até 30 minutos para que as alterações tenham efeito. Se estiver usando o portal do Azure, o Azure PowerShell ou a CLI do Azure, será possível forçar uma atualização das alterações de atribuição de função, saindo e entrando novamente. Se estiver fazendo alterações de atribuição de função com chamadas à API REST, poderá forçar uma atualização atualizando o token de acesso.
+
+## <a name="next-steps"></a>Próximas etapas
+* [Gerenciar acesso usando o RBAC e o Portal do Azure](role-assignments-portal.md)
+* [Exibir logs de atividades para alterações de RBAC](change-history-report.md)
 

@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c813be558df9dc3bdfd9850402b9458f1fdf971a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4ee3d424d5a2f58a87cd83ca3d6e9b131dc0383c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34353800"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246377"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: habilitando o write-back do dispositivo
 > [!NOTE]
@@ -35,7 +36,7 @@ Isso fornece segurança adicional e a garantia de que o acesso aos aplicativos �
 
 > [!IMPORTANT]
 > <li>Os dispositivos devem estar localizados na mesma floresta que os usuários. Como o write-back dos dispositivos deve ser feito em uma única floresta, esse recurso não é compatível com uma implantação com várias florestas de usuário.</li>
-> <li>Somente um objeto de configuração de registro de dispositivo pode ser adicionado à floresta local do Active Directory. Esse recurso não é compatível com uma topologia onde o Active Directory local é sincronizado a vários diretórios do AD do Azure.</li>> 
+> <li>Somente um objeto de configuração de registro de dispositivo pode ser adicionado à floresta local do Active Directory. Esse recurso não é compatível com uma topologia onde o Active Directory local é sincronizado a vários diretórios do AD do Azure.</li>
 
 ## <a name="part-1-install-azure-ad-connect"></a>Parte 1: instalar o Azure AD Connect
 Instale o Azure AD Connect usando configurações expressas ou personalizadas. A Microsoft recomenda iniciar com todos os usuários e grupos sincronizados com êxito antes de habilitar o write-back do dispositivo.

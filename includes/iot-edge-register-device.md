@@ -1,7 +1,24 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: iot-edge
+author: kgremban
+ms.service: iot-edge
+ms.topic: include
+ms.date: 06/25/2018
+ms.author: kgremban
+ms.custom: include file
+ms.openlocfilehash: bacafdc8f7fd8e206335f3be0a086df1c54f1081
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38746702"
+---
 Crie uma identidade de dispositivo para seu dispositivo simulado para que ele possa se comunicar com o hub IoT. Como os dispositivos IoT Edge se comportam e podem ser gerenciados diferentemente de dispositivos IoT comuns, declare esse para ser um dispositivo de IoT Edge desde o início. 
 
 1. No portal do Azure, navegue para o hub IoT.
-1. Selecione **IoT Edge (versão prévia)**, em seguida, selecione **Adicionar dispositivo do IoT Edge**.
+1. Selecione **IoT Edge** e então selecione **Adicionar Dispositivo do IoT Edge**.
 
    ![Adicionar dispositivo do IoT Edge](./media/iot-edge-register-device/add-device.png)
 

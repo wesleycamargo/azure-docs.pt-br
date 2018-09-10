@@ -4,18 +4,18 @@ description: Requisitos de dados para autoatendimento de redefinição de senha 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257580"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159559"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implantar redefinição de senha sem exigir registro do usuário final
 
@@ -47,20 +47,19 @@ Um Administrador Global pode definir manualmente as informações de contato de 
 
 ![Contato][Contact]
 
-Se o campo de telefone for preenchido e o telefone celular estiver habilitado na política de SSPR, o usuário verá o número na página de registro de redefinição de senha e a senha durante a redefinição de fluxo de trabalho. 
+Se o campo de telefone for preenchido e o telefone celular estiver habilitado na política de SSPR, o usuário verá o número na página de registro de redefinição de senha e a senha durante a redefinição de fluxo de trabalho.
 
 O campo de telefone alternativo não é usado para redefinição de senha.
 
 Se o campo de telefone for preenchido e o email estiver habilitado na política de SSPR, o usuário verá o email na página de registro de redefinição de senha e a senha durante a redefinição de fluxo de trabalho.
 
-Se o campo email alternativo for preenchido e o email estiver habilitado na política de SSPR, o usuário **não** verá o email na página de registro de redefinição de senha, mas ainda a verão durante a redefinição de fluxo de trabalho. 
-
+Se o campo email alternativo for preenchido e o email estiver habilitado na política de SSPR, o usuário **não** verá o email na página de registro de redefinição de senha, mas ainda a verão durante a redefinição de fluxo de trabalho.
 
 ## <a name="security-questions-and-answers"></a>Perguntas e respostas de segurança
 
-As perguntas e respostas de segurança são armazenadas em seu locatário do Azure AD e podem ser acessadas somente por usuários pelo [Portal de registro do SSPR](https://aka.ms/ssprsetup). Os administradores não podem ver nem modificar o conteúdo das perguntas e respostas dos outros usuários.
+As perguntas e respostas de segurança são armazenadas em seu locatário do Azure AD e podem ser acessadas somente por usuários pelo [Portal de registro do SSPR](https://aka.ms/ssprsetup). Os administradores não podem ver, configurar nem modificar o conteúdo das perguntas e respostas dos outros usuários.
 
-### <a name="what-happens-when-a-user-registers"></a>O que acontece quando um usuário se registra
+## <a name="what-happens-when-a-user-registers"></a>O que acontece quando um usuário se registra
 
 Quando um usuário se registra, a página de registro define os seguintes campos:
 
@@ -155,8 +154,8 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
-* [Redefinir ou alterar sua senha](../active-directory-passwords-update-your-own-password.md)
-* [Registro de redefinição de senha de autoatendimento](../active-directory-passwords-reset-register.md)
+* [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registro de redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)
 * [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)
 * [Quais são as opções de política com o SSPR?](concept-sspr-policy.md)

@@ -1,12 +1,12 @@
 ---
-title: "Implantação contínua do Azure Functions | Microsoft Docs"
-description: "Use recursos de implantação contínua do Serviço de Aplicativo do Azure para publicar seu Azure Functions."
+title: Implantação contínua do Azure Functions | Microsoft Docs
+description: Use recursos de implantação contínua do Serviço de Aplicativo do Azure para publicar seu Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db10cd957f4dc59f787e2ac625355a96c888356e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735696"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implantação contínua para Azure Functions
 As Funções do Azure facilitam a implantação do seu aplicativo de função utilizando a integração contínua do Serviço de Aplicativo. Funções integram BitBucket, Dropbox, GitHub e Visual Studio Team Services (VSTS). Isso permite que um fluxo de trabalho em que atualizações de código de função feitas utilizando um desses serviços integrados acione a implantação ao Azure. Se você for iniciante no Azure Functions, comece pela [Visão geral do Azure Functions](functions-overview.md).
@@ -41,6 +42,8 @@ As implantações são configuradas para cada aplicativo de função. Após a im
 Você deve ter a fonte de implantação configurada e o código de funções na fonte de implantação antes de configurar a implantação contínua. Em uma implantação de aplicativo de funções específica, cada função reside em um subdiretório nomeado, em que o nome do diretório é o nome da função.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+
+Para ser capaz de implantar do VSTS, primeiro você deve vincular sua conta do VSTS com sua assinatura do Azure. Para obter mais informações, consulte [configurar cobrança para sua conta do VSTS](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Configurar a implantação contínua
 Utilize o procedimento a seguir para configurar a implantação contínua para um aplicativo de função existente. Essas etapas demonstram a integração com um repositório GitHub, porém etapas semelhantes se aplicam para serviços do Visual Studio Team Services ou outros serviços de implantação.

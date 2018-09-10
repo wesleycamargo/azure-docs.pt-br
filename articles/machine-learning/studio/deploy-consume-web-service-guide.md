@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: ac2d9620cfb6b3bc12bd3ff664d03d342efc5791
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 321edd134fd2ac6b03ad6d3117944f0f59c24669
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42141399"
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Serviços Web do Azure Machine Learning: implantação e consumo
 Você pode usar o Azure Machine Learning para implantar fluxos de trabalho e modelos de aprendizado de máquina como serviços Web. Esses serviços Web podem ser usados para chamar os modelos de aprendizado de máquina de aplicativos pela Internet para fazer previsões em tempo real ou no modo de lote. Como os serviços Web são RESTful, você pode chamá-los por meio de várias linguagens de programação e plataformas, como .NET e Java, e de aplicativos, como o Excel.
@@ -78,7 +80,7 @@ Aqui está um exemplo:
 
 Consulte os seguintes artigos e o código de exemplo para obter mais detalhes:
 
-* [cmdlets do Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt767952.aspx) no MSDN
+* [cmdlets do Azure Machine Learning](https://docs.microsoft.com/powershell/module/azurerm.machinelearning) no MSDN
 * [Passo a passo](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) de exemplo no GitHub
 
 ## <a name="consume-the-web-services"></a>Consumir os serviços Web

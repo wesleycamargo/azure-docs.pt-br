@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782715"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Como configurar os codificadores locais ao usar os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 Este tópico lista os codificadores ativos locais que podem ser usados para capturar os eventos ao vivo e enviar uma transmissão ao vivo de taxa de bits única para os canais do AMS (que são habilitados para a codificação ativa) para mais processamento. O tópico também contém links para os tutoriais que mostram como configurar os codificadores listados.

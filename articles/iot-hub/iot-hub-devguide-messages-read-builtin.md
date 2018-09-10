@@ -1,23 +1,19 @@
 ---
 title: Entenda o ponto de extremidade interno Azure Hub IoT | Microsoft Docs
-description: "Guia do desenvolvedor - descreve como usar o ponto de extremidade compatível com evento interno Hub para ler mensagens de dispositivo para nuvem."
-services: iot-hub
-documentationcenter: .net
+description: Guia do desenvolvedor - descreve como usar o ponto de extremidade compatível com evento interno Hub para ler mensagens de dispositivo para nuvem.
 author: dominicbetts
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/29/2018
+services: iot-hub
+ms.topic: conceptual
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 82681214e9e42819bfc698aa670755467d250fa7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 912bb0dd3e48e53134ad848119ae7428b380b88d
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124929"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
 
@@ -67,21 +63,21 @@ Os SDKs e integrações que você pode usar com os pontos de extremidade compat�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre pontos de extremidade do Hub IoT, consulte [Pontos de extremidade do Hub IoT][lnk-endpoints].
+Para saber mais sobre pontos de extremidade do Hub IoT, confira [Pontos de extremidade do Hub IoT][lnk-endpoints].
 
-Os tutoriais [Comece][lnk-get-started] mostram como enviar mensagens de dispositivo para nuvem de dispositivos simulados e ler as mensagens do ponto de extremidade interno. Para obter mais informações, confira o tutorial [Como processar as mensagens entre o dispositivo e a nuvem do Hub IoT usando rotas][lnk-d2c-tutorial].
+Os [Inícios Rápidos][lnk-get-started] mostram como enviar mensagens de dispositivo para nuvem a partir de dispositivos simulados e ler as mensagens do ponto de extremidade interno. Para saber mais, confira o tutorial [Como processar as mensagens entre o dispositivo e a nuvem do Hub IoT usando rotas][lnk-d2c-tutorial].
 
 Se você quiser encaminhar as mensagens de dispositivo para nuvem para pontos de extremidade personalizados, consulte [Usar rotas de mensagens e pontos de extremidade personalizados para mensagens de dispositivo para nuvem][lnk-custom].
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 
 [lnk-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-management-portal]: https://portal.azure.com
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md
 [lnk-event-hub-partitions]: ../event-hubs/event-hubs-features.md#partitions
 [lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx

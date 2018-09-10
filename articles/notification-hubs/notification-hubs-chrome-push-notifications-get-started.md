@@ -16,11 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 5754a537b8a0bf0a93d6d54ba0ba78e5957ac87f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7bdc692104194bff4a25e6974ba72971af543cbf
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38698153"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Tutorial: Notificações por push para aplicativos Chrome com os Hubs de Notificação do Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -399,7 +400,7 @@ Para fins de teste, envie notificações por push do Chrome usando um aplicativo
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-   Uma referência ao SDK do Barramento de Serviço do Microsoft Azure com o <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">pacote NuGet WindowsAzure.ServiceBus é adicionada automaticamente ao projeto.</a>
+   Uma referência ao SDK do Barramento de Serviço do Microsoft Azure com o <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">pacote NuGet WindowsAzure.ServiceBus é adicionada automaticamente ao projeto.</a>
 4. Abra `Program.cs` e adicione a seguinte instrução `using`:
    
         using Microsoft.Azure.NotificationHubs;

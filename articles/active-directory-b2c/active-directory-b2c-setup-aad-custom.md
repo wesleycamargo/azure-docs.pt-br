@@ -1,25 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: adicionar um provedor do Azure AD usando políticas personalizadas | Microsoft Docs'
-description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C
+title: Adicionar um provedor do Azure AD usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 31f0dfe5-1ad0-4a25-a53b-8acc71bcea72
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
-ms.date: 04/04/2017
-ms.author: parakhj
-ms.openlocfilehash: 40943c135746925929daf7ebae4714ef70eeda51
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: conceptual
+ms.date: 08/15/2018
+ms.author: davidmu
+ms.component: B2C
+ms.openlocfilehash: af97a85b4d5d9c38f0e2bf8947482a0585fa6ee1
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140216"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338304"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: entrar usando contas do Azure AD
 
@@ -27,7 +23,7 @@ ms.locfileid: "32140216"
 
 Este artigo mostra como habilitar a entrada para usuários de uma organização específica do Azure AD (Azure Active Directory) por meio do uso de [políticas personalizadas](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
@@ -58,7 +54,7 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
     >O valor de "yourtenant" deve estar todo em letras maiúsculas no **URL de Logon**.
 
     ```
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 8. Salve a ID do aplicativo.
@@ -117,7 +113,7 @@ Você pode definir o Azure AD como um provedor de declarações adicionando o Az
                     <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
                     <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
                     <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
+                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
                     <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
                 </OutputClaims>
                 <OutputClaimsTransformations>

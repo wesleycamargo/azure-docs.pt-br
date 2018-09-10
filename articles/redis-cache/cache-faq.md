@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c0d88f0eaacaadbb508519f2e6804b9b311408c2
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259323"
 ---
 # <a name="azure-redis-cache-faq"></a>Perguntas frequentes sobre Cache Redis do Azure
 Conheça as respostas a perguntas, padrões e práticas recomendadas comuns do Cache Redis do Azure.
@@ -132,7 +133,7 @@ Podemos tirar as seguintes conclusões desta tabela:
 * Com o cluster Redis, a taxa de transferência aumenta linearmente à medida que o número de fragmentos (nós) no cluster aumenta. Por exemplo, se você criar um cluster P4 de 10 fragmentos, a taxa de transferência disponível será de 400.000 * 10 = 4 milhões de RPS.
 * A taxa de transferência tamanhos de chave maiores é mais alta na camada Premium quando comparada à camada Standard.
 
-| Tipo de preço  | Tamanho | Núcleos de CPU | Largura de banda disponível | Tamanho do valor de 1 KB | Tamanho do valor de 1 KB |
+| Tipo de preço | Tamanho | Núcleos de CPU | Largura de banda disponível | Tamanho do valor de 1 KB | Tamanho do valor de 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Tamanhos de cache padrão** | | |**Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**RPS (solicitações por segundo) não SSL** |**RPS (solicitações por segundo) SSL** |
 | C0 |250 MB |Compartilhado |100 / 12,5 |15.000 |7.500 |
@@ -385,13 +386,16 @@ Dadas essas informações, recomendamos fortemente que os clientes definam o val
 
 Como definir essa configuração:
 
-* No ASP.NET, use a [configuração “minIoThreads”]["minIoThreads" configuration setting] no elemento de configuração `<processModel>` no web.config. Se você estiver executando nos Sites do Azure, essa configuração não será exposta pelas opções de configuração. No entanto, você deve ainda ser capaz de definir essa configuração por meio de programação (veja abaixo) do seu método Application_Start em global.asax.cs.
+* No ASP.NET, use a [definição de configuração “minIoThreads” ou “minWorkerThreads”]["minIoThreads" configuration setting] no elemento de configuração `<processModel>` no web.config. Se você estiver executando nos Sites do Azure, essa configuração não será exposta pelas opções de configuração. No entanto, você deve ainda ser capaz de definir essa configuração por meio de programação (veja abaixo) do seu método Application_Start em global.asax.cs.
 
   > [!NOTE] 
   > O valor especificado nesse elemento de configuração é uma *configuração por núcleo*. Por exemplo, se você tiver um computador com quatro núcleos e desejar que sua configuração minIOThreads seja de 200 no tempo de execução, use `<processModel minIoThreads="50"/>`.
   >
 
-* Fora do ASP.NET, use a API [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) .
+* Se estiver fora do ASP.NET e do método global.asax dos Sites do Microsoft Azure, use a API [ThreadPool.SetMinThreads (...)] (https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx)).
+
+  > [!NOTE]
+  > O valor especificado por essa API é uma configuração global que afeta todo o AppDomain. Se tiver uma máquina com quatro núcleos e desejar definir as configurações minWorkerThreads e minIOThreads como 50 por CPU durante o tempo de execução, use ThreadPool.SetMinThreads (200, 200).
 
 <a name="server-gc"></a>
 

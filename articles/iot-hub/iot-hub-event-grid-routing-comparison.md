@@ -1,22 +1,19 @@
 ---
 title: Comparar a Grade de Eventos, roteamento para Hub IoT | Microsoft Docs
-description: "O Hub IoT oferece seu próprio serviço de roteamento de mensagens, mas também integra com a Grade de Eventos para publicação de eventos. Compare os dois recursos."
-services: iot-hub
-documentationcenter: 
+description: O Hub IoT oferece seu próprio serviço de roteamento de mensagens, mas também integra com a Grade de Eventos para publicação de eventos. Compare os dois recursos.
 author: kgremban
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 5a0a97ccf033b2981ba13be455482146ba212228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: af03f737c082a7fda90104303e018f7b417729b9
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143786"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparar roteamento de mensagens e Grade de Eventos para Hub IoT
 
@@ -32,11 +29,11 @@ Embora o roteamento de mensagens e a Grade de Eventos habilitam a configuração
 | Recurso | Roteamento de mensagens do Hub IoT | Integração do Hub IoT com a Grade de Eventos |
 | ------- | --------------- | ---------- |
 | **Mensagens do dispositivo** | Sim, o roteamento de mensagens pode ser usado para dados telemétricos. | Não, a Grade de Eventos somente pode ser usada para eventos do Hub IoT de não telemetria. |
-| **Tipo de evento** | Sim, o roteamento de mensagens pode relatar alteração de gêmeos e eventos de ciclo de vida do dispositivo. | Sim, a Grade de Eventos pode relatar quando os dispositivos são registrados em um Hub IoT e quando os dispositivos são excluídos. |
+| **Tipo de evento** | Sim, o roteamento de mensagens pode relatar alteração de gêmeos e eventos de ciclo de vida do dispositivo. | Sim, a Grade de Eventos pode relatar quando os dispositivos são criados, excluídos, conectados e desconectados do Hub IoT |
 | **Ordenação** | Sim, a ordenação de eventos é mantida.  | Não, a ordem dos eventos não é garantida. | 
 | **Tamanho máximo da mensagem** | 256 KB, dispositivo para nuvem | 64 KB |
 | **Filtragem** | A filtragem por linguagem SQL sofisticada oferece suporte à filtragem em corpos e cabeçalhos de mensagens. Por exemplo, consulte [Linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md). | Filtragem baseada em sufixo/prefixo de IDs de dispositivo, que funciona bem para serviços hierárquicos, como armazenamento. |
-| **Pontos de extremidade** | <ul><li>Hub de evento</li> <li>Armazenamento de blobs</li> <li>Fila do Barramento de Serviço</li> <li>Tópicos do Barramento de Serviço</li></ul><br>As SKUs do Hub IoT pagas (S1, S2 e S3) estão limitadas a 10 pontos de extremidades personalizados. 100 rotas podem ser criadas por Hub IoT. | <ul><li>Funções do Azure</li> <li>Automação do Azure</li> <li>Hub de evento</li> <li>Aplicativos Lógicos</li> <li>Microsoft Flow</li> <li>Serviços de terceiros através de WebHooks</li></ul><br>Para obter a lista mais atualizada de pontos de extremidades, consulte [Manipuladores de eventos da Grade de Eventos](../event-grid/overview.md#event-handlers). |
+| **Pontos de extremidade** | <ul><li>Hubs de Eventos</li> <li>Armazenamento de blobs</li> <li>Fila do Barramento de Serviço</li> <li>Tópicos do Barramento de Serviço</li></ul><br>As SKUs do Hub IoT pagas (S1, S2 e S3) estão limitadas a 10 pontos de extremidades personalizados. 100 rotas podem ser criadas por Hub IoT. | <ul><li>Funções do Azure</li> <li>Automação do Azure</li> <li>Hubs de Eventos</li> <li>Aplicativos Lógicos</li> <li>Blob de Armazenamento</li> <li>Tópicos personalizados</li> <li>Serviços de terceiros através de WebHooks</li></ul><br>Para obter a lista mais atualizada de pontos de extremidades, consulte [Manipuladores de eventos da Grade de Eventos](../event-grid/overview.md#event-handlers). |
 | **Custo** | Não há encargos separados para roteamento de mensagens. Somente o ingresso de telemetria no Hub IoT é cobrado. Por exemplo, se você tiver uma mensagem roteada para três pontos de extremidades diferentes, você será cobrado por apenas uma mensagem. | Não há nenhum custo do Hub IoT. A Grade de Eventos oferece as primeiras 100.000 operações por mês e gratuitamente, depois, $0,60 por milhão de operações após isso. |
 
 O roteamento de mensagens do Hub IoT e a Grade de Eventos também têm semelhanças, algumas das quais detalhadas na tabela a seguir:
@@ -57,7 +54,7 @@ O roteamento de mensagens do Hub IoT e a integração do Hub IoT com a Grade de 
 
    Use o roteamento de mensagens do Hub IoT quando for necessário enviar dados telemétricos para outros serviços. O roteamento de mensagens também permite consultar cabeçalhos de mensagens e corpos de mensagens. 
 
-   A integração do Hub IoT com a Grade de Eventos funciona com os eventos que ocorrem no serviço do Hub IoT. Esses eventos do Hub IoT incluem criação e exclusão de dispositivos. 
+   A integração do Hub IoT com a Grade de Eventos funciona com os eventos que ocorrem no serviço do Hub IoT. Esses eventos do Hub IoT incluem a criação, exclusão, conexão e desconexão de dispositivos. 
 
 * **Quais pontos de extremidade precisam receber essas informações?**
 

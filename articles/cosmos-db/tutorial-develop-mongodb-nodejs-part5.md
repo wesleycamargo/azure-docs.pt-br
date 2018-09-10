@@ -2,24 +2,22 @@
 title: Tutorial de MongoDB, Angular e Node para Azure - parte 5 | Microsoft Docs
 description: Parte 5 da série de tutoriais sobre como criar um aplicativo do MongoDB com Angular e Node no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB
 services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
+author: johnpapa
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: sngun
+ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 7a4b25792577247d3121c5226da55081ed55ff2d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5bb1aeadeb31728dcc2d9ac5fa0aeade31857169
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41919735"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Criar um aplicativo do MongoDB com Angular e Azure Cosmos DB - parte 5: usar o Mongoose para se conectar ao Azure Cosmos DB
 
@@ -39,7 +37,7 @@ A Parte 5 do tutorial se baseia na [Parte 4](tutorial-develop-mongodb-nodejs-par
 > [!VIDEO https://www.youtube.com/embed/sI5hw6KPPXI]
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas na [Parte 4](tutorial-develop-mongodb-nodejs-part4.md) do tutorial.
 

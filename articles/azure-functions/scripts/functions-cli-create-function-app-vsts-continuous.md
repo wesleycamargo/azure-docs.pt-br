@@ -1,19 +1,20 @@
 ---
-title: "Criar uma função no Azure que é implantada desde o Visual Studio Team Services | Microsoft Docs"
-description: "Criar um Aplicativo de funções e implantar o código da função do Visual Studio Team Services"
+title: Criar uma função no Azure que é implantada desde o Visual Studio Team Services | Microsoft Docs
+description: Criar um Aplicativo de funções e implantar o código da função do Visual Studio Team Services
 services: functions
-keywords: 
+keywords: ''
 author: syntaxc4
-ms.author: cfowler
-ms.date: 01/09/2018
+ms.author: glenga
+ms.date: 07/03/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 0bd2e0896758b4d9f019b0c9520c5e9e1f3afd94
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1b54cfebd3ae36fc8025aeb4ea9c91d336bc5343
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988945"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Criar um aplicativo de funções e implantar o código de função do Visual Studio Team Services
 
@@ -42,14 +43,14 @@ Este exemplo cria um Aplicativo de funções do Azure e implanta o código da fu
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os seguintes comandos para criar um grupo de recursos, conta de armazenamento, aplicativo de função e todos os recursos relacionados. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa os seguintes comandos para criar um grupo de recursos, conta de armazenamento, aplicativo de função e todos os recursos relacionados. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um Plano do Serviço de Aplicativo. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Associa um aplicativo de funções a um repositório Git ou Mercurial. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Cria a conta de armazenamento necessária para o aplicativo de funções. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções no [plano de consumo](../functions-scale.md#consumption-plan) sem servidor. |
+| [az functionapp deployment source config](https://docs.microsoft.com/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Associa um aplicativo de funções a um repositório Git ou Mercurial. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

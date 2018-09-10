@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: b25e97b0f0d0b6f63134a774856eb7ec8f77b679
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 03f335634b7ce1fe4aa6251d6ec21922ed9b84c8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887480"
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Planos e Cobrança no Agendador do Azure
 ## <a name="job-collection-plans"></a>Planos de Coleção de Trabalho
@@ -41,14 +42,14 @@ Se você tiver uma coleção de trabalhos standard e uma coleção de trabalhos 
 ## <a name="standard-billable-units"></a>Unidades faturáveis Standard
 Uma unidade faturável padrão pode incluir até 10 coleções de trabalhos standard. Como um conjunto de trabalhos standard pode ter até 50 trabalhos por coleção de trabalhos, uma unidade de cobrança standard permite que uma assinatura tenha até 500 trabalhos, até quase 22 milhões de execuções de trabalhos por mês.
 
-Se você tiver entre 1 e 10 coleções de trabalhos standard, você será cobrado por 1 unidade de cobrança standard. Se você tiver entre 11 e 20 coleções de trabalhos standard, você será cobrado por 2 unidades de cobrança standard. Se você tiver entre 21 e 30 coleções de trabalhos standard, você será cobrado por 3 unidades de cobrança standard e assim por diante.
+Se você tiver entre 1 e 10 coleções de trabalhos standard, você será cobrado por uma unidade de cobrança standard. Se você tiver entre 11 e 20 coleções de trabalhos standard, você será cobrado por duas unidades de cobrança standard. Se você tiver entre 21 e 30 coleções de trabalhos standard, você será cobrado por três unidades de cobrança standard e assim por diante.
 
 ## <a name="p10-premium-billable-units"></a>Unidades faturáveis Premium P10
 Uma unidade faturável premium P10 pode incluir até 10.000 coleções de trabalhos premium P10. Como um conjunto de trabalhos premium P10 pode ter até 50 trabalhos por coleção de trabalhos, uma unidade de cobrança premium permite que uma assinatura tenha até 500.000 trabalhos, até quase 22 bilhões de execuções de trabalhos por mês.
 
-Se você tiver entre 1 e 10.000 coleções de trabalhos premium P10, você será cobrado por 1 unidade de cobrança premium. Se você tiver entre 10.001 e 20.000 coleções de trabalhos premium, você será cobrado por 2 unidades de cobrança premium P10 e assim por diante.
+Se você tiver entre 1 e 10.000 coleções de trabalhos premium P10, você será cobrado por uma unidade de cobrança premium. Se você tiver entre 10.001 e 20.000 coleções de trabalhos premium, você será cobrado por 2 unidades de cobrança premium P10 e assim por diante.
 
-Portanto, coleções de trabalhos premium P10 têm a mesma funcionalidade que as coleções de trabalhos standard, mas fornecem uma quebra de preço no caso do seu aplicativo precisar de muitas coleções de trabalhos.
+Portanto, coleções de trabalhos premium P10 têm a mesma funcionalidade que as coleções de trabalhos standard, mas fornecem uma quebra de preço no caso do seu aplicativo precisar de muitas coleções de trabalho.
 
 ## <a name="p20-premium-billable-units"></a>Unidades Faturáveis Premium P20
 Uma unidade faturável premium P20 pode incluir até 5.000 coleções de trabalhos premium P20. Como um conjunto de trabalhos premium P20 pode ter até 1.000 trabalhos por coleção de trabalhos, uma unidade de cobrança premium permite que uma assinatura tenha até 5.000.000 trabalhos, até quase 220 bilhões de execuções de trabalhos por mês.
@@ -56,7 +57,7 @@ Uma unidade faturável premium P20 pode incluir até 5.000 coleções de trabalh
 As coleções de trabalhos premium P20 fornecem os mesmos recursos das coleções de trabalhos premium P10, mas também dão suporte a um número maior de trabalhos por coleção de trabalho e a um número total maior geral de trabalhos do que o premium 10, permitindo que você tenha mais escalabilidade.
 
 ## <a name="billing-and-active-status"></a>Status de Cobrança e Ativo
-As coleções de trabalhos estão sempre ativas, a menos que a assinatura inteira tenha entrado em algum estado temporário desabilitado devido a problemas de cobrança. A única maneira de garantir que uma coleção de trabalhos não seja cobrada é defini-la para o plano *Gratuito* ou excluí-la.
+As coleções de trabalhos estão sempre ativas, a menos que a assinatura inteira tenha entrado em algum estado temporário desabilitado devido a problemas de cobrança. A única maneira de garantir que uma coleção de trabalhos não seja cobrada é excluí-la.
 
 Embora seja possível desabilitar todos os trabalhos em uma coleção de trabalhos em uma única operação, o status de cobrança da coleção de trabalhos não será alterado e ela *ainda* será cobrada. Da mesma forma, coleções de trabalhos vazias são consideradas ativas e serão cobradas.
 

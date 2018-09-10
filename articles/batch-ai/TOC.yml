@@ -1,39 +1,72 @@
+items:
 - name: Documentação da IA do Lote
-  href: index.md
+  href: index.yml
 - name: Visão geral
   items:
-    - name: O que é a IA do Lote?
-      href: overview.md
-- name: Introdução
-  expanded: true
+  - name: O que é a IA do Lote?
+    href: overview.md
+- name: Guia de início rápido
   items:
-    - name: Executar trabalho de treinamento - CLI
-      href: quickstart-cli.md
-    - name: Executar trabalho de treinamento - Python
-      href: quickstart-python.md
+  - name: Criar cluster - CLI
+    href: quickstart-create-cluster-cli.md
+  - name: Criar cluster - Portal
+    href: quickstart-create-cluster-portal.md
+  - name: Treinar um modelo de inteligência Artificial - CLI
+    href: quickstart-tensorflow-training-cli.md
+  expanded: true
+- name: Tutoriais
+  items:
+  - name: Treinamento distribuído usando Horovod
+    href: tutorial-horovod-tensorflow.md
+- name: Exemplos
+  items:
+  - name: CLI do Azure
+    href: cli-samples.md
+- name: Conceitos
+  items:
+  - name: Criar recursos da IA do Lote
+    href: resource-concepts.md
+  - name: Cotas e limites da IA do Lote
+    href: quota-limits.md
+- name: Guias de instruções
+  items:
+  - name: Trabalhar com clusters
+    href: clusters.md
+  - name: Usar armazenamento do Azure
+    href: use-azure-storage.md
+  - name: Treinar um modelo usando o SDK do Python
+    href: cntk-training-python.md
+  - name: Migrar para a API atualizada
+    href: migrate-to-new-api.md
 - name: Referência
   items:
-    - name: CLI do Azure
-      href: /cli/azure/batchai
-    - name: .NET
-      href: /dotnet/api/overview/azure/batchai
-    - name: Java
-      href: /java/api/overview/azure/batchai
-    - name: Node.js
-      href: /javascript/api/overview/azure/batchai
-    - name: Python
-      href: /python/api/overview/azure/batchai
-    - name: REST
-      href: /rest/api/batchai
+  - name: CLI do Azure
+    href: /cli/azure/batchai
+  - name: .NET
+    href: /dotnet/api/overview/azure/batchai
+  - name: Java
+    href: /java/api/overview/azure/batchai
+  - name: Node.js
+    href: /javascript/api/overview/azure/batchai
+  - name: Python
+    href: /python/api/overview/azure/batchai
+  - name: REST
+    href: /rest/api/batchai
 - name: Recursos
   items:
-    - name: Receitas de treinamento
-      href: 'https://github.com/Azure/BatchAI'
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/batch-ai'
-    - name: Calculadora de preço
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Disponibilidade regional
-      href: 'https://azure.microsoft.com/regions/services/'
+  - name: Receitas de treinamento
+    href: https://github.com/Azure/BatchAI
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/batch-ai
+  - name: Calculadora de preço
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Disponibilidade regional
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: ad3ffb48dd035f189054c40c9c1a3466230ac11d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051683"

@@ -2,20 +2,19 @@
 title: Gerenciar clusters HDInsight ingressados no domínio - Azure
 description: Saiba como gerenciar clusters do HDInsight Ingressado no Domínio
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: omidm
-ms.openlocfilehash: 31b58176a75918cf68cda695f27216031670493e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 494049cffe77e23c33528747e04bf96065fac2e2
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051597"
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Gerenciar clusters HDInsight ingressados no domínio
 Conheça os usuários e as funções do HDInsight Ingressado no Domínio e como gerenciar seus clusters.

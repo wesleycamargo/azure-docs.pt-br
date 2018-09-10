@@ -1,135 +1,32 @@
 ---
-title: "Fluxos de trabalho de aprovação do Azure Privileged Identity Management | Microsoft Docs"
-description: "Saiba mais sobre os fluxos de trabalho de aprovação do PIM (Privileged Identity Management)"
+title: Aprovar ou negar solicitações para funções de diretório do Azure AD no PIM | Microsoft Docs
+description: Saiba como aprovar ou negar solicitações para funções de diretório do Azure AD no Azure AD PIM (Privileged Identity Management).
 services: active-directory
-documentationcenter: 
-author: barclayn
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: pim
 ms.date: 04/28/2017
-ms.author: barclayn
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f30dd06417d9ce4d71c88ba170a4f3169b5fccd7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7bf1e437e97fdb4d929af23bd7b2a9abb49268df
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189151"
 ---
-# <a name="approvals"></a>Aprovações
+# <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Aprovar ou negar solicitações para funções de diretório do Azure AD no PIM
 
-## <a name="overview"></a>Visão geral
+Com o Privileged Identity Management, você pode configurar funções para solicitar aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados.
 
-Com Aprovações para o Privileged Identity Management, você pode configurar funções para solicitar aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados. Continue lendo para saber como configurar funções e selecionar aprovadores.
-
-
-## <a name="new-terminology"></a>Nova terminologia
-
-*Usuário de Função Qualificada* – um usuário de função qualificada é um usuário de sua organização que foi atribuído a uma função do Azure AD como qualificada (a função exige a ativação).
-
-*Aprovador Delegado* – um aprovador delegado é um ou vários indivíduos ou grupos dentro do seu Azure Active Directory responsáveis por aprovar solicitações para ativar funções.
-
-## <a name="scenarios"></a>Cenários
-
-A visualização particular dá suporte aos seguintes cenários:
-
-**Como um PRA (Administrador de Função com Privilégios), você pode:**
-
--   [habilitar a aprovação para funções específicas](#enable-approval-for-specific-roles)
-
--   [especificar usuários e/ou grupos aprovadores para aprovar solicitações](#specify-approver-users-and/or-groups-to-approve-requests)
-
--   [exibir o histórico de solicitações e aprovações de todas as funções com privilégios](#view-request-and-approval-history-for-all-privileged-roles)
-
-**Como um aprovador designado, você pode:**
-
--   [exibir as aprovações pendentes (solicitações)](#view-pending-approvals-requests)
-
--   [aprovar ou rejeitar solicitações de elevação de função (única e/ou em massa)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
-
--   [fornecer uma justificativa para minha aprovação/rejeição](#provide-justification-for-my-approval/rejection) 
-
-**Como um Usuário de Função Qualificada, você pode:**
-
--   [solicitar a ativação de uma função que exige aprovação](#request-activation-of-a-role-that-requires-approval)
-
--   [exibir o status de sua solicitação a ser ativada](#view-the-status-of-your-request-to-activate)
-
--   [concluir a tarefa no Azure AD caso a ativação tenha sido aprovada](#complete-your-task-in-azure-ad-if-activation-was-approved)
-
-### <a name="navigation"></a>Navegação
-
-Atualizamos a navegação para dar suporte a aprovações
-
-![](media/azure-ad-pim-approval-workflow/image001.png)
-
-A página de aterrissagem padrão fornece acesso conveniente às informações sobre o PIM e à nova documentação de aprovações.
-
-![](media/azure-ad-pim-approval-workflow/image002.png)
-
-Também adicionamos uma nova seção para todos os usuários do PIM, “Meu Histórico de Auditoria”. Aqui você pode encontrar todas as informações relevantes à sua identidade. Isso inclui todas as suas solicitações pendentes e concluídas, decisões feitas sobre as solicitações resolvidas e todas as ativações de função anteriores em um único local conveniente.
-
-![](media/azure-ad-pim-approval-workflow/image003.png)
-
-### <a name="enable-approval-for-specific-roles"></a>Habilitar a aprovação para funções específicas
-
-Para habilitar a aprovação para uma função específica, primeiro selecione Funções de Diretório na barra de navegação à esquerda.
-
-![](media/azure-ad-pim-approval-workflow/image004.png)
-
-Localizar e selecionar as configurações na barra de navegação à esquerda de Funções de Diretório
-
-![](media/azure-ad-pim-approval-workflow/image006.png)
-
-Selecionar Funções com privilégios:
-
-![](media/azure-ad-pim-approval-workflow/image009.png)
-
-Selecione “Habilitar” na seção Exigir aprovação:
-
-![](media/azure-ad-pim-approval-workflow/image011.png)
-
-Depois de habilitada, a folha será expandida para mostrar os seguintes detalhes:
-
-![](media/azure-ad-pim-approval-workflow/image013.png)
-
->[!NOTE]
-Se você NÃO especificar nenhum aprovador, os PRAs se tornarão os aprovadores padrão. Os PRAs precisarão aprovar TODAS as solicitações de ativação dessa função.
-
-### <a name="specify-approver-users-andor-groups-to-approve-requests"></a>Especificar usuários e/ou grupos aprovadores para aprovar solicitações
-
-Para delegar a aprovação, clique na opção para “Selecionar aprovadores”:
-
-![](media/azure-ad-pim-approval-workflow/image015.png)
-
-Quando a folha Selecionar aprovadores for carregada, você poderá pesquisar um usuário ou grupo específico usando a barra de pesquisa na parte superior ou selecionando na lista pré-populada e, em seguida, clicar em “Selecionar” quando terminar:
-
-![](media/azure-ad-pim-approval-workflow/image017.png)
-
-Observação: é possível selecionar vários usuários ou grupos por vez.
-
-Sua seleção será exibida na lista de aprovadores selecionados, conforme visto abaixo:
-
-![](media/azure-ad-pim-approval-workflow/image019.png)
-
-Para remover um aprovador, basta clicar no botão Remover ao lado do nome.
-
-Para adicionar outros aprovadores, repita o processo.
-
-## <a name="view-request-and-approval-history-for-all-privileged-roles"></a>Exibir o histórico de solicitações e aprovações de todas as funções com privilégios
-
-Para exibir o histórico de solicitações e aprovações de todas as funções com privilégios, selecione Histórico de Auditoria do painel:
-
-![](media/azure-ad-pim-approval-workflow/image021.png)
-
->[!NOTE]
-É possível classificar os dados por Ação e procurar “Ativação Aprovada”
-
-### <a name="view-pending-approvals-requests"></a>Exibir as aprovações pendentes (solicitações)
+## <a name="view-pending-approvals-requests"></a>Exibir as aprovações pendentes (solicitações)
 
 Como aprovador delegado, você receberá notificações por email quando uma solicitação estiver aguardando sua aprovação. Para exibir essas solicitações no portal do PIM, no painel (na nova barra de navegação), selecione a guia “Solicitações com Aprovação Pendente” na barra de navegação à esquerda.
 
@@ -139,13 +36,13 @@ Aqui, você verá uma lista de solicitações com aprovação pendente:
 
 ![](media/azure-ad-pim-approval-workflow/image024.png)
 
-### <a name="approve-or-reject-requests-for-role-elevation-single-andor-bulk"></a>Aprovar ou rejeitar solicitações de elevação de função (única e/ou em massa)
+## <a name="approve-or-deny-requests-for-role-elevation-single-andor-bulk"></a>Aprovar ou negar solicitações de elevação de função (única e/ou em massa)
 
 Selecione as solicitações que você deseja aprovar ou negar e clique no botão na barra de ação que corresponde à sua decisão:
 
 ![](media/azure-ad-pim-approval-workflow/image025.png)
 
-### <a name="provide-justification-for-my-approvalrejection"></a>Fornecer uma justificativa para minha aprovação/rejeição
+## <a name="provide-justification-for-my-approvaldenial"></a>Fornecer uma justificativa para minha aprovação/negação
 
 Isso abrirá uma nova folha para aprovar ou negar várias solicitações ao mesmo tempo. Insira uma justificativa para sua decisão e clique em Aprovar (ou Negar) na parte inferior ou na folha:
 
@@ -155,38 +52,7 @@ Quando o processo de solicitação for concluído, o símbolo de status refletir
 
 ![](media/azure-ad-pim-approval-workflow/image031.png)
 
-### <a name="request-activation-of-a-role-that-requires-approval"></a>Solicitar a ativação de uma função que exige aprovação
-
-A solicitação da ativação de uma função que exige aprovação pode ser iniciada na barra de navegação antiga do PIM ou na nova barra de navegação, pois o processo de ativação de função permanece o mesmo. Basta selecionar uma função na lista de funções a ser ativada:
-
-![](media/azure-ad-pim-approval-workflow/image033.png)
-
-Se uma função com privilégios exigir a Autenticação Multifator, você deverá concluir essa tarefa primeiro:
-
-![](media/azure-ad-pim-approval-workflow/image035.png)
-
-Depois de concluída, clique em Ativar e forneça uma justificativa (se necessário):
-
-![](media/azure-ad-pim-approval-workflow/image037.png)
-
-O solicitante verá uma notificação indicando que a solicitação está com aprovação pendente:
-
-![](media/azure-ad-pim-approval-workflow/image039.png)
-
-### <a name="view-the-status-of-your-request-to-activate"></a>Exibir o status de sua solicitação a ser ativada
-
-A exibição do status de uma solicitação pendente a ser ativada deve ser acessada na nova barra de navegação. Na barra de navegação à esquerda, selecione a guia “Minhas Solicitações”:
-
-![](media/azure-ad-pim-approval-workflow/image041.png)
-
-O estado de solicitação usa “Pendente” como padrão, mas é possível ativar/desativar para ver todas as solicitações ou as solicitações negadas.
-
-### <a name="complete-your-task-in-azure-ad-if-activation-was-approved"></a>Concluir a tarefa no Azure AD caso a ativação tenha sido aprovada
-
-Depois que a solicitação for aprovada, a função ficará ativa e você poderá continuar com qualquer trabalho que exige essa função.
-
-![](media/azure-ad-pim-approval-workflow/image043.png)
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Seu comentário é valioso para nós. Fique à vontade compartilhar seus comentários conosco aqui!
+- [Aprovar ou negar as solicitações para funções de recurso do Azure no PIM](pim-resource-roles-approval-workflow.md)
+- [Notificações por email no PIM](pim-email-notifications.md)

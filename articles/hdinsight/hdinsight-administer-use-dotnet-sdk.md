@@ -1,29 +1,25 @@
 ---
-title: Gerenciar clusters Hadoop no HDInsight com o SDK do .NET – Azure | Microsoft Docs
+title: Gerenciar clusters Hadoop no HDInsight com o SDK do .NET – Azure
 description: Saiba como realizar tarefas administrativas para os clusters Hadoop no HDInsight usando o SDK do .NET do HDInsight.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
-ms.assetid: fd134765-c2a0-488a-bca6-184d814d78e9
+ms.reviewer: jasonh
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 0feb1e344d70207d48e4ef07f5b45790425727ad
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 0d8238d5f1dca15aaba0f8f5a6580df97164006a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110792"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerenciar clusters Hadoop no HDInsight usando o SDK do .NET
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Saiba como gerenciar clusters HDInsight usando o [SDK do .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx).
+Saiba como gerenciar clusters HDInsight usando o [SDK do .NET do HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 
 **Pré-requisitos**
 
@@ -194,7 +190,7 @@ _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Nam
 ## <a name="grantrevoke-access"></a>Conceder/revogar acesso
 Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviços têm pontos de extremidade RESTful):
 
-* ODBC
+* ODBCODBC
 * JDBC
 * Ambari
 * Oozie
@@ -270,7 +266,7 @@ Consulte [Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho n
 Veja [Carregar dados no HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Veja também
-* [Documentação de referência do SDK do .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
+* [Documentação de referência do SDK do .NET do HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Administrar o HDInsight usando o Portal do Azure][hdinsight-admin-portal]
 * [Administrar o HDInsight usando uma interface de linha de comando][hdinsight-admin-cli]
 * [Criar clusters HDInsight][hdinsight-provision]

@@ -5,21 +5,21 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 31c8dd520079046808b32dad0d338415bed71c58
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 544f5210adbea6791f9224a1e2be0743ce9995d5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302970"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434139"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Encaminhe eventos personalizados para as Conexões Híbridas de Retransmissão do Azure com a CLI do Azure e a Grade de Eventos
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Conexões Híbridas de Retransmissão do Azure são um dos manipuladores de eventos com suporte. Você usa conexões híbridas como o manipulador de eventos quando precisa processar eventos de aplicativos que não têm um ponto de extremidade público. Esses aplicativos podem estar dentro de sua rede corporativa. Neste artigo, você pode usar a CLI do Azure para criar um tópico personalizado, assinar o tópico e disparar o evento para exibir o resultado. Você envia os eventos para a conexão híbrida.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você já tem uma conexão híbrida e um aplicativo de ouvinte. Para começar a usar conexões híbridas, consulte [Introdução às Conexões Híbridas de Retransmissão - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) ou [Introdução às Conexões Híbridas de Retransmissão - Nó](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
 
@@ -29,7 +29,7 @@ Este artigo pressupõe que você já tem uma conexão híbrida e um aplicativo d
 
 Os tópicos de Grade de Eventos são recursos do Azure e devem ser colocados em um grupo de recursos do Azure. O grupo de recursos do Azure é uma coleção lógica na qual os recursos do Azure são implantados e gerenciados.
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). 
 
 O exemplo a seguir cria um grupo de recursos chamado *gridResourceGroup* no local *westus2*.
 
@@ -55,7 +55,7 @@ Assine um tópico para indicar à Grade de Eventos quais eventos você deseja ac
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
-O script a seguir obtém a ID de recurso do namespace de retransmissão. Ele constrói a ID para a conexão híbrida e assina um tópico de grade de eventos. Ele define o tipo de ponto de extremidade como `hybridconnection` e usa a ID de conexão híbrida do ponto de extremidade.
+O script a seguir obtém a ID de recurso do namespace de retransmissão. Ele constrói a ID para a conexão híbrida e assina um tópico de grade de eventos. O script define o tipo de ponto de extremidade como `hybridconnection` e usa a ID de conexão híbrida do ponto de extremidade.
 
 ```azurecli-interactive
 relayname=<namespace-name>
@@ -73,9 +73,25 @@ az eventgrid event-subscription create \
   --endpoint $hybridid
 ```
 
+## <a name="create-application-to-process-events"></a>Criar aplicativo para processar eventos
+
+Você precisa de um aplicativo que possa recuperar eventos da conexão híbrida. O [exemplo de Consumidor de Conexão Híbrida da Grade de Eventos do Azure da Microsoft para C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) executa a operação. Você já atendeu às etapas de pré-requisito.
+
+1. Certifique-se de que tenha o Visual Studio 2017 Versão 15.5 ou posterior.
+
+1. Clone o repositório em seu computador local.
+
+1. Carregue o projeto HybridConnectionConsumer no Visual Studio.
+
+1. Em Program.cs, substitua `<relayConnectionString>` e `<hybridConnectionName>` pela cadeia de conexão de restransmissão e o nome de conexão híbrida que você criou.
+
+1. Compile e execute o aplicativo no Visual Studio.
+
 ## <a name="send-an-event-to-your-topic"></a>Enviar um evento para o tópico
 
-Vamos disparar um evento para ver como a Grade de Eventos distribui a mensagem para o ponto de extremidade. Primeiro, vamos obter a URL e a chave para o tópico personalizado. Novamente, use o nome do tópico em `<topic_name>`.
+Vamos disparar um evento para ver como a Grade de Eventos distribui a mensagem para o ponto de extremidade. Este artigo mostra como usar a CLI do Azure para disparar o evento. Como alternativa, você pode usar o [aplicativo publicador de Grade de Eventos](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher).
+
+Primeiro, vamos obter a URL e a chave para o tópico personalizado. Novamente, use o nome do tópico em `<topic_name>`.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)

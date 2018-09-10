@@ -1,24 +1,20 @@
 ---
-title: 'Tutorial: realizar operações de extração, transformação e carregamento (ETL) usando o Hive no HDInsight - Azure | Microsoft Docs'
+title: 'Tutorial: Realizar operações de extração, transformação e carregamento (ETL) usando o Hive no HDInsight - Azure '
 description: Saiba como extrair dados de um conjunto de dados CSV brutos, transformá-los usando o Hive no HDInsight e, em seguida, carregar os dados transformados no banco de dados SQL do Azure usando Sqoop.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 46c80f326c8210ac3282cf128058cee91ff3836c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4502be9e8891ac7bc39d8ce909e4662f19677bbc
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109471"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Tutorial: extrair, transformar e carregar dados usando o Apache Hive no Azure HDInsight
 
@@ -43,7 +39,7 @@ A ilustração a seguir mostra o fluxo do aplicativo de ETL típico.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Um cluster Hadoop baseado em Linux no HDInsight**. Confira [Introdução ao uso do Hadoop no HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) para obter as etapas da criação de um novo cluster HDInsight baseado em Linux.
 
@@ -244,7 +240,7 @@ Se você já tem um Banco de Dados SQL, deverá obter o nome do servidor. Para l
     1>
     ```
 
-4. Ao prompt `1>` , insira o seguinte:
+4. Ao prompt `1>`, insira o seguinte:
 
     ```hiveql
     CREATE TABLE [dbo].[delays](
@@ -271,7 +267,7 @@ Se você já tem um Banco de Dados SQL, deverá obter o nome do servidor. Para l
     databaseName       dbo             delays        BASE TABLE
     ```
 
-5. Enter `exit` at the `1>` .
+5. Enter `exit` at the `1>`.
 
 ## <a name="export-data-to-sql-database-using-sqoop"></a>Exportar dados para o banco de dados SQL usando Sqoop
 
@@ -319,6 +315,7 @@ Neste tutorial, você aprendeu como realizar as operações de extração, trans
 
 Para aprender mais formas de trabalhar usando dados no HDInsight, consulte os seguintes artigos:
 
+* [Tutorial: extrair, transformar e carregar dados usando o Apache Hive no Azure HDInsight](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
 * [Usar o Hive com o HDInsight][hdinsight-use-hive]
 * [Usar o Pig com o HDInsight][hdinsight-use-pig]
 * [Desenvolver programas Java MapReduce para Hadoop no HDInsight][hdinsight-develop-mapreduce]

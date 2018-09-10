@@ -1,11 +1,11 @@
 ---
 title: Configurar o grupo de disponibilidade Always On em uma VM do Azure usando o PowerShell | Microsoft Docs
-description: "Este tutorial usa recursos que foram criados com o modelo de implantação clássico. Use o PowerShell para criar um grupo de disponibilidade Always On no Azure."
+description: Este tutorial usa recursos que foram criados com o modelo de implantação clássico. Use o PowerShell para criar um grupo de disponibilidade Always On no Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401271"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurar o grupo de disponibilidade Always On em uma VM do Azure com o PowerShell
 > [!div class="op_single_selector"]

@@ -4,17 +4,18 @@ description: Introdução ao Azure MFA e ao portal do usuário.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 38f75b8fc48f6fdcafd4c6ae25ec0f52641b2c05
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 1bd9dd82fb72c3d6b0759139680647be764f273a
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161545"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal do usuário para o Servidor de Autenticação Multifator do Azure
 
@@ -29,7 +30,7 @@ Dependendo do seu ambiente, convém implantar o portal do usuário no mesmo serv
 ![Portal do usuário MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> O portal do usuário está disponível apenas com o Servidor de Autenticação Multifator. Se você usar Autenticação Multifator na nuvem, encaminhe os seus usuários para [Configurar sua conta para verificação em duas etapas](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md) ou [Gerenciar as configurações de verificação em duas etapas](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md).
+> O portal do usuário está disponível apenas com o Servidor de Autenticação Multifator. Se você usar Autenticação Multifator na nuvem, encaminhe os seus usuários para [Configurar sua conta para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-first-time.md) ou [Gerenciar as configurações de verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md).
 
 ## <a name="install-the-web-service-sdk"></a>Instalar o SDK de Serviço Web
 

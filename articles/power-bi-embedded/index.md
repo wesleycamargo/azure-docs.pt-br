@@ -3,20 +3,19 @@ title: Documentação do Power BI Embedded do Azure - Tutoriais, Referência de 
 description: Saiba como incorporar relatórios interativos e visualizações de dados do Power BI em aplicativos. Tutoriais, referências de API e outras documentações.
 services: power-bi-embedded
 author: markingmyname
+ms.author: maghan
 manager: kfile
 layout: LandingPage
-ms.assetid: ''
 ms.service: power-bi-embedded
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 09/28/2017
-ms.author: maghan
-ms.openlocfilehash: 9f1c80bd0274a9d606e69b19170c62337b68c74a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 07/31/2018
+ms.openlocfilehash: f3cc56bb3a294cd06684a14c1898389d2093aa96
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391347"
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentação do Power BI Embedded
 
@@ -24,7 +23,7 @@ Saiba como adicionar relatórios interativos e visualizações de dados para apl
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/power-bi-embedded/what-is-power-bi-embedded">
+        <a href="https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -60,7 +59,7 @@ Saiba como adicionar relatórios interativos e visualizações de dados para apl
         </a>
     </li>
     <li>
-        <a href="/azure/power-bi-embedded/get-started">
+        <a href="https://docs.microsoft.com/power-bi/developer/embedding#embedding-for-your-customers">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -78,7 +77,7 @@ Saiba como adicionar relatórios interativos e visualizações de dados para apl
         </a>
     </li>
     <li>
-        <a href="https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/">
+        <a href="https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -107,7 +106,7 @@ Saiba como adicionar relatórios interativos e visualizações de dados para apl
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.powerbiembedded/?view=azurermps-6.5.0#power_bi_embedded_capacity">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -119,7 +118,7 @@ Saiba como adicionar relatórios interativos e visualizações de dados para apl
                 <div class="card">
                     <div class="cardText">
                         <h3>Linguagens</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.powerbiembedded">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.powerbiembedded?view=azure-dotnet">.NET</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.Api/">Download do SDK do .NET</a></p>
                         <p><a href="https://microsoft.github.io/PowerBI-JavaScript/">JavaScript</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/">Download do SDK do JavaScript</a></p>

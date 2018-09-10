@@ -3,7 +3,7 @@ title: Tutorial – Criar um conjunto de dimensionamento de máquinas virtuais d
 description: Saiba como usar a CLI do Azure 2.0 para criar um conjunto de dimensionamento de máquinas virtuais e algumas tarefas de gerenciamento comuns, por exemplo, como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc8c58efcaeb5491eb23257e470f42a8d7cfd5c1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a076603519cdce5a16881e0f0703d8187001e058
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452542"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Tutorial: Criar e gerenciar um conjunto de dimensionamento da máquinas virtuais usando a CLI do Azure 2.0
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Neste tutorial, você aprenderá a:
@@ -191,7 +192,7 @@ Um tamanho de instância de VM, ou *SKU*, determina a quantidade de recursos de 
 ### <a name="vm-instance-sizes"></a>Tamanhos de instância de VM
 A tabela a seguir categoriza tamanhos de VMs comuns para determinados casos de uso.
 
-| type                     | Tamanhos comuns           |    DESCRIÇÃO       |
+| Tipo                     | Tamanhos comuns           |    DESCRIÇÃO       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Propósito geral](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU/memória equilibrados. Ideal para desenvolvimento/teste e para aplicativos de pequeno a médio porte e soluções de dados.  |
 | [Computação otimizada](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | Relação de CPU/memória alta. Boa para aplicativos de tráfego médio, dispositivos de rede e processos em lote.        |

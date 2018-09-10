@@ -1,6 +1,6 @@
 ---
 title: Início Rápido – Criar uma VM Windows com o Azure PowerShell | Microsoft Docs
-description: Neste início rápido, você aprenderá a usar o Azure PowerShell para criar uma máquina virtual do Windows
+description: Neste início rápido, você aprende a usar o Azure PowerShell para criar uma máquina virtual Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 74b4a593e46fe7f4650306d90a65e287a6d48206
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b199d031d4aaef4c1a707199f5692c86543e6360
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767197"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Início Rápido: Criar uma máquina virtual do Linux no Azure com o PowerShell
+# <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Início Rápido: Criar uma máquina virtual do Windows no Azure com o PowerShell
 
 O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando do PowerShell ou em scripts. Este início rápido mostra como usar o módulo do Azure PowerShell para implantar uma VM (máquina virtual) no Azure que executa o Windows Server 2016. Para ver a VM em ação, você habilita o protocolo RDP na VM e instala o servidor Web do IIS.
 
@@ -84,7 +85,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 Quando terminar, feche a conexão RDP com a VM.
 
-## <a name="view-the-web-server-in-action"></a>Ver o servidor Web em ação
+## <a name="view-the-web-server-in-action"></a>Ver o servidor web em ação
 
 Com o IIS instalado e a porta 80 agora aberta na VM pela Internet, use um navegador da Web de sua escolha para exibir a página inicial padrão do IIS. Use o endereço IP público da VM obtido em uma etapa anterior. O seguinte exemplo mostra o site padrão do IIS:
 

@@ -2,23 +2,20 @@
 title: 'Azure Cosmos DB: API Java Assíncrona SQL, SDK e recursos| Microsoft Docs'
 description: Saiba tudo sobre o SDK e a API Java Assíncrona SQL, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK Java Assíncrono SQL do Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: java
 author: SnehaGunda
 manager: kfile
-ms.assetid: a452ffa2-c15d-4b0a-a8c1-ec9b750ce52b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
-ms.date: 05/18/2018
+ms.topic: reference
+ms.date: 08/16/2018
 ms.author: sngun
-ms.openlocfilehash: 9dae401bc007b78d8ee3c6993735650e3b26b9d1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9852edfca26e78ad1b373418970dfe9c7ab477d8
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359519"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146304"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java Assíncrono SQL do Azure Cosmos DB para a API SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -41,7 +38,7 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 
 <tr><td>**Baixe o SDK**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**Documentação da API**</td><td>[Documentação de referência de API Java](https://azure.github.io/azure-cosmosdb-java/)</td></tr>
+<tr><td>**Documentação da API**</td><td>[Documentação de referência de API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client?view=azure-java-stable)</td></tr>
 
 <tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
@@ -56,6 +53,20 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
+* Corrigido um bug para localidades que não são de língua inglesa ([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* Adicionado métodos auxiliares no Recurso de Conflito.
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Substituição da dependência org.json por jackson por motivos de desempenho e licenciamento ([github nº 29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Remoção da classe OfferV2 preterida.
+* Adição de método de acessador à classe Offer para taxa de transferência de conteúdo.
+* Qualquer método no Documentos/Recurso que retorne tipos org.json foram alterados para retornar um tipo de objeto jackson.
+* Método getObject(.) de classes que estendem JsonSerializable alterado para retornar um tipo ObjectNode jackson.
+* Método getCollection(.) alterado para retornar a coleção de ObjectNode.
+* Remoção de construtores das subclasses JsonSerializable com argumento org.json.JSONObject.
+* Agora, JsonSerializable.toJson (SerializationFormattingPolicy.Indented) usa dois espaços para recuo.
+  
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
 * Suporte adicionado para Política de Índice Exclusivo.
 * Suporte adicionado para limitação do tamanho do token de continuação do resposta em opções de feed.
@@ -92,6 +103,8 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.0.1](#2.0.1) |16 de agosto de 2018|--- |
+| [2.0.0](#2.0.0) |20 de junho de 2018|--- |
 | [1.0.2](#1.0.2) |18 de maio de 2018|--- |
 | [1.0.1](#1.0.1) |20 de abril de 2018|--- |
 | [1.0.0](#1.0.0) |27 de fevereiro de 2018|--- |

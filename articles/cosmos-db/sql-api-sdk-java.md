@@ -2,25 +2,22 @@
 title: 'Azure Cosmos DB: SQL Java API, SDK e recursos| Microsoft Docs'
 description: Saiba tudo sobre o SDK e a API Java do SQL, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK Java do SQL do Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: java
 author: rnagpal
 manager: kfile
 editor: cgronlun
-ms.assetid: 7861cadf-2a05-471a-9925-0fec0599351b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
-ms.date: 05/16/2018
-ms.author: khdang
+ms.topic: reference
+ms.date: 06/29/2018
+ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62941b3654204533d982b11f56b6ca08d591a72f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d7d00d6236b601d145be03e6086bec2d72faafcd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360141"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344930"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -55,6 +52,13 @@ O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suport
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
+* Adicionada a falha de streaming em suporte.
+* Adicionado suporte para metadados personalizados.
+* Lógica de tratamento de sessão aprimorada.
+* Corrigido um bug no cache de intervalo de chave de partição.
+* Corrigido um bug NPE no modo direto.
 
 ### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
 * Adição de suporte para o Índice Exclusivo.
@@ -201,6 +205,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.16.2](#1.16.2) |Junho de 29, 2018 |--- |
 | [1.16.1](#1.16.1) |16 de maio de 2018 |--- |
 | [1.16.0](#1.16.0) |15 de março de 2018 |--- |
 | [1.15.0](#1.15.0) |14 de novembro de 2017 |--- |
@@ -215,7 +220,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 | [1.9.3](#1.9.3) |30 de outubro de 2016 |--- |
 | [1.9.2](#1.9.2) |28 de outubro de 2016 |--- |
 | [1.9.1](#1.9.1) |26 de outubro de 2016 |--- |
-| [1.9.0](#1.9.0) |3 de outubro de 2016 |--- |
+| [1.9.0](#1.9.0) |03 de outubro de 2016 |--- |
 | [1.8.1](#1.8.1) |30 de junho de 2016 |--- |
 | [1.8.0](#1.8.0) |14 de junho de 2016 |--- |
 | [1.7.1](#1.7.1) |30 de abril de 2016 |--- |
@@ -231,7 +236,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 | [1.0.0](#1.0.0) |7 de abril de 2015 |--- |
 | 0.9.5-prelease |9 de março de 2015 |29 de fevereiro de 2016 |
 | 0.9.4-prelease |17 de fevereiro de 2015 |29 de fevereiro de 2016 |
-| 0.9.3-prelease |13 de janeiro de 2015 |29 de fevereiro de 2016 |
+| 0.9.4-prelease |13 de janeiro de 2015 |29 de fevereiro de 2016 |
 | 0.9.2-prelease |19 de dezembro de 2014 |29 de fevereiro de 2016 |
 | 0.9.1-prelease |19 de dezembro de 2014 |29 de fevereiro de 2016 |
 | 0.9.0-prelease |10 de dezembro de 2014 |29 de fevereiro de 2016 |

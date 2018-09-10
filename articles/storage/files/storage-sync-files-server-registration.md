@@ -1,38 +1,33 @@
 ---
-title: Gerenciar servidores registrados com a Sincronização de arquivos do Azure (versão prévia) | Microsoft Docs
+title: Gerenciar servidores registrados com a Sincronização de Arquivos do Azure | Microsoft Docs
 description: Saiba como registrar e cancelar o registro de um Windows Server com um Serviço de Sincronização de Armazenamento de Sincronização de Arquivo do Azure.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: files
+ms.openlocfilehash: 1aa1bd085a312e379dc996a860c7f97b2e0dfe73
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918869"
 ---
-# <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Gerenciar servidores registrados com a Sincronização de arquivos do Azure (versão prévia)
-A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
+# <a name="manage-registered-servers-with-azure-file-sync"></a>Gerenciar servidores registrados com a Sincronização de Arquivos do Azure
+A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
 
-O artigo a seguir ilustra como registrar e gerenciar um servidor com um Serviço de Sincronização de Armazenamento. Consulte [Como implantar a Sincronização de Arquivo do Azure (versão prévia)](storage-sync-files-deployment-guide.md) para obter informações sobre como implantar a Sincronização de Arquivo do Azure de ponta a ponta.
+O artigo a seguir ilustra como registrar e gerenciar um servidor com um Serviço de Sincronização de Armazenamento. Consulte [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md) para obter informações sobre como implantar a Sincronização de Arquivos do Azure de ponta a ponta.
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registrar/cancelar o registro de um servidor no Serviço de Sincronização de Armazenamento
 Registrar um servidor na Sincronização de arquivos do Azure estabelece uma relação de confiança entre o Windows Server e o Azure. Essa relação pode ser usada para criar *pontos de extremidade do servidor* no servidor, que representam as pastas específicas que devem ser sincronizadas com um compartilhamento de arquivos do Azure (também conhecidas como *pontos de extremidade de nuvem*). 
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Para registrar um servidor em um Serviço de Sincronização de Armazenamento, primeiro você deve preparar o servidor com os pré-requisitos necessários:
 
-* O servidor deve estar executando uma versão do Windows Server compatível. Para obter mais informações, consulte [Versões com suporte do Windows Server](storage-sync-files-planning.md#supported-versions-of-windows-server).
-* Certifique-se de que um Serviço de Sincronização de Armazenamento foi implantado. Para obter mais informações sobre como implantar um Serviço de Sincronização de Armazenamento, consulte [Como implantar a Sincronização de Arquivo do Azure (versão prévia)](storage-sync-files-deployment-guide.md).
+* O servidor deve estar executando uma versão do Windows Server compatível. Para obter mais informações, veja [Requisitos de sistema da Sincronização de Arquivos do Azure e interoperabilidade](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
+* Certifique-se de que um Serviço de Sincronização de Armazenamento foi implantado. Para obter mais informações sobre como implantar um Serviço de Sincronização de Armazenamento, consulte [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md).
 * Certifique-se de que o servidor está conectado à Internet e que o Azure está acessível.
 * Desabilite a Configuração de Segurança Reforçada do IE para administradores com a interface do usuário do Gerenciador do Servidor.
     
@@ -113,14 +108,15 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Cancelar o registro de um servidor com o Serviço de Sincronização de Armazenamento
 Há várias etapas que são necessárias para cancelar o registro de um servidor com um Serviço de Sincronização de Armazenamento. Vamos analisar como cancelar o registro de um servidor corretamente.
 
-#### <a name="optional-recall-all-tiered-data"></a>(Opcional) Realizar o recall de todos os dados em camadas
-Quando habilitada para um ponto de extremidade do servidor, a definição de camadas de nuvem *colocará os arquivos em camadas* nos compartilhamentos de arquivos do Azure. Isso permite que os compartilhamentos de arquivos locais atuem como um cache, em vez de uma cópia completa do conjunto de dados, para utilizar o espaço no servidor de arquivos de forma eficiente. No entanto, se um ponto de extremidade do servidor for removido e ainda houver arquivos em camadas localmente no servidor, esses arquivos ficarão inacessíveis. Portanto, se o acesso contínuo ao arquivo for desejado, será necessário realizar o recall de todos os arquivos em camadas dos Arquivos do Azure antes de continuar com o cancelamento de registro. 
+> [!Warning]  
+> Não tente solucionar problemas com sincronização, hierarquização em nuvem ou qualquer outro aspecto do Azure File Sync - Sincronização de Arquivos do Azure cancelando o registro e o registro de um servidor ou removendo e recriando os pontos de extremidade do servidor, a menos que instruído explicitamente por um engenheiro da Microsoft. Cancelar o registro de um servidor e remover os terminais do servidor é uma operação destrutiva e os arquivos em camadas nos volumes com terminais do servidor não serão "reconectados" a seus locais no compartilhamento de arquivos do Azure depois que os pontos de extremidade do servidor e do servidor registrados forem recriados, o que resultará em sincronização erros. Observe também que os arquivos em camadas que existem fora de um namespace do terminal do servidor podem ser permanentemente perdidos. Os arquivos em camadas podem existir nos terminais do servidor, mesmo que a camada em nuvem nunca tenha sido ativada.
 
-Isso pode ser feito com o cmdlet do PowerShell como mostrado abaixo:
+#### <a name="optional-recall-all-tiered-data"></a>(Opcional) Realizar o recall de todos os dados em camadas
+Se você gostaria que os arquivos que estão atualmente em camadas para estar disponível após a remoção do Azure File Sync - Sincronização de Arquivos do Azure (ou seja, esse é um de produção, não um teste, o ambiente), lembre-se todos os arquivos em cada volume que contém os pontos de extremidade do servidor. Desabilitar nuvem camadas para todos os pontos de extremidade do servidor e, em seguida, execute o seguinte cmdlet do PowerShell:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  
@@ -192,6 +188,6 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 Quando a Sincronização de arquivos do Azure estiver hospedada em uma máquina virtual em execução em um host de virtualização do Windows Server, você poderá usar a QoS de armazenamento (qualidade de serviço de armazenamento) para regular o consumo de E/S do armazenamento. A política de QoS de armazenamento pode ser definida como um nível máximo (ou um limite, da mesma forma em que o limite de StorageSyncNetwork é imposto acima) ou como um nível mínimo (ou uma reserva). Definir um nível mínimo em vez de um máximo permite que a Sincronização de arquivos do Azure seja disparada para usar a largura de banda de armazenamento disponível se outras cargas de trabalho não a estiverem usando. Para obter mais informações, consulte [Qualidade de serviço do armazenamento](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
 ## <a name="see-also"></a>Consulte também
-- [Planejando uma implantação da Sincronização de arquivos do Azure (versão prévia)](storage-sync-files-planning.md)
-- [Implantar a Sincronização de arquivos do Azure (versão prévia)](storage-sync-files-deployment-guide.md) 
-- [Solucionar problemas da Sincronização de Arquivos do Azure (versão prévia)](storage-sync-files-troubleshoot.md)
+- [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+- [Implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md) 
+- [Solucionar problemas da Sincronização de Arquivos do Azure](storage-sync-files-troubleshoot.md)

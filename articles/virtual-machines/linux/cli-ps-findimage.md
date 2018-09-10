@@ -1,11 +1,11 @@
 ---
 title: Selecionar imagens da VM Linux com a CLI do Azure | Microsoft Docs
-description: "Saiba como usar a CLI do Azure para determinar o editor, oferta, SKU e versão de imagens de VM do Marketplace."
+description: Saiba como usar a CLI do Azure para determinar o editor, oferta, SKU e versão de imagens de VM do Marketplace.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
 ms.service: virtual-machines-linux
@@ -16,14 +16,17 @@ ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c65ebbc8a61c13b96364dadde45bd4bca828e337
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: f1091b9d252f32086c237e7c62f11c166eb558a6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345150"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Como localizar imagens de VMs Linux no Azure Marketplace com a CLI do Azure
 Este tópico descreve como usar a CLI do Azure 2.0 para localizar imagens de VM no Azure Marketplace. Use essas informações para especificar uma imagem do Marketplace quando você criar uma VM programaticamente com a CLI, os modelos do Gerenciador de Recursos ou outras ferramentas.
+
+Procure também imagens e ofertas disponíveis usando a vitrine do [Azure Marketplace](https://azuremarketplace.microsoft.com/), o [portal do Azure](https://portal.azure.com) ou o [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
 Verifique se você instalou a [CLI do Azure 2.0](/cli/azure/install-az-cli2) mais recente e conectou-se a uma conta do Azure (`az login`).
 
@@ -282,16 +285,16 @@ Saída:
 Executar um comando semelhante para a imagem de RabbitMQ Certified by Bitnami mostra as seguintes `plan` propriedades: `name`, `product` e `publisher`. (Algumas imagens também têm uma propriedade `promotion code`.) Para implantar essa imagem, consulte as seções a seguir para aceitar os termos e habilitar a implantação programática.
 
 ```azurecli
-az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1801130730
+az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1807171506
 ```
 Saída:
 
 ```
 {
   "dataDiskImages": [],
-  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1801130730",
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1807171506",
   "location": "westus",
-  "name": "3.7.1801130730",
+  "name": "3.7.1807171506",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },

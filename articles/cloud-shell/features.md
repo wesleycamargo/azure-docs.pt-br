@@ -1,5 +1,5 @@
 ---
-title: Recursos do Bash no Azure Cloud Shell | Microsoft Docs
+title: Recursos do Azure Cloud Shell | Microsoft Docs
 description: Visão geral dos recursos do Bash no Azure Cloud Shell
 services: Azure
 documentationcenter: ''
@@ -12,70 +12,75 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 24f656555b9390bb57b9ca511b86c926e27ebdb6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1321645d97e7f6ff2faed1e61ddb608afcb7b413
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037841"
 ---
-# <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Recursos e ferramentas para o Bash no Azure Cloud Shell
+# <a name="features--tools-for-azure-cloud-shell"></a>Recursos e ferramentas do Azure Cloud Shell
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-> [!TIP]
-> Ferramentas e recursos também estão disponíveis no [PowerShell](features-powershell.md).
-
-O Bash no Cloud Shell é executado em `Ubuntu 16.04 LTS`.
+O Azure Cloud Shell é executado no `Ubuntu 16.04 LTS`.
 
 ## <a name="features"></a>Recursos
 
 ### <a name="secure-automatic-authentication"></a>Autenticação automática segura
 
-O Bash no Cloud Shell protege e autentica automaticamente o acesso de conta da CLI do Azure 2.0.
-
-### <a name="ssh-into-azure-linux-virtual-machines"></a>SSH em máquinas virtuais do Linux no Azure
-
-Criar uma VM do Linux pela 2.0 do CLI do Azure pode criar uma chave SSH padrão e colocá-la no seu diretório `$Home`. Colocar chaves SSH em `$Home` permite conexões SSH para VMs do Linux do Azure diretamente do Cloud Shell. As chaves são mantidas em acc_<user>.img no seu compartilhamento de arquivos, use as práticas recomendadas ao usar ou compartilhar acesso a seu compartilhamento de arquivos ou chaves.
+O Cloud Shell protege e autentica automaticamente o acesso de conta para o Azure PowerShell e a CLI do Azure 2.0.
 
 ### <a name="home-persistence-across-sessions"></a>Persistência de $Home entre as sessões
 
 Para persistir arquivos entre as sessões, o Cloud Shell orienta você pela anexação de um compartilhamento de arquivos do Azure na primeira inicialização.
 Após a conclusão, o Cloud Shell anexará automaticamente o armazenamento (montado como `$Home\clouddrive`) para todas as sessões futuras.
-Além disso, no Bash no Cloud Shell, seu diretório `$Home` é mantido como .img em seu compartilhamento de arquivos do Azure.
-Os arquivos fora de `$Home` e do estado da máquina não são mantidos entre sessões.
+Além disso, seu diretório `$Home` é mantido como .img em seu compartilhamento de arquivos do Azure.
+Os arquivos fora de `$Home` e do estado da máquina não são mantidos entre sessões. Use as práticas recomendadas ao armazenar segredos, como chaves SSH. Serviços como o [Azure Key Vault têm tutoriais para a instalação](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
-[Saiba mais sobre como manter arquivos no Bash no Cloud Shell](persisting-shell-storage.md)
+[Saiba mais sobre como manter arquivos no Cloud Shell](persisting-shell-storage.md)
+
+### <a name="azure-drive-azure"></a>Unidade do Azure (Azure:)
+
+PowerShell no Cloud Shell (versão prévia) começa com você no drive do Azure (`Azure:`).
+A unidade do Azure permite a fácil detecção e navegação de recursos do Azure, como computação, rede, armazenamento e etc. de forma semelhante à navegação de sistema de arquivos.
+Você pode continuar usando os [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure) comuns para gerenciar esses recursos, independentemente da unidade em que estiver.
+Todas as alterações feitas nos recursos do Azure, diretamente no portal do Azure ou por meio de cmdlets do Azure PowerShell, são refletidas na unidade do Azure.  Você pode executar `dir -Force` para atualizar seus recursos.
+
+![](media/features-powershell/azure-drive.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Ampla integração com ferramentas de software livre
 
-O Bash no Cloud Shell inclui autenticação pré-configurada para ferramentas de software livre, como Terraform e Ansible. Experimente-o a partir do passo a passo de exemplo.
+O Cloud Shell inclui autenticação pré-configurada para ferramentas de software livre, como Terraform, Ansible e Chef InSpec. Experimente-o a partir do passo a passo de exemplo.
 
 ## <a name="tools"></a>Ferramentas
 
 |Categoria   |NOME   |
 |---|---|
-|Ferramentas do Linux            |bash<br> sh<br> tmux<br> dig<br>               |
-|Ferramentas do Azure            |CLI do Azure [1.0](https://github.com/Azure/azure-cli) e [2.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Shipyard de lote](https://github.com/Azure/batch-shipyard) <br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
+|Ferramentas do Linux            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
+|Ferramentas do Azure            |CLI do Azure [1.0](https://github.com/Azure/azure-cli) e [2.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |Editores de texto           |vim<br> nano<br> emacs       |
 |Controle do código-fonte         |git                    |
 |Ferramentas de build            |make<br> maven<br> npm<br> pip         |
 |Contêineres             |[CLI do Docker](https://github.com/docker/cli)/[Computador do Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI DO DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bancos de dados              |Cliente do MySQL<br> Cliente do PostgreSql<br> [Utilitário SQLCMD](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Outros                  |Cliente do iPython<br> [CLI do Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)| 
+|Outros                  |Cliente do iPython<br> [CLI do Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)| 
 
 ## <a name="language-support"></a>Suporte ao idioma
 
 |Linguagem   |Versão   |
 |---|---|
-|.NET       |2.0.0       |
+|.NET Core  |2.0.0       |
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.0.1](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.1.0-preview.4](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 e 3.5 (padrão)|
 
 ## <a name="next-steps"></a>Próximas etapas
 [Início rápido do Bash no Cloud Shell](quickstart.md) <br>
-[Saiba mais sobre a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/)
+[Início rápido do PowerShell no Cloud Shell (versão prévia)](quickstart-powershell.md) <br>
+[Saiba mais sobre a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Saiba mais sobre o Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

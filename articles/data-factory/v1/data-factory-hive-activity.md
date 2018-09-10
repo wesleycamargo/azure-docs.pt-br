@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c37ab34b241e59f70b6417036506dd132ce9aa43
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e8d3b83c8508ae5913975edcbf89f4e70a8b08be
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050841"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade de Hive no Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -34,7 +35,7 @@ ms.lasthandoff: 03/23/2018
 > * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está na versão prévia, consulte [transformar dados usando a atividade Hive na versão 2 do Data Factory](../transform-data-using-hadoop-hive.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [ transformar dados usando a atividade Hive no Data Factory](../transform-data-using-hadoop-hive.md).
 
 A atividade de Hive do HDInsight em um [pipeline](data-factory-create-pipelines.md) do Data Factory executa consultas de Hive em [seu próprio cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou no [cluster sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) do HDInsight baseado em Windows/Linux. Este artigo se baseia no artigo sobre [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.
 

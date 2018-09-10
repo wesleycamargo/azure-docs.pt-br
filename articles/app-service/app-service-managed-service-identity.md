@@ -9,23 +9,22 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fc1251cafcb2a535ccaf8354cb5c7c8b6a4afd33
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337527"
 ---
-# <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Como usar o Azure Managed Service Identity (visualização pública) no Serviço de Aplicativo e no Azure Functions
+# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Como usar a identidade de serviço gerenciado do Azure no serviço de aplicativo e nas funções do Azure
 
 > [!NOTE] 
-> Atualmente, o Managed Service Identity para o Serviço de Aplicativo e o Azure Functions está em versão prévia. Atualmente, não há suporte para o Serviço de Aplicativo no Linux nem para o Aplicativo Web para Contêineres.
-
+> O Serviço de Aplicativo no Linux e o Web App para Contêineres não suportam atualmente a Identidade de Serviço Gerenciado.
 
 > [!Important] 
-> o Managed Service Identity para o Serviço de Aplicativo e o Azure Functions não se comportarão conforme o esperado se seu aplicativo é migrado entre assinaturas/locatários. O aplicativo precisará obter uma nova identidade e a identidade existente não pode ser excluída corretamente sem excluir o próprio site. Seu aplicativo precisará ser recriado com uma nova identidade e recursos downstream precisarão ter políticas de acesso atualizadas para usar a nova identidade.
-
+> o Managed Service Identity para o Serviço de Aplicativo e o Azure Functions não se comportarão conforme o esperado se seu aplicativo é migrado entre assinaturas/locatários. O aplicativo precisará obter uma nova identidade, que pode ser feita ao desabilitar e reabilitar o recurso. Consulte [removendo uma identidade](#remove) abaixo. Recursos de downstream também precisará ter políticas de acesso atualizadas para usar a nova identidade.
 
 Este tópico mostra como criar uma identidade de aplicativo gerenciado para aplicativos do Serviço de Aplicativo e do Azure Functions e como usá-la para acessar outros recursos. Uma identidade de serviço gerenciado do Azure Active Directory permite que o aplicativo acesse facilmente os outros recursos protegidos pelo AAD, como o Azure Key Vault. A identidade é gerenciada pela plataforma do Azure e não exige provisionamento ou giro de nenhum segredo. Para obter mais informações sobre o Managed Service Identity, consulte a [Visão Geral do Managed Service Identity](../active-directory/managed-service-identity/overview.md).
 
@@ -57,7 +56,7 @@ Para configurar uma identidade do serviço gerenciado usando a CLI do Azure, ser
 
 As etapas a seguir o guiarão na criação de um aplicativo Web e na atribuição de uma identidade a ele usando a CLI:
 
-1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/reference-index#az_login). Use uma conta que esteja associada à assinatura do Azure sob a qual você deseja implantar o aplicativo:
+1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/reference-index#az-login). Use uma conta que esteja associada à assinatura do Azure sob a qual você deseja implantar o aplicativo:
 
     ```azurecli-interactive
     az login
@@ -74,6 +73,31 @@ As etapas a seguir o guiarão na criação de um aplicativo Web e na atribuiçã
 
     ```azurecli-interactive
     az webapp identity assign --name myApp --resource-group myResourceGroup
+    ```
+
+### <a name="using-azure-powershell"></a>Usando o PowerShell do Azure
+
+As etapas a seguir guiarão você pela criação de um aplicativo da Web e pela atribuição de uma identidade usando o Azure PowerShell:
+
+1. Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Login-AzureRmAccount` para criar uma conexão com o Azure.
+
+2. Crie um aplicativo da Web usando o Azure PowerShell. Para obter mais exemplos de como usar o Azure PowerShell com o Serviço de Aplicativo, consulte [ Amostras do PowerShell do Serviço de Aplicativo ](../app-service/app-service-powershell-samples.md):
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+    
+    # Create an App Service plan in Free tier.
+    New-AzureRmAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
+    
+    # Create a web app.
+    New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+    ```
+
+3. Execute o comando `identity assign` para criar a identidade para este aplicativo:
+
+    ```azurepowershell-interactive
+    Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
     ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Usando um modelo do Azure Resource Manager
@@ -120,14 +144,14 @@ Quando o site é criado, ele tem as seguintes propriedades adicionais:
 }
 ```
 
-No qual `<TENANTID>` e `<PRINCIPALID>` são substituídos por GUIDs. A propriedade tenantId identifica a qual locatário do AAD o aplicativo pertence. O principalId é um identificador exclusivo para a nova identidade do aplicativo. No AAD, o aplicativo tem o mesmo nome dado à instância do Serviço de Aplicativo ou do Azure Functions.
+No qual `<TENANTID>` e `<PRINCIPALID>` são substituídos por GUIDs. A propriedade tenantId identifica a qual locatário do AAD a identidade pertence. O principalId é um identificador exclusivo para a nova identidade do aplicativo. No AAD, a entidade de serviço tem o mesmo nome que você deu à sua instância do Serviço de Aplicativo ou das Funções do Azure.
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Obter tokens para recursos do Azure
 
 Um aplicativo pode usar sua identidade para obter tokens para outros recursos protegidos pelo AAD, como o Azure Key Vault. Esses tokens representam o acesso do aplicativo ao recurso e não um usuário específico do aplicativo. 
 
 > [!IMPORTANT]
-> Talvez seja necessário configurar o recurso de destino para permitir o acesso do aplicativo. Por exemplo, se você solicitar um token para o Key Vault, será necessário se certificar de que uma política de acesso que inclui a identidade do aplicativo foi adicionada. Caso contrário, as chamadas para o Key Vault serão rejeitadas, mesmo se elas incluírem o token. Para saber mais sobre os recursos que oferecem suporte a tokens do Managed Service Identity, consulte [Serviços do Azure que oferecem suporte à autenticação do Azure AD](../active-directory/managed-service-identity/overview.md#which-azure-services-support-managed-service-identity).
+> Talvez seja necessário configurar o recurso de destino para permitir o acesso do aplicativo. Por exemplo, se você solicitar um token para o Key Vault, será necessário se certificar de que uma política de acesso que inclui a identidade do aplicativo foi adicionada. Caso contrário, as chamadas para o Key Vault serão rejeitadas, mesmo se elas incluírem o token. Para saber mais sobre os recursos que oferecem suporte a tokens do Managed Service Identity, consulte [Serviços do Azure que oferecem suporte à autenticação do Azure AD](../active-directory/managed-service-identity/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
 
 Há um protocolo REST simples para obter um token no Serviço de Aplicativo e no Azure Functions. Para aplicativos .NET, a biblioteca Microsoft.Azure.Services.AppAuthentication fornece uma abstração sobre esse protocolo e dá suporte a uma experiência de desenvolvimento local.
 
@@ -178,7 +202,7 @@ Uma resposta bem-sucedida de 200 OK inclui um corpo JSON com as seguintes propri
 > |token_type|Indica o valor do tipo de token. O único tipo com suporte do Azure AD é Portador Para saber mais sobre os tokens de portador, consulte [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
-Essa resposta é igual a [resposta à solicitação do AAD de token de acesso de serviço para serviço](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
+Essa resposta é igual a [resposta à solicitação do AAD de token de acesso de serviço para serviço](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 > [!NOTE] 
 > Variáveis de ambiente são configuradas quando o processo é iniciado pela primeira vez, então após habilitar a identidade de serviço gerenciado para o seu aplicativo, você pode precisar reiniciar o aplicativo ou reimplantar o código dele antes que `MSI_ENDPOINT` e `MSI_SECRET` estejam disponíveis para seu código.
@@ -204,7 +228,7 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>Exemplos de código
-Para fazer essa solicitação no C#:
+<a name="token-csharp"></a>Para fazer essa solicitação no C#:
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -215,7 +239,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 > [!TIP]
 > Para as linguagens .NET, também é possível usar [Microsoft.Azure.Services.AppAuthentication](#asal) em vez de criar essa solicitação por conta própria.
 
-No Node.JS:
+<a name="token-js"></a>No Node. js:
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -230,7 +254,7 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
-No PowerShell:
+<a name="token-powershell"></a>No PowerShell:
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -238,6 +262,21 @@ $tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVers
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
+
+## <a name="remove"></a>Removendo uma identidade
+
+Uma identidade pode ser removida, desativando o recurso usando o portal, PowerShell ou CLI da mesma forma que ele foi criado. No protocolo REST/ARM modelo, isso é feito definindo o tipo para "None":
+
+```json
+"identity": {
+    "type": "None"
+}    
+```
+
+Remover a identidade dessa forma também excluirá a entidade de segurança do AAD. As identidades atribuídas pelo sistema são automaticamente removidas do AAD quando o recurso do aplicativo é excluído.
+
+> [!NOTE] 
+> Há também uma configuração de aplicativo que pode ser definida, WEBSITE_DISABLE_MSI, que apenas desativa o serviço de token local. No entanto, ele deixa a identidade no local e ferramentas ainda aparecerá MSI como "on" ou "habilitado." Como resultado, o uso dessa configuração não é recomendado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

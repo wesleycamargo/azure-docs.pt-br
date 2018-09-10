@@ -1,23 +1,20 @@
 ---
-title: Analisar dados do Twitter com o Hadoop no HDInsight – Azure | Microsoft Docs
+title: Analisar dados do Twitter com Hadoop no Azure HDInsight
 description: Saiba como usar o Hive para analisar dados do Twitter com Hadoop no HDInsight para encontrar a frequência de uso de uma determinada palavra.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 78e4ea33-9714-424d-ac07-3d60ecaebf2e
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: d81f7889122bcf887676496a056df2148cdff6e9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: abf9cd311af141a646c56f452ded77a914bc1d2f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093291"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analisar dados do Twitter usando o Hive no HDInsight
 Sites sociais são uma das forças principais para a adoção de big data. APIs públicas fornecidas por sites, como o Twitter, são uma fonte útil de dados para analisar e compreender as tendências populares.
@@ -26,7 +23,7 @@ Neste tutorial, você obterá tweets usando o API de streaming do Twitter e, em 
 > [!IMPORTANT]
 > As etapas deste documento exigem um cluster HDInsight baseado em Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Para obter as etapas específicas para um cluster baseado em Linux, confira [Analisar dados do Twitter usando o Hive no HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma estação de trabalho** com o PowerShell do Azure instalado e configurado.
@@ -67,7 +64,7 @@ Neste tutorial, você usará as [APIs de streaming do Twitter][twitter-streaming
 > [!NOTE]
 > Um arquivo contendo 10.000 tweets e o arquivo de script do Hive (abordado na próxima seção) foram carregados em um contêiner de Blob público. Você pode ignorar esta seção se quiser usar os arquivos carregados.
 
-[Dados de tweets](https://dev.twitter.com/docs/platform-objects/tweets) são armazenados no formato JSON (JavaScript Object Notation) que contém uma estrutura aninhada complexa. Em vez de escrever várias linhas de código usando uma linguagem de programação convencional, você pode transformar essa estrutura aninhada em uma tabela do Hive para que possa ser consultada por uma linguagem semelhante à SQL chamada HiveQL.
+Dados de tweets são armazenados no formato JSON (JavaScript Object Notation) que contém uma estrutura aninhada complexa. Em vez de escrever várias linhas de código usando uma linguagem de programação convencional, você pode transformar essa estrutura aninhada em uma tabela do Hive para que possa ser consultada por uma linguagem semelhante à SQL chamada HiveQL.
 
 O Twitter usa OAuth para oferecer acesso autorizado à sua API. OAuth é um protocolo de autenticação que permite ao usuários aprovar os aplicativos para atuar em seu nome sem compartilhar sua senha. Mais informações podem ser encontradas em [oauth.net](http://oauth.net/) ou no excelente [Guia para iniciantes do OAuth](http://hueniverse.com/oauth/) no Hueniverse.
 
@@ -98,7 +95,7 @@ Neste tutorial, você usa o Windows PowerShell para fazer a chamada de serviço 
 
 **Para obter tweets**
 
-1. Abra o ISE (ambiente de script integrado) do Windows PowerShell. (Na tela Iniciar do Windows 8, digite **PowerShell_ISE** e, em seguida, clique em **ISE do Windows PowerShell**. Consulte [Iniciar o Windows PowerShell no Windows 8 e no Windows][powershell-start].)
+1. Abra o ISE (ambiente de script integrado) do Windows PowerShell. (Na tela Iniciar do Windows 8, digite **PowerShell_ISE** e, em seguida, clique em **ISE do Windows PowerShell**. Consulte [Iniciar o Windows PowerShell no Windows 8 e no Windows](https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
 2. Copie o seguinte script no painel de script:
 
     ```powershell
@@ -490,7 +487,7 @@ Use-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $
 $response = Invoke-AzureRmHDInsightHiveJob -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -file $hqlScriptFile -StatusFolder $statusFolder #-OutVariable $outVariable
 
 Write-Host "Display the standard error log ... " -ForegroundColor Green
-$jobID = ($response | Select-String job_ | Select-Object -First 1) -replace ‘\s*$’ -replace ‘.*\s’
+$jobID = ($response | Select-String job_ | Select-Object -First 1) -replace �\s*$� -replace �.*\s�
 Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $jobID -DefaultContainer $defaultBlobContainerName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -HttpCredential $httpCredential
 #endregion
 ```
@@ -551,8 +548,8 @@ Neste tutorial vimos como transformar o conjunto de dados não estruturado JSON 
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
-[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
-[twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
+[twitter-streaming-api]: https://developer.twitter.com/en/docs/api-reference-index
+[twitter-statuses-filter]: https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs

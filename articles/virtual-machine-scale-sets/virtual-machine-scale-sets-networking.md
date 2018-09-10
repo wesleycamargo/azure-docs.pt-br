@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 1db4c7ae78320eb08b2aa0b9da701d9678baf798
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: abad57856db63c954f963a28b1dbd3c95395c9bd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652579"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -212,7 +213,10 @@ Saída de exemplo:
 Todas as NICs anexadas a uma VM em um conjunto de dimensionamento têm uma ou mais configurações IP associadas a elas. Cada configuração é atribuída a um endereço IP privado. Cada configuração também pode ter um recurso de endereço IP público associado a ela. Para entender quantos endereços IP podem ser atribuídos a uma NIC e quantos endereços IP públicos você pode usar em uma assinatura do Azure, confira [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="multiple-nics-per-virtual-machine"></a>Várias NICs por máquina virtual
-Você pode ter até 8 NICs por máquina virtual, dependendo do tamanho da máquina. O número máximo de NICs por máquina está disponível no [artigo Tamanho de VM](../virtual-machines/windows/sizes.md). O exemplo a seguir é um perfil de rede do conjunto de dimensionamento mostrando várias entradas NIC e vários IPs públicos por máquina virtual:
+Você pode ter até 8 NICs por máquina virtual, dependendo do tamanho da máquina. O número máximo de NICs por máquina está disponível no [artigo Tamanho de VM](../virtual-machines/windows/sizes.md). Todas as NICs conectadas a uma instância de VM devem se conectar à mesma rede virtual. As NICs podem se conectar a diferentes sub-redes, mas todas as sub-redes devem fazer parte da mesma rede virtual.
+
+O exemplo a seguir é um perfil de rede do conjunto de dimensionamento mostrando várias entradas NIC e vários IPs públicos por máquina virtual:
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [

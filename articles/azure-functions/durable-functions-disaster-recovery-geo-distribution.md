@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8eb42a60045304416ec6aa1099a84b1e264c692d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: bbfbf351b8976f4140b6dd98a9a54ba982c3d865
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399390"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Recuperação de desastres e distribuição geográfica
 
@@ -49,7 +50,7 @@ No entanto, nesse cenário, considere:
 - Esse cenário aborda interrupções na infraestrutura de computação, mas a conta de armazenamento continua sendo o único ponto de falha para o aplicativo de função. Se houver uma interrupção do Armazenamento, o aplicativo sofre com tempo de inatividade.
 - Se o aplicativo de função está em failover, haverá um aumento da latência porque ele irá acessar sua conta de armazenamento entre regiões.
 - O acesso ao serviço de armazenamento por uma região diferente daquela onde ele está localizado incorre em custos devido ao tráfego de saída da rede.
-- Esse cenário depende do Gerenciador de Tráfego. Considerando [como o Gerenciador de Tráfego funciona](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), pode levar algum tempo até que um aplicativo cliente que consuma uma Função Durável precise consultar novamente o endereço do aplicativo de função do Gerenciador de Tráfego. 
+- Esse cenário depende do Gerenciador de Tráfego. Considerando [como o Gerenciador de Tráfego funciona](../traffic-manager/traffic-manager-how-it-works.md), pode levar algum tempo até que um aplicativo cliente que consuma uma Função Durável precise consultar novamente o endereço do aplicativo de função do Gerenciador de Tráfego. 
 
 
 ## <a name="scenario-2---load-balanced-compute-with-regional-storage"></a>Cenário 2 - Computação com balanceamento de carga com armazenamento regional

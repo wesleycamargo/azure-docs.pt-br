@@ -4,17 +4,19 @@ description: Este cenário mostra como fazer o ajuste distribuído de hiperparâ
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 70baa1160e9f521ac5533eaa15d4a9ab57433a49
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6347500b8968394a922969dd3dd2f00dd51cb6dd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034230"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ajuste distribuído de hiperparâmetros usando o Azure Machine Learning Workbench
 
@@ -155,7 +157,7 @@ Depois disso, selecione o contêiner do conjunto de dados da lista e clique no b
 
 O upload dos arquivos leva vários minutos, dependendo da sua conexão com a Internet. 
 
-Em nosso código, usamos o [SDK de Armazenamento do Microsoft Azure](https://azure-storage.readthedocs.io/en/latest/) para baixar o conjunto de dados do armazenamento de blobs para o ambiente de execução atual. O download é realizado em no arquivo load\_data() function from load_data.py. Para usar este código, é necessário substituir <ACCOUNT_NAME> e <ACCOUNT_KEY> pelo nome e pela chave primária de sua conta de armazenamento que hospeda o conjunto de dados. É possível visualizar o nome da conta no canto superior esquerdo da página do Azure da conta de armazenamento. Para obter a chave de conta, selecione Chaves de acesso na página de conta de armazenamento do Azure (consulte a primeira captura de tela na seção Ingestão de dados) e copie a cadeia de caracteres longa na primeira linha da coluna de chave:
+Em nosso código, usamos o [SDK de Armazenamento do Microsoft Azure](https://docs.microsoft.com/en-us/python/azure/) para baixar o conjunto de dados do armazenamento de blobs para o ambiente de execução atual. O download é realizado em no arquivo load\_data() function from load_data.py. Para usar este código, é necessário substituir <ACCOUNT_NAME> e <ACCOUNT_KEY> pelo nome e pela chave primária de sua conta de armazenamento que hospeda o conjunto de dados. É possível visualizar o nome da conta no canto superior esquerdo da página do Azure da conta de armazenamento. Para obter a chave de conta, selecione Chaves de acesso na página de conta de armazenamento do Azure (consulte a primeira captura de tela na seção Ingestão de dados) e copie a cadeia de caracteres longa na primeira linha da coluna de chave:
  
 ![chave de acesso](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 

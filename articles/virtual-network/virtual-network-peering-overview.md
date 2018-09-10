@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: f2dddb6e9a933c1dc1eb4ccbf7ace6757d546fc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367099"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919734"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -53,7 +53,7 @@ Você pode configurar rotas definidas pelo usuário que apontam para máquinas v
 
 Você pode implantar redes do tipo hub e spoke, nos quais a rede virtual do hub pode hospedar componentes de infraestrutura, como uma solução de virtualização ou gateway de VPN de rede. Todas as redes virtuais contadas podem emparelhar com a rede virtual do hub. O tráfego pode fluir por meio de soluções de virtualização ou gateways de VPN de rede que estejam na rede virtual do hub. 
 
-O emparelhamento de redes virtuais permite que o próximo salto em uma rota definida pelo usuário seja o endereço IP de uma máquina virtual na rede virtual emparelhada, ou o gateway de VPN. No entanto, não é possível rotear entre redes virtuais com uma rota definida pelo usuário especificando um gateway de ExpressRoute como o tipo de próximo salto. Para saber mais sobre as rotas definidas pelo usuário, confira [Visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined). Para saber como criar uma topologia de rede de hub e spoke, consulte [Topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+O emparelhamento de redes virtuais permite que o próximo salto em uma rota definida pelo usuário seja o endereço IP de uma máquina virtual na rede virtual emparelhada, ou o gateway de VPN. No entanto, não é possível rotear entre redes virtuais com uma rota definida pelo usuário especificando um gateway de ExpressRoute como o tipo de próximo salto. Para saber mais sobre as rotas definidas pelo usuário, confira [Visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined). Para saber como criar uma topologia de rede de hub e spoke, consulte [Topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateways e conectividade local
 
@@ -71,11 +71,16 @@ Quando as redes virtuais que compartilham uma única conexão de Azure ExpressRo
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
-Para confirmar um emparelhamento de rede virtual, você pode [verificar rotas efetivas](virtual-network-routes-troubleshoot-portal.md) para uma interface de rede em qualquer sub-rede em uma rede virtual. Se um emparelhamento de rede virtual existir, todas as sub-redes na rede virtual terão rotas com o tipo de próximo salto *Emparelhamento VNet*, para cada espaço de endereço em cada rede virtual emparelhada.
+Para confirmar um emparelhamento de rede virtual, você pode [verificar rotas efetivas](diagnose-network-routing-problem.md) para uma interface de rede em qualquer sub-rede em uma rede virtual. Se um emparelhamento de rede virtual existir, todas as sub-redes na rede virtual terão rotas com o tipo de próximo salto *Emparelhamento VNet*, para cada espaço de endereço em cada rede virtual emparelhada.
 
 Você também pode solucionar os problemas de conectividade com uma máquina virtual em uma rede virtual emparelhada usando a [verificação de conectividade](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Observador de Rede. A verificação de conectividade permite que você veja como o tráfego é roteado da interface de rede de uma máquina virtual de origem até a interface de rede de uma máquina virtual de destino.
 
 ## <a name="requirements-and-constraints"></a>Requisitos e restrições
+
+As seguintes restrições se aplicam quando as redes virtuais estão pareadas globalmente:
+- As redes virtuais podem existir em qualquer região de nuvem pública do Azure, mas não em nuvens nacionais do Azure.
+- Os recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador de carga interno do Azure em uma rede virtual com cobertura global. O balanceador de carga e os recursos que se comunicam com ele devem estar na mesma região.
+- Você não pode usar gateways remotos ou permitir o tráfego de gateway. Para usar gateways remotos ou permitir trânsito de gateway, as redes virtuais emparelhadas devem estar na mesma região.
 
 Para saber mais sobre requisitos e restrições, confira [Restrições e requisitos de emparelhamento de redes virtuais](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre os limites de número de emparelhamentos que você pode criar para uma rede virtual, confira [Limites de rede do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
@@ -85,7 +90,9 @@ Para saber mais sobre as permissões necessárias para criar um emparelhamento d
 
 ## <a name="pricing"></a>Preços
 
-Há um custo nominal para tráfego de entrada e saída que utiliza uma conexão de emparelhamento de rede virtual. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/virtual-network).
+Há um custo nominal para tráfego de entrada e saída que utiliza uma conexão de emparelhamento de rede virtual. Para obter mais informações sobre o emparelhamento de VNet e preços do emparelhamento VNet Global, consulte a [página de preços](https://azure.microsoft.com/pricing/details/virtual-network).
+
+Tráfego de gateway é uma propriedade de emparelhamento que permite que uma rede virtual para utilizar o gateway de VPN em uma rede virtual emparelhada para conectividade entre locais e VNET a VNET. O tráfego que passa por um gateway remoto neste cenário está sujeito à [encargos de gateway VPN](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/) e não incorre em [encargos de emparelhamento de Vnet.](https://azure.microsoft.com/pricing/details/virtual-network) Por exemplo, se VNetA tem um gateway de VPN para conectividade local e VNetB está emparelhada com VNetA com as propriedades apropriadas configuradas, o tráfego da VNetB para o local é cobrado apenas considerando a saída conforme os preços de gateway VPN. Encargos de emparelhamento de VNet não se aplicam. Saiba como [configurar o tráfego do gateway de VPN para o emparelhamento de rede virtual.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -98,5 +105,6 @@ Há um custo nominal para tráfego de entrada e saída que utiliza uma conexão 
     |Um Resource Manager, um clássico  |[Idêntica](create-peering-different-deployment-models.md)|
     |                                   |[Diferente](create-peering-different-deployment-models-subscriptions.md)|
 
-* Saiba como criar uma [topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+* Saiba como criar uma [topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Saiba mais sobre todas as [configurações de emparelhamento de rede virtual e como alterá-las](virtual-network-manage-peering.md).
+* Obtenha respostas para perguntas comuns de emparelhamento VNet e o emparelhamento VNet Global por meio de nossas [Perguntas frequentes sobre o Emparelhamento VNet](virtual-networks-faq.md#vnet-peering)

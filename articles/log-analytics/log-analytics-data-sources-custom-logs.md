@@ -4,22 +4,23 @@ description: O Log Analytics pode coletar eventos de arquivos de texto em comput
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 05/27/2018
 ms.author: bwren
-ms.openlocfilehash: e4e2edeb6703e8c55a16b488175fbcdb0dfe56a9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.component: na
+ms.openlocfilehash: 831b52a27a1ccfc349b9b54f8c3d874e41ddc322
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361882"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363136"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Logs personalizados no Log Analytics
 A fonte de dados de logs personalizados no Log Analytics permite que você colete eventos de arquivos de texto em computadores com Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registro standard, como o log de eventos do Windows ou Syslog.  Depois de coletados, você pode analisar cada registro no logon em campos individuais usando o recurso [Campos Personalizados](log-analytics-custom-fields.md) do Log Analytics.

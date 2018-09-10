@@ -1,26 +1,23 @@
 ---
-title: "Codificar mensagens X12 - Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Validar EDI e converter mensagens codificadas XML com o codificador de mensagem X12 no Enterprise Integration Pack para Aplicativo Lógico do Azure"
+title: Codificar mensagens X12 - Aplicativo Lógico do Azure | Microsoft Docs
+description: Validar EDI e converter mensagens codificadas em XML com o codificador de mensagens X12 no Aplicativo Lógico do Azure com o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: anneta
-editor: 
-ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: f7408f240a1b05e0d53716764a9f8d1e19229ebe
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3ed5cb61fef5f07913f11c4e4df309d720d5b901
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123498"
 ---
-# <a name="encode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificar mensagens X12 para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
+# <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Codificar mensagens X12 no Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
 Com o conector de mensagem X12 de codificação você pode validar o EDI e as propriedades específicas de parceiro, converter as mensagens codificadas em XML em conjuntos de transações de EDI no intercâmbio e solicita uma Confirmação Técnica, Confirmação Funcional, ou ambas.
 Para usar esse conector, você deve adicionar o conector para um gatilho existente em seu aplicativo lógico.

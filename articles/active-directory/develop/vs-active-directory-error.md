@@ -7,16 +7,17 @@ manager: douge
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev
-ms.openlocfilehash: 8cd15c59bbe536dba9adb6f44c07844eaf030b55
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: aaddev, vs-azure
+ms.openlocfilehash: 82449c3a8154142a64aa264f72d2dec75fe2f23c
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145263"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosticando erros com o Serviço Conectado do Azure Active Directory
 
@@ -93,4 +94,4 @@ Para detectar uma forma anterior de autenticação de Conta Organizacional, o se
 
 Para alterar o tipo de autenticação, remova o tipo de autenticação incompatível e tente adicionar o serviço conectado novamente.
 
-Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
+Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](authentication-scenarios.md).

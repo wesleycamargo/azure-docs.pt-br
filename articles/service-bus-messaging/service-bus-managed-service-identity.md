@@ -1,24 +1,25 @@
 ---
-title: "Versão prévia da Identidade de Serviço Gerenciada com o Barramento de Serviço do Azure | Microsoft Docs"
-description: "Usar Identidades de Serviço Gerenciadas com o Barramento de Serviço do Azure"
+title: Versão prévia da Identidade de Serviço Gerenciada com o Barramento de Serviço do Azure | Microsoft Docs
+description: Usar Identidades de Serviço Gerenciadas com o Barramento de Serviço do Azure
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.date: 08/01/2018
+ms.author: spelluru
+ms.openlocfilehash: e886089bbceff5fc1963044c4c1f2f7a012ea2a2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697723"
 ---
 # <a name="managed-service-identity-preview"></a>Identidade de Serviço Gerenciada (versão prévia)
 
@@ -62,7 +63,7 @@ A Identidade de Serviço Gerenciada do aplicativo Web agora tem acesso ao namesp
 
 ### <a name="run-the-app"></a>Execute o aplicativo
 
-Agora, modifique a página padrão do aplicativo ASP.NET que você criou. Você também pode usar o código do aplicativo Web [deste repositório GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
+Agora, modifique a página padrão do aplicativo ASP.NET que você criou. Também é possível usar o código do aplicativo Web [deste repositório GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
 A página Default.aspx é sua página de aterrissagem. O código pode ser encontrado no arquivo Default.aspx.cs. O resultado é um aplicativo Web mínimo com alguns campos de entrada e os botões **enviar** e **receber** que se conectam ao Barramento de Serviço para enviar ou receber mensagens.
 
@@ -73,8 +74,12 @@ Depois de fazer essas alterações, publique e execute o aplicativo. Uma maneira
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
 Para enviar ou receber mensagens, insira o nome do namespace e o nome da entidade que você criou e, em seguida, clique em **enviar** ou **receber**.
- 
-Observe que a Identidade de Serviço Gerenciada só funciona dentro do ambiente do Azure e somente na implantação do Serviço de Aplicativo em que você a configurou. Observe também que as Identidades de Serviço Gerenciadas não funcionam com slots de implantação do Serviço de Aplicativo no momento.
+
+
+> [!NOTE]
+> - A identidade de serviço gerenciado funciona somente dentro do ambiente do Azure, em serviços de aplicativos, VMs do Azure e nos conjuntos de dimensionamento. Para aplicativos .NET, a biblioteca Microsoft.Azure.Services.AppAuthentication, que é usada pelo pacote NuGet do Barramento de Serviço, fornece uma abstração sobre esse protocolo e dá suporte a uma experiência de desenvolvimento local. Essa biblioteca também permite testar o código localmente no computador de desenvolvimento, usando a conta de usuário do Visual Studio, a CLI 2.0 do Azure ou a Autenticação Integrada do Active Directory. Para obter mais informações sobre as opções de desenvolvimento local com essa biblioteca, consulte [Autenticação de serviço a serviço para o Azure Key Vault usando .NET](../key-vault/service-to-service-authentication.md).  
+> 
+> - Atualmente, as identidades de serviço gerenciadas não funcionam com slots de implantação do Serviço de Aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

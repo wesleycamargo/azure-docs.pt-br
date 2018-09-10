@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409543"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Ferramentas de ciência de dados e aprendizado de máquina
 A DSVM (Máquina Virtual de Ciência de Dados) tem um rico conjunto de ferramentas e bibliotecas para aprendizado de máquina disponível em linguagens populares como Python, R, Julia. 

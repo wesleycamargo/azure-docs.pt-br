@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 536092c1ee50045e6df4e2933c7d6eb0ee7a8b42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429780"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso do Gerenciador de Armazenamento com o armazenamento de arquivos do Azure
 
 O armazenamento de Arquivos do Azure é um serviço que oferece compartilhamentos de arquivos na nuvem usando o Protocolo SMB (Server Message Block) padrão. Há suporte ao SMB 2.1 e ao 3.0 SMB. Com o armazenamento de Arquivos do Azure, você pode migrar aplicativos herdados que dependem de compartilhamentos de arquivos para o Azure rapidamente e sem regravações caras. Você pode usar o Armazenamento de Arquivos para expor dados publicamente para o mundo ou para armazenar dados do aplicativo de forma privada. Neste artigo, você aprenderá a usar o Gerenciador de Armazenamento para trabalhar com compartilhamento de arquivos e arquivos.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
@@ -40,17 +41,17 @@ As etapas a seguir ilustram como criar um compartilhamento de arquivos no Gerenc
 
 1. Abra o Explorer do Armazenamento.
 
-2. No painel esquerdo, expanda a conta de armazenamento na qual você deseja criar o compartilhamento de arquivos
+1. No painel esquerdo, expanda a conta de armazenamento na qual você deseja criar o compartilhamento de arquivos
 
-3. Clique com botão direito do mouse em **Compartilhamentos de Arquivos**e, no menu de contexto, selecione **Criar Compartilhamento de Arquivos**.
+1. Clique com botão direito do mouse em **Compartilhamentos de Arquivos**e, no menu de contexto, selecione **Criar Compartilhamento de Arquivos**.
 
     ![Criar o compartilhamento de arquivos](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-4. Uma caixa de texto será exibida abaixo da pasta **Compartilhamentos de Arquivos** . Insira o nome do compartilhamento de arquivo. Confira a seção [Regras de nomenclatura do compartilhamento](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) para obter uma lista de regras e restrições sobre como nomear os compartilhamentos de arquivos.
+1. Uma caixa de texto será exibida abaixo da pasta **Compartilhamentos de Arquivos** . Insira o nome do compartilhamento de arquivo. Confira a seção [Regras de nomenclatura do compartilhamento](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) para obter uma lista de regras e restrições sobre como nomear os compartilhamentos de arquivos.
 
     ![Nomeação do compartilhamento](media/vs-azure-tools-storage-explorer-files/image2.png)
 
-5. Pressione **Enter** quanto terminar de criar o compartilhamento de arquivos ou **Esc** para cancelar. Após a criação do compartilhamento de arquivos, ele será exibido na pasta **Compartilhamentos de Arquivos** da conta de armazenamento selecionada.
+1. Pressione **Enter** quanto terminar de criar o compartilhamento de arquivos ou **Esc** para cancelar. Após a criação do compartilhamento de arquivos, ele será exibido na pasta **Compartilhamentos de Arquivos** da conta de armazenamento selecionada.
 
     ![O novo compartilhamento](media/vs-azure-tools-storage-explorer-files/image3.png)
 
@@ -62,15 +63,15 @@ As etapas a seguir ilustram como exibir o conteúdo de um compartilhamento de ar
 
 1. Abra o Explorer do Armazenamento.
 
-2. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos que você deseja exibir.
+1. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos que você deseja exibir.
 
-3. Expanda os **Compartilhamentos de arquivos** da conta de armazenamento.
+1. Expanda os **Compartilhamentos de arquivos** da conta de armazenamento.
 
-4. Clique com o botão direito do mouse no compartilhamento de arquivos que você deseja exibir e, no menu de contexto, escolha **Abrir**. Você também pode clicar duas vezes no compartilhamento de arquivos que deseja exibir.
+1. Clique com o botão direito do mouse no compartilhamento de arquivos que você deseja exibir e, no menu de contexto, escolha **Abrir**. Você também pode clicar duas vezes no compartilhamento de arquivos que deseja exibir.
 
     ![Abrir compartilhamento](media/vs-azure-tools-storage-explorer-files/image4.png)
 
-5. O painel principal exibirá o conteúdo do compartilhamento de arquivos.
+1. O painel principal exibirá o conteúdo do compartilhamento de arquivos.
     
     ![O conteúdo do compartilhamento](media/vs-azure-tools-storage-explorer-files/image5.png)
 
@@ -82,15 +83,15 @@ As etapas a seguir ilustram como excluir um compartilhamento de arquivos no Gere
 
 1. Abra o Explorer do Armazenamento.
 
-2. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos que você deseja exibir.
+1. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos que você deseja exibir.
 
-3. Expanda os **Compartilhamentos de arquivos** da conta de armazenamento.
+1. Expanda os **Compartilhamentos de arquivos** da conta de armazenamento.
 
-4. Clique com o botão direito do mouse no compartilhamento de arquivos que você deseja excluir e, no menu de contexto, escolha **Excluir**. Você também pode pressionar **Excluir** para excluir o compartilhamento de arquivos selecionado atualmente.
+1. Clique com o botão direito do mouse no compartilhamento de arquivos que você deseja excluir e, no menu de contexto, escolha **Excluir**. Você também pode pressionar **Excluir** para excluir o compartilhamento de arquivos selecionado atualmente.
 
     ![Excluir](media/vs-azure-tools-storage-explorer-files/image6.png)
 
-5. Escolha **Sim** na caixa de diálogo de confirmação.
+1. Escolha **Sim** na caixa de diálogo de confirmação.
     
     ![Diálogo de confirmação](media/vs-azure-tools-storage-explorer-files/image7.png)
 
@@ -102,15 +103,15 @@ As etapas a seguir ilustram como copiar um compartilhamento de arquivos de uma c
 
 1. Abra o Explorer do Armazenamento.
 
-2. No painel esquerdo, expanda a conta de armazenamento contendo o compartilhamento de arquivos que você deseja copiar.
+1. No painel esquerdo, expanda a conta de armazenamento contendo o compartilhamento de arquivos que você deseja copiar.
 
-3. Expanda os **Compartilhamentos de arquivos** da conta de armazenamento.
+1. Expanda os **Compartilhamentos de arquivos** da conta de armazenamento.
 
-4. Clique com o botão direito do mouse no compartilhamento de arquivos que você deseja copiar e, no menu de contexto, escolha **Copiar Compartilhamento de Arquivos**.
+1. Clique com o botão direito do mouse no compartilhamento de arquivos que você deseja copiar e, no menu de contexto, escolha **Copiar Compartilhamento de Arquivos**.
 
     ![Copiar o compartilhamento de arquivos](media/vs-azure-tools-storage-explorer-files/image8.png)
 
-5. Clique com botão direito do mouse na conta de armazenamento de "destino" na qual você deseja colar o compartilhamento de arquivos e, no menu de contexto, escolha **Colar Compartilhamento de Arquivos**.
+1. Clique com botão direito do mouse na conta de armazenamento de "destino" na qual você deseja colar o compartilhamento de arquivos e, no menu de contexto, escolha **Colar Compartilhamento de Arquivos**.
 
     ![Colar o compartilhamento de arquivos](media/vs-azure-tools-storage-explorer-files/image9.png)
 
@@ -122,25 +123,25 @@ As etapas a seguir ilustram como criar uma SAS para um compartilhamento de arqui
 
 1. Abra o Explorer do Armazenamento.
 
-2. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos para o qual você deseja obter uma SAS.
+1. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos para o qual você deseja obter uma SAS.
 
-3. Expanda os **Compartilhamentos de arquivos** da conta de armazenamento.
+1. Expanda os **Compartilhamentos de arquivos** da conta de armazenamento.
 
-4. Clique com o botão direito do mouse no compartilhamento de arquivos desejado e, no menu de contexto, escolha **Obter Assinatura de Acesso Compartilhado**.
+1. Clique com o botão direito do mouse no compartilhamento de arquivos desejado e, no menu de contexto, escolha **Obter Assinatura de Acesso Compartilhado**.
 
     ![Obter Assinatura de Acesso Compartilhado](media/vs-azure-tools-storage-explorer-files/image10.png)
 
-5. Na caixa de diálogo **Assinatura de Acesso Compartilhado** , especifique a política, as datas de início e de vencimento, o fuso horário e os níveis de acesso que você deseja para o recurso.
+1. Na caixa de diálogo **Assinatura de Acesso Compartilhado** , especifique a política, as datas de início e de vencimento, o fuso horário e os níveis de acesso que você deseja para o recurso.
 
     ![Diálogo Obter SAS](media/vs-azure-tools-storage-explorer-files/image11.png)
 
-6. Ao terminar de especificar as opções de SAS, escolha **Criar**.
+1. Ao terminar de especificar as opções de SAS, escolha **Criar**.
 
-7. Uma segunda caixa de diálogo de **Assinatura de Acesso Compartilhado** será exibida listando o compartilhamento de arquivos juntamente com a URL e as QueryStrings que você pode usar para acessar o recurso de armazenamento. Escolha **Copiar** próximo à URL que você deseja copiar na área de transferência.
+1. Uma segunda caixa de diálogo de **Assinatura de Acesso Compartilhado** será exibida listando o compartilhamento de arquivos juntamente com a URL e as QueryStrings que você pode usar para acessar o recurso de armazenamento. Escolha **Copiar** próximo à URL que você deseja copiar na área de transferência.
     
     ![Segundo diálogo SAS](media/vs-azure-tools-storage-explorer-files/image12.png)
 
-8. Ao terminar, escolha **Fechar**.
+1. Ao terminar, escolha **Fechar**.
 
 ## <a name="manage-access-policies-for-a-file-share"></a>Gerenciar políticas de acesso para um compartilhamento de arquivos
 
@@ -148,19 +149,19 @@ As etapas abaixo ilustram como gerenciar (adicionar e remover) políticas de ace
 
 1. Abra o Explorer do Armazenamento.
 
-2. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos cujas políticas de acesso você deseja gerenciar.
+1. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos cujas políticas de acesso você deseja gerenciar.
 
-3. Expanda os **Compartilhamentos de arquivos** da conta de armazenamento.
+1. Expanda os **Compartilhamentos de arquivos** da conta de armazenamento.
 
-4. Escolha o compartilhamento de arquivos desejado e, no menu de contexto, escolha **Gerenciar Políticas de Acesso**.
+1. Escolha o compartilhamento de arquivos desejado e, no menu de contexto, escolha **Gerenciar Políticas de Acesso**.
 
     ![Menu de contexto Gerenciar políticas de acesso](media/vs-azure-tools-storage-explorer-files/image13.png)
 
-5. A caixa de diálogo **Políticas de Acesso** listará todas as políticas de acesso que já foram criadas para o compartilhamento de arquivos selecionado.
+1. A caixa de diálogo **Políticas de Acesso** listará todas as políticas de acesso que já foram criadas para o compartilhamento de arquivos selecionado.
     
     ![Políticas de acesso](media/vs-azure-tools-storage-explorer-files/image14.png)
 
-6. Execute estas etapas, dependendo da tarefa de gerenciamento de política de acesso:
+1. Execute estas etapas, dependendo da tarefa de gerenciamento de política de acesso:
     
     - **Adicionar uma nova política de acesso** — escolha **Adicionar**. Uma vez gerada, a caixa de diálogo **Políticas de Acesso** exibirá a política de acesso recém-adicionada (com configurações padrão).
 
@@ -168,7 +169,7 @@ As etapas abaixo ilustram como gerenciar (adicionar e remover) políticas de ace
 
     - **Remover uma política de acesso** — escolha **Remover** ao lado da política de acesso que você deseja remover.
 
-7. Crie uma nova URL de SAS usando a política de acesso que você criou anteriormente:
+1. Crie uma nova URL de SAS usando a política de acesso que você criou anteriormente:
     
     ![Obter SAS](media/vs-azure-tools-storage-explorer-files/image15.png)
     
@@ -182,19 +183,19 @@ As etapas a seguir ilustram como gerenciar os arquivos (e pastas) dentro de um c
 
 1.  Abra o Explorer do Armazenamento.
 
-2.  No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos que você deseja gerenciar.
+1.  No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos que você deseja gerenciar.
 
-3.  Expanda os **Compartilhamentos de arquivos** da conta de armazenamento.
+1.  Expanda os **Compartilhamentos de arquivos** da conta de armazenamento.
 
-4.  Clique duas vezes no compartilhamento de arquivos que você deseja exibir.
+1.  Clique duas vezes no compartilhamento de arquivos que você deseja exibir.
 
-5.  O painel principal exibirá o conteúdo do compartilhamento de arquivos.
+1.  O painel principal exibirá o conteúdo do compartilhamento de arquivos.
 
     ![O conteúdo do compartilhamento](media/vs-azure-tools-storage-explorer-files/image17.png)
 
-6.  O painel principal exibirá o conteúdo do compartilhamento de arquivos.
+1.  O painel principal exibirá o conteúdo do compartilhamento de arquivos.
 
-7.  Execute estas etapas, dependendo da tarefa que deseja executar:
+1.  Execute estas etapas, dependendo da tarefa que deseja executar:
 
     - **Carregar arquivos em um compartilhamento de arquivos**
 
@@ -228,7 +229,7 @@ As etapas a seguir ilustram como gerenciar os arquivos (e pastas) dentro de um c
         
         c. Na caixa de diálogo **Especifique onde salvar o arquivo baixado**, especifique o local onde você deseja baixar o arquivo e o nome que deseja dar a ele.
 
-        d. Selecione **Salvar**.
+        d. Clique em **Salvar**.
 
     - **Abrir um arquivo em seu computador local**
         

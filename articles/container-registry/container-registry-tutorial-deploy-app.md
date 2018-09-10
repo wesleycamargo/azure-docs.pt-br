@@ -3,21 +3,22 @@ title: Tutorial do Registro de Contêiner do Azure - Implantar o aplicativo Web 
 description: Implante um aplicativo Web baseado em Linux usando uma imagem de contêiner de um registro de contêiner do Azure replicado geograficamente. Parte dois de uma série de três partes.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 08/20/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 51aa3c6fc56e974fc1729a1d2fe35c889adf35e2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 25e3fdfe72fc2a6ffec1bcee23cd9f1edc783838
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41924723"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Tutorial: implantar aplicativo Web do Registro de Contêiner do Azure
 
-Esta é a parte três de uma série de tutoriais de três partes. Na [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registro de contêiner replicado geograficamente privado, e uma imagem de contêiner foi criada da origem e enviado por push para o registro. Neste artigo, você pode implantar o contêiner em duas instâncias de Aplicativo Web em duas regiões diferentes do Azure para aproveitar o aspecto de fechamento de rede do registro replicado geograficamente.
+Esta é a parte três de uma série de tutoriais de três partes. Na [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registro de contêiner replicado geograficamente privado, e uma imagem de contêiner foi criada da origem e enviado por push para o registro. Neste artigo, você aproveita o aspecto de fechamento de rede do registro replicado geograficamente implantando o contêiner para instâncias de aplicativo Web em duas regiões diferentes do Azure. Cada instância, em seguida, obtém a imagem de contêiner do registro mais próximo.
 
 Neste tutorial, parte dois da série:
 
@@ -27,7 +28,7 @@ Neste tutorial, parte dois da série:
 
 Se você ainda não tiver criado um registro replicado geograficamente e enviado por push a imagem do aplicativo de exemplo em contêineres no registro, retorne ao tutorial anterior na série, [Preparar um registro de contêiner do Azure replicado geograficamente](container-registry-tutorial-prepare-registry.md).
 
-Na próxima parte da série, você atualiza o aplicativo e envia por push uma nova imagem de contêiner para o registro. Por fim, você navega até cada instância de Aplicativo Web em execução para ver a alteração automaticamente refletida em ambos, mostrando a replicação geográfica do Registro de Contêiner do Azure e webhooks em ação.
+No próximo artigo da série, você atualiza o aplicativo e envia por push a imagem atualizada de contêiner para o registro. Por fim, você navega até cada instância de Aplicativo Web em execução para ver a alteração automaticamente refletida em ambos, mostrando a replicação geográfica do Registro de Contêiner do Azure e webhooks em ação.
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Implantação automática em Aplicativos Web para Contêineres
 
@@ -41,11 +42,13 @@ Nesta etapa, você cria uma instância de Aplicativo Web para Contêineres na re
 
 Entre no [portal do Azure](https://portal.azure.com) e navegue até o registro que você criou no tutorial anterior.
 
-Selecione **Repositórios** > **acr-helloworld**, clique com o botão direito do mouse na marca **v1** em **Marcas** e selecione **Implantar no aplicativo Web**.
+Selecione **Repositórios** > **acr-helloworld**, clique com o botão direito do mouse na marca **v1** em **Marcas** e selecione **Implantar no aplicativo Web**:
 
 ![Implantar no serviço de aplicativo no portal do Azure][deploy-app-portal-01]
 
-No **Aplicativo Web para Contêineres** exibido, especifique os seguintes valores para cada configuração:
+Se "Implantar no aplicativo Web" estiver desabilitada, talvez você não tenha habilitado o usuário de administrador de Registro, conforme indicado em [Criar um registro de contêiner](container-registry-tutorial-prepare-registry.md#create-a-container-registry) no primeiro tutorial. Você pode habilitar o usuário administrador em **Configurações** > **Chaves de acesso** no portal do Azure.
+
+No **Aplicativo Web para Contêineres** exibido após a seleção de "Implantar no aplicativo Web", especifique os seguintes valores para cada configuração:
 
 | Configuração | Valor |
 |---|---|
@@ -103,11 +106,7 @@ Depois que a imagem do Docker for implantada do seu registro de contêiner repli
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você implantou duas instâncias de Aplicativo Web para Contêineres de um registro de contêiner do Azure replicado geograficamente. Seguindo as etapas neste tutorial, você:
-
-> [!div class="checklist"]
-> * Foi implantada uma imagem de contêiner para duas instâncias de *Aplicativos Web para Contêineres*
-> * Verificar o aplicativo implantado
+Neste tutorial, você implantou duas instâncias de Aplicativo Web para Contêineres de um registro de contêiner do Azure replicado geograficamente.
 
 Avance para o próximo tutorial para atualizar e então implante uma nova imagem de contêiner para o registro de contêiner, então verifique se os aplicativos Web em execução em ambas as regiões foram atualizados automaticamente.
 

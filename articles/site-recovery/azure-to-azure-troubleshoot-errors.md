@@ -7,13 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: e6f694e601c506adae217e6348b4bf388cc24390
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 86d6c77dab817cf755c34bdd699ee1158e852f37
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42141809"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solucionar problemas de replicação de VM do Azure para o Azure
 
@@ -147,12 +148,44 @@ Como o SuSE Linux usa links simbólicos para manter uma lista de certificados, s
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Conectividade de saída para intervalos de IP ou URLs de recuperação de Site (código de erro 151037 ou 151072)
 
-Para replicação de recuperação de Site para o trabalho, conectividade de saída para intervalos específicos de IP ou URLs é necessária da VM. Se a VM estiver atrás de um firewall ou usa regras de grupo de segurança de rede (NSG) para controlar a conectividade de saída, você poderá ver uma das seguintes mensagens de erro:
+Para replicação de recuperação de Site para o trabalho, conectividade de saída para intervalos específicos de IP ou URLs é necessária da VM. Se a VM estiver atrás de um firewall ou usa regras de grupo de segurança de rede (NSG) para controlar a conectividade de saída, você poderá enfrentar um desses problemas.
 
-**Códigos de erro** | **Possíveis causas:** | **Recomendações**
---- | --- | ---
-151037<br></br>**Mensagem**: Falha ao registrar a máquina virtual do Azure com o Site Recovery. | -Você está usando o NSG para controlar o acesso de saída na VM e os intervalos requeridos de IP não estão na lista de permissões para acesso de saída.</br></br>-Você está usando ferramentas de firewall de terceiros e os intervalos de IP necessário/URLs não estão na lista de permissões.</br>| -Se você estiver usando o proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de que as URLs de pré-requisito ou intervalos de IP de datacenter estão na lista de permissões. Para obter informações, consulte [orientação de proxy do firewall](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>-Se você estiver usando o NSG para controlar a conectividade de rede de saída na VM, certifique-se de que as URLs de pré-requisito ou intervalos de IP de datacenter estão na lista de permissões. Para obter mais informações, veja [Grupo de Segurança de Rede](https://aka.ms/a2a-nsg-guidance).
-151072<br></br>**Mensagem**: Falha na configuração do Site Recovery. | Não é possível estabelecer Conexão com pontos de extremidade de serviço de recuperação de Site. | -Se você estiver usando o proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de que as URLs de pré-requisito ou intervalos de IP de datacenter estão na lista de permissões. Para obter informações, consulte [orientação de proxy do firewall](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>-Se você estiver usando o NSG para controlar a conectividade de rede de saída na VM, certifique-se de que as URLs de pré-requisito ou intervalos de IP de datacenter estão na lista de permissões. Para obter mais informações, veja [Grupo de Segurança de Rede](https://aka.ms/a2a-nsg-guidance).
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151037-br"></a>Problema 1: falha ao registrar a máquina virtual do Azure com o Site Recovery (151037) </br>
+- **Possível causa** </br>
+  - Você está usando o NSG para controlar o acesso de saída na VM e os intervalos requeridos de IP não estão na lista de permissões para acesso de saída.
+  - Você está usando ferramentas de firewall de terceiros e os intervalos de IP necessário/URLs não estão na lista de permissões.
+
+
+- **Resolução**
+   - Se você estiver usando o proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de que as URLs de pré-requisito ou intervalos de IP de datacenter estão na lista de permissões. Para obter informações, consulte [orientação de proxy do firewall](https://aka.ms/a2a-firewall-proxy-guidance).
+   - Se você estiver usando o NSG para controlar a conectividade de rede de saída na VM, certifique-se de que as URLs de pré-requisito ou intervalos de IP de datacenter estão na lista de permissões. Para obter mais informações, veja [Grupo de Segurança de Rede](https://aka.ms/a2a-nsg-guidance).
+   - Para permitir [as URLs necessárias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [ intervalos de IP necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga as etapas no [documento de diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md).
+
+### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Problema 2: falha na configuração do Site Recovery (151072)
+- **Possível causa** </br>
+  - Não é possível estabelecer conexão com pontos de extremidade de serviço de Recuperação de Site.onectar
+
+
+- **Resolução**
+   - Se você estiver usando o proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de que as URLs de pré-requisito ou intervalos de IP de datacenter estão na lista de permissões. Para obter informações, consulte [orientação de proxy do firewall](https://aka.ms/a2a-firewall-proxy-guidance).
+   - Se você estiver usando o NSG para controlar a conectividade de rede de saída na VM, certifique-se de que as URLs de pré-requisito ou intervalos de IP de datacenter estão na lista de permissões. Para obter mais informações, veja [Grupo de Segurança de Rede](https://aka.ms/a2a-nsg-guidance).
+   - Para permitir [as URLs necessárias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [ intervalos de IP necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga as etapas no [documento de diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md).
+
+### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problema 3: a replicação de A2A falhou quando o tráfego de rede passou pelo servidor proxy no local (151072)
+ - **Possível causa** </br>
+   - As configurações de proxy personalizadas são inválidas, e o agente do Serviço de Mobilidade do ASR não detectou automaticamente as configurações de proxy do IE
+
+
+ - **Resolução**
+  1.    O agente do Serviço de Mobilidade detecta as configurações de proxy do IE no Windows e o ambiente /etc/ no Linux.
+  2.  Se você preferir definir o proxy somente para o Serviço de Mobilidade do ASR, você poderá fornecer os detalhes do proxy no ProxyInfo.conf localizado em:</br>
+      - ``/usr/local/InMage/config/`` no ***Linux***
+      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` no ***Windows***
+  3.    O ProxyInfo.conf deve ter as configurações de proxy no seguinte formato INI. </br>
+                   *[proxy]*</br>
+                   *Address=http://1.2.3.4*</br>
+                   *Port=567*</br>
+  4. O agente do Serviço de Mobilidade do ASR suporta apenas ***proxies não autenticados***.
 
 ### <a name="fix-the-problem"></a>Corrija o problema
 Para permitir [as URLs necessárias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [ intervalos de IP necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga as etapas no [documento de diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md).
@@ -176,6 +209,13 @@ Se o problema persistir, contate o Suporte.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Não é possível visualizar a VM do Azure para seleção "habilitar a replicação"
 
+ **Causa 1: Grupo de recursos e Máquina Virtual de origem estão em localização diferente** <br>
+O Azure Site Recovery atualmente determinou que o grupo de recursos da região de origem e as máquinas virtuais estejam no mesmo local. Se esse não for o caso, não será possível localizar a máquina virtual durante o tempo de proteção.
+
+**Causa 2: Grupo de recursos não faz parte da assinatura selecionada** <br>
+Talvez não seja possível localizar o grupo de recursos no momento da proteção, se ele não fizer parte da assinatura fornecida. Certifique-se de que o grupo de recursos pertence à assinatura que está sendo usada.
+
+ **Causa 3: Configuração obsoleta** <br>
 Se VM que você deseja habilitar para replicação não é exibida, pode haver uma configuração obsoleta do Site Recovery na VM do Azure. A configuração obsoleta pode ser deixada em uma VM do Azure nos seguintes casos:
 
 - A replicação foi habilitada para a VM do Azure usando a recuperação de Site e então excluída no cofre de recuperação de Site sem desabilitar explicitamente a replicação na máquina virtual.
@@ -184,6 +224,11 @@ Se VM que você deseja habilitar para replicação não é exibida, pode haver u
 ### <a name="fix-the-problem"></a>Corrija o problema
 
 Você pode usar [Remover configuração de script ASR obsoleta](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) e remover a configuração de recuperação de Site obsoleta na máquina virtual da Azure. Você deve ser capaz de ver a VM depois de remover a configuração obsoleta.
+
+## <a name="unable-to-select-virtual-machine-for-protection"></a>Não é possível selecionar a máquina virtual para proteção 
+ **Causa 1: A máquina virtual tem alguma extensão instalada em um estado sem resposta ou com falha** <br>
+ Vá para Máquinas virtuais > Configuração > Extensões e verifique se há extensões em um estado com falha. Desinstale a extensão com falha e tente proteger a máquina virtual novamente.<br>
+ **Causa 2:  [O estado de provisionamento da VM não é válido](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>O estado de provisionamento da VM não é válido (código de erro 150019)
 
@@ -199,6 +244,21 @@ Para habilitar a replicação na VM, o estado de provisionamento deve ser **Com 
 
 - Se **provisioningState** estiver com **Falha**, entre em contato com o suporte com detalhes para solucionar o problema.
 - Se **provisioningState** for **Atualizando**, outra extensão poderá estar sendo implantada. Verifique se há outras operações em andamento na VM, aguarde a conclusão e tente realizar novamente o trabalho **Habilitar replicação** do Site Recovery.
+
+## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>Não é possível selecionar a rede virtual de destino - a guia de seleção de rede está esmaecida.
+
+**Causa 1: se sua VM estiver vinculada a uma rede que já está mapeada para uma 'Rede de destino'.**
+- Se a VM de origem fizer parte de uma rede virtual e outra VM da mesma rede virtual já estiver mapeada com uma rede no grupo de recursos de destino, em seguida, por padrão, o menu suspenso de seleção de rede padrão será desabilitado.
+
+![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
+
+**Causa 2: se você anteriormente tiver protegido a VM usando o Azure Site Recovery e desabilitado a replicação.**
+ - Desabilitar a replicação de uma VM não exclui o Mapeamento de Rede. Ele deve ser excluído do cofre do serviço de recuperação em que a VM foi protegida. </br>
+ Navegue até o cofre do serviço de recuperação > Infraestrutura do Site Recovery > Mapeamento de rede. </br>
+ ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
+ - A rede de destino configurada durante a configuração da recuperação de desastre pode ser alterada após a configuração inicial, depois que a VM estiver protegida. </br>
+ ![Modify_NW_mapping](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
+ - Observe que alterar o mapeamento de rede afeta todas as VMs protegidas que usam o mapeamento de rede específico.
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>Erro de serviço de Cópias de Sombra de Volume/COM+ (código de erro 151025)

@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 06/15/2018
 ms.author: genli
-ms.openlocfilehash: 6049e3614b63bfabee6721dcaa83008eb3306493
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43670086"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Entender o limite de gastos do Azure e como removê-lo
 
@@ -47,8 +48,7 @@ Você pode remover o limite de gastos em qualquer momento, contanto que haja um 
 Para remover seu limite de gastos, execute estas etapas:
 
 1. Entre no [Centro de Contas](https://account.windowsazure.com/Subscriptions).
-1. Selecione uma assinatura.
-. Se a assinatura estiver desabilitada devido ao limite de gastos ter sido atingido, clique nessa notificação: "A assinatura atingiu o limite de gastos e foi desabilitada para evitar encargos". Caso contrário, clique em **Remover limite de gastos** na área **STATUS DA ASSINATURA**.
+1. Selecione uma assinatura. Se a assinatura estiver desabilitada devido ao limite de gastos ter sido atingido, clique nessa notificação: "A assinatura atingiu o limite de gastos e foi desabilitada para evitar encargos". Caso contrário, clique em **Remover limite de gastos** na área **STATUS DA ASSINATURA**.
 1. Selecione uma opção que é adequada para você.
 
 ![Selecionando uma opção para remover o limite de gastos](./media/billing-spending-limit/remove-spending-limit.PNG)

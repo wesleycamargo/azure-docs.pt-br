@@ -9,10 +9,11 @@ ms.date: 02/16/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: b4b06119b9d46781b967fc8d98808c60d2b41ccb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38753625"
 ---
 Você deseja certificar-se de que os usuários em sua organização têm o nível certo de acesso a esses recursos. Você não deseja conceder acesso ilimitado a usuários, mas também precisa certificar-se de que eles podem fazer o trabalho deles. O controle de acesso baseado em função (RBAC) permite que você gerencie quais usuários têm permissão para executar ações específicas em um escopo. Uma função define um conjunto de ações permitidas. Atribua a função a um escopo e especifique os usuários que pertencem a essa função para o escopo.
 

@@ -6,18 +6,18 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/04/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 41cd2f1081cbe8d8fca9d6afa77b87f9aa1017d3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302932"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616508"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Transmitir Big Data para um data warehouse
 
-A [Grade de Eventos](overview.md) do Azure é um serviço de roteamento de evento inteligente que permite que você reaja às notificações de aplicativos e serviços. O [exemplo Captura dos Hubs de Eventos e Grade de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra como usar a Captura dos Hubs de Eventos do Azure com a Grade de Eventos do Azure para migrar dados de um hub de eventos para um SQL Data Warehouse com perfeição.
+A [Grade de Eventos](overview.md) do Azure é um serviço de roteamento de evento inteligente que permite que você reaja às notificações de aplicativos e serviços. Por exemplo, ele pode disparar uma função do Azure para processar dados de Hubs de Eventos que foram capturados em um armazenamento de Blob do Azure ou Data Lake Store e migrar os dados para outros repositórios de dados. Esse [exemplo de Captura dos Hubs de Eventos e Grade de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra como usar a Captura dos Hubs de Eventos com a Grade de Eventos para migrar com perfeição dados dos Hubs de Eventos do armazenamento de blob para um SQL Data Warehouse.
 
 ![Visão geral do aplicativo](media/event-grid-event-hubs-integration/overview.png)
 
@@ -65,7 +65,7 @@ A Grade de Eventos distribui os dados do evento para os assinantes. O exemplo a 
 ]
 ```
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você deve ter:
 
@@ -75,7 +75,7 @@ Para concluir este tutorial, você deve ter:
 
 ## <a name="deploy-the-infrastructure"></a>Implantar a infraestrutura
 
-Para simplificar este artigo, você implanta a infraestrutura necessária com um modelo do Resource Manager. Para ver os recursos que são implantados, exiba o [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Use uma das [regiões com suporte](overview.md) como o local do grupo de recursos.
+Para simplificar este artigo, você implanta a infraestrutura necessária com um modelo do Resource Manager. Para ver os recursos que são implantados, exiba o [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json).
 
 Para a CLI do Azure, use:
 
@@ -151,7 +151,7 @@ Depois de publicar a função, você estará pronto para assinar o evento.
 
    ![Adicionar assinatura](media/event-grid-event-hubs-integration/add-event-grid-subscription.png)
 
-9. Nomeie a assinatura de grade de eventos. Use **Namespaces de Hubs de Evento** como o tipo de evento. Forneça valores para selecionar a instância do namespace de Hubs de Eventos. Deixe o ponto de extremidade do assinante como o valor fornecido. Clique em **Criar**.
+9. Nomeie a assinatura de grade de eventos. Use **Namespaces de Hubs de Evento** como o tipo de evento. Forneça valores para selecionar a instância do namespace de Hubs de Eventos. Deixe o ponto de extremidade do assinante como o valor fornecido. Selecione **Criar**.
 
    ![Criar assinatura](media/event-grid-event-hubs-integration/set-subscription-values.png)
 

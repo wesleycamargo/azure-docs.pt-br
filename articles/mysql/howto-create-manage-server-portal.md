@@ -6,14 +6,15 @@ author: ajlam
 ms.author: andrela
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 4b52cb9e42e582d42424c2814e2e30f764a8679b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 065eb708a1d80b0eac618bd9039a859db6ef1340
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265577"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Criar e gerenciar um servidor de Banco de Dados do Azure para MySQL usando o Portal do Azure
 Este tópico descreve como criar rapidamente um novo servidor de Banco de Dados do Azure para MySQL. Também inclui informações sobre como gerenciar o servidor usando o Portal do Azure. O gerenciamento do servidor inclui exibir detalhes do servidor e banco de dados, redefinir a senha, dimensionar recursos e excluir o servidor.

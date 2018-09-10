@@ -10,21 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8407249ed56059f278f8e4f84a4466ab286a0c24
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 85cea4bea0b1cff65464a2ad692e500efdc50c10
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095367"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Assistente de Cópia do Data Factory
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
-> * [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -32,7 +33,7 @@ ms.lasthandoff: 03/23/2018
 > * [API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está em versão prévia, confira [tutorial de atividade de cópia na documentação da versão 2](../quickstart-create-data-factory-dot-net.md). 
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte o [tutorial de atividade de cópia](../quickstart-create-data-factory-dot-net.md). 
 
 
 Este tutorial mostra como usar o **assistente de cópia** para copiar dados de um armazenamento de blobs do Azure para um Banco de Dados SQL do Azure. 
@@ -41,7 +42,7 @@ O **assistente de cópia** permite que você crie rapidamente um pipeline de dad
 
 Este tutorial mostra como criar um Azure Data Factory, iniciar o Assistente de Cópia, seguir uma série de etapas para fornecer detalhes sobre seu cenário de ingestão/movimentação de dados. Quando você concluir as etapas no assistente, ele criará um pipeline com Atividade de Cópia a fim de copiar dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure automaticamente. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Conclua os pré-requisitos listados no artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) antes de executar este tutorial.
 
 ## <a name="create-data-factory"></a>Criar um data factory
@@ -71,10 +72,10 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
        ![Folha Nova data factory](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
 3. Depois que a criação for concluída, você verá a folha **Data Factory**, conforme mostrado na seguinte imagem:
    
-   ![Página inicial da data factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
+   ![Página inicial do data factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
 ## <a name="launch-copy-wizard"></a>Iniciar o Assistente de cópia
-1. Na folha Data Factory, clique em **Copiar dados [VERSÃO PRÉVIA]** para iniciar o **Assistente de cópia**. 
+1. Na folha Data Factory, clique em **Copiar dados** para iniciar o **Assistente de cópia**. 
    
    > [!NOTE]
    > Se você vir que o navegador da Web está bloqueado em "Autorizando...", desmarque a configuração **Bloquear cookies de terceiros e dados de site** nas configurações do navegador (ou) mantenha-a habilitada, crie uma exceção para **login.microsoftonline.com** e tente iniciar o assistente novamente.

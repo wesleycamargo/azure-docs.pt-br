@@ -3,18 +3,19 @@ title: Manutenção planejada - SQL Data Warehouse do Azure | Microsoft Docs
 description: Aprenda como preparar-se para eventos de manutenção planejada no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: antvgski
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/19/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a273ad4c256267865d3af324f0ef755a6cb75c5c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8b5b94c959ae9820cab338f3ee3317fb3ee166d6
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286594"
 ---
 # <a name="planning-for-maintenance-on-your-azure-sql-data-warehouse"></a>Planejar a manutenção no SQL Data Warehouse do Azure
 

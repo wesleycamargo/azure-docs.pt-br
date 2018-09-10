@@ -11,14 +11,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
-ms.date: 5/22/2017
+ms.date: 06/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0fb5ea21c6403369cbcb60df58c0f70a57a61d4e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a443dd7ed4f95b3e283603fa8938a08c2c177827
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174297"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usar tarefas de várias instâncias para executar aplicativos de MPI (Interface de transmissão de mensagens) no Lote
 
@@ -61,8 +62,8 @@ CloudPool myCloudPool =
     myBatchClient.PoolOperations.CreatePool(
         poolId: "MultiInstanceSamplePool",
         targetDedicatedComputeNodes: 3
-        virtualMachineSize: "small",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
@@ -72,10 +73,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 > [!NOTE]
 > Se você tentar executar uma tarefa de várias instâncias em um pool com a comunicação entre nós desabilitada, ou com um valor *maxTasksPerNode* maior que 1, a tarefa nunca será agendada; ela permanecerá indefinidamente no estado "ativo". 
->
-> As tarefas de várias instâncias poderão ser executadas somente em nós nos pools criados após 14 de dezembro de 2015.
->
->
+
 
 ### <a name="use-a-starttask-to-install-mpi"></a>Usar uma StartTask para instalar MPI
 Para executar aplicativos MPI com uma tarefa de várias instâncias, primeiro você precisa instalar uma implementação MPI (MS-MPI ou Intel MPI, por exemplo) em nós de computação no pool. Esse é um bom momento para usar uma [StartTask][net_starttask], que é executada sempre que um nó ingressa em um pool ou é reiniciado. Esse trecho de código cria uma StartTask que especifica o pacote de instalação do MS-MPI como um [arquivo de recurso][net_resourcefile]. A linha de comando da tarefa inicial é executada depois de baixar o arquivo de recurso para o nó. Nesse caso, a linha de comando executa uma instalação autônoma do MS-MPI.
@@ -283,12 +281,12 @@ O exemplo de código [MultiInstanceTasks][github_mpi] no GitHub demonstra como u
 
 ### <a name="execution"></a>Execução
 1. Baixe [azure-batch-samples][github_samples_zip] do GitHub.
-2. Abra a **solução** MultiInstanceTasks no Visual Studio 2015 ou mais recente. O arquivo de solução `MultiInstanceTasks.sln` está localizado em:
+2. Abra a **solução** MultiInstanceTasks no Visual Studio 2017. O arquivo de solução `MultiInstanceTasks.sln` está localizado em:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Insira suas credenciais de conta do Lote e do Armazenamento no `AccountSettings.settings` no projeto **Microsoft.Azure.Batch.Samples.Common**.
 4. **Compile e execute** a solução MultiInstanceTasks para executar o aplicativo de exemplo MPI nos nós de computação em um pool do Lote.
-5. *Opcional*: use o [Portal do Azure][portal] ou o [BatchLabs][batch_labs] para examinar o pool, o trabalho e a tarefa de exemplo ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask") antes de excluir os recursos.
+5. *Opcional*: use o [portal do Azure][portal] ou o [Gerenciador do Lote][batch_labs] para examinar o pool, o trabalho e a tarefa de exemplo ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask") antes de excluir os recursos.
 
 > [!TIP]
 > Você pode baixar o [Visual Studio Community][visual_studio] gratuitamente se não tiver o Visual Studio.
@@ -338,7 +336,7 @@ Sample complete, hit ENTER to exit...
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
 [coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd

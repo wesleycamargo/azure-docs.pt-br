@@ -1,24 +1,26 @@
 ---
 title: Logs do IIS no Azure Log Analytics | Microsoft Docs
-description: "O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics.  Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros que eles criam no espaço de trabalho do Log Analytics."
+description: O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics.  Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros que eles criam no espaço de trabalho do Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/07/2018
+ms.date: 06/12/2018
 ms.author: bwren
-ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.comopnent: na
+ms.openlocfilehash: 65320e7d3cc97a3d53fd1a00fbbeab5559c02fce
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133200"
 ---
 # <a name="iis-logs-in-log-analytics"></a>Logs do IIS no Log Analytics
 O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics.  
@@ -33,10 +35,10 @@ O Log Analytics não coleta logs no formato nativo IIS ou NCSA.
 
 Configure os logs do IIS no [menu Dados nas Configurações do Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Não há nenhuma outra configuração necessária além da seleção de **Collect W3C format IIS log files**(Coletar arquivos de log do IIS no formato W3C).
 
-É recomendável, ao habilitar a coleta de log do IIS, definir a configuração de substituição de log do IIS em cada servidor.
 
 ## <a name="data-collection"></a>Coleta de dados
-O Log Analytics coleta as entradas de log do IIS de cada fonte conectada a cada 15 minutos, aproximadamente.  O agente registra seu lugar em cada log de eventos do qual ele realiza a coleta.  Se o agente fica offline, o Log Analytics coleta os eventos de onde ele parou, mesmo que os eventos tenham sido criados enquanto o agente estava offline.
+Log Analytics coleta entradas de log do IIS de cada agente a cada vez que o log é fechado e um novo será criado. Essa frequência é controlada pela configuração **agendamento de substituição de arquivo de Log** para o site do IIS que é uma vez por dia por padrão. Por exemplo, se as configurações são **por hora**, então, o Log Analytics coletará o log de cada hora.  Se as configurações são **por dia**, então, o Log Analytics coletará o log de cada dia.
+
 
 ## <a name="iis-log-record-properties"></a>Propriedades de registro de log do IIS
 Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na tabela a seguir:

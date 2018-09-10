@@ -1,6 +1,6 @@
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
-1.  Usando suas credenciais de conta da Microsoft, faça logon no portal do Azure na seguinte URL: <https://portal.azure.com/>. Se for implantar o dispositivo no Portal do governo, faça logon em: <https://portal.azure.us/>
+1.  Usando suas credenciais de conta da Microsoft, entre no Portal do Azure na seguinte URL: <https://portal.azure.com/>. Se for implantar o dispositivo no Portal do governo, faça entre em: <https://portal.azure.us/>
 
 2.  No Portal do Azure **+ Criar um recurso** &gt; **Armazenamento** &gt; **Série Virtual StorSimple**.
 

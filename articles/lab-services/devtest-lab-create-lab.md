@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: a1e52a8ff7a2018c54c7b88b80bab3c2897b1fb4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38481760"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Criar Laboratórios de Desenvolvimento/Teste do Azure
 Um laboratório no Azure DevTest Labs é a infraestrutura que abrange um grupo de recursos, como Máquinas Virtuais (VMs), que permite gerenciar melhor esses recursos especificando limites e cotas. Este artigo explica o processo de criação de um laboratório usando o portal do Azure.
@@ -50,7 +51,7 @@ As etapas a seguir ilustram como usar o portal do Azure para criar um laboratór
     1. Insira as informações de **NOME** e **VALOR** de **Marcas** se você quiser criar uma marcação personalizada que é adicionada a cada recurso que você criará no laboratório. As marcas são úteis para ajudá-lo a gerenciar e organizar recursos de laboratório por categoria. Para saber mais sobre marcas, incluindo como adicionar marcas depois de criar o ambiente de laboratório, veja [Adicionar marcas a um laboratório](devtest-lab-add-tag.md).
     5. Selecione **Fixar no painel** se você deseja exibir um atalho do laboratório no painel do portal.
     6. Selecione **Opções de automação** para obter modelos do Azure Resource Manager para automação da configuração. 
-    7. Clique em **Criar**. Você pode monitorar o status do processo de criação do laboratório vendo a área **Notificações**. Depois de concluído, atualize a página para ver o laboratório recém-criado na lista de laboratórios.  
+    7. Selecione **Criar**. Você pode monitorar o status do processo de criação do laboratório vendo a área **Notificações**. Depois de concluído, atualize a página para ver o laboratório recém-criado na lista de laboratórios.  
     
     ![Criar uma seção de laboratório do DevTest Labs](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 

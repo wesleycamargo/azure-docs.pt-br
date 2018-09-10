@@ -3,22 +3,23 @@ title: Inteligência contra Ameaças da Central de Segurança do Azure | Microso
 description: Saiba como usar o recurso de inteligência contra ameaças na Central de Segurança do Azure para identificar possíveis ameaças nas VMs e nos computadores.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
-ms.openlocfilehash: 9654c25bf6b51d48dc195d6a536b61312fdcbeff
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 07/10/2018
+ms.author: terrylan
+ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434183"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Inteligência contra Ameaças da Central de Segurança do Azure
 Este artigo ensina a usar a inteligência contra ameaças da Central de Segurança do Azure para tratar de problemas de segurança.
@@ -42,25 +43,29 @@ Uma das etapas de um processo de [resposta a incidentes de segurança](https://d
 - Identificar os sistemas que foram comprometidos.
 - Identificar os arquivos que foram acessados e determinar a confidencialidade desses arquivos.
 
-Você pode usar informações de inteligência contra ameaças na Central de Segurança para ajudar nessas tarefas. 
+Você pode usar informações de inteligência contra ameaças na Central de Segurança para ajudar nessas tarefas.
 
 ## <a name="access-the-threat-intelligence"></a>Acessar a inteligência contra ameaças
 Para visualizar a inteligência contra ameaças atual do seu ambiente, você deve primeiro selecionar o espaço de trabalho onde estão suas informações. Se você não tiver vários espaços de trabalho, ignore o seletor de espaço de trabalho e vá diretamente para o painel **Inteligência contra ameaças**. Para acessar o painel:
 
 1. Abra o painel **Central de Segurança**.
 
-2. No painel esquerdo, em **Detecção** selecione **Inteligência contra ameaças**. O painel **Inteligência contra ameaças** é exibido.
+1. No painel esquerdo, em **Proteção de Ameaças**, selecione **Inteligência contra ameaças**. Um mapa é aberto.
+
+    ![Mapa de inteligência contra ameaças](./media/security-center-threat-intel/security-center-threat-intel.png)
+
+1. Na parte superior do mapa, selecione **Exibir a inteligência contra ameaças clássica**. O painel **Inteligência contra ameaças** é aberto.
 
     ![Painel Inteligência contra ameaças](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
-    > Se a coluna à direita mostra **ATUALIZAR PLANO**, esse espaço de trabalho está usando a assinatura gratuita. Atualize para Standard a fim de usar esse recurso. Se a coluna à direita mostra **REQUER ATUALIZAÇÃO**, atualize o [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esse recurso. Para saber mais sobre o plano de preço, leia Preços da Central de Segurança do Azure. 
-    > 
-3. Se você tem mais de um espaço de trabalho para investigar, priorize a investigação de acordo com a coluna **IP Mal-intencionado**. Ela mostra o número atual de IPs mal-intencionadas no espaço de trabalho. Selecione o espaço de trabalho que você deseja usar e o painel **Inteligência contra ameaças** será exibido.
+    > Se a coluna à direita mostra **ATUALIZAR PLANO**, esse espaço de trabalho está usando a assinatura gratuita. Atualize para Standard a fim de usar esse recurso. Se a coluna à direita mostra **REQUER ATUALIZAÇÃO**, atualize o [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esse recurso. Para saber mais sobre o plano de preço, leia Preços da Central de Segurança do Azure.
+    >
+1. Se você tem mais de um espaço de trabalho para investigar, priorize a investigação de acordo com a coluna **IP Mal-intencionado**. Ela mostra o número atual de IPs mal-intencionadas no espaço de trabalho. Selecione o espaço de trabalho que você deseja usar e o painel **Inteligência contra ameaças** será exibido.
 
     ![Informações de inteligência contra ameaças](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-4. O painel é dividido em quatro blocos:
+1. O painel é dividido em quatro blocos:
 
     a.  **Tipos de ameaça**. Resume os tipos de ameaça que foram detectados no espaço de trabalho selecionado.
 
@@ -96,7 +101,6 @@ Neste artigo, você aprendeu a usar a inteligência contra ameaças na Central d
 * [Gerencie e responda a alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerenciar alertas e responder a incidentes de segurança na Central de Segurança.
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md). Saiba como monitorar a integridade dos recursos do Azure.
 * [Noções básicas de alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
-* [Guia de solução de problemas da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como solucionar problemas comuns na Central de Segurança. 
+* [Guia de solução de problemas da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como solucionar problemas comuns na Central de Segurança.
 * [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md). Encontre respostas para perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/). Encontre postagens no blog sobre a conformidade e segurança do Azure.
-

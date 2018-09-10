@@ -1,11 +1,11 @@
 ---
-title: "Tarefas comuns de gerenciamento de serviço de nuvem | Microsoft Docs"
-description: "Saiba como gerenciar Serviços de Nuvem no portal do Azure. Esses exemplos usam o portal do Azure."
+title: Tarefas comuns de gerenciamento de serviço de nuvem | Microsoft Docs
+description: Saiba como gerenciar Serviços de Nuvem no portal do Azure. Esses exemplos usam o portal do Azure.
 services: cloud-services
-documentationcenter: 
-author: Thraka
+documentationcenter: ''
+author: jpconnock
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: adegeo
-ms.openlocfilehash: e60bf5c82e68d49abaa44d80ac9fafba2d8265da
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: jeconnoc
+ms.openlocfilehash: e9f4153c68f0a2a4ce83f900ff63152311163ff6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037896"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gerenciar Serviços de Nuvem no portal do Azure
 Na área de **Serviços de Nuvem** do portal do Azure, você pode:
@@ -82,7 +83,7 @@ Existem dois pré-requisitos essenciais para uma troca de implantação bem-suce
 
 - Se quiser usar um endereço IP estático para o slot de produção, você também deverá reservar um para o slot de preparo. Caso contrário, a troca falhará.
 
-- Todas as instâncias de suas funções devem estar em execução para que você possa executar a troca. Você pode verificar o status de suas instâncias na folha **Visão geral** do Portal do Azure. Como alternativa, use o comando [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) no Windows PowerShell.
+- Todas as instâncias de suas funções devem estar em execução para que você possa executar a troca. Você pode verificar o status de suas instâncias na folha **Visão geral** do Portal do Azure. Como alternativa, use o comando [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) no Windows PowerShell.
 
 Observe que as atualizações do SO convidado e as operações de recuperação de serviço também podem fazer com que as trocas de implantação falhem. Para saber mais, confira [Solucionar problemas de implantação do serviço de nuvem](cloud-services-troubleshoot-deployment-problems.md).
 

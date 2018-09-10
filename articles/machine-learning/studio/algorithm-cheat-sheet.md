@@ -1,5 +1,5 @@
 ---
-title: Página de consulta de algoritmo do Machine Learning | Microsoft Docs
+title: Página de Consulta de algoritmo de aprendizado de máquina - Azure | Microsoft Docs
 description: Uma página de dicas úteis de algoritmo de Machine Learning que pode ser impressa o ajuda a escolher o algoritmo certo para o seu modelo de previsão no Azure Machine Learning Studio.
 keywords: folha de consulta de algoritmo, folha de consulta, algoritmo de aprendizado de máquina
 services: machine-learning
@@ -10,16 +10,18 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 2fd42ba47b9cfc81c17078dc9d36c7650fbc6317
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b080a739aa73e3c8ef95c7db9a6358d942e94bba
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238379"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Página de dicas úteis do algoritmo para Machine Learning para o Microsoft Azure Machine Learning Studio
 A **Folha de Consulta do Algoritmo de Microsoft Azure Machine Learning** ajuda a escolher o algoritmo certo para o seu modelo de análise preditiva.

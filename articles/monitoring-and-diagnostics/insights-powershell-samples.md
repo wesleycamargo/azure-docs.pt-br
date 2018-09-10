@@ -1,24 +1,19 @@
 ---
-title: Exemplos de início rápido do PowerShell do Azure Monitor. | Microsoft Docs
+title: Exemplos de início rápido do PowerShell do Azure Monitor
 description: Use o PowerShell para acessar os recursos do Azure Monitor, como o dimensionamento automático, alertas, webhooks e pesquisa de logs de atividade.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: c0761814-7148-4ab5-8c27-a2c9fa4cfef5
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: a67edd4372cff70a3948e85033e806749d585eb5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: ''
+ms.openlocfilehash: c6189291a9e944acde751a66cdb58f2052c73999
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144730"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do PowerShell do Azure Monitor
 Este artigo mostra exemplos de comandos do PowerShell que ajudarão você a acessar os recursos do Azure Monitor.
@@ -32,7 +27,7 @@ Este artigo mostra exemplos de comandos do PowerShell que ajudarão você a aces
 Se ainda não tiver feito isso, configure o PowerShell para ser executado no seu computador. Para saber mais, consulte [Como instalar e configurar o PowerShell](/powershell/azure/overview).
 
 ## <a name="examples-in-this-article"></a>Exemplos neste artigo
-Os exemplos neste artigo ilustram como você pode usar os cmdlets do Azure Monitor. Você também pode ver a lista completa de cmdlets do PowerShell do Azure Monitor em [Cmdlets do Azure Monitor (Insights)](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
+Os exemplos neste artigo ilustram como você pode usar os cmdlets do Azure Monitor. Você também pode ver a lista completa de cmdlets do PowerShell do Azure Monitor em [Cmdlets do Azure Monitor (Insights)](https://docs.microsoft.com/powershell/module/azurerm.insights).
 
 ## <a name="sign-in-and-use-subscriptions"></a>Conectar-se e usar assinaturas
 Primeiro, entre em sua assinatura do Azure.

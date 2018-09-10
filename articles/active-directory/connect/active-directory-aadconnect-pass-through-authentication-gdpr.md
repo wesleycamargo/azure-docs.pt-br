@@ -4,7 +4,7 @@ description: Este artigo trata da Autenticação de Passagem do Microsoft Azure 
 services: active-directory
 keywords: A Autenticação de Passagem do Azure AD Connect, GDPR, requer componentes necessários para o Microsoft Azure AD, SSO, Logon Único
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 07/23/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b785b23b41981efeb7fe160a18dc0c3c38f3772f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150616"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215383"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidade do usuário e autenticação de passagem do Azure Active Directory
 
@@ -29,13 +30,13 @@ ms.locfileid: "32150616"
 
 ## <a name="overview"></a>Visão geral
 
-A Autenticação de Passagem do Microsoft Azure AD cria os tipos de log a seguir, os quais podem conter o EUII:
+A Autenticação de Passagem do Azure AD cria o seguinte tipo de log, que pode conter dados pessoais:
 
 - Arquivos de log de rastreamento do Azure AD Connect.
 - Arquivos de log de rastreamento do Agente de Autenticação.
 - Arquivos de log de Eventos do Windows.
 
-Privacidade do usuário para a Autenticação de Passagem pode ser alcançada de duas maneiras:
+É possível aumentar a privacidade do usuário na Autenticação de Passagem de duas maneiras:
 
 1.  Mediante solicitação, extraia dados de uma pessoa e remova os dados dessa pessoa das instalações.
 2.  Certifique-se de que nenhum dado é retido além de 48 horas.
@@ -67,14 +68,14 @@ Para saber mais sobre os requisitos do GDPR do Azure AD Connect relacionados, co
 
 Este produto também pode criar **Logs de Eventos do Windows**. Para saber mais, leia [este artigo](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx).
 
-Para exibir logs relacionados ao Agente de Autenticação de Passagem, abra o aplicativo **	Visualizador de Eventos** no servidor e verifique em **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
+Para exibir logs relacionados ao Agente de Autenticação de Passagem, abra o aplicativo **Visualizador de Eventos** no servidor e verifique em **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Excluir arquivos de log de rastreamento do Agente de Autenticação
 
 É necessário verificar regularmente o conteúdo de **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** e excluir o conteúdo dessa pasta a cada 48 horas. 
 
 >[!IMPORTANT]
->Se o Serviço de Autenticação do Agente estiver em execução, não será possível excluir o arquivo de log atual na pasta. Pare o serviço antes de tentar novamente. Para evitar falhas de entrada do usuário, é necessário ter configurado a Autenticação de Passagem para [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+>Se o Serviço de Autenticação do Agente estiver em execução, não será possível excluir o arquivo de log atual na pasta. Pare o serviço antes de tentar novamente. Para evitar falhas de entrada do usuário, é necessário ter configurado a Autenticação de Passagem para [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 Você pode revisar e excluir esses arquivos, utilizando o Windows Explorer ou usar o script a seguir para executar as ações necessárias:
 

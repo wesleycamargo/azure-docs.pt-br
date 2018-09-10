@@ -10,27 +10,25 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: eec2b5f84d11c946c5cae1d7d90d0b96dacc9d8c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b492635da55ae08f92b18dcf9c030cb23d4fa48c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665059"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 Neste tutorial, você deve criar um pipeline de Data Factory que apresente alguns dos recursos de fluxo de controle. Esse pipeline faz uma cópia simples de um contêiner no Armazenamento de Blobs do Azure para outro contêiner na mesma conta de armazenamento. Se a atividade de cópia for bem-sucedida, você desejará enviar detalhes da operação de cópia bem-sucedida (tais como a quantidade de dados gravados) em um email de êxito. Se a atividade de cópia falhar, você desejará enviar detalhes da falha de cópia (por exemplo, a mensagem de erro) em um email de falha. Ao longo do tutorial, você verá como passar parâmetros.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira a [documentação do Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Uma visão geral de alto nível do cenário: ![Visão geral](media/tutorial-control-flow/overview.png)
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Criar um serviço vinculado do Armazenamento do Azure.
 > * Criar um conjunto de dados do Blob do Azure
 > * Criar um pipeline que contém uma atividade de cópia e uma atividade da Web
@@ -43,9 +41,9 @@ Este tutorial usa o .NET SDK. Você pode usar outros mecanismos para interagir c
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **origem**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar uma.
+* **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **origem**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para conhecer as etapas para criar uma.
 * **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de **coletor**. Se você não tiver um Banco de Dados SQL do Azure, veja o artigo [Criar um Banco de Dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para conhecer as etapas para criar um.
 * **Visual Studio** 2013, 2015 ou 2017. Este artigo passo a passo usa o Visual Studio 2017.
 * **Baixar e instalar o [SDK do .NET do Azure](http://azure.microsoft.com/downloads/)**.
@@ -95,8 +93,9 @@ Usando o Visual Studio 2015/2017, crie um aplicativo de console C# .NET.
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```
 
-2. Add these static variables to the **Program class**. Replace place-holders with your own values. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+2. Adicione essas variáveis estáticas à **classe Program**. Substitua os espaços reservados por seus próprios valores. Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [ Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 
     ```csharp
         // Set variables
@@ -358,7 +357,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 //Fail Request Url
 https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
-## <a name="create-a-pipeline"></a>Criar uma pipeline
+## <a name="create-a-pipeline"></a>Criar um pipeline
 Adicione o código a seguir, que cria um pipeline com uma atividade de cópia e a propriedade dependsOn. Neste tutorial, o pipeline contém uma atividade: a atividade de cópia, que usa o conjunto de dados de Blob como uma origem e outro conjunto de dados de Blob como um coletor. Após a atividade de cópia ter êxito/falhar, ele chama tarefas de email diferentes.
 
 Nesse pipeline, você deve usar os seguintes recursos:
@@ -488,7 +487,7 @@ Na propriedade "Url", cole os pontos de extremidade da URL de solicitação de s
 - Mensagem – passagem do valor de `@{activity('CopyBlobtoBlob').output.dataWritten`. Acessa uma propriedade da atividade de cópia anterior e passa o valor de dataWritten. Em caso de falha, passe a saída de erro em vez de `@{activity('CopyBlobtoBlob').error.message`.
 - Nome do Data Factory – passagem do valor de `@{pipeline().DataFactory}` Essa é uma variável de sistema, permitindo que você acesse o nome do data factory correspondente. Para obter uma lista das variáveis de sistema, consulte o artigo [Variáveis de Sistema](control-flow-system-variables.md).
 - Nome do Pipeline – passagem do valor de `@{pipeline().Pipeline}`. Essa também é uma variável de sistema, permitindo que você acesse o nome do pipeline correspondente. 
-- Destinatário – passagem do valor de "@pipeline(). parameters.receiver"). Acessando os parâmetros de pipeline.
+- Destinatário – passagem do valor de "\@pipeline().parameters.receiver"). Acessando os parâmetros de pipeline.
  
 Esse código cria uma nova Dependência de Atividade, dependendo da atividade de cópia anterior substituída por ela.
 
@@ -504,7 +503,7 @@ Dictionary<string, object> arguments = new Dictionary<string, object>
     { "sinkBlobContainer", outputBlobPath },
     { "receiver", emailReceiver }
 };
-
+ 
 CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, arguments).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
@@ -739,7 +738,7 @@ Press any key to exit...
 Neste tutorial, você realizará os seguintes procedimentos: 
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Criar um serviço vinculado do Armazenamento do Azure.
 > * Criar um conjunto de dados do Blob do Azure
 > * Criar um pipeline que contém uma atividade de cópia e uma atividade da Web

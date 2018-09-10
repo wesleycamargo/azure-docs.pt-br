@@ -7,18 +7,20 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: 4122052e48e57a27492433d01ee93536a9bbcf35
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0f7023b60ef3678c284fe05bff7be73674595512
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504144"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Habilitar a sincronização de hashes de senha para o Azure Active Directory Domain Services
 Nas tarefas anteriores, você habilitou o Azure Active Directory Domain Services para seu locatário do Azure AD (Azure Active Directory). A próxima tarefa é habilitar a sincronização de hashes de senha necessários para a autenticação Kerberos e NTLM (NT LAN Manager) para o Azure AD Domain Services. Depois que a sincronização de hashes de senha é configurada, os usuários podem entrar no domínio gerenciado com suas credenciais corporativas.
@@ -76,7 +78,7 @@ Aqui estão as instruções que você precisa fornecer aos usuários para que el
 A nova senha poderá ser utilizada no Azure Active Directory Domain Services alguns minutos após a sua alteração. Depois de cerca de 20 minutos, você poderá entrar em computadores que ingressaram no domínio gerenciado usando a senha recém-alterada.
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* [Como atualizar sua própria senha](../active-directory/active-directory-passwords-update-your-own-password.md)
+* [Como atualizar sua própria senha](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Introdução ao Gerenciamento de Senhas no Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Habilitar a sincronização de hashes de senha para o Azure Active Directory Domain Services em um locatário do Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administrar um domínio gerenciado do Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)

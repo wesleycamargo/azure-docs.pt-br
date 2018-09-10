@@ -1,22 +1,19 @@
 ---
 title: Cobertura de tráfego nos Mapas do Azure | Microsoft Docs
 description: Saiba mais sobre a cobertura de tráfego nos Mapas do Azure
-services: azure-maps
-keywords: ''
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 11/28/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: 49e91287d23c35d8cfea858d41c47ba15efd820c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 37f63b719ed6137716789e3093074f50a74e4ae0
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990084"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego dos Mapas do Azure
 

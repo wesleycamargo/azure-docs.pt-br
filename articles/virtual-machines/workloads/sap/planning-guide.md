@@ -4,7 +4,7 @@ description: Planejamento e implementação de Máquinas Virtuais do Azure para 
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2abb219cd43e6bb95c6cbd562dda6115628e73f2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a64c27b9634e2da6b0c46c5233b9ed5c61aea282
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42141810"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -774,7 +775,7 @@ Como uma árvore de decisão grosseira para decidir se um sistema SAP se ajusta 
 
 ![Árvore de decisão para decidir a capacidade de implantar um sistema SAP no Azure][planning-guide-figure-700]
 
-**Etapa 1**: as informações mais importantes para começar são o requisito de SAPS para um determinado sistema do SAP. Os requisitos de SAPS precisam ser divididos entre a parte do DBMS e a parte do aplicativo SAP, mesmo que o sistema SAP já esteja implantado localmente em uma configuração de duas camadas. Para os sistemas existentes, os SAPS relacionados ao hardware em uso geralmente podem ser determinados ou estimados com base nos parâmetros de comparação de SAP existentes. Os resultados podem ser encontrados aqui: <http://global.sap.com/campaigns/benchmark/index.epx>.
+**Etapa 1**: as informações mais importantes para começar são o requisito de SAPS para um determinado sistema do SAP. Os requisitos de SAPS precisam ser divididos entre a parte do DBMS e a parte do aplicativo SAP, mesmo que o sistema SAP já esteja implantado localmente em uma configuração de duas camadas. Para os sistemas existentes, os SAPS relacionados ao hardware em uso geralmente podem ser determinados ou estimados com base nos parâmetros de comparação de SAP existentes. Os resultados podem ser encontrados aqui: <https://sap.com/about/benchmark.html>.
 Para sistemas SAP recém-implantados, você deverá ter feito um exercício de dimensionamento que deve determinar os requisitos de SAPS do sistema.
 Visite também este blog e consulte o documento anexado para obter o dimensionamento do SAP no Azure: <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
@@ -987,7 +988,7 @@ Nesse caso, desejamos carregar um VHD, com ou sem um SO, e montá-lo em uma VM c
 
 * Carregar o VHD com o Powershell ou a CLI do Azure
 * (Opcional) Criar um Managed Disk do VHD com o Powershell, CLI do Azure ou o portal do Azure
-* Implantar a VM com um modelo JSON referenciando o VHD conforme mostrado [neste modelo JSON de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json) ou usando Managed Disks conforme mostrado [neste modelo JSON de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-disk-md/azuredeploy.json).
+* Implantar a VM com um modelo JSON referenciando o VHD conforme mostrado [neste modelo JSON de exemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) ou usando Managed Disks conforme mostrado [neste modelo JSON de exemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### <a name="deployment-of-a-vm-image"></a>Implantação de uma imagem de VM
 Para carregar uma VM ou um VHD existente da rede local para usá-lo como uma imagem de VM do Azure, a VM ou o VHD precisa atender aos requisitos listados no capítulo [Preparação para implantar uma VM com uma imagem específica do cliente para SAP][planning-guide-5.2.2] deste documento.
@@ -1016,7 +1017,7 @@ Para carregar uma VM ou um VHD existente da rede local para usá-lo como uma ima
 * Use *sysprep* no Windows ou *waagent -deprovision* no Linux para generalizar a VM – veja [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) (Referência técnica do Sysprep) para Windows ou [Como capturar uma máquina virtual do Linux para usar como um modelo do Resource Manager][capture-image-linux-step-2-create-vm-image] para Linux
 * Carregar o VHD com o Powershell ou a CLI do Azure
 * (Opcional) Criar uma Imagem do Managed Disk a partir do VHD com o Powershell, CLI do Azure ou o portal do Azure
-* Implantar a VM com um modelo JSON referenciando o VHD da imagem conforme mostrado [neste modelo JSON de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) ou usando Managed Disks conforme mostrado [neste modelo JSON de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
+* Implantar a VM com um modelo JSON referenciando o VHD da imagem conforme mostrado [neste modelo JSON de exemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) ou usando Managed Disks conforme mostrado [neste modelo JSON de exemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>Baixando VHDs ou Managed Disks no local
 A infraestrutura como serviço do Azure não é uma rua de mão única, em que você pode apenas carregar VHDs e sistemas SAP. Você também pode mover sistemas SAP do Azure de volta para o universo local.
@@ -1155,8 +1156,8 @@ Você também pode copiar VHDs entre assinaturas. Para obter mais informações,
 
 O fluxo básico da lógica de cmdlet do PS tem esta aparência:
 
-* Crie um contexto de conta de armazenamento para a conta de armazenamento de **origem** com *New-AzureStorageContext* – consulte <https://msdn.microsoft.com/library/dn806380.aspx>
-* Crie um contexto de conta de armazenamento para a conta de armazenamento de **destino** com *New-AzureStorageContext* – consulte <https://msdn.microsoft.com/library/dn806380.aspx>
+* Crie um contexto de conta de armazenamento para a conta de armazenamento de **origem** com *New-AzureStorageContext* – consulte <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
+* Crie um contexto de conta de armazenamento para a conta de armazenamento de **destino** com *New-AzureStorageContext* – consulte <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
 * Iniciar a cópia com
 
 ```powershell

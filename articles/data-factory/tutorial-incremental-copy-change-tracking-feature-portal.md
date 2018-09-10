@@ -3,21 +3,22 @@ title: Copiar dados de maneira incremental usando o Controle de Alterações e o
 description: 'Neste tutorial, você deve criar um pipeline do Azure Data Factory que copie incrementalmente os dados delta de várias tabelas em um banco de dados do SQL Server local para um banco de dados SQL do Azure. '
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/12/2018
-ms.author: jingwang
-ms.openlocfilehash: 891dad1a481c966e6ea1771f3e7c7850fa429352
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: f06094fb82f10276f7a41d1b22f6dd99836a497f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095503"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações 
 Neste tutorial, você cria um data factory do Azure com um pipeline que carrega dados delta com base em informações de  **controle de alterações** no Banco de Dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -26,18 +27,15 @@ Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
 > * Prepare o armazenamento de dados de origem
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Criar serviços vinculados. 
 > * Crie conjuntos de dados de origem, coletor e de controle de alterações.
 > * Criar, executar e monitorar o pipeline de cópia completo
 > * Adicionar ou atualizar dados nas tabelas de origem
 > * Criar, executar e monitorar o pipeline de cópia incremental
 
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira a [documentação do Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 ## <a name="overview"></a>Visão geral
-Em uma solução de integração de dados, o carregamento incremental de dados depois de uma carga de dados inicial é um cenário amplamente usado. Em alguns casos, os dados alterados dentro de um período em seu armazenamento de dados de origem podem ser facilmente divididos (por exemplo, LastModifyTime, CreationTime). Em alguns casos, não há uma forma explícita de identificar os dados delta da última vez que você processou os dados. A tecnologia de Controle de Alterações com suporte dos repositórios de dados, como o Banco de Dados SQL do Azure e SQL Server, pode ser usada para identificar os dados delta.  Este tutorial descreve como usar o Azure Data Factory versão 2 para trabalhar com a tecnologia de Controle de Alterações do SQL a fim de carregar incrementalmente os dados delta do Banco de Dados SQL do Azure no Armazenamento de Blobs do Azure.  Para obter informações mais concretas sobre a tecnologia de Controle de Alterações do SQL, consulte [Controle de alterações no SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
+Em uma solução de integração de dados, o carregamento incremental de dados depois de uma carga de dados inicial é um cenário amplamente usado. Em alguns casos, os dados alterados dentro de um período em seu armazenamento de dados de origem podem ser facilmente divididos (por exemplo, LastModifyTime, CreationTime). Em alguns casos, não há uma forma explícita de identificar os dados delta da última vez que você processou os dados. A tecnologia de Controle de Alterações com suporte dos repositórios de dados, como o Banco de Dados SQL do Azure e SQL Server, pode ser usada para identificar os dados delta.  Este tutorial descreve como usar o Azure Data Factory com a tecnologia de Controle de Alterações do SQL a fim de carregar incrementalmente os dados delta do Banco de Dados SQL do Azure no Armazenamento de Blobs do Azure.  Para obter informações mais concretas sobre a tecnologia de Controle de Alterações do SQL, consulte [Controle de alterações no SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
 
 ## <a name="end-to-end-workflow"></a>Fluxos de trabalho completos
 Estas são as etapas normais de fluxo de trabalho de ponta a ponta para carregar incrementalmente os dados usando a tecnologia de Controle de Alterações.
@@ -70,9 +68,9 @@ Neste tutorial, você cria dois pipelines que executam as duas operações a seg
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de **origem**. Se você não tiver um Banco de Dados SQL do Azure, veja o artigo [Criar um Banco de Dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para conhecer as etapas para criar um.
-* **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar uma. Crie um contêiner denominado **adftutorial**. 
+* **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para conhecer as etapas para criar uma. Crie um contêiner denominado **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Criar uma tabela de fonte de dados no Banco de Dados SQL do Azure
 1. Inicie o **SQL Server Management Studio** e conecte-se ao SQL Server do Azure. 
@@ -151,7 +149,7 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
@@ -178,7 +176,7 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
     ![implantando bloco data factory](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
    
-   ![Página inicial da data factory](./media/tutorial-incremental-copy-change-tracking-feature-portal/data-factory-home-page.png)
+   ![Página inicial do data factory](./media/tutorial-incremental-copy-change-tracking-feature-portal/data-factory-home-page.png)
 10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada.
 11. Na página de **introdução**, alterne para a guia **Editar** no painel esquerdo, conforme mostrado na imagem a seguir: 
 
@@ -413,7 +411,7 @@ Nesta etapa, você cria um pipeline com as seguintes atividades e execute-o peri
     2. Selecione **Parâmetro de importação**. 
     3. Na seção **Parâmetros de procedimento armazenado**, especifique os seguintes valores para os parâmetros: 
 
-        | NOME | type | Valor | 
+        | NOME | Tipo | Valor | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | Cadeia de caracteres | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 

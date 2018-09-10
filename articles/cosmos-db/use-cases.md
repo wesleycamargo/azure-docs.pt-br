@@ -4,19 +4,17 @@ description: 'Saiba mais sobre os cinco principais casos de uso do Azure Cosmos 
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/7/2017
 ms.author: sngun
-ms.openlocfilehash: 67ff272f669e65f0466865349691bd69156401a9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 2af77cacced7a6905c4ed7393569949b2eac1906
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859659"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de uso comuns do Azure Cosmos DB
 Este artigo fornece uma visão geral dos vários casos de uso comuns do Azure Cosmos DB.  As recomendações deste artigo servem como ponto de partida ao desenvolver seu aplicativo com o Cosmos DB.   
@@ -49,11 +47,11 @@ Casos de uso de IoT normalmente compartilham alguns padrões sobre como consomem
 
 ![Arquitetura de referência de IoT do Azure Cosmos DB](./media/use-cases/iot.png)
 
-Picos de dados podem ser processados por Hubs de eventos do Azure que oferecem inclusão de dados de alta taxa de transferência com baixa latência. Dados consumidos que precisem ser processados para obter informações em tempo real poderão ser encaminhados para o Azure Stream Analytics para análise em tempo real. Os dados podem ser carregados no Azure Cosmos DB para consultas ad hoc. Depois que os dados são carregados no Azure Cosmos DB, eles estão prontos para serem consultados. Além disso, os novos dados e as alterações nos dados existentes podem ser lidos no feed de alterações. O feed de alterações é um log persistente, somente de acréscimo, que armazena as alterações nas coleções do Cosmos DB em ordem sequencial. Todos os dados ou somente as alterações nos dados no Azure Cosmos DB podem ser usados como dados de referência como parte da análise em tempo real. Além disso, os dados podem ser refinados ainda mais e processados com a conexão dos dados do Azure Cosmos DB com o HDInsight para trabalhos do Pig, do Hive ou trabalhos de Mapear/Reduzir.  Depois, os dados refinados são carregados novamente no Azure Cosmos DB para relatórios.   
+Picos de dados podem ser processados por Hubs de eventos do Azure que oferecem inclusão de dados de alta taxa de transferência com baixa latência. Dados consumidos que precisem ser processados para obter informações em tempo real poderão ser encaminhados para o Azure Stream Analytics para análise em tempo real. Os dados podem ser carregados no Azure Cosmos DB para consultas ad hoc. Depois que os dados são carregados no Azure Cosmos DB, eles estão prontos para serem consultados. Além disso, os novos dados e as alterações nos dados existentes podem ser lidos no feed de alterações. O feed de alterações é persistente, acrescente apenas logs que armazenam alterações nos contêineres do Cosmos DB em ordem sequencial. Todos os dados ou somente as alterações nos dados no Azure Cosmos DB podem ser usados como dados de referência como parte da análise em tempo real. Além disso, os dados podem ser refinados ainda mais e processados com a conexão dos dados do Azure Cosmos DB com o HDInsight para trabalhos do Pig, do Hive ou trabalhos de Mapear/Reduzir.  Depois, os dados refinados são carregados novamente no Azure Cosmos DB para relatórios.   
 
 Para obter uma solução de IoT de exemplo que usa o Azure Cosmos DB, os Hubs de Eventos e o Storm, veja o [repositório hdinsight-storm-examples no GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-Para saber mais sobre as ofertas do Azure para IoT, veja [Criar a Internet das Coisas](http://www.microsoft.com/server-cloud/internet-of-things.aspx). 
+Para saber mais sobre as ofertas do Azure para IoT, veja [Criar a Internet das Coisas](https://www.microsoft.com/en-us/internet-of-things). 
 
 ## <a name="retail-and-marketing"></a>Varejo e marketing
 O Azure Cosmos DB é amplamente usado nas próprias plataformas de comércio eletrônico da Microsoft, que executam a Windows Store e o XBox Live. Ele também é usado no setor varejista para armazenar dados de catálogo e para fornecimento de eventos em pipelines de processamento de pedidos.

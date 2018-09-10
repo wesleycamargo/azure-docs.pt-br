@@ -1,27 +1,23 @@
 ---
-title: Criar parceiros para mensagens B2B (entre empresas) — Aplicativos Lógicos do Azure
-description: Saiba como adicionar parceiros à sua conta de integração com o Enterprise Integration Pack e os Aplicativos Lógicos
+title: Adicionar parceiros comerciais para integrações B2B – Aplicativo Lógico do Azure | Microsoft Docs
+description: Criar parceiros comerciais para a conta de integração no Aplicativo Lógico do Azure com o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: anneta
-editor: ''
-ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17f15c49e0f8137d5f11c57fa600588cda791c28
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 20ca5e06cd1cd0d0abfe6d31f622cd6b61b4178f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125254"
 ---
-# <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>Adicionar ou atualizar parceiros em contratos B2B no seu fluxo de trabalho
+# <a name="add-trading-partners-for-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Adicionar parceiros comerciais para contas de integração no Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
 Os parceiros são as entidades que participam de mensagens e transações B2B (entre empresas). Antes de criar os parceiros que representam você e a outra organização nessas transações, é necessário que ambas as partes compartilhem informações que identificam e validam as mensagens enviadas. Após a discussão desses detalhes e o início da relação de negócios, é possível criar parceiros em sua conta de integração para representar as duas partes.
 

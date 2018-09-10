@@ -3,17 +3,17 @@ title: Replicação de dados no Armazenamento do Azure | Microsoft Docs
 description: Os dados na sua conta do Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. Opções de replicação incluem LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) RA-GRS (armazenamento com redundância geográfica com acesso de leitura).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 6c2c6979d56eb19ff2ba4fb647c7c51e52e51ac6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.component: common
+ms.openlocfilehash: 18dfdce827a76d924494e66ceb0d03e2bb3a3ffe
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076207"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523753"
 ---
 # <a name="azure-storage-replication"></a>Replicação de Armazenamento do Azure
 
@@ -34,10 +34,10 @@ A tabela a seguir fornece uma visão geral rápida do escopo de durabilidade e d
 
 | Cenário                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Indisponibilidade de nó dentro de um datacenter                                                                 | sim                             | sim                              | sim                                  | sim                                  |
-| Um data center inteiro (zonal ou não zonal) fica indisponível                                           | Não                               | sim                              | sim                                  | sim                                  |
-| Uma interrupção em toda a região                                                                                     | Não                               | Não                                | sim                                  | sim                                  |
-| Acesso de leitura aos dados (em uma região remota e replicada geograficamente) no caso de indisponibilidade em toda a região | Não                               | Não                                | Não                                    | sim                                  |
+| Indisponibilidade de nó dentro de um datacenter                                                                 | SIM                             | sim                              | sim                                  | SIM                                  |
+| Um data center inteiro (zonal ou não zonal) fica indisponível                                           | Não                               | sim                              | sim                                  | SIM                                  |
+| Uma interrupção em toda a região                                                                                     | Não                               | Não                               | sim                                  | SIM                                  |
+| Acesso de leitura aos dados (em uma região remota e replicada geograficamente) no caso de indisponibilidade em toda a região | Não                               | Não                               | Não                                   | SIM                                  |
 | Projetado para fornecer ___ durabilidade de objetos em um determinado ano                                          | no mínimo 99,999999999% (11 9's) | no mínimo 99,9999999999% (12 9's) | no mínimo 99,99999999999999% (16 9's) | no mínimo 99,99999999999999% (16 9's) |
 | Tipos de conta de armazenamento suportados                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
 

@@ -1,18 +1,19 @@
 ---
 title: Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste | Microsoft Docs
-description: O Emulador de Armazenamento do Azure fornece um ambiente de desenvolvimento local gratuito para desenvolvimento e teste de seus aplicativos de Armazenamento do Azure. Saiba como as solicitações são autenticadas, como se conectar ao emulador por meio do seu aplicativo e como usar a ferramenta de linha de comando.
+description: O Emulador de Armazenamento do Azure fornece um ambiente de desenvolvimento local gratuito para desenvolvimento e teste de seus aplicativos de Armazenamento do Azure. Saiba como as solicitações são autorizadas, como conectar o emulador por meio do aplicativo e como usar a ferramenta de linha de comando.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/10/2018
 ms.author: tamram
-ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.component: common
+ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888076"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste
 
@@ -25,9 +26,8 @@ O emulador de armazenamento atualmente é executado apenas no Windows. Para aque
 
 > [!NOTE]
 > Os dados criados em uma versão do emulador de armazenamento não têm a garantia de estarem acessíveis ao usar outra versão. Se você precisar persistir seus dados a longo prazo, recomendamos que você armazene esses dados em uma conta de armazenamento do Azure e não no emulador de armazenamento.
-> <p/>
+> 
 > O emulador de armazenamento depende de versões específicas das bibliotecas OData. Não há suporte para a substituição das DLLs do OData usadas pelo emulador de armazenamento em outras versões, e ela pode causar um comportamento inesperado. No entanto, qualquer versão do OData com suporte no serviço de armazenamento pode ser usada para enviar solicitações para o emulador.
->
 
 ## <a name="how-the-storage-emulator-works"></a>Como o emulador de armazenamento funciona
 O emulador de armazenamento usa uma instância do Microsoft SQL Server local e o sistema de arquivos local para emular os serviços de armazenamento do Azure. Por padrão, o emulador de armazenamento usa um banco de dados no Microsoft SQL Server 2012 Express LocalDB. Você pode optar por configurar o emulador de armazenamento para acessar uma instância local do SQL Server em vez da instância do LocalDB. Para saber mais, confira a seção [Iniciar e inicializar o emulador de armazenamento](#start-and-initialize-the-storage-emulator) mais adiante neste artigo.
@@ -80,14 +80,14 @@ Para saber mais sobre esses comandos, consulte [Referência da ferramenta de lin
 > Use o [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para gerenciar suas instâncias do SQL Server, incluindo a instalação do LocalDB. Na caixa de diálogo **Conectar-se ao Servidor** do SMSS, especifique `(localdb)\MSSQLLocalDb` no campo **Nome do servidor:** para se conectar à instância do LocalDB.
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>Autenticando solicitações no emulador de armazenamento
-Após a instalação e iniciação do emulador de armazenamento, teste seu código nele. Assim como ocorre com o Armazenamento do Azure na nuvem, cada solicitação feita no emulador de armazenamento deve ser autenticada, a menos que seja uma solicitação anônima. Você pode autenticar solicitações no emulador de armazenamento usando a autenticação de chave compartilhada ou uma SAS (Assinatura de Acesso Compartilhado).
+Após a instalação e iniciação do emulador de armazenamento, teste seu código nele. Assim como ocorre com o Armazenamento do Microsoft Azure na nuvem, cada solicitação feita no emulador de armazenamento deve ser autorizada, a menos que seja uma solicitação anônima. Você pode autorizar solicitações no emulador de armazenamento usando a autenticação de chave compartilhada ou uma SAS (Assinatura de Acesso Compartilhado).
 
-### <a name="authenticate-with-shared-key-credentials"></a>Autenticar com credenciais de Chave Compartilhada
+### <a name="authorize-with-shared-key-credentials"></a>Autorizar com credenciais de Chave Compartilhada
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 Para obter mais informações sobre cadeias de conexão, consulte [Configurar cadeias de conexão do Armazenamento do Azure](../storage-configure-connection-string.md).
 
-### <a name="authenticate-with-a-shared-access-signature"></a>Autenticar com assinatura de acesso compartilhado
+### <a name="authorize-with-a-shared-access-signature"></a>Autorizar com assinatura de acesso compartilhado
 Algumas bibliotecas de cliente de armazenamento do Azure, como a biblioteca do Xamarin, só oferecem suporte à autenticação com um token SAS(Assinatura de Acesso Compartilhado). Crie o token SAS usando uma ferramenta como o [Gerenciador de Armazenamento](http://storageexplorer.com/) ou outro aplicativo que ofereça suporte à autenticação de Chave Compartilhada.
 
 Você também pode gerar um token SAS usando o Azure PowerShell. O exemplo a seguir gera um token SAS com permissões totais em um contêiner de blob:
@@ -186,6 +186,7 @@ Como o emulador de armazenamento é um ambiente emulado executado em uma instân
 As diferenças a seguir aplicam-se ao armazenamento de blob no emulador:
 
 * O emulador de armazenamento só dá suporte a tamanhos de blob de até 2 GB.
+* O comprimento máximo de um nome de blob no emulador de armazenamento é de 256 caracteres, enquanto o comprimento máximo de um nome de blob no Armazenamento do Azure é de 1.024 caracteres.
 * A cópia incremental permite que os instantâneos de blobs substituídos sejam copiados, o que retorna uma falha no serviço.
 * O recurso Obter Diferença de Intervalos de Páginas não funciona entre os instantâneos copiados com o uso de um Blob de Cópia Incremental.
 * Uma operação Put Blob poderá ser bem-sucedida em um blob existente no emulador de armazenamento com uma concessão ativa, mesmo que a ID de concessão não tenha sido especificada na solicitação.
@@ -203,12 +204,29 @@ As diferenças a seguir aplicam-se ao armazenamento de tabela no emulador:
 Não existem diferenças específicas para o armazenamento de fila no emulador.
 
 ## <a name="storage-emulator-release-notes"></a>Notas de versão do emulador de armazenamento
+
+### <a name="version-57"></a>Versão 5.7
+Corrigido um erro que causaria uma falha se o log fosse ativado.
+
+### <a name="version-56"></a>Versão 5.6
+* O emulador de armazenamento agora suporta a versão 2018-03-28 dos serviços de armazenamento nos pontos de extremidade de serviço Blob, Fila e Tabela.
+
+### <a name="version-55"></a>Versão 5.5
+* O emulador de armazenamento agora dá suporte à versão 2017-11-09 dos serviços de armazenamento dos pontos de extremidade dos serviços de Blob, Fila e Tabela.
+* Suporte foi adicionado para a propriedade **Criada** do blob, que retorna o tempo de criação do blob.
+
+### <a name="version-54"></a>Versão 5.4
+Para melhorar a estabilidade da instalação, o emulador não tenta mais reservar portas no momento da instalação. Se as reservas de porta forem desejadas, use a opção *-reserveports* do comando **init** para especificá-las.
+
+### <a name="version-53"></a>Versão 5.3
+O emulador de armazenamento agora dá suporte à versão 2017-07-29 dos serviços de armazenamento dos pontos de extremidade dos serviços de Blob, Fila e Tabela.
+
 ### <a name="version-52"></a>Versão 5.2
 * O emulador de armazenamento agora dá suporte à versão 2017-04-17 dos serviços de armazenamento nos pontos de extremidade dos serviços de Blob, Fila e Tabela.
 * Correção de um bug em que os valores de propriedade de tabela não estavam sendo codificados corretamente.
 
 ### <a name="version-51"></a>Versão 5.1
-* Corrigido um bug em que o emulador de armazenamento estava retornando o cabeçalho `DataServiceVersion` em algumas respostas em que o serviço não estava.
+Corrigido um bug em que o emulador de armazenamento estava retornando o cabeçalho `DataServiceVersion` em algumas respostas em que o serviço não estava.
 
 ### <a name="version-50"></a>Versão 5.0
 * O instalador do emulador de armazenamento não verifica mais em busca de instalações existentes do MSSQL e do .NET Framework.

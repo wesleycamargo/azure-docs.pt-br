@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 885258379e71ea945e41c4b43c34b35b16dd4a7a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139778"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Como dimensionar o Cache Redis do Azure
 O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho e o tipo de preço desse cache. Este artigo mostra como dimensionar seu cache no Portal do Azure usando ferramentas como o Azure PowerShell e a CLI do Azure.
@@ -42,7 +43,7 @@ Para dimensionar o cache, [navegue até ele](cache-configure.md#configure-redis-
 
 Selecione o tipo de preço desejado na folha **Selecionar tipo de preço** e clique em **Selecionar**.
 
-![Tipo de preço ][redis-cache-pricing-tier-blade]
+![Tipo de preço][redis-cache-pricing-tier-blade]
 
 
 Você pode dimensionar para um tipo de preço diferente com as restrições a seguir:
@@ -68,7 +69,7 @@ Além de dimensionar as instâncias do cache no Portal do Azure, você pode dime
 * [Dimensionar usando MAML](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>Dimensionar usando o PowerShell
-É possível dimensionar as instâncias do Cache Redis do Azure com o PowerShell usando o cmdlet [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) quando as propriedades `Size`, `Sku` ou `ShardCount` forem modificadas. O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2,5 GB. 
+É possível dimensionar as instâncias do Cache Redis do Azure com o PowerShell usando o cmdlet [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) quando as propriedades `Size`, `Sku` ou `ShardCount` forem modificadas. O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2,5 GB. 
 
     Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -153,7 +154,7 @@ Ao passo que os caches Standard e Premium têm um SLA de 99,9% de disponibilidad
 * Os caches **Basic** ficam offline durante o dimensionamento de operações para um tamanho diferente. Os caches Basic permanecem disponíveis ao dimensionar de **Basic** para **Standard** mas, podem enfrentar um ponto de conexão pequeno. Se ocorrer um ponto de conexão, os clientes redis devem poder restabelecer a sua conexão imediatamente.
 
 
-### <a name="scaling-limitations-with-geo-relication"></a>Limitações no dimensionamento com replicação geográfica
+### <a name="scaling-limitations-with-geo-replication"></a>Limitações no dimensionamento com replicação geográfica
 
 Depois de adicionar um link de replicação geográfica entre dois caches, você não poderá iniciar uma operação de dimensionamento ou alterar o número de fragmentos em um cluster. Desvincule o cache para executar esses comandos. Para obter mais informações, consulte [Configurar Replicação geográfica](cache-how-to-geo-replication.md).
 

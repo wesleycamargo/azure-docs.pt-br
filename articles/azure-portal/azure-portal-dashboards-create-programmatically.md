@@ -3,7 +3,7 @@ title: Criar de maneira programática Painéis do Azure | Microsoft Docs
 description: Este artigo explica como criar programaticamente os Painéis do Azure.
 services: azure-portal
 documentationcenter: ''
-author: adamab
+author: adamabmsft
 manager: dougeby
 editor: tysonn
 ms.service: azure-portal
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 8670d25e10b58c40b9d0807de1db88c3296b193d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 8ac3bb2c95420eb4a608f003f3d937e3a47c272b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448223"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar de maneira programática Painéis do Azure
 
@@ -88,11 +89,11 @@ O Azure oferece a capacidade de coordenar a implantação de vários recursos. V
 Se estiver indo por essa rota, a parametrização deverá ser feita usando a sintaxe do parâmetro do modelo.  Você substitui todas as instâncias da ID de recurso que encontramos anteriormente, conforme mostrado aqui.
 
 ### <a name="example-json-property-with-hard-coded-resource-id"></a>Exemplo de propriedade JSON com a ID de recurso embutida em código
-`id: “/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1”`
+`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
 ### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Exemplo de propriedade JSON convertida para uma versão com parâmetros com base nos parâmetros de modelo
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), ‘Microsoft.Compute/virtualMachines’, parameters('virtualMachineName'))]"`
+`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
 Você também precisa declarar alguns metadados de modelo necessários e os parâmetros na parte superior do modelo json, como segue:
 
@@ -119,7 +120,7 @@ Você também precisa declarar alguns metadados de modelo necessários e os par�
 
 __Você pode ver o modelo de trabalho completo no final deste documento.__
 
-Depois de ter criado seu modelo, é possível implantá-lo usando as [APIs REST](https://docs.microsoft.com/rest/api/resources/deployments), o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), a [CLI do Azure](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create) ou a [página de implantação de modelo do portal](https://portal.azure.com/#create/Microsoft.Template).
+Depois de ter criado seu modelo, é possível implantá-lo usando as [APIs REST](https://docs.microsoft.com/rest/api/resources/deployments), o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), a [CLI do Azure](https://docs.microsoft.com/cli/azure/group/deployment#az-group-deployment-create) ou a [página de implantação de modelo do portal](https://portal.azure.com/#create/Microsoft.Template).
 
 Aqui estão duas versões do nosso painel JSON de exemplo. O primeiro é a versão que exportamos do portal que já estava associada a um recurso. O segundo é a versão do modelo que pode ser vinculada por meio de programação para qualquer VM e implantada usando o Azure Resource Manager.
 

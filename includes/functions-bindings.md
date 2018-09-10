@@ -1,6 +1,6 @@
 A tabela a seguir mostra as associações que são suportadas nas duas versões principais do tempo de execução do Azure Functions.
 
-| type | 1.x | 2. x | Gatilho | Entrada | Saída |  
+| Tipo | 1.x | 2. x | Gatilho | Entrada | Saída |  
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Armazenamento de Blobs](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔<sup>1</sup>|✔|✔|✔|  
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|  

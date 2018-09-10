@@ -1,24 +1,26 @@
 ---
-title: Cenários de dados envolvendo o Repositório Data Lake | Microsoft Docs
-description: Entenda os diferentes cenários e as ferramentas usando quais dados podem ser ingeridos, processados, baixados e visualizados em um Repositório Data Lake
+title: Cenários de dados envolvendo o Data Lake Storage Gen1 | Microsoft Docs
+description: Entenda os diferentes cenários e as ferramentas usando quais dados podem ser ingeridos, processados, baixados e visualizados em um Data Lake Storage Gen1 (anteriormente conhecido como Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 37409a71-a563-4bb7-bc46-2cbd426a2ece
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: e6b89a4cb415c2d127244d55acf3e284425f03e0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 19743dcd2866b8fc7b6ad1fdf387b134f7b3ca50
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783069"
 ---
-# <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Como usar o Repositório Data Lake do Azure para exigências de big data
+# <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Usar o Azure Data Lake Storage Gen1 para exigências de big data
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Há quatro estágios principais no processamento de big data:
 
 * Ingestão de grandes quantidades de dados em um repositório de dados, em tempo real ou em lotes
@@ -38,11 +40,11 @@ Representam conjuntos de dados menores que são usados para criar protótipos de
 
 | Fonte de dados | Ingeri-la usando |
 | --- | --- |
-| Computador local |<ul> <li>[Portal do Azure](/data-lake-store-get-started-portal.md)</li> <li>[PowerShell do Azure](data-lake-store-get-started-powershell.md)</li> <li>[CLI 2.0 de plataforma cruzada do Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usando as ferramentas do Data Lake para o Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Computador local |<ul> <li>[Portal do Azure](data-lake-store-get-started-portal.md)</li> <li>[PowerShell do Azure](data-lake-store-get-started-powershell.md)</li> <li>[CLI 2.0 de plataforma cruzada do Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usando as ferramentas do Data Lake para o Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Blob de Armazenamento do Azure |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[ferramenta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp em execução no cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Dados transmitidos
-Representam os dados que podem ser gerados por várias fontes, como aplicativos, dispositivos, sensores, etc. Esses dados podem ser ingeridos em um Repositório Data Lake por uma variedade de ferramentas. Essas ferramentas geralmente capturam e processam os dados em um evento em tempo real e gravam os eventos em lotes no Repositório Data Lake para que depois eles possam ser processados.
+Representam os dados que podem ser gerados por várias fontes, como aplicativos, dispositivos, sensores, etc. Esses dados podem ser ingeridos em um Data Lake Store por uma variedade de ferramentas. Essas ferramentas geralmente capturam e processam os dados em um evento em tempo real e gravam os eventos em lotes no Repositório Data Lake para que depois eles possam ser processados.
 
 Veja as ferramentas que você pode usar:
 

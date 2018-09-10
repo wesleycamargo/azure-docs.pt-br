@@ -1,28 +1,27 @@
 ---
 title: Introdução ao Azure Data Lake Analytics usando o Portal do Azure
-description: Saiba como usar o portal do Azure para criar uma conta do Data Lake Analytics, criar um trabalho do Data Lake Analytics usando o U-SQL e enviar o trabalho.
+description: Use o portal do Azure para criar uma conta do Azure Data Lake Analytics e enviar um trabalho do U-SQL.
 services: data-lake-analytics
+ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
+ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
-ms.service: data-lake-analytics
-ms.topic: hero-article
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 63fc4272dc4b26e9eb4846118bc57cd6aa5bf361
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0830f4a6cffb8c1b2dacc8452e52477bb3a3ec91
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358278"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43039361"
 ---
-# <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Introdução ao Azure Data Lake Analytics usando o Portal do Azure
+# <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Introdução ao Azure Data Lake Analytics usando o Portal do Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Saiba como usar o portal do Azure para criar contas do Azure Data Lake Analytics, definir trabalhos no [U-SQL](data-lake-analytics-u-sql-get-started.md) e enviar trabalhos ao serviço do Data Lake Analytics. Para saber mais sobre a Análise Data Lake, consulte a [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
+Este artigo descreve como usar o portal do Azure para criar contas do Azure Data Lake Analytics, definir trabalhos no [U-SQL](data-lake-analytics-u-sql-get-started.md) e enviar trabalhos ao serviço do Data Lake Analytics.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial, você deve ter uma **assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 

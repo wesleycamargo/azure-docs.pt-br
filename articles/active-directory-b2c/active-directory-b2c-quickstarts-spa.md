@@ -2,20 +2,20 @@
 title: Início Rápido - Configurar a entrada para um aplicativo de página única usando o Azure Active Directory B2C | Microsoft Docs
 description: Execute um aplicativo de página única de exemplo que usa o Azure Active Directory B2C para fornecer a entrada na conta.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 2/13/2018
+ms.topic: quickstart
+ms.date: 7/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 96baf0297c3d2976f3d6fb112b0bd0ce077a186f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 155cdaf51ac5725a315259a0d809ba644f64110c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048909"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar a entrada para um aplicativo de página única usando o Azure Active Directory B2C
 
@@ -25,11 +25,11 @@ Neste início rápido, você pode usar um aplicativo de página única de exempl
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) com a carga de trabalho **ASP.NET e desenvolvimento para a Web**.
 * Instale o [Node.js](https://nodejs.org/en/download/)
-* Uma conta social do Facebook, Google, Microsoft ou Twitter.
+* Uma conta do Facebook.
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
 
@@ -63,21 +63,17 @@ Navegue até a URL do aplicativo `http://localhost:6420` em um navegador da Web.
 
 Clique no botão **Logon** para iniciar o fluxo de trabalho **Criar conta ou entrar** do Azure AD B2C com base em uma política do Azure AD B2C. 
 
-O exemplo dá suporte a várias opções de inscrição, incluindo o uso de um provedor de identidade social ou a criação de uma conta local usando um endereço de email. Para este guia de início rápido, use uma conta de provedor de identidade social do Facebook, do Google, da Microsoft ou do Twitter. 
+O exemplo destina-se a dar suporte a várias opções de inscrição, incluindo a criação de uma conta local usando um endereço de email. Para este início rápido, use uma conta do Facebook. 
 
 ### <a name="sign-up-using-a-social-identity-provider"></a>Inscrever-se usando um provedor de identidade social
 
 O Azure AD B2C apresenta uma página de logon personalizada para uma marca fictícia chamada Wingtip Toys para o aplicativo Web de exemplo. 
 
-1. Para inscrever-se usando um provedor de identidade social, clique no botão do provedor de identidade que você deseja usar.
-
-    ![Provedor de criar conta ou entrar](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+1. Para inscrever-se usando um provedor de identidade social, clique no botão do provedor de identidade do Facebook.
 
     Você se autentica (entra) usando as credenciais da conta social e autoriza o aplicativo a ler as informações dessa conta. Ao conceder o acesso, o aplicativo poderá recuperar informações de perfil da conta social, tais como seu nome e cidade. 
 
-2. Conclua o processo de entrada para o provedor de identidade. Por exemplo, se você escolher o Twitter, insira suas credenciais do Twitter e clique em **Entrar**.
-
-    ![Autenticar e autorizar usando uma conta social](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
+2. Conclua o processo de logon para o provedor de identidade inserindo suas credenciais.
 
     Os detalhes do perfil da sua nova conta são populados previamente com as informações da sua conta social. 
 
@@ -104,4 +100,4 @@ Neste início rápido você usou um aplicativo do ASP.NET de exemplo habilitado 
 A próxima etapa será criar seu próprio locatário do Azure AD B2C e configurar o exemplo para ser executado usando o seu locatário. 
 
 > [!div class="nextstepaction"]
-> [Criar um locatário do Azure Active Directory B2C no Portal do Azure](active-directory-b2c-get-started.md)
+> [Criar um locatário do Azure Active Directory B2C no Portal do Azure](tutorial-create-tenant.md)

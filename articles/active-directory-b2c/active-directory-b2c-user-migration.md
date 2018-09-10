@@ -1,22 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: abordagens de migração do usuário'
+title: Abordagens de migração do usuário no Azure Active Directory B2C | Microsoft Docs
 description: Discuta conceitos centrais e avançados sobre a migração do usuário usando a API do Graph e, opcionalmente, políticas personalizadas do Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 47f813839a5495591356e5ecd461902fa8745c65
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 7805b238d42201b791e038964985f784fcf8d4ce
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140318"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141418"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: migração do usuário
 Quando você planeja migrar seu provedor de identidade para o Azure Active Directory B2C (Azure AD B2C), também é necessário migrar a conta de usuário. Este artigo explica como migrar as contas de usuário existentes de qualquer provedor de identidade para o Azure AD B2C. Este artigo não se destina a ser prescritivo, mas a descrever alguns cenários. O desenvolvedor é responsável por escolher o mais adequado.
@@ -356,8 +355,6 @@ Você pode monitorar e exibir informações de log quase em tempo real.
 
 6. Verifique a saída da API RESTful.
 
-Para obter mais informações, confira [Logs de streaming e o Console][AppService-Log].
-
 > [!IMPORTANT]
 > Use os logs de diagnóstico somente durante o desenvolvimento e teste. A saída API RESTful pode conter informações confidenciais que não devem ser expostas na produção.
 >
@@ -366,9 +363,8 @@ Para obter mais informações, confira [Logs de streaming e o Console][AppServic
 Depois de concluir o passo a passo [Introdução às políticas personalizadas][B2C-GetStartedCustom], recomendamos que você crie o cenário usando seus próprios arquivos de política personalizados. Fornecemos os [Arquivos de política de exemplo][UserMigrationSample] como referência.
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
-[AD-Powershell]: https://docs.microsoft.com/azure/active-directory/install-adv2
+[AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2
 [AppService-Deploy]: https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs
-[AppService-Log]: https://docs.microsoft.com/azure/active-directory-b2c/app-service-web/web-sites-streaming-logs-and-console
 [B2C-AppRegister]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration
 [B2C-GetStarted]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started
 [B2C-GetStartedCustom]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom

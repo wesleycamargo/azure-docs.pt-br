@@ -3,7 +3,7 @@ title: Configurar um nome de domínio personalizado nos Serviços de Nuvem | Mic
 description: Saiba como expor seus dados ou seu aplicativo do Azure na Internet em um domínio personalizado definindo as configurações de DNS.  Esses exemplos usam o portal do Azure.
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: adegeo
-ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: jeconnoc
+ms.openlocfilehash: 43a3458ba0f08d73931b5ecddf6a2c7b1ae259f4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044808"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurando um nome de domínio personalizado para um serviço de nuvem do Azure
 Quando você cria um Serviço de Nuvem, o Azure o atribui a um subdomínio do **cloudapp.net**. Por exemplo, se o Serviço de Nuvem for nomeado "contoso", os usuários poderão acessar o aplicativo usando uma URL como http://contoso.cloudapp.net. O Azure também fornece um endereço IP virtual.
@@ -123,7 +124,7 @@ Por exemplo, o seguinte registro A encaminha todo o tráfego de **contoso.com** 
 
 | Nome do host/Subdomínio | Endereço IP |
 | --- | --- |
-| @ |137.135.70.239 |
+| \@ |137.135.70.239 |
 
 Este exemplo demonstra como criar um registro A para o domínio raiz. Se você quisesse criar uma entrada curinga para cobrir todos os subdomínios, digitaria '*****' como o subdomínio.
 

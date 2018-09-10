@@ -1,6 +1,6 @@
 ---
 title: Conceitos de alta disponibilidade no Banco de Dados do Azure para PostgreSQL
-description: "Este artigo fornece informações de alta disponibilidade ao usar o Banco de Dados do Azure para PostgreSQL."
+description: Este artigo fornece informações de alta disponibilidade ao usar o Banco de Dados do Azure para PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687075"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Conceitos de alta disponibilidade no Banco de Dados do Azure para PostgreSQL
 O serviço do Banco de Dados do Azure para PostgreSQL fornece garantia de alto nível de disponibilidade. O SLA (Contrato de Nível de Serviço) com suporte financeiro é 99,99% em disponibilidade geral. Não há praticamente nenhum tempo de inatividade de aplicativo ao usar este serviço.

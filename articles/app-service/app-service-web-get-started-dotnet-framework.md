@@ -1,6 +1,6 @@
 ---
-title: Criar um aplicativo Web do ASP.NET Framework no Azure | Microsoft Docs
-description: Saiba como executar aplicativos Web no Serviço de Aplicativo do Azure com a implantação do aplicativo Web do ASP.NET padrão.
+title: Criar um aplicativo Web ASP.NET Framework do C# no Azure | Microsoft Docs
+description: Saiba como executar aplicativos Web no Serviço de Aplicativo do Azure com a implantação do aplicativo Web do ASP.NET no C# padrão.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,34 +12,29 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/30/2017
+ms.date: 08/29/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 125377b91514b1615cfbb488f7ddfe59fbc016f5
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: f6f443dfe637e68b0e1e13f7c3b9e718ae48a85d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191324"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar um aplicativo Web do ASP.NET Framework no Azure
 
 Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches.  Este guia de início rápido mostra como implantar seu primeiro aplicativo web ASP.NET em aplicativos Web do Azure. Quando terminar, você terá um grupo de recursos que consiste em um plano do Serviço de Aplicativo e um aplicativo Web do Azure com um aplicativo Web implantado.
 
-Assista ao vídeo para ver este início rápido em ação e, depois, execute as etapas para publicar seu primeiro aplicativo .NET no Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
+![](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
-* Instale o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> com as cargas de trabalho a seguir:
-    - **Desenvolvimento Web e do ASP.NET**
-    - **Desenvolvimento do Azure**
-
-    ![ASP.NET, desenvolvimento Web e desenvolvimento do Azure (na Web e na nuvem)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+Instalar o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> com a carga de trabalho **ASP.NET e desenvolvimento Web**.
 
 Se você já instalou o Visual Studio, adicione as cargas de trabalho no Visual Studio clicando em **Ferramentas** > **Obter Ferramentas e Recursos**.
 
@@ -144,6 +139,7 @@ Encontre o rótulo HTML `<div class="jumbotron">` próximo à parte superior e s
 Para implantar novamente no Azure, clique com o botão direito do mouse no projeto **myFirstAzureWebApp**, no **Gerenciador de Soluções** e selecione **Publicar**.
 
 Na página de publicação, selecione **Publicar**.
+![Página de resumo da publicação do Visual Studio](./media/app-service-web-get-started-dotnet-framework/publish-summary-page.png)
 
 Quando a publicação está concluída, o Visual Studio inicia um navegador para a URL do aplicativo Web.
 
@@ -162,6 +158,12 @@ A página Visão Geral do seu aplicativo Web é exibida. Aqui você pode executa
 ![Folha Serviço de Aplicativo no portal do Azure](./media/app-service-web-get-started-dotnet-framework/web-app-blade.png)
 
 O menu à esquerda fornece páginas diferentes para configurar seu aplicativo. 
+
+## <a name="video"></a>Vídeo
+
+Assista ao vídeo para ver este início rápido em ação e, depois, execute as etapas para publicar seu primeiro aplicativo .NET no Azure.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

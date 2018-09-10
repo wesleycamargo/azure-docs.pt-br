@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3de8711c2e99459ccf5d85dcb12d6ff2d38b700d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 05da900e9ddf4cbb99df5c6d62ddb569059e2c4b
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42140175"
 ---
 # <a name="managing-azure-automation-data"></a>Gerenciando dados da Automação do Azure
 Este artigo contém vários tópicos sobre o gerenciamento de um ambiente da Automação do Azure.
@@ -33,7 +34,7 @@ A tabela a seguir resume a política de retenção para diferentes recursos.
 | Runbooks |Removidos permanentemente 90 dias depois que o recurso é excluído por um usuário ou 90 dias depois que a conta que contém o recurso é excluída por um usuário. |
 | Trabalhos |Excluído e removidos permanentemente 90 dias após a última modificação. Isso pode ocorrer depois que o trabalho é concluído, interrompido ou suspenso. |
 | Arquivos de configurações/MOF de nó |A configuração de nó antigo é removida permanentemente 90 dias depois que uma nova configuração de nó é gerada. |
-| Nós DSC |Removido de forma permanente 90 dias após o nó é cancelar o registro da conta de automação usando o portal do Azure ou o [AzureRMAutomationDscNode Unregister](https://msdn.microsoft.com/library/mt603500.aspx) cmdlet do Windows PowerShell. Nós também permanentemente são removidos de 90 dias depois que a conta que contém que o nó é excluída por um usuário. |
+| Nós DSC |Removido de forma permanente 90 dias após o nó é cancelar o registro da conta de automação usando o portal do Azure ou o [AzureRMAutomationDscNode Unregister](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationdscnode) cmdlet do Windows PowerShell. Nós também permanentemente são removidos de 90 dias depois que a conta que contém que o nó é excluída por um usuário. |
 | Relatórios de Nó |Removido de forma permanente 90 dias depois que um novo relatório é gerado para esse nó |
 
 A política de retenção se aplica a todos os usuários e, atualmente não, pode ser personalizada.
@@ -44,7 +45,7 @@ No entanto, se você precisar manter os dados por um período de tempo maior, po
 Quando você exclui uma conta de automação no Microsoft Azure, todos os objetos na conta são excluídos, incluindo runbooks, módulos, configurações, trabalhos e ativos. Os objetos não podem ser recuperados depois que a conta é excluída.  Você pode usar as informações a seguir para fazer backup do conteúdo de sua conta de automação antes de excluí-la. 
 
 ### <a name="runbooks"></a>Runbooks
-Você pode exportar seus runbooks para arquivos de script usando o Portal do Azure ou o cmdlet [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) no Windows PowerShell.  Esses arquivos de script podem ser importados para outra conta de automação, conforme discutido em [Criando ou importando um runbook](https://msdn.microsoft.com/library/dn643637.aspx).
+Você pode exportar seus runbooks para arquivos de script usando o Portal do Azure ou o cmdlet [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) no Windows PowerShell.  Esses arquivos de script podem ser importados para outra conta de automação, conforme discutido em [Criando ou importando um runbook](https://msdn.microsoft.com/library/dn643637.aspx).
 
 ### <a name="integration-modules"></a>Módulos de integração
 Você não pode exportar módulos de integração da Automação do Azure.  Você deve garantir que eles estejam disponíveis fora da conta de automação.
@@ -52,14 +53,14 @@ Você não pode exportar módulos de integração da Automação do Azure.  Voc�
 ### <a name="assets"></a>Ativos
 Não é possível exportar [ativos](https://msdn.microsoft.com/library/dn939988.aspx) da Automação do Azure.  Usando o Portal do Azure, você deve observar os detalhes de variáveis, credenciais, certificados, conexões e agendas.  Você deve criar manualmente qualquer ativo que seja usado por runbooks importados para outra automação.
 
-Você pode usar [cmdlets do Azure](https://msdn.microsoft.com/library/dn690262.aspx) para recuperar os detalhes de ativos não criptografados e salvá-los para referência futura ou criar ativos equivalentes em outra conta de automação.
+Você pode usar [cmdlets do Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) para recuperar os detalhes de ativos não criptografados e salvá-los para referência futura ou criar ativos equivalentes em outra conta de automação.
 
 Não é possível recuperar o valor de variáveis criptografadas nem o campo de senha de credenciais usando cmdlets.  Se você não souber esses valores, poderá recuperá-los em um runbook usando as atividades [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) e [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx).
 
 Você não pode exportar certificados da Automação do Azure.  Você deve garantir que todos os certificados estejam disponíveis fora do Azure.
 
 ### <a name="dsc-configurations"></a>Configurações DSC
-Você pode exportar suas configurações para arquivos de script usando o Portal do Azure ou o cmdlet [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) no Windows PowerShell. Essas configurações podem ser importadas e usadas em outra conta de automação.
+Você pode exportar suas configurações para arquivos de script usando o Portal do Azure ou o cmdlet [Export-AzureRmAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/azurerm.automation/export-azurermautomationdscconfiguration) no Windows PowerShell. Essas configurações podem ser importadas e usadas em outra conta de automação.
 
 ## <a name="geo-replication-in-azure-automation"></a>Replicação geográfica na Automação do Azure
 A replicação geográfica, padrão em contas da Automação do Azure, faz o backup de dados da conta em uma região geográfica diferente para obter redundância. Você pode escolher uma região primária durante a configuração de sua conta e, em seguida, uma região secundária é atribuída automaticamente a ela. Os dados secundários, copiados da região primária, são atualizados continuamente em caso de perda de dados.  

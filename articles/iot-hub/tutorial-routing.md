@@ -1,29 +1,24 @@
 ---
 title: Configurar roteamento de mensagens com o Hub IoT do Azure (.NET) | Microsoft Docs
 description: Configurar o roteamento de mensagens com o Hub IoT do Azure
-services: iot-hub
-documentationcenter: .net
 author: robinsh
 manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: dotnet
+services: iot-hub
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 0674ed033f77d7d2eca319d0b1e82171dfa4256d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a52ab4ff65312088e65d56006b6f99a7470b88f6
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287243"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o roteamento de mensagens com o Hub IoT
 
-O roteamento de mensagem permite enviar dados de telemetria de seus dispositivos IoT para pontos de extremidade internos compatíveis com o Hub de Eventos ou pontos de extremidade personalizados, como o Armazenamento de Blob, Fila do Barramento de Serviço, Tópico de Barramento de Serviço e Hubs de Eventos. Ao configurar o roteamento de mensagem, você pode criar regras de roteamento para personalizar a rota que corresponde a um determinado tipo de regra. Uma vez configurado, os dados de entrada são roteados automaticamente para os pontos de extremidade pelo Hub IoT. 
+O roteamento de mensagens permite enviar dados de telemetria de seus dispositivos IoT para pontos de extremidade internos compatíveis com o Hub de Eventos ou pontos de extremidade personalizados, como o Armazenamento de Blob, Fila do Barramento de Serviço, Tópico de Barramento de Serviço e Hubs de Eventos. Ao configurar o roteamento de mensagens, você pode criar regras de roteamento para personalizar a rota que corresponde a um determinado tipo de regra. Uma vez configurado, os dados de entrada são roteados automaticamente para os pontos de extremidade pelo Hub IoT. 
 
 Neste tutorial, você aprenderá como configurar e usar regras de roteamento com o Hub IoT. Você irá rotear mensagens de um dispositivo IoT para um dos vários serviços, incluindo o Armazenamento de Blob e uma fila do Barramento de Serviço. As mensagens na fila do Barramento de Serviço serão escolhidas por um aplicativo lógico e enviadas por e-mail. As mensagens que não tenham roteamento especificamente configurado são enviadas para o ponto de extremidade padrão e exibidas em uma visualização do Power BI.
 
@@ -38,15 +33,15 @@ Neste tutorial, você executa as seguintes tarefas:
 > * Exiba os resultados...
 > * ... na fila do Barramento de Serviço e emails.
 > * ... na conta de armazenamento.
-> * ... na visualização do Power BI.
+> * ...na visualização do Power BI.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 - Instalar o [Visual Studio para Windows](https://www.visualstudio.com/). 
 
-- Uma conta do Power BI para analisar a análise de fluxo do ponto de extremidade padrão. ([Experimente gratuitamente o Power BI](https://app.powerbi.com/signupredirect?pbi_source=web))
+- Uma conta do Power BI para analisar a análise de fluxo do ponto de extremidade padrão. ([Experimente o Power BI gratuitamente](https://app.powerbi.com/signupredirect?pbi_source=web).)
 
 - Uma conta do Office 365 para enviar e-mails de notificação. 
 
@@ -85,13 +80,13 @@ As seções a seguir descrevem como executar essas etapas necessárias. Siga as 
 
     <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
 
-2. Criar um Hub IoT na camada S1. Adicionar um grupo de consumidores ao Hub IoT. O grupo de consumidores é usado pelo Azure Stream Analytics ao recuperar dados.
+1. Criar um Hub IoT na camada S1. Adicionar um grupo de consumidores ao Hub IoT. O grupo de consumidores é usado pelo Azure Stream Analytics ao recuperar dados.
 
-3. Crie uma conta de armazenamento padrão V1 com replicação Standard_LRS.
+1. Crie uma conta de armazenamento padrão V1 com replicação Standard_LRS.
 
-4. Criar um namespace do Barramento de Serviço e da fila. 
+1. Criar um namespace do Barramento de Serviço e da fila. 
 
-5. Crie uma identidade de dispositivo para o dispositivo simulado que envia mensagens para o hub. Salve a chave para a fase de teste.
+1. Crie uma identidade de dispositivo para o dispositivo simulado que envia mensagens para o hub. Salve a chave para a fase de teste.
 
 ### <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
@@ -104,24 +99,24 @@ A maneira mais fácil de usar esse script é copiá-lo e colá-lo no Cloud Shell
 # You need it to create the device identity. 
 az extension add --name azure-cli-iot-ext
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 location=westus
 resourceGroup=ContosoResources
 iotHubConsumerGroup=ContosoConsumers
 containerName=contosoresults
 iotDeviceName=Contoso-Test-Device 
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-iotHubName=ContosoTestHub 
-storageAccountName=contosoresultsstorage 
-sbNameSpace=ContosoSBNamespace 
-sbQueueName=ContosoSBQueue
-
 # Create the resource group to be used
 #   for all the resources for this tutorial.
 az group create --name $resourceGroup \
     --location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+iotHubName=ContosoTestHub$RANDOM
+echo "IoT hub name = " $iotHubName
 
 # Create the IoT hub.
 az iot hub create --name $iotHubName \
@@ -131,6 +126,10 @@ az iot hub create --name $iotHubName \
 # Add a consumer group to the IoT hub.
 az iot hub consumer-group create --hub-name $iotHubName \
     --name $iotHubConsumerGroup
+
+# The storage account name must be globally unique, so add a random number to the end.
+storageAccountName=contosostorage$RANDOM
+echo "Storage account name = " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 az storage account create --name $storageAccountName \
@@ -154,11 +153,19 @@ az storage container create --name $containerName \
     --account-key $storageAccountKey \
     --public-access off 
 
+# The Service Bus namespace must be globally unique, so add a random number to the end.
+sbNameSpace=ContosoSBNamespace$RANDOM
+echo "Service Bus namespace = " $sbNameSpace
+
 # Create the Service Bus namespace.
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
     
+# The Service Bus queue name must be globally unique, so add a random number to the end.
+sbQueueName=ContosoSBQueue$RANDOM
+echo "Service Bus queue name = " $sbQueueName
+
 # Create the Service Bus queue to be used as a routing destination.
 az servicebus queue create --name $sbQueueName \
     --namespace-name $sbNameSpace \
@@ -177,29 +184,29 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ### <a name="powershell-instructions"></a>Instruções do PowerShell
 
-A maneira mais fácil de usar esse script é abrir o [PowerShell ISE](/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise.md), copiar o script na área de transferência e, em seguida, colar o script inteiro na janela de script. Você pode alterar os valores para os nomes dos recursos (se desejar) e executar o script inteiro. 
+A maneira mais fácil de usar esse script é abrir o [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-6), copiar o script na área de transferência e, em seguida, colar o script inteiro na janela de script. Você pode alterar os valores para os nomes dos recursos (se desejar) e executar o script inteiro. 
 
 ```azurepowershell-interactive
 # Log into Azure account.
 Login-AzureRMAccount
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 $location = "West US"
 $resourceGroup = "ContosoResources"
 $iotHubConsumerGroup = "ContosoConsumers"
 $containerName = "contosoresults"
 $iotDeviceName = "Contoso-Test-Device"
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-$iotHubName = "ContosoTestHub"
-$storageAccountName = "contosoresultsstorage"
-$serviceBusNamespace = "ContosoSBNamespace"
-$serviceBusQueueName  = "ContosoSBQueue"
-
-# Create the resource group to be used  
+# Create the resource group to be used 
 #   for all resources for this tutorial.
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+$iotHubName = "ContosoTestHub$(Get-Random)"
+Write-Host "IoT hub name is " $iotHubName
 
 # Create the IoT hub.
 New-AzureRmIotHub -ResourceGroupName $resourceGroup `
@@ -213,6 +220,10 @@ Add-AzureRmIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
   -Name $iotHubName `
   -EventHubConsumerGroupName $iotHubConsumerGroup `
   -EventHubEndpointName "events"
+
+# The storage account name must be globally unique, so add a random number to the end.
+$storageAccountName = "contosostorage$(Get-Random)"
+Write-Host "storage account name is " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 # Save the context for the storage account 
@@ -228,10 +239,20 @@ $storageContext = $storageAccount.Context
 New-AzureStorageContainer -Name $containerName `
     -Context $storageContext
 
+# The Service Bus namespace must be globally unique,
+#   so add a random number to the end.
+$serviceBusNamespace = "ContosoSBNamespace$(Get-Random)"
+Write-Host "Service Bus namespace is " $serviceBusNamespace
+
 # Create the Service Bus namespace.
 New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
     -Location $location `
     -Name $serviceBusNamespace 
+
+# The Service Bus queue name must be globally unique,
+#  so add a random number to the end.
+$serviceBusQueueName  = "ContosoSBQueue$(Get-Random)"
+Write-Host "Service Bus queue name is " $serviceBusQueueName 
 
 # Create the Service Bus queue to be used as a routing destination.
 New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
@@ -244,19 +265,17 @@ Em seguida, crie uma identidade de dispositivo e salve sua chave para uso poster
 
 1. Abra o [portal do Azure](https://portal.azure.com) e faça logon na sua conta do Azure.
 
-2. Clique em **grupos de recursos** e selecione o grupo de recursos. Este tutorial usa **ContosoResources**.
+1. Clique em **grupos de recursos** e selecione o grupo de recursos. Este tutorial usa **ContosoResources**.
 
-3. Na lista de recursos, clique em seu Hub IoT. Este tutorial usa **ContosoTestHub**. Selecione **dispositivos IoT** do painel de Hub.
+1. Na lista de recursos, clique em seu Hub IoT. Este tutorial usa **ContosoTestHub**. Selecione **dispositivos IoT** do painel de Hub.
 
-4. Clique em **+ Adicionar**. No painel Adicionar dispositivo, preencha a ID do dispositivo. Este tutorial usa **Contoso-Test-Device**. Deixe em branco as chaves e verifique **Gerar chaves automaticamente**. Certifique-se de que **Conectar o dispositivo ao Hub IoT** está habilitado. Clique em **Salvar**.
+1. Clique em **+ Adicionar**. No painel Adicionar dispositivo, preencha a ID do dispositivo. Este tutorial usa **Contoso-Test-Device**. Deixe em branco as chaves e verifique **Gerar chaves automaticamente**. Certifique-se de que **Conectar o dispositivo ao Hub IoT** está habilitado. Clique em **Salvar**.
 
    ![Captura de tela mostrando a tela adicionar dispositivo.](./media/tutorial-routing/add-device.png)
 
-5. Agora que ela é criada, clique no dispositivo para ver as chaves geradas. Clique no ícone Copiar na chave primária e salve-o em algum lugar, como o bloco de notas para a fase de teste deste tutorial.
+1. Agora que ela é criada, clique no dispositivo para ver as chaves geradas. Clique no ícone Copiar na chave primária e salve-o em algum lugar, como o bloco de notas para a fase de teste deste tutorial.
 
    ![Captura de tela mostrando os detalhes do dispositivo, incluindo as chaves.](./media/tutorial-routing/device-details.png)
-
-
 
 ## <a name="set-up-message-routing"></a>Configurar roteamento de mensagens
 
@@ -278,13 +297,13 @@ Agora, configure o roteamento para a conta de armazenamento. Definir um ponto de
    
    **Tipo de ponto de extremidade**: Selecione **Contêiner de Armazenamento do Azure** na lista suspensa.
 
-   Clique em **Escolher um contêiner** para ver a lista de contas de armazenamento. Selecione sua conta de armazenamento. Este tutorial usa **contosoresultsstorage**. Em seguida, selecione o contêiner. Este tutorial usa **contosoresults**. Clique em **Selecionar**, que retorna para o painel Adicionar ponto de extremidade. 
+   Clique em **Escolher um contêiner** para ver a lista de contas de armazenamento. Selecione sua conta de armazenamento. Este tutorial usa **contosostorage**. Em seguida, selecione o contêiner. Este tutorial usa **contosoresults**. Clique em **Selecionar**, que retorna para o painel **Adicionar ponto de extremidade**. 
    
    ![Captura de tela mostrando a adição de um ponto de extremidade.](./media/tutorial-routing/add-endpoint-storage-account.png)
    
    Clique em **OK** para terminar de adicionar o ponto de extremidade.
    
-2. Clique em **Rotas** no seu Hub IoT. Você vai criar uma regra de roteamento que roteia mensagens para o contêiner de armazenamento que você acabou de adicionar como um ponto de extremidade. Clique em **+Adicionar**, na parte superior do painel de Rotas. Preencha os campos na tela. 
+1. Clique em **Rotas** no seu Hub IoT. Você vai criar uma regra de roteamento que roteia mensagens para o contêiner de armazenamento que você acabou de adicionar como um ponto de extremidade. Clique em **+Adicionar**, na parte superior do painel de Rotas. Preencha os campos na tela. 
 
    **Nome**: insira um nome para a regra de roteamento. Este tutorial usa o **StorageRule**.
 
@@ -316,7 +335,7 @@ Agora, configure o roteamento para a fila do Barramento de Serviço. Definir um 
 
    Clique em **OK** para salvar o ponto de extremidade. Depois que ele for concluído, feche o painel de pontos de extremidade. 
     
-2. Clique em **Rotas** no seu Hub IoT. Você vai criar uma regra de roteamento que roteia mensagens para a fila do Barramento de Serviço que você acabou de adicionar como um ponto de extremidade. Clique em **+Adicionar**, na parte superior do painel de Rotas. Preencha os campos na tela. 
+1. Clique em **Rotas** no seu Hub IoT. Você vai criar uma regra de roteamento que roteia mensagens para a fila do Barramento de Serviço que você acabou de adicionar como um ponto de extremidade. Clique em **+Adicionar**, na parte superior do painel de Rotas. Preencha os campos na tela. 
 
    **Nome**: insira um nome para a regra de roteamento. Este tutorial usa o **SBQueueRule**. 
 
@@ -354,17 +373,17 @@ Agora, configure o roteamento para a fila do Barramento de Serviço. Definir um 
 
    Clique em **Criar**.
 
-4. Agora vá para o aplicativo lógico. A maneira mais fácil de obter o aplicativo lógico é clicar em **Grupos de recursos**, selecionar o grupo de recursos (este tutorial usa **ContosoResources**), em seguida, selecionar o aplicativo lógico da lista de recursos. É exibida a página do Designer de Aplicativos Lógicos (talvez seja necessário rolar para a direita para ver a página inteira). Na página do Designer de Aplicativos Lógicos, role para baixo até ver o bloco que diz **Aplicativo lógico em branco +** e clique nele. 
+1. Agora vá para o aplicativo lógico. A maneira mais fácil de obter o aplicativo lógico é clicar em **Grupos de recursos**, selecionar o grupo de recursos (este tutorial usa **ContosoResources**), em seguida, selecionar o aplicativo lógico da lista de recursos. É exibida a página do Designer de Aplicativos Lógicos (talvez seja necessário rolar para a direita para ver a página inteira). Na página do Designer de Aplicativos Lógicos, role para baixo até ver o bloco que diz **Aplicativo lógico em branco +** e clique nele. 
 
-5. Uma lista de conectores é exibida. Selecione **Barramento de Serviço**. 
+1. Uma lista de conectores é exibida. Selecione **Barramento de Serviço**. 
 
    ![Captura de tela mostrando a lista de conectores.](./media/tutorial-routing/logic-app-connectors.png)
 
-6. Uma lista de gatilhos é exibida. Selecione **Barramento de Serviço - quando uma mensagem é recebida em uma fila (preenchimento automático)**. 
+1. Uma lista de gatilhos é exibida. Selecione **Barramento de Serviço - quando uma mensagem é recebida em uma fila (preenchimento automático)**. 
 
    ![Captura de tela mostrando a lista dos gatilhos para o Barramento de Serviço.](./media/tutorial-routing/logic-app-triggers.png)
 
-6. Na próxima tela, preencha o nome de Conexão. Este tutorial usa **ContosoConnection**. 
+1. Na próxima tela, preencha o nome de Conexão. Este tutorial usa **ContosoConnection**. 
 
    ![Captura de tela mostrando a configuração de conexão para a fila do Barramento de Serviço.](./media/tutorial-routing/logic-app-define-connection.png)
 
@@ -372,21 +391,21 @@ Agora, configure o roteamento para a fila do Barramento de Serviço. Definir um 
    
    ![Captura de tela mostrando a configuração concluir a conexão.](./media/tutorial-routing/logic-app-finish-connection.png)
 
-7. Na próxima tela, selecione o nome da fila (este tutorial usa **contososbqueue**) na lista suspensa. Você pode usar os padrões para o restante dos campos. 
+1. Na próxima tela, selecione o nome da fila (este tutorial usa **contososbqueue**) na lista suspensa. Você pode usar os padrões para o restante dos campos. 
 
    ![Captura de tela mostrando as opções de fila.](./media/tutorial-routing/logic-app-queue-options.png)
 
-7. Configure agora a ação para enviar um e-mail quando uma mensagem é recebida na fila. No Designer de Aplicativos Lógicos, clique em **+ Nova etapa** para adicionar uma etapa, em seguida, clique em **Adicionar uma ação**. No painel **Escolher uma ação**, localize e clique em **Outlook do Office 365**. Na tela de gatilhos, selecione **Outlook do Office 365 - enviar um email**.  
+1. Configure agora a ação para enviar um e-mail quando uma mensagem é recebida na fila. No Designer de Aplicativos Lógicos, clique em **+ Nova etapa** para adicionar uma etapa, em seguida, clique em **Adicionar uma ação**. No painel **Escolher uma ação**, localize e clique em **Outlook do Office 365**. Na tela de gatilhos, selecione **Outlook do Office 365 - enviar um email**.  
 
    ![Captura de tela mostrando as opções do Office 365.](./media/tutorial-routing/logic-app-select-outlook.png)
 
-8. Em seguida, faça logon em sua conta do Office 365 para configurar a conexão. Especifique os endereços de e-mail para os destinatários dos e-mails. Também especifique o assunto e digite a mensagem de que você gostaria que o destinatário visse no corpo da mensagem. Para testar, preencha seu próprio endereço de e-mail como o destinatário.
+1. Em seguida, faça logon em sua conta do Office 365 para configurar a conexão. Especifique os endereços de e-mail para os destinatários dos e-mails. Também especifique o assunto e digite a mensagem de que você gostaria que o destinatário visse no corpo da mensagem. Para testar, preencha seu próprio endereço de e-mail como o destinatário.
 
    Clique em **Adicionar conteúdo dinâmico** para mostrar o conteúdo da mensagem que você pode incluir. Selecione **Conteúdo** – ele incluirá a mensagem no e-mail. 
 
    ![Captura de tela mostrando as opções de e-mail para o aplicativo lógico.](./media/tutorial-routing/logic-app-send-email.png)
 
-9. Clique em **Salvar**. Em seguida, feche o Designer de Aplicativo Lógico.
+1. Clique em **Salvar**. Em seguida, feche o Designer de Aplicativo Lógico.
 
 ## <a name="set-up-azure-stream-analytics"></a>Configurar o Azure Stream Analytics
 
@@ -396,7 +415,7 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
 1. No [Portal do Azure](https://portal.azure.com), clique em **Criar um recurso** > **Internet das Coisas** > **Trabalho do Stream Analytics**.
 
-2. Insira as seguintes informações para o trabalho.
+1. Insira as seguintes informações para o trabalho.
 
    **Nome do trabalho**: o nome do trabalho. O nome deve ser globalmente exclusivo. Este tutorial usa **contosoJob**.
 
@@ -406,11 +425,13 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
    ![Captura de tela mostrando como criar o trabalho do stream analytics.](./media/tutorial-routing/stream-analytics-create-job.png)
 
+1. Clique em **Criar** para criar o trabalho. Para voltar ao trabalho, clique em **Grupos de recursos**. Este tutorial usa **ContosoResources**. Selecione o grupo de recursos, depois clique no trabalho do Stream Analytics na lista de recursos. 
+
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adicionar uma entrada ao trabalho do Stream Analytics
 
 1. Em **Topologia do Trabalho**, clique em **Entradas**.
 
-2. No painel de **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. Na tela que aparece, preencha os seguintes campos:
+1. No painel de **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. Na tela que aparece, preencha os seguintes campos:
 
    **Alias de entrada**: este tutorial usa **contosoinputs**.
 
@@ -428,13 +449,13 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
    ![Captura de tela mostrando como configurar as entradas para o trabalho do stream analytics.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-5. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída ao trabalho do Stream Analytics
 
 1. Em **Topologia do Trabalho**, clique em **Saídas**.
 
-2. No painel **Saídas**, clique em **Adicionar**e, em seguida, selecione **PowerBI**. Na tela que aparece, preencha os seguintes campos:
+1. No painel **Saídas**, clique em **Adicionar** e, em seguida, selecione **Power BI**. Na tela que aparece, preencha os seguintes campos:
 
    **Alias de saída**: o alias exclusivo para a saída. Este tutorial usa **contosooutputs**. 
 
@@ -444,25 +465,25 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
    Aceite os padrões para o restante dos campos.
 
-3. Clique em **Autorizar** e entre na sua conta do Power BI.
+1. Clique em **Autorizar** e entre na sua conta do Power BI.
 
    ![Captura de tela mostrando como configurar as saídas para o trabalho do stream analytics.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
-4. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurar a consulta do trabalho do Stream Analytics
 
 1. Em **Topologia do Trabalho**, clique em **Consulta**.
 
-2. Substitua `[YourInputAlias]` pelo alias de entrada do trabalho. Este tutorial usa **contosoinputs**.
+1. Substitua `[YourInputAlias]` pelo alias de entrada do trabalho. Este tutorial usa **contosoinputs**.
 
-3. Substitua `[YourOutputAlias]` pelo alias de saída do trabalho. Este tutorial usa **contosooutputs**.
+1. Substitua `[YourOutputAlias]` pelo alias de saída do trabalho. Este tutorial usa **contosooutputs**.
 
    ![Captura de tela mostrando como configurar a consulta para o trabalho do stream analytics.](./media/tutorial-routing/stream-analytics-job-query.png)
 
-4. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
-5. Feche o painel de consulta.
+1. Feche o painel de consulta. Isso faz você voltar para a exibição dos recursos no Grupo de recursos. Clique no trabalho do Stream Analytics. Este tutorial o chama de **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Executar o trabalho do Stream Analytics
 
@@ -474,7 +495,7 @@ Para configurar o relatório do Power BI, você precisa de dados, portanto você
 
 Anteriormente na seção de configuração do script, você configurou um dispositivo para simular usando um dispositivo de IoT. Nesta seção, você baixa um aplicativo do console do .NET que simula um dispositivo que envia mensagens do dispositivo para a nuvem para um hub IoT. Este aplicativo envia mensagens para cada um dos métodos de roteamentos diferentes. 
 
-Baixe a solução para a [Simulação de dispositivo IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Isso baixa um repositório com vários aplicativos nele; a solução que você está procurando está em Tutoriais/Roteamento/DispositivoSimulado/.
+Baixe a solução para a [Simulação de dispositivo IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Isso baixa um repositório com vários aplicativos nele; a solução que você está procurando está em iot-hub/Tutorials/Routing/SimulatedDevice/.
 
 Clique duas vezes no arquivo de solução (SimulatedDevice.sln) para abrir o código no Visual Studio, em seguida, abra o Program.cs. Substitua `{iot hub hostname}` pelo nome de host do Hub IoT. O formato de nome de host do hub IoT é **{iot-hub-name}.azure-devices.net**. Para este tutorial, o nome de host do hub é **ContosoTestHub.azure-devices.net**. Em seguida, substitua `{device key}` com a chave do dispositivo salvo anteriormente durante a configuração do dispositivo simulado. 
 
@@ -504,7 +525,7 @@ Se tudo estiver configurado corretamente, agora você verá os seguintes resulta
    * O Aplicativo Lógico recuperar a mensagem da fila de Barramento de Serviço está funcionando corretamente.
    * O conector de Aplicativo Lógico para o Outlook está funcionando corretamente. 
 
-2. No [portal do Azure](https://portal.azure.com), clique em **Grupos de recursos**, selecione o Grupo de Recursos. Este tutorial usa **ContosoResources**. Selecione a conta de armazenamento, clique em **Blobs**, em seguida, selecione o contêiner. Este tutorial usa **contosoresults**. Você deve ver uma pasta, e você pode fazer drill down em diretórios até que você veja um ou mais arquivos. Abrir um desses arquivos; elas contêm as entradas roteadas para a conta de armazenamento. 
+1. No [portal do Azure](https://portal.azure.com), clique em **Grupos de recursos**, selecione o Grupo de Recursos. Este tutorial usa **ContosoResources**. Selecione a conta de armazenamento, clique em **Blobs**, em seguida, selecione o contêiner. Este tutorial usa **contosoresults**. Você deve ver uma pasta, e você pode fazer drill down em diretórios até que você veja um ou mais arquivos. Abrir um desses arquivos; elas contêm as entradas roteadas para a conta de armazenamento. 
 
    ![Captura de tela mostrando os arquivos de resultado no armazenamento.](./media/tutorial-routing/results-in-storage.png)
 
@@ -512,23 +533,23 @@ Isso significa o seguinte:
 
    * O roteamento para a conta de armazenamento está funcionando corretamente.
 
-Agora com o aplicativo ainda em execução, configure a visualização do Power BI para ver as mensagens recebidas por meio de roteamento padrão. 
+Agora, com o aplicativo ainda em execução, configure a visualização do Power BI para ver as mensagens recebidas por meio de roteamento padrão. 
 
-## <a name="set-up-the-powerbi-visualizations"></a>Configurar as visualizações do Power BI
+## <a name="set-up-the-power-bi-visualizations"></a>Configurar as visualizações do Power BI
 
 1. Entre na sua conta do [Power BI](https://powerbi.microsoft.com/).
 
-2. Vá para os **Espaços de trabalho** e selecione o espaço de trabalho que você definiu quando criou a saída para o trabalho do Stream Analytics. Este tutorial usa **Meu Espaço de trabalho**. 
+1. Vá para os **Espaços de trabalho** e selecione o espaço de trabalho que você definiu quando criou a saída para o trabalho do Stream Analytics. Este tutorial usa **Meu Espaço de trabalho**. 
 
-3. Clique em **Conjuntos de dados**.
+1. Clique em **Conjuntos de dados**.
 
    Você deve ver o conjunto de dados relacionado que você especificou quando criou a saída para o trabalho do Stream Analytics. Este tutorial usa **contosodataset**. (Ele pode levar de 5 a 10 minutos para aparecer o conjunto de dados pela primeira vez.)
 
-4. Em **AÇÕES**, clique no primeiro ícone para criar um relatório.
+1. Em **AÇÕES**, clique no primeiro ícone para criar um relatório.
 
    ![Captura de tela mostrando o espaço de trabalho do Power BI com ícone de relatório e ações realçado.](./media/tutorial-routing/power-bi-actions.png)
 
-5. Crie um gráfico de linhas para mostrar a temperatura em tempo real ao longo do tempo.
+1. Crie um gráfico de linhas para mostrar a temperatura em tempo real ao longo do tempo.
 
    a. Na página de criação de relatório, adicione um gráfico de linha, clicando no ícone de gráfico de linha.
 
@@ -542,11 +563,11 @@ Agora com o aplicativo ainda em execução, configure a visualização do Power 
 
    Um gráfico de linhas é criado. O eixo x exibe a data e a hora no fuso horário UTC. O eixo y mostra a temperatura do sensor.
 
-7. Crie outro gráfico de linhas para mostrar umidade em tempo real ao longo do tempo. Para configurar o segundo gráfico, siga as mesmas etapas acima e coloque **EventEnqueuedUtcTime** no eixo x e **umidade** no eixo y.
+1. Crie outro gráfico de linhas para mostrar umidade em tempo real ao longo do tempo. Para configurar o segundo gráfico, siga as mesmas etapas acima e coloque **EventEnqueuedUtcTime** no eixo x e **umidade** no eixo y.
 
    ![Captura de tela mostrando o relatório do Power BI final com os dois gráficos.](./media/tutorial-routing/power-bi-report.png)
 
-8. Clique em **Salvar** para salvar o relatório.
+1. Clique em **Salvar** para salvar o relatório.
 
 Você deve ser capaz de visualizar dados em ambos os gráficos. Isso significa o seguinte:
 
@@ -560,20 +581,20 @@ Você pode atualizar os gráficos para ver os dados mais recentes, clique no bot
 
 Se você quiser remover todos os recursos que você criou, exclua o grupo de recursos. Essa ação também exclui todos os recursos contidos no grupo. Nesse caso, ele remove o Hub IoT, a fila e namespace do Barramento de Serviço, o aplicativo lógico, a conta de armazenamento e o próprio grupo de recursos. 
 
-### <a name="clean-up-resources-in-the-powerbi-visualization"></a>Limpar os recursos na visualização do Power BI
+### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
 
 Faça logon na sua conta do [Power BI](https://powerbi.microsoft.com/). Vá até seu espaço de trabalho. Este tutorial usa **Meu Espaço de trabalho**. Para remover a visualização do Power BI, vá para conjuntos de dados e clique no ícone de Lixeira para excluir o conjunto de dados. Este tutorial usa **contosodataset**. Quando você remove o conjunto de dados, o relatório também será removido.
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Limpar recursos usando a CLI do Azure
 
-Para remover o grupo de recursos, use o comando [excluir grupo az](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Para remover o grupo de recursos, use o comando [excluir grupo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
 ```
 ### <a name="clean-up-resources-using-powershell"></a>Limpar recursos usando o PowerShell
 
-Para remover o grupo de recursos, use o comando [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup). $resourceGroup foi definido como **ContosoIoTRG1** novamente no início deste tutorial.
+Para remover o grupo de recursos, use o comando [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup). $resourceGroup foi definido como **ContosoIoTRG1** novamente no início deste tutorial.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -593,11 +614,11 @@ Neste tutorial, você aprendeu a usar o roteamento de mensagens para rotear mens
 > * Exiba os resultados...
 > * ... na fila do Barramento de Serviço e emails.
 > * ... na conta de armazenamento.
-> * ... na visualização do Power BI.
+> * ...na visualização do Power BI.
 
 Avance para o próximo tutorial para aprender a gerenciar o estado de um dispositivo IoT. 
 
 > [!div class="nextstepaction"]
-[Introdução aos dispositivos gêmeos do Hub IoT do Azure](iot-hub-node-node-twin-getstarted.md)
+[Configurar seus dispositivos de um serviço de back-end](tutorial-device-twins.md)
 
  <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

@@ -3,20 +3,21 @@ title: O Armazenamento com redundância geográfica (GRS) para durabilidade entr
 description: O Armazenamento com redundância geográfica (GRS) replica seus dados entre duas regiões que estão a centenas de milhas de distância. O GRS protege contra falhas de hardware no datacenter, além de desastres regionais.
 services: storage
 author: tolandmike
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeking
-ms.openlocfilehash: 1aa3f1e948921a2f356b88e31ef1b9b0f408920a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.component: common
+ms.openlocfilehash: db246fa670eeffdbf82248d627539087ecca5ad2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527306"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GRS (armazenamento com redundância geográfica): replicação inter-regional para Armazenamento do Microsoft Azure
 
-[!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
+[!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
 
 ## <a name="see-also"></a>Consulte também
 

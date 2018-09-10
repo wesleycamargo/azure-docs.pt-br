@@ -1,24 +1,19 @@
 ---
 title: Opções da nuvem para o dispositivo do Hub IoT do Azure| Microsoft Docs
 description: Guia de desenvolvedor ‑ diretrizes sobre quando usar métodos diretos, propriedades desejadas do dispositivo gêmeo ou mensagens para comunicações da nuvem para o dispositivo.
-services: iot-hub
-documentationcenter: ''
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2cc9bd39371741caaa3ae025df494e225dc754b0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187029"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Diretrizes de comunicações da nuvem para o dispositivo
 O Hub IoT fornece três opções para os aplicativos de dispositivos exporem funcionalidades a um aplicativo de back-end:
@@ -37,7 +32,7 @@ Aqui está uma comparação detalhada das várias opções de comunicação da n
 | Fluxo de dados | Bidirecional. O aplicativo do dispositivo pode responder imediatamente ao método. O back-end da solução recebe o resultado de acordo com o contexto da solicitação. | Unidirecional. O aplicativo do dispositivo recebe uma notificação com a alteração da propriedade. | Unidirecional. O aplicativo do dispositivo recebe a mensagem
 | Durabilidade | Dispositivos desconectados não são contatados. O back-end da solução é notificado de que o dispositivo não está conectado. | Os valores de propriedade são preservados no dispositivo gêmeo. O dispositivo lerá na próxima reconexão. Valores de propriedade são recuperáveis com a [linguagem de consulta do Hub IoT][lnk-query]. | As mensagens podem ser mantidas pelo Hub IoT por até 48 horas. |
 | Destinos | Dispositivo único usando **deviceId**, ou vários dispositivos usando [jobs][lnk-jobs]. | Dispositivo único usando **deviceId**, ou vários dispositivos usando [jobs][lnk-jobs]. | Dispositivo único por **deviceId**. |
-| Tamanho | Solicitações de até 8 KB e respostas de 8 KB. | O tamanho máximo desejado das propriedades é de 8 KB. | Mensagens de até 64 KB. |
+| Tamanho | O tamanho de payload do método direto máximo é 128 KB. | O tamanho máximo desejado das propriedades é de 8 KB. | Mensagens de até 64 KB. |
 | Frequência | Alta. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. | Média. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. | Baixa. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. |
 | Protocolo | Disponível usando MQTT ou AMQP. | Disponível usando MQTT ou AMQP. | Disponível em todos os protocolos. O dispositivo deve sondar ao usar HTTPS. |
 
@@ -53,6 +48,6 @@ Saiba como usar métodos diretos, propriedades desejadas e mensagens da nuvem pa
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-methods]: iot-hub-devguide-direct-methods.md
-[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
-[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
+[lnk-twin-properties]: tutorial-device-twins.md
 [lnk-c2d-tutorial]: iot-hub-node-node-c2d.md

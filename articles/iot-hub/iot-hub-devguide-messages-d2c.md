@@ -1,23 +1,19 @@
 ---
 title: Compreender mensagens de dispositivo para a nuvem do Hub IoT do Azure | Microsoft Docs
 description: Guia do desenvolvedor – como usar mensagens de dispositivo para a nuvem com o Hub IoT. Inclui informações sobre o envio de dados de telemetria e não telemetria e o uso do direcionamento para entregar mensagens.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/29/2018
+services: iot-hub
+ms.topic: conceptual
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 54b2961713f529438f5508bb0615824ec6bec214
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: be87b00f27f0d0b25cd77a0634ab1c653a85e5ac
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126435"
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Enviar mensagens de dispositivo para a nuvem para o Hub IoT
 
@@ -65,8 +61,8 @@ A propriedade **ConnectionAuthMethod** contém um objeto JSON serializado com as
 
 ```json
 {
-  "scope": "{ hub | device}",
-  "type": "{ symkey | sas}",
+  "scope": "{ hub | device }",
+  "type": "{ symkey | sas | x509 }",
   "issuer": "iothub"
 }
 ```
@@ -75,13 +71,13 @@ A propriedade **ConnectionAuthMethod** contém um objeto JSON serializado com as
 
 Para saber mais sobre os SDKs que você pode usar para enviar mensagens de dispositivo para a nuvem, confira [SDKs do Azure IoT][lnk-sdks].
 
-Os tutoriais de [Introdução][lnk-get-started] mostram como enviar mensagens de dispositivo para a nuvem de dispositivos simulados e físicos. Para saber mais, confira o tutorial [Como processar as mensagens entre o dispositivo e a nuvem do Hub IoT usando rotas][lnk-d2c-tutorial].
+Os [Guias de Início Rápido][lnk-get-started] mostram como enviar mensagens de dispositivo para nuvem a partir de dispositivos simulados. Para saber mais, confira o tutorial [Como processar as mensagens entre o dispositivo e a nuvem do Hub IoT usando rotas][lnk-d2c-tutorial].
 
 [lnk-devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
 [lnk-devguide-custom]: iot-hub-devguide-messages-read-custom.md
 [lnk-comparison]: iot-hub-compare-event-hubs.md
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
@@ -90,4 +86,4 @@ Os tutoriais de [Introdução][lnk-get-started] mostram como enviar mensagens de
 [lnk-compatible-endpoint]: iot-hub-devguide-messages-read-builtin.md
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md

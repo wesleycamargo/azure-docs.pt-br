@@ -3,17 +3,17 @@ title: Criar um modelo de tabela usando o designer de Web do Azure Analysis Serv
 description: Saiba como criar um modelo de tabela do Azure Analysis Services usando o designer de Web no portal do Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b1d4cffc3571297f2b74674156cb7f3bad7c2c8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149887"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140195"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Criar um modelo no portal do Azure
 
@@ -23,11 +23,12 @@ Tenha em mente que o Web designer é uma **versão prévia**. A funcionalidade �
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-- Um servidor do Azure Analysis Services na camada Padrão ou Desenvolvedor. Novos modelos criados usando o designer de Web são DirectQuery com suporte apenas dessas camadas.
+- O servidor Azure Analysis Services deve ser na camada Standard ou o desenvolvedor. Novos modelos criados usando o designer de Web são DirectQuery com suporte apenas dessas camadas.
 - Um Banco de Dados SQL Azure, Azure SQL Data Warehouse ou arquivo Power BI Desktop (.pbix) como fonte de dados. Novos modelos criados por meio de arquivos Power BI Desktop dão suporte às fontes de dados de Banco de Dados SQL Azure e Azure SQL Data Warehouse.
 - Uma conta e senha do SQL Server para se conectar a fontes de dados do Banco de Dados SQL Azure ou Azure SQL Data Warehouse.
+- Você deve ter privilégios de administrador do servidor para criar um novo modelo. São necessários privilégios de administrador do banco de dados para editar e consultar um modelo usando o designer.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no [portal do Azure](https://portal.azure.com/).
 

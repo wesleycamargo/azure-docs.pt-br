@@ -1,27 +1,23 @@
 ---
-title: Criar fluxos de trabalho automatizados com base em agendados - Aplicativos Lógicos do Azure | Microsoft Docs
-description: Este tutorial mostra como criar um fluxo de trabalho recorrente, automatizado e com base em agendador com os Aplicativos Lógicos do Azure
-author: ecfan
-manager: anneta
-editor: ''
+title: Criar fluxos de trabalho automáticos com base em agendamento - Aplicativos Lógicos do Azure | Microsoft Docs
+description: 'Tutorial: Como criar um fluxo de trabalho automático com base em agendamento e recorrente com Aplicativos Lógicos do Azure'
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: 4360249367632a01e4357c527f595f8416c7cc38
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124011"
 ---
-# <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Verificar o tráfego com um aplicativo lógico baseado em agendador
+# <a name="check-traffic-with-a-schedule-based-logic-app"></a>Verificar o tráfego com um aplicativo lógico com base em agendamento
 
 Os Aplicativos Lógicos do Azure ajudam a automatizar os fluxos de trabalho que são executados em um agendamento. Este tutorial mostra como você pode criar um [aplicativo lógico](../logic-apps/logic-apps-overview.md) com um gatilho de agendador que executa todas as manhãs dos dias da semana e verifica o tempo de viagem, incluindo o tráfego, entre dois lugares. Se o tempo excede um limite específico, o aplicativo lógico envia email com o tempo de viagem e o tempo extra necessário para seu destino.
 
@@ -41,19 +37,19 @@ Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalh
 
 Caso você não tenha uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">crie uma conta gratuita do Azure</a> antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta de email de qualquer provedor de email compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, [revise a lista de conectores aqui](https://docs.microsoft.com/connectors/). Este guia de início rápido usa uma conta do Outlook.com. Se você usar uma conta de email diferente, as etapas gerais serão as mesmas, mas a interface do usuário poderá parecer um pouco diferente.
 
 * Para obter o tempo de viagem de uma rota, você precisará de uma chave de acesso para a API do Bing Mapas. Para obter essa chave, siga as etapas para saber <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">como obter uma chave do Bing Mapas</a>. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> com suas credenciais da conta do Azure.
 
 ## <a name="create-your-logic-app"></a>Criar seu aplicativo lógico
 
-1. No portal principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicativo Lógico**.
+1. No menu principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicativo Lógico**.
 
    ![Criar aplicativo lógico](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 

@@ -3,7 +3,7 @@ title: Como criar um namespace do Barramento de Serviço no portal do Azure | Mi
 description: Crie um namespace do Barramento de Serviço usando o Portal do Azure.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
@@ -12,13 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: sethm
-ms.openlocfilehash: a24fa21848005d9768d26ae865680a4851e1dd81
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 06/29/2018
+ms.author: spelluru
+ms.openlocfilehash: 699129e9f75cce76d1682e3e2e2fb83d248ea92e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696018"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Criar um namespace do Barramento de Serviço usando o Portal do Azure
 
@@ -35,7 +36,7 @@ Parabéns! Agora você criou um namespace Mensagens do Barramento de Serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira nossos [exemplos do GitHub][github-samples], que mostram alguns dos recursos mais avançados de Mensagens do Barramento de Serviço.
+Confira os [exemplos do GitHub][github-samples] do Barramento de Serviço, que mostram alguns dos recursos mais avançados de Mensagens do Barramento de Serviço.
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure/azure-service-bus/tree/master/samples

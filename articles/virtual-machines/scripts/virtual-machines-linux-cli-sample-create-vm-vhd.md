@@ -1,13 +1,13 @@
 ---
-title: "Exemplo de script da CLI do Azure – Criar uma VM com um VHD | Microsoft Docs"
-description: "Amostra de script da CLI do Azure – criar uma VM usando um disco rígido virtual."
+title: Exemplo de script da CLI do Azure – Criar uma VM com um VHD | Microsoft Docs
+description: Amostra de script da CLI do Azure – criar uma VM usando um disco rígido virtual.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
 manager: douge
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,11 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 414ef43063cc48b7b9ae7be5fbccbb7906ae8c03
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 271390757b7e79eb29c5a3c14ca9ee1b38b53e29
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41919485"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Criar uma VM com um disco rígido virtual
 
@@ -28,8 +29,7 @@ Este exemplo cria uma máquina virtual usando um VHD.
 Ele cria um grupo de recursos, uma conta de armazenamento e um contêiner, então cria uma VM carregando o VHD no contêiner.
 Ele substitui a chave pública de SSH pela sua chave pública, de modo que você tem acesso à VM.
 
-Você precisará de um VHD inicializável.
-Você pode baixar o VHD que usamos de https://azclisamples.blob.core.windows.net/vhds/sample.vhd ou usar seu próprio VHD. O script procura `~/sample.vhd`.
+Você precisará de um VHD inicializável. O script procura `~/sample.vhd`.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -39,7 +39,7 @@ Você pode baixar o VHD que usamos de https://azclisamples.blob.core.windows.net
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-vhd/create-vm-vhd.sh "Create VM using a VHD")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -49,9 +49,9 @@ az group delete -n az-cli-vhd
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os seguintes comandos para criar um grupo de recursos, uma máquina virtual, um conjunto de disponibilidade, um balanceador de carga e todos os recursos relacionados. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa os seguintes comandos para criar um grupo de recursos, uma máquina virtual, um conjunto de disponibilidade, um balanceador de carga e todos os recursos relacionados. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | Lista contas de armazenamento |
@@ -62,7 +62,6 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 | [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Cria um blob no contêiner carregando o VHD. |
 | [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Usado com `--query`, verifica se o nome da VM está em uso. | 
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Cria as máquinas virtuais. |
-| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#az_vm_access_set_linux_user) | Redefine a chave SSH para fornecer o acesso do usuário atual para a VM. |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Obtém o endereço IP da VM que foi criada. |
 
 ## <a name="next-steps"></a>Próximas etapas

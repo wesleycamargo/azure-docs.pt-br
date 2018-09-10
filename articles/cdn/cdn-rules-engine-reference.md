@@ -1,11 +1,11 @@
 ---
-title: "Referência do mecanismo de regras CDN do Azure | Microsoft Docs"
-description: "Documentação de referência para recursos e condições de correspondência do mecanismo de regras da CDN do Azure."
+title: Referência do mecanismo de regras CDN do Azure | Microsoft Docs
+description: Documentação de referência para recursos e condições de correspondência do mecanismo de regras da CDN do Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733672"
 ---
 # <a name="azure-cdn-rules-engine-reference"></a>Referência do mecanismo de regras da CDN do Azure
 Este artigo lista as descrições detalhadas dos recursos e condições de correspondência disponíveis para o mecanismo de regras da [CDN (Rede de Distribuição de Conteúdo)](cdn-rules-engine.md).
