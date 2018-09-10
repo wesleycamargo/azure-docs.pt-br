@@ -16,27 +16,27 @@
   items:
     - name: Implantar o Workbench
       href: blockchain-workbench-deploy.md
-    - name: Criar aplicativo de blockchain
+    - name: Criando uma aplicação Blockchain Workbench
       href: blockchain-workbench-create-app.md
     - name: Gerenciar usuários do Workbench
       href: blockchain-workbench-manage-users.md
-    - name: Usar o aplicativo de blockchain
+    - name: Usando o Blockchain Workbench
       href: blockchain-workbench-use.md
-    - name: Usar a API do Workbench
+    - name: Usando a API do Workbench
       href: blockchain-workbench-use-API.md
-    - name: Solucionar problemas de aplicativos
+    - name: Solucionar problemas de aplicações Blockchain Workbench
       href: blockchain-workbench-troubleshooting.md
-    - name: Usar dados do Workbench
+    - name: Usando os dados do Workbench
       items:
         - name: Configurar o firewall do banco de dados
           href: blockchain-workbench-database-firewall.md
         - name: Obter detalhes do banco de dados
           href: blockchain-workbench-getdb-details.md
-        - name: Usar dados no Excel
+        - name: Usando dados no Excel
           href: blockchain-workbench-data-excel.md
-        - name: Usar dados no Power BI
+        - name: Usando dados no Power BI
           href: blockchain-workbench-data-powerbi.md
-        - name: Usar os dados no SQL Management Studio
+        - name: Usando os dados no SQL Management Studio
           href: blockchain-workbench-data-sql-management-studio.md
 - name: Referência
   items:
@@ -44,7 +44,7 @@
       href: 'https://github.com/Azure-Samples/blockchain'
     - name: Configuração
       href: blockchain-workbench-configuration-overview.md
-    - name: Exibições de banco de dados
+    - name: Exibições do banco de dados
       href: blockchain-workbench-database-views.md
     - name: API de mensagens
       href: blockchain-workbench-messages-overview.md
