@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: d3b01e75a9b34ce4e38138816935bdae2e0ea778
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d7784792cd7e1475028dc0a5e9664916f1d45a07
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143952"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699212"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Problemas comuns no Stream Analytics e etapas para solucionar problemas
 
@@ -26,7 +26,7 @@ ms.locfileid: "42143952"
 
 ![Bloco Entradas](media/stream-analytics-malformed-events/inputs_tile.png)
 
-Para ver mais informações, habilite os logs de diagnóstico para visualizar os detalhes do aviso. Para eventos de entrada mal formatados, os logs de execução contêm uma entrada com a mensagem que semelhante a: "Mensagem: Não foi possível desserializar os eventos de entrada do recurso <blob URI> como json". 
+Para ver mais informações, habilite os logs de diagnóstico para visualizar os detalhes do aviso. Para eventos de entrada malformados, os logs de execução contêm uma entrada com a mensagem que se parece com: "Mensagem: Não foi possível desserializar o (s) evento (s) de entrada do recurso <blob URI> como json". 
 
 ### <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 

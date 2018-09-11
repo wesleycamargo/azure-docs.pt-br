@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: e7a63167285c06fdfe632e7d45d9fddd3cca7842
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2c8978cfba8fc56d4dbc565cb3a91c75d9d54679
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248515"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700188"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent-issues"></a>Solucionar problemas do agente do Microsoft Azure Recovery Services (MARS)
 ## <a name="recommended-steps"></a>Etapas recomendadas
@@ -66,7 +66,10 @@ Execute as etapas a seguir quando os backups agendados não forem acionados auto
 <li>Clique duas vezes na tarefa 'Microsoft-OnlineBackup' e vá para a guia 'Triggers'.
 <li>Certifique-se de que o "Status" da tarefa esteja definido como "Ativado". Se não, clique em 'Editar' e selecione a caixa de seleção 'Ativado'
 <li>Navegue até a seção *Opções de segurança* da guia *Geral*
-<li>Certifique-se de que a conta de usuário selecionada para executar a tarefa seja *SYSTEM* ou grupo de Administradores Locais no servidor > [!TIP] É recomendável reinicializar o servidor após executar as etapas acima para garantir que as alterações feitas sejam aplicadas de forma consistente
+<li>Assegure-se de que a conta de usuário selecionada para executar a tarefa seja *SYSTEM* ou o grupo de Administradores Locais no servidor
+
+> [!TIP]
+> Recomenda-se reinicializar o servidor após executar as etapas acima para garantir que as alterações feitas sejam aplicadas de forma consistente
 
 
 ## <a name="troubleshooting-restore-issues"></a>Solução de problemas de restauração

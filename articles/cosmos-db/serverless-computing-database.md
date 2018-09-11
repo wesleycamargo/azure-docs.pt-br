@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b54a302c022a8af84c1964c13ffadc52b45c4ca4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858799"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696812"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions
 
@@ -31,7 +31,7 @@ O Azure Cosmos DB e o Azure Functions permitem integrar bancos de dados e aplica
 * Associe uma função a um contêiner do Azure Cosmos DB usando uma **associação de saída**. As associações de saída gravam dados em um contêiner quando uma função é concluída.
 
 > [!NOTE]
-> Neste momento, o gatilho, as associações de entrada e as associações de saída do Azure Cosmos DB funcionam apenas com contas da API do Graph e a API do SQL.
+> No momento, o gatilho do BD do Azure Cosmos, as ligações de entrada e as vinculações de saída funcionam apenas com as contas da API do SQL e da API do Gremlin.
 
 O seguinte diagrama ilustra cada uma destas três integrações: 
 
@@ -82,7 +82,7 @@ As imagens a seguir mostram o código no portal do Azure para este cenário.
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Caso de uso de jogos – gatilho e associação de saída do Azure Cosmos DB
 
-Em jogos, quando um novo usuário é criado, você pode pesquisar outros usuários que talvez o conheçam usando a [API do Graph do Azure Cosmos DB](graph-introduction.md). Em seguida, você pode gravar os resultados em um [banco de dados de SQL do Azure Cosmos DB] para fácil recuperação.
+Nos jogos, quando um novo usuário é criado, você pode procurar outros usuários que possam conhecê-los usando a [API do Azure Cosmos DB Gremlin](graph-introduction.md). Em seguida, você pode gravar os resultados em um [banco de dados de SQL do Azure Cosmos DB] para fácil recuperação.
 
 **Implementação:** use um gatilho e uma associação de saída do Azure Cosmos DB
 

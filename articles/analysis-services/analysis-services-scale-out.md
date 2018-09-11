@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f89a6bdbe906d490231725cf528396928faebe47
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092087"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840982"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -23,11 +23,15 @@ Com a escala horizontal, as consultas de cliente podem ser distribuídas entre v
 
 Em uma implantação típica do servidor, um servidor funciona como o servidor de processamento e o servidor de consulta. Se o número de consultas de cliente em modelos em seu servidor exceder as QPUs (Unidades de Processamento de Consulta) do plano do servidor ou o processamento de modelo ocorrer ao mesmo tempo que cargas de trabalho de consulta altas, o desempenho poderá diminuir. 
 
-Com a escala horizontal, você pode criar um pool de consultas com até sete réplicas de consulta adicionais (total de oito, incluindo o servidor). Você pode dimensionar o número de réplicas de consulta para atender às demandas de QPU em momentos críticos e você pode separar um servidor de processamento do pool de consultas a qualquer momento. Todas as réplicas de consulta são criadas na mesma região que o servidor.
+Com o scale-out, você pode criar um pool de consulta com até sete recursos adicionais de réplica de consulta (oito no total, incluindo seu servidor). Você pode dimensionar o número de réplicas de consulta para atender às demandas de QPU em momentos críticos e você pode separar um servidor de processamento do pool de consultas a qualquer momento. Todas as réplicas de consulta são criadas na mesma região que o servidor.
 
-Independentemente do número de réplicas de consulta que você tem em um pool de consulta, as cargas de trabalho de processamento não são distribuídas entre as réplicas de consulta. Um único servidor atua como o servidor de processamento. Réplicas de consulta servem apenas as consultas em relação aos modelos sincronizados entre cada réplica no pool de consulta. 
+Independentemente do número de réplicas de consulta que você tem em um pool de consulta, as cargas de trabalho de processamento não são distribuídas entre as réplicas de consulta. Um único servidor atua como o servidor de processamento. As réplicas de consulta veiculam apenas consultas nos modelos sincronizados entre cada réplica de consulta no conjunto de consultas. 
 
-Quando as operações de processamento são concluídas, a sincronização deve ser executada entre o servidor de processamento e os servidores de réplica de consulta. Para automatizar as operações de processamento, é importante configurar uma operação de sincronização após a conclusão bem-sucedida de operações de processamento. A sincronização pode ser executada manualmente no portal ou usando o PowerShell ou a API REST.
+Ao dimensionar, novas réplicas de consulta são adicionadas ao pool de consultas de forma incremental. Pode levar até cinco minutos para que novos recursos de réplica de consulta sejam incluídos no pool de consulta; pronto para receber conexões e consultas do cliente. Quando todas as novas réplicas de consulta estiverem ativadas e em execução, novas conexões de cliente serão balanceadas por carga em todos os recursos do pool de consulta. As conexões de clientes existentes não são alteradas a partir do recurso ao qual elas estão conectadas atualmente.  Ao dimensionar, quaisquer conexões de cliente existentes para um recurso de pool de consulta que está sendo removido do pool de consulta são finalizadas. Eles são reconectados a um recurso de pool de consulta restante quando a escala em operação é concluída.
+
+Ao processar modelos, depois que as operações de processamento são concluídas, uma sincronização deve ser executada entre o servidor de processamento e as réplicas de consulta. Para automatizar as operações de processamento, é importante configurar uma operação de sincronização após a conclusão bem-sucedida de operações de processamento. A sincronização pode ser executada manualmente no portal ou usando o PowerShell ou a API REST. 
+
+Para desempenho máximo para operações de processamento e consulta, você pode optar por separar seu servidor de processamento do pool de consulta. Quando separadas, as conexões existentes e novas do cliente são atribuídas a réplicas de consulta apenas no pool de consulta. Se as operações de processamento ocuparem apenas um curto período de tempo, você poderá optar por separar seu servidor de processamento do pool de consulta apenas pelo tempo necessário para executar operações de processamento e sincronização e, em seguida, incluí-lo novamente no pool de consultas. 
 
 > [!NOTE]
 > A escala horizontal está disponível para servidores no tipo de preço Standard. Cada réplica de consulta é cobrada com a mesma taxa de seu servidor.

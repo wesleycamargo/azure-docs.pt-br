@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 78956c8e9d9248708ec326fc07d46f48e51e0f83
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247638"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341253"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Entender o registro de identidade no Hub IoT
 
@@ -85,12 +85,12 @@ Os dados de dispositivo que uma determinada solução IoT armazena dependem dos 
 
 ## <a name="device-heartbeat"></a>Pulsação do dispositivo
 
-O registro de identidade do Hub IoT contém um campo chamado **connectionState**. Use somente o campo **connectionState** durante o desenvolvimento e a depuração. Soluções de IoT não devem consultar o campo em tempo de execução. Por exemplo, não consulte o campo **connectionState** para verificar se um dispositivo está conectado antes de enviar uma mensagem de nuvem para dispositivo ou um SMS. É recomendável inscrever-se para o [**evento** de dispositivo desconectado](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types) na Grade de Eventos para receber alertas e monitorar o estado de conexão do dispositivo. Use este [tutorial](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) para saber como integrar eventos do Hub IoT em sua solução de IoT.
+O registro de identidade do Hub IoT contém um campo chamado **connectionState**. Use somente o campo **connectionState** durante o desenvolvimento e a depuração. Soluções de IoT não devem consultar o campo em tempo de execução. Por exemplo, não consulte o campo **connectionState** para verificar se um dispositivo está conectado antes de enviar uma mensagem de nuvem para dispositivo ou um SMS. Recomendamos inscrever-se no evento [**dispositivo desconectado** na Grade do evento][lnk-devguide-evgrid-evtype] para receber alertas e monitorar o estado da conexão do dispositivo. Use esta [tutorial][lnk-howto-evgrid-connstate] para saber como integrar os eventos de dispositivo conectado e desconectado de dispositivo do IoT Hub em sua solução de IoT.
 
 Se sua solução de IoT precisa saber se um dispositivo está conectado, você pode implementar o *padrão de pulsação*.
 No padrão de pulsação, o dispositivo envia mensagens do dispositivo para a nuvem pelo menos uma vez a cada período de tempo fixo (por exemplo, pelo menos uma vez a cada hora). Portanto, mesmo quando um dispositivo não tiver dados para enviar, ele enviará uma mensagem vazia do dispositivo para a nuvem (geralmente com uma propriedade que a identifique como uma pulsação). No lado do serviço, a solução mantém um mapa com a última pulsação recebida para cada dispositivo. Se a solução não recebe uma mensagem de pulsação de um dispositivo no tempo esperado, ela supõe que há um problema com ele.
 
-Uma implementação mais complexa pode incluir as informações do [monitoramento de operações][lnk-devguide-opmon] para identificar dispositivos que estão tentando se conectar ou se comunicar, mas falham. Ao implementar o padrão de pulsação, verifique as [Cotas e limitações do Hub IoT][lnk-quotas].
+Uma implementação mais complexa poderia incluir as informações do [Azure Monitor][lnk-AM] e [Azure Resource Health][lnk-ARH] para identificar os dispositivos que estão tentando se conectar ou se comunicar, mas falhando, verifique [Monitorar com o guia de diagnóstico][lnk-devguide-mon]. Ao implementar o padrão de pulsação, verifique as [Cotas e limitações do Hub IoT][lnk-quotas].
 
 > [!NOTE]
 > Se uma solução IoT usa o estado de conexão apenas para determinar se deve enviar mensagens da nuvem para o dispositivo e as mensagens não forem difundidas para conjuntos grandes de dispositivos, considere usar o padrão mais simples de *tempo de expiração mais curto*. Esse padrão é o mesmo que manter um registro do estado da conexão do dispositivo usando o padrão de pulsação, embora seja mais eficiente. Se você solicita confirmações de mensagem, o Hub IoT pode notificar você sobre quais dispositivos têm capacidade de receber mensagens e quais não têm.
@@ -256,7 +256,7 @@ Para explorar usando o Serviço de Provisionamento de Dispositivos do Hub IoT pa
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-export]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
+[lnk-devguide-mon]: iot-hub-monitor-resource-health.md
 
 [lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
@@ -265,3 +265,8 @@ Para explorar usando o Serviço de Provisionamento de Dispositivos do Hub IoT pa
 
 [lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+
+[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-ARH]: ../service-health/resource-health-overview.md
+[lnk-devguide-evgrid-evtype]: iot-hub-event-grid.md#event-types
+[lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md

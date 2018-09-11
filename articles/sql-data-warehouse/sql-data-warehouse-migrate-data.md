@@ -3,19 +3,19 @@ title: Migrar seus dados para o SQL Data Warehouse | Microsoft Docs
 description: Dicas para migrar seus dados para o SQL Data Warehouse do Azure para desenvolvimento de soluções.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: ca467ae5fbe784399e4e046c47c920ff7dec638e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fc7bf4eaeb073b0337be68632e5057bfce96e06a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795996"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43311347"
 ---
 # <a name="migrate-your-data"></a>Migrar seus dados
 Os dados podem ser movidos de diferentes origens no SQL Data Warehouse com uma variedade de ferramentas.  A cópia do ADF, o SSIS e o bcp podem ser usados para cumprir essa meta. No entanto, à medida que o volume de dados aumenta, uma boa prática é dividir em etapas o processo de migração de dados. Isso possibilita a otimização de cada etapa quanto ao desempenho e à resiliência para garantir uma migração de dados tranquila.
@@ -33,7 +33,7 @@ O PolyBase também fornece uma opção de desempenho alto para carregamento dos 
 > 
 > 
 
-Acesse o artigo a seguir para ver algumas ótimas [amostras de ADF][ADF samples].
+Vá para o seguinte artigo para ver alguns ótimos [exemplos de ADF] [exemplos de ADF].
 
 ## <a name="integration-services"></a>Serviços de integração
 O SSIS (SQL Server Integration Services) é uma ferramenta de ETL (Extração, Transformação e Carregamento) avançada e flexível que oferece suporte a fluxos de trabalho complexos, transformação de dados e várias opções de carregamento de dados. Use o SSIS para simplificar a transferência de dados para o Azure ou como parte de uma migração mais ampla.
@@ -182,9 +182,8 @@ Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimen
 
 <!--Article references-->
 [AZCopy]: ../storage/common/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/v1/data-factory-data-movement-activities.md 
-[ADF samples]: ../data-factory/v1/data-factory-samples.md
-[ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
+[ADF Copy]: ../data-factory/copy-activity-overview.md 
+[ADF Copy examples]: ../data-factory/quickstart-create-data-factory-dot-net.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [migrar seu esquema]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 16e4dbac4c8146b048d4d9b76544677a6111e2a5
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 338c2a197cb50091c3b272e0ce590341ffda1d7f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900822"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341076"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta da Microsoft usando o Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Para usar uma conta da Microsoft como um provedor de identidade no Azure AD (Azu
 3. Forneça um **Nome** para seu aplicativo e clique em **Criar**.
 4. Na página de registro, copie o valor da **Id do aplicativo**. Use-o para configurar sua conta da Microsoft como um provedor de identidade em seu locatário.
 5. Escolha **Adicionar plataforma** e, em seguida, escolha **Web**.
-6. Insira `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` em **URIs de redirecionamento**. Substitua **{tenant}** pelo nome do locatário (por exemplo, contosob2c.onmicrosoft.com).
+6. Insira `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` em **URIs de redirecionamento**. Substitua **{tenant}** com o nome do locatário (por exemplo, contosob2c).
 7. Escolha **Gerar Nova Senha** em **Segredos do Aplicativo**. Copie a nova senha exibida na tela. Você precisa dele para configurar uma conta da Microsoft como um provedor de identidade em seu locatário. A senha é uma credencial de segurança importante.
 
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Configurar uma conta da Microsoft como um provedor de identidade

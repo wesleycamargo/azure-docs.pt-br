@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/05/2018
+ms.date: 09/05/2018
 ms.author: juliako
-ms.openlocfilehash: 64a38ba617a1cc5fe1fdb3473e3cb88a49d89bb0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: c598fdae40b4552e1d4dc29b8558d82d0830160a
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744745"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841824"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Crie uma conta do Video Indexer conectada ao Azure
 
@@ -52,7 +52,7 @@ Este artigo mostra como criar uma conta do Video Indexer vinculada a uma assinat
 
 ## <a name="connect-to-azure"></a>Conecte-se ao Azure
 
-1. Entre com esse usuário e clique no botão **Conectar ao Azure**:
+1. Entrar no [https://www.videoindexer.ai/](https://www.videoindexer.ai/) e clique no **conectar ao Azure** botão:
 
     ![Conectar-se para o Azure](./media/create-account/connect-to-azure.png)
 
@@ -69,9 +69,21 @@ Este artigo mostra como criar uma conta do Video Indexer vinculada a uma assinat
     * Para usar uma conta de serviços de mídia existente, selecione **usar o recurso existente**. Na lista de contas, selecione sua conta.
 
         Sua conta de Serviços de Mídia deve ter a mesma região da sua conta do Indexador de Vídeo. Para minimizar a duração da indexação e a baixa taxa de transferência, ajuste o tipo e o número de Unidades reservadas para **10 S3 Reserved Units** em sua conta do Media Services.
-    * Para configurar manualmente sua conexão, clique no link **Alternar para configuração manual** e forneça as informações necessárias:
+    * Para configurar manualmente sua conexão, clique no **Alternar para a configuração manual**. 
+    
+        Você pode querer configurar manualmente sua conexão, se por algum motivo a opção automática não for concluída, ou se sua configuração e instalação for diferente dos casos comuns, ou se você quiser ter total visibilidade e controle sobre as configurações. 
+        
+        No **Conectar o Indexador de Vídeo a uma assinatura do Azure**, forneça as seguintes informações.
 
-    ![conectar-se o indexador de vídeo para o Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
+        |Configuração|DESCRIÇÃO|
+        |---|---|
+        |Região da conta do Indexador de Vídeo|O nome da região da conta do Video Indexer. Para um melhor desempenho e custos mais baixos, é altamente recomendável especificar o nome da região em que o recurso Serviços de Mídia do Azure e a conta do Armazenamento do Azure estão localizados. |
+        |Locatário do Azure Active Directory (AAD)|O nome do locatário do Azure AD, por exemplo "contoso.onmicrosoft.com". As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito.|
+        |ID da assinatura|A assinatura do Azure na qual essa conexão deve ser criada. O ID da assinatura pode ser recuperado no portal do Azure. Clique em **Todos os serviços** no painel esquerdo e procure por "inscrições". Selecione **Assinaturas** e escolha o ID desejado na lista de suas assinaturas.|
+        |Nome do grupo de recursos dos Serviços de Mídia do Azur.|O nome do grupo de recursos no qual a conta do Media Services existe.|
+        |Nome do recurso de serviço de mídia|O nome do recurso dos Serviços de Mídia do Azure.|
+        |ID do aplicativo|O ID do aplicativo do Azure AD com permissões para a conta de serviços de mídia especificada. Para obter mais informações, consulte [autenticação de entidade de serviço de uso](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
+        |Chave do aplicativo|Para obter mais informações, consulte [autenticação de entidade de serviço de uso](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
 5. Quando terminar, escolha **Connect**. Essa operação poderá demorar alguns minutos. 
 

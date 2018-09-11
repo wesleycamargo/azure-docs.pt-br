@@ -4,14 +4,14 @@ description: Apresenta respostas para perguntas frequentes sobre Migrações par
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/03/2018
 ms.author: snehaa
-ms.openlocfilehash: 3f035f38b1ad68e9e39d151ffad3fc650a0a1d80
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: ce9dc4aab26b99bbb1e9f24f018354b8c91f66f4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952742"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699957"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure - Perguntas frequentes (FAQ)
 
@@ -123,6 +123,12 @@ Se você tiver um ambiente compartilhado entre locatários e não quiser descobr
 ### <a name="how-many-virtual-machines-can-be-discovered-in-a-single-migration-project"></a>Quantas máquinas virtuais podem ser descobertas em um único projeto de migração?
 
 Você pode descobrir 1500 máquinas virtuais em um único projeto de migração. Se você tiver mais máquinas em seu ambiente local, [saiba mais](how-to-scale-assessment.md) sobre como você pode descobrir um ambiente grande no Migrações para Azure.
+
+### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Suporte a migrações para Azure Enterprise Agreement (EA) com base estimativa de custo?
+
+As migrações para Azure não oferece suporte a estimativa de custo para [oferta Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/). A solução alternativa é especificar o pagamento conforme o uso como a oferta e especificar manualmente a porcentagem de desconto (aplicável para a assinatura) no campo 'Desconto' Propriedades de avaliação.
+
+  ![Desconto](./media/resources-faq/discount.png)
 
 ## <a name="dependency-visualization"></a>Visualização de dependência
 

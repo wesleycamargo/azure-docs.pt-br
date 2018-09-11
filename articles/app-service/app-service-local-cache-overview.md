@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 6729c87dcc9a85e2e3ccb6b4822213d38e2ba6f7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918009"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666107"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral do cache local do Serviço de Aplicativo do Azure
 
@@ -44,13 +44,15 @@ O recurso Cache Local do Serviço de Aplicativo do Azure fornece uma exibição 
 * Ele está imune às atualizações planejadas ou tempos de inatividade não planejados, e a outras interrupções no Armazenamento do Azure que ocorram em servidores que fornecem o compartilhamento de conteúdo.
 * Há uma quantidade menor de reinicializações do aplicativo devido a alterações no compartilhamento do armazenamento.
 
-## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>Como o Cache Local altera o comportamento do Serviço de Aplicativo
-* O cache local é uma cópia das pastas /site e /siteextensions do aplicativo Web. Ele é criado na instância VM local na inicialização do aplicativo Web. O tamanho do cache local por aplicativo Web é limitado a 300 MB por padrão, mas você pode aumentá-lo para até 2 GB.
-* O cache local é de leitura/gravação. No entanto, as modificações são descartadas quando o aplicativo Web mover as máquinas virtuais ou for reiniciado. Não utilize o Cache Local para aplicativos que armazenam dados de missão crítica no repositório de conteúdo.
-* Os aplicativos Web podem continuar a gravar arquivos de log e dados de diagnóstico, como fazem atualmente. Arquivos de log e dados, no entanto, são armazenados localmente na máquina virtual. Em seguida, eles são copiados periodicamente para o repositório de conteúdo compartilhado. A cópia para o repositório de conteúdo compartilhado é a melhor opção. Podem ocorrer perdas de write-backs devido a uma falha repentina de uma instância de VM.
-* Há uma alteração na estrutura da pastas das pastas LogFiles e Data para aplicativos Web que usam o Cache Local. Há agora subpastas nas pastas de armazenamento LogFiles e Data que seguem o padrão de nomenclatura de "identificador exclusivo" + carimbo de data/hora. Cada uma das subpastas corresponde a uma instância de VM na qual o aplicativo Web está em execução ou foi executado.  
-* A publicação de alterações no aplicativo Web por meio de qualquer um dos mecanismos de publicação, publicará no repositório de conteúdo compartilhado durável. Para atualizar o cache local do aplicativo Web, é necessário reiniciá-lo. Para tornar o ciclo de vida contínuo, confira as informações neste artigo.
-* D:\Home aponta para o cache local. D:\local continua apontando para o armazenamento temporário específico da VM.
+## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Como o cache local altera o comportamento do serviço de aplicativo
+* _D:\home_ aponta para o cache local, que é criado na instância da VM quando o aplicativo é inicializado. _D:\local_ continua apontando para o armazenamento temporário específico da VM.
+* O cache local contém uma cópia única das pastas _/site_ e _/siteextensions_ do armazenamento de conteúdo compartilhado, em _D:\home\site_ e _D:\home\siteextensions_, respectivamente. Os arquivos são copiados para o cache local quando o aplicativo é iniciado. O tamanho das duas pastas para cada aplicativo é limitado a 300 MB por padrão, mas você pode aumentá-lo em até 2 GB.
+* O cache local é de leitura/gravação. No entanto, qualquer modificação é descartada quando o aplicativo move as máquinas virtuais ou é reiniciado. Não use o cache local para aplicativos que armazenam dados de missão crítica no armazenamento de conteúdo.
+* _D:\home\LogFiles_ e _D:\home\Data_ contêm arquivos de log e dados do aplicativo. As duas subpastas são armazenadas localmente na instância da VM e são copiadas para o armazenamento de conteúdo compartilhado periodicamente. Os aplicativos podem manter arquivos e dados de log, gravando-os nessas pastas. No entanto, a cópia para o armazenamento de conteúdo compartilhado é melhor esforço, por isso, é possível que os arquivos de log e os dados sejam perdidos devido a uma falha súbita de uma instância de VM.
+* [ O fluxo de logs ](web-sites-enable-diagnostic-log.md#streamlogs) é afetado pela cópia de melhor esforço. Você pode observar até um atraso de um minuto nos logs transmitidos.
+* No armazenamento de conteúdo compartilhado, há uma alteração na estrutura de pastas das pastas _Arquivos de Log_ e _Dados_ para aplicativos que usam o cache local. Há agora subpastas dentro deles que seguem o padrão de nomenclatura de "identificador exclusivo" + carimbo de data / hora. Cada uma das subpastas corresponde a uma instância de VM em que o aplicativo está sendo executado ou foi executado.
+* Outras pastas em _D:\home_ permanecem no cache local e não são copiadas para o armazenamento de conteúdo compartilhado.
+* A implantação de aplicativos por meio de qualquer método suportado é publicada diretamente no armazenamento de conteúdo compartilhado durável. Para atualizar as pastas _D:\home\site_ e _D:\home\siteextensions_ no cache local, o aplicativo precisa ser reiniciado. Para tornar o ciclo de vida contínuo, confira as informações neste artigo.
 * A exibição de conteúdo padrão do site do SCM continua sendo aquela do repositório de conteúdo compartilhado.
 
 ## <a name="enable-local-cache-in-app-service"></a>Habilitar o Cache Local no Serviço de Aplicativo

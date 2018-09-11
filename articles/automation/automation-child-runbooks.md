@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 037c2714d146bd59b30573df874794342d743e03
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141609"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782225"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks filhos na Automação do Azure
 
@@ -72,7 +72,9 @@ Se você não quiser que o runbook pai seja bloqueado em espera, poderá invocar
 
 Parâmetros de um runbook filho iniciados com um cmdlet são fornecidos como uma tabela de hash, conforme descrito em [Parâmetros de Runbook](automation-starting-a-runbook.md#runbook-parameters). Somente tipos de dados simples podem ser usados. Se o runbook tiver um parâmetro com um tipo de dados complexos, ele deve ser chamado embutido.
 
-Em caso de trabalho com várias assinaturas, o contexto de assinatura poderá ser perdido ao invocar runbooks filhos. Para garantir que o contexto da assinatura é passado para os runbooks filho, adicione o parâmetro `DefaultProfile` ao cmdlet e passe o contexto para ele.
+O contexto da assinatura pode ser perdido ao invocar runbooks filhos como tarefas separadas. Para que o runbook filho invoque os cmdlets do Azure RM em uma assinatura do Azure desejada, o runbook filho deve autenticar essa assinatura independentemente do runbook pai.
+
+Se os trabalhos dentro da mesma conta de automação funcionarem com várias assinaturas, a seleção de uma assinatura em um trabalho poderá alterar também o contexto de assinatura selecionado atualmente para outros trabalhos, o que normalmente não é desejado. Para evitar esse problema, salve o resultado da chamada do cmdlet `Select-AzureRmSubscription` e passe esse objeto para o parâmetro `DefaultProfile` de todas as chamadas de cmdlets do Azure RM subsequentes. Esse padrão deve ser aplicado de maneira consistente a todos os runbooks em execução nesta conta de automação.
 
 ### <a name="example"></a>Exemplo
 

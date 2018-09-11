@@ -1,5 +1,5 @@
 ---
-title: Entender o desconto de reserva do Azure | Microsoft Docs
+title: Entender o desconto de reservas do Azure | Microsoft Docs
 description: Saiba como um desconto de reserva é aplicado à execução de bancos de dados SQL.
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: 3a5339200309a50eace5b48dfbd9127b7eb1dae6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 923337291d297832e03892b505f4efa8d3bb3f36
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631719"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300707"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Entenda como um desconto de reserva do Azure é aplicado a bancos de dados SQL
 
@@ -49,7 +49,7 @@ Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 - [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
-- [Gerenciar reservas do Azure](billing-manage-reserved-vm-instance.md)
+- [Gerenciar Reservas do Azure](billing-manage-reserved-vm-instance.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)
 - [Entenda o uso de reservas para o seu registro Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Entender o uso de reserva para assinaturas de CSP](https://docs.microsoft.com/partner-center/azure-reservations)

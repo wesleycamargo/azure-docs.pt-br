@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e23d3c39c6fd4e69f03ab0f2c11c9b523307b788
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: fc2433b8ac12bc1d485b6f23b56f356041e5128e
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715134"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783093"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -43,7 +43,7 @@ Além de extensões específicas ao processo, uma extensão de Script Personaliz
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para lidar com a extensão na VM, é necessário ter o Agente Linux do Microsoft Azure instalado. Algumas extensões individuais têm pré-requisitos, como acesso a recursos ou dependências.
+Para lidar com a extensão na VM, você precisa ter o agente do Windows Azure instalado. Algumas extensões individuais têm pré-requisitos, como acesso a recursos ou dependências.
 
 ### <a name="azure-vm-agent"></a>Agente de VM do Azure
 

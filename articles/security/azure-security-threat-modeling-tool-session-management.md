@@ -1,6 +1,6 @@
 ---
 title: Gerenciamento de sessão - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs
-description: atenuações de ameaças expostas na Ferramenta de Modelagem de Ameaças
+description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
 author: jegeib
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: cd843f1826ad65098a7c0f6d30383113ccd28f6a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306432"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841806"
 ---
-# <a name="security-frame-session-management--articles"></a>Quadro de segurança: Gerenciamento de sessão | Artigos 
+# <a name="security-frame-session-management"></a>Quadro de segurança: Gerenciamento de sessão
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implementar o logoff apropriado usando métodos ADAL ao usar o Azure AD](#logout-adal)</li></ul> |
@@ -380,36 +380,42 @@ void Page_Init (object sender, EventArgs e) {
 | **Etapas** | O tempo limite de sessão representa o evento que ocorre quando um usuário não realiza qualquer ação em um site durante um intervalo (definido pelo servidor Web). O evento, no lado do servidor, altera o status da sessão do usuário para "inválida" (por exemplo, "não mais utilizada") e instrui o servidor Web a destruí-la (excluindo todos os dados contidos nela). O exemplo de código a seguir define o atributo de tempo limite de sessão como 15 minutos no arquivo Web.config.|
 
 ### <a name="example"></a>Exemplo
-```código XML <configuration> <system.web> <sessionState mode="InProc" cookieless="true" timeout="15" /> </system.web> </configuration>
+```XML 
+<configuration>
+  <system.web>
+    <sessionState mode="InProc" cookieless="true" timeout="15" />
+  </system.web>
+</configuration>
 ```
 
-## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
-```
-
-| Title                   | Detalhes      |
-| ----------------------- | ------------ |
-| **Componente**               | Aplicativo Web | 
-| **Fase do SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | Formulários da Web |
-| **Atributos**              | N/D  |
-| **Referências**              | [Elemento forms para autenticação (Esquema de configuração ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| **Etapas** | Defina o tempo limite de cookie do tíquete de autenticação de formulários como 15 minutos|
-
-### <a name="example"></a>Exemplo
-```código XML <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
-</forms>
+## <a id="threat-detection"></a>Ativar a detecção de ameaças no SQL Azure
 ```
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
 | **Component**               | Web Application | 
 | **SDL Phase**               | Build |  
-| **Applicable Technologies** | Web Forms, MVC5 |
-| **Attributes**              | EnvironmentType - OnPrem |
-| **References**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
-| **Steps** | When the web application is Relying Party and ADFS is the STS, the lifetime of the authentication cookies - FedAuth tokens - can be set by the following configuration in web.config:|
+| **Applicable Technologies** | Web Forms |
+| **Attributes**              | N/A  |
+| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
+```XML
+<forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
+</forms>
+```
+
+| Title                   | Detalhes      |
+| ----------------------- | ------------ |
+| **Componente**               | Aplicativo Web | 
+| **Fase do SDL**               | Compilação |  
+| **Tecnologias aplicáveis** | Web Forms, MVC5 |
+| **Atributos**              | EnvironmentType - OnPrem |
+| **Referências**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
+| **Etapas** | Quando o aplicativo da Web for Relying Party e o ADFS for o STS, a vida útil dos cookies de autenticação - tokens FedAuth - pode ser definida pela seguinte configuração no web.config:|
+
+### <a name="example"></a>Exemplo
 ```XML
   <system.identityModel.services>
     <federationConfiguration>

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4da97d708f8db2dcee406645a0eee409fa111012
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34652535"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696795"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalar um trabalho do Azure Stream Analytics para aumentar a taxa de transferência
 Este artigo explica como você pode ajustar a consulta do Stream Analytics para aumentar a produtividade para os trabalhos do Streaming Analytics. Você pode usar o guia a seguir para dimensionar seu trabalho a fim de lidar com uma carga maior e aproveitar mais recursos do sistema (como maior largura de banda, mais recursos de CPU, mais memória).
@@ -31,7 +31,7 @@ Se sua consulta é inerentemente totalmente paralelizável entre partições de 
     -   O carimbo de data/hora de saída está atrasado em relação à hora real. Dependendo de sua lógica de consulta, o carimbo de data/hora de saída pode ter uma defasagem em relação à hora real. No entanto, eles devem progredir mais ou menos no mesmo ritmo. Se o carimbo de data/hora de saída está se atrasando mais, isso é um indicador de que o sistema está trabalhando em excesso. Ele pode ser resultado da limitação do coletor de saída downstream ou da alta utilização da CPU. Não fornecemos métrica de utilização da CPU no momento e, portanto, pode ser difícil diferenciar as duas.
         - Se o problema for devido à limitação do coletor, talvez seja necessário aumentar o número de partições de saída (e também de partições de entrada para manter o trabalho totalmente paralelizáveis) ou aumentar a quantidade de recursos do coletor (por exemplo, número de unidades de solicitação para o CosmosDB).
     - No diagrama de trabalho, há uma métrica de evento de lista de pendências por partição para cada entrada. Se a métrica de evento de lista de pendências continuar crescendo, será também um indicador de que o recurso do sistema está restrito (seja devido à limitação do coletor de saída ou à alta utilização da CPU).
-4.  Depois de determinar os limites do que um trabalho com 6 UA pode alcançar, é possível extrapolar linearmente a capacidade de processamento do trabalho conforme vai adicionando mais UA, supondo que você não tenha nenhuma distorção de dados que torne certa partição "ativa".
+4.  Depois de determinar os limites do que um job de 6 SU pode alcançar, é possível extrapolar linearmente a capacidade de processamento do job à medida que você adiciona mais SUs, supondo que você não tenha distorções de dados que tornem certa partição "quente".
 
 > [!NOTE]
 > Escolha o número correto de Unidades de Streaming: como o Stream Analytics cria um nó de processamento para cada 6 SU adicionadas, é melhor ter um número de nós que seja divisor do número de partições de entrada, para que as partições possam ser distribuídas uniformemente entre os nós.
@@ -42,7 +42,7 @@ Se sua consulta é inerentemente totalmente paralelizável entre partições de 
 Se sua consulta não é embaraçosamente paralela, você pode executar as etapas a seguir.
 1.  Inicie com uma consulta sem nenhum **PARTITION BY** primeiro para evitar a complexidade do particionamento e execute a consulta com 6 UA para medir a carga máxima como no [Caso 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions).
 2.  Se você pode obter sua carga prevista em termos de taxa de transferência, está tudo certo. Como alternativa, você pode optar por medir o mesmo trabalho em execução em 3 UAs e 1 UA para descobrir o número mínimo de UAs que funciona no seu cenário.
-3.  Se você não conseguir obter a taxa de transferência desejada, tente dividir a consulta em várias etapas, se possível (se ela não já tiver várias etapas) e alocar até 6 UAs para cada etapa na consulta. Por exemplo, se você tiver 3 etapas, aloque 18 UAs na opção "Escala".
+3.  Se você não conseguir obter a taxa de transferência desejada, tente dividir a consulta em várias etapas, se possível (se ela não já tiver várias etapas) e alocar até 6 UAs para cada etapa na consulta. Por exemplo, se você tiver 3 etapas, aloque 18 uas na opção "Escala".
 4.  Ao executar o trabalho, o Stream Analytics colocará cada etapa em seu próprio nó com os recursos de 6 UAs dedicadas. 
 5.  Se ainda não tiver obtido sua carga-alvo, poderá tentar usar **PARTITION BY** começando por etapas mais próximas à entrada. Para operador **GROUP BY** que pode não ser naturalmente particionável, você pode usar o padrão de agregação global/local para executar um **GROUP BY** particionado seguido de um **GROUP BY**  não particionado. Por exemplo, se você desejar contar quantos carros passam por cada pedágio a cada três minutos e o volume de dados está além do que pode ser tratado por 6 UAs.
 
@@ -70,7 +70,7 @@ Para determinados casos de uso de ISV, em que é mais eficiente processar dados 
 2.  Reduza a contagem de partições de entrada para o menor valor possível de 2 se você estiver usando um Hub de Eventos.
 3.  Execute a consulta com 6 UAs. Com carga esperada para cada subconsulta, adicione quantas subconsultas puder, até que o trabalho esteja atingindo os limites de recursos do sistema. Consulte o [Caso 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) para saber quais são os sintomas quando isso acontece.
 4.  Depois que você está atingindo o limite de subconsulta medido acima, comece a adicionar a subconsulta a um novo trabalho. O número de trabalhos a serem executados como uma função do número de consultas independentes deve ser bastante linear, supondo que você não tenha nenhuma distorção de carga. Você pode prever quantos trabalhos com 6 UA precisam ser executados em função do número de locatários que devem ser atendidos.
-5.  Ao usar a união de dados de referência com tais consultas, você deverá unir as entradas antes de unir os mesmos dados de referência e, em seguida, dividir os eventos, se necessário. Caso contrário, cada união de dados de referência mantém uma cópia dos dados de referência na memória, provavelmente estourando o uso da memória desnecessariamente.
+5.  Ao usar dados de referência, junte-se a essas consultas antes de unir os mesmos dados de referência. Em seguida, dividir os eventos se necessário. Caso contrário, cada união de dados de referência mantém uma cópia dos dados de referência na memória, provavelmente estourando o uso da memória desnecessariamente.
 
 > [!Note] 
 > Quantos locatários devem ser colocados em cada trabalho?

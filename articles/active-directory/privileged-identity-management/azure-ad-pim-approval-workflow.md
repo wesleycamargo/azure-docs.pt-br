@@ -12,47 +12,67 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/28/2017
+ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7bf1e437e97fdb4d929af23bd7b2a9abb49268df
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 9402824540f965cb89aa00791d093bd87712a89a
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189151"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665835"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Aprovar ou negar solicitações para funções de diretório do Azure AD no PIM
 
-Com o Privileged Identity Management, você pode configurar funções para solicitar aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados.
+Com o Gerenciamento de Identidade Privilegiada (PIM) do Azure AD, você pode configurar funções para exigir aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados. Siga as etapas neste artigo para aprovar ou negar solicitações de funções de diretório do AD do Azure.
 
-## <a name="view-pending-approvals-requests"></a>Exibir as aprovações pendentes (solicitações)
+## <a name="view-pending-requests"></a>Exibir solicitações pendentes
 
-Como aprovador delegado, você receberá notificações por email quando uma solicitação estiver aguardando sua aprovação. Para exibir essas solicitações no portal do PIM, no painel (na nova barra de navegação), selecione a guia “Solicitações com Aprovação Pendente” na barra de navegação à esquerda.
+Como um aprovador delegado, você receberá uma notificação por e-mail quando uma solicitação de função de diretório do Azure AD estiver aguardando sua aprovação. Você pode exibir essas solicitações pendentes no PIM.
 
-![](media/azure-ad-pim-approval-workflow/image023.png)
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
-Aqui, você verá uma lista de solicitações com aprovação pendente:
+1. Abra o **Azure AD Privileged Identity Management**.
 
-![](media/azure-ad-pim-approval-workflow/image024.png)
+1. Clique em **Funções do diretório do Azure AD**.
 
-## <a name="approve-or-deny-requests-for-role-elevation-single-andor-bulk"></a>Aprovar ou negar solicitações de elevação de função (única e/ou em massa)
+1. Clique em **aprovar solicitações**.
 
-Selecione as solicitações que você deseja aprovar ou negar e clique no botão na barra de ação que corresponde à sua decisão:
+    ![Funções de diretório do AD do Azure do PIM - funções](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
-![](media/azure-ad-pim-approval-workflow/image025.png)
+    Você verá uma lista de solicitações aguardando sua aprovação.
 
-## <a name="provide-justification-for-my-approvaldenial"></a>Fornecer uma justificativa para minha aprovação/negação
+## <a name="approve-requests"></a>Aprovar solicitações
 
-Isso abrirá uma nova folha para aprovar ou negar várias solicitações ao mesmo tempo. Insira uma justificativa para sua decisão e clique em Aprovar (ou Negar) na parte inferior ou na folha:
+1. Selecione as solicitações que você deseja aprovar e, em seguida, clique em **aprovar** abrir a aprovar selecionado no painel de solicitações.
 
-![](media/azure-ad-pim-approval-workflow/image029.png)
+    ![Lista de solicitações de aprovação do PIM](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
-Quando o processo de solicitação for concluído, o símbolo de status refletirá a decisão tomada (neste exemplo, a decisão é aprovar):
+1. No **razão da aprovação** , digite um motivo.
 
-![](media/azure-ad-pim-approval-workflow/image031.png)
+    ![Solicitações de PIM aprovar selecionado](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+
+1. Clique em **Aprovar**.
+
+    O símbolo de status será atualizado com sua aprovação.
+
+    ![Solicitações de PIM aprovar selecionado](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+
+## <a name="deny-requests"></a>Negar solicitações
+
+1. Selecione as solicitações que você deseja negar e clique em **Negar** para abrir o painel Negar solicitações selecionadas.
+
+    ![Lista de solicitações de aprovação do PIM](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+
+1. Na caixa **Negar motivo**, digite um motivo.
+
+    ![Solicitações de PIM negar selecionado](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+
+1. Clique em **negar**.
+
+    Símbolo de Status será atualizado com a negação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Aprovar ou negar as solicitações para funções de recurso do Azure no PIM](pim-resource-roles-approval-workflow.md)
 - [Notificações por email no PIM](pim-email-notifications.md)
+- [Aprovar ou negar as solicitações para funções de recurso do Azure no PIM](pim-resource-roles-approval-workflow.md)

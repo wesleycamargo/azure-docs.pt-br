@@ -1,25 +1,18 @@
 ---
 title: Circuitos do Azure ExpressRoute e domínios de roteamento | Microsoft Docs
 description: Esta página apresenta uma visão geral dos circuitos do ExpressRoute e dos domínios de roteamento.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/01/2018
-ms.author: ganesr,cherylmc
-ms.openlocfilehash: 563ee61b56af22ada662fcfff9f47ae58f3f32ba
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.topic: conceptual
+ms.date: 08/29/2018
+ms.author: cherylmc
+ms.openlocfilehash: c052cdf48786f7c70d09187d715d4f54843714a4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969088"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307546"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos do ExpressRoute e domínios de roteamento
  Você deve solicitar um *circuito do ExpressRoute* para conectar sua infraestrutura local à Microsoft por meio de um provedor de conectividade. A figura abaixo mostra uma representação lógica de conectividade entre sua WAN e a Microsoft.
@@ -48,12 +41,19 @@ Os serviços de computação do Azure, isto é, máquinas virtuais (IaaS) e serv
 
 Você pode conectar mais de uma rede virtual ao domínio de emparelhamento privado. Examine a [Página de perguntas Frequentes](expressroute-faqs.md) para obter informações sobre limites e limitações. Você pode visitar a página [Limites, cotas e restrições de serviço e assinatura do Azure](../azure-subscription-service-limits.md) para obter informações atualizadas sobre limites.  Consulte a página [Roteamento](expressroute-routing.md) para obter informações detalhadas sobre a configuração de roteamento.
 
-### <a name="azure-public-peering"></a>Emparelhamento público do Azure
+### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
+
+[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
+A conectividade com os serviços online da Microsoft (serviços do Office 365, do Dynamics 365 e de PaaS do Azure) ocorre por meio do emparelhamento da Microsoft. Habilitamos a conectividade bidirecional entre sua WAN e os serviços de nuvem da Microsoft por meio do domínio de roteamento de emparelhamento da Microsoft. Você deve se conectar aos serviços de nuvem da Microsoft somente por endereços IP públicos que pertençam a você ou ao seu provedor de conectividade e deve seguir todas as regras definidas. Para saber mais, veja a página [pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
+
+Consulte a [página de perguntas frequentes](expressroute-faqs.md) para obter mais informações sobre serviços com suporte, custos e detalhes de configuração. Consulte a página [Locais do ExpressRoute](expressroute-locations.md) para saber mais sobre a lista de provedores de conectividade que dão suporte ao emparelhamento da Microsoft.
+
+### <a name="azure-public-peering"></a> Pareamento público do Azure (preterido para novos circuitos)
 
 > [!IMPORTANT]
-> Todos os serviços de PaaS do Azure também são acessíveis por meio do emparelhamento da Microsoft. Recomendamos a criação do emparelhamento da Microsoft e a conexão com os serviços de PaaS do Azure por meio do emparelhamento da Microsoft.  
+> Não está disponível para novos circuitos do emparelhamento público do Azure.  
 >   
-
 
 Serviços como o Armazenamento do Azure, Sites e Bancos de dados SQL são oferecidos em endereços IP públicos. Você pode se conectar de modo privado a serviços hospedados em endereços IP públicos (incluindo VIPs de seus serviços de nuvem) por meio do domínio de roteamento de emparelhamento público. É possível conectar o domínio de emparelhamento público à sua DMZ e a todos os serviços do Azure em seus endereços IP públicos de sua WAN sem precisar se conectar pela Internet. 
 
@@ -63,26 +63,17 @@ Você pode definir filtros de rota personalizados dentro da sua rede para consum
 
 Para saber mais sobre serviços com suporte por meio do domínio de roteamento de emparelhamento público, consulte as [perguntas frequentes](expressroute-faqs.md).
 
-### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
-[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
-
-A conectividade com os serviços online da Microsoft (serviços do Office 365, do Dynamics 365 e de PaaS do Azure) ocorre por meio do emparelhamento da Microsoft. Habilitamos a conectividade bidirecional entre sua WAN e os serviços de nuvem da Microsoft por meio do domínio de roteamento de emparelhamento da Microsoft. Você deve se conectar aos serviços de nuvem da Microsoft somente por endereços IP públicos que pertençam a você ou ao seu provedor de conectividade e deve seguir todas as regras definidas. Para saber mais, veja a página [pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
-
-Consulte a [página de perguntas frequentes](expressroute-faqs.md) para obter mais informações sobre serviços com suporte, custos e detalhes de configuração. Consulte a página [Locais do ExpressRoute](expressroute-locations.md) para saber mais sobre a lista de provedores de conectividade que dão suporte ao emparelhamento da Microsoft.
-
 ## <a name="routing-domain-comparison"></a>Comparação de domínios de roteamento
 A tabela a seguir compara os três domínios de roteamento:
 
-|  | **Emparelhamento privado** | **Emparelhamento Público** (Preterido para novas criações) | **Emparelhamento da Microsoft** |
+|  | **Emparelhamento privado** | **Emparelhamento da Microsoft** |  **Emparelhamento público** (preterido para circuitos) |
 | --- | --- | --- | --- |
 | **Número máximo de prefixos com suporte por emparelhamento** |4000 por padrão, 10.000 com o ExpressRoute Premium |200 |200 |
 | **Intervalos de endereços IP com suporte** |Todos os endereços IP válidos em sua WAN. |Os endereços IP públicos pertencentes a você ou ao seu provedor de conectividade. |Os endereços IP públicos pertencentes a você ou ao seu provedor de conectividade. |
 | **Requisitos do número do AS** |Números públicos e privados do AS. Você deve possuir número público do AS, se você optar por usar um. |Números públicos e privados do AS. No entanto, você deve comprovar a propriedade de endereços IP públicos. |Números públicos e privados do AS. No entanto, você deve comprovar a propriedade de endereços IP públicos. |
-| **Protocolos IP com suporte**| IPv4 | IPv4 | IPv4, IPv6 |
+| **Protocolos IP com suporte**| IPv4 |  IPv4, IPv6 | IPv4 |
 | **Roteando endereços IP de interface** |RFC1918 e endereços IP públicos |Endereços IP públicos registrados para você em registros de roteamento. |Endereços IP públicos registrados para você em registros de roteamento. |
-| **Suporte a Hash MD5** |sim |sim |sim |
-
-
+| **Suporte a Hash MD5** |SIM |sim |SIM |
 
 Você pode optar por habilitar um ou mais domínios de roteamento como parte do seu circuito ExpressRoute. Também é possível optar por ter todos os domínios de roteamento na mesma VPN se você desejar combiná-los em um único domínio de roteamento. Você também pode colocá-los em diferentes domínios de roteamento, da mesma forma que no diagrama. A configuração recomendada é conectar o emparelhamento privado diretamente à rede principal, enquanto os vínculos de emparelhamento público e da Microsoft são conectados à sua DMZ.
 
@@ -91,7 +82,7 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
 ## <a name="expressroute-health"></a>Integridade do ExpressRoute
 Os circuitos de ExpressRoute podem ser monitorados para disponibilidade, conectividade para VNets e utilização de largura de banda usando o [Monitor de Desempenho de Rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
 
-O NPM monitora a integridade do emparelhamento Privado do Azure e do emparelhamento da Microsoft.  Confira nossa [postagem](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) para saber mais.
+O NPM monitora a integridade do peering privado do Azure e do peering da Microsoft.  Confira nossa [postagem](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) para saber mais.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Encontrar um provedor de serviços. Consulte [Locais e provedores de serviços do ExpressRoute](expressroute-locations.md).

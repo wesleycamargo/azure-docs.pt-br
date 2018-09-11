@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b34386a7b416d6f7d8b008a9cb5ef142948a370f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a9ff23e5182c8cb7c91ad93e368f61f258c84f8
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005388"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841585"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos 
 
@@ -35,19 +35,20 @@ Os códigos de resposta HTTP a seguir indicam que um evento foi entregue com êx
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Os códigos de resposta HTTP a seguir indicam que houve falha na tentativa de entrega do evento. 
+Os códigos de resposta HTTP a seguir indicam que houve falha na tentativa de entrega do evento.
 
 - 400 Solicitação Inválida
 - 401 Não Autorizado
 - 404 Não Encontrado
 - 408 Tempo limite da solicitação
+- Solicitação 413 entidade muito grande
 - 414 URI muito longo
 - 429 Número excessivo de solicitações
 - 500 Erro Interno do Servidor
 - 503 Serviço Indisponível
 - 504 Tempo Limite do Gateway
 
-Se a Grade de Eventos receber um erro indicando que o ponto de extremidade está temporariamente indisponível ou que uma solicitação futura poderá ser executada com êxito, ela tentará enviar novamente o evento. Se a Grade de Eventos receber um erro que indica a entrega nunca terá êxito e um [ponto de extremidade de inatividade tiver sido configurado](manage-event-delivery.md), ele envia o evento para o ponto de extremidade de inatividade. 
+Se você tiver [configurado um ponto final de letra morta](manage-event-delivery.md) e a Rede de Eventos receber um código de resposta 400 ou 413, a Grade de Eventos enviará imediatamente o evento ao ponto final de letra morta. Caso contrário, a grade de eventos repete todos os erros.
 
 ## <a name="retry-intervals-and-duration"></a>Intervalos de repetição e duração
 

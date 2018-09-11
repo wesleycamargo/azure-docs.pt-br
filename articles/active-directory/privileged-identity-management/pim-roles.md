@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: c8870e4da63dc52d5926bdfd5f7c9b3218e5f53a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: fc45cde1a5f0f287274302541ac0115569e2239d
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188979"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666329"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Funções de diretório do Azure AD que você pode gerenciar no PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -76,13 +76,36 @@ O acesso ao portal do Azure requer que o usuário seja um administrador ou coadm
 O acesso ao Microsoft Online Services pode exigir que o usuário também tenha uma licença atribuída antes de poder abrir o portal do serviço ou realizar tarefas administrativas.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Atribuir uma licença a um usuário no Azure AD
-1. Entre no [Portal do Azure](http://portal.azure.com) com uma conta de administrador global ou uma conta de coadministrador.
-3. Selecione oAzure AD e o diretório com o qual você deseja trabalhar e que tem licenças associadas a ele.
-4. Selecione **Licenças** à esquerda. A lista de licenças disponíveis será exibida.
-5. Selecione o plano de licença contendo as licenças que você quer distribuir.
-6. Selecione **Atribuir Usuários**.
-7. Selecione o usuário ao qual você deseja atribuir uma licença.
-8. Clique no botão **Atribuir** .  O usuário agora pode entrar no Azure.
+
+1. Faça login no [portal do Azure](http://portal.azure.com) com uma conta de administrador global ou uma conta de co-administrador.
+
+1. Selecione o diretório do Azure AD com o qual você deseja trabalhar e que tenha licenças associadas a ele.
+
+1. Na navegação à esquerda, clique em **Active Directory do Azure**.
+
+1. Clique em **licenças**. A lista de licenças disponíveis será exibida.
+
+    ![Licenças do Active Directory do Azure](./media/pim-roles/licenses-overview.png)
+
+1. Clique em seu **produto**.
+
+1. Clique no plano de licença que contém as licenças que você deseja distribuir.
+
+    ![Licenças de produtos](./media/pim-roles/licenses-products.png)
+
+1. Clique em **Atribuir** para abrir o painel Atribuir licença.
+
+    ![Usuários licenciados](./media/pim-roles/licenses-licensed-users.png)
+
+1. Selecione o usuário ou grupo ao qual você deseja atribuir uma licença.
+
+    ![Atribuir licença](./media/pim-roles/licenses-assign-license.png)
+
+1. Clique em **Opções de atribuição** para configurar suas opções de atribuição.
+
+    ![Opções de atribuição](./media/pim-roles/licenses-assignment-options.png)
+
+1. Clique em **atribuir** para atribuir a licença. Agora, o usuário tem a licença.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Próximas etapas

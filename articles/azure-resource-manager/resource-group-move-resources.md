@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617283"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783331"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -57,8 +57,7 @@ Há algumas etapas importantes a serem realizadas antes de mover um recurso. Ao 
   * [Transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md)
   * [Como associar ou adicionar uma assinatura do Azure ao Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. O serviço deve permitir a movimentação de recursos. Este artigo lista quais serviços permitem mover os recursos e quais serviços não habilitam a movimentação dos recursos.
-3. A assinatura de destino deve estar registrada para que o provedor de recursos do recurso seja movido. Se não estiver, você receberá um erro afirmando que a **assinatura não está registrada para um tipo de recurso**. Você pode encontrar esse problema ao mover um recurso para uma nova assinatura que nunca tenha sido usada com esse tipo de recurso.
+1. A assinatura de destino deve estar registrada para que o provedor de recursos do recurso seja movido. Se não estiver, você receberá um erro afirmando que a **assinatura não está registrada para um tipo de recurso**. Você pode encontrar esse problema ao mover um recurso para uma nova assinatura que nunca tenha sido usada com esse tipo de recurso.
 
   Para o PowerShell, use os seguintes comandos para obter o status do registro:
 
@@ -86,14 +85,16 @@ Há algumas etapas importantes a serem realizadas antes de mover um recurso. Ao 
   az provider register --namespace Microsoft.Batch
   ```
 
-4. A conta de movimentação de recursos deve ter pelo menos as seguintes permissões:
+1. A conta de movimentação de recursos deve ter pelo menos as seguintes permissões:
 
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** no grupo de recursos de origem.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** no grupo de recursos de destino.
 
-5. Antes de mover os recursos, verifique as cotas de assinatura da assinatura para a qual você está movendo os recursos. Se mover os recursos significa que a assinatura excederá seus limites, será necessário verificar se você pode solicitar um aumento na cota. Para obter uma lista de limites e como solicitar um aumento, consulte [Limites, cotas e restrições em assinaturas e serviços do Azure](../azure-subscription-service-limits.md).
+1. Antes de mover os recursos, verifique as cotas de assinatura da assinatura para a qual você está movendo os recursos. Se mover os recursos significa que a assinatura excederá seus limites, será necessário verificar se você pode solicitar um aumento na cota. Para obter uma lista de limites e como solicitar um aumento, consulte [Limites, cotas e restrições em assinaturas e serviços do Azure](../azure-subscription-service-limits.md).
 
-5. Quando possível, quebre grandes movimentações em operações de movimentação separadas. O Gerenciador de Recursos falha imediatamente ao tentar mover mais de 800 recursos em uma única operação. No entanto, mover menos de 800 recursos também pode falhar por tempo limite.
+1. Quando possível, quebre grandes movimentações em operações de movimentação separadas. O Gerenciador de Recursos falha imediatamente ao tentar mover mais de 800 recursos em uma única operação. No entanto, mover menos de 800 recursos também pode falhar por tempo limite.
+
+1. O serviço deve permitir a movimentação de recursos. Para determinar se a jogada será bem-sucedida, [valide sua solicitação de movimentação](#validate-move). Consulte as seções abaixo neste artigo [serviços permitem mover os recursos](#services-that-can-be-moved) e quais [services não permitem mover os recursos](#services-that-cannot-be-moved).
 
 ## <a name="when-to-call-support"></a>Quando telefonar para o suporte
 
@@ -106,6 +107,59 @@ Entre em contato com o [suporte](https://portal.azure.com/#blade/Microsoft_Azure
 
 * Mover os recursos para uma nova conta do Azure (e o locatário do Azure Active Directory) e precisar de ajuda com as instruções na seção anterior.
 * Mover recursos clássicos, mas está tendo problemas com as limitações.
+
+## <a name="validate-move"></a>Validar movimentação
+
+A operação [validate move](/rest/api/resources/resources/validatemoveresources) permite que você teste seu cenário de movimentação sem realmente mover os recursos. Use essa operação para determinar se a movimentação será bem-sucedida. Para executar essa operação, você precisa de:
+
+* nome do grupo de recursos de origem
+* ID do recurso do grupo de recursos de destino
+* ID do recurso de cada recurso para mover
+* o [token de acesso](/rest/api/azure/#acquire-an-access-token) para sua conta
+
+Envie a seguinte solicitação:
+
+```
+POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2018-02-01
+Authorization: Bearer <access-token>
+Content-type: application/json
+```
+
+Com um corpo de solicitação:
+
+```json
+{
+ "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
+}
+```
+
+Se a solicitação estiver formatada corretamente, a operação retornará:
+
+```
+Response Code: 202
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+location: https://management.azure.com/subscriptions/<subscription-id>/operationresults/<operation-id>?api-version=2018-02-01
+retry-after: 15
+...
+```
+
+O código de status 202 indica que a solicitação de validação foi aceita, mas ainda não determinou se a operação de movimentação será bem-sucedida. O valor `location` contém um URL que você usa para verificar o status da operação de longa duração.  
+
+Para verificar o status, envie a seguinte solicitação:
+
+```
+GET <location-url>
+Authorization: Bearer <access-token>
+```
+
+Enquanto a operação ainda está em execução, você continua recebendo o código de status 202. Aguarde o número de segundos indicado no valor `retry-after` antes de tentar novamente. Se a operação de movimentação é validado com êxito, você receberá o código de 204 status. Se a validação da movimentação falhar, você receberá uma mensagem de erro, como:
+
+```json
+{"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
+```
 
 ## <a name="services-that-can-be-moved"></a>Serviços que podem ser movidos
 
@@ -122,7 +176,6 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Mapas do Azure
 * Retransmissão do Azure
 * Azure Stack - registros
-* Migrações para Azure
 * Lote
 * Serviços do BizTalk
 * Serviço de Bot
@@ -188,6 +241,7 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Banco de Dados do Azure para PostgreSQL
 * Migração de banco de dados do Azure
 * Azure Databricks
+* Migrações para Azure
 * Lote AI
 * Certificados - Os certificados do Serviço de Aplicativo podem ser movidos, mas os certificados carregados têm [limitações](#app-service-limitations).
 * Instâncias de Contêiner
@@ -237,8 +291,6 @@ Ao mover uma rede virtual, você também deve mover os recursos dependentes. Par
 Para mover uma rede virtual emparelhada, primeiro é necessário desabilitar o emparelhamento de rede virtual. Quando desabilitado, você pode mover a rede virtual. Após a movimentação, reabilite o emparelhamento de rede virtual.
 
 Você não pode mover uma rede virtual para uma assinatura diferente caso a rede virtual contenha uma sub-rede com links de navegação de recurso. Por exemplo, se um recurso de Cache Redis estiver implantado em uma sub-rede, essa sub-rede terá um link de navegação do recurso.
-
-Você não pode mover uma rede virtual para uma assinatura diferente caso a rede virtual contenha um servidor DNS personalizado. Para mover a rede virtual, defina-a como o servidor DNS padrão (fornecido pelo Microsoft Azure). Após mover, reconfigure o servidor DNS personalizado.
 
 ## <a name="app-service-limitations"></a>Limitações do Serviço de Aplicativo
 

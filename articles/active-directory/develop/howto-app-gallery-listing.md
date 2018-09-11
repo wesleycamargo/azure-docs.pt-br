@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/14/2018
+ms.date: 08/31/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 8c9d1ee51acdfff188e0d6483f723fbb08e17bd5
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e5db7b9bed674011c2922f026c301172f347f53f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601200"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666301"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar seu aplicativo na galeria de aplicativos do Azure Active Directory
 
@@ -45,11 +45,23 @@ O Azure Active Directory é um serviço de identidade baseado em nuvem. A [galer
 
 *  Os clientes que usam SCIM podem usar o provisionamento para o mesmo aplicativo.
 
-##  <a name="prerequisites-implement-federation-protocol"></a>Pré-requisitos: implementar protocolo de federação
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Para aplicativos federados (Open ID e SAML / WS-Fed), o aplicativo deve oferecer suporte ao modelo SaaS para ser listado na galeria do Azure AD. Os aplicativos de galeria da empresa devem oferecer suporte a várias configurações de cliente e não a nenhum cliente específico.
+
+- Para o Open ID Connect, o aplicativo deve ser multitenariado e a [estrutura de consentimento do Azure AD](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) deve ser implementada adequadamente para o aplicativo. O usuário pode enviar a solicitação de login para um terminal comum para que qualquer cliente possa fornecer consentimento para o aplicativo. É possível controlar acesso de usuário com base na ID do locatário e o UPN do usuário recebido no token.
+
+- Para o SAML 2.0 / WS-Fed, seu aplicativo precisa ter a capacidade de fazer a integração SSO de SAML / WS-Fed no modo SP ou IDP. Por favor, verifique se está funcionando corretamente antes de enviar a solicitação.
+
+- Para o SSO de Senha, certifique-se de que seu aplicativo ofereça suporte à autenticação de formulário para que o armazenamento de senhas possa ser feito para que o logon único funcione conforme o esperado.
+
+- Para solicitações de aprovisionamento automático de usuários, o aplicativo deve ser listado na galeria com o recurso de conexão única ativado usando qualquer um dos protocolos de federação descritos acima. Você pode solicitar o fornecimento de SSO e Usuário juntos no portal, se ele ainda não estiver listado.
+
+##  <a name="implementing-sso-using-federation-protocol"></a>Implementando o SSO usando o protocolo de federação
 
 Para listar um aplicativo na galeria de aplicativos do Azure AD, primeiro é necessário implementar um dos seguintes protocolos de federação compatíveis com o Azure AD, além de concordar com os termos e condições da Galeria de aplicativos do Azure AD. Leia [aqui](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/) os termos e condições da galeria de aplicativos do Azure AD.
 
-*   **OpenID Connect**: crie o aplicativo multilocatário no Azure Active Directory e implemente a [estrutura de consentimento do Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) para seu aplicativo. Envie a solicitação de logon para um ponto de extremidade comum para que qualquer cliente possa dar consentimento ao aplicativo. É possível controlar acesso de usuário com base na ID do locatário e o UPN do usuário recebido no token. Para integrar o aplicativo com o Azure Active Directory, siga as [instruções do desenvolvedor](authentication-scenarios.md).
+*   **OpenID Connect**: para integrar seu aplicativo ao Azure AD usando o protocolo Open ID Connect, siga as [ instruções dos desenvolvedores ](authentication-scenarios.md).
 
     ![TimeLine de listagem de aplicativos OpenID Connect na galeria](./media/howto-app-gallery-listing/openid.png)
 
@@ -57,21 +69,23 @@ Para listar um aplicativo na galeria de aplicativos do Azure AD, primeiro é nec
 
     * Se você tiver algum problema relacionado ao acesso, contate a [Equipe de Integração de SSO do Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** ou **WS-Fed**: seu aplicativo deve ter a capacidade de fazer a integração de SSO do SAML/WS-Fed no modo IDP ou SP. Se o aplicativo fornecer suporte para SAML 2.0, você poderá integrá-lo diretamente com um locatário do Azure Active Directory, usando as [instruções para adicionar uma aplicativo personalizado](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** ou **WS-Fed**: se seu aplicativo for compatível com SAML 2.0, você poderá integrá-lo diretamente a um locatário do Azure AD usando as instruções [para adicionar um aplicativo personalizado](../active-directory-saas-custom-apps.md).
 
     ![TimeLine de listagem de aplicativos SAML 2.0 ou WS-Fed na galeria](./media/howto-app-gallery-listing/saml.png)
 
     * Se você desejar adicionar o aplicativo à lista na galeria usando **SAML 2.0** ou **WS-Fed**, selecione **SAMl 2.0, WS-Fed** como acima.
 
-    * Se você tiver algum problema relacionado ao acesso, contate a [Equipe de Integração de SSO do Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
-
-*   **SSO de senha**: crie um aplicativo Web que tem uma página de entrada HTML para configurar o [logon único baseado em senha](../manage-apps/what-is-single-sign-on.md). O SSO baseado em senha, também conhecido como armazenamento de senha em cofre, permite que você gerencie o acesso de usuários e senhas para aplicativos Web que não dão suporte a federação de identidades. Também é útil para cenários, nos quais vários usuários precisam compartilhar uma única conta, como contas de aplicativo de mídia social da sua organização.
-
-    ![TimeLine de listagem de aplicativos SSO de Senha na galeria](./media/howto-app-gallery-listing/passwordsso.png)
-
-    * Se você desejar adicionar o aplicativo à lista na galeria usando SSO de Senha, selecione **SSO de Senha** como acima.
-
     * Se você tiver algum problema relacionado ao acesso, contate a [Equipe de Integração de SSO do Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+## <a name="implementing-sso-using-password-sso"></a>Implementando o SSO usando o SSO de senha
+
+Crie um aplicativo da Web que tenha uma página de login HTML para configurar a [conexão única baseada em senha](../manage-apps/what-is-single-sign-on.md). O SSO baseado em senha, também conhecido como armazenamento de senha em cofre, permite que você gerencie o acesso de usuários e senhas para aplicativos Web que não dão suporte a federação de identidades. Também é útil para cenários, nos quais vários usuários precisam compartilhar uma única conta, como contas de aplicativo de mídia social da sua organização.
+
+![TimeLine de listagem de aplicativos SSO de Senha na galeria](./media/howto-app-gallery-listing/passwordsso.png)
+
+* Se você desejar adicionar o aplicativo à lista na galeria usando SSO de Senha, selecione **SSO de Senha** como acima.
+
+* Se você tiver algum problema relacionado ao acesso, contate a [Equipe de Integração de SSO do Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ##  <a name="updateremove-existing-listing"></a>Atualizar/remover listagem existente
 
@@ -80,7 +94,7 @@ Para atualizar ou remover um aplicativo existente na galeria de aplicativos do M
 * Selecione a opção apropriada na imagem abaixo
 
     ![TimeLine de listagem de aplicativos SAML na galeria](./media/howto-app-gallery-listing/updateorremove.png)
-    
+
     * Se você deseja atualizar um aplicativo existente, selecione **Atualizar listagem de aplicativo existente**.
 
     * Se você quiser remover um aplicativo existente da galeria do Microsoft Azure AD, selecione **Remover a listagem de aplicativo existente**

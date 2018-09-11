@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745661"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783365"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações sobre segurança para movimentação de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -188,7 +188,7 @@ Ainda não oferecemos suporte a essa funcionalidade. No entanto, estamos trabalh
 
 **Quais são os requisitos de porta para o tempo de execução de integração auto-hospedado funcionar?**
 
-O tempo de execução de integração auto-hospedado faz conexões com base em HTTP para acessar a internet. As portas de saída 443 e 80 devem estar abertas para que o tempo de execução de integração auto-hospedado estabeleça essa conexão. Abra a porta de entrada 8050 somente no nível do computador (não no nível de firewall corporativo) para o aplicativo gerenciador de credenciais. Se o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure for usado como a origem ou o destino, você precisará abrir a porta 1433 também. Para obter mais informações, consulte a seção [Configurações de firewall e endereços IP na lista de permissões](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
+O tempo de execução de integração auto-hospedado faz conexões com base em HTTP para acessar a internet. As portas de saída 443 devem ser abertas para o tempo de execução de integração auto-hospedado para fazer essa conexão. Abra a porta de entrada 8050 somente no nível do computador (não no nível de firewall corporativo) para o aplicativo gerenciador de credenciais. Se o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure for usado como a origem ou o destino, você precisará abrir a porta 1433 também. Para obter mais informações, consulte a seção [Configurações de firewall e endereços IP na lista de permissões](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
 
 
 ## <a name="next-steps"></a>Próximas etapas

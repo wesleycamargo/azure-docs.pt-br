@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 5b3cea87e7762e492432722c54a1a8aaa342b84a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142033"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840612"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicione o Key Vault ao seu aplicativo Web usando os Serviços Conectados do Visual Studio
 
@@ -74,6 +74,10 @@ Agora, você pode acessar seus segredos no código. As próximas etapas são dif
 
 ## <a name="access-your-secrets-in-code-aspnet-core-projects"></a>Acesse seus segredos no código (Projetos do ASP.NET Core)
 
+A conexão com o Key Vault é configurada na inicialização por uma classe que implementa [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) usando uma maneira de estender o comportamento de inicialização descrito em [Aprimorar um aplicativo de um assembly externo em ASP.NET Core com IHostingStartup](/aspnet/core/fundamentals/host/platform-specific-configuration). A classe de inicialização usa duas variáveis de ambiente que contêm as informações de conexão do Key Vault: ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED, definido como true e ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT, definido como URL do seu Cofre de Chaves. Eles são adicionados ao arquivo launchsettings.json quando você executa o processo **Add Connected Service**.
+
+Para acessar seus segredos:
+
 1. No Visual Studio, em seu projeto do ASP.NET Core, agora você pode referenciar esses segredos usando as seguintes expressões no código:
  
    ```csharp
@@ -99,6 +103,10 @@ Agora, você pode acessar seus segredos no código. As próximas etapas são dif
 1. Compile e execute o aplicativo Web, navegue até a página Sobre e confira o valor de "segredo".
 
 ## <a name="access-your-secrets-in-code-aspnet-471-projects"></a>Acesse seus segredos no código (Projetos do ASP.NET 4.7.1)
+
+A conexão com o Cofre de Chaves é configurada pela classe ConfigurationBuilder usando informações que foram adicionadas ao seu arquivo web.config quando você executa o processo **Add Connected Service**.
+
+Para acessar seus segredos:
 
 1. Modifique o web.config da seguinte maneira. As chaves são espaços reservados que serão substituídos pelo AzureKeyVault ConfigurationBuilder com os valores dos segredos no Key Vault.
 

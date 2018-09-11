@@ -1,6 +1,6 @@
 ---
-title: O que é o painel de acesso no Azure Active Directory? | Microsoft Docs
-description: Saiba como usar variações do painel de acesso (navegador da Web, aplicativo Android, iPhone e iPad) para acessar os aplicativos SaaS.
+title: O que é o portal MyApps no Active Directory do Azure? | Microsoft Docs
+description: Aprenda a usar variações do portal MyApps (navegador da Web, aplicativo Android, iPhone e iPad) para acessar aplicativos SaaS.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e382f53678806aa3442151703277c3a57bb30830
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145672"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302270"
 ---
-# <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
+# <a name="what-is-the-myapps-portal"></a>O que é o portal do MyApps?
 
-O painel de acesso é um portal baseado na Web. Se você tiver uma conta de estudante ou corporativa no Azure Active Directory (Azure AD), você pode usar o painel de acesso para exibir e iniciar aplicativos baseados em nuvem para os quais um administrador do Azure AD tenha concedido acesso. Você também pode usar os recursos de gerenciamento de grupo de autoatendimento e aplicativo por meio do painel de acesso.
+Se você tiver uma conta de trabalho ou escola no Azure AD (Azure AD), poderá usar o portal baseado na web Meus Aplicativos para exibir e iniciar aplicativos baseados na nuvem aos quais um administrador do Azure AD concedeu acesso. Você também pode usar recursos de gerenciamento de aplicativos e grupos de autoatendimento por meio do portal MyApps.
 
-O painel de acesso é separado do portal do Azure. Não é preciso ter uma assinatura do Azure.
+O portal MyApps é separado do portal do Azure. Ele não requer que você tenha uma assinatura do Azure.
 
-![Painel de acesso][1] Ao usar o painel de acesso, é possível editar algumas configurações do seu perfil e fazer o seguinte:
+![Portal MyApps][1] Usando o portal MyApps, você pode editar algumas das configurações do seu perfil e fazer o seguinte:
 
 - Alterar a senha associada a uma conta corporativa ou de estudante.
 
@@ -39,12 +39,9 @@ O painel de acesso é separado do portal do Azure. Não é preciso ter uma assin
 
 - Autogerenciar grupos. Administradores podem criar e gerenciar grupos de segurança e solicitar associações ao grupo de segurança no Azure AD. Para saber mais, confira [Gerenciamento de grupo de autoatendimento para usuários no Azure AD](../users-groups-roles/groups-self-service-management.md) e [Gerenciar seus grupos](../fundamentals/active-directory-manage-groups.md).
 
+## <a name="access-the-myapps-portal"></a>Acessar o portal do MyApps
 
-
-
-## <a name="access-the-access-panel"></a>Acessar o painel de acesso
-
-É possível acessar o painel de acesso em `http://myapps.microsoft.com`.
+Você pode acessar o portal do MyApps acessando `http://myapps.microsoft.com`.
 
 Se tiver a identidade visual personalizada configurada para sua página de entrada, poderá carregar a identidade visual anexando o domínio da sua organização à URL (por exemplo, `http://myapps.microsoft.com/<your domain>.com`).
 
@@ -54,7 +51,7 @@ Distribua a URL a todos os usuários que entram nos aplicativos integrados ao Az
 
 ## <a name="authentication"></a>Autenticação
 
-Para acessar o painel de acesso, você deve ser autenticado usando uma conta corporativa ou de estudante no Azure AD. Você pode ser autenticado no Azure AD diretamente. Como alternativa, se uma organização tiver configurado a federação usando o AD FS (Serviços de Federação do Active Directory) ou outras tecnologias, você pode ser autenticado pelo Windows Server Active Directory.
+Para acessar o portal MyApps, você deve ser autenticado por meio de uma conta de trabalho ou escola no AD do Azure. Você pode ser autenticado no Azure AD diretamente. Como alternativa, se uma organização tiver configurado a federação usando o AD FS (Serviços de Federação do Active Directory) ou outras tecnologias, você pode ser autenticado pelo Windows Server Active Directory.
 
 Se você tiver uma assinatura do Azure ou do Office 365 e estiver usando o Portal do Azure ou um aplicativo do Office 365, pode ver a lista de aplicativos sem entrar novamente. Se você não estiver autenticado, receberá uma solicitação para entrar usando o nome de usuário e a senha de sua conta no Azure AD. Se sua organização tiver configurado a federação, digitar o nome do usuário será suficiente.
 
@@ -62,12 +59,12 @@ Quando está autenticado, você pode interagir com os aplicativos integrados ao 
 
 ## <a name="web-browser-requirements"></a>Requisitos de navegador da Web
 
-O painel de acesso exige, pelo menos, um navegador com suporte para JavaScript e CSS habilitado. Para entrar nos aplicativos usando SSO (logon único) baseado em senha, é preciso ter a extensão do painel de acesso instalada no seu navegador. A extensão é baixada automaticamente quando você seleciona um aplicativo configurado para SSO baseado em senha.
+No mínimo, o portal MyApps requer um navegador que suporte JavaScript e tenha CSS ativado. Para estar conectado aos aplicativos por meio de logon único (SSO) baseado em senha, você deve ter a extensão do portal MyApps instalada no navegador. A extensão é baixada automaticamente quando você seleciona um aplicativo configurado para SSO baseado em senha.
 
 O instalador é específico da arquitetura. Se clicar no link de download, você só obterá o instalador para a arquitetura do sistema operacional em que está trabalhando no momento. Se você é um administrador de implantação de aplicativos, certifique-se de visitar o link de download de um dispositivo de 64 bits e 32 bits para obter os dois instaladores.
 
 
-A extensão do painel de acesso está atualmente disponível para:
+A extensão do portal MyApps está atualmente disponível para:
 - **Edge**: na Edição de Aniversário do Windows 10 ou posterior. 
 - **Chrome**: no Windows 7 ou posterior e no MacOS X ou posterior.
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
@@ -77,7 +74,7 @@ A extensão do painel de acesso está atualmente disponível para:
 Para entrar com logon único baseado em senha, você deve usar a extensão. Depois que a extensão estiver instalada, você pode entrar para habilitar recursos adicionais selecionando **Entrar para começar**. 
 
 - Você pode entrar em um aplicativo diretamente usando a **URL de logon** do aplicativo. Quando você usa a URL do aplicativo, a extensão detecta a ação e oferece a opção de entrar a partir da extensão.
-- Você também pode iniciar qualquer um de seus aplicativos no painel de acesso usando o recurso de *pesquisa rápida* da extensão. 
+- Você pode iniciar qualquer um dos seus aplicativos do portal do MyApps usando o *pesquisa rápida* recurso da extensão. 
 - A extensão mostra os três últimos aplicativos iniciados na seção **Usados Recentemente**.
 - Você pode usar URLs internas da empresa ao remoto por meio de [Proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
@@ -111,7 +108,7 @@ Para usar URLs internas da empresa ao remota usando a extensão, faça o seguint
 A equipe do Azure Active Directory publica o aplicativo móvel Meus Aplicativos. Quando você instala esse aplicativo, você pode entrar em aplicativos de SSO baseado em senha em dispositivos iOS e Android.
 
 > [!NOTE]
-> Você pode entrar em aplicativos que dão suporte à federação com o Azure AD (incluindo Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 e mais de 70 outros) em praticamente qualquer navegador da Web em qualquer dispositivo, sem a necessidade de um plug-in ou aplicativo móvel. Para ser usado em um dispositivo móvel, as outras [experiências do painel de acesso](https://myapps.microsoft.com/) também não precisam do aplicativo móvel Meus Aplicativos.
+> Você pode entrar em aplicativos que dão suporte à federação com o Azure AD (incluindo Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 e mais de 70 outros) em praticamente qualquer navegador da Web em qualquer dispositivo, sem a necessidade de um plug-in ou aplicativo móvel. A ser usado em um dispositivo móvel, o outro [experiências do portal do MyApps](https://myapps.microsoft.com/) também não exigem o aplicativo móvel meus aplicativos.
 >
 >
 
@@ -145,22 +142,22 @@ O Intune Managed Browser está disponível na [Apple App Store](https://itunes.a
 
 ## <a name="tips-for-testing-the-user-experience"></a>Dicas para testar a experiência do usuário
 
-Se você for um administrador do Azure e estiver conectado ao Portal do Azure usando uma conta no diretório, será automaticamente conectado ao painel de acesso como sua conta atual. Essa exibição mostra todos os aplicativos atribuídos a você.
+Se você for um administrador do Azure e estiver conectado ao portal do Azure usando uma conta no diretório, estará automaticamente conectado ao portal MyApps como sua conta atual. Essa exibição mostra todos os aplicativos atribuídos a você.
 
 Para testar uma conta de usuário *diferente*, faça o seguinte:
 
-1. No canto superior direito do portal do Azure ou no painel de acesso, selecione **Sair**. 
-2. Acesse o [painel de acesso](http://myapps.microsoft.com).
+1. No canto superior direito do portal do Azure ou no portal MyApps, selecione **Sair**. 
+2. Vá para o [portal do MyApps](http://myapps.microsoft.com).
 3. Na página de entrada, digite o nome de usuário e a senha da conta no diretório que você deseja testar.
 
 
 ## <a name="starting-applications"></a>Iniciar aplicativos
 
-Nesta seção, são discutidos vários tipos de aplicativos que podem aparecer no painel de acesso.
+Esta seção discute vários tipos de aplicativos que podem aparecer no portal MyApps.
 
 ### <a name="office-365-applications"></a>Aplicativos do Office 365
 
-Se sua organização estiver usando aplicativos do Office 365 e você for licenciado para eles, os aplicativos do Office 365 serão exibidos no seu painel de acesso.
+Se a sua organização estiver usando aplicativos do Office 365 e você estiver licenciado para eles, os aplicativos do Office 365 aparecerão no seu portal MyApps.
 
 Ao selecionar um bloco do aplicativo para um aplicativo do Office 365, você é redirecionado para o aplicativo e conectado automaticamente.
 
@@ -174,7 +171,7 @@ Ao selecionar um bloco para um aplicativo, você é redirecionado e automaticame
 
 Seu administrador pode adicionar aplicativos na seção Active Directory do Portal do Azure com o modo SSO definido como **Logon único do baseado em senha**. Todos os usuários no diretório podem ver todos os aplicativos configurados nesse modo.
 
-Na primeira vez que você seleciona um bloco de aplicativo, recebe uma solicitação para instalar o plug-in do SSO de senha para o Internet Explorer ou Chrome. A instalação pode exigir você a reinicialização do seu navegador da Web. Ao retornar ao painel de acesso e selecionar novamente o bloco do aplicativo, você recebe uma solicitação para inserir um nome de usuário e senha para o aplicativo. Ao inserir o nome de usuário e senha, as credenciais são armazenadas com segurança e vinculadas à sua conta no Azure AD.
+Na primeira vez que você seleciona um bloco de aplicativo, recebe uma solicitação para instalar o plug-in do SSO de senha para o Internet Explorer ou Chrome. A instalação pode exigir você a reinicialização do seu navegador da Web. Quando você retornar ao portal MyApps e selecionar o bloco do aplicativo novamente, será solicitado um nome de usuário e uma senha para o aplicativo. Ao inserir o nome de usuário e senha, as credenciais são armazenadas com segurança e vinculadas à sua conta no Azure AD.
 
 Na próxima vez que selecionar o bloco do aplicativo, você será automaticamente conectado ao aplicativo.  
 
@@ -194,7 +191,7 @@ Seu administrador pode adicionar aplicativos na seção Active Directory do Port
 
 Na primeira vez que você seleciona um bloco de aplicativo, recebe uma solicitação para instalar o plug-in do SSO de senha para o Internet Explorer ou Chrome. A instalação pode exigir você a reinicialização do seu navegador da Web.  
 
-Ao retornar ao painel de acesso e selecionar novamente o bloco do aplicativo, você é automaticamente conectado ao aplicativo.
+Quando você retornar ao portal MyApps e selecionar o bloco do aplicativo novamente, será automaticamente conectado ao aplicativo.
 
 Alguns aplicativos podem exigir que você altere sua senha na primeira entrada. Se suas credenciais de um usuário forem alteradas no aplicativo de terceiros de destino, você também deverá atualizar as credenciais armazenadas no Azure AD. 
 
@@ -206,9 +203,9 @@ Para atualizar suas credenciais, faça o seguinte:
 
 ### <a name="application-with-existing-sso-solutions"></a>Aplicativos com soluções de SSO existentes
 
-Para configurar o SSO para um aplicativo, o Portal do Azure fornece uma terceira opção chamada de Logon Único Existente. Essa opção permite que o administrador crie um link para um aplicativo e coloque-o no painel de acesso para os usuários selecionados.
+Para configurar o SSO para um aplicativo, o Portal do Azure fornece uma terceira opção chamada de Logon Único Existente. Essa opção permite que o administrador crie um link para um aplicativo e coloque-o no portal MyApps para usuários selecionados.
 
-Por exemplo, se um aplicativo for configurado para autenticar usuários usando o AD FS 2.0, seu administrador poderá usar a opção Logon Único Existente para criar um link para ele no painel de acesso. Quando os você acessar o link, você é autenticado por meio do AD FS 2.0 ou por qualquer solução de SSO existente fornecida pelo aplicativo.
+Por exemplo, se um aplicativo estiver configurado para autenticar usuários usando o AD FS 2.0, seu administrador poderá usar a opção Logon Único Existente para criar um link para ele no portal MyApps. Quando os você acessar o link, você é autenticado por meio do AD FS 2.0 ou por qualquer solução de SSO existente fornecida pelo aplicativo.
 
 
 ## <a name="next-steps"></a>Próximas etapas

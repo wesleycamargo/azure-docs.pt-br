@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 3c447a37b1dfbdac2c6e2a4eaa61d0e0e08a2176
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ef1bd613943543f78d358064f4abefc6fa31b63e
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442232"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842328"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de e para o SQL Data Warehouse do Azure usando o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -163,9 +163,9 @@ Para usar a autenticação de token do aplicativo do Azure AD com base em MSI, s
 
 1. **Crie um grupo no AD do Azure.** Faça da fábrica MSI um membro do grupo.
 
-    a. Encontre a identidade do serviço de fábrica de dados no portal do Azure. Vá para as **Propriedades** da sua data factory. Copie o ID da IDENTIDADE DO SERVIÇO.
+    1. Encontre a identidade do serviço de fábrica de dados no portal do Azure. Vá para as **Propriedades** da sua data factory. Copie o ID da IDENTIDADE DO SERVIÇO.
 
-    b. Instale o módulo do [PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Entre usando o comando `Connect-AzureAD`. Execute os seguintes comandos para criar um grupo e inclua o MSI do data factory como membro.
+    1. Instale o módulo do [PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Entre usando o comando `Connect-AzureAD`. Execute os seguintes comandos para criar um grupo e inclua o MSI do data factory como membro.
     ```powershell
     $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
@@ -401,13 +401,14 @@ O SQL Data Warehouse PolyBase oferece suporte diretamente ao Azure Blob e ao Azu
 Se os requisitos não forem atendidos, o Azure Data Factory verificará as configurações e retornará automaticamente ao mecanismo BULKINSERT para a movimentação de dados.
 
 1. O tipo de **Serviço vinculado de origem** é armazenamento de Blobs do Azure (**AzureBLobStorage**/**AzureStorage**) com autenticação de chave de conta ou Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) com autenticação de entidade de serviço.
-1. O **tipo de conjunto de dados de entrada** é **AzureBlob** ou  **AzureDataLakeStoreFile**. O tipo de formato em `type`propriedades é **OrcFormat**, **ParquetFormat** ou **TextFormat**, com as seguintes configurações:
+2. O **tipo de conjunto de dados de entrada** é **AzureBlob** ou  **AzureDataLakeStoreFile**. O tipo de formato em `type`propriedades é **OrcFormat**, **ParquetFormat** ou **TextFormat**, com as seguintes configurações:
 
-   1. `rowDelimiter` deve ser **\n**.
-   1. `nullValue`é definido como **cadeia de caracteres vazia** ("") ou como padrão, e `treatEmptyAsNull` não é definido como falso.
-   1. `encodingName`está definido como **utf-8**, que é o valor padrão.
-   1. `escapeChar`, `quoteChar` e `skipLineCount` não são especificadas. O suporte do PolyBase ignorar a linha de cabeçalho que pode ser configurada como `firstRowAsHeader` no ADF.
-   1. `compression` pode ser **sem compactação**, **GZip** ou **Deflate**.
+   1. `fileName` não contém o filtro curinga.
+   2. `rowDelimiter` deve ser **\n**.
+   3. `nullValue`é definido como **cadeia de caracteres vazia** ("") ou como padrão, e `treatEmptyAsNull` não é definido como falso.
+   4. `encodingName`está definido como **utf-8**, que é o valor padrão.
+   5. `escapeChar`, `quoteChar` e `skipLineCount` não são especificadas. O suporte do PolyBase ignorar a linha de cabeçalho que pode ser configurada como `firstRowAsHeader` no ADF.
+   6. `compression` pode ser **sem compactação**, **GZip** ou **Deflate**.
 
     ```json
     "typeProperties": {

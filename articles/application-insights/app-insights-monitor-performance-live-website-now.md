@@ -1,6 +1,6 @@
 ---
-title: "Monitorar um aplicativo Web ASP.NET dinâmico com o Azure Application Insights | Microsoft Docs"
-description: "Monitore o desempenho do site sem implantá-lo novamente. Funciona com aplicativos web ASP.NET hospedado no local, em máquinas virtuais ou no Azure."
+title: Monitorar um aplicativo Web ASP.NET dinâmico com o Azure Application Insights | Microsoft Docs
+description: Monitore o desempenho do site sem implantá-lo novamente. Funciona com aplicativos web ASP.NET hospedado no local, em máquinas virtuais ou no Azure.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/05/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 869ea96072b1492db929c16cfb1e22b0c96bca7d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 54a335cf1386ab29c0e0214bccf1f53a076da02b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783471"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicativos Web no tempo de execução com o Application Insights
 
-
 Você pode instrumentar um aplicativo Web ativo com o Application Insights do Azure, sem a necessidade de modificar ou reimplantar o código. Se os seus aplicativos forem hospedados por um servidor IIS local, instale o Monitor de Status. Se forem aplicativos Web do Azure ou estiverem sendo executados em uma VM do Azure, ative o monitoramento do Application Insights no painel de controle do Azure. (Também há artigos separados sobre como instrumentar os [aplicativos Web J2EE dinâmicos](app-insights-java-live.md) e os [Serviços de Nuvem do Azure](app-insights-cloudservices.md).) É necessário ter uma assinatura do [Microsoft Azure](http://azure.com) .
 
-![gráficos de exemplo](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+![Captura de tela dos gráficos de visão geral do App Insights contendo informações sobre solicitações com falha, tempo de resposta do servidor e solicitações do servidor](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 Você tem a opção de três rotas para aplicar o Application Insights nos aplicativos Web .NET:
 
@@ -36,14 +36,14 @@ Aqui está um resumo do que você tem com cada rota:
 
 |  | Tempo de compilação | Tempo de execução |
 | --- | --- | --- |
-| Solicitações e exceções |Sim |Sim |
-| [Exceções mais detalhadas](app-insights-asp-net-exceptions.md) | |Sim |
+| Solicitações e exceções |SIM |SIM |
+| [Exceções mais detalhadas](app-insights-asp-net-exceptions.md) | |SIM |
 | [Diagnóstico de dependência](app-insights-asp-net-dependencies.md) |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, verbo HTTP|
-| [Contadores de desempenho do sistema](app-insights-performance-counters.md) |Sim |Sim |
-| [API de telemetria personalizada][api] |Sim |Não |
-| [Integração do log de rastreamento](app-insights-asp-net-trace-logs.md) |Sim |Não |
-| [Exibição da página e dados do usuário](app-insights-javascript.md) |Sim |Não |
-| É necessário recompilar o código |Sim | Não |
+| [Contadores de desempenho do sistema](app-insights-performance-counters.md) |SIM |SIM |
+| [API de telemetria personalizada][api] |SIM |Não  |
+| [Integração do log de rastreamento](app-insights-asp-net-trace-logs.md) |SIM |Não  |
+| [Exibição da página e dados do usuário](app-insights-javascript.md) |SIM |Não  |
+| É necessário recompilar o código |SIM | Não  |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Monitorar um aplicativo da web ao vivo
@@ -235,7 +235,7 @@ Para aplicativos que você instrumenta apenas em tempo de execução usando o St
 * Solicitações HTTP
 * Chamadas para dependências
 * Exceções
-* Contadores de desempenho
+* contadores de desempenho
 
 Para aplicativos já instrumentados em tempo de compilação:
 

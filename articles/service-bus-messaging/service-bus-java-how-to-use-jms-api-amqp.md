@@ -3,7 +3,7 @@ title: Como usar o AMQP 1.0 com o API do Barramento de Serviço em Java | Micros
 description: Como usar o Java Message Service (JMS) com o barramento de serviço do Azure e Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
-ms.openlocfilehash: 0848facd764c4fb0d7f95c1ae89ecb02a32257e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: spelluru
+ms.openlocfilehash: bfab0c374e4b20b09167f37363fe0681144426ac
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23044171"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699338"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como usar a API do Serviço de Mensagem Java (JMS) com Barramento de Serviço e AMQP 1.0
 O AMQP 1.0 é um protocolo de mensagens eficiente, confiável e conectado que pode ser usado para criar aplicativos de mensagens robustos em plataformas cruzadas.
@@ -37,7 +37,7 @@ Este guia presume que você já tenha um namespace do Barramento de Serviço que
 > 
 
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>Baixando a biblioteca do cliente do JMS do AMQP 1.0
-Para obter informações sobre onde baixar a versão mais recente da biblioteca do cliente Apache Qpid JMS do AMQP 1.0, acesse [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
+Para obter informações sobre onde baixar a versão mais recente da biblioteca do cliente Apache Qpid JMS AMQP 1.0, visite [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
 Você deve adicionar os seguintes quatro arquivos JAR do arquivamento de distribuição do Apache Qpid JMS do AMQP 1.0 ao CLASSPATH do Java ao criar e executar aplicativos do JMS com o Barramento de Serviço:
 

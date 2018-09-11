@@ -6,25 +6,25 @@ documentationcenter: ''
 keywords: WAD2AI, Diagnóstico do Azure
 author: mrbullwinkle
 manager: carmonm
-editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.devlang: na
 ms.tgt_pltfrm: ibiza
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: tbd
-ms.date: 05/05/2017
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 3b06ec3b10edc39d770e5a724125e70afd5e5477
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783472"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Serviços de Nuvem do Azure
 [Os aplicativos do serviço de nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorados pelo [Application Insights][start] para ver a disponibilidade, desempenho, falhas e uso, combinando-se os dados dos SDKs do Application Insights com os dados de [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de seus Serviços de Nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
 
-![Exemplo](./media/app-insights-cloudservices/sample.png)
+![Captura de tela do painel de visão geral](./media/app-insights-cloudservices/overview-graphs.png)
 
 ## <a name="before-you-start"></a>Antes de começar
 Você precisará de:
@@ -81,9 +81,8 @@ Se você decidiu criar um recurso separado para cada função – e talvez um co
 1. No [Portal do Azure][portal], crie um novo recurso do Application Insights. Para o tipo de aplicativo, escolha o aplicativo ASP.NET. 
 
     ![Clique em Novo, Application Insights](./media/app-insights-cloudservices/01-new.png)
-2. Observe que recurso é identificado por uma Chave de Instrumentação. Talvez isso seja necessário mais tarde, se você quiser configurar ou verificar manualmente a configuração do SDK.
+2. Cada recurso é identificado por uma chave de instrumentação. Talvez isso seja necessário mais tarde, se você quiser configurar ou verificar manualmente a configuração do SDK.
 
-    ![Clique em Propriedades, selecione a chave e pressione ctrl + C](./media/app-insights-cloudservices/02-props.png) 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurar o diagnóstico do Azure para cada função
 Defina esta opção para monitorar seu aplicativo com o Application Insights. Para funções web, isso fornece monitoramento de desempenho, alertas e diagnóstico, bem como análise de uso. Para outras funções, você pode pesquisar e monitorar o diagnóstico do Azure, como reinicialização, contadores de desempenho e chamadas para System.Diagnostics.Trace. 
@@ -107,14 +106,14 @@ No Visual Studio, configure o SDK do Application Insights para cada projeto de a
 1. **Funções Web**: clique com o botão direito no projeto e escolha **Configurar o Application Insights** ou **Adicionar > Application Insights Telemetry**.
 
 2. **Funções de trabalho**: 
- * Clique com o botão direito no projeto e selecione **Gerenciar Pacotes Nuget**.
+ * Clique com botão direito no projeto e selecione **gerenciar pacotes NuGet**.
  * Adicione [Application Insights para Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Pesquise "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 
 3. Configure o SDK para enviar dados ao recurso do Application Insights.
 
-    Em uma função de inicialização adequada, defina a chave de instrumentação no parâmetro de configuração no arquivo .cscfg:
+    Em uma função de inicialização adequada, defina a chave de instrumentação da configuração no ``.cscfg file``:
  
     ```csharp
    
@@ -128,7 +127,7 @@ No Visual Studio, configure o SDK do Application Insights para cada projeto de a
    * [Para páginas da Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 4. Defina o arquivo ApplicationInsights.config para sempre ser copiado no diretório de saída. 
    
-    (No arquivo. config, você verá mensagens solicitando que você coloque a chave de instrumentação lá. No entanto, para aplicativos em nuvem é melhor defini-la por meio do arquivo .cscfg. Isso garante que a função seja identificada corretamente no portal).
+    (No arquivo. config, você verá mensagens solicitando que você coloque a chave de instrumentação lá. No entanto, para aplicativos em nuvem é melhor defini-la a partir de ``.cscfg file``. Isso garante que a função seja identificada corretamente no portal).
 
 #### <a name="run-and-publish-the-app"></a>Executar e publicar o aplicativo
 Execute o aplicativo e entre no Azure. Abra os recursos do Application Insights que você criou, veja que os pontos de dados individuais aparecerem em [Pesquisa](app-insights-diagnostic-search.md) e os dados agregados no [Metrics Explorer](app-insights-metrics-explorer.md). 
@@ -197,7 +196,7 @@ Para funções web, esses contadores também são coletados:
 
 É possível especificar contadores de desempenho adicionais, personalizados ou do Windows editando ApplicationInsights.config, [como neste exemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
-  ![contadores de desempenho](./media/app-insights-cloudservices/OLfMo2f.png)
+  ![contadores de desempenho](./media/app-insights-cloudservices/002-servers.png)
 
 ## <a name="correlated-telemetry-for-worker-roles"></a>Telemetria correlacionada para funções de trabalho
 É uma experiência de diagnóstico avançada, quando você pode ver o que levou a uma solicitação com falha ou alta latência. Com as funções da web, o SDK automaticamente configura a correlação entre a telemetria relacionada. Para funções de trabalho, você pode usar um inicializador de telemetria personalizado para definir um atributo de contexto Operation.Id comum para todas as telemetrias para obter isso. Isso permite ver se o problema de latência/falha foi causado devido a uma dependência ou ao código, rapidamente! 
@@ -206,11 +205,7 @@ Faça assim:
 
 * Defina a ID de correlação em uma CallContext conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). Nesse caso, estamos usando a ID da solicitação como a id de correlação
 * Adicione uma implementação personalizada de TelemetryInitializer, para definir a Operation.Id com o conjunto de correlationId acima. Há um exemplo aqui: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
-* Adicione o inicializador de telemetria personalizado. Você pode fazer isso no arquivo ApplicationInsights.config ou no código conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)
-
-É isso! A experiência do portal já está conectada para ajudá-lo a ver todas as telemetrias associadas rapidamente:
-
-![Telemetria correlacionada](./media/app-insights-cloudservices/bHxuUhd.png)
+* Adicione o inicializador de telemetria personalizado. Você poderia fazer isso no arquivo ApplicationInsights.config ou no código como mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>Telemetria do cliente
 [Adicione o SDK do JavaScript a suas páginas da Web][client] para obter a telemetria baseada em navegador, como contagens de exibição de página, tempos de carregamento de página, exceções de script e para permitir que você escreva telemetria personalizada em seus scripts de página.

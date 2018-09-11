@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122569"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842248"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -80,7 +80,7 @@ Nesse cenário, a VM não faz parte de um pool público do Load Balancer (e não
 >[!IMPORTANT] 
 >Esse cenário também será aplicável quando __somente__ um Load Balancer Básico interno estiver conectado. O cenário 3 será __não disponível__ quando um Load Balancer Standard interno for anexado a uma VM.  É necessário criar explicitamente o [cenário 1](#ilpip) ou [cenário 2](#lb), além de usar um Load Balancer Standard interno.
 
-O Azure usa SNAT com disfarce de porta ([PAT](#pat)) para executar essa função. Esse cenário é semelhante ao [cenário 2](#lb), exceto que não há controle sobre o endereço IP usado. Este é um cenário de fallback para quando os cenários 1 e 2 não existirem. Não é recomendável esse cenário, se você quiser controlar o endereço de saída. Se as conexões de saída são uma parte crítica do seu aplicativo, você deverá escolher outro cenário.
+O Azure usa SNAT com disfarce de porta ([PAT](#pat)) para executar essa função. Esse cenário é semelhante ao [cenário 2](#lb), exceto que não há controle sobre o endereço IP usado. Este é um cenário de fallback para quando os cenários 1 e 2 não existirem. Não é recomendável esse cenário, se você quiser controlar o endereço de saída. Se as conexões de saída são uma parte crítica do seu aplicativo, você deve escolher outro cenário.
 
 As portas SNAT são pré-alocadas conforme descrito na seção [Entendendo SNAT e PAT](#snat).  O número de VMs que compartilham um Conjunto de Disponibilidade determina qual camada de pré-alocação se aplica.  Uma VM autônoma sem um Conjunto de Disponibilidade é efetivamente um pool de 1 para fins de determinação de pré-alocação (portas de SNAT 1024). As portas SNAT são um recurso finito que pode ser esgotado. É importante entender como elas são [consumidas](#pat). Para entender como projetar para esse consumo e mitigar, conforme necessário, revise [Gerenciar esgotamento de SNAT](#snatexhaust).
 
@@ -165,7 +165,7 @@ A tabela a seguir mostra as pré-alocações de porta SNAT para níveis de taman
 | 801-1,000 | 32 |
 
 >[!NOTE]
-> Ao utilizar o Load Balancer Standard com [vários front-ends](load-balancer-multivip-overview.md), [cada endereço IP de front-end multiplica o número de portas de SNAT disponíveis](#multivipsnat) na tabela anterior. Por exemplo, um pool de back-end de 50 VMs com 2 regras de balanceamento de carga, cada uma com endereços IP de front-end separados, usará 2048 (2x 1024) portas de SNAT por configuração de IP. Consulte os detalhes para [vários front-ends](#multife).
+> Ao utilizar o Load Balancer Standard com [vários front-ends](load-balancer-multivip-overview.md), [cada endereço IP de front-end multiplica o número de portas de SNAT disponíveis](#multivipsnat) na tabela anterior. Por exemplo, um conjunto de back-end de 50 VMs com 2 regras de balanceamento de carga, cada uma com um endereço IP front-end separado, usará 2048 (2x 1024) portas SNAT por configuração de IP. Consulte os detalhes para [vários front-ends](#multife).
 
 Lembre-se de que o número de portas SNAT disponíveis não movem diretamente em número de fluxos. Uma única porta SNAT pode ser reutilizada para vários destinos exclusivos. As portas são consumidas apenas se for necessário fazer fluxos exclusivos. Para diretrizes de projeto e mitigação, consulte a seção sobre [como gerenciar esse recurso esgotável](#snatexhaust) e a seção que descreve a [PAT](#pat).
 
@@ -219,16 +219,16 @@ Atribuir um ILPIP altera seu cenário para [IP Público em Nível de Instância 
 
 #### <a name="multifesnat"></a>Utilizar vários front-ends
 
-Ao utilizar o Load Balancer Standard púbico, você atribui [vários endereços IP de front-end para conexões de saída](#multife) e [multiplica o número de portas de SNAT disponíveis](#preallocatedports).  É necessário criar uma configuração de IP de front-end, uma regra e um pool de back-end para disparar a programação de SNAT para o IP público do front-end.  A regra não precisa funcionar e uma análise de integridade não precisa ter êxito.  Se você utilizar vários front-ends também para entrada (em vez de apenas para saída), utilize adequadamente as investigações de integridade personalizadas para garantir a confiabilidade.
+Ao utilizar o Load Balancer Standard púbico, você atribui [vários endereços IP de front-end para conexões de saída](#multife) e [multiplica o número de portas de SNAT disponíveis](#preallocatedports).  É necessário criar uma configuração de IP de front-end, uma regra e um pool de back-end para disparar a programação de SNAT para o IP público do front-end.  A regra não precisa funcionar e uma análise de integridade não precisa ter êxito.  Se você usar vários frontends para a entrada também (em vez de apenas para saída), use bem os probes de integridade personalizados para garantir a confiabilidade.
 
 >[!NOTE]
 >Na maioria dos casos, o esgotamento das portas de SNAT é um sinal de design inapropriado.  Antes de utilizar mais front-ends para adicionar portas de SNAT, certifique-se de reconhecer por que as portas estão esgotando.  É possível que esteja mascarando um problema que posteriormente poderá resultar em falha.
 
 #### <a name="scaleout"></a>Expansão
 
-[Porats pré-alocadas](#preallocatedports) são atribuídas com base no tamanho do pool de back-end e agrupadas em níveis para minimizar as interrupções quando algumas das portas precisam ser realocadas para acomodar a próxima camada de tamanho maior de pool de back-end.  Você deve ter uma opção para aumentar a intensidade da utilização da porta SNAT para um determinado front-end, dimensionando o pool de back-end para o tamanho máximo de uma determinada camada.  Isso requer que o aplicativo dimensione com eficiência.
+[As portas pré-designadas](#preallocatedports) são atribuídas com base no tamanho do pool de back-end e agrupadas em camadas para minimizar a interrupção quando algumas das portas precisam ser realocadas para acomodar a próxima camada de tamanho do pool de back-end.  Você pode ter a opção de aumentar a intensidade da utilização da porta SNAT para um determinado frontend, dimensionando o pool de back-end para o tamanho máximo de um determinado nível.  Isso requer que o aplicativo dimensione com eficiência.
 
-Por exemplo, 2 máquinas virtuais no pool de back-end teriam 1024 portas SNAT disponíveis por configuração de IP, permitindo um total de 2048 portas SNAT para a implantação.  Se a implantação for aumentada para 50 máquinas virtuais, mesmo que o número de portas pré-alocas permaneça constante por máquina virtual, um total de portas SNAT 51.200 (50 x 1024) podem ser usadas pela implantação.  Se você deseja expandir sua implantação, verifique o número de [portas pré-alocadas](#preallocatedports) por nível para certificar-se que você dimensionou ao máximo para a camada respectiva.  No exemplo anterior, se você escolheu dimensionar para 51 em vez de 50 instâncias, você avançaria para a próxima camada e terminaria com menos portas SNAT por VM, bem como no total.
+Por exemplo, 2 máquinas virtuais no pool de back-end teriam 1024 portas SNAT disponíveis por configuração de IP, permitindo um total de 2048 portas SNAT para a implantação.  Se a implantação for aumentada para 50 máquinas virtuais, mesmo que o número de portas pré-alocas permaneça constante por máquina virtual, um total de portas SNAT 51.200 (50 x 1024) podem ser usadas pela implantação.  Se você deseja expandir sua implantação, verifique o número de [portas pré-alocadas](#preallocatedports) por nível para certificar-se que você dimensionou ao máximo para a camada respectiva.  No exemplo anterior, se você tivesse escolhido dimensionar para 51 em vez de 50 instâncias, você progrediria para a próxima camada e acabaria com menos portas SNAT por VM, assim como no total.
 
 Se você escalar horizontalmente para a próxima camada de tamanho maior de pool de back-end, há potencial para que algumas das conexões de saída atinjam tempo limite se as portas alocadas precisarem ser realocadas.  Se você estiver usando apenas algumas das portas SNAT, escalar horizontalmente no próximo tamanho maior de pool de back-end é irrelevante.  Metade das portas existentes será realocada cada vez que você mover para a próxima camada de pool de back-end.  Se não desejar que isso ocorra, é necessário formatar sua implantação para o tamanho da camada.  Ou, verifique se seu aplicativo pode detectar e repita conforme necessário.  TCP keepalives podem ajudá-lo a detectar quando as portas SNAT não funcionam mais devido a terem sido realocadas.
 

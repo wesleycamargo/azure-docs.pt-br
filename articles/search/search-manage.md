@@ -7,14 +7,14 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 08/28/2018
 ms.author: heidist
-ms.openlocfilehash: 896a12db1ac196b6de1e57dde9b5910e11dcc8c7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fb09e12a5122f6e6671e55c5b5623afdd6b35c29
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797021"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842282"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administração do serviço do Azure Search no portal do Azure
 > [!div class="op_single_selector"]
@@ -23,16 +23,16 @@ ms.locfileid: "31797021"
 > * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-O Azure Search é um serviço de pesquisa baseado em nuvem, totalmente gerenciado usado para criar uma experiência avançada de pesquisa em aplicativos personalizados. Este artigo aborda as tarefas *administração de serviço* que você pode executar no [portal do Azure](https://portal.azure.com) para um serviço de pesquisa que você já tenha provisionado. *Service administration* é leve por design, limitada às seguintes tarefas:
+O Azure Search é um serviço de pesquisa baseado em nuvem, totalmente gerenciado usado para criar uma experiência avançada de pesquisa em aplicativos personalizados. Este artigo aborda as tarefas de administração de serviços que você pode executar no [Portal do Azure](https://portal.azure.com) para um serviço de pesquisa já provisionado. A administração de serviços é leve por design, limitada às seguintes tarefas:
 
-* Gerenciar e proteger o acesso para as *chaves de api* usadas para acesso de leitura ou gravação para o serviço.
+* Gerencie o acesso às *chaves-api* usadas para acesso de leitura ou gravação ao seu serviço.
 * Ajuste a capacidade de serviço, alterando a alocação de partições e réplicas.
 * Monitorar o uso de recursos, em relação aos limites máximos da sua camada de serviço.
 
 Observe que *atualização* não está listado como uma tarefa administrativa. Já que os recursos são alocados quando o serviço for fornecido, a mudança para uma camada diferente exige um novo serviço. Veja [Criar um serviço do Azure Search](search-create-service-portal.md) para obter detalhes.
 
 > [!Tip]
-> Procurando ajuda sobre como analisar o desempenho de tráfego ou consulta de pesquisa? Ganhe informações sobre volume de consulta, quais termos as pessoas devem procurar, e quão bem sucedidos são os resultados de pesquisa em orientar clientes para documentos específicos no seu índice. Para obter orientações, consulte [Análise De Tráfego De Pesquisa Para Azure Search](search-traffic-analytics.md), [Monitorar as métricas de uso e consulta](search-monitor-usage.md), e [Desempenho e otimização](search-performance-optimization.md).
+> Procurando ajuda sobre como analisar o desempenho de tráfego ou consulta de pesquisa? Você pode monitorar o volume de consultas, quais termos as pessoas pesquisam e como os resultados da pesquisa são bem-sucedidos na orientação de clientes para documentos específicos em seu índice. Para obter mais informações, consulte [Pesquisar análise de tráfego para a pesquisa do Azure](search-traffic-analytics.md), [Monitorar as métricas de uso e consulta](search-monitor-usage.md) e [Desempenho e otimização](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -66,11 +66,11 @@ Usando a API REST do Serviço Search, você pode obter uma contagem dos document
 
 ## <a name="disaster-recovery-and-service-outages"></a>Recuperação de desastre e interrupções de serviço
 
-Embora possamos recuperar seus dados, o Azure Search não fornece failover instantâneo do serviço se há uma interrupção no cluster ou no nível do datacenter. Se um cluster falhar no datacenter, a equipe de operações detectará e trabalhará para restaurar o serviço. Haverá tempo de inatividade durante a restauração do serviço. É possível solicitar créditos de serviço para compensar a indisponibilidade do serviço de acordo com o [SLA (Contrato de Nível de Serviço)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+Embora possamos recuperar seus dados, o Azure Search não fornece failover instantâneo do serviço se há uma interrupção no cluster ou no nível do datacenter. Se um cluster falhar no datacenter, a equipe de operações detectará e trabalhará para restaurar o serviço. Você experimentará o tempo de inatividade durante a restauração do serviço, mas poderá solicitar créditos de serviço para compensar a indisponibilidade do serviço de acordo com o [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
 Se o serviço contínuo for necessário em caso de falhas catastróficas fora do controle da Microsoft, você poderá [provisionar um serviço adicional](search-create-service-portal.md) em outra região e implementar uma estratégia de replicação geográfica para garantir que os índices seja totalmente redundantes em todos os serviços.
 
-Os clientes que usam [indexadores](search-indexer-overview.md) para popular e atualizar índices podem lidar com a recuperação de desastre por meio de indexadores específicos à geografia utilizando a mesma fonte de dados. Dois serviços em regiões diferentes, cada um executando um indexador, poderiam indexar da mesma fonte de dados para obter redundância geográfica. Se você estiver indexando fontes de dados que também são com redundância geográfica, lembre-se de que a indexadores do Azure Search só podem executar a indexação incremental de réplicas primárias. Em um evento de failover, verifique se você apontou novamente o indexador para a nova réplica primária. 
+Os clientes que usam [indexadores](search-indexer-overview.md) para popular e atualizar índices podem lidar com a recuperação de desastre por meio de indexadores específicos à geografia utilizando a mesma fonte de dados. Dois serviços em diferentes regiões, cada um executando um indexador, poderiam indexar a mesma fonte de dados para obter a redundância geográfica. Se você estiver indexando fontes de dados que também são com redundância geográfica, lembre-se de que a indexadores do Azure Search só podem executar a indexação incremental de réplicas primárias. Em um evento de failover, verifique se você apontou novamente o indexador para a nova réplica primária. 
 
 Se você não usar indexadores, você usará o código do aplicativo para enviar objetos e dados por push para diferentes serviços de pesquisa em paralelo. Para obter mais informações, consulte [Desempenho e otimização no Azure Search](search-performance-optimization.md).
 
@@ -78,7 +78,7 @@ Se você não usar indexadores, você usará o código do aplicativo para enviar
 
 Como o Azure Search não é uma solução de armazenamento de dados primário, não fornecemos um mecanismo formal de backup e restauração de autoatendimento. O código do aplicativo usado para criar e popular um índice é a opção de restauração de fato, caso você exclua um índice por engano. 
 
-Para recompilar um índice, exclua-o (supondo que ele exista), recrie o índice no serviço e recarregue-o recuperando dados do armazenamento de dados primário. Como alternativa, você poderá contatar o [atendimento ao cliente]() para recuperar índices, caso haja uma interrupção regional.
+Para recompilar um índice, exclua-o (supondo que ele exista), recrie o índice no serviço e recarregue-o recuperando dados do armazenamento de dados primário.
 
 
 <a id="scale"></a>
@@ -103,12 +103,10 @@ A maioria dos aplicativos de serviço possui uma necessidade integrada de mais r
 Na camada Standard, as partições são adicionadas em múltiplos de 12 (especificamente, 1, 2, 3, 4, 6 ou 12). Isso é um artefato de fragmentação. Um índice é criado em 12 fragmentos, que podem todos ser armazenados em 1 partição ou divididos igualmente em 2, 3, 4, 6 ou 12 partições (um fragmento por partição).
 
 ### <a name="remove-replicas"></a>Remover réplicas
-Após períodos de grandes volumes de consulta, você poderá reduzir réplicas quando as cargas de pesquisa tiverem se normalizado (por exemplo, após as vendas de final de ano).
-
-Para fazer isso, mova o controle deslizante de réplicas para um número mais baixo. Não são necessárias mais medidas de sua parte. Reduzir o número de réplicas libera máquinas virtuais no datacenter. Suas operações de consulta e ingestão de dados passarão a ser executadas em menos VMs do que antes. O limite mínimo é uma réplica.
+Após períodos de volumes de consulta altos, você pode usar o controle deslizante para reduzir as réplicas depois que as cargas de consulta de pesquisa forem normalizadas (por exemplo, após o término das vendas de feriados). Não são necessárias mais medidas de sua parte. Reduzir o número de réplicas libera máquinas virtuais no datacenter. Suas operações de consulta e ingestão de dados passarão a ser executadas em menos VMs do que antes. O requisito mínimo é uma réplica.
 
 ### <a name="remove-partitions"></a>Remover partições
-Em contraste com a remoção de réplicas, que não requer nenhum esforço extra da sua parte, você pode precisar tomar algumas medidas se estiver usando armazenamento a mais que pode ser reduzido. Por exemplo, se a sua solução estiver usando três partições, fazendo o downsizing de uma ou duas partições gerará um erro se o novo espaço de armazenamento é menor do que o necessário. Como é de se esperar, suas opções são excluir índices ou documentos dentro de um índice associado para liberar espaço ou manter a configuração atual.
+Em contraste com a remoção de réplicas, que não requer nenhum esforço extra da sua parte, você pode precisar tomar algumas medidas se estiver usando armazenamento a mais que pode ser reduzido. Por exemplo, se sua solução estiver usando três partições, o downsizing de uma ou duas partições gerará um erro se o novo espaço de armazenamento for menor que o necessário para hospedar seu índice. Como é de se esperar, suas opções são excluir índices ou documentos dentro de um índice associado para liberar espaço ou manter a configuração atual.
 
 Não há um método de detecção que informe quais fragmentos de índices estão armazenados em quais partições. Cada partição fornece cerca de 25 GB de armazenamento, de modo que você precisará reduzir o armazenamento para um tamanho que possa ser acomodado pelo número de partições que possui. Caso queira reverter para uma partição, os 12 fragmentos precisarão se encaixar.
 

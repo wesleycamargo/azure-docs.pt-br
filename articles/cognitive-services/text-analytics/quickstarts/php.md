@@ -7,38 +7,38 @@ author: ashmaka
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 837a9bab4a4b20be95f03bea0cc97b0b3f414d82
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2f654736e998652ecaf8825b308c7ff3bf84a924
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363793"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840763"
 ---
 # <a name="quickstart-for-text-analytics-api-with-php"></a>Início rápido da API de Análise de Texto com PHP 
 <a name="HOLTop"></a>
 
 Este artigo mostra como [detectar o idioma](#Detect), [analisar sentimento](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) usando as [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711) com PHP.
 
-Confira as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para obter a documentação técnica das APIs.
+Consulte as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para obter a documentação técnica das APIs.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Você deve ter uma [Conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **APIs de Análise de Texto**. Você pode usar a **camada gratuita para 5.000 transações/mês** para concluir este guia de início rápido.
+É necessário ter uma [conta da API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Análise de Texto**. É possível usar a **camada gratuita para 5.000 transações/mês** para concluir este início rápido.
 
-Você também deve ter o [ponto de extremidade e a chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada para você durante a criação da conta. 
+Também é necessário ter o [ponto de extremidade e a chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada para você durante a inscrição. 
 
 <a name="Detect"></a>
 
 ## <a name="detect-language"></a>Detectar o idioma
 
-A API de Detecção de Idioma detecta o idioma de um texto de documento, usando o [método Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+A API de Detecção de Idioma detecta o idioma de um documento de texto, usando o [método Detectar Idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
 1. Crie um novo projeto PHP em seu IDE favorito.
 2. Adicione o código fornecido abaixo.
 3. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
-4. Substitua o local em `host` (atualmente `westus`) para a região em que você se inscreveu.
+4. Substitua o local em `host` (atualmente `westus`) pela região na qual você se inscreveu.
 5. Execute o programa.
 
 ```php
@@ -52,7 +52,7 @@ A API de Detecção de Idioma detecta o idioma de um texto de documento, usando 
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
+$accessKey = 'ENTER KEY HERE';
 
 // Replace or verify the region.
 
@@ -63,7 +63,7 @@ $accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/languages';
+$path = '/text/analytics/v2.0/';
 
 function DetectLanguage ($host, $path, $key, $data) {
 
@@ -82,7 +82,7 @@ function DetectLanguage ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path, false, $context);
+    $result = file_get_contents ($host . $path . 'languages', false, $context);
     return $result;
 }
 
@@ -94,20 +94,18 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = DetectLanguage ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
-?>
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
 **Resposta da detecção de idioma**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
-
 {
    "documents": [
       {
@@ -145,45 +143,16 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seg
 
    ]
 }
-
-
 ```
 <a name="SentimentAnalysis"></a>
 
 ## <a name="analyze-sentiment"></a>Analisar sentimento
 
-A API de Análise de Sentimento detecta o sentimento de um conjunto de registros de texto, usando o [método Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). O exemplo a seguir classifica dois documentos, um em inglês e outro em espanhol.
+A API de Análise de Sentimento detecta o sentimento de um conjunto de registros de texto, usando o [método Sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). O exemplo a seguir pontua dois documentos, um em inglês e outro em espanhol.
 
-1. Crie um novo projeto PHP em seu IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
-4. Substitua o local em `host` (atualmente `westus`) para a região em que você se inscreveu.
-5. Execute o programa.
+Adicione o seguinte código ao código da [seção anterior](#Detect).
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/sentiment';
-
 function GetSentiment ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -201,7 +170,7 @@ function GetSentiment ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path, false, $context);
+    $result = file_get_contents ($host . $path . 'sentiment', false, $context);
     return $result;
 }
 
@@ -212,17 +181,16 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetSentiment ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
-?>
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
 **Resposta da análise de sentimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -244,38 +212,11 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seg
 
 ## <a name="extract-key-phrases"></a>Extraia frases-chave
 
-A API de Extração de Frases-chave extrai frases-chave de um texto de documento, usando o [método Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). O exemplo a seguir extrai frases-chave para documentos em inglês e em espanhol.
+A API de Extração de Frases-chave extrai as frases-chave de um documento de texto, usando o [método Frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). O exemplo a seguir extrai frases-chave para documentos em inglês e em espanhol.
 
-1. Crie um novo projeto PHP em seu IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
-4. Substitua o local em `host` (atualmente `westus`) para a região em que você se inscreveu.
-5. Execute o programa.
+Adicione o seguinte código ao código da [seção anterior](#SentimentAnalysis).
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/keyPhrases';
-
 function GetKeyPhrases ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -293,7 +234,7 @@ function GetKeyPhrases ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path, false, $context);
+    $result = file_get_contents ($host . $path . 'keyPhrases', false, $context);
     return $result;
 }
 
@@ -305,18 +246,16 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetKeyPhrases ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
-?>
-
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
 **Resposta da extração de frases-chave**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -356,40 +295,13 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seg
 
 <a name="Entities"></a>
 
-## <a name="identify-linked-entities"></a>Identificar entidades vinculadas
+## <a name="identify-linked-entities"></a>Identificar as entidades vinculadas
 
-A API de Vinculação de Entidade identifica entidades conhecidas no texto de um documento, usando o [método Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). O exemplo a seguir identifica entidades para documentos em inglês.
+A API de Vinculação de Entidade identifica as entidades conhecidas em um documento de texto, usando o [método Vinculação de Entidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). O exemplo a seguir identifica as entidades de documentos em inglês.
 
-1. Crie um novo projeto PHP em seu IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
-4. Substitua o local em `host` (atualmente `westus`) para a região em que você se inscreveu.
-5. Execute o programa.
+Adicione o seguinte código ao código da [seção anterior](#KeyPhraseExtraction).
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/entities';
-
 function GetEntities ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -407,7 +319,7 @@ function GetEntities ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path, false, $context);
+    $result = file_get_contents ($host . $path . 'entities', false, $context);
     return $result;
 }
 
@@ -418,18 +330,17 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetEntities ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ?>
-
 ```
 
-**Resposta de vinculação de entidade**
+**Resposta da vinculação de entidade**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {

@@ -9,19 +9,32 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: 8a9409c46cac8397bc449c586374729a4d864036
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ac9d3f8fd10a3b65a2af2999b8c7ade7965de912
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41929927"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664439"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
-Este artigo mostra como usar a API [Carregar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para carregar e indexar seus vídeos com o Azure Video Indexer. Ele também aborda alguns parâmetros que você pode definir na API para alterar o processo e a saída da API.
+Este artigo mostra como carregar um vídeo com o Indexador de Vídeo do Azure. A API do Video Indexer fornece duas opções de upload: 
+
+* Carregue o vídeo de uma URL (preferido),
+* Envie o arquivo de vídeo como uma matriz de bytes no corpo da solicitação.
+
+O artigo mostra como usar a API [Fazer upload de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para fazer upload e indexar seus vídeos com base em um URL. O exemplo de código no artigo inclui o código comentado que mostra como carregar a matriz de bytes.  
+
+O artigo também discute alguns dos parâmetros que você pode definir na API para alterar o processo e a saída da API.
 
 > [!Note]
-> Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (onde você não está limitado pela cota). <br/>Com o teste gratuito, o Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API. <br/>Com a opção paga, você cria uma conta do Indexador de Vídeo que está [conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure](connect-to-azure.md). Você paga por minutos indexados, bem como os encargos relacionados à conta de mídia. 
+> Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (onde você não está limitado pela cota). <br/>Com o teste gratuito, o Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API. Com a opção paga, você cria uma conta do Indexador de Vídeo que está [conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure](connect-to-azure.md). Você paga por minutos indexados, bem como os encargos relacionados à conta de mídia. 
+
+## <a name="uploading-considerations"></a>Carregando considerações
+    
+- Ao fazer o upload do seu vídeo com base no URL (preferencial), o endpoint deve ser protegido com o TLS 1.2 (ou superior)
+- A opção de matriz de bytes é limitada a 4GB e expira após 30 min
+- A URL fornecida no `videoURL` param precisa ser codificado
 
 ## <a name="configurations-and-params"></a>Configurações e parâmetros
 
@@ -45,7 +58,7 @@ O preço depende da opção de indexação selecionada.
 
 Uma URL DE POSTAGEM para notificar quando a indexação é concluída. O Video Indexer adiciona dois parâmetros de cadeia de consulta a ele: id e state. Por exemplo, se a URL de retorno de chamada for 'https://test.com/notifyme?projectName=MyProject', a notificação será enviada com parâmetros adicionais para 'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
 
-Também é possível adicionar mais parâmetros à URL antes de postar a chamada no Video Indexer, e esses parâmetros estarão incluídos no retorno de chamada. Posteriormente, em seu código, é possível analisar a cadeia de consulta e obter de volta todos os parâmetros especificados na cadeia de consulta (dados que você tinha originalmente acrescentado à URL mais as informações fornecidas do Video Indexer.) 
+Também é possível adicionar mais parâmetros à URL antes de postar a chamada no Video Indexer, e esses parâmetros estarão incluídos no retorno de chamada. Posteriormente, em seu código, é possível analisar a cadeia de consulta e obter de volta todos os parâmetros especificados na cadeia de consulta (dados que você tinha originalmente acrescentado à URL mais as informações fornecidas do Video Indexer.) A URL deve ser codificado.
 
 ### <a name="streamingpreset"></a>streamingPreset
 
@@ -56,6 +69,12 @@ Ao usar a API [Carregar vídeo](https://api-portal.videoindexer.ai/docs/services
 Para executar trabalhos de indexação e de codificação, a [conta dos Serviços de Mídia do Azure conectada à sua conta do Video Indexer](connect-to-azure.md), requer unidades reservadas. Para obter mais informações, consulte [Scaling Media Processing](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) (Colocação em escala do processamento de mídia). Como esses são trabalhos com uso intensivo de computação, o tipo de unidade S3 é altamente recomendável. O número de RUs define o número máximo de trabalhos que podem ser executados em paralelo. A recomendação de linha de base é de 10 RUs de S3. 
 
 Se você apenas deseja indexar seu vídeo, mas não o codificar, defina `streamingPreset` como `NoStreaming`.
+
+### <a name="videourl"></a>VideoUrl
+
+Uma URL do arquivo de áudio/vídeo a serem indexados. O URL deve apontar para um arquivo de mídia (as páginas HTML não são suportadas). O arquivo pode ser protegido por um token de acesso fornecido como parte do URI e o terminal que atende ao arquivo deve ser protegido com o TLS 1.2 ou superior. A URL deve ser codificado. 
+
+Se o `videoUrl` não for especificado, o Indexador de Vídeo espera que você passe o arquivo como um conteúdo de corpo de várias partes / formulário.
 
 ## <a name="code-sample"></a>Exemplo de código
 

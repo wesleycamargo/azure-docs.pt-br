@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: d5b01566f672309837f738e185820a0f13eda1c1
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247388"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382239"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -112,7 +112,7 @@ Para exibir os resultados em CSV:
 ```
 
 ### <a name="system-requirements"></a>Requisitos do Sistema
-- Um servidor que executa o Windows Server 2012 R2 ou o Windows Server 2016 
+- Um servidor que executa o Windows Server 2012 R2 ou o Windows Server 2016:
 
     | Versão | SKUs com suporte | Opções de implantação com suporte |
     |---------|----------------|------------------------------|
@@ -121,15 +121,15 @@ Para exibir os resultados em CSV:
 
     Versões futuras do Windows Server serão adicionadas à medida que forem liberadas. Versões anteriores do Windows podem ser adicionadas de acordo com os comentários do usuário.
 
-- Um servidor com um mínimo de 2GB de memória
+    > [!Important]  
+    > Recomendamos manter todos os servidores usados com a Sincronização de Arquivos do Azure atualizados com as últimas atualizações do Windows Update. 
+
+- Um servidor com um mínimo de 2 GiB de memória.
 
     > [!Important]  
-    > Se o servidor estiver em execução em uma máquina virtual com memória dinâmica habilitada, a VM deverá ser configurada com um mínimo de 2048 MB de memória.
+    > Se o servidor estiver sendo executado em uma máquina virtual com memória dinâmica ativada, a VM deverá ser configurada com um mínimo de 2048 MiB de memória.
     
-- Um volume conectado localmente formatado com o sistema de arquivos NTFS
-
-> [!Important]  
-> Recomendamos manter todos os servidores usados com a Sincronização de Arquivos do Azure atualizados com as últimas atualizações do Windows Update. 
+- Um volume anexado localmente formatado com o sistema de arquivos NTFS.
 
 ### <a name="file-system-features"></a>Recursos do sistema de arquivos
 | Recurso | Status de suporte | Observações |

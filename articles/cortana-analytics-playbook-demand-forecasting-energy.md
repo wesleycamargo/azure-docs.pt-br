@@ -1,25 +1,26 @@
 ---
 title: Manual do Modelo de Solução do Cortana Intelligence para a previsão de demanda de energia | Microsoft Docs
 description: Um Modelo de Solução com o Microsoft Cortana Intelligence que ajuda a prever a demanda para uma concessionária de energia elétrica.
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: ilanr9
-manager: ilanr9
+manager: cgronlun
 editor: yijichen
 ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
-ms.author: ilanr9;yijichen;garye
-ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: yijichen
+ms.openlocfilehash: 6a879faa88cc6cdf586f2c12283bcb6f0263bf57
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23004031"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842559"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manual do Modelo de Solução do Cortana Intelligence para a previsão de demanda de energia
 ## <a name="executive-summary"></a>Resumo executivo
@@ -192,12 +193,12 @@ Isso é ilustrado no diagrama a seguir:
 O parágrafo a seguir descreve esse processo da 4 etapas:
 
 1. **Coleta de Dados** – qualquer solução baseada em análise avançada baseia-se em dados (veja **Noções básicas sobre dados**). Especificamente, quando se trata de análise preditiva e de previsão, nos baseamos em um fluxo de dados dinâmico e contínuo. No caso da previsão de demanda de energia, esses dados podem ser obtidos diretamente dos medidores inteligentes ou já podem estar agregados a um banco de dados local. Nós também utilizamos fontes de dados externas, como o clima e a temperatura. Esse fluxo contínuo de dados deve ser organizado, agendado e armazenado. [Data Factory do Azure](http://azure.microsoft.com/services/data-factory/) (ADF) é a nossa força de trabalho principal para realizar essa tarefa.
-2. **Modelagem** – para previsões de energia precisas e confiáveis, você deve desenvolver (treinar) e manter um excelente modelo que use os dados históricos e extraia os padrões significativos e de previsão dos dados. A área do Machine Learning (ML) tem crescido rapidamente com algoritmos mais avançados, desenvolvidos de forma rotineira. O Estúdio AM do Azure fornece uma excelente experiência de usuário que ajuda a utilizar os algoritmos de AM mais avançados em um fluxo de trabalho completo. Esse fluxo de trabalho é ilustrado em um diagrama de fluxo intuitivo e inclui a preparação de dados, extração de recursos, modelagem e avaliação de modelos. O usuário pode reunir centenas de modelos variados que estão incluídos nesse ambiente. Até o final dessa fase, um cientista de dados terá um modelo de trabalho completamente avaliado e pronto para implantação.
+2. **Modelagem** – para previsões de energia precisas e confiáveis, você deve desenvolver (treinar) e manter um excelente modelo que use os dados históricos e extraia os padrões significativos e de previsão dos dados. A área do Machine Learning (ML) tem crescido rapidamente com algoritmos mais avançados, desenvolvidos de forma rotineira. O Azure ML Studio fornece uma excelente experiência de usuário que ajuda a utilizar os algoritmos de AM mais avançados em um fluxo de trabalho completo. Esse fluxo de trabalho é ilustrado em um diagrama de fluxo intuitivo e inclui a preparação de dados, extração de recursos, modelagem e avaliação de modelos. O usuário pode reunir centenas de modelos variados que estão incluídos nesse ambiente. Até o final dessa fase, um cientista de dados terá um modelo de trabalho completamente avaliado e pronto para implantação.
    
    O diagrama a seguir é uma ilustração de um fluxo de trabalho típico:
    
    ![Fluxo de Trabalho de Modelagem](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
-3. **Implantação** – com um modelo de trabalho em mãos, a próxima etapa será a implantação. Aqui, o modelo é convertido em um serviço Web que expõe uma API RESTful que pode ser invocada simultaneamente pela Internet de vários clientes de consumo. O AM do Azure fornece uma maneira simples de implantar um modelo diretamente do Estúdio AM do Azure com um único clique de botão. Todo o processo de implantação acontece nos bastidores. Essa solução pode ser automaticamente dimensionada para atingir o consumo necessário.
+3. **Implantação** – com um modelo de trabalho em mãos, a próxima etapa será a implantação. Aqui, o modelo é convertido em um serviço Web que expõe uma API RESTful que pode ser invocada simultaneamente pela Internet de vários clientes de consumo. O Azure ML fornece uma maneira simples de implantar um modelo diretamente do Azure ML Studio com um único clique de botão. Todo o processo de implantação acontece nos bastidores. Essa solução pode ser automaticamente dimensionada para atingir o consumo necessário.
 4. **Consumo** – nesta fase, podemos realmente usar o modelo de previsão para produzir previsões. O consumo pode ser gerado por um aplicativo do usuário (*por exemplo*, um painel) ou diretamente de um sistema operacional como um sistema de equilíbrio de demanda/fornecimento ou de uma solução de otimização de rede. Vários casos de uso podem ser obtidos de um único modelo.
 
 ## <a name="data-understanding"></a>Noções básicas sobre dados
@@ -316,7 +317,7 @@ Isso dimensionará o valor original para um intervalo menor, normalmente entre -
 ## <a name="modeling"></a>Modelagem
 A fase de modelagem é onde ocorre a conversão de dados em um modelo. No centro desse processo, estão os algoritmos avançados que examinam os dados históricos (dados de treinamento), que extraem os padrões e que criam um modelo. Posteriormente, esse modelo poderá ser usado para prever novos dados que não tenham sido usados para criar o modelo.
 
-Assim que tivermos um modelo confiável funcional, poderemos então usá-lo para pontuar novos dados estruturados para incluir os recursos necessários (X). O processo de pontuação usará o modelo persistente (objeto da fase de treinamento) e preverá a variável de destino indicada por Ŷ.
+Assim que tivermos um modelo confiável funcional, poderemos então usá-lo para pontuar novos dados estruturados para incluir os recursos necessários (X). O processo de pontuação fará uso do modelo persistente (objeto da fase de treinamento) e preverá a variável de destino denotada por Ŷ.
 
 ### <a name="demand-forecasting-modeling-techniques"></a>Técnicas de Modelagem da Previsão da Demanda
 No caso da previsão da demanda, usamos os dados históricos ordenados por hora. Geralmente, nos referimos aos dados que incluem a dimensão de tempo como [série temporal](https://en.wikipedia.org/wiki/Time_series). A meta na modelagem da série temporal é encontrar tendências relacionadas ao tempo, a periodicidade, a correlação automática (correlação ao longo do tempo) e formular tudo em um modelo.

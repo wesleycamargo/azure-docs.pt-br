@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 86cc98721681750617e374679c38ad29cf5a2362
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 836f426be950e33031ff74276218d1ba59f1f2f7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145677"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300906"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerenciar senhas de aplicativos para verificação em duas etapas
 
@@ -38,11 +38,46 @@ Ao usar senhas de aplicativos, é importante lembrar:
 
 Você recebe uma senha do aplicativo durante o registro inicial da verificação em duas etapas. Se você precisar de mais do que uma senha, poderá criar senhas adicionais com base em como você usa a verificação em duas etapas:
 
-- **Você usa a verificação em duas etapas com sua conta do Microsoft Azure.** Crie e exclua suas senhas de aplicativos usando o [portal do Azure](https://portal.azure.com). Para mais informações, consulte o artigo [Senhas do aplicativo e verificação em duas etapas](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
+- **Você usa a verificação em duas etapas com sua conta do trabalho ou da escola e o portal MyApps.** Crie e exclua suas senhas de aplicativos usando as instruções em [Criar e excluir senhas de aplicativos usando a seção MyApps do portal](#create-and-delete-app-passwords-using-the-myapps-portal) deste artigo. Para obter mais informações sobre o portal MyApps e como usá-lo, consulte [O que é o portal MyApps no Active Directory do Azure?](active-directory-saas-access-panel-introduction.md).
 
-- **Você usa a verificação em duas etapas com sua conta pessoal da Microsoft.** Crie e exclua suas senhas de aplicativos usando a página [Noções básicas de segurança](https://account.microsoft.com/account/) com sua conta da Microsoft. Para mais informações, consulte o artigo [Senhas do aplicativo e verificação em duas etapas](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
+- **Você usa a verificação em duas etapas com sua conta do trabalho ou da escola e o portal do Office 365.** Crie e exclua suas senhas de aplicativos usando as instruções em [Criar e excluir senhas de aplicativos usando a seção do portal do Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) deste artigo.
 
-- **Você usa a verificação em duas etapas com sua conta do trabalho ou da escola e seus aplicativos do Office 365.** Crie e exclua suas senhas de aplicativos usando as instruções em [Criar e excluir senhas de aplicativos usando a seção do portal do Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) deste artigo.
+- **Você usa a verificação em duas etapas com sua conta pessoal da Microsoft.** Crie e exclua suas senhas de aplicativos usando a página [Noções básicas de segurança](https://account.microsoft.com/account/) com sua conta pessoal da Microsoft. Para mais informações, consulte o artigo [Senhas do aplicativo e verificação em duas etapas](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
+
+## <a name="create-and-delete-app-passwords-using-the-myapps-portal"></a>Crie e exclua senhas de aplicativos usando o portal MyApps
+Você pode criar e excluir senhas de aplicativos através do portal MyApps.
+
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Para criar uma senha de aplicativo usando o portal do MyApps
+
+1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com).
+
+2. Selecione seu nome no canto superior direito e, em seguida, escolha **perfil**.
+
+3. Escolha **Verificação de Segurança Adicional**.
+
+   ![Selecione Verificação de Segurança Adicional – captura de tela](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+
+4. Selecione **Senhas de aplicativo**.
+
+   ![Selecione senhas de aplicativo – captura de tela](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
+
+5. Clique em **Criar**.
+
+6. Digite um nome para a senha do aplicativo e selecione **Próximo**.
+
+7. Copie a senha de aplicativo na área de transferência e cole-a no seu aplicativo.
+   
+    ![Criar uma senha de aplicativo](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Para excluir uma senha de aplicativo usando o portal do MyApps
+
+1. Vá para o seu perfil e selecione **Verificação Adicional de Segurança**.
+
+2. Selecione **Senhas do aplicativo** e, em seguida, selecione **Excluir** ao lado da senha do aplicativo que você deseja excluir.
+
+   ![Excluir uma senha de aplicativo](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+
+3. Selecione **Sim** para confirmar que deseja excluir a senha e, em seguida, selecione **Fechar**.
 
 ## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Criar e excluir senhas de aplicativos usando o portal do Office 365
 
@@ -52,7 +87,7 @@ Se você usa a verificação em duas etapas com sua conta do trabalho ou da esco
 
 1. Entre sua conta corporativa ou de estudante.
 
-2. Vá parahttps://portal.office.com, selecione o ícone **Configurações** no canto superior direito da página **Portal do Office 365** e expanda **Verificação de segurança adicional**.
+2. Vá para https://portal.office.com, selecione o ícone **Configurações** no canto superior direito da página **Portal do Office 365** e expanda **Verificação de segurança adicional**.
 
     ![Do portal mostrando Office expandido a área de verificação de segurança adicional](media/security-info/security-info-o365password.png)
 
@@ -77,46 +112,6 @@ Se você usa a verificação em duas etapas com sua conta do trabalho ou da esco
     A senha do aplicativo é excluída com sucesso.
 
 5. Siga as etapas para criar uma senha de aplicativo para criar sua nova senha de aplicativo.
-
-## <a name="manage-app-passwords-in-the-azure-portal"></a>Gerenciar senhas de aplicativo no portal do Azure
-
-Se você usa a autenticação em duas etapas com o Azure, talvez seja conveniente criar senhas de aplicativo por meio do portal do Azure.
-
-## <a name="manage-app-passwords-with-the-myapps-portal"></a>Gerenciar senhas de aplicativo no portal do MyApps
-
-Você também pode criar e excluir senhas de aplicativos por meio do portal Meus aplicativos.
-
-### <a name="to-create-an-app-password-using-the-my-apps-portal"></a>Para criar uma senha de aplicativo usando o portal Meus aplicativos
-
-1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com).
-
-2. Selecione seu nome no canto superior direito e, em seguida, escolha **perfil**.
-
-3. Escolha **Verificação de Segurança Adicional**.
-
-   ![Selecione Verificação de Segurança Adicional – captura de tela](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
-
-4. Selecione **Senhas de aplicativo**.
-
-   ![Selecione senhas de aplicativo – captura de tela](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
-
-5. Clique em **Criar**.
-
-6. Digite um nome para a senha do aplicativo e selecione **Próximo**.
-
-7. Copie a senha de aplicativo na área de transferência e cole-a no seu aplicativo.
-   
-    ![Criar uma senha de aplicativo](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
-
-### <a name="to-delete-an-app-password-using-the-my-apps-portal"></a>Para excluir uma senha do aplicativo usando o portal Meus aplicativos
-
-1. Vá para o seu perfil e selecione **Verificação Adicional de Segurança**.
-
-2. Selecione **Senhas do aplicativo** e, em seguida, selecione **Excluir** ao lado da senha do aplicativo que você deseja excluir.
-
-   ![Excluir uma senha de aplicativo](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
-
-3. Selecione **Sim** para confirmar que deseja excluir a senha e, em seguida, selecione **Fechar**.
 
 ## <a name="if-your-app-passwords-arent-working-properly"></a>Se as senhas do aplicativo não estiverem funcionando corretamente
 

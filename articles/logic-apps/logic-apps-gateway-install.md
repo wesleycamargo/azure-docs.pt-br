@@ -1,25 +1,24 @@
 ---
 title: Instalar gateway de dados local - Aplicativos Lógicos do Azure | Microsoft Docs
-description: Como baixar e instalar o gateway de dados local antes de acessar dados no local a partir dos aplicativos lógicos
+description: Antes de poder acessar dados nas instalações do Azure Logic Apps, baixe e instale o gateway de dados local
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503641"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842440"
 ---
-# <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados local para Aplicativo Lógico do Azure
+# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para aplicativos de lógica do Azure
 
-Antes de conectar os aplicativos lógicos às fontes de dados locais, baixe e instale o gateway de dados local em um computador local. O gateway funciona como uma ponte que fornece transferência de dados rápida e criptografia entre as fontes de dados locais (fora da nuvem) e os aplicativos lógicos. Este artigo mostra como você pode baixar, instalar e configurar o gateway de dados local. 
+Antes de poder se conectar a fontes de dados locais do Azure Logic Apps, baixe e instale o gateway de dados local em um computador local. O gateway funciona como uma ponte que fornece transferência de dados rápida e criptografia entre as fontes de dados locais (fora da nuvem) e os aplicativos lógicos. Este artigo mostra como você pode baixar, instalar e configurar o gateway de dados local. 
 
 É possível usar a mesma instalação do gateway com outros serviços, como o Power BI, Microsoft Flow, PowerApps e o Azure Analysis Services. Saiba mais sobre [como o gateway de dados funciona](#gateway-cloud-service).
 
@@ -52,7 +51,11 @@ Para obter informações sobre como usar o gateway com outros serviços, consult
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma [conta corporativa ou de estudante](../active-directory/fundamentals/sign-up-organization.md) que tenha uma [assinatura do Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer). Durante a instalação do gateway, você entra nessa conta para poder associar a instalação do gateway à assinatura do Azure. Posteriormente, também é possível usar a mesma conta ao criar um recurso do Azure para a instalação do gateway no portal do Azure. Caso você ainda não tenha uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>.
+* Uma [conta de trabalho ou escola](../active-directory/fundamentals/sign-up-organization.md) que tenha uma [assinatura do Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+
+  Durante a instalação do gateway, você entra nessa conta para poder associar a instalação do gateway à assinatura do Azure. 
+  Posteriormente, também é possível usar a mesma conta ao criar um recurso do Azure para a instalação do gateway no portal do Azure. 
+  Caso você ainda não tenha uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>.
 
 * Aqui estão os requisitos para o computador local:
 
@@ -72,8 +75,7 @@ Para obter informações sobre como usar o gateway com outros serviços, consult
     > [!TIP]
     > Para minimizar a latência, você pode instalar o gateway o mais próximo possível da sua fonte de dados ou no mesmo computador, presumindo que você tenha permissões.
 
-  * Instale o gateway em um computador que *não* desligue, nem entre em suspensão ou conecte-se à Internet. O gateway não pode ser executado nessas condições. 
-  O desempenho do gateway pode ser reduzido em uma rede sem fio.
+  * Instale o gateway em um computador conectado à Internet, sempre ligado, e *não* vai dormir. Caso contrário, o gateway não pode ser executado. Além disso, o desempenho pode sofrer em uma rede sem fio.
 
   * Durante a instalação, somente será possível entrar com uma [conta corporativa ou de estudante](../active-directory/sign-up-organization.md) gerenciada pelo Azure AD (Azure Active Directory), e não uma conta da Microsoft. 
   Além disso, certifique-se de que essa conta não seja uma conta B2B (convidado) do Azure. 
