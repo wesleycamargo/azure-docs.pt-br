@@ -1,5 +1,5 @@
 # Espaços de Desenvolvimento do Azure
-## [Visão geral](azure-dev-spaces.md)
+## [Visão geral](index.yml)
 
 ## Guia de início rápido
 ### [Java (VS Code e CLI)](quickstart-java.md)
