@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 77154d596eb9202c4f9d1063ba7f4e1ec4855181
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852329"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664998"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Como implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure (Atualização 3 e posteriores)
 
@@ -265,7 +265,7 @@ Para interromper todos os encargos, você deve excluir o dispositivo de nuvem. P
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Solucionar problemas de erros de conectividade com a Internet
 A etapa da criação de um dispositivo de nuvem falhará se não houver nenhuma conectividade com a Internet. Para solucionar falhas de conectividade da Internet, execute as seguintes etapas no portal do Azure:
 
-1. [Crie uma máquina virtual do Windows Server 2012 no Azure](/articles/virtual-machines/windows/quick-create-portal.md). Essa máquina virtual deve usar a mesma conta de armazenamento, VNet e sub-rede que o seu dispositivo de nuvem. Se você já tiver um host do Windows Server existente no Azure usando a mesma conta de armazenamento, VNet e sub-rede, você também poderá usá-lo para solucionar os problemas de conectividade com a Internet.
+1. [Crie uma máquina virtual do Windows no Portal do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal). Essa máquina virtual deve usar a mesma conta de armazenamento, VNet e sub-rede que o seu dispositivo de nuvem. Se você já tiver um host do Windows Server existente no Azure usando a mesma conta de armazenamento, VNet e sub-rede, você também poderá usá-lo para solucionar os problemas de conectividade com a Internet.
 2. Faça logon remoto na máquina virtual criada na etapa anterior.
 3. Abra uma janela de comando dentro da máquina virtual (Win + R e digite `cmd`).
 4. Execute o seguinte comando no prompt.

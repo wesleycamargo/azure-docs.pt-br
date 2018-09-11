@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d3c89e2028986e05d5d3957c9805d22f07a840b3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446960"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298099"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Modelos de solução de blockchain Ethereum de pilha do Azure
 
@@ -25,16 +25,14 @@ Com um punhado de entradas do usuário e uma implantação de clique único por 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Baixe os seguintes [do Marketplace](azure-stack-download-azure-marketplace-item.md):
+Baixe os itens mais recentes [do Marketplace](azure-stack-download-azure-marketplace-item.md):
 
-* Ubuntu Server 16.04 LTS versão 16.04.201802220
-* Windows Server 2016 
-* Script personalizado para Linux 2.0 
-* Extensão de script personalizado 
+* Ubuntu Server 16.04 LTS
+* Windows Server 2016
+* Script personalizado para Linux 2.0
+* Extensão de script personalizado para o Windows
 
-Para obter mais informações sobre os cenários de blockchain no Azure, consulte [modelo de solução de prova de trabalho consortium Ethereum](../blockchain-workbench/ethereum-deployment-guide.md).
-
-Uma assinatura do Azure que pode dar suporte a implantação de várias máquinas virtuais é necessária. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+Para obter mais informações sobre os cenários de blockchain, consulte [modelo de solução de prova de trabalho consortium Ethereum](../blockchain-workbench/ethereum-deployment-guide.md).
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 
@@ -43,6 +41,7 @@ Esse modelo de solução pode implantar a rede de consórcio de Ethereum membro 
 ## <a name="deployment-use-cases"></a>Casos de uso de implantação
 
 O modelo pode implantar Ethereum consortium para o líder e associação de membro em uma variedade de formas, aqui são aqueles que testamos:
+
 - Em uma pilha do Azure com vários nós, com o Azure AD ou AD FS, implantar o cliente potencial e membro usando a mesma assinatura ou com assinaturas diferentes.
 - Em um único nó do Azure Stack (com o Azure AD) implante clientes potenciais e membro usando a mesma assinatura.
 

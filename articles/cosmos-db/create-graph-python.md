@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: API do Graph com Python – Azure Cosmos DB | Microsoft Docs'
-description: Este guia de início rápido mostra como usar a API do Graph do Azure Cosmos DB para criar um aplicativo de console com o Portal do Azure e o Python
+title: 'Início Rápido: API do Gremlin com Python – Azure Cosmos DB | Microsoft Docs'
+description: Este início rápido mostra como usar a API do Gremlin do Azure Cosmos DB para criar um aplicativo de console com o Portal do Azure e o Python
 services: cosmos-db
 author: luisbosquez
 manager: kfile
@@ -11,23 +11,32 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: a29a27ec633f5f67bb8cac4b9a4823c5f0966f8e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d01ee78c4e3fdf0eab694deaeed03e0f61989851
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38485454"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699440"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de grafo usando Python e o portal do Azure
 
-Este guia de início rápido mostra como usar o Python e a [API do Graph](graph-introduction.md) do Azure Cosmos DB para compilar um aplicativo de console clonando um exemplo do GitHub. Este guia de início rápido também mostra as etapas para a criação de uma conta do Azure Cosmos DB usando o Portal do Azure baseado na Web.   
+> [!div class="op_single_selector"]
+> * [Console do Gremlin](create-graph-gremlin-console.md)
+> * [.NET](create-graph-dotnet.md)
+> * [Java](create-graph-java.md)
+> * [Node.js](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
+> * [PHP](create-graph-php.md)
+>  
+
+Este início rápido mostra como usar o PHP e a [API do Python](graph-introduction.md) do Azure Cosmos DB para criar um aplicativo de console clonando um exemplo do GitHub. Este guia de início rápido também mostra as etapas para a criação de uma conta do Azure Cosmos DB usando o Portal do Azure baseado na Web.   
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, tabelas, valores-chave e bancos de dados de gráfico, todos os quais se beneficiam de recursos de distribuição global e escala horizontal e no núcleo do Azure Cosmos DB.  
 
 > [!NOTE]
 > Este início rápido exige uma conta de banco de dados de grafo criada depois de 20 de dezembro de 2017. As contas existentes oferecerão suporte a Python depois de serem migradas para a disponibilidade geral.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Como alternativa, você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem ônus e sem compromisso.
 
@@ -49,7 +58,7 @@ Antes de criar um banco de dados de grafo, você precisa criar uma conta do banc
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
-Agora, vamos trabalhar com o código. Vamos clonar um aplicativo de API do Graph do GitHub, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática.  
+Agora, vamos trabalhar com o código. Vamos clonar um aplicativo de API do Gremlin do GitHub, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática.  
 
 1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
 

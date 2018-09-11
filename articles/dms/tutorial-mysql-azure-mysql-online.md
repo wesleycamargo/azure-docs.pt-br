@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/27/2018
-ms.openlocfilehash: 88cd390e37273c95304dab5ba3153e8a63270ab1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 08/31/2018
+ms.openlocfilehash: 2df3f19759229e017ab934082cef46d18816934b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042679"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338959"
 ---
 # <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Migração online do MySQL para o Banco de Dados do Azure para MySQL usando DMS
 Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do MySQL local para o [Banco de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/) com o mínimo de tempo de inatividade. Em outras palavras, a migração pode ser feita com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você deve migrar o banco de dados de exemplo **Employees** de uma instância local do MySQL 5.7 para o Banco de Dados do Azure para MySQL usando uma atividade de migração online no Serviço de Migração de Banco de Dados do Azure.
@@ -29,7 +29,10 @@ Neste tutorial, você aprenderá como:
 > * Executar a migração.
 > * Monitorar a migração.
 
-## <a name="prerequisites"></a>pré-requisitos
+> [!IMPORTANT]
+> Para obter uma experiência ideal de migração, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Banco de Dados do Azure na mesma região do Azure como o banco de dados de destino. Mover dados entre regiões ou áreas geográficas pode desacelerar o processo de migração e introduzir erros.
+
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará:
 
 - Baixar e instalar o [MySQL community edition](https://dev.mysql.com/downloads/mysql/) 5.6 ou 5.7. A versão do MySQL local deve corresponder à versão do Banco de Dados do Azure para MySQL. Por exemplo, o MySQL 5.6 só pode migrar para o Banco de Dados do Azure para MySQL 5.6; não pode ser atualizado para 5.7.
@@ -205,7 +208,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 ## <a name="perform-migration-cutover"></a>Executar migração de substituição
 Após a conclusão do carregamento completo inicial, os bancos de dados são marcados como **Pronto para substituição**.
 
-1. Quando estiver pronto para concluir a migração de banco de dados, selecione **Iniciar Substituição**.
+1. Quando estiver pronto para concluir a migração de banco de dados, selecione **Iniciar substituição**.
 
     ![Iniciar substituição](media\tutorial-mysql-to-azure-mysql-online\dms-start-cutover.png)
  

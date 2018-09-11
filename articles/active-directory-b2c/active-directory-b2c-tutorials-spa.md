@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4953cb0db428de19268cdd90661f7818b06b6945
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591560"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343855"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Tutorial - Permitir autenticação de aplicativos de página única com contas usando o Azure Active Directory B2C
 
@@ -24,24 +24,24 @@ Este tutorial mostra como usar o Azure Active Directory (Azure AD) B2C para insc
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Registrar um aplicativo de página única de exemplo em seu locatário do Azure AD B2C.
+> * Registrar um aplicativo de exemplo de página única em seu diretório do Azure AD B2C.
 > * Criar políticas de inscrição, entrada, edição de perfil e redefinição de senha para usuários.
-> * Configurar o aplicativo de exemplo para usar o locatário do Azure AD B2C.
+> * Configurar o aplicativo de exemplo para usar seu diretório do Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Criar seu próprio [locatário do Azure AD B2C](active-directory-b2c-get-started.md)
+* Use seu próprio [Diretório do Azure AD B2C](active-directory-b2c-get-started.md)
 * Instalar o [Visual Studio 2017](https://www.visualstudio.com/downloads/) com a carga de trabalho **ASP.NET e desenvolvimento Web**.
 * [SDK do NET Core 2.0.0](https://www.microsoft.com/net/core) ou posterior
 * Instale o [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="register-single-page-app"></a>Registrar o aplicativo de página única
 
-Aplicativos precisam ser [registrados](../active-directory/develop/developer-glossary.md#application-registration) em seu locatário antes de poderem receber [tokens de acesso](../active-directory/develop/developer-glossary.md#access-token) do Azure Active Directory. O registro do aplicativo cria uma [id do aplicativo](../active-directory/develop/developer-glossary.md#application-id-client-id) para o aplicativo no locatário. 
+Aplicativos precisam ser [registrados](../active-directory/develop/developer-glossary.md#application-registration) em seu diretório antes de poderem receber [tokens de acesso](../active-directory/develop/developer-glossary.md#access-token) do Azure Active Directory. O registro do aplicativo cria uma [ID do aplicativo](../active-directory/develop/developer-glossary.md#application-id-client-id) para o aplicativo no seu diretório. 
 
-Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
+Entre no [portal do Azure](https://portal.azure.com/) como administrador global do diretório do Azure AD B2C.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -49,7 +49,7 @@ Entre no [portal do Azure](https://portal.azure.com/) como administrador global 
 
 2. Nas configurações de B2C, clique em **Aplicativos** e em **Adicionar**. 
 
-    Para registrar o aplicativo Web de exemplo no locatário, use as seguintes configurações:
+    Para registrar o aplicativo Web de exemplo no diretório, use as seguintes configurações:
     
     ![Adicionar um novo aplicativo](media/active-directory-b2c-tutorials-spa/spa-registration.png)
     
@@ -63,7 +63,7 @@ Entre no [portal do Azure](https://portal.azure.com/) como administrador global 
     
 3. Clique em **Criar** para registrar o aplicativo.
 
-Os aplicativos registrados são exibidos na lista de aplicativos para o locatário do Azure AD B2C. Selecione o aplicativo de página única na lista. O painel de propriedades do aplicativo de página única registrado é exibido.
+Os aplicativos registrados são exibidos na lista de aplicativos para o diretório do Azure AD B2C. Selecione o aplicativo de página única na lista. O painel de propriedades do aplicativo de página única registrado é exibido.
 
 ![Propriedades do aplicativo de página única](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 
@@ -127,25 +127,25 @@ Para habilitar a redefinição de senha no seu aplicativo, você precisará cria
 
 ## <a name="update-single-page-app-code"></a>Atualizar o aplicativo de página única
 
-Agora que você registrou um aplicativo e criou as políticas, precisa configurar o aplicativo para usar o locatário do Azure AD B2C. Neste tutorial, você deve configurar um aplicativo de JavaScript de SPA de exemplo que pode ser baixado do GitHub. 
+Agora que você registrou um aplicativo e criou as políticas, precisa configurar o aplicativo para usar o diretório do Azure AD B2C. Neste tutorial, você deve configurar um aplicativo de JavaScript de SPA de exemplo que pode ser baixado do GitHub. 
 
 [Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clone o aplicativo Web de exemplo do GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-O aplicativo de exemplo demonstra como um aplicativo de página única pode usar o Azure AD B2C para usuário inscrever-se, entrar e chamar uma API Web protegida. Você precisa alterar o aplicativo para usar o registro do aplicativo em seu locatário e configurar as políticas criadas. 
+O aplicativo de exemplo demonstra como um aplicativo de página única pode usar o Azure AD B2C para usuário inscrever-se, entrar e chamar uma API Web protegida. Você precisa alterar o aplicativo para usar o registro do aplicativo em seu diretório e configurar as políticas criadas. 
 
 Para alterar as configurações do aplicativo:
 
 1. Abra o arquivo `index.html` no exemplo de aplicativo de página única do Node.js.
-2. Configure o exemplo com as informações de registro do locatário do Azure AD B2C. Alterar as seguintes linhas de código:
+2. Configure o exemplo com as informações de registro do diretório do Azure AD B2C. Altere as seguintes linhas de código (substitua os valores pelos nomes do seu diretório e de suas APIs):
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C tenant.
+    // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
         webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };
@@ -185,20 +185,20 @@ O aplicativo de exemplo dá suporte a inscrição, entrada, edição de perfil e
 
     ![Fluxo de trabalho de inscrição](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. Clique em **Criar** para criar uma conta local no locatário do Azure AD B2C.
+4. Clique em **Criar** para criar uma conta local no diretório do Azure AD B2C.
 
 Agora o usuário pode usar seu endereço de email para entrar e usar o aplicativo SPA.
 
 > [!NOTE]
-> Após o logon, o aplicativo exibirá um erro de "permissões insuficientes". Você recebe esse erro porque você está tentando acessar um recurso do locatário de demonstração. Como o token de acesso só é válido para seu locatário do Azure AD, a chamada à API não é autorizada. Continue com o próximo tutorial para criar uma API Web protegida para seu locatário. 
+> Após o logon, o aplicativo exibirá um erro de "permissões insuficientes". Você recebe esse erro porque você está tentando acessar um recurso do diretório de demonstração. Uma vez que seu token de acesso só é válido para seu diretório do Azure AD, a chamada à API não é autorizada. Continue com o próximo tutorial para criar uma API Web protegida para seu diretório. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Você pode usar o seu locatário do Azure AD B2C se planeja experimentar outros tutoriais do Azure AD B2C. Quando não for mais necessário, você poderá [excluir o locatário do Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+Você pode usar o seu diretório do Azure AD B2C se planeja experimentar outros tutoriais do Azure AD B2C. Quando não for mais necessário, você poderá [excluir o diretório do Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a criar um locatário do Azure AD B2C, a criar políticas e a atualizar o aplicativo de página única de exemplo para usar o seu locatário do Azure AD B2C. Continue para o próximo tutorial a fim de aprender a registrar, configurar e chamar uma API Web protegida a partir do seu aplicativo de desktop.
+Neste tutorial, você aprendeu a criar um diretório do Azure AD B2C, a criar políticas e a atualizar o exemplo de aplicativo de página única para usar o seu diretório do Azure AD B2C. Continue para o próximo tutorial a fim de aprender a registrar, configurar e chamar uma API Web protegida a partir do seu aplicativo de desktop.
 
 > [!div class="nextstepaction"]
 > 

@@ -11,20 +11,29 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 0535f956e0a7a981bee441c0eb4ae103ca5d0cec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e218dccee322b6e387e78c04dba5afb9677c1b4b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38612790"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702013"
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de documentos usando o Java e o portal do Azure
+
+> [!div class="op_single_selector"]
+> * [.NET](create-sql-api-dotnet.md)
+> * [Java](create-sql-api-java.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Node.js- v2](create-sql-api-nodejs-preview.md)
+> * [Python](create-sql-api-python.md)
+> * [Xamarin](create-sql-api-xamarin-dotnet.md)
+>  
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Usando o Azure Cosmos DB, você pode criar e consultar rapidamente documentos, tabelas e bancos de dados de grafo gerenciados.
 
 Este início rápido cria um banco de dados de documentos usando as ferramentas do Portal do Azure para a [API SQL](sql-api-introduction.md) do Azure Cosmos DB. Este início rápido também mostra como criar rapidamente um aplicativo de console do Java usando a [API Java do SQL](sql-api-sdk-java.md). Estas instruções podem ser seguidas em qualquer sistema operacional compatível com Java. Ao concluir este início rápido, você estará familiarizado com a criação e a modificação dos recursos do banco de dados de documentos na interface do usuário ou programaticamente, o que for sua preferência.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]

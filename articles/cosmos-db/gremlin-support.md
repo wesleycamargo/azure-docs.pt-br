@@ -10,19 +10,19 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: c675f37e50f5b8a259048d9a92fcdbe5b947068c
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 593b7ac636b92db5c72cfad8f73fc2c418639358
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797610"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700205"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte do Azure Cosmos DB para grafo do Gremlin
-O Azure Cosmos DB dá suporte à linguagem de cruzamento de grafo [Gremlin](http://tinkerpop.apache.org) da [Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma API do Graph para criar entidades de grafo e executar operações de consulta de grafo. É possível usar a linguagem Gremlin para criar entidades de grafo (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
+O Azure Cosmos DB dá suporte ao idioma de percurso do grafo do [Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) que é uma API do Gremlin para criar entidades de grafo e executar operações de consulta do grafo. É possível usar a linguagem Gremlin para criar entidades de grafo (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
 
 O Azure Cosmos DB traz recursos prontos para empresas para bancos de dados de grafo. Isso inclui distribuição global, dimensionamento independente do armazenamento e da taxa de transferência, latências de milissegundos de dígito único previsíveis, indexação automática e SLAs, leitura disponível para contas de bancos de dados abrangendo duas ou mais regiões do Azure. Como o Azure Cosmos DB dá suporte a TinkerPop/Gremlin, você pode migrar com facilidade aplicativos escritos usando outro banco de dados de grafo sem a necessidade de fazer alterações no código. Além disso, devido ao suporte para Gremlin, o Azure Cosmos DB integra-se perfeitamente com estruturas de análise habilitadas para TinkerPop, como o [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
-Neste artigo, fornecemos uma explicação rápida do Gremlin e listamos os recursos e etapas do Gremlin compatíveis com a API do Graph.
+Neste artigo, fornecemos instruções passo a passo rápidas do Gremlin e enumeramos os recursos e as etapas do Gremlin compatíveis com a API do Gremlin.
 
 ## <a name="gremlin-by-example"></a>Gremlin pelo exemplo
 Vamos usar um grafo de exemplo para entender como as consultas podem ser expressas no Gremlin. A figura a seguir mostra um aplicativo de negócios que gerencia dados sobre usuários, interesses e dispositivos na forma de um grafo.  

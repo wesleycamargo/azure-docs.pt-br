@@ -1,5 +1,5 @@
 ---
-title: Compilar um aplicativo Node.js do Azure Cosmos DB usando a API do Graph | Microsoft Docs
+title: Criar um aplicativo Node.js do Azure Cosmos DB usando a API do Gremlin | Microsoft Docs
 description: Apresenta um exemplo de código Node.js que pode ser usado para se conectar ao BD Cosmos do Azure e consultá-lo
 services: cosmos-db
 author: luisbosquez
@@ -11,20 +11,29 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 84c92b1c0b2977ca15b82a0884870d78d895a761
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5f7e2a30ee4ea069e8c08187312f09e33a5a921a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38543765"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700021"
 ---
-# <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Compilar um aplicativo Node.js usando a API do Graph
+# <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB: criar um aplicativo Node.js usando a API do Gremlin
+
+> [!div class="op_single_selector"]
+> * [Console do Gremlin](create-graph-gremlin-console.md)
+> * [.NET](create-graph-dotnet.md)
+> * [Java](create-graph-java.md)
+> * [Node.js](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
+> * [PHP](create-graph-php.md)
+>  
 
 O Azure Cosmos DB é o serviço de banco de dados multi-modelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-Este início rápido demonstra como criar uma conta de [API do Graph](graph-introduction.md) do Azure Cosmos DB, um banco de dados e um grafo usando o Portal do Azure. Em seguida, você compila e executa um aplicativo de console usando o driver [Gremlin Node.js](https://www.npmjs.com/package/gremlin) de software livre.
+Este início rápido demonstra como criar uma conta de [API do Gremlin](graph-introduction.md) do Azure Cosmos DB, um banco de dados e um grafo usando o Portal do Azure. Em seguida, você compila e executa um aplicativo de console usando o driver [Gremlin Node.js](https://www.npmjs.com/package/gremlin) de software livre.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes que possa executar esta amostra, você deverá ter os seguintes pré-requisitos:
 * [Node.js](https://nodejs.org/en/) versão v0.10.29 ou posterior
@@ -42,7 +51,7 @@ Antes que possa executar esta amostra, você deverá ter os seguintes pré-requi
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
-Agora, clonaremos um aplicativo de API do Graph do GitHub, definiremos a cadeia de conexão e o executaremos. Você verá como é fácil trabalhar usando dados de forma programática. 
+Agora vamos clonar um aplicativo de API do Gremlin do GitHub, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática. 
 
 1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
 

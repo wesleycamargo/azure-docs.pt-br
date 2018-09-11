@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/04/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 391cc4ca4b34149aeda54a60bfe6f6949e5a379b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 773acd3a22244403548ef4ce35164291f5c0be7d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697740"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300828"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: implantar aplicativos no Azure e o Azure Stack
 
@@ -30,7 +30,7 @@ Saiba como implantar um aplicativo do Azure e Azure Stack usando um pipeline de 
 Neste tutorial, você criará um ambiente de exemplo para:
 
 > [!div class="checklist"]
-> * Inicie uma nova compilação com base nas confirmações de código ao seu repositório do Visual Studio Team Services (VSTS).
+> * Inicie uma nova compilação com base nas confirmações de código ao seu repositório de serviços de DevOps do Azure.
 > * Implante automaticamente seu aplicativo no Azure global para o teste de aceitação do usuário.
 > * Quando seu código passa no teste, implante automaticamente o aplicativo no Azure Stack.
 
@@ -81,30 +81,30 @@ Este tutorial pressupõe que você tenha algum conhecimento básico do Azure e o
  * Crie [plano/ofertas](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) no Azure Stack.
  * Criar uma [assinatura de locatário](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) no Azure Stack.
  * Crie um aplicativo Web na assinatura do locatário. Anote a nova URL do aplicativo Web para usar mais tarde.
- * Implante a máquina de Virtual do VSTS na assinatura do locatário.
+ * Implante a máquina Virtual do Azure DevOps serviços na assinatura do locatário.
 * Forneça uma imagem do Windows Server 2016 com o .NET 3.5 para uma máquina virtual (VM). Essa VM será criada no Azure Stack como um agente de compilação particular.
 
 ### <a name="developer-tool-requirements"></a>Requisitos da ferramenta de desenvolvedor
 
-* Criar uma [espaço de trabalho do VSTS](https://docs.microsoft.com/vsts/repos/tfvc/create-work-workspaces). O processo de inscrição cria um projeto chamado **MyFirstProject**.
-* [Instalar o Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [entrar no VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+* Criar uma [espaço de trabalho de serviços do Azure DevOps](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces). O processo de inscrição cria um projeto chamado **MyFirstProject**.
+* [Instalar o Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [entrar nos serviços do Azure DevOps](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Conectar-se ao seu projeto e [cloná-lo localmente](https://www.visualstudio.com/docs/git/gitquickstart).
 
  > [!Note]
  > Seu ambiente do Azure Stack precisa as imagens corretas seja distribuídas para executar o Windows Server e SQL Server. Ela também deve ter implantado o serviço de aplicativo.
 
-## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Preparar-se a versão do agente e uma compilação particular para integração com o Visual Studio Team Services
+## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Preparar o agente de Pipelines do Azure privado para a integração de serviços de DevOps do Azure
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Visual Studio Team Services (VSTS) autentica no Azure Resource Manager usando uma entidade de serviço. VSTS deve ter o **Colaborador** função Provisione recursos em uma assinatura do Azure Stack.
+Serviços de DevOps do Azure autentica no Azure Resource Manager usando uma entidade de serviço. Serviços de DevOps do Azure deve ter o **Colaborador** função Provisione recursos em uma assinatura do Azure Stack.
 
 As etapas a seguir descrevem o que é necessário para configurar a autenticação:
 
 1. Criar uma entidade de serviço, ou usar uma entidade de serviço existente.
 2. Crie chaves de autenticação para a entidade de serviço.
 3. Valide a assinatura do Azure Stack por meio do controle de acesso baseado em função para permitir que o nome Principal de serviço (SPN) para fazer parte da função do Colaborador.
-4. Crie uma nova definição de serviço no VSTS usando as informações de SPN e pontos de extremidade do Azure Stack.
+4. Crie uma nova definição de serviço nos serviços de DevOps do Azure usando as informações de SPN e pontos de extremidade do Azure Stack.
 
 ### <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
@@ -122,7 +122,7 @@ Uma entidade de serviço requer uma chave para autenticação. Use as etapas a s
 
     ![Selecione o aplicativo](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-2. Anote o valor de **ID do aplicativo**. Você usará esse valor ao configurar o ponto de extremidade de serviço no VSTS.
+2. Anote o valor de **ID do aplicativo**. Ao configurar o ponto de extremidade de serviço nos serviços de DevOps do Azure, você usará esse valor.
 
     ![ID do aplicativo](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
@@ -144,7 +144,7 @@ Uma entidade de serviço requer uma chave para autenticação. Use as etapas a s
 
 ### <a name="get-the-tenant-id"></a>Obter a ID do locatário
 
-Como parte da configuração do ponto de extremidade de serviço, o VSTS requer o **ID do locatário** que corresponde ao diretório do AAD que seu carimbo de data / Azure Stack é implantado. Use as etapas a seguir para obter a ID de locatário.
+Como parte da configuração do ponto de extremidade de serviço, serviços de DevOps do Azure requer o **ID do locatário** que corresponde ao diretório do AAD que seu carimbo de data / Azure Stack é implantado. Use as etapas a seguir para obter a ID de locatário.
 
 1. Selecione **Azure Active Directory**.
 
@@ -194,20 +194,21 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
 
 Controle de acesso do Azure baseado em função (RBAC) fornece gerenciamento de acesso refinado para o Azure. Ao usar o RBAC, você pode controlar o nível de acesso que os usuários precisam para realizar seus trabalhos. Para obter mais informações sobre o controle de acesso baseado em função, consulte [gerenciar o acesso aos recursos de assinatura do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
-### <a name="vsts-agent-pools"></a>Pools de agente do VSTS
+### <a name="azure-devops-services-agent-pools"></a>Pools de agente dos serviços de DevOps do Azure
 
-Em vez de gerenciar separadamente cada agente, você pode organizar os agentes em pools de agente. Um pool de agentes define o limite de compartilhamento para todos os agentes nesse pool. No VSTS, pools de agente limitam-se à conta do VSTS, o que significa que você pode compartilhar um pool de agentes entre projetos de equipe. Para saber mais sobre os pools de agente, consulte [criar Pools de agente e filas](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
+Em vez de gerenciar separadamente cada agente, você pode organizar os agentes em pools de agente. Um pool de agentes define o limite de compartilhamento para todos os agentes nesse pool. Nos serviços de DevOps do Azure, pools de agente estão no escopo para a organização de serviços de DevOps do Azure, que significa que você pode compartilhar um pool de agentes entre projetos. Para saber mais sobre os pools de agente, consulte [criar Pools de agente e filas](https://docs.microsoft.com/azure/devops/pipelines/agents/pools-queues?view=vsts).
 
 ### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>Adicionar um Token de acesso pessoal (PAT) para o Azure Stack
 
-Crie um Token de acesso pessoal para acessar o VSTS.
+Crie um Token de acesso pessoal para acessar os serviços de DevOps do Azure.
 
-1. Entre sua conta do VSTS e selecione seu nome de perfil de conta.
+1. Entrar em sua organização de serviços de DevOps do Azure e selecione o nome de perfil da sua organização.
+
 2. Selecione **gerenciar segurança** a página de criação de token de acesso.
 
     ![Entrada do usuário](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
-    ![Selecione o projeto de equipe](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Selecione um projeto](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
     ![Adicione o token de acesso pessoal](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
 
@@ -220,7 +221,7 @@ Crie um Token de acesso pessoal para acessar o VSTS.
 
     ![Token de acesso pessoal](media\azure-stack-solution-hybrid-pipeline\000_19.png)
 
-### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Instalação do que agente de build do VSTS no Azure Stack hospedou o servidor de compilação
+### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Instalação do que agente de compilação de serviços de DevOps do Azure no Azure Stack hospedou o servidor de compilação
 
 1. Conecte-se ao seu servidor de compilação que você implantou no host do Azure Stack.
 2. Baixar e implantar o agente de compilação como um serviço usando sua conta pessoal (PAT) do token de acesso e executados como a conta de administrador de VM.
@@ -237,17 +238,17 @@ Crie um Token de acesso pessoal para acessar o VSTS.
 
     ![Atualização de pasta do agente de compilação](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 
-    Você pode ver o agente na pasta do VSTS.
+    Você pode ver o agente na pasta de serviços de DevOps do Azure.
 
 ## <a name="endpoint-creation-permissions"></a>Permissões de criação de ponto de extremidade
 
-Criando pontos de extremidade, uma compilação do Visual Studio Online (VSTO) pode implantar aplicativos de serviço do Azure para o Azure Stack. O VSTS se conecta ao agente de compilação, que se conecta ao Azure Stack.
+Criando pontos de extremidade, uma compilação do Visual Studio Online (VSTO) pode implantar aplicativos de serviço do Azure para o Azure Stack. Serviços de DevOps do Azure se conecta ao agente de compilação, que se conecta ao Azure Stack.
 
 ![Aplicativo de exemplo NorthwindCloud no VSTO](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
 
 1. Entre no VSTO e navegue até a página de configurações do aplicativo.
 2. Na **as configurações**, selecione **segurança**.
-3. Na **grupos do VSTS**, selecione **criadores de ponto de extremidade**.
+3. Na **grupos de serviços do Azure DevOps**, selecione **criadores de ponto de extremidade**.
 
     ![Criadores de ponto de extremidade NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
 
@@ -257,7 +258,7 @@ Criando pontos de extremidade, uma compilação do Visual Studio Online (VSTO) p
 
 5. Na **adicionar usuários e grupos**, insira um nome de usuário e selecione o usuário na lista de usuários.
 6. Selecione **Salvar alterações**.
-7. No **grupos do VSTS** lista, selecione **administradores de ponto de extremidade**.
+7. No **grupos de serviços do Azure DevOps** lista, selecione **administradores de ponto de extremidade**.
 
     ![Administradores do ponto de extremidade NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
 
@@ -265,6 +266,7 @@ Criando pontos de extremidade, uma compilação do Visual Studio Online (VSTO) p
 9. Na **adicionar usuários e grupos**, insira um nome de usuário e selecione o usuário na lista de usuários.
 10. Selecione **Salvar alterações**.
 
+Agora que as informações de ponto de extremidade existem, os serviços de DevOps do Azure para conexão do Azure Stack está pronto para uso. O agente de compilação no Azure Stack obtém as instruções dos serviços de DevOps do Azure e, em seguida, o agente transmite informações de ponto de extremidade para comunicação com o Azure Stack.
 ## <a name="create-an-azure-stack-endpoint"></a>Criar um ponto de extremidade do Azure Stack
 
 Você pode seguir as instruções em [criar entidade de uma conexão de serviço do Azure Resource Manager com um serviço existente ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) artigo para criar uma conexão de serviço com um serviço existente principal e use o seguinte mapeamento:
@@ -285,18 +287,18 @@ Agora que o ponto de extremidade é criado, o VSTS para a conexão do Azure Stac
 
 Nesta parte do tutorial, você vai:
 
-* Adicione código para um projeto do VSTS.
+* Adicione o código a um projeto de serviços de DevOps do Azure.
 * Crie implantação de aplicativo web independente.
 * Configurar o processo de implantação contínua
 
 > [!Note]
  > Seu ambiente do Azure Stack precisa as imagens corretas seja distribuídas para executar o Windows Server e SQL Server. Ela também deve ter implantado o serviço de aplicativo. Leia a documentação do serviço de aplicativo seção "Pré-requisitos" para obter os requisitos de operador do Azure Stack.
 
-CI/CD híbrido pode aplicar ao código do aplicativo e o código de infraestrutura. Use [modelos do Azure Resource Manager, como web ](https://azure.microsoft.com/resources/templates/) código do aplicativo do VSTS para implantar em ambas as nuvens.
+CI/CD híbrido pode aplicar ao código do aplicativo e o código de infraestrutura. Use [modelos do Azure Resource Manager, como web ](https://azure.microsoft.com/resources/templates/) código de aplicativo dos serviços de DevOps do Azure para implantar em ambas as nuvens.
 
-### <a name="add-code-to-a-vsts-project"></a>Adicione código para um projeto do VSTS
+### <a name="add-code-to-an-azure-devops-services-project"></a>Adicione o código a um projeto de serviços de DevOps do Azure
 
-1. Entrar no VSTS com uma conta que tenha direitos de criação do projeto no Azure Stack. A próxima captura de tela mostra como conectar-se ao projeto HybridCICD.
+1. Entrar nos serviços de DevOps do Azure com uma organização que tem direitos de criação do projeto no Azure Stack. A próxima captura de tela mostra como conectar-se ao projeto HybridCICD.
 
     ![Conectar a um projeto](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
@@ -310,37 +312,38 @@ CI/CD híbrido pode aplicar ao código do aplicativo e o código de infraestrutu
 
     ![Configurar Runtimeidentifier](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
 
-2. Use o Team Explorer para verificar o código no VSTS.
+2. Use o Team Explorer para verificar o código nos serviços de DevOps do Azure.
 
-3. Confirme se o código do aplicativo foi marcado para o Visual Studio Team Services.
+3. Confirme se o código do aplicativo foi marcado nos serviços de DevOps do Azure.
 
-### <a name="create-the-build-definition"></a>Criar a definição de compilação
+### <a name="create-the-build-pipeline"></a>Criar o pipeline de compilação
 
-1. Entrar no VSTS com uma conta que pode criar uma definição de compilação.
-2. Navegue até a **compilar o aplicativo de Web** página para o projeto.
+1. Entrar nos serviços de DevOps do Azure com uma organização que pode criar um pipeline de compilação.
+
+2. Navegue até a **Build Web Applicaiton** página para o projeto.
 
 3. Na **argumentos**, adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com.Net Core.
 
-    ![Adicionar definição de compilação do argumento](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Adicionar o pipeline de build do argumento](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
 
 4. Execute a compilação. O [compilação de implantação autocontida](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processo publicará os artefatos que podem ser executados no Azure e Azure Stack.
 
 ### <a name="use-an-azure-hosted-build-agent"></a>Uso do Azure hospedados agente de compilação
 
-Usando um agente de compilação hospedada no VSTS é uma opção conveniente para a criação e implantação de aplicativos web. Atualizações e manutenção do agente são executadas automaticamente pelo Microsoft Azure, que permite que um ciclo de desenvolvimento contínuo e sem interrupções.
+Usando um agente de compilação hospedado nos serviços de DevOps do Azure é uma opção conveniente para a criação e implantação de aplicativos web. Atualizações e manutenção do agente são executadas automaticamente pelo Microsoft Azure, que permite que um ciclo de desenvolvimento contínuo e sem interrupções.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Configurar o processo de implantação contínua (CD)
 
-Visual Studio Team Services (VSTS) e o Team Foundation Server (TFS) fornecem um pipeline totalmente configurável e gerenciável para as versões em vários ambientes, como desenvolvimento, preparo, produção e qualidade (QA). Esse processo pode incluir a necessidade de aprovações em estágios específicos do ciclo de vida do aplicativo.
+Team Foundation Server (TFS) e serviços de DevOps do Azure fornecem um pipeline totalmente configurável e gerenciável para as versões em vários ambientes, como desenvolvimento, preparo, garantia de qualidade (QA) e produção. Esse processo pode incluir a necessidade de aprovações em estágios específicos do ciclo de vida do aplicativo.
 
-### <a name="create-release-definition"></a>Criar definição de versão
+### <a name="create-release-pipeline"></a>Criar um pipeline de lançamento
 
-Criar uma definição de versão é o processo de compilação a etapa final em seu aplicativo. Essa definição de versão é usada para criar uma versão e implantar uma compilação.
+Criar um pipeline de lançamento é o processo de compilação a etapa final em seu aplicativo. Esse pipeline de lançamento é usado para criar uma versão e implantar uma compilação.
 
-1. Entrar no VSTS e navegue até **Build e versão** para seu projeto.
+1. Entrar nos serviços de DevOps do Azure e navegue até **Pipelines do Azure** para seu projeto.
 2. Sobre o **versões** guia, selecione  **\[ +]** e, em seguida, escolha **criar definição de versão**.
 
-   ![Criar definição de versão](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![Criar um pipeline de lançamento](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
 3. Na **selecione um modelo**, escolha **implantação de serviço de aplicativo do Azure**e, em seguida, selecione **aplicar**.
 
@@ -427,11 +430,11 @@ Criar uma definição de versão é o processo de compilação a etapa final em 
 23. Salve todas as alterações.
 
 > [!Note]
-> Algumas configurações para tarefas de liberação podem ter sido automaticamente definidas como [variáveis de ambiente](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) quando você criou uma definição de versão de um modelo. Essas configurações não podem ser modificadas as configurações da tarefa. No entanto, você pode editar essas configurações nos itens de ambiente do pai.
+> Algumas configurações para tarefas de liberação podem ter sido automaticamente definidas como [variáveis de ambiente](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts#custom-variables) quando você criou um pipeline de lançamento de um modelo. Essas configurações não podem ser modificadas as configurações da tarefa. No entanto, você pode editar essas configurações nos itens de ambiente do pai.
 
 ## <a name="create-a-release"></a>Criar uma versão
 
-Agora que você tiver concluído as modificações à definição de versão, é hora de começar a implantação. Para fazer isso, você deve criar uma versão da definição de versão. Uma versão pode ser criada automaticamente. Por exemplo, o gatilho de implantação contínua é definido na definição da versão. Isso significa que modificar o código-fonte iniciará uma nova compilação e, de que, uma nova versão. No entanto, nesta seção você criará uma nova versão manualmente.
+Agora que você tiver concluído as modificações no pipeline de lançamento, é hora de começar a implantação. Para fazer isso, você deve criar uma versão do pipeline de lançamento. Uma versão pode ser criada automaticamente. Por exemplo, o gatilho de implantação contínua é definido no pipeline de lançamento. Isso significa que modificar o código-fonte iniciará uma nova compilação e, de que, uma nova versão. No entanto, nesta seção você criará uma nova versão manualmente.
 
 1. No **Pipeline** guia, abra o **Release** lista suspensa lista e escolha **criar versão**.
 

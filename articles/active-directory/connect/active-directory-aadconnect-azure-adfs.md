@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 924269e16ab09cfd144955d3bd462cab7b37aaaf
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917128"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381747"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implantando os Serviços de Federação do Active Directory no Azure
 O AD FS fornece recursos simplificados e seguros de federação de identidade e de logon único (SSO) da Web. A federação com o Azure AD ou o O365 habilita os usuários a se autenticar usando credenciais locais e acessar todos os recursos na nuvem. Como resultado, é importante ter uma infraestrutura altamente disponível do AD FS para garantir o acesso a recursos locais e na nuvem. Implantar o AD FS no Azure pode ajudar a atingir a alta disponibilidade necessária com esforço mínimo.
@@ -187,12 +187,14 @@ Selecione o ILB recém-criado no painel Balanceadores de Carga. Isso abrirá o p
 
 **6.3. Configurando investigação**
 
-No painel de configurações de ILB, selecione Investigações.
+No painel de configurações doe ILB, selecione Investigações de Integridade.
 
 1. Clique em adicionar
-2. Fornecer detalhes para investigação a. **Nome**: nome de investigação b. **Protocolo**: TCP c. **Porta**: 443 (HTTPS) d. **Intervalo**: 5 (valor padrão) – é o intervalo em que o ILB investigará as máquinas no pool de back-end e. **Limite não íntegro**: 2 (valor padrão) – esse é o limite de falhas de investigação consecutivas após o qual o ILB declarará que uma máquina no pool de back-end não está respondendo e interromperá o envio de tráfego para ela.
+2. Fornecer detalhes para investigação a. **Nome**: nome de investigação b. **Protocolo**: http c. **Porta**: 80 (HTTP) d. **Caminho**: /adfs/probe e. **Intervalo**: 5 (valor padrão) – é o intervalo em que o ILB investigará as máquinas no pool de back-end f. **Limite não íntegro**: 2 (valor padrão) – esse é o limite de falhas de investigação consecutivas após o qual o ILB declarará que uma máquina no pool de back-end não está respondendo e interromperá o envio de tráfego para ela.
 
 ![Configurar investigação ILB](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+
+Estamos usando o ponto de extremidade /adfs/probe criado explicitamente para verificações de integridade em um ambiente do AD FS em que uma verificação completa do caminho HTTPS não pode ocorrer.  Isso é consideravelmente melhor que uma verificação básica da porta 443, que não reflete com precisão o status de uma implantação moderna do AD FS.  Encontre mais informações sobre esse tópico em https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/.
 
 **6.4. Criar regras de balanceamento de carga**
 
@@ -323,7 +325,7 @@ Você pode usar uma rede virtual existente ou criar uma nova VNETao implantar es
 
 | Parâmetro | DESCRIÇÃO |
 |:--- |:--- |
-| Localização |A região para implantar os recursos, por exemplo, Leste dos EUA. |
+| Local padrão |A região para implantar os recursos, por exemplo, Leste dos EUA. |
 | StorageAccountType |O tipo de conta de armazenamento criada |
 | VirtualNetworkUsage |Indica se uma nova rede virtual será criada ou se uma existente será usada |
 | VirtualNetworkName |O nome da Rede Virtual para criar, obrigatória no uso da rede virtual nova ou existente |

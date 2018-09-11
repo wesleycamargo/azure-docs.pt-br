@@ -12,20 +12,22 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: be8b99f8cf291d2e09187344aa458420db92364e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d433eeb7d63282868b8919ee8c53283080bf8b59
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237640"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701051"
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: Introdução à API do SQL e ao .NET Core
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js para MongoDB](mongodb-samples.md)
+> * [Java](sql-api-java-get-started.md)
+> * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Java](sql-api-java-get-started.md)  
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Bem-vindo ao tutorial de introdução à API do SQL para Azure Cosmos DB com .NET Core! Após seguir este tutorial, você terá um aplicativo de console que cria e consulta recursos do Azure Cosmos DB.
@@ -48,7 +50,7 @@ Deseja criar um aplicativo Xamarin iOS, Android ou Forms usando o SDK do .NET Co
 
 Agora vamos começar!
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/). 
 

@@ -1,18 +1,20 @@
 ---
 title: Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual do Terraform do Linux com Identidade de Serviço Gerenciada
 description: Utilizar imagem do Marketplace para criar máquina virtual do Terraform do Linux com Identidade de Serviço Gerenciada e Gerenciamento de Estado Remoto para facilmente implantar recursos no Azure.
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, MSI, máquina virtual, estado remoto, azure
-author: VaijanathB
-manager: rloutlaw
+author: tomarcher
+manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 3/12/2018
-ms.topic: article
-ms.openlocfilehash: 5f0ee2904c1072a5ad8c5f7ae1c90e649cc4813c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0136966576e3fbb22855d74cc1866e48b4ac24c9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413789"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669380"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual do Terraform do Linux com Identidade de Serviço Gerenciada
 
@@ -22,7 +24,7 @@ A imagem do Marketplace do Terraform facilita o uso do Terraform no Azure, sem a
 
 Não há encargos de software para essa imagem de VM do Terraform. Você paga apenas pelo valor de uso de hardware do Azure, que são avaliadas com base no tamanho da máquina virtual provisionada. Para obter mais informações sobre os valores de computação, consulte a [Página de preços de máquinas virtuais do Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de poder criar uma máquina virtual do Terraform do Linux, você deverá ter uma assinatura do Azure. Se você não tiver uma, consulte [Criar sua conta gratuita do Azure hoje](https://azure.microsoft.com/free/).  
 
 ## <a name="create-your-terraform-virtual-machine"></a>Criar a máquina virtual do Terraform 
@@ -89,7 +91,7 @@ O script anterior usa o mecanismo [Logon interativo AZ CLI v 2.0](https://docs.m
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- Para obter mais informações sobre o Gerenciamento de Estado Remoto, consulte [esta página sobre o estado remoto do Terraform](https://www.terraform.io/docs/state/remote.html). A chave de acesso ao armazenamento é exposta neste arquivo e precisa ser excluída antes de confirmar os arquivos de configuração do Terraform no controle de origem.
+ Para obter mais informações sobre o Gerenciamento de Estado Remoto, consulte [esta página sobre o estado remoto do Terraform](https://www.terraform.io/docs/state/remote.html). A chave de acesso de armazenamento é exposta neste arquivo e precisa ser excluída antes de confirmar os arquivos de configuração do Terraform no controle do código-fonte.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como configurar uma máquina virtual do Terraform do Linux no Azure. A seguir são apresentados alguns recursos adicionais para ajudá-lo a saber mais sobre o Terraform no Azure: 

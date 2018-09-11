@@ -5,23 +5,23 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/14/2017
+ms.date: 06/13/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 110d1a0fe52f50f057f7ea7ccbc426706473306d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: db8aa2d1bb5d79b5d2c9b04789b4ac18fbec5897
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23660544"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664583"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET
 
 Com o Azure Application Insights, você pode monitorar facilmente o aplicativo Web quanto à sua disponibilidade, desempenho e uso.  Você também pode identificar e diagnosticar erros rapidamente em seu aplicativo sem esperar que um usuário os relate.  Com as informações coletadas do Application Insights sobre o desempenho e a eficiência do seu aplicativo, você pode fazer escolhas informadas para manter e aprimorar seu aplicativo.
 
-Este guia de início rápido mostra como adicionar o Application Insights a um aplicativo Web ASP.NET existente e começar a analisar as estatísticas em tempo real, que é apenas um dos vários métodos que você pode usar para analisar o aplicativo. Se você não tiver um aplicativo Web ASP.NET, você poderá criar um seguindo o [guia de início rápido Criar um aplicativo Web ASP.NET](../app-service/app-service-web-get-started-dotnet.md).
+Este guia de início rápido mostra como adicionar o Application Insights a um aplicativo Web ASP.NET existente e começar a analisar as estatísticas em tempo real, que é apenas um dos vários métodos que você pode usar para analisar o aplicativo. Se você não tiver um aplicativo Web ASP.NET, você poderá criar um seguindo o [guia de início rápido Criar um aplicativo Web ASP.NET](../app-service/app-service-web-get-started-dotnet-framework.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de início rápido:
@@ -37,17 +37,23 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 1. Abra o projeto no Visual Studio 2017.
 2. Selecione **Configurar o Application Insights** no menu Projeto. O Visual Studio adiciona o SDK do Application Insights ao aplicativo.
-3. Clique em **Começar com Gratuito**, selecione o plano de cobrança preferencial e clique em **Registrar**.
 
-    ![Adicionando o Application Insights ao Visual Studio](./media/quick-monitor-portal/add-application-insights.png)
+    > [!IMPORTANT]
+    > O processo para adicionar o Application Insights varia de acordo com o tipo de modelo do ASP.NET. Se você estiver usando o modelo **Vazio** ou **Aplicativo Móvel do Azure**, selecione **Projeto** > **Adicionar Application Insights Telemetry**. Para todos os outros modelos do ASP.NET, consulte as instruções na etapa acima. 
 
-4. Execute o aplicativo selecionando **Iniciar Depuração** do menu **Depurar** ou pressionando a tecla F5.
+3. Clique em **Introdução** (versões anteriores do Visual Studio têm um botão **Iniciar Gratuitamente** em vez disso).
+
+    ![Adicionando o Application Insights ao Visual Studio](./media/quick-monitor-portal/add-application-insights-b.png)
+
+4. Selecione sua assinatura e clique em **Registrar**.
+
+5. Execute o aplicativo selecionando **Iniciar Depuração** do menu **Depurar** ou pressionando a tecla F5.
 
 ## <a name="confirm-app-configuration"></a>Confirmar configuração do aplicativo
 
 O Application Insights coleta dados de telemetria para seu aplicativo, independentemente do local em que ele está sendo executado. Use as etapas a seguir para começar a exibir esses dados.
 
-1. Abra o Application Insights clicando em **Projeto** -> **Application Insights** -> **Pesquisar Telemetria da Sessão de Depuração**.  Você pode ver a telemetria da sessão atual.<BR><br>![Telemetria no Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. Abra o Application Insights clicando em **Exibir** -> **Outras Janelas** -> **Pesquisa do Application Insights**.  Você pode ver a telemetria da sessão atual.<BR><br>![Telemetria no Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. Clique na primeira solicitação na lista (GET Home/Index neste exemplo) para ver os detalhes da solicitação. Observe que o tempo de resposta e o código de status são ambos incluídos, juntamente com outras informações importantes sobre a solicitação.<br><br>![Detalhes da resposta no Visual Studio](media/quick-monitor-portal/request-details.png)
 
@@ -57,11 +63,11 @@ Agora você pode abrir o Application Insights no Portal do Azure para exibir vá
 
 1. Clique com o botão direito do mouse na pasta **Connected Services Application Insights** no Gerenciador de Soluções e clique em **Abrir Portal do Application Insights**.  Você pode ver algumas informações sobre seu aplicativo e uma variedade de opções.
 
-    ![Mapa de aplicativo](media/quick-monitor-portal/001.png)
+    ![Mapa de aplicativo](media/quick-monitor-portal/overview-001.png)
 
 2. Clique em **Mapa do aplicativo** para obter um layout visual das relações de dependência entre os componentes do aplicativo.  Cada componente mostra KPIs como alertas, desempenho, falhas e carregamento.
 
-    ![Mapa de aplicativo](media/quick-monitor-portal/application-map.png)
+    ![Mapa de aplicativo](media/quick-monitor-portal/application-map-001.png)
 
 3. Clique no ícone **Análise do Aplicativo** ![Mapa do Aplicativo](media/quick-monitor-portal/app-analytics-icon.png) em um dos componentes do aplicativo.  Isso abre a **Análise do Application Insights**, que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights.  Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você.  Você pode escrever suas próprias consultas para analisar outros dados.
 

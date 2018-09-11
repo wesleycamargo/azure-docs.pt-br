@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: ad38976f439c399d839d6c5ee9dcd6ade7726c71
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: e3ed90d0b706e742588a5a0966d9ac3bda44ecbd
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081900"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697435"
 ---
-# <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Tutorial: Consultar a API do Graph do Azure Cosmos DB usando Gremlin
+# <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Tutorial: Consultar a API do Gremlin do Azure Cosmos DB usando Gremlin
 
-A [API do Graph](graph-introduction.md) do Azure Cosmos DB também é compatível com consultas do [Gremlin](https://github.com/tinkerpop/gremlin/wiki). Este artigo fornece exemplos de documentos e consultas para você começar. Uma referência detalhada do Gremlin é fornecida no artigo [Suporte a Gremlin](gremlin-support.md).
+A [API do Gremlin](graph-introduction.md) do Azure Cosmos DB também é compatível com consultas do [Gremlin](https://github.com/tinkerpop/gremlin/wiki). Este artigo fornece exemplos de documentos e consultas para você começar. Uma referência detalhada do Gremlin é fornecida no artigo [Suporte a Gremlin](gremlin-support.md).
 
 Este artigo aborda as seguintes tarefas: 
 

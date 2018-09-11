@@ -73,12 +73,21 @@ items:
       href: static-ip.md
     - name: Balanceador de carga interno
       href: internal-lb.md
-    - name: Entrada e TLS
-      href: ingress.md
+    - name: Entrada
+      items:
+      - name: Criar um controlador básico
+        href: ingress-basic.md
+      - name: Usar roteamento de aplicativo HTTP
+        href: http-application-routing.md
+      - name: Usar rede interna
+        href: ingress-internal-ip.md
+      - name: Usar o TLS com Vamos Criptografar
+        href: ingress-tls.md
+        items:
+        - name: Usar um IP público estático
+          href: ingress-static-ip.md
     - name: Tráfego de saída
       href: egress.md
-    - name: Roteamento de aplicativo HTTP
-      href: http-application-routing.md
   - name: Segurança e autenticação
     items:
     - name: Criar uma entidade de serviço
@@ -162,9 +171,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: Perguntas frequentes
     href: faq.md
-ms.openlocfilehash: be17978b91f1664ea4917f7d9fcb0da5657d4832
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: d62907e0c9332975cb8361fc96698f75aa0f751d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41944095"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345329"

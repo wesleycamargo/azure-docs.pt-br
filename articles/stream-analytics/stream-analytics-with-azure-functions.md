@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: jasonh
 ms.reviewer: jasonh
-ms.openlocfilehash: 1d33c3f0a4c36dc681aaa42bc68ae56eec234401
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0408ea6ead1ddf482ce0a07c21859af80ab6ca43
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416016"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697803"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Executar o Azure Functions a partir dos trabalhos do Azure Stream Analytics 
 
@@ -62,7 +62,7 @@ Siga o tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time
 
 1. Consulte a seção [Criar um aplicativo de funções](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) da documentação do Azure Functions. Ela detalha como criar um aplicativo de funções e uma [Função disparada por HTTP no Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) usando a linguagem CSharp.  
 
-2. Navegue até a função **run.csx**. Atualize-a com o código a seguir. (Certifique-se de substituir "\<sua cadeia de conexão do redis cache aqui\>" com a cadeia de conexão primária do Cache Redis do Azure que você recuperou na seção anterior.)  
+2. Navegue até a função **run.csx**. Atualize-a com o código a seguir. (Substitua "\<sua cadeia de conexão do cache redis aqui\>" pela cadeia de conexão primária do Cache Redis do Azure que você recuperou na seção anterior.)  
 
    ```csharp
    using System;
@@ -166,7 +166,7 @@ Siga o tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time
 
 3. Forneça um nome para o alias de saída. Neste tutorial, o chamamos de **saop1** (você pode usar qualquer nome de sua escolha). Preencha outros detalhes.  
 
-4. Abra seu trabalho do Stream Analytics e atualize a consulta para o seguinte. (Certifique-se de substituir o texto "saop1" se você tiver nomeado o coletor de saída de outra forma.)  
+4. Abra seu trabalho do Stream Analytics e atualize a consulta para o seguinte. (Substitua o texto "saop1" se você tiver nomeado o coletor de saída de outra forma.)  
 
    ```sql
     SELECT 

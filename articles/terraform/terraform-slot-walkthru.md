@@ -1,18 +1,20 @@
 ---
 title: Terraform com slots de implantação de provedor do Azure
 description: Tutorial sobre como usar o Terraform com slots de implantação de provedor do Azure
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, máquina virtual, Azure, slots de implantação
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 4/05/2018
-ms.topic: article
-ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bbd06ae8927e6c21607ac1c997f1e5cf37f092bf
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416856"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667229"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Usar o Terraform para provisionar a infraestrutura com slots de implantação do Azure
 
@@ -20,7 +22,7 @@ ms.locfileid: "31416856"
 
 Este artigo ilustra um exemplo de uso de slots de implantação ao guiá-lo pela implantação de dois aplicativos por meio de GitHub e Azure. Um aplicativo está hospedado em um slot de produção. O segundo aplicativo está hospedado em um slot de teste. (Os nomes "produção" e "preparação" são arbitrários e podem ser qualquer coisa desejada que represente seu cenário.) Após configurar os slots de implantação, você poderá usar o Terraform para alternar entre os dois slots, conforme necessário.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Assinatura do Azure**: caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
@@ -217,7 +219,7 @@ Neste ponto, você implantou o slot de produção. Para implantar o slot de prep
 
 Nas seções anteriores, você configurou dois slots--**slotAppService** e **slotAppServiceSlotOne**--para implantar a partir de diferentes branches no GitHub. Vamos visualizar os aplicativos Web para validar que foram implantados com êxito.
 
-Execute duas vezes as etapas a seguir. Na etapa 3, selecione **slotAppService** na primeira vez e, em seguida, selecione **slotAppServiceSlotOne** na segunda vez.
+Execute as seguintes etapas duas vezes. Na etapa 3, selecione **slotAppService** na primeira vez e, em seguida, selecione **slotAppServiceSlotOne** na segunda vez.
 
 1. No menu principal do Portal do Azure, selecione **Grupos de recursos**.
 

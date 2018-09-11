@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/16/2018
+ms.date: 08/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9b8f87f3cf09fef020ceed0166dd1652617ef605
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d04625fe78c423c995460afa29a81d96c6ce9cfb
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126602"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337966"
 ---
 # <a name="azure-resource-manager-overview"></a>Visão geral do Azure Resource Manager
 A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação. 
@@ -52,8 +52,6 @@ O Gerenciador de Recursos fornece vários benefícios:
 * Você pode aplicar o controle de acesso a todos os serviços no grupo de recursos, pois o RBAC (Controle de Acesso Baseado em Função) é integrado nativamente à plataforma de gerenciamento.
 * Você pode aplicar marcas aos recursos para organizar de modo lógico todos os recursos em sua assinatura.
 * Você pode esclarecer a cobrança da sua organização exibindo os custos para um grupo de recursos que compartilha a mesma marcação.  
-
-O Gerenciador de Recursos fornece uma nova maneira de implantar e gerenciar suas soluções. Se você usou o modelo de implantação anterior e quiser saber mais sobre as alterações, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
 ## <a name="guidance"></a>Diretrizes
 As sugestões a seguir ajudarão você a aproveitar ao máximo o Gerenciador de Recursos quando estiver trabalhando com suas soluções.
@@ -88,9 +86,9 @@ O nome de um tipo de recurso está no formato: **{provedor-de-recursos}/{tipo-de
 Antes de começar a implantação de recursos, você deve ter uma compreensão dos provedores de recursos disponíveis. Conhecer os nomes dos provedores de recursos e dos recursos ajuda a definir os recursos que você deseja implantar no Azure. Além disso, você precisa conhecer os locais e as versões de API válidos para cada tipo de recurso. Para saber mais, veja [Provedores e tipos de recursos](resource-manager-supported-services.md).
 
 ## <a name="template-deployment"></a>Implantação de modelo
-Com o Gerenciador de Recursos, você pode criar um modelo (no formato JSON) que define a infraestrutura e a configuração de sua solução do Azure. Usando um modelo, você pode implantar a solução repetidamente em todo seu ciclo de vida e com a confiança de que seus recursos serão implantados em um estado consistente. Quando você cria uma solução no Portal, ela inclui automaticamente um modelo de implantação. Você não precisa criar seu modelo do zero, pois é possível iniciar com o modelo da sua solução e personalizá-lo para atender às suas necessidades específicas. Você pode recuperar um modelo de um grupo de recursos existente exportando o estado atual do grupo de recursos ou exibindo o modelo usado para determinada implantação. A exibição do [modelo exportado](resource-manager-export-template.md) é uma maneira útil de saber mais sobre a sintaxe do modelo.
+Com o Gerenciador de Recursos, você pode criar um modelo (no formato JSON) que define a infraestrutura e a configuração de sua solução do Azure. Usando um modelo, você pode implantar a solução repetidamente em todo seu ciclo de vida e com a confiança de que seus recursos serão implantados em um estado consistente. Quando você cria uma solução no Portal, ela inclui automaticamente um modelo de implantação. Você não precisa criar seu modelo do zero, pois é possível iniciar com o modelo da sua solução e personalizá-lo para atender às suas necessidades específicas. Para obter um exemplo, veja [Início Rápido: Criar e implantar modelos do Azure Resource Manager usando o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Você também pode recuperar um modelo de um grupo de recursos existente exportando o estado atual do grupo de recursos ou exibindo o modelo usado para determinada implantação. A exibição do [modelo exportado](resource-manager-export-template.md) é uma maneira útil de saber mais sobre a sintaxe do modelo.
 
-Para saber mais sobre o formato do modelo e como construí-o, consulte [Criar seu primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md). Para exibir a sintaxe JSON para os tipos de recursos, consulte [Definir recursos nos modelos do Azure Resource Manager](/azure/templates/).
+Para saber mais sobre o formato do modelo e como construí-lo, veja [Início Rápido: Criar e implantar modelos do Azure Resource Manager usando o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Para exibir a sintaxe JSON para os tipos de recursos, consulte [Definir recursos nos modelos do Azure Resource Manager](/azure/templates/).
 
 O Gerenciador de Recursos processa o modelo como qualquer outra solicitação (confira a imagem da [Camada de gerenciamento consistente](#consistent-management-layer)). Ele analisa o modelo e converte sua sintaxe em operações da API REST para provedores de recurso apropriado. Por exemplo, quando o Gerenciador de Recursos recebe um modelo com a seguinte definição de recurso:
 
@@ -277,19 +275,11 @@ Para obter informações sobre como usar esses idiomas com seus recursos, confir
 
 > [!NOTE]
 > Se o SDK não fornecer a funcionalidade necessária, você também poderá chamar a [API REST do Azure](https://docs.microsoft.com/rest/api/resources/) diretamente.
-> 
-> 
+
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma introdução simples do trabalho com modelos, confira [Exportar um modelo Azure Resource Manager a partir dos recursos existentes](resource-manager-export-template.md).
-* Para obter uma explicação mais completa da criação de um modelo, consulte [Criar seu primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
-* Para entender as funções que você pode usar em um modelo, confira [Funções de modelo](resource-group-template-functions.md)
-* Para saber mais sobre como usar o Visual Studio com o Resource Manager, veja [Criar e implantar grupos de recursos do Azure com o Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-* Para saber mais sobre a migração de recursos do clássico para ARM, veja [Migrar do Clássico para o Azure Resource Manager](resource-manager-deployment-model.md#migrate-from-classic-to-resource-manager)
 
-Veja uma demonstração em vídeo desta visão geral:
+Neste artigo, você aprendeu a usar o Azure Resource Manager para implantação, gerenciamento e controle de acesso dos recursos do Azure. Vá para o próximo artigo para aprender a criar seu primeiro modelo do Azure Resource Manager.
 
->[!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Azure-Resource-Manager-Overview/player]
-
-
-[powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
+> [!div class="nextstepaction"]
+> [Início Rápido: Criar e implantar modelos do Azure Resource Manager usando o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)

@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: fd594e65de79844720462996a89477e0a6237ceb
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e69cf8753fb0cc9326e047ec97cbe08ee6f26610
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988918"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668454"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Começar a analisar seu aplicativo móvel com o App Center e o Application Insights
 
@@ -68,9 +68,9 @@ Para verificar se os eventos personalizados estão sendo recebidos, vá para a g
 Quando o aplicativo estiver enviando eventos personalizados e eles forem recebidos pelo App Center, você precisará criar um recurso do Application Insights do tipo App Center no portal do Azure:
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Criar um recurso** > **Monitoramento + Gerenciamento** > **Application Insights**.
+2. Selecione **Criar um recurso** > **Ferramentas de Gerenciamento** > **Application Insights**.
 
-    ![Adicionando um recurso do Application Insights](./media/app-insights-mobile-center-quickstart/add.png)
+    ![Adicionando um recurso do Application Insights](./media/app-insights-mobile-center-quickstart/add-b.png)
 
     Será exibida uma caixa de configuração. Use a tabela a seguir para preencher os campos de entrada.
 

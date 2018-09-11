@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: ea8bb1db53deaa546f4174ddc04d9a270aa96d9a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 771c4a33603ddf262df3b35992d318d34de6c2dc
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43187776"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698104"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Usar a ferramenta de migração de dados para migrar seus dados para o Azure Cosmos DB 
 
@@ -28,7 +28,7 @@ Qual API você vai usar com o Azure Cosmos DB?
 * **[API do SQL](documentdb-introduction.md)** – você pode usar qualquer uma das opções de fonte fornecidas na ferramenta de Migração de dados para importar dados.
 * **[API de tabela](table-introduction.md)** – você pode usar a ferramenta de Migração de dados ou AzCopy para importar dados. Consulte [Importar dados para uso com a API de tabela do Azure Cosmos DB](table-import.md) para obter mais informações.
 * **[API do MongoDB](mongodb-introduction.md)** - A ferramenta de migração de dados atualmente não oferece suporte à API MongoDB do Azure Cosmos DB como fonte ou como destino. Se você deseja migrar os dados de ou para fora de coleções da API MongoDB no Azure Cosmos DB, consulte [Azure Cosmos DB: como migrar dados para a API do MongoDB](mongodb-migrate.md) para obter instruções. Você ainda pode usar a ferramenta de migração de dados para exportar dados do MongoDB para coleções de API do SQL do Azure Cosmos DB para uso com a API do SQL. 
-* **[API do Graph](graph-introduction.md)** – a ferramenta de Migração de dados não é uma ferramenta de importação com suporte para contas de API do Graph atualmente. 
+* **[API do Gremlin](graph-introduction.md)** – a ferramenta de Migração de dados não é uma ferramenta de importação com suporte para contas de API do Gremlin atualmente. 
 
 Este tutorial cobre as seguintes tarefas:
 

@@ -1,26 +1,26 @@
 ---
 title: Criar um cluster de VMs com Terraform e HCL
 description: Usar os módulos do Terraform e Linguagem de Configuração HashiCorp (HCL) para criar um cluster de máquina virtual Linux com um balanceador de carga no Azure
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, máquina virtual, rede, módulos
 author: tomarcher
-manager: routlaw
-ms.service: virtual-machines-linux
-ms.custom: devops
-ms.topic: article
-ms.date: 11/13/2017
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 2435d694e6a1671a234d02f90860e5cafe98c2df
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.topic: tutorial
+ms.date: 11/13/2017
+ms.openlocfilehash: fffaf275a98791885b87ee8ffdc275e911b26341
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
-ms.locfileid: "24518793"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667593"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Criar um cluster de VMs com Terraform e HCL
 
 Este tutorial demonstra como criar um pequeno cluster de cálculo usando a [Linguagem de Configuração Hashicorp](https://www.terraform.io/docs/configuration/syntax.html) (HCL). A configuração cria um balanceador de carga, duas VMs Linux em um [conjunto de disponibilidade](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) e todos os recursos de rede necessários.
 
-Neste tutorial, você:
+Neste tutorial, você irá:
 
 > [!div class="checklist"]
 > * Configurar a autenticação do Azure
@@ -220,7 +220,7 @@ Nesta seção, você deve criar um arquivo que contém definições de recursos 
 
 ## <a name="3-initialize-terraform"></a>3. Inicializar Terraform 
 
-O [comando terraform init](https://www.terraform.io/docs/commands/init.html) é usado para inicializar um diretório que contém os arquivos de configuração Terraform - os arquivos criados com as seções anteriores. Você deve sempre executar o comando `terraform init` depois de gravar uma nova configuração de Terraform. 
+O [comando terraform init](https://www.terraform.io/docs/commands/init.html) é usado para inicializar um diretório que contém os arquivos de configuração Terraform - os arquivos criados com as seções anteriores. É uma boa prática para sempre executar o comando `terraform init` depois de gravar uma nova configuração do Terraform. 
 
 > [!TIP]
 > O comando `terraform init` é idempotente, que significa que ele pode ser chamado várias vezes ao mesmo tempo em que produz o mesmo resultado. Portanto, se você estiver trabalhando em um ambiente de colaboração e você achar que os arquivos de configuração podem ter sido alterados, é sempre uma boa ideia para chamar o comando `terraform init` antes de executar ou aplicar um plano.
@@ -267,7 +267,7 @@ Se você deseja aplicar o plano de execução mais recente, execute o seguinte c
   terraform apply
   ```
 
-Se você deseja aplicar um plano de execução salvo anteriormente, execute o seguinte comando (substituindo o caminho &lt; > espaço reservado com o caminho que contém o plano de execução salvo):
+Se você deseja aplicar um plano de execução salvo anteriormente, execute o seguinte comando (substituindo o espaço reservado &lt;caminho> pelo caminho que contém o plano de execução salvo):
 
   ```cmd
   terraform apply <path>

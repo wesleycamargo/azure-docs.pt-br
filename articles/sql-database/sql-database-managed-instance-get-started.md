@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 08/13/2018
+ms.date: 08/31/2018
 ms.author: jovanpop-msft
-ms.openlocfilehash: cb378c2d2773096992ef688653fd77b2625f8754
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4271f0cef31b0e028ed1f9408166c37d4cbbe109
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023476"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381991"
 ---
 # <a name="create-an-azure-sql-managed-instance"></a>Criar uma Instância Gerenciada do SQL Azure
 
@@ -60,7 +60,7 @@ As etapas a seguir mostram como criar sua Instância Gerenciada depois que a ver
 2. Localize **Instância Gerenciada** e selecione **Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia)**.
 3. Clique em **Criar**.
 
-   ![Criar Instância Gerenciada](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![Criar Instância Gerenciada](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
 4. Selecione sua assinatura e verifique se os termos da versão prévia mostram a opção **Aceito**.
 
@@ -77,26 +77,21 @@ As etapas a seguir mostram como criar sua Instância Gerenciada depois que a ver
    |**Localidade**|O local selecionado anteriormente|Para obter mais informações sobre as regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).|
    |**Rede virtual**|A rede virtual que você criou anteriormente| Escolha o item **MyNewVNet/ManagedInstances** se você não alterou os nomes na etapa anterior. Caso contrário, escolha o nome da VNet e sub-rede da instância gerenciada que você inseriu na seção anterior. **Não use a sub-rede padrão porque ela não está configurada para Instâncias Gerenciadas do host**. |
 
-   ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
+   ![managed instance create form](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
 6. Clique em **Tipo de preço** para dimensionar os recursos de computação e armazenamento e revisar as opções de tipo de preço. Por padrão, a instância possui 32 GB de espaço de armazenamento sem custo adicional, **que podem não ser suficientes para seus aplicativos**.
 7. Use os controles deslizantes ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais. 
-   ![tipo de preço de instância gerenciada](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+   ![tipo de preço de instância gerenciada](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
 
 8. Ao concluir, clique em **Aplicar** para salvar sua seleção.  
 9. Clique em **Criar** para implantar a Instância Gerenciada.
 10. Clique no ícone **Notificações** para exibir o status da implantação.
- 
-   ![deployment progress](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
-
 11. Clique em **Implantação em andamento** para abrir a janela Instância Gerenciada e monitorar melhor o progresso da implantação.
- 
-   ![deployment progress 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
 Enquanto ocorre a implantação, continue no próximo procedimento.
 
 > [!IMPORTANT]
-> Para a primeira instância em uma sub-rede, o tempo de implantação é normalmente muito maior do que no caso de instâncias subsequentes; às vezes, mais de 24 horas até a conclusão. Não cancele a operação de implantação porque ela dura mais que o esperado. Esse período de tempo para implantar a primeira instância é uma situação temporária. Espere uma redução significativa do tempo de implantação logo após o início da versão prévia pública. Criar a segunda Instância Gerenciada na sub-rede levará alguns minutos.
+> Para a primeira instância em uma sub-rede, o tempo de implantação é normalmente muito maior do que no caso de instâncias subsequentes. Não cancele a operação de implantação porque ela dura mais que o esperado. Criar a segunda Instância Gerenciada na sub-rede levará alguns minutos.
 
 ## <a name="prepare-client-machine"></a>Preparar o computador cliente
 

@@ -1,96 +1,55 @@
 ---
-title: Tutorial para aprender a adicionar enunciados a um aplicativo LUIS usando Python | Microsoft Docs
-description: Neste tutorial, você aprenderá a chamar um aplicativo LUIS usando Python.
+title: Início Rápido – alterar o modelo e treinar o aplicativo LUIS usando Python – Serviços Cognitivos do Azure | Microsoft Docs
+description: Neste início rápido do Node.js, adicione enunciados de exemplo a um aplicativo Automação de Página Inicial e treine o aplicativo. Exemplos de enunciados consistem em texto de conversa do usuário mapeado para uma intenção. Ao mostrar exemplos de enunciados para intenções, você ensina o LUIS quais tipos de textos fornecidos pelo usuário pertencem a qual intenção.
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 3e1ca2ea874b6b39ac8a1b1eaa94fe9ff1894ea3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: acc57a33b24a31159eb6a8f063212899540f7f6b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264294"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43768557"
 ---
-# <a name="tutorial-add-utterances-to-app-using-python"></a>Tutorial: Adicionar enunciados ao aplicativo usando Python
-Neste tutorial, escreva um programa para adicionar um enunciado para uma intenção usando as APIs de criação em Python.
+# <a name="quickstart-change-model-using-python"></a>Início Rápido: Alterar o modelo usando Python
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Criar um projeto de console do Visual Studio 
-> * Adicionar o método para chamar a API LUIS para adicionar o enunciado e treinar o aplicativo
-> * Adicionar arquivo JSON com enunciados de exemplo com a intenção de reservar um voo
-> * Executar o console e ver o status de treinamento para enunciados
+[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-Para obter mais informações, consulte a documentação técnica para o [adicionar o enunciado de exemplo a intenção](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), [treinar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), e [status treinamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para este artigo, você precisa de uma conta gratuita de [LUIS][LUIS] para criar o seu aplicativo LUIS.
-
-## <a name="prerequisites"></a>pré-requisitos
-
+[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [Python 3.6](https://www.python.org/downloads/) ou posterior.
-* **[Recomendado]** [Visual Studio Code](https://code.visualstudio.com/) para IntelliSense e depuração.
-* Sua **[chave de criação](luis-concept-keys.md#authoring-key)** LUIS. Você pode encontrar essa chave em Configurações de conta no site do [LUIS](luis-reference-regions.md).
-* A [**ID do seu aplicativo**](./luis-get-started-create-app.md) LUIS existente. A ID do aplicativo é mostrada no painel do aplicativo. O aplicativo LUIS com as entidades e intenções usadas no arquivo `utterances.json` devem existir antes da execução do código em `add-utterances.js`. O código neste artigo não cria as entidades e intenções. Ele apenas adiciona as enunciados para entidades e intenções existentes. 
-* O **ID da versão** no aplicativo que recebe os enunciados. A ID padrão é “0.1”
-* Criar um novo arquivo chamado projeto `add-utterances-3-6.py` no VSCode.
+* [Visual Studio Code](https://code.visualstudio.com/)
 
-> [!NOTE] 
-> O arquivo `add-utterances-3-6.py` completo está disponível nos [**exemplos de LUIS** no repositório Github](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/authoring-api-samples/python).
+[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
+## <a name="example-utterances-json-file"></a>Exemplo de arquivo JSON de enunciados
 
-## <a name="write-the-python-code"></a>Escrever o código Python
+[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
-1. Copie os trechos de código a seguir:
+## <a name="create-quickstart-code"></a>Criar código de início rápido
 
-   [!code-python[Console app code that adds an utterance Python 3.6](~/samples-luis/documentation-samples/authoring-api-samples/python/add-utterances-3-6.py)]
+1. Copie o snippet de código a seguir para o arquivo chamado `add-utterances-3-6.py`:
 
-## <a name="specify-utterances-to-add"></a>Especifique os enunciados a serem adicionados
-Crie e edite o arquivo `utterances.json` para especificar a **matriz de enunciados** que você deseja adicionar ao aplicativo LUIS. A intenção e as entidades já **devem** estar no aplicativo LUIS.
+   [!code-python[Console app code that adds an utterance Python 3.6](~/samples-luis/documentation-samples/quickstarts/change-model/python/3.x/add-utterances-3-6.py)]
 
-> [!NOTE]
-> O aplicativo LUIS com as entidades e intenções usadas no arquivo `utterances.json` devem existir antes da execução do código em `add-utterances.js`. O código neste artigo não cria as entidades e intenções. Ele apenas adiciona as enunciados para entidades e intenções existentes.
-
-O campo `text` contém o texto do enunciado. O campo `intentName` deve corresponder ao nome de uma intenção no aplicativo LUIS. O campo `entityLabels` é obrigatório. Se você não quiser rotular nenhuma entidade, forneça uma lista vazia, conforme mostrado no exemplo a seguir:
-
-Se a lista de entityLabels não estiver vazia, o `startCharIndex` e `endCharIndex` precisarão marcar a entidade referida no campo `entityName`. Ambos os índices são contagens de zeros, o que significa que 6 no exemplo superior refere-se ao "S" de Seattle e não ao espaço antes do S maiúsculo.
-
-```json
-[
-    {
-        "text": "go to Seattle",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 12
-            }
-        ]
-    },
-    {
-        "text": "book a flight",
-        "intentName": "BookFlight",
-        "entityLabels": []
-    }
-]
-```
-
-## <a name="add-an-utterance-from-the-command-line"></a>Adicionar um enunciado a partir da linha de comando
-
+## <a name="run-code"></a>Executar código
 Execute o aplicativo a partir de uma linha de comando com o Python 3.6.
+
+### <a name="add-utterances-from-the-command-line"></a>Adicionar enunciados da linha de comando
 
 Chamar a API para adicionar enunciados sem argumentos adiciona um enunciado ao aplicativo sem treiná-lo.
 
-````
+```CMD
 > python add-utterances-3-6.py
-````
+```
 
-Este exemplo cria um arquivo com o `results.json` que contém os resultados da chamada à API para adicionar enunciados. O campo `response` é neste formato para enunciados que foram adicionados. O `hasError` é false, que indica que o enunciado foi adicionado.  
+A resposta a seguir retorna quando os enunciados são adicionados ao modelo.  
 
 ```json
     "response": [
@@ -111,19 +70,8 @@ Este exemplo cria um arquivo com o `results.json` que contém os resultados da c
     ]
 ```
 
-## <a name="add-an-utterance-and-train-from-the-command-line"></a>Adicionar um enunciado e treinar a partir da linha de comando
-Chame a API para adicionar enunciados com o argumento `-train` para enviar uma solicitação para treinar e, posteriormente, solicitar o status do treinamento. O status será enfileirado imediatamente após o início do treinamento. OS detalhes do status são gravados em um arquivo.
-
-````
-> python add-utterances-3-6.py -train
-````
-
-> [!NOTE]
-> Enunciados duplicados não serão adicionados novamente, mas não causam um erro. O `response` contém a ID do enunciado original.
-
-Quando você chama o exemplo com o argumento `-train`, ele cria um arquivo `training-results.json` indicando que a solicitação para treinar o aplicativo LUIS foi enfileirada com êxito. 
-
 O exemplo a seguir mostra o resultado de uma solicitação bem-sucedida para treinar:
+
 ```json
 {
     "request": null,
@@ -134,20 +82,105 @@ O exemplo a seguir mostra o resultado de uma solicitação bem-sucedida para tre
 }
 ```
 
-Depois que a solicitação para treinar é enfileirada, pode demorar algum tempo para o treinamento ser concluído.
+```JSON
+Requested training status.
+[
+   {
+      "modelId": "eb2f117c-e10a-463e-90ea-1a0176660acc",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "c1bdfbfc-e110-402e-b0cc-2af4112289fb",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "863023ec-2c96-4d68-9c44-34c1cbde8bc9",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "82702162-73ba-4ae9-a6f6-517b5244c555",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "37121f4c-4853-467f-a9f3-6dfc8cad2763",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "de421482-753e-42f5-a765-ad0a60f50d69",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "80f58a45-86f2-4e18-be3d-b60a2c88312e",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "c9eb9772-3b18-4d5f-a1e6-e0c31f91b390",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "2afec2ff-7c01-4423-bb0e-e5f6935afae8",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "95a81c87-0d7b-4251-8e07-f28d180886a1",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   }
+]
+```
 
-## <a name="get-training-status-from-the-command-line"></a>Obter status de treinamento da linha de comando
-Chame o exemplo com o argumento `-status` para verificar o status de treinamento e gravar os detalhes do status em um arquivo.
-
-````
-> python add-utterances-3-6.py -status
-````
 ## <a name="clean-up-resources"></a>Limpar recursos
-Depois de concluir o tutorial, remova o Visual Studio e o aplicativo de console se não precisar mais deles. 
+Quando você terminar com o início rápido, remova todos os arquivos criados nesse início rápido. 
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"] 
 > [Criar um aplicativo LUIS programaticamente](luis-tutorial-node-import-utterances-csv.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-

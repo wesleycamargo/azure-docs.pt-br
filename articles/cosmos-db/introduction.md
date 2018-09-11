@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 488ec66eb485761d484e305c298dfb9117745a42
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145274"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696441"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Como um serviço de banco de dados multimodelo globalmente distribuído, o Azure
         * [API de SQL](sql-api-introduction.md): um mecanismo do banco de dados JSON sem esquemas, com ricos recursos de consulta SQL.
         * [API MongoDB](mongodb-introduction.md): um *MongoDB como serviço* altamente escalável, da plataforma Azure Cosmos DB. Compatível com bibliotecas, drivers, ferramentas e aplicativos MongoDB existentes.
         * [API Cassandra](cassandra-introduction.md): um Cassandra como serviço distribuído globalmente, da plataforma Azure Cosmos DB. Compatível com bibliotecas, drivers, ferramentas e aplicativos [Apache Cassandra](https://cassandra.apache.org/) existentes.
-        * [API do Gremlin](graph-introduction.md): um serviço de banco de dados de gráficos totalmente gerenciado e escalável, que facilita a criação e execução de aplicativos que funcionam com conjuntos de dados altamente conectados, compatíveis com APIs do Open Graph (baseadas nas especificações do [Apache TinkerPop](http://tinkerpop.apache.org/), Apache Gremlin).
+        * [API do Gremlin](graph-introduction.md): um serviço de banco de dados de gráficos totalmente gerenciado e escalável, que facilita a criação e execução de aplicativos que funcionam com conjuntos de dados altamente conectados, compatíveis com APIs do Open Gremlin (baseadas nas especificações do [Apache TinkerPop](http://tinkerpop.apache.org/), Apache Gremlin).
         * [API de tabela](table-introduction.md): um serviço de banco de dados de chave-valor criado para fornecer recursos premium (por exemplo, indexação automática, garantia de baixa latência, distribuição global) para aplicativos de armazenamento de tabela do Azure existentes sem fazer alterações no aplicativo.
         * Modelos de dados e APIs adicionais em breve!
 

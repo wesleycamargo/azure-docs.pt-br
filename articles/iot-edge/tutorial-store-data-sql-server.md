@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 2b393a5b60ba534fba8115ab3ef0f35a26ad3ed4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143493"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300346"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na borda com os bancos de dados do SQL Server
 
@@ -176,7 +176,11 @@ Um [Manifesto de implantação](module-composition.md) declara quais módulos o 
 
 1. No gerenciador do Visual Studio Code, abra o arquivo **deployment.template.json**. 
 2. Localize a seção **moduleContent.$edgeAgent.properties.desired.modules**. Deve haver dois módulos listados: **tempSensor**, que gera dados simulados, e seu módulo **sqlFunction**.
-3. Adicione o seguinte código para declarar um terceiro módulo:
+3. Se você estiver usando contêineres do Windows, modifique a seção **sqlFunction.settings.image**.
+    ```json
+    "image": "${MODULES.sqlFunction.windows-amd64}"
+    ```
+4. Adicione o seguinte código para declarar um terceiro módulo. Adicione uma vírgula após a seção sqlFunction e insira:
 
    ```json
    "sql": {
@@ -191,16 +195,18 @@ Um [Manifesto de implantação](module-composition.md) declara quais módulos o 
    }
    ```
 
-4. Dependendo do sistema operacional do seu dispositivo IoT Edge, atualize os parâmetros **sql.settings** com o código a seguir:
+   Aqui está um exemplo, se houver qualquer confusão com a adição de um elemento JSON. ![Adicionar contêiner do SQL Server](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-   * Windows:
+5. Dependendo do tipo de contêineres do Docker em seu dispositivo IoT Edge, atualize os parâmetros **sql.settings** com o código a seguir:
+
+   * Contêineres do Windows:
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-   * Linux:
+   * Contêineres do Linux:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
@@ -210,28 +216,20 @@ Um [Manifesto de implantação](module-composition.md) declara quais módulos o 
    >[!Tip]
    >Sempre que você criar um contêiner do SQL Server em um ambiente de produção, será necessário [alterar a senha do administrador do sistema padrão](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
-5. Salve o arquivo **deployment.template.json**. 
+6. Salve o arquivo **deployment.template.json**.
 
 ## <a name="build-your-iot-edge-solution"></a>Criar sua solução do IoT Edge
 
 Nas seções anteriores, você criou uma solução com um módulo e depois adicionou outra ao modelo de manifesto de implantação. Agora, você precisa criar a solução, criar imagens de contêiner para os módulos e enviar por push as imagens para o registro de contêiner. 
 
-1. No arquivo deployment.template.json, dê ao tempo de execução do IoT Edge suas credenciais de registro para que ele possa acessar suas imagens de módulo. Localize a seção **moduleContent.$edgeAgent.properties.desired.runtime.settings**. 
-2. Insira o seguinte código JSON após **loggingOptions**:
+1. No arquivo .env, dê suas credenciais de Registro ao tempo de execução do IoT Edge para que ele possa acessar as imagens do seu módulo. Localize as seções **CONTAINER_REGISTRY_USERNAME** e **CONTAINER_REGISTRY_PASSWORD** e insira suas credenciais após o símbolo de igual: 
 
-   ```JSON
-   "registryCredentials": {
-       "myRegistry": {
-           "username": "",
-           "password": "",
-           "address": ""
-       }
-   }
+   ```env
+   CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
+   CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
-
-3. Insira suas credenciais de registro nos campos **nome de usuário**, **senha**, e **endereço**. Use os valores que você copiou ao criar o Registro de Contêiner do Azure no início do tutorial.
-4. Salve o arquivo **deployment.template.json**.
-5. Entre no registro de contêiner no Visual Studio Code para que você possa enviar suas imagens por push para o registro. Use as mesmas credenciais que você acabou de adicionar ao manifesto de implantação. Digite o seguinte comando no terminal integrado: 
+2. Salve o arquivo .env.
+3. Entre no seu Registro de contêiner no Visual Studio Code para que você possa efetuar o push das suas imagens para o Registro. Use as mesmas credenciais que você adicionou ao arquivo .env. Digite o seguinte comando no terminal integrado:
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
@@ -243,7 +241,7 @@ Nas seções anteriores, você criou uma solução com um módulo e depois adici
     Login Succeeded
     ```
 
-6. No gerenciador do VS Code, clique com o botão direito do mouse no arquivo **deployment.template.json** e selecione **Compilar solução IoT Edge**. 
+4. No explorador do VS Code, clique com o botão direito do mouse no arquivo **deployment.template.json** e selecione **Compilar e enviar por push solução IoT Edge**. 
 
 ## <a name="deploy-the-solution-to-a-device"></a>Implantar a solução a um dispositivo
 
@@ -287,7 +285,7 @@ Esta seção orienta-o através da configuração do banco de dados SQL para arm
    * Contêiner do Windows:
 
       ```cmd
-      sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
       ```
 
    * Contêiner do Linux: 

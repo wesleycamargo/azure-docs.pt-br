@@ -11,21 +11,22 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 11831ad6e80c86c3c276fea0524af522046f1a03
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c69aefa6271f9766687ce3b63f959dd4e414b98c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299754"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696665"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Tutorial do NoSQL: criar um aplicativo de console em Java da API do SQL
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js para MongoDB](mongodb-samples.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
->  
+> * [Async Java](sql-api-async-java-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Bem-vindo ao tutorial do NoSQL para a API do SQL para o SDK Java do Azure Cosmos DB! Após seguir este tutorial, você terá um aplicativo de console que cria e consulta recursos do Azure Cosmos DB.
@@ -46,7 +47,7 @@ Abordamos:
 
 Agora vamos começar!
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Verifique se você tem o seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/). 

@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aeb00bf55c578f61e5e1edbaab11c7773b9eab94
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 3840d8d1e18e73c1f08c450859032c07e441cff2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42022648"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699168"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Criar sua primeira função com Java e Maven (versão prévia)
 
@@ -175,11 +175,37 @@ curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.
 Hello, AzureFunctionsTest
 ```
 
+## <a name="make-changes-and-redeploy"></a>Fazer alterações e implantar novamente
+
+Edite o arquivo de origem `src/main.../Function.java` no projeto gerado para alterar o texto retornado pelo seu aplicativo de Funções. Altere esta linha:
+
+```java
+return request.createResponse(200, "Hello, " + name);
+```
+
+Para o seguinte:
+
+```java
+return request.createResponse(200, "Hi, " + name);
+```
+
+Salve as alterações e reimplante executando `azure-functions:deploy` do terminal como antes. O aplicativo de funções será atualizado e esta solicitação:
+
+```bash
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
+```
+
+Terá a saída atualizada:
+
+```Output
+Hi, AzureFunctionsTest
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Você criou um aplicativo de funções Java com um gatilho HTTP simples e o implantou no Azure Functions.
 
 - Examine o [Guia do desenvolvedor de funções Java](functions-reference-java.md) para saber mais sobre o desenvolvimento de funções Java.
 - Adicione outras funções com gatilhos diferentes ao seu projeto usando o destino Maven `azure-functions:add`.
-- Depure funções localmente com o Visual Studio Code. Com o [pacote de extensão Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) instalado, e com o seu projeto do Functions aberto no Visual Studio Code, [anexe o depurador](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) à porta 5005. Em seguida, defina um ponto de interrupção no editor e dispare sua função enquanto ela está em execução localmente: ![Depurar funções no Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
-- Depure funções remotamente com o Visual Studio Code. Verifique a documentação de [Gravação de aplicativos Java sem servidor](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) para obter instruções.
+- Escreva e depure funções localmente com [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) e [Eclipse](functions-create-maven-eclipse.md). 
+- Depure funções implantadas no Azure com o Visual Studio Code. Veja a documentação de [aplicativos Java sem servidor](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) do Visual Studio Code para obter instruções.
