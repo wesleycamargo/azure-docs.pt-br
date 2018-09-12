@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 10f4749524c4d4b35b83e5637d35f4ef9a8f9ab6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7edfe5a115caf4ee6e4677e5fd7f324b8f3873ee
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041323"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159037"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Tutorial: Integração do Active Directory do Azure com o Replicon
 
@@ -177,7 +177,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="create-a-replicon-test-user"></a>Criar um usuário de teste do Replicon
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Mixpanel. O Replicon suporta o provisionamento automático de usuários, que é ativado por padrão. Você pode encontrar mais detalhes [ aqui ](replicon-provisioning-tutorial.md) sobre como configurar o provisionamento automático de usuários.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Mixpanel.
 
 **Se você precisar criar o usuário manualmente, execute as seguintes etapas:**
 
@@ -249,7 +249,6 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar Provisionamento de Usuário](replicon-provisioning-tutorial.md)
 
 <!--Image references-->
 

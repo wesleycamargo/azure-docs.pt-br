@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 7cb7ce0ea81cf99c2ee14a6f209864894563d237
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ccdffaf0c224cc4579f24ca5f3ca60a6c53f3bd6
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111772"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160396"
 ---
 # <a name="set-up-sql-data-sync"></a>Configurar Sincronização de Dados SQL
 Neste tutorial, você aprenderá a configurar a Sincronização de Dados SQL do Azure criando um grupo de sincronização híbrido que contém as instâncias de Banco de Dados SQL do Azure e do SQL Server. O novo grupo de sincronização ficará totalmente configurado e sincronizado no agendamento que você definir.
@@ -239,7 +239,7 @@ Você precisa fazer e propagar todas as alterações de esquema manualmente.
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Como exportar e importar um banco de dados com a Sincronização de Dados?
 Depois de exportar um banco de dados como um arquivo `.bacpac` e importar o arquivo para criar um novo banco de dados, você precisa realizar as duas seguintes ações para usar a Sincronização de Dados no novo banco de dados:
-1.  Limpe os objetos de Sincronização de Dados e tabelas laterais no **novo banco de dados** usando [esse script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Esse script exclui todos os objetos de Sincronização de Dados necessários do banco de dados.
+1.  Limpe os objetos de Sincronização de Dados e tabelas laterais no **novo banco de dados** usando [esse script](https://github.com/vitomaz-msft/DataSyncMetadataCleanup/blob/master/Data%20Sync%20complete%20cleanup.sql). Esse script exclui todos os objetos de Sincronização de Dados necessários do banco de dados.
 2.  Recrie o grupo de sincronização com o novo banco de dados. Se você não precisar mais do grupo de sincronização antigo, exclua-o.
 
 ## <a name="faq-about-the-client-agent"></a>Perguntas Frequentes sobre o agente cliente

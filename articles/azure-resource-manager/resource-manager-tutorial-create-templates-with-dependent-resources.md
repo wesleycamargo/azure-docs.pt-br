@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7509ed46ba07cd8250f82f8eb258d18e3f4a1ee6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e5ced038d5f1ab57939221a0392ab436560c348d
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107098"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160503"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes
 
@@ -26,11 +26,12 @@ Saiba como criar um modelo do Azure Resource Manager para implantar vários recu
 
 Alguns recursos não podem ser implantados até que outro recurso exista. Por exemplo, não é possível criar a máquina virtual enquanto a conta de armazenamento e o adaptador de rede não existirem. Defina essa relação marcando um recurso como dependente dos outros. O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem de dependência. Quando os recursos não dependem uns dos outros, o Gerenciador de Recursos os implanta paralelamente. Para obter mais informações, consulte [Definir a ordem de implantação dos recursos em modelos do Azure Resource Manager](./resource-group-define-dependencies.md).
 
+Este tutorial cobre as seguintes tarefas:
+
 > [!div class="checklist"]
 > * Abrir um modelo de início rápido
 > * Explorar o modelo
 > * Implantar o modelo
-> * Limpar recursos
 
 As instruções neste tutorial criam uma máquina virtual, uma rede virtual e outros recursos dependentes. 
 

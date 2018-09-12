@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 8/9/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9bbf7ad201a70a315b75ed5e1f35671e4a5604fc
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 5a93cb7b2abbf0eaa25304f61a8a422edf209959
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142030"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091162"
 ---
 # <a name="integrate-azure-active-directory-with-aks"></a>Integrar o Azure Active Directory ao AKS
 
@@ -127,15 +127,15 @@ Implante o cluster usando o comando [az aks create][az-aks-create]. Substitua os
 
 ```azurecli
 az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-keys --enable-rbac \
-  --aad-server-app-id 7ee598bb-0000-0000-0000-83692e2d717e \
+  --aad-server-app-id b1536b67-29ab-4b63-b60f-9444d0c15df1 \
   --aad-server-app-secret wHYomLe2i1mHR2B3/d4sFrooHwADZccKwfoQwK2QHg= \
-  --aad-client-app-id 7ee598bb-0000-0000-0000-83692e2d717e \
+  --aad-client-app-id 8aaf8bd5-1bdd-4822-99ad-02bfaa63eea7 \
   --aad-tenant-id 72f988bf-0000-0000-0000-2d7cd011db47
 ```
 
 ## <a name="create-rbac-binding"></a>Criar associação do RBAC
 
-Antes que uma conta do Azure Active Directory possa ser usada com o cluster do AKS, uma associação de função ou uma associação de função de cluster precisa ser criada. As *funções* definem as permissões a serem concedidas, e as *associações* as aplicam aos usuários desejados. Essas atribuições podem ser aplicadas a um determinado namespace ou em todo o cluster. Para obter mais informações, consulte [Usando a autorização do RBAC][rbac-authorization].
+Antes que uma conta do Azure Active Directory possa ser usada com o cluster do AKS, uma associação de função ou uma associação de função de cluster precisa ser criada. *Funções* definem as permissões a serem concedidas e *ligações* as aplicam aos usuários desejados. Essas atribuições podem ser aplicadas a um determinado namespace ou em todo o cluster. Para obter mais informações, consulte [Usando a autorização do RBAC][rbac-authorization].
 
 Primeiro, use o comando [az aks get-credentials][az-aks-get-credentials] com o argumento `--admin` para fazer logon no cluster com acesso de administrador.
 

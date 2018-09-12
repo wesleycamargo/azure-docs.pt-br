@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: cde70518164c386697127b079979b5b3b76ae088
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: cd95a1f1e0631340fa9844fd31c3d8c0af1168dd
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145674"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347045"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de artigos sobre gerenciamento de aplicativos no Active Directory do Azure
 Esta página fornece uma lista abrangente com todos os documentos escritos sobre os vários recursos relacionados ao aplicativo no Active Directory do Azure (AD do Azure).
@@ -42,7 +42,7 @@ Esta seção fornece acesso rápido às guias de solução de problemas relevant
 | Área de recurso |  |
 |:---:| --- |
 | Logon único federado |[Solução de problemas de logon único baseado em SAML](develop/howto-v1-debug-saml-sso-issues.md) |
-| Logon único baseado em senha |[Solucionando problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Logon único baseado em senha |[Solucionando problemas da extensão do painel de acesso para o Internet Explorer](manage-apps/manage-access-panel-browser-extension.md) |
 | Proxy de Aplicativo |[Guia de solução de problemas de Proxy de Aplicativo](manage-apps/application-proxy-troubleshoot.md) |
 | Logon único entre o AD local e o AD do Azure |[Solução de Problemas de Sincronização de Senha](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Solucionar problemas de write-back de senha](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Associações de grupo dinâmico |[Solucionar problemas de associações a grupos dinâmicos](users-groups-roles/groups-troubleshooting.md) |
@@ -56,7 +56,7 @@ O logon único permite aos usuários acessar vários aplicativos e serviços usa
 | Uma introdução à federação e a outros tipos de logon |[Logon único com o AD do Azure](manage-apps/what-is-single-sign-on.md) |
 | Milhares de aplicativos SaaS pré-integrados com o AD do Azure com etapas de configuração de logon único simplificadas |[Introdução à galeria de aplicativos do Azure AD](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Lista completa de aplicativos pré-integrados que dão suporte à federação](saas-apps/tutorial-list.md)<br /><br />[Como adicionar seu aplicativo à galeria de aplicativos do AD do Azure](develop/howto-app-gallery-listing.md) |
 | Mais de 150 tutoriais de aplicativo sobre como configurar o logon único para aplicativos como [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md) e muito mais |[Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](saas-apps/tutorial-list.md) |
-| Como definir e personalizar manualmente a configuração do logon único |[Como configurar logon único federado para aplicativos que não estão na galeria de aplicativos do Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Como personalizar declarações emitidas no token SAML para aplicativos pré-integrados](active-directory-saml-claims-customization.md) |
+| Como definir e personalizar manualmente a configuração do logon único |[Como configurar logon único federado para aplicativos que não estão na galeria de aplicativos do Azure Active Directory](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)<br /><br />[Como personalizar declarações emitidas no token SAML para aplicativos pré-integrados](active-directory-saml-claims-customization.md) |
 | Guia de solução de problemas para aplicativos federados que usam o protocolo SAML |[Solução de problemas de logon único baseado em SAML](develop/howto-v1-debug-saml-sso-issues.md) |
 | Como configurar a data de validade do certificado de seu aplicativo e como renovar os seus certificados |[Gerenciamento de certificados para logon único federado no Active Directory do Azure](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
@@ -70,7 +70,7 @@ Para habilitar o logon único em aplicativos que não oferecem suporte à federa
 | Uma introdução ao funcionamento do SSO baseado em senha e uma breve visão geral técnica |[Logon único com base em senha com o AD do Azure](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | Um resumo dos cenários relacionados ao compartilhamento de conta e como esses problemas são solucionados pelo AD do Azure |[Compartilhar contas com o AD do Azure](active-directory-sharing-accounts.md) |
 | Alterar automaticamente a senha para determinados aplicativos em intervalos regulares |[Substituição de senha automática (visualização)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
-| Guias de implantação e de solução de problemas para a versão do Internet Explorer da extensão de gerenciamento de senha do AD do Azure |[Como implantar a extensão do painel de acesso para o Internet Explorer usando a Política de Grupo](active-directory-saas-ie-group-policy.md)<br /><br />[Solucionando problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Guias de implantação e de solução de problemas para a versão do Internet Explorer da extensão de gerenciamento de senha do AD do Azure |[Como implantar a extensão do painel de acesso para o Internet Explorer usando a Política de Grupo](manage-apps/deploy-access-panel-browser-extension.md)<br /><br />[Solucionando problemas da extensão do painel de acesso para o Internet Explorer](manage-apps/manage-access-panel-browser-extension.md) |
 
 O logon único baseado em senha está disponível para todas as edições do AD do Azure para até dez aplicativos por usuário. [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/) oferece suporte a uma quantidade ilimitada de aplicativos. Se sua organização tiver o [Azure AD Básico](https://azure.microsoft.com/pricing/details/active-directory/) ou o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), você poderá [usar grupos para atribuir acesso a aplicativos](#managing-access-to-applications). A substituição de senha automática é um recurso do [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
@@ -130,11 +130,11 @@ Automatize a criação, a manutenção e a remoção de identidades de usuário 
 
 | Guia de artigos |  |
 |:---:| --- |
-| Saiba mais sobre como isso funciona e encontre respostas para perguntas comuns |[Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md) |
-| Configurar como as informações são mapeadas entre o AD do Azure e seu aplicativo SaaS |[Personalizando mapeamentos de atributo](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Escrevendo expressões para mapeamentos de atributo](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
+| Saiba mais sobre como isso funciona e encontre respostas para perguntas comuns |[Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](manage-apps/user-provisioning.md) |
+| Configurar como as informações são mapeadas entre o AD do Azure e seu aplicativo SaaS |[Personalizando mapeamentos de atributo](manage-apps/customize-application-attributes.md)<br><br>[Escrevendo expressões para mapeamentos de atributo](manage-apps/functions-for-customizing-application-data.md) |
 | Como habilitar o provisionamento automatizado para qualquer aplicativo que ofereça suporte ao protocolo SCIM |[Configurar o provisionamento automatizado de usuário para qualquer aplicativo habilitado para SCIM](manage-apps/use-scim-to-provision-users-and-groups.md) |
-| Como relatar e solucionar problemas de provisionamento do usuário |[Relatórios sobre o provisionamento automático de usuário](active-directory-saas-provisioning-reporting.md)<br><br>[Solução de problemas de provisionamento do usuário](active-directory-application-provisioning-content-map.md) |
-| Limitar quem recebe provisionamento para um aplicativo com base em seus valores de atributo |[Filtro de escopo](active-directory-saas-scoping-filters.md) |
+| Como relatar e solucionar problemas de provisionamento do usuário |[Relatórios sobre o provisionamento automático de usuário](manage-apps/check-status-user-account-provisioning.md)<br><br>[Solução de problemas de provisionamento do usuário](active-directory-application-provisioning-content-map.md) |
+| Limitar quem recebe provisionamento para um aplicativo com base em seus valores de atributo |[Filtro de escopo](manage-apps/define-conditional-rules-for-provisioning-user-accounts.md) |
 
 O provisionamento automatizado de usuário está disponível para todas as edições do AD do Azure para até dez aplicativos por usuário. [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/) oferece suporte a uma quantidade ilimitada de aplicativos. Se sua organização tiver o [Azure AD Básico](https://azure.microsoft.com/pricing/details/active-directory/) ou o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), você poderá [usar grupos para gerenciar quais usuários recebem o provisionamento](#managing-access-to-applications).
 

@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 51a73a4466f3460beead0ce03ddbf011a0b9cc3b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c5b9d1993c9e90411c7b05d9874721a159275f22
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527654"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021821"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Examinando o Status do trabalho de Importação/Exportação do Azure com cópias de arquivos de log
-Quando o serviço de Importação/Exportação do Microsoft Azure processa unidades associadas a um trabalho de importação ou exportação, ele grava arquivos de log de cópia na conta de armazenamento para a qual ou da qual os blobs estão sendo importados ou exportados. O arquivo de log contém o status detalhado sobre cada arquivo importado ou exportado. A URL para cada arquivo de log de cópia é retornada ao consultar o status de um trabalho concluído; consulte [Get Job](/rest/api/storageservices/Get-Job3) (Obter Trabalho) para obter mais informações.  
+Quando o serviço de Importação/Exportação do Microsoft Azure processa unidades associadas a um trabalho de importação ou exportação, ele grava arquivos de log de cópia na conta de armazenamento para a qual ou da qual os blobs estão sendo importados ou exportados. O arquivo de log contém o status detalhado sobre cada arquivo importado ou exportado. A URL para cada arquivo de log de cópia é retornada ao consultar o status de um trabalho concluído; consulte [Get Job](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get) (Obter Trabalho) para obter mais informações.  
 
 ## <a name="example-urls"></a>URLs de exemplo
 

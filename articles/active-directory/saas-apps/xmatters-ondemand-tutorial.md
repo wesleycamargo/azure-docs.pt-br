@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d140cbdb0548de869c7aab6ba5da281046a215f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a235b85887e64e0a5ca35aae8f31734250a78bb5
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434105"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160227"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: integração do Azure Active Directory com o xMatters OnDemand
 
@@ -202,7 +202,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="creating-a-xmatters-ondemand-test-user"></a>Criação de um usuário de teste do xMatters OnDemand
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no xMatters OnDemand. O xMatters OnDemand suporta o provisionamento automático de usuários, que é ativado por padrão. Você pode encontrar mais detalhes [ aqui ](xmatters-ondemand-provisioning-tutorial.md) sobre como configurar o provisionamento automático de usuários.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no xMatters OnDemand.
 
 **Se você precisar criar o usuário manualmente, execute as seguintes etapas:**
 
@@ -269,7 +269,6 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar Provisionamento de Usuário](xmatters-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 

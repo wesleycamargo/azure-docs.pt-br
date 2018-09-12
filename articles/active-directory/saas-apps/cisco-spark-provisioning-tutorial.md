@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: bb3b3061c15a661caff778ca5c0ec48b0434c718
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: aafbde6907e59be3b0ff1d5807ffe4a7d2fffaa4
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141608"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346093"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cisco Spark para provisionamento automático de usuários
 
@@ -28,7 +28,7 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no Cisco Sp
 
 
 > [!NOTE]
-> Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](./../active-directory-saas-app-provisioning.md).
+> Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -153,7 +153,7 @@ Esta seção o guia pelas etapas para configurar o serviço de provisionamento d
 
     ![Provisionamento do Cisco Spark](./media/cisco-spark-provisioning-tutorial/UserMappingAttributes.png)
 
-12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../active-directory-saas-scoping-filters.md).
+12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Para habilitar o serviço de provisionamento do Azure AD para o Cisco Spark, altere o **Status de provisionamento** para **ativar** na seção **Configurações**.
 
@@ -170,11 +170,11 @@ Esta seção o guia pelas etapas para configurar o serviço de provisionamento d
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **Detalhes da Sincronização** para monitorar o andamento e seguir os links para o relatório de atividades de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Cisco Spark.
 
-Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../active-directory-saas-provisioning-reporting.md).
+Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* O Cisco Spark está atualmente na fase EFT (Early Field Testing, teste de campo antecipado) da Cisco. Para obter mais informações, entre em contato com a [Equipe de suporte da Cisco](https://www.webex.co.in/support/support-overview.html). 
+* O Cisco Spark está atualmente na fase EFT (Early Field Testing, teste de campo antecipado) da Cisco. Para obter mais informações, entre em contato com [equipe de suporte do Cisco](https://www.webex.co.in/support/support-overview.html). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -184,7 +184,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../active-directory-saas-provisioning-reporting.md)
+* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/cisco-spark-provisioning-tutorial/tutorial_general_01.png

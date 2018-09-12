@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 0d4b77c2-dba4-4e46-8f55-ab04ddd92496
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: b15508acea92c165cba85e39ab907fa524088164
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6ab3611d47b32eddd41736df69a3e7382c2b220d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774175"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298754"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Conexão do Azure Active Directory Identity Protection à Central de Segurança do Azure
 Este documento ajuda você a configurar a integração entre o Azure AD (Active Directory) Identity Protection e a Central de Segurança do Azure.

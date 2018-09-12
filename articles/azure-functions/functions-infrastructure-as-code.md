@@ -4,24 +4,20 @@ description: Aprenda a criar um modelo do Azure Resource Manager que implanta o 
 services: Functions
 documtationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, funções, arquitetura sem servidores, infraestrutura como código, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 28b2f5aba69e5c058feb7119eb31352220922998
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d63686524c619b349a590c389e20e473b0d98641
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937054"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091459"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções do Azure Functions
 
@@ -263,7 +259,7 @@ Você pode usar qualquer uma das seguintes maneiras para implantar o modelo:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botão Implantar no Azure

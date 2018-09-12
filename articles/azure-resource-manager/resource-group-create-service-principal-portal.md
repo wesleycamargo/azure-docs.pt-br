@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: fc0ccd84f493fd69c84515331386592ec11a887e
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282231"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025286"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar recursos
 
@@ -27,7 +27,7 @@ Quando você tiver um código que precisa acessar ou modificar os recursos, deve
 Este artigo mostra como executar essas etapas no portal. Ele se concentra em um aplicativo de locatário único que se destina a ser executado dentro de uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
 
 > [!IMPORTANT]
-> Em vez de criar uma entidade de serviço, considere usar a identidade de serviço gerenciado do Azure AD para sua identidade de aplicativo. MSI do Azure AD é um recurso de visualização pública do Azure Active Directory que simplifica a criação de uma identidade para o código. Se o código for executado em um serviço que dá suporte à MSI do Azure AD e acessa os recursos que oferecem suporte à autenticação do Azure Active Directory, a MSI do Azure AD é uma opção melhor para você. Para saber mais sobre a MSI do Azure AD, incluindo quais serviços atualmente dão suporte a ele, consulte [Identidade de Serviço Gerenciado para recursos do Azure](../active-directory/managed-service-identity/overview.md).
+> Em vez de criar uma entidade de serviço, considere usar a identidade de serviço gerenciado do Azure AD para sua identidade de aplicativo. MSI do Azure AD é um recurso de visualização pública do Azure Active Directory que simplifica a criação de uma identidade para o código. Se o código for executado em um serviço que dá suporte à MSI do Azure AD e acessa os recursos que oferecem suporte à autenticação do Azure Active Directory, a MSI do Azure AD é uma opção melhor para você. Para saber mais sobre a MSI do Azure AD, incluindo quais serviços atualmente dão suporte a ele, consulte [Identidade de Serviço Gerenciado para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="required-permissions"></a>Permissões necessárias
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: df1cf093a154b4f7adf59fae93f90fbc70459788
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 57cfa44a0eb114503b89733b2c3e309b65d5b7e5
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037900"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023317"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Usar o Azure PowerShell para criar uma entidade de serviço com um certificado
 
@@ -29,7 +29,7 @@ Quando você tiver um aplicativo ou script que precisa acessar recursos, poderá
 * Use um certificado para a autenticação ao executar um script autônomo.
 
 > [!IMPORTANT]
-> Em vez de criar uma entidade de serviço, considere usar a identidade de serviço gerenciado do Azure AD para sua identidade de aplicativo. MSI do Azure AD é um recurso de visualização pública do Azure Active Directory que simplifica a criação de uma identidade para o código. Se o código for executado em um serviço que dá suporte à MSI do Azure AD e acessa os recursos que oferecem suporte à autenticação do Azure Active Directory, a MSI do Azure AD é uma opção melhor para você. Para saber mais sobre a MSI do Azure AD, incluindo quais serviços atualmente dão suporte a ele, consulte [Identidade de Serviço Gerenciado para recursos do Azure](../active-directory/managed-service-identity/overview.md).
+> Em vez de criar uma entidade de serviço, considere usar a identidade de serviço gerenciado do Azure AD para sua identidade de aplicativo. MSI do Azure AD é um recurso de visualização pública do Azure Active Directory que simplifica a criação de uma identidade para o código. Se o código for executado em um serviço que dá suporte à MSI do Azure AD e acessa os recursos que oferecem suporte à autenticação do Azure Active Directory, a MSI do Azure AD é uma opção melhor para você. Para saber mais sobre a MSI do Azure AD, incluindo quais serviços atualmente dão suporte a ele, consulte [Identidade de Serviço Gerenciado para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 Este artigo mostra como criar uma entidade de serviço que autentica com um certificado. Para configurar uma entidade de serviço com a senha, consulte [Criar uma entidade de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 

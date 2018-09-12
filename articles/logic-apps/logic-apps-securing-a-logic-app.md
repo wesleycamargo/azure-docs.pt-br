@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127472"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377387"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Proteger o acesso no Aplicativo Lógico do Azure
 
@@ -77,7 +77,7 @@ Essa configuração pode ser definida nas configurações de aplicativo lógico:
 1. Clique no item de menu **Configurações de Fluxo de Trabalho** em **Configurações**
 1. Especifique a lista de intervalos de endereços IP a serem aceitos pelo gatilho
 
-Um intervalo IP válido assume o formato `192.168.1.1/255`. Se quiser que o aplicativo lógico seja acionado apenas como um aplicativo lógico aninhado, selecione a opção **Somente outros aplicativos lógicos**. Essa opção grava uma matriz vazia para o recurso, o que significa que somente chamadas do serviço em si (aplicativos lógicos pai) acionam com êxito.
+Um intervalo IP válido assume o formato `192.168.1.1/32`. Se quiser que o aplicativo lógico seja acionado apenas como um aplicativo lógico aninhado, selecione a opção **Somente outros aplicativos lógicos**. Essa opção grava uma matriz vazia para o recurso, o que significa que somente chamadas do serviço em si (aplicativos lógicos pai) acionam com êxito.
 
 > [!NOTE]
 > Você ainda pode executar um aplicativo lógico com um gatilho de solicitação por meio de `/triggers/{triggerName}/run` da API REST/Gerenciamento, independentemente do IP. Esse cenário requer autenticação em relação à API REST do Azure e todos os eventos apareceriam no Log de Auditoria do Azure. Defina políticas de controle de acesso de apropriadamente.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 1b52c64db29e17a0c52eb63721be81844e856b64
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: cd022677da59588eca910a508b2596aa513eff4b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140584"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302802"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure
 
@@ -63,9 +63,9 @@ Este guia mostra como configurar sua instância de serviço de Gerenciamento de 
 
     ![Novo servidor OAuth 2.0](./media/api-management-howto-oauth2/oauth-03.png)
 
-    Para o servidor OAuth 2.0 do Azure Active Directory, a **URL do ponto de extremidade do token** terá o seguinte formato, em que `<APPID>` tem o formato de `yourapp.onmicrosoft.com`.
+    Para o servidor OAuth 2.0 do Azure Active Directory, a **URL do ponto de extremidade do token** terá o seguinte formato, em que `<TenantID>` tem o formato de `yourapp.onmicrosoft.com`.
 
-    `https://login.microsoftonline.com/<APPID>/oauth2/token`
+    `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
     A configuração padrão para os **métodos de autenticação do cliente** é **Básica** e o **método de envio do token de acesso** é **Cabeçalho de autorização**. Esses valores são configurados nesta seção da forma, junto com o **Escopo padrão**.
 

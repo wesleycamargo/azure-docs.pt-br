@@ -4,23 +4,19 @@ description: Entenda como usar gatilhos e associações HTTP e de webhook no Azu
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor, HTTP, API, REST
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 183dad8f70a4094f6d6ba3605fd19f8921dcc988
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 41870f4f3cf4a0aba461021b4787e1ba004e5ead
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145292"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095106"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associações HTTP e de webhook do Azure Functions
 
@@ -278,7 +274,7 @@ module.exports = function(context, req) {
 };
 ```
 
-### <a name="trigger---java-example"></a>Gatilho - exemplo de Java
+### <a name="trigger---java-example"></a>Gatilho - exemplo Java
 
 O exemplo a seguir mostra uma ligação de acionador em um arquivo *function.json* e uma [função Java](functions-reference-java.md) que usa a ligação. A função retorna uma resposta de 200 de código de status HTTP com corpo de arequest que Prefixa o corpo da solicitação de gatilho com um "Hello," saudação.
 

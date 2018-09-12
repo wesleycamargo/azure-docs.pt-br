@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 0d3bdb6cc56b90d1975af73be1bb8cc1f73e1213
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 9e0dfccd98592243623613648cdbd076e429dafb
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40129072"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44164261"
 ---
 Até agora, você executou o código do aplicativo como se fosse o único desenvolvedor trabalhando no aplicativo. Nesta seção, você aprenderá como o Azure Dev Spaces simplifica o desenvolvimento em equipe:
 * Habilite uma equipe de desenvolvedores para trabalhar no mesmo ambiente, trabalhando em um espaço de desenvolvimento compartilhado ou em espaços de desenvolvimento distintos, conforme o necessário.
@@ -48,11 +48,12 @@ Com o Azure Dev Spaces, você pode configurar um espaço de desenvolvimento *com
 Vamos examinar mais detalhadamente em que local os serviços estão em execução no momento. Execute o comando `azds list-up` e você verá uma saída semelhante à seguinte:
 
 ```
-Name                          DevSpace  Type     Updated      Status
-----------------------------  --------  -------  -----------  ----------------
-mywebapi                      default   Service  10m 1s ago   Running
-mywebapi-54f9cf5b59-bjnkm     default   Pod      10m 4s ago   Running
-webfrontend-5b697958d6-b6v96  default   Pod      26m 38s ago  Init:1/3:mindaro-build
+Name                          DevSpace  Type     Updated  Status
+----------------------------  --------  -------  -------  -------
+mywebapi                      default   Service  3m ago   Running
+mywebapi-56c8f45d9-zs4mw      default   Pod      3m ago   Running
+webfrontend                   default   Service  1m ago   Running
+webfrontend-6b6ddbb98f-fgvnc  default   Pod      1m ago   Running
 ```
 
 A coluna DevSpace mostra que ambos os serviços estão em execução em um espaço chamado `default`. Qualquer pessoa que abre a URL pública e navega para o aplicativo Web invocará o caminho do código escrito anteriormente que percorre ambos os serviços. Agora suponha que você deseje continuar desenvolvendo `mywebapi`. Como fazer alterações de código e testá-las e não interromper os outros desenvolvedores que estão usando o ambiente de desenvolvimento? Para fazer isso, você configurará seu próprio espaço.

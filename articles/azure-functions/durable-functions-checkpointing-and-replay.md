@@ -3,23 +3,19 @@ title: Pontos de verificação e reprodução nas Funções Duráveis – Azure
 description: Saiba como é o funcionamento dos pontos de verificação e da reprodução na extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 39cdb9b2c6eae9a3176aedc64b8d187e298fdfdd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 90860759e8a20bca03d3eb74e4859d0b26d14da1
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764563"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091859"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Pontos de verificação e reprodução nas Funções Duráveis (Azure Functions)
 

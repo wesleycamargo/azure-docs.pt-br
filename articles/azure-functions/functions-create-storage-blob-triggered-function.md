@@ -4,24 +4,20 @@ description: Use o Azure Functions para criar uma função sem servidor que é i
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/27/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 928ea1dbb68206e128f0593ba15cb48935ab1ccf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 48bb97b298b24951982b69fa07a7e366fcb3e38e
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602656"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093849"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Criar uma função disparada pelo Armazenamento de Blobs do Azure
 
@@ -29,7 +25,7 @@ Saiba como criar uma função disparada quando arquivos são carregados ou atual
 
 ![Exiba a mensagem nos logs.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 + Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
 + Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.

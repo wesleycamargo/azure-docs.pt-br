@@ -5,21 +5,17 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 06124a0a0db47d76552ddf2172a7f656c6d869cf
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818460"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347113"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implantação de zip para o Azure Functions
 
@@ -97,7 +93,7 @@ Você também pode optar por executar suas funções diretamente do arquivo do p
 > [!NOTE]
 > O recurso de executar seu aplicativo de funções do pacote de implantação está na versão prévia.
 
-A implantação de zip integra-se com esse recurso, que você pode habilitar definindo a configuração do aplicativo de funções `WEBSITE_RUN_FROM_ZIP` com um valor de `1`. Para obter mais informações, veja [Executar suas funções de um arquivo de pacote de implantação](run-functions-from-deployment-package.md).
+A implantação de zip integra-se com esse recurso, que você pode habilitar definindo a configuração do aplicativo de funções `WEBSITE_RUN_FROM_PACKAGE` com um valor de `1`. Para obter mais informações, veja [Executar suas funções de um arquivo de pacote de implantação](run-functions-from-deployment-package.md).
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 

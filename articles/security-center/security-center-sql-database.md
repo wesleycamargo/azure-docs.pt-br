@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: b507a62db9a80866005cb63d2008fb14612b516f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d8be831469659993da4f9f392e23b9408eb283e3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415938"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302202"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Central de Segurança do Azure e serviço do Banco de Dados SQL
 A [Central de Segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/) ajuda você a evitar, detectar e responder a ameaças. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
@@ -36,7 +36,7 @@ A Central de Segurança ajuda você a proteger os dados no Banco de Dados SQL, f
 
 Além de ajudar a proteger seus recursos de Banco de Dados SQL, a Central de Segurança também fornece monitoramento e gerenciamento de segurança para máquinas virtuais do Azure, Serviços de Nuvem, Serviços de Aplicativos, redes virtuais e muito mais. Saiba mais sobre a Central de Segurança [aqui](security-center-intro.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. A camada Gratuita da Central de Segurança é habilitada com sua assinatura. Para saber mais sobre as camadas Gratuito e Standard da Central de Segurança, confira [Preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
 A Central de segurança dá suporte ao acesso baseado em função. Para saber mais sobre o controle de acesso baseado em função (RBAC) no Azure, consulte o [Controle de acesso baseado em função do Azure Active Directory](../role-based-access-control/role-assignments-portal.md). As Perguntas frequentes da Central de Segurança fornecem informações sobre [como as permissões são tratadas na Central de Segurança](security-center-faq.md#permissions).

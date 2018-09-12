@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
 manager: douge
-ms.openlocfilehash: 1b603db552edd14dab2c86e6b005184eb88e74bb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 97b052833946b373e2333491c4b516b3a088130b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42154808"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158459"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em Equipe com Azure Dev Spaces
 
@@ -163,6 +163,6 @@ Para testar a nova versão de `mywebapi` em conjunto com `webfrontend`, abra seu
 
 Agora, adicione a parte “scott.s.” à URL para que ela leia algo como http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io e atualize o navegador. O ponto de interrupção que você definiu em seu projeto `mywebapi` deve será atingido. Clique em F5 para continuar e, em seu navegador, agora você deve ver a nova mensagem “Hello from webfrontend and mywebapi now says something new”. Isso ocorre porque o caminho para seu código atualizado em `mywebapi` está em execução no espaço `default/scott`.
 
-[!INCLUDE[](includes/well-done.md)]
+[!INCLUDE [](includes/well-done.md)]
 
-[!INCLUDE[](includes/clean-up.md)]
+[!INCLUDE [](includes/clean-up.md)]

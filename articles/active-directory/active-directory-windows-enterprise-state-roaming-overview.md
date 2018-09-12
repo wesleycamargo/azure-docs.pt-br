@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: markvi
-ms.openlocfilehash: c1332679af57a4994f4337e241845a87bf16b341
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 25daca5d1654e97684098c0f1a394b126e4e5391
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140604"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023799"
 ---
 # <a name="enterprise-state-roaming-overview"></a>Visão geral do Enterprise State Roaming
-Com o Windows 10, os usuários do [Active Directory do Azure (AD do Azure)](fundamentals/active-directory-whatis.md) obtêm a capacidade de sincronizar com segurança suas configurações de usuário e seus dados de configurações do aplicativo com a nuvem. O Enterprise State Roaming fornece aos usuários uma experiência unificada em seus dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo. O Enterprise State Roaming funciona de maneira semelhante à [sincronização de configurações de consumidor](http://windows.microsoft.com/windows-8/sync-settings-pcs) padrão, introduzida no Windows 8. Além disso, o Enterprise State Roaming oferece:
+Com o Windows 10, os usuários do [Active Directory do Azure (AD do Azure)](fundamentals/active-directory-whatis.md) obtêm a capacidade de sincronizar com segurança suas configurações de usuário e seus dados de configurações do aplicativo com a nuvem. O Enterprise State Roaming fornece aos usuários uma experiência unificada em seus dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo. O Enterprise State Roaming funciona de maneira semelhante à [sincronização de configurações de consumidor](https://go.microsoft.com/fwlink/?linkid=2015135) padrão, introduzida no Windows 8. Além disso, o Enterprise State Roaming oferece:
 
 * **Separação dos dados corporativos e do consumidor** – as organizações estão no controle de seus dados, e não há nenhuma combinação de dados corporativos em uma conta de nuvem do consumidor ou de dados do consumidor em uma conta de nuvem da empresa.
 * **Segurança avançada** – os dados são criptografados automaticamente antes de deixar o dispositivo Windows 10 do usuário usando o Azure Rights Management (Azure RMS) e os dados permanecem criptografados em repouso na nuvem. Todo o conteúdo permanece criptografado em repouso na nuvem, exceto os namespaces, como os nomes de configurações e os nomes de aplicativo do Windows.  

@@ -10,24 +10,24 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 8fe343587336ff22f82ed0d1ef700fc56c86f577
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 19ffb1043317cf7e7ce4c00fd85d21274dab7c0a
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561087"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055515"
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Usar PHP para consultar um banco de dados SQL do Azure
 
 Este início rápido demonstra como usar o [PHP](http://php.net/manual/en/intro-whatis.php) a fim de criar um programa para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, tenha o seguinte:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que usou para este início rápido.
+- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal-firewall.md) para o endereço IP público do computador que usou para este início rápido.
 
 - O PHP e o software relacionado para seu sistema operacional instalados:
 

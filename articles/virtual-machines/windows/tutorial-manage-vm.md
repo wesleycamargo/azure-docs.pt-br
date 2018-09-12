@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/23/2018
+ms.date: 08/10/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d47981042fc13a96bdf5cb9690e4dc83a6aa0162
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: ae29108aad2a538bb90484a048742be0b5c4764a
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932544"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094902"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Criar e Gerenciar as VMs do Windows com o Microsoft Azure PowerShell
 
@@ -40,7 +40,7 @@ Se você optar por instalar e usar o PowerShell localmente, este tutorial exigir
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos com o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+Crie um grupo de recursos com o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).
 
 Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual. No exemplo a seguir, um grupo de recursos chamado *myResourceGroupVM* é criado na região *EastUS*:
 
@@ -94,11 +94,11 @@ Na janela **Segurança do Windows**, selecione **Mais opções** e **Usar uma co
 
 ## <a name="understand-vm-images"></a>Entender as imagens de VM
 
-O Azure Marketplace inclui várias imagens de máquina virtual que podem ser usadas para criar uma nova máquina virtual. Nas etapas anteriores, uma máquina virtual foi criada usando a imagem do Windows Server 2016 Datacenter. Nesta etapa, o módulo do PowerShell é usado para pesquisar no marketplace por outras imagens do Windows, que também pode ser usado como base para novas VMs. Este processo consiste em localizar o publicador, a oferta, o SKU e, opcionalmente, um número de versão para [identificar](cli-ps-findimage.md#terminology) a imagem. 
+O Azure Marketplace inclui várias imagens de máquina virtual que podem ser usadas para criar uma nova máquina virtual. Nas etapas anteriores, uma máquina virtual foi criada usando a imagem do Windows Server 2016 Datacenter. Nesta etapa, o módulo do PowerShell é usado para pesquisar no marketplace por outras imagens do Windows, que também pode ser usado como base para novas VMs. Este processo consiste em localizar o publicador, a oferta, o SKU e, opcionalmente, um número de versão para [identificar](cli-ps-findimage.md#terminology) a imagem.
 
 Use o comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) para retornar uma lista de editores de imagem:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "EastUS"
 ```
 
@@ -110,10 +110,10 @@ Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServe
 
 ```azurepowershell-interactive
 Offer             PublisherName          Location
------             -------------          -------- 
-Windows-HUB       MicrosoftWindowsServer EastUS 
-WindowsServer     MicrosoftWindowsServer EastUS   
-WindowsServer-HUB MicrosoftWindowsServer EastUS   
+-----             -------------          --------
+Windows-HUB       MicrosoftWindowsServer EastUS
+WindowsServer     MicrosoftWindowsServer EastUS
+WindowsServer-HUB MicrosoftWindowsServer EastUS
 ```
 
 O comando [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) filtrará o nome do editor e da oferta para retornar uma lista com nomes de imagem.
@@ -159,7 +159,6 @@ New-AzureRmVm `
 
 O parâmetro `-AsJob` cria a VM como uma tarefa em segundo plano, para que os prompts do PowerShell sejam exibidos de volta para você. Você pode exibir os detalhes de trabalhos em segundo plano com o cmdelt `Get-Job`.
 
-
 ## <a name="understand-vm-sizes"></a>Entender os tamanhos de VM
 
 Um tamanho de máquina virtual determina a quantidade de recursos de computação, como memória, CPU e GPU que estão disponíveis para a máquina virtual. As máquinas virtuais precisam ser criadas com um tamanho apropriado para a carga de trabalho esperada. Se a carga de trabalho aumentar, uma máquina virtual existente pode ser redimensionada.
@@ -174,8 +173,7 @@ A tabela a seguir categoriza tamanhos em casos de uso.
 | [Memória otimizada](sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Relação de memória/núcleo alta. Ótima para banco de dados relacionais, caches médios a grandes e análises na memória.                 |
 | [Armazenamento otimizado](sizes-storage.md)      | Ls                | Alta taxa de transferência de disco e de E/S. Ideal para Big Data, SQL e bancos de dados NoSQL.                                                         |
 | [GPU](sizes-gpu.md)          | NV, NC            | VMs especializadas, destinadas para renderização gráfica e edição de vídeo pesadas.       |
-| [Alto desempenho](sizes-hpc.md) | H, A8-11          | Nossas VMs de CPU mais potentes com adaptadores de rede de alto rendimento (RDMA) opcionais. 
-
+| [Alto desempenho](sizes-hpc.md) | H, A8-11          | Nossas VMs de CPU mais potentes com adaptadores de rede de alto rendimento (RDMA) opcionais. |
 
 ### <a name="find-available-vm-sizes"></a>Encontrar tamanhos de VM disponíveis
 
@@ -189,7 +187,7 @@ Get-AzureRmVMSize -Location "EastUS"
 
 Após a implantação de uma VM, ela pode ser redimensionada para aumentar ou diminuir a alocação de recursos.
 
-Antes de redimensionar uma VM, verifique se o tamanho desejado está disponível no cluster da VM atual. O comando [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) retorna uma lista de tamanhos. 
+Antes de redimensionar uma VM, verifique se o tamanho desejado está disponível no cluster da VM atual. O comando [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) retorna uma lista de tamanhos.
 
 ```azurepowershell-interactive
 Get-AzureRmVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
@@ -203,7 +201,7 @@ $vm.HardwareProfile.VmSize = "Standard_D4"
 Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
 ```
 
-Se o tamanho desejado não estiver no cluster atual, a VM precisará ser desalocada antes que a operação de redimensionamento ocorra. Observe que quando a VM é ligada novamente, quaisquer dados no disco temporário são removidos, e o endereço IP público muda, a menos que um endereço IP estático esteja sendo usado. 
+Se o tamanho desejado não estiver no cluster atual, a VM precisará ser desalocada antes que a operação de redimensionamento ocorra. Observe que quando a VM é ligada novamente, quaisquer dados no disco temporário são removidos, e o endereço IP público muda, a menos que um endereço IP estático esteja sendo usado.
 
 ```azurepowershell-interactive
 Stop-AzureRmVM -ResourceGroupName "myResourceGroupVM" -Name "myVM" -Force
@@ -215,7 +213,7 @@ Start-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -Name $vm.name
 
 ## <a name="vm-power-states"></a>Estados de energia da VM
 
-Uma VM do Azure pode ter um dentre vários estados de energia. Esse estado representa o estado atual da VM do ponto de vista do hipervisor. 
+Uma VM do Azure pode ter um dentre vários estados de energia. Esse estado representa o estado atual da VM do ponto de vista do hipervisor.
 
 ### <a name="power-states"></a>Estados de energia
 
@@ -223,7 +221,7 @@ Uma VM do Azure pode ter um dentre vários estados de energia. Esse estado repre
 |----|----|
 | Iniciando | Indica que a máquina virtual está sendo iniciada. |
 | Executando | Indica que a máquina virtual está em execução. |
-| Parando | Indica que a máquina virtual está sendo interrompida. | 
+| Parando | Indica que a máquina virtual está sendo interrompida. |
 | Parado | Indica que a máquina virtual foi parada. Observe que máquinas virtuais no estado parado ainda incorrem em encargos de computação.  |
 | Desalocando | Indica que a máquina virtual está sendo desalocada. |
 | Desalocada | Indica que a máquina virtual foi completamente removidos do hipervisor, mas ainda está disponível no plano de controle. Máquinas virtuais no estado Desalocado não incorrem em encargos de computação. |
@@ -231,7 +229,7 @@ Uma VM do Azure pode ter um dentre vários estados de energia. Esse estado repre
 
 ### <a name="find-power-state"></a>Localizar o estado de energia
 
-Para recuperar o estado de uma VM específica, use o comando [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm). Especifique um nome válido para uma máquina virtual e grupo de recursos. 
+Para recuperar o estado de uma VM específica, use o comando [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm). Especifique um nome válido para uma máquina virtual e grupo de recursos.
 
 ```azurepowershell-interactive
 Get-AzureRmVM `

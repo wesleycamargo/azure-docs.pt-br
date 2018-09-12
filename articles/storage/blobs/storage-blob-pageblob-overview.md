@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: a215771b0126e9048b7d9da4ed1d6073c8e960a4
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266619"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022681"
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Recursos exclusivos de blobs de páginas do Azure
 
@@ -71,7 +71,7 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>Gravando páginas em um blob de páginas
-Para gravar páginas, use o método [CloudPageBlob.WritePages](/library/microsoft.windowsazure.storageclient.cloudpageblob.writepages.aspx).  Isso permite que você grave um conjunto sequencial de páginas de até 4 MB. O deslocamento que está sendo gravado deve começar em um limite de 512 bytes (startingOffset % 512 == 0) e terminar em um limite de 512 -1.  O exemplo de código a seguir mostra como chamar **WritePages** para um blob:
+Para gravar páginas, use o método [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_).  Isso permite que você grave um conjunto sequencial de páginas de até 4 MB. O deslocamento que está sendo gravado deve começar em um limite de 512 bytes (startingOffset % 512 == 0) e terminar em um limite de 512 -1.  O exemplo de código a seguir mostra como chamar **WritePages** para um blob:
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -116,8 +116,6 @@ foreach (PageRange range in pageRanges)
 
 #### <a name="leasing-a-page-blob"></a>Arrendando um blob de páginas
 A operação Lease Blob estabelece e gerencia um bloqueio em um blob para operações de gravação e exclusão. Essa operação é útil em cenários em que um blob de páginas está sendo acessado em vários clientes, para garantir que apenas um cliente possa gravar no blob por vez. Os Discos do Azure, por exemplo, aproveitam este mecanismo de concessão para garantir que o disco seja gerenciado apenas por uma única VM. A duração do bloqueio pode ser de 15 a 60 segundos, ou pode ser infinita. Consulte a documentação [aqui](/rest/api/storageservices/lease-blob) para obter mais detalhes.
-
-> Use o link a seguir para obter [exemplos de código](/resources/samples/?service=storage&term=blob&sort=0 ) para muitos outros cenários de aplicativo. 
 
 Além das APIs REST avançadas, os Blobs de páginas também fornecem acesso compartilhado, durabilidade e segurança aprimorada. Abordaremos esses benefícios mais detalhadamente nos próximos parágrafos. 
 

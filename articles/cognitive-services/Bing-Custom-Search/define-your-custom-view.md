@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 8ffe3087df398d6310828e41d0c6992199fafbed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ef8aabc7363db88317a6428301512b0a0d4c055
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363859"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158765"
 ---
 # <a name="configure-your-custom-search-experience"></a>Configurar a experiência de pesquisa personalizada
 Uma instância de Pesquisa Personalizada permite adaptar a experiência de pesquisa para incluir conteúdo apenas de sites com os quais os usuários se importam. Em vez de realizar uma pesquisa em toda a Web, o Bing pesquisa apenas a parte da Web de interesse do usuário.
@@ -113,7 +113,7 @@ Siga estas etapas para usar o Bing e adicionar fatias à instância da Pesquisa 
 5.  Clique em **Adicionar site** ao lado do resultado que você quer incluir.
 6.  Clique no botão **Ok** .
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="view-statistics"></a>Exibir estatísticas
 Se você inscreveu-se na Pesquisa Personalizada no nível apropriado (consulte as [Páginas de preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), uma guia **Estatísticas** será adicionada às instâncias de produção. A guia Estatísticas mostra detalhes sobre como os pontos de extremidade da Pesquisa Personalizada são usados, incluindo volume da chamada, principais consultas, distribuição geográfica, códigos de resposta e pesquisa segura. É possível filtrar detalhes usando os controles fornecidos.

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: daredis
-ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d805a39831ce2eea204689a4daa069d10b757e8
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193454"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054063"
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteger o Banco de Dados SQL do Azure
 
@@ -40,17 +40,17 @@ Você pode melhorar a proteção do banco de dados contra usuários mal-intencio
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisa do seguinte:
 
 - A versão mais recente instalada do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). 
 - O Microsoft Excel instalado
-- Um servidor e banco de dados SQL do Azure - confira [Criar um banco de dados SQL do Azure no Portal do Azure](sql-database-get-started-portal.md), [Criar um único banco de dados SQL do Azure usando a CLI do Azure](sql-database-get-started-cli.md) e [Criar um único banco de dados SQL do Azure usando o PowerShell](sql-database-get-started-powershell.md). 
+- Um servidor e banco de dados SQL do Azure - confira [Criar um banco de dados SQL do Azure no Portal do Azure](sql-database-get-started-portal.md), [Criar um único banco de dados SQL do Azure usando a CLI do Azure](sql-database-cli-samples.md) e [Criar um único banco de dados SQL do Azure usando o PowerShell](sql-database-powershell-samples.md). 
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
-Faça logon no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Criar uma regra de firewall de nível de servidor no portal do Azure
 

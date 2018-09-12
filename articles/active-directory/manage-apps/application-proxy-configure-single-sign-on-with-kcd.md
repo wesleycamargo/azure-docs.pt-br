@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 4ce76f1156d4d8d85f5e10bb750b012f93ba7afb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1178d85f295c6ac01f367db8adc2c9b855cdc829
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366673"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347812"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para logon único em seus aplicativos com o Proxy de Aplicativo
 
@@ -135,12 +135,12 @@ Se a identidade de logon delegada for usada, o valor não poderá ser exclusivo 
    * Nome da conta SAM local (depende da configuração do controlador de domínio)
 
 ### <a name="troubleshooting-sso-for-different-identities"></a>Solucionando problemas de SSO para diferentes identidades
-Se houver um erro no processo de SSO, ele aparecerá no log de eventos do computador do conector, conforme explicado na [Solução de problemas](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
+Se houver um erro no processo de SSO, ele aparecerá no log de eventos do computador do conector, conforme explicado na [Solução de problemas](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 Porém, em alguns casos, a solicitação será enviada com êxito para o aplicativo de back-end embora este aplicativo responderá em várias outras respostas HTTP. Nesses casos, a solução de problemas deve começar examinando o número de evento 24029 no computador do conector, no log de eventos da sessão do Proxy do Aplicativo. A identidade do usuário que foi usada para delegação será exibida no campo "usuário" nos detalhes do evento. Para ativar o log de sessão, selecione **Mostrar logs analíticos e de depuração** no menu de exibição do visualizador de eventos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Como configurar um aplicativo de Proxy de Aplicativo para usar a Delegação restrita de Kerberos](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+* [Como configurar um aplicativo de Proxy de Aplicativo para usar a Delegação restrita de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Solucionar problemas que surgirem com o Proxy de Aplicativo](application-proxy-troubleshoot.md)
 
 

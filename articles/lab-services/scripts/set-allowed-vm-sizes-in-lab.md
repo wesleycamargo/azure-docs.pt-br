@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 159f175e7bb27b2d89001e1eba737c67adb89e50
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 559e74675a5d113584dca21979c20462c9cdf19c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638136"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054699"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Usar o PowerShell para definir os tamanhos de VM permitidos no Azure Lab Services
 
@@ -25,7 +25,7 @@ Este exemplo de script do PowerShell define os tamanhos de VM (máquinas virtuai
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * **Um laboratório**. O script exige que você tenha um laboratório existente. 
 
 ## <a name="sample-script"></a>Script de exemplo
@@ -38,7 +38,7 @@ Este script usa os seguintes comandos:
 
 | Comando | Observações |
 |---|---|
-| [Find-AzureRmResource](/module/azurerm.resources/find-azurermresource) | Pesquisas recursos com base nos parâmetros especificados. |
+| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | Pesquisas recursos com base nos parâmetros especificados. |
 | [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Obter recursos. |
 | [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modifica um recurso. |
 | [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Cria um recurso. |

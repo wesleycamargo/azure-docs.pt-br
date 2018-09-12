@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 0ed05fd2d55f1c4c80bec9f64925be2eddddc067
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: afc53fc1abce74b247ec2e25bc3e4845bc870860
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043218"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380192"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption para Data Warehouse e Banco de Dados SQL do Azure
 
@@ -128,7 +128,7 @@ Para configurar a Transparent Data Encryption por meio da API REST, é necessár
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma descrição geral da Transparent Data Encryption, consulte [Transparent Data Encryption]((https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption).
+- Para obter uma descrição geral de Transparent Data Encryption, consulte [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 - Para saber mais sobre Transparent Data Encryption com suporte Bring Your Own Key para Banco de Dados SQL e Data Warehouse, consulte [Transparent Data Encryption com suporte Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).
 - Para começar a usar a Transparent Data Encryption com o suporte Bring Your Own Key, consulte o guia de instruções [Ativar Transparent Data Encryption com sua própria chave no Key Vault usando PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 - Para obter mais informações sobre Key Vault, consulte a [página de documentação do Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).

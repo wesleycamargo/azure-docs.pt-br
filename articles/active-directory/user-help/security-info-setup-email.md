@@ -11,18 +11,18 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 34696802735fd2a145cd6383dcdc7e4a4b6368e2
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 3f98b4e34c4c76efc33395530ef016b26e1ad523
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391402"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163032"
 ---
 # <a name="set-up-security-info-to-use-email-preview"></a>Configurar informações de segurança para usar o email (visualização)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-A configuração das informações de segurança exige que você faça login em sua conta do trabalho ou da escola e conclua o processo de registro. Se você nunca configurou suas informações de segurança, será solicitado a fazer isso agora.
+A configuração das informações de segurança exige que você faça login em sua conta do trabalho ou da escola e conclua o processo de registro. Se você nunca tiver configurado suas informações de segurança, você será solicitado a fazê-lo agora.
 
 ## <a name="set-up-email"></a>Configurar email
 
@@ -50,15 +50,15 @@ Dependendo das configurações da sua organização, você pode ser solicitado a
 
 ## <a name="additional-security-info-options"></a>Opções adicionais de informação de segurança
 
-Você tem opções de como sua organização entra em contato com você para confirmar sua identidade, com base no que você está tentando fazer. As opções incluem:
+Você tem opções para como contatos de sua organização a verificar sua identidade, com base no que você está tentando fazer. As opções incluem:
 
-- **Aplicativo autenticador** Faça o download e use um aplicativo autenticador para receber uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como configurar e usar o aplicativo Microsoft Authenticator, consulte [Configurar informações de segurança para usar um aplicativo autenticador](security-info-setup-auth-app.md).
+- **Aplicativo autenticador.** Faça o download e use um aplicativo autenticador para receber uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como configurar e usar o aplicativo Microsoft Authenticator, consulte [Configurar informações de segurança para usar um aplicativo autenticador](security-info-setup-auth-app.md).
 
-- **Texto de dispositivo móvel.** Insira seu número de dispositivo móvel e receba um texto em um código que será usada para verificação em duas etapas ou a senha de redefinição. Para obter instruções passo a passo sobre como verificar sua identidade com uma mensagem de texto (SMS), consulte [configurar informações de segurança para usar a mensagem de texto (SMS)](security-info-setup-text-msg.md).
+- **Texto de dispositivo móvel.** Insira o número do seu dispositivo móvel e receba um texto com um código que você usará para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como verificar sua identidade com uma mensagem de texto (SMS), consulte [Configurar informações de segurança para usar mensagens de texto (SMS)](security-info-setup-text-msg.md).
 
 - **Chamada de telefone do dispositivo móvel ou trabalho.** Insira seu número de dispositivos móveis e receber um telefonema para a redefinição de senha ou a verificação em duas etapas. Para obter instruções passo a passo sobre como verificar sua identidade com um número de telefone, consulte [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md).
 
-- **Perguntas de segurança.** Responder a algumas perguntas de segurança criadas pelo seu administrador para sua organização. Essa opção só está disponível para a redefinição de senha e não para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar suas perguntas de segurança, consulte o artigo [configurar informações de segurança para usar perguntas de segurança](security-info-setup-questions.md).
+- **Perguntas de segurança.** Responder a algumas perguntas de segurança criadas pelo seu administrador para sua organização. Essa opção só está disponível para a redefinição de senha e não para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar suas perguntas de segurança, consulte o artigo [Configurar informações de segurança para usar perguntas de segurança](security-info-setup-questions.md).
     
     >[!Note]
     >Se algumas dessas opções estiverem ausentes, é mais provável que sua organização não permita esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
@@ -69,4 +69,4 @@ Você tem opções de como sua organização entra em contato com você para con
 
 - Redefina sua senha se você a perdeu ou esqueceu, do [portal de redefinição de senha](https://passwordreset.microsoftonline.com/) ou siga as etapas no artigo [Redefinir sua senha de trabalho ou escola](user-help-reset-password.md).
 
-- Obtenha dicas de solução de problemas e ajude a problemas de login no artigo [Não é possível fazer login em sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+- Obter solução de problemas e ajuda para problemas de logon na [não pode entrar sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artigo.

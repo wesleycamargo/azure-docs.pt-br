@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 06/11/2018
-ms.openlocfilehash: 8a997c88943b0273d3136dbf02a784fbdb982527
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.date: 09/06/2018
+ms.openlocfilehash: cd1219fda7821fdc99e334de58826317113415d4
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666800"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053634"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Criar um cluster do Kubernetes com o Serviço do Azure Kubernetes e o Terraform
 [ O Azure Kubernetes Service (AKS) ](/azure/aks/) gerencia seu ambiente hospedado do Kubernetes, tornando rápido e fácil implantar e gerenciar aplicativos em contêiner sem a experiência em orquestração de contêineres. Também elimina a sobrecarga das operações em andamento e a manutenção provisionando, atualizando e dimensionamento os recursos sob demanda, sem colocar seus aplicativos offline.
@@ -76,7 +76,7 @@ Crie o arquivo de configuração Terraform que declara o provedor do Azure.
 
     ```JSON
     provider "azurerm" {
-        version = "=1.5.0"
+        version = "~>1.5"
     }
 
     terraform {
@@ -129,7 +129,7 @@ Crie o arquivo de configuração do Terraform que declara os recursos para o clu
         agent_pool_profile {
             name            = "default"
             count           = "${var.agent_count}"
-            vm_size         = "Standard_D2"
+            vm_size         = "Standard_DS2_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }

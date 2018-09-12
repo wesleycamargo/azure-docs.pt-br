@@ -3,29 +3,25 @@ title: Testes de unidade de Funções Duráveis do Azure
 description: Saiba como testar a unidade das Funções Duráveis.
 services: functions
 author: kadimitr
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: kadimitr
-ms.openlocfilehash: 7de9a6f0d4dfcb45932b89504c0d38c3c70283e9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81d187cf5b75b7bd943d9dcedc97b56ba9c397de
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762753"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092569"
 ---
 # <a name="durable-functions-unit-testing"></a>Testes de unidade de Funções Duráveis
 
 Os testes de unidade são uma parte importante de modernas práticas de desenvolvimento de software. Testes de unidade verificam o comportamento de lógica de negócios e protegem contra a introdução de alterações com falhas despercebidas no futuro. As Funções Duráveis podem facilmente aumentar a complexidade, então introduzir testes de unidade ajudará a evitar alterações com falha. As seções a seguir explicam como testar a unidade dos tipos de três função - funções de Cliente orquestração, Orchestrator e Atividade. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os exemplos neste artigo requerem conhecimento sobre os conceitos e as estruturas a seguir: 
 

@@ -3,23 +3,19 @@ title: Visão geral dos tipos de função e recursos para Funções Duráveis �
 description: Conheça os tipos de funções e as funções que permitem a comunicação entre funções como parte de uma orquestração de função durável.
 services: functions
 author: jeffhollan
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/04/2018
 ms.author: azfuncdf
-ms.openlocfilehash: dfcf52c6d8d5c04e15d653376f52107fc4776d02
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 24889765369a2af7d87ddb0fdc8f7c9f91ac66fd
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973148"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091384"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Visão geral dos tipos de função e recursos para Funções Duráveis (Azure Functions)
 

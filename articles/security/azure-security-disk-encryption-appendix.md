@@ -1,24 +1,18 @@
 ---
 title: Azure Disk Encryption para VMs IaaS Windows e Linux | Microsoft Docs
 description: Este artigo é o apêndice do Microsoft Azure Disk Encryption para VMs da IaaS do Windows e Linux.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 98bbcb84-8e6c-4eb2-8490-c2a0c67aad79
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 9efd8730af292e6f720c3bacd5707c48f0eab7ac
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/10/2018
+ms.openlocfilehash: 2f932ff39495916c4a9fb55714c73383e06c72e1
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887926"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346836"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apêndice para Azure Disk Encryption 
 Este artigo é um apêndice para [Azure Disk Encryption para VMs da IaaS](azure-security-disk-encryption-overview.md). Primeiro leia os artigos do Azure Disk Encryption para VMs da IaaS para compreender o contexto. Este artigo descreve como preparar VHDs pré-criptografados e outras tarefas.

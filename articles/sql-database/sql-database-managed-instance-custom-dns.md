@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: af9afcbf97df5f3d7fa82f6ea0163c714fa4f582
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: be32bc4b3f91fbc71305ee9f16fec17ff472cd4c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051734"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049568"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurar DNS personalizado para Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -41,5 +41,5 @@ Para tornar uma configuração personalizada do DNS compatível com a Instância
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral, consulte [O que é uma Instância Gerenciada](sql-database-managed-instance.md)
-- Para obter um tutorial mostrando como criar uma nova Instância Gerenciada, consulte [Criando uma Instância Gerenciada](sql-database-managed-instance-create-tutorial-portal.md).
+- Para obter um tutorial mostrando como criar uma nova Instância Gerenciada, consulte [Criando uma Instância Gerenciada](sql-database-managed-instance-get-started.md).
 - Para obter informações sobre como configurar sua rede virtual à Instância Gerenciada, consulte [Configuração da rede virtual de Instâncias Gerenciadas](sql-database-managed-instance-vnet-configuration.md)

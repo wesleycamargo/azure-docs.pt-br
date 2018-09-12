@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 833202353901fb9822b756f54fbcbcc155533108
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 90de671d8e57244765f1da439649e57485814533
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611955"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051656"
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Criar uma conta do Azure Cosmos DB usando o PowerShell
 
@@ -129,8 +129,8 @@ O exemplo a seguir descreve como definir [marcações de recurso do Azure][azure
 
 Exemplo:
 
-    $tags = @{"dept" = "Finance”; environment = “Production”}
-    Set-AzureRmResource -ResourceType “Microsoft.DocumentDB/databaseAccounts”  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
+    $tags = @{"dept" = "Finance"; environment = "Production"}
+    Set-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts"  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
 
 ## <a id="list-account-keys-powershell"></a> Listar chaves da conta
 

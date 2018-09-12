@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 0056364883d5a4a350e5b35374e1fc3abd0c7bea
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 089c623ff2c53a59c60c3fe1a53876c16a5353dd
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141818"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159005"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solução de problemas e limitações do Azure Cloud Shell
 
@@ -105,7 +105,7 @@ O Cloud Shell é compatível com as versões mais recentes dos navegadores a seg
 
 ### <a name="copy-and-paste"></a>Copiar e colar
 
-[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+[!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Apenas um shell pode estar ativo para um dado usuário
 

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2018
 ms.author: terrylan
-ms.openlocfilehash: e28a1f6b865dae3abe2cb9dfac2921c6a2034491
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8824e9f7481ed92eb482c14280e79a94be3c9372
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203512"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300708"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Adicionar um Firewall do Aplicativo Web na Central de Segurança do Azure
 A Central de Segurança do Azure pode recomendar que você adicione um WAF (Firewall do Aplicativo Web) de um parceiro da Microsoft para proteger seus aplicativos Web. Este documento guiará você por um exemplo de como realizar essa recomendação.
@@ -40,7 +40,7 @@ A Central de Segurança recomenda que você provisione um WAF para ajudar a prot
    ![Adicione um firewall do aplicativo Web][2]
 3. Você pode optar por usar um Firewall do Aplicativo Web existente, se disponível, ou criar um novo. Neste exemplo, não existem WAFs disponíveis, por isso vamos criar um novo.
 4. Para criar um WAF, selecione uma solução da lista dos parceiros integrados. Neste exemplo, selecionamos **Barracuda Web Application Firewall**.
-5. O **Firewall do Aplicativo Web da Barracuda** é aberto, fornecendo informações sobre a solução do parceiro. Clique em **Criar**.
+5. O **Firewall do Aplicativo Web da Barracuda** é aberto, fornecendo informações sobre a solução do parceiro. Selecione **Criar**.
 
    ![Folha Informações do firewall][3]
 

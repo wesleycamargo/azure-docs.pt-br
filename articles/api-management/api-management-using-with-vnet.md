@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: deba3ad8a283b111dc94a5361f3fa4e73d95c0b8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a74d91ad986b606a36a8040ac849e7fcbec03f16
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187376"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093185"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure, confira [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 | Porta(s) de Origem/Destino | Direção | Protocolo de transporte | Origem/Destino | Finalidade ( * ) | Tipo de Rede Virtual |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Comunicação do cliente com o Gerenciamento de API|Externo |
-| * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto de extremidade de gerenciamento para o Portal do Azure e o Powershell |Interna |
+| * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto de extremidade de gerenciamento para o Portal do Azure e o Powershell |Interno e externo |
 | * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|**Dependência no Armazenamento do Microsoft Azure**, Barramento de Serviço do Microsoft Azure e Azure Active Directory (quando aplicável).|Interno e externo |
 | * / 1433 |Saída |TCP |VIRTUAL_NETWORK / SQL|**Acesso aos pontos de extremidade do SQL do Azure** |Interno e externo |
 | * / 5672 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|Dependência para registrar em log a política de Hub de Eventos e o agente de monitoramento |Interno e externo |

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: alleonar
-ms.openlocfilehash: 6c6764eec59633f0bdd0fa396c1581117a0c1e1d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 1443486590859aac5591aff2ab0551bed9228d7b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077761"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301742"
 ---
 # <a name="review-security-center-policy-compliance-using-rest-apis"></a>Revisão da conformidade com a política da Central de Segurança usando APIs REST
 
@@ -38,7 +38,7 @@ Authorization: Bearer
 
 O parâmetro `{subscription-id}` é obrigatório e deve conter a ID de assinatura referente à assinatura do Azure que define as políticas. Se você tiver várias assinaturas, consulte [Trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions).  
 
-O parâmetro `api-version` é necessário. Neste momento, esses pontos de extremidade são suportados apenas para `api-version=2015-06-01-preview`. 
+O `api-version` parâmetro é obrigatório. Neste momento, esses pontos de extremidade são suportados apenas para `api-version=2015-06-01-preview`. 
 
 Os cabeçalhos a seguir são necessários: 
 

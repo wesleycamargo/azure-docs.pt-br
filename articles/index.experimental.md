@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Documentação do Microsoft Azure
 description: Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais.
-ms.openlocfilehash: 37b60b41859432543ed14b8529bebc15ec215115
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 16d1466180e90d45b7c2adf00ab699bb39d5d785
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189542"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302452"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -779,7 +779,7 @@ ms.locfileid: "43189542"
                                         <li>
                                             <a href="https://www.visualstudio.com/docs/overview">
                                                 <img src="media/index/VisualStudioTeamServices.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
+                                                <p>Azure DevOps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2737,7 +2737,7 @@ ms.locfileid: "43189542"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Team Services</h3>
+                                                    <h3>Azure DevOps</h3>
                                                     <p>Serviços para equipes compartilharem código, acompanharem trabalho e enviarem software</p>
                                                 </div>
                                             </div>
@@ -3433,7 +3433,7 @@ ms.locfileid: "43189542"
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Download do código do Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Download do Team Services</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Download do Azure DevOps</a>
                                                 </p>
                                             </div>
                                         </div>

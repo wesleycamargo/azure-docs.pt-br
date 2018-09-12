@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 5895e918fbd3b67074069ccc81bd794a75725c9a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 388337fa80d174cb17dae12fa9d5f2fbdfe7e737
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620929"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347776"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar o logon único baseado em SAML para aplicativos no Azure Active Directory
 
@@ -96,11 +96,11 @@ Para resolver o erro:
     - Declarações emitidas no token
     - Certificado usado para assinar o token. Para obter informações de como examinar a resposta SAML, confira [Protocolo SAML de Logon Único](single-sign-on-saml-protocol.md).
 4. Para obter mais informações sobre a resposta SAML, confira [Protocolo SAML de Logon Único](single-sign-on-saml-protocol.md).
-5. Agora que você já examinou a resposta SAML, confira [Erro em uma página de aplicativo após a entrada](../application-sign-in-problem-application-error.md) para obter diretrizes de como resolver o problema. 
+5. Agora que você já examinou a resposta SAML, confira [Erro em uma página de aplicativo após a entrada](../manage-apps/application-sign-in-problem-application-error.md) para obter diretrizes de como resolver o problema. 
 6. Se você ainda não conseguiu entrar com êxito, pergunte ao fornecedor do aplicativo o que está faltando na resposta SAML.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que o logon único está funcionando para o aplicativo, é possível [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS](../active-directory-saas-app-provisioning.md) ou passar examinar uma [Introdução ao acesso condicional](../conditional-access/app-based-conditional-access.md).
+Agora que o logon único está funcionando para o aplicativo, é possível [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS](../manage-apps/user-provisioning.md) ou passar examinar uma [Introdução ao acesso condicional](../conditional-access/app-based-conditional-access.md).
 
 

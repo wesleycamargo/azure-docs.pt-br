@@ -9,12 +9,12 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: ceab627d98149774a3eb767ee56d688f9c11ff99
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1d8ec772293354c059f21aaae8006f5c40540058
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346834"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050197"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migrar seu Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando DMA
 
@@ -43,7 +43,7 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
-Faça logon no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Criar um banco de dados SQL em branco
 
@@ -133,7 +133,7 @@ Agora é possível conectar-se ao servidor de Banco de Dados SQL e seus bancos d
 
 Obtenha o nome de servidor totalmente qualificado para o servidor de Banco de Dados SQL do Azure no Portal do Azure. É possível usar o nome do servidor totalmente qualificado para conectar-se ao seu SQL Server do Azure usando ferramentas de cliente, incluindo a Assistência de Migração de Dados e o SQL Server Management Studio.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
 3. No painel **Essentials**, na página do Portal do Azure de seu banco de dados, localize e copie o **Nome do servidor**.
 

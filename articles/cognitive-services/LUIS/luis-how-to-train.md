@@ -1,20 +1,21 @@
 ---
-title: Treinar seu aplicativo de LUIS – Azure | Microsoft Docs
-description: Use o LUIS (Serviço Inteligente de Reconhecimento Vocal) para treinar seu modelo.
+title: Treinar seu aplicativo de LUIS
+titleSuffix: Azure Cognitive Services
+description: O treinamento é o processo de ensinar seu aplicativo de LUIS (Serviço Inteligente de Reconhecimento Vocal) para melhorar seu reconhecimento vocal de idioma natural. Treine seu aplicativo de LUIS após atualizações ao modelo, como adicionar, editar, rotular ou excluir entidades, intenções ou enunciados.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: e947df20141b0b9870f318f410488aea23bafcf5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 42cff3dd8237598da5aa71ed1a4d6462c5b4c25d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223177"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049124"
 ---
 # <a name="train-your-luis-app"></a>Treinar seu aplicativo de LUIS
 
@@ -32,11 +33,7 @@ Para começar o processo iterativo, primeiro você precisa treinar seu aplicativ
 
 2. Em seu aplicativo, selecione **Treinar** no painel superior. 
 
-    ![Botão Treinar](./media/luis-how-to-train/train-button.png)
-
 3. Quando o treinamento estiver concluído, uma barra verde de notificação aparecerá na parte superior do navegador.
-
-    ![Página Treinar e Testar Aplicativo](./media/luis-how-to-train/train-success.png)
 
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 

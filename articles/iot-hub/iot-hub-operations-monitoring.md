@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: 0f4d5105b7266ba24fc5efa9af887b4458c05d5e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186189"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160041"
 ---
 # <a name="iot-hub-operations-monitoring"></a>Monitoramento de operações do Hub IoT
 
@@ -186,26 +186,6 @@ A categoria de roteamento de mensagem acompanha os erros que ocorrem durante a a
 }
 ```
 
-## <a name="view-events"></a>Exibir eventos
-
-Você pode usar a ferramenta *iothub explorer* para testar rapidamente se o Hub IoT está gerando eventos de monitoramento. Para instalar a ferramenta, consulte as instruções no repositório do GitHub [iothub-explorer][lnk-iothub-explorer].
-
-1. Certifique-se de que a categoria de monitoramento **Conexões** esteja definida como **Detalhadas** no portal.
-
-1. No prompt de comando, execute o seguinte comando para ler do ponto de extremidade de monitoramento:
-
-    ```
-    iothub-explorer monitor-ops --login {your iothubowner connection string}
-    ```
-
-1. Em outro prompt de comando, execute o seguinte comando para simular um dispositivo enviando mensagens do dispositivo para a nuvem:
-
-    ```
-    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
-    ```
-
-1. O primeiro prompt de comando mostra os eventos de monitoramento conforme o dispositivo simulado se conecta ao seu Hub IoT.
-
 ## <a name="connect-to-the-monitoring-endpoint"></a>Conectar-se ao ponto de extremidade de monitoramento
 
 O ponto de extremidade de monitoramento em seu Hub IoT é um ponto de extremidade compatível com o Hub de Eventos. Você pode usar qualquer mecanismo que funciona com os Hubs de Eventos para ler mensagens de monitoramento desse ponto de extremidade. A amostra a seguir cria um leitor básico que não é adequado para uma implantação com alta taxa de transferência. Para obter mais informações sobre como processar as mensagens dos Hubs de Eventos, confira o tutorial [Introdução aos Hubs de Eventos][lnk-eventhubs-tutorial].
@@ -303,5 +283,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

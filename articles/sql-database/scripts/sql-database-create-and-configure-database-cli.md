@@ -13,13 +13,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.author: carlrab
-ms.date: 05/17/2018
-ms.openlocfilehash: bca779e55d14a6ff3cb6da0984de93123cf23903
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 09/07/2018
+ms.openlocfilehash: 8529791355e93a3a5001a5e41037ee6daeb31381
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365722"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049704"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Use a CLI para criar um banco de dados SQL do Azure individual e configurar uma regra de firewall
 

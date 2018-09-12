@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 2ea1c337b4193997039876a05e71fb0088d455b1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923404"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021986"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para replicação de VMs VMware e servidores físicos em um site secundário
 
@@ -57,15 +57,15 @@ Somente computadores Linux com o armazenamento a seguir podem ser replicados:
 
 **Configuração** | **Com suporte**  
 --- | --- 
-Host - Agrupamento NIC | sim 
-Host - VLAN | sim 
-Host - IPv4 | sim 
+Host - Agrupamento NIC | SIM 
+Host - VLAN | SIM 
+Host - IPv4 | SIM 
 Host - IPv6 | Não  
 VM Convidada - Agrupamento NIC | Não 
-VM Convidada - IPv4 | sim
+VM Convidada - IPv4 | SIM
 VM Convidada - IPv6 | Não 
-VM Convidada - Windows/Linux - Endereço IP estático | sim
-VM Convidada - Multi-NIC | sim
+VM Convidada - Windows/Linux - Endereço IP estático | SIM
+VM Convidada - Multi-NIC | SIM
 
 
 ## <a name="storage"></a>Armazenamento
@@ -74,29 +74,29 @@ VM Convidada - Multi-NIC | sim
 
 **Armazenamento (host)** | **Com suporte** 
 --- | --- 
-NFS | sim 
+NFS | SIM 
 SMB 3.0 | N/D 
-SAN (ISCSI) | sim 
-Múltiplos caminhos (MPIO) | sim 
+SAN (ISCSI) | SIM 
+Múltiplos caminhos (MPIO) | SIM 
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento do servidor físico ou convidado
 
 **Configuração** | **Com suporte** 
 --- | --- 
-VMDK | sim 
+VMDK | SIM 
 VHD/VHDX | N/D 
 VM ger 2 | N/D 
-Disco de cluster compartilhado | sim 
+Disco de cluster compartilhado | SIM 
 Disco criptografado | Não  
-UEFI| sim 
+UEFI| SIM 
 NFS | Não  
 SMB 3.0 | Não  
-RDM | sim 
-Disco > 1 TB | sim 
-Volume com discos distribuídos > 1 TB<br/><br/> LVM | sim 
+RDM | SIM 
+Disco > 1 TB | SIM 
+Volume com discos distribuídos > 1 TB<br/><br/> LVM | SIM 
 Espaços de Armazenamento | Não  
-Adição/remoção de disco a quente | sim 
-Exclusão de disco | sim 
+Adição/remoção de disco a quente | SIM 
+Exclusão de disco | SIM 
 Múltiplos caminhos (MPIO) | N/D 
 
 ## <a name="vaults"></a>Cofres
@@ -112,7 +112,7 @@ O serviço de Mobilidade coordena a replicação entre servidores VMware locais 
 
 **Atualização** | **Detalhes** 
 --- | --- 
-Atualizações do Scout | [Saiba mais e baixe](/vmware-physical-secondary-disaster-recovery.md#updates) as últimas atualizações do Scout | As atualizações do Scout são cumulativas.
+Atualizações do Scout | [Saiba mais e baixe](vmware-physical-secondary-disaster-recovery.md#updates) as últimas atualizações do Scout | As atualizações do Scout são cumulativas.
 Atualizações de componentes | As atualizações do Scout incluem atualizações para todos os componentes, incluindo o servidor RX, servidor de configuração, servidores de destino mestre e processo, servidores vContinuum e servidores de origem que deseja proteger.<br/><br/> [Saiba mais](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
 
 

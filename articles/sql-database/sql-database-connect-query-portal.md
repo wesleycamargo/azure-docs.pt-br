@@ -10,18 +10,18 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 6e9dbeb5915f98ec4d08d8656b6b338ea78117da
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4dca277326ec89d0c7ab512e9d107ce68cefb2ca
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792623"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050843"
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portal do Azure: usar o editor Consulta SQL para se conectar e consultar dados
 
 O editor Consulta SQL é uma ferramenta de consulta no navegador que fornece uma maneira eficiente e leve para executar consultas SQL em seu Banco de dados SQL do Azure ou SQL Data Warehouse do Azure sem sair do portal do Azure. Este guia rápido demonstra como usar o editor de consultas para se conectar a um banco de dados SQL e depois usar instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
@@ -32,7 +32,7 @@ Este início rápido usa como ponto de partida os recursos criados em um destes 
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
-Faça logon no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 
 ## <a name="connect-using-sql-authentication"></a>Conectar-se usando Autenticação SQL

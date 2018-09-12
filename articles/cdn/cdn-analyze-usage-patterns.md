@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: fa828bfa736d677fb4881e5cc2628c0e03eb8749
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: d10a40d03f0f76676e70afdec94e9adfaa0dd09f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26345240"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162063"
 ---
 # <a name="core-reports-from-verizon"></a>Relatórios de núcleo da Verizon
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 Usando os Relatórios de núcleo da Verizon por meio do portal Gerenciar para perfis Verizon, é possível exibir os padrões de uso para sua CDN com os seguintes relatórios:
 

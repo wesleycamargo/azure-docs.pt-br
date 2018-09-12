@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 355c1edd4fa7433e68a9c0e903f4f782203326fe
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9c14f2121cd83cec802f4fd4a92661d58eb7efb3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365871"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159564"
 ---
 # <a name="tutorial-improve-app-with-patterns"></a>Tutorial: Melhorar o aplicativo com padrões
 
@@ -26,7 +26,7 @@ Neste tutorial, use o padrão para aumentar a previsão de entidade e de intenç
 * Como criar um padrão
 * Como verificar aprimoramentos na previsão de padrões
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -114,15 +114,15 @@ A quantidade de enunciados de exemplo nessas intenções não é suficiente para
 
 ## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto de extremidade com um enunciado diferente
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vá até o final da URL no endereço e insira `Who is the boss of Jill Jones?`. O último parâmetro de querystring é `q`, o enunciado **consulta**. 
 
@@ -424,7 +424,7 @@ Todas essas declarações encontradas as entidades dentro, portanto eles coincid
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

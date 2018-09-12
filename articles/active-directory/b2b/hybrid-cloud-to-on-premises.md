@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 9c9cde23f8f8dc557b99d2f1508c923aaa2dce91
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145261"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346331"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder aos usuários B2B do Microsoft Azure AD acesso aos aplicativos locais
 
@@ -27,7 +27,7 @@ Se o aplicativo local usar a autenticação baseada em SAML, você poderá dispo
 
 Para isso, será necessário fazer o seguinte:
 
-- Integre o aplicativo SAML usando o modelo de aplicativo inexistente na galeria, conforme descrito em [Configurando logon único para aplicativos que não estão na galeria de aplicativos do Azure Active Directory](../active-directory-saas-custom-apps.md). Certifique-se de anotar o que é utilizado para o valor da **URL de logon**.
+- Integre o aplicativo SAML usando o modelo de aplicativo inexistente na galeria, conforme descrito em [Configurando logon único para aplicativos que não estão na galeria de aplicativos do Azure Active Directory](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Certifique-se de anotar o que é utilizado para o valor da **URL de logon**.
 -  Use o Proxy de Aplicativo do Azure Active Directory para publicar o aplicativo local com o **Azure Active Directory** configurado como a fonte de autenticação. Para obter instruções, consulte [Publicar aplicativos usando o Proxy de Aplicativo do Azure Active Directory](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    Ao configurar a configuração **Internal Url**, use a URL de logon especificada no modelo de aplicativo inexistente na galeria. Dessa forma, os usuários podem acessar o aplicativo fora do limite da organização. O Proxy de Aplicativo realiza o logon único do SAML para o aplicativo local.

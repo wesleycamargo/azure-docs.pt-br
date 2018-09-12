@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: abd2984574f80f03f276861782ff9ee51348d07e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f9a77c1f3fbce295a40db366619d7485d44efc4f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391370"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162709"
 ---
 # <a name="manage-your-security-info-preview"></a>Gerenciar suas informações de segurança (visualização)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 Você pode usar suas informações de segurança para entrar sua conta corporativa ou de estudante ou redefinir sua senha.
 
@@ -104,4 +104,4 @@ Este artigo ajuda você a solucionar suas informações de segurança, incluindo
 
 - Redefina sua senha se você a perdeu ou esqueceu, do [portal de redefinição de senha](https://passwordreset.microsoftonline.com/) ou siga as etapas no artigo [Redefinir sua senha de trabalho ou escola](user-help-reset-password.md).
 
-- Obtenha dicas de solução de problemas e ajude a problemas de login no artigo [Não é possível fazer login em sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+- Obter solução de problemas e ajuda para problemas de logon na [não pode entrar sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artigo.

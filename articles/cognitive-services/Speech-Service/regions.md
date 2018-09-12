@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: 082002b25b02e1e496221f4686d0e636630dd438
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1cb00035dc8f1cdeabd1beb22ca69f47bf4bd89e
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324384"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379563"
 ---
 # <a name="regions-of-the-speech-service"></a>Regiões do serviço de Fala
 
@@ -35,11 +35,16 @@ No [SDK de fala](speech-sdk.md), as regiões são especificadas como uma cadeia 
 
 A tabela abaixo lista as regiões disponíveis para **reconhecimento de fala** e **tradução**:
 
-Região| Valor para o parâmetro de região no SDK de fala
+Região| Valor para o parâmetro de região no SDK de fala| Portal
 -|-
-Oeste dos EUA| `westus`
-Ásia Oriental| `eastasia`
-Norte da Europa| `northeurope`
+Oeste dos EUA| `westus`| https://westus.cris.ai
+Oeste dos EUA 2| `westus2`| https://westus2.cris.ai
+Leste dos EUA| `eastus`| https://eastus.cris.ai
+Leste dos EUA 2| `eastus2`| https://eastus2.cris.ai
+Ásia Oriental| `eastasia`| https://eastasia.cris.ai
+Sudeste da Ásia| `southeastasia`| https://southeastasia.cris.ai
+Norte da Europa| `northeurope`| https://northeurope.cris.ai
+Europa Ocidental|  `westeurope`| https://westeurope.cris.ai
 
 ### <a name="regions-for-intent-recognition"></a>Amostra para reconhecimento de intenção
 

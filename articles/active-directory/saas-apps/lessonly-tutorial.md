@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 050e8efed38c40d8c7da292c0d6865869a07c9f9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2a4bae196e956d92548944637509b23f78ceb5d2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121702"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347997"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Tutorial: Integração do Azure Active Directory ao Lessonly.com
 
@@ -126,7 +126,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     | `https://<companyname>.lessonly.com/auth/saml/metadata`|
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [Equipe de suporte do cliente do Lessonly.com](mailto:dev@lessonly.com) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [Equipe de suporte do cliente do Lessonly.com](mailto:support@lessonly.com) para obter esses valores. 
 
 1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
@@ -165,7 +165,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/lessonly-tutorial/tutorial_lessonly.com_configure.png)
 
-1. Para configurar o logon único no lado do **Lessonly.com**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída, ID da Entidade SAML e URL do Serviço de Logon Único SAML** para a [equipe de suporte do Lessonly.com](mailto:dev@lessonly.com).
+1. Para configurar o logon único no lado do **Lessonly.com**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída, ID da Entidade SAML e URL do Serviço de Logon Único SAML** para a [equipe de suporte do Lessonly.com](mailto:support@lessonly.com).
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -208,7 +208,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Lesson
 Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Lessonly.com, caso ainda não exista.
 
 > [!NOTE]
-> Se precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do Lessonly.com](mailto:dev@lessonly.com).
+> Se precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do Lessonly.com](mailto:support@lessonly.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 

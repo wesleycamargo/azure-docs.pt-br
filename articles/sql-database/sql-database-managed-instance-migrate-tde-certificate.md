@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/09/2018
 ms.author: mlandzic
 manager: craigg
-ms.openlocfilehash: afecd69cdf9832e1c6dc294ca01968ee50a3eabd
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 73990d6feeed56114bc3c66164bbb53c093bbe21
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918423"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050604"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>Migrar o certificado de banco de dados protegido por TDE para Instância Gerenciada do SQL do Azure
 
@@ -141,4 +141,4 @@ Agora, o certificado está disponível para a Instância Gerenciada especificada
 
 Neste artigo, você aprendeu a migrar a chave de criptografia de proteção de certificado do banco de dados com a Transparent Data Encryption, do SQL Server local ou IaaS para a Instância Gerenciada do SQL do Azure.
 
-Confira [Restaurar um backup de banco de dados em uma Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-restore-from-backup-tutorial.md) para saber como restaurar um backup de banco de dados em uma Instância Gerenciada do Banco de Dados SQL do Azure.
+Confira [Restaurar um backup de banco de dados em uma Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-get-started-restore.md) para saber como restaurar um backup de banco de dados em uma Instância Gerenciada do Banco de Dados SQL do Azure.

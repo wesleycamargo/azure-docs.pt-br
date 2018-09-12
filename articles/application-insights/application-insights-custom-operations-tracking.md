@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: sergkanz;mbullwin
-ms.openlocfilehash: e66d5e8674d6564d3910daddb1119c22a8b8bd9f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 8295fb58bdf92ca8688f5f7b6270dc1b48632a73
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44056661"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com o SDK do .NET do Application Insights
 
@@ -457,7 +459,6 @@ Descartar a operação faz com que ela seja interrompida, portanto, você pode f
 `StopOperation` somente interrompe a operação que foi iniciada. Se a operação de execução atual não corresponder à que você deseja interromper, `StopOperation` não fará nada. Essa situação acontecer se você iniciar várias operações em paralelo no mesmo contexto de execução:
 
 ```csharp
-var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstTask = RunMyTaskAsync();
 

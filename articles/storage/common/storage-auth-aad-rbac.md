@@ -5,21 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: be3fd304e04a66e6564141b6a20efea88cf62553
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141616"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298668"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gerenciar os direitos de acesso aos dados do Armazenamento do Microsoft Azure com o RBAC (Versão prévia)
 
 Azure Active Directory (Azure AD) autoriza os direitos de acesso aos recursos protegidos por meio do [controle de acesso baseado em função (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). O Armazenamento do Microsoft Azure define um conjunto de funções internas do RBAC que abrangem conjuntos comuns de permissões usados para acessar contêineres ou filas. Quando uma função do RBAC é atribuída a uma identidade do Azure AD, essa identidade recebe acesso a esses recursos, de acordo com o escopo especificado. O escopo do acesso pode ser definido para o nível de assinatura, o grupo de recursos, a conta de armazenamento ou um contêiner ou fila individual. Você pode atribuir direitos de acesso para recursos de Armazenamento do Microsoft Azure usando o Portal do Azure, as ferramentas de linha de comando do Azure e as APIs de Gerenciamento do Azure. 
 
-Uma identidade do Azure AD pode ser um usuário, grupo ou entidade de serviço de aplicativo ou pode ser uma *identidade de serviço gerenciada*. Uma entidade de segurança pode ser um usuário, grupo ou entidade de serviço de aplicativo. Uma [identidade de serviço gerenciada](../../active-directory/managed-service-identity/overview.md) é uma identidade automaticamente gerenciada usada para autenticar a partir de aplicativos executados em máquinas virtuais do Azure, aplicativos de função, conjuntos de dimensionamento de máquinas virtuais e outros. Para obter uma visão geral de identidade no Azure AD, consulte [Compreender as soluções de identidade do Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+Uma identidade do Azure AD pode ser um usuário, grupo ou entidade de serviço de aplicativo ou pode ser uma *identidade de serviço gerenciada*. Uma entidade de segurança pode ser um usuário, grupo ou entidade de serviço de aplicativo. Uma [identidade de serviço gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) é uma identidade automaticamente gerenciada usada para autenticar a partir de aplicativos executados em máquinas virtuais do Azure, aplicativos de função, conjuntos de dimensionamento de máquinas virtuais e outros. Para obter uma visão geral de identidade no Azure AD, consulte [Compreender as soluções de identidade do Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
 
 ## <a name="rbac-roles-for-azure-storage"></a>Funções do RBAC para Armazenamento do Microsoft Azure
 
@@ -34,10 +34,7 @@ Para obter mais informações sobre como as funções internas são definidas pa
 
 Você também pode definir funções personalizadas para uso com contêineres e filas. Para obter mais informações, consulte [Criar funções personalizadas para controle de acesso baseado em função do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
-> [!IMPORTANT]
-> Essa visualização destina-se somente a uso de não produção. Os SLAs (contratos de nível de serviço) de produção não estarão disponíveis até que a integração do Microsoft Azure Active Directory para Armazenamento do Microsoft Azure seja declarada geralmente disponível. Se a integração do Microsoft Azure Active Directory ainda não tiver suporte no seu cenário, continue usando os tokens de autorização ou a chave compartilhada nos aplicativos. Para obter informações adicionais sobre a versão prévia, consulte [Autenticar o acesso ao Armazenamento do Microsoft Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).
->
-> Durante a visualização, as atribuições de função do RBAC podem levar até cinco minutos para ser propagadas.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="assign-a-role-to-a-security-principal"></a>Atribuir uma função a uma entidade de segurança
 

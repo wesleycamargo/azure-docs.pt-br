@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 0df23d50fa208482e45d2d35555ec79c587cc80a
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 930ca49a63e34214ec197d8dd37f38361b34fe90
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445653"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347028"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário (versão prévia)
 
@@ -27,7 +27,7 @@ O objetivo deste tutorial é mostrar as etapas necessárias para importar pessoa
 
 ## <a name="overview"></a>Visão geral
 
-O [serviço de provisionamento de usuário do Azure Active Directory](../active-directory-saas-app-provisioning.md) integra-se com a [API de Recursos Humanos do Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) para provisionar contas de usuários. O Azure AD utiliza essa conexão para habilitar os seguintes fluxos de trabalho de provisionamento de usuário:
+O [serviço de provisionamento de usuário do Azure Active Directory](../manage-apps/user-provisioning.md) integra-se com a [API de Recursos Humanos do Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) para provisionar contas de usuários. O Azure AD utiliza essa conexão para habilitar os seguintes fluxos de trabalho de provisionamento de usuário:
 
 * **Provisionamento de usuários para Active Directory** - Sincronizar conjuntos de usuários selecionados do Workday em uma ou mais florestas do Active Directory.
 
@@ -39,13 +39,13 @@ O [serviço de provisionamento de usuário do Azure Active Directory](../active-
 
 Os fluxos de trabalho de provisionamento de usuário do Workday com suporte do serviço de provisionamento de usuário do Azure AD habilitam a automação dos seguintes cenários de gerenciamento do ciclo de vida de identidade e recurso humanos:
 
-* **Contratação de novos funcionários** - quando um novo funcionário é adicionado ao Workday, uma conta de usuário é criada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e [ outros aplicativos SaaS suportados pelo Azure AD](../active-directory-saas-app-provisioning.md), com write-back do endereço de e-mail para Workday.
+* **Contratação de novos funcionários** - quando um novo funcionário é adicionado ao Workday, uma conta de usuário é criada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e [ outros aplicativos SaaS suportados pelo Azure AD](../manage-apps/user-provisioning.md), com write-back do endereço de e-mail para Workday.
 
-* **Atualizações de perfil e atributo de funcionário** - Quando um registro de funcionário é atualizado no Workday (como seu nome, cargo ou gerente), sua conta de usuário será atualizada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e [outros aplicativos SaaS com suporte do Azure AD](../active-directory-saas-app-provisioning.md).
+* **Atualizações de perfil e atributo de funcionário** - Quando um registro de funcionário é atualizado no Workday (como seu nome, cargo ou gerente), sua conta de usuário será atualizada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e [outros aplicativos SaaS com suporte do Azure AD](../manage-apps/user-provisioning.md).
 
-* **Rescisão de funcionário** - Quando um funcionário é rescindido no Workday, sua conta de usuário será desabilitada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e [outros aplicativos SaaS com suporte do Azure AD](../active-directory-saas-app-provisioning.md).
+* **Rescisão de funcionário** - Quando um funcionário é rescindido no Workday, sua conta de usuário será desabilitada automaticamente no Active Directory, no Azure Active Directory e, opcionalmente, no Office 365 e [outros aplicativos SaaS com suporte do Azure AD](../manage-apps/user-provisioning.md).
 
-* **Recontratação de funcionário** - Quando um funcionário é recontratado no Workday, sua conta antiga poderá ser reativada ou reprovisionada automaticamente (dependendo da sua preferência) para o Active Directory, o Azure Active Directory e, opcionalmente, Office 365 e [outros aplicativos SaaS com suporte do Azure AD](../active-directory-saas-app-provisioning.md).
+* **Recontratação de funcionário** - Quando um funcionário é recontratado no Workday, sua conta antiga poderá ser reativada ou reprovisionada automaticamente (dependendo da sua preferência) para o Active Directory, o Azure Active Directory e, opcionalmente, Office 365 e [outros aplicativos SaaS com suporte do Azure AD](../manage-apps/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Para quem é mais recomendada essa solução de provisionamento de usuário?
 
@@ -327,7 +327,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 
          * **Constante** - Grava um valor de cadeia de caracteres constante estático para o atributo do AD
 
-         * **Expressão** – Permite gravar um valor personalizado para o atributo do AD baseado em um ou mais atributos do Workday. [Para obter mais informações, consulte este artigo sobre expressões](../active-directory-saas-writing-expressions-for-attribute-mappings.md).
+         * **Expressão** – Permite gravar um valor personalizado para o atributo do AD baseado em um ou mais atributos do Workday. [Para obter mais informações, consulte este artigo sobre expressões](../manage-apps/functions-for-customizing-application-data.md).
 
       * **Atributo de origem** - O atributo de usuário do Workday. Se o atributo que você está procurando não estiver presente, consulte [Personalizar a lista de atributos de usuário do Workday](#customizing-the-list-of-workday-user-attributes).
 
@@ -356,7 +356,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 
 -   O atributo userPrincipalName do Active Directory é gerado ao concatenar a ID de usuário do Workday com um sufixo de domínio
 
--   [Há documentação sobre expressões de gravação aqui](../active-directory-saas-writing-expressions-for-attribute-mappings.md). Isso inclui exemplos sobre como remover caracteres especiais.
+-   [Há documentação sobre expressões de gravação aqui](../manage-apps/functions-for-customizing-application-data.md). Isso inclui exemplos sobre como remover caracteres especiais.
 
   
 | ATRIBUTO WORKDAY | ATRIBUTO DO ACTIVE DIRECTORY |  ID DE CORRESPONDÊNCIA? | CRIAR / ATUALIZAR |
@@ -490,7 +490,7 @@ Após concluir as partes de 1 a 3, você poderá iniciar o serviço de provision
 
 3. Isso dará início à sincronização inicial, o que poderá demorar algumas horas dependendo de quantos usuários estiverem no Workday.
 
-4. A qualquer momento, verifique os **Logs de auditoria** no portal do Azure para ver as ações que o serviço de provisionamento executou. Os logs de auditoria listam todos os eventos de sincronização realizados pelo serviço de provisionamento, tais como aqueles em que os usuários estão sendo lidos do Workday e, posteriormente adicionados ou atualizados no Active Directory. **[Consulte o guia de relatórios de provisionamento para obter instruções detalhadas sobre como ler os logs de auditoria](../active-directory-saas-provisioning-reporting.md)**
+4. A qualquer momento, verifique os **Logs de auditoria** no portal do Azure para ver as ações que o serviço de provisionamento executou. Os logs de auditoria listam todos os eventos de sincronização realizados pelo serviço de provisionamento, tais como aqueles em que os usuários estão sendo lidos do Workday e, posteriormente adicionados ou atualizados no Active Directory. **[Consulte o guia de relatórios de provisionamento para obter instruções detalhadas sobre como ler os logs de auditoria](../manage-apps/check-status-user-account-provisioning.md)**
 
 1.  Verifique o [Log de eventos do Windows](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) no computador do Windows Server que hospeda o agente para erros ou avisos. Esses eventos podem ser visualizados iniciando-se o **Eventvwr.msc** no servidor e selecionando **Logs do Windows > Aplicativo**. Todas as mensagens relacionadas ao provisionamento são registradas na fonte **AADSyncAgent**.
 
@@ -581,7 +581,7 @@ Nesta seção, você irá configurar o fluxo dos dados do usuário do Workday pa
 
       * **Constante** - Grava um valor de cadeia de caracteres constante estático para o atributo do AD
 
-      * **Expressão** – Permite gravar um valor personalizado para o atributo do AD baseado em um ou mais atributos do Workday. [Para obter mais informações, consulte este artigo sobre expressões](../active-directory-saas-writing-expressions-for-attribute-mappings.md).
+      * **Expressão** – Permite gravar um valor personalizado para o atributo do AD baseado em um ou mais atributos do Workday. [Para obter mais informações, consulte este artigo sobre expressões](../manage-apps/functions-for-customizing-application-data.md).
 
    * **Atributo de origem** - O atributo de usuário do Workday. Se o atributo que você está procurando não estiver presente, consulte [Personalizar a lista de atributos de usuário do Workday](#customizing-the-list-of-workday-user-attributes).
 
@@ -611,7 +611,7 @@ Após concluir as partes de 1 a 2, você poderá iniciar o serviço de provision
 
 3. Isso dará início à sincronização inicial, o que poderá demorar algumas horas dependendo de quantos usuários estiverem no Workday.
 
-4. Os eventos de sincronização individuais podem ser visualizados na guia **Logs de Auditoria**. **[Consulte o guia de relatórios de provisionamento para obter instruções detalhadas sobre como ler os logs de auditoria](../active-directory-saas-provisioning-reporting.md)**
+4. Os eventos de sincronização individuais podem ser visualizados na guia **Logs de Auditoria**. **[Consulte o guia de relatórios de provisionamento para obter instruções detalhadas sobre como ler os logs de auditoria](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. Após a conclusão, um relatório de resumo de auditoria será gravado na guia **Provisionamento** conforme mostrado abaixo.
 
@@ -669,7 +669,7 @@ Após concluir as partes de 1 a 2, você poderá iniciar o serviço de provision
 
 3. Isso dará início à sincronização inicial, o que poderá demorar algumas horas dependendo de quantos usuários estiverem no Workday.
 
-4. Os eventos de sincronização individuais podem ser visualizados na guia **Logs de Auditoria**. **[Consulte o guia de relatórios de provisionamento para obter instruções detalhadas sobre como ler os logs de auditoria](../active-directory-saas-provisioning-reporting.md)**
+4. Os eventos de sincronização individuais podem ser visualizados na guia **Logs de Auditoria**. **[Consulte o guia de relatórios de provisionamento para obter instruções detalhadas sobre como ler os logs de auditoria](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. Após a conclusão, um relatório de resumo de auditoria será gravado na guia **Provisionamento** conforme mostrado abaixo.
 
@@ -808,7 +808,7 @@ A solução de provisionamento do dia útil para o Active Directory exige que um
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../active-directory-saas-provisioning-reporting.md)
+* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
 * [Saiba como configurar o logon único entre o Workday e o Azure Active Directory](workday-tutorial.md)
 * [Saiba como integrar outros aplicativos SaaS com o Azure Active Directory](tutorial-list.md)
 

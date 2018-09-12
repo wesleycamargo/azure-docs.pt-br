@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 593ea4d23f8ddcec8efc4be632afa2aab1a5210f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7f2b97479ffcdb7ec8b3a1a635562d1fe68c3269
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363850"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158394"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a experiência de interface do usuário hospedada
 Depois de configurar sua instância de pesquisa personalizada, você pode chamar a API de Pesquisa Personalizada para obter os resultados da pesquisa e exibi-los em seu aplicativo. Ou, se o seu aplicativo for um aplicativo Web, você poderá usar a interface do usuário hospedada fornecida pela Pesquisa Personalizada.   
@@ -58,7 +58,7 @@ Use as instruções a seguir para configurar uma interface de usuário hospedada
 > [!NOTE]
 > À medida que você faz alterações na configuração de interface do usuário hospedada personalizada, o painel à direita fornece uma referência visual para as alterações feitas. Os resultados da pesquisa exibidos não são os resultados reais da instância
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="consume-custom-ui"></a>Consumir interface do usuário personalizada
 Para consumir a interface de usuário hospedada: 

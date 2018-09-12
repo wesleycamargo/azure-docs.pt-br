@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 618180f9cbd1c65863e3e039bac40d1cc493bc37
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8473b2e202dd408cce6658f3ca349d884a28dc3a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918493"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160466"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar seu ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -157,14 +157,16 @@ O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um apl
     ```bash
     npm install -g yo
     ```
-3. Instale o gerador do Yeoman de sua preferência ao executar as etapas na [documentação](service-fabric-get-started-linux.md) do guia de introdução. Para criar apps do Service Fabric usando o Yeoman, execute as etapas:
+3. Instale o gerador do Yeoman de sua preferência ao executar as etapas na [documentação](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) do guia de introdução. Para criar apps do Service Fabric usando o Yeoman, execute as etapas:
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
     npm install -g generator-azuresfguest      # for Service Fabric Guest executables
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
-4. Para criar um aplicativo Java do Service Fabric no seu Mac, o JDK versão 1.8 e o Gradle devem ser instalados no computador host. O software pode ser instalado usando [HomeBrew](https://brew.sh/), da seguinte maneira: 
+4. Após a instalação dos geradores, crie os serviços do contêiner ou do executável do convidado executando `yo azuresfguest` ou `yo azuresfcontainer` respectivamente.
+
+5. Para criar um aplicativo Java do Service Fabric no seu Mac, o JDK versão 1.8 e o Gradle devem ser instalados no computador host. O software pode ser instalado usando [HomeBrew](https://brew.sh/), da seguinte maneira: 
 
     ```bash
     brew update

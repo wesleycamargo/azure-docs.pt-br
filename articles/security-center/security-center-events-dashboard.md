@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: terrylan
-ms.openlocfilehash: 367067874b167268bd690a9e0b55412e92e08122
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32273647d0f773c3f47653ac6fc87fef48630c0a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040651"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299280"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitoramento e processamento de eventos de segurança na Central de Segurança do Azure
 O painel Eventos fornece uma visão geral do número de eventos de segurança coletado ao longo do tempo, além de uma lista de eventos notáveis que possam demandar sua atenção.  
@@ -41,7 +41,7 @@ O bloco **Eventos**, em **Central de Segurança**, exibe o número de eventos qu
 
 O **painel Eventos** fornece uma visão geral do número de eventos processados ao longo do tempo, bem como uma lista de eventos.
 
- ![Painel][2]
+ ![painel][2]
 
  A metade superior do painel mostra as tendências de todos os eventos processados na última semana. A metade inferior do painel lista os eventos notáveis e todos os eventos por tipo:
 
@@ -112,7 +112,7 @@ Se a linha do espaço de trabalho:
 
 3. Em **Integração à segurança avançada**, selecione o espaço de trabalho que você está atualizando.
 4. Em **Preços**, selecione **Standard**.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
   ![Atualizar para a camada Standard][12]
 

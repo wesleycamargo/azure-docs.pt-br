@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c1effeba7e4b0750d5af3a5a82b755704379af68
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666012"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021839"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Criando um trabalho de importação para o serviço de Importação/Exportação do Azure
 
@@ -97,7 +97,7 @@ Você deve enviar suas unidades para o endereço obtido na etapa anterior, e dev
 >  Você deve enviar suas unidades por meio de um serviço de transporte compatível, que fornecerá um número de rastreamento para seu pacote.
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>Atualizando o trabalho de importação com as informações do envio
-Depois que tiver o número de rastreamento, chame a operação [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) para atualizar o nome da operadora, o número de rastreamento do trabalho e o número da conta da operadora para retorno. Opcionalmente, você também pode especificar a quantidade de unidades e a data de envio.
+Depois que tiver o número de rastreamento, chame a operação [Update Job Properties](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Update) para atualizar o nome da operadora, o número de rastreamento do trabalho e o número da conta da operadora para retorno. Opcionalmente, você também pode especificar a quantidade de unidades e a data de envio.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

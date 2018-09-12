@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: f18b6edb900640e48e5ca87639f71cec9287af38
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26343881"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159734"
 ---
 # <a name="custom-reports-from-verizon"></a>Relatórios personalizados da Verizon
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 Ao usar relatórios personalizados de Verizon via Portal de gerenciamento para perfis Verizon, você pode definir o tipo de dados a serem coletados para relatórios de borda de CNAMEs.
 
@@ -68,7 +68,7 @@ Você pode exportar os dados em formato Excel clicando no símbolo do Excel à d
 
 ## <a name="edge-cnames-custom-report-fields"></a>Campos de relatório personalizado de CNAMEs de borda
 
-| Campo                     | Descrição   |
+| Campo                     | DESCRIÇÃO   |
 |---------------------------|---------------|
 | 2xx                       | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em um código de status HTTP do tipo 2xx (por exemplo, 200 OK). |
 | 3xx                       | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em um código de status HTTP do tipo 3xx (por exemplo, 302 Encontrado ou 304 Não modificado). |
@@ -77,11 +77,11 @@ Você pode exportar os dados em formato Excel clicando no símbolo do Excel à d
 | Porcentagem de ocorrências no cache               | Indica a porcentagem de solicitações armazenáveis em cache que foram fornecidas diretamente do cache para o solicitante. |
 | Acertos do Cache                | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em uma ocorrência no cache (por exemplo, TCP_EXPIRED_HIT, TCP_HIT ou TCP_PARTIAL_HIT). Uma ocorrência no cache acontece quando é encontrada uma versão em cache do conteúdo solicitado. |
 | Dados transferidos (MB)     | Indica a quantidade total de dados transferidos (MB) de servidores de borda para clientes HTTP (navegadores da Web) do CNAME de borda. A quantidade de dados transferidos é calculada adicionando os cabeçalhos de resposta HTTP ao corpo da resposta. Como resultado, a quantidade de dados transferidos para cada ativo é maior que o tamanho do arquivo real. |
-| Descrição               | Identifica um CNAME de borda pelo seu nome de host |
+| DESCRIÇÃO               | Identifica um CNAME de borda pelo seu nome de host |
 | Acertos                      | Indica o número total de solicitações para o CNAME de borda |
 | Perdas                    | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em uma perda no cache (por exemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS ou TCP_MISS). Uma perda no cache ocorre quando o conteúdo solicitado não foi armazenado em cache no servidor de borda que cumpriu a solicitação. | 
 | Sem cache                  | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em um código de status do cache do tipo CONFIG_NOCACHE.  |
-| outro                     | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda indicado, que resulta em um código de status HTTP fora do intervalo 2xx–5xx. |
+| Outros                     | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda indicado, que resulta em um código de status HTTP fora do intervalo 2xx–5xx. |
 | Plataforma                  | Indica a plataforma que trata do tráfego do CNAME de borda. |
 | Não atribuído               | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda para o qual as informações do código de status do cache ou do código de status HTTP não foram registradas.  |
 | Não armazenável em cache               | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em um código de status do cache do tipo UNCACHEABLE.  |

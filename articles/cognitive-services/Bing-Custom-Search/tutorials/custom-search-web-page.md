@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: c1431ec852cab943e00d3933ef4f0500a4fdb151
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1f9b689ac6127bc2f7d1e810356ae9a23b8e0996
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363856"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162386"
 ---
 # <a name="build-a-custom-search-web-page"></a>Compilar uma página da Web de pesquisa personalizada
 A Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada para os tópicos importantes para você. Por exemplo, se você possuir um site de artes marciais que fornece uma experiência de pesquisa, será possível especificar os domínios, sites e as páginas da Web que o Bing pesquisará. Os usuários veem os resultados da pesquisa personalizados ao conteúdo importante para eles, em vez de terem que acessar os resultados gerais da pesquisa que podem conter conteúdo irrelevante. 
@@ -30,7 +30,7 @@ As tarefas abordadas são:
 > - Adicionar entradas fixadas
 > - Integrar pesquisa personalizada em uma página da Web
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 - Para acompanhar o tutorial, você precisa de uma chave de assinatura para a API de Pesquisa Personalizada do Bing.  Para obter uma chave, confira [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
 - Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o **Visual Studio 2017 Community Edition** [gratuito](https://www.visualstudio.com/downloads/).
 
@@ -96,7 +96,7 @@ A Pesquisa personalizada fornece uma interface do usuário hospedada para render
 
     ![Captura de tela da etapa de configuração adicional da Interface do Usuário Hospedada](./media/custom-search-hosted-ui-subscription-key.png)
 
-[!INCLUDE[publish or revert](../includes/publish-revert.md)]
+[!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
 <a name="consuminghostedui"></a>
 ## <a name="consuming-hosted-ui"></a>Consumir Interface do Usuário Hospedada

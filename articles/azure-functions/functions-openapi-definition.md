@@ -3,26 +3,21 @@ title: Criar uma definição de OpenAPI para uma função | Microsoft Docs
 description: Crie uma definição de OpenAPI que permite que outros aplicativos e serviços chamem sua função no Azure.
 services: functions
 keywords: OpenAPI, Swagger, aplicativos de nuvem, serviços de nuvem,
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3205fc8597d4d501b19ace7d50c4807a47d31d03
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f2f4e7d96c4d8725d9d34314854665440d86ce8d
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602608"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095072"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Criar uma definição de OpenAPI para uma função
 APIs REST geralmente são descritas usando uma definição de OpenAPI (anteriormente conhecida como um arquivo [Swagger](http://swagger.io/)). Esta definição contém informações sobre as operações que estão disponíveis em uma API e como os dados de solicitação e resposta para a API devem ser estruturados.

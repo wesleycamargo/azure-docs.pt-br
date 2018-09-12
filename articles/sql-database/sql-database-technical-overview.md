@@ -7,14 +7,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: f7a314b3de112ad1fa7a5a356c2325846e9371b1
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 6e793c0227300b836c0a14b4252eeaf63c1bc949
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413375"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054573"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço do Banco de Dados SQL do Azure? 
 
@@ -27,7 +27,7 @@ O banco de dados SQL do Azure fornece as seguintes opções de implantação par
 
 A ilustração a seguir mostra essas opções de implantação:
 
-![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
+![Opções de implantação](./media/sql-database-technical-overview/deployment-options.png) 
 
 O Banco de Dados SQL compartilha a sua base de código com o [mecanismo de banco de dados do Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Com a estratégia de prioridade de nuvem da Microsoft, os recursos mais recentes do SQL Server são liberados primeiro no Banco de Dados SQL e, em seguida, no próprio SQL Server. Essa abordagem fornece a você os recursos mais recentes do SQL Server sem sobrecarga para aplicação de patch ou atualização, e com esses novos recursos testados em milhões de bancos de dados. Para obter informações sobre novos recursos conforme vão são anunciados, consulte:
 
@@ -177,8 +177,8 @@ O Banco de Dados SQL dá suporte à criação de aplicativos com Python, Java, N
 - Veja estes inícios rápidos para começar:
 
   - [Criar um banco de dados SQL no portal do Azure](sql-database-get-started-portal.md)  
-  - [Criar um banco de dados SQL com a CLI do Azure](sql-database-get-started-cli.md)
-  - [Criar um banco de dados SQL usando o PowerShell](sql-database-get-started-powershell.md)
+  - [Criar um banco de dados SQL com a CLI do Azure](sql-database-cli-samples.md)
+  - [Criar um banco de dados SQL usando o PowerShell](sql-database-powershell-samples.md)
 
 - Para ver vários exemplos da CLI do Azure e do PowerShell, consulte:
   - [Exemplos da CLI do Azure para o Banco de Dados SQL do Azure](sql-database-cli-samples.md)

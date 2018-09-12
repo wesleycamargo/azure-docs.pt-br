@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: bryanla
-ms.openlocfilehash: f36e0e3ddc605d960ed764252308cbf09578832c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 60b8689e602f0716cdd1a383ab6568979a37e7c0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126135"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302938"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
 O Cofre da Chave do Azure permite aos usuários armazenar e usar chaves de criptografia no ambiente do Microsoft Azure. O Cofre de chaves dá suporte a vários tipos de chave e algoritmos e permite o uso de módulos de segurança de Hardware (HSM) para chaves de alto valor. Além disso, o Cofre de Chaves permite que os usuários armazenem segredos de forma segura. Os segredos são objetos de octetos de tamanho limitado sem semântica específica. O Cofre de Chaves também oferece suporte a certificados, que são criados sobre chaves e segredos e adicionam um recurso de renovação automática.

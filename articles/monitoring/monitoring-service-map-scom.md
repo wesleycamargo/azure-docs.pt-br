@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 6fbc49584b040f952fdff147207864d2d1f6377e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5aca1400ddfe1522cd9dc8d68d8cba8a222e4d21
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887436"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095191"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integração do Mapa do Serviço com o System Center Operations Manager
   > [!NOTE]
@@ -30,11 +30,11 @@ O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sist
 
 Com essa integração entre o Mapa do Serviço e o System Center Operations Manager, você pode criar automaticamente diagramas de aplicativos distribuídos no Operations Manager com base em mapas de dependência dinâmica no Mapa do Serviço.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Um grupo de gerenciamento do Operations Manager (2012 R2 ou posterior) que gerencia um conjunto de servidores.
 * Um espaço de trabalho do Log Analytics com a solução do Mapa do Serviço habilitada.
 * Um conjunto de servidores (pelo menos um) que está sendo gerenciado pelo Operations Manager e enviando dados para o Mapa do Serviço. Há suporte para servidores Windows e Linux.
-* Uma entidade de serviço com acesso à assinatura do Azure que está associada ao espaço de trabalho do Log Analytics. Para obter mais informações, acesse [Criar uma entidade de serviço](#creating-a-service-principal).
+* Uma entidade de serviço com acesso à assinatura do Azure que está associada ao espaço de trabalho do Log Analytics. Para obter mais informações, acesse [Criar uma entidade de serviço](#create-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Instalar o pacote de gerenciamento do Mapa do Serviço
 A integração entre o Operations Manager e o Mapa do Serviço é habilitada pela importação do pacote de gerenciamento Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). Você pode baixar o pacote de gerenciamento no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). O pacote contém os seguintes pacotes de gerenciamento:

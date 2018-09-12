@@ -9,12 +9,12 @@ ms.technology: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: a41b4e5b6c268ec68488c6764d4192cf8d2345a4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e7a62a79bdc2e486fb6bfca34eb4addeba2bde0e
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363840"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158306"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurar experiência de sugestão automática personalizada
 Se você se inscreveu na Pesquisa Personalizada no nível apropriado (consulte as [páginas de preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), pode personalizar as sugestões de pesquisa feitas em sua experiência de Pesquisa Personalizada. A Sugestão Automática Personalizada retorna uma lista de consultas sugeridas com base em uma cadeia de caracteres de consulta parcial que o usuário fornece. Com a Sugestão Automática Personalizada, você deve fornecer sugestões de pesquisa personalizada relevantes para sua experiência de pesquisa. Você especifique se deseja retornar somente as sugestões personalizadas ou para incluir também as sugestões do Bing. Se você incluir sugestões do Bing, as sugestões personalizadas aparecem antes das sugestões do Bing. As sugestões do Bing são restritas ao contexto de sua instância da Pesquisa Personalizada.
@@ -38,7 +38,7 @@ Você pode carregar uma lista de sugestões de um arquivo. Coloque cada sugestã
 ## <a name="remove-suggestions"></a>Remover sugestões
 Para remover uma sugestão, clique no ícone de remoção ao lado de sugestão que deseja remover.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
   >[!NOTE]  
   >Pode levar até 24 horas para que as alterações de configuração personalizada de Sugestão Automática Personalizada entram em vigor.

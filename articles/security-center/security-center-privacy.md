@@ -9,29 +9,29 @@ editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: terrylan
-ms.openlocfilehash: 2495bae5c63cdafe049ec39f71ab53106c5f2df7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fcaac3d248b676e4b7b1fe0344b54e52ce1fb558
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658891"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302666"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gerenciar dados de usuário na Central de Segurança do Azure
 Este artigo fornece informações sobre como é possível gerenciar dados de usuário na Central de Segurança do Azure. O gerenciamento de dados de usuário inclui a capacidade de acessar, excluir ou exportar dados.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-Um usuário da Central de Segurança com a função de Leitor, Proprietário, Colaborador ou Administrador da Conta pode acessar os dados do cliente dentro da ferramenta. Consulte [Funções internas para o controle de acesso baseado em função do Azure](../role-based-access-control/built-in-roles.md) para saber mais sobre as funções Leitor, Proprietário e Colaborador. Consulte [Administradores da assinatura do Azure](../billing/billing-add-change-azure-subscription-administrator.md) para saber mais sobre a função Administrador da Conta.
+Um usuário da Central de Segurança com a função de Leitor, Proprietário, Colaborador ou Administrador da Conta pode acessar os dados do cliente dentro da ferramenta. Confira [Funções internas para o controle de acesso baseado em função do Azure](../role-based-access-control/built-in-roles.md) para saber mais sobre as funções Leitor, Proprietário e Colaborador. Consulte [Administradores da assinatura do Azure](../billing/billing-add-change-azure-subscription-administrator.md) para saber mais sobre a função Administrador da Conta.
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Pesquisar e identificar dados pessoais
 Um usuário da Central de Segurança pode exibir os dados pessoais por meio do portal do Azure. A Central de Segurança armazena apenas detalhes de contato de segurança, como endereços de email e números de telefone. Consulte [Fornecer detalhes de contato de segurança na Central de Segurança do Azure](security-center-provide-security-contact-details.md) para obter mais informações.
 
-No portal do Azure, um usuário pode exibir as configurações de IP permitidas usando o recurso de acesso à VM just-in-time da Central de Segurança. Consulte [Gerenciar o acesso à máquina virtual usando o just-in-time](security-center-just-in-time.md) para obter mais informações.
+No portal do Azure, um usuário pode exibir as configurações de IP permitidas usando o recurso de acesso à VM just-in-time da Central de Segurança. Consulte [Gerenciar o acesso à máquina virtual usando o just in time](security-center-just-in-time.md) para obter mais informações.
 
 No portal do Azure, um usuário pode exibir alertas de segurança fornecidos pela Central de Segurança, incluindo endereços IP e detalhes do invasor. Consulte [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) para obter mais informações.
 

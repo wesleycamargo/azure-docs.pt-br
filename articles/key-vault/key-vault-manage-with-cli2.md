@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 7d2b38a27644eed088f4a204cf989f44346e1654
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f88e98561a88380fbe40ecc9627ffabe39b0071c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126904"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295167"
 ---
 # <a name="manage-key-vault-using-cli-20"></a>Gerenciar o Key Vault usando a CLI 2.0
 
@@ -39,7 +39,7 @@ Este artigo aborda como começar a trabalhar com o Azure Key Vault usando a CLI 
 O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](https://azure.microsoft.com/pricing/details/key-vault/).
 
 > [!NOTE]
-> Este artigo não inclui instruções sobre como escrever o aplicativo do Azure incluído em uma das etapas, que mostra como autorizar um aplicativo a usar uma chave ou um segredo do cofre da chave.
+> Este artigo não inclui instruções sobre como gravar o aplicativo do Azure incluído em uma das etapas, que mostra como autorizar um aplicativo a usar uma chave ou um segredo no cofre de chaves.
 >
 
 Para obter uma visão geral do Azure Key Vault, consulte [O que é o Azure Key Vault?](key-vault-whatis.md)
@@ -50,21 +50,21 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Para usar comandos da CLI do Azure neste artigo, você deve ter os seguintes itens:
 
 * Uma assinatura do Microsoft Azure. Se você não tiver uma, pode se inscrever e fazer uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
-* Interface de Linha de Comando versão 2.0 ou posterior. Para instalar a versão mais recente, veja [Instalar e configurar a Interface de Linha de Comando 2.0 de plataforma cruzada do Azure](/cli/azure/install-azure-cli).
+* Interface de Linha de Comando versão 2.0 ou posterior. Para instalar a versão mais recente, veja [Instalar e configurar a Interface de Linha de Comando Multiplataforma 2.0 do Azure](/cli/azure/install-azure-cli).
 * Um aplicativo que será configurado para usar a chave ou senha que você criará neste artigo. Um aplicativo de exemplo está disponível no [Centro de Download da Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Para obter instruções, veja o arquivo Leiame incluído.
 
-### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtendo ajuda com a interface de linha de comando de plataforma cruzada do Azure
+### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtendo ajuda com a interface de linha de comando multiplataforma do Azure
 
 Este artigo pressupõe que você esteja familiarizado com a interface de linha de comando (Bash, Terminal, Prompt de Comando).
 
-O parâmetro --help ou -h pode ser usado para exibir a ajuda de comandos específicos. Como alternativa, o formato [comando] [opções] da ajuda do Azure também pode ser usado. Em caso de dúvida sobre os parâmetros necessários para um comando, veja a ajuda. Por exemplo, todos os seguintes comandos retornam as mesmas informações:
+O parâmetro --help ou -h pode ser usado para exibir a ajuda de comandos específicos. Como alternativa, o formato [comando] [opções] da ajuda do Azure também pode ser usado. Em caso de dúvida sobre os parâmetros necessários para um comando, consulte a ajuda. Por exemplo, todos os seguintes comandos retornam as mesmas informações:
 
 ```azurecli
 az account set --help
 az account set -h
 ```
 
-Leia também os artigos a seguir para se familiarizar com o Azure Resource Manager na interface de linha de comando da plataforma cruzada do Azure:
+Leia também os artigos a seguir para se familiarizar com o Azure Resource Manager na interface de linha de comando multiplataforma do Azure:
 
 * [Instalar a CLI do Azure.](/cli/azure/install-azure-cli)
 * [Introdução à CLI do Azure 2.0](/cli/azure/get-started-with-azure-cli)
@@ -98,7 +98,7 @@ Especifique uma assinatura com o parâmetro de assinatura.
 az account set --subscription <subscription name or ID>
 ```
 
-Para obter mais informações sobre como configurar a Interface de Linha de Comando de plataforma cruzada do Azure, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Para obter mais informações sobre como configurar a Interface de Linha de Comando Multiplataforma do Azure, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ### <a name="create-a-new-resource-group"></a>Criar um novo grupo de recursos
 
