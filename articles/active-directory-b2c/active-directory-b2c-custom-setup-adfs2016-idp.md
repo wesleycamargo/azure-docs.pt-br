@@ -1,227 +1,214 @@
 ---
 title: Adicionar ADFS como um provedor de identidade SAML usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
-description: Um artigo de instruções sobre como configurar o ADFS 2016 usando o protocolo SAML e políticas personalizadas
+description: Configurar o ADFS 2016 usando o protocolo SAML e as políticas personalizadas no Azure Active Directory B2C
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/04/2017
+ms.date: 08/31/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a81baae553bbf9c58d42372e25e90cd7588f2952
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2c2e6861fda42a9e8c1aabcba303bfede47ac3c1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445068"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669219"
 ---
-# <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Adicionar ADFS como um provedor de identidade SAML usando políticas personalizadas
+# <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar ADFS como um provedor de identidade SAML usando políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra como habilitar a entrada para usuários da conta ADFS por meio de [políticas personalizadas](active-directory-b2c-overview-custom.md).
+Este artigo mostra como habilitar a entrada de uma conta de usuário do ADFS usando [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure AD (Azure Active Directory) B2C.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
-As etapas incluem:
-
-1.  Criar um objeto de confiança de terceira parte confiável do ADFS.
-2.  Adicionar o certificado do objeto de confiança de terceira parte confiável do ADFS ao Azure AD B2C.
-3.  Adicionar provedor de declarações a uma política.
-4.  Registrar o provedor de declarações da conta do ADFS a um percurso do usuário.
-5.  Carregar a política para um locatário do Azure AD B2C e testá-la.
-
-## <a name="to-create-a-claims-aware-relying-party-trust"></a>Para criar um objeto de confiança de terceira parte confiável com reconhecimento de declarações
-
-Para usar o ADFS como um provedor de identidade no Azure AD (Azure Active Directory) B2C, é necessário criar um objeto de confiança de terceira parte confiável do ADFS e fornecê-lo com os parâmetros corretos.
-
-Para adicionar um novo objeto de confiança de terceira parte confiável usando o snap-in de Gerenciamento do AD FS e definir manualmente as configurações, execute o seguinte procedimento em um servidor de Federação.
-
-A associação em **Administradores**, ou equivalente, no computador local é o mínimo necessário para concluir este procedimento. Examine os detalhes sobre como usar as contas apropriadas e associações de grupos em [Grupos Padrão Locais e de Domínio](http://go.microsoft.com/fwlink/?LinkId=83477)
-
-1.  Em Gerenciador do Servidor, clique em **Ferramentas** e depois selecione **Gerenciamento do ADFS**.
-
-2.  Clique em **Adicionar Objeto de Confiança de Terceira Parte Confiável**.
-    ![Adicionar Objeto de Confiança de Terceira Parte Confiável](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-1.png)
-
-3.  Na página **Boas-vindas**, escolha **Reconhecimento de declaração** e clique em **Iniciar**.
-    ![Na página Boas-vindas, escolha Reconhecimento de declaração](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-2.png)
-4.  Na página **Selecionar Fonte de Dados**, clique em **Inserir dados sobre a terceira parte confiável manualmente** e clique em **Avançar**.
-    ![Inserir dados sobre a terceira parte confiável](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-3.png)
-
-5.  Na página **Especificar Nome de Exibição**, digite um nome em **Nome de exibição**, em **Notas** digite uma descrição para essa terceira parte confiável e, em seguida, clique em **Avançar** .
-    ![Especifique o Nome de Exibição e notas](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-4.png)
-6.  Opcional. Se você tiver um certificado de criptografia de token opcional, na página **Configurar Certificado**, clique em **Procurar** para localizar o arquivo de certificado e, em seguida, clique em **Avançar**.
-    ![Configurar Certificado](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-5.png)
-7.  Na página **Configurar URL**, marque a caixa de seleção **Habilitar o suporte para o protocolo WebSSO de SAML 2.0**. Em **URL do serviço de SSO do SAML 2.0 da terceira parte confiável**, digite a URL do ponto de extremidade do serviço SAML (Security Assertion Markup Language) para essa terceira parte confiável e, em seguida, clique em **Avançar**.  Para a **URL do serviço de SSO do SAML 2.0 da terceira parte confiável**, cole a `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Substitua {tenant} pelo nome do locatário (por exemplo, contosob2c.onmicrosoft.com) e substitua {policy} pelo nome da política de extensões (por exemplo, B2C_1A_TrustFrameworkExtensions).
-    > [!IMPORTANT]
-    >O nome da política é aquele da qual a política de signup_or_signin herda, nesse caso é: `B2C_1A_TrustFrameworkExtensions`.
-    >Por exemplo, a URL pode ser:   https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
-
-    ![URL do serviço de SSO do SAML 2.0 da terceira parte confiável](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
-8. Na página **Configurar Identificadores**, especifique a mesma URL da etapa anterior, clique em **Adicionar** para adicioná-la à lista e, em seguida, clique em **Avançar**.
-    ![Identificadores de objeto de confiança de terceira parte confiável](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-7.png)
-9.  Em **Escolher Política de Controle de Acesso**, escolha uma política e clique em **Avançar**.
-    ![Escolher a Política de Controle de Acesso](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-8.png)
-10.  Na página **Pronto para Adicionar Objeto de Confiança**, examine as configurações e, em seguida, clique em **Avançar** para salvar as informações de seu objeto de confiança de terceira parte confiável.
-    ![Salvar as informações de seu objeto de confiança de terceira parte confiável](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-9.png)
-11.  Na página **Concluir**, clique em **Fechar**, essa ação exibe automaticamente a caixa de diálogo **Editar Regras de Declaração**.
-    ![Editar Regras de Declaração](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-10.png)
-12. Clique em **Adicionar Regra**.  
-      ![Adicionar nova regra](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-1.png)
-13.  Em **Modelo de regra de declaração**, selecione **Enviar atributos do LDAP como declarações**.
-    ![Selecione Enviar atributos do LDAP como regra de modelo de declarações](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-2.png)
-14.  Forneça o **Nome da regra de declaração**. Para o **Repositório de atributos**, selecione **Selecionar Active Directory** Adicione as seguintes declarações e clique em **Concluir** e em **OK**.
-    ![Definir propriedades de regra](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-3.png)
-15.  No Gerenciador do Servidor, selecione **Objetos de Confiança de Terceira Parte Confiável**, depois, selecione o objeto de confiança de terceira parte confiável que você criou e clique em **Propriedades**.
-    ![Editar propriedades da terceira parte confiável](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-1.png)
-16.  na janela de propriedades do objeto de confiança de terceira parte (Demonstração de B2C), clique na guia **Assinatura** e clique em **Adicionar**.  
-    ![Definir assinatura](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-2.png)
-17.  Adicione o certificado de assinatura (arquivo .cert, sem a chave privada).  
-    ![Adicionar seu certificado de assinatura](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-3.png)
-18.  Na janela de propriedades do objeto de confiança da terceira parte confiável (Demonstração de B2C), clique na guia **Avançado** e altere o **Algoritmo de hash seguro** para **SHA-1**, clique em **OK**.  
-    ![Definir o algoritmo de hash seguro como SHA-1](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-4.png)
-
 ## <a name="add-the-adfs-account-application-key-to-azure-ad-b2c"></a>Adicionar a chave de aplicativo da conta do ADFS ao Azure AD B2C
-A federação com contas do ADFS exige um segredo do cliente para a conta do ADFS para confiar no Azure AD B2C em nome do aplicativo. Você precisa armazenar o certificado ADFS em seu locatário do Azure AD B2C. 
 
-1.  Vá até seu locatário do Azure AD B2C e selecione **Configurações de B2C** > **Identity Experience Framework**
-2.  Selecione **Chaves de Política** para exibir as chaves disponíveis no seu locatário.
-3.  Clique em **+Adicionar**.
-4.  Para as **Opções**, use **Upload**.
-5.  Para o **Nome**, use `ADFSSamlCert`.  
-    O prefixo `B2C_1A_` pode ser adicionado automaticamente.
-6.  No Carregamento do arquivo, ** selecione seu arquivo de certificado .pfx com chave privada. Observação: esse certificado (com a chave privada) deve ser o mesmo que foi emitido e usado para a terceira parte confiável do ADFS.
-![Carregar chave de política](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-cert.png)
-7.  Clique em **Criar**
-8.  Confirme que você criou a chave `B2C_1A_ADFSSamlCert`.
+A federação com uma conta do ADFS exige que um segredo do cliente da conta confie no Azure AD B2C em nome do aplicativo. Você precisa armazenar o certificado ADFS em seu locatário do Azure AD B2C. 
+
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+2. Verifique se você está usando o diretório que contém seu locatário do Azure AD B2C alternando para ele no canto superior direito do portal do Azure. Selecione **Mudar de Diretório**, e, em seguida, escolha o diretório que contém o locatário que você criou. Neste tutorial, o diretório *contoso* é usado e contém o locatário nomeado *contoso0522Tenant.onmicrosoft.com*.
+
+    ![Mudar diretórios](./media/active-directory-b2c-custom-setup-adfs2016-idp/switch-directories.png)
+
+3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**. Agora, você deve estar usando o locatário.
+4. Na página de Visão Geral, selecione **Estrutura de Experiência de Identidade**.
+5. Selecione **Chaves da Política** para exibir as chaves disponíveis no locatário e clique em **Adicionar**.
+6. Escolha **Upload** como a Opção.
+7. Insira `ADFSSamlCert` para o nome. O prefixo `B2C_1A_` pode ser adicionado automaticamente.
+8. Procure e selecione o arquivo .pfx do certificado com a chave privada. Este certificado com a chave privada deve ser o mesmo que foi emitido e usado para a terceira parte confiável do ADFS.
+9. Clique em **Criar** e confirme que você criou a chave `B2C_1A_ADFSSamlCert`.
 
 ## <a name="add-a-claims-provider-in-your-extension-policy"></a>Adicionar um provedor de declarações à política de extensão
-Se quiser que os usuários entrem usando a conta do ADFS, você precisará definir a conta do ADFS como um provedor de declarações. Em outras palavras, você precisa especificar um ponto de extremidade com o qual o Azure AD B2C se comunica. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
-Defina o ADFS como um provedor de declarações adicionando o nó `<ClaimsProvider>` em seu arquivo de política da extensão:
+Se você quiser que os usuários entrem usando uma conta do ADFS, será necessário definir a conta como um provedor de declarações. Você faz isso, especificando um ponto de extremidade com o qual o Azure AD B2C comunica-se. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
-1. Abra o arquivo de política de extensão (TrustFrameworkExtensions.xml) de seu diretório de trabalho. Se você precisar de um editor de XML, [experimente o Visual Studio Code](https://code.visualstudio.com/download), um editor de plataforma cruzada leve.
-2. Localize a seção `<ClaimsProviders>`
-3. Adicione o seguinte trecho XML sob o elemento `ClaimsProviders` e substitua `identityProvider` pelo DNS (valor arbitrário que indica o seu domínio) e salve o arquivo. 
+Defina o ADFS como um provedor de declarações, adicionando o elemento **ClaimsProvider** ao arquivo de política de extensão.
 
-```xml
-<ClaimsProvider>
-    <Domain>contoso.com</Domain>
-    <DisplayName>Contoso ADFS</DisplayName>
-    <TechnicalProfiles>
-    <TechnicalProfile Id="Contoso-SAML2">
-        <DisplayName>Contoso ADFS</DisplayName>
-        <Description>Login with your Contoso account</Description>
-        <Protocol Name="SAML2"/>
-        <Metadata>
-        <Item Key="RequestsSigned">false</Item>
-        <Item Key="WantsEncryptedAssertions">false</Item>
-        <Item Key="PartnerEntity">https://{your_ADFS_domain}/federationmetadata/2007-06/federationmetadata.xml</Item>
-        </Metadata>
-        <CryptographicKeys>
-        <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
-        <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
-        </CryptographicKeys>
-        <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="userPrincipalName" />
-        <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
-        <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
-        <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
-        <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name"/>
-        <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="contoso.com" />
-        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
-        </OutputClaims>
-        <OutputClaimsTransformations>
-        <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
-        <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
-        <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
-        <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
-        </OutputClaimsTransformations>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
-    </TechnicalProfile>
-    </TechnicalProfiles>
-</ClaimsProvider>
-```
+1. Abra o arquivo de políticas *TrustFrameworkExtensions.xml* no diretório de trabalho. Se um editor de XML for necessário, [experimente o Visual Studio Code](https://code.visualstudio.com/download), que é um editor de plataforma cruzada leve.
+2. Adicione o seguinte XML no elemento **ClaimsProviders** e substitua **your-ADFS-domain** pelo nome de domínio do ADFS e substitua o valor da declaração de saída **identityProvider** pelo DNS (Valor arbitrário que indica o domínio) e salve o arquivo. 
 
-## <a name="register-the-adfs-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>Registrar o provedor de declarações da conta do ADFS a um percurso do usuário de Inscrição ou Entrada
-Neste ponto, o provedor de identidade foi configurado.  No entanto, ele não está disponível em qualquer uma das telas de inscrição/entrada. Agora você precisa adicionar o provedor de identidade da conta do ADFS ao percurso de usuário `SignUpOrSignIn` do usuário. Para disponibilizá-lo, criamos uma duplicata de um percurso de usuário do modelo existente.  Em seguida, nós o modificamos para inclua o provedor de identidade do ADFS:
+    ```xml
+    <ClaimsProvider>
+      <Domain>contoso.com</Domain>
+      <DisplayName>Contoso ADFS</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Contoso-SAML2">
+          <DisplayName>Contoso ADFS</DisplayName>
+          <Description>Login with your Contoso account</Description>
+          <Protocol Name="SAML2"/>
+          <Metadata>
+            <Item Key="RequestsSigned">false</Item>
+            <Item Key="WantsEncryptedAssertions">false</Item>
+            <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+          </Metadata>
+          <CryptographicKeys>
+            <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
+            <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
+          </CryptographicKeys>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="userPrincipalName" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
+            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name"/>
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="contoso.com" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
+          </OutputClaims>
+          <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
+            <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
+            <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
+            <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
+          </OutputClaimsTransformations>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+## <a name="register-the-claims-provider-for-sign-up-and-sign-in"></a>Registrar o provedor de declarações para inscrever-se e entrar
+
+Para disponibilizar o provedor de identidade da conta do ADFS nas páginas de inscrição e de entrada, é necessário adicioná-lo ao percurso do usuário **SignUpOrSignIn**. 
+
+Faça uma cópia de um percurso do usuário de modelo existente e, em seguida, modifique-o para incluir o provedor de identidade do ADFS:
 
 >[!NOTE]
->Se você tiver copiado anteriormente o elemento `<UserJourneys>` do arquivo de base de sua política para o arquivo de extensão (TrustFrameworkExtensions.xml), poderá ignorar esta seção.
+>Se você copiou anteriormente o elemento **UserJourneys** do arquivo base da política para o arquivo de extensão (*TrustFrameworkExtensions.xml*), você poderá ignorar essa seção.
 
-1.  Abra o arquivo base da política (por exemplo, TrustFrameworkBase.xml).
-2.  Localize o elemento `<UserJourneys>` e copie todo o conteúdo do nó `<UserJourneys>`.
-3.  Abra o arquivo de extensão (por exemplo, TrustFrameworkExtensions.xml) e localize o elemento `<UserJourneys>`. Se o elemento não existir, adicione um.
-4.  Cole todo o conteúdo do nó `<UserJournesy>` copiado como um filho do elemento `<UserJourneys>`.
+1. Abra o arquivo base da sua política. Por exemplo, *TrustFrameworkBase.xml*.
+2. Copie todo o conteúdo do elemento **UserJourneys**.
+3. Abra o arquivo de extensão (*TrustFrameworkExtensions.xml*) e cole todo o conteúdo do elemento **UserJourneys** que você copiou no arquivo de extensão.
 
 ### <a name="display-the-button"></a>Exibir o botão
-O elemento `<ClaimsProviderSelections>` define a lista de opções de seleção de provedor de declarações e sua ordem.  O elemento `<ClaimsProviderSelection>` é análogo a um botão de provedor de identidade em uma página de inscrição/entrada. Se você adicionar um elemento `<ClaimsProviderSelection>` para a conta do ADFS, um novo botão será exibido quando um usuário chegar à página. Para adicionar este elemento:
 
-1.  Localize o nó `<UserJourney>` que inclui `Id="SignUpOrSignIn"` no percurso do usuário que você acabou de copiar.
-2.  Localize o nó `<OrchestrationStep>` que inclui `Order="1"`
-3.  Adicione o seguinte trecho XML ao nó `<ClaimsProviderSelections>`:
+O elemento **ClaimsProviderSelections** define a lista de seleções do provedor de declarações e a ordem.  O elemento **ClaimsProviderSelection** é análogo a um botão do provedor de identidade em uma página de inscrição e de entrada. Se você adicionar um elemento **ClaimsProviderSelection** para uma conta do ADFS, um novo botão será exibido quando um usuário visualizar a página. Para adicionar este elemento:
 
-```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
-```
+1. No elemento **UserJourney** com um identificador de `SignUpOrSignIn` nos percursos do usuário que você copiou, localize o elemento **OrchestrationStep** de `Order="1"`.
+2. Adicione o seguinte elemento **ClaimsProviderSelection** ao elemento **ClaimsProviderSelections**:
+
+    ```xml
+    <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
+    ```
+
 ### <a name="link-the-button-to-an-action"></a>Vincular o botão a uma ação
 
 Agora que implementou um botão, você precisará vinculá-lo a uma ação. Nesse caso, a ação destina-se a que o Azure AD B2C se comunique com a conta do ADFS para receber um token. Vincule o botão a uma ação vinculando o perfil técnico ao provedor de declarações da conta do ADFS:
 
-1.  Localize o `<OrchestrationStep>` que inclui `Order="2"` no nó `<UserJourney>`.
-2.  Adicione o seguinte trecho XML ao nó `<ClaimsExchanges>`:
+1. Localize o **OrchestrationStep** de `Order="2"` no elemento **UserJourney**.
+2. Adicione o seguinte elemento **ClaimsExchange** ao elemento **ClaimsExchanges**:
 
-```xml
-<ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
-```
+    ```xml
+    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
+    ```
 
 > [!NOTE]
-> * Certifique-se de que o `Id` tenha o mesmo valor de `TargetClaimsExchangeId` na seção anterior.
-> * Certifique-se de que `TechnicalProfileReferenceId` esteja definido como o perfil técnico criado anteriormente (Contoso-SAML2).
+> * Certifique-se de que `Id` tenha o mesmo valor que `TargetClaimsExchangeId` na seção anterior.
+> * Certifique-se de que `TechnicalProfileReferenceId` esteja definido para o perfil técnico que você criou anteriormente (Contoso-SAML2).
 
-## <a name="upload-the-policy-to-your-tenant"></a>Carregar a política ao seu locatário
-1.  No [Portal do Azure](https://portal.azure.com), alterne para o [contexto do seu locatário do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e abra a folha do **Azure AD B2C**.
-2.  Selecione **Estrutura de Experiência de Identidade**.
-3.  Abra a folha **Todas as Políticas**.
-4.  Selecione **Carregar Política**.
-5.  Marque a caixa **Substituir a política caso ela exista**.
-6.  **Carregue** TrustFrameworkExtensions.xml e verifique se ele não falhou na validação
 
-## <a name="test-the-custom-policy-by-using-run-now"></a>Testar a política personalizada usando a opção Executar Agora
-1.  Abra as **Configurações do Azure AD B2C** e acesse a **Estrutura de Experiência de Identidade**.
-2.  Abra a **B2C_1A_signup_signin**, a política personalizada da RP (terceira parte confiável) que você carregou. Selecione **Executar Agora**.
-3.  Você deve conseguir entrar usando a conta do ADFS.
+## <a name="optional-register-the-claims-provider-for-profile-edit"></a>[Opcional] Registre o provedor de declarações para edição de perfil
 
-## <a name="optional-register-the-adfs-account-claims-provider-to-profile-edit-user-journey"></a>[Opcional] Registrar o provedor de declarações da conta do ADFS ao percurso de usuário de Edição de Perfil
-Convém adicionar também o provedor de identidade da conta do ADFS ao percurso de usuário `ProfileEdit` do usuário. Para disponibilizá-lo, repetimos as duas últimas etapas:
+Também é possível adicionar o provedor de identidade da conta do ADFS ao percurso do usuário da edição de perfil.
 
 ### <a name="display-the-button"></a>Exibir o botão
-1.  Abra o arquivo de extensão de sua política (por exemplo, TrustFrameworkExtensions.xml).
-2.  Localize o nó `<UserJourney>` que inclui `Id="ProfileEdit"` no percurso do usuário que você acabou de copiar.
-3.  Localize o nó `<OrchestrationStep>` que inclui `Order="1"`
-4.  Adicione o seguinte trecho XML ao nó `<ClaimsProviderSelections>`:
 
-```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
-```
+1. Abra o arquivo de extensão da sua política. Por exemplo, *TrustFrameworkExtensions.xml*.
+2. No elemento **UserJourney** com um identificador `ProfileEdit` nos percursos do usuário que você copiou, localize o elemento **OrchestrationStep** de `Order="1"`.
+3. Adicione o seguinte elemento **ClaimsProviderSelection** ao elemento **ClaimsProviderSelections**:
+
+    ```xml
+    <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
+    ```
 
 ### <a name="link-the-button-to-an-action"></a>Vincular o botão a uma ação
-1.  Localize o `<OrchestrationStep>` que inclui `Order="2"` no nó `<UserJourney>`.
-2.  Adicione o seguinte trecho XML ao nó `<ClaimsExchanges>`:
 
-```xml
-<ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
+1. Localize o **OrchestrationStep** de `Order="2"` no elemento **UserJourney**.
+2. Adicione o seguinte elemento **ClaimsExchange** ao elemento **ClaimsExchanges**:
+
+    ```xml
+    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
+    ```
+
+## <a name="upload-the-policy-to-your-tenant"></a>Carregar a política ao seu locatário
+
+1. No portal do Azure, selecione **Todas as políticas**.
+2. Selecione **Carregar Política**.
+3. Habilite **Substituir a política, se existir**.
+4. Procure e selecione o arquivo de política *TrustFrameworkExtensions.xml* e, em seguida, selecione **Upload**. Certifique-se de que a validação seja realizada com êxito.
+
+
+## <a name="configure-an-adfs-relying-party-trust"></a>Configurar uma Confiança de Terceira Parte Confiável do ADFS
+
+Para usar o ADFS como um provedor de identidade no Azure AD B2C, é necessário criar uma confiança de terceira parte confiável do ADFS com os metadados SAML do Azure AD B2C. O exemplo a seguir mostra um endereço de URL para os metadados do SAML de um perfil técnico do Azure AD B2C:
+
+```
+https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
-### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Testar a política personalizada de Edição de Perfil usando Executar Agora
+Substitua os valores a seguir:
+
+- **your-tenant** pelo nome do locatário, como your-tenant.onmicrosoft.com.
+- **your-policy** pelo nome da política. Use a política em que você configura o perfil técnico do provedor SAML ou uma política que herda dessa política.
+- **your-technical-profile** pelo nome do perfil técnico do provedor de identidade SAML.
+ 
+Abra um navegador e navegue até a URL. Certifique-se de digitar a URL correta e ter acesso ao arquivo de metadados XML.
+
+Para adicionar uma nova confiança de terceira parte confiável usando o snap-in Gerenciamento do ADFS e definir manualmente as configurações, execute o procedimento a seguir em um servidor de federação. Associação em **Administradores** ou equivalente no computador local é o mínimo necessário para concluir esse procedimento. Examine os detalhes sobre como usar as contas apropriadas e associações de grupos em [Grupos Padrão Locais e de Domínio](http://go.microsoft.com/fwlink/?LinkId=83477).
+
+1. No Gerenciador do Servidor, selecione **Ferramentas** e, em seguida, selecione **Gerenciamento do ADFS**.
+2. Selecione **Adicionar Relação de Confiança de Terceira Parte Confiável**.
+3. Na **Página inicial**, escolha **Com reconhecimento de declaração** e, em seguida, clique em **Iniciar**.
+4. Na página **Selecionar Fonte de Dados**, selecione **Importar dados sobre a terceira parte confiável publicados online ou em uma rede local**, forneça a URL de metadados do Azure AD B2C e clique em **Avançar**.
+5. Na página **Especificar Nome para Exibição**, insira um **Nome de exibição**, em **Notas**, insira uma descrição para essa confiança de terceira parte confiável e clique em **Avançar**.
+6. Na página **Escolher Política de Controle de Acesso**, selecione uma política e, em seguida, clique em **Avançar**.
+7. Na página **Pronto para Adicionar Objeto de Confiança**, examine as configurações e, em seguida, clique em **Avançar** para salvar as informações de seu objeto de confiança de terceira parte confiável.
+8. Na página **Concluir**, clique em **Fechar**, essa ação exibe automaticamente a caixa de diálogo **Editar Regras de Declaração**.
+9. Selecione **Adicionar Regra**.  
+10. Em **Modelo de regra de declaração**, selecione **Enviar atributos do LDAP como declarações**.
+11. Forneça um **nome de Regra de declaração**. Para o **Repositório de atributos**, selecione **Selecionar Active Directory**, adicione as seguintes declarações e clique em **Concluir** e **OK**.
+
+    ![Definir propriedades de regra](./media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-3.png)
+
+12.  Com base no tipo de certificado, talvez seja necessário definir o algoritmo de HASH. Na janela de propriedades de confiança de terceira parte confiável (Demonstração B2C), selecione a guia **Avançado** e altere o **Secure Hash Algorithm** para `SHA-1` ou `SHA-256` e clique em **Ok**.  
+
+### <a name="update-the-relying-party-metadata"></a>Atualizar os metadados de terceira parte confiável
+
+Alterar o perfil técnico do SAML exige que você atualize o ADFS com a versão de metadados atualizada. Não é necessário atualizar os metadados ao criar o aplicativo de terceira parte confiável, mas, ao fazer uma alteração, atualize os metadados no ADFS.
+
+1. No Gerenciador do Servidor, selecione **Ferramentas** e, em seguida, selecione **Gerenciamento do ADFS**.
+2. Selecione a terceira parte confiável que você criou, selecione **Atualização dos metadados da federação** e, em seguida, clique em **Atualizar**. 
+
+### <a name="test-the-policy-by-using-run-now"></a>Teste a política usando Executar Agora
+
 1.  Abra as **Configurações do Azure AD B2C** e acesse a **Estrutura de Experiência de Identidade**.
-2.  Abra **B2C_1A_signup_signin**, a política personalizada da RP (terceira parte confiável) que você carregou. Selecione **Executar Agora**.
-3.  Você deve conseguir entrar usando a conta do ADFS.
+2.  Abra **B2C_1A_signup_signin**, a política personalizada da RP (terceira parte confiável) que você carregou. Selecione **Executar Agora**. Você deve conseguir entrar usando a conta do ADFS.
 
 ## <a name="download-the-complete-policy-files"></a>Baixar os arquivos da política completa
-Opcional: recomendamos a criação de seu cenário usando seus próprios arquivos de política personalizada após a conclusão do passo a passo Introdução às políticas personalizadas. [Arquivos de exemplo de política apenas para referência](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app)
+
+Opcional: é possível criar o cenário usando seus próprios arquivos de política personalizada, após concluir as etapas em [Introdução às Políticas Personalizadas](active-directory-b2c-get-started-custom.md). Por exemplo, arquivos, consulte [Arquivos de exemplo de política apenas para referência](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app).

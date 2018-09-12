@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: 7270ec7c5129352b0e801808e5c7720e5021ac9d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: bf7dabc1c3765d86e7a0f87acaa6f06a68d3d530
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398811"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782001"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerenciar o acesso de leitura anônimo aos contêineres e blobs
 Você pode habilitar o acesso de leitura anônimo, público para um contêiner e seus blobs no Armazenamento de Blobs do Azure. Ao fazer isso, você pode conceder acesso somente leitura a esses recursos sem compartilhar a chave da conta e sem exigir uma SAS (assinatura de acesso compartilhado).
@@ -39,7 +39,7 @@ Você pode usar os seguintes recursos para definir permissões de contêiner:
 Para definir permissões de contêiner no [Portal do Azure](https://portal.azure.com), siga estas etapas:
 
 1. Abra a folha **Conta de armazenamento** no portal. Você pode localizar sua conta de armazenamento selecionando **Contas de armazenamento** na folha de menu do portal principal.
-1. Em **SERVIÇO BLOB** na folha de menu, selecione **Contêineres**.
+1. Em **SERVIÇO BLOB** na folha de menu, selecione **Blobs**.
 1. Clique com o botão direito do mouse na linha do contêiner ou selecione as reticências para abrir o **Menu de contexto** do contêiner.
 1. Selecione **Política de acesso** no menu de contexto.
 1. Selecione um **Tipo de acesso** no menu suspenso.

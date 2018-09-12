@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: ccaa6203e4bfe52758e26416646f9152ac5378ea
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b056d4c29464451d3dc0ef62437f934535820489
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907948"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697985"
 ---
 # <a name="debug-queries-by-using-select-into-statements"></a>Depurar consultas usando instruções SELECT INTO
 
@@ -32,7 +32,7 @@ Observe que o trabalho está em execução, mas não há eventos sendo gerados n
  
 Nesse caso, é possível adicionar algumas instruções extras SELECT INTO para "registrar em log" os resultados intermediários de JOIN e os dados que são lidos da entrada.
 
-Neste exemplo, adicionamos duas novas "saídas temporárias". Elas podem ser qualquer coletor desejado. Aqui, usamos o Armazenamento do Azure como um exemplo:
+Neste exemplo, adicionamos duas novas "saídas temporárias." Elas podem ser qualquer coletor desejado. Aqui, usamos o Armazenamento do Azure como um exemplo:
 
 ![Adicionando instruções SELECT INTO extras](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
 

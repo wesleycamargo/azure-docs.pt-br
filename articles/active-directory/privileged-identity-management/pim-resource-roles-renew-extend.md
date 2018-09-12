@@ -1,6 +1,6 @@
 ---
-title: Estender ou renovar funções de recurso do Azure no PIM | Microsoft Docs
-description: Saiba como estender ou renovar funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
+title: Estender ou renovar atribuições de função de recurso do Azure no PIM | Microsoft Docs
+description: Saiba como estender ou renovar atribuições de função de recurso do Azure no PIM (Azure AD Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2c85c5bbbd4c152113108e0fdb717d23f85f9fde
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3294bddea867e061d01e8dc72f4e47f3238b6c4d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189643"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344078"
 ---
-# <a name="extend-or-renew-azure-resource-roles-in-pim"></a>Estender ou renovar funções de recurso do Azure no PIM
+# <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Estender ou renovar atribuições de função de recurso do Azure no PIM
 
 O PIM (Privileged Identity Management) para recursos do Azure apresenta novos controles para gerenciar o ciclo de vida de acesso e atribuição dos recursos do Azure. Os administradores podem atribuir associação usando propriedades de data e hora de início e término. Quando a atribuição termina, o PIM envia notificações por e-mail aos usuários ou grupos afetados. Ele também envia notificações por e-mail aos administradores do recurso para garantir que o acesso apropriado seja mantido. As atribuições podem ser renovadas e permanecer visíveis em um estado expirado por até 30 dias, mesmo que o acesso não seja estendido.
 

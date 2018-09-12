@@ -1,5 +1,5 @@
 ---
-title: Obter ajuda para acessar e usar o portal Meus aplicativos no Azure Active Directory | Microsoft Docs
+title: Obter ajuda para acessar e usar o portal MyApps no Azure Active Directory | Microsoft Docs
 description: Obter ajuda para entrar e executar tarefas comuns no painel de acesso.
 services: active-directory
 author: eross-msft
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: a6ac780625f6a109797cbdab78dc555e21e18bee
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 5503681b051066f6601be97bda246128763e7bc7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343603"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306403"
 ---
-# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Solucionar problemas de acesso e uso do portal Meus aplicativos
+# <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Solucionar problemas ao acessar e usar o portal MyApps
 
-Caso esteja tendo problemas para entrar ou usar o portal Meus aplicativos, tente essas dicas de solução de problemas antes de entrar em contato com a assistência técnica ou com seu administrador para obter ajuda.
+Se você estiver enfrentando problemas para entrar ou usar o portal MyApps, tente estas dicas de solução de problemas antes de contatar o suporte técnico ou o administrador para obter ajuda.
 
-## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Estou com problemas para entrar no portal Meus Aplicativos
+## <a name="i-am-having-trouble-signing-into-the-myapps-portal"></a>Estou com problemas para entrar no portal MyApps
 
 Tente essas dicas gerais:
 
@@ -45,7 +45,7 @@ Você poderá redefinir sua senha ou desbloquear sua conta sem precisar falar co
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Estou com problemas para instalar a Extensão de Entrada Segura dos Meus Aplicativos
 
-O portal Meus aplicativos exige um navegador com suporte para JavaScript e com CSS habilitado. Se você estiver usando aplicativos de logon único baseado em senha, a extensão associada também precisará ser instalada. Essa extensão é baixada automaticamente quando você inicia um aplicativo configurado para aplicativos de logon único baseado em senha.
+O portal MyApps requer um navegador que dê suporte para JavaScript e tenha CSS habilitada. Se você estiver usando aplicativos de logon único baseado em senha, a extensão associada também precisará ser instalada. Essa extensão é baixada automaticamente quando você inicia um aplicativo configurado para aplicativos de logon único baseado em senha.
 
 Verifique se você está cumprindo os seguintes requisitos de navegador:
 
@@ -63,8 +63,8 @@ Baixe também a extensão diretamente nos seguintes sites:
 Se você instalou a extensão e ainda está enfrentando problemas, tente o seguinte:
 
 - Verifique as configurações de extensão do navegador para ter certeza de que a extensão está habilitada.
-- Reinicie seu navegador e entre no portal Meus aplicativos.
-- Limpe os cookies do navegador e entre no portal Meus aplicativos.
+- Reinicie o navegador e entre no portal MyApps.
+- Limpe os cookies do navegador e entre no portal MyApps.
 - Para acessar uma ferramenta de diagnóstico e as instruções passo a passo sobre como configurar a extensão para o Internet Explorer, consulte [Solucionar problemas da Extensão do Painel de Acesso para o Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Usar a Extensão de Entrada Segura dos Meus Aplicativos
@@ -85,7 +85,7 @@ Se você instalou a extensão e ainda está enfrentando problemas, tente o segui
 * Para iniciar um aplicativo por meio da extensão, faça o seguinte:
    1. Depois de instalar a extensão, conecte-se a ela selecionando **Conectar-se para começar**.
    2. Selecione o ícone de extensão para abrir o menu.
-   3. Pesquise por um aplicativo que esteja disponível no portal Meus aplicativos.
+   3. Pesquise um aplicativo que esteja disponível no portal MyApps.
    4. Na lista de resultados de pesquisa, selecione o aplicativo.  
        Os três últimos aplicativos usados são exibidos na lista de atalhos **Usados Recentemente**.
 

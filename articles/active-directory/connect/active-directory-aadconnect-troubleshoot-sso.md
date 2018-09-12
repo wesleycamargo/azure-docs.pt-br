@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: def1bbd52e05666f380ab9d5a9295366798d5ae0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 029ba1c936862ef5c5f774dc683c4746e157c4aa
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626916"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781924"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
@@ -34,7 +34,7 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 - O SSO contínuo não funciona no Internet Explorer quando o modo de Proteção Avançada está ativado.
 - O SSO contínuo não funciona em navegadores de dispositivos móveis no iOS e no Android.
 - Se um usuário fizer parte de muitos grupos no Active Directory, o tíquete Kerberos do usuário provavelmente será muito grande para processar e isso causará falha no SSO Contínuo. Solicitações de HTTPS do Azure AD podem ter cabeçalhos com um tamanho máximo de 50 KB; os tíquetes Kerberos precisam ser muito menores do que o limite para acomodar outros artefatos do Azure AD (tipicamente, 2 a 5 KB), como cookies. Nossa recomendação é reduzir as associações de grupo do usuário e tentar novamente.
-- Se você estiver sincronizando 30 ou mais florestas do Active Directory, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-azure-ad-seamless-sso) o recurso em seu locatário.
+- Se você estiver sincronizando 30 ou mais florestas do Active Directory, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-the-feature) o recurso em seu locatário.
 - Adicionar a URL do serviço Azure AD (https://autologon.microsoftazuread-sso.com)) à zona Sites confiáveis em vez da zona Intranet local *bloqueia a entrada dos usuários*.
 - Desabilitar o uso do tipo de criptografia **RC4_HMAC_MD5** para Kerberos em suas configurações do Active Directory irá interromper o SSO Contínuo. Na ferramenta do Editor de Gerenciamento de Política de Grupo, verifique se o valor da política para **RC4_HMAC_MD5** em **Configuração do Computador -> Configurações do Windows -> Configurações de Segurança -> Políticas Locais -> Opções de Segurança -> "Segurança de Rede: Configurar tipos de criptografia permitidos para Kerberos"** é" Habilitado ".
 
@@ -106,10 +106,9 @@ Se a solução de problemas não ajudar, você poderá redefinir manualmente o r
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Etapa 1: importar o módulo do PowerShell de SSO Contínuo
 
-1. Baixe e instale o [Assistente de Conexão do Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Baixe e instale o [Módulo do Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
-4. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
+1. Primeiro, baixe e instale o [PowerShell do Microsoft Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
+3. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
 
 ### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Etapa 2: Obter a lista de florestas do Active Directory em que o SSO Contínuo foi habilitado
 
@@ -129,8 +128,10 @@ Se a solução de problemas não ajudar, você poderá redefinir manualmente o r
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Etapa 4: Habilitar o SSO Contínuo para cada floresta do Active Directory
 
 1. Chame `Enable-AzureADSSOForest`. Quando solicitado, insira as credenciais de administrador de domínio da floresta do Active Directory pretendida.
+
    >[!NOTE]
    >Usamos o nome de usuário do Administrador de Domínio, fornecido no formato de nome UPN (johndoe@contoso.com) ou no formato de conta SAM qualificada por domínio (contoso\johndoe ou contoso.com\johndoe) para localizar a floresta do AD pretendida. Se você usar o nome de conta SAM qualificado do domínio, usaremos a parte de domínio do nome de usuário para [localizar o Controlador de Domínio do Administrador do Domínio usando o DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se você usar o UPN em vez disso, poderemos [traduzi-lo para um nome de conta SAM qualificado de domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriado.
+
 2. Repita as etapas anteriores para cada floresta do Active Directory onde você configurou o recurso.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Etapa 5. Habilitar o recurso em seu locatário

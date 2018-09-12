@@ -3,24 +3,26 @@ title: Segurança de nível de coluna do SQL Data Warehouse do Azure | Microsoft
 description: Segurança de Nível de Coluna (CLS) permite aos clientes controlar o acesso às colunas da tabela de banco de dados com base no contexto de execução do usuário ou sua participação no grupo. A CLS simplifica o design e codificação de segurança em seu aplicativo. A CLS permite implementar restrições de acesso à linha de dados.
 services: sql-data-warehouse
 author: KavithaJonnakuti
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 06/15/2018
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: 5a916132f705f3c517ee6789b61a3972b2445b62
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1765c92ad10fa35af98e7c7314eb44c3a119f422
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939690"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301048"
 ---
 # <a name="column-level-security"></a>Segurança de Nível da Coluna 
 Segurança de Nível de Coluna (CLS) permite aos clientes controlar o acesso às colunas da tabela de banco de dados com base no contexto de execução do usuário ou sua participação no grupo.  
 
-A CLS simplifica o design e codificação de segurança em seu aplicativo. A CLS permite implementar restrições no acesso da coluna para proteger dados confidenciais. Por exemplo, garantir que usuários específicos possam acessar apenas certas colunas de uma tabela pertinente ao seu departamento. A lógica de restrição de acesso está localizada na camada do banco de dados, em vez de estar longe dos dados em outra camada de aplicativo. O banco de dados aplica as restrições de acesso sempre que houver uma tentativa de acessar esses dados em qualquer camada. Isso torna o sistema de segurança mais robusto e confiável, reduzindo a área de superfície do sistema de segurança. Além disso, isso também elimina a necessidade de introduzir modos de exibição para filtrar colunas para impor restrições de acesso em usuários. 
+> [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
+
+A CLS simplifica o design e codificação de segurança em seu aplicativo. A CLS permite implementar restrições no acesso da coluna para proteger dados confidenciais. Por exemplo, garantir que usuários específicos possam acessar apenas certas colunas de uma tabela pertinente ao seu departamento. A lógica de restrição de acesso está localizada na camada do banco de dados, em vez de estar longe dos dados em outra camada de aplicativo. O banco de dados aplica as restrições de acesso sempre que houver uma tentativa de acessar esses dados em qualquer camada. Essa restrição torna o sistema de segurança mais robusto e confiável, reduzindo a área de superfície do sistema de segurança. Além disso, o CLS também elimina a necessidade de introduzir modos de exibição para filtrar colunas para impor restrições de acesso em usuários. 
 
 Você pode implementar CLS com a instrução T-SQL [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql). Com este mecanismo, há suporte para autenticação SQL e o Azure Active Directory (AAD).
 
@@ -76,5 +78,5 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 
 ## <a name="use-cases"></a>Casos de uso
 Alguns exemplos de como CLS está sendo usado atualmente: 
-- Uma empresa de serviços financeiros permite que a conta somente os gerentes tenham acesso aos números de previdência social de cliente (SSN), números de telefone e outras informações de identificação pessoal (PII).
+- Uma empresa de serviços financeiros permite que apenas gerentes de contas tenham acesso aos SSN (números do seguro social), números de telefone e outras PII (informações de identificação pessoal).
 - Um provedor de saúde permite apenas médicos e enfermeiros terem acesso a registros médicos confidenciais enquanto não permite membros do departamento de cobrança ver estes dados.

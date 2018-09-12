@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/13/2018
-ms.openlocfilehash: cfdfa1493857a1731da74c52a616293b482f811a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5dc90a1334b525c02be3eae2985900ab07cf2e05
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030685"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696241"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desenvolver trabalhos de Borda do Stream Analytics utilizando ferramentas do Visual Studio
 
 Neste tutorial, você aprenderá a utilizar as ferramentas do Stream Analytics para o Visual Studio criar, depurar e criar trabalhos de Borda do Stream Analytics. Após criar e testar o trabalho, você poderá acessar o Portal do Azure para implantá-lo nos dispositivos. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisará dos seguintes pré-requisitos para concluir este tutorial:
 
@@ -93,7 +93,7 @@ Para testar a consulta localmente, será necessário carregar os dados de exempl
 4. é possível executá-lo localmente ou enviar para o Azure. Para testar a consulta > Selecione **Executar localmente**.  
    ![Opções de execução](./media/stream-analytics-tools-for-visual-studio-edge-jobs/run-options.png)
  
-5. A janela do prompt de comando mostra o status do trabalho. Quando o trabalho executa com êxito, ele cria uma pasta semelhante a “2018-02-23-11-31-42” no caminho da pasta do projeto “Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42”. Navegue até o caminho da pasta para exibir os resultados na pasta local:
+5. A janela do prompt de comando mostra o status do trabalho. Quando o trabalho executa com êxito, ele cria uma pasta semelhante a "2018-02-23-11-31-42" no caminho da pasta do projeto "Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42". Navegue até o caminho da pasta para exibir os resultados na pasta local:
 
    Também é possível entrar no Portal do Azure e verificar se o trabalho foi criado. 
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 1d1cad4b614eb35be9235a721368db8048be050a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fcb7f2c1bb3e1653b9f8112abc0effaddc45fa54
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631675"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306462"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pré-pagamento para recursos de computação do Banco de Dados SQL com capacidade reservada do Banco de Dados SQL do Azure
 
@@ -65,13 +65,14 @@ O desconto de reserva vCore é aplicado automaticamente ao número de instância
 
 Para saber como gerenciar o banco de dados do SQL reservadas de reserva de capacidade, consulte [capacidade de gerenciar o banco de dados SQL reservada](../billing/billing-manage-reserved-vm-instance.md).
 
-Para saber mais sobre a reserva do Azure, consulte os seguintes artigos:
+Para saber mais sobre Reservas do Azure, consulte os seguintes artigos:
 
-- [Quais são as reservas do Azure?](../billing/billing-save-compute-costs-reservations.md)
-- [Gerenciar reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)
+- [O que são Reservas do Azure?](../billing/billing-save-compute-costs-reservations.md)
+- [Gerenciar Reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)
+- [Compreender o desconto de Reservas do Azure](../billing/billing-understand-reservation-charges.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](../billing/billing-understand-reserved-instance-usage.md)
-- [Entenda o uso de reservas para o seu registro Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)
-- [Reservas do Azure no programa de parceiro provedor de solução de nuvem Center (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Entender o uso de reserva para seu registro de empresa](../billing/billing-understand-reserved-instance-usage-ea.md)
+- [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center.](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

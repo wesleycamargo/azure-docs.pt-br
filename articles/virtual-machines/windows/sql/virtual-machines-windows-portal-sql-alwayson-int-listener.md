@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 7ef26dc5fa7676ca590d56978c735bf4a195440b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698043"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382732"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurar um balanceador de carga para um grupo de disponibilidade Always On no Azure
 Este artigo explica como criar um balanceador de carga para um grupo de disponibilidade Always On do SQL Server em máquinas virtuais do Azure em execução com o Azure Resource Manager. Um grupo de disponibilidade exige um balanceador de carga quando as instâncias do SQL Server estão em máquinas virtuais do Azure. O balanceador de carga armazena o endereço IP do ouvinte do grupo de disponibilidade. Se um grupo de disponibilidade abranger várias regiões, cada região precisará de um balanceador de carga.
@@ -298,6 +298,8 @@ Se um grupo de disponibilidade participar de um grupo de disponibilidade distrib
    |**IP flutuante (retorno de servidor direto)** | habilitado
 
 Repita essas etapas para o balanceador de carga nos outros grupos de disponibilidade que participam dos grupos de disponibilidade distribuído.
+
+Se você estiver restringindo o acesso a um Grupo de Segurança de Rede do Azure, verifique se as regras de permissão incluem os endereços IP da VM do SQL Server de back-end e os endereços IP flutuantes do balanceador de carga para o ouvinte da AG e o endereço IP do núcleo do cluster, se aplicável.
 
 ## <a name="next-steps"></a>Próximas etapas
 

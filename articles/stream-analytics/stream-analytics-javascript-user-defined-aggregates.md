@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: eb433a322f8077c947fd6db1aaa0e2266a109938
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187047"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702367"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Agregações definidas pelo usuário do JavaScript do Azure Stream Analytics (Versão prévia)
  
@@ -80,7 +80,7 @@ Cada UDA do JavaScript é definida por uma declaração de objeto Function. Veja
 
 ### <a name="function-alias"></a>Alias da função
 
-O alias da função é o identificador da UDA. Quando chamado em consultas do Stream Analytics, sempre use o alias da UDA junto com “uda”. prefixo.
+O alias da função é o identificador da UDA. Quando chamado em consultas do Stream Analytics, sempre use o alias da UDA junto com "uda." prefixo.
 
 ### <a name="function-type"></a>Tipo de função
 
@@ -169,13 +169,13 @@ Agora vamos criar uma UDA do JavaScript em um trabalho ASA existente seguindo as
     }
     ````
 
-1. Depois de clicar no botão “Salvar”, a UDA aparecerá na lista de funções.
+1. Depois de clicar no botão "Salvar", a UDA aparecerá na lista de funções.
 
-1. Clique na nova função “TWA” e você poderá verificar a definição da função.
+1. Clique na nova função "TWA" e você poderá verificar a definição da função.
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Chamando a UDA do JavaScript em uma consulta ASA
 
-No Portal do Azure, abra seu trabalho, edite a consulta e chame a função TWA() com um prefixo de carta de ordem “uda.”. Por exemplo: 
+No portal do Azure, abra o trabalho, edite a consulta e chame a função TWA() com um prefixo de carta de ordem "uda.". Por exemplo: 
 
 ````SQL
 WITH value AS

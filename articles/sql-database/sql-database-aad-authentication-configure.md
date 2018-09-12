@@ -5,35 +5,40 @@ services: sql-database
 author: GithubMirek
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 9a0cb3d69cd161a409d0a035be783bb255a83036
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+ms.openlocfilehash: a648071d4d98f500e70557b330d5c79dba747a1f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644358"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43346600"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configurar e gerenciar a autenticação do Azure Active Directory com o Banco de Dados SQL, a Instância Gerenciada ou o SQL Data Warehouse
 
-Este artigo mostra como criar e preencher o Azure AD e, em seguida, usar o Azure AD com o Banco de Dados SQL do Azure e o SQL Data Warehouse. Para obter uma visão geral, consulte [Autenticação do Azure Active Directory](sql-database-aad-authentication.md).
+Este artigo mostra como criar e preencher o Azure AD e, em seguida, usar o Azure AD com o [Banco de Dados SQL do Azure](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obter uma visão geral, consulte [Autenticação do Azure Active Directory](sql-database-aad-authentication.md).
 
->  [!NOTE]  
+> [!NOTE]
+> Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
+
+>  [!IMPORTANT]  
 >  Não há suporte para conectar ao SQL Server em execução em uma VM do Azure usando uma conta do Azure Active Directory. Use um conta de domínio do Active Directory.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Criar e popular um Azure AD
 Crie um Azure AD e popule-o com usuários e grupos. O Azure AD pode ser o domínio gerenciado pelo Azure AD inicial. O Azure AD também pode ser um Active Directory Domain Services local federado com o Azure AD.
 
-Para obter mais informações, consulte [Integrando suas identidades locais no Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Adicionar seu próprio nome de domínio ao Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administrando seu diretório do Azure AD](../active-directory/active-directory-administer.md), [Gerenciar o Azure AD usando o Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) e [Portas e protocolos necessários para a identidade híbrida](..//active-directory/connect/active-directory-aadconnect-ports.md).
+Para obter mais informações, consulte [Integrando suas identidades locais no Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Adicionar seu próprio nome de domínio ao Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administrando seu diretório do Azure AD](../active-directory/fundamentals/active-directory-administer.md), [Gerenciar o Azure AD usando o Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) e [Portas e protocolos necessários para a identidade híbrida](..//active-directory/connect/active-directory-aadconnect-ports.md).
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Associar ou adicionar uma assinatura do Azure ao Azure Active Directory
 
-1. Associe sua assinatura do Azure ao Azure Active Directory tornando o diretório um diretório confiável para a assinatura do Azure que hospeda o banco de dados. Para mais detalhes, consulte [Como as assinaturas do Azure são associadas ao Microsoft Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+1. Associe sua assinatura do Azure ao Azure Active Directory tornando o diretório um diretório confiável para a assinatura do Azure que hospeda o banco de dados. Para mais detalhes, consulte [Como as assinaturas do Azure são associadas ao Microsoft Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 2. Use o seletor de diretório no portal do Azure para alternar para a assinatura associada ao domínio.
 
-   **Informações adicionais:** cada assinatura do Azure tem uma relação de confiança com uma instância do AD do Azure. Isso significa que ela confia que esse diretório autentique usuários, serviços e dispositivos. Várias assinaturas podem confiar no mesmo diretório, mas uma única assinatura confia em apenas um diretório. Essa relação de confiança que uma assinatura tem com um diretório é diferente da relação que uma assinatura tem com todos os outros recursos no Azure (sites, bancos de dados e assim por diante), que são mais similares a recursos filho de uma assinatura. Se uma assinatura expira, o acesso a esses outros recursos associados à assinatura também pára. Mas o diretório permanece no Azure e você pode associar outra assinatura a ele, além de continuar a gerenciar os usuários do diretório. Para obter mais informações sobre recursos, consulte [Noções básicas sobre o acesso a recursos no Azure](../active-directory/active-directory-b2b-admin-add-users.md). Para saber mais sobre essa relação de confiança, consulte relação [Como associar ou adicionar uma assinatura do Azure ao Microsoft Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+   **Informações adicionais:** cada assinatura do Azure tem uma relação de confiança com uma instância do AD do Azure. Isso significa que ela confia que esse diretório autentique usuários, serviços e dispositivos. Várias assinaturas podem confiar no mesmo diretório, mas uma única assinatura confia em apenas um diretório. Essa relação de confiança que uma assinatura tem com um diretório é diferente da relação que uma assinatura tem com todos os outros recursos no Azure (sites, bancos de dados e assim por diante), que são mais similares a recursos filho de uma assinatura. Se uma assinatura expira, o acesso a esses outros recursos associados à assinatura também pára. Mas o diretório permanece no Azure e você pode associar outra assinatura a ele, além de continuar a gerenciar os usuários do diretório. Para obter mais informações sobre recursos, consulte [Noções básicas sobre o acesso a recursos no Azure](../active-directory/active-directory-b2b-admin-add-users.md). Para saber mais sobre essa relação de confiança, consulte relação [Como associar ou adicionar uma assinatura do Azure ao Microsoft Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Criar um administrador do Azure AD para o Azure SQL Server
 Cada Servidor do Azure SQL Server (que hospeda um Banco de dados SQL ou SQL Data Warehouse) começa com uma única conta de administrador do servidor, que é o administrador de todo o Azure SQL Server. Um segundo administrador do SQL Server deve ser criado, que é uma conta do Azure AD. Essa entidade de segurança é criada como um usuário de banco de dados independente no banco de dados mestre. Como administradores, as contas de administrador do servidor são membros da função **db_owner** em todos os bancos de dados de usuários e inserem cada banco de dados de usuário como o usuário **dbo**. Para obter mais informações sobre as contas do administrador do servidor, veja [Gerenciando Bancos de Dados e Logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md).
@@ -348,7 +353,7 @@ connection.AccessToken = "Your JWT token"
 conn.Open();
 ```
 
-Para obter mais informações, confira [Blog de segurança do SQL Server](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/). Para obter informações sobre como adicionar um certificado, consulte [Introdução à autenticação baseada em certificado no Azure Active Directory](../active-directory/active-directory-certificate-based-authentication-get-started.md).
+Para obter mais informações, confira [Blog de segurança do SQL Server](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/). Para obter informações sobre como adicionar um certificado, consulte [Introdução à autenticação baseada em certificado no Azure Active Directory](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 ### <a name="sqlcmd"></a>sqlcmd
 

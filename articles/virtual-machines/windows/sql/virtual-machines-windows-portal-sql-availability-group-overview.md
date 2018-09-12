@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: 4a531fb87d9cd2743138ba7a027bdf0d132b9747
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b71ba12f6c533d67b04366f05b9334e1993823fa
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29396424"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382021"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introdução aos grupos de disponibilidade do AlwaysOn do SQL Server em máquinas virtuais do Azure #
 
@@ -34,7 +34,7 @@ O diagrama ilustra as partes de um Grupo de Disponibilidade do SQL Server comple
 
 A principal diferença para um Grupo de Disponibilidade em máquinas virtuais do Azure é que as máquinas virtuais do Azure exigem um [balanceador de carga](../../../load-balancer/load-balancer-overview.md). O balanceador de carga contém o endereço IP do ouvinte do grupo de disponibilidade. Se você tiver mais de um grupo de disponibilidade cada grupo exige um ouvinte. Um balanceador de carga pode dar suporte a vários ouvintes.
 
-Quando estiver pronto para criar um grupo de disponibilidade do SQL Server em máquinas virtuais do Azure, consulte estes tutoriais.
+Quando estiver pronto para criar um grupo de disponibilidade do SQL Server em Máquinas Virtuais do Azure, consulte estes tutoriais.
 
 ## <a name="automatically-create-an-availability-group-from-a-template"></a>Criar automaticamente um grupo de disponibilidade de um modelo
 

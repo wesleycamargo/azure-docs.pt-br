@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2534e3e39d4a6dd1659dced5a1b0342798c0049e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 06a79250bac977fc4ade7853594c5307bb11d983
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969122"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336938"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do Weibo usando o Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Para usar uma conta do Weibo como um provedor de identidade no Azure AD (Azure A
 6. Selecione **保存以上信息** (salvar).
 7. Selecione **高级信息** (informações avançadas).
 8. Selecione **编辑** (editar) ao lado do campo referente a OAuth2.0 **授权设置** (URL de redirecionamento).
-9. Digite `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` para OAuth2.0 **授权设置**(URL de redirecionamento). Por exemplo, se seu `tenant_name` for contoso.onmicrosoft.com, defina a URL para ser `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+9. Digite `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` para OAuth2.0 **授权设置**(URL de redirecionamento). Por exemplo, se `tenant_name` for contoso, defina a URL como `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 10. Selecione **提交** (enviar).  
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Configurar a conta do Weibo como um provedor de identidade

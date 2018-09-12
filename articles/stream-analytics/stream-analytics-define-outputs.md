@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 37edf60ed0b63b4ff97094a496a08a592cb46fc0
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 4fd85135ea16a5183b1b0d5220d1c160044e8841
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715413"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701007"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Entender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para um trabalho do Azure Stream Analytics. As saídas permitem armazenar e salvar os resultados do trabalho do Stream Analytics. Usando os dados de saída, você pode fazer mais análise de negócios e data warehouse de seus dados. 
@@ -172,7 +172,7 @@ bigint | Int64
 nvarchar(max) | Cadeia de caracteres
 Datetime | DateTime
 flutuante | Duplo
-Matriz de registro | Tipo de cadeia de caracteres, Valor da constante “IRecord” ou “IArray”
+Matriz de registro | Tipo de cadeia de caracteres, valor Constante "IRecord" ou "IArray"
 
 ### <a name="schema-update"></a>Atualização do Esquema
 o Stream Analytics infere o esquema do modelo de dados com base no primeiro conjunto de eventos na saída. Posteriormente, se necessário, o esquema do modelo de dados é atualizado para acomodar os eventos de entrada que não se encaixam no esquema original.

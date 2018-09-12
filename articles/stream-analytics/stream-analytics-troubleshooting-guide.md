@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 2eefabcc0484fca0e6e3ad1dd5037684a759d010
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: b1b5d0af3f2b149959bcb97ddaf29ba2fe1f4668
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850439"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702214"
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Guia de solução de problemas do Stream Analytics do Azure
 
@@ -66,7 +66,7 @@ Para obter melhores resultados na solução de problemas do trabalho do Stream A
                 - O processamento de consulta resultou em zero evento de saída.
                 - Os eventos ou seus campos podem estar malformados, resultando em nenhuma saída após o processamento da consulta.
                 - O trabalho não pôde enviar dados por push para o [coletor de saída](stream-analytics-select-into.md) por motivos de conectividade ou autenticação.
-        - Em todos os casos de erro mencionados anteriormente, as mensagens do log de operações explicam os detalhes adicionais (incluindo o que está acontecendo), exceto nos casos em que a lógica da consulta filtrou todos os eventos. Se o processamento de vários eventos gerar erros, o Stream Analytics registrará as três primeiras mensagens de erro do mesmo tipo em até 10 minutos nos Logs de operações. Em seguida, ele suprimirá erros idênticos adicionais com a mensagem “Os erros estão ocorrendo muito rapidamente e estão sendo suprimidos”.
+        - Em todos os casos de erro mencionados anteriormente, as mensagens do log de operações explicam os detalhes adicionais (incluindo o que está acontecendo), exceto nos casos em que a lógica da consulta filtrou todos os eventos. Se o processamento de vários eventos gerar erros, o Stream Analytics registrará as três primeiras mensagens de erro do mesmo tipo em até 10 minutos nos Logs de operações. Em seguida, ele suprime erros idênticos adicionais com uma mensagem "Erros estão ocorrendo muito rapidamente e estão sendo suprimidos."
 
 8. Depurar usando os logs de auditoria e de diagnóstico:
     - Use os [Logs de Auditoria](../azure-resource-manager/resource-group-audit.md) e filtre para identificar e depurar erros.

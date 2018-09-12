@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 838717aa8f426ea54f4736453aac8c6fcf9a0099
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308024"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344490"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Criar um aplicativo Web ASP.NET com inscrição/entrada, edição de perfil e redefinição de senha do Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Este tutorial mostra como:
 > * Registrar seu aplicativo Web em seu diretório do Azure AD B2C
 > * Criar inscrição/entrada, edição de perfil e política de redefinição de senha de usuário para o seu aplicativo Web
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Você deve conectar seu Locatário B2C a uma conta do Azure. Você pode criar uma conta gratuita do Azure [aqui](https://azure.microsoft.com/).
 - Você precisa do [Microsoft Visual Studio](https://www.visualstudio.com/) ou um programa semelhante para exibir e modificar o código de exemplo.
@@ -95,7 +95,7 @@ Nossa amostra é configurada para usar as políticas e a ID do cliente de nosso 
 * `ida:ResetPasswordPolicyId` pelo nome de política "Redefinir Senha"
 
 ## <a name="launch-the-app"></a>Iniciar o aplicativo
-No Visual Studio, inicie o aplicativo. Navegue até a guia Lista de Tarefas Pendentes e observe que a URL é: https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
+No Visual Studio, inicie o aplicativo. Navegue até a guia Lista de Tarefas Pendentes e observe que a URL é: https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
 
 Inscreva-se no aplicativo usando o seu endereço de email ou nome de usuário. Saia, em seguida, entre novamente e edite o perfil ou redefina a senha. Saia e entre como outro usuário. 
 

@@ -238,12 +238,79 @@ items:
       items:
       - name: Notas de versão
         href: active-directory-b2c-developer-notes-custom.md
-      - name: Provedores de sessão SSO
-        href: active-directory-b2c-reference-sso-custom.md
-      - name: Personalização de linguagem
-        href: active-directory-b2c-language-customization-custom.md
       - name: Definição da estrutura confiável
         href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
+      - name: Esquema do Identity Experience Framework
+        items:
+        - name: TrustFrameworkPolicy
+          href: trustframeworkpolicy.md
+        - name: BuildingBlocks
+          href: buildingblocks.md
+          items:
+          - name: ClaimsSchema
+            href: claimsschema.md
+          - name: ClaimsTransformations
+            href: claimstransformations.md
+            items:
+            - name: BOOLEAN
+              href: boolean-transformations.md
+            - name: Data
+              href: date-transformations.md
+            - name: Geral
+              href: general-transformations.md
+            - name: Número inteiro
+              href: integer-transformations.md
+            - name: JSON
+              href: json-transformations.md
+            - name: Contas sociais
+              href: social-transformations.md
+            - name: StringCollection
+              href: stringcollection-transformations.md
+            - name: Cadeia de caracteres
+              href: string-transformations.md
+          - name: Predicados
+            href: predicates.md
+          - name: ContentDefinitions
+            href: contentdefinitions.md
+          - name: Localização
+            href: localization.md
+            items:
+            - name: IDs de cadeia de caracteres de localização
+              href: localization-string-ids.md
+        - name: ClaimsProviders
+          href: claimsproviders.md
+          items:
+          - name: TechnicalProfiles
+            href: technicalprofiles.md
+            items:
+            - name: Sobre perfis técnicos
+              href: technical-profiles-overview.md
+            - name: Azure Active Directory
+              href: active-directory-technical-profile.md
+            - name: Transformação de declarações
+              href: claims-transformation-technical-profile.md
+            - name: Emissor do token JWT
+              href: jwt-issuer-technical-profile.md
+            - name: OAuth1
+              href: oauth1-technical-profile.md
+            - name: OAuth2
+              href: oauth2-technical-profile.md
+            - name: OpenID Connect
+              href: openid-connect-technical-profile.md
+            - name: REST
+              href: restful-technical-profile.md
+            - name: SAML
+              href: saml-technical-profile.md
+            - name: Autodeclarado
+              href: self-asserted-technical-profile.md
+            - name: Sessão de SSO
+              href: active-directory-b2c-reference-sso-custom.md
+            - name: Validação
+              href: validation-technical-profile.md
+        - name: UserJourneys
+          href: userjourneys.md
+        - name: RelyingParty
+          href: relyingparty.md
   - name: Referência
     items:
     - name: Exemplos de código
@@ -280,9 +347,9 @@ items:
     href: active-directory-b2c-support.md
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 485e7c5bbcfb1bde0b6626cab45eb2ad533f229d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 322272a48d228e102981b4e7f194704f39443953
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090618"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378679"

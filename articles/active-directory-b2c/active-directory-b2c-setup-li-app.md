@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84b1ad2ecd2c027c7d8a105579059ceb957f41c6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e1949c32833bb1d5e6603a6f5e36e22dc58e8cec
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928991"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336921"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do LinkedIn usando o Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Para usar uma conta do LinkedIn como um provedor de identidade no Azure AD (Azur
 3. Insira **Nome da Empresa**, **Nome do Aplicativo**, **Descrição do Aplicativo**, **Logotipo do Aplicativo**, **Uso do Aplicativo**, **URL do Site**, **Email Comercial** e **Telefone Comercial**.
 4. Aceite os **Termos de Uso da API do LinkedIn** e clique em **Enviar**.
 5. Copie os valores de **ID do cliente** e **Segredo do cliente**. Você pode encontrá-los em **Chaves de Autenticação**. Você precisará de ambos para configurar o LinkedIn como um provedor de identidade no seu locatário. **Segredo do Cliente** é uma credencial de segurança importante.
-6. Insira `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` em **URLs de Redirecionamento Autorizadas**. Substitua **{tenant}** pelo nome do locatário (por exemplo, contoso.onmicrosoft.com). Selecione **Adicionar** e depois clique em **Atualizar**.
+6. Insira `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` em **URLs de Redirecionamento Autorizadas**. Substitua **{tenant}** pelo nome do locatário (por exemplo, contosob2c). Selecione **Adicionar** e depois clique em **Atualizar**.
 
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Configurar uma conta do LinkedIn como um provedor de identidade
 

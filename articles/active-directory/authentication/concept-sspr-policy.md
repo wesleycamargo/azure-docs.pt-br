@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8396db3a45c2b6f2c88a9fd6bbf0b8e5a7df4efb
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 8ec0947d041dc0d4f5423a48a443ab2dd86949e2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162041"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782528"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha do Active Directory do Azure
 
@@ -76,11 +76,11 @@ Uma política de duas portas requer um tipo de dados de autenticação, como um 
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Políticas UserPrincipalName que se aplicam a todas as contas de usuário
 
-Cada conta de usuário que precisa entrar no Azure AD deve ter um valor de atributo UPN (nome principal do usuário) exclusivo associado à respectiva conta. A tabela a seguir descreve as políticas que se aplicam a ambas as contas de usuário locais do Active Directory que são sincronizadas na nuvem e a contas de usuário somente em nuvem:
+Cada conta de usuário que precisa entrar no Azure AD deve ter um valor de atributo UPN (nome principal do usuário) exclusivo associado à respectiva conta. A tabela a seguir descreve as políticas que aplicam-se a ambas as contas de usuário locais do Active Directory que são sincronizadas na nuvem e a contas de usuário somente em nuvem:
 
 | Propriedade | Requisitos de UserPrincipalName |
 | --- | --- |
-| Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+| Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
 | Caracteres não permitidos |<ul> <li>Qualquer caractere "\@\" que não esteja separando o nome de usuário do domínio.</li> <li>Não pode conter um caractere de ponto "." imediatamente antes do símbolo "\@\"</li></ul> |
 | Restrições de comprimento |<ul> <li>O comprimento total não deve exceder 113 caracteres</li><li>Pode haver até 64 caracteres antes do símbolo de "\@\"</li><li>Pode haver até 48 caracteres após o símbolo de "\@\"</li></ul> |
 

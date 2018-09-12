@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: b910b6cdf55ae7c2a220543bdb555d8e9bff59a0
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: f4bc7724c0bc288ab269d1b3ec054bd1a6ba26e3
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139794"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701187"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -58,7 +58,7 @@ Se você criar recursos para uso com seu cluster AKS, como contas de armazenamen
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Posso modificar tags e outras propriedades dos recursos do AKS no grupo de recursos MC_ *?
 
-Modificando e excluindo marcas e outras propriedades de recursos na *MC_** grupo de recursos pode levar a resultados inesperados, como o dimensionamento e erros de atualização. Modificando os recursos sob o *MC_** no AKS cluster divide o SLO.
+Modificar e excluir as marcas criadas pelo Azure e outras propriedades de recursos no grupo de recursos *MC_** pode levar a resultados inesperados, além de erros de atualização e dimensionamento. Há suporte para criar e modificar marcas personalizadas adicionais, como atribuir uma unidade de negócios ou um centro de custo. Modificando os recursos sob o *MC_** no AKS cluster divide o SLO.
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quais os controles de admissão de Kubernetes que o AKS suporta? Controladores de admissão podem ser adicionados ou removidos?
 

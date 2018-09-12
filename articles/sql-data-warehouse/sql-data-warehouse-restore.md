@@ -3,22 +3,22 @@ title: Restaurar um SQL Data Warehouse do Azure | Microsoft Docs
 description: Guia para restaurar um SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 583346f2297f590d8e9484c0a3c19c947de7f740
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 6eba50fbe7c2a7a40b08e37a96adac66583b8251
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191553"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781853"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Restaurar um SQL Data Warehouse do Azure 
-Neste artigo, você aprenderá a fazer o seguinte:
+Neste artigo, você aprenderá como fazer o seguinte no portal do Azure e no PowerShell:
 
 - Criar um ponto de restauração
 - Restaurar de um ponto de restauração automático ou de um ponto de restauração definido pelo usuário
@@ -26,15 +26,19 @@ Neste artigo, você aprenderá a fazer o seguinte:
 - Restaurar de um backup geográfico
 - Criar uma cópia de seu data warehouse de um ponto de restauração definido pelo usuário
 
+> [!NOTE]
+> A partir de 27/8, a restauração entre servidores foi desabilitada devido a uma regressão conhecida. Estamos trabalhando ativamente em uma correção em nossa mais alta prioridade. Pedimos desculpas por esta inconveniência. Enquanto isso, você pode aproveitar o [backup geográfico](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-from-an-azure-geographical-region) para restaurar entre servidores.  
+>
+
 ## <a name="before-you-begin"></a>Antes de começar
 **Verifique sua capacidade de DTU.** Cada SQL Data Warehouse é hospedado por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão.  Antes de restaurar um SQL Data Warehouse, verifique se o SQL Server tem cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU][Request a DTU quota change].
 
-# <a name="restore-through-powershell"></a>Restaurar usando o PowerShell
+## <a name="restore-through-powershell"></a>Restaurar usando o PowerShell
 
 ## <a name="install-powershell"></a>Instalar o PowerShell
 Para usar o Azure PowerShell com o SQL Data Warehouse, você precisará instalar a versão 1.0 ou superior do Azure PowerShell.  Você pode verificar a versão executando **Get-Module -ListAvailable -Name AzureRM**.  A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][How to install and configure Azure PowerShell].
 
-## <a name="restore-an-active-or-paused-database"></a>Restaurar um banco de dados ativo ou pausado
+## <a name="restore-an-active-or-paused-database-using-powershell"></a>Restaurar um banco de dados ativo ou pausado usando o PowerShell
 Para restaurar um banco de dados de um ponto de restauração, use o cmdlet do PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 1. Abra o Windows PowerShell.
@@ -90,7 +94,7 @@ $RestoredDatabase.status
 > Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][Configure your database after recovery].
 >
 
-## <a name="copy-your-data-warehouse-with-user-defined-restore-points"></a>Copiar seu data warehouse com pontos de restauração definidos pelo usuário
+## <a name="copy-your-data-warehouse-with-user-defined-restore-points-using-powershell"></a>Copiar o data warehouse com pontos de restauração definidos pelo usuário usando o PowerShell
 Para restaurar um banco de dados de um ponto de restauração definido pelo usuário, use o cmdlet do PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 1. Abra o Windows PowerShell.
@@ -98,10 +102,10 @@ Para restaurar um banco de dados de um ponto de restauração definido pelo usu�
 3. Selecione a assinatura que contém o banco de dados a ser restaurado.
 4. Crie um ponto de restauração para uma cópia imediata do banco de dados
 5. Renomeie seu banco de dados para um nome temporário.
-5. Recupere o ponto de restauração mais recente pelo RestorePointLabel especificado.
-6. Obtenha a ID do recurso do banco de dados para iniciar a restauração
-6. Restaure o banco de dados para o ponto de restauração desejado.
-7. Verifique se o banco de dados restaurado está online.
+6. Recupere o ponto de restauração mais recente pelo RestorePointLabel especificado.
+7. Obtenha a ID do recurso do banco de dados para iniciar a restauração
+8. Restaure o banco de dados para o ponto de restauração desejado.
+9. Verifique se o banco de dados restaurado está online.
 
 ```Powershell
 
@@ -138,7 +142,7 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-a-deleted-database"></a>Restaurar um banco de dados excluído
+## <a name="restore-a-deleted-database-using-powershell"></a>Restaurar um banco de dados excluído usando o PowerShell
 Para restaurar um banco de dados excluído, use o cmdlet [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 1. Abra o Windows PowerShell.
@@ -173,7 +177,7 @@ $RestoredDatabase.status
 > Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][Configure your database after recovery].
 >
 
-## <a name="restore-from-an-azure-geographical-region"></a>Restaurar por meio de uma região geográfica do Azure
+## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Restaurar um banco de dados excluído usando o PowerShell
 Para recuperar um banco de dados, use o cmdlet [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 > [!NOTE]
@@ -208,9 +212,9 @@ $GeoRestoredDatabase.status
 
 O banco de dados recuperado será habilitado para TDE se o banco de dados de origem for habilitado para TDE.
 
-# <a name="restore-through-the-azure-portal"></a>Restaurar usando o portal do Azure
+## <a name="restore-through-the-azure-portal"></a>Restaurar através do portal do Azure
 
-## <a name="create-a-user-defined-restore-point"></a>Crie um ponto restauração definido pelo usuário
+## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Criar um ponto de restauração definido pelo usuário usando o portal do Azure
 1. Entre no [Portal do Azure][Azure portal].
 
 2. Navegue até o SQL Data Warehouse para o qual você deseja criar um ponto de restauração.
@@ -218,37 +222,37 @@ O banco de dados recuperado será habilitado para TDE se o banco de dados de ori
 3. Na parte superior da folha Visão Geral, selecione **+Novo Ponto de Restauração**.
 
     ![Novo Ponto de Restauração](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
-    
+
 4. Especifique um nome para seu ponto de restauração.
 
     ![Nome do ponto de restauração](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
-## <a name="restore-an-active-or-paused-database"></a>Restaurar um banco de dados ativo ou pausado
+## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Restaurar um banco de dados ativo ou pausado usando o portal do Azure
 1. Entre no [Portal do Azure][Azure portal].
 2. Navegue até o SQL Data Warehouse do qual você quer restaurar.
 3. Na parte superior da folha Visão Geral, selecione **Restaurar**.
 
     ![ Visão Geral de Restauração](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
-    
+
 4. Selecione **Pontos de Restauração Automática** ou **Pontos de Restauração Definido Pelo Usuário**.
 
     ![Pontos de restauração automática](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
-    
+
 5. Para pontos de restauração definidos pelo usuário, **selecione um ponto de restauração** ou **crie um novo ponto de restauração definido pelo usuário**.
 
     ![Pontos de Restauração Definidos Pelo Usuário](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
-## <a name="restore-a-deleted-database"></a>Restaurar um banco de dados excluído
+## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Restaurar um banco de dados excluído usando o portal do Azure
 1. Entre no [Portal do Azure][Azure portal].
 2. Navegue até o SQL Server em que o banco de dados excluído estava hospedado.
 3. Selecione o ícone de bancos de dados excluídos no sumário.
 
     ![Bancos de dados excluídos](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_0.png)
-    
+
 4. Selecione o banco de dados excluído que você deseja restaurar.
 
     ![Selecione Bancos de Dados Excluídos](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_1.png)
-    
+
 5. Especifique um novo nome de banco de dados.
 
     ![Especifique o Nome do Banco de Dados](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_2.png)

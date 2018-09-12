@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.date: 08/30/2018
 ms.author: carlrab
-ms.openlocfilehash: 8e7af24133b7e034bb7bc1898609cebbb860b738
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 350e472a4c17ed878d8506b4093bcd44ad60f469
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919071"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288014"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites do modelo de compra com base em vCore do Banco de Dados SQL do Azure para um banco de dados individual
 
@@ -44,7 +44,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |Tamanho máximo de dados (GB)|1024|1024|1536|3072|4096|4096|
 |Tamanho máximo de log (GB)|307|307|461|922|1229|1229|
-|Tamanho de TempDB (GB)|32|64|128|256|384|384|
+|Tamanho TempDB (MB)|32|64|128|256|384|384|
 |IOPS de destino (64 KB)|500|1000|2000|4000|7000|7000|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|3200|4800|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
@@ -66,7 +66,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |Tamanho máximo de dados (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
 |Tamanho máximo de log (GB)|307|307|461|614|1229|1229|1229|1229|
-|Tamanho de TempDB (GB)|64|128|256|384|384|384|384|384|
+|Tamanho TempDB (MB)|64|128|256|384|384|384|384|384|
 |IOPS de destino (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -89,7 +89,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
 |Tamanho máximo de log (GB)|307|307|307|307|307|307|
-|Tamanho de TempDB (GB)|32|64|128|256|384|384|
+|Tamanho TempDB (MB)|32|64|128|256|384|384|
 |IOPS de destino (64 KB)|5.000|10000|20000|40000|80000|120000|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|3200|4800|
@@ -112,7 +112,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|2.048|4096|4096|4096|
 |Tamanho máximo de log (GB)|307|307|307|307|614|1229|1229|1229|
-|Tamanho de TempDB (GB)|64|128|256|384|384|384|384|384|
+|Tamanho TempDB (MB)|64|128|256|384|384|384|384|384|
 |IOPS de destino (64 KB)|5.000|10000|20000|40000|60000|80000|100000|200000
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|

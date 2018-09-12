@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 735b152f55a9309e5d5dd85dac64a607de6417b0
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: d500bc9c910858341d7fdacb4d85bffc8be215e1
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443962"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338755"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiar dados de/para o Azure Data Lake Storage Gen1 usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -77,8 +77,8 @@ Para usar a autenticação de entidade de serviço, registre uma entidade de apl
 
 >[!IMPORTANT]
 > Verifique se você concedeu a permissão apropriada à entidade de serviço no Azure Data Lake Store:
->- **Como fonte**, no Data Explorer -> Access, conceder pelo menos permissão **Leitura + Execução** para listar e copiar os arquivos em pastas/subpastas ou permissão **Leitura** para copiar um único arquivo, e escolha adicionar a **Esta pasta e todos os filhos** para recursivas e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Nenhum requisito de controle de acesso no nível da conta (IAM).
->- **Como coletor**, no Data Explorer -> Access, conceda pelo menos acesso **Gravação + Execução** para criar itens filhos na pasta e escolha adicionar a **Esta pasta e todos os filhos** para recursivo e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Se você usar o Azure IR para copiar (tanto a origem quanto o coletor que estão na nuvem) no controle de acesso (IAM), conceda pelo menos a função **Leitor** para permitir que o Data Factory detecte a região da Data Lake Store. Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir.
+>- **Como fonte**, em Data Explorer -> Acesso, conceda pelo menos a permissão **Leitura + Execução** para listar e copiar os arquivos em pastas/subpastas, ou permissão de **Leitura** para copiar um único arquivo, e escolha adicionar a **Esta pasta e todos os filhos** para recursivo e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Nenhum requisito de controle de acesso no nível da conta (IAM).
+>- **Como coletor**, no Data Explorer -> Acesso, conceda pelo menos acesso **Gravação + Execução** para criar itens filhos na pasta e escolha adicionar a **Esta pasta e todos os filhos** para recursivo e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Se você usar o Azure IR para copiar (tanto a origem quanto o coletor que estão na nuvem) no controle de acesso (IAM), conceda pelo menos a função **Leitor** para permitir que o Data Factory detecte a região da Data Lake Store. Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir.
 
 Há suporte para as seguintes propriedades:
 
@@ -125,8 +125,8 @@ Para usar a autenticação de identidade do serviço gerenciado (MSI):
 
 >[!IMPORTANT]
 > Verifique se você concedeu a permissão apropriada à identidade de serviço do data factory no Azure Data Lake Store:
->- **Como fonte**, no Data Explorer -> Access, conceder pelo menos permissão **Leitura + Execução** para listar e copiar os arquivos em pastas/subpastas ou permissão **Leitura** para copiar um único arquivo, e escolha adicionar a **Esta pasta e todos os filhos** para recursivas e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Nenhum requisito de controle de acesso no nível da conta (IAM).
->- **Como coletor**, no Data Explorer -> Access, conceda pelo menos acesso **Gravação + Execução** para criar itens filhos na pasta e escolha adicionar a **Esta pasta e todos os filhos** para recursivo e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Se você usar o Azure IR para copiar (tanto a origem quanto o coletor que estão na nuvem) no controle de acesso (IAM), conceda pelo menos a função **Leitor** para permitir que o Data Factory detecte a região da Data Lake Store. Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir.
+>- **Como fonte**, em Data Explorer -> Acesso, conceda pelo menos a permissão **Leitura + Execução** para listar e copiar os arquivos em pastas/subpastas, ou permissão de **Leitura** para copiar um único arquivo, e escolha adicionar a **Esta pasta e todos os filhos** para recursivo e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Nenhum requisito de controle de acesso no nível da conta (IAM).
+>- **Como coletor**, no Data Explorer -> Acesso, conceda pelo menos acesso **Gravação + Execução** para criar itens filhos na pasta e escolha adicionar a **Esta pasta e todos os filhos** para recursivo e adicione como **uma permissão de acesso e uma entrada de permissão padrão**. Se você usar o Azure IR para copiar (tanto a origem quanto o coletor que estão na nuvem) no controle de acesso (IAM), conceda pelo menos a função **Leitor** para permitir que o Data Factory detecte a região da Data Lake Store. Se você quiser evitar essa função IAM, explicitamente [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store e associe-o no serviço vinculado do Data Lake Store como no exemplo a seguir.
 
 No Azure Data Factory, você não precisa especificar nenhuma propriedade além das informações do Data Lake Store gerais no serviço vinculado.
 

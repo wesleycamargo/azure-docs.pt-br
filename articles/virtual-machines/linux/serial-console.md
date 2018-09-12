@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 857998c73abed76c9e20d5b3422ce607fb9f733d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122398"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782873"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console Serial da Máquina Virtual (versão prévia) 
 
 
-O Console Serial da Máquina Virtual no Azure fornece acesso a um console baseado em texto para máquinas virtuais do Windows e Linux. Essa conexão serial é para a porta serial COM1 da máquina virtual, fornece acesso à máquina virtual e não está relacionada à rede da máquina virtual/estado do sistema operacional. No momento, o acesso ao console serial para uma máquina virtual pode ser obtido somente por meio do portal do Azure e é permitido apenas para os usuários que têm acesso de Colaborador de VM ou superior à máquina virtual. 
+O Console Serial da Máquina Virtual no Azure fornece acesso a um console baseado em texto para máquinas virtuais do Linux. Essa conexão serial é para a porta serial COM1 da máquina virtual, fornecendo acesso à máquina virtual que é independente do estado da rede ou sistema operacional de uma máquina virtual. O acesso ao console serial de uma máquina virtual somente pode ser feito pelo portal do Azure e é permitido apenas a usuários com acesso de VM ou superior à máquina virtual. 
 
 Para documentação do console serial para VMs do Windows, [clique aqui](../windows/serial-console.md).
 
@@ -38,7 +38,7 @@ Para documentação do console serial para VMs do Windows, [clique aqui](../wind
 * Sua máquina virtual PRECISA ter os [diagnósticos de inicialização](boot-diagnostics.md) habilitados – veja a captura de tela abaixo.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * A conta do Azure que usa o console serial deve ter a [função de Colaborador](../../role-based-access-control/built-in-roles.md) para a VM e a conta de armazenamento [diagnósticos de inicialização](boot-diagnostics.md). 
 * A máquina virtual para a qual você está acessando o console serial também deve ter uma conta baseada em senha. Você pode criar uma com a funcionalidade de [redefinição de senha](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) da extensão de acesso à VM. Para isso, veja a captura de tela abaixo.
 
@@ -62,7 +62,30 @@ O console serial para máquinas virtuais é acessível apenas por meio do [porta
 > [!NOTE] 
 > O console serial requer um usuário local com uma senha configurada. No momento, as VMs configuradas apenas com uma chave pública SSH não terão acesso ao console serial. Para criar um usuário local com senha, use a [Extensão de Acesso à VM](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (também disponível no portal, clicando em "Redefinir senha") e crie um usuário local com uma senha.
 
-## <a name="disable-serial-console"></a>Desabilitar o console serial
+## <a name="access-serial-console-for-linux"></a>Acessar Console Serial para Linux
+Para que o console serial funcione corretamente, o sistema operacional convidado deve ser configurado para ler e gravar mensagens de console para a porta serial. A maioria das [Distribuições do Linux para Azure aprovadas](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tem o console serial configurado por padrão. Basta clicar na seção Console Serial no portal do Azure para fornecer acesso ao console. 
+
+Distribuição      | Acesso ao console serial
+:-----------|:---------------------
+Red Hat Enterprise Linux    | As imagens do Red Hat Enterprise Linux disponíveis no Azure têm acesso ao console habilitado por padrão. 
+CentOS      | As imagens do CentOS disponíveis no Azure têm o acesso ao console habilitado por padrão. 
+Ubuntu      | As imagens do Ubuntu disponíveis no Azure têm o acesso ao console habilitado por padrão.
+CoreOS      | As imagens de CoreOS disponíveis no Azure têm o acesso ao console habilitado por padrão.
+SUSE        | Imagens mais recentes do SLES disponíveis no Azure têm o acesso ao console habilitado por padrão. Se você estiver usando versões mais antigas (10 ou inferiores) do SLES no Azure, siga o [	artigo da base de dados](https://www.novell.com/support/kb/doc.php?id=3456486) para habilitar o console serial. 
+Oracle Linux        | As imagens do Oracle Linux disponíveis no Azure têm o acesso ao console habilitado por padrão.
+Imagens personalizadas do Linux     | Para habilitar o console serial para a imagem de VM do Linux personalizada, habilite o acesso ao console em /etc/inittab para executar um terminal em ttyS0. Aqui está um exemplo para adicionar isso no arquivo inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Para obter mais informações sobre a criação adequada de imagens personalizadas, consulte [Criar e carregar um VHD do Linux no Azure](https://aka.ms/createuploadvhd).
+
+## <a name="common-scenarios-for-accessing-serial-console"></a>Cenários comuns para acessar o console serial 
+Cenário          | Ações no console serial                
+:------------------|:-----------------------------------------
+Arquivo FSTAB danificado | Chave `Enter` para continuar e corrigir o arquivo fstab usando um editor de texto. Talvez seja necessário estar em modo de usuário único para fazer isso. Consulte [como corrigir problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) e [Usar o console serial para acessar GRUB e modo de usuário único](serial-console-grub-single-user-mode.md) para começar.
+Regras de firewall incorretas | Acesse o console serial e corrija o iptables. 
+Corrupção de sistema de arquivos/verificação | Acesse o console serial e recupere o sistema de arquivos. 
+Problemas de configuração de RDP/SSH | Acesse o console serial e altere as configurações. 
+Bloqueio de sistema de rede| Acesse o console serial através do portal para gerenciar o sistema. 
+Interagir com o carregador de inicialização | Acesse o GRUB através do console serial.Access. Vá para [Usar o console serial para acessar GRUB e modo de usuário único](serial-console-grub-single-user-mode.md) para começar. 
+
+## <a name="disable-serial-console"></a>Desabilitar o Console Serial
 Por padrão, todas as assinaturas têm acesso de console serial habilitado para todas as VMs. É possível desabilitar o console serial no nível da assinatura ou no nível da VM.
 
 ### <a name="subscription-level-disable"></a>Desabilitação no nível da assinatura
@@ -120,31 +143,14 @@ Se um usuário estiver conectado ao console serial e outro usuário solicitar co
 >[!CAUTION] 
 Isso significa que o usuário que é desconectado não será fará logoff! A capacidade de impor um logoff após a desconexão (via SIGHUP ou um mecanismo semelhante) ainda está em nossos planos. Para o Windows, há um tempo limite automático habilitado no SAC. Porém, para Linux, você pode definir a configuração de tempo limite de terminal. Para fazer isso, basta adicionar `export TMOUT=600` a .bash_profile ou .profile para o usuário com o qual você se conectou ao console, para que a sessão atinja o tempo limite após 10 minutos.
 
-### <a name="disable-feature"></a>Desabilitar recurso
-A funcionalidade do console serial pode ser desativada para VMs específicas desabilitando a configuração de diagnóstico de inicialização da VM.
+## <a name="accessibility"></a>Acessibilidade
+A acessibilidade é o foco principal do console serial do Azure. Para esse fim, garantimos que o console serial seja acessível para pessoas com deficiências visuais e auditivas, bem como pessoas que não possam usar o mouse.
 
-## <a name="common-scenarios-for-accessing-serial-console"></a>Cenários comuns para acessar o console serial 
-Cenário          | Ações no console serial                |  Aplicabilidade de sistema operacional 
-:------------------|:-----------------------------------------|:------------------
-Arquivo FSTAB danificado | Chave `Enter` para continuar e corrigir o arquivo fstab usando um editor de texto. Talvez seja necessário estar em modo de usuário único para fazer isso. Consulte [como corrigir problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) e [Usar o console serial para acessar GRUB e modo de usuário único](serial-console-grub-single-user-mode.md) para começar. | Linux 
-Regras de firewall incorretas | Acesse o console serial e corrija iptables ou regras de firewall do Windows. | Linux/Windows 
-Corrupção de sistema de arquivos/verificação | Acesse o console serial e recupere o sistema de arquivos. | Linux/Windows 
-Problemas de configuração de RDP/SSH | Acesse o console serial e altere as configurações. | Linux/Windows 
-Bloqueio de sistema de rede| Acesse o console serial através do portal para gerenciar o sistema. | Linux/Windows 
-Interagir com o carregador de inicialização | Acesse o GRUB/BCD através do console serial. Vá para [Usar o console serial para acessar GRUB e modo de usuário único](serial-console-grub-single-user-mode.md) para começar. | Linux/Windows 
+### <a name="keyboard-navigation"></a>Navegação de teclado
+Use a tecla `tab` no teclado para navegar pela interface do console serial no portal Aure. O local será realçada na tela. Para deixar o foco da folha do console serial, pressione `Ctrl + F6` no teclado.
 
-## <a name="access-serial-console-for-linux"></a>Acessar Console Serial para Linux
-Para que o console serial funcione corretamente, o sistema operacional convidado deve ser configurado para ler e gravar mensagens de console para a porta serial. A maioria das [Distribuições do Linux para Azure aprovadas](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tem o console serial configurado por padrão. Basta clicar na seção Console Serial no portal do Azure para fornecer acesso ao console. 
-
-Distribuição      | Acesso ao console serial
-:-----------|:---------------------
-Red Hat Enterprise Linux    | As imagens do Red Hat Enterprise Linux disponíveis no Azure têm acesso ao console habilitado por padrão. 
-CentOS      | As imagens do CentOS disponíveis no Azure têm o acesso ao console habilitado por padrão. 
-Ubuntu      | As imagens do Ubuntu disponíveis no Azure têm o acesso ao console habilitado por padrão.
-CoreOS      | As imagens de CoreOS disponíveis no Azure têm o acesso ao console habilitado por padrão.
-SUSE        | Imagens mais recentes do SLES disponíveis no Azure têm o acesso ao console habilitado por padrão. Se você estiver usando versões mais antigas (10 ou inferiores) do SLES no Azure, siga o [	artigo da base de dados](https://www.novell.com/support/kb/doc.php?id=3456486) para habilitar o console serial. 
-Oracle Linux        | As imagens do Oracle Linux disponíveis no Azure têm o acesso ao console habilitado por padrão.
-Imagens personalizadas do Linux     | Para habilitar o console serial para a imagem de VM do Linux personalizada, habilite o acesso ao console em /etc/inittab para executar um terminal em ttyS0. Aqui está um exemplo para adicionar isso no arquivo inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Para obter mais informações sobre a criação adequada de imagens personalizadas, consulte [Criar e carregar um VHD do Linux no Azure](https://aka.ms/createuploadvhd).
+### <a name="use-serial-console-with-a-screen-reader"></a>Use o console serial com um leitor de tela
+O console serial vem com suporte para leitor de tela interno. Navegar ao redor com um leitor de tela ativado permitirá que o texto alternativo do botão atualmente selecionado seja lido em voz alta pelo leitor de tela.
 
 ## <a name="errors"></a>Errors
 A maioria dos erros é transitória por natureza e, para tentar novamente, a conexão do console serial geralmente resolve-os. A tabela abaixo mostra uma lista de erros e mitigações
@@ -164,6 +170,7 @@ Problema                           |   Redução
 Não há uma opção com o console serial de instância de conjunto de escala de máquina virtual |  No momento da visualização, não há suporte para acesso ao console serial para instâncias de conjunto de escala de máquina virtual.
 Pressionar enter após a faixa de conexão não mostra um log no prompt | Veja esta página: [Pressionar enter não resulta em nenhuma ação](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Isso pode acontecer se você estiver executando uma VM personalizada, um dispositivo protegido ou uma configuração GRUB que impeça o Linux de se conectar corretamente à porta serial.
 Uma resposta "Proibida" foi encontrada ao acessar a conta de armazenamento de diagnóstico de inicialização dessa VM. | Assegure-se de que o diagnóstico de inicialização não tem um firewall de conta. Uma conta de armazenamento de diagnóstico de inicialização acessível é necessária para o console serial funcionar.
+O texto do console serial ocupa apenas uma parte do tamanho da tela (geralmente depois de usar um editor de texto) | Esse é um problema conhecido com tamanho de tela desconhecido em conexões seriais. É recomendável instalar o xterm ou algum outro utilitário similar que forneça o comando 'redimensionar'. Executar o comando 'redimensionar' corrigirá isso.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes 
@@ -174,6 +181,15 @@ a. Forneça comentários sobre um problema acessando https://aka.ms/serialconsol
 **P. Não consigo acessar o console serial. Onde posso registrar um caso de suporte?**
 
 a. Esse recurso de visualização é abrangido por meio de Termos de Visualização do Azure. O suporte para isso é manipulado melhor por meio dos canais mencionados acima. 
+
+**P. É possível usar o console serial, em vez de uma conexão SSH?**
+
+R. Embora isso possa parecer tecnicamente possível, o console serial deve ser usado principalmente como uma ferramenta de solução de problemas em situações em que a conectividade via SSH não seja possível. É recomendável não usar o console serial como substituto de SSH por dois motivos:
+
+1. O console serial não tem a mesma largura de banda como o ssh - é uma conexão somente de texto, portanto, mais interações de interface gráfica do usuário pesada serão difíceis no console serial.
+1. O acesso ao console serial é atualmente apenas por nome de usuário e senha. Chaves SSH são muito mais seguras que as combinações de nome de usuário/senha, portanto, de uma perspectiva de segurança de logon, é recomendável SSH no console serial.
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * Use o Console Serial para [inicializar no GRUB e entrar no modo de usuário único ](serial-console-grub-single-user-mode.md)

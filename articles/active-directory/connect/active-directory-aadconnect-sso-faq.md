@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29ed96044ceaa914db3f8b7090a1be5f65827e54
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 5f654ce8730af1e66e0186d7087aa130b00afd2b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627467"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782101"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: perguntas frequentes
 
@@ -84,12 +84,11 @@ Siga estas etapas no servidor local em que você está executando o Azure AD Con
 
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Etapa 1. Obter lista de florestas do AD em que o SSO Contínuo foi habilitado
 
-1. Primeiro, baixe e instale o [Assistente de Conexão do Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Em seguida, baixe e instale o [Módulo do Azure Active Directory de 64 bits para Windows PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
-3. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
-4. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
-5. Execute o PowerShell como um Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de Administrador Global do locatário.
-6. Chame `Get-AzureADSSOStatus`. Esse comando fornece a lista de florestas do AD (consulte a lista “Domínios”) em que esse recurso foi habilitado.
+1. Primeiro, baixe e instale o [PowerShell do Microsoft Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
+3. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
+4. Execute o PowerShell como um Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de Administrador Global do locatário.
+5. Chame `Get-AzureADSSOStatus`. Esse comando fornece a lista de florestas do AD (consulte a lista “Domínios”) em que esse recurso foi habilitado.
 
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>Etapa 2. Atualizar a chave de descriptografia de Kerberos em cada floresta do AD que foi configurado
 
@@ -123,26 +122,24 @@ Para concluir o processo de limpeza, siga as etapas 2 e 3 no servidor local em q
 
 Siga estas etapas no servidor local em que o Azure AD Connect está sendo executado:
 
-1. Primeiro, baixe e instale o [Assistente de Conexão do Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Em seguida, baixe e instale o [Módulo do Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
-4. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
-5. Execute o PowerShell como um Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de Administrador Global do locatário.
-6. Chame `Enable-AzureADSSO -Enable $false`.
+1. Primeiro, baixe e instale o [PowerShell do Microsoft Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
+3. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
+4. Execute o PowerShell como um Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de Administrador Global do locatário.
+5. Chame `Enable-AzureADSSO -Enable $false`.
 
 >[!IMPORTANT]
 >Desabilitar o SSO Contínuo usando o PowerShell não alterará o estado no Azure AD Connect. O SSO Contínuo aparecerá como habilitado na página **Alterar entrada do usuário**.
 
 ### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Etapa 2. Obter lista de florestas do AD em que o SSO Contínuo foi habilitado
 
-Siga as etapas de 1 a 5 abaixo caso tenha desabilitado o SSO Contínuo usando o Azure AD Connect. Se você desabilitou o SSO Contínuo usando o PowerShell, vá diretamente até a etapa 6 abaixo.
+Siga as tarefas de 1 a 4 abaixo, se você desabilitou o SSO Contínuo usando o Azure AD Connect. Se você desabilitou o SSO Contínuo usando o PowerShell, vá para a tarefa 5 abaixo.
 
-1. Primeiro, baixe e instale o [Assistente de Conexão do Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Em seguida, baixe e instale o [Módulo do Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
-4. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
-5. Execute o PowerShell como um Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de Administrador Global do locatário.
-6. Chame `Get-AzureADSSOStatus`. Esse comando fornece a lista de florestas do AD (consulte a lista “Domínios”) em que esse recurso foi habilitado.
+1. Primeiro, baixe e instale o [PowerShell do Microsoft Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
+3. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
+4. Execute o PowerShell como um Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de Administrador Global do locatário.
+5. Chame `Get-AzureADSSOStatus`. Esse comando fornece a lista de florestas do AD (consulte a lista “Domínios”) em que esse recurso foi habilitado.
 
 ### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Etapa 3. Exclua manualmente a conta do computador `AZUREADSSOACCT` de cada floresta do AD que você vir listada.
 

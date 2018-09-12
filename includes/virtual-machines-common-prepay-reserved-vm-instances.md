@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6be00937a6645fbdd266ac0b1aa1ce95ecc6c3d9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43039250"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301901"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pagar antecipadamente pelas Máquinas Virtuais com Instâncias de VM Reservadas do Microsoft Azure
 
@@ -34,7 +34,7 @@ As Instâncias de VM Reservadas estão disponíveis para a maioria dos tamanhos 
 - Os descontos de reserva não se aplicam a VMs de núcleo suprimido.
 - Os descontos de reserva não se aplicam às seguintes séries de VMs: Série A, Série Av2 e Série G.
 - VMs em versão prévia: qualquer série ou tamanho de VM que esteja em versão prévia não estará disponível para compra de reserva.
-- Nuvens: as reservas não estão disponíveis para compra nas regiões Azure US Government, Alemanha ou China.
+- Nuvens: as reservas não estão disponíveis para compra nas regiões Governo dos EUA, Alemanha ou China para Azure.
 - Cota insuficiente: uma reserva que tenha um escopo de uma assinatura única precisa ter uma cota de vCPU disponível na assinatura para a nova RI. Por exemplo, se a assinatura de destino tiver um limite de cota de 10 vCPUs para a Série D, você não poderá comprar uma reserva para 11 instâncias Standard_D1. A verificação de cota para reservas inclui as VMs já implantadas na assinatura. Por exemplo, se a assinatura tiver uma cota de 10 vCPUs para o D-Series e tiver duas instâncias standard_D1 implantadas, você poderá comprar uma reserva para 10 instâncias standard_D1 nessa assinatura. 
 - Restrições de capacidade: em circunstâncias raras, o Azure limita a compra de novas reservas para o subconjunto de tamanhos de VM, devido à baixa capacidade em uma região.
 
@@ -68,17 +68,17 @@ As Instâncias de VM Reservadas estão disponíveis para a maioria dos tamanhos 
 
 O desconto da reserva é aplicado automaticamente ao número de máquinas virtuais em execução que correspondem ao escopo e atributos da reserva. Você pode atualizar o escopo da reserva por meio do [portal do Azure](https://portal.azure.com), PowerShell, CLI ou por meio da API.
 
-Para aprender a gerenciar uma reserva, confira [Gerenciar reservas do Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
+Para aprender a gerenciar uma reserva, confira [Gerenciar Reservas do Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
 
-Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
+Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
-- [Quais são as reservas do Azure?](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Gerenciar reservas no Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [O que são Reservas do Azure?](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Gerenciar Reservas no Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
 - [Entender como o desconto de reserva é aplicado](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Entender o uso de reserva para seu registro de empresa](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
-- [Custos de software do Windows não incluídos com instâncias reservadas](../articles/billing/billing-reserved-instance-windows-software-costs.md)
-- [Reservas do Azure no programa de parceiro provedor de solução de nuvem Center (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Custos de software do Windows não estão incluídos nas reservas](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

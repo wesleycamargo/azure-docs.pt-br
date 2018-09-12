@@ -11,78 +11,112 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 901eb5ef43ddb2840ed7a3d83fc08f2f05849461
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: a4aecd276df8e5453f0c35d6290bbe8a8d156ffa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189728"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669356"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Definir configurações de função de recurso do Azure no PIM
 
-Ao definir as configurações de função, você pode definir as configurações padrão que são aplicadas às atribuições no ambiente de PIM (Privileged Identity Management). Para definir essas configurações para o recurso, selecione a guia **Configurações de função** no painel esquerdo. Você também pode selecionar o botão de configurações de função na barra de ação (em qualquer função) para exibir as opções atuais.
+Ao definir as configurações da função de recursos do Azure, você define as configurações padrão aplicadas às atribuições de função de recursos do Azure no PIM (Azure AD Privileged Identity Management). Use os procedimentos a seguir para configurar o fluxo de trabalho de aprovação e especifique quem pode aprovar ou negar solicitações.
 
-## <a name="overview"></a>Visão geral
+## <a name="open-role-settings"></a>Abrir configurações de função
 
-Com o fluxo de trabalho de aprovação no PIM (Privileged Identity Management) para funções de recurso do Azure, os administradores podem proteger ou restringir ainda mais o acesso a recursos críticos. Ou seja, os administradores podem exigir aprovação para ativar as atribuições de função. 
+Siga estas etapas para abrir as configurações de uma função de recursos do Azure.
 
-O conceito de uma hierarquia de recursos é exclusivo das funções de recurso do Azure. Essa hierarquia permite a herança de atribuições de função de um objeto de recursos pai por todos os recursos filhos dentro do contêiner pai. 
+1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que seja membro da função [Administrador de Funções com Privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 
-Por exemplo, Bob, um administrador de recursos, usa PIM para atribuir Alice como membro qualificado para a função de proprietário na assinatura do Contoso. Com a atribuição, Alice é uma proprietária qualificada de todos os contêineres de grupo de recursos dentro da assinatura do Contoso. Alice também é uma proprietária qualificada de todos os recursos (como máquinas virtuais) em cada grupo de recursos da assinatura. 
+1. Abra o **Azure AD Privileged Identity Management**.
 
-Vamos supor que há três grupos de recursos na assinatura do Contoso: Teste Fabrikam, Desenvolvimento Fabrikam e Produção Fabrikam. Cada um desses grupos de recursos contém uma única máquina virtual.
+1. Clique em **Recursos do Azure**.
 
-As configurações PIM são definidas para cada função de um recurso. Ao contrário das atribuições, essas configurações não são herdadas e se aplicam estritamente à função do recurso. [Saiba mais sobre atribuições qualificadas e visibilidade de recursos.](pim-resource-roles-eligible-visibility.md)
+1. Clique no recurso que você quer gerenciar, como uma assinatura ou um grupo de gerenciamento.
 
-Continuando com o exemplo: Bob usa o PIM para exigir que todos os membros na função de proprietário da assinatura do Contoso solicitem aprovação para ativar. Para ajudar a proteger os recursos no grupo de recursos de Produção Fabrikam, Bob também requer aprovação para membros da função de proprietário desse recurso. As funções de proprietário em Teste Fabrikam e Desenvolvimento Fabrikam não requerem aprovação para ativar.
+    ![Lista de recursos do Azure para gerenciar](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-Quando Alice solicitar a ativação da sua função de proprietário para a assinatura do Contoso, um aprovador deverá aprovar ou negar a solicitação antes que ela se torne ativa na função. Se Alice decidir [definir o escopo de sua ativação](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) para o grupo de recursos de Produção Fabrikam, um aprovador deverá aprovar ou negar essa solicitação também. Mas, se Alice decidir definir o escopo de sua ativação para Teste Fabrikam e/ou Desenvolvimento Fabrikam, a aprovação não será necessária.
+1. Clique em **Configurações de função**.
 
-O fluxo de trabalho de aprovação pode não ser necessário para todos os membros de uma função. Considere um cenário em que sua organização contrata vários colaboradores contratados para ajudar no desenvolvimento de um aplicativo que será executado em uma assinatura do Azure. Como administrador de recursos, você gostaria que os funcionários tivessem acesso qualificado sem necessidade aprovação, mas os colaboradores contratados precisam solicitar aprovação. Para configurar o fluxo de trabalho de aprovação para apenas colaboradores contratados, você pode criar uma função personalizada com as mesmas permissões que a função atribuída aos funcionários. Você pode exigir aprovação para ativar a função personalizada. [Saiba mais sobre funções personalizadas](pim-resource-roles-custom-role-policy.md).
+    ![Configurações de função](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
-Para configurar o fluxo de trabalho de aprovação e especificar quem pode aprovar ou negar solicitações, use os procedimentos a seguir.
+1. Clique na função cujas configurações você deseja configurar.
+
+    ![Detalhes da configuração de função](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+
+1. Clique em **Editar** para abrir o painel Configurações de função.
+
+    ![Editar configurações de função](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+
+    No painel Configurações de função de cada função, há várias configurações que podem ser configuradas.
+
+## <a name="assignment-duration"></a>Duração dae atribuição
+
+É possível escolher entre duas opções de duração de atribuição para cada tipo de atribuição (qualificada e ativa) ao definir as configurações de uma função. Essas opções passam a ter a duração máxima padrão quando um membro é atribuído à função no PIM.
+
+É possível escolher uma destas opções de duração de atribuição **qualificada**:
+
+| | |
+| --- | --- |
+| **Permitir atribuição qualificada permanente** | Administradores de recursos podem atribuir membros qualificados permanentes. |
+| **Expirar atribuição qualificada após** | Os administradores de recursos podem exigir que todas as atribuições qualificadas tenham uma data de início e de término especificadas. |
+
+E, você pode escolher uma destas opções de duração da atribuição **ativa**:
+
+| | |
+| --- | --- |
+| **Permitir atribuição ativa permanente** | Administradores de recursos podem atribuir membros ativos permanentes. |
+| **Expirar atribuição ativa após** | Os administradores de recursos podem exigir que todas as atribuições ativas tenham uma data de início e de término especificadas. |
+
+> [!NOTE] 
+> Todas as atribuições que têm uma data de término especificada poderão ser renovadas por administradores de recursos. Além disso, os membros podem iniciar solicitações de autoatendimento para [estender ou renovar atribuições de função](pim-resource-roles-renew-extend.md).
+
+## <a name="require-multi-factor-authentication"></a>Exigir autenticação multifator
+
+O PIM fornece imposição opcional de MFA (Autenticação Multifator) para dois cenários distintos.
+
+### <a name="require-multi-factor-authentication-on-active-assignment"></a>Exigir Autenticação Multifator na atribuição ativa
+
+Em alguns casos, você pode querer atribuir um membro a uma função por um curto período (um dia, por exemplo). Nesse caso, eles não precisam que os membros designados solicitem ativação. Nesse cenário, o PIM não pode impor MFA quando o membro usa sua atribuição de função, pois já está ativo na função a partir do momento em que é atribuído.
+
+Para garantir que o administrador de recursos cumprindo a atribuição é quem diz ser, é possível impor MFA na atribuição ativa, marcando a caixa **Exigir Autenticação Multifator na atribuição ativa**.
+
+### <a name="require-multi-factor-authentication-on-activation"></a>Exigir a Autenticação Multifator na ativação
+
+É possível exigir que membros qualificados de uma função executem o MFA antes que possam ser ativados. Esse processo garante que o usuário solicitando ativação seja quem diz ser com uma certeza razoável. A aplicação dessa opção protege recursos críticos em situações em que a conta do usuário pode ter sido comprometida.
+
+Para solicitar que um membro qualificado execute a MFA antes da ativação, marque a caixa **Exigir Autenticação Multifator na ativação**.
+
+Para obter mais informações, consulte [MFA (Autenticação Multifator) e PIM](pim-how-to-require-mfa.md).
+
+## <a name="activation-maximum-duration"></a>Duração máxima de ativação
+
+Use o controle deslizante **Duração máxima da ativação** para definir o tempo máximo, em horas, que uma função permanecerá ativa antes de expirar. Esse valor pode estar entre 1 e 24 horas.
+
+## <a name="require-justification"></a>Exigir justificativa
+
+É possível exigir que os membros insiram uma justificativa na atribuição ativa ou quando são ativados. Para exigir justificativa, marque a caixa **Exigir justificativa na atribuição ativa**  ou a caixa **Exigir justificativa na ativação**.
 
 ## <a name="require-approval-to-activate"></a>Exigir aprovação para ativar
 
-1. Navegue até o PIM no Portal do Azure e selecione um recurso na lista.
+Se você quiser exigir aprovação para ativar uma função, siga estas etapas.
 
-   ![Painel "Recursos do Azure" com um recurso selecionado](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+1. Marque a caixa de seleção **Exige aprovação para ativar**.
 
-2. No painel esquerdo, selecione **Configurações de função**.
+1. Clique em **Selecionar aprovadores** para abrir o painel Selecionar um membro ou grupo.
 
-3. Procure e selecione uma função e selecione **Editar** para modificar as configurações.
+    ![Selecionar um membro ou grupo](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-   ![Botão "Editar" para a função de operador](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_view_settings.png)
+1. Selecione pelo menos um membro ou grupo e clique em **Selecionar**. É possível adicionar qualquer combinação de membros e grupos. É necessário selecionar pelo menos um aprovador. Não há nenhum aprovador padrão.
 
-4. Na seção de Ativação, selecione a caixa **Exigir aprovação para ativar**.
+    Suas seleções serão exibidas na lista de aprovadores selecionados.
 
-   ![Seção "Ativação" das configurações de função](media/azure-pim-resource-rbac/aadpim_rbac_settings_require_approval_checkbox.png)
-
-## <a name="specify-approvers"></a>Especificar aprovadores
-
-Clique em **Selecionar aprovadores** para abrir o painel **Selecionar um usuário ou grupo**.
-
->[!NOTE]
->Você deve selecionar pelo menos um usuário ou grupo para atualizar a configuração. Não há nenhum aprovador padrão.
-
-Os administradores de recurso podem adicionar qualquer combinação de usuários e grupos à lista de aprovadores. 
-
-![Painel "Selecionar um usuário ou grupo" com um usuário selecionado](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_select_approvers.png)
-
-## <a name="request-approval-to-activate"></a>Solicitar aprovação para ativar
-
-A solicitação de aprovação não tem impacto no procedimento que um membro deve ser seguir para ativar. [Examine as etapas para ativar uma função](pim-resource-roles-activate-your-roles.md).
-
-Se um membro solicitou a ativação de uma função que requer aprovação e a função não é mais necessária, o membro pode cancelar sua solicitação no PIM.
-
-Para cancelar, navegue até o PIM e selecione **Minhas solicitações**. Localize a solicitação e selecione **Cancelar**.
-
-![Painel “Minhas Solicitações”](media/azure-pim-resource-rbac/aadpim_rbac_role_approval_request_pending.png)
+1. Após especificar todas as configurações de função, clique em **Atualizar** para salvar as alterações.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Exigir autenticação multifator para funções de recurso do Azure no PIM](pim-resource-roles-require-mfa.md)
+- [Atribuir funções de recurso do Azure no PIM](pim-resource-roles-assign-roles.md)
 - [Configurar alertas de segurança para funções de recurso do Azure no PIM](pim-resource-roles-configure-alerts.md)

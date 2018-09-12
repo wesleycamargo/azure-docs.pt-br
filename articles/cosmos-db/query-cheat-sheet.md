@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 10ee398bce30b82d1e199a12cd471ae52d4fae21
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 432f61adaf736180a720aa23a7275e96fed4c733
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34614111"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696924"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Folhas de referências de consulta do Azure Cosmos DB
 
-As folhas de referência de consulta do **Azure Cosmos DB** ajudam a gravar consultas rapidamente para os dados, exibindo consultas de banco de dados, operações, funções e operadores comuns em folhas de referência para facilitar impressão de PDF. As folhas de referências incluem informações de referência para API de SQL, API do MongoDB, API de Tabela e API do Graph/Gremlin. 
+As folhas de referência de consulta do **Azure Cosmos DB** ajudam a gravar consultas rapidamente para os dados, exibindo consultas de banco de dados, operações, funções e operadores comuns em folhas de referência para facilitar impressão de PDF. As folhas de referências incluem informações de referência para a API de SQL, API do MongoDB, API de Tabela e API do Gremlin. 
 
 Escolha entre um download de tamanho A3 ou carta. 
 
@@ -27,18 +27,18 @@ Escolha entre um download de tamanho A3 ou carta.
 
 Baixe as [Folhas de referências de consulta em tamanho carta do Azure Cosmos DB](http://go.microsoft.com/fwlink/?LinkId=623215), se você for imprimir em papel tamanho carta (8,5" x 11").
 
-![Folhas de referências de consulta do Azure Cosmos DB - tamanho carta, com consultas e API de Tabela, API do Graph, API do MongoDB, JavaScript e API de SQL](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
+![Folhas de referências de consulta do Azure Cosmos DB - tamanho carta, com consultas e funções de API de Tabela, API de SQL, JavaScript, API do MongoDB e API do Gremlin](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 
 ## <a name="oversized-cheat-sheets"></a>Folhas de referências de tamanho grande
 Baixe as [folhas de referências de consulta tamanho A3 do Azure Cosmos DB](https://go.microsoft.com/fwlink/?linkid=870413), se você for imprimir utilizando uma plotadora ou impressora em larga escala em papel tamanho A3 (11,7" x 16,5").
 
-![Folhas de referências de consulta do Azure Cosmos DB - tamanho A3, com consultas e API de Tabela, API do Graph, API do MongoDB, JavaScript e API de SQL](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
+![Folhas de referências de consulta do Azure Cosmos DB - tamanho A3, com consultas e funções de API de Tabela, API de SQL, JavaScript, API do MongoDB e API do Gremlin](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais ajuda na gravação de consultas, leia os artigos a seguir:
 * Para consultas de API de SQL, leia [Consultar usando a API de SQL](tutorial-query-sql-api.md), [Consulta de SQL para Azure Cosmos DB](sql-api-sql-query.md) e [Referência de sintaxe SQL](sql-api-sql-query-reference.md)
 * Para consultas do MongoDB, leia [Consultar usando a API do MongoDB](tutorial-query-mongodb.md) e [Suporte de API do MongoDB para sintaxe e recursos do MongoDB](mongodb-feature-support.md)
-* Para consultas de API do Graph, leia [Consultar usando API do Graph](tutorial-query-graph.md) e [Suporte do Grafo Gremlin do Azure Cosmos DB](gremlin-support.md)
+* Para consultas de API do Gremlin, leia [Consultar usando API do Graph](tutorial-query-graph.md) e [Suporte ao grafo do Gremlin do Azure Cosmos DB](gremlin-support.md)
 * Para consultas de API de Tabela, leia [Consultar usando a API de Tabela](tutorial-query-table.md)
 
 

@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128119"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669476"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
@@ -27,8 +27,7 @@ Alterações no software instalado, nos serviços Windows, nos arquivos e regist
 
 Há suporte oficial para as seguintes versões do sistema operacional Windows para o agente para Windows:
 
-* Windows Server 2008 Service Pack 1 (SP1) ou posterior
-* Windows 7 SP1 e posterior.
+* Windows Server 2008 R2 ou posterior
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operacionais Linux com suporte
 
@@ -47,8 +46,8 @@ As seguintes distribuições Linux têm suporte oficialmente. No entanto, o agen
 Para iniciar o controle de alterações, é necessário ativar a solução Controle de Alterações e Inventário para a sua Conta de Automação.
 
 1. No Portal do Azure, navegue até sua Conta de Automação
-1. Selecione **Controle de Alterações** em **CONFIGURAÇÃO**.
-1. Selecione um espaço de trabalho do Log Analytics existente ou **Criar novo espaço de trabalho** e clique em **Habilitar**.
+2. Selecione **Controle de Alterações** em **CONFIGURAÇÃO**.
+3. Selecione um espaço de trabalho do Log Analytics existente ou **Criar novo espaço de trabalho** e clique em **Habilitar**.
 
 Isso habilita a solução para sua conta de automação. A solução pode demorar até 15 minutos para habilitar. A faixa azul notifica-o quando a solução estiver habilitada. Navegue de volta para a página **Controle de Alterações** para gerenciar a solução.
 

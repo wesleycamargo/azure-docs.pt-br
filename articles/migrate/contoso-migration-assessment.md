@@ -5,18 +5,18 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/26/2018
+ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: 96f9617e8cabbad1919625fb717940443978b007
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 700c90e8fd9b4b14370d4a5ac471c3f7d267bbcc
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046269"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783188"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: avaliar as cargas de trabalho do local para a migração para o Azure
 
-Neste artigo, a Contoso avalia o aplicativo SmartHotel local para migração para Azure.
+Neste artigo, a Contoso avalia o aplicativo SmartHotel360 local para migração para o Azure.
 
 Este artigo é parte de uma série que documenta como a empresa fictícia Contoso migra os recursos locais para a nuvem do Microsoft Azure. A série inclui informações em segundo plano e uma cenários de implantação detalhados que ilustram como configurar uma infraestrutura de migração, avaliar a adequação dos recursos locais para migração e executar diferentes tipos de migrações. Cenários aumentam em complexidade. Os artigos serão adicionados à série ao longo do tempo.
 
@@ -24,17 +24,17 @@ Artigo | Detalhes | Status
 --- | --- | ---
 [Artigo 1: Visão geral](contoso-migration-overview.md) | Visão geral da série de artigos, da estratégia de migração da Contoso e dos aplicativos de exemplo usados na série. | Disponível
 [Artigo 2: Implantar uma infraestrutura do Azure](contoso-migration-infrastructure.md) | A Contoso prepara a infraestrutura local e a infraestrutura do Azure para migração. A mesma infraestrutura é usada para todos os artigos da série. | Disponível
-Artigo 3: Avaliar recursos locais para migração para o Azure | A Contoso executa uma avaliação de seu aplicativo SmartHotel local em execução no VMware. A Contoso avalia as VMs do aplicativo usando o serviço de Migrações para Azure e o banco de dados do SQL Server do aplicativo usando o Assistente de Migração de Dados. | Este artigo
-[Artigo 4: Hospedar novamente um aplicativo em uma Instância Gerenciada do Banco de Dados SQL e VM do Azure](contoso-migration-rehost-vm-sql-managed-instance.md) | A Contoso executa uma migração lift-and-shift para Azure no aplicativo SmartHotel local. Ela migra o front-end do aplicativo, usando o serviço Azure Site Recovery. Ela migra o banco de dados do aplicativo para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure. | Disponível
-[Artigo 5: Hospedar novamente um aplicativo em VMs do Azure](contoso-migration-rehost-vm.md) | A Contoso migra suas VMs do aplicativo SmartHotel para as VMs do Azure usando o serviço Site Recovery. | Disponível
-[Artigo 6: Hospedar novamente um aplicativo em VMs do Azure e em um grupo de disponibilidade AlwaysOn do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | A Contoso migra o aplicativo SmartHotel usando o Site Recovery para migrar as VMs do aplicativo e o Serviço de Migração de Banco de Dados para migrar o banco de dados do aplicativo para um cluster do SQL Server protegido por um grupo de disponibilidade AlwaysOn. | Disponível
+Artigo 3: Avaliar recursos locais para migração para o Azure | A Contoso executa uma avaliação do aplicativo SmartHotel360 local em execução no VMware. A Contoso avalia as VMs do aplicativo usando o serviço de Migrações para Azure e o banco de dados do SQL Server do aplicativo usando o Assistente de Migração de Dados. | Este artigo
+[Artigo 4: Hospedar novamente um aplicativo em uma Instância Gerenciada do Banco de Dados SQL e VM do Azure](contoso-migration-rehost-vm-sql-managed-instance.md) | A Contoso executa uma migração lift-and-shift para o Azure no aplicativo SmartHotel360 local. Ela migra o front-end do aplicativo, usando o serviço Azure Site Recovery. Ela migra o banco de dados do aplicativo para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure. | Disponível
+[Artigo 5: Hospedar novamente um aplicativo em VMs do Azure](contoso-migration-rehost-vm.md) | A Contoso migra as VMs de aplicativos SmartHotel360 para VMs do Azure usando o serviço do Site Recovery. | Disponível
+[Artigo 6: Hospedar novamente um aplicativo em VMs do Azure e em um grupo de disponibilidade AlwaysOn do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | A Contoso migra o aplicativo SmartHotel360, usando o Site Recovery para migrar as VMs do aplicativo e o Serviço de migração de banco de dados para migrar o banco de dados do aplicativo para um cluster do SQL Server protegido por um grupo de disponibilidade AlwaysOn. | Disponível
 [Artigo 7: Hospedar novamente um aplicativo do Linux nas VMs do Azure](contoso-migration-rehost-linux-vm.md) | A Contoso conclui uma migração lift-and-shift do aplicativo osTicket do Linux para VMs do Azure usando o serviço Site Recovery. | Disponível
 [Artigo 8: Hospedar novamente um aplicativo Linux em VMs do Azure e Banco de Dados do Azure para MySQL](contoso-migration-rehost-linux-vm-mysql.md) | A Contoso migra o aplicativo osTicket do Linux para VMs do Azure, usando o Site Recovery. Ele migra o banco de dados do aplicativo para Banco de Dados do Azure para MySQL, usando o MySQL Workbench. | Disponível
-[Artigo 9: Refatorar um aplicativo em um aplicativo Web do Azure e Banco de Dados SQL do Azure](contoso-migration-refactor-web-app-sql.md) | A Contoso migra seu aplicativo SmartHotel para um aplicativo Web do Azure e migra o banco de dados do aplicativo para uma instância do Azure SQL Server com o Assistente de Migração de Banco de Dados. | Disponível
+[Artigo 9: Refatorar um aplicativo em um aplicativo Web do Azure e Banco de Dados SQL do Azure](contoso-migration-refactor-web-app-sql.md) | A Contoso migra seu aplicativo SmartHotel360 para um aplicativo Web do Azure e migra o banco de dados do aplicativo para uma instância do Azure SQL Server com o Assistente de Migração de Banco de Dados. | Disponível
 [Artigo 10: Refatorar um aplicativo do Linux em um aplicativo Web do Azure e Banco de Dados do Azure para MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | A Contoso migra seu aplicativo osTicket do Linux para um aplicativo Web do Azure em várias regiões do Azure usando o Gerenciador de Tráfego do Azure, integrado ao GitHub para entrega contínua. A Contoso migra o banco de dados do aplicativo para uma instância do Banco de Dados do Azure para MySQL. | Disponível
 [Artigo 11: Refactor o Team Foundation Server no Visual Studio Team Services](contoso-migration-tfs-vsts.md) | A Contoso migra a implantação do Team Foundation Server local para o Visual Studio Team Services no Azure. | Disponível
-[Artigo 12: Recriar a arquitetura de um aplicativo em contêineres do Azure e Banco de Dados SQL do Azure](contoso-migration-rearchitect-container-sql.md) | A Contoso migra o aplicativo SmartHotel para o Azure. Em seguida, ela cria novamente a camada da Web do aplicativo como um contêiner do Windows em execução no Azure Service Fabric e o banco de dados com o Banco de Dados SQL do Azure. | Disponível
-[Artigo 13: Recompilar um aplicativo no Azure](contoso-migration-rebuild.md) | A Contoso recompila o aplicativo SmartHotel usando diversas funcionalidades e serviços do Azure, incluindo o Serviço de Aplicativo do Azure, o AKS (Serviço de Kubernetes do Azure), o Azure Functions, os Serviços Cognitivos do Azure e o Azure Cosmos DB. | Disponível
+[Artigo 12: Recriar a arquitetura de um aplicativo em contêineres do Azure e Banco de Dados SQL do Azure](contoso-migration-rearchitect-container-sql.md) | A Contoso migra seu aplicativo SmartHotel360 para o Azure. Em seguida, ela cria novamente a camada da Web do aplicativo como um contêiner do Windows em execução no Azure Service Fabric e o banco de dados com o Banco de Dados SQL do Azure. | Disponível
+[Artigo 13: Recompilar um aplicativo no Azure](contoso-migration-rebuild.md) | A Contoso recompila o aplicativo SmartHotel360 usando um intervalo de recursos e serviços do Azure, incluindo Serviço de Aplicativo do Azure, AKS (Serviço de Kubernetes do Azure), Azure Functions, Serviços Cognitivos do Azure e Azure Cosmos DB. | Disponível
 
 
 ## <a name="overview"></a>Visão geral
@@ -45,7 +45,7 @@ Para começar e reconhecer melhor as tecnologias envolvidas, a Contoso avalia do
 
 Nome do aplicativo | Plataforma | Camadas do aplicativo | Detalhes
 --- | --- | --- | ---
-SmartHotel<br/><br/> (gerencia os requisitos de viagem da Contoso) | Executa no Windows com um banco de dados do SQL Server | Aplicativo de duas camadas. O site ASP.NET front-end é executado em uma VM (**WEBVM**) e o SQL Server é executado em outra VM (**SQLVM**). | As VMs são VMware, executando em um host ESXi gerenciado pelo vCenter Server.<br/><br/> É possível baixar o aplicativo de exemplo do [GitHub](https://github.com/Microsoft/SmartHotel360).
+SmartHotel360<br/><br/> (gerencia os requisitos de viagem da Contoso) | Executa no Windows com um banco de dados do SQL Server | Aplicativo de duas camadas. O site ASP.NET front-end é executado em uma VM (**WEBVM**) e o SQL Server é executado em outra VM (**SQLVM**). | As VMs são VMware, executando em um host ESXi gerenciado pelo vCenter Server.<br/><br/> É possível baixar o aplicativo de exemplo do [GitHub](https://github.com/Microsoft/SmartHotel360).
 osTicket<br/><br/> (aplicativo da central de serviços da Contoso) | Executa no Linux/Apache com PHP do MySQL (LAMP) | Aplicativo de duas camadas. Um site PHP front-end é executado em uma VM (**OSTICKETWEB**) e o banco de dados MySQL executa em outra VM (**OSTICKETMYSQL**). | O aplicativo é usado por aplicativos de atendimento ao cliente para rastrear problemas para funcionários internos e clientes externos.<br/><br/> É possível baixar o exemplo do [GitHub](https://github.com/osTicket/osTicket).
 
 ## <a name="current-architecture"></a>Arquitetura atual
@@ -100,7 +100,7 @@ Nesse cenário, a Contoso baixa e executa o Assistente de Migração de Dados pa
 - A Contoso tem um datacenter local (**contoso-datacenter**) e controladores de domínio locais (**CONTOSODC1**, **CONTOSODC2**).
 - As VMs do VMware estão localizadas em hosts VMware ESXi executando a versão 6.5 (**contosohost1**, **contosohost2**).
 - O ambiente VMware é gerenciado pelo vCenter Server 6.5 (**vcenter.contoso.com** em execução em uma VM).
-- O aplicativo de viagens SmartHotel tem estas características:
+- O aplicativo de viagem SmartHotel360 possui estas características:
     - O aplicativo é em camadas em duas VMs do VMware (**WEBVM** e **SQLVM**).
     - As VMs estão localizadas no host VMware ESXi **contosohost1.contoso.com**.
     - As máquinas virtuais estiverem executando o Windows Server 2008 R2 Datacenter com SP1.
@@ -148,11 +148,11 @@ Veja como a Contoso realiza a avaliação:
 2. A Contoso executa o arquivo de instalação baixado (DownloadMigrationAssistant.msi) para iniciar a instalação.
 3. Na página **Concluir**, a Contoso seleciona **Inicialização do Assistente de Migração de Dados da Microsoft** antes de concluir o assistente.
 
-## <a name="step-2-run-and-analyze-the-database-assessment-for-smarthotel"></a>Etapa 2: Executar e analisar a avaliação de banco de dados para SmartHotel
+## <a name="step-2-run-and-analyze-the-database-assessment-for-smarthotel360"></a>Etapa 2: Executar e analisar a avaliação do banco de dados do SmartHotel360
 
-Agora, a Contoso pode executar uma avaliação para analisar o banco de dados do SQL Server local para o aplicativo SmartHotel.
+Agora, a Contoso pode executar uma avaliação para analisar o banco de dados do SQL Server local para o aplicativo SmartHotel360.
 
-1. No Assistente de Migração de Dados, a Contoso seleciona **Nova** > **Avaliação** e, em seguida, fornece à avaliação um nome de projeto (**SmartHotel**).
+1. No Assistente de Migração de Dados, a Contoso seleciona **Nova** > **Avaliação** e, em seguida, fornece à avaliação um nome de projeto.
 2. Para **Tipo de servidor de origem**, a Contoso seleciona **SQL Server em Máquinas Virtuais do Azure**.
 
     ![Assistente de Migração de Dados - Selecionar fonte](./media/contoso-migration-assessment/dma-assessment-1.png)
@@ -285,13 +285,13 @@ Antes de implantar a VM, a Contoso verifica se o arquivo OVA é seguro:
     **Exemplo** 
     
     ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. O hash gerado deve corresponder a essas configurações (versão 1.0.9.12):
+3. O hash gerado deve corresponder a essas configurações (versão 1.0.9.14):
 
-    Algoritmo | Valor de hash
+    **Algoritmo** | **Valor de hash**
     --- | ---
-    MD5 | d0363e5d1b377a8eb08843cf034ac28a
-    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
-    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
+    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
 
 ### <a name="create-the-collector-appliance"></a>Criar o dispositivo coletor
 
@@ -524,8 +524,8 @@ Essa exibição mostra o custo total de computação e armazenamento da execuç�
 
 ## <a name="conclusion"></a>Conclusão
 
-Nesse cenário, a Contoso avalia o banco de dados do aplicativo SmartHotel usando a ferramenta de Avaliação de Migração de Dados. Ele avalia as VMs locais usando o serviço de Migrações para Azure. A Contoso revisa as avaliações para garantir que os recursos locais estejam prontos para migração para o Azure.
+Nesse cenário, a Contoso avalia o banco de dados do aplicativo SmartHotel360 usando a ferramenta de Avaliação de Migração de Dados. Ele avalia as VMs locais usando o serviço de Migrações para Azure. A Contoso revisa as avaliações para garantir que os recursos locais estejam prontos para migração para o Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-No próximo artigo da série, a Contoso hospeda novamente o aplicativo SmartHotel no Azure usando uma migração lift-and-shift. A Contoso migra o WEBVM front-end para o aplicativo usando o Azure Site Recovery. Ele migra o banco de dados do aplicativo para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados. [Introdução](contoso-migration-rehost-vm-sql-managed-instance.md) com essa implantação.
+No próximo artigo da série, a Contoso hospeda novamente o aplicativo SmartHotel360 no Azure usando uma migração lift-and-shift. A Contoso migra o WEBVM front-end para o aplicativo usando o Azure Site Recovery. Ele migra o banco de dados do aplicativo para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados. [Introdução](contoso-migration-rehost-vm-sql-managed-instance.md) com essa implantação.

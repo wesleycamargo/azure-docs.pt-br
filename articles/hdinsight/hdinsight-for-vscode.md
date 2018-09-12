@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: b66658bde818e2b4cce2cbc0dc5b419ba33dc737
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 58f930b7bb1dee8f8f95b6627ebf70fe095126c0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108821"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697842"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usar a Ferramenta do Azure HDInsight para Visual Studio Code
 
@@ -272,7 +272,7 @@ As Ferramentas do HDInsight para VS Code também permitem enviar consultas inter
 Depois que você envia um trabalho Python, os logs de envio aparecem na janela **SAÍDA** no VS Code. A **URL de interface do usuário do Spark** e a **URL de interface do usuário do Yarn** também são mostradas. Você pode abrir a URL em um navegador da Web para acompanhar o status do trabalho.
 
 >[!NOTE]
->O PySpark3 não é mais compatível com o Livy 0.4 (que é o cluster HDI spark 2.2). Somente "PySpark" é compatível com o Python. É um problema conhecido que envia para o spark 2.2 a falha com o python3.
+>O PySpark3 não é mais compatível com o Livy 0.4 (que é o cluster HDI spark 2.2). Somente "PySpark" é compatível com Python. É um problema conhecido que envia para o spark 2.2 a falha com o python3.
    
 ## <a name="livy-configuration"></a>Configuração de Livy
 A configuração de Livy é compatível. É possível defini-la nas configurações do projeto na pasta do espaço de trabalho. Para obter mais detalhes, consulte o [LEIAME do Livy](https://github.com/cloudera/livy/blob/master/README.rst ).

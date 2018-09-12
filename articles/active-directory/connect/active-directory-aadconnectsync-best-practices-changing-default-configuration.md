@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2c2fc3bcba4b685fba36683f89c0b6ad877dbb1d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0668eb33fe33b062c941ec4f2bff47c5ed77fb51
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595131"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287877"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Sincronização do Azure AD Connect: práticas recomendadas para alterar a configuração padrão
 O objetivo deste tópico é descrever as alterações com e sem suporte para a sincronização do Azure AD Connect.
@@ -37,6 +37,9 @@ A partir da versão 1.1 (fevereiro de 2016), você pode configurar o [agendador]
 
 ## <a name="changes-to-synchronization-rules"></a>Alterações nas regras de sincronização
 O assistente de instalação fornece uma configuração que deve funcionar nos cenários mais comuns. No caso de precisar fazer alterações na configuração, você deve seguir estas regras para continuar com uma configuração com suporte.
+
+> [!WARNING]
+> Se você fizer alterações nas regras de sincronização padrão, essas alterações serão substituídas na próxima vez em que o Azure AD Connect for atualizado, ocasionando resultados inesperados e provável sincronização indesejada.
 
 * Você poderá [alterar fluxos de atributos](active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes) se os fluxos de atributos diretos padrão não forem adequados para sua organização.
 * Se você optar por [não fluir um atributo](active-directory-aadconnectsync-change-the-configuration.md#do-not-flow-an-attribute) e remover valores do atributo existentes no Azure AD, você precisará criar uma regra para este cenário.

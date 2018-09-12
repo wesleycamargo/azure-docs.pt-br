@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: ea77244d4b2e078c5eda716e94a97291350228f5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: dfc9171f54effe3da7a0f13695ab233d561357d4
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145669"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43285678"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Volumes persistentes com arquivos do Azure
 
@@ -71,9 +71,9 @@ kubectl apply -f azure-file-sc.yaml
 
 ## <a name="create-a-cluster-role-and-binding"></a>Criar uma associação e função de cluster
 
-Os clusters AKS usam o controle de acesso baseado em função (RBAC) do Kubernetes para limitar as ações que podem ser executadas. *Funções* definem as permissões a serem concedidas e *ligações* as aplicam aos usuários desejados. Essas atribuições podem ser aplicadas a um determinado namespace ou em todo o cluster. Para obter mais informações, consulte [autorização usando RBAC][kubernetes-rbac].
+Os clusters AKS usam o controle de acesso baseado em função (RBAC) do Kubernetes para limitar as ações que podem ser executadas. *Funções* definem as permissões a serem concedidas e *ligações* as aplicam aos usuários desejados. Essas atribuições podem ser aplicadas a um determinado namespace ou em todo o cluster. Para obter mais informações, consulte [Usando a autorização do RBAC][kubernetes-rbac].
 
-Para permitir que a plataforma do Azure criar os recursos de armazenamento necessário, crie uma *clusterrole* e *clusterrolebinding*. Crie um arquivo chamado `azure-pvc-roles.yaml` e o copie no YAML a seguir:
+Para permitir que a plataforma do Azure crie os recursos de armazenamento necessários, crie um *ClusterRole* e *ClusterRoleBinding*. Crie um arquivo chamado `azure-pvc-roles.yaml` e o copie no YAML a seguir:
 
 ```yaml
 ---

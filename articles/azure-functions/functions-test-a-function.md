@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05c88c8938580666ce99f7cae46dc69cda3c3776
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: a57d5f8d857a8cfcdc81e86650466aec740f41e3
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344691"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286802"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar seu código no Azure Functions
 
@@ -34,9 +34,9 @@ Este tópico demonstra as várias maneiras de testar as funções, incluindo o u
 + Função disparada por timer
 + Teste de aplicativo ou de estrutura
 
-Todos esses métodos de testes usam uma função de gatilho HTTP que aceita entrada por meio de um parâmetro de cadeia de caracteres de consulta ou o corpo da solicitação. Você cria esta função na primeira seção.
+Todos esses métodos de testes usam uma função de gatilho HTTP que aceita entrada por meio de um parâmetro de cadeia de caracteres de consulta ou o corpo da solicitação. Você cria essa função usando o portal do Azure na primeira seção.
 
-## <a name="create-a-function-for-testing"></a>Criar uma função para teste
+## <a name="create-a-simple-function-for-testing-using-the-azure-portal"></a>Criar uma função simples para teste usando o portal do Azure
 Durante a maior parte deste tutorial, usamos uma versão ligeiramente modificada do modelo da função JavaScript HttpTrigger disponível quando você criar uma função. Se você precisar de ajuda para criar uma função, examinar isso [tutorial](functions-create-first-azure-function.md). Escolha o modelo **HttpTrigger- JavaScript** ao criar a função de teste no [portal do Azure].
 
 O modelo da função padrão é basicamente uma função “hello world” que retorna o nome do corpo da solicitação do parâmetro de cadeia de caracteres da consulta, `name=<your name>`.  Atualizamos o código para permitir também que você forneça o nome e um endereço como conteúdo JSON no corpo da solicitação. Em seguida, a função retorna para o cliente quando disponível.   

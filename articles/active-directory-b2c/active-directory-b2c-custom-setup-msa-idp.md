@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7a83ace83176d75abdac03b354c4c4ac71eb4238
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6a981f112c97ee35b476c92f6f698e68a12a1363
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448745"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336814"
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Adicionar MSA (Conta da Microsoft) como um provedor de identidade usando políticas personalizadas
 
@@ -23,7 +23,7 @@ ms.locfileid: "37448745"
 
 Este artigo mostra como habilitar a entrada para usuários da MSA (conta da Microsoft) por meio de [políticas personalizadas](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
 As etapas incluem:
@@ -58,7 +58,7 @@ Para usar a conta da Microsoft como um provedor de identidade no Azure AD (Azure
 
     ![Conta da Microsoft - Na lista de plataformas, escolha Web](media/active-directory-b2c-custom-setup-ms-account-idp/msa-web.png)
 
-7.  Insira `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` no campo **URLs de Redirecionamento** . Substitua **{tenant}** pelo nome do locatário (por exemplo, contosob2c.onmicrosoft.com).
+7.  Insira `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` no campo **URLs de Redirecionamento** . Substitua **{tenant}** pelo nome do locatário (por exemplo, contosob2c).
 
     ![Conta da Microsoft – Definir URLs de redirecionamento](media/active-directory-b2c-custom-setup-ms-account-idp/msa-redirect-url.png)
 

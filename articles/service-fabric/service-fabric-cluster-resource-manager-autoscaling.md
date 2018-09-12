@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: a742ac79f1152816621312e2ebc59598772ba127
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 55feb64f06c2d67f85f230cb92e84dfe8fd3ada2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990614"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782382"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao dimensionamento automático
 O dimensionamento automático é uma funcionalidade adicional do Service Fabric para dimensionar dinamicamente seus serviços com base na carga que os serviços estão relatando ou com base no uso dos recursos. O dimensionamento automático fornece excelente elasticidade e permite o provisionamento de instâncias ou partições adicionais do seu serviço sob demanda. Todo o processo de dimensionamento automático é automatizado e transparente e, depois que você configurar as políticas em um serviço, não é necessário dimensionar as operações de dimensionamento manuais no nível do serviço. O dimensionamento automático pode ser ativado no momento da criação de serviço, ou a qualquer momento, atualizando o serviço.
@@ -47,7 +47,7 @@ Atualmente, há dois mecanismos compatíveis com o dimensionamento automático. 
 O primeiro tipo de gatilho é baseado na carga de instâncias em uma partição de serviço sem estado. Cargas de métricas são primeiro suavizadas para obter a carga de cada instância de uma partição e, em seguida, é calculada a média desses valores em todas as instâncias da partição. Há três fatores que determinam quando o serviço será dimensionado:
 
 * _Limite inferior de carga_ é um valor que determina quando o serviço será **reduzido horizontalmente**. Se a carga média de todas as instâncias das partições for menor do que esse valor, o serviço será reduzido horizontalmente.
-* _Limite superior de carga_ é um valor que determina quando o serviço será **escalado horizontalmente**. Se a carga média de todas as instâncias da partição for menor do que esse valor, o serviço será escalado horizontalmente.
+* _Limite superior de carga_ é um valor que determina quando o serviço será **escalado horizontalmente**. Se a carga média de todas as instâncias da partição for maior que esse valor, o serviço será escalado horizontalmente.
 * _Intervalo de escala_ determina a frequência na qual o gatilho será verificado. Depois que o gatilho for verificado, se for necessário escalar, o mecanismo será aplicado. Se não for necessário escalar, nenhuma ação será tomada. Em ambos os casos, o gatilho não será verificado novamente antes do intervalo de escala expirar novamente.
 
 Esse gatilho pode ser usado somente com os serviços sem estado (contêineres sem estado ou serviços do Service Fabric). Nos casos que um serviço tiver várias partições, o gatilho será avaliado separadamente para cada partição, e cada partição terá o mecanismo especificado aplicado independentemente. Portanto, nesse caso, é possível que algumas das partições do serviço sejam escaladas horizontalmente, reduzidas horizontalmente e outras não serão dimensionadas de forma nenhuma, tudo ao mesmo tempo e dependendo da carga.

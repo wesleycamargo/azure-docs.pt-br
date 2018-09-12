@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: d248a97235ead134f29e468aaafcd04211590e02
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 67c3591b0218beac6343b49ba7867294ebeb3f44
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247483"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381973"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos de criptografia de disco do Azure 
  Neste artigo, pré-requisitos de criptografia de disco do Azure, explica os itens que precisam estar em vigor antes de usar o Azure Disk Encryption. O Azure Disk Encryption é integrado ao [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) para ajudar gerenciar as chaves de criptografia. Você pode usar o [Azure PowerShell](/powershell/azure/overview), a [CLI do Azure](/cli/azure/) ou o [portal do Azure](https://portal.azure.com) para configurar o Azure Disk Encryption.
@@ -38,7 +38,7 @@ O Azure Disk Encryption tem suporte nos seguintes sistemas operacionais:
 - O Azure Disk Encryption tem suporte somente em distribuições e versões específicas do servidor Linux baseado na Galeria do Azure. Para obter a lista das versões com suporte no momento, consulte o [perguntas frequentes sobre o Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 - O Azure Disk Encryption exige que seu cofre de chaves e as VMs residam na mesma região e assinatura do Azure. Configurá os recursos em regiões separadas causa uma falha na habilitação do recurso de Azure Disk Encryption.
 
-## <a name="bkmk_LinuxPrereq"></a> Pré-requisitos adicionais para VMs IaaS Linux 
+## <a name="bkmk_LinuxPrereq"></a> Pré-requisitos adicionais para VMs Iaas Linux 
 
 - O Azure Disk Encryption para Linux requer 7 GB de RAM na VM para habilitar a criptografia de disco do sistema operacional em [imagens com suporte](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Quando o processo de criptografia de disco do sistema operacional for concluído, a VM pode ser configurada para executar com menos memória.
 - Antes de habilitar a criptografia, os discos de dados a serem criptografados precisam ser listados corretamente em /etc/fstab. Use um nome de dispositivo de bloco persistente para essa entrada, pois nomes de dispositivo no formato "/dev/sdX" não podem ser considerados para serem associados com o mesmo disco entre as reinicializações, principalmente depois que a criptografia é aplicada. Para obter mais detalhes sobre esse comportamento, consulte: [alterações de nome de dispositivo de solucionar problemas de VM do Linux](../virtual-machines/linux/troubleshoot-device-names-problems.md)
@@ -47,7 +47,7 @@ O Azure Disk Encryption tem suporte nos seguintes sistemas operacionais:
     - O processo de criptografia de disco do Azure se moverá as informações de montagem fora /etc/fstab e em seu próprio arquivo de configuração como parte do processo de criptografia. Não se assuste para ver a entrada ausente do /etc/fstab após a criptografia de unidade de dados é concluída.
     -  Após a reinicialização, ela levará tempo para o processo de criptografia de disco do Azure montar os discos criptografados recentemente. Eles não estarão disponíveis imediatamente após uma reinicialização. O processo precisa de tempo para iniciar, desbloquear e, em seguida, montar as unidades criptografadas antes de estar disponível para ser acessado por outros processos. Esse processo pode levar mais de um minuto após a reinicialização, dependendo das características do sistema.
 
-Um exemplo de comandos que podem ser usados para montar os discos de dados e criar os necessários/etc/fstab entradas pode ser encontrado no [197-205 desse arquivo de script de linhas](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L197-L205). 
+Um exemplo de comandos que podem ser usados para montar os discos de dados e criar as entradas/ etc/fstab necessárias pode ser encontrado nas [linhas 244-248 desse arquivo de script ](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
 
 
 ## <a name="bkmk_GPO"></a> Sistema de rede e a diretiva de grupo
@@ -147,7 +147,7 @@ O Azure Disk Encryption se integra [Azure Key Vault](https://azure.microsoft.com
 Você pode criar um cofre de chaves com o Azure PowerShell usando o [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/New-AzureRmKeyVault) cmdlet. Para outros cmdlets para o Cofre de chaves, consulte [Azurerm](/powershell/module/azurerm.keyvault/). 
 
 1. Se necessário, [conectar-se à sua assinatura do Azure](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH). 
-2. Criar um novo grupo de recursos, se necessário, com [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup).  Para listar os locais de centro de dados, use [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocationn). 
+2. Criar um novo grupo de recursos, se necessário, com [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup).  Para listar os locais de centro de dados, use [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). 
      
      ```azurepowershell-interactive
      # Get-AzureRmLocation 

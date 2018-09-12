@@ -9,12 +9,12 @@ ms.reviewer: jasonh, sngun
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/21/2018
-ms.openlocfilehash: 80e287d09fdc5ab7157b9ee46bc830fd2db4d501
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1610e8173d90be3c0b50f05e64d0e84e1c21ad0e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912263"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698036"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
 
@@ -29,11 +29,11 @@ Após concluir essa solução, você será capaz de:
 * Desenvolver com confiança soluções de transmissão para seus clientes usando o Stream Analytics do Azure.
 * Use o monitoramento e experiência de log para solucionar problemas.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Os pré-requisitos a seguir serão necessários para concluir essa solução:
 * Uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="scenario-introduction-hello-toll"></a>Introdução ao cenário: “Olá, pedágio!”
+## <a name="scenario-introduction-hello-toll"></a>Introdução ao cenário: "Olá, pedágio!"
 Uma praça de pedágio é um fenômeno comum. Você se depara com elas em várias estradas, pontes e túneis em todo o mundo. Cada praça de pedágio tem várias cabines do pedágio. Em cabines manuais, você para e paga o pedágio para um atendente. Em cabines automatizadas, um sensor sobre cada uma das cabines lê um cartão RFID fixado ao para-brisa do veículo conforme você passa pela cabine. É fácil visualizar a passagem dos veículos por essas estações de pedágio como uma transmissão de eventos sobre quais operações interessantes podem ser executadas.
 
 ![Imagem de carros em cabines de pedágio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
@@ -111,7 +111,7 @@ Aqui está uma breve descrição das colunas:
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Configurar o ambiente para o Stream Analytics do Azure
 Para completar essa solução, você precisará de uma assinatura do Microsoft Azure. Se não tiver uma conta do Azure, [solicite uma versão de avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-Siga as etapas na seção “Limpar sua conta do Azure” no final deste artigo para que você possa fazer o melhor uso de seu crédito do Azure.
+Siga as etapas na seção "Limpar sua conta do Azure" no final deste artigo para que você possa fazer o melhor uso de seu crédito do Azure.
 
 ## <a name="deploy-the-sample"></a>Implantar o exemplo 
 Há vários recursos que podem ser facilmente implantados em um grupo de recursos com alguns cliques. A definição da solução está hospedada no repositório GitHub em [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
@@ -303,7 +303,7 @@ Para escalar verticalmente o trabalho de streaming para mais unidades de streami
 
 3. No cabeçalho CONFIGURE no trabalho de streaming, selecione **Escalar**.
    
-4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Selecione **Salvar**.
+4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Clique em **Salvar**.
 
 5. **Inicie** o trabalho de streaming para demonstrar a escala adicional. O Azure Stream Analytics distribui o trabalho em mais recursos de computação e obtém melhor taxa de transferência, particionando o trabalho entre os recursos usando a coluna designada na cláusula PARTITION BY. 
 

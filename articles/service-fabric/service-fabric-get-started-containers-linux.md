@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 259d876a958a348aeef70554390e48251b31a63d
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 133b0d483eb47a76ad2525a430b09b82259c118f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141857"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698240"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -27,6 +27,9 @@ ms.locfileid: "42141857"
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
 A execução de um aplicativo existente em um contêiner do Linux em um cluster do Service Fabric não requer alterações no seu aplicativo. Este artigo mostra como criar uma imagem do Docker que contém um aplicativo de web Python [Flask](http://flask.pocoo.org/) e a implantá-lo em um cluster do Service Fabric. Você também compartilhará seu aplicativo em contêineres pelo [Registro de Contêiner do Azure](/azure/container-registry/). Este artigo pressupõe uma compreensão básica sobre o Docker. Saiba mais sobre o Docker lendo a [Visão geral de Docker](https://docs.docker.com/engine/understanding-docker/).
+
+> [!NOTE]
+> Este artigo aplica-se a um ambiente de desenvolvimento do Linux.  O tempo de execução do cluster do Service Fabric e o tempo de execução do Docker devem estar em execução no mesmo sistema operacional.  Não é possível executar contêineres do Linux em um cluster do Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Um computador de desenvolvimento executando:

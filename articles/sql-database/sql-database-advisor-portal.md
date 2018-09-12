@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 7df4033a378ce3b37a99ed0335200e7f71696594
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 67432c8751cd8809649d41195957a7d68b392074
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528639"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665592"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 
@@ -114,7 +114,7 @@ Selecione qualquer recomendação e clique em **Exibir script**. Execute este sc
 *Os índices que são executados manualmente não são monitorados e validados quanto ao impacto no desempenho pelo serviço* , portanto, é recomendável que você monitore esses índices após a criação para verificar se eles fornecem ganhos de desempenho e ajustá-los ou excluí-los, se necessário. Para obter detalhes sobre a criação de índices, consulte [CRIAR ÍNDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
 
 ### <a name="canceling-recommendations"></a>Cancelando recomendações
-Recomendações que estão com status **Pendente**, **Verificando** ou **Sucesso** podem ser canceladas. Recomendações com status **Executando** não podem ser canceladas.
+Recomendações que estão com status **Pendente**, **Validando** ou **Êxito** podem ser canceladas. Recomendações com status **Executando** não podem ser canceladas.
 
 1. Selecione uma recomendação na área **Histórico de Ajustes** para abrir a página **detalhes da recomendação**.
 2. Clique em **Cancelar** para anular o processo de aplicação da recomendação.
@@ -126,7 +126,7 @@ A aplicação de uma recomendação pode não acontecer instantaneamente. O port
 |:--- |:--- |
 | Pendente |O comando Aplicar recomendação foi recebido e está programado para execução. |
 | Executando |A recomendação está sendo aplicada. |
-| Verificando |A recomendação foi aplicada com êxito e o serviço está medindo os benefícios. |
+| Validando |A recomendação foi aplicada com êxito e o serviço está medindo os benefícios. |
 | Sucesso |A recomendação foi aplicada com êxito e benefícios foram calculados. |
 | Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Este pode ser um problema temporário ou, possivelmente, uma alteração de esquema na tabela, tornando o script inválido. |
 | Revertendo |A recomendação foi aplicada, mas foi considerada não funcional e está sendo revertida automaticamente. |

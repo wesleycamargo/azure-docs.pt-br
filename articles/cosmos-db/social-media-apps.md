@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: f81a087a2595db41dbe84a54ad1fd01adf043515
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 7925ef15dc7b3ce25ae919810a5ed2220184fe6e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060396"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700836"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Expandindo o Azure Cosmos DB para as redes sociais
 Viver em uma sociedade amplamente interconectada significa que, em determinado momento da vida, você acaba se tornando parte de uma **rede social**. Você usa redes sociais para manter contato com amigos, colegas, família ou, às vezes, para compartilhar seu entusiasmo com pessoas que têm os mesmos interesses.
@@ -39,7 +39,7 @@ Por que o SQL não é a melhor opção nesse cenário? Vamos examinar a estrutur
 É claro que, para atender às necessidades de seu conteúdo, você poderia usar uma instância SQL gigantesca com capacidade suficiente para resolver milhares de consultas com essas várias junções, mas, sinceramente, por que faria isso quando há uma solução mais simples?
 
 ## <a name="the-nosql-road"></a>O caminho NoSQL
-Este artigo orientará você na modelagem de dados de sua plataforma social com o banco de dados NoSQL do Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), de maneira econômica, aproveitando outros recursos de Azure Cosmos DB, como a [API do Graph Gremlin](../cosmos-db/graph-introduction.md). Usando uma abordagem [NoSQL](https://en.wikipedia.org/wiki/NoSQL), armazenando os dados no formato JSON e aplicando a [desnormalização](https://en.wikipedia.org/wiki/Denormalization), sua postagem anteriormente complicada pode ser transformada em um único [Documento](https://en.wikipedia.org/wiki/Document-oriented_database):
+Este artigo orientará você na modelagem de dados de sua plataforma social com o banco de dados NoSQL do Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), de maneira econômica, aproveitando outros recursos de Azure Cosmos DB, como a [API do Gremlin](../cosmos-db/graph-introduction.md). Usando uma abordagem [NoSQL](https://en.wikipedia.org/wiki/NoSQL), armazenando os dados no formato JSON e aplicando a [desnormalização](https://en.wikipedia.org/wiki/Denormalization), sua postagem anteriormente complicada pode ser transformada em um único [Documento](https://en.wikipedia.org/wiki/Document-oriented_database):
 
 
     {
@@ -130,7 +130,7 @@ Para resolver isso, você pode usar uma abordagem mista. Como parte do documento
         "totalPoints":11342
     }
 
-E o grafo real de seguidores pode ser armazenado usando a [API do Graph Gremlin](../cosmos-db/graph-introduction.md) do Azure Cosmos DB, para criar [vértices](http://mathworld.wolfram.com/GraphVertex.html) para cada usuário e [bordas](http://mathworld.wolfram.com/GraphEdge.html) que mantêm as relações "A segue B". A API do Graph permite que você não apenas obtenha os seguidores de um determinado usuário, mas também criem consultas mais complexas para até mesmo sugerir pessoas em comum. Se adicionar ao grafo as Categorias de Conteúdo que as pessoas curtem, é possível começar a combinar experiências que incluem a descoberta de conteúdo inteligente, sugestão de conteúdo curtido pelas pessoas que você segue ou localização das pessoas com quem pode ter muito em comum.
+E o grafo real de seguidores pode ser armazenado usando a [API do Gremlin](../cosmos-db/graph-introduction.md) do Azure Cosmos DB, para criar [vértices](http://mathworld.wolfram.com/GraphVertex.html) para cada usuário e [bordas](http://mathworld.wolfram.com/GraphEdge.html) que mantêm as relações "A segue B". A API do Gremlin permite que você não apenas obtenha os seguidores de um determinado usuário, mas também criem consultas mais complexas para até mesmo sugerir pessoas em comum. Se adicionar ao grafo as Categorias de Conteúdo que as pessoas curtem, é possível começar a combinar experiências que incluem a descoberta de conteúdo inteligente, sugestão de conteúdo curtido pelas pessoas que você segue ou localização das pessoas com quem pode ter muito em comum.
 
 O documento Estatísticas do Usuário ainda pode ser usado para criar cartões na interface do usuário ou visualizações rápidas de perfil.
 

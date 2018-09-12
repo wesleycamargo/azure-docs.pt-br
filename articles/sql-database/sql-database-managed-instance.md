@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 08/30/2018
 ms.author: bonova
-ms.openlocfilehash: 2c6cdcd5d8d50a54a87e3dabd2aa09eccc646738
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141012"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287656"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma Instância Gerenciada (versão prévia)?
 
@@ -71,7 +71,7 @@ A instância gerenciada está disponível em duas camadas de serviço:
 - **Uso Geral**: projetada para aplicativos com desempenho típico e requisitos de latência de E/S.
 - **Comercialmente crítico**: projetada para aplicativos com baixos requisitos de latência de E/S e impacto mínimo das operações de manutenção subjacentes na carga de trabalho.
 
-Ambas as camadas de serviço garantem 99,99% de disponibilidade e permitem que você selecione de maneira independente o tamanho do armazenamento e a capacidade de computação. 
+Ambas as camadas de serviço garantem 99,99% de disponibilidade e permitem que você selecione de maneira independente o tamanho do armazenamento e a capacidade de computação. Para obter mais informações sobre a arquitetura de alta disponibilidade do Banco de Dados SQL do Azure, consulte [Alta Disponibilidade e Banco de Dados SQL do Azure](sql-database-high-availability.md).
 
 > [!IMPORTANT]
 > Não há suporte para alterar sua camada de serviço de uso geral para Comercialmente Crítico ou vice-versa em visualização pública. Se você quiser migrar seus bancos de dados para uma instância na camada de serviço diferentes, pode criar a nova instância, restaurar os bancos de dados com recuperação pontual da instância original e, em seguida, descarte a instância original se não for mais necessária. 
@@ -97,7 +97,7 @@ A lista a seguir apresenta a principal característica da camada de serviço de 
 | Número de arquivos de dados (LINHAS) por banco de dados | Vários | 
 | Número de arquivos de log (LOG) por banco de dados | 1 | 
 | Backups automatizados gerenciados | SIM |
-| HA | Com base em armazenamento remoto e [Microsoft Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| HA | Dados armazenados no Armazenamento do Microsoft Azure e [Microsoft Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Métricas e monitoramento de banco de dados e instância interna | SIM |
 | Aplicação automática de patches de software | SIM |
 | VNet - Implantação do Azure Resource Manager | SIM |
@@ -131,7 +131,7 @@ A lista a seguir apresenta as características principais da camada Comercialmen
 | Número de arquivos de dados (LINHAS) por banco de dados | Vários | 
 | Número de arquivos de log (LOG) por banco de dados | 1 | 
 | Backups automatizados gerenciados | SIM |
-| HA | Com base em [grupos de disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| HA | Dados armazenados em SSD local e uso de [Grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e [Microsoft Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Métricas e monitoramento de banco de dados e instância interna | SIM |
 | Aplicação automática de patches de software | SIM |
 | VNet - Implantação do Azure Resource Manager | SIM |

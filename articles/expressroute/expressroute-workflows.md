@@ -1,25 +1,18 @@
 ---
-title: Fluxos de trabalho para a configuração de um circuito da ExpressRoute | Microsoft Docs
+title: Fluxos de trabalho para configurar um circuito do Azure ExpressRoute | Microsoft Docs
 description: Esta página fornece uma orientação pelos fluxos de trabalho de configuração de emparelhamentos e circuito de ExpressRoute
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 765050c9c21c7ba752535fc391cc9bb7d8ac4083
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23013121"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301031"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho do ExpressRoute para provisionamento e estados do circuito
 Esta página fornece uma orientação de alto nível pelos fluxos de trabalho de provisionamento do serviço e de configuração do roteamento.
@@ -33,9 +26,9 @@ A figura e as etapas correspondentes a seguir mostram as tarefas que você deve 
 3. Confira se o circuito foi provisionado com sucesso verificando o estado de provisionamento do circuito do ExpressRoute por meio do PowerShell. 
 4. Configure os domínios de roteamento. Se seu provedor de conectividade gerencia a camada 3 para você, ele configurará o roteamento para o circuito. Se o seu provedor de conectividade oferecer somente os serviços de Camada 2, configure o roteamento de acordo com as diretrizes descritas nas páginas [requisitos de roteamento](expressroute-routing.md) e [configuração de roteamento](expressroute-howto-routing-classic.md).
    
-   * Habilitar o emparelhamento privado do Azure - Você deve habilitar esse emparelhamento para se conectar a VMs/serviços de nuvem implantados dentro das redes virtuais.
-   * Habilitar o emparelhamento público do Azure - Você deve habilitar o emparelhamento público do Azure se quiser se conectar aos serviços do Azure hospedados em endereços IP públicos. Esse é um requisito para acessar os recursos do Azure se você tiver optado por habilitar o roteamento padrão para emparelhamento privado do Azure.
-   * Habilitar o emparelhamento da Microsoft – você deve habilitar isso para acessar o Office 365 e o Dynamics 365. 
+   * Habilitar emparelhamento privado do Azure - Habilite esse emparelhamento para conectar VMs/serviços de nuvem implantados em redes virtuais.
+
+   * Habilitar emparelhamento da Microsoft - Habilite-o para acessar Office 365 e Dynamics 365. Além disso, todos os serviços de PaaS do Azure são acessíveis através do emparelhamento da Microsoft.
      
      > [!IMPORTANT]
      > Use um proxy/borda diferente da usada para a Internet para se conectar à Microsoft. Usar a mesma borda para o ExpressRoute e para a Internet causará o roteamento assimétrico e falhas de conectividade em sua rede.

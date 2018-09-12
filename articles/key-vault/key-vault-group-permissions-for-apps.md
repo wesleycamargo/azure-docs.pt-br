@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-ms.openlocfilehash: ddeaf184138bd48d324799ddb45248b0a0ee8eeb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 14e6e8bb723eb236f8fb315454b8697a3bd947ef
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30174961"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286420"
 ---
 # <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Conceder permissão para vários aplicativos acessarem um Key Vault
 
-## <a name="q-i-have-several-over-16-applications-that-need-to-access-a-key-vault-since-key-vault-only-allows-16-access-control-entries-how-can-i-achieve-that"></a>P: Eu tenho vários aplicativos (mais de 16) que precisam acessar um Key Vault. Como o Key Vault permite apenas 16 entradas de controle de acesso, como posso fazer isso?
+## <a name="q-i-have-several-applications-that-need-to-access-a-key-vault-how-can-i-give-these-applications-up-to-1024-access-to-key-vault"></a>P: Tenho vários aplicativos que precisam acessar um cofre de chaves, como posso conceder acesso a esses aplicativos (até 1024) para o Key Vault?
 
-A política de controle de acesso do Key Vault dá suporte apenas a 16 entradas. No entanto, você pode criar um grupo de segurança do Azure Active Directory. Adicione todas as entidades de serviço associadas a esse grupo de segurança e, em seguida, conceda acesso a esse grupo de segurança para o Key Vault.
+A política de controle de acesso do Key Vault dá suporta a até 1024 entradas. No entanto, você pode criar um grupo de segurança do Azure Active Directory. Adicione todas as entidades de serviço associadas a esse grupo de segurança e, em seguida, conceda acesso a esse grupo de segurança para o Key Vault.
 
 Veja os pré-requisitos:
 * [Instalar o módulo do PowerShell do Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureAD).

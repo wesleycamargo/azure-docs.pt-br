@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: de42e68116c147d81ed0211426bfa813d070b121
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e15e17a499ad33a270b220fa7483d96c2945f6bb
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627987"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338070"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizar e reimplantar um microsserviço
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Efetuar pull na nova imagem do docker
 > * Visualizar as alterações 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir este tutorial, você precisa do seguinte:
 
@@ -187,10 +187,10 @@ Neste tutorial, você aprendeu como:
 > * Efetuar pull na nova imagem do docker
 > * Visualizar as alterações 
 
-O próximo passo para se tentar é [como personalizar o microsserviço do simulador de dispositivo na solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-test.md)
+O próximo passo para se tentar é [como personalizar o microsserviço do simulador de dispositivo na solução de Monitoramento Remoto](iot-accelerators-microservices-example.md)
 
 Para obter informações do desenvolvedor sobre a solução de Monitoramento Remoto, confira:
 
-* [Guia de Referência do Desenvolvedor](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
+* [Guia de referência do Desenvolvedor](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 <!-- Next tutorials in the sequence -->
 

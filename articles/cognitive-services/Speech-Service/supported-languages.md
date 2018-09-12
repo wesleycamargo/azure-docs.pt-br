@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7e2634db33d760207e9190b9955bd1f2ead179be
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: de9abac2839341e1744a694daaaa0befdff4e7fa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123147"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668573"
 ---
 # <a name="supported-languages-for-speech-service"></a>Idiomas compatíveis com o serviço de fala
 
@@ -39,7 +39,7 @@ A API de reconhecimento de fala da Microsoft é compatível com os seguintes idi
 
 ## <a name="text-to-speech"></a>Texto em fala
 
-A API de **Conversão de Texto em Fala** oferece as seguintes vozes, cada uma delas compatível com um idioma e dialeto específicos, identificados pela localidade.
+A API de sintetização de voz oferece as seguintes vozes, cada uma das quais dá suporte a um idioma e um dialeto específicos, identificados por localidade.
 
 Local | Linguagem | Gênero | Mapeamento do nome do serviço
 -------|----------|---------|--------------------
@@ -128,13 +128,16 @@ zh-TW | Chinês (Taiwan)|Feminino | “Voz da Conversão de Texto em Fala do Mic
 
 ### <a name="customization"></a>Personalização
 
-Fontes de voz de **Conversão de Texto em Fala** personalizadas são compatíveis com inglês dos EUA (en-US) e chinês (zh-CN).
+A personalização de voz está disponível para inglês dos EUA (en-US), chinês do continente (zh-CN) e italiano (it-IT).
+
+> [!NOTE]
+> O treinamento de voz italiana inicia com um conjunto de dados de mais de 2.000 enunciados. Modelos bilíngues chinês-inglês também têm suporte com um conjunto de dados inicial de mais de 2.000 enunciados.
 
 ## <a name="speech-translation"></a>Tradução de Fala
 
 A API de **Tradução de Fala** é compatível com diferentes idiomas para conversão de fala em fala e de fala em texto. O idioma de origem sempre deve ser da tabela de Idioma de Fala abaixo. Os idiomas de destino disponíveis dependem de se o destino de tradução é fala ou texto.
 
-Você pode obter a lista de idiomas programaticamente ou usando o ponto de extremidade de Idiomas da API REST. A lista fornece cada código de idioma, bem como o nome do idioma em inglês ou em qualquer outro idioma compatível. Esta lista é atualizada pelo serviço Microsoft Translator sempre que um novo idioma é disponibilizado.
+É possível obter a lista de idiomas programaticamente usando o ponto de extremidade de Idiomas da API REST. A lista fornece cada código de idioma, bem como o nome do idioma em inglês ou em qualquer outro idioma compatível. Esta lista é atualizada pelo serviço Microsoft Translator sempre que um novo idioma é disponibilizado.
 
 ### <a name="speech-languages"></a>Idiomas de fala
 

@@ -16,15 +16,19 @@ ms.component: report-monitor
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: eafbe25a5a0fa9182030304e9142a6013c9fb29b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: bf50dbf942dc7a82afbb60455be45b6c4b287ccd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142027"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782153"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Solução de erros do pacote de conteúdo dos Logs de atividades do Azure Active Directory 
 
+|  |
+|--|
+|Atualmente, o pacote de conteúdo do Azure AD Power BI usa as APIs do Graph do Azure AD para recuperar dados do locatário do Azure AD. Como resultado, você poderá ver alguma disparidade entre os dados disponíveis no pacote de conteúdo e os dados recuperados usando as [APIs do Microsoft Graph para relatórios](concept-reporting-api.md). |
+|  |
 
 Ao trabalhar com o Pacote de Conteúdo do Power BI para a Versão Prévia do Azure Active Directory, é possível encontrar os seguintes erros: 
 

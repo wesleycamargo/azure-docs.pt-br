@@ -15,22 +15,22 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 82845f475857f9a911febd496e86eb2a60f69c25
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886553"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782219"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Monitore o Banco de Dados SQL do Azure usando a Análise de SQL do Azure (Versão prévia)
 
 ![Símbolo da Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Análise do SQL Azure é uma solução de monitoramento para monitorar o desempenho de bancos de dados SQL do Azure em grande escala em vários pools Elásticos e assinaturas de nuvem. Ele coleta e visualiza métricas de desempenho importantes do banco de dados SQL com inteligência interna para solução de problemas na parte superior. 
+A Análise de SQL do Azure é uma solução de monitoramento em nuvem para monitorar o desempenho de Bancos de Dados SQL do Azure, pools elásticos e Instâncias Gerenciadas em escala e em várias assinaturas. Ela coleta e visualiza importantes métricas de desempenho do Banco de Dados SQL do Azure com inteligência interna para solução de problemas de desempenho.
 
-Usando as métricas que coleta com a solução, você pode criar alertas e regras de monitoramentos personalizadas. A solução ajuda a identificar problemas em cada camada da pilha do aplicativo. Ele usa métricas de Diagnóstico do Azure com modos de exibição de Log Analytics para apresentar dados sobre todos os bancos de dados do Azure SQL e pools elásticos em um único espaço de trabalho de Log Analytics. O Log Analytics ajuda a coletar, correlacionar e visualizar dados estruturados e não estruturados.
+Usando as métricas que coleta com a solução, você pode criar alertas e regras de monitoramentos personalizadas. A solução ajuda a identificar problemas em cada camada da pilha do aplicativo. Ela usa as métricas de Diagnóstico do Azure junto com as exibições do Log Analytics para apresentar dados sobre todos os Bancos de Dados SQL do Azure, pools elásticos e bancos de dados em Instâncias Gerenciadas em um único espaço de trabalho de Log Analytics. O Log Analytics ajuda a coletar, correlacionar e visualizar dados estruturados e não estruturados.
 
-Atualmente, essa solução de visualização dá suporte a até 5.000 Bancos de Dados do Azure SQL e 150.000 Pools Elásticos por espaço de trabalho.
+Atualmente, essa solução em versão prévia dá suporte a até 200.000 Banco de Dados SQL do Azure e 5.000 Pools Elásticos do SQL por espaço de trabalho.
 
 Para uma visão geral prática sobre o uso da solução da Análise de SQL do Azure e para cenários de uso típicos, assista o vídeo inserido:
 
@@ -39,9 +39,9 @@ Para uma visão geral prática sobre o uso da solução da Análise de SQL do Az
 
 ## <a name="connected-sources"></a>Fontes conectadas
 
-Análise do SQL Azure é uma nuvem monitoramento solução suporte de streaming de telemetria de diagnóstico para pools Elásticos e bancos de dados SQL do Azure. Como ele não usa agentes para se conectar ao serviço Log Analytics, a solução não é compatível com a conectividade com o Windows, Linux ou recursos do SCOM; consulte a tabela de compatibilidade abaixo.
+A Análise de SQL do Azure é uma solução de monitoramento somente em nuvem que dá suporte ao streaming de telemetria de diagnóstico para Bancos de Dados SQL do Azure, pools elásticos e Instâncias Gerenciadas. Como não usa agentes para conectar o serviço do Log Analytics, a solução não dá suporte a monitoramento de VMs ou SQL Servers locais, consulte a tabela de compatibilidade abaixo.
 
-| Fonte Conectada | Suporte | DESCRIÇÃO |
+| Fonte Conectada | Com suporte | DESCRIÇÃO |
 | --- | --- | --- |
 | **[Diagnóstico do Azure](log-analytics-azure-storage.md)** | **Sim** | Os dados de métrica e de log do Azure são enviados ao Log Analytics diretamente pelo Azure. |
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não  | O Log Analytics não lê os dados pré-existentes de uma conta de armazenamento. |
@@ -165,7 +165,7 @@ AzureMetrics
 > - O pré-requisito para configurar esse alerta é que os bancos de dados monitorados transmitam métricas de diagnóstico (opção "Todas as métricas") para a solução.
 > - Substitua o valor cpu_percent de MetricName por dtu_consumption_percent para obter os resultados de DTU alta em vez disso.
 
-*Armazenamento do Banco de Dados SQL do Azure acima de 95%, em média, na última 1h*
+*Banco de Dados SQL do Azure em média acima de 95% na última 1 hora*
 
 ```
 let time_range = 1h;

@@ -7,14 +7,14 @@ manager: carmonm
 keywords: backup de vms, backup de máquinas virtuais
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: 438c1130486fe1ba2ee484ae01655a2fb115de27
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9e2ef16cffb044409b6f7f8e7785010097bcda87
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390748"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286645"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planejar sua infraestrutura de backup da VM no Azure
 Este artigo fornece sugestões de desempenho e recursos para ajudá-lo a planejar a infraestrutura de backup da VM. Ele também define os principais aspectos do serviço de Backup. Esses aspectos podem ser críticos para determinar a arquitetura, o planejamento de capacidade e o agendamento. Se você [preparou o ambiente](backup-azure-arm-vms-prepare.md), o planejamento será a próxima etapa antes de começar a [fazer backup das VMs](backup-azure-arm-vms.md). Se você precisa de mais informações sobre máquinas virtuais do Azure, confira a [documentação da Máquina Virtual](https://azure.microsoft.com/documentation/services/virtual-machines/). 
@@ -50,17 +50,18 @@ O Backup do Azure realiza backups completos de VSS em VMs do Windows (leia mais 
 ```
 
 #### <a name="linux-vms"></a>VMs Linux
-O Backup do Azure fornece uma estrutura de script. Para garantir a consistência do aplicativo ao fazer backup de VMs do Linux, crie scripts personalizados de pré e pós-scripts que controlam o fluxo de trabalho de backup e o ambiente. O Backup do Azure invoca o pré-script antes de gerar o instantâneo de VM e invoca o pós-script após concluir o trabalho de instantâneo de VM. Para obter mais detalhes, consulte [Backup de VM Linux consistente com o aplicativo usando pré-script e pós-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
+O Backup do Azure fornece uma estrutura de script para controlar o fluxo de trabalho e o ambiente de backup. Para garantir backups de VM do Linux de aplicativo consistente, use a estrutura de script para criar pré-scripts e pós-scripts personalizados. Invoque o pré-script antes de obter o instantâneo da VM e, em seguida, invoque o script posterior quando o trabalho de instantâneo da VM for concluído. Para mais informações, consulte o artigo [backups de VM do Linux de aplicativo consistente](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
 > [!NOTE]
 > O Backup do Azure invoca apenas os pré e pós-scripts escritos pelo cliente. Se o pré e pós-scripts forem executados com êxito, o Backup do Azure marcará o ponto de recuperação como consistente com o aplicativo. No entanto, o cliente é responsável pela consistência do aplicativo ao usar scripts personalizados.
 >
 
-
-Esta tabela explica os tipos de consistência e as condições sob as quais elas ocorrem durante o backup da VM do Azure e os procedimentos de restauração.
+A tabela a seguir explica os tipos de consistência e as condições em que ocorrem.
 
 | Consistência | Baseado em VSS | Explicação e detalhes |
 | --- | --- | --- |
-| Consistência de aplicativo |Sim para Windows|A consistência do aplicativo é ideal para cargas de trabalho, pois garante que:<ol><li> a VM *seja iniciada*. <li>Não há *corrupção*. <li>*Não há perda de dados*.<li> Os dados são consistentes com o aplicativo que usa os dados, envolvendo o aplicativo no momento do backup – usando o VSS ou o pré/pós-script.</ol> <li>*VMs Windows* – a maioria das cargas de trabalho da Microsoft têm gravadores VSS que executam ações específicas à carga de trabalho relacionadas à consistência dos dados. Por exemplo, o Microsoft SQL Server tem um gravador VSS que garante que as gravações no arquivo de log de transações e no banco de dados sejam realizadas corretamente. Para backups de VM Windows do Azure, para criar um ponto de recuperação consistente com o aplicativo, a extensão de backup deve invocar o fluxo de trabalho do VSS e concluí-lo antes da criação do instantâneo de VM. Para que o instantâneo de VM do Azure seja preciso, os gravadores VSS de todos os aplicativos de VM do Azure também devem ser concluídos. (Aprenda as [noções básicas do VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) e aprofunde-se nos detalhes de [como ele funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx).) </li> <li> *VMs Linux* – Os clientes podem executar o [pré-script e pós-script personalizados para garantir a consistência do aplicativo](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
+| Consistência de aplicativo |Sim para Windows|A consistência do aplicativo é ideal para cargas de trabalho, pois garante que:<ol><li> a VM *seja iniciada*. <li>Não há *corrupção*. <li>*Não há perda de dados*.<li> Os dados são consistentes com o aplicativo que usa os dados, envolvendo o aplicativo no momento do backup – usando o VSS ou o pré/pós-script.</ol> <li>*VMs Windows* – A maioria das cargas de trabalho da Microsoft possui gravadores VSS que executam ações específicas da carga de trabalho relacionadas à consistência de dados. Por exemplo, o gravador VSS do SQL Server garante que as gravações no arquivo de log de transações e no banco de dados sejam feitas corretamente. Para backups de VM do Windows de IaaS, para criar um ponto de recuperação de aplicativo consistente, a extensão de backup deve invocar o fluxo de trabalho do VSS e concluí-lo antes de obter o instantâneo da VM. Para que o instantâneo de VM do Azure seja preciso, os gravadores VSS de todos os aplicativos de VM do Azure também devem ser concluídos. (Aprenda as [noções básicas do VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) e aprofunde-se nos detalhes de [como ele funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx).) </li> <li> *VMs Linux* – Os clientes podem executar o [pré-script e pós-script personalizados para garantir a consistência do aplicativo](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
 | Consistência do sistema de arquivos |Sim - para computadores baseados em Windows |Há dois cenários em que o ponto de recuperação pode ser *consistente com o sistema de arquivos*:<ul><li>Backups de VMs Linux no Azure, sem pré-script/pós-script ou se o pré-script/pós-script falhou. <li>Falha do VSS durante o backup de VMs Windows no Azure.</li></ul> Em ambos os casos, o melhor que se pode fazer é garantir que: <ol><li> a VM *seja iniciada*. <li>Não há *corrupção*.<li>*Não há perda de dados*.</ol> Os aplicativos precisam implementar seu próprio mecanismo de "correção" nos dados restaurados. |
 | Consistência de falhas |Não  |Essa situação é equivalente a uma máquina virtual tendo uma "falha" (por meio de uma reinicialização forçada ou flexível). A consistência de falhas geralmente ocorre quando a máquina virtual do Azure está desligada no momento do backup. Um ponto de recuperação com controle de falhas não garante a consistência dos dados no meio de armazenamento – tanto da perspectiva do sistema operacional quanto do aplicativo. Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup. <br/> <br/> Embora não haja nenhuma garantia, em geral, o sistema operacional é inicializado, seguido pelo procedimento de verificação de disco, como chkdsk, para corrigir erros de danos. Todos os dados ou gravações na memória que não foram transferidos para o disco serão perdidos. O aplicativo geralmente segue com seu próprio mecanismo de verificação, caso seja necessário realizar reversão de dados. <br><br>Por exemplo, se o log de transações tiver entradas que não estão presentes no banco de dados, o software de banco de dados fará uma reversão até que os dados fiquem consistentes. Quando os dados são distribuídos entre vários discos virtuais (como volumes estendidos), um ponto de recuperação consistente quanto a falhas não garante a exatidão dos dados. |
 
@@ -104,19 +105,22 @@ Uma operação de restauração consiste em duas tarefas principais: copiar dado
 * Tempo de cópia de dados – Os dados são copiados primeiro do cofre para a conta de armazenamento do cliente. O tempo de restauração depende de IOPS e serviço de Backup do Azure da taxa de transferência obtida na conta de armazenamento do cliente selecionado. Para reduzir o tempo de cópia durante o processo de restauração, selecione uma conta de armazenamento não carregada com outras leituras e gravações de aplicativo.
 
 ## <a name="best-practices"></a>Práticas recomendadas
-É recomendável seguir essas práticas ao configurar backups de máquinas virtuais com discos não gerenciados:
 
-> [!Note]
-> As seguintes práticas que recomendam alterar ou gerenciar contas de armazenamento se aplicam apenas a VMs com discos não gerenciados. Se você usar discos gerenciados, o Azure cuida de todas as atividades de gerenciamento que envolvem o armazenamento.
-> 
+É recomendável seguir estas práticas ao configurar backups para todas as máquinas virtuais:
 
-* Não agende mais de 10 VMs clássicas do mesmo serviço de nuvem para fazer backup ao mesmo tempo. Se você quiser fazer backup de várias VMs do mesmo serviço de nuvem, distribua os horários de início de backup em uma hora.
-* Não agende mais de 100 VMs para fazer backup ao mesmo tempo, de um único cofre. 
+* Não agende backups para mais de 10 VMs clássicas do mesmo serviço de nuvem ao mesmo tempo. Se você quiser fazer backup de várias VMs do mesmo serviço de nuvem, divida as horas de início de backup por uma hora.
+* Não agende backups para mais de 100 VMs de um cofre ao mesmo tempo.
 * Agende os backups de VM fora do horário de pico. Dessa forma, o serviço de Backup usa o IOPS para transferir dados da conta de armazenamento do cliente para o cofre.
-* Certifique-se de que uma política seja aplicada às VMs distribuídas entre diferentes contas de armazenamento. Sugerimos que não mais do que 20 discos de uma única conta de armazenamento sejam protegidos pelo mesmo agendamento de backup. Se você tiver mais de 20 discos em uma conta de armazenamento, distribua as VMs por várias políticas para obter o IOPS necessário durante a fase de transferência do processo de backup.
-* Não restaure uma VM em execução no armazenamento Premium para a mesma conta de armazenamento. Se o processo de operação de restauração coincidir com a operação de backup, ele reduzirá o IOPS disponível para backup.
-* Para backup de VM Premium na pilha de backup de VM V1 é recomendável que você aloque apenas 50% do espaço de conta de armazenamento total, para que o serviço de Backup do Azure possa copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre.
 * Certifique-se de que as VMs do Linux estejam ativadas para backup, tenham a versão 2.7 ou superior do Python.
+
+### <a name="best-practices-for-vms-with-unmanaged-disks"></a>Melhores práticas para VMs com discos não gerenciados
+
+As recomendações a seguir aplicam-se somente a VMs usando discos não gerenciados. Se as VMs usarem discos gerenciados, o serviço de Backup manipulará todas as atividades de gerenciamento de armazenamento.
+
+* Certifique-se de aplicar uma política de backup às VMs espalhadas por várias contas de armazenamento. Não mais que 20 discos totais de uma única conta de armazenamento devem ser protegidos pelo mesmo agendamento de backup. Se você tiver mais de 20 discos em uma conta de armazenamento, distribua as VMs por várias políticas para obter o IOPS necessário durante a fase de transferência do processo de backup.
+* Não restaure uma VM em execução no armazenamento Premium para a mesma conta de armazenamento. Se o processo de operação de restauração coincidir com a operação de backup, ele reduzirá o IOPS disponível para backup.
+* Para backup de VM Premium na pilha de backup de VM V1, você deve alocar apenas 50% do espaço total da conta de armazenamento para que o serviço de Backup possa copiar o instantâneo para a conta de armazenamento e transferir dados da conta de armazenamento para a área segura.
+
 
 ## <a name="data-encryption"></a>Criptografia de dados
 O Backup do Azure não criptografa os dados como parte do processo de backup. No entanto, você pode criptografar os dados dentro da VM e fazer backup dos dados protegidos diretamente (leia mais sobre [backup de dados criptografados](backup-azure-vms-encryption.md)).

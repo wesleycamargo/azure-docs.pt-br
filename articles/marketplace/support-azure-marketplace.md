@@ -14,26 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: f529459562ec10a7b9bbcca578d8998e545f3f4c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0007396ad6d5fc16177d76683f959591e9830ac3
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952606"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782069"
 ---
-# <a name="support-for-azure-marketplace"></a>Suporte para Azure Marketplace  
-As opções de suporte do Azure Marketplace.  
+# <a name="support-for-the-marketplace"></a>Suporte para o Marketplace  
+As opções de suporte para o Marketplace.  
 
 ## <a name="onboarding"></a>Integração
 
 [Abra um tíquete](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) para a "Integração do Marketplace" junto ao Suporte da Microsoft a fim de solucionar todos os problemas com o Ponto de Partida.
-
-## <a name="publishing"></a>Publicação  
-
-| Canal de suporte | DESCRIÇÃO | Disponibilidade |  
-|:--- |:--- |:--- |  
-| Email: [azurecertified@microsoft.com](mailto:azurecertified@microsoft.com) | Suporte para o Azure Marketplace publicar aplicativos para você. | O horário comercial está no fuso horário do Pacífico. |  
-| Email: [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com) | Acesso de integração para test drives. | O horário comercial está no fuso horário do Pacífico. |  
 
 ## <a name="cloud-partner-portal"></a>Portal de Parceiros de Nuvem  
 
@@ -48,7 +41,7 @@ As opções de suporte do Azure Marketplace.
 | Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Ambiente Slack para dar suporte aos Parceiros com problemas técnicos. Há cerca de 350 parceiros atualmente trabalhando nesse ambiente. |  
 | Fóruns do MSDN: Marketplace localizado em [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Fórum Microsoft Developer Network. |  
 | Stack Overflow: Azure localizado em [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Ambiente do Stack Overflow para obter soluções e fazer perguntas sobre tudo relacionado ao Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace localizado em [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager localizado em [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Máquinas Virtuais no Azure localizadas em [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Contêineres no Azure localizados em [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
-
+| Suporte para AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Suporte para publicação de Aplicativos do Dynamics |
 ## <a name="marketing-resources"></a>Recursos de marketing  
 
 | Canal de suporte | DESCRIÇÃO | Disponibilidade |  
@@ -57,14 +50,6 @@ As opções de suporte do Azure Marketplace.
 | Email: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Suporte para benefícios de entrada no mercado e perguntas sobre o programa. | O horário comercial está no fuso horário do Pacífico. |  
 | Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Responde perguntas sobre o uso para logotipos e identidade visual do Azure. |  |  
 
-# <a name="support-for-appsource"></a>Suporte para AppSource  
-As opções de suporte para o AppSource.  
-
-## <a name="technical"></a>Técnicos  
-
-| Canal de suporte | DESCRIÇÃO |  
-|:--- |:--- |  
-| Email: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Suporte para publicação de Aplicativos do Microsoft Dynamics |
 
 ## <a name="next-steps"></a>Próximas etapas
 Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5fb6289f75f0c98cc218233d8adb900484ee4a17
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c64b32656db2d3b821833450b4e866b9e33e44cd
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916489"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337338"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com a conta da Amazon usando o Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Para usar uma conta da Amazon como um provedor de identidade no Azure AD (Azure 
 3. Selecione **Registrar novo aplicativo**.
 4. Insira o **Nome**, a **Descrição** e a **URL do Aviso de Privacidade** e clique em **Salvar**.
 5. Na seção **Configurações da Web**, copie os valores de **ID do cliente**. Selecione **Mostrar segredo** para obter o segredo do cliente e copie-o. Você precisará de ambos para configurar uma conta da Amazon como um provedor de identidade em seu locatário. **Segredo do Cliente** é uma credencial de segurança importante.
-6. Na seção **Configurações da Web**, selecione **Editar** e insira `https://login.microsoftonline.com` em **JavaScript Origins permitido** e `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` em **URLs de retorno permitidas**. Substitua **{tenant}** pelo nome do locatário (por exemplo, contoso.onmicrosoft.com). 
+6. Na seção **Configurações da Web**, selecione **Editar** e insira `https://{tenant}.b2clogin.com` em **JavaScript Origins permitido** e `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` em **URLs de retorno permitidas**. Substitua **{tenant}** pelo nome do locatário (por exemplo, contosob2c). 
 7. Clique em **Salvar**.
 
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>Configurar uma conta da Amazon como um provedor de identidade

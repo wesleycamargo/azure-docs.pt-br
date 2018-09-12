@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 16d023a2f3abf0feb1f1c0478edb3de7a157d5a4
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 1f3a24cebe5061f7e3ca3897692b068531780431
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140789"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668114"
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights
 
@@ -31,7 +31,7 @@ Caso esteja tendo problemas de desempenho com máquinas virtuais, antes de conta
 
 O PerfInsights pode coletar e analisar vários tipos de informações. As seções a seguir cobrem cenários comuns.
 
-### <a name="quick-performance-analysis"></a>Análise de Desempenho Rápida
+### <a name="quick-performance-analysis"></a>Análise rápida de desempenho
 
 Este cenário coleta a configuração do disco e outras informações importantes, incluindo:
 
@@ -104,7 +104,7 @@ São coletadas informações sobre a VM do Windows, a configuração de discos o
 
 |Dados coletados                              |  |  | Cenários de desempenho |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Análise de Desempenho Rápida | Parâmetros de comparação | Análise de desempenho | Análise de Arquivos do Azure | Análise de desempenho avançado |
+|                               | Análise rápida de desempenho | Parâmetros de comparação | Análise de desempenho | Análise de Arquivos do Azure | Análise de desempenho avançado |
 | Informações de logs de eventos       | SIM                        | sim                                | sim                      | sim                  | SIM                  |
 | Informações do sistema                | SIM                        | sim                                | sim                      | sim                  | SIM                  |
 | Mapa de volume                        | SIM                        | sim                                | sim                      | sim                  | SIM                  |
@@ -171,9 +171,9 @@ Testes de carga de trabalho de E/S do Diskspd (disco do SO [gravação] e unidad
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Possíveis problemas ao executar a ferramenta em VMs de produção
 
--  Para os cenários de parâmetro de comparação ou de "Análise de Desempenho Avançado" configurado para usar Xperf ou Diskspd, a ferramenta pode afetar negativamente o desempenho da VM. Esses cenários não devem ser executados em um ambiente de produção ativo.
+-  Para os cenários de parâmetro de comparação ou de "Análise de desempenho avançado" configurado para usar Xperf ou Diskspd, a ferramenta pode afetar negativamente o desempenho da VM. Esses cenários não devem ser executados em um ambiente de produção ativo.
 
--  Para os cenários de parâmetro de comparação ou de "Análise de Desempenho Avançado" configurado para usar o Diskspd, verifique se nenhuma outra atividade em segundo plano interfere na carga de trabalho de E/S.
+-  Para os cenários de parâmetro de comparação ou de "Análise de desempenho avançado" configurado para usar o Diskspd, verifique se nenhuma outra atividade em segundo plano interfere na carga de trabalho de E/S.
 
 -  Por padrão, a ferramenta usa a unidade de armazenamento temporário para coletar dados. Se o rastreamento permanecer habilitado por mais tempo, a quantidade de dados coletados poderá ser relevante. Isso pode reduzir a disponibilidade de espaço no disco temporário, podendo afetar, portanto, qualquer aplicativo que dependa dessa unidade.
 
@@ -245,11 +245,11 @@ Para executar a ferramenta PerfInsights, siga estas etapas:
     >
     >Se a chave de duração **/d** não for especificada, PerfInsights solicitará que você reproduza novamente o problema durante a execução de vmslow, azurefiles e cenários avançados. 
 
-Quando os rastreamentos e as operações forem concluídos, um novo arquivo aparecerá na mesma pasta do PerfInsights. O nome do arquivo é **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip.** Envie esse arquivo para o agente de suporte para análise ou abra o relatório no arquivo zip para examinar as conclusões e recomendações.
+Quando os rastreamentos e as operações forem concluídos, um novo arquivo aparecerá na mesma pasta do PerfInsights. O nome do arquivo é **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip.** Envie esse arquivo para o agente de suporte para análise ou abra o relatório no arquivo zip para examinar as conclusões e recomendações.
 
 ## <a name="review-the-diagnostics-report"></a>Examine o relatório de diagnóstico
 
-No arquivo **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip**, você pode localizar um relatório HTML com detalhes sobre as descobertas do PerfInsights. Para examinar o relatório, expanda o arquivo **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** e, em seguida, abra o arquivo **PerfInsights Report.html**.
+No arquivo **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip**, é possível localizar um relatório HTML que detalha as descobertas do PerfInsights. Para revisar o relatório, expanda o arquivo **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** e, em seguida, abra o arquivo **PerfInsights Report.html**.
 
 Selecione a guia **Descobertas**.
 
@@ -314,4 +314,4 @@ A captura de tela a seguir mostra uma mensagem semelhante à qual você poderá 
 
 Siga as instruções na mensagem para acessar o espaço de trabalho de transferência de arquivo. Para mais segurança, você deve alterar sua senha no primeiro uso.
 
-Após entrar, você encontrará uma caixa de diálogo para carregar o arquivo **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** coletado por PerfInsights.
+Após entrar, você encontrará uma caixa de diálogo para carregar o arquivo **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** que foi coletado pelo PerfInsights.

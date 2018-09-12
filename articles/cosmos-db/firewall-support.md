@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: govindk
-ms.openlocfilehash: 7c9367cccf8d59d60dfa474f02567d59b9c8c8c2
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b21debdd6baa0a6587318ad861a821840ec6879c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037857"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666690"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Suporte ao firewall do Azure Cosmos DB
 Para proteger os dados armazenados em uma conta de banco de dados do Azure Cosmos DB, o Azure Cosmos DB forneceu suporte para um [modelo de autorização](https://msdn.microsoft.com/library/azure/dn783368.aspx) baseado em segredo que utiliza um HMAC (código de autenticação de mensagem baseado em hash) forte. Agora, além do modelo de autorização baseado em segredo, o Azure Cosmos DB dá suporte a controles de acesso baseados em IP controlados por política para suporte ao firewall de entrada. Esse modelo é semelhante às regras de firewall de um sistema de banco de dados tradicional e fornece um nível adicional de segurança à conta de banco de dados do Azure Cosmos DB. Com esse modelo, agora você pode configurar uma conta de banco de dados do Azure Cosmos DB para que ela possa ser acessada somente em um conjunto aprovado de computadores e/ou serviços de nuvem. O acesso aos recursos do Azure Cosmos DB nesses conjuntos aprovados de computadores e serviços ainda exige que o chamador apresente um token de autorização válido.
@@ -57,7 +57,12 @@ O acesso ao Portal do Azure é habilitado por padrão, quando você altera a con
 ![Captura de tela mostrando como habilitar o acesso ao portal do Azure](./media/firewall-support/enable-azure-portal.png)
 
 ## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>Conexões de datacenters Globais do Azure ou serviços de PaaS do Azure
-No Azure, os serviços de PaaS, como o Azure Stream Analytics, o Azure Functions e o Serviço de Aplicativo do Azure, são usados em conjunto com o Azure Cosmos DB. Para habilitar o acesso à conta do banco de dados do Microsoft Azure Cosmos DB desses serviços cujos endereços IP não estão prontamente disponíveis, adicione o endereço IP de 0.0.0.0 à lista permitida de endereços IP associados à sua conta do banco de dados do Microsoft Azure Cosmos DB programaticamente. 
+
+Serviços de PaaS do Azure, como Azure Stream Analytics, Azure Functions etc., são usados em conjunto com o Azure Cosmos DB. Para permitir que aplicativos de outros serviços de PaaS do Azure conectem os recursos do Azure Cosmos DB, uma configuração de firewall deverá ser habilitada. Para habilitar essa configuração de firewall, adicione o endereço IP - 0.0.0.0 à lista de endereços IP permitidos. 0.0.0.0 restringe as conexões à conta do Azure Cosmos DB do intervalo de IP do datacenter do Azure. Essa configuração não permite o acesso de nenhum outro intervalo de IP à conta do Azure Cosmos DB.
+
+> [!IMPORTANT]
+> Esta opção configura o firewall para permitir todas as conexões do Azure, incluindo as conexões das assinaturas de outros clientes. Ao selecionar essa opção, verifique se as permissões de logon e de usuário limitam o acesso somente a usuários autorizados.
+> 
 
 O acesso às conexões de datacenters globais do Azure é habilitado por padrão quando você altera a configuração do Firewall para **Redes selecionadas** no portal do Azure. 
 

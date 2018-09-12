@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeedes
-ms.openlocfilehash: f860036f1a69b2d1ab6ac8de763a49380f8fe4bf
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3a394c13092547991bf7f8ae98e5c69e92077701
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145246"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutorial: Integração do Azure Active Directory com o YouEarnedIt
 
@@ -139,7 +139,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configuração de YouEarnedIt](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-7. Para configurar o logon único no lado do **YouEarnedIt**, você precisa enviar o **Certificado baixado (Base64)** e **URL do serviço de logon único SAML** para o seu atribuído YouEarnedIt Gerente de Sucesso do Cliente. Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+7. Para configurar logon único no lado do **YouEarnedIt**, é necessário enviar o ***Certificado (Base64)*** baixado e a ***URL do serviço de logon único do SAML*** ao gerente de Sucesso dos Clientes **YouEarnedIt** atribuído. Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

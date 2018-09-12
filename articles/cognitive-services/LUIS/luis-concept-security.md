@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: fe0ee7d575e69c883ad7f980477e86fbd004778e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fddffbcabba753e9ef214f924d5ff2cee38427a5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397236"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301686"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Acesso de criação e do usuário de ponto de extremidade
 O acesso de criação está disponível para proprietários e colaboradores. Para um aplicativo privado, o acesso de ponto de extremidade está disponível para proprietários e colaboradores. Para um aplicativo público, o acesso de ponto de extremidade está disponível a todos que têm sua conta LUIS e que tem a ID do aplicativo público. 
@@ -60,7 +60,7 @@ Configure o aplicativo como **público** na página **Configurações** do aplic
 Um usuário que não é proprietário ou colaborador só poderá acessar um aplicativo público se tiver recebido a ID do aplicativo. O LUIS não tem um _mercado_ público ou outra maneira de pesquisar um aplicativo público.  
 
 ## <a name="microsoft-user-accounts"></a>Contas de usuário Microsoft
-Autores e colaboradores podem adicionar chaves ao LUIS na página de publicação. A conta de usuário Microsoft que cria a chave LUIS no portal do Azure precisa do proprietário do aplicativo ou de um colaborador de aplicativo. 
+Autores e colaboradores podem adicionar chaves ao LUIS na página de publicação. A conta de usuário Microsoft que cria a chave de LUIS no portal do Azure precisa ser o proprietário do aplicativo ou um colaborador do aplicativo. 
 
 Consulte [Usuário do locatário do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para saber mais sobre as contas de usuário do Active Directory. 
 

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 7401355c7920729933d0fcc3dd4cc8ce610c399e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b51f0c1e0c6ef713bf8d3ff0a124300f446a9373
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199068"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306801"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Diretrizes de recuperação de desastre para dados no Azure Data Lake Store
 
-O Azure Data Lake Store fornece armazenamento com redundância local (LRS). Consequentemente, os dados em sua conta do Azure Data Lake Store são resistentes a falhas transitórias de hardware dentro de uma região por meio de réplicas automatizadas. Isso garante a durabilidade e a alta disponibilidade, atendendo ao SLA do Azure Data Lake Store. Este artigo fornece diretrizes de como proteger ainda mais seus dados contra as raras interrupções de toda a região ou contra exclusões acidentais.
+O Azure Data Lake Store fornece armazenamento com redundância local (LRS). Portanto, os dados na conta do Azure Data Lake Store são resilientes a falhas de hardware transitórias em um datacenter por meio de réplicas automatizadas. Isso garante a durabilidade e a alta disponibilidade, atendendo ao SLA do Azure Data Lake Store. Este artigo fornece diretrizes de como proteger ainda mais seus dados contra as raras interrupções de toda a região ou contra exclusões acidentais.
 
 ## <a name="disaster-recovery-guidance"></a>Guia de recuperação de desastres
 É essencial para todos os clientes preparar seu próprio plano de recuperação de desastre. Leia as informações neste artigo para criar seu plano de recuperação de desastres. Aqui estão alguns recursos que podem ajudar você a criar seu próprio plano.

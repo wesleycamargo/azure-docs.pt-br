@@ -12,18 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bad1cbe0b142e146ada28f2af5d152973100e919
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4795e21c4279b6d313ba56296bafc49daf7bbb48
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595097"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288165"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: como fazer uma alteração na configuração padrão
 O objetivo deste artigo é orientá-lo sobre como fazer alterações na configuração padrão na sincronização do Azure Active Directory (Azure AD) Connect. Ele fornece etapas para alguns cenários comuns. Com esse conhecimento, você deve ser capaz de fazer alterações simples em sua própria configuração com base em suas próprias regras de negócios.
+
+> [!WARNING]
+> Se você fizer alterações nas regras de sincronização padrão, essas alterações serão substituídas na próxima vez em que o Azure AD Connect for atualizado, ocasionando resultados inesperados e provável sincronização indesejada.
+>
+> As regras de sincronização integrada têm uma impressão digital. Se você fizer uma alteração a essas regras, a impressão digital não corresponderá mais. Você pode ter problemas no futuro, quando tentar aplicar uma nova versão do Azure AD Connect. Faça alterações somente como é descrito neste artigo.
 
 ## <a name="synchronization-rules-editor"></a>Editor de Regras de Sincronização
 O Editor de Regras de Sincronização é usado para exibir e alterar a configuração padrão. Você pode encontrá-lo no menu **Iniciar** no grupo **Azure Connect AD**.  

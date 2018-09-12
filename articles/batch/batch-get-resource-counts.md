@@ -6,18 +6,18 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: f4bad3d7058e82a246afce9502d275c7d485cb88
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011944"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698376"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorar soluções do Lote pela contagem de tarefas e nós por estado
 
-Para monitorar e gerenciar soluções do Lote do Azure em grande escala, você precisa de contagens precisas de recursos em vários estados. O Lote do Azure fornece operações eficientes para obter essas contagens para *tarefas* e *nós de computação* do Lote. Use essas operações em vez de chamadas à API potencialmente demoradas para retornar informações detalhadas sobre grandes coleções de nós ou de tarefas.
+Para monitorar e gerenciar soluções do Lote do Azure em grande escala, você precisa de contagens precisas de recursos em vários estados. O Lote do Azure fornece operações eficientes para obter essas contagens para *tarefas* e *nós de computação* do Lote. Use essas operações, em vez de consultas de lista potencialmente demoradas que retornam informações detalhadas sobre grandes conjuntos de tarefas ou nós.
 
 * [Obter Contagens de Tarefas][rest_get_task_counts] obtém uma contagem agregada de tarefas ativas, em execução e concluídas em um trabalho, bem como das tarefas que tiveram êxito ou falharam. 
 
@@ -49,19 +49,15 @@ Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Ru
 Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
 Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
 Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
-Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 ```
 
 Você pode usar um padrão semelhante para REST e outras linguagens com suporte para obter as contagens de tarefa para um trabalho. 
- 
 
-### <a name="consistency-checking-for-task-counts"></a>Verificação de consistência para contagens de tarefas
+### <a name="counts-for-large-numbers-of-tasks"></a>Contagens para um grande número de tarefas
 
-O Lote fornece validação adicional para contagens de estado de tarefa, executando verificações de consistência em vários componentes do sistema. No evento improvável de a verificação de consistência encontrar erros, o Lote corrige o resultado da operação de obter contagens de tarefas com base nos resultados da verificação de consistência.
+A operação Obter Contagens de Tarefas retorna contagens de estados de tarefas no sistema em um ponto no tempo. Quando o trabalho tem um grande número de tarefas, as contagens retornadas por Obter Contagens de Tarefas podem atrasar os estados reais da tarefa em até alguns segundos. O Lote garante a consistência eventual entre os resultados de Obter Contagens de Tarefas e os estados reais da tarefa (que você pode consultar por meio da API de Lista de Tarefas). No entanto, se o trabalho tiver um grande número de tarefas (>200.000), em vez disso é recomendável usar a API de Lista de Tarefas e uma [consulta filtrada](batch-efficient-list-queries.md) que fornece informações mais atualizadas. 
 
-A propriedade `validationStatus` na resposta indica se o Lote executou ou não a verificação de consistência. Se o Lote não é capaz de verificar contagens de estado contra os estados reais mantidos no sistema, então a propriedade `validationStatus` é definida como `unvalidated`. Por motivos de desempenho, o Lote não executará a verificação de consistência se o trabalho incluir mais de 200.000 tarefas; portanto, a propriedade `validationStatus` poderá ser definida como `unvalidated` nesse caso. (A contagem de tarefas não é necessariamente errada nesse caso, pois até mesmo uma perda de dados limitada é improvável.) 
-
-Quando uma tarefa muda de estado, o pipeline de agregação processa a alteração dentro de alguns segundos. A operação Obter Contagens de Tarefas reflete as contagens de tarefas atualizadas dentro desse período. No entanto, se o pipeline de agregação perder uma alteração em um estado de tarefa, essa alteração não será registrada até a próxima passagem de validação. Durante esse tempo, contagens de tarefa podem ser ligeiramente imprecisas devido ao evento perdido, mas elas serão corrigidas na próxima passagem de validação.
+As versões da API do Serviço do Lote anteriores a 2018-08-01.7.0 também retornam uma propriedade `validationStatus` a resposta Obter Contagens de Tarefas. Essa propriedade indica se o Lote verificou a consistência de contagens de estado com os estados relatados na API de Tarefas de Lista. Um valor de `validated` indica apenas que o Lote procurou consistência pelo menos uma vez para o trabalho. O valor da propriedade `validationStatus` não indica se as contagens que Obter Contagens de Tarefas retorna estão atualizadas no momento.
 
 ## <a name="node-state-counts"></a>Contagens de estados de nós
 
@@ -101,7 +97,7 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
-O seguinte trecho de C# mostra como listar as contagens de nó para um determinado pool na conta atual.
+O trecho de código C# a seguir mostra como listar contagens de nós para um determinado pool na conta atual.
 
 ```csharp
 foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODATADetailLevel(filterClause: "poolId eq 'testpool'")))

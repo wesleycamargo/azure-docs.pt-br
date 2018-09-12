@@ -5,25 +5,28 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 4a6ce07bfe641d9efdbe0eac841bb4f27f468b34
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: b601a3d23b23faa16925881a54e2ceba85c800f8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161457"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669058"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando usar um Provedor de Autenticação Multifator do Microsoft Azure
 
 A autenticação em duas etapas está disponível por padrão para os administradores globais que têm o Azure Active Directory e os usuários do Office 365. No entanto, se você quiser aproveitar os [recursos avançados](howto-mfa-mfasettings.md), então, deverá adquirir a versão completa da Autenticação Multifator do Azure (MFA).
 
-Um Provedor do Autenticação Multifator do Azure é usado para aproveitar as vantagens dos recursos fornecidos pela versão completa do Azure MFA. Serve para os usuários que **não têm licenças do Azure MFA, Azure AD Premium ou pacotes que incluem o Azure AD Premium ou Azure MFA**. O Azure MFA e o Azure AD Premium incluem a versão completa do Azure MFA por padrão.
+Um Provedor de Autenticação Multifator do Azure é usado para aproveitar os recursos fornecidos pela Autenticação Multifator do Microsoft Azure para usuários que **não têm licenças**. 
 
 Se você tiver licenças que abrangem todos os usuários em sua organização, em seguida, não será necessário um Provedor de Autenticação Multifator do Microsoft Azure. Crie um Provedor de Autenticação Multifator do Microsoft Azure apenas se também precisar fornecer verificação em duas etapas para alguns usuários que não tenham licenças.
+
+> [!NOTE]
+> A partir de 1º de setembro de 2018, novos provedores de autenticação não poderão mais ser criados. Os provedores de autenticação existentes podem continuar sendo usados e atualizados. A Autenticação Multifator continuará sendo um recurso disponível nas licenças do Azure AD Premium.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Limitações relacionadas ao SDK do Azure MFA
 
@@ -62,7 +65,7 @@ Use as etapas a seguir para criar um Provedor de Autenticação Multifator do Az
 
 Não é possível alterar o modelo de uso (por usuário habilitado ou por autenticação) após a criação de um provedor de MFA. No entanto, você pode excluir o provedor de MFA e criar um modelo de uso diferente.
 
-Se o Provedor de Autenticação Multifator atual estiver associado a um diretório do Azure AD (também conhecido como locatário do Azure AD) você poderá excluir com segurança o provedor de MFA e criar um vinculado ao mesmo locatário do Azure AD. Como alternativa, se você tiver adquirido o MFA, Azure AD Premium, ou pacotes que incluam licenças do Azure AD Premium ou do Azure MFA suficientes para abranger todos os usuários que estão habilitados para MFA, será possível excluir o provedor MFA completamente.
+Se o Provedor de Autenticação Multifator atual estiver associado a um diretório do Azure AD (também conhecido como locatário do Azure AD) você poderá excluir com segurança o provedor de MFA e criar um vinculado ao mesmo locatário do Azure AD. Como alternativa, se você comprou licenças suficientes para cobrir todos os usuários que estão habilitados para MFA, é possível excluir o provedor MFA completamente.
 
 Se o seu provedor de MFA não estiver vinculado a um locatário do Azure AD, ou você vincula o novo provedor de MFA a um locatário diferente do Azure AD, as opções de definições de usuário e de configuração não serão transferidas. Além disso, os servidores MFA existentes do Azure precisarão ser reativados usando as credenciais de ativação geradas por meio do novo provedor de MFA. Reativar os servidores MFA para vinculá-los ao novo provedor de MFA não afeta a autenticação de chamada telefônica e de mensagens de texto, mas as notificações de aplicativo móvel deixarão de funcionar para todos os usuários até que eles reativem o aplicativo móvel.
 

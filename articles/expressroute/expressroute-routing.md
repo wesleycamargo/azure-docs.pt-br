@@ -1,25 +1,18 @@
 ---
 title: Requisitos de roteamento para o Azure ExpressRoute | Microsoft Docs
 description: Esta página fornece requisitos detalhados para a configuração e gerenciamento de roteamento para circuitos do ExpressRoute.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: ganesr
-editor: ''
-ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/09/2018
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: ganesr
-ms.openlocfilehash: 7fd2dd870338dc6778d192658143d14d9d9895cc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 525d75264ecb54d42d920cacb0712397f4d8c3a8
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072139"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43304350"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -46,23 +39,16 @@ Você pode usar endereços IP privados ou endereços IP públicos para configura
   * Você deve configurar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.  
 
 #### <a name="example-for-private-peering"></a>Exemplo para emparelhamento privado
-Se você optar por usar a.b.c.d/29 para configurar o emparelhamento, ela será dividida em duas sub-redes /30. No exemplo a seguir, vemos como a sub-rede a.b.c.d/29 é usada. 
+Se você optar por usar a.b.c.d/29 para configurar o emparelhamento, ela será dividida em duas sub-redes /30. No exemplo a seguir, observe como a sub-rede a.b.c.d / 29 é usada:
 
-a.b.c.d/29 será dividida em a.b.c.d/30 e a.b.c.d+4/30 e passada à Microsoft por meio das APIs de provisionamento. Você usará a.b.c.d+1 como o IP VRF para o PE Primário, e a Microsoft consumirá a.b.c.d+2 como o IP VRF para o MSEE primário. Você usará a.b.c.d+5 como o IP VRF para o PE secundário, e a Microsoft usará a.b.c.d+6 como o IP VRF para o MSEE secundário.
+* a.b.c.d/29 será dividida em a.b.c.d/30 e a.b.c.d+4/30 e passada à Microsoft por meio das APIs de provisionamento.
+  * Você usará a.b.c.d+1 como o IP VRF para o PE Primário, e a Microsoft consumirá a.b.c.d+2 como o IP VRF para o MSEE primário.
+  * Você usará a.b.c.d+5 como o IP VRF para o PE secundário, e a Microsoft usará a.b.c.d+6 como o IP VRF para o MSEE secundário.
 
 Considere um caso em que você seleciona 192.168.100.128/29 para configurar o emparelhamento privado. 192.168.100.128/29 inclui os endereços de 192.168.100.128 a 192.168.100.135, entre os quais:
 
 * 192.168.100.128/30 será atribuído ao link1, com o provedor usando 192.168.100.129 e a Microsoft usando 192.168.100.130.
 * 192.168.100.132/30 será atribuído ao link2, com o provedor usando 192.168.100.133 e a Microsoft usando 192.168.100.134.
-
-### <a name="ip-addresses-used-for-azure-public-peering"></a>Endereços IP usados para o emparelhamento público do Azure
-Você deve usar endereços IP públicos que possui para configurar as sessões BGP. A Microsoft deve ser capaz de verificar a propriedade dos endereços IP por meio de Registros da Internet de Roteamento e Registros de Roteamento da Internet. 
-
-* Você deve usar uma sub-rede /29 exclusiva ou duas sub-redes /30 para configurar o emparelhamento BGP para cada emparelhamento por circuito da Rota Expressa (se houver mais de um). 
-* Se uma sub-rede /29 for usada, ela será dividida em duas sub-redes /30. 
-  * A primeira sub-rede /30 é usada para o link principal e a segunda sub-rede /30 é usada para o link secundário.
-  * Para cada uma das sub-redes /30, é necessário usar o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usa o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
-  * Você deve configurar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.
 
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Endereços IP usados para emparelhamento da Microsoft
 Você deve usar endereços IP públicos que possui para configurar as sessões BGP. A Microsoft deve ser capaz de verificar a propriedade dos endereços IP por meio de Registros da Internet de Roteamento e Registros de Roteamento da Internet.
@@ -77,27 +63,29 @@ Você deve usar endereços IP públicos que possui para configurar as sessões B
 * Para cada uma das sub-redes /126, é necessário usar o primeiro endereço IP da sub-rede /126 em seu roteador. A Microsoft usa o segundo endereço IP da sub-rede /126 para configurar uma sessão BGP.
 * Você deve configurar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.
 
+### <a name="ip-addresses-used-for-azure-public-peering"></a>Endereços IP usados para o emparelhamento público do Azure
+
+> [!NOTE]
+> O emparelhamento público do Azure não está disponível para novos circuitos.
+> 
+
+Você deve usar endereços IP públicos que possui para configurar as sessões BGP. A Microsoft deve ser capaz de verificar a propriedade dos endereços IP por meio de Registros da Internet de Roteamento e Registros de Roteamento da Internet. 
+
+* Você deve usar uma sub-rede /29 exclusiva ou duas sub-redes /30 para configurar o emparelhamento BGP para cada emparelhamento por circuito da Rota Expressa (se houver mais de um). 
+* Se uma sub-rede /29 for usada, ela será dividida em duas sub-redes /30. 
+  * A primeira sub-rede /30 é usada para o link principal e a segunda sub-rede /30 é usada para o link secundário.
+  * Para cada uma das sub-redes /30, é necessário usar o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usa o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
+  * Você deve configurar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.
+
 ## <a name="public-ip-address-requirement"></a>Requisito do endereço IP público
 
 ### <a name="private-peering"></a>Emparelhamento privado
 Você pode optar por usar os endereços IPv4 públicos ou privados para o emparelhamento privado. Podemos fornecer um isolamento de ponta a ponta do tráfego para que a sobreposição dos endereços com outros clientes não seja possível no caso do emparelhamento privado. Esses endereços não são divulgados na Internet. 
 
-
-### <a name="public-peering"></a>Emparelhamento público
-O caminho do emparelhamento público do Azure permite que você se conecte a todos os serviços hospedados no Azure por meio de seus endereços IP públicos. Isso inclui os serviços listados nas [Perguntas Frequentes sobre a Rota Expressa](expressroute-faqs.md) e quaisquer serviços hospedados por ISVs no Microsoft Azure. A conectividade com os serviços do Microsoft Azure no emparelhamento público é sempre iniciada de sua rede para a rede da Microsoft. Você deve usar os endereços IP Públicos para o tráfego destinado à rede da Microsoft.
-
-> [!IMPORTANT]
-> Todos os serviços de PaaS do Azure também são acessíveis por meio do emparelhamento da Microsoft. Recomendamos a criação do emparelhamento da Microsoft e a conexão com os serviços de PaaS do Azure por meio do emparelhamento da Microsoft.  
->   
-
-
-Um Número de AS Privado é permitido com Emparelhamento público.
-
 ### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
-O caminho de emparelhamento da Microsoft permite que você se conecte a serviços de nuvem da Microsoft que não têm suporte por meio do caminho de emparelhamento público do Azure. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online, o Skype for Business e o Dynamics 365. A Microsoft dá suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve usar os endereços IPv4 públicos válidos antes de entrar na rede da Microsoft.
+O caminho de emparelhamento da Microsoft permite conectar os serviços em nuvem da Microsoft. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online, o Skype for Business e o Dynamics 365. A Microsoft dá suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve usar os endereços IPv4 públicos válidos antes de entrar na rede da Microsoft.
 
 Verifique se o endereço IP e o número de AS estão registrados em um dos registros abaixo:
-
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -115,6 +103,15 @@ Um Número de AS Privado é permitido com o emparelhamento da Microsoft, mas tam
 > Os endereços IP Públicos anunciados na Microsoft por meio do ExpressRoute não devem ser anunciados na Internet. Isso pode interromper a conectividade com outros serviços da Microsoft. No entanto, os endereços IP Públicos usados pelos servidores em sua rede que se comunicam com os pontos de extremidade do O365 da Microsoft podem ser divulgados no ExpressRoute. 
 > 
 > 
+
+### <a name="public-peering-deprecated---not-available-for-new-circuits"></a>Emparelhamento público (preterido - não disponível para novos circuitos)
+O caminho do emparelhamento público do Azure permite que você se conecte a todos os serviços hospedados no Azure por meio de seus endereços IP públicos. Isso inclui os serviços listados nas [Perguntas Frequentes sobre a Rota Expressa](expressroute-faqs.md) e quaisquer serviços hospedados por ISVs no Microsoft Azure. A conectividade com os serviços do Microsoft Azure no emparelhamento público é sempre iniciada de sua rede para a rede da Microsoft. Você deve usar os endereços IP Públicos para o tráfego destinado à rede da Microsoft.
+
+> [!IMPORTANT]
+> Todos os serviços de PaaS do Azure são acessíveis por meio do emparelhamento da Microsoft.
+>   
+
+Um número de AS Privado é permitido com emparelhamento público.
 
 ## <a name="dynamic-route-exchange"></a>Intercâmbio de roteamento dinâmico
 O intercâmbio de roteamento será por meio do protocolo eBGP. As sessões EBGP são estabelecidas entre os MSEEs e os roteadores. A autenticação de sessões BGP não é um requisito. Se necessário, um hash MD5 pode ser configurado. Consulte [Configurar roteamento](how-to-routefilter-portal.md) e [luxos de trabalho de provisionamento e estados do circuito](expressroute-workflows.md) para obter informações sobre como configurar as sessões BGP.
@@ -154,7 +151,7 @@ Por exemplo, se você estiver conectado à Microsoft em Amsterdã por meio da Ro
 
 Consulte a página [Locais de emparelhamento e parceiros do ExpressRoute](expressroute-locations.md) para obter uma lista detalhada das regiões geopolíticas, regiões associadas do Azure e locais de emparelhamento correspondentes do ExpressRoute.
 
-Você pode adquirir mais de um circuito da Rota Expressa por região geopolítica. Ter várias conexões oferece vantagens significativas para a alta disponibilidade devido à redundância geográfica. Em casos em que há vários circuitos da Rota Expressa, você recebe o mesmo conjunto de prefixos anunciados da Microsoft nos caminhos de emparelhamento público e da Microsoft. Isso significa que você terá vários caminhos de sua rede até a Microsoft. Potencialmente, isso pode fazer com que decisões de roteamento não ideais sejam tomadas em sua rede. Como resultado, você pode ter experiências de conectividade não ideal para diferentes serviços. Você pode contar com os valores de comunidade para tomar decisões de roteamento apropriadas e oferecer o [roteamento ideal aos clientes](expressroute-optimize-routing.md).
+Você pode adquirir mais de um circuito da Rota Expressa por região geopolítica. Ter várias conexões oferece vantagens significativas para a alta disponibilidade devido à redundância geográfica. Nos casos em que há vários circuitos do ExpressRoute, você receberá o mesmo conjunto de prefixos divulgados pela Microsoft nos caminhos de emparelhamento público e emparelhamento da Microsoft. Isso significa que você terá vários caminhos de sua rede até a Microsoft. Potencialmente, isso pode fazer com que decisões de roteamento não ideais sejam tomadas em sua rede. Como resultado, você pode ter experiências de conectividade não ideal para diferentes serviços. Você pode contar com os valores de comunidade para tomar decisões de roteamento apropriadas e oferecer o [roteamento ideal aos clientes](expressroute-optimize-routing.md).
 
 | **Região do Microsoft Azure** | **Valor de comunidade BGP** |
 | --- | --- |

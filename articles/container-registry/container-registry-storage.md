@@ -8,16 +8,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: marsma
-ms.openlocfilehash: 92e60b4213cb80d193a7c35f68b8f9fd099481d7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 65ff60be992440c69e50a084b467a8efbb19574e
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165088"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307142"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagens de contêiner no Registro de Contêiner do Azure
 
-Cada registro de contêiner do Azure [Básico, Standard e Premium](container-registry-skus.md) beneficia-se de recursos avançados de armazenamento do Azure, como criptografia em repouso para segurança de dados de imagem e redundância geográfica para proteção de dados de imagem. As seções a seguir descrevem os recursos e os limites do armazenamento de imagens no ACR (	Registro de Contêiner do Azure).
+Cada registro de contêiner do Azure [Básico, Standard e Premium](container-registry-skus.md) beneficia-se de recursos avançados de armazenamento do Azure, como criptografia em repouso para segurança de dados de imagem e redundância geográfica para proteção de dados de imagem. As seções a seguir descrevem os recursos e os limites do armazenamento de imagens no ACR (Registro de Contêiner do Azure).
 
 ## <a name="encryption-at-rest"></a>Criptografia em repouso
 
@@ -43,7 +43,7 @@ A tabela a seguir descreve os limites de armazenamento e imagem de contêiner em
 | Marcas | Sem limite|
 | Armazenamento | 5 TB |
 
-Números muito altos de repositórios e marcas podem afetar o desempenho do registro. Exclua periodicamente repositórios, marcas e imagens não usados, utilizando a [CLI do Azure](/cli/azure/acr), a [API REST](/rest/api/containerregistry/) do ACR ou o [Portal do Azure][portal] como parte da rotina de manutenção de registro. Recursos de registro excluídos, como repositórios, imagens e marcas *não poderão* ser recuperados após a exclusão.
+Números muito altos de repositórios e marcas podem afetar o desempenho do registro. Exclua periodicamente repositórios, marcas e imagens não utilizados como parte da rotina de manutenção de registro. Recursos de registro excluídos, como repositórios, imagens e marcas *não poderão* ser recuperados após a exclusão. Para obter mais informações sobre a exclusão de recursos de registro, consulte [Excluir imagens de contêiner no Registro de Contêiner do Azure](container-registry-delete.md).
 
 ## <a name="storage-cost"></a>Custo de armazenamento
 

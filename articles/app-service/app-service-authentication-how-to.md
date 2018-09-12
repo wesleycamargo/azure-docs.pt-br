@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: 191d42f43e500c7f8041a02aeba2fbcb7dfd5379
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 629a76ab5610625e14780d7b5c57d3979c2224c9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226519"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344163"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalizar a autenticação e a autorização no Serviço de Aplicativo do Azure
 
@@ -34,9 +34,9 @@ Para começar rapidamente, veja um dos seguintes tutoriais:
 * [Como configurar seu aplicativo para usar o logon da Conta da Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)
 * [Como configurar seu aplicativo para usar o logon do Twitter](app-service-mobile-how-to-configure-twitter-authentication.md)
 
-## <a name="configure-multiple-sign-in-options"></a>Configurar várias opções de entrada
+## <a name="use-multiple-sign-in-providers"></a>Usar vários provedores de entrada
 
-A configuração do portal não oferece uma maneira turnkey para apresentar várias opções de entrada para os usuários (como o Facebook e o Twitter). No entanto, não é difícil adicionar a funcionalidade ao seu aplicativo Web. As etapas são destacadas como a seguir:
+A configuração do portal não oferece uma maneira prática turnkey para apresentar vários provedores de entrada aos usuários (como o Facebook e o Twitter). No entanto, não é difícil adicionar a funcionalidade ao seu aplicativo Web. As etapas são destacadas como a seguir:
 
 Primeiro, na página **Autenticação/Autorização** no Portal do Azure, configure cada provedor de identidade que você deseja habilitar.
 
@@ -58,6 +58,50 @@ Para redirecionar o usuário pós-entada para uma URL personalizada, use o parâ
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="sign-out-of-a-session"></a>Sair de uma sessão
+
+Os usuários podem iniciar uma saída, enviando uma `GET` solicitação ao ponto de extremidade `/.auth/logout` do aplicativo. A solicitação `GET` faz o seguinte:
+
+- Limpa os cookies de autenticação da sessão atual.
+- Exclui os tokens do usuário atual do Token Store.
+- Para o Azure Active Directory e o Google, executa uma saída do servidor no provedor de identidade.
+
+Aqui está um link de saída simples em uma página da Web:
+
+```HTML
+<a href="/.auth/logout">Sign out</a>
+```
+
+Por padrão, uma saída com êxito redireciona o cliente para a URL `/.auth/logout/done`. É possível alterar a página de redirecionamento pós-saída, adicionando o parâmetro de consulta `post_logout_redirect_uri`. Por exemplo: 
+
+```
+GET /.auth/logout?post_logout_redirect_uri=/index.html
+```
+
+É recomendável [codificar](https://wikipedia.org/wiki/Percent-encoding) o valor de `post_logout_redirect_uri`.
+
+Ao usar URLs totalmente qualificadas, a URL deve ser hospedada no mesmo domínio ou configurada como uma URL de redirecionamento externo permitido para o aplicativo. No exemplo a seguir, para redirecionar para `https://myexternalurl.com` que não está hospedado no mesmo domínio:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
+```
+
+É necessário executar o comando a seguir no [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
+```
+
+## <a name="preserve-url-fragments"></a>Preservar fragmentos de URL
+
+Depois que os usuários entram no aplicativo, geralmente querem ser redirecionados para a mesma seção da mesma página, como `/wiki/Main_Page#SectionZ`. No entanto, como os [fragmentos de URL](https://wikipedia.org/wiki/Fragment_identifier) (por exemplo, `#SectionZ`) nunca são enviados ao servidor, consequentemente não são preservados por padrão depois que a assinatura OAuth é concluída e redirecionada de volta ao aplicativo. Portanto, os usuários obtêm uma experiência abaixo do ideal quando precisam navegar novamente para a âncora desejada. Essa limitação aplica-se a todas as soluções de autenticação do lado do servidor.
+
+Na autenticação do Serviço de Aplicativo, é possível preservar os fragmentos de URL na assinatura OAuth. Para fazer isso, defina uma configuração de aplicativo chamada `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` para `true`. Você pode fazer isso no [portal do Azure](https://portal.azure.com) ou simplesmente executar o comando a seguir no [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp config appsettings set --name <app_name> --resource-group <group_name> --settings WEBSITE_AUTH_PRESERVE_URL_FRAGMENT="true"
 ```
 
 ## <a name="access-user-claims"></a>Acessar declarações de usuários

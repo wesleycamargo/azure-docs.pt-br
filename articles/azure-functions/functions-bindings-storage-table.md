@@ -4,7 +4,7 @@ description: Entenda como usar as associações de armazenamento da Tabela do Az
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: 28a6082718080314a769b59c81cf51a20ff7e120
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5dcd37b4aa8ddd976a463ac82b470b169a91c15e
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42140811"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666834"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associações de armazenamento de tabelas do Azure Functions
 
@@ -34,13 +34,13 @@ As associações de armazenamento de Tabelas são fornecidas no pacote NuGet [Mi
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
 ## <a name="packages---functions-2x"></a>Pacotes - Functions 2. x
 
-As associações de armazenamento de Tabelas são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs), versão 3.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Table).
+As associações de Armazenamento de Tabelas são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), versão 3.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables).
 
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
-[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="input"></a>Entrada
 

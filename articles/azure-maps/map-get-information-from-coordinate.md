@@ -3,35 +3,39 @@ title: Mostrar informações sobre uma coordenada com mapas do Azure | Microsoft
 description: Como exibir informações sobre um endereço no mapa quando um usuário seleciona uma coordenada
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e1cbed8995c0efbfb6010daaca5cd97ebec92dc6
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 331e687c40f21b0bf6074239969848c632682773
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746335"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667474"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obter informações de uma coordenada
 
-Este artigo mostra como fazer uma pesquisa inversa de endereço e após um clique do mouse, mostrar o endereço do local clicado em um pop-up. 
+Este artigo mostra como fazer uma pesquisa inversa de endereço e após um clique do mouse, mostrar o endereço do local clicado em um pop-up.
 
 ## <a name="understand-the-code"></a>Compreender o código
 
-<iframe height='500' scrolling='no' title='Obter informações de uma coordenada' src='//codepen.io/azuremaps/embed/ddXzoB/?height=516&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as informações de Pen <a href='https://codepen.io/azuremaps/pen/ddXzoB/'>Get de uma coordenada </a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Obter informações de uma coordenada (Módulo de Serviço)' src='//codepen.io/azuremaps/embed/ejEYMZ/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Caneta <a href='https://codepen.io/azuremaps/pen/ejEYMZ/'>Obter informações de uma coordenada (Módulo de Serviço)</a> pelo Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 No código acima, o primeiro bloco do código constrói um objeto de mapa. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-O segundo bloco de código atualiza o estilo do cursor do mouse em um ponteiro.
+A linha no segundo bloco de código cria uma instância de um cliente de serviço.
 
-O terceiro bloco de código cria um pop-up. Você pode ver [adicionar um popup no mapa](./map-add-popup.md) para obter instruções.
+O terceiro bloco de código atualiza o estilo do cursor do mouse para um ponteiro.
 
-O último bloco de código adiciona um ouvinte de evento de cliques do mouse. Após um clique do mouse, ele envia um [XMLHttpRequest](https://xhr.spec.whatwg.org/) para [a API de Pesquisa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse). Para uma resposta bem-sucedida, ele coleta o endereço ao local clicado e define o conteúdo de pop-up e posição via função [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) da classe pop-up
+O quarto bloco de código cria um pop-up. Você pode ver [adicionar um popup no mapa](./map-add-popup.md) para obter instruções.
+
+O último bloco de código adiciona um ouvinte de evento para cliques do mouse. Com um clique do mouse, ele cria uma consulta de pesquisa com as coordenadas do ponto clicado. Em seguida, usa o ponto de extremidade [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchaddressreverse) do mapa para consultar o endereço das coordenadas.
+
+Para uma resposta com êxito, ele coleta o endereço ao local clicado e define o conteúdo de pop-up e posição via função [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) da classe pop-up.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -44,6 +48,6 @@ Saiba mais sobre as classes e métodos usados neste artigo:
     * [abrir](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open)
     * [Close](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#close)
 
-Para obter mais exemplos de código para adicionar aos seus mapas, consulte os seguintes artigos: 
+Para obter mais exemplos de código para adicionar aos seus mapas, consulte os seguintes artigos:
 * [Mostrar trajetos de A para B](./map-route.md)
 * [Mostrar tráfego](./map-show-traffic.md)

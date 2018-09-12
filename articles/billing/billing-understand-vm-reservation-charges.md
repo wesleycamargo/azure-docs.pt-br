@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: bce4e05cbc4ecc8a44f2929eecbeee4093d39652
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: de4a771672b45f930385c2c923b3935c65b6c045
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628351"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301639"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Entenda como é aplicado o desconto em reserva do Azure a máquinas virtuais
 
@@ -47,24 +47,24 @@ A tabela a seguir ilustra os custos da máquina virtual após a compra de uma in
 3. Nas horas 2 e 3, ambas as instâncias foram executadas por 1 hora. Uma instância está coberta pela reserva e a outro é cobrada com as taxas de pagamento pelo uso.
 4. Na hora 4, a instância 1 é executada por 0,5 hora e a instância 2, por 1 hora. A instância 1 está totalmente coberta pela reserva, e também 0,5 hora da instância 2. São cobradas as taxas de pagamento pelo uso da 0,5 hora restante.
 
-Para entender e exibir a aplicação das suas reservas do Azure nos relatórios de uso de cobrança, consulte [Entenda o uso da Instância de reserva](https://go.microsoft.com/fwlink/?linkid=862757).
+Para entender e exibir o aplicativo das Reservas do Azure nos relatórios de uso de cobrança, consulte [Entender o uso de reserva](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Aplicação do desconto de reserva a VMs Windows
 
-Quando você executa instâncias de VM Windows, a reserva é aplicada para cobrir os custos de infraestrutura. A aplicação da reserva aos custos de infraestrutura de VMs é igual para máquinas virtuais Windows e não - Windows. Você é cobrado separadamente pelo software Windows por vCPU. Consulte [Custos do software Windows com reservas](https://go.microsoft.com/fwlink/?linkid=862756). Você pode cobrir os custos de licenciamento do Windows com [Benefício Híbrido do Azure para Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+Quando você executa instâncias de VM Windows, a reserva é aplicada para cobrir os custos de infraestrutura. A aplicação da reserva aos custos de infraestrutura de VMs é igual para máquinas virtuais Windows e não - Windows. Você é cobrado separadamente pelo software Windows por vCPU. Consulte [Custos do software Windows com Reservas](https://go.microsoft.com/fwlink/?linkid=862756). Você pode cobrir os custos de licenciamento do Windows com [Benefício Híbrido do Azure para Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre reservas, consulte os seguintes artigos:
+Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
-- [O que são as reservas do Azure?](billing-save-compute-costs-reservations.md)
+- [Quais são as Reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Banco de Dados SQL do Microsoft Azure](../sql-database/sql-database-reserved-capacity.md)
-- [Gerenciar reservas do Azure](billing-manage-reserved-vm-instance.md)
-- [Entenda o uso de instâncias reservadas para sua assinatura de Pagamento Conforme o Uso](billing-understand-reserved-instance-usage.md)
-- [Entenda o uso de reserva para o seu registro Enterprise](billing-understand-reserved-instance-usage-ea.md)
-- [ Entenda o uso da reserva para assinaturas do CSP](https://docs.microsoft.com/partner-center/azure-reservations)
-- [Os custos de software do Windows não incluídos com instâncias reservadas](billing-reserved-instance-windows-software-costs.md)
+- [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
+- [Gerenciar Reservas do Azure](billing-manage-reserved-vm-instance.md)
+- [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)
+- [Entenda o uso de reservas para o seu registro Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Entender o uso de reserva para assinaturas de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Custos de software do Windows não estão incluídos nas Reservas](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

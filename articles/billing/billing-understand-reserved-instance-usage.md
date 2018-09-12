@@ -1,5 +1,5 @@
 ---
-title: Entenda o uso de reserva do Azure para a assinatura do Pay-As-You-Go | Microsoft Docs
+title: Entender o uso de Reservas do Azure para assinatura Pagamento Conforme o Uso | Microsoft Docs
 description: Aprenda a ler o seu uso para entender como a reserva do Azure para sua assinatura do Pré-pago é aplicada.
 services: billing
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: cf1d7c67fe6033bf41317e75a33349ae07ecf643
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1226b2f73d556da2ff7d73f6f322e0bd1590f915
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627876"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307051"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Entenda o uso de reserva do Azure para sua assinatura do Pague conforme o uso
 
@@ -93,15 +93,15 @@ Filtrar **informações adicionais** e digite sua **ID de reserva**. A captura d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as reservas, consulte os seguintes artigos:
+Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
-- [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
+- [O que são Reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
-- [Gerenciar reservas no Azure](billing-manage-reserved-vm-instance.md)
+- [Gerenciar Reservas do Azure](billing-manage-reserved-vm-instance.md)
 - [Entender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
-- [Entenda o uso de reservas para o seu registro Enterprise](billing-understand-reserved-instance-usage-ea.md)
-- [Custos de software do Windows não estão incluídos nas reservas](billing-reserved-instance-windows-software-costs.md)
+- [Entender o uso de reserva para seu registro de empresa](billing-understand-reserved-instance-usage-ea.md)
+- [Custos de software do Windows não estão incluídos nas Reservas](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

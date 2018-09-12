@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7c990fc0d385af9527bf55339b2fa617e589ec0e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 59dab4651366c3ad6579e0da660baee0c653d1a3
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190579"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665995"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Ativar minhas funções de diretório do Azure AD no PIM
 
@@ -26,11 +26,11 @@ O Azure AD (Azure Active Directory) PIM (Privileged Identity Management) simplif
 
 Se você tiver se tornado elegível para uma função administrativa, isso significa que você poderá ativar essa função quando precisar executar ações que demandam privilégios. Por exemplo, se você ocasionalmente gerencia recursos do Office 365, administradores de função com privilégios de sua organização podem não o tornar um Administrador Global permanente, pois essa função também afeta outros serviços. Em vez disso, eles o tornam qualificado para funções do Azure AD, como Administrador do Exchange Online. Você pode solicitar a ativação da função quando precisar de seus privilégios e terá controle de administrador por um período predeterminado.
 
-Este artigo destina-se a administradores que precisam ativar sua função no PIM.
+Este artigo destina-se a administradores que precisam ativar a função de diretório do Azure AD no PIM.
 
 ## <a name="activate-a-role"></a>Ativar uma função
 
-Quando você precisa assumir uma função, pode solicitar a ativação usando a opção de navegação **Minhas funções** no PIM.
+Quando for necessário assumir uma função de diretório do Azure AD, você poderá solicitar a ativação usando a opção de navegação **Minhas funções** no PIM.
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 

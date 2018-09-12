@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 426d7b15cd4a98d958ed02329f40becdfb177ceb
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: ea4d33b569ae0932d6091869c4825cf2b5e69664
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259272"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697706"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introdução ao Stream Analytics do Azure para processar dados de dispositivos IoT
 Neste tutorial, você aprenderá a criar a lógica de processamento de fluxo para reunir dados dos dispositivos da Internet das Coisas (IoT). Usaremos um caso de uso real da Internet das coisas (IoT) para demonstrar como compilar uma solução rápida e econômica.
@@ -87,7 +87,7 @@ A forma mais simples de consulta é uma consulta passagem que arquiva todos os d
     ![Resultados do teste](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ### <a name="query-filter-the-data-based-on-a-condition"></a>Consulta: filtrar os dados com base em uma condição
-Vamos tentar filtrar os resultados com base em uma condição. Gostaríamos de mostrar os resultados somente dos eventos que são provenientes do "SensorA". A consulta está no arquivo Filtering.txt.
+Vamos tentar filtrar os resultados com base em uma condição. Gostaríamos de mostrar resultados apenas dos eventos provenientes de "sensorA." A consulta está no arquivo Filtering.txt.
 
 ![Filtrar um fluxo de dados](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 

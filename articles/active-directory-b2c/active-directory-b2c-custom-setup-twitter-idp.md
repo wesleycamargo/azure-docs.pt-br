@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 786f0dfd0cf3cf2e9ab0d16e26811fabd6bfc17c
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 28679ef07c2625908f7b08f808ff49c48ddb625b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440929"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339861"
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: adicionar o Twitter como um provedor de identidade OAuth1 usando políticas personalizadas
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Este artigo mostra como habilitar a entrada para usuários de uma conta do Twitter usando [políticas personalizadas](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-twitter-account-application"></a>Etapa 1: Criar um aplicativo de conta do Twitter
@@ -36,9 +36,9 @@ Para usar o Twitter como um provedor de identidade no Azure AD B2C (Azure Active
  
     a. Digite o **Nome** e uma **Descrição** para o novo aplicativo. 
 
-    b. Na caixa **Site**, cole **https://login.microsoftonline.com**. 
+    b. Na caixa **site da Web**, cole **https://{tenant}.b2clogin.com**. Em que **{tenant}** é o nome do locatário (por exemplo, https://contosob2c.b2clogin.com).
 
-    c. 4. Insira `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp` como o valor da **URL de Retorno de Chamada**. Certifique-se de substituir **{tenant}** pelo nome do locatário (por exemplo, contosob2c.onmicrosoft.com) e **{policyId}** com a sua id de política (por exemplo, b2c_1_policy).  **O retorno de chamada URL precisa estar em letras minúsculas.** Você deve adicionar uma URL de retorno de chamada para todas as políticas que usam o logon do Twitter. Certifique-se de usar `b2clogin.com` em vez de ` login.microsoftonline.com` se você estiver usando ele em seu aplicativo.
+    c. 4. Insira `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp` como o valor da **URL de Retorno de Chamada**. Certifique-se de substituir **{tenant}** pelo nome do locatário (por exemplo, contosob2c) e **{policyId}** pela ID da política (por exemplo, b2c_1_policy).  **O retorno de chamada URL precisa estar em letras minúsculas.** Você deve adicionar uma URL de retorno de chamada para todas as políticas que usam o logon do Twitter. Certifique-se de usar `b2clogin.com` em vez de ` login.microsoftonline.com` se você estiver usando ele em seu aplicativo.
 
     d. Na parte inferior da página, leia e aceite os termos e, em seguida, selecione **Criar seu aplicativo Twitter**.
 

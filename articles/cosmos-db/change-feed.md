@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e53f1e62b9265d2eec2f49537cc05c865e1436f3
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902955"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287318"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB
 
@@ -31,12 +31,6 @@ O **suporte ao feed de alterações** do Azure Cosmos DB permite que você crie 
 
 > [!NOTE]
 > Suporte a feed de alterações é fornecido para todos os modelos de dados e contêineres no Azure Cosmos DB. No entanto, o feed de alterações é lido usando o cliente do SQL e serializa os itens no formato JSON. Devido à formatação JSON, clientes do MongoDB enfrentarão uma incompatibilidade entre documentos formatado em BSON e o feed de alterações formatado em JSON.
-
-No vídeo a seguir, o gerente de programa do Azure Cosmos DB, Andrew Liu, demonstra como o feed de alterações do Azure Cosmos DB funciona.
-
-> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
->
->
 
 ## <a name="how-does-change-feed-work"></a>Como o feed de alterações funciona?
 
@@ -510,7 +504,7 @@ A biblioteca Java para ler o feed de alterações no [repositório do GitHub](ht
 
 O formato de _etag é interno e você não deve depender dele (não o analise) porque ele pode ser alterado a qualquer momento.
 _ts é o carimbo de hora de criação ou modificação. Você pode usar o _ts para comparação cronológica.
-_lsn é uma ID de lote que é adicionada somente para feed de alterações, ele representa a ID de transação do armazenamento. Muitos documentos podem ter o mesmo _lsn.
+_lsn é uma ID do lote que é adicionada apenas para feed de alterações, representa a ID da transação do repositório. Muitos documentos podem ter o mesmo _lsn.
 Mais um ponto a ser observado, ETag no FeedResponse é diferente do _etag visto no documento. _etag é um identificador interno e usado para simultaneidade, ele informa sobre a versão do documento e ETag é usado para o sequenciamento do feed.
 
 ### <a name="does-reading-change-feed-add-any-additional-cost-"></a>Ler um feed de alterações acrescenta custos adicionais?

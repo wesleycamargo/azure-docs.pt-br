@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7019a6f97a9590d3b652584015f3077f4ed075af
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 7b82be6cdc8b64595c11eef84e8071fad9c07191
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188913"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665456"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Atribuir funções de recurso do Azure no PIM
 
@@ -34,61 +34,98 @@ O Azure AD PIM pode gerenciar as funções internas de recurso do Azure, bem com
 >[!NOTE]
 Os usuários ou membros de um grupo atribuído às funções de Administrador de Acesso de Usuário ou Proprietário e Administradores Globais que permitem o gerenciamento de assinatura no Azure AD são Administradores de Recursos. Esses administradores podem atribuir funções, definir configurações de função e revisar o acesso ao usar o PIM para recursos do Azure. Exiba a lista de [funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
-## <a name="assign-roles"></a>Atribuir funções
+## <a name="assign-a-role"></a>Atribuir uma função
 
-Para atribuir um usuário ou grupo a uma função quando você estiver exibindo o painel **Funções**, selecione a função e, em seguida, selecione **Adicionar usuário**. 
+Siga estas etapas para tornar um usuário qualificado para uma função de recurso do Azure.
 
-![Painel "Funções" com o botão "Adicionar usuário"](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
+1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que seja membro da função [Administrador de Funções com Privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 
-Você também pode selecionar **Adicionar usuário** do painel **Membros**.
+    Para obter informações sobre como permitir acesso para que outro administrador gerencie o PIM, veja [conceder acesso a outros administradores para gerenciar o PIM](pim-how-to-give-access-to-pim.md).
 
-![Painel "Membros" com o botão "Adicionar usuário"](media/azure-pim-resource-rbac/rbac-assign-roles-2.png)
+1. Abra o **Azure AD Privileged Identity Management**.
 
+    Se você ainda não iniciou o PIM no portal do Azure, acesse [Começar a usar o PIM](pim-getting-started.md).
 
-Se estiver adicionando um usuário ou grupo a partir do painel **Membros**, você precisará: 
+1. Clique em **Recursos do Azure**.
 
-1. Escolha uma função no painel **Selecionar uma função** antes de selecionar um usuário ou grupo.
+1. Use o **Filtro de recurso** para filtrar a lista de recursos gerenciados.
 
-   ![Painel “Selecionar uma função”](media/azure-pim-resource-rbac/rbac-assign-roles-select-role.png)
+    ![Lista de recursos do Azure para gerenciar](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-2. Escolher um usuário ou grupo no diretório.
+1. Clique no recurso que você quer gerenciar, como uma assinatura ou um grupo de gerenciamento.
 
-3. Escolha o tipo de atribuição adequado no menu suspenso: 
+1. Em Gerenciar, clique em **Funções** para ver a lista de funções dos recursos do Azure.
 
-   - **Just In Time:** Fornece os membros de usuário ou grupo com acesso qualificado, mas não persistente para a função por um determinado período ou indefinidamente (se assim definido nas configurações de função). 
-   - **Direta:** Não requer que os membros de grupo ou usuário ativem a atribuição de função (conhecida como acesso persistente). É recomendável usar a atribuição direta para uso de curto prazo, no qual o acesso não será necessário quando a tarefa for concluída. Os exemplos são turnos de plantão e atividades urgentes.
+    ![Funções dos recursos do Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-4. Se a atribuição deve ser permanente (permanentemente qualificada para ativação Just in Time/permanentemente ativa para Atribuição direta), marque a caixa de seleção abaixo da caixa **Tipo de atribuição**.
+1. Clique em **Adicionar membro** para abrir o novo painel de atribuição.
 
-   ![Painel de "Configurações de associação" com a caixa "Tipo de atribuição" e a caixa de seleção relacionada](media/azure-pim-resource-rbac/rbac-assign-roles-settings.png)
+1. Clique em **Selecionar uma função** para abrir o painel Selecionar uma função.
 
-   >[!NOTE]
-   >Pode ser que não seja possível modificar a caixa de seleção se outro administrador tiver especificado a duração máxima de atribuição para cada tipo de atribuição nas configurações de função.
+    ![Novo painel de atribuição](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
-   Para especificar uma duração de atribuição específica, desmarque a caixa de seleção e modifique as caixas de data e hora de início e/ou término.
+1. Clique em uma função que você quer atribuir e, em seguida, clique em **Selecionar**.
 
-   ![Painel "Configurações de associação" com caixas de data de início, hora de início, data de término e hora de término](media/azure-pim-resource-rbac/rbac-assign-roles-duration.png)
+    O painel Selecionar um membro ou grupo é aberto.
 
+1. Clique em um membro ou grupo que você quer atribuir à função e, em seguida, clique em **Selecionar**.
 
-## <a name="manage-role-assignments"></a>Gerenciar atribuições de função
+    ![Selecione um painel de membro ou grupo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-Os administradores podem gerenciar atribuições de função selecionando **Funções** ou **Membros** do painel esquerdo. A seleção de **Funções** permite que os administradores definam o escopo de suas tarefas de gerenciamento para uma função específica. A seleção de **Membros** exibe todas as atribuições de função de usuário e grupo para o recurso.
+    O painel de configurações de Associação é aberto.
 
-![Painel "Funções"](media/azure-pim-resource-rbac/rbac-assign-roles-roles.png)
+1. Na lista **Tipo de atribuição**, selecione **Qualificado** ou **Ativo**.
 
-![Painel “Membros”](media/azure-pim-resource-rbac/rbac-assign-roles-members.png)
+    ![Painel de configurações das Associações](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
->[!NOTE]
-Se você tiver uma ativação de função pendente, uma faixa de notificação é exibida na parte superior da página, ao exibir a associação.
+    O PIM para recursos do Azure fornece dois tipos distintos de atribuição:
 
+    - Atribuições **qualificadas** exigem que o membro da função execute uma ação para usar a função. As ações podem incluir a execução de uma verificação de MDA (Autenticação Multifator), fornecimento de uma justificativa comercial ou solicitação de aprovação dos aprovadores designados.
 
-## <a name="modify-existing-assignments"></a>Modificar as atribuições existentes
+    - Atribuições **ativas** não exigem que o membro execute qualquer ação para usar a função. Membros atribuídos como ativos sempre possuem privilégios atribuídos pela função.
 
-Para modificar atribuições existentes a partir do modo de exibição de detalhes do usuário/grupo, selecione **Alterar configurações** na barra de ação. Altere o tipo de atribuição para **Just in Time** ou **Direta**.
+1. Se uma atribuição permanente for necessária (permanentemente qualificada ou permanentemente atribuída), selecione a caixa de seleção **Permanentemente**.
 
-![Painel "Detalhes do usuário" com o botão "Alterar configurações"](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+    Dependendo das configurações de função, a caixa de seleção poderá não aparecer ou não ser modificável.
+
+1. Para especificar uma duração de atribuição específica, desmarque a caixa de seleção e modifique as caixas de data e hora de início e/ou término.
+
+    ![Configurações de associação - data e hora](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
+
+1. Ao terminar, clique em **Concluído**.
+
+    ![Nova atribuição - Adicionar](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
+
+1. Para criar a nova atribuição de função, clique em **Adicionar**. Uma notificação do status é exibida.
+
+    ![Nova atribuição - Notificação](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
+
+## <a name="update-or-remove-an-existing-role-assignment"></a>Atualizar ou remover uma atribuição de função existente
+
+Siga estas etapas para atualizar ou remover uma atribuição de função existente.
+
+1. Abra o **Azure AD Privileged Identity Management**.
+
+1. Clique em **Recursos do Azure**.
+
+1. Clique no recurso que você quer gerenciar, como uma assinatura ou um grupo de gerenciamento.
+
+1. Em Gerenciar, clique em **Funções** para ver a lista de funções dos recursos do Azure.
+
+    ![Funções de recursos do Azure - Selecionar função](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
+
+1. Clique na função que você quer atualizar ou remover.
+
+1. Localize a atribuição de função nas guias **Funções qualificadas** ou **Funções ativas**.
+
+    ![Atualizar ou remover atribuição de função](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
+
+1. Clique em **Atualizar** ou **Remover** para atualizar ou remover a atribuição de função.
+
+    Para obter informações sobre como estender uma atribuição de função, consulte [Estender ou renovar funções de recurso do Azure no PIM](pim-resource-roles-renew-extend.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Estender ou renovar funções de recurso do Azure no PIM](pim-resource-roles-renew-extend.md)
 - [Definir configurações de função de recurso do Azure no PIM](pim-resource-roles-configure-role-settings.md)
 - [Atribuir funções de diretório do Azure AD no PIM](pim-how-to-add-role-to-user.md)

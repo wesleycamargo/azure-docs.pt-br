@@ -197,6 +197,7 @@
 #### [Restrições de locatário](manage-apps/tenant-restrictions.md)
 #### [Usar usuários de provisionamento de SCIM](manage-apps/use-scim-to-provision-users-and-groups.md)
 
+### [Noções básicas sobre experiências de consentimento de aplicativo do Azure AD](application-consent-experience.md)
 
 ### Solucionar problemas
 

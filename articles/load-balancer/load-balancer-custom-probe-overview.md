@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190726"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695418"
 ---
 # <a name="load-balancer-health-probes"></a>Investigações de integridade do Load Balancer
 
@@ -36,7 +36,7 @@ Os tipos de investigações de integridade disponíveis e o modo como as investi
 > [!IMPORTANT]
 > As investigações de integridade do Load Balancer são originadas do endereço IP 168.63.129.16 e não devem ser bloqueadas para que as investigações marquem a instância como operante.  Revisar o [endereço IP de origem da investigação](#probesource) para obter detalhes.
 
-## <a name="types"></a>Tipos de investigações de integridade
+## <a name="types"></a>Tipos de investigações
 
 As investigações de integridade podem observar qualquer porta em uma instância de back-end, incluindo a porta na qual o serviço real é fornecido. O protocolo de investigação de integridade pode ser configurado para três tipos diferentes de investigações de integridade:
 

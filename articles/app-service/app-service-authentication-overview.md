@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 9b4e86e719998c5f19a70734480356bcb98b8d2f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888093"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336797"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -135,7 +135,7 @@ Com essa opção, você não precisa gravar nenhum código de autenticação no 
 
 A opção é **Permitir solicitações anônimas**. Essa opção ativa a autenticação e autorização no Serviço de Aplicativo, mas adia decisões de autorização para o código do aplicativo. Para solicitações autenticadas, o Serviço de Aplicativo também passa informações de autenticação nos cabeçalhos HTTP. 
 
-Essa opção oferece mais flexibilidade no processamento de solicitações anônimas. Por exemplo, permite que você [apresente várias opções de entrada](app-service-authentication-how-to.md#configure-multiple-sign-in-options) aos seus usuários. No entanto, é necessário gravar código. 
+Essa opção oferece mais flexibilidade no processamento de solicitações anônimas. Por exemplo, permite que você [apresente vários provedores de entrada](app-service-authentication-how-to.md#use-multiple-sign-in-providers) aos usuários. No entanto, é necessário gravar o código. 
 
 ## <a name="more-resources"></a>Mais recursos
 

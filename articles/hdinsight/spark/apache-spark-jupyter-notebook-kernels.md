@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jasonh
-ms.openlocfilehash: 589c02a78c78f415fe59d911f9f6339bfa3fb293
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 98c9f260b4be1e335e22b5c68a76e9ffb7316236
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051536"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697859"
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels para o bloco de anotações do Jupyter em clusters do Spark no Azure HDInsight 
 
@@ -70,7 +70,7 @@ Estes são alguns dos benefícios de usar os novos kernels com o bloco de anota�
    
    Em vez disso, pode usar os contextos predefinidos diretamente em seu aplicativo.
 
-- **A mágica da célula**. O kernel PySpark fornece algumas “mágicas” predefinidas, que são comandos especiais que podem ser chamados com `%%` (por exemplo, `%%MAGIC` <args>). O comando mágico deve ser a primeira palavra em uma célula do código e de permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar algo antes da palavra mágica, até mesmo comentários, causa um erro.     Para saber mais sobre palavras mágicas, clique [aqui](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
+- **A mágica da célula**. O kernel de PySpark fornece algumas "mágicas"” predefinidas, que são comandos especiais que podem ser chamados com `%%` (por exemplo, `%%MAGIC` <args>). O comando mágico deve ser a primeira palavra em uma célula do código e de permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar algo antes da palavra mágica, até mesmo comentários, causa um erro.     Para saber mais sobre palavras mágicas, clique [aqui](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
     A tabela a seguir lista as diferentes palavras mágicas disponíveis por meio dos kernels.
 

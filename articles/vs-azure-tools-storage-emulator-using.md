@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: e4a72729cfe69a810e0eec0a0ac6ddb87a468932
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4b14fa44f484735f2a5efee4d631a6f48e6a8bf6
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141855"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382629"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurando e usando o emulador de armazenamento com o Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -33,7 +33,7 @@ Para obter informações detalhadas sobre o emulador de armazenamento incluindo 
 > 
 
 ## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>Configurando uma cadeia de conexão para o emulador de armazenamento
-Para acessar o emulador de armazenamento do código dentro de uma função, você deve configurar uma cadeia de conexão que aponta para o emulador de armazenamento e que pode ser alterada posteriormente para apontar para uma conta de armazenamento do Azure. Uma cadeia de conexão é uma configuração que sua função pode ler em tempo de execução para conectar-se a uma conta de armazenamento. Para obter mais informações sobre como criar cadeias de conexão, consulte [Configurar o Aplicativo do Azure](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
+Para acessar o emulador de armazenamento do código dentro de uma função, você deve configurar uma cadeia de conexão que aponta para o emulador de armazenamento e que pode ser alterada posteriormente para apontar para uma conta de armazenamento do Azure. Uma cadeia de conexão é uma configuração que sua função pode ler em tempo de execução para conectar-se a uma conta de armazenamento. Para obter informações sobre como criar cadeias de conexão, consulte [Configurar cadeias de conexão do Armazenamento do Microsoft Azure](/azure/storage/common/storage-configure-connection-string).
 
 > [!NOTE]
 > Você pode retornar uma referência à conta do emulador de armazenamento do seu código usando a propriedade **DevelopmentStorageAccount** . Essa abordagem funciona corretamente se você deseja acessar o emulador de armazenamento do seu código, mas se você planeja publicar seu aplicativo no Azure, você precisará criar uma cadeia de conexão para acessar sua conta de armazenamento do Azure e modificar seu código, antes de publicá-lo, para usar essa cadeia de conexão. Se você estiver alternando com frequência entre a conta do emulador de armazenamento e uma conta de armazenamento do Azure, uma cadeia de conexão simplificará esse processo.

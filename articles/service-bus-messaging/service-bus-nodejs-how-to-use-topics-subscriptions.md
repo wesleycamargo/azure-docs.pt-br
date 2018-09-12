@@ -3,7 +3,7 @@ title: Como usar tópicos e assinaturas do Barramento de Serviço do Azure com o
 description: Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure por meio de um aplicativo Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
-ms.openlocfilehash: d3a7ebd135f705a6a3ea91feb4e037a9ed6d0c79
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: daabf711e923e1c4ff3132c5e4765bdbff206948
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704989"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782904"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Como usar tópicos e assinaturas do Barramento de Serviço com Node.js
 
@@ -95,7 +95,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-O método `createServiceBusService` também dá suporte a opções adicionais, que permitem substituir configurações padrão do tópico, como a vida útil da mensagem ou o tamanho máximo do tópico. 
+O método `createTopicIfNotExists` também dá suporte a opções adicionais, que permitem substituir configurações padrão do tópico, como a vida útil da mensagem ou o tamanho máximo do tópico. 
 
 O exemplo a seguir define o tamanho máximo do tópico para 5 GB com um tempo de vida de um minuto:
 
@@ -235,12 +235,12 @@ var rule={
 }
 ```
 
-Quando uma mensagem é enviada para `MyTopic`, ela será entregue aos destinatários inscritos na assinatura do tópico `AllMessages` e entregue de forma seletiva aos destinatários inscritos nas assinaturas do tópico `HighMessages` e `LowMessages` (dependendo do conteúdo da mensagem).
+Quando uma mensagem é enviada para `MyTopic`, ela é entregue aos destinatários inscritos na assinatura do tópico `AllMessages` e entregue de forma seletiva aos destinatários inscritos nas assinaturas do tópico `HighMessages` e `LowMessages` (dependendo do conteúdo da mensagem).
 
 ## <a name="how-to-send-messages-to-a-topic"></a>Como enviar mensagens a um tópico
 Para enviar uma mensagem a um tópico do Barramento de Serviço, seu aplicativo deve usar o método `sendTopicMessage` do objeto **ServiceBusService**.
 As mensagens enviadas aos tópicos do Barramento de Serviço são objetos **BrokeredMessage**.
-Os objetos **BrokeredMessage** têm um conjunto de propriedades padrão (como `Label` e `TimeToLive`), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo dos dados da cadeia de caracteres. Um aplicativo pode definir o corpo da mensagem transmitindo um valor da cadeia ao `sendTopicMessage` e todas as propriedades padrão exigidas serão preenchidas por valores padrão.
+Os objetos **BrokeredMessage** têm um conjunto de propriedades padrão (como `Label` e `TimeToLive`), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo dos dados da cadeia de caracteres. Um aplicativo pode definir o corpo da mensagem, passando um valor de cadeia de caracteres para `sendTopicMessage` e todas as propriedades padrão necessárias são preenchidas por valores padrão.
 
 O exemplo a seguir demonstra como enviar cinco mensagens de teste para `MyTopic`. A propriedade `messagenumber` de cada mensagem varia de acordo com a iteração do loop (isso determina quais assinaturas a receberão):
 
@@ -268,7 +268,7 @@ Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensage
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
 As mensagens são recebidas de uma assinatura usando o método `receiveSubscriptionMessage` no objeto **ServiceBusService**. Por padrão, as mensagens são excluídas da assinatura conforme são lidas. No entanto, é possível definir o parâmetro opcional `isPeekLock` para **true** para ler (espiar) e bloquear a mensagem sem excluí-la da assinatura.
 
-O comportamento padrão da leitura e da exclusão da mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para entender esse comportamento, considere um cenário no qual o consumidor emite a solicitação de recebimento e, em seguida, ocorre falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
+O comportamento padrão da leitura e da exclusão da mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para entender esse comportamento, considere um cenário no qual o consumidor emite a solicitação de recebimento e, em seguida, ocorre falha antes de processá-la. Como o Barramento de Serviço marcou a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
 Se o parâmetro `isPeekLock` estiver definido como **true**, o recebimento se torna uma operação de dois estágios, o que possibilita dar suporte para aplicativos que não podem tolerar mensagens perdidas. Quando o Barramento de Serviço recebe uma solicitação, ele localiza a próxima mensagem a ser consumida, bloqueia-a para evitar que outros consumidores a recebam e retorna-a ao aplicativo.
 Após o aplicativo processar a mensagem (ou armazená-la de maneira confiável para processamento futuro), ele conclui o segundo estágio do processo chamando o método **deleteMessage** e passa a mensagem para excluir como um parâmetro. O método **deleteMessage** marca a mensagem como consumida e a remove da assinatura.
