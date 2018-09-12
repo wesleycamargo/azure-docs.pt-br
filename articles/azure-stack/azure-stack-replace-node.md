@@ -1,6 +1,6 @@
 ---
-title: Substituir um nó de unidade de escala em um sistema de pilha do Azure integradas | Microsoft Docs
-description: Saiba como substituir um nó de unidade de escala físico em um sistema de pilha do Azure integradas.
+title: Substituir um nó de unidade de escala em um sistema integrado do Azure Stack | Microsoft Docs
+description: Saiba como substituir um nó de unidade de escala físico em um sistema integrado do Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,28 +12,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 468af385833395963ef8acad905b99a9b7e6b8fa
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 1b37b150dad4951a4ade81f226b515ce9cae9053
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27598766"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377047"
 ---
-# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Substituir um nó de unidade de escala em um sistema de pilha do Azure integrado
+# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Substituir um nó de unidade de escala em um sistema integrado do Azure Stack
 
-*Aplica-se a: sistemas integrados de pilha do Azure*
+*Aplica-se a: sistemas integrados do Azure Stack*
 
-Este artigo descreve o processo geral para substituir um computador físico (também conhecido como um *nó de unidade de escala*) em uma pilha do Azure sistema integrado. Substituição de nó de unidade de escala real etapas irão variar com base no seu fornecedor de hardware do fabricante (OEM). Consulte a documentação do fornecedor campo FRU (unidade renovável) para obter etapas detalhadas que são específicas para seu sistema.
+Este artigo descreve o processo geral para substituir um computador físico (também conhecido como um *nó de unidade de escala*) no Azure Stack sistema integrado. Substituição de nó de unidade de escala real etapas irão variar com base em seu fornecedor de hardware do fabricante original do equipamento (OEM). Consulte a documentação do fornecedor campo FRU (unidade) para obter etapas detalhadas que são específicas para seu sistema.
 
-O diagrama de fluxo a seguir mostra o processo geral de FRU para substituir um nó de unidade de escala inteiro.
+O diagrama de fluxo a seguir mostra o processo geral de FRU para substituir um nó de unidade de escala inteira.
 
-![Gráfico de fluxo de processo do nó de substituição](media/azure-stack-replace-node/replacenodeflow.png)
+![Fluxograma de processo de substituição de nó](media/azure-stack-replace-node/replacenodeflow.png)
 
 * Esta ação pode não ser necessária com base na condição do hardware física.
 
-## <a name="review-alert-information"></a>Revise as informações de alerta
+## <a name="review-alert-information"></a>Examine as informações de alerta
 
 Se um nó de unidade de escala estiver inativo, você receberá os seguintes alertas críticos:
 
@@ -43,30 +43,30 @@ Se um nó de unidade de escala estiver inativo, você receberá os seguintes ale
 
 ![Lista de alertas de unidade de escala para baixo](media/azure-stack-replace-node/nodedownalerts.png)
 
-Se você abrir o **nó de unidade de escala está off-line** contém a descrição do alerta alerta, o nó de unidade de escala está inacessível. Você também pode receber alertas adicionais na solução de monitoramento específico do OEM que está em execução no host de ciclo de vida de hardware.
+Se você abrir o **nó de unidade de escala está off-line** contém a descrição do alerta alerta, o nó de unidade de escala que está inacessível. Você também pode receber alertas adicionais na solução de monitoramento específico do OEM que está em execução no host de ciclo de vida do hardware.
 
-![Detalhes do alerta offline do nó](media/azure-stack-replace-node/nodeoffline.png)
+![Detalhes de alerta de nó offline](media/azure-stack-replace-node/nodeoffline.png)
 
 ## <a name="scale-unit-node-replacement-process"></a>Processo de substituição do nó de unidade de escala
 
-As etapas a seguir são fornecidas como uma visão geral do processo de substituição do nó de unidade de escala. Consulte a documentação de FRU do fornecedor de hardware seu OEM para obter etapas detalhadas que são específicas para seu sistema. Não siga essas etapas sem fazer referência a documentação fornecida pelo OEM.
+As etapas a seguir são fornecidas como uma visão geral do que o processo de substituição de nó de unidade de escala. Consulte a documentação de FRU do fornecedor de hardware seu OEM para obter etapas detalhadas que são específicas para seu sistema. Não siga estas etapas sem fazer referência a documentação fornecida pelo OEM.
 
-1. Use o [drenar](azure-stack-node-actions.md#scale-unit-node-actions) ação para colocar o nó de unidade de escala no modo de manutenção. Esta ação pode não ser necessária com base na condição do hardware física.
+1. Use o [drenar](azure-stack-node-actions.md#scale-unit-node-actions) ação para colocar o nó de unidade de escala no modo de manutenção. Essa ação pode não ser necessária com base na condição do hardware física.
 
    > [!NOTE]
-   > Em qualquer caso, somente um nó pode ser descarregado e desligá-la ao mesmo tempo sem quebrar a S2D (espaços de armazenamento diretos).
+   > Em qualquer caso, apenas um nó pode ser descarregado e desligado ao mesmo tempo sem quebrar o S2D (espaços de armazenamento diretos).
 
-2. Se o nó ainda está ligado, use o [desligue](azure-stack-node-actions.md#scale-unit-node-actions) ação. Esta ação pode não ser necessária com base na condição do hardware física.
+2. Se o nó ainda está ligado, use o [desligue](azure-stack-node-actions.md#scale-unit-node-actions) ação. Essa ação pode não ser necessária com base na condição do hardware física.
  
    > [!NOTE]
-   > No caso improvável de que a ação de desligamento não funciona, use a interface da web do baseboard management controlador BMC.
+   > No caso improvável de que a ação de desligar não funciona, use a interface da web do baseboard management controller (BMC).
 
 1. Substitua o computador físico. Normalmente, isso é feito pelo seu fornecedor de hardware de OEM.
 2. Use o [reparo](azure-stack-node-actions.md#scale-unit-node-actions) ação para adicionar o novo computador físico para a unidade de escala.
-3. Usar o ponto de extremidade com privilégios [verificar o status de reparo de disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Com novas unidades de dados, um trabalho de reparo de armazenamento completo pode levar várias horas, dependendo da carga do sistema e consumido espaço.
+3. Use o ponto de extremidade com privilégios [verificar o status de reparo de disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Com novas unidades de dados, um trabalho de reparo de armazenamento completo pode levar várias horas, dependendo da carga do sistema e espaço consumido.
 4. Após a ação de reparo, valide que todos os alertas ativos foi fechados automaticamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter informações sobre como substituir um disco físico trocados, consulte [substituir um disco](azure-stack-replace-disk.md). 
+- Para obter informações sobre como substituir um disco físico intercambiáveis, consulte [substituir um disco](azure-stack-replace-disk.md). 
 - Para obter informações sobre como substituir um componente de hardware não intercambiáveis, consulte [substituir um componente de hardware](azure-stack-replace-component.md).

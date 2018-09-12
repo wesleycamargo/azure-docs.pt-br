@@ -6,36 +6,34 @@ documentationcenter: ''
 author: apwestgarth
 manager: stefsch
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/10/2018
 ms.author: anwestg
-ms.openlocfilehash: f12eb7d74d9c47567c72cddda8d2813f394fb1de
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 0e2b5b9902dbd3e9716801941663667bfa2b9da8
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139672"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379003"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Atualizar serviço de aplicativo do Azure no Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Aplicar a atualização 1807 seu sistema integrado do Azure Stack ou implantar o kit de desenvolvimento mais recente do Azure Stack antes de implantar o serviço de aplicativo Azure 1.3.
 >
 >
 
 Seguindo as instruções neste artigo, você pode atualizar o [provedor de recursos do serviço de aplicativo](azure-stack-app-service-overview.md) implantado em um ambiente do Azure Stack que está conectado à Internet.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Antes de executar a atualização, certifique-se de que você já tenha concluído a [implantação do serviço de aplicativo do Azure no provedor de recursos do Azure Stack](azure-stack-app-service-deploy.md)
->
->
+
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Execute o instalador de provedor de recursos de serviço de aplicativo
 

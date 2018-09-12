@@ -27,7 +27,7 @@ Se você precisar de um aplicativo de cliente LUIS com vários idiomas, como um 
 O LUIS compreende declarações nos seguintes idiomas:
 
 
-| Linguagem |Local  |  Domínio predefinido | Entidade predefinida | Sugestões de frase | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)| 
+| Linguagem |Local  |  Domínio predefinido | Entidade predefinida | Sugestões de frase | \**[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)| 
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês americano |`en-US` | ✔ | ✔  |✔|✔|
 | Francês do Canadá |`fr-CA` |-|   -   |-|✔|
@@ -58,7 +58,7 @@ O suporte aos idiomas varia para [entidades predefinidas](luis-reference-prebuil
      - でございます não é o mesmo que です. 
      - です não é o mesmo que だ. 
 
-### <a name="text-analytics-support-notes"></a>**Notas de suporte a análises de texto
+### <a name="text-analytics-support-notes"></a>\*\*Notas de suporte a análises de texto
 A análise de texto inclui análise de sentimento e entidade pré-compilada keyPhrase. Só há suporte para subculturas em português: `pt-PT` e `pt-BR`. Todas as outras culturas têm suporte no nível de cultura principal. Saiba mais sobre os [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) da Análise de Texto. 
 
 ### <a name="speech-api-supported-languages"></a>Idiomas com suporte da API de Fala

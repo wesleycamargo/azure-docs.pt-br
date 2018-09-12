@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9d33ccf9262d4432ac7255121e97f318d00b5145
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc57d445c334baeb32dbffda814cb10a35956d03
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050642"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380209"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versões de API do provedor de recursos com suporte pelos perfis no Azure Stack
 
@@ -54,9 +54,9 @@ Para obter uma explicação dos perfis de API e a cadência de lançamento de ve
 | Resources_Locks | 2016-10-01 |
 | Assinaturas | 2016-10-01 |
 
-Para mais de uma lista das versões para cada tipo de recurso para os provedores no perfil de api, consulte [detalhes de 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) perfil.
+Para mais de uma lista das versões para cada tipo de recurso para os provedores no perfil de API, consulte [detalhes de 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) perfil.
 
-## <a name="overview-of-2017-03-09-profile"></a>Visão geral do 2017-03-09-perfil
+## <a name="overview-of-2018-03-01-hybrid"></a>Visão geral de 2018-03-01-hybrid
 
 | Provedor de recursos | A versão de API |
 |------------------------------------------------|------------------------------|
@@ -76,7 +76,7 @@ Para mais de uma lista das versões para cada tipo de recurso para os provedores
 | Resources_Locks | 2016-09-01 |
 | Assinaturas | 2016-06-1 |
 
-Para mais de uma lista das versões para cada tipo de recurso para os provedores no perfil de api, consulte [detalhes para 2017-03-09-perfil](#details-for-the-2017-03-09-profile)
+Para mais de uma lista das versões para cada tipo de recurso para os provedores no perfil de api, consulte [detalhes para 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid)
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Detalhes de 2018-03-01-hybrid
 
@@ -231,7 +231,7 @@ O provedor de recursos de armazenamento (SRP) permite que você gerencie sua con
 | StorageAccounts | 2016-01-01 |
 | Usos | 2016-01-01 |
 
-## <a name="details-for-the-2017-03-09-profile"></a>Detalhes de 2017-03-09-perfil
+## <a name="details-for-the-2018-03-01-hybrid"></a>Detalhes de 2018-03-01-hybrid
 
 ### <a name="microsoft-authorization"></a>Autorização da Microsoft
 

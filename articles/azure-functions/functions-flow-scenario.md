@@ -3,26 +3,21 @@ title: Chamar uma função do Azure do Microsoft Flow | Microsoft Docs
 description: Crie um conector personalizado e, em seguida, chame uma função usando esse conector.
 services: functions
 keywords: aplicativos de nuvem, serviços de nuvem, Microsoft Flow, processos de negócios, aplicativo de negócios
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467737"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092251"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Chamar uma função do Microsoft Flow
 
@@ -41,7 +36,7 @@ Neste tópico, você aprenderá a:
 > * Crie um fluxo para enviar email se um reparo for econômico.
 > * Execute o fluxo.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 + Uma [conta do Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) ativa com as mesmas credenciais de entrada da sua conta do Azure. 
 + SharePoint, que você pode usar como uma fonte de dados para este fluxo. Inscreva-se para [uma versão de avaliação do Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) se ainda não tiver o SharePoint.
@@ -234,7 +229,7 @@ Agora que o fluxo está concluído, você adiciona uma linha à lista do SharePo
     | **Título**           | Turbina 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
-    | **ServiceRequired** | sim |
+    | **ServiceRequired** | SIM |
     | **EstimatedEffort** | 10 |
 
 3. Clique em **Concluído**.

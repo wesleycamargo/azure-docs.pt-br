@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: d3bfe2c472d48a68bd818ac06874db136528b470
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 24f237a04d19d03ab7357db6fb9c7ab60036f3d2
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840262"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390986"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Pós-instalação do ASDK tarefas de configuração
 
@@ -39,6 +39,8 @@ Set-PSRepository `
 ```
 
 Você pode usar perfis de versão da API para especificar os módulos do AzureRM compatíveis do Azure Stack.  Perfis de versão de API fornecem uma maneira de gerenciar as diferenças de versão entre o Azure e o Azure Stack. Um perfil de versão de API é um conjunto de módulos do PowerShell do AzureRM com versões específicas de API. O **AzureRM.Bootstrapper** módulo que está disponível por meio da Galeria do PowerShell fornece cmdlets do PowerShell que são necessárias para trabalhar com perfis de versão da API.
+
+ 
 
 Você pode instalar o módulo mais recente do PowerShell do Azure Stack com ou sem conectividade com a Internet para o computador de host ASDK:
 

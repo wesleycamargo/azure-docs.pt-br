@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 9e868788d0cf3b3c0f2f30095388046f64ced71c
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139441"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378533"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo para o Azure Stack
 
@@ -97,7 +97,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 8. Insira as informações para o compartilhamento de arquivos e, em seguida, selecione **próxima**. O endereço do compartilhamento de arquivos deve usar o nome de domínio totalmente qualificado (FQDN) ou o endereço IP do servidor de arquivos. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
 
    >[!NOTE]
-   >O instalador tentará testar a conectividade com o compartilhamento de arquivos antes de continuar. No entanto, se você estiver implantando em uma rede virtual existente, esse teste de conectividade pode do arquivo. Você recebe um aviso e um prompt para continuar. Se as informações de compartilhamento de arquivos estiverem corretas, continue a implantação.
+   >O instalador tentará testar a conectividade com o compartilhamento de arquivos antes de continuar. Mas, se você estiver implantando em uma rede virtual existente, esse teste de conectividade pode falhar. Você recebe um aviso e um prompt para continuar. Se as informações de compartilhamento de arquivos estiverem corretas, continue a implantação.
 
    ![Instalador do serviço de aplicativo][7]
 

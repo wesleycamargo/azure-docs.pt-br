@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 8da02641cc54f9308f8e0bbb8d2b28da9a930aa2
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 994893eb73356fde9acc593569dc5fb1c5a0106f
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139556"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391123"
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Use perfis de versão da API do PowerShell no Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Perfis de versão de API fornecem uma maneira de gerenciar as diferenças de versão entre o Azure e o Azure Stack. Um perfil de versão de API é um conjunto de módulos do PowerShell do AzureRM com versões específicas de API. Cada plataforma de nuvem tem um conjunto de perfis de versão de API com suporte. Por exemplo, Azure Stack dá suporte a uma versão de perfil com data específica, como **2017-03-09-perfil**, e o Azure dá suporte a **mais recente** perfil da versão de API. Quando você instala um perfil, são instalados os módulos do AzureRM PowerShell que correspondem ao perfil especificado.
+
+ 
 
 ## <a name="install-the-powershell-module-required-to-use-api-version-profiles"></a>Instalar o módulo do PowerShell necessário para usar perfis de versão da API
 

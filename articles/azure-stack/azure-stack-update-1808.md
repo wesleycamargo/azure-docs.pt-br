@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: f9973f2099ed5c6dda38c6569f42995b6903ef5e
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8574eeb54d3695eff5bca43b24e90e45a36b1a70
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162403"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391650"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
@@ -70,6 +70,8 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 - <!-- 1697698  | IS, ASDK --> *Tutoriais de início rápido* no link agora de painel do portal de usuário para os artigos relevantes na documentação do Azure Stack on-line.
 
 - <!-- 2515955   | IS ,ASDK--> *Todos os serviços* substitui *mais serviços* nos portais de administrador e usuário do Azure Stack. Agora você pode usar *todos os serviços* como uma alternativa para navegar nos portais do Azure Stack da mesma maneira que faria em portais do Azure.
+
+- <!-- TBD | IS, ASDK --> **+ Criar um recurso** substitui **+ novo** nos portais de administrador e usuário do Azure Stack.  Agora você pode usar *+ criar um recurso* como uma alternativa para navegar nos portais do Azure Stack da mesma maneira que faria em portais do Azure. 
 
 - <!--  TBD – IS, ASDK --> *Um básico* tamanhos de máquina virtual estão desativados para [criando conjuntos de dimensionamento de máquina virtual](azure-stack-compute-add-scalesets.md) (VMSS) por meio do portal. Para criar um VMSS com esse tamanho, use o PowerShell ou um modelo.  
 
