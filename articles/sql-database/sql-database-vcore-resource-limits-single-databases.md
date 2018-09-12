@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: carlrab
-ms.openlocfilehash: 350e472a4c17ed878d8506b4093bcd44ad60f469
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c1ea223bf00dea32fb150cf141be7b5ea3239215
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288014"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055413"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites do modelo de compra com base em vCore do Banco de Dados SQL do Azure para um banco de dados individual
 
@@ -44,7 +44,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |Tamanho máximo de dados (GB)|1024|1024|1536|3072|4096|4096|
 |Tamanho máximo de log (GB)|307|307|461|922|1229|1229|
-|Tamanho TempDB (MB)|32|64|128|256|384|384|
+|Tamanho de TempDB (GB)|32|64|128|256|384|384|
 |IOPS de destino (64 KB)|500|1000|2000|4000|7000|7000|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|3200|4800|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
@@ -66,7 +66,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |Tamanho máximo de dados (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
 |Tamanho máximo de log (GB)|307|307|461|614|1229|1229|1229|1229|
-|Tamanho TempDB (MB)|64|128|256|384|384|384|384|384|
+|Tamanho de TempDB (GB)|64|128|256|384|384|384|384|384|
 |IOPS de destino (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -89,7 +89,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
 |Tamanho máximo de log (GB)|307|307|307|307|307|307|
-|Tamanho TempDB (MB)|32|64|128|256|384|384|
+|Tamanho de TempDB (GB)|32|64|128|256|384|384|
 |IOPS de destino (64 KB)|5.000|10000|20000|40000|80000|120000|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|3200|4800|
@@ -112,7 +112,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|2.048|4096|4096|4096|
 |Tamanho máximo de log (GB)|307|307|307|307|614|1229|1229|1229|
-|Tamanho TempDB (MB)|64|128|256|384|384|384|384|384|
+|Tamanho de TempDB (GB)|64|128|256|384|384|384|384|384|
 |IOPS de destino (64 KB)|5.000|10000|20000|40000|60000|80000|100000|200000
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -125,4 +125,5 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 ## <a name="next-steps"></a>Próximas etapas
 
 - Consulte [Perguntas frequentes sobre Banco de Dados SQL](sql-database-faq.md) para obter respostas para as perguntas frequentes.
+- Veja [limites de recursos de visão geral do Banco de Dados SQL do Azure](sql-database-resource-limits.md) para obter informações sobre os limites nos níveis de servidor e a assinatura.
 - Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).

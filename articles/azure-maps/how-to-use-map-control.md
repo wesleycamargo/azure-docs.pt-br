@@ -3,17 +3,17 @@ title: Como usar o Controle de Mapeamento dos Mapas do Azure | Microsoft Docs
 description: Saiba como usar a biblioteca Javascript do lado do cliente do Controle de Mapeamento dos Mapas do Azure.
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/05/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 619dda44b5ad74ba1dcb62cfb3318687aa6ec4d5
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5b8703c218790549a0cf5a319345132a0eca66ce
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340128"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025182"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Como usar o Controle de Mapeamento dos Mapas do Azure
 A biblioteca Javascript do lado do cliente do Controle de Mapeamento permite renderizar mapas e funcionalidade inserida nos Mapas do Azure em seu aplicativo Web ou móvel. 
@@ -27,8 +27,8 @@ Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript 
 2. Adicione as referências de origem de scirpt e de folha de estilos dos Mapas do Azure ao elemento `<head>` do arquivo:
 
     ```html
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
     ```
     
 3. Para renderizar um novo mapa em seu navegador, adicione uma referência **#map** ao elemento `<style>`.

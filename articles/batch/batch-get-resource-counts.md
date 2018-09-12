@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
-ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e1d6f2d6181e70fde75907191664dcf6cd0b7252
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698376"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391752"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorar soluções do Lote pela contagem de tarefas e nós por estado
 
@@ -53,11 +53,9 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 
 Você pode usar um padrão semelhante para REST e outras linguagens com suporte para obter as contagens de tarefa para um trabalho. 
 
-### <a name="counts-for-large-numbers-of-tasks"></a>Contagens para um grande número de tarefas
-
-A operação Obter Contagens de Tarefas retorna contagens de estados de tarefas no sistema em um ponto no tempo. Quando o trabalho tem um grande número de tarefas, as contagens retornadas por Obter Contagens de Tarefas podem atrasar os estados reais da tarefa em até alguns segundos. O Lote garante a consistência eventual entre os resultados de Obter Contagens de Tarefas e os estados reais da tarefa (que você pode consultar por meio da API de Lista de Tarefas). No entanto, se o trabalho tiver um grande número de tarefas (>200.000), em vez disso é recomendável usar a API de Lista de Tarefas e uma [consulta filtrada](batch-efficient-list-queries.md) que fornece informações mais atualizadas. 
-
-As versões da API do Serviço do Lote anteriores a 2018-08-01.7.0 também retornam uma propriedade `validationStatus` a resposta Obter Contagens de Tarefas. Essa propriedade indica se o Lote verificou a consistência de contagens de estado com os estados relatados na API de Tarefas de Lista. Um valor de `validated` indica apenas que o Lote procurou consistência pelo menos uma vez para o trabalho. O valor da propriedade `validationStatus` não indica se as contagens que Obter Contagens de Tarefas retorna estão atualizadas no momento.
+> [!NOTE]
+> As versões da API do Serviço do Lote anteriores a 2018-08-01.7.0 também retornam uma propriedade `validationStatus` a resposta Obter Contagens de Tarefas. Essa propriedade indica se o Lote verificou a consistência de contagens de estado com os estados relatados na API de Tarefas de Lista. Um valor de `validated` indica apenas que o Lote procurou consistência pelo menos uma vez para o trabalho. O valor da propriedade `validationStatus` não indica se as contagens que Obter Contagens de Tarefas retorna estão atualizadas no momento.
+>
 
 ## <a name="node-state-counts"></a>Contagens de estados de nós
 
