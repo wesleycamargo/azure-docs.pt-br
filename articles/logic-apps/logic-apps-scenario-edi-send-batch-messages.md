@@ -84,7 +84,7 @@ Para esse receptor do lote, você especifica o modo de lote, nome, critérios de
 
    1. No gatilho de lote, escolha **Nova etapa**.
 
-   2. Na caixa de pesquisa, insira "lote X12" como o filtro e selecione esta ação (qualquer versão): **	Codificar em lote <*versão*> - X12** 
+   2. Na caixa de pesquisa, insira "lote X12" como o filtro e selecione esta ação (qualquer versão): **Codificar em lote <*versão*> - X12** 
 
       ![Selecione a ação Codificação de lote X12](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
