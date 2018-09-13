@@ -1,6 +1,6 @@
 ---
-title: Usando o portal do Azure pilha | Microsoft Docs
-description: Saiba como acessar e usar o portal do usuário na pilha do Azure.
+title: Usando o portal do Azure Stack | Microsoft Docs
+description: Saiba como acessar e usar o portal do usuário no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,66 +10,66 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 7ca29ee359349f69c3d5ff21bd9db3f93358206a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7ccf746cfd9645b63c2810bff83cfb0c4fa55d65
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724305"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713724"
 ---
 # <a name="use-the-azure-stack-portal"></a>Usar o portal do Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Você pode usar o portal de pilha do Azure para se inscrever para ofertas públicas e usar os serviços que fornecem essas ofertas. Se você usou o portal do Azure global, você já está familiarizado com como funciona o site.
+Você pode usar o portal do Azure Stack para assinar as ofertas públicas e usar os serviços que fornecem essas ofertas. Se você já usou o portal do Azure global, você já está familiarizado com o funcionamento do site.
 
 ## <a name="access-the-portal"></a>Acessar o portal
 
-O operador de pilha do Azure (um provedor de serviço ou um administrador na sua organização), permitirá que você souber a URL correta para acessar o portal.
+O operador do Azure Stack (um provedor de serviços ou um administrador em sua organização), permitem que você souber a URL correta para acessar o portal.
 
-- Para um sistema integrado, a URL varia com base na região do operador e o nome de domínio externo e será no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
-- Se você estiver usando o Kit de desenvolvimento de pilha do Azure, o endereço do portal é https://portal.local.azurestack.external.
+- Para um sistema integrado, a URL varia com base na região de seu operador e o nome de domínio externo e será no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
+- Se você estiver usando o Kit de desenvolvimento do Azure Stack, o endereço do portal é https://portal.local.azurestack.external.
 
-![Captura de tela do portal do usuário de pilha do Azure](media/azure-stack-use-portal/UserPortal.png)
+![Captura de tela do portal do usuário do Azure Stack](media/azure-stack-use-portal/UserPortal.png)
 
 ## <a name="customize-the-dashboard"></a>Personalizar o painel
 
-O painel contém um conjunto padrão de blocos. Você pode selecionar **Editar painel** para modificar o painel padrão ou selecione **novo painel** para criar um painel personalizado. Você pode personalizar facilmente um painel, adicionando ou removendo blocos. Por exemplo, para adicionar um bloco de computação, selecione **novo**. Clique com botão direito **de computação**e, em seguida, selecione **fixar no painel**.
+O painel contém um conjunto padrão de blocos. Você pode selecionar **Editar painel** para modificar o painel padrão ou selecione **novo painel** para criar um painel personalizado. Você pode personalizar facilmente um painel, adicionando ou removendo os blocos. Por exemplo, para adicionar um bloco de computação, selecione **+ criar um recurso**. Clique com botão direito **Compute**e, em seguida, selecione **fixar no painel**.
 
-## <a name="create-subscription-and-browse-available-resources"></a>Criar assinatura e procurar recursos disponíveis
+## <a name="create-subscription-and-browse-available-resources"></a>Criar a assinatura e procurar recursos disponíveis
 
 Se você ainda não tiver uma assinatura, a primeira coisa que você precisa fazer é assinar uma oferta. Depois disso, você pode procurar os recursos disponíveis. Para procurar e criar recursos, use qualquer uma das seguintes abordagens:
 
-- Selecione o **Marketplace** bloco no painel.
+- Selecione o **Marketplace** lado a lado no painel.
 - Sobre o **todos os recursos** lado a lado, selecione **criar recursos**.
-- No painel de navegação esquerdo, selecione **novo**.
+- No painel de navegação à esquerda, selecione **+ criar um recurso**.
 
 ## <a name="learn-how-to-use-available-services"></a>Saiba como usar os serviços disponíveis
 
 Se você precisar de orientação sobre como usar os serviços disponíveis, pode haver diferentes opções disponíveis para você.
 
-- Sua organização ou um provedor de serviços pode fornecer sua própria documentação, que normalmente é o caso se eles oferecem aplicativos ou serviços personalizados.
+- Sua organização ou provedor de serviços pode fornecer sua própria documentação, que normalmente é o caso se eles oferecem serviços personalizados ou aplicativos.
 - Aplicativos de terceiros têm sua própria documentação.
-- Para serviços do Azure consistentes, é altamente recomendável que você primeiro examine a documentação de pilha do Azure. Para acessar a documentação de usuário de pilha do Azure, selecione o ícone de Ajuda e, em seguida, selecione **ajuda + suporte**.
+- Para os serviços do Azure consistente, é altamente recomendável que você primeiro examine a documentação do Azure Stack. Para acessar a documentação do usuário do Azure Stack, selecione o ícone de Ajuda e, em seguida, selecione **ajuda + suporte**.
 
-    ![Ajuda e suporte de opção na interface de usuário](media/azure-stack-use-portal/HelpAndSupport.png)
+    ![Ajuda e suporte de opção na interface do usuário](media/azure-stack-use-portal/HelpAndSupport.png)
 
-    Em particular, sugerimos que você analise os artigos a seguir para começar:
+    Em particular, sugerimos que você examine os artigos a seguir para começar a usar:
 
-    - [Considerações de chave: usando os serviços ou criação de aplicativos para a pilha do Azure](azure-stack-considerations.md)
-    - No **usar serviços** seção da documentação, há um artigo de considerações para cada serviço. A página considerações descreve as diferenças entre o serviço oferecido no Azure e o mesmo serviço oferecido na pilha do Azure. Para obter um exemplo, consulte [considerações de VM](azure-stack-vm-considerations.md). Pode haver outras informações no **usar serviços** seção que é exclusiva para a pilha do Azure.
+    - [Considerações da chave: usando os serviços ou criação de aplicativos para o Azure Stack](azure-stack-considerations.md)
+    - No **usar serviços** seção da documentação, há um artigo de considerações para cada serviço. A página de considerações descreve as diferenças entre o serviço oferecido no Azure e o mesmo serviço oferecidos no Azure Stack. Por exemplo, consulte [considerações sobre VM](azure-stack-vm-considerations.md). Pode haver outras informações na **usar serviços** seção que é exclusiva para o Azure Stack.
 
-      Você pode usar a documentação do Azure como referência geral para um serviço, mas você deve estar atento essas diferenças. Entender que a documentação contém links no **tutoriais** bloco aponte para documentação do Azure.
+      Você pode usar a documentação do Azure como referência geral para um serviço, mas você deve estar ciente dessas diferenças. Entender que a documentação contém links sobre o **tutoriais de início rápido** bloco aponte para documentação do Azure.
 
 ## <a name="get-support"></a>Obtenha suporte
 
-Se você precisar de suporte, contate o provedor de serviço ou da organização para obter ajuda.
+Se você precisar de suporte, entre em contato com seu provedor de serviço ou da organização para obter ajuda.
 
-Se você estiver usando o Kit de desenvolvimento de pilha do Azure, o [Fórum do Azure pilha](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) é a única fonte de suporte.
+Se você estiver usando o Kit de desenvolvimento do Azure Stack, o [Fórum do Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) é a única fonte de suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Considerações de chave: usando os serviços ou criação de aplicativos para a pilha do Azure](azure-stack-considerations.md)
+[Considerações da chave: usando os serviços ou criação de aplicativos para o Azure Stack](azure-stack-considerations.md)

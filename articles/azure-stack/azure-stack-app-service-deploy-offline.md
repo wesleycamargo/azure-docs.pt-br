@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9e36e470c3516c55089ce1e44540b6b1eacbb6b2
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139461"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718722"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um provedor de recursos do serviço de aplicativo para um ambiente desconectado do Azure Stack protegido pelo AD FS
 
@@ -226,7 +226,7 @@ Você *deve* possui uma assinatura de locatário para criar aplicativos que usam
 >
 A partir do technical preview do terceiro criar a web, API e o Azure Functions aplicativos, você deve usar o portal de locatário e ter uma assinatura de locatário.
 
-1. No portal de locatário do Azure Stack, clique em **New** > **Web + móvel** > **Web App**.
+1. No portal de locatário do Azure Stack, clique em **+ criar um recurso** > **Web + móvel** > **Web App**.
 
 2. Sobre o **aplicativo Web** folha, digite um nome na **aplicativo Web** caixa.
 

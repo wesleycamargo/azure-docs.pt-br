@@ -1,6 +1,6 @@
 ---
-title: Conecte-se o Gerenciador de armazenamento para uma assinatura do Azure pilha ou uma conta de armazenamento | Microsoft Docs
-description: Saiba como conectar-se o Gerenciador de armazenamento para uma assinatura de pilha do Azure
+title: Conectar-se o Gerenciador de armazenamento para uma assinatura do Azure Stack ou uma conta de armazenamento | Microsoft Docs
+description: Saiba como conectar o Gerenciador de armazenamento para uma assinatura do Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,73 +10,73 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 06/15/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 9704f05cc6da97e33c0043b93acedc9e66bdcc36
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 2f974b7773e7a4cbc0eda32a267bb5ab939644d8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714894"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35998344"
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Conecte-se o Gerenciador de armazenamento para uma assinatura do Azure pilha ou uma conta de armazenamento
+# <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Conectar-se o Gerenciador de armazenamento para uma assinatura do Azure Stack ou uma conta de armazenamento
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Neste artigo, você aprenderá como conectar-se às contas de armazenamento usando o Gerenciador de armazenamento e assinaturas de pilha do Azure. Gerenciador de armazenamento do Azure é um aplicativo autônomo que permite que você trabalhe facilmente com dados de armazenamento do Azure pilha no Linux, Windows e macOS.
+Neste artigo, você aprenderá como se conectar a suas assinaturas do Azure Stack e contas de armazenamento usando o Gerenciador de armazenamento. O Gerenciador de armazenamento do Azure é um aplicativo autônomo que permite que você trabalhe facilmente com dados do armazenamento do Azure Stack no Windows, macOS e Linux.
 
 > [!NOTE]  
-> Há várias ferramentas disponíveis para mover dados para e do armazenamento do Azure pilha. Para obter mais informações, consulte [transferência de dados de ferramentas para o armazenamento do Azure pilha](azure-stack-storage-transfer.md).
+> Há várias ferramentas disponíveis para mover dados bidirecionalmente no armazenamento do Azure Stack. Para obter mais informações, consulte [transferência de dados de ferramentas para o armazenamento do Azure Stack](azure-stack-storage-transfer.md).
 
-Se você ainda não instalou o Gerenciador de armazenamento ainda, [baixar o Gerenciador de armazenamento](http://www.storageexplorer.com/) e instalá-lo.
+Se você ainda não instalou ainda, o Gerenciador de armazenamento [baixar o Gerenciador de armazenamento](http://www.storageexplorer.com/) e instalá-lo.
 
-Depois que você se conectar a uma assinatura do Azure pilha ou uma conta de armazenamento, você pode usar o [artigos do Gerenciador de armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) para trabalhar com os dados da pilha do Azure. 
+Depois de se conectar a uma assinatura do Azure Stack ou uma conta de armazenamento, você pode usar o [artigos do Gerenciador de armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) para trabalhar com seus dados do Azure Stack. 
 
-## <a name="prepare-for-connecting-to-azure-stack"></a>Preparar para conectar-se a pilha do Azure
+## <a name="prepare-for-connecting-to-azure-stack"></a>Preparar para conectar-se ao Azure Stack
 
-Você precisa ter acesso direto para a pilha do Azure ou uma conexão VPN para o Gerenciador de armazenamento acessar a assinatura de pilha do Azure. Para saber como configurar uma conexão VPN ao Azure Stack, confira [Como conectar-se com o Azure Stack com VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+Você precisa ter acesso direto para o Azure Stack ou uma conexão VPN para o Gerenciador de armazenamento acessar a assinatura do Azure Stack. Para saber como configurar uma conexão VPN ao Azure Stack, confira [Como conectar-se com o Azure Stack com VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-Para o Kit de desenvolvimento de pilha do Azure, você precisa exportar o certificado de raiz da autoridade de pilha do Azure.
+Para o Kit de desenvolvimento do Azure Stack, você precisa exportar o certificado raiz da autoridade do Azure Stack.
 
-### <a name="export-and-then-import-the-azure-stack-certificate"></a>Exportar e importar o certificado de pilha do Azure
+### <a name="export-and-then-import-the-azure-stack-certificate"></a>Exportar e importar o certificado do Azure Stack
 
-1. Abra `mmc.exe` em uma máquina de host de pilha do Azure, ou um computador local com uma conexão VPN com a pilha do Azure. 
+1. Abra `mmc.exe` em uma máquina de host do Azure Stack ou em um computador local com uma conexão VPN para o Azure Stack. 
 
-2. Em **arquivo**, selecione **Adicionar/Remover Snap-in**e, em seguida, adicione **certificados** para gerenciar **minha conta de usuário**.
+2. Na **arquivo**, selecione **Adicionar/Remover Snap-in**e, em seguida, adicione **certificados** gerenciar **minha conta de usuário**.
 
-3. Em **Root\Certificated Console (computador Local) \Trusted Root Certification Authorities\Certificates** localizar **AzureStackSelfSignedRootCert**.
+3. Sob **\Trusted Root Certification Authorities\Certificates Console raiz do console\certificado (computador Local)** encontrar **AzureStackSelfSignedRootCert**.
 
     ![Como carregar o certificado raiz do Azure Stack por meio do mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-4. Clique com botão direito no certificado, selecione **todas as tarefas** > **exportar**e, em seguida, siga as instruções para exportar o certificado com **x. 509 codificado na Base 64 (. CER)**.
+4. Clique com botão direito no certificado, selecione **todas as tarefas** > **exportar**e, em seguida, siga as instruções para exportar o certificado com **x. 509 codificado em Base-64 (. CER)**.
 
     O certificado exportado será usado na próxima etapa.
 
-5. Iniciar o Gerenciador de armazenamento, e se você vir o **conectar ao armazenamento do Azure** caixa de diálogo caixa, cancelá-la.
+5. Iniciar o Gerenciador de armazenamento, e se você vir as **conectar-se ao armazenamento do Azure** caixa de diálogo caixa, cancelá-la.
 
-6. Sobre o **editar** , aponte para **certificados SSL**e, em seguida, selecione **importar certificados**. Use a caixa de diálogo do seletor de arquivos para localizar e abrir o certificado que você exportou na etapa anterior.
+6. Sobre o **edite** , aponte para **certificados SSL**e, em seguida, selecione **importar certificados**. Use a caixa de diálogo do seletor de arquivos para localizar e abrir o certificado que você exportou na etapa anterior.
 
-    Depois de importar o certificado, você será solicitado a reiniciar o Gerenciador de armazenamento.
+    Depois de importar o certificado, você for solicitado a reiniciar o Gerenciador de armazenamento.
 
     ![Importe o certificado no Gerenciador de armazenamento](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. Após a reinicialização do Gerenciador de armazenamento, selecione o **editar** menu e verificar se **pilha do Azure de destino** está selecionado. Se não estiver, selecione **pilha do Azure de destino**e, em seguida, reinicie o Gerenciador de armazenamento para que a alteração tenha efeito. Essa configuração é necessária para que haja compatibilidade com seu ambiente do Azure Stack.
+7. Depois de reinicia o Gerenciador de armazenamento, selecione o **editar** menu e verifique se **destino Azure Stack** está selecionado. Se não estiver, selecione **destino Azure Stack**e, em seguida, reinicie o Gerenciador de armazenamento para que a alteração tenha efeito. Essa configuração é necessária para que haja compatibilidade com seu ambiente do Azure Stack.
 
     ![Confira se o Destino Azure Stack está selecionado](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
-## <a name="connect-to-an-azure-stack-subscription"></a>Conexão com uma assinatura do Azure Stack
+## <a name="connect-to-an-azure-stack-subscription-with-azure-ad"></a>Conectar-se a uma assinatura do Azure Stack com o Azure AD
 
-Use as etapas a seguir para conectar o Gerenciador de armazenamento para uma assinatura de pilha do Azure.
+Use as etapas a seguir para conectar o Gerenciador de armazenamento para uma assinatura do Azure Stack, que pertence a uma conta do Azure Active Directory (Azure AD).
 
 1. No painel esquerdo do Gerenciador de armazenamento, selecione **gerenciar contas**. 
-    Todos os a assinatura da Microsoft que você entrou são exibidos.
+    Todos os a assinatura da Microsoft que você conectado são exibidos.
 
-2. Para conectar-se para a assinatura de pilha do Azure, selecione **adicionar uma conta**.
+2. Para se conectar à assinatura do Azure Stack, selecione **adicionar uma conta**.
 
     ![Adicionar uma conta do Azure Stack](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. Na caixa de diálogo do armazenamento do Azure, conectar em **ambiente Azure**, selecione **Azure** ou **do Azure na China**, que depende da conta de pilha do Azure que está sendo usada, selecione **Entrar** entrar com a conta de pilha do Azure associada com pelo menos uma assinatura ativa do Azure pilha.
+3. Na caixa de diálogo de armazenamento do Azure, conectar sob **ambiente do Azure**, selecione **Azure** ou **Azure China**, que depende da conta do Azure Stack que está sendo usada, selecione **Entrar** para entrar com a conta do Azure Stack associada com pelo menos uma assinatura ativa do Azure Stack.
 
     ![Conectar-se ao armazenamento do Azure](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
@@ -88,33 +88,71 @@ Use as etapas a seguir para conectar o Gerenciador de armazenamento para uma ass
 
     ![Lista de contas de armazenamento, incluindo contas de assinatura do Azure Stack](./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png)
 
-## <a name="connect-to-an-azure-stack-storage-account"></a>Conecte-se a uma conta de armazenamento do Azure pilha
+## <a name="connect-to-an-azure-stack-subscription-with-ad-fs-account"></a>Conectar-se a uma assinatura do Azure Stack com a conta do AD FS
 
-Você também pode se conectar a uma conta de armazenamento do Azure pilha usando o nome da conta de armazenamento e o par de chaves.
+> [!Note]  
+> A experiência de logon de serviço federado do Azure (AD FS) dá suporte ao Gerenciador de armazenamento 1.2.0 ou versões mais recentes com o Azure Stack 1804 ou atualização mais recente.
+Use as etapas a seguir para conectar o Gerenciador de armazenamento para uma assinatura do Azure Stack que pertence a uma conta do AD FS.
 
-1. No painel esquerdo do Gerenciador de armazenamento, selecione Gerenciar contas. Todas as contas da Microsoft que você entrou são exibidas.
+1. Selecione **gerenciar contas**. O explorer lista as assinaturas do Microsoft que você entrou.
+2. Selecione **adicionar uma conta** para se conectar à assinatura do Azure Stack.
+
+    ![Adicionar uma conta](media/azure-stack-storage-connect-se/add-an-account.png)
+
+3. Selecione **Avançar**. Na caixa de diálogo de armazenamento do Azure, conectar sob **ambiente do Azure**, selecione **ambiente personalizado de uso**, em seguida, clique em **próxima**.
+
+    ![Conectar-se ao armazenamento do Azure](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
+
+4. Insira as informações necessárias do ambiente personalizado do Azure Stack. 
+
+    | Campo | Observações |
+    | ---   | ---   |
+    | Nome do ambiente | O campo pode ser personalizado pelo usuário. |
+    | Ponto de extremidade do Azure Resource Manager | Os exemplos de pontos de extremidade de recursos do Azure Resource Manager do Kit de desenvolvimento do Azure Stack.<br>Para operadores: https://adminmanagement.local.azurestack.external <br> Para usuários: https://management.local.azurestack.external |
+
+    Se você estiver trabalhando no Azure Stack sistema integrado e não souber seu ponto de extremidade de gerenciamento, entre em contato com seu operador.
+
+    ![Adicionar uma conta](./media/azure-stack-storage-connect-se/custom-environments.png)
+
+5. Selecione **entrar**, para conectar à conta do Azure Stack associada com pelo menos uma assinatura ativa do Azure Stack.
+
+
+
+6. Selecione as assinaturas do Azure Stack que você deseja trabalhar. Escolha **Aplicar**.
+
+    ![Gerenciamento de contas](./media/azure-stack-storage-connect-se/account-management.png)
+
+    O painel esquerdo exibe as contas de armazenamento associadas às assinaturas do Azure Stack selecionadas.
+
+    ![Lista de assinaturas associadas](./media/azure-stack-storage-connect-se/list-of-associated-subscriptions.png)
+
+## <a name="connect-to-an-azure-stack-storage-account"></a>Conectar a uma conta de armazenamento do Azure Stack
+
+Você também pode se conectar a uma conta de armazenamento do Azure Stack usando o nome da conta de armazenamento e o par de chaves.
+
+1. No painel esquerdo do Gerenciador de armazenamento, selecione Gerenciar contas. Todas as contas da Microsoft que você conectado são exibidas.
 
     ![Adicionar uma conta](./media/azure-stack-storage-connect-se/azure-stack-sub-add-an-account.png)
 
-2. Para conectar-se para a assinatura de pilha do Azure, selecione **adicionar uma conta**.
+2. Para se conectar à assinatura do Azure Stack, selecione **adicionar uma conta**.
 
     ![Adicionar uma conta](./media/azure-stack-storage-connect-se/azure-stack-use-a-storage-and-key.png)
 
-3. Em conectar-se a caixa de diálogo do armazenamento do Azure, selecione **usar um nome de conta de armazenamento e chave**.
+3. Em conectar-se a caixa de diálogo de armazenamento do Azure, selecione **usar um nome de conta de armazenamento e a chave**.
 
-4. Insira seu nome de conta no **nome da conta**, cole a chave de conta no **chave da conta** caixa de texto, selecione **outros (Insira abaixo)** em **pontos de extremidade de armazenamento domínio** e o ponto de extremidade do Azure pilha de entrada.
+4. Insira o nome de conta no **nome da conta**, cole a chave de conta no **chave de conta** caixa de texto, selecione **outros (digite abaixo)** no **pontos de extremidade de armazenamento domínio** e o ponto de extremidade do Azure Stack de entrada.
 
-    Um ponto de extremidade de pilha do Azure inclui duas partes: o nome de uma região e o domínio de pilha do Azure. O Kit de desenvolvimento de pilha do Azure, o ponto de extremidade padrão é **local.azurestack.external**. Se você não tiver certeza sobre o ponto de extremidade, entre em contato com seu administrador de nuvem.
+    Um ponto de extremidade do Azure Stack inclui duas partes: o nome de uma região e domínio do Azure Stack. O Kit de desenvolvimento do Azure Stack, o ponto de extremidade padrão é **local.azurestack.external**. Se você não tiver certeza sobre o ponto de extremidade, entre em contato com seu administrador de nuvem.
 
     ![Anexar o nome e a chave](./media/azure-stack-storage-connect-se/azure-stack-attach-name-and-key.png)
 
 5. Selecione **Conectar**.
-6. Depois que a conta de armazenamento é anexada com êxito, a conta de armazenamento é exibida com (**externo,**) anexados a seu nome.
+6. Depois que a conta de armazenamento é anexada com êxito, a conta de armazenamento é exibida com (**externa,**) acrescentado ao nome.
 
     ![VMWINDISK](./media/azure-stack-storage-connect-se/azure-stack-vmwindisk.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Gerenciador de armazenamento](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Armazenamento do Azure de pilha: diferenças e considerações](azure-stack-acs-differences.md)
+* [O armazenamento do Azure Stack: diferenças e considerações](azure-stack-acs-differences.md)
 * Para saber mais sobre o armazenamento do Azure, consulte [Introdução ao armazenamento do Microsoft Azure](../../storage/common/storage-introduction.md)

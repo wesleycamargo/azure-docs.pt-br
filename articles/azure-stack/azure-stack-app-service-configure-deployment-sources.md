@@ -12,23 +12,23 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 4ee333fcc50937679c4bc25b83c2d6aa389ba194
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4945ab0b8da961fc5739388d83f7c645f40e510d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359587"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35998322"
 ---
 # <a name="configure-deployment-sources"></a>Configurar fontes de implantação
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 
-O Serviço de Aplicativo no Azure Stack oferece suporte à implantação sob demanda de vários Provedores de controle de origem. Esse recurso permite que os desenvolvedores de aplicativos implante direto de seus repositórios de controle de origem. Se quiserem que os usuários configurar o serviço de aplicativo para se conectar a seus repositórios, um operador de nuvem deve primeiro configurar a integração entre o serviço de aplicativo na pilha do Azure e o provedor de controle de origem.  
+O Serviço de Aplicativo no Azure Stack oferece suporte à implantação sob demanda de vários Provedores de controle de origem. Esse recurso permite que os desenvolvedores de aplicativos implantar direto de seus repositórios de controle do código-fonte. Se os usuários desejam configurar o serviço de aplicativo para se conectar aos seus repositórios, um operador de nuvem deve primeiro configurar a integração entre o serviço de aplicativo no Azure Stack e o provedor de controle do código-fonte.  
 
-Além de Git local, há suporte para os seguintes provedores de controle de origem:
+Além do Git local, há suporte para os seguintes provedores de controle do código-fonte:
 
 * GitHub
 * BitBucket
@@ -37,78 +37,78 @@ Além de Git local, há suporte para os seguintes provedores de controle de orig
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Exibir fontes de implantação na administração do serviço de aplicativo
 
-1. Faça logon no Portal de administração de pilha do Azure (https://adminportal.local.azurestack.external) como o administrador de serviço.
+1. Entrar no Portal de administração do Azure Stack (https://adminportal.local.azurestack.external) como o administrador de serviço.
 2. Navegue até **Provedores de Recursos** e selecione o **Administrador de Provedor de Recursos do Serviço de Aplicativo**.  ![Administrador de Provedor de Recursos do Serviço de Aplicativo][1]
 3. Clique em **Configuração do controle de origem**.  Aqui você pode ver a lista de todas as Fontes de Implantação configuradas.
     ![Configuração do controle de origem da Administração de Provedor de Recursos do Serviço de Aplicativo][2]
 
 ## <a name="configure-github"></a>Configurar o GitHub
 
-Você deve ter uma conta do GitHub para concluir esta tarefa. Você talvez queira usar uma conta para sua organização em vez de uma conta pessoal.
+Você deve ter uma conta do GitHub para concluir esta tarefa. Talvez você queira usar uma conta para sua organização em vez de uma conta pessoal.
 
-1. Efetue logon no GitHub, navegue até https://www.github.com/settings/developers e clique em **registrar um novo aplicativo**.
+1. Entre no GitHub, navegue até https://www.github.com/settings/developers e clique em **registrar um novo aplicativo**.
     ![GitHub - registrar um novo aplicativo][3]
-2. Insira um **nome do aplicativo** , por exemplo - serviço de aplicativo na pilha do Azure.
-3. Insira a **URL da Home Page**. A URL da página inicial deve ser o endereço do Portal de pilha do Azure. Por exemplo, https://portal.local.azurestack.external.
+2. Insira um **nome do aplicativo** por exemplo, o serviço de aplicativo no Azure Stack.
+3. Insira a **URL da Home Page**. A URL da home page deve ser o endereço do Portal do Azure Stack. Por exemplo, https://portal.local.azurestack.external.
 4. Insira um **descrição do aplicativo**.
-5. Insira a **URL de retorno de chamada de autorização**.  Em uma implantação de pilha do Azure padrão, a Url está no formato https://portal.local.azurestack.external/TokenAuthorize, se você estiver executando em um substituto de outro domínio no domínio local.azurestack.external
+5. Insira a **URL de retorno de chamada de autorização**.  Em uma implantação do Azure Stack padrão, a Url está no formato https://portal.local.azurestack.external/TokenAuthorize, se você estiver executando em um domínio diferente, substitua o domínio para local.azurestack.external
 6. Clique em **Registrar aplicativo**.  Agora você verá uma página que lista a **ID do Cliente** e o **Segredo do Cliente** do aplicativo.
     ![GitHub - Registro de aplicativo concluído][5]
-7.  Em uma nova guia do navegador ou janela efetuar login no Portal de administração de pilha do Azure (https://adminportal.local.azurestack.external) como o administrador de serviço.
+7.  Em uma nova guia do navegador ou a janela entrar no Portal de administração do Azure Stack (https://adminportal.local.azurestack.external) como o administrador de serviço.
 8.  Navegue até **Provedores de Recursos** e selecione o **Administrador de Provedor de Recursos do Serviço de Aplicativo**.
 9. Clique em **Configuração do controle de origem**.
-10. Copie e cole o **ID do cliente** e **segredo do cliente** para a entrada correspondente caixas para o GitHub.
+10. Copie e cole a **ID do cliente** e **segredo do cliente** para a entrada correspondente nas caixas para o GitHub.
 11. Clique em **Salvar**.
 
 ## <a name="configure-bitbucket"></a>Configurar o BitBucket
 
-Você deve ter uma conta de BitBucket para concluir esta tarefa. Você talvez queira usar uma conta para sua organização em vez de uma conta pessoal.
+Você deve ter uma conta do BitBucket para concluir esta tarefa. Talvez você queira usar uma conta para sua organização em vez de uma conta pessoal.
 
-1. Faça logon no BitBucket e navegue até **integrações** em sua conta.
-    ![Painel BitBucket - integrações][7]
+1. Entre no BitBucket e navegue até **integrações** em sua conta.
+    ![Painel do BitBucket - integrações][7]
 2. Clique em **OAuth** sob o gerenciamento de acesso e **adicionar consumidor**.
-    ![BitBucket Adicionar cliente OAuth][8]
-3. Insira um **nome** para o consumidor, por exemplo o serviço de aplicativo na pilha do Azure.
+    ![BitBucket adicionar consumidor do OAuth][8]
+3. Insira um **nome** para o consumidor, por exemplo o serviço de aplicativo no Azure Stack.
 4. Insira um **descrição** para o aplicativo.
-5. Insira a **URL de Retorno de Chamada**.  Em uma implantação de pilha do Azure padrão, a Url de retorno de chamada está no formato https://portal.local.azurestack.external/TokenAuthorize, se você estiver executando em um substituto de outro domínio azurestack.local no domínio.  A Url deve seguir a capitalização listada aqui para que a integração do BitBucket tenha êxito.
-6. Insira o **URL** -essa Url deve ser a URL do Portal do Azure pilha, por exemplo https://portal.local.azurestack.external.
-7. Selecione o **permissões** necessária:
+5. Insira a **URL de Retorno de Chamada**.  Em uma implantação do Azure Stack padrão, a Url de retorno de chamada está no formato https://portal.local.azurestack.external/TokenAuthorize, se você estiver executando em um domínio diferente, substitua o domínio por azurestack. local.  A Url deve seguir a capitalização listada aqui para que a integração do BitBucket tenha êxito.
+6. Insira o **URL** – essa Url deve ser a URL do Portal do Azure Stack, por exemplo https://portal.local.azurestack.external.
+7. Selecione o **permissões** necessários:
     - **Repositórios**: *leitura*
-    - **Webhooks**: *de leitura e gravação*
+    - **Webhooks**: *leitura e gravação*
 8. Clique em **Salvar**.  Agora você verá esse novo aplicativo, junto com a **Chave** e o **Segredo** em **Consumidores de OAuth**.
     ![Listagem de aplicativos do BitBucket][9]
-9.  Em uma nova guia do navegador ou janela efetuar login no Portal de administração de pilha do Azure (https://adminportal.local.azurestack.external) como o administrador de serviço.
+9.  Em uma nova guia do navegador ou a janela entrar no Portal de administração do Azure Stack (https://adminportal.local.azurestack.external) como o administrador de serviço.
 10.  Navegue até **Provedores de Recursos** e selecione o **Administrador de Provedor de Recursos do Serviço de Aplicativo**.
 11. Clique em **Configuração do controle de origem**.
-12. Copie e cole o **chave** para o **ID do cliente** caixa de entrada e **segredo** no **segredo do cliente** caixa de entrada para o BitBucket.
+12. Copie e cole a **chave** para o **ID do cliente** caixa de entrada e **segredo** no **segredo do cliente** caixa de entrada para o BitBucket.
 13. Clique em **Salvar**.
 
 
 ## <a name="configure-onedrive"></a>Configurar o OneDrive
 
-Você deve ter uma Account da Microsoft vinculada a uma conta do OneDrive para concluir esta tarefa.  Você talvez queira usar uma conta para sua organização em vez de uma conta pessoal.
+Você deve ter uma Account da Microsoft vinculada a uma conta do OneDrive para concluir esta tarefa.  Talvez você queira usar uma conta para sua organização em vez de uma conta pessoal.
 
 > [!NOTE]
 > Atualmente, não há suporte para contas do OneDrive para Empresas.
 
-1. Navegue até https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm e faça logon usando sua Account da Microsoft.
-2. Em **meus aplicativos**, clique em **adicionar um aplicativo**.
-![Aplicativos OneDrive][10]
+1. Navegue até https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm e entre usando sua Account da Microsoft.
+2. Sob **meus aplicativos**, clique em **adicionar um aplicativo**.
+![Aplicativos do OneDrive][10]
 3. Insira um **Nome** para o Novo Registro de Aplicativo, insira **Serviço de Aplicativo no Azure Stack** e clique em **Criar Aplicativo**
-4. A próxima tela lista as propriedades de seu novo aplicativo. Registro de **ID do aplicativo**.
-![Propriedades do aplicativo OneDrive][11]
-5. Em **segredos do aplicativo**, clique em **gerar nova senha**. Anote **nova senha gerada**. Este é o segredo do aplicativo e não é recuperável depois de clicar em **Okey** neste estágio.
-6. Em **plataformas** clique **Adicionar plataforma** e selecione **Web**.
-7. Insira o **URI de Redirecionamento**.  Em uma implantação de pilha do Azure padrão, o URI de redirecionamento está no formato https://portal.local.azurestack.external/TokenAuthorize, se você estiver executando em um substituto de outro domínio no domínio azurestack.local ![aplicativo OneDrive - adicionar o Web Platform][12]
-8. Adicionar o **Microsoft Graph permissões** - **permissões delegadas**
+4. A próxima tela lista as propriedades de seu novo aplicativo. Registro a **ID do aplicativo**.
+![Propriedades de aplicativo do OneDrive][11]
+5. Em **Segredos do Aplicativo**, clique em **Gerar nova senha**. Anote **nova senha gerada**. Isso é o segredo de aplicativo e não é possível recuperá-la depois de clicar em **Okey** neste estágio.
+6. Sob **plataformas** clique em **Adicionar plataforma** e selecione **Web**.
+7. Insira o **URI de Redirecionamento**.  Em uma implantação do Azure Stack padrão, o URI de redirecionamento está no formato https://portal.local.azurestack.external/TokenAuthorize, se você estiver executando em um domínio diferente, substitua o domínio por azurestack. local ![aplicativo OneDrive - Adicionar plataforma Web][12]
+8. Adicione a **permissões do Microsoft Graph** - **permissões delegadas**
     - **Files.ReadWrite.AppFolder**
     - **User.Read**  
       ![Aplicativo do OneDrive - Permissões do Graph][13]
 9. Clique em **Salvar**.
-10.  Em uma nova guia do navegador ou janela efetuar login no Portal de administração de pilha do Azure (https://adminportal.local.azurestack.external) como o administrador de serviço.
+10.  Em uma nova guia do navegador ou a janela entrar no Portal de administração do Azure Stack (https://adminportal.local.azurestack.external) como o administrador de serviço.
 11.  Navegue até **Provedores de Recursos** e selecione o **Administrador de Provedor de Recursos do Serviço de Aplicativo**.
 12. Clique em **Configuração do controle de origem**.
-13. Copie e cole o **ID do aplicativo** para o **ID do cliente** caixa de entrada e **senha** no **segredo do cliente** caixa de entrada para OneDrive.
+13. Copie e cole o **ID do aplicativo** para o **ID do cliente** caixa de entrada e **senha** no **segredo do cliente** caixa de entrada para o OneDrive.
 14. Clique em **Salvar**.
 
 ## <a name="configure-dropbox"></a>Configurar o DropBox
@@ -116,23 +116,23 @@ Você deve ter uma Account da Microsoft vinculada a uma conta do OneDrive para c
 > [!NOTE]
 > Você precisa ter uma conta do DropBox para concluir essa tarefa.  Você pode usar uma conta de sua organização em vez de uma conta pessoal.
 
-1. Navegue até https://www.dropbox.com/developers/apps e faça logon usando sua conta do DropBox.
+1. Navegue até https://www.dropbox.com/developers/apps e entre usando sua conta do DropBox.
 2. Clique em **Criar aplicativo**.
 
     ![Aplicativos do dropbox][14]
 
-3. Selecione **DropBox API**.
-4. Defina o acesso a **pasta do aplicativo**.
+3. Selecione **API do DropBox**.
+4. Defina o acesso de nível como **pasta aplicativo**.
 5. Insira um **Nome** para seu aplicativo.
 ![Registro do aplicativo Dropbox][15]
 6. Clique em **Criar Aplicativo**.  Agora você verá uma página listando as configurações para o Aplicativo, incluindo a **Chave do aplicativo** e **Segredo do aplicativo**.
-7. Verifique o **nome de pasta do aplicativo** é definido como **do serviço de aplicativo no Azure pilha**.
-8. Defina o **URI de Redirecionamento do OAuth 2** e clique em **Adicionar**.  Em uma implantação de pilha do Azure padrão, o URI de redirecionamento está no formato https://portal.local.azurestack.external/TokenAuthorize, se você estiver executando em um substituto de outro domínio azurestack.local no domínio.
+7. Verifique as **nome da pasta de aplicativo** é definido como **serviço de aplicativo no Azure Stack**.
+8. Defina o **URI de Redirecionamento do OAuth 2** e clique em **Adicionar**.  Em uma implantação do Azure Stack padrão, o URI de redirecionamento está no formato https://portal.local.azurestack.external/TokenAuthorize, se você estiver executando em um domínio diferente, substitua o domínio por azurestack. local.
 ![Configuração de aplicativo do dropbox][16]
-9.  Em uma nova guia do navegador ou janela efetuar login no Portal de administração de pilha do Azure (https://adminportal.local.azurestack.external) como o administrador de serviço.
+9.  Em uma nova guia do navegador ou a janela entrar no Portal de administração do Azure Stack (https://adminportal.local.azurestack.external) como o administrador de serviço.
 10.  Navegue até **Provedores de Recursos** e selecione o **Administrador de Provedor de Recursos do Serviço de Aplicativo**.
 11. Clique em **Configuração do controle de origem**.
-12. Copie e cole o **chave de aplicativo** para o **ID do cliente** caixa de entrada e **segredo do aplicativo** no **segredo do cliente** caixa de entrada para o DropBox.
+12. Copie e cole a **chave do aplicativo** para o **ID do cliente** caixa de entrada e **segredo do aplicativo** no **segredo do cliente** caixa de entrada do DropBox.
 13. Clique em **Salvar**.
 
 
@@ -156,4 +156,4 @@ Você deve ter uma Account da Microsoft vinculada a uma conta do OneDrive para c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os usuários agora podem usar as fontes de implantação para itens como [implantação contínua](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [implantação local do Git](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), e [sincronização de pastas de nuvem](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).
+Os usuários agora podem usar as fontes de implantação para ações, como [implantação contínua](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [implantação do Git local](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), e [pasta de sincronização de nuvem](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).

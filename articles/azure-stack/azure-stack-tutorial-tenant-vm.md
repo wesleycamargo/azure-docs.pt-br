@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 09b9126125006fb70f5e2560f04b815b4a874405
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d106d9f79498678f08142f952e09c5125c6e5d6c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027292"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721510"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Tutorial: tornar as máquinas virtuais disponíveis para seus usuários do Azure Stack
 
@@ -46,11 +46,11 @@ Para obter mais informações, consulte [principais recursos e conceitos no Azur
 
 As ofertas são grupos de um ou mais planos que os provedores apresentam aos usuários para comprar ou inscrever-se. O processo de criação de uma oferta tem várias etapas. Primeiro, você será solicitado a criar a oferta, em seguida, um plano e, finalmente, as cotas.
 
-1. [Entrar no](azure-stack-connect-azure-stack.md) no portal como um administrador de nuvem e em seguida, selecione **New** > **oferece + planos** > **oferecem**.
+1. [Entrar no](azure-stack-connect-azure-stack.md) no portal como um administrador de nuvem e em seguida, selecione **+ criar um recurso** > **oferece + planos** > **oferecem**.
 
    ![Nova oferta](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-1. Na **nova oferta**, insira um **nome de exibição** e **nome do recurso**e, em seguida, selecione uma nova ou existente **grupo de recursos**. O Nome de Exibição é o nome amigável da oferta. Somente o operador de nuvem pode ver o nome do recurso. Esse é o nome que os administradores usam para trabalhar com a oferta como um recurso do Gerenciador de Recursos do Azure.
+1. Na **nova oferta**, insira um **nome de exibição** e **nome do recurso**e, em seguida, selecione uma nova ou existente **grupo de recursos**. O nome de exibição é o nome amigável da oferta. Somente o operador de nuvem pode ver o nome do recurso que é o nome que os administradores usam para trabalhar com a oferta como um recurso do Azure Resource Manager.
 
    ![Nome de exibição](media/azure-stack-tutorial-tenant-vm/image02.png)
 
@@ -58,7 +58,7 @@ As ofertas são grupos de um ou mais planos que os provedores apresentam aos usu
 
    ![Adicionar um plano](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-1. No **novo plano** seção, preencha **nome de exibição** e **nome do recurso**. O nome de exibição é o nome amigável do plano do que os usuários veem. Somente o operador de nuvem pode ver o nome do recurso. É o nome que os operadores de nuvem usam para trabalhar com o plano como um recurso do Azure Resource Manager.
+1. No **novo plano** seção, preencha **nome de exibição** e **nome do recurso**. O nome de exibição é o nome amigável do plano do que os usuários veem. Somente o operador de nuvem pode ver o nome do recurso que é o nome que os operadores de nuvem usam para trabalhar com o plano como um recurso do Azure Resource Manager.
 
    ![Nome de exibição do plano](media/azure-stack-tutorial-tenant-vm/image04.png)
 
@@ -112,11 +112,11 @@ Agora que você criou uma oferta, você pode testá-lo. Você deve entrar como u
    - Para um sistema integrado, a URL varia com base na região de seu operador e o nome de domínio externo e será no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
    - Se você estiver usando o Kit de desenvolvimento do Azure Stack, o endereço do portal é https://portal.local.azurestack.external.
 
-   ![Obtenha uma assinatura](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![Obtenha uma assinatura](media/azure-stack-tutorial-tenant-vm/image10.png)
 
    b. Na **obter uma assinatura**, insira um nome para sua assinatura na **nome de exibição** campo. Selecione **oferecem**e, em seguida, escolha uma das ofertas na **escolher uma oferta** lista. Selecione **Criar**.
 
-   ![Criar uma oferta](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![Criar uma oferta](media/azure-stack-tutorial-tenant-vm/image11.png)
 
    c. Para exibir a assinatura, selecione **todos os serviços**e, em seguida, sob o **gerais** categoria, selecione **assinaturas**. Selecione sua nova assinatura para ver quais serviços fazem parte da assinatura.
 
@@ -131,7 +131,7 @@ Agora que você criou uma oferta, você pode testá-lo. Você deve entrar como u
       - Para um sistema integrado, a URL varia com base na região de seu operador e o nome de domínio externo e será no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
    - Se você estiver usando o Kit de desenvolvimento do Azure Stack, o endereço do portal é https://portal.local.azurestack.external.
 
-   b.  No painel, selecione **New** > **computação** > **Windows Server 2016 Datacenter Eval**e, em seguida, selecione **criar**.
+   b.  No painel, selecione **+ criar um recurso** > **computação** > **Windows Server 2016 Datacenter Eval**e, em seguida, selecione **Criar**.
 
    c. Na **Noções básicas de**, forneça as seguintes informações:
       - Insira um **nome**
@@ -151,14 +151,11 @@ Agora que você criou uma oferta, você pode testá-lo. Você deve entrar como u
 
    h. Selecione **Okey** na **configurações** para salvar a configuração de rede.
 
-   ![Criar rede virtual](media/azure-stack-provision-vm/image04.png)
-
-   i. Na **resumo**, selecione **Okey** para criar a máquina virtual.  
+      i. Na **resumo**, selecione **Okey** para criar a máquina virtual.  
 
    j. Para ver a nova máquina virtual, selecione **todos os recursos**. Procure a máquina virtual e selecione seu nome dos resultados da pesquisa.
 
-   ![Todos os recursos](media/azure-stack-provision-vm/image06.png)
-
+   
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:

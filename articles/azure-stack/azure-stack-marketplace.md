@@ -1,6 +1,6 @@
 ---
-title: Publicar um item do marketplace personalizado na pilha do Azure (operador de nuvem) | Microsoft Docs
-description: Como um operador de pilha do Azure, saber como publicar um item do marketplace personalizado na pilha do Azure.
+title: Publicar um item personalizado do marketplace no Azure Stack (operador de nuvem) | Microsoft Docs
+description: Como um operador do Azure Stack, saiba como publicar um item personalizado do marketplace no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,33 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4ea23ed01e6432f24024d7e8cc07c2dfe42ac639
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: c16d8a282d489e7a2b5ee9908f52224aea6118d6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605562"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713384"
 ---
-# <a name="the-azure-stack-marketplace-overview"></a>Visão geral do Azure Marketplace de pilha
+# <a name="the-azure-stack-marketplace-overview"></a>Visão geral do Azure Stack Marketplace
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-O Marketplace é uma coleção de serviços, aplicativos e recursos personalizados para a pilha do Azure. Recursos incluem máquinas virtuais, redes, armazenamento e assim por diante. Os usuários se aqui para criar novos recursos e implantar novos aplicativos. Pense nisso como um catálogo de compra em que os usuários podem procurar e escolha os itens que desejam usar. Para usar um item do Marketplace, os usuários devem assinar uma oferta que lhe dá acesso ao item.
+O Marketplace é uma coleção de serviços, aplicativos e recursos personalizados para o Azure Stack. Os recursos incluem máquinas virtuais, redes, armazenamento e assim por diante. Os usuários vem aqui para criar novos recursos e implantar novos aplicativos. Pense nele como um catálogo de compra em que os usuários podem procurar e escolha os itens que deseja usar. Para usar um item do Marketplace, os usuários devem assinar uma oferta que lhes concede acesso ao item.
 
-Como um operador de pilha do Azure, você decide quais itens adicionará (publicação) para o Marketplace. Você pode publicar como bancos de dados, serviços de aplicativos e assim por diante. Publicação torna visível para todos os seus usuários. Você pode publicar itens personalizados que você criar. Você também pode publicar itens de um crescente [lista de itens do Azure Marketplace](azure-stack-marketplace-azure-items.md). Quando você publica um item para o Marketplace, os usuários podem vê-lo dentro de cinco minutos.
+Como um operador do Azure Stack, você decide quais itens adicionará (publicar) no Marketplace. Você pode publicar coisas como bancos de dados, serviços de aplicativos e assim por diante. Publicação torna visível para todos os seus usuários. Você pode publicar os itens personalizados criados por você. Você também pode publicar itens de uma crescente [lista de itens do Azure Marketplace](azure-stack-marketplace-azure-items.md). Quando você publica um item no Marketplace, os usuários podem vê-lo dentro de cinco minutos.
 
 > [!Caution]  
-> Todos os artefatos de item de galeria, conhecidos como imagens e arquivos json são acessíveis sem autenticação após tornando-os disponíveis no mercado de pilha do Azure. Para obter mais considerações ao publicar itens do marketplace personalizado, consulte [criar e publicar um item do Marketplace](azure-stack-create-and-publish-marketplace-item.md).
+> Todos os artefatos de item de galeria, conhecidos como imagens e arquivos json são acessíveis sem autenticação depois tornando-os disponíveis no marketplace do Azure Stack. Para obter mais considerações ao publicar itens do marketplace personalizado, consulte [criar e publicar um item do Marketplace](azure-stack-create-and-publish-marketplace-item.md).
 
-Para abrir o Marketplace, no console do administrador, selecione **novo**.
+Para abrir o Marketplace, no console do administrador, selecione **+ criar um recurso**.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
 ## <a name="marketplace-items"></a>Itens do Marketplace
-Um item do Marketplace de pilha do Azure é um serviço, aplicativo ou recurso que os usuários podem baixar e usar. Todos os itens do Marketplace de pilha do Azure são visíveis para todos os seus usuários, incluindo itens administrativos como planos e ofertas. Esses itens não exigem uma assinatura para o modo de exibição, mas são não funcionais aos usuários.
+Um item do Marketplace do Azure Stack é um serviço, aplicativo ou recurso que os usuários podem baixar e usar. Todos os itens do Marketplace do Azure Stack são visíveis para todos os seus usuários, incluindo itens administrativos, como planos e ofertas. Esses itens não exigem uma assinatura para o modo de exibição, mas são não funcional para os usuários.
 
 Cada item do Marketplace contém:
 
@@ -46,11 +46,11 @@ Cada item do Marketplace contém:
 * Metadados, como cadeias de caracteres, ícones e outros manuais e acessórios de marketing
 * Informações de formatação para exibir o item no portal
 
-Cada item publicado Marketplace usa o formato de pacote de galeria do Azure (.azpkg). Adicione recursos de implantação ou tempo de execução (como código, arquivos zip com o software ou imagens da máquina virtual) com a pilha do Azure separadamente, não como parte do item do Marketplace. 
+Todos os itens publicados no Marketplace usa o formato de pacote de galeria do Azure (. azpkg). Adicione recursos de implantação ou tempo de execução (como código, arquivos zip com software ou imagens de máquina virtual) para o Azure Stack separadamente, não como parte do item do Marketplace. 
 
-Na versão 1803 e posterior, pilha de Azure converte imagens arquivos esparsos durante o download do Azure ou quando você carregar imagens personalizadas. Esse processo adiciona tempo ao adicionar uma imagem, mas economiza espaço e acelerar a implantação dessas imagens. Conversão só se aplica a novas imagens.  Imagens existentes não são alteradas. 
+Com a versão 1803 e posterior, o Azure Stack converte imagens em arquivos esparsos, durante o download do Azure ou ao carregar imagens personalizadas. Esse processo adiciona tempo ao adicionar uma imagem, mas economiza espaço e acelera a implantação dessas imagens. Conversão só se aplica a novas imagens.  Imagens existentes não são alteradas. 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Fazer o download de itens do Marketplace](azure-stack-download-azure-marketplace-item.md)  
+[Baixar itens do Marketplace](azure-stack-download-azure-marketplace-item.md)  
 [Criar e publicar um item do Marketplace](azure-stack-create-and-publish-marketplace-item.md)
 

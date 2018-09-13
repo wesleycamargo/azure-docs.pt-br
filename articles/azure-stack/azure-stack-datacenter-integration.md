@@ -1,6 +1,6 @@
 ---
-title: Considerações sobre a integração geral datacenter Azure pilha integrado sistemas | Microsoft Docs
-description: Saiba o que você pode fazer para planejar agora e preparação para a integração do data center com vários nós do Azure pilha.
+title: Sistemas integrados de considerações sobre a integração geral de datacenter do Azure Stack | Microsoft Docs
+description: Saiba o que você pode fazer para planejar agora e preparação para a integração do data center com vários nós do Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,194 +12,191 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 0c43b66a9d6210ea951af3fae5eca8bc6d47c3d9
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9e5a8cf59d4f1dc47495c5889f8ed4aae64f7ff7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261197"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720439"
 ---
-# <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerações de integração do Datacenter para sistemas de pilha do Azure integrado
-Se você estiver interessado em um sistema de pilha do Azure integrado, você deve compreender alguns das principais considerações de planejamento em torno de implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas considerações para ajudá-lo a tomar decisões importantes de infra-estrutura para seu sistema de vários nó de pilha do Azure. Ajuda a entender essas considerações ao trabalhar com o fornecedor do hardware OEM implantação de pilha do Azure para seu datacenter.  
+# <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerações de integração do Datacenter para sistemas integrados do Azure Stack
+Se você estiver interessado em um sistema integrado do Azure Stack, você deve compreender alguns das principais considerações de planejamento em torno de implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas considerações para ajudá-lo a tomar decisões de infraestrutura importante para o seu sistema de vários nó do Azure Stack. Ajuda a compreender essas considerações ao trabalhar com o fornecedor do hardware OEM como implantar o Azure Stack para seu datacenter.  
 
 > [!NOTE]
 > Sistemas de vários nós de pilha do Azure só podem ser adquiridos de fornecedores de hardware autorizado. 
 
-Para implantar a pilha do Azure, você precisa fornecer informações de planejamento para seu provedor de soluções, antes do início da implantação ajudar o processo de forma rápida e sem problemas. As informações necessárias intervalos em rede, segurança e informações de identidade com muitas decisões importantes que podem exigir conhecimento em muitas áreas diferentes e tomadores de decisão. Portanto, você talvez precise efetuar pull de pessoas de várias equipes em sua organização para garantir que você tenha todas as informações necessárias prontas antes do início da implantação. Ele pode ajudar a se comunicar com o fornecedor do hardware ao coletar essas informações, como talvez tenham conselhos úteis para tomar as decisões.
+Para implantar o Azure Stack, você precisa fornecer informações de planejamento para seu provedor de soluções antes de implantação é iniciada ajudar o processo de forma rápida e tranquila. As informações necessárias intervalos em rede, segurança e informações de identidade com muitas decisões importantes que podem exigir conhecimento de muitas áreas diferentes e tomadores de decisão. Portanto, você pode ter que puxar as pessoas de várias equipes em sua organização para garantir que você tenha todas as informações necessárias prontas antes do início da implantação. Ele pode ajudar a se comunicar com o fornecedor do hardware ao coletar essas informações, como talvez tenham conselhos úteis para tomar suas decisões.
 
-Durante a pesquisa e coletar as informações necessárias, você precisará fazer algumas alterações de configuração antes da implantação para seu ambiente de rede. Isso pode incluir a reserva de espaços de endereço IP para a solução de pilha do Azure, configurar seus roteadores, comutadores e firewalls para se preparar para a conectividade com as novas opções de solução de pilha do Azure. Certifique-se de ter o especialista de área de assunto embutido até ajudá-lo com seu planejamento.
+Ao mesmo tempo pesquisando e coletar as informações necessárias, talvez você precise fazer algumas alterações de configuração de pré-implantação em seu ambiente de rede. Isso pode incluir a reserva de espaços de endereço IP para a solução do Azure Stack, configurar seus roteadores, comutadores e firewalls para se preparar para a conectividade com as novas opções de solução do Azure Stack. Certifique-se de ter o especialista de área de assunto com linhas até ajudá-lo com seus planos.
 
 ## <a name="capacity-planning-considerations"></a>Considerações de planejamento de capacidade
-Ao avaliar uma solução de pilha do Azure para aquisição, opções de configuração de hardware devem ser feitas que têm um impacto direto sobre a capacidade geral de sua solução de pilha do Azure. Isso inclui as opções clássicas de CPU, densidade de memória, configuração de armazenamento e escala de solução geral (por exemplo, o número de servidores). Ao contrário de uma solução de virtualização tradicionais, não se aplicam a aritmética simple desses componentes para determinar a capacidade de uso. O primeiro motivo é que a pilha do Azure foi projetada para hospedar os componentes de infraestrutura ou gerenciamento dentro da solução em si. A segunda razão é que algumas da capacidade da solução está reservada para oferecer suporte a resiliência; a atualização de software da solução de forma que minimiza a interrupção de cargas de trabalho de locatário. 
+Ao avaliar uma solução de pilha do Azure para aquisição, opções de configuração de hardware devem ser feitas que têm um impacto direto na capacidade geral de sua solução do Azure Stack. Eles incluem as opções clássicas de CPU, densidade de memória, configuração de armazenamento e escala de solução geral (por exemplo, o número de servidores). Ao contrário de uma solução de virtualização tradicionais, não é aplicável a aritmética simple desses componentes para determinar a capacidade utilizável. O primeiro motivo é que o Azure Stack é projetado para hospedar os componentes de infraestrutura ou gerenciamento de dentro da solução em si. O segundo motivo é que alguns de capacidade da solução está reservado para dar suporte à resiliência; a atualização de software da solução de forma que minimiza a interrupção das cargas de trabalho de locatário. 
 
-O [planilha do Planejador de capacidade de pilha do Azure](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) ajuda você a otimizar informado decisões em relação ao planejamento de capacidade de duas maneiras: ou o, selecionando uma oferta de hardware e tentando ajustar uma combinação de recursos ou definindo a carga de trabalho do Azure de pilha destina-se a executar para exibir o hardware disponível SKUs que dão suporte a ele. Por fim, a planilha destina-se como um guia para ajudar na tomada de decisões relacionadas à pilha Azure planejamento e configuração. 
+O [planilha do Planejador de capacidade do Azure Stack](https://aka.ms/azstackcapacityplanner) ajuda você a aproveitar informado decisões em relação ao planejamento de capacidade de duas maneiras: ambos os selecionando uma oferta de hardware e a tentativa de acordo com uma combinação de recursos ou definindo a carga de trabalho de pilha do Azure destina-se a executar para exibir o hardware disponível SKUs que dão suporte a ele. Por fim, a planilha destina-se como um guia para ajudar na tomada de decisões relacionadas ao Azure Stack planejamento e configuração. 
 
-A planilha não se destina a servir como um substituto para sua investigação e a análise.  Microsoft faz declarações ou garantias, expressas ou implícitas, as informações fornecidas na planilha.
+A planilha não se destina a servir como um substituto para a sua investigação e análise.  Microsoft faz declarações ou garantias, expressas ou implícitas, quanto às informações fornecidas dentro da planilha.
 
 
 
-## <a name="management-considerations"></a>Considerações sobre gerenciamento
-A pilha do Azure é um sistema de lacrado, onde a infraestrutura é bloqueada ambos a partir de um permissões e a perspectiva de rede. Listas de controle de acesso de rede (ACLs) são aplicadas para bloquear todo o tráfego de entrada não autorizado e todas as comunicações desnecessárias entre componentes de infraestrutura. Isso torna difícil para usuários não autorizados acessar o sistema.
+## <a name="management-considerations"></a>Considerações de gerenciamento
+O Azure Stack é um sistema de sealed, onde a infraestrutura bloqueada ambos a partir de uma permissão e a perspectiva de rede. Listas de controle de acesso (ACLs) de rede são aplicadas para bloquear todo o tráfego de entrada não autorizado e todas as comunicações desnecessárias entre componentes de infraestrutura. Isso torna difícil para os usuários não autorizados acessar o sistema.
 
-Para operações e gerenciamento diário, há sem acesso de administrador sem restrições para a infraestrutura. Operadores de pilha do Azure devem gerenciar o sistema por meio do portal de administrador ou por meio do Azure Resource Manager (por meio do PowerShell ou a API REST). Não há nenhum acesso ao sistema por outras ferramentas de gerenciamento, como o Gerenciador do Hyper-V ou o Gerenciador de Cluster de Failover. Para ajudar a proteger o sistema, o software de terceiros (por exemplo, agentes) não pode ser instalado dentro dos componentes da infraestrutura de pilha do Azure. Interoperabilidade com o software de gerenciamento e segurança externa ocorre por meio do PowerShell ou a API REST.
+Para operações e gerenciamento diário, não há nenhum acesso de administrador sem restrições à infraestrutura. Operadores do Azure Stack devem gerenciar o sistema por meio do portal de administrador ou por meio do Azure Resource Manager (por meio do PowerShell ou a API REST). Não há nenhum acesso ao sistema por outras ferramentas de gerenciamento, como o Gerenciador Hyper-V ou o Gerenciador de Cluster de Failover. Para ajudar a proteger o sistema, o software de terceiros (por exemplo, agentes) não pode ser instalado dentro dos componentes da infraestrutura do Azure Stack. Interoperabilidade com o software de gerenciamento e segurança externo ocorre por meio do PowerShell ou a API REST.
 
-Quando um nível mais alto de acesso é necessário para a solução de problemas não resolvidos por meio de etapas de mediação de alerta, você deve trabalhar com o Microsoft Support. Por meio do suporte, há um método para fornecer acesso de administrador completo temporário para o sistema para executar operações mais avançadas. 
+Quando um nível mais alto de acesso é necessária para solução de problemas que não são resolvidos por meio de etapas de mediação de alerta, você deve trabalhar com o Microsoft Support. Por meio do suporte, há um método para fornecer acesso de administrador completo temporário para o sistema para executar operações mais avançadas. 
 
-## <a name="identity-considerations"></a>Considerações de identidade
+## <a name="identity-considerations"></a>Considerações sobre identidade
 
 ### <a name="choose-identity-provider"></a>Escolha o provedor de identidade
-Você precisará considerar qual provedor de identidade que você deseja usar para implantação de pilha do Azure, Azure AD ou AD FS. Não é possível alternar os provedores de identidade após a implantação sem reimplantação completa do sistema. Se você não possui a conta do AD do Azure e estiver usando uma conta fornecida pelo seu provedor de serviços de nuvem, e se você decidir alterne o provedor e use um AD do Azure diferente da conta, agora você precisará entrar em contato com seu provedor de soluções para reimplantar a solução f ou você em seu custo.
+Você precisará considerar qual provedor de identidade que você deseja usar para implantação do Azure Stack, Azure AD ou AD FS. É possível alternar os provedores de identidade após a implantação sem reimplantação completa do sistema. Se você não possui a conta do AD do Azure e estiver usando uma conta fornecida pelo seu provedor de serviços de nuvem, e se você decidir mudar o provedor e usar um Azure AD diferente da conta, neste momento você terá que entre em contato com seu provedor de soluções para reimplantar a solução f ou você em seu custo.
 
 
 
-A opção de provedor de identidade não tem suporte em máquinas virtuais de locatário, o sistema de identidade e contas usarem, se eles podem ingressar em um domínio do Active Directory, etc. Isso é separado.
+Sua escolha de provedor de identidade não tem nenhuma relevância em máquinas virtuais de locatário, o sistema de identidade e as contas que eles usam, se eles podem ingressar em um domínio do Active Directory, etc. Isso é separado.
 
-Você pode aprender mais sobre como escolher um provedor de identidade no [artigo de modelos de conexão do Azure pilha sistemas integrados](.\azure-stack-connection-models.md).
+Você pode aprender mais sobre como escolher um provedor de identidade na [artigo de modelos de conexão de sistemas integrados do Azure Stack](.\azure-stack-connection-models.md).
 
-### <a name="ad-fs-and-graph-integration"></a>Integração do AD FS e gráfico
-Se você optar por implantar a pilha do Azure usando o AD FS como o provedor de identidade, você deve integrar a instância do AD FS na pilha do Azure com uma instância existente do AD FS por meio de uma relação de confiança de Federação. Isso permite que as identidades em uma floresta existente do Active Directory para autenticar com recursos na pilha do Azure.
+### <a name="ad-fs-and-graph-integration"></a>Integração do AD FS e do gráfico
+Se você optar por implantar o Azure Stack usando o AD FS como o provedor de identidade, você deve integrar a instância do AD FS no Azure Stack com uma instância existente do AD FS por meio de uma relação de confiança de Federação. Isso permite que as identidades em uma floresta existente do Active Directory para autenticar com recursos no Azure Stack.
 
-Você também pode integrar o serviço de gráfico na pilha do Azure com o Active Directory existente. Isso permite que você gerencie baseada em controle de acesso (RBAC) na pilha do Azure. Quando o acesso a um recurso é delegado, o componente gráfico procura a conta de usuário na floresta existente do Active Directory usando o protocolo LDAP.
+Você também pode integrar o serviço de grafo no Azure Stack com o Active Directory existente. Isso permite que você gerencie baseado em função controle de acesso (RBAC) no Azure Stack. Quando o acesso a um recurso é delegado, o componente gráfico procura a conta de usuário na floresta do Active Directory existente usando o protocolo LDAP.
 
-O diagrama a seguir mostra o fluxo de tráfego de AD FS e o gráfico integrado.
-![Diagrama mostrando o fluxo de tráfego do AD FS e gráfico](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
+O diagrama a seguir mostra o fluxo de tráfego do AD FS e o Graph integrado.
+![Diagrama mostrando o fluxo de tráfego do AD FS e o gráfico](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
 ## <a name="licensing-model"></a>Modelo de licenciamento
-Você deve decidir qual modelo de licenciamento que você deseja usar. As opções disponíveis dependem se você implantar pilha do Azure conectados à internet:
-- Para uma [conectado implantação](azure-stack-connected-deployment.md), você pode escolher o pagamento como você-uso ou baseado na capacidade de licenciamento. Pagamento como você-uso requer uma conexão para o Azure para relatar o uso, que, em seguida, é cobrado por meio de comércio do Azure. 
-- Somente de licenciamento baseado em capacidade terá suporte se você [implantar desconectado](azure-stack-disconnected-deployment.md) da internet. 
+Você deve decidir qual modelo de licenciamento que você deseja usar. As opções disponíveis dependem se ou não implantar o Azure Stack conectado à internet:
+- Para um [conectados implantação](azure-stack-connected-deployment.md), você pode escolher o licenciamento de pagamento-como-o uso ou baseada em capacidade. Pagamento-como-uso requer uma conexão para o Azure para uso do relatório, que, em seguida, é cobrado por meio de comércio do Azure. 
+- Somente o licenciamento baseado em capacidade terá suporte se você [implantar desconectado](azure-stack-disconnected-deployment.md) da internet. 
 
-Para obter mais informações sobre os modelos de licenciamento, consulte [pacotes e preços de pilha do Microsoft Azure](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+Para obter mais informações sobre os modelos de licenciamento, consulte [pacotes e preços do Microsoft Azure Stack](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
 
 
 ## <a name="naming-decisions"></a>Decisões de nomenclatura
 
-Você precisará pensar em como você deseja planejar seu namespace de pilha do Azure, especialmente o nome da região e o nome de domínio externo. O nome de domínio totalmente qualificado (FQDN) externo da sua implantação de pilha do Azure para pontos de extremidade públicos é a combinação desses dois nomes: &lt; *região*&gt;.&lt; *fqdn*&gt;. Por exemplo, *east.cloud.fabrikam.com*. Neste exemplo, os portais de pilha do Azure está disponíveis nas seguintes URLs:
+Você precisará pensar sobre como você deseja planejar seu namespace do Azure Stack, especialmente o nome da região e o nome de domínio externo. O nome de domínio totalmente qualificado (FQDN) externo de sua implantação do Azure Stack para pontos de extremidade públicos é a combinação desses dois nomes: &lt; *região*&gt;.&lt; *fqdn*&gt;. Por exemplo, *east.cloud.fabrikam.com*. Neste exemplo, os portais do Azure Stack seria disponíveis nas seguintes URLs:
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
 
 > [!IMPORTANT]
-> O nome de região escolhido para sua implantação do Azure pilha deve ser exclusivo e aparecerá em endereços de portal. 
+> O nome da região escolhida para sua implantação do Azure Stack deve ser exclusivo e aparecerá nos endereços do portal. 
 
 A tabela a seguir resume essas decisões de nomeação de domínio.
 
 | NOME | DESCRIÇÃO | 
 | -------- | ------------- | 
-|Nome da região | O nome da sua região do Azure pilha primeiro. Esse nome é usado como parte do FQDN para os endereços IP virtuais públicos (VIPs) que gerencia a pilha do Azure. Normalmente, o nome da região seria um identificador de local físico, como um local de datacenter. | 
-| Nome de domínio externo | O nome da zona de sistema de nome de domínio (DNS) para pontos de extremidade com externo VIPs. Usado no FQDN para esses VIPs públicos. | 
-| Nome de domínio (interno) privada | O nome do domínio (e zona DNS interna) criado na pilha do Azure para gerenciamento de infraestrutura. 
+|Nome da região | O nome da sua primeira região do Azure Stack. Esse nome é usado como parte do FQDN para os virtuais endereços IP públicos (VIPs) que gerencia o Azure Stack. Normalmente, o nome da região seria um identificador de local físico, como um local de datacenter.<br><br>O nome da região deve consistir apenas letras e números entre 0 a 9. Não há caracteres especiais, como "-" ou "#", etc. são permitidos.| 
+| Nome de domínio externo | O nome da zona de sistema de nome de domínio (DNS) para pontos de extremidade com face externa VIPs. Usado no FQDN para esses VIPs públicos. | 
+| Nome do domínio privado (interno) | O nome do domínio (e zona DNS interna) criada no Azure Stack para gerenciamento de infraestrutura. 
 | | |
 
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 
-Para a implantação, você precisará fornecer certificados Secure Sockets Layer (SSL) para pontos de extremidade públicos. Em um nível alto, os certificados têm os seguintes requisitos:
+Para a implantação, você precisará fornecer certificados de Secure Sockets Layer (SSL) para pontos de extremidade públicos. Em um alto nível, os certificados têm os seguintes requisitos:
 
-- Você pode usar um certificado curinga ou você pode usar um conjunto de certificados dedicados e usar caracteres curinga somente para pontos de extremidade como armazenamento e chave de cofre.
-- Certificados podem ser emitidos por uma CA (autoridade de certificado confiável público) ou uma autoridade de certificação gerenciada pelo cliente.
+- Você pode usar um certificado curinga ou você pode usar um conjunto de certificados dedicados e usar caracteres curinga somente para pontos de extremidade como o armazenamento e o Cofre de chaves.
+- Certificados podem ser emitidos por uma CA (autoridade de certificado confiável público) ou uma autoridade de certificação gerenciadas pelo cliente.
 
-Para obter mais informações sobre quais PKI certificados necessários para implantar a pilha do Azure e como obtê-las, consulte [requisitos de certificado da infraestrutura de chave pública do Azure pilha](azure-stack-pki-certs.md).  
+Para obter mais informações sobre quais PKI certificados são necessários para implantar o Azure Stack e como obtê-las, consulte [requisitos de certificado de infra-estrutura de chave pública do Azure Stack](azure-stack-pki-certs.md).  
 
 
 > [!IMPORTANT]
-> As informações de certificado PKI fornecidas devem ser usadas como orientação geral. Antes de adquirir quaisquer certificados PKI para a pilha do Azure, trabalhe com seu parceiro de hardware de OEM. Eles fornecerão orientação de certificado e requisitos mais detalhados.
+> As informações de certificado PKI fornecidas devem ser usadas como orientação geral. Antes de adquirir os certificados PKI para o Azure Stack, trabalhe com seu parceiro de hardware de OEM. Eles fornecerá orientações sobre o certificado e requisitos mais detalhadas.
 
 
 ## <a name="time-synchronization"></a>Sincronização de horário
-Você deve escolher um horário específico de servidor com é usado para sincronizar a pilha do Azure.  Symbolization de tempo é essencial para a pilha do Azure e suas funções de infraestrutura, como ele é usado para gerar os tíquetes Kerberos que são usados para autenticar os serviços internos uns com os outros.
+Você deve escolher um horário específico de servidor com é usado para sincronizar o Azure Stack.  Symbolization tempo é essencial para o Azure Stack e suas funções de infraestrutura, como ele é usado para gerar os tíquetes Kerberos que são usados para autenticar os serviços internos uns com os outros.
 
-Você deve especificar que um IP para o servidor de sincronização de hora, embora a maioria dos componentes da infra-estrutura pode resolver uma URL, algumas suporta apenas endereços IP. Se você estiver usando a opção de implantação desconectado, você deve especificar um servidor de horário em sua rede corporativa que você está se pode ser alcançado na rede de infraestrutura na pilha do Azure.
+Você deve especificar que um IP para o servidor de sincronização de hora, embora a maioria dos componentes da infra-estrutura pode resolver uma URL, algumas só há suporte a endereços IP. Se você estiver usando a opção de implantação desconectado, você deve especificar um servidor de horário na sua rede corporativa que você está claro que pode ser atingido de rede de infraestrutura no Azure Stack.
 
-## <a name="connect-azure-stack-to-azure"></a>Conecte-se a pilha do Azure para o Azure
+## <a name="connect-azure-stack-to-azure"></a>Conectar-se a pilha do Azure para o Azure
 
-Para cenários de nuvem híbrida, você precisará planejar como você deseja se conectar a pilha do Azure para o Azure. Há dois métodos para se conectar a redes virtuais na pilha do Azure para redes virtuais no Azure: 
-- **Site a site**. Uma conexão de rede virtual privada (VPN) através de IPsec (IKE v1 e IKE v2). Esse tipo de conexão exige um dispositivo VPN ou roteamento e acesso remoto (RRAS). Para obter mais informações sobre gateways VPN no Azure, consulte [sobre o Gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). A comunicação por esse túnel é criptografada e é segura. No entanto, a largura de banda é limitada pela taxa de transferência máxima do túnel (100-200 Mbps).
-- **NAT de saída**. Por padrão, todas as máquinas virtuais no Azure pilha terá conectividade a redes externas por meio de NAT de saída. Cada rede virtual que é criada na pilha do Azure obtém um endereço IP público atribuído a ele. Se a máquina virtual está diretamente atribuída a um endereço IP público ou estiver atrás de um balanceador de carga com um endereço IP público, ele terá acesso de saída por meio de NAT de saída usando o VIP da rede virtual. Isso funciona somente para a comunicação é iniciada pela máquina virtual e destinada a redes externas (internet ou intranet). Ele não pode ser usado para se comunicar com a máquina virtual de fora.
+Para cenários de nuvem híbrida, você precisará planejar como você deseja se conectar a pilha do Azure ao Azure. Há dois métodos com suporte para conectar redes virtuais no Azure Stack para redes virtuais no Azure: 
+- **Site a site**. Uma conexão de rede virtual privada (VPN) sobre IPsec (IKE v1 e IKE v2). Esse tipo de conexão exige um dispositivo VPN ou o roteamento e acesso remoto (RRAS). Para obter mais informações sobre gateways de VPN no Azure, consulte [sobre o Gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). A comunicação por esse túnel é criptografada e é segura. No entanto, a largura de banda é limitada pela taxa de transferência máxima do túnel (100 a 200 Mbps).
+- **NAT de saída**. Por padrão, todas as máquinas virtuais no Azure Stack terão conectividade para redes externas por meio de NAT de saída. Cada rede virtual que é criado no Azure Stack obtém um endereço IP público atribuído a ele. Se a máquina virtual é atribuída diretamente um endereço IP público, ou estiver atrás de um balanceador de carga com um endereço IP público, ele terá acesso de saída por meio de NAT de saída usando o VIP da rede virtual. Isso funciona somente para a comunicação é iniciada pela máquina virtual e destinada a redes externas (internet ou intranet). Ele não pode ser usado para se comunicar com a máquina virtual de fora.
 
 ### <a name="hybrid-connectivity-options"></a>Opções de conectividade híbrida
 
-Para conectividade híbrida, é importante considerar que tipo de implantação que você quer oferecer e onde ele será implantado. Você precisará considerar se é necessário isolar o tráfego de rede por locatário, e se você terá uma implantação de internet ou intranet.
+Para conectividade híbrida, é importante considerar que tipo de implantação que você deseja oferecer e onde ele será implantado. Você precisará considerar se você precisa isolar o tráfego de rede por locatário e se você terá uma implantação de intranet ou internet.
 
-- **Pilha de único locatário do Azure**. Uma implantação de pilha do Azure que procura, pelo menos de uma perspectiva de rede, como se fosse um locatário. Pode haver que muitas assinaturas de locatários, mas como qualquer serviço de intranet, todo o tráfego percorram as mesmas redes. Tráfego de rede de uma assinatura percorram a mesma conexão de rede como outra assinatura e não precisa ser isoladas por meio de um túnel criptografado.
+- **Locatário único do Azure Stack**. Uma implantação do Azure Stack que se parece, pelo menos de uma perspectiva de rede, como se fosse um locatário. Pode haver que muitas assinaturas de locatários, mas como qualquer serviço de intranet, todo o tráfego viajará pelas mesmas redes. Tráfego de rede de uma assinatura percorre a mesma conexão de rede como outra assinatura e não precisa ser isolados por meio de um túnel criptografado.
 
-- **Pilha de multilocatária do Azure**. Uma implantação de pilha do Azure em que o tráfego do cada assinatura locatário associado para redes externas a pilha do Azure deve ser isolado de tráfego de rede de outros locatários.
+- **Vários locatário do Azure Stack**. Uma implantação do Azure Stack em que o tráfego do cada assinatura locatário associado a redes externas para o Azure Stack deve ser isolado do tráfego de rede de outros locatários.
  
-- **Implantação de intranet**. Uma implantação de pilha do Azure que se encontra em uma intranet corporativa, normalmente no espaço de endereço IP privado e atrás de firewalls de um ou mais. Os endereços IP públicos não são realmente públicos, pois eles não podem ser roteados diretamente pela internet pública.
+- **Implantação de intranet**. Uma implantação do Azure Stack que reside em uma intranet corporativa, normalmente no espaço de endereço IP privado e atrás de firewalls de um ou mais. Os endereços IP públicos não são verdadeiramente públicos, pois eles não podem ser roteados diretamente pela internet pública.
 
-- **Implantação de Internet**. Uma implantação de pilha do Azure que está conectada ao público na internet e usa roteável pela internet pública endereços IP do intervalo de VIP público. A implantação ainda pode ser colocados atrás de um firewall, mas o intervalo de VIP público é diretamente acessível da internet pública e do Azure.
+- **Implantação de Internet**. Endereços de internet e usa IP pública roteáveis na internet de uma implantação do Azure Stack que está conectada ao público para o intervalo de VIP público. A implantação ainda pode estar por trás de um firewall, mas o intervalo de VIP público é diretamente acessível da internet pública e do Azure.
  
-A tabela a seguir resume os cenários de conectividade híbrida, com casos de uso, prós e contras.
+A tabela a seguir resume os cenários de conectividade híbrida, com os prós, os contras e os casos de uso.
 
 | Cenário | Método de conectividade | Prós | Contras | BOM para |
 | -- | -- | --| -- | --|
-| Único locatário do Azure pilha, implantação de intranet | NAT de saída | Melhor largura de banda para transferências mais rápidas. Simples de implementar; Não há gateways necessários. | Tráfego não criptografado; Não há isolamento ou criptografia fora da pilha. | Implantações de empresa onde todos os locatários são igualmente confiáveis.<br><br>Empresas que têm um circuito de rota expressa do Azure para o Azure. |
-| Pilha de Azure multilocatário, implantação de intranet | VPN site a site | Tráfego do locatário de rede virtual para o destino é seguro. | Largura de banda é limitada pelo túnel VPN site a site.<br><br>Requer um gateway da rede virtual e um dispositivo VPN na rede de destino. | Implantações de empresa onde algumas tráfego de locatário devem ser protegidas de outros locatários. |
-| Único locatário do Azure pilha, implantação de internet | NAT de saída | Melhor largura de banda para transferências mais rápidas. | Tráfego não criptografado; Não há isolamento ou criptografia fora da pilha. | Hospedagem de cenários em que o locatário obtém sua própria implantação de pilha do Azure e um circuito dedicado para o ambiente de pilha do Azure. Por exemplo, alternando de rótulo multiprotocolo (MPLS) e rota expressa.
-| Pilha de Azure multilocatário, implantação de internet | VPN site a site | Tráfego do locatário de rede virtual para o destino é seguro. | Largura de banda é limitada pelo túnel VPN site a site.<br><br>Requer um gateway da rede virtual e um dispositivo VPN na rede de destino. | Onde quer que o provedor ofereça uma nuvem de multilocatária de cenários de hospedagem, em que os locatários não confia entre si e o tráfego deve ser criptografada.
+| Único locatário do Azure Stack, implantação de intranet | NAT de saída | Largura de banda melhor transferências mais rápidas. Simples de implementar; Não há gateways necessários. | Tráfego não criptografado; Sem isolamento ou criptografia fora da pilha. | Implantação em empresas em que todos os locatários são igualmente confiáveis.<br><br>Empresas que têm um circuito do ExpressRoute para o Azure. |
+| Vários locatários do Azure Stack, implantação de intranet | VPN site a site | O tráfego do locatário de rede virtual para o destino é seguro. | Largura de banda é limitada pelo túnel VPN site a site.<br><br>Requer um gateway na rede virtual e um dispositivo VPN da rede de destino. | Implantações empresariais onde algumas tráfego de locatário devem ser protegidas de outros locatários. |
+| Único locatário do Azure Stack, implantação de internet | NAT de saída | Largura de banda melhor transferências mais rápidas. | Tráfego não criptografado; Sem isolamento ou criptografia fora da pilha. | Hospedar cenários em que o locatário obtém sua própria implantação do Azure Stack e um circuito dedicado para o ambiente do Azure Stack. Por exemplo, o ExpressRoute e comutação de rótulo multiprotocolo (MPLS).
+| Vários locatários do Azure Stack, implantação de internet | VPN site a site | O tráfego do locatário de rede virtual para o destino é seguro. | Largura de banda é limitada pelo túnel VPN site a site.<br><br>Requer um gateway na rede virtual e um dispositivo VPN da rede de destino. | Cenários em que o provedor quer oferecer uma nuvem de multilocatário de hospedagem, em que os locatários não confiam entre si e o tráfego deve ser criptografado.
 |  |  |  |  |  |
 
 ### <a name="using-expressroute"></a>Usando o ExpressRoute
 
-Você pode se conectar a pilha do Azure para o Azure por meio de [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) para cenários de multilocatários e de intranet de único locatário. Você precisará de um circuito de rota expressa provisionado por meio de [um provedor de conectividade](https://docs.microsoft.com/azure/expressroute/expressroute-locations).
+Azure Stack pode se conectar ao Azure por meio [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) para intranet de locatário único e cenários de multilocatário. Você precisará de um circuito do ExpressRoute provisionado por meio [um provedor de conectividade](https://docs.microsoft.com/azure/expressroute/expressroute-locations).
 
-O diagrama a seguir mostra a rota expressa para um cenário de único locatário (onde "Conexão cliente" é o circuito de rota expressa).
+O diagrama a seguir mostra o ExpressRoute para um cenário de único locatário (onde "Conexão do cliente" é o circuito do ExpressRoute).
 
-![Cenário de rota expressa do diagrama mostrando único locatário](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
+![Cenário de ExpressRoute do diagrama mostrando locatário único](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
-O diagrama a seguir mostra a rota expressa para um cenário de vários locatários.
+O diagrama a seguir mostra o ExpressRoute para um cenário de multilocatário.
 
-![Cenário de rota expressa do diagrama mostrando multilocatário](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
+![Cenário de ExpressRoute do diagrama mostrando multilocatário](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>Monitoramento externo
-Para obter uma única exibição de todos os alertas de seus dispositivos e a implantação da pilha do Azure e para integrar a IT service management fluxos de trabalho existentes para tíquetes de alertas, você pode [integrar pilha Azure datacenter externodesoluçõesdemonitoramento](azure-stack-integrate-monitor.md).
+Para obter uma única exibição de todos os alertas de seus dispositivos e implantação do Azure Stack e integrar os alertas IT service management fluxos de trabalho existentes para a emissão de tíquetes, você pode [integrar o Azure Stack ao datacenter externodesoluçõesdemonitoramento](azure-stack-integrate-monitor.md).
 
-Incluído com a solução de pilha do Azure, o host de ciclo de vida de hardware é um computador fora da pilha do Azure que executa as ferramentas de gerenciamento fornecida pelo fornecedor OEM para hardware. Você pode usar essas ferramentas ou outras soluções que integram-se diretamente a soluções de monitoramento existentes em seu data center.
+Incluído com a solução do Azure Stack, o host de ciclo de vida do hardware é um computador fora do Azure Stack que executa as ferramentas de gerenciamento fornecido pelo fornecedor OEM para hardware. Você pode usar essas ferramentas ou outras soluções que se integram diretamente com as soluções de monitoramento existentes em seu datacenter.
 
 A tabela a seguir resume a lista de opções disponíveis no momento.
 
-| Área | Solução de monitoramento |
+| Área | Solução de monitoramento externa |
 | -- | -- |
-| Software de pilha do Azure | [Pacote de gerenciamento de pilha do Azure para o Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Plug-in de Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Chamadas de API baseada em REST | 
-| Servidores físicos (BMCs via IPMI) | Hardware OEM - pacote de gerenciamento do fornecedor do Operations Manager<br>Solução de fornecido pelo fornecedor de hardware de OEM<br>Fornecedor do hardware plug-ins de Nagios | Suporte de parceiro (incluída) de solução de monitoramento de OEM | 
-| Dispositivos de rede (SNMP) | Descoberta de dispositivo de rede do Operations Manager<br>Solução de fornecido pelo fornecedor de hardware de OEM<br>Opção de Nagios plug-in |
+| Software de pilha do Azure | [Pacote de gerenciamento do Azure Stack para o Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Plug-in do Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Chamadas à API baseada em REST | 
+| Servidores físicos (BMCs via IPMI) | Hardware de OEM - pacote de gerenciamento do fornecedor do Operations Manager<br>Solução de fornecido pelo fornecedor de hardware de OEM<br>Fornecedor do hardware plug-ins do Nagios | OEM suporte de parceiro (incluída) de solução de monitoramento | 
+| Dispositivos de rede (SNMP) | Descoberta de dispositivo de rede do Operations Manager<br>Solução de fornecido pelo fornecedor de hardware de OEM<br>Comutador de Nagios plug-in |
 | Monitoramento de integridade de assinatura de locatário | [Pacote de gerenciamento do System Center para o Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
 Observe os seguintes requisitos:
-- A solução que você usar deve ser sem agente. Você não pode instalar agentes de terceiros dentro de componentes da pilha do Azure. 
+- A solução que você usar deve ser sem agente. Você não pode instalar agentes de terceiros dentro de componentes do Azure Stack. 
 - Se você quiser usar o System Center Operations Manager, Operations Manager 2012 R2 ou Operations Manager 2016 é necessária.
 
 ## <a name="backup-and-disaster-recovery"></a>Backup e recuperação de desastres
 
-Planejamento para backup e recuperação de desastres envolve o planejamento para ambas as Azure pilha infraestrutura subjacente que hospeda máquinas virtuais e serviços de PaaS e de dados e aplicativos de locatário. Você deve planejar para essas separadamente.
+Planejamento de backup e recuperação de desastres envolve o planejamento para ambos os Azure Stack infraestrutura subjacente que hospeda máquinas virtuais IaaS e serviços de PaaS e de dados e aplicativos de locatário. Você deve planejar essas separadamente.
 
 ### <a name="protect-infrastructure-components"></a>Proteger os componentes de infraestrutura
 
-Você pode [Azure pilha](azure-stack-backup-back-up-azure-stack.md) componentes da infraestrutura como um SMB compartilham que você especificar:
+Você pode [fazer backup do Azure Stack](azure-stack-backup-back-up-azure-stack.md) componentes da infraestrutura para SMB compartilham que você especificar:
 
-- Você precisará de um compartilhamento de arquivos SMB externo em um servidor de arquivos do Windows existente ou um dispositivo de terceiros.
-- Você deve usar esse mesmo compartilhamento para o backup de comutadores de rede e o host de ciclo de vida de hardware. O fornecedor do hardware OEM ajuda a fornecer orientação para backup e restauração desses componentes conforme eles são externos a pilha do Azure. Você é responsável pela execução de fluxos de trabalho de backup com base na recomendação do fornecedor OEM.
+- Você precisará de um compartilhamento de arquivos SMB externo em um servidor de arquivos com base em Windows ou um dispositivo de terceiros.
+- Você deve usar esse mesmo compartilhamento para o backup de comutadores de rede e o host de ciclo de vida do hardware. O fornecedor do hardware OEM ajudará a fornecer orientação para backup e restauração desses componentes, conforme eles são externos ao Azure Stack. Você é responsável por executar os fluxos de trabalho de backup com base na recomendação do fornecedor OEM.
 
-Se ocorrer perda de dados catastrófica, você pode usar o backup de infraestrutura para dados de nova propagação de implantação, como certificado de raiz de autoridade de certificação de entradas e identificadores de contas de serviço de implantação, recursos federados (em implantações desconectados), planos, ofertas, assinaturas, cotas, atribuições de função e política RBAC e segredos de Cofre de chaves.
+Se ocorrer perda de dados catastrófica, você pode usar o backup de infraestrutura para dados de nova propagação de implantação, como implantação entradas e identificadores de contas de serviço de certificado da AC raiz, federados recursos (implantações desconectados), planos, ofertas, as assinaturas, cotas, as atribuições de função e política RBAC e segredos do Key Vault.
  
-### <a name="protect-tenant-applications-on-iaas-virtual-machines"></a>Proteger aplicativos de locatário em máquinas virtuais
+### <a name="protect-tenant-applications-on-iaas-virtual-machines"></a>Proteger aplicativos de locatário em máquinas virtuais de IaaS
 
-A pilha do Azure não fazer backup de dados e aplicativos de locatário. Você deve planejar para proteção de recuperação de desastre e backup para um destino externo a pilha do Azure. Proteção de locatário é uma atividade controlada por locatário. Para máquinas virtuais de IaaS, os locatários podem usar tecnologias no convidado para proteger as pastas de arquivos, dados de aplicativo e o estado do sistema. No entanto, como uma empresa ou provedores de serviços, você talvez queira oferecem uma solução de backup e recuperação no mesmo datacenter ou externamente em uma nuvem.
+O Azure Stack não faz backup de dados e aplicativos de locatário. Você deve planejar para a proteção de recuperação de desastre e backup para um destino externo para o Azure Stack. Locatário de proteção é uma atividade controlada por locatário. Para máquinas virtuais de IaaS, os locatários podem usar a tecnologias no convidado para proteger as pastas de arquivos, dados de aplicativo e do estado do sistema. No entanto, como um provedor de serviço ou enterprise, você talvez queira oferecem uma solução de backup e recuperação no mesmo datacenter ou externamente em uma nuvem.
 
-Para fazer backup de máquinas virtuais Linux ou IaaS do Windows, você deve usar produtos de backup com acesso ao sistema operacional convidado para proteger o arquivo, pasta, estado do sistema operacional e dados de aplicativo. Você pode usar o Backup do Azure, o System Center Data Center Protection Manager, ou produtos de terceiros com suporte.
+Para fazer backup de máquinas virtuais Linux ou Windows IaaS, você deve usar produtos de backup com acesso ao sistema operacional convidado para proteger o arquivo, pasta, estado do sistema operacional e dados de aplicativo. Você pode usar o Backup do Azure, System Center Data Center Protection Manager, ou produtos de terceiros com suporte.
 
-Para replicar dados para um local secundário e orquestrar failover de aplicativo se ocorrer um desastre, você pode usar o Azure Site Recovery ou produtos de terceiros com suporte. (Na versão inicial dos sistemas integrados, recuperação de Site do Azure não oferecem suporte a failback. No entanto, você pode obter failback por meio de um processo manual.) Além disso, os aplicativos que oferecem suporte à replicação nativa (como o Microsoft SQL Server) podem replicar dados para outro local onde o aplicativo está sendo executado.
-
-> [!IMPORTANT]
-> A versão inicial dos sistemas integrados, podemos será compatível com tecnologias de proteção que funcionam no nível de convidado de uma máquina virtual IaaS. Você não pode instalar agentes em servidores de infraestrutura subjacente.
+Para replicar dados para um local secundário e orquestrar o failover de aplicativo se ocorrer um desastre, você pode usar o Azure Site Recovery ou produtos de terceiros com suporte. Além disso, os aplicativos que dão suporte à replicação nativa, como o Microsoft SQL Server, podem replicar dados para outro local em que o aplicativo está em execução.
 
 ## <a name="learn-more"></a>Saiba mais
 
-- Para obter informações sobre os casos de uso, compra, parceiros e fornecedores de hardware de OEM, consulte o [Azure pilha](https://azure.microsoft.com/overview/azure-stack/) página do produto.
-- Para obter informações sobre o mapa e a disponibilidade de replicação geográfica do Azure pilha sistemas integrados, consulte o white paper: [pilha do Azure: extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Para obter informações sobre casos de uso, compra, parceiros e fornecedores de hardware de OEM, consulte o [do Azure Stack](https://azure.microsoft.com/overview/azure-stack/) página do produto.
+- Para obter informações sobre o roteiro e a disponibilidade geográfica para o Azure Stack, sistemas integrados, consulte o white paper: [do Azure Stack: uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Modelos de conexão de implantação de pilha do Azure](azure-stack-connection-models.md)

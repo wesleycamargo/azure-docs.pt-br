@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: b58118a3ed4fba5017e0eb630d822ec59f04aa16
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d3e3bcc9f637ed0a93091c0b0b8797d667459f11
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024769"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716173"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegar ofertas no Azure Stack
 
@@ -113,7 +113,7 @@ A próxima etapa é criar o plano e oferta que você vai delegar e que seus usu�
 
 Entrar no portal do usuário, como o provedor de delegado e, em seguida, crie uma nova oferta usando a oferta delegada como um modelo.
 
-1. Selecione **novos** > **locatário oferece + planos** > **oferecem**.
+1. Selecione **+ criar um recurso** > **planos + locatário oferece** > **oferecem**.
 
     ![Criar uma nova oferta](media/azure-stack-delegated-provider/image5.png)
 

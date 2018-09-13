@@ -1,6 +1,6 @@
 ---
-title: Expansão de funções de trabalho nos serviços de aplicativo - pilha do Azure | Microsoft Docs
-description: Instruções detalhadas para dimensionar os serviços de aplicativos de pilha do Azure
+title: Expansão de funções de trabalho nos serviços de aplicativos - Azure Stack | Microsoft Docs
+description: Orientações detalhadas para dimensionar os serviços de aplicativo do Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,41 +12,41 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/08/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 04a93bc841d553296dca7635151c14892970121c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: abfc75e40e146b1cf7cb237f18a1ff08626e5be1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357785"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35998335"
 ---
-# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Serviço de aplicativo na pilha do Azure: adicionar mais funções de infraestrutura ou de trabalho
+# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Serviço de aplicativo no Azure Stack: adicionar mais funções de trabalho ou infraestrutura
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*  
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*  
 
-Este documento fornece instruções sobre como dimensionar o serviço de aplicativo em funções de infraestrutura e de trabalho da pilha do Azure. Ele contém as etapas para a criação de funções de trabalho adicional para dar suporte a aplicativos de qualquer tamanho.
+Este documento fornece instruções sobre como dimensionar o serviço de aplicativo nas funções de infraestrutura e de trabalho do Azure Stack. Ele contém etapas para a criação de funções de trabalho adicional para dar suporte a aplicativos de qualquer tamanho.
 
 > [!NOTE]
-> Se seu ambiente de pilha do Azure não tem mais de 96 GB de RAM, você pode ter dificuldade para adicionar capacidade adicional.
+> Se seu ambiente de pilha do Azure não tem mais de 96 GB de RAM, você pode ter dificuldades para adicionar capacidade adicional.
 
-Serviço de aplicativo na pilha do Azure, por padrão, dá suporte a camadas de trabalhador gratuito e compartilhado. Para adicionar outros níveis de trabalho, você precisa adicionar mais funções de trabalho.
+Serviço de aplicativo no Azure Stack, por padrão, dá suporte a camadas de trabalhador gratuitos e compartilhados. Para adicionar outras camadas de trabalho, você precisa adicionar mais funções de trabalho.
 
-Se não tiver certeza de que foi implantado com o serviço de aplicativo padrão na instalação da pilha do Azure, você pode examinar informações adicionais de [do serviço de aplicativo na visão geral do Azure pilha](azure-stack-app-service-overview.md).
+Se você não tiver certeza de que foi implantado com o serviço de aplicativo padrão na instalação do Azure Stack, você pode examinar informações adicionais no [serviço de aplicativo na visão geral do Azure Stack](azure-stack-app-service-overview.md).
 
-Serviço de aplicativo do Azure na pilha do Azure implanta todas as funções usando conjuntos de escala de máquina Virtual e como tal tira proveito dos recursos de dimensionamento dessa carga de trabalho. Portanto, todo o dimensionamento das camadas de trabalhador é feito por meio do administrador do serviço de aplicativo.
+Serviço de aplicativo do Azure no Azure Stack implanta todas as funções usando conjuntos de dimensionamento de máquina Virtual e como tal, aproveita os recursos de dimensionamento dessa carga de trabalho. Portanto, todo o dimensionamento das camadas de trabalhador é feito por meio do administrador do serviço de aplicativo.
 
 > [!IMPORTANT]
-> No momento não é possível dimensionar conjuntos de escala de máquina virtual no portal de conforme identificado nas notas de versão de pilha do Azure, portanto, usar o exemplo do PowerShell para expansão.
+> Atualmente, não é possível dimensionar conjuntos de dimensionamento de máquina virtual no portal conforme identificado nas notas de versão do Azure Stack, portanto, usar o exemplo do PowerShell para escalar horizontalmente.
 >
 >
 
-## <a name="add-additional-workers-with-powershell"></a>Adicionar operadores adicionais com o PowerShell
+## <a name="add-additional-workers-with-powershell"></a>Adicionar trabalhadores adicionais com o PowerShell
 
-1. [Configurar o ambiente de administração de pilha do Azure no PowerShell](azure-stack-powershell-configure-admin.md)
+1. [Configurar o ambiente de administração do Azure Stack no PowerShell](azure-stack-powershell-configure-admin.md)
 
-2. Use este exemplo para expandir o conjunto de escala:
+2. Use este exemplo para escalar horizontalmente o conjunto de dimensionamento:
    ```powershell
    
     ##### Scale out the AppService Role instances ######
@@ -77,42 +77,42 @@ Serviço de aplicativo do Azure na pilha do Azure implanta todas as funções us
    >
    >
 
-3. Monitorar o status de novas instâncias de função na administração do serviço de aplicativo, para verificar o status de uma instância de função individual clique no tipo de função na lista.
+3. Monitorar o status de novas instâncias de função na administração de serviço de aplicativo, para verificar o status de uma instância de função individuais clique no tipo de função na lista.
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Adicionar operadores adicionais diretamente no provedor de administrador do aplicativo serviço recursos.
+## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Adicionar trabalhadores adicionais diretamente dentro do provedor de administrador do aplicativo serviço de recursos.
 
-1. Faça logon portal de administração do Azure pilha como o administrador de serviço.
+1. Entre no portal de administração do Azure Stack como administrador de serviços.
 
 2. Navegue até **serviços de aplicativos**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Clique em **Funções**. Veja aqui a análise de todas as funções de serviço de aplicativo implantado.
+3. Clique em **Funções**. Veja aqui a divisão de todas as funções de serviço de aplicativo implantado.
 
 4. Clique com o botão direito na linha do tipo que você deseja dimensionar e, em seguida, clique em **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Clique em **Scaling**, selecione o número de instâncias que você deseja dimensionar para e, em seguida, clique em **salvar**.
+5. Clique em **Scaling**, selecione o número de instâncias que você deseja dimensionar e, em seguida, clique em **salvar**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. Serviço de aplicativo na pilha do Azure agora será adicionar outras VMs, configurá-los, instalar todos os softwares necessários e marcá-los como pronto quando esse processo é concluído. Esse processo pode levar aproximadamente 80 minutos.
+6. Serviço de aplicativo no Azure Stack agora será adicionar outras VMs, configurá-los, instale todos os softwares necessários e marcá-los como pronto quando esse processo for concluído. Esse processo pode levar aproximadamente 80 minutos.
 
-7. Você pode monitorar o progresso da preparação das novas funções, exibindo os trabalhadores no **funções** folha.
+7. Você pode monitorar o progresso da preparação das novas funções, exibindo os trabalhadores na **funções** folha.
 
 ## <a name="result"></a>Result
 
-Depois que eles são totalmente implantado e estiver pronto, os trabalhadores ficam disponíveis para os usuários implantar suas cargas de trabalho para eles. O exemplo a seguir mostra um exemplo de várias camadas de preços disponíveis por padrão. Se não houver nenhum operadores disponíveis para uma camada de trabalhador específico, a opção de escolher a camada de preços correspondente não está disponível.
+Depois que eles são totalmente implantado e estiver pronto, os trabalhadores são disponibilizados para os usuários implantem sua carga de trabalho neles. O exemplo a seguir mostra um exemplo de vários tipos de preço disponíveis por padrão. Se não houver nenhum processador disponível para uma camada de trabalho específica, a opção de escolher o tipo de preço correspondente não está disponível.
 
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> Para expandir gerenciamento, funções de Front-End ou publicador adicionam que você deve expandir o tipo de função correspondente. 
+> Para expandir o gerenciamento, as funções de Front-End ou publicador adicionam que você deve escalar horizontalmente o tipo de função correspondente. 
 >
 >
 
-Para expandir gerenciamento, Front-End ou publicador funções, siga as mesmas etapas que selecionando o tipo de função apropriada. Controladores não são implantados como conjuntos de escala e, portanto, duas devem ser implantadas no momento da instalação para todas as implantações de produção.
+Para expandir o gerenciamento, Front-End ou publicador funções, siga as mesmas etapas, selecionando o tipo de função apropriada. Controladores não são implantados como conjuntos de dimensionamento e, portanto, dois devem ser implantados no momento da instalação para todas as implantações de produção.
 
 ### <a name="next-steps"></a>Próximas etapas
 

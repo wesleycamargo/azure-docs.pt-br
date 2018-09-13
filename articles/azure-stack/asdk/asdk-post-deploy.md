@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 24f237a04d19d03ab7357db6fb9c7ab60036f3d2
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 4eadbe38eede505a3339d4b6090d0a34c12a5fc2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390986"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721952"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Pós-instalação do ASDK tarefas de configuração
 
@@ -162,6 +162,11 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ![Console de gerenciamento de diretiva de grupo](media/asdk-post-deploy/gpmc.png)
 
+## <a name="enable-multi-tenancy"></a>Habilitar multilocação
+Para implantações usando o Azure AD, você precisará [habilitar multilocação](.\.\azure-stack-enable-multitenancy.md#enable-multi-tenancy) para sua instalação ASDK.
+
+> [!NOTE]
+> Quando as contas de usuário ou administrador de domínios diferente daquela usada para registrar o Azure Stack são usadas para fazer logon em um portal do Azure Stack, o nome de domínio usado para registrar o Azure Stack deve ser acrescentado ao portal do url. Por exemplo, se o Azure Stack foi registrado com fabrikam.onmicrosoft.com e a conta de usuário, registro em log no está admin@contoso.com, a url a ser usada para fazer logon no portal do usuário seria: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Registre o ASDK com o Azure](asdk-register.md)

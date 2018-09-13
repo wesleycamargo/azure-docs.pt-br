@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/10/2017
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6225a12b50ebb7bf0a0cb9244153800ba734d93a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a219f44cb27bb6ebe4e17079ad487457ae8852f0
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006896"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718110"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Criar uma conexão de VPN site a site entre duas redes virtuais em diferentes ambientes de Kit de desenvolvimento do Azure Stack
 ## <a name="overview"></a>Visão geral
@@ -92,10 +92,7 @@ Um administrador de serviço pode entrar como um locatário para testar os plano
 
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>Criar a rede virtual e sub-rede de VM
 1. Use uma conta de locatário para entrar no portal do usuário.
-2. No portal do usuário, selecione **New**.
-
-    ![Criar nova rede virtual](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
-
+2. No portal do usuário, selecione **+ criar um recurso**.
 3. Vá para **Marketplace**e, em seguida, selecione **Networking**.
 4. Selecione **Rede virtual**.
 5. Para **nome**, **espaço de endereço**, **nome da sub-rede**, e **intervalo de endereços de sub-rede**, use os valores que aparecem anteriormente na rede tabela de configuração.
@@ -118,7 +115,7 @@ Um administrador de serviço pode entrar como um locatário para testar os plano
 6. Selecione **Okey** para criar a sub-rede de gateway.
 
 ### <a name="create-the-virtual-network-gateway"></a>Criar o gateway de rede virtual
-1. No portal do Azure, selecione **New**. 
+1. No portal do Azure, selecione **+ criar um recurso**. 
 2. Vá para **Marketplace**e, em seguida, selecione **Networking**.
 3. Na lista de recursos de rede, selecione **gateway de rede Virtual**.
 4. Na **nome**, insira **GW1**.
@@ -140,7 +137,7 @@ Uma maneira de pensar sobre isso de forma mais genérica é que o recurso de gat
 
 ### <a name="create-the-local-network-gateway-resource"></a>Criar o recurso de gateway de rede local
 1. Entrar no computador físico do Azure Stack para POC1.
-2. No portal do usuário, selecione **New**.
+2. No portal do usuário, selecione **+ criar um recurso**.
 3. Vá para **Marketplace**e, em seguida, selecione **Networking**.
 4. Na lista de recursos, selecione **gateway de rede local**.
 5. Na **nome**, insira **POC2-GW**.
@@ -149,7 +146,7 @@ Uma maneira de pensar sobre isso de forma mais genérica é que o recurso de gat
 8. Verifique sua **assinatura**, **grupo de recursos**, e **local** estão corretas e, em seguida, selecione **criar**.
 
 ### <a name="create-the-connection"></a>Criar a conexão
-1. No portal do usuário, selecione **New**.
+1. No portal do usuário, selecione **+ criar um recurso**.
 2. Vá para **Marketplace**e, em seguida, selecione **Networking**.
 3. Na lista de recursos, selecione **Conexão**.
 4. Sobre o **Noções básicas** folha configurações, para o **tipo de Conexão**, selecione **Site a site (IPSec)**.
@@ -163,7 +160,7 @@ Uma maneira de pensar sobre isso de forma mais genérica é que o recurso de gat
 ### <a name="create-a-vm"></a>Criar uma máquina virtual
 Para validar os dados que trafegam por meio de conexão de VPN, você precisa de máquinas virtuais para enviar e receber dados em cada Kit de desenvolvimento do Azure Stack. Criar uma máquina virtual em POC1 agora e, em seguida, em sua rede virtual, coloco na sub-rede de VM.
 
-1. No portal do Azure, selecione **New**.
+1. No portal do Azure, selecione **+ criar um recurso**.
 2. Vá para **Marketplace**e, em seguida, selecione **computação**.
 3. Na lista de imagens de máquina virtual, selecione a **Windows Server 2016 Datacenter Eval** imagem.
 4. Sobre o **Noções básicas** folha, na **nome**, insira **VM01**.
@@ -185,7 +182,7 @@ Um administrador de serviço pode entrar como um locatário para testar os plano
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>Criar a rede virtual e sub-rede de VM
 
 1. Entrar usando uma conta de locatário.
-2. No portal do usuário, selecione **New**.
+2. No portal do usuário, selecione **+ criar um recurso**.
 3. Vá para **Marketplace**e, em seguida, selecione **Networking**.
 4. Selecione **Rede virtual**.
 5. Use as informações que aparecem anteriormente na tabela de configuração de rede para identificar os valores para o POC2 **nome**, **espaço de endereço**, **nome da sub-rede**e **Intervalo de endereços de sub-rede**.
@@ -205,7 +202,7 @@ Um administrador de serviço pode entrar como um locatário para testar os plano
 6. Selecione **Okey** para criar a sub-rede de gateway.
 
 ### <a name="create-the-virtual-network-gateway"></a>Criar o gateway de rede virtual
-1. No portal do Azure, selecione **New**.  
+1. No portal do Azure, selecione **+ criar um recurso**.  
 2. Vá para **Marketplace**e, em seguida, selecione **Networking**.
 3. Na lista de recursos de rede, selecione **gateway de rede Virtual**.
 4. Na **nome**, insira **GW2**.
@@ -218,7 +215,7 @@ Um administrador de serviço pode entrar como um locatário para testar os plano
 
 ### <a name="create-the-local-network-gateway-resource"></a>Criar o recurso de gateway de rede local
 
-1. No portal do usuário POC2, selecione **New**. 
+1. No portal do usuário POC2, selecione **+ criar um recurso**. 
 4. Vá para **Marketplace**e, em seguida, selecione **Networking**.
 5. Na lista de recursos, selecione **gateway de rede Local**.
 6. Na **nome**, insira **POC1-GW**.
@@ -227,7 +224,7 @@ Um administrador de serviço pode entrar como um locatário para testar os plano
 9. Verifique sua **assinatura**, **grupo de recursos**, e **local** estão corretas e, em seguida, selecione **criar**.
 
 ## <a name="create-the-connection"></a>Criar a conexão
-1. No portal do usuário, selecione **New**. 
+1. No portal do usuário, selecione **+ criar um recurso**. 
 2. Vá para **Marketplace**e, em seguida, selecione **Networking**.
 3. Na lista de recursos, selecione **Conexão**.
 4. Sobre o **básica** folha configurações, para o **tipo de Conexão**, escolha **Site a site (IPSec)**.
@@ -241,7 +238,7 @@ Um administrador de serviço pode entrar como um locatário para testar os plano
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 Criar uma máquina virtual em POC2 agora e colocá-lo em sua sub-rede VM em sua rede virtual.
 
-1. No portal do Azure, selecione **New**.
+1. No portal do Azure, selecione **+ criar um recurso**.
 2. Vá para **Marketplace**e, em seguida, selecione **computação**.
 3. Na lista de imagens de máquina virtual, selecione a **Windows Server 2016 Datacenter Eval** imagem.
 4. Sobre o **Noções básicas** folha, para **nome**, insira **VM02**.

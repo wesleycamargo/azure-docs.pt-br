@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9e868788d0cf3b3c0f2f30095388046f64ced71c
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ae742bbe1e5b751a8a8cabf378afd049728c3b8a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378533"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717498"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo para o Azure Stack
 
@@ -228,7 +228,7 @@ Depois de implantar e registrar o provedor de recursos do serviço de aplicativo
 
 Para criar um aplicativo web de teste, siga estas etapas:
 
-1. No portal de locatário do Azure Stack, selecione **New** > **Web + móvel** > **Web App**.
+1. No portal do usuário do Azure Stack, selecione **+ criar um recurso** > **Web + móvel** > **Web App**.
 
 2. Sob **aplicativo Web**, insira um nome na **aplicativo Web**.
 
