@@ -82,6 +82,7 @@
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Linguagem de Scripts do Modelo de Tabela (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 ## [Modelo de Objeto Tabular (TOM)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo)
+## [Limites de recursos e objetos](analysis-services-capacity-limits.md)
 
 # Recursos
 

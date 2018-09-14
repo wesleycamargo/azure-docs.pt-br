@@ -1,6 +1,6 @@
 ---
-title: Removendo o provedor de recursos do SQL na pilha do Azure | Microsoft Docs
-description: Saiba como remover o provedor de recursos do SQL de sua implantação de pilha do Azure.
+title: Removendo o provedor de recursos do SQL no Azure Stack | Microsoft Docs
+description: Saiba como remover o provedor de recursos do SQL da sua implantação do Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,24 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: b73deebb10d0c81a06df9cd192eaa2ef28de744d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 42d8a5a8073d2650b9e023305472f28d4f1c738f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083031"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580092"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Remover o provedor de recursos do SQL
 
-Antes de remover o provedor de recursos do SQL, você deve remover todas as dependências do provedor. Você também precisará de uma cópia do pacote de implantação que foi usada para instalar o provedor de recursos.
+Antes de remover o provedor de recursos do SQL, você deve remover todas as dependências do provedor. Você também precisará de uma cópia do pacote de implantação que foi usado para instalar o provedor de recursos.
 
 Há várias tarefas de limpeza para fazer antes de executar o _DeploySqlProvider.ps1_ script para remover o provedor de recursos.
 Os locatários são responsáveis pelas seguintes tarefas de limpeza:
 
-* Exclua todos os seus bancos de dados do provedor de recursos. (Excluir os bancos de dados de locatário não exclui a dados).
+* Exclua todos os seus bancos de dados do provedor de recursos. (Excluir os bancos de dados de locatário não excluirá os dados.)
 * Cancelar o registro do namespace de provedor de recursos.
 
 O administrador é responsável para as seguintes tarefas de limpeza:
@@ -39,10 +39,10 @@ O administrador é responsável para as seguintes tarefas de limpeza:
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Para remover o provedor de recursos do SQL
 
-1. Verifique se você removeu todas as existentes SQL provedor dependências do recurso.
+1. Verifique se você removeu todos os as existentes SQL provedor dependências de recursos.
 
    > [!NOTE]
-   > Desinstalar o provedor de recursos SQL continuará mesmo que os recursos dependentes estão usando atualmente o provedor de recursos.
+   > Desinstalar o provedor de recursos do SQL continuará mesmo que os recursos dependentes estiver atualmente usando o provedor de recursos.
   
 2. Obtenha uma cópia do provedor de recursos SQL binário e, em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário.
 
@@ -50,11 +50,12 @@ O administrador é responsável para as seguintes tarefas de limpeza:
 
 4. Execute o script DeploySqlProvider.ps1 usando os seguintes parâmetros:
 
-    * **Desinstalar**. Remove o provedor de recursos e todos os respectivos recursos.
+    * **Desinstalar**. Remove o provedor de recursos e todos os recursos associados.
     * **PrivilegedEndpoint**. O endereço IP ou nome DNS do ponto de extremidade com privilégios.
+    * **AzureEnvironment**. O ambiente do Azure usado para implantar o Azure Stack. Necessário apenas para implantações do AD do Azure.
     * **CloudAdminCredential**. A credencial do administrador da nuvem, necessária para acessar o ponto de extremidade com privilégios.
-    * **AzCredential**. A credencial para a conta de administrador de serviço de pilha do Azure. Use as mesmas credenciais que você usou para implantar a pilha do Azure.
+    * **AzCredential**. A credencial para a conta de administrador de serviço do Azure Stack. Use as mesmas credenciais que você usou para implantar o Azure Stack.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Oferecer serviços de aplicativos como PaaS](azure-stack-app-service-overview.md)
+[Oferta de serviços de aplicativo como PaaS](azure-stack-app-service-overview.md)

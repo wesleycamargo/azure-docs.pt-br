@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 773acd3a22244403548ef4ce35164291f5c0be7d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ad40f3efc123d313b2fd759889b0aa2621b3d7aa
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300828"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542492"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: implantar aplicativos no Azure e o Azure Stack
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implantar aplicativos no Azure e o Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
@@ -81,7 +81,7 @@ Este tutorial pressupõe que você tenha algum conhecimento básico do Azure e o
  * Crie [plano/ofertas](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) no Azure Stack.
  * Criar uma [assinatura de locatário](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) no Azure Stack.
  * Crie um aplicativo Web na assinatura do locatário. Anote a nova URL do aplicativo Web para usar mais tarde.
- * Implante a máquina Virtual do Azure DevOps serviços na assinatura do locatário.
+ * Implante uma máquina de Virtual do Windows Server 2012 na assinatura do locatário. Você usará esse servidor como seu servidor de compilação e para executar os serviços de DevOps do Azure.
 * Forneça uma imagem do Windows Server 2016 com o .NET 3.5 para uma máquina virtual (VM). Essa VM será criada no Azure Stack como um agente de compilação particular.
 
 ### <a name="developer-tool-requirements"></a>Requisitos da ferramenta de desenvolvedor

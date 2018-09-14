@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: ba4c53f03350995544eb95917102bd7123a077d2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022757"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575806"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual no Azure Stack
 
@@ -75,7 +75,7 @@ Imagens devem ser capazes de ser referenciado por um URI de armazenamento de blo
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>Adicionar uma imagem de VM no Marketplace usando o PowerShell
 
 > [!Note]  
-> Quando você adiciona uma imagem só estará disponível para o Gerenciador de recursos do Azure com base em modelos e implantações do PowerShell. Para disponibilizar uma imagem para um usuários como um item do marketplace, publicar o item do marketplace usando as etapas neste artigo, [criar e publicar um item do Marketplace](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
+> Quando você adiciona uma imagem só estará disponível para o Gerenciador de recursos do Azure com base em modelos e implantações do PowerShell. Para disponibilizar uma imagem para um usuários como um item do marketplace, publicar o item do marketplace usando as etapas neste artigo, [criar e publicar um item do Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
 
 1. [Instale o PowerShell para o Azure Stack](azure-stack-powershell-install.md).  
 

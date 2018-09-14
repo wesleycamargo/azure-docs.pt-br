@@ -1,27 +1,34 @@
 ---
 title: Modelo de solução de blockchain Ethereum de pilha do Azure
-description: Usar modelos de solução personalizada para implantar e configurar uma rede de blockchain do consórcio Ethereum no Azure Stack
+description: Tutorial sobre como usar os modelos de uma solução personalizada para implantar e configurar uma rede de blockchain do consórcio Ethereum no Azure Stack
 services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/12/2018
-ms.topic: article
+ms.date: 09/13/2018
+ms.topic: tutorial
 ms.service: azure-stack
-ms.reviewer: coborn
+ms.reviewer: seyadava
+ms.custom: mvc
 manager: femila
-ms.openlocfilehash: b4c8ff113ff76586cc4a91adfe568b07327a2d94
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b21a9ca58fc29a3da62ea08e81e628368fe5385f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721969"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580762"
 ---
-# <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Modelos de solução de blockchain Ethereum de pilha do Azure
+# <a name="tutorial-use-the-azure-stack-ethereum-blockchain-solution-template"></a>Tutorial: Usar o modelo de solução de blockchain do Azure Stack Ethereum
 
 O modelo de solução de Ethereum foi projetado para tornar mais fácil e rápido para implantar e configurar uma rede de blockchain Ethereum consortium vários membros com o mínimo de conhecimento do Azure e Ethereum.
 
 Com um punhado de entradas do usuário e uma implantação de clique único por meio do portal de locatário do Azure Stack, cada membro pode provisionar sua superfície de rede. Superfície de rede de cada membro consiste em um conjunto de nós de transação com balanceamento de carga com o qual um aplicativo ou usuário pode interagir para enviar um dispositivo Virtual de rede (NVA), um conjunto de nós de mineração para registrar transações e transações. Uma etapa de conexão subsequentes se conecta as NVAs para criar uma rede de blockchain de vários membros totalmente configurado.
+
+Para configurar isso, você irá:
+
+> [!div class="checklist"]
+> * Escolha uma arquitetura de implantação
+> * Implantar um autônomo, o líder de consortium ou a rede de membro consortium
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -198,5 +205,13 @@ Após a implantação for concluída, demora alguns minutos para o líder e memb
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre Ethereum e o Azure, consulte [tecnologia e aplicativos Blockchain | Microsoft Azure](https://azure.microsoft.com/solutions/blockchain/).
-- Para obter mais informações sobre os cenários de blockchain no Azure, consulte [modelo de solução de prova de trabalho consortium Ethereum](../blockchain-workbench/ethereum-deployment-guide.md).
+Neste tutorial, você aprendeu como:
+
+> [!div class="checklist"]
+> * Escolha uma arquitetura de implantação
+> * Implantar um autônomo, o líder de consortium ou a rede de membro consortium
+
+Para saber mais sobre Ethereum e o Azure, consulte:
+
+> [!div class="nextstepaction"]
+> [Tecnologia de Blockchain e aplicativos](https://azure.microsoft.com/solutions/blockchain/)

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 09/13/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: ddb1fcd91ff0c0018bcab9988a5ab063b882cf36
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: e396fc82754188ea655c70b44d4bf937a3c3163c
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714649"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544204"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Baixar itens do marketplace do Azure para o Azure Stack
 
@@ -148,9 +148,9 @@ Há duas partes que compõem esse cenário:
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>O download de importar e publicar no Marketplace do Azure Stack
 1. Os arquivos para imagens de máquinas virtuais ou modelos de solução que você tenha [baixados anteriormente](#use-the-marketplace-syndication-tool-to-download-marketplace-items) devem ser disponibilizados localmente para seu ambiente do Azure Stack.  
 
-2. Use o portal de administração para carregar o pacote de item do marketplace (o arquivo. azpkg) para o armazenamento de BLOBs do Azure Stack. Upload do pacote torna disponível para o Azure Stack para que mais tarde, você pode publicar o item a pilha do Azure Marketplace.
+2. Use o portal de administração para carregar o pacote de item do marketplace (o arquivo. azpkg) e a imagem de disco rígido virtual (o arquivo. vhd) no armazenamento de BLOBs do Azure Stack. Carregar do pacote e arquivos de disco torna-os disponíveis para o Azure Stack para que mais tarde você pode publicar o item para o Azure Stack Marketplace.
 
-   Upload exige que você tiver uma conta de armazenamento com um contêiner publicamente acessível (consulte os pré-requisitos para esse cenário)   
+   Upload exige que você tiver uma conta de armazenamento com um contêiner publicamente acessível (consulte os pré-requisitos para esse cenário).  
    1. No portal de administração do Azure Stack, acesse **todos os serviços** e, em seguida, sob o **dados + armazenamento** categoria, selecione **contas de armazenamento**.  
    
    2. Selecione uma conta de armazenamento de sua assinatura e, em seguida, em **serviço BLOB**, selecione **contêineres**.  
@@ -159,7 +159,7 @@ Há duas partes que compõem esse cenário:
    3. Selecione o contêiner que você deseja usar e, em seguida, selecione **carregue** para abrir o **carregar blob** painel.  
       ![Contêiner](media/azure-stack-download-azure-marketplace-item/container.png)  
    
-   4. No painel de Upload de blob, navegue até os arquivos que você deseja carregar no armazenamento e, em seguida, selecione **carregar**.  
+   4. No painel de Upload de blob, navegue até os arquivos de pacote e o disco para carregar no armazenamento e, em seguida, selecione **carregar**.  
       ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
 
    5. Os arquivos carregados são exibidos no painel de contêiner. Selecione um arquivo e, em seguida, copie a URL dos **propriedades do Blob** painel. Você usará essa URL na próxima etapa, quando você importa o item do marketplace para o Azure Stack.  Na imagem a seguir, o contêiner estiver *test-blob-storage* e o arquivo estiver *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  O arquivo é a URL *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
@@ -169,7 +169,7 @@ Há duas partes que compõem esse cenário:
 
    Você pode obter o *publisher*, *oferecem*, e *sku* valores da imagem do arquivo de texto que baixa com o arquivo AZPKG. O arquivo de texto é armazenado no local de destino. O *versão* valor é a versão observada durante o download do item do Azure no procedimento anterior. 
  
-   No script de exemplo a seguir, são usados valores para o Windows Server 2016 Datacenter - máquina virtual de Server Core. Substitua *URI_path* com o caminho para o local de armazenamento de BLOBs para o item.
+   No script de exemplo a seguir, são usados valores para o Windows Server 2016 Datacenter - máquina virtual de Server Core. O valor para *Osuri -* é um exemplo de caminho para o local de armazenamento de BLOBs para o item.
 
    ```PowerShell  
    Add-AzsPlatformimage `
@@ -178,7 +178,7 @@ Há duas partes que compõem esse cenário:
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
     -Version "2016.127.20171215" `
-    -OsUri "URI_path"  
+    -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
    **Sobre modelos de solução:** alguns modelos podem incluir um pequeno 3 MB. Arquivo VHD com o nome **fixed3.vhd**. Você não precisa importar esse arquivo para o Azure Stack. Fixed3.vhd.  Esse arquivo é incluído com alguns modelos de solução para atender aos requisitos de publicação para o Azure Marketplace.
 
@@ -198,7 +198,7 @@ Há duas partes que compõem esse cenário:
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. Depois de publicar um item da galeria, ele acessando **todos os serviços**. Em seguida, sob o **gerais** categoria, selecione **Marketplace**.  Se o download está um modelo de solução, verifique se que você adicionar qualquer imagem VHD dependente desse modelo de solução.  
+5. Depois de publicar um item da galeria, agora está disponível para uso. Para confirmar se o item da Galeria é publicado, vá para **todos os serviços**e, em seguida, sob o **gerais** categoria, selecione **Marketplace**.  Se o download está um modelo de solução, verifique se que você adicionar qualquer imagem VHD dependente desse modelo de solução.  
   ![Marketplace de modo de exibição](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

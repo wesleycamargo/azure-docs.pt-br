@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 26ee1c8f02a0a4e5aa5048a7a02929c448106ffd
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 253598373512b1508482235be028b12163a85a9a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024951"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580677"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integration data center – publicar pontos de extremidade
 
@@ -32,9 +32,8 @@ Um conjunto de infra-estrutura VIPs é necessário para pontos de extremidade de
 
 A infraestrutura interna VIPs não estão listados porque eles não são necessários para a publicação do Azure Stack.
 
-> [!NOTE]
+> [!Note]  
 > Usuário VIPs são dinâmicos, definidos pelos próprios usuários com nenhum controle pelo operador do Azure Stack.
-
 
 |Ponto de extremidade (VIP)|Um registro de host DNS|Protocolo|Portas|
 |---------|---------|---------|---------|
@@ -66,6 +65,8 @@ A infraestrutura interna VIPs não estão listados porque eles não são necess�
 
 O Azure Stack oferece suporte a apenas os servidores de proxy transparente. Em uma implantação onde uplinks um proxy transparente para um servidor proxy tradicional, você deve permitir as seguintes portas e URLs para comunicação de saída:
 
+> [!Note]  
+> O Azure Stack não oferece suporte ao uso de rota expressa para acessar os serviços do Azure listados na tabela a seguir.
 
 |Finalidade|URL|Protocolo|Portas|
 |---------|---------|---------|---------|

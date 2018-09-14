@@ -1,258 +1,273 @@
+items:
 - name: Documentação dos Conjuntos de Dimensionamento de Máquinas Virtuais
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que são conjuntos de escala de máquina virtual?
-      href: overview.md
+  - name: O que são conjuntos de escala de máquina virtual?
+    href: overview.md
 - name: Guia de início rápido
-  expanded: true
   items:
-    - name: Criar no portal do Azure
-      href: quick-create-portal.md
-    - name: Criar com a CLI do Azure 2.0
-      href: quick-create-cli.md
-    - name: Criar com o Azure PowerShell
-      href: quick-create-powershell.md
-    - name: Criar com um modelo
-      items:
-        - name: Conjunto de dimensionamento do Linux
-          href: quick-create-template-linux.md
-        - name: Conjunto de dimensionamento do Windows
-          href: quick-create-template-windows.md
+  - name: Criar no portal do Azure
+    href: quick-create-portal.md
+  - name: Criar com a CLI do Azure 2.0
+    href: quick-create-cli.md
+  - name: Criar com o Azure PowerShell
+    href: quick-create-powershell.md
+  - name: Criar com um modelo
+    items:
+    - name: Conjunto de dimensionamento do Linux
+      href: quick-create-template-linux.md
+    - name: Conjunto de dimensionamento do Windows
+      href: quick-create-template-windows.md
+  expanded: true
 - name: Tutoriais
   items:
-    - name: 1 - Criar/gerenciar o conjunto de dimensionamento
-      items:
-        - name: CLI do Azure 2.0
-          href: tutorial-create-and-manage-cli.md
-        - name: Azure PowerShell
-          href: tutorial-create-and-manage-powershell.md
-    - name: 2 - Usar discos de dados
-      items:
-        - name: CLI do Azure 2.0
-          href: tutorial-use-disks-cli.md
-        - name: Azure PowerShell
-          href: tutorial-use-disks-powershell.md
-    - name: 3 - Usar uma imagem de VM personalizada
-      items:
-        - name: CLI do Azure 2.0
-          href: tutorial-use-custom-image-cli.md
-        - name: Azure PowerShell
-          href: tutorial-use-custom-image-powershell.md
-    - name: 4 - Implantar aplicativos em um conjunto de dimensionamento
-      items:
-        - name: CLI do Azure 2.0
-          href: tutorial-install-apps-cli.md
-        - name: Azure PowerShell
-          href: tutorial-install-apps-powershell.md
-        - name: Modelo
-          href: tutorial-install-apps-template.md
-    - name: 5 - Escala automática do conjunto de dimensionamento
-      items:
-        - name: CLI do Azure 2.0
-          href: tutorial-autoscale-cli.md
-        - name: Azure PowerShell
-          href: tutorial-autoscale-powershell.md
-        - name: Modelo
-          href: tutorial-autoscale-template.md
+  - name: 1 - Criar/gerenciar o conjunto de dimensionamento
+    items:
+    - name: CLI do Azure 2.0
+      href: tutorial-create-and-manage-cli.md
+    - name: Azure PowerShell
+      href: tutorial-create-and-manage-powershell.md
+  - name: 2 - Usar discos de dados
+    items:
+    - name: CLI do Azure 2.0
+      href: tutorial-use-disks-cli.md
+    - name: Azure PowerShell
+      href: tutorial-use-disks-powershell.md
+  - name: 3 - Usar uma imagem de VM personalizada
+    items:
+    - name: CLI do Azure 2.0
+      href: tutorial-use-custom-image-cli.md
+    - name: Azure PowerShell
+      href: tutorial-use-custom-image-powershell.md
+  - name: 4 - Implantar aplicativos em um conjunto de dimensionamento
+    items:
+    - name: CLI do Azure 2.0
+      href: tutorial-install-apps-cli.md
+    - name: Azure PowerShell
+      href: tutorial-install-apps-powershell.md
+    - name: Modelo
+      href: tutorial-install-apps-template.md
+  - name: 5 - Escala automática do conjunto de dimensionamento
+    items:
+    - name: CLI do Azure 2.0
+      href: tutorial-autoscale-cli.md
+    - name: Azure PowerShell
+      href: tutorial-autoscale-powershell.md
+    - name: Modelo
+      href: tutorial-autoscale-template.md
 - name: Exemplos
   items:
-    - name: CLI do Azure 2.0
-      href: cli-samples.md
-    - name: PowerShell
-      href: powershell-samples.md
+  - name: CLI do Azure 2.0
+    href: cli-samples.md
+  - name: PowerShell
+    href: powershell-samples.md
 - name: Conceitos
   items:
-    - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
-      maintainContext: true
-    - name: Regiões e disponibilidade
-      href: ../virtual-machines/windows/regions-and-availability.md
-      maintainContext: true
-    - name: Tamanhos e tipos de VM
-      href: ../virtual-machines/windows/sizes.md
-      maintainContext: true
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
+    maintainContext: true
+  - name: Regiões e disponibilidade
+    href: ../virtual-machines/windows/regions-and-availability.md
+    maintainContext: true
+  - name: Tamanhos e tipos de VM
+    href: ../virtual-machines/windows/sizes.md
+    items:
+    - name: Propósito geral
+      href: ../virtual-machines/windows/sizes-general.md
       items:
-        - name: Propósito geral
-          href: ../virtual-machines/windows/sizes-general.md
-          maintainContext: true
-          items:
-            - name: Série B expansível
-              href: ../virtual-machines/windows/b-series-burstable.md
-              maintainContext: true
-        - name: Otimizado para computação
-          href: ../virtual-machines/windows/sizes-compute.md
-          maintainContext: true
-        - name: Otimizado para memória
-          href: ../virtual-machines/windows/sizes-memory.md
-          maintainContext: true
-          items:
-            - name: VCPUs restritas
-              href: ../virtual-machines/windows/constrained-vcpu.md
-              maintainContext: true
-        - name: Otimizado para armazenamento
-          href: ../virtual-machines/windows/sizes-storage.md
-          maintainContext: true
-        - name: GPU otimizada
-          href: ../virtual-machines/windows/sizes-gpu.md
-          maintainContext: true
-          items:
-            - name: Configurar drivers de GPU
-              href: ../virtual-machines/windows/n-series-driver-setup.md
-              maintainContext: true
-        - name: Computação de alto desempenho
-          href: ../virtual-machines/windows/sizes-hpc.md
-          maintainContext: true
-        - name: ACU (Unidades de computação do Azure)
-          href: ../virtual-machines/windows/acu.md
-          maintainContext: true
-        - name: Pontuações de parâmetro de comparação
-          href: ../virtual-machines/windows/compute-benchmark-scores.md
-          maintainContext: true
-    - name: Distribuições de Linux endossadas
-      href: ../virtual-machines/linux/endorsed-distros.md
+      - name: Série B expansível
+        href: ../virtual-machines/windows/b-series-burstable.md
+        maintainContext: true
       maintainContext: true
-    - name: Manutenção e atualizações
-      href: ../virtual-machines/windows/maintenance-and-updates.md
+    - name: Otimizado para computação
+      href: ../virtual-machines/windows/sizes-compute.md
       maintainContext: true
-    - name: Armazenamento em disco
-      href: ../virtual-machines/windows/about-disks-and-vhds.md
-      maintainContext: true
+    - name: Otimizado para memória
+      href: ../virtual-machines/windows/sizes-memory.md
       items:
-        - name: Managed Disks
-          href: ../virtual-machines/windows/managed-disks-overview.md
-          maintainContext: true
-        - name: Armazenamento Premium
-          href: ../virtual-machines/windows/premium-storage.md
-          maintainContext: true
-        - name: Desempenho do armazenamento Premium
-          href: ../virtual-machines/windows/premium-storage-performance.md
-          maintainContext: true
-        - name: Armazenamento Standard
-          href: ../virtual-machines/windows/standard-storage.md
-          maintainContext: true
-        - name: Metas da escalabilidade para os discos
-          href: ../virtual-machines/windows/disk-scalability-targets.md
-          maintainContext: true
-        - name: Backup e recuperação de desastres para discos
-          href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
-          maintainContext: true
-    - name: Rede
-      href: ../virtual-machines/windows/network-overview.md
+      - name: VCPUs restritas
+        href: ../virtual-machines/windows/constrained-vcpu.md
+        maintainContext: true
       maintainContext: true
-    - name: Automação de infraestrutura
-      href: ../virtual-machines/windows/infrastructure-automation.md
+    - name: Otimizado para armazenamento
+      href: ../virtual-machines/windows/sizes-storage.md
       maintainContext: true
-    - name: Segurança e política
-      href: ../virtual-machines/windows/security-policy.md
-      maintainContext: true
-    - name: Monitoramento
-      href: ../virtual-machines/windows/monitor.md
+    - name: GPU otimizada
+      href: ../virtual-machines/windows/sizes-gpu.md
+      items:
+      - name: Configurar drivers de GPU
+        href: ../virtual-machines/windows/n-series-driver-setup.md
+        maintainContext: true
       maintainContext: true
     - name: Computação de alto desempenho
-      href: ../virtual-machines/windows/high-performance-computing.md
+      href: ../virtual-machines/windows/sizes-hpc.md
       maintainContext: true
-    - name: Considerações de implantação
-      items:
-        - name: Cotas do vCPU
-          href: ../virtual-machines/windows/quotas.md
-          maintainContext: true
+    - name: ACU (Unidades de computação do Azure)
+      href: ../virtual-machines/windows/acu.md
+      maintainContext: true
+    - name: Pontuações de parâmetro de comparação
+      href: ../virtual-machines/windows/compute-benchmark-scores.md
+      maintainContext: true
+    maintainContext: true
+  - name: Distribuições de Linux endossadas
+    href: ../virtual-machines/linux/endorsed-distros.md
+    maintainContext: true
+  - name: Manutenção e atualizações
+    href: ../virtual-machines/windows/maintenance-and-updates.md
+    maintainContext: true
+  - name: Armazenamento em disco
+    href: ../virtual-machines/windows/about-disks-and-vhds.md
+    items:
+    - name: Managed Disks
+      href: ../virtual-machines/windows/managed-disks-overview.md
+      maintainContext: true
+    - name: Armazenamento Premium
+      href: ../virtual-machines/windows/premium-storage.md
+      maintainContext: true
+    - name: Desempenho do armazenamento Premium
+      href: ../virtual-machines/windows/premium-storage-performance.md
+      maintainContext: true
+    - name: Armazenamento Standard
+      href: ../virtual-machines/windows/standard-storage.md
+      maintainContext: true
+    - name: Metas da escalabilidade para os discos
+      href: ../virtual-machines/windows/disk-scalability-targets.md
+      maintainContext: true
+    - name: Backup e recuperação de desastres para discos
+      href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+      maintainContext: true
+    maintainContext: true
+  - name: Rede
+    href: ../virtual-machines/windows/network-overview.md
+    maintainContext: true
+  - name: Automação de infraestrutura
+    href: ../virtual-machines/windows/infrastructure-automation.md
+    maintainContext: true
+  - name: Segurança e política
+    href: ../virtual-machines/windows/security-policy.md
+    maintainContext: true
+  - name: Monitoramento
+    href: ../virtual-machines/windows/monitor.md
+    maintainContext: true
+  - name: Computação de alto desempenho
+    href: ../virtual-machines/windows/high-performance-computing.md
+    maintainContext: true
+  - name: Considerações de implantação
+    items:
+    - name: Cotas do vCPU
+      href: ../virtual-machines/windows/quotas.md
+      maintainContext: true
 - name: Como
   items:
-    - name: Planejar e projetar
+  - name: Planejar e projetar
+    items:
+    - name: Considerações sobre o design
+      href: virtual-machine-scale-sets-design-overview.md
+    - name: Compreender IDs da instância
+      href: virtual-machine-scale-sets-instance-ids.md
+  - name: Criar um modelo
+    items:
+    - name: Saiba mais sobre os modelos do conjunto de dimensionamento
+      href: virtual-machine-scale-sets-mvss-start.md
+    - name: Usar uma rede virtual existente
+      href: virtual-machine-scale-sets-mvss-existing-vnet.md
+    - name: Usar uma imagem personalizada
+      href: virtual-machine-scale-sets-mvss-custom-image.md
+    - name: Usar o dimensionamento automático baseado no convidado com um modelo do conjunto de dimensionamento do Linux
+      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+  - name: Implantar
+    items:
+    - name: Ansible
       items:
-        - name: Considerações sobre o design
-          href: virtual-machine-scale-sets-design-overview.md
-        - name: Compreender IDs da instância
-          href: virtual-machine-scale-sets-instance-ids.md
-    - name: Criar um modelo
+      - name: Criar e gerenciar conjuntos de dimensionamento
+        href: /azure/ansible/ansible-create-configure-vmss
+        maintainContext: true
+      - name: Implantar aplicativos para conjuntos de dimensionamento
+        href: /azure/ansible/ansible-deploy-app-vmss
+        maintainContext: true
+    - name: Criar com o Visual Studio
+      href: virtual-machine-scale-sets-vs-create.md
+    - name: Usar Zonas de Disponibilidade
+      href: virtual-machine-scale-sets-use-availability-zones.md
+    - name: Dimensionamento automático de um conjunto de dimensionamento
+      href: virtual-machine-scale-sets-autoscale-overview.md
       items:
-        - name: Saiba mais sobre os modelos do conjunto de dimensionamento
-          href: virtual-machine-scale-sets-mvss-start.md
-        - name: Usar uma rede virtual existente
-          href: virtual-machine-scale-sets-mvss-existing-vnet.md
-        - name: Usar uma imagem personalizada
-          href: virtual-machine-scale-sets-mvss-custom-image.md
-        - name: Usar o dimensionamento automático baseado no convidado com um modelo do conjunto de dimensionamento do Linux
-          href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
-    - name: Implantar
+      - name: Use o Portal do Azure
+        href: virtual-machine-scale-sets-autoscale-portal.md
+      - name: Dimensionamento automático avançado
+        href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md
+    - name: Aplicativos em conjuntos de escala
+      href: virtual-machine-scale-sets-deploy-app.md
+    - name: Usar discos de dados com conjuntos de dimensionamento
+      href: virtual-machine-scale-sets-attached-disks.md
+    - name: Criptografar discos em conjunto de dimensionamento
       items:
-        - name: Criar com o Visual Studio
-          href: virtual-machine-scale-sets-vs-create.md
-        - name: Usar Zonas de Disponibilidade
-          href: virtual-machine-scale-sets-use-availability-zones.md
-        - name: Dimensionamento automático de um conjunto de dimensionamento
-          href: virtual-machine-scale-sets-autoscale-overview.md
-          items:
-            - name: Use o Portal do Azure
-              href: virtual-machine-scale-sets-autoscale-portal.md
-            - name: Dimensionamento automático avançado
-              href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md
-        - name: Aplicativos em conjuntos de escala
-          href: virtual-machine-scale-sets-deploy-app.md
-        - name: Usar discos de dados com conjuntos de dimensionamento
-          href: virtual-machine-scale-sets-attached-disks.md
-        - name: Criptografar discos em conjunto de dimensionamento
-          items:
-            - name: Usar o PowerShell
-              href: virtual-machine-scale-sets-encrypt-disks-ps.md
-            - name: Usar a CLI 2.0 do Azure
-              href: virtual-machine-scale-sets-encrypt-disks-cli.md
-        - name: Trabalhar com grandes conjuntos de dimensionamento
-          href: virtual-machine-scale-sets-placement-groups.md
-        - name: Converter um modelo do conjunto de dimensionamento para usar disco gerenciado
-          href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: Usar baixa prioridade
-          href: virtual-machine-scale-sets-use-low-priority.md
-    - name: Gerenciar
+      - name: Usar o PowerShell
+        href: virtual-machine-scale-sets-encrypt-disks-ps.md
+      - name: Usar a CLI 2.0 do Azure
+        href: virtual-machine-scale-sets-encrypt-disks-cli.md
+    - name: Trabalhar com grandes conjuntos de dimensionamento
+      href: virtual-machine-scale-sets-placement-groups.md
+    - name: Converter um modelo do conjunto de dimensionamento para usar disco gerenciado
+      href: virtual-machine-scale-sets-convert-template-to-md.md
+    - name: Usar baixa prioridade
+      href: virtual-machine-scale-sets-use-low-priority.md
+  - name: Gerenciar
+    items:
+    - name: Tarefas comuns de gerenciamento
       items:
-        - name: Tarefas comuns de gerenciamento
-          items:
-            - name: Usar a CLI 2.0 do Azure
-              href: virtual-machine-scale-sets-manage-cli.md
-            - name: Usar PowerShell do Azure
-              href: virtual-machine-scale-sets-manage-powershell.md
-        - name: Colocação em escala vertical em um conjunto de dimensionamento
-          href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-        - name: Atualizações automáticas do SO
-          href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Modificar um conjunto de dimensionamento
-          href: virtual-machine-scale-sets-upgrade-scale-set.md
-        - name: Usar DSC e conjuntos de dimensionamento
-          href: virtual-machine-scale-sets-dsc.md
-        - name: Rede para conjuntos de dimensionamento
-          href: virtual-machine-scale-sets-networking.md
-        - name: Converter um modelo em discos gerenciados
-          href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: Manutenção planejada
-          href: virtual-machine-scale-sets-maintenance-notifications.md
-    - name: Solucionar problemas
-      items:
-        - name: Autoscale
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: Perguntas frequentes
-      items:
-        - name: Perguntas frequentes sobre conjunto de dimensionamento
-          href: virtual-machine-scale-sets-faq.md
+      - name: Usar a CLI 2.0 do Azure
+        href: virtual-machine-scale-sets-manage-cli.md
+      - name: Usar PowerShell do Azure
+        href: virtual-machine-scale-sets-manage-powershell.md
+    - name: Colocação em escala vertical em um conjunto de dimensionamento
+      href: virtual-machine-scale-sets-vertical-scale-reprovision.md
+    - name: Atualizações automáticas do SO
+      href: virtual-machine-scale-sets-automatic-upgrade.md
+    - name: Modificar um conjunto de dimensionamento
+      href: virtual-machine-scale-sets-upgrade-scale-set.md
+    - name: Usar DSC e conjuntos de dimensionamento
+      href: virtual-machine-scale-sets-dsc.md
+    - name: Rede para conjuntos de dimensionamento
+      href: virtual-machine-scale-sets-networking.md
+    - name: Converter um modelo em discos gerenciados
+      href: virtual-machine-scale-sets-convert-template-to-md.md
+    - name: Manutenção planejada
+      href: virtual-machine-scale-sets-maintenance-notifications.md
+  - name: Solucionar problemas
+    items:
+    - name: Autoscale
+      href: virtual-machine-scale-sets-troubleshoot.md
+  - name: Perguntas frequentes
+    items:
+    - name: Perguntas frequentes sobre conjunto de dimensionamento
+      href: virtual-machine-scale-sets-faq.md
 - name: Referência
   items:
-    - name: Azure PowerShell
-      href: /powershell/azure/overview
-    - name: CLI do Azure
-      href: ../virtual-machines/azure-cli-arm-commands.md
-    - name: REST
-      href: /rest/api/virtualmachinescalesets/
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: CLI do Azure
+    href: ../virtual-machines/azure-cli-arm-commands.md
+  - name: REST
+    href: /rest/api/virtualmachinescalesets/
 - name: Recursos
   items:
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Preços
-      items:
-        - name: Linux
-          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
-        - name: Windows
-          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
-    - name: Calculadora de preço
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-vm-scale-set'
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Preços
+    items:
+    - name: Linux
+      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/
+    - name: Windows
+      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/
+  - name: Calculadora de preço
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
+ms.openlocfilehash: 4700df5aa7d3f0a253ef66cd612187f2d187aa11
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714319"

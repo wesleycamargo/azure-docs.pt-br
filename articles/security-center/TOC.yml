@@ -34,7 +34,7 @@ items:
   items:
   - name: Atualização para segurança avançada
     href: security-center-onboarding.md
-  - name: Proteção de servidor com WATP (visualização)
+  - name: Proteção de servidor com Windows Defender ATP (versão prévia)
     href: security-center-wdatp.md
   - name: Definir política de Segurança
   - name: Definir políticas de segurança
@@ -150,12 +150,14 @@ items:
       href: security-center-alert-validation.md
     - name: Pontuação de confiança de alerta
       href: security-center-confidence-score.md
-    - name: Mapa de inteligência contra ameaças
+    - name: Inteligência contra ameaças e mapa de alertas de segurança
       href: security-center-threat-intel.md
     - name: Investigação
       href: security-center-investigation.md
     - name: Gerenciar dados de usuário de investigação
       href: security-center-investigation-user-data.md
+    - name: UEBA para usuários e recursos do Azure
+      href: security-center-ueba-mcas.md
   - name: Automatizar fluxos de trabalho da segurança
     items:
     - name: Guias estratégicos de Aplicativos Lógicos
@@ -210,9 +212,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 2d35c25f9afb743b7c0d2d466bc7943d1cab1419
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 12f463c36edef411f42ff17f2126284a0c89983e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053733"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716883"
