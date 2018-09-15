@@ -3,7 +3,7 @@ title: Notas de versão do Kit de desenvolvimento do Microsoft Azure Stack | Mic
 description: Problemas conhecidos do Kit de desenvolvimento do Azure Stack, correções e aprimoramentos.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
-git ms.author: brenduns
+git ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 9c9b93b5e7877d853a2f27678af61774171c01cb
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: ad596e2f63d3ef5fb82fe52699fef3a79e835274
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543319"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634805"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Kit de desenvolvimento de pilha do Azure  
 Este artigo fornece informações sobre problemas conhecidos no Kit de desenvolvimento do Azure Stack, correções e aprimoramentos. Se você não tiver certeza de qual versão você está executando, você poderá [usar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).

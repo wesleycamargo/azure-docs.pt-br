@@ -3,7 +3,7 @@ title: Atualização da pilha do Azure 1807 | Microsoft Docs
 description: Saiba mais sobre quais são as novidades na atualização 1807 para sistemas integrados do Azure Stack, incluindo os problemas conhecidos e onde baixar a atualização.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: eabd6fdd643f7f8e1795f791e8a66e612651dee2
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: c55667e61e35186f63f49082db0c3adadd66ff68
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159496"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633374"
 ---
 # <a name="azure-stack-1807-update"></a>Atualização de 1807 de pilha do Azure
 

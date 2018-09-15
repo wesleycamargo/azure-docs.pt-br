@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/14/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3d856f4fad845dfdd4d9a30fa176a4c0bfbc875b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b6196ec434d00a6fbc6714095fa4182ede98ce91
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024335"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633428"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>Como consumir dados de monitoramento do Azure Stack
 
@@ -35,7 +35,7 @@ Você pode encontrar os dados de monitoramento em um único lugar com o pipeline
 | Métricas de armazenamento | Métricas | Armazenamento do Azure | Tabela de armazenamento:<br>Análise de Armazenamento |
 | Log de atividades | Eventos | Todos os serviços do Azure | API REST:<br>API de eventos do Azure Monitor |
 | Logs do sistema operacional convidado (por exemplo, o IIS, ETW, syslogs) de computação | Eventos | Windows e máquinas virtuais do Linux | Tabela de armazenamento ou blob:<br>Windows ou o diagnóstico do Linux do Azure <br>Hub de eventos:<br>Diagnóstico do Windows Azure |
-| Logs de armazenamento | Eventos | Armazenamento do Azure | Tabela de armazenamento:<br>Análise de Armazenamento<br>`Vita: how about hybrid OMS/AppInsights, shall we mention?` |
+| Logs de armazenamento | Eventos | Armazenamento do Azure | Tabela de armazenamento:<br>Análise de Armazenamento |
 
 ## <a name="next-steps"></a>Próximas etapas
 

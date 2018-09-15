@@ -3,7 +3,7 @@ title: Habilitar um provedor de serviços de nuvem gerenciar sua assinatura do A
 description: Habilite o provedor de serviço para acessar uma assinatura no Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,14 +12,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: f309b86578f340040927735c067656158f3198fc
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: fca08ef1d803c3bd47b0ae925c4dd12255175f2c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139675"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630708"
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>Habilitar um provedor de serviços de nuvem gerenciar sua assinatura do Azure Stack
 

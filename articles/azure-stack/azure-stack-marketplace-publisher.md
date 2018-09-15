@@ -1,9 +1,9 @@
 ---
 title: Use o Kit de ferramentas do Marketplace para criar e publicar itens do marketplace | Microsoft Docs
-description: Aprenda a criar rapidamente itens do marketplace com a publicação do Kit de ferramentas
+description: Aprenda a criar rapidamente os itens do marketplace com a publicação do Kit de ferramentas
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,60 +13,60 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 61ee3296429f9641643f1c9268ae89e3691fcfa1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ade78dd992e8d1d2eda2cf27d44e52c4030563f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386870"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630912"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Adicionar itens do marketplace usando a ferramenta de publicação
-Adicionando seu conteúdo para o [Azure Marketplace de pilha](azure-stack-marketplace.md) torna as soluções disponíveis para você e seus locatários para implantação.  O Kit de ferramentas do Marketplace cria arquivos de pacotes do Marketplace do Azure (.azpkg) com base em seus modelos de IaaS do Azure Resource Manager ou extensões de VM.  Você também pode usar o Kit de ferramentas do Marketplace para publicar arquivos .azpkg, criada com a ferramenta ou usando [manual](azure-stack-create-and-publish-marketplace-item.md) etapas.  Este tópico orienta você baixar a ferramenta, criando um item do marketplace com base em um modelo de VM e, em seguida, publicando esse item para a pilha do Azure Marketplace.     
+Adicionar seu conteúdo para o [Marketplace do Azure Stack](azure-stack-marketplace.md) torna suas soluções disponíveis para você e seus locatários para implantação.  O Kit de ferramentas do Marketplace cria arquivos de pacotes do Azure Marketplace. (azpkg) com base em seus modelos de IaaS do Azure Resource Manager ou extensões de VM.  Você também pode usar o Kit de ferramentas do Marketplace para publicar arquivos. azpkg, criado com a ferramenta ou usando [manual](azure-stack-create-and-publish-marketplace-item.md) etapas.  Este tópico orienta você baixar a ferramenta, criando um item do marketplace com base em um modelo de VM e, em seguida, publicar esse item para o Azure Stack Marketplace.     
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
- - Você deve executar o Kit de ferramentas no host de pilha do Azure ou ter [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) conectividade do computador em que você executar a ferramenta.
+ - Você deve executar o Kit de ferramentas no host do Azure Stack ou ter [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) conectividade da máquina em que você executar a ferramenta.
 
- - Baixe o [modelos de início rápido do Azure pilha](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) e extrair.
+ - Baixe o [modelos de início rápido do Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) e extraia.
 
- - Baixe o [ferramenta de empacotamento de galeria do Azure](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
+ - Baixe o [ferramenta de empacotamento da Galeria do Azure](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
 
- - Publicação para o marketplace requer ícones e um arquivo em miniatura.  Você pode usar seu próprio, ou salvar o [exemplo](azure-stack-marketplace-publisher.md#support-files) arquivos localmente para este exemplo.
+ - A publicação no Marketplace requer ícones e um arquivo de miniatura.  Você pode usar seu próprio ou salvar o [amostra](azure-stack-marketplace-publisher.md#support-files) arquivos localmente para este exemplo.
 
-## <a name="download-the-tool"></a>Baixe a ferramenta
-O Kit de ferramentas do Marketplace pode ser [baixado do repositório Azure pilha ferramentas](azure-stack-powershell-download.md).
+## <a name="download-the-tool"></a>Baixar a ferramenta
+O Kit de ferramentas do Marketplace pode ser [baixado do repositório de ferramentas do Azure Stack](azure-stack-powershell-download.md).
 
 
 ##  <a name="create-marketplace-items"></a>Criar itens do marketplace
-Nesta seção, você pode usar o Kit de ferramentas do Marketplace para criar um pacote de item do marketplace no formato .azpkg.  
+Nesta seção, você pode usar o Kit de ferramentas do Marketplace para criar um pacote de item do marketplace no formato. azpkg.  
 
-### <a name="provide-marketplace-information-with-wizard"></a>Fornecer informações do marketplace com o Assistente
-1. Execute o Kit de ferramentas do Marketplace de uma sessão do PowerShell:
+### <a name="provide-marketplace-information-with-wizard"></a>Forneça as informações do marketplace com o Assistente
+1. Execute o Kit de ferramentas do Marketplace em uma sessão do PowerShell:
 ```PowerShell
     .\MarketplaceToolkit.ps1
 ```
 
-2. Clique o **solução** guia.  Esta tela aceita informações sobre o item do marketplace. Insira informações sobre o item de como você deseja que apareça no marketplace.  Você também pode especificar um [arquivo de parâmetros](azure-stack-marketplace-publisher.md#use-a-parameters-file) para preencher o formulário.  
+2. Clique o **solução** guia.  Esta tela aceita informações sobre o item do marketplace. Insira informações sobre o item que você deseja que ele apareça no marketplace.  Você também pode especificar uma [arquivo de parâmetros](azure-stack-marketplace-publisher.md#use-a-parameters-file) para preencher previamente o formulário.  
     
     ![captura de tela da primeira tela do Kit de ferramentas do Marketplace](./media/azure-stack-marketplace-publisher/image7.png)
-3. Clique em **procurar** e selecione um arquivo de imagem para cada campo de ícone e captura de tela.  Você pode usar seus próprios ícones ou os ícones de exemplo no [arquivos de suporte](azure-stack-marketplace-publisher.md#support-files) seção.
-4. Depois que todos os campos são preenchidos, selecione "Solução de visualização" para visualizar a solução no Marketplace.  Você pode revisar e editar o texto, imagens e captura de tela antes de clicar em **próximo**.  
+3. Clique em **procurar** e selecione um arquivo de imagem para cada campo de ícone e captura de tela.  Você pode usar seus próprios ícones ou os ícones de exemplo na [dão suporte a arquivos](azure-stack-marketplace-publisher.md#support-files) seção.
+4. Depois que todos os campos são preenchidos, selecione "Solução de visualização" para visualizar a solução no Marketplace.  Você pode revisar e editar o texto, imagens e captura de tela antes de clicar em **próxima**.  
 
 ### <a name="import-template-and-create-package"></a>Importar o modelo e criar pacote
-Nesta seção, você importa o modelo e trabalha com a entrada para sua solução.
+Nesta seção, você importa o modelo e trabalhar com a entrada para sua solução.
 
-1.  Clique em **procurar** e selecione o *azuredeploy.json* na pasta 101-simples-Windows-VM os modelos baixados.
+1.  Clique em **navegue** e selecione o *azuredeploy. JSON* da pasta 101-Simple-Windows-VM nos modelos baixados.
 
     ![captura de tela da segunda tela do Kit de ferramentas do Marketplace](./media/azure-stack-marketplace-publisher/image8.png)
-2.  O Assistente de implantação é preenchido com um *básica* etapa e a entrada de itens para cada parâmetro especificada no modelo.  Você pode adicionar etapas adicionais e mover entradas entre etapas.  Por exemplo, convém "Configuração de front-end" e "Configuração de Back-End" etapas para sua solução.
+2.  O Assistente de implantação é populado com um *básica* itens de entrada e de etapa para cada parâmetro especificado no modelo.  Você pode adicionar etapas adicionais e mover as entradas entre as etapas.  Por exemplo, convém "Configuração de front-end" e "Configuração de Back-End" etapas para sua solução.
 3.  Especifique o caminho para AzureGalleryPackager.exe.  
-4.  Clique em **criar** e o Kit de ferramentas do Marketplace pacotes sua solução em um arquivo .azpkg.  Uma vez concluído, o assistente exibe o caminho para o arquivo de solução e oferece a opção para continuar a publicar seu pacote à pilha do Azure.
+4.  Clique em **criar** e o Kit de ferramentas do Marketplace empacota sua solução em um arquivo. azpkg.  Uma vez concluído, o assistente exibe o caminho para o arquivo da solução e oferecem a opção para continuar publicando o seu pacote para o Azure Stack.
 
 
 ## <a name="publish-marketplace-items"></a>Publicar itens do marketplace
-Nesta seção, você pode publicar o item do marketplace para o Azure Marketplace de pilha.
+Nesta seção, você pode publicar o item do marketplace para sua pilha do Azure Marketplace.
 
 ![captura de tela da primeira tela do Kit de ferramentas do Marketplace](./media/azure-stack-marketplace-publisher/image9.png)
 
@@ -76,9 +76,9 @@ Nesta seção, você pode publicar o item do marketplace para o Azure Marketplac
     |-----|-----|
     | Nome do administrador de serviço | Conta de administrador de serviço.  Exemplo: ServiceAdmin@mydomain.onmicrosoft.com |
     | Senha | Senha da conta de administrador de serviço. |
-    | Ponto de extremidade de API | Ponto de extremidade do Gerenciador de recursos do Azure de pilha do Azure.  Exemplo: management.local.azurestack.external |
+    | Ponto de extremidade de API | Ponto de extremidade de pilha do Azure Resource Manager do Azure.  Exemplo: management.local.azurestack.external |
 2.  Clique em **publicar** e o log de publicação é exibido.
-3.  Agora será capaz de implantar o item publicado por meio do portal de pilha do Azure.
+3.  Você agora é capazes de implantar seu item publicado por meio do portal do Azure Stack.
 
 
 ## <a name="use-a-parameters-file"></a>Usar um arquivo de parâmetros
@@ -90,10 +90,10 @@ O Kit de ferramentas do Marketplace inclui um *solution.parameters.ps1* você po
 ## <a name="support-files"></a>Arquivos de suporte
 | DESCRIÇÃO | Amostra |
 | ----- | ----- |
-| 40x40 .png icon | ![](./media/azure-stack-marketplace-publisher/image1.png) |
-| ícone do x 90 a 90. PNG | ![](./media/azure-stack-marketplace-publisher/image2.png) |
+| ícone do 40 x 40. PNG | ![](./media/azure-stack-marketplace-publisher/image1.png) |
+| ícone do 90 x 90. PNG | ![](./media/azure-stack-marketplace-publisher/image2.png) |
 | ícone do 115 x 115. PNG | ![](./media/azure-stack-marketplace-publisher/image3.png) |
-| 255x115 .png icon | ![](./media/azure-stack-marketplace-publisher/image4.png) |
-| 533, 324. PNG miniatura | ![](./media/azure-stack-marketplace-publisher/image5.png) |
+| ícone do 255 x 115. PNG | ![](./media/azure-stack-marketplace-publisher/image4.png) |
+| miniatura do 533, 324. PNG | ![](./media/azure-stack-marketplace-publisher/image5.png) |
 
 
