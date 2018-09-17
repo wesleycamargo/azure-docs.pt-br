@@ -1,70 +1,77 @@
+items:
 - name: Azure Blockchain Workbench (versão prévia pública)
   href: index.yml
 - name: Visão geral
-  expanded: true
   items:
-    - name: Sobre o Azure Blockchain Workbench
-      href: blockchain-workbench-overview.md
+  - name: Sobre o Azure Blockchain Workbench
+    href: blockchain-workbench-overview.md
+  expanded: true
 - name: Conceitos
   items:
-    - name: Arquitetura
-      href: blockchain-workbench-architecture.md
-    - name: Padrões de integração
-      href: blockchain-workbench-integration-patterns.md
+  - name: Arquitetura
+    href: blockchain-workbench-architecture.md
+  - name: Padrões de integração
+    href: blockchain-workbench-integration-patterns.md
 - name: Guias de instruções
-  expanded: true
   items:
-    - name: Implantar o Workbench
-      href: blockchain-workbench-deploy.md
-    - name: Criando uma aplicação Blockchain Workbench
-      href: blockchain-workbench-create-app.md
-    - name: Gerenciar usuários do Workbench
-      href: blockchain-workbench-manage-users.md
-    - name: Usando o Blockchain Workbench
-      href: blockchain-workbench-use.md
-    - name: Usando a API do Workbench
-      href: blockchain-workbench-use-API.md
-    - name: Solucionar problemas de aplicações Blockchain Workbench
-      href: blockchain-workbench-troubleshooting.md
-    - name: Usando os dados do Workbench
-      items:
-        - name: Configurar o firewall do banco de dados
-          href: blockchain-workbench-database-firewall.md
-        - name: Obter detalhes do banco de dados
-          href: blockchain-workbench-getdb-details.md
-        - name: Usando dados no Excel
-          href: blockchain-workbench-data-excel.md
-        - name: Usando dados no Power BI
-          href: blockchain-workbench-data-powerbi.md
-        - name: Usando os dados no SQL Management Studio
-          href: blockchain-workbench-data-sql-management-studio.md
+  - name: Implantar o Workbench
+    href: blockchain-workbench-deploy.md
+  - name: Criando uma aplicação Blockchain Workbench
+    href: blockchain-workbench-create-app.md
+  - name: Gerenciar usuários do Workbench
+    href: blockchain-workbench-manage-users.md
+  - name: Usando o Blockchain Workbench
+    href: blockchain-workbench-use.md
+  - name: Usando a API do Workbench
+    href: blockchain-workbench-use-API.md
+  - name: Solucionar problemas de aplicações Blockchain Workbench
+    href: blockchain-workbench-troubleshooting.md
+  - name: Usando os dados do Workbench
+    items:
+    - name: Configurar o firewall do banco de dados
+      href: blockchain-workbench-database-firewall.md
+    - name: Obter detalhes do banco de dados
+      href: blockchain-workbench-getdb-details.md
+    - name: Usando dados no Excel
+      href: blockchain-workbench-data-excel.md
+    - name: Usando dados no Power BI
+      href: blockchain-workbench-data-powerbi.md
+    - name: Usando os dados no SQL Management Studio
+      href: blockchain-workbench-data-sql-management-studio.md
+  expanded: true
 - name: Referência
   items:
-    - name: Configuração
-      href: blockchain-workbench-configuration-overview.md
-    - name: Exibições do banco de dados
-      href: blockchain-workbench-database-views.md
-    - name: API de mensagens
-      href: blockchain-workbench-messages-overview.md
-    - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
+  - name: Configuração
+    href: blockchain-workbench-configuration-overview.md
+  - name: Exibições do banco de dados
+    href: blockchain-workbench-database-views.md
+  - name: API de mensagens
+    href: blockchain-workbench-messages-overview.md
+  - name: API REST
+    href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
 - name: Recursos
   items:
-    - name: Blog
-      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
-    - name: Exemplos de código
-      href: 'https://github.com/Azure-Samples/blockchain'
-    - name: Comunidade
-      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
-    - name: Fórum
-      href: 'https://aka.ms/workbenchforum'
-    - name: Comentários sobre o produto
-      href: 'https://aka.ms/blockchainuservoice'
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/blockchain/
+  - name: Exemplos de código
+    href: https://github.com/Azure-Samples/blockchain
+  - name: Comunidade
+    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
+  - name: Fórum
+    href: https://aka.ms/workbenchforum
+  - name: Comentários sobre o produto
+    href: https://aka.ms/blockchainuservoice
 - name: Prova de Autoridade do Consórcio Ethereum
   href: ethereum-poa-deployment.md
 - name: Modelos de Solução
   items:
-    - name: Prova de Funcionamento do Consórcio Ethereum
-      href: ethereum-deployment-guide.md
-    - name: Consórcio Hyperledger Fabric
-      href: hyperledger-fabric-single-member-blockchain.md
+  - name: Prova de Funcionamento do Consórcio Ethereum
+    href: ethereum-deployment-guide.md
+  - name: Consórcio Hyperledger Fabric
+    href: hyperledger-fabric-single-member-blockchain.md
+ms.openlocfilehash: e7611d00bb8fd15fc3f6a2e2fd587069ab133f70
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527527"
