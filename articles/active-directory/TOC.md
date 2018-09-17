@@ -323,34 +323,8 @@
 
 ### [Configurar tempo de vida de tokens](active-directory-configurable-token-lifetimes.md)
 
-## Análises de acesso
-### [Visão geral de revisões de acesso](active-directory-azure-ad-controls-access-reviews-overview.md)
-### [Concluir uma revisão de acesso](active-directory-azure-ad-controls-complete-access-review.md)
-### [Criar uma revisão de acesso](active-directory-azure-ad-controls-create-access-review.md)
-### [Como executar uma análise de acesso](active-directory-azure-ad-controls-perform-access-review.md)
-### [Como analisar seu acesso](active-directory-azure-ad-controls-how-to-review-your-access.md)
-### [Acesso de convidado com análises de acesso](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-### [Gerenciando o acesso de usuário com análises](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-### [Gerenciamento de programas e controles](active-directory-azure-ad-controls-manage-programs-controls.md)
-### [Recuperar resultados da análise do acesso](active-directory-azure-ad-controls-retrieve-access-review.md)
-
-## [Termos de uso](active-directory-tou.md)
-
 ## Proteger suas identidades
 
-### Azure AD Identity Protection
-#### [Visão geral](identity-protection/overview.md)
-#### [Habilitar](identity-protection/enable.md)
-#### [Detectar vulnerabilidades](identity-protection/vulnerabilities.md)
-#### [Eventos de risco](active-directory-identity-protection-risk-events.md)
-#### [Notificações](identity-protection/notifications.md)
-#### [Experiência de conexão](identity-protection/flows.md)
-#### [Simular eventos de risco](identity-protection/playbook.md)
-#### [Desbloquear usuários](identity-protection/howto-unblock-user.md)
-#### [Bloquear acesso quando é detectado um risco da sessão](identity-protection/quickstart-sign-in-risk-policy.md)
-#### [Perguntas frequentes](identity-protection/faqs.md)
-#### [Glossário](identity-protection/glossary.md)
-#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## [Implantar o AD FS no Azure](active-directory-aadconnect-azure-adfs.md)
