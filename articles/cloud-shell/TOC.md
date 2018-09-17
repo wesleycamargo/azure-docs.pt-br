@@ -7,16 +7,19 @@
 # Ferramentas e recursos
 ## [Ferramentas e recursos](features.md)
 
-# Instruções
+# Tutoriais
+## Ansible
+### [Executar guia estratégico do Ansible](/azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json)
+### [Gerenciar seus inventários dinâmicos do Azure](/azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json)
+## Terraform
+### [Criar um plano de execução](example-terraform-bash.md)
+
+# Guias de instruções
 ## [Cloud Shell PowerShell para usuários do Windows](cloud-shell-windows-users.md)
 ## [Manter os arquivos no armazenamento](persisting-shell-storage.md)
 ## [Use a janela](using-the-shell-window.md)
 ## [Use o MSI no Cloud Shell](msi-authorization.md)
 ## [Inserir Cloud Shell](embed-cloud-shell.md)
-
-# Exemplos
-## [Bash - criar recursos com Terraform](example-terraform-bash.md)
-## [Bash - executar guias estratégicos do Ansible](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [Use o editor do Cloud Shell](using-cloud-shell-editor.md)
 
