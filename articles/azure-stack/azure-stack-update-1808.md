@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 921e9df11cd79e9d2558d9ca6a490a8da064deb8
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 877ea4c143d74414c3d733c446da57060322b11d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630334"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982064"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
@@ -57,7 +57,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 
 - <!-- | IS ASDK--> **Modelos de Blockchain**. Agora você pode executar [implantações de consortium Ethereum](azure-stack-ethereum.md) no Azure Stack. Você pode encontrar três novos modelos na [do Azure Stack modelos de início rápido](https://github.com/Azure/AzureStack-QuickStart-Templates). Eles permitem que o usuário implantar e configurar uma rede de Ethereum consortium vários membros com o mínimo de conhecimento do Azure e Ethereum. A finalidade dos modelos é tornar isso simples para os usuários para implantações de Blockchain de desenvolvimento/teste de instalação em poucas etapas.
 
-
+- <!-- | IS ASDK--> **O API versão 2017-03-09-perfil foi atualizado para 2018-03-01-hybrid**. Perfis de API especificar o provedor de recursos do Azure e a versão da API para pontos de extremidade REST do Azure. Para obter mais informações sobre perfis, consulte [perfis de versão da API de gerenciar no Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
  ### <a name="fixed-issues"></a>Problemas corrigidos
 - <!-- IS ASDK--> Corrigimos o problema para a criação de uma conjunto de disponibilidade no portal do que resultou em conjunto com um domínio de falha e um domínio de atualização de 1. 
@@ -142,6 +142,17 @@ Essa atualização também contém atenuação para a vulnerabilidade de canal d
 A seguir estão os problemas conhecidos de pós-instalação para esta versão de compilação.
 
 ### <a name="portal"></a>Portal
+
+- <!-- TBD - IS ASDK --> Você pode ver um painel em branco no portal. Para recuperar o painel, clique em **Editar painel**, em seguida, clique com botão direito e selecione **retornarão ao estado padrão**.
+
+- <!-- 2930718 - IS ASDK --> No portal do administrador ao acessar os detalhes de qualquer assinatura de usuário, depois de fechar a folha e clicando em **recentes**, o nome da assinatura de usuário não aparece.
+
+- <!-- 3060156 - IS ASDK --> Nos portais de administrador e o usuário, clicando em configurações do portal e selecionando **excluir todas as configurações e painéis privados** não funciona conforme o esperado. Uma notificação de erro é exibida. 
+
+- <!-- 2930799 - IS ASDK --> Nos portais de administrador e o usuário, sob **todos os serviços**, o ativo **planos de proteção contra DDoS** incorretamente está listado. Não é realmente disponível no Azure Stack. Se você tentar criá-lo, um erro será exibido informando que o portal não pôde criar o item do marketplace. 
+
+- <!-- 2930820 - IS ASDK --> Em portais de administrador e o usuário, se você procurar por "Docker", o item incorretamente é retornado. Não é realmente disponível no Azure Stack. Se você tentar criá-la, uma folha com uma indicação de erro é exibida. 
+
 - <!-- 2967387 – IS, ASDK --> A conta usada para entrar no portal de administrador ou usuário do Azure Stack é exibido como **usuário não identificado**. Isso ocorre quando a conta não tenha um uma *primeira* ou *última* nome especificado. Para contornar esse problema, edite a conta de usuário para fornecer o primeiro ou último nome. Você deve, em seguida, saia e entre novamente no portal. 
 
 -  <!--  2873083 - IS ASDK --> Ao usar o portal para criar uma escala de máquina virtual definido (VMSS), o *tamanho da instância* suspenso não carrega corretamente quando você usa o Internet Explorer. Para contornar esse problema, use outro navegador ao usar o portal para criar um VMSS.  
@@ -151,8 +162,6 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 - <!--2760466 – IS  ASDK --> Quando você instala um novo ambiente do Azure Stack que executa esta versão, o alerta indicar *ativação necessária* podem não ser exibidos. [Ativação](azure-stack-registration.md) é necessária antes que você pode usar a distribuição do marketplace.  
 
 - <!-- TBD - IS ASDK --> Os dois tipos de assinatura administrativos foram [introduzido na versão 1804](azure-stack-update-1804.md#new-features) não deve ser usado. Os tipos de assinatura são **assinatura de medição**, e **assinatura de consumo**. Esses tipos de assinatura são visíveis em novos ambientes Azure Stack, começando com a versão 1804, mas ainda não estão prontos para uso. Você deve continuar a usar o **provedor padrão** tipo de assinatura.
-
-- <!-- TBD - IS --> Você pode ver um painel em branco no portal. Para recuperar o painel, selecione o ícone de engrenagem no canto superior direito do portal e, em seguida, selecione **restaurar as configurações padrão**.
 
 - <!-- TBD - IS ASDK --> Excluindo resultados de assinaturas do usuário em recursos órfãos. Como alternativa, primeiro exclua os recursos de usuário ou grupo de recursos inteiro e, em seguida, exclua as assinaturas do usuário.
 

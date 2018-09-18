@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 1373e98b8edac81ebdb15aaf36d8bbfc910029fe
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: fdcc4f51f49e8eb133deeeecd070c55511cda464
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026178"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985789"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Habilitar o backup do portal de administração para o Azure Stack
 Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que o Azure Stack pode gerar backups. Você pode usar esses backups para restaurar seu ambiente usando a recuperação no caso de nuvem [uma falha catastrófica](.\azure-stack-backup-recover-data.md). O objetivo de recuperação de nuvem é garantir que seus operadores e usuários podem fazer logon novamente no portal após a conclusão da recuperação. Os usuários terão suas assinaturas restauradas incluindo permissões de acesso baseado em função e funções, originais planos, ofertas e computação definida anteriormente, armazenamento e cotas de rede.
@@ -62,7 +62,7 @@ Os administradores e usuários são responsáveis por fazer backup e restaurar o
 ## <a name="start-backup"></a>Iniciar o backup
 Para iniciar um backup, clique em **fazer Backup agora** para iniciar um backup sob demanda. Um backup sob demanda não modificará o tempo para o próximo backup agendado. Depois que a tarefa for concluída, você pode confirmar as configurações no **Essentials**:
 
-![O Azure Stack - backup sob demanda](media\azure-stack-backup\scheduled-backup.png).
+![O Azure Stack - backup sob demanda](media\azure-stack-backup\scheduled-backup.png)
 
 Você também pode executar o cmdlet do PowerShell **AzsBackup início** em seu computador de administração do Azure Stack. Para obter mais informações, consulte [fazer backup do Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 

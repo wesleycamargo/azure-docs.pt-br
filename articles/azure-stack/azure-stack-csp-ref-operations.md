@@ -3,7 +3,7 @@ title: Registre os locatários para o uso de controle no Azure Stack | Microsoft
 description: Detalhes sobre operações usadas para gerenciar os registros do inquilino e como o uso do locatário é controlado no Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
-ms.author: sethm
+ms.date: 07/12/2018
+ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 93830933115b19c6dc6b2981dca142f72a133fc0
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 9396d49f455f8f4af1abf7f0020e95e8fd0a14cc
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629654"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729579"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gerenciar o registro de locatário no Azure Stack
 

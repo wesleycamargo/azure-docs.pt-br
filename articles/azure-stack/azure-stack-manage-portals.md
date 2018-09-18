@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: 975c5c2c5f0da7a6db946c6d1032b485947134d2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 058e1f9abbf094fb49a21191f60195df53615451
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717686"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985287"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Usando o portal de administrador no Azure Stack
 
@@ -71,6 +71,8 @@ Os portais de administrador e usuário são apoiados por instâncias separadas d
 ### <a name="customize-the-dashboard"></a>Personalizar o painel
 
 O painel contém um conjunto de blocos padrão. Você pode selecionar **Editar painel** para modificar o painel padrão ou selecione **novo painel** para adicionar um painel personalizado. Você pode adicionar facilmente os blocos em um painel. Por exemplo, você pode selecionar **+ criar um recurso**, clique com botão direito **oferece + planos**e, em seguida, selecione **fixar no painel**.
+
+Às vezes, você poderá ver um painel em branco no portal. Para recuperar o painel, clique em **Editar painel**e, em seguida, clique com botão direito e selecione **retornarão ao estado padrão**.
 
 ### <a name="quick-access-to-online-documentation"></a>Acesso rápido a documentação online
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: c55667e61e35186f63f49082db0c3adadd66ff68
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: b46e365ea3903a8f2c805717df13d361c823148d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633374"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985589"
 ---
 # <a name="azure-stack-1807-update"></a>Atualização de 1807 de pilha do Azure
 
@@ -172,6 +172,9 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links aci
 A seguir estão os problemas conhecidos de pós-instalação para esta versão de compilação.
 
 ### <a name="portal"></a>Portal
+
+- A capacidade [abra uma nova solicitação de suporte na lista suspensa](azure-stack-manage-portals.md#quick-access-to-help-and-support) dentro do administrador do portal não está disponível. Em vez disso, para o Azure Stack sistemas integrados, use o seguinte link: [ https://aka.ms/newsupportrequest ](https://aka.ms/newsupportrequest).
+
 - <!-- 2931230 – IS  ASDK --> Os planos são adicionados a uma assinatura de usuário como um plano de complemento não podem ser excluídos, mesmo quando você remove o plano da assinatura do usuário. O plano permanecerá até que as assinaturas que o plano de complemento de referência também são excluídas. 
 
 - <!--2760466 – IS  ASDK --> Quando você instala um novo ambiente do Azure Stack que executa esta versão, o alerta indicar *ativação necessária* podem não ser exibidos. [Ativação](azure-stack-registration.md) é necessária antes que você pode usar a distribuição do marketplace.  
