@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 877ea4c143d74414c3d733c446da57060322b11d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 1e2a3221b6db5becbea49aa6ec5fee7b145e8e03
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982064"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295373"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
@@ -112,16 +112,18 @@ Essa atualização também contém atenuação para a vulnerabilidade de canal d
 
 - Instalar o Azure Stack [1807 atualizar](azure-stack-update-1807.md) antes de aplicar a atualização do Azure Stack 1808. 
 
-- Instalar a versão mais recente disponível [atualização ou hotfix para a versão 1805](azure-stack-update-1805.md#post-update-steps).  
+- Instalar a versão mais recente disponível [atualização ou hotfix para a versão 1807](azure-stack-update-1807.md#post-update-steps).  
   > [!TIP]  
   > Inscrever-se ao seguinte *RRS* ou *Atom* feeds manter-se atualizado com Hotfixes de pilha do Azure:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
   > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
 
 
-- Antes de iniciar a instalação dessa atualização, execute [AzureStack teste](azure-stack-diagnostic-test.md) para validar o status do Azure Stack e resolver os problemas operacionais encontrados, incluindo todos os avisos e falhas. Também examinar os alertas ativos e resolva todos os que exigem ação.
+- Antes de iniciar a instalação dessa atualização, execute [AzureStack teste](azure-stack-diagnostic-test.md) para validar o status do Azure Stack e resolver os problemas operacionais encontrados, incluindo todos os avisos e falhas. Também examinar os alertas ativos e resolva todos os que exigem ação.  
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização
+
+- Quando você executa [AzureStack teste](azure-stack-diagnostic-test.md) após a atualização 1808, será exibida uma mensagem de aviso do Baseboard Management Controller (BMC). Você pode ignorar com segurança esse aviso.
 
 - <!-- 2468613 - IS --> Durante a instalação dessa atualização, você pode ver os alertas com o título *erro – o modelo para FaultType UserAccounts.New está ausente.*  Você pode ignorar com segurança esses alertas. Esses alertas serão fechada automaticamente após a conclusão da instalação dessa atualização.
 
@@ -130,12 +132,9 @@ Essa atualização também contém atenuação para a vulnerabilidade de canal d
 - <!-- 2830461 - IS --> Em determinadas circunstâncias quando uma atualização requer atenção, o alerta correspondente pode não ser gerado. O status preciso ainda será refletido no portal e não é afetado.
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
+Após a instalação dessa atualização, instale os Hotfixes aplicáveis. Para obter mais informações, consulte os seguintes artigos de base de Conhecimento, bem como nossos [política de manutenção](azure-stack-servicing-policy.md). 
+- [KB 4464226 – o Azure Stack Hotfix Azure Stack Hotfix 1.1808.1.99]( https://support.microsoft.com/help/4464226)
 
-*Não há nenhuma etapa de pós-atualização para atualização 1808.*
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
 
 ## <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
 

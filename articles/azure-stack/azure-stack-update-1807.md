@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b46e365ea3903a8f2c805717df13d361c823148d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 53f01ad6e8a801c69ea93c54e805807cb8eed34d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985589"
+ms.locfileid: "46127808"
 ---
 # <a name="azure-stack-1807-update"></a>Atualização de 1807 de pilha do Azure
 
@@ -158,14 +158,10 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links aci
 - <!-- 2830461 - IS --> Em determinadas circunstâncias quando uma atualização requer atenção, o alerta correspondente pode não ser gerado. O status preciso ainda será refletido no portal e não é afetado.
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
+Após a instalação dessa atualização, instale os Hotfixes aplicáveis. Para obter mais informações, consulte os seguintes artigos de base de Conhecimento, bem como nossos [política de manutenção](azure-stack-servicing-policy.md). 
+- [KB 4464231 – o Azure Stack Hotfix Azure Stack Hotfix 1.1807.1.78]( https://support.microsoft.com/help/4464231)
 
-- <!-- 2933866 – IS --> **Status aprimorado para instalações de atualização com falha.** Esta versão apresenta duas novas categorias de estado para fornecer operadores para obter mais detalhes sobre instalações de atualização com falha. As duas categorias são *PreparationFailed*, e *InstallationFailed*. Depois de instalar esta versão, você poderá ver informações de falhas de instalação de atualização anterior foi revisado para refletir essas novas categorias. 
-
-<!-- *There are no post-update steps for update 1807.* -->
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - Link to KB  
- -->
+ <!-- 2933866 – IS --> Após a instalação dessa atualização, você pode ver **aprimorado de status para instalações de atualização com falha.** Isso pode incluir informações sobre falhas de instalação de atualização anterior que são revisados para refletir as duas novas categorias de estado. As novas categorias de estado são *PreparationFailed*, e *InstallationFailed*.  
 
 ## <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
 
