@@ -12,7 +12,6 @@
 
 
 # Introdução
-## [Introdução ao Microsoft Azure Active Directory](fundamentals/get-started-azure-ad.md)
 ## [Inscrever-se no Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [Como adicionar um nome de domínio personalizado](fundamentals/add-custom-domain.md)
 ## [Configurar a identidade visual da empresa](fundamentals/customize-branding.md)
@@ -20,6 +19,7 @@
 ## [Atribuir licenças aos usuários](fundamentals/license-users-groups.md)
 ## [Como configurar a redefinição de senha de autoatendimento](authentication/quickstart-sspr.md)
 ## [Adicionar informações de privacidade da sua organização no Azure AD](active-directory-properties-area.md)
+## [Acessar o Azure Active Directory para criar um novo locatário](fundamentals/active-directory-access-create-new-tenant.md)
 
 
 # Como
@@ -91,11 +91,13 @@
 ### [Usuários em risco](reports-monitoring/concept-user-at-risk.md)
 ### [Entradas de risco](reports-monitoring/concept-risky-sign-ins.md)
 ### [Eventos de risco](reports-monitoring/concept-risk-events.md)
-### [Monitorizando os logs usando o Azure Monitor](reports-monitoring/overview-activity-logs-in-azure-monitor.md)
+### [Monitorizando os logs usando o Azure Monitor](reports-monitoring/concept-activity-logs-in-azure-monitor.md)
 ### [Perguntas frequentes](reports-monitoring/reports-faq.md)
 
 ### Tarefas
-#### [Configurar localizações nomeadas](active-directory-named-locations.md)
+#### [Baixar um relatório de entrada](reports-monitoring/quickstart-download-sign-in-report.md)
+#### [Baixar um relatório de auditoria](reports-monitoring/quickstart-download-audit-report.md)
+#### [Configurar localizações nomeadas](reports-monitoring/quickstart-configure-named-locations.md)
 #### [Localizar relatórios de atividades](reports-monitoring/howto-find-activity-reports.md)
 #### [Usar o Pacote de Conteúdo do Azure AD Power BI](reports-monitoring/howto-power-bi-content-pack.md)
 #### [Remediar usuários sinalizados como em risco](reports-monitoring/howto-remediate-users-flagged-for-risk.md)

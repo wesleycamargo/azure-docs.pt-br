@@ -1,69 +1,83 @@
+items:
 - name: Documentação do armazenamento de tabelas do Azure
   items:
-    - name: Visão geral do armazenamento de tabelas
-      href: table-storage-overview.md
-    - name: Escolha o armazenamento de Tabela ou a API Tabela
-      href: /azure/cosmos-db/table-support
-      maintainContext: true
+  - name: Visão geral do armazenamento de tabelas
+    href: table-storage-overview.md
+  - name: Escolha o armazenamento de Tabela ou a API Tabela
+    href: /azure/cosmos-db/table-support
+    maintainContext: true
 - name: Guia de início rápido
   items:
-    - name: Criar uma conta de armazenamento
-      href: /azure/storage/common/storage-quickstart-create-account
-      maintainContext: true
-    - name: Criar uma tabela no portal do Azure
-      href: table-storage-quickstart-portal.md
+  - name: Criar uma conta de armazenamento
+    href: /azure/storage/common/storage-quickstart-create-account
+    maintainContext: true
+  - name: Criar uma tabela no portal do Azure
+    href: table-storage-quickstart-portal.md
 - name: Exemplos
   items:
-    - name: .NET
-      href: /azure/cosmos-db/table-storage-how-to-use-dotnet
-      maintainContext: true
-    - name: 'F#'
-      href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
-      maintainContext: true
-    - name: Java
-      href: /azure/cosmos-db/table-storage-how-to-use-java
-      maintainContext: true
-    - name: Node.js
-      href: /azure/cosmos-db/table-storage-how-to-use-nodejs
-      maintainContext: true
-    - name: C++
-      href: /azure/cosmos-db/table-storage-how-to-use-c-plus
-      maintainContext: true
-    - name: PHP
-      href: /azure/cosmos-db/table-storage-how-to-use-php
-      maintainContext: true
-    - name: Python
-      href: /azure/cosmos-db/table-storage-how-to-use-python
-      maintainContext: true
-    - name: Ruby
-      href: /azure/cosmos-db/table-storage-how-to-use-ruby
-      maintainContext: true
-    - name: PowerShell
-      href: /azure/storage/tables/table-storage-how-to-use-powershell
-      maintainContext: true
+  - name: .NET
+    href: /azure/cosmos-db/table-storage-how-to-use-dotnet
+    maintainContext: true
+  - name: F#
+    href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+    maintainContext: true
+  - name: Java
+    href: /azure/cosmos-db/table-storage-how-to-use-java
+    maintainContext: true
+  - name: Node.js
+    href: /azure/cosmos-db/table-storage-how-to-use-nodejs
+    maintainContext: true
+  - name: C++
+    href: /azure/cosmos-db/table-storage-how-to-use-c-plus
+    maintainContext: true
+  - name: PHP
+    href: /azure/cosmos-db/table-storage-how-to-use-php
+    maintainContext: true
+  - name: Python
+    href: /azure/cosmos-db/table-storage-how-to-use-python
+    maintainContext: true
+  - name: Ruby
+    href: /azure/cosmos-db/table-storage-how-to-use-ruby
+    maintainContext: true
+  - name: PowerShell
+    href: /azure/storage/tables/table-storage-how-to-use-powershell
+    maintainContext: true
 - name: Conceitos
   items:
-    - name: Projetar tabelas escalonáveis e de alto desempenho
-      href: table-storage-design.md
-    - name: Diretrizes de design da tabela
-      href: table-storage-design-guidelines.md
-    - name: Design para consulta
-      href: table-storage-design-for-query.md
-    - name: Design para modificação de dados
-      href: table-storage-design-for-modification.md
-    - name: Criptografando dados de tabela
-      href: table-storage-design-encrypt-data.md
-    - name: Relações de modelagem
-      href: table-storage-design-modeling.md
-    - name: Padrões de design de tabela
-      href: table-storage-design-patterns.md
+  - name: Contas de armazenamento
+    href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    items:
+    - name: Gerenciar uma conta de armazenamento
+      href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Atualizar uma conta de armazenamento
+      href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+  - name: Projetar tabelas escalonáveis e de alto desempenho
+    href: table-storage-design.md
+  - name: Diretrizes de design da tabela
+    href: table-storage-design-guidelines.md
+  - name: Design para consulta
+    href: table-storage-design-for-query.md
+  - name: Design para modificação de dados
+    href: table-storage-design-for-modification.md
+  - name: Criptografando dados de tabela
+    href: table-storage-design-encrypt-data.md
+  - name: Relações de modelagem
+    href: table-storage-design-modeling.md
+  - name: Padrões de design de tabela
+    href: table-storage-design-patterns.md
 - name: Guias de instruções
   items:
-    - name: Usar o emulador de armazenamento
-      href: /azure/storage/common/storage-use-emulator
-      maintainContext: true
+  - name: Usar o emulador de armazenamento
+    href: /azure/storage/common/storage-use-emulator
+    maintainContext: true
 - name: Recursos
   items:
-    - name: APIs REST de armazenamento de tabelas
-      href: 'https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api'
-      maintainContext: true
+  - name: APIs REST de armazenamento de tabelas
+    href: https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api
+    maintainContext: true
+ms.openlocfilehash: 08c4f97011d8eef508c96bb2d1d7d62122094245
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45728973"
