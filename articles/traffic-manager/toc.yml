@@ -54,6 +54,10 @@ items:
   items:
   - name: Configurar roteamento de desempenho no Gerenciador de Tráfego
     href: traffic-manager-configure-performance-routing-method.md
+  - name: Configurar roteamento de múltiplos valores no Gerenciador de Tráfego
+    href: traffic-manager-configure-multivalue-routing-method.md
+  - name: Configurar roteamento da sub-rede no Gerenciador de Tráfego
+    href: traffic-manager-configure-subnet-routing-method.md
   - name: Enviar as medidas do usuário para o Gerenciador de Tráfego
     items:
     - name: Usando o SDK do Visual Studio
@@ -124,9 +128,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla/traffic-manager/
   - name: vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=traffic-manager
-ms.openlocfilehash: 98f9cd75227342876ab05bec7591ebd6f2d769d6
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 31549ccb0241d174d42d1cb748a905539b01cfef
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41926913"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124279"
