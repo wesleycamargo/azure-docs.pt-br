@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: d09dec2f327d8b5911a4e55832ba106838c7ebc3
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 21fd3a33181542d86eccc4292ae68f7ce25e0a05
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42139492"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366719"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Considerações sobre o modelo do Azure Resource Manager
 
@@ -34,11 +34,13 @@ O modelo que você está planejando implantar somente deve usar os serviços do 
 
 ## <a name="public-namespaces"></a>Namespaces públicos
 
-Como o Azure Stack está hospedado no seu datacenter, ele tem namespaces de ponto de extremidade de serviço diferentes do da nuvem pública do Azure. Como resultado, os pontos de extremidade públicos no Azure Resource Manager templates embutidos em código falharem quando você tentar implantá-los para o Azure Stack. Você pode criar dinamicamente os pontos de extremidade de serviço usando o *referência* e *concatenar* funções para recuperar valores do provedor de recursos durante a implantação. Por exemplo, em vez de codificar *blob.core.windows.net* em seu modelo, recuperar as [primaryendpoints. blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) para definir dinamicamente o *osdisk. URI* ponto de extremidade:
+Como o Azure Stack está hospedado no seu datacenter, ele tem namespaces de ponto de extremidade de serviço diferentes do da nuvem pública do Azure. Como resultado, os pontos de extremidade públicos no Azure Resource Manager templates embutidos em código falharem quando você tentar implantá-los para o Azure Stack. Você pode criar dinamicamente os pontos de extremidade de serviço usando o *referência* e *concatenar* funções para recuperar valores do provedor de recursos durante a implantação. Por exemplo, em vez de codificar *blob.core.windows.net* em seu modelo, recuperar as [primaryendpoints. blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) para definir dinamicamente o *osdisk. URI* ponto de extremidade:
 
-     "osDisk": {"name": "osdisk","vhd": {"uri":
-     "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
-      '/',variables('OSDiskName'),'.vhd')]"}}
+```json
+"osDisk": {"name": "osdisk","vhd": {"uri":
+"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
+ '/',variables('OSDiskName'),'.vhd')]"}}
+```
 
 ## <a name="api-versioning"></a>Controle de versão de API
 
@@ -54,7 +56,7 @@ As versões de serviço do Azure podem ser diferentes entre o Azure e o Azure St
 
 ## <a name="template-functions"></a>Funções de modelo
 
-O Azure Resource Manager [funções](../../azure-resource-manager/resource-group-template-functions.md) fornecem os recursos necessários para criar modelos dinâmicos. Por exemplo, é possível usar as funções para tarefas como:
+O Azure Resource Manager [funções](../../azure-resource-manager/resource-group-template-functions.md) fornecem os recursos necessários para criar modelos dinâmicos. Por exemplo, você pode usar funções para tarefas como:
 
 * CONCATENAR ou filtrar cadeias de caracteres.
 * Fazer referência a valores de outros recursos.
@@ -67,20 +69,22 @@ Essas funções não estão disponíveis no Azure Stack:
 
 ## <a name="resource-location"></a>Local do recurso
 
-Modelos do Azure Resource Manager usam um atributo de local para colocar recursos durante a implantação. No Azure, localização é uma região, como o oeste dos EUA ou a América do Sul. No Azure Stack, as localizações são diferentes, pois ele está em seu datacenter. Para garantir que os modelos sejam transferíveis entre o Azure e o Azure Stack, você deve referenciar a localização do grupo de recursos enquanto implanta recursos individuais. Você pode fazer isso usando `[resourceGroup().Location]` para garantir que todos os recursos herdam o local do grupo de recursos. O trecho a seguir está um exemplo de como usar essa função ao implantar uma conta de armazenamento:
+Modelos do Azure Resource Manager usam um `location` atributo colocar recursos durante a implantação. No Azure, locais se referem a uma região, como Oeste dos EUA ou na América do Sul. No Azure Stack, as localizações são diferentes, pois ele está em seu datacenter. Para garantir que os modelos são transferidos entre o Azure e o Azure Stack, você deve referenciar o local do grupo de recursos, como você implanta recursos individuais. Você pode fazer isso usando `[resourceGroup().Location]` para garantir que todos os recursos herdam o local do grupo de recursos. O código a seguir é um exemplo de como usar essa função ao implantar uma conta de armazenamento:
 
-    "resources": [
-    {
-      "name": "[variables('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "[variables('apiVersionStorage')]",
-      "location": "[resourceGroup().location]",
-      "comments": "This storage account is used to store the VM disks",
-      "properties": {
-      "accountType": "Standard_GRS"
-      }
-    }
-    ]
+```json
+"resources": [
+{
+  "name": "[variables('storageAccountName')]",
+  "type": "Microsoft.Storage/storageAccounts",
+  "apiVersion": "[variables('apiVersionStorage')]",
+  "location": "[resourceGroup().location]",
+  "comments": "This storage account is used to store the VM disks",
+  "properties": {
+  "accountType": "Standard_GRS"
+  }
+}
+]
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

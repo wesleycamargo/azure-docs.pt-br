@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/19/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 92c0ad6dfde4fc83a912b4a3387d8b586e72809c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630436"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364594"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
@@ -45,18 +45,18 @@ Você precisará do seguinte em vigor antes de registrar:
 
 Antes de registrar o Azure Stack com o Azure, você deve ter:
 
-- A ID de assinatura para uma assinatura do Azure. Para obter a ID, entre no Azure, clique em **todos os serviços**. Em seguida, na **gerais** categoria, selecione **assinaturas**, clique na assinatura que você deseja usar, e, em **Essentials** você pode encontrar a ID da assinatura.
+- A ID de assinatura para uma assinatura do Azure. Apenas EA, CSP ou CSP compartilhado assinaturas têm suporte para registro de serviços. CSPs precisam decidir se deseja [usar uma assinatura do CSP ou CSPSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>Para obter a ID, entre no Azure, clique em **todos os serviços**. Em seguida, na **gerais** categoria, selecione **assinaturas**, clique na assinatura que você deseja usar, e, em **Essentials** você pode encontrar a ID da assinatura.
 
   > [!Note]  
   > Atualmente, não há suporte para assinaturas de nuvem da Alemanha.
 
-- O nome de usuário e senha para uma conta que seja um proprietário da assinatura (há suporte para contas MSA/2FA).
+- O nome de usuário e senha para uma conta que seja um proprietário da assinatura.
 
 - A conta de usuário precisa ter acesso à assinatura do Azure e tem permissões para criar aplicativos de identidades e entidades de serviço no diretório associado a essa assinatura.
 
 - Registrar o provedor de recursos do Azure Stack (consulte a seção de registrar o provedor de recursos do Azure Stack abaixo para obter detalhes).
 
-Após o registro, a permissão de administrador global do Azure Active Directory não é necessária. No entanto, algumas operações podem exigir a credencial de administrador global. Por exemplo, um script de instalador do provedor de recursos ou um novo recurso que exigem uma permissão para ser concedida. Você temporariamente pode designar novamente as permissões da conta administrador global ou usar uma conta de administrador global separado que é proprietário do *padrão de assinatura do provedor*.
+Após o registro, a permissão de administrador global do Azure Active Directory não é necessária. No entanto, algumas operações podem exigir a credencial de administrador global. Por exemplo, um script de instalador do provedor de recursos ou um novo recurso que exigem uma permissão para ser concedida. Você temporariamente pode reaplicar as permissões da conta administrador global ou usar uma conta de administrador global separado que é proprietário do *padrão de assinatura do provedor*.
 
 Se você não tiver uma assinatura do Azure que atende a esses requisitos, você poderá [criar uma conta gratuita do Azure aqui](https://azure.microsoft.com/free/?b=17.06). Registrar o Azure Stack incorre em sua assinatura do Azure sem custo.
 
