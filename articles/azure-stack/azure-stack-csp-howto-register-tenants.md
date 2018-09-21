@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: af28bff0a9826bb96451ae944a377ad0ee284d87
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633989"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498565"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adicione o locatário para uso e cobrança para o Azure Stack
 
@@ -69,9 +69,9 @@ Atualize seu registro com a nova assinatura do cliente. Azure informa o uso do c
 ### <a name="new-azurermresource-powershell-parameters"></a>Parâmetros do PowerShell New-AzureRmResource
 | Parâmetro | DESCRIÇÃO |
 | --- | --- | 
-|registrationSubscriptionID | A assinatura do Azure que foi usada para o registro inicial do Azure Stack. |
-| customerSubscriptionID | A assinatura do Azure (não o Azure Stack) que pertencem ao cliente a ser registrado. Deve ser criado na oferta de CSP; Na prática, isso significa, por meio do Partner Center. Se um cliente tiver mais de um locatário do Azure Active Directory, essa assinatura deve ser criada no locatário que será usado para fazer logon no Azure Stack.
-| resourceGroup | O grupo de recursos no Azure em que o registro é armazenado. 
+|registrationSubscriptionID | A assinatura do Azure que foi usada para o registro inicial do Azure Stack.|
+| customerSubscriptionID | A assinatura do Azure (não o Azure Stack) que pertencem ao cliente a ser registrado. Deve ser criado na oferta de CSP; Na prática, isso significa, por meio do Partner Center. Se um cliente tiver mais de um locatário do Azure Active Directory, essa assinatura deve ser criada no locatário que será usado para fazer logon no Azure Stack. A ID de assinatura de cliente deve usar letras minúsculas. |
+| resourceGroup | O grupo de recursos no Azure em que o registro é armazenado. |
 | registrationName | O nome do registro do seu Azure Stack. Ele é um objeto armazenado no Azure. | 
 | propriedades | Especifica as propriedades do recurso. Use esse parâmetro para especificar os valores das propriedades que são específicas ao tipo de recurso.
 
