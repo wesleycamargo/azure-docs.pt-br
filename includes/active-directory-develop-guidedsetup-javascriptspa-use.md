@@ -1,3 +1,27 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: active-directory
+documentationcenter: dev-center-name
+author: navyasric
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: nacanuma
+ms.custom: include file
+ms.openlocfilehash: 94d57abc95dabf1da579f6d2105ca6c74140a86f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293510"
+---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Use a MSAL (Biblioteca de Autenticação da Microsoft) para conectar o usuário
 
 1.  Crie um arquivo chamado `app.js`. Se você estiver usando o Visual Studio, selecione o projeto (pasta raiz do projeto), clique com o botão direito do mouse e selecione: `Add` > `New Item` > `JavaScript File`:
@@ -115,7 +139,7 @@ function showError(endpoint, error, errorDesc) {
 
 Depois que um usuário clicar no botão *'Chamar a API do Microsoft Graph'* pela primeira vez, o método `callGraphApi` chama `loginRedirect` para conectar o usuário. Esse método resulta no redirecionamento do usuário para o *ponto de extremidade do Microsoft Azure Active Directory v2* para solicitar e validar as credenciais do usuário. Como resultado de uma entrada bem-sucedida, o usuário é redirecionado para a página *index.html* original e um token é recebido, processado por `msal.js` e as informações contidas no token são armazenadas em cache. Esse token é conhecido como o *token de ID* e contém informações básicas sobre o usuário, como o nome de exibição do usuário. Se você planeja usar os dados fornecidos por esse token para qualquer finalidade, é necessário certificar-se de que esse token seja validado pelo servidor de back-end para ter certeza de que o token foi emitido para um usuário válido para o seu aplicativo.
 
-O SPA gerado por este guia não faz uso diretamente do Token de ID – em vez disso, ele chama `acquireTokenSilent` e/ou `acquireTokenRedirect` para adquirir um *token de acesso* usado para consultar a API do Microsoft Graph. Se você precisar de um exemplo que valida o token de ID, dê uma olhada [neste](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 sample") aplicativo de exemplo no GitHub – o exemplo usa uma API Web ASP.NET para validação de token.
+O SPA gerado por este guia não faz uso diretamente do Token de ID – em vez disso, ele chama `acquireTokenSilent` e/ou `acquireTokenRedirect` para adquirir um *token de acesso* usado para consultar a API do Microsoft Graph. Se você precisar de um exemplo que valida o token de ID, dê uma olhada [neste](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 sample") aplicativo de exemplo no GitHub – o exemplo usa uma ASP.NET Web API para validação de token.
 
 #### <a name="getting-a-user-token-interactively"></a>Obtendo um token de usuário interativamente
 

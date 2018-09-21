@@ -8,18 +8,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 09/19/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 026f3450535e4bed6a636fc5ae6ee9d821dbbb72
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2f22ed862f9b45334a961f80e47ee2b4634e46fb
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247659"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498327"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gerenciar o esquema em um aplicativo SaaS que usa bancos de dados SQL multilocatários fragmentados
-
+ 
 Este tutorial examina os desafios de manter um grupo de bancos de dados em um aplicativo SaaS (Software como Serviço). As soluções são demonstradas para expandir as alterações de esquema em grupos de bancos de dados.
 
 Como qualquer aplicativo, o aplicativo SaaS Wingtip Tickets evoluirá ao longo do tempo e exigirá alterações no banco de dados. As alterações podem afetar os dados de referência ou o esquema, ou aplicar tarefas de manutenção de banco de dados. Com um aplicativo SaaS usando um padrão de banco de dados por locatário, as alterações devem ser coordenadas entre um grupo potencialmente grande de bancos de dados de locatário. Além disso, você deve incorporar essas alterações no processo de provisionamento de banco de dados para fazer com que elas sejam incluídas nos novos bancos de dados conforme eles são criados.
