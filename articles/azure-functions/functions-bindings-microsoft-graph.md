@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 128e7f693755e7baf752d546fddd786b07c0de78
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 3d6d4f2e3d89e1d8abf647b21e35fcdfec020b1d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093729"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722258"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
 
@@ -364,7 +364,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 A associação expõe os seguintes tipos a funções .NET:
 - string[][]
 - Microsoft.Graph.WorkbookTable
-- Tipos de objetos personalizados (usando a associação de modelos estrutural)
+- Tipos de objetos personalizados (usando o model binding estrutural)
 
 
 
@@ -526,7 +526,7 @@ A associação expõe os seguintes tipos a funções .NET:
 - string[][]
 - Newtonsoft.Json.Linq.JObject
 - Microsoft.Graph.WorkbookTable
-- Tipos de objetos personalizados (usando a associação de modelos estrutural)
+- Tipos de objetos personalizados (usando o model binding estrutural)
 
 
 
@@ -737,6 +737,7 @@ public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDrive
         .FirstOrDefault(q => string.Compare(q.Key, "text", true) == 0)
         .Value;
     await myOneDriveFile.WriteAsync(Encoding.UTF8.GetBytes(data), 0, data.Length);
+    myOneDriveFile.Close();
     return;
 }
 ```
@@ -960,7 +961,7 @@ A associação expõe os seguintes tipos a funções .NET:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
 - string
-- Tipos de objetos personalizados (usando a associação de modelos estrutural)
+- Tipos de objetos personalizados (usando o model binding estrutural)
 
 
 
@@ -1094,7 +1095,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 A associação expõe os seguintes tipos a funções .NET:
 - Tipos de SDK do Microsoft Graph relevantes ao tipo de recurso, por exemplo, `Microsoft.Graph.Message` ou `Microsoft.Graph.DriveItem`.
-- Tipos de objetos personalizados (usando a associação de modelos estrutural)
+- Tipos de objetos personalizados (usando o model binding estrutural)
 
 
 

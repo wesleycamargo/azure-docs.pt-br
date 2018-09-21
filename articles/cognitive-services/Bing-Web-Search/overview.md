@@ -1,19 +1,21 @@
 ---
-title: O que é a Pesquisa na Web do Bing? | Microsoft Docs
-description: A API de Pesquisa na Web do Bing é um serviço RESTful que permite que seu aplicativo use recursos de pesquisa da Web do Bing, incluindo páginas da Web, imagens, vídeos, notícias, entidades, consultas de pesquisa relacionadas, correções ortográficas, conversões de unidade, traduções e cálculos.
+title: O que é a Pesquisa na Web do Bing?
+titleSuffix: Azure Cognitive Services
+description: A API de Pesquisa na Web do Bing é um serviço RESTful que fornece respostas instantâneas às consultas de usuário. Os resultados da pesquisa são facilmente definidos para incluir as páginas da Web, imagens, vídeos, notícias, traduções e muito mais. Os resultados são fornecidos como JSON e são baseados na relevância de pesquisa e em suas assinaturas de pesquisa na Web do Bing.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: overview
 ms.date: 08/14/2018
 ms.author: erhopf
-ms.openlocfilehash: ad1069a836a3ff9291ca8094fe86e19979bf7e32
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8482afae2889ccf2153e1864e4a65b635b6ab4c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889286"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125231"
 ---
 # <a name="what-is-bing-web-search"></a>O que é a Pesquisa na Web do Bing?
 

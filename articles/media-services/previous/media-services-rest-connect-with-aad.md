@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b44c5b29f41f08ac5c1d5e6aa3c37f8c15ae7c54
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785985"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984650"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com REST
 
@@ -43,7 +43,7 @@ Neste tutorial, você aprenderá como:
 > [!IMPORTANT]
 > Atualmente, os Serviços de Mídia dão suporte ao modelo de autenticação de serviços do Controle de Acesso do Azure. No entanto, a autenticação de Controle de Acesso será preterida em 1º de junho de 2018. Recomendamos que você migre para o modelo de autenticação do Azure AD assim que possível.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - [Crie uma conta dos Serviços de Mídia do Azure usando o Portal do Azure](media-services-portal-create-account.md).
@@ -97,7 +97,7 @@ Para obter as informações, siga estas etapas:
     1. Selecione o aplicativo.
     2. Obtenha a **ID do Cliente** na janela à direita. 
 
-    ![Acesso à API](./media/connect-with-rest/existing-client-id.png).
+    ![Acesso à API](./media/connect-with-rest/existing-client-id.png)
 
 7.  Obter a **Chave** do aplicativo (segredo do cliente). 
 

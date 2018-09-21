@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: eb3c1177f86f4c595280521f4dbcbe8081f68895
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159559"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296237"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implantar redefinição de senha sem exigir registro do usuário final
 
 Para implantar a redefinição de senha de autoatendimento (SSPR) do Azure Active Directory (Azure AD), os dados de autenticação precisam estar presentes. Algumas organizações fazem com que seus usuários insiram seus próprios dados de autenticação. Mas muitas organizações preferem a sincronização com os dados que já existem no Active Directory. Os dados sincronizados serão disponibilizados para o Azure AD e SSPR sem a necessidade de interação do usuário se você:
    * Formatar corretamente os dados em seu diretório local.
-   * Configurar o [Azure AD Connect usando as configurações expressas](./../connect/active-directory-aadconnect-get-started-express.md).
+   * Configurar o [Azure AD Connect usando as configurações expressas](../hybrid/how-to-connect-install-express.md).
 
 Para funcionarem adequadamente, os números de telefone devem estar no formato *+CountryCode PhoneNumber*, por exemplo: +1 4255551234.
 

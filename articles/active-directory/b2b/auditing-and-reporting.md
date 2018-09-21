@@ -4,18 +4,18 @@ description: As propriedades do usuário convidado são configuráveis na colabo
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 64f15095bd260cd5f83e0e834607cd64bb3a47ee
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 80ae3d2603cbb1c52c5bbe5e72ef7880cf0da6eb
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266933"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984582"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e relatórios de um usuário de colaboração B2B
 Com usuários convidados, você conta com funcionalidades de auditoria semelhantes àquelas dos usuários membros. Este é um exemplo do histórico de convites e resgates do convidado Davi Barros:

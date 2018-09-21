@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 38d024de0fd2490d33f7c06498d3ff8d0d06e503
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 3b4c9de16c7248cbd3087689544d70fe22c858fd
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146299"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296406"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurando o acesso condicional local usando o registro de dispositivo do Azure Active Directory
 Quando você exige que os usuários usem o ingresso no local de trabalho para seus dispositivos pessoais no serviço de registro de dispositivo do Azure AD (Azure Active Directory), seus dispositivos poderão ser marcados como conhecidos para sua organização. Veja abaixo um guia passo a passo para habilitar o acesso condicional em aplicativos locais usando o AD FS (Serviços de Federação do Active Directory) no Windows Server 2012 R2.
@@ -88,7 +88,7 @@ Siga as etapas na lista de verificação para habilitar e configurar o serviço 
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Parte 3: habilitar write-back de dispositivos no AD do Azure
 | Tarefa | Referência |
 | --- | --- |
-| Conclua a parte dois de “Habilitando o write-back de dispositivo no Azure AD Connect”. Depois de concluir, retorne a este guia. |[Habilitando write-back de dispositivo no Azure AD Connect](./connect/active-directory-aadconnect-feature-device-writeback.md) |
+| Conclua a parte dois de “Habilitando o write-back de dispositivo no Azure AD Connect”. Depois de concluir, retorne a este guia. |[Habilitando write-back de dispositivo no Azure AD Connect](hybrid/how-to-connect-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Opcional] Parte 4: Habilitar a Autenticação Multifator
 É altamente recomendável que você configure uma das várias opções para a Autenticação Multifator. Se você desejar exigir a Autenticação Multifator, consulte [Escolher a solução de segurança de Autenticação Multifator ideal para você](authentication/concept-mfa-whichversion.md). Ele inclui uma descrição de cada solução e links para ajudá-lo a configurar a solução de sua escolha.
@@ -107,9 +107,9 @@ A implantação agora foi concluída e você pode experimentar alguns cenários.
 
 **Confira:**
 
-- [Integrar seus diretórios locais com o Azure Active Directory](./connect/active-directory-aadconnect.md) - para rever informações conceituais.
+- [Integrar seus diretórios locais com o Azure Active Directory](hybrid/whatis-hybrid-identity.md) - para rever informações conceituais.
 
-- [Instalação personalizada do Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) - para obter instruções de instalação.
+- [Instalação personalizada do Azure AD Connect](hybrid/how-to-connect-install-custom.md) - para obter instruções de instalação.
 
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Atualizar o esquema de serviços do Domínio do Active Directory

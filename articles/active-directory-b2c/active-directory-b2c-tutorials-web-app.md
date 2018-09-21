@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: ed34dcfb2aa488f4e7e34294b46de68624811afd
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e215577fdb39b3dc1a9c5ce641c44e3cdef8fb45
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39609031"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604086"
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: permitir que um aplicativo Web autentique com contas usando o Azure Active Directory B2C
 
@@ -191,7 +191,7 @@ Você pode usar o seu locatário do Azure AD B2C se planeja experimentar outros 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a criar um locatário do Azure AD B2C, a criar políticas e a atualizar o aplicativo Web de exemplo para usar o seu locatário do Azure AD B2C. Continue para o próximo tutorial a fim de aprender a registrar, configurar e chamar uma API Web ASP.NET protegida por seu locatário do Azure AD B2C.
+Neste tutorial, você aprendeu a criar um locatário do Azure AD B2C, a criar políticas e a atualizar o aplicativo Web de exemplo para usar o seu locatário do Azure AD B2C. Continue para o próximo tutorial a fim de aprender a registrar, configurar e chamar uma ASP.NET Web API protegida por seu locatário do Azure AD B2C.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Usar o Azure Active Directory B2C para proteger uma API Web ASP.NET](active-directory-b2c-tutorials-web-api.md)
+> [Tutorial: Usar o Azure Active Directory B2C para proteger uma ASP.NET Web API](active-directory-b2c-tutorials-web-api.md)

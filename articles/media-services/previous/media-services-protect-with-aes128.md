@@ -4,7 +4,7 @@ description: Entregue o conteúdo criptografado com chaves de criptografia AES d
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
 ms.service: media-services
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 09/18/2018
 ms.author: juliako
-ms.openlocfilehash: 335c080519df48709ebc5c1c3c44d9386d16b790
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9f3fe36eab7dc7fd1921c4e225b5a173fe2e9243
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786065"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364866"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Use a criptografia dinâmica AES-128 e o serviço de distrbuição de chaves
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-aes128.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
-> 
+>  
 
 > [!NOTE]
 > Para obter a versão mais recente do SDK do Java e começar a desenvolver com Java, confira [Introdução ao SDK de cliente Java para os Serviços de Mídia do Azure](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
@@ -146,7 +146,7 @@ Pode usar o [Azure Media Services Player](http://amsplayer.azurewebsites.net/azu
 Na etapa anterior, você construiu a URL que aponta para um arquivo de manifesto. O cliente precisa extrair as informações necessárias dos arquivos de manifesto de streaming para fazer uma solicitação para o serviço de distribuição de chaves.
 
 ### <a name="manifest-files"></a>Arquivos de manifesto
-O cliente precisa extrair o valor da URL (que também contém a ID da chave de conteúdo [kid]) do arquivo de manifesto. O cliente então tenta obter a chave de criptografia por meio do serviço de distribuição de chaves. O cliente também precisa extrair o valor do IV e usá-lo para descriptografar o fluxo. O trecho de código a seguir mostra o elemento <Protection> do manifesto Smooth Streaming:
+O cliente precisa extrair o valor da URL (que também contém a ID da chave de conteúdo [kid]) do arquivo de manifesto. O cliente então tenta obter a chave de criptografia por meio do serviço de distribuição de chaves. O cliente também precisa extrair o valor do IV e usá-lo para descriptografar o fluxo. O snippet de código a seguir mostra o elemento <Protection> do manifesto Smooth Streaming:
 
 ```xml
     <Protection>
@@ -247,8 +247,8 @@ O código a seguir mostra como enviar uma solicitação ao serviço de distribui
 2. Adicione os seguintes elementos para appSettings, conforme definidos no seu arquivo app.config:
 
     ```xml
-            <add key="Issuer" value="http://testacs.com"/>
-            <add key="Audience" value="urn:test"/>
+    <add key="Issuer" value="http://testissuer.com"/>
+    <add key="Audience" value="urn:test"/>
     ```
 
 ### <a id="example"></a>Exemplo
@@ -260,13 +260,10 @@ Substitua o código no seu arquivo Program.cs pelo código mostrado nesta seçã
 
 Certifique-se de atualizar as variáveis para que indiquem as pastas onde estão localizados os arquivos de entrada.
 
-```csharp
-    [!code-csharp[Main](../../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
-```
+[!code-csharp[Main](../../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

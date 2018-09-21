@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e613ff742096077fe1765d4b855b6c7d409cc228
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158940"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295811"
 ---
 # <a name="how-to-configure-password-writeback"></a>Instruções: Configurar write-back de senha
 
-É recomendável que você use o recurso de atualização automática do [Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md) ao usar write-back de senha.
+É recomendável que você use o recurso de atualização automática do [Azure AD Connect](../hybrid/how-to-connect-install-express.md) ao usar write-back de senha.
 
-As etapas a seguir pressupõem que você já tenha configurado o Azure AD Connect em seu ambiente usando as configurações [Expressas](./../connect/active-directory-aadconnect-get-started-express.md) ou [Personalizadas](./../connect/active-directory-aadconnect-get-started-custom.md).
+As etapas a seguir pressupõem que você já tenha configurado o Azure AD Connect em seu ambiente usando as configurações [Expressas](../hybrid/how-to-connect-install-express.md) ou [Personalizadas](../hybrid/how-to-connect-install-custom.md).
 
 1. Para configurar e habilitar o write-back de senha, entre no servidor do Azure AD Connect e inicie o assistente de configuração do **Azure AD Connect**.
 2. Na página de **Boas-vindas**, selecione **Configurar**.

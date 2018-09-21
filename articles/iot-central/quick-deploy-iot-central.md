@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 51c6753b1e4f2b08e93214abfcd7e18cb2e66613
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: af06766d89804b2f3d0aaf061494fb836f6ec262
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318306"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465598"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Crie um aplicativo Azure IoT Central
 
@@ -52,78 +52,6 @@ Para criar um novo aplicativo Azure IoT Central:
 1. Depois, escolha **Criar**.
 
 ![Página Criar aplicativo do Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate.png)
-
-## <a name="navigate-to-the-application"></a>Navegue até o aplicativos
-
-Quando seu aplicativo estiver pronto, a **Página inicial** do seu aplicativo é exibida. O _Modo de design_ na parte superior direita pode ser ativado ou desativado para editar a página inicial. A URL do aplicativo é a URL que você especificou na etapa anterior:
-
-![Página Construtor do aplicativo](media/quick-deploy-iot-central/apphome.png)
-
-Use o _menu de navegação à esquerda_ para acessar as diferentes áreas do seu novo aplicativo Azure IoT Central:
-
-![Menu de navegação à esquerda](media/quick-deploy-iot-central/navbar.png)
-
-Para exibir os modelos de dispositivo e os dispositivos em seu aplicativo, escolha **Device Explorer** no menu de navegação à esquerda. O aplicativo de exemplo inclui o modelo de aplicativo de **Máquina de venda automática refrigerada**. Há três dispositivos simulados já criados com base neste modelo de dispositivo:
-
-![Gerenciador de dispositivos](media/quick-deploy-iot-central/deviceexplorer.png)
-
-## <a name="view-the-device-template-and-devices"></a>Exibir o modelo de dispositivo e os dispositivos
-
-Use as etapas a seguir para exibir um dispositivo refrigerador que foi criado a partir do modelo de dispositivo de **Máquina de venda automática refrigerada**. Um modelo de dispositivo define:
-
-* _Medidas_, como a telemetria de temperatura, enviada de um dispositivo.
-* _Configurações_, como velocidade do ventilador, que permite controlar o dispositivo.
-* _Propriedades_, como o número de série, que armazenam informações sobre o dispositivo.
-* [Regras](howto-create-telemetry-rules.md) que permitem automatizar ações com base no comportamento do dispositivo.
-* Um _painel_ personalizável que exibe informações sobre o dispositivo.
-
-Você pode criar dispositivos simulados e reais a partir de um modelo de dispositivo.
-
-### <a name="measurements"></a>Medidas
-
-A página **Medidas** para o **Refrigerador 1** é exibida. Você pode ver a lista de medidas enviadas do dispositivo simulado. A página também exibe um gráfico personalizável das medidas visíveis:
-
-![Página Medidas](media/quick-deploy-iot-central/measurements.png)
-
-Você pode alternar a visibilidade de elementos individuais e personalizar o gráfico. O gráfico atual mostra a telemetria de um dispositivo simulado. Você pode adicionar novas medidas para o modelo do dispositivo, se você tiver as permissões apropriadas.
-
-> [!NOTE]
-> Talvez seja necessário aguardar por um curto tempo antes dos dados simulados aparecerem no gráfico.
-
-### <a name="settings"></a>Configurações
-
-Escolha **Configurações**. Na página **Configurações**, você pode controlar o dispositivo. Por exemplo, você pode atualizar a velocidade do ventilador refrigerador:
-
-![Configurações](media/quick-deploy-iot-central/settings.png)
-
-Uma configuração aparece como **sincronizada** quando um dispositivo confirma a alteração.
-
-### <a name="properties"></a>propriedades
-
-Escolha **Propriedades**. Na página **Propriedades**, você pode:
-
-* Manter informações sobre o seu dispositivo, como o nome do cliente.
-* Exibir valores de propriedade relatados pelo dispositivo, como um alerta de movimento.
-
-![propriedades](media/quick-deploy-iot-central/properties.png)
-
-### <a name="dashboard"></a>painel
-
-Escolha **Painel**. O painel é uma visão personalizada das informações sobre o seu dispositivo, como medidas, propriedades e KPIs:
-
-![painel](media/quick-deploy-iot-central/dashboard.png)
-
-## <a name="view-analytics"></a>Exibir análise
-
-A seção anterior mostrou como exibir informações sobre dispositivos individuais. Você pode usar [conjuntos de dispositivos](howto-use-device-sets.md) e [análise](howto-create-analytics.md) para exibir informações consolidadas de vários dispositivos.
-
-Um conjunto de dispositivos utiliza uma consulta para selecionar dinamicamente um conjunto de dispositivos que atendam a um critério. Por exemplo, o conjunto de dispositivos **Máquinas em Seattle** seleciona os refrigeradores localizados em Seattle. Para exibir o conjunto de dispositivos **Máquinas em Seattle**, escolha **Conjuntos de dispositivo** no menu de navegação à esquerda e escolha **Máquinas em Seattle**:
-
-![Conjunto de dispositivos Máquinas em Seattle](media/quick-deploy-iot-central/deviceset.png)
-
-Você pode exibir os dados de análise para os dispositivos em um conjunto de dispositivos na página **Análise**:
-
-![Análise de máquinas em Seattle](media/quick-deploy-iot-central/analytics.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
