@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42144161"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737406"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
@@ -556,7 +556,7 @@ Os serviços vinculados vinculam armazenamentos de dados ou serviços de computa
 
    ![Novo armazenamento de dados](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua **chave de conta** pela chave de acesso da conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua **chave de conta** pela chave de acesso da conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
 
 1. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
@@ -601,7 +601,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
 #### <a name="create-the-input-dataset"></a>Como criar o conjunto de dados de entrada
 1. No Editor do Data Factory, selecione o botão **Novo conjunto de dados** na barra de ferramentas. Selecione **Armazenamento de blobs do Azure** na lista suspensa.
 
-1. Substitua o script JSON no painel direito pelo seguinte trecho de código JSON:
+1. Substitua o script JSON no painel direito pelo seguinte snippet de código JSON:
 
     ```json
     {
@@ -663,7 +663,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
 
     A **frequency** e o **interval** do conjunto de dados de entrada são definidos como **Hour** e **1**, o que significa que a fatia de entrada está disponível por hora.
 
-    A hora de início de cada fatia é representada pela variável do sistema **SliceStart** no trecho de JSON anterior. Veja a seguir as horas de início de cada fatia.
+    A hora de início de cada fatia é representada pela variável do sistema **SliceStart** no snippet de JSON anterior. Veja a seguir as horas de início de cada fatia.
 
     | **Fatia** | **Hora de início**          |
     |-----------|-------------------------|
@@ -690,7 +690,7 @@ Nesta etapa, você cria outro conjunto de dados do tipo AzureBlob para represent
 
 1. No Editor do Data Factory, selecione o botão **Novo conjunto de dados** na barra de ferramentas. Selecione **Armazenamento de blobs do Azure** na lista suspensa.
 
-1. Substitua o script JSON no painel direito pelo seguinte trecho de código JSON:
+1. Substitua o script JSON no painel direito pelo seguinte snippet de código JSON:
 
     ```json
     {
@@ -744,7 +744,7 @@ Nesta etapa, você cria um pipeline com uma atividade, a atividade personalizada
 
 1. No Editor do Data Factory, selecione **Novo pipeline** na barra de comandos. Se o comando não for exibido, selecione o símbolo de reticências para exibi-lo.
 
-1. Substitua o script JSON no painel direito pelo seguinte trecho de código JSON:
+1. Substitua o script JSON no painel direito pelo seguinte snippet de código JSON:
 
     ```json
     {

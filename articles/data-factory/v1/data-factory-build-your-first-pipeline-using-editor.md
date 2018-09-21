@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 332ba810aa9da611f998e5865344655c3c87c5d1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f3dc27b35f35f3aaa649b03777ff13d385561673
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109414"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732219"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: como compilar seu primeiro data factory usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -112,7 +112,7 @@ Nesta etapa, você vincula sua conta de armazenamento ao data factory. Neste tut
 
    ![Serviço vinculado de armazenamento](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave de conta** com a chave de acesso da conta de armazenamento. Para saber como conseguir sua chave de acesso de armazenamento, confira as informações sobre como exibir, copiar e regenerar chaves de acesso de armazenamento em [Gerenciar sua conta de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave de conta** com a chave de acesso da conta de armazenamento. Para saber como conseguir sua chave de acesso de armazenamento, confira as informações sobre como exibir, copiar e regenerar chaves de acesso de armazenamento em [Gerenciar sua conta de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
 
 1. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
@@ -129,7 +129,7 @@ Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data facto
 
     ![Nova computação](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 
-1. Copie e cole o trecho a seguir na janela de Rascunho-1. O trecho JSON descreve as propriedades usadas para criar o cluster do HDInsight sob demanda.
+1. Copie e cole o snippet a seguir na janela de Rascunho-1. O snippet JSON descreve as propriedades usadas para criar o cluster do HDInsight sob demanda.
 
     ```JSON
     {
@@ -147,7 +147,7 @@ Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data facto
     }
     ```
 
-    A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+    A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
    | Propriedade | DESCRIÇÃO |
    |:--- |:--- |
@@ -183,7 +183,7 @@ Nesta etapa, você cria conjuntos de dados para representar dados de entrada e d
 
     ![Novo conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
-1. Copie e cole o trecho a seguir na janela de Rascunho-1. No trecho JSON, você cria um conjunto de dados chamado **AzureBlobInput** que representa os dados de entrada para uma atividade no pipeline. Além disso, você especifica que os dados de entrada estão localizados no contêiner de blobs denominado **adfgetstarted** e na pasta denominada **inputdata**.
+1. Copie e cole o snippet a seguir na janela de Rascunho-1. No snippet JSON, você cria um conjunto de dados chamado **AzureBlobInput** que representa os dados de entrada para uma atividade no pipeline. Além disso, você especifica que os dados de entrada estão localizados no contêiner de blobs denominado **adfgetstarted** e na pasta denominada **inputdata**.
 
     ```JSON
     {
@@ -208,7 +208,7 @@ Nesta etapa, você cria conjuntos de dados para representar dados de entrada e d
         }
     }
     ```
-    A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+    A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
    | Propriedade | DESCRIÇÃO |
    |:--- |:--- |
@@ -230,7 +230,7 @@ Você cria o conjunto de dados de saída para representar os dados de saída arm
 
 1. No Data Factory Editor, selecione **Mais** > **Novo conjunto de dados** > **Armazenamento de Blobs do Azure**.
 
-1. Copie e cole o trecho a seguir na janela de Rascunho-1. No trecho JSON, você cria um conjunto de dados chamado **AzureBlobOutput** e especifica a estrutura dos dados produzidos pelo script de Hive. Além disso, você especifica que os resultados estão armazenados no contêiner de blobs denominado **adfgetstarted** e na pasta denominada **partitioneddata**. A seção **availability** especifica que o conjunto de dados de saída é produzido mensalmente.
+1. Copie e cole o snippet a seguir na janela de Rascunho-1. No snippet JSON, você cria um conjunto de dados chamado **AzureBlobOutput** e especifica a estrutura dos dados produzidos pelo script de Hive. Além disso, você especifica que os resultados estão armazenados no contêiner de blobs denominado **adfgetstarted** e na pasta denominada **partitioneddata**. A seção **availability** especifica que o conjunto de dados de saída é produzido mensalmente.
 
     ```JSON
     {
@@ -261,16 +261,16 @@ Você cria o conjunto de dados de saída para representar os dados de saída arm
     ![Modo de exibição de árvore com serviços vinculados](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
-Nesta etapa, você cria seu primeiro pipeline com a atividade de Hive do HDInsight. A fatia de entrada está disponível mensalmente (frequência é o mês e o intervalo é 1). A fatia de saída é produzida mensalmente. A propriedade scheduler para a atividade também é definida como mensal. As configurações para o conjunto de dados de saída e o agendador de atividades devem corresponder. Atualmente, o conjunto de dados de saída é o que aciona a agenda. Assim, você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada. As propriedades usadas no JSON a seguir são explicadas no final desta seção.
+Nesta etapa, você cria seu primeiro pipeline com a atividade de Hive do HDInsight. A fatia de entrada está disponível mensalmente (frequência é o mês e o intervalo é 1). A fatia de saída é produzida mensalmente. A propriedade scheduler para a atividade também é definida como mensal. As configurações para o conjunto de dados de saída e o agendador de atividades devem corresponder. Atualmente, o conjunto de dados de saída é o que aciona a agenda. Assim, você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada. As propriedades usadas no snippet em JSON a seguir são explicadas no final desta seção.
 
 1. No Data Factory Editor, selecione **Mais** > **Novo pipeline**.
 
     ![Opção Novo pipeline](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 
-1. Copie e cole o trecho a seguir na janela de Rascunho-1.
+1. Copie e cole o snippet a seguir na janela de Rascunho-1.
 
    > [!IMPORTANT]
-   > Substitua **storageaccountname** pelo nome da sua conta de armazenamento no JSON.
+   > Substitua **storageaccountname** pelo nome da sua conta de armazenamento no snippet em JSON.
    >
    >
 
@@ -319,7 +319,7 @@ Nesta etapa, você cria seu primeiro pipeline com a atividade de Hive do HDInsig
     }
     ```
 
-    No trecho de JSON, você cria um pipeline que consiste de uma única atividade que usa o Hive para processar dados em um cluster do HDInsight.
+    No snippet de JSON, você cria um pipeline que consiste de uma única atividade que usa o Hive para processar dados em um cluster do HDInsight.
 
     O arquivo de script de Hive, **partitionweblogs.hql**, armazenado na conta de armazenamento, é especificada pelo scriptLinkedService que é denominado **AzureStorageLinkedService**. Você pode encontrá-lo na pasta **script** no contêiner **adfgetstarted**.
 
