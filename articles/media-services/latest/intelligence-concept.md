@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a428f76f1239e7e67b99d05b96d26abd601e89c6
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331513"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498684"
 ---
 # <a name="media-intelligence"></a>Inteligência de mídia
 
@@ -52,7 +52,7 @@ A saída inclui um arquivo JSON (insights.json) com todas as informações que f
 |ID|A ID da linha.|
 |text|A própria transcrição.|
 |Linguagem|O idioma da transcrição. Tem o objetivo dar suporte à transcrição na qual cada linha pode ter um idioma diferente.|
-|instances|Uma lista com os intervalos de tempo nos quais essa linha apareceu. Se a instância for uma transcrição, ele terá apenas 1 instância.|
+|instances|Uma lista com os intervalos de tempo nos quais essa linha apareceu. Se a instância for transcrita, ela terá apenas 1 instância.|
 
 Exemplo:
 
@@ -126,54 +126,6 @@ Exemplo:
   ],
 ```
 
-### <a name="keywords"></a>palavras-chave
-
-|NOME|DESCRIÇÃO|
-|---|---|
-|ID|A ID da palavra-chave.|
-|text|O texto da palavra-chave.|
-|confidence|A confiança do reconhecimento da palavra-chave.|
-|Linguagem|O idioma da palavra-chave (quando traduzida).|
-|instances|Uma lista de intervalos de tempo nos quais essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
-
-```json
-"keywords": [
-{
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    },
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
-}
-] 
-
-```
-
 ### <a name="faces"></a>faces
 
 |NOME|DESCRIÇÃO|
@@ -181,13 +133,13 @@ Exemplo:
 |ID|A ID da face.|
 |Nome|O nome da face. Pode ser "Desconhecido #0", uma celebridade identificada ou uma pessoa treinada pelo cliente.|
 |confidence|A confiança de identificação da face.|
-|Descrição|Se for uma celebridade, sua descrição. |
-|thumbnalId|A id da miniatura dessa face.|
-|knownPersonId|Se for uma pessoa conhecida, sua ID interna.|
-|referenceId|Se for uma celebridade Bing, sua ID do Bing.|
+|Descrição|Uma descrição da celebridade. |
+|thumbnalId|O ID da miniatura dessa face.|
+|knownPersonId|Se é uma pessoa conhecida, o seu ID interno.|
+|referenceId|Se for uma celebridade do Bing, o seu ID do Bing.|
 |referenceType|No momento, apenas Bing.|
-|título|Se for uma celebridade, seu título (por exemplo "CEO da Microsoft").|
-|imageUrl|Se for uma celebridade, a URL da imagem.|
+|título|Se é uma celebridade, seu título (por exemplo, "CEO da Microsoft").|
+|imageUrl|Se é uma celebridade, o seu URL de imagem.|
 |instances|Essas são as ocorrências do aparecimento da face no intervalo de tempo determinado. Cada ocorrência também tem uma thumbnailsId. |
 
 ```json
@@ -217,6 +169,111 @@ Exemplo:
         "end": "00:10:39.2390000"
     }]
 }]
+```
+
+### <a name="shots"></a>shots
+
+|NOME|DESCRIÇÃO|
+|---|---|
+|ID|A ID da captura.|
+|keyFrames|Uma lista com os quadros-chave dentro da captura (cada um tem uma ID e uma lista de intervalos de tempo de instâncias). As instâncias de frames principais têm um campo thumbnailId com o ID de miniatura da keyFrame.|
+|instances|Uma lista com os intervalos de tempo desta captura (as capturas têm apenas 1 instância).|
+
+```json
+"Shots": [
+    {
+      "id": 0,
+      "keyFrames": [
+        {
+          "id": 0,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",
+              "start": "00: 00: 00.1670000",
+              "end": "00: 00: 00.2000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
+          "start": "00: 00: 00.2000000",
+          "end": "00: 00: 05.0330000"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "keyFrames": [
+        {
+          "id": 1,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
+              "start": "00: 00: 05.2670000",
+              "end": "00: 00: 05.3000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+      "thumbnailId": "00000000-0000-0000-0000-000000000000",
+          "start": "00: 00: 05.2670000",
+          "end": "00: 00: 10.3000000"
+        }
+      ]
+    }
+  ]
+```
+
+### <a name="statistics"></a>Estatísticas
+
+|NOME|DESCRIÇÃO|
+|---|---|
+|CorrespondenceCount|Número de correspondências no vídeo.|
+|WordCount|O número de palavras por alto-falante.|
+|SpeakerNumberOfFragments|A quantidade de fragmentos que o orador tem em um vídeo.|
+|SpeakerLongestMonolog|O mais longo monólogo do orador. Se o falante tiver silêncios dentro do monólogo, ele será incluído. O silêncio no início e no final do monólogo é removido.| 
+|SpeakerTalkToListenRatio|O cálculo é baseado no tempo gasto no monólogo do locutor (sem o silêncio intermediário) dividido pelo tempo total do vídeo. A hora é arredondada para o terceiro ponto decimal.|
+
+
+### <a name="sentiments"></a>sentiments
+
+Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Neutro/Negativo). Por exemplo, 0-0.1, 0.1-0.2.
+
+|NOME|DESCRIÇÃO|
+|---|---|
+|ID|A ID do sentimento.|
+|averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - Neutral/positivo/negativo|
+|instances|Uma lista com os intervalos de tempo nos quais esse sentimento apareceu.|
+|sentimentType |O tipo pode ser 'Positivo', 'Neutro' ou 'Negativo'.|
+
+```json
+"sentiments": [
+{
+    "id": 0,
+    "averageScore": 0.87,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:23",
+        "end": "00:00:41"
+    }
+    ]
+}, {
+    "id": 1,
+    "averageScore": 0.11,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:13",
+        "end": "00:00:21"
+    }
+    ]
+}
+]
 ```
 
 ### <a name="labels"></a>rótulos
@@ -278,94 +335,92 @@ Exemplo:
   ] 
 ```
 
-### <a name="shots"></a>shots
+### <a name="keywords"></a>palavras-chave
 
 |NOME|DESCRIÇÃO|
 |---|---|
-|ID|A ID da captura.|
-|keyFrames|Uma lista com os quadros-chave dentro da captura (cada um tem uma ID e uma lista de intervalos de tempo de instâncias).|
-|instances|Uma lista com os intervalos de tempo desta captura (as capturas têm apenas 1 instância).|
+|ID|A ID da palavra-chave.|
+|text|O texto da palavra-chave.|
+|confidence|A confiança do reconhecimento da palavra-chave.|
+|Linguagem|O idioma da palavra-chave (quando traduzida).|
+|instances|Uma lista de intervalos de tempo nos quais essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
-```
-
-
-### <a name="sentiments"></a>sentiments
-
-Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Neutro/Negativo). Por exemplo, 0-0.1, 0.1-0.2.
-
-|NOME|DESCRIÇÃO|
-|---|---|
-|ID|A ID do sentimento.|
-|averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - Neutral/positivo/negativo|
-|instances|Uma lista com os intervalos de tempo nos quais esse sentimento apareceu.|
-
-```json
-"sentiments": [
+"keywords": [
 {
     "id": 0,
-    "averageScore": 0.87,
+    "text": "office",
+    "confidence": 1.6666666666666667,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:23",
-        "end": "00:00:41"
+        "start": "00:00:00.5100000",
+        "end": "00:00:02.7200000"
+    },
+    {
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
     }
     ]
-}, {
+},
+{
     "id": 1,
-    "averageScore": 0.11,
+    "text": "icons",
+    "confidence": 1.4,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:13",
-        "end": "00:00:21"
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
+    },
+    {
+        "start": "00:00:13.9900000",
+        "end": "00:00:15.6100000"
     }
     ]
 }
-]
+] 
 ```
 
+#### <a name="visualcontentmoderation"></a>visualContentModeration
+
+O bloco visualContentModeration contém intervalos de tempo que o Video Indexer encontrou para potencialmente ter conteúdo adulto. Se visualContentModeration estiver vazio, não haverá conteúdo adulto identificado.
+
+Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis apenas para visualização privada. Os usuários têm a opção de enviar uma solicitação para uma revisão humana do conteúdo. Nesse caso, o atributo IsAdult conterá o resultado da revisão humana.
+
+|NOME|DESCRIÇÃO|
+|---|---|
+|ID|A ID de moderação de conteúdo visual.|
+|adultScore|A pontuação de conteúdo adulta (do moderador de conteúdo).|
+|racyScore|A pontuação racista (de moderação de conteúdo).|
+|instances|Uma lista de intervalos de tempo em que apareceu esse visual moderação de conteúdo.|
+
+```json
+"VisualContentModeration": [
+{
+    "id": 0,
+    "adultScore": 0.00069,
+    "racyScore": 0.91129,
+    "instances": [
+    {
+        "start": "00:00:25.4840000",
+        "end": "00:00:25.5260000"
+    }
+    ]
+},
+{
+    "id": 1,
+    "adultScore": 0.99231,
+    "racyScore": 0.99912,
+    "instances": [
+    {
+        "start": "00:00:35.5360000",
+        "end": "00:00:35.5780000"
+    }
+    ]
+}
+] 
+```
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]

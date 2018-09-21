@@ -1,3 +1,20 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 634143f56bc9134f240ff42b7b5989605c8bffde
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979490"
+---
 ## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
 
 Esta seção orienta a configuração do ambiente de desenvolvimento. Ela inclui a criação de um aplicativo ASP.NET MVC, a adição de uma conexão de serviços conectados, a adição de um controlador e a especificação das diretivas de namespace necessárias.
@@ -29,7 +46,7 @@ Esta seção orienta a configuração do ambiente de desenvolvimento. Ela inclui
 1. Na caixa de diálogo **Armazenamento do Microsoft Azure**, selecione a conta do Armazenamento do Azure a ser usada para este tutorial. Para criar uma nova conta do Armazenamento do Azure, selecione **Criar uma Nova Conta de Armazenamento** e preencha o formulário. Depois de selecionar uma conta de armazenamento existente ou criar uma nova, selecione **Adicionar**. O Visual Studio instalará o pacote NuGet para o Armazenamento do Microsoft Azure e uma cadeia de conexão de armazenamento para **Web.config**.
 
 > [!TIP]
-> Para saber como criar uma conta de armazenamento com o [portal do Azure](https://portal.azure.com), consulte [Criar uma conta de armazenamento](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+> Para saber como criar uma conta de armazenamento com o [portal do Azure](https://portal.azure.com), consulte [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 >
 > Você também pode criar uma conta de armazenamento usando o [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), a [CLI do Azure](../articles/storage/common/storage-azure-cli.md) ou o [Azure Cloud Shell](../articles/cloud-shell/overview.md).
 
