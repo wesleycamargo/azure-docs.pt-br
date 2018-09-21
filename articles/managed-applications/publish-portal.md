@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 69d31a7199347574e8866b275ec17ba3997d80c2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e52acd8587203c4729ac2bcd6e4bbc09620ead86
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305116"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35764654"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publicar um aplicativo de catálogo de serviços por meio do portal do Azure
 
 Você pode usar o portal do Azure para publicar [aplicativos gerenciados](overview.md) destinados aos membros de sua organização. Por exemplo, um departamento de TI pode publicar aplicativos gerenciados que garantem a conformidade com os padrões organizacionais. Esses aplicativos gerenciados estão disponíveis por meio do catálogo de serviços, não pelo Azure Marketplace.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Ao publicar um aplicativo gerenciado, você pode especificar uma identidade para gerenciar os recursos. Recomendamos que você especifique um grupo de usuários do Azure Active Directory. Para criar um novo grupo de usuários do Azure Active Directory, consulte [Criar um grupo e adicionar membros no Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md). 
+Ao publicar um aplicativo gerenciado, você pode especificar uma identidade para gerenciar os recursos. Recomendamos que você especifique um grupo de usuários do Azure Active Directory. Para criar um novo grupo de usuários do Azure Active Directory, consulte [Criar um grupo e adicionar membros no Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). 
 
 O arquivo .zip que contém a definição de aplicativo gerenciado deve estar disponível por meio de um URI. É recomendável que você carregue seu arquivo .zip em um blob de armazenamento. 
 

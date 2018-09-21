@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
-ms.openlocfilehash: 44059de5a0ef0667b4268d9cdc2997162bab474a
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 65bcb92b8e97b09ca961aa02cd5891419c2cddb2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295162"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580643"
 ---
 # <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Compilar e implantar modelos de detecção de objeto com Azure Machine Learning
 
@@ -126,7 +126,7 @@ _ = data_train.images[2].visualize_bounding_boxes(image_size = (10,10))
 
 ## <a name="define-a-model"></a>Definir um modelo
 
-Neste exemplo, é usado o modelo Faster R-CNN. Vários parâmetros podem ser fornecidos ao definir este modelo. O significado desses parâmetros, bem como os parâmetros usados para treinamento (consulte a próxima seção) podem ser encontrados nos documentos da API de CVTK ou no [Site de detecção de objeto Tensorflow](https://github.com/tensorflow/models/tree/master/research/object_detection). Mais obter mais informações sobre o modelo Faster R-CNN, é possível encontrá-las [neste link](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Este modelo é baseado no Fast R-CNN e mais informações podem ser encontradas [aqui](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
+Neste exemplo, é usado o modelo Faster R-CNN. Vários parâmetros podem ser fornecidos ao definir este modelo. O significado desses parâmetros, bem como os parâmetros usados para treinamento (consulte a próxima seção) podem ser encontrados nos documentos da API de CVTK ou no [Site de detecção de objeto Tensorflow](https://github.com/tensorflow/models/tree/master/research/object_detection). Mais obter mais informações sobre o modelo Faster R-CNN, é possível encontrá-las [neste link](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Este modelo é baseado no Fast R-CNN e mais informações podem ser encontradas [aqui](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
 
 
 ```python

@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: fae3269e21d0f760ae77a70333047306c07c2961
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 57c57f481138c6592056900fd5b002949006a37e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35630264"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore os logs de rastreamento de Java no Application Insights
 Se você estiver usando Logback ou Log4J (v 1.2 ou 2.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
@@ -30,7 +31,7 @@ Siga as instruções para instalar o [SDK do Application Insights para Java][jav
 *Escolha o modo apropriado para seu projeto.*
 
 #### <a name="if-youre-using-maven"></a>Se você estiver usando o Maven...
-Se o seu projeto já estiver configurado para usar o Maven para compilação, realize a mesclagem de um dos seguintes trechos de código ao seu arquivo pom.xml.
+Se o seu projeto já estiver configurado para usar o Maven para compilação, realize a mesclagem de um dos seguintes snippets de código ao seu arquivo pom.xml.
 
 Em seguida, atualize as dependências do projeto para obter os binários baixados.
 
@@ -108,7 +109,7 @@ Siga as orientações para instalar manualmente o SDK do Java do Application Ins
 
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Adicionar o appender à sua estrutura de log
-Para começar a obter rastreamentos, mescle o trecho de código relevante ao arquivo de configuração Log4J ou Logback: 
+Para começar a obter rastreamentos, mescle o snippet de código relevante ao arquivo de configuração Log4J ou Logback: 
 
 *Logback*
 

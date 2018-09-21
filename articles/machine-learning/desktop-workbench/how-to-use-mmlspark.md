@@ -7,16 +7,16 @@ ms.author: roastala
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: 3c9bcce67bb802a8596416b55ef61a51ab2900bd
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 654b2559518cd52978153310fbb1e89a91838a8a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831523"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35630924"
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Como usar a Biblioteca do Microsoft Machine Learning para Apache Spark
 
@@ -27,7 +27,7 @@ A MMLSpark ([Biblioteca do Microsoft Azure Machine Learning para Apache Spark](h
  * Personalizar imagens e textos usando modelos de aprendizado profundo pré-treinados
  * Treinar e pontuar modelos de classificação e regressão usando personalização implícita.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para percorrer este guia de instruções, você precisa:
 - [Instalar o Azure Machine Learning Workbench](../service/quickstart-installation.md)

@@ -15,22 +15,24 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 823e8694b574acdde122f8d5224b04d3872b6820
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: c24d79d6983f7c32f5c563192bcfe412da586ef2
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190671"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603480"
 ---
 # <a name="joins-in-log-analytics-queries"></a>Junções em consultas do Log Analytics
 
 > [!NOTE]
 > Você deve concluir [Introdução ao portal do Analytics](get-started-analytics-portal.md) e [Introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 As junções permitem analisar os dados de várias tabelas na mesma consulta. Elas mesclam as linhas dos dois conjuntos de dados fazendo a correspondência entre valores das colunas especificadas.
 
 
-```OQL
+```KQL
 SecurityEvent 
 | where EventID == 4624     // sign-in events
 | project Computer, Account, TargetLogonId, LogonTime=TimeGenerated
@@ -62,7 +64,7 @@ on $left.key1 == $right.key2
 ## <a name="lookup-tables"></a>Consultar Tabelas
 Um uso comum de junções é usar um mapeamento estático dos valores usando `datatable`, o que pode ajudar a transformar os resultados na forma mais apresentável. Por exemplo, para aprimorar os dados do evento de segurança com o nome do evento para cada ID do evento.
 
-```OQL
+```KQL
 let DimTable = datatable(EventID:int, eventName:string)
   [
     4625, "Account activity",

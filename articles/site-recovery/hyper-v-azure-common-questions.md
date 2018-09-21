@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 42e8f8bd3f921686c3ba13f4c752d52e3067fbbe
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 16c4ab4601dbe57e014bfcb06ff9b35d02c60cfa
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177398"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721901"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>Perguntas comuns - Replicação do Hyper-V para o Azure
 
@@ -64,7 +64,7 @@ Sim, tanto criptografia em trânsito como [criptografia no Azure](https://docs.m
 
 ### <a name="what-do-i-need-on-premises"></a>O que é necessário no local?
 
-Você precisa de uma ou mais VMs em execução em um ou mais hosts Hyper-V independentes ou em cluster. Você também pode replicar as VMs em execução nos hosts gerenciados pelo System Center Virtual Machine Manager (VMM). Você também pode replicar as VMs em execução nos hosts gerenciados pelo System Center Virtual Machine Manager (VMM).
+Você precisa de uma ou mais VMs em execução em um ou mais hosts Hyper-V independentes ou em cluster. Você também pode replicar as VMs em execução nos hosts gerenciados pelo System Center Virtual Machine Manager (VMM).
     - Se você não estiver executando o VMM, durante a implantação do Site Recovery, você reunirá os hosts e clusters do Hyper-V nos sites do Hyper-V. Você instala os agentes do Site Recovery (provedor do Azure Site Recovery e do Recovery Services) em cada host do Hyper-V.
     - Se os hosts do Hyper-V estiverem localizados em uma nuvem do VMM, você orquestra a replicação no VMM. Você instala o Provedor de Recuperação do Site no servidor do VMM e o agente dos Serviços de Recuperação em cada host do Hyper-V. Mapear entre redes lógicas/VM do VMM e redes virtuais do Azure.
     - 
@@ -166,11 +166,6 @@ O Site Recovery precisa acessar os hosts do Hyper-V para replicar as VMs selecio
 ### <a name="what-does-site-recovery-install-on-hyper-v-vms"></a>O que a recuperação de Site instalar em VMs do Hyper-V?
 
 O Site Recovery não instala explicitamente nada nas VMs do Hyper-V ativadas para replicação.
-- Durante a replicação, as VMs comunicam-se com o Site Recovery da seguinte maneira:
-    - As VMs comunicam-se com o servidor de configuração na porta HTTPS 443 para gerenciamento de replicação.
-    - As VMs enviam os dados de replicação para o servidor em processo na porta HTTPS 9443 (pode ser modificada).
-    - Se você habilitar a consistência de várias VMs, as VMs irão comunicar-se pela porta 20004.
-
 
 
 
@@ -211,7 +206,7 @@ Depois que sua infraestrutura local estiver funcionando novamente, você poderá
 5. Após o failback das cargas de trabalho, você habilita a replicação inversa, de modo que as VMs locais são replicadas novamente para o Azure.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>É possível fazer failback para um local diferente?
-Sim, se você fez failover no Azure poderá fazer failback para um local diferente, se o original não estiver disponível. [Saiba mais](concepts-types-of-failback.md#alternate-location-recovery-alr).
+Sim, se você fez failover no Azure poderá fazer failback para um local diferente, se o original não estiver disponível. [Saiba mais](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
 
 
 

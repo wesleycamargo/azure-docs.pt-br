@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: ead6202b0365df770382077618795cd6b6e57cd2
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 55ce6398d89e56f92874d0ec135377d2a08cf075
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346722"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297802"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -159,7 +159,7 @@ Certifique-se de que todos os usuários entraram em suas contas administrativas 
 
 #### <a name="turn-on-password-hash-synchronization"></a>Ativar a sincronização de hash de senha
 
-A sincronização de hash de senha é um recurso usado para sincronizar hashes de hashes da senha do usuário de uma instância do Active Directory local para uma instância do Microsoft Azure AD baseada em nuvem. Mesmo que você decida usar a federação com os Serviços de Federação do Active Directory (AD FS) ou outros provedores de identidade, é possível configurar a sincronização de hash de senha como um backup, caso a infraestrutura local, como ADFS Server ou AD, falhe ou torne-se temporariamente indisponível. Isso possibilita que usuários entrar no serviço usando a mesma senha que usam para entrar em sua instância do AD local. Além disso, permite a proteção de identidade para detectar credenciais comprometidas, comparando os hashes de senha com senhas conhecidas como compormetidas, se um usuário tiver utilizado o mesmo endereço de email e senha em outros serviços não estiverem conectados ao Azure AD.  Para obter mais informações, consulte [Implementar a sincronização de senha com a sincronização do Azure AD Connect](./../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
+A sincronização de hash de senha é um recurso usado para sincronizar hashes de hashes da senha do usuário de uma instância do Active Directory local para uma instância do Microsoft Azure AD baseada em nuvem. Mesmo que você decida usar a federação com os Serviços de Federação do Active Directory (AD FS) ou outros provedores de identidade, é possível configurar a sincronização de hash de senha como um backup, caso a infraestrutura local, como ADFS Server ou AD, falhe ou torne-se temporariamente indisponível. Isso possibilita que usuários entrar no serviço usando a mesma senha que usam para entrar em sua instância do AD local. Além disso, permite a proteção de identidade para detectar credenciais comprometidas, comparando os hashes de senha com senhas conhecidas como compormetidas, se um usuário tiver utilizado o mesmo endereço de email e senha em outros serviços não estiverem conectados ao Azure AD.  Para obter mais informações, consulte [Implementar a sincronização de senha com a sincronização do Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Exigir autenticação multifator (MFA) para usuários em todas as funções privilegiadas, bem como os usuários expostos
 

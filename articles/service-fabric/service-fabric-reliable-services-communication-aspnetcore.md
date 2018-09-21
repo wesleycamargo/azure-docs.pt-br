@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/29/2018
 ms.author: vturecek
-ms.openlocfilehash: afd682625d7bb74f9a4b726a534508b805562e7f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 384d0fa32b64706c9d9d9baa0e2e0bbb2ac3c522
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701527"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719589"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Núcleo do ASP.NET em Serviços Confiáveis do Service Fabric
 
@@ -54,12 +54,12 @@ Normalmente, aplicativos do Núcleo do ASP.NET auto-hospedados criam um WebHost 
 
 No entanto, o ponto de entrada do aplicativo não é o lugar certo para criar um WebHost em um serviço confiável, pois o ponto de entrada do aplicativo só é usado para registrar um tipo de serviço com o tempo de execução do Service Fabric, para que possa criar instâncias desse tipo de serviço. O WebHost deve ser criado em um Serviço Confiável em si. No processo de host do serviço, instâncias de serviço e/ou réplicas podem passar por vários ciclos de vida. 
 
-Uma instância de um serviço confiável é representada por sua classe de serviço derivando de `StatelessService` ou `StatefulService`. A pilha de comunicação para um serviço está contida em uma implementação `ICommunicationListener` em sua classe de serviço. Os pacotes NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` contêm implementações de `ICommunicationListener` que iniciam e gerenciam o WebHost de Núcleo do ASP.NET para Kestrel ou HttpSys em um Reliable Service.
+Uma instância de um serviço confiável é representada por sua classe de serviço derivando de `StatelessService` ou `StatefulService`. A pilha de comunicação para um serviço está contida em uma implementação `ICommunicationListener` em sua classe de serviço. Os pacotes NuGet `Microsoft.ServiceFabric.AspNetCore.*` contêm implementações de `ICommunicationListener` que iniciam e gerenciam o WebHost de Núcleo do ASP.NET para Kestrel ou HttpSys em um Reliable Service.
 
 ![Hospedando o Núcleo do ASP.NET em um Serviço Confiável][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>Núcleo do ASP.NET ICommunicationListeners
-As implementações `ICommunicationListener` para Kestrel e HttpSys nos pacotes NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` têm padrões de uso semelhantes, mas executam ações específicas ligeiramente diferentes para cada servidor Web. 
+As implementações `ICommunicationListener` para Kestrel e HttpSys nos pacotes NuGet `Microsoft.ServiceFabric.AspNetCore.*` têm padrões de uso semelhantes, mas executam ações específicas ligeiramente diferentes para cada servidor Web. 
 
 Ambos os ouvintes de comunicação fornecem um construtor que usa os seguintes argumentos:
  - **`ServiceContext serviceContext`**: o objeto `ServiceContext` que contém informações sobre o serviço em execução.
@@ -67,7 +67,7 @@ Ambos os ouvintes de comunicação fornecem um construtor que usa os seguintes a
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: um lambda que você implementa e no qual cria e retorna um `IWebHost`. Isso permite que você configure `IWebHost` da maneira como faria normalmente em um aplicativo do Núcleo do ASP.NET. O lambda fornece uma URL que é gerada para você, dependendo das opções de integração do Service Fabric que você usar e da configuração `Endpoint` que você fornecer. Essa URL pode então ser modificada ou usada como está para iniciar o servidor Web.
 
 ## <a name="service-fabric-integration-middleware"></a>Middleware de integração do Service Fabric
-O pacote do NuGet `Microsoft.ServiceFabric.Services.AspNetCore` inclui o método de extensão `UseServiceFabricIntegration` no `IWebHostBuilder` que adiciona o middleware com reconhecimento do Service Fabric. Esse middleware configura o `ICommunicationListener` do Kestrel ou HttpSys para registrar uma URL de serviço exclusivo no Serviço de Nomenclatura do Service Fabric e valida solicitações do cliente para assegurar que os clientes se conectem ao serviço certo. Isso é necessário em um ambiente de host compartilhado como o Service Fabric, em que vários aplicativos Web podem ser executados na mesma máquina física ou virtual, mas não usam nomes de host exclusivos, para impedir que os clientes se conectem ao serviço errado por engano. Esse cenário é descrito em mais detalhes na próxima seção.
+O pacote do NuGet `Microsoft.ServiceFabric.AspNetCore` inclui o método de extensão `UseServiceFabricIntegration` no `IWebHostBuilder` que adiciona o middleware com reconhecimento do Service Fabric. Esse middleware configura o `ICommunicationListener` do Kestrel ou HttpSys para registrar uma URL de serviço exclusivo no Serviço de Nomenclatura do Service Fabric e valida solicitações do cliente para assegurar que os clientes se conectem ao serviço certo. Isso é necessário em um ambiente de host compartilhado como o Service Fabric, em que vários aplicativos Web podem ser executados na mesma máquina física ou virtual, mas não usam nomes de host exclusivos, para impedir que os clientes se conectem ao serviço errado por engano. Esse cenário é descrito em mais detalhes na próxima seção.
 
 ### <a name="a-case-of-mistaken-identity"></a>Um caso de identidade incorreta
 Independentemente do protocolo, as réplicas de serviço escutam em uma combinação de IP:porta exclusiva. Depois que uma réplica de serviço começa a escutar em um ponto de extremidade IP:porta, ela relata esse endereço do ponto de extremidade para o Serviço de Nomenclatura do Service Fabric, onde pode ser descoberto por clientes ou por outros serviços. Se os serviços usarem portas de aplicativos atribuídas dinamicamente, uma réplica de serviço poderá usar coincidentemente o mesmo ponto de extremidade IP:porta que outro serviço que estava anteriormente na mesma máquina física ou virtual. Isso pode fazer com que um cliente se conecte incorretamente ao serviço errado. Isso poderá acontecer se a seguinte sequência de eventos ocorrer:

@@ -7,17 +7,17 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: ff80130ebb9c4095d4a20202cdfabd9aaf1b1992
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d9fee56d7748cdfd34f982fe79467f7d61c54926
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831999"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35630174"
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Referência da API de coleta de dados de modelo do Azure Machine Learning
 
@@ -62,7 +62,7 @@ Consulte os detalhes da classe e dos parâmetros:
 
 ### <a name="parameters"></a>parâmetros
 
-| NOME | type | DESCRIÇÃO |
+| NOME | Tipo | DESCRIÇÃO |
 |-------------|------------|-------------------------|
 | model_name | string | o nome do modelo do qual os dados estão sendo coletados |
 | identificador | string | o local no código que identifica esses dados, ou seja 'RawInput' ou 'Prediction' |
@@ -92,7 +92,7 @@ Consulte os detalhes do método e dos parâmetros:
 
 ### <a name="parameters"></a>parâmetros
 
-| NOME | type | DESCRIÇÃO |
+| NOME | Tipo | DESCRIÇÃO |
 |-------------|------------|-------------------------|
 | input_data | vários tipos | os dados a serem coletados (atualmente aceita a lista de tipos, numpy.array, pandas.DataFrame, pyspark.sql.DataFrame). Para os tipos dataframe, se houver um cabeçalho com nomes de recurso, essas informações estarão incluídas no destino dos dados (sem a necessidade de passar explicitamente os nomes de recurso no construtor ModelDataCollector) |
 | user_correlation_id | string | uma ID de correlação opcional, que pode ser fornecida pelo usuário para correlacionar essa previsão |

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: andrl
-ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037865"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734464"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter a taxa de transferência de contêineres e banco de dados do Microsoft Azure Cosmos DB
 
@@ -61,7 +61,7 @@ Nas próximas seções, você apenderá as etapas necessárias para configurar a
 2. No painel de navegação esquerdo, selecione **Todos os recursos** e localizar sua conta do Azure Cosmos DB.  
 3. Você pode configurar a produtividade durante a criação de um banco de dados ou atualizar a produtividade para um banco de dados existente.  
 4. Para atribuir a produtividade durante a criação de um banco de dados, abra a folha do **Data Explorer** e selecione **Novo banco de dados**  
-5. Preencher o valor **id de banco de dados**, marque a opção **Provisionar produtividade** e configure o valor da produtividade. Um banco de dados pode ser provisionado com o valor de produtividade mínima 50.000 RU/s.  
+5. Preencher o valor **id de banco de dados**, marque a opção **Provisionar produtividade** e configure o valor da produtividade.  
 
    ![Definir a produtividade com a opção novo banco de dados](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -74,7 +74,7 @@ Nas próximas seções, você apenderá as etapas necessárias para configurar a
 1. Entre no [Portal do Azure](https://portal.azure.com).  
 2. No painel de navegação esquerdo, selecione **Todos os recursos** e localizar sua conta do Azure Cosmos DB.  
 3. Crie um banco de dados e atribua a produtividade para ele. Abra a folha **Data Explorer** e selecione **Novo banco de dados**  
-4. Preencher o valor **id de banco de dados**, marque a opção **Provisionar produtividade** e configure o valor da produtividade. Um banco de dados pode ser provisionado com o valor de produtividade mínima 50.000 RU/s.  
+4. Preencher o valor **id de banco de dados**, marque a opção **Provisionar produtividade** e configure o valor da produtividade.  
 
    ![Definir a produtividade com a opção novo banco de dados](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -108,39 +108,12 @@ Considere provisionar a produtividade em um contêiner individual nos seguintes 
 
 * Se você deseja obter a produtividade garantida em um determinado contêiner apoiado por SLA.
 
-## <a name="throughput-ranges"></a>Intervalos de produtividade
-
-A tabela a seguir lista a produtividade disponível para cada contêiner:
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>Contêiner de partição única</strong></p></td>
-            <td valign="top"><p><strong>Contêiner particionado</strong></p></td>
-            <td valign="top"><p><strong>Conjunto de contêineres</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Produtividade mínima</p></td>
-            <td valign="top"><p>400 unidades de solicitação por segundo</p></td>
-            <td valign="top"><p>1.000 unidades de solicitação por segundo</p></td>
-            <td valign="top"><p>50.000 unidades de solicitação por segundo</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Produtividade máxima</p></td>
-            <td valign="top"><p>10.000 unidades de solicitação por segundo</p></td>
-            <td valign="top"><p>Ilimitado</p></td>
-            <td valign="top"><p>Ilimitado</p></td>
-        </tr>
-    </tbody>
-</table>
-
 <a id="set-throughput-sdk"></a>
 
 ## <a name="set-throughput-by-using-sql-api-for-net"></a>Definir a produtividade usando a API do SQL do .NET
 
 ### <a name="set-throughput-at-the-container-level"></a>Definir a taxa de transferência no nível do contêiner
-Segue um trecho de código para criar um contêiner com 3.000 unidades de solicitação por segundo para um contêiner individual usando SDK do .NET da API do SQL:
+Segue um snippet de código para criar um contêiner com 3.000 unidades de solicitação por segundo para um contêiner individual usando SDK do .NET da API do SQL:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -155,7 +128,7 @@ await client.CreateDocumentCollectionAsync(
 
 ### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>Definir taxa de transferência para um conjunto de contêineres no nível do banco de dados
 
-Segue um trecho de código para provisionar 100.000 unidades de solicitação por segundo em um conjunto de contêineres usando SDK do .NET da API do SQL:
+Segue um snippet de código para provisionar 100.000 unidades de solicitação por segundo em um conjunto de contêineres usando SDK do .NET da API do SQL:
 
 ```csharp
 // Provision 100,000 RU/sec at the database level. 
@@ -184,7 +157,7 @@ await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollectio
 
 O Microsoft Azure Cosmos DB opera em um modelo de reserva na produtividade. Ou seja, você será cobrado pela quantidade de produtividade *reservada*, independentemente do quanto da produtividade estiver em *uso*. À medida que a carga, os dados e os padrões de uso do aplicativo mudarem, você poderá aumentar ou reduzir verticalmente o número de RUs reservadas por meio de SDKs ou usando o [Portal do Azure](https://portal.azure.com).
 
-Cada contêiner, ou conjunto de contêineres, é mapeado para um recurso `Offer` no Azure Cosmos DB, que tem metadados sobre a produtividade provisionada. Altere a produtividade alocada procurando o recurso de oferta correspondente de um contêiner e, em seguida, atualizando-o com o novo valor de produtividade. Aqui está um trecho de código para alterar a taxa de transferência de um contêiner para 5.000 unidades de solicitação por segundo usando o SDK do .NET. Após alterar a taxa de transferência, atualize todas as janelas existentes do portal do Azure para a taxa de transferência alterada a ser exibida. 
+Cada contêiner, ou conjunto de contêineres, é mapeado para um recurso `Offer` no Azure Cosmos DB, que tem metadados sobre a produtividade provisionada. Altere a produtividade alocada procurando o recurso de oferta correspondente de um contêiner e, em seguida, atualizando-o com o novo valor de produtividade. Aqui está um snippet de código para alterar a taxa de transferência de um contêiner para 5.000 unidades de solicitação por segundo usando o SDK do .NET. Após alterar a taxa de transferência, atualize todas as janelas existentes do portal do Azure para a taxa de transferência alterada a ser exibida. 
 
 ```csharp
 // Fetch the resource to be updated
@@ -207,7 +180,7 @@ Não há nenhum impacto sobre a disponibilidade do contêiner, ou conjunto de co
 
 ## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>Para definir a taxa de transferência usando a API do SQL do Java
 
-O trecho de código a seguir recupera a taxa de transferência atual e o altera para 500 RU/s. Para obter um exemplo de código completo, consulte o arquivo [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) no GitHub. 
+O snippet de código a seguir recupera a taxa de transferência atual e o altera para 500 RU/s. Para obter um exemplo de código completo, consulte o arquivo [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) no GitHub. 
 
 ```Java
 // find offer associated with this collection

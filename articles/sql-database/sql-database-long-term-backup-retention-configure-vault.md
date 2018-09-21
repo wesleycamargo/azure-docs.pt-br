@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: feefe68fbe6681ee4b450503606ac8c4f25d5a39
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: c908e73a225f90227f09a8bb806a62c690de7632
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130253"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718841"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configurar e restaurar de uma retenção de backup de longo prazo do Banco de Dados SQL do Azure usando o Cofre dos Serviços de Recuperação do Azure
 
@@ -181,10 +181,10 @@ Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGro
 
 ### <a name="create-a-retention-policy"></a>Criar uma política de retenção
 
-Em uma política de retenção, você define por quanto tempo um backup de banco de dados deve ser mantido. Use o cmdlet [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) para obter a política de retenção padrão a ser usada como modelo para criação de políticas. Neste modelo, o período de retenção é definido para 2 anos. Em seguida, execute o [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) para finalmente criar a política. 
+Em uma política de retenção, você define por quanto tempo um backup de banco de dados deve ser mantido. Use o cmdlet [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) para obter a política de retenção padrão a ser usada como modelo para criação de políticas. Neste modelo, o período de retenção é definido para 2 anos. Em seguida, execute o [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) para finalmente criar a política. 
 
 > [!NOTE]
-> Alguns cmdlets exigem que você defina o contexto de cofre antes da execução ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)); portanto, esse cmdlet é visto em alguns trechos de código relacionados. Você define o contexto porque a política faz parte do cofre. Você pode criar várias políticas de retenção para cada compartimento e aplicar a política desejada a bancos de dados específicos. 
+> Alguns cmdlets exigem que você defina o contexto de cofre antes da execução ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)); portanto, esse cmdlet é visto em alguns snippets de código relacionados. Você define o contexto porque a política faz parte do cofre. Você pode criar várias políticas de retenção para cada compartimento e aplicar a política desejada a bancos de dados específicos. 
 
 
 ```PowerShell

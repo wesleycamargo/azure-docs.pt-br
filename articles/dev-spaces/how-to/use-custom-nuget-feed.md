@@ -11,12 +11,12 @@ ms.topic: article
 description: Use um feed NuGet personalizado para acessar e usar os pacotes NuGet em um Azure Dev Space.
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
 manager: ghogen
-ms.openlocfilehash: 3badd15bcfd09c97b43744a20c5df05f4ff57e84
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04b89f6d12c58e2f4915a84d3e0a7988d0e3192f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199102"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579168"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Use um feed NuGet personalizado em um Azure Dev Space
 
@@ -25,7 +25,7 @@ Um feed NuGet fornece uma maneira conveniente de incluir fontes de pacotes em um
 ## <a name="set-up-a-nuget-feed"></a>Configurar um feed NuGet
 
 Para configurar um feed NuGet:
-1. Adicione uma [referência de pacote](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files) no arquivo `*.csproj` no nó `PackageReference`.
+1. Adicione uma [referência de pacote](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) no arquivo `*.csproj` no nó `PackageReference`.
 
    ```xml
    <ItemGroup>
@@ -35,7 +35,7 @@ Para configurar um feed NuGet:
    </ItemGroup>
    ```
 
-2. Crie um arquivo [NuGet.Config](https://docs.microsoft.com/en-us/nuget/reference/nuget-config-file) na pasta do projeto.
+2. Crie um arquivo [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) na pasta do projeto.
      * Use a seção `packageSources` para referenciar o local do feed NuGet. Importante: o feed NuGet deve estar publicamente acessível.
      * Use a seção `packageSourceCredentials` para configurar credenciais de nome de usuário e senha. 
 
@@ -54,7 +54,7 @@ Para configurar um feed NuGet:
 
 3. Se você estiver usando o controle do código-fonte:
     - Referencie `NuGet.Config`no arquivo `.gitignore` para que você não confirme credenciais acidentalmente no repositório de origem.
-    - Abra o arquivo `azds.yaml` no projeto, localize a seção `build` e insira o trecho de código a seguir para garantir que o arquivo `NuGet.Config` seja sincronizado com o Azure e utilizado durante o processo de compilação da imagem do container. (Por padrão, o Azure Dev Spaces não sincroniza arquivos que correspondam às regras `.gitignore` e `.dockerignore`.)
+    - Abra o arquivo `azds.yaml` no projeto, localize a seção `build` e insira o snippet de código a seguir para garantir que o arquivo `NuGet.Config` seja sincronizado com o Azure e utilizado durante o processo de compilação da imagem do container. (Por padrão, o Azure Dev Spaces não sincroniza arquivos que correspondam às regras `.gitignore` e `.dockerignore`.)
 
         ```yaml
         build:

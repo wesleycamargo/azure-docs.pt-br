@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: a85cd5287f6947ec17dc19291a70d6dd081e1827
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035853"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578490"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 A opção de publicação que você escolher para a oferta estará relacionada diretamente aos requisitos de qualificação e benefícios de GTM do Marketplace. Mais importante, a seleção de opção de publicação e o tipo de oferta no Portal do Cloud Partner definem como será a interação dos usuários com sua oferta do Marketplace.
@@ -80,7 +80,7 @@ Antes de criar uma oferta, você deve escolher um tipo de oferta. O tipo de ofer
 
 Um único tipo de oferta pode ser configurado diferentemente no Portal do Cloud Partner para habilitar diferentes opções de publicação, chamadas de ação, preços ou provisionamento. A opção de publicação e a configuração do tipo de oferta também são alinhados aos requisitos técnicos e de qualificação da oferta. 
 
-Verifique se você examinou os requisitos de qualificação de tipo de oferta e de vitrine neste [Guia do Editor](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide) e os requisitos técnicos de publicação antes de criar sua oferta.
+Verifique se você examinou os requisitos de qualificação de tipo de oferta e de vitrine neste [Guia do Editor](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) e os requisitos técnicos de publicação antes de criar sua oferta.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,12 +11,12 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 6347500b8968394a922969dd3dd2f00dd51cb6dd
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 920b019640df9d2da174101e2b1b90dfd4da6f56
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034230"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578728"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ajuste distribuído de hiperparâmetros usando o Azure Machine Learning Workbench
 
@@ -35,7 +35,7 @@ Uma técnica popular para ajustar hiperparâmetros é uma *pesquisa de grade* co
 
 A pesquisa de grade usando validação cruzada pode ser demorada. Se um algoritmo tiver cinco hiperparâmetros cada um com cinco valores candidatos, usamos K = 5 partições. Em seguida, completamos uma pesquisa de grade, treinando 5<sup>6</sup>= 15625 modelos. Felizmente, a grade de pesquisa usando a validação cruzada é um procedimento constrangedoramente paralelo e todos esses modelos podem ser treinados em paralelo.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
 * Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [Guia de início rápido de instalação e de criação](../service/quickstart-installation.md) para instalar o Workbench e criar contas.
@@ -157,7 +157,7 @@ Depois disso, selecione o contêiner do conjunto de dados da lista e clique no b
 
 O upload dos arquivos leva vários minutos, dependendo da sua conexão com a Internet. 
 
-Em nosso código, usamos o [SDK de Armazenamento do Microsoft Azure](https://docs.microsoft.com/en-us/python/azure/) para baixar o conjunto de dados do armazenamento de blobs para o ambiente de execução atual. O download é realizado em no arquivo load\_data() function from load_data.py. Para usar este código, é necessário substituir <ACCOUNT_NAME> e <ACCOUNT_KEY> pelo nome e pela chave primária de sua conta de armazenamento que hospeda o conjunto de dados. É possível visualizar o nome da conta no canto superior esquerdo da página do Azure da conta de armazenamento. Para obter a chave de conta, selecione Chaves de acesso na página de conta de armazenamento do Azure (consulte a primeira captura de tela na seção Ingestão de dados) e copie a cadeia de caracteres longa na primeira linha da coluna de chave:
+Em nosso código, usamos o [SDK de Armazenamento do Microsoft Azure](https://docs.microsoft.com/python/azure/) para baixar o conjunto de dados do armazenamento de blobs para o ambiente de execução atual. O download é realizado em no arquivo load\_data() function from load_data.py. Para usar este código, é necessário substituir <ACCOUNT_NAME> e <ACCOUNT_KEY> pelo nome e pela chave primária de sua conta de armazenamento que hospeda o conjunto de dados. É possível visualizar o nome da conta no canto superior esquerdo da página do Azure da conta de armazenamento. Para obter a chave de conta, selecione Chaves de acesso na página de conta de armazenamento do Azure (consulte a primeira captura de tela na seção Ingestão de dados) e copie a cadeia de caracteres longa na primeira linha da coluna de chave:
  
 ![chave de acesso](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 

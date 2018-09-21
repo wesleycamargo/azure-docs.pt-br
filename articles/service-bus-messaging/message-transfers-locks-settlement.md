@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: d4f387d484fe895d8b6c5196c3a5527947ee3925
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: de3f23f58ef34bdd5f9769f820d64ed7e00ca7d8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702054"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715067"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagem, bloqueios e liquidação
 
@@ -62,12 +62,12 @@ for (int i = 0; i < 100; i++)
 {
   tasks.Add(client.SendAsync(…));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 É importante observar que todos os modelos de programação assíncrona usam alguma forma de fila de trabalho oculta e baseada na memória que contém todas as operações pendentes. Quando [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) ou **Enviar** (Java) retornam, a tarefa de envio é enfileirada na fila de trabalho, mas protocolo só começa quando é a vez da tarefa ser executada. Em caso de código que tende a enviar picos de mensagens por push, e quando a questão da confiabilidade for importante, é preciso ter cuidado para não colocar todas as mensagens “em trânsito” ao mesmo tempo, já que todas as mensagens enviadas ocupam memória até serem efetivamente enviadas.
 
-Semáforos, conforme mostrado no trecho de código em C# a seguir, são objetos de sincronização que permitem essa limitação no nível do aplicativo quando necessário. Esse uso do semáforo permite no máximo 10 mensagens em trânsito ao mesmo tempo. Um dos 10 bloqueios de semáforo disponíveis é usado antes do envio e liberado quando o envio é concluído. A 11ª passagem pelo loop aguarda até que um dos envios anteriores seja concluído para liberar seu bloqueio:
+Semáforos, conforme mostrado no snippet de código em C# a seguir, são objetos de sincronização que permitem essa limitação no nível do aplicativo quando necessário. Esse uso do semáforo permite no máximo 10 mensagens em trânsito ao mesmo tempo. Um dos 10 bloqueios de semáforo disponíveis é usado antes do envio e liberado quando o envio é concluído. A 11ª passagem pelo loop aguarda até que um dos envios anteriores seja concluído para liberar seu bloqueio:
 
 ```csharp
 var semaphore = new SemaphoreSlim(10);
@@ -79,7 +79,7 @@ for (int i = 0; i < 100; i++)
 
   tasks.Add(client.SendAsync(…).ContinueWith((t)=>semaphore.Release()));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 Os aplicativos **nunca** devem iniciar uma operação de envio assíncrono de forma a "disparar e esquecer", sem recuperar o resultado da operação. Isso pode sobrecarregar a memória da fila interna e invisível ao ponto de esgotamento e impedir que o aplicativo detecte erros de envio:

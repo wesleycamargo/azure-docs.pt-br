@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 618df9b4bcc4a1b6f44d9cabc29c797a2cabcc80
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 0d139437a069406db2ae0f189480072f8063a327
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366785"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982265"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecione os links inseridos no código para aplicativos publicados com o Proxy de Aplicativo do Azure AD
 
@@ -109,14 +109,14 @@ Começar a trabalhar com a translação de link é tão fácil quanto clicar em 
 2. Vá para **Azure Active Directory** > **Aplicativos empresariais** > **Todos os aplicativos** > selecione o aplicativo que deseja gerenciar > **Proxy de aplicativo**.
 3. Mude **Converter URLs no corpo do aplicativo** para **Sim**.
 
-   ![Selecione Sim para converter URLs no corpo do aplicativo](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png).
+   ![Selecione Sim para converter URLs no corpo do aplicativo](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
 4. Selecione **Salvar** para salvar suas alterações.
 
 Agora, quando os usuários acessarem esse aplicativo, o proxy examinará automaticamente para verificar a existência de URLs internas que foram publicadas por meio do Proxy de Aplicativo no locatário.
 
 ## <a name="send-feedback"></a>Enviar comentários
 
-Queremos sua ajuda para fazer esse recurso funcionar para todos os seus aplicativos. Podemos pesquisar mais de 30 marcas em HTML e CSS. Se você tiver um exemplo de links gerados que não estão sendo convertidos, envie um trecho de código para [Comentários de Proxy de Aplicativo](mailto:aadapfeedback@microsoft.com). 
+Queremos sua ajuda para fazer esse recurso funcionar para todos os seus aplicativos. Podemos pesquisar mais de 30 marcas em HTML e CSS. Se você tiver um exemplo de links gerados que não estão sendo convertidos, envie um snippet de código para [Comentários de Proxy de Aplicativo](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Usar domínios personalizados com o Proxy de Aplicativo do Azure AD](application-proxy-configure-custom-domain.md) para ter a mesma URL interna e externa

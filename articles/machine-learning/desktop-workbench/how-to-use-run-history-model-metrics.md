@@ -7,16 +7,16 @@ ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: df29117235e890a9b20619744df6320f298a73b2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 34fe72087a3de133d65ea4a4737ab5dba45242f4
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831856"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35630321"
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Como usar o Histórico de Execuções e as Métricas do Modelo no Azure Machine Learning Workbench
 
@@ -25,7 +25,7 @@ O **Histórico de Execuções** fornece um meio para rastrear as saídas de seus
 **Métricas de Modelo** podem ser registradas em log de qualquer ponto dos seus scripts, acompanhando quaisquer valores que sejam mais importantes em seus experimentos de ciência de dados.
 Este artigo descreve como usar de maneira eficiente esses recursos para aumentar a velocidade e a qualidade da sua experimentação de ciência de dados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para percorrer este guia de instruções, você precisa:
 * [Criar e instalar o Azure Machine Learning](../service/quickstart-installation.md)
 - [Criar um projeto](../service/quickstart-installation.md)

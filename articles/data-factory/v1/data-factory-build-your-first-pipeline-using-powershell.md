@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f3c68fefc5cff2eafc969d11353e78eac8980e7f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 3972dd7031e25f20a2ef6bfb66b63fe3f3b0290b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096341"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732475"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Compilar seu primeiro data factory do Azure usando o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -119,7 +119,7 @@ Nesta etapa, você vincula a conta do Armazenamento do Azure ao data factory. Vo
         }
     }
     ```
-    Substitua o **nome da conta** pelo nome da conta do Armazenamento do Azure e a **chave de conta** pela chave de acesso da sua conta do Armazenamento do Azure. Para saber como conseguir sua chave de acesso de armazenamento, consulte as informações sobre como exibir, copiar e regenerar chaves de acesso de armazenamento em [Gerenciar sua conta de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+    Substitua o **nome da conta** pelo nome da conta do Armazenamento do Azure e a **chave de conta** pela chave de acesso da sua conta do Armazenamento do Azure. Para saber como conseguir sua chave de acesso de armazenamento, consulte as informações sobre como exibir, copiar e regenerar chaves de acesso de armazenamento em [Gerenciar sua conta de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
 2. No Azure PowerShell, alterne para a pasta ADFGetStarted.
 3. Você pode usar o cmdlet **New-AzureRmDataFactoryLinkedService** que cria um serviço vinculado. Esse cmdlet e outros cmdlets de Data Factory que você usa neste tutorial exigem que os valores sejam passados aos parâmetros *ResourceGroupName* e *DataFactoryName*. Como alternativa, você pode usar **Get-AzureRmDataFactory** para obter um objeto **DataFactory** e passá-lo sem digitar *ResourceGroupName* e *DataFactoryName* sempre que executar um cmdlet. Execute o comando a seguir para atribuir a saída do cmdlet **Get-AzureRmDataFactory** a uma variável **$df**.
 
@@ -158,7 +158,7 @@ Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data facto
         }
     }
     ```
-    A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+    A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
    | Propriedade | DESCRIÇÃO |
    |:--- |:--- |
@@ -212,7 +212,7 @@ Nesta etapa, você cria conjuntos de dados para representar dados de entrada e d
     ```
     O JSON define um conjunto de dados chamado **AzureBlobInput**, que representa dados de entrada para uma atividade no pipeline. Além disso, ele especifica que os dados de entrada estão localizados no contêiner de blob denominado **adfgetstarted** e na pasta chamada **inputdata**.
 
-    A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+    A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
    | Propriedade | DESCRIÇÃO |
    |:--- |:--- |
@@ -315,7 +315,7 @@ Nesta etapa, você cria seu primeiro pipeline com a atividade **HDInsightHive** 
         }
     }
     ```
-    No trecho de JSON, você cria um pipeline que consiste de uma única atividade que usa o Hive para processar dados em um cluster HDInsight.
+    No snippet de JSON, você cria um pipeline que consiste de uma única atividade que usa o Hive para processar dados em um cluster HDInsight.
 
     O arquivo de script do Hive, **partitionweblogs.hql**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService chamado **StorageLinkedService**) e na pasta **script** no contêiner **adfgetstarted**.
 

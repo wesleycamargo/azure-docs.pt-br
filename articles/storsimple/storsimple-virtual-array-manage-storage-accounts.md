@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: a4ce2d329d0e1399cffaf886adf2b95e34b9cd7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2b6b7a5d2baf9e46cca18aec97f31beda1e2a38
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111704"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736726"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar credenciais da conta de armazenamento para o StorSimple Virtual Array
 
@@ -62,7 +62,7 @@ Você pode criar várias contas para um provedor de serviços de nuvem específi
 
 Use os procedimentos a seguir para adicionar as credenciais de conta de armazenamento do Azure:
 
-* Para adicionar uma credencial de conta de armazenamento com a mesma assinatura do Azure como o serviço do Gerenciador de Dispositivos
+* Para adicionar uma credencial de conta de armazenamento com a mesma assinatura do Azure como o serviço Gerenciador de Dispositivos
 * Para adicionar uma credencial de conta de armazenamento do Azure que esteja fora da assinatura do serviço Gerenciador de Dispositivos
 
 #### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>Para adicionar uma credencial de conta de armazenamento com a mesma assinatura do Azure como o serviço do Gerenciador de Dispositivos
@@ -110,7 +110,7 @@ Você pode editar uma credencial de conta de armazenamento usada pelo seu dispos
 4. Na folha **Propriedades** da credencial de conta de armazenamento, faça o seguinte:
    
    1. Se necessário, você poderá modificar a seleção **Habilitar modo SSL** .
-   2. Você pode escolher gerar novamente as chaves de acesso da credencial de conta de armazenamento. Para obter mais informações, confira [Regenerar as chaves da conta de armazenamento](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys). Forneça a nova chave de credencial de conta de armazenamento. Para uma conta de armazenamento do Azure, essa é a chave de acesso principal.
+   2. Você pode escolher gerar novamente as chaves de acesso da credencial de conta de armazenamento. Para obter mais informações, confira [Regenerar as chaves da conta de armazenamento](../storage/common/storage-account-manage.md#access-keys). Forneça a nova chave de credencial de conta de armazenamento. Para uma conta de armazenamento do Azure, essa é a chave de acesso principal.
    3. Clique em **Salvar** na parte superior da folha **Propriedades** para salvar as configurações. As configurações são atualizadas na folha **Credenciais de conta de armazenamento**.
       
       ![Editar uma credencial de conta de armazenamento](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)

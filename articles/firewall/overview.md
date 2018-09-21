@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 7/16/2018
 ms.author: victorh
-ms.openlocfilehash: 3657b619dc57b994158c711c46d4db6924aa2930
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5e8048dc6b49a0f6c9a465e82a7278e491351034
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089814"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574123"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
@@ -61,8 +61,8 @@ A versão prévia pública do Firewall do Azure tem os seguintes problemas conhe
 |---------|---------|---------|
 |Interoperabilidade com NSGs     |Se um NSG (Grupo de Segurança de Rede) for aplicado na sub-rede do firewall, poderá bloquear a conectividade de Internet de saída, mesmo se o NSG estiver configurado para permitir o acesso de internet de saída. As conexões de Internet de saída são marcadas como provenientes de uma VirtualNetwork e o destino é a Internet. Um NSG tem, por padrão, VirtualNetwork para VirtualNetwork como *permitir*, exceto quando o destino for a Internet.|Para atenuar, adicione a seguinte regra de entrada ao NSG, aplicada à sub-rede do firewall:<br><br>Fonte: VirtualNetwork Portas de origem: nenhuma <br><br>Destino: Qualquer um Portas de destino: qualquer uma <br><br>Protocolo: Todos Acesso: Permitir|
 |Conflito com o recurso JIT (Just-in-Time) da Central de Segurança do Azure (ASC)|Se uma máquina virtual for acessada usando JIT, e estiver em uma sub-rede com uma rota definida pelo usuário que aponta para o Firewall do Azure como gateway padrão, o ASC JIT não funcionará. Esse é o resultado do roteamento assimétrico – um pacote chega via IP público da máquina virtual (JIT abriu o acesso), mas o caminho de retorno ocorre por meio do firewall, que descarta o pacote porque nenhuma sessão é estabelecida no firewall.|Para contornar esse problema, coloque as máquinas virtuais JIT em uma sub-rede separada que não tem uma rota definida pelo usuário para o firewall.|
-|Hub e spoke com o emparelhamento global não funciona|Não há suporte para o modelo hub e spoke, no qual o hub e o firewall são implantados em uma região do Azure, e os spokes em outra região do Azure, conectados ao hub por meio do Emparelhamento de VNet Global.|Para saber mais, confira [Criar, alterar ou excluir um emparelhamento de rede virtual](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
-As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem de rede para protocolos não TCP/UDP não funcionam com o SNAT para seu endereço IP público. Protocolos não TCP/UDP têm suporte entre VNets e sub-redes spoke.|O Firewall do Azure usa o Standard Load Balancer [que não dá suporte a SNAT para protocolos IP](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-overview#limitations). Estamos explorando as opções para dar suporte a esse cenário em uma versão futura.
+|Hub e spoke com o emparelhamento global não funciona|Não há suporte para o modelo hub e spoke, no qual o hub e o firewall são implantados em uma região do Azure, e os spokes em outra região do Azure, conectados ao hub por meio do Emparelhamento de VNet Global.|Para saber mais, confira [Criar, alterar ou excluir um emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
+As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem de rede para protocolos não TCP/UDP não funcionam com o SNAT para seu endereço IP público. Protocolos não TCP/UDP têm suporte entre VNets e sub-redes spoke.|O Firewall do Azure usa o Standard Load Balancer [que não dá suporte a SNAT para protocolos IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Estamos explorando as opções para dar suporte a esse cenário em uma versão futura.
 
 
 

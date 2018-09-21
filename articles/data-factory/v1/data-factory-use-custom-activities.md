@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 044d47a294df4e218c84a928a63426dde4f8373b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 580dd5bf6a7e905927189f4b1ae42ab49a1cbc80
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053126"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730697"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,7 @@ O passo a passo a seguir fornece instruções para criar uma atividade personali
 > - Não é possível usar o Gateway de Gerenciamento de Dados de uma atividade personalizada para acessar fontes de dados locais. Atualmente, o [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) dá suporte apenas à atividade de cópia e à atividade de procedimento armazenado no Data Factory.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Passo a passo: criar uma atividade personalizada
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio 2012/2013/2015
 * Baixar e instalar o [SDK .NET do Azure](https://azure.microsoft.com/downloads/)
 
@@ -158,7 +158,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
     ```csharp
     namespace MyDotNetActivityNS
     ```
-7. Altere o nome da classe para **MyDotNetActivity** e derive-a da interface **IDotNetActivity**, conforme mostrado no trecho de código a seguir:
+7. Altere o nome da classe para **MyDotNetActivity** e derive-a da interface **IDotNetActivity**, conforme mostrado no snippet de código a seguir:
 
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
@@ -445,7 +445,7 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 2. Clique em **Novo armazenamento de dados** na barra de comandos e escolha **Armazenamento do Azure**. Você deve ver o script JSON para criar um serviço de armazenamento vinculado do Azure no editor.
     
     ![Novo armazenamento de dados – Armazenamento do Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Substitua o `<accountname>` pelo nome de sua conta de armazenamento do Azure e `<accountkey>` pela chave de acesso da conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Substitua o `<accountname>` pelo nome de sua conta de armazenamento do Azure e `<accountkey>` pela chave de acesso da conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
 
     ![Serviço vinculado do Armazenamento do Azure](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
@@ -487,7 +487,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
 
 #### <a name="create-input-dataset"></a>Criar conjunto de dados de entrada
 1. No **Editor** do Data Factory, clique em **... Mais** na barra de comandos, clique em **Novo conjunto de dados** e selecione **Armazenamento de Blobs do Azure** no menu suspenso.
-2. Substitua o JSON no painel direito pelo trecho de código JSON a seguir:
+2. Substitua o JSON no painel direito pelo snippet de código JSON a seguir:
 
     ```json
     {
@@ -515,7 +515,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
 
    A **frequência** e o **intervalo** do conjunto de dados de entrada são definidos como **Hora** e **1**, o que significa que a fatia de entrada está disponível por hora. Neste exemplo, é o mesmo arquivo (file.txt) na intputfolder.
 
-   Aqui estão as horas de início de cada fatia, representado pela variável de sistema SliceStart no trecho de código JSON acima.
+   Aqui estão as horas de início de cada fatia, representado pela variável de sistema SliceStart no snippet de código JSON acima.
 3. Clique em **Implantar** na barra de ferramentas para implantar o **InputDataset**. Confirme que você vê a mensagem **TABELA CRIADA COM ÊXITO** na barra de título do Editor.
 
 #### <a name="create-an-output-dataset"></a>Criar um conjunto de dados de saída

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 76448f57bf710dcb8b3b220cc06b3833a22a6295
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 236859cca623643b9bc7a4484f6ce4e6aa11aad6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058078"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579778"
 ---
 # <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Guia de publicação de oferta do Office 365, do Dynamics 365, do Power Apps e do Power BI
 
@@ -31,7 +31,7 @@ O AppSource tem ofertas de avaliação e de lista, com a chamada à ação "Entr
 
 ### <a name="office-365"></a>Office 365
 
-Revise o [processo e as diretrizes de publicação](https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store)
+Revise o [processo e as diretrizes de publicação](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store)
 
 ### <a name="power-apps"></a>Power Apps
 
@@ -39,15 +39,15 @@ Saiba mais sobre como os clientes podem fazer [test drive de seu aplicativo no A
 
 ### <a name="power-bi"></a>Power BI
 
-Revise o [processo e as diretrizes de publicação.](https://docs.microsoft.com/en-us/power-bi/developer/office-store)
+Revise o [processo e as diretrizes de publicação.](https://docs.microsoft.com/power-bi/developer/office-store)
 
 ### <a name="dynamics-365"></a>Dynamics 365
 
 #### <a name="dynamics-365-for-finance-and-operations"></a>Dynamics 365 for Finance and Operations
-Ao compilar para a Enterprise Edition, revise o [processo e as diretrizes de publicação](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+Ao compilar para a Enterprise Edition, revise o [processo e as diretrizes de publicação](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 ### <a name="dynamics-365-for-customer-engagement"></a>Dynamics 365 for Customer Engagement
-Revise o [processo e as diretrizes de publicação](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource)
+Revise o [processo e as diretrizes de publicação](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,16 +7,16 @@ ms.author: gokhanu
 manager: haining
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 1a4b6b803687b2c433ad94a54f076f23fe63c350
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 43bee297b917143c9014b28049c6dfa28727b757
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831305"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35632038"
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Arquivos de Configuração do Serviço de Experimentação do Azure Machine Learning
 
@@ -157,7 +157,7 @@ O arquivo _\<compute target name>.compute_ especifica informações de conexão 
 ### <a name="run-configuration-namerunconfig"></a>\<nome de configuração de execução>. runconfig
 _\<run configuration name>.runconfig_ especifica o comportamento de execução do experimento Azure ML. Você pode configurar os comportamentos de execução como acompanhar o histórico de execução ou qual destino de computação usar junto com muitos outros. Os nomes dos arquivos de configuração de execução são usados para preencher o menu suspenso do contexto de execução no aplicativo de área de trabalho do Azure ML Workbench.
 
-**ArgumentVector**: essa seção especifica o script a ser executado como parte dessa execução e os parâmetros do script. Por exemplo, se você tiver o trecho de código a seguir em seu arquivo "<run configuration name>. runconfig" 
+**ArgumentVector**: essa seção especifica o script a ser executado como parte dessa execução e os parâmetros do script. Por exemplo, se você tiver o snippet de código a seguir em seu arquivo "<run configuration name>. runconfig" 
 
 ```
  "ArgumentVector":[

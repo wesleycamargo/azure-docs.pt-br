@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 255f23906bc93ce78b28f4f0806d7076a97b0ef2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e002f99cc16721b78d85284105ce22ee7d1eb9a3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698682"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574820"
 ---
 # <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Início rápido: compilar um aplicativo Xamarin.Forms da API do MongoDB com o .NET e o Portal do Azure
 
@@ -77,9 +77,9 @@ Se não quiser usar o git, você também pode [baixar o projeto como um arquivo 
 
 ## <a name="review-the-code"></a>Examine o código
 
-Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-string).
+Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os snippets de código a seguir. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-string).
 
-Os trechos de código a seguir foram todos obtidos da classe `MongoService`, encontrada no seguinte caminho: src/TaskList.Core/Services/MongoService.cs.
+Os snippets de código a seguir foram todos obtidos da classe `MongoService`, encontrada no seguinte caminho: src/TaskList.Core/Services/MongoService.cs.
 
 * Inicialize o cliente Mongo.
     ```cs
@@ -173,7 +173,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 2. Clique em **Restaurar todos os pacotes NuGet**.
 3. Clique com botão direito em **TaskList.Android** e selecione **Definir como projeto de inicialização**.
 4. Pressione F5 para iniciar a depuração do aplicativo.
-5. Se você quiser executar no iOS, primeiro seu computador está conectado a um Mac (confira estas [instruções](https://docs.microsoft.com/en-us/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) sobre como fazer isso).
+5. Se você quiser executar no iOS, primeiro seu computador está conectado a um Mac (confira estas [instruções](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) sobre como fazer isso).
 6. Clique com botão direito no projeto **TaskList.Android** e selecione **Definir como projeto de inicialização**.
 7. Clique em F5 para começar a depuração do aplicativo.
 

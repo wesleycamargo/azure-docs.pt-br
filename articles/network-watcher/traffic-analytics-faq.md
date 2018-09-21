@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 9f7fb5009468dccae50190ee40a53d11040d0348
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903740"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578303"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
@@ -58,7 +58,7 @@ Para verificar funções atribuídas a um usuário para uma inscrição:
 
 3. Para listar todas as funções atribuídas a um usuário especificado, use **Get-AzureRmRoleAssignment -SignInName [email do usuário] -IncludeClassicAdministrators**. 
 
-Se você não estiver vendo nenhuma saída, entre em contato com o administrador da assinatura respectiva para obter acesso para executar os comandos. Para obter mais detalhes, consulte [ Gerenciar controle de acesso baseado em função com o Azure PowerShell ](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
+Se você não estiver vendo nenhuma saída, entre em contato com o administrador da assinatura respectiva para obter acesso para executar os comandos. Para obter mais detalhes, consulte [ Gerenciar controle de acesso baseado em função com o Azure PowerShell ](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Em quais regiões do Azure estão disponíveis análises de tráfego?
@@ -196,7 +196,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 A análise de tráfego é medida. A medição é baseada no processamento de dados de log de fluxo pelo serviço e no armazenamento dos logs aprimorados resultantes em um espaço de trabalho do Log Analytics. 
 
-Por exemplo, de acordo o [plano de preços](https://azure.microsoft.com/en-us/pricing/details/network-watcher/), considerando a região Central Oeste dos EUA, se os logs de fluxo de dados armazenados em uma conta de armazenamento processada pela Análise de Tráfego tiver 10 GB e os logs aprimorados ingeridos no espaço de trabalho do Log Analytics tiver 1 GB, os encargos aplicáveis serão: 10 x 2,3$ + 1 x 2,76$ = 25,76$
+Por exemplo, de acordo o [plano de preços](https://azure.microsoft.com/pricing/details/network-watcher/), considerando a região Central Oeste dos EUA, se os logs de fluxo de dados armazenados em uma conta de armazenamento processada pela Análise de Tráfego tiver 10 GB e os logs aprimorados ingeridos no espaço de trabalho do Log Analytics tiver 1 GB, os encargos aplicáveis serão: 10 x 2,3$ + 1 x 2,76$ = 25,76$
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Como posso navegar usando o teclado na vista de mapa geográfico?
 
@@ -208,8 +208,7 @@ A página do mapa geográfico contém duas seções principais:
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado no banner
     
 - Por padrão, a seleção na página de mapa geográfico do banner é o filtro "Azure DCs".
-- Para ir para outro filtro, use a tecla `Tab` ou `Right arrow`. Para retroceder, use a tecla `Shift+Tab` ou a `Left arrow`tecla.
- A navegação para frente é da esquerda para a direita, seguida de cima para baixo.
+- Para ir para outro filtro, use a tecla `Tab` ou `Right arrow`. Para retroceder, use a tecla `Shift+Tab` ou a `Left arrow`tecla. A navegação para frente é da esquerda para a direita, seguida de cima para baixo.
 - Pressione `Enter` ou a `Down` tecla de seta para aplicar o filtro selecionado. Com base na seleção e na implantação do filtro, um ou vários nós na seção do mapa são realçados.
 - Para alternar entre banner e mapa, pressione `Ctrl+F6`.
         

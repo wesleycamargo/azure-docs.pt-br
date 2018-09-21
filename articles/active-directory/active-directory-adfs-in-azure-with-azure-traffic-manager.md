@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-ms.openlocfilehash: e984d3d590021e3dd9e46d0f12493889b2acc229
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2ed0b551faba68c0956be89277348eeee60d759c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26604772"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298210"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Implantação do AD FS de alta disponibilidade entre fronteiras geográficas no Azure com o Gerenciador de Tráfego do Azure
-[implantação do AD FS no Azure](active-directory-aadconnect-azure-adfs.md) fornece orientação passo a passo sobre como você pode implantar uma infraestrutura do AD FS simples para sua organização no Azure. Este artigo fornece as etapas a seguir para criar uma implantação entre fronteiras geográficas do AD FS no Azure usando o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md). O Gerenciador de Tráfego do Azure ajuda a criar uma infraestrutura do AD FS de alto desempenho e alta disponibilidade entre fronteiras geográficas para sua organização, fazendo uso da gama de métodos de roteamento disponíveis para atender às diferentes necessidades da infraestrutura.
+[implantação do AD FS no Azure](hybrid/how-to-connect-fed-azure-adfs.md) fornece orientação passo a passo sobre como você pode implantar uma infraestrutura do AD FS simples para sua organização no Azure. Este artigo fornece as etapas a seguir para criar uma implantação entre fronteiras geográficas do AD FS no Azure usando o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md). O Gerenciador de Tráfego do Azure ajuda a criar uma infraestrutura do AD FS de alto desempenho e alta disponibilidade entre fronteiras geográficas para sua organização, fazendo uso da gama de métodos de roteamento disponíveis para atender às diferentes necessidades da infraestrutura.
 
 Uma infraestrutura altamente disponível do AD FS entre fronteiras geográficas habilita o seguinte:
 
@@ -45,7 +45,7 @@ Os princípios básicos de design serão os mesmos, conforme listado nos princí
 
 ## <a name="steps-to-integrate-azure-traffic-manager"></a>Etapas para integrar o Gerenciador de Tráfego do Azure
 ### <a name="deploy-ad-fs-in-the-new-geographical-region"></a>Implantar o AD FS na nova região geográfica
-Siga as etapas e diretrizes em [Implantação do AD FS no Azure](active-directory-aadconnect-azure-adfs.md) para implantar a mesma topologia na nova região geográfica.
+Siga as etapas e diretrizes em [Implantação do AD FS no Azure](hybrid/how-to-connect-fed-azure-adfs.md) para implantar a mesma topologia na nova região geográfica.
 
 ### <a name="dns-labels-for-public-ip-addresses-of-the-internet-facing-public-load-balancers"></a>Rótulos de DNS para endereços IP públicos dos balanceadores de carga (públicos) para a Internet
 Conforme mencionado acima, o Gerenciador de Tráfego do Azure só pode se referir aos rótulos DNS como pontos de extremidade. Portanto, é importante criar rótulos de DNS para os endereços IP públicos dos balanceadores de carga externos. A captura de tela abaixo mostra como você pode definir o rótulo de DNS para o endereço IP público. 
@@ -116,7 +116,7 @@ A maneira mais fácil de testar o AD FS é usar a página IdpInitiatedSignon.asp
     ![Teste de ADFS - êxito da autenticação](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
 
 ## <a name="related-links"></a>Links relacionados
-* [Implantação básica do AD FS no Azure](active-directory-aadconnect-azure-adfs.md)
+* [Implantação básica do AD FS no Azure](hybrid/how-to-connect-fed-azure-adfs.md)
 * [Gerenciador de Tráfego do Microsoft Azure](../traffic-manager/traffic-manager-overview.md)
 * [Métodos de roteamento de tráfego do Gerenciador de Tráfego](../traffic-manager/traffic-manager-routing-methods.md)
 

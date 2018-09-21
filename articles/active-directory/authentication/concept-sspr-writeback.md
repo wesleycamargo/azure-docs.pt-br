@@ -10,22 +10,22 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4f4c2ada08c69b6602ff5a300a15c4ca57090a8e
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42816046"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295828"
 ---
 # <a name="what-is-password-writeback"></a>O que é write-back de senha?
 
-Ter um utilitário de redefinição de senha baseado em nuvem é ótimo, mas a maioria das empresas ainda tem um diretório local em que os usuários existem. Como o suporte da Microsoft mantém o tradicional AD (Active Directory) local em sincronia com alterações de senha na nuvem? Write-back de senha é um recurso habilitado com [Azure AD Connect](./../connect/active-directory-aadconnect.md) que permite que as alterações de senha na nuvem possam efetuar write-back para um diretório local existente em tempo real.
+Ter um utilitário de redefinição de senha baseado em nuvem é ótimo, mas a maioria das empresas ainda tem um diretório local em que os usuários existem. Como o suporte da Microsoft mantém o tradicional AD (Active Directory) local em sincronia com alterações de senha na nuvem? Write-back de senha é um recurso habilitado com [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) que permite que as alterações de senha na nuvem possam efetuar write-back para um diretório local existente em tempo real.
 
 Há suporte de write-back de senha em ambientes que usam:
 
-* [Serviços de Federação do Active Directory (AD FS)](../connect/active-directory-aadconnect-federation-management.md)
-* [Sincronização de hash de senha](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [Autenticação de passagem](../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [Serviços de Federação do Active Directory (AD FS)](../hybrid/how-to-connect-fed-management.md)
+* [Sincronização de hash de senha](../hybrid/how-to-connect-password-hash-synchronization.md)
+* [Autenticação de passagem](../hybrid/how-to-connect-pta.md)
 
 O Write-back de senha fornece:
 

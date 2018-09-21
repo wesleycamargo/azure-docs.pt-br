@@ -7,18 +7,18 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 0ad4202f62aada30a8eab996858d3e972876e5f2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c47d9bc72ad1d197b5030076456f9dc9efc422bc
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831274"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35630302"
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Use transformações de dados para a preparação de dados no Azure Machine Learning
 

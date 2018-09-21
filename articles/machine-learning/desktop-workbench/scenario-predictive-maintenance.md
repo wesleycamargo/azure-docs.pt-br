@@ -7,17 +7,17 @@ ms.author: jehrling
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: f3f24a9b269205dd77ec3301b2650ee7a03f435b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a5531ae256a263f1c34496819ac435ce67156b49
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832689"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35630897"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Manutenção preditiva para cenários reais
 
@@ -38,7 +38,7 @@ Esse cenário utiliza ideias do [Guia estratégico de manutenção preditiva](ht
 
 O problema de negócios para esses dados simulados é prever problemas causados por falhas em componentes. A pergunta de negócios é "*Qual é a probabilidade de um computador ficar inoperante devido à falha de um componente?*" Esse problema é formatado como um problema de classificação multiclasse (vários componentes por computador). Um algoritmo de aprendizado de máquina é usado para criar o modelo preditivo. O modelo é treinado em dados históricos coletados dos computadores. Nesse cenário, o usuário passa por várias etapas de implementação do modelo no ambiente do Machine Learning Workbench.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
 * Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Siga o [Guia de instalação de Início Rápido](../service/quickstart-installation.md) para instalar o programa e criar um espaço de trabalho.

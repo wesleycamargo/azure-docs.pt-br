@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 807b8a17570dfdcefa07a42719b7b0b24e4f31d7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145045"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297155"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Recursos de dados de cliente do Azure Key Vault
 
@@ -37,7 +37,7 @@ As informações a seguir identificam os dados do cliente dentro do Azure Key Va
 - Contatos de certificado podem conter endereços de email do usuário, nomes ou números de telefone
 - Emissores de certificado podem conter endereços de email, nomes, números de telefone, credenciais de conta e detalhes organizacionais
 - Marcas arbitrárias podem ser aplicadas a objetos no Azure Key Vault. Esses objetos incluem cofres, chaves, segredos, certificados e contas de armazenamento. As marcas usadas podem conter dados pessoais
-- Os logs de acesso do Azure Key Vault contêm IDs de objeto, [UPNs](../active-directory/connect/active-directory-aadconnect-userprincipalname.md)e endereços IP para cada chamada à API REST
+- Os logs de acesso do Azure Key Vault contêm IDs de objeto, [UPNs](../active-directory/hybrid/plan-connect-userprincipalname.md)e endereços IP para cada chamada à API REST
 - Os logs de diagnóstico do Azure Key Vault podem conter IDs de objeto e endereços de IP para as chamadas de API REST
 
 ## <a name="deleting-customer-data"></a>Excluindo os dados do cliente

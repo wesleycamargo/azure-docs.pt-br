@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/7/2018
 ms.author: victorh
-ms.openlocfilehash: e95617664ee30f1b9253f1892176fd39649ee2c2
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0812f5e3e23fbf49afec91524b4de2ff0eb7cd9a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174625"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574174"
 ---
 # <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 
 O DNS do Azure é um serviço de hospedagem para domínios DNS, fornecendo resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e cobrança que seus outros serviços do Azure.
 
-Você não pode usar o DNS do Azure para comprar um nome de domínio. Por uma taxa anual, você pode comprar um nome de domínio usando [Aplicativos Web do Azure](https://docs.microsoft.com/en-us/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) ou um registrador de nome de domínio de terceiros. Seus domínios, em seguida, podem ser hospedados no DNS do Azure para gerenciamento de registros. Consulte [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
+Você não pode usar o DNS do Azure para comprar um nome de domínio. Por uma taxa anual, você pode comprar um nome de domínio usando [Aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) ou um registrador de nome de domínio de terceiros. Seus domínios, em seguida, podem ser hospedados no DNS do Azure para gerenciamento de registros. Consulte [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
 
 Os recursos abaixo estão incluídos com o DNS do Azure:
 
@@ -30,11 +30,11 @@ Domínios DNS no DNS do Azure são hospedados na rede global do Azure de servido
 
 O serviço DNS do Azure baseia-se no Azure Resource Manager. Dessa forma, você obtém recursos do Gerenciador de Recursos, como:
 
-* [controle de acesso baseado em função](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#access-control): para controlar quem tem acesso a ações específicas da sua organização.
+* [controle de acesso baseado em função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control): para controlar quem tem acesso a ações específicas da sua organização.
 
-* [log de atividades](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#activity-logs): para monitorar como um usuário em sua organização modificou um recurso ou para encontrar um erro ao solucionar problemas.
+* [log de atividades](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs): para monitorar como um usuário em sua organização modificou um recurso ou para encontrar um erro ao solucionar problemas.
 
-* [bloqueio de recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources): para bloquear uma assinatura, um recurso ou um grupo de recursos para impedir que outros usuários em sua organização excluam ou modifiquem recursos críticos acidentalmente.
+* [bloqueio de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources): para bloquear uma assinatura, um recurso ou um grupo de recursos para impedir que outros usuários em sua organização excluam ou modifiquem recursos críticos acidentalmente.
 
 Para saber mais, confira [Como proteger zonas e registros DNS](dns-protect-zones-recordsets.md). 
 

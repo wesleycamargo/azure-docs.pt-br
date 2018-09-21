@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: v-deasim
 ms.custom: ''
-ms.openlocfilehash: b52cad1f32cc3d16cf70bb81640dcb1d9f8614bf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 88739cb299e453e32c69f5d0d0189da849b345a7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133193"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573868"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar o failover em vários pontos de extremidade de CDN do Azure com o Gerenciador de Tráfego do Azure
 
@@ -46,7 +46,7 @@ Criar um perfil do Gerenciador de tráfego do Azure e configurar o balanceamento
 
     Para **método de roteamento**, selecione **prioridade**.
 
-2. Adicione seus pontos de extremidade CDN em seu perfil do Gerenciador de Tráfego seguindo as etapas em [Incluir pontos de extremidade do Gerenciador de Tráfego](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)
+2. Adicione seus pontos de extremidade CDN em seu perfil do Gerenciador de Tráfego seguindo as etapas em [Incluir pontos de extremidade do Gerenciador de Tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)
 
     Para **tipo**, selecione **pontos de extremidade externos**. Para **prioridade**, insira um número.
 
@@ -92,7 +92,7 @@ Depois de configurar seus perfis do CDN e do Gerenciador de Tráfego, siga estas
 Depois de concluir essas etapas, seu serviço de multi-CDN com recursos de failover é configurado com o Gerenciador de Tráfego do Azure. Você poderá acessar o teste de URLs do seu domínio personalizado. Para testar a funcionalidade, desative o ponto de extremidade CDN principal e verifique se a solicitação foi movida corretamente para o ponto de extremidade CDN secundário. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Você também pode configurar outros métodos de roteamento, como geográfico, para balancear a carga entre diferentes pontos finais da CDN. Para obter mais informações, consulte [Configurar o método de roteamento de tráfego geográfico usando o Gerenciador de Tráfego](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+Você também pode configurar outros métodos de roteamento, como geográfico, para balancear a carga entre diferentes pontos finais da CDN. Para obter mais informações, consulte [Configurar o método de roteamento de tráfego geográfico usando o Gerenciador de Tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
 
 
 

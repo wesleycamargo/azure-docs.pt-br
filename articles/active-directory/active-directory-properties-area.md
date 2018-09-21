@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
 ms.custom: it-pro
-ms.openlocfilehash: 8cdf30ed09601a31529073eaedd4ab53780157d5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: a34fa2b8c2d966af108664c219a222fb9a5b7abc
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077711"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35764628"
 ---
 # <a name="how-to-add-your-organizations-privacy-info-in-azure-active-directory"></a>Instruções: adicionar informações de privacidade da sua organização no Azure Active Directory
 Este artigo explica como um administrador de locatário pode adicionar informações relacionadas à privacidade para o locatário do Azure Active Directory (Azure AD) de uma organização, por meio do portal do Azure.
@@ -55,4 +55,4 @@ Este artigo explica como um administrador de locatário pode adicionar informaç
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Resgate do convite de colaboração do Azure Active Directory B2B](https://aka.ms/b2bredemption)
-- [Adicionar ou alterar as informações de perfil de um usuário no Azure Active Directory](/active-directory-users-profile-azure-portal.md)
+- [Adicionar ou alterar as informações de perfil de um usuário no Azure Active Directory](fundamentals/active-directory-users-profile-azure-portal.md)

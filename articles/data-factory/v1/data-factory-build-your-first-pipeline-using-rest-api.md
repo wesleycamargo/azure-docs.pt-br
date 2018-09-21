@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d0bb951e7392eb0f818ed0e9b5c17e203f94e753
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 91a85505eda34e11f0db9c5f3c46e33aad992ffe
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087843"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736692"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Criar seu primeiro data factory do Azure usando a API REST do Data Factory
 > [!div class="op_single_selector"]
@@ -85,7 +85,7 @@ Crie os arquivos JSON a seguir na pasta onde curl.exe está localizado.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Substitua **nome da conta** e **chave da conta** pelo nome e pela chave da sua conta de armazenamento do Azure. Para saber como conseguir sua chave de acesso de armazenamento, consulte as informações sobre como exibir, copiar e regenerar chaves de acesso de armazenamento em [Gerenciar sua conta de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+> Substitua **nome da conta** e **chave da conta** pelo nome e pela chave da sua conta de armazenamento do Azure. Para saber como conseguir sua chave de acesso de armazenamento, consulte as informações sobre como exibir, copiar e regenerar chaves de acesso de armazenamento em [Gerenciar sua conta de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
 >
 >
 
@@ -119,7 +119,7 @@ Crie os arquivos JSON a seguir na pasta onde curl.exe está localizado.
 }
 ```
 
-A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
@@ -165,7 +165,7 @@ Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linke
 
 O JSON define um conjunto de dados chamado **AzureBlobInput**, que representa dados de entrada para uma atividade no pipeline. Além disso, ele especifica que os dados de entrada estão localizados no contêiner de blob denominado **adfgetstarted** e na pasta chamada **inputdata**.
 
-A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
@@ -247,7 +247,7 @@ O JSON define um conjunto de dados chamado **AzureBlobOutput**, que representa d
 }
 ```
 
-No trecho de JSON, você cria um pipeline que consiste de uma única atividade que usa o Hive para processar dados em um cluster HDInsight.
+No snippet de JSON, você cria um pipeline que consiste de uma única atividade que usa o Hive para processar dados em um cluster HDInsight.
 
 O arquivo de script do Hive, **partitionweblogs.hql**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService chamado **StorageLinkedService**) e na pasta **script** no contêiner **adfgetstarted**.
 

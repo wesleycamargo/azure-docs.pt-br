@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ba12f22a7f0ac26ac2b9f29bb3a33a54d2705df3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5b6c0938fce928f2141eac1a03d43005a2247e74
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43089782"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730798"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Como criar uma data factory usando o Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -93,7 +93,7 @@ Com o serviço vinculado HDInsight sob demanda, o cluster do HDInsight é criado
 1. Clique com o botão direito do mouse em **Serviços Vinculados** no Gerenciador de Soluções, aponte para **Adicionar** e clique em **Novo Item**.      
 2. Na caixa de diálogo **Adicionar Novo Item**, selecione **Serviço Vinculado de Armazenamento do Azure** na lista e clique em **Adicionar**.
     ![Serviço vinculado de armazenamento do Azure](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
-3. Substitua `<accountname>` e `<accountkey>` pelo nome e chave da conta de armazenamento do Azure. Para saber como conseguir sua chave de acesso de armazenamento, consulte as informações sobre como exibir, copiar e regenerar chaves de acesso de armazenamento em [Gerenciar sua conta de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Substitua `<accountname>` e `<accountkey>` pelo nome e chave da conta de armazenamento do Azure. Para saber como conseguir sua chave de acesso de armazenamento, consulte as informações sobre como exibir, copiar e regenerar chaves de acesso de armazenamento em [Gerenciar sua conta de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
     ![Serviço vinculado de armazenamento do Azure](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Salve o arquivo **AzureStorageLinkedService1.json** .
 
@@ -118,7 +118,7 @@ Com o serviço vinculado HDInsight sob demanda, o cluster do HDInsight é criado
     }
     ```
 
-    A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+    A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
     Propriedade | DESCRIÇÃO
     -------- | ----------- 
@@ -140,7 +140,7 @@ Nesta etapa, você cria conjuntos de dados para representar dados de entrada e d
 #### <a name="create-input-dataset"></a>Criar conjunto de dados de entrada
 1. No **Gerenciador de Soluções**, clique com botão direito em **Tabelas**, aponte para **Adicionar**e clique em **Novo Item**.
 2. Selecione o **Blob do Azure** na lista, altere o nome do arquivo para **InputDataSet.json** e clique em **Adicionar**.
-3. Substitua o **JSON** no editor pelo seguinte trecho de código JSON:
+3. Substitua o **JSON** no editor pelo seguinte snippet de código JSON:
 
     ```json
     {
@@ -165,9 +165,9 @@ Nesta etapa, você cria conjuntos de dados para representar dados de entrada e d
         }
     }
     ```
-    Este trecho de JSON define um conjunto de dados chamado **AzureBlobInput** que representa dados de entrada para a atividade de hive no pipeline. Além disso, você especifica que os dados de entrada estão localizados no contêiner de blobs chamado `adfgetstarted` e na pasta chamada `inputdata`.
+    Este snippet de JSON define um conjunto de dados chamado **AzureBlobInput** que representa dados de entrada para a atividade de hive no pipeline. Além disso, você especifica que os dados de entrada estão localizados no contêiner de blobs chamado `adfgetstarted` e na pasta chamada `inputdata`.
 
-    A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+    A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
     Propriedade | DESCRIÇÃO |
     -------- | ----------- |
@@ -207,7 +207,7 @@ Agora, você cria o conjunto de dados de saída para representar os dados de sa�
         }
     }
     ```
-    O trecho JSON define um conjunto de dados chamado **AzureBlobOutput** que representa os dados de saída produzidos pela atividade de hive no pipeline. Você especifica que os dados de saída produzidos pela atividade de hive são colocados no contêiner de blobs `adfgetstarted` e na pasta `partitioneddata`. 
+    O snippet JSON define um conjunto de dados chamado **AzureBlobOutput** que representa os dados de saída produzidos pela atividade de hive no pipeline. Você especifica que os dados de saída produzidos pela atividade de hive são colocados no contêiner de blobs `adfgetstarted` e na pasta `partitioneddata`. 
     
     A seção **availability** especifica que o conjunto de dados de saída é produzido mensalmente. O conjunto de dados de saída conduzem a agenda do pipeline. O pipeline é executado mensalmente entre suas horas de início e término. 
 
@@ -219,7 +219,7 @@ Até o momento, você criou o serviço vinculado do armazenamento do Azure e con
 
 1. No **Gerenciador de Soluções**, clique com botão direito em **Pipelines**, aponte para **Adicionar** e clique em **Novo Item.**
 2. Selecione **Pipeline de Transformação do Hive** na lista e clique em **Adicionar**.
-3. Substitua o **JSON** pelo trecho a seguir:
+3. Substitua o **JSON** pelo snippet a seguir:
 
     > [!IMPORTANT]
     > Substitua `<storageaccountname>` com o nome da sua conta de armazenamento.
@@ -272,7 +272,7 @@ Até o momento, você criou o serviço vinculado do armazenamento do Azure e con
     > [!IMPORTANT]
     > Substitua `<storageaccountname>` com o nome da sua conta de armazenamento.
 
-    O trecho JSON define um pipeline que consiste em uma única atividade (atividade de hive). Esta atividade executa um script de hive para processar dados de entrada em um cluster do HDInsight sob demanda para gerar dados de saída. Na seção de atividades do pipeline JSON, você verá apenas uma atividade na matriz com o tipo definido como **HDInsightHive**. 
+    O snippet JSON define um pipeline que consiste em uma única atividade (atividade de hive). Esta atividade executa um script de hive para processar dados de entrada em um cluster do HDInsight sob demanda para gerar dados de saída. Na seção de atividades do pipeline JSON, você verá apenas uma atividade na matriz com o tipo definido como **HDInsightHive**. 
 
     Nas propriedades de tipo especificados para a atividade de Hive do HDInsight, você especifica o caminho, os parâmetros e qual serviço vinculado de armazenamento do Azure tem o arquivo de script do hive. 
 

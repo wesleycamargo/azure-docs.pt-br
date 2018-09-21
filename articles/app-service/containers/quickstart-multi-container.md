@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 6fa0bab5d2b402c85ea3ee70e7356f8c8c989ab9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1d54d914edb306b89dc6f2604aa5af3d17cb535d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446775"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576775"
 ---
 # <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Criar um aplicativo multicontêiner (versão prévia) usando Aplicativo Web para Contêineres do Azure
 
-O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornece uma maneira flexível de usar imagens do Docker. Este guia de início rápido mostra como implantar um aplicativo multicontêiner para o Aplicativo Web para Contêineres no [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) usando uma configuração do Docker Compose. Para Kubernetes e uma solução completa usando o BD do Azure para MySQL, siga o [tutorial sobre multicontêiner](tutorial-multi-container-app.md).
+O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornece uma maneira flexível de usar imagens do Docker. Este guia de início rápido mostra como implantar um aplicativo multicontêiner para o Aplicativo Web para Contêineres no [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) usando uma configuração do Docker Compose. Para Kubernetes e uma solução completa usando o BD do Azure para MySQL, siga o [tutorial sobre multicontêiner](tutorial-multi-container-app.md).
 
 Você concluirá este início rápido no Cloud Shell, mas também pode executar esses comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli) (2.0.32 ou posterior). 
 

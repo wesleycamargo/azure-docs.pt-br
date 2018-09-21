@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48e64f0cc65ade870425f73989209e8bef8ec8d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4c33466af6e57264e02a7d5c298f7f1f9fbf4ed8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630279"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717294"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Visão geral de dimensionamento automático com conjuntos de dimensionamento de máquinas virtuais do Azure
 Um conjunto de dimensionamento de máquinas virtuais do Azure pode aumentar ou diminuir automaticamente o número de instâncias de VM que executam o aplicativo. Esse comportamento automatizado e elástico reduz a sobrecarga de gerenciamento para monitorar e otimizar o desempenho do aplicativo. Você cria regras que definem o desempenho aceitável para uma experiência de cliente positiva. Quando esses limites definidos são atendidos, as regras de dimensionamento automático atuam para ajustar a capacidade do seu conjunto de dimensionamento. Você também pode agendar eventos para aumentar ou diminuir a capacidade do conjunto de dimensionamento automaticamente em horas fixas. Este artigo fornece uma visão geral das métricas disponíveis e de quais ações o dimensionamento automático pode executar.
@@ -40,7 +40,7 @@ Você pode criar regras de dimensionamento automático que incorporam métricas 
 
 As regras de dimensionamento automático que usam métricas baseadas em host podem ser tratadas com uma das ferramentas a seguir:
 
-- [Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
 - [PowerShell do Azure](tutorial-autoscale-powershell.md)
 - [CLI 2.0 do Azure](tutorial-autoscale-cli.md)
 - [Modelo do Azure](tutorial-autoscale-template.md)
@@ -106,7 +106,7 @@ Quando uma regra de dimensionamento automático é acionada, seu conjunto de dim
 | Aumentar a contagem em   | Um número fixo de instâncias de VM a serem criadas. Útil para conjuntos de dimensionamento com um número menor de VMs.                                           |
 | Aumentar porcentagem em | Um aumento das instâncias VM baseado em porcentagens. Bom para conjuntos de dimensionamento maiores em que um aumento fixo pode não melhorar o desempenho perceptivelmente. |
 | Aumentar a contagem para   | Crie quantas instâncias de VM forem necessárias para alcançar a quantidade máxima desejada.                                                            |
-| Reduzir contagem para   | Um número fixo de instâncias de VM a serem removidas. Útil para conjuntos de dimensionamento com um número menor de VMs.                                           |
+| Diminuir contagem por   | Um número fixo de instâncias de VM a serem removidas. Útil para conjuntos de dimensionamento com um número menor de VMs.                                           |
 | Reduzir porcentagem em | Uma redução de instâncias de VM baseada em porcentagens. Bom para conjuntos de dimensionamento maiores em que um aumento fixo pode não reduzir o consumo e os custos de recurso perceptivelmente. |
 | Reduzir contagem para   | Remova quantas instâncias de VM forem necessárias para alcançar a quantidade mínima desejada.                                                            |
 

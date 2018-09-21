@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 17b03ee9521ddf1980e27ee9a63d2ba74ea6e6b7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1686c283b0aa9f0713317b22e2ef2abd16e6b187
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629677"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579898"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar Logs de Diagnóstico do Azure
 
@@ -105,7 +105,7 @@ O argumento `--resource-group` somente será necessário se `--storage-account` 
 
 ## <a name="archive-diagnostic-logs-via-the-rest-api"></a>Arquivar logs de diagnóstico por meio da API REST
 
-[Confira este documento](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) para saber mais sobre como definir uma configuração de diagnóstico usando a API REST do Azure Monitor.
+[Confira este documento](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) para saber mais sobre como definir uma configuração de diagnóstico usando a API REST do Azure Monitor.
 
 ## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Esquema de logs de diagnóstico na conta de armazenamento
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: c5621d5e16e31104ee28cc521386a5c0ca290a8b
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 66494ca6bd9b4d8276469e85f4c6bb435ae245f7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187692"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716393"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Perguntas frequentes sobre os aceleradores de solução do IoT
 
@@ -73,10 +73,6 @@ Duas. Você só pode criar dois Bing Mapas de Transações Internas de Nível 1 
 > O Microsoft Azure para DreamSpark agora é conhecido como Microsoft Imagine para alunos.
 
 Atualmente, você não pode criar um acelerador de solução com uma conta do [Microsoft Azure para DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/). No entanto, você pode criar uma [conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos que permite a você criar um acelerador de solução.
-
-### <a name="can-i-create-a-solution-accelerator-if-i-have-cloud-solution-provider-csp-subscription"></a>Poderei criar um acelerador de solução se eu tiver uma assinatura do Provedor de Soluções na Nuvem (CSP)?
-
-Atualmente, não é possível criar um acelerador de solução com uma assinatura do Provedor de Soluções na Nuvem (CSP). No entanto, você pode criar uma [conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos que permite a você criar um acelerador de solução.
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>Como posso excluir um locatário do AAD?
 

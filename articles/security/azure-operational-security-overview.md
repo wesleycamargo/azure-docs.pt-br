@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 361905b4c1e0c9e596cb7cf1cd5a730268d81bd0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 706e946e61f7d5f48ce5071e90d724af717449d9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413402"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575211"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral de segurança operacional do Azure
 A [segurança operacional do Azure](https://docs.microsoft.com/azure/security/azure-operational-security) refere-se a serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros ativos no Microsoft Azure. É uma estrutura que incorpora o conhecimento adquirido por uma variedade de funcionalidades que são exclusivas à Microsoft. Essas funcionalidades incluem o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e um entendimento profundo do cenário de ameaças à segurança cibernética.
@@ -68,7 +68,7 @@ O Azure AD também inclui um pacote completo de [funcionalidades de gerenciament
 Com o Azure Active Directory, os aplicativos que você publica para seus parceiros e clientes (comerciais ou consumidores) têm as mesmas funcionalidades de gerenciamento de identidades e de acesso. Isso permite que você reduza significativamente os custos operacionais.
 
 ## <a name="azure-security-center"></a>Central de Segurança do Azure
-A [Central de Segurança do Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) ajuda você a prevenir, detectar e responder a ameaças com maior visibilidade e controle da segurança de seus recursos do Azure. Fornece monitoramento de segurança integrada e gerenciamento de política em suas assinaturas. Ela ajuda a detectar ameaças que poderiam não ser notadas de outra forma e funciona com um amplo ecossistema de soluções de segurança.
+A [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) ajuda você a prevenir, detectar e responder a ameaças com maior visibilidade e controle da segurança de seus recursos do Azure. Fornece monitoramento de segurança integrada e gerenciamento de política em suas assinaturas. Ela ajuda a detectar ameaças que poderiam não ser notadas de outra forma e funciona com um amplo ecossistema de soluções de segurança.
 
 [Proteja os dados de VM (máquina virtual)](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine) no Azure proporcionando visibilidade das configurações de segurança da máquina virtual e monitorando as ameaças. A Central de Segurança pode monitorar as máquinas virtuais para:
 

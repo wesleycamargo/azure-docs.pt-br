@@ -1,5 +1,5 @@
 ---
-title: Trabalhando com cadeias de caracteres em consultas de análise de Log do Azure | Microsoft Docs
+title: Trabalhar com cadeias de caracteres em consultas do Azure Log Analytics | Microsoft Docs
 description: Este artigo fornece um tutorial para usar o portal do Google Analytics para escrever consultas no Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -15,18 +15,19 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: f027754f26a9063aa5faa548fd01576624811005
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 1b9a8e4a8706dea43e33331cd196fbe2ad877a3a
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190633"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605548"
 ---
 # <a name="working-with-json-and-data-structures-in-log-analytics-queries"></a>Trabalhando com JSON e estruturas de dados em consultas do Log Analytics
 
 > [!NOTE]
 > Você deve concluir [Primeiros passos com o portal do Google Analytics](get-started-analytics-portal.md) e [Primeiros passos com as consultas](get-started-queries.md) antes de concluir esta lição.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Objetos aninhados são objetos que contêm outros objetos em uma matriz ou um mapa de pares de valores-chave. Esses objetos são representados como strings JSON. Este artigo descreve como o JSON é usado para recuperar dados e analisar objetos aninhados.
 
@@ -39,7 +40,7 @@ Use `extractjson` para acessar um elemento específico de JSON em um caminho con
 
 Use parênteses para índices e pontos para separar elementos:
 
-```OQL
+```KQL
 let hosts_report='{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}';
 print hosts_report
 | extend status = extractjson("$.hosts[0].status", hosts_report)
@@ -47,7 +48,7 @@ print hosts_report
 
 Este é o mesmo resultado usando apenas a notação de colchetes:
 
-```OQL
+```KQL
 let hosts_report='{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}';
 print hosts_report 
 | extend status = extractjson("$['hosts'][0]['status']", hosts_report)
@@ -55,7 +56,7 @@ print hosts_report
 
 Se houver apenas um elemento, você poderá usar apenas a notação de ponto:
 
-```OQL
+```KQL
 let hosts_report='{"location":"North_DC", "status":"running", "rate":5}';
 print hosts_report 
 | extend status = hosts_report.status
@@ -67,7 +68,7 @@ print hosts_report
 ### <a name="parsejson"></a>parsejson
 Para acessar vários elementos em sua estrutura json, é mais fácil acessá-lo como um objeto dinâmico. Use `parsejson` para converter dados de texto para um objeto dinâmico. Quando convertido em um tipo dinâmico, funções adicionais podem ser usadas para analisar os dados.
 
-```OQL
+```KQL
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | extend status0=hosts_object.hosts[0].status, rate1=hosts_object.hosts[1].rate
@@ -78,7 +79,7 @@ print hosts_object
 ### <a name="arraylength"></a>arraylength
 Use `arraylength` para contar o número de elementos em uma matriz:
 
-```OQL
+```KQL
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | extend hosts_num=arraylength(hosts_object.hosts)
@@ -87,7 +88,7 @@ print hosts_object
 ### <a name="mvexpand"></a>mvexpand
 Use `mvexpand` para dividir as propriedades de um objeto em linhas separadas.
 
-```OQL
+```KQL
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | mvexpand hosts_object.hosts[0]
@@ -98,7 +99,7 @@ print hosts_object
 ### <a name="buildschema"></a>buildschema
 Use `buildschema` para obter o esquema que admite todos os valores de um objeto:
 
-```OQL
+```KQL
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | summarize buildschema(hosts_object)
@@ -122,7 +123,7 @@ Esta saída descreve os nomes dos campos do objeto e seus tipos de dados corresp
 
 Objetos aninhados podem ter diferentes esquemas, como no exemplo a seguir:
 
-```OQL
+```KQL
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"status":"stopped", "rate":"3", "range":100}]}');
 print hosts_object 
 | summarize buildschema(hosts_object)

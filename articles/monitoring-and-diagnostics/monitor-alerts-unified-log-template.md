@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 588a0686eda1966582b82a4673a8b6805453c94c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6096833381db7ef0d2f011d517aaad4ae63ce4d6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441435"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576860"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Criar um alerta de log com um modelo do Resource Manager
 Este artigo mostra como você pode gerenciar [registrar alertas](monitor-alerts-unified-log.md) programaticamente em escala, no Azure usando [modelo do Azure Resource Manager](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) e [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md). No momento, Alertas do Azure dá suporte a alertas de log em consultas do [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) e do [Application Insights do Azure](../application-insights/app-insights-analytics-tour.md).
@@ -35,12 +35,12 @@ A API REST Alerta do Log Analytics é RESTful e pode ser acessada por meio da AP
 Saiba mais sobre [criar e gerenciar regras de alerta no Log Analytics com API REST](../log-analytics/log-analytics-api-alerts.md), inclusive exemplos de como acessar a API do Powershell.
 
 ## <a name="managing-log-alert-on-application-insights"></a>Gerenciar alerta de log no Application Insights
-Os alertas de log para o Application Insights do Azure foram introduzidos como parte dos novos alertas do Microsoft Azure no Azure Monitor. Portanto, é executado sob a API do Azure Monitor como o grupo operacional REST de [Regras de Consulta Agendada](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
+Os alertas de log para o Application Insights do Azure foram introduzidos como parte dos novos alertas do Microsoft Azure no Azure Monitor. Portanto, é executado sob a API do Azure Monitor como o grupo operacional REST de [Regras de Consulta Agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
 ### <a name="using-azure-resource-manager-template"></a>Usar o modelo do Azure Resource Manager
-O alerta de log para os recursos do Application Insights tem um tipo de `Microsoft.Insights/scheduledQueryRules/`. Para obter mais informações sobre esse tipo de recurso, consulte [Azure Monitor - referência da API de regras de consulta agendada](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
+O alerta de log para os recursos do Application Insights tem um tipo de `Microsoft.Insights/scheduledQueryRules/`. Para obter mais informações sobre esse tipo de recurso, consulte [Azure Monitor - referência da API de regras de consulta agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-Esta é a estrutura para [criação de Regras de Consulta Agendada](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) com base em modelo de recursos, com o conjunto de dados de exemplo como variáveis.
+Esta é a estrutura para [criação de Regras de Consulta Agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) com base em modelo de recursos, com o conjunto de dados de exemplo como variáveis.
 
 ```json
 {
@@ -113,7 +113,7 @@ Esta é a estrutura para [criação de Regras de Consulta Agendada](https://docs
 }
 ```
 > [!IMPORTANT]
-> Campo de marca com link oculto para o recurso de destino é obrigatório no uso de chamada API para [Regras de Consulta Agendada ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) ou recurso de modelo. 
+> Campo de marca com link oculto para o recurso de destino é obrigatório no uso de chamada API para [Regras de Consulta Agendada ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) ou recurso de modelo. 
 
 O json de exemplo acima podem ser salvo como (digamos) sampleScheduledQueryRule.json para fins deste passo a passo e pode ser implantado usando o [Azure Resource Manager no portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347113"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717211"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implantação de zip para o Azure Functions
 
@@ -89,9 +89,6 @@ Quando você estiver usando a CLI do Azure em seu computador local, `<zip_file_p
 ## <a name="run-functions-from-the-deployment-package"></a>Executar funções do pacote de implantação
 
 Você também pode optar por executar suas funções diretamente do arquivo do pacote de implantação. Este método ignora a etapa de implantação de copiar os arquivos do pacote para o diretório `wwwroot` de seu aplicativo de funções. Em vez disso, o arquivo de pacote é montado pelo tempo de execução do Azure Functions e o conteúdo do diretório `wwwroot` se torna somente leitura.  
-
-> [!NOTE]
-> O recurso de executar seu aplicativo de funções do pacote de implantação está na versão prévia.
 
 A implantação de zip integra-se com esse recurso, que você pode habilitar definindo a configuração do aplicativo de funções `WEBSITE_RUN_FROM_PACKAGE` com um valor de `1`. Para obter mais informações, veja [Executar suas funções de um arquivo de pacote de implantação](run-functions-from-deployment-package.md).
 

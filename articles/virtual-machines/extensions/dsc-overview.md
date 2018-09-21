@@ -3,7 +3,7 @@ title: Visão geral de configuração de estado desejado para o Azure
 description: Saiba como usar o manipulador de extensão do Microsoft Azure para Configuração de Estado Desejado (DSC) do PowerShell. O artigo inclui cmdlets, a arquitetura e os pré-requisitos.
 services: virtual-machines-windows
 documentationcenter: ''
-author: DCtheGeek
+author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
-ms.author: dacoulte
-ms.openlocfilehash: 60560a4a656d0ad5df15208261ab8462f4271ec5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: robreed
+ms.openlocfilehash: 18d6478763fd6551cc8baac6ea54e8d91f1a28e6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012437"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629961"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão de configuração do estado desejado do Azure
 
@@ -33,7 +33,7 @@ Você pode usar a extensão de DSC, independentemente do serviço de DSC de Auto
 
 Este artigo fornece informações sobre cenários: usar a extensão DSC para integração da Automação e usar a extensão de DSC como uma ferramenta para atribuir configurações a VMs usando o SDK do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Computador local**: Para interagir com a extensão de VM do Azure, você deve usar o Portal do Azure ou o SDK do Azure PowerShell.
 - **Agente convidado**: A VM do Azure que é configurada pela configuração do DSC deve ter um sistema operacional compatível com Windows Management Framework (WMF) 4.0 ou posterior. Para a lista completa de versões com suporte do sistema operacional, consulte o [Histórico de versões da extensão de DSC](/powershell/dsc/azuredscexthistory).

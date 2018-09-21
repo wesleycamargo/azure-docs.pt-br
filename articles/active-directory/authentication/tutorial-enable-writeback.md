@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 9512c800a35ad4a819c657b07227d781c63c6399
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: e91ca2ff438e3ae9e9b3f46e5a8db89f17fb1c8e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163250"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295114"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>Tutorial: Habilitar o write-back de senha
 
@@ -29,7 +29,7 @@ Neste tutorial, você habilitará o write-back de senha para seu ambiente híbri
 
 * Acesso a um locatário de trabalho do Azure AD com pelo menos uma licença de avaliação atribuída.
 * Uma conta com privilégios de Administrador Global em seu locatário do Azure AD.
-* Um servidor existente configurado executando uma versão atual do [Azure AD Connect](../connect/active-directory-aadconnect-get-started-express.md).
+* Um servidor existente configurado executando uma versão atual do [Azure AD Connect](../hybrid/how-to-connect-install-express.md).
 * Os tutoriais de redefinição de senha de autoatendimento (SSPR) anteriores foram concluídos.
 
 ## <a name="enable-password-writeback-option-in-azure-ad-connect"></a>Habilitar a opção de write-back de senha no Azure AD Connect

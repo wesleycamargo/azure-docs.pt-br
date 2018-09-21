@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 8cfa0e2a5aa1d7f560fe84f4eda18349f5d1d8b4
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4aeb37d656dcb5ebca1a48253c418186dfca0a7a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992061"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575400"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de backup periódico no Azure Service Fabric
 
@@ -182,19 +182,19 @@ As políticas de backup poderão ser desabilitadas quando não houver necessidad
 ## <a name="suspend--resume-backup"></a>Suspender e retomar o backup
 Uma determinada situação pode demandar a suspensão temporária do backup periódico de dados. Nessa situação, dependendo do requisito, a suspensão da API de backup pode ser usada em um _aplicativo_, em um _serviço_ ou em uma _partição_. A suspensão do backup periódico é transitiva na subárvore da hierarquia do aplicativo do ponto em que é aplicada. 
 
-* Quando a suspensão é aplicada em um _aplicativo_ usando a API [Suspender o backup do aplicativo](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendapplicationbackup), então todos os serviços e partições nesse aplicativo são suspensos para o backup periódico de dados.
+* Quando a suspensão é aplicada em um _aplicativo_ usando a API [Suspender o backup do aplicativo](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup), então todos os serviços e partições nesse aplicativo são suspensos para o backup periódico de dados.
 
-* Quando a suspensão é aplicada em um _serviço_ usando a API [Suspender o backup do serviço](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendservicebackup), então todas as partições nesse serviço são suspensas para o backup periódico dos dados.
+* Quando a suspensão é aplicada em um _serviço_ usando a API [Suspender o backup do serviço](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup), então todas as partições nesse serviço são suspensas para o backup periódico dos dados.
 
-* Quando a suspensão é aplicada em uma _partição_ usando a API [Suspender o backup da partição](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendpartitionbackup), então as partições nesse serviço são suspensas para o backup periódico dos dados.
+* Quando a suspensão é aplicada em uma _partição_ usando a API [Suspender o backup da partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup), então as partições nesse serviço são suspensas para o backup periódico dos dados.
 
 Depois que a necessidade de suspensão tiver acabado, então o backup periódico dos dados poderá ser restaurado usando a respectiva API retomar backup. O backup periódico deve ser retomado no mesmo _aplicativo_, _serviços_ ou _partição_ em que ele foi suspenso.
 
-* Se a suspensão foi aplicada em um _aplicativo_, ela deve ser retomada usando a API [Retomar backup de aplicativos](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeapplicationbackup). 
+* Se a suspensão foi aplicada em um _aplicativo_, ela deve ser retomada usando a API [Retomar backup de aplicativos](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup). 
 
-* Se a suspensão foi aplicada em um _serviço_, ela deve ser retomada usando a API [Retomar backup de serviços](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeservicebackup).
+* Se a suspensão foi aplicada em um _serviço_, ela deve ser retomada usando a API [Retomar backup de serviços](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup).
 
-* Se a suspensão foi aplicada em uma _partição_, ela deve ser retomada usando a API [Retomar backup de partições](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
+* Se a suspensão foi aplicada em uma _partição_, ela deve ser retomada usando a API [Retomar backup de partições](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
 
 ## <a name="auto-restore-on-data-loss"></a>Restauração automática em perda de dados
 A partição do serviço pode perder dados devido a falhas inesperadas. Por exemplo, o disco de duas entre três réplicas de uma partição (incluindo a réplica primária) é corrompido ou apagado.
@@ -202,7 +202,7 @@ A partição do serviço pode perder dados devido a falhas inesperadas. Por exem
 Quando o Service Fabric detecta que a partição está na perda de dados, ele invoca o método de interface `OnDataLossAsync` na partição e espera que ela execute a ação necessária para sair da perda de dados. Nessa situação, se a política de backup em vigor na partição tiver um sinalizador `AutoRestoreOnDataLoss` definido como `true`, então a restauração é será automaticamente usando o backup disponível mais recente para essa partição.
 
 ## <a name="get-backup-configuration"></a>Obter configuração de backup
-As APIs separadas são disponibilizadas para obter informações de configuração de backup em um escopo do _aplicativo_, do _serviço_ e da _partição_. [Obter informações de configuração de backup de aplicativo](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Obter informações de configuração de backup de serviço](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo) e [Obter informações de configuração de backup de partição](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) são essas APIs, respectivamente. Principalmente, essas APIs retornam a política de backup aplicável, escopo no qual a política de backup é aplicada e a suspensão de backup é detalhada. A seguir, há uma breve descrição sobre os resultados retornados dessas APIs.
+As APIs separadas são disponibilizadas para obter informações de configuração de backup em um escopo do _aplicativo_, do _serviço_ e da _partição_. [Obter informações de configuração de backup de aplicativo](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Obter informações de configuração de backup de serviço](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo) e [Obter informações de configuração de backup de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) são essas APIs, respectivamente. Principalmente, essas APIs retornam a política de backup aplicável, escopo no qual a política de backup é aplicada e a suspensão de backup é detalhada. A seguir, há uma breve descrição sobre os resultados retornados dessas APIs.
 
 - Informações de configuração de backup de aplicativo: fornece os detalhes da política de backup aplicada em aplicativo e todas as políticas substituídas em serviços e partições pertencentes ao aplicativo. Elas também incluem as informações de suspensão do aplicativo e seus serviços e partições.
 
@@ -218,11 +218,11 @@ Essas APIs também são compatíveis com a paginação dos resultados, quando o 
 
 A seguir, há informações breves sobre as variantes com suporte.
 
-- [Obter lista de backup do aplicativo](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): retorna uma lista de backups disponíveis para toda partição pertencente a um determinado aplicativo Service Fabric.
+- [Obter lista de backup do aplicativo](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): retorna uma lista de backups disponíveis para toda partição pertencente a um determinado aplicativo Service Fabric.
 
-- [Obter lista de backup do serviço](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackuplist): retorna uma lista de backups disponíveis para toda partição pertencente a um determinado serviço do Service Fabric.
+- [Obter lista de backup do serviço](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): retorna uma lista de backups disponíveis para toda partição pertencente a um determinado serviço do Service Fabric.
  
-- [Obter lista de backup da partição](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): retorna uma lista de backups disponíveis para a partição especificada.
+- [Obter lista de backup da partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): retorna uma lista de backups disponíveis para a partição especificada.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Referência da API REST de backup e restauração](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

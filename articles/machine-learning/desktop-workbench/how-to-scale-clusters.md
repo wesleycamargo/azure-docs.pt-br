@@ -7,17 +7,17 @@ ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 1f8dbe5ccae34ab185cbe5105ac793a0d401b48e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: e547d778ebf34b55c0c18921cf28e2a78fd269cc
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831659"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35630301"
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Dimensionamento do cluster para gerenciar a taxa de transferência do serviço Web
 
@@ -85,7 +85,7 @@ az ml service update realtime -i <service id> --autoscale-enabled true --autosca
 Por exemplo, configurar `autoscale-min-replicas` como 5 criará cinco réplicas. Para chegar a um número ideal para o serviço Web, defina o número para valores como 10 e monitore o número de mensagens de erro 503. Em seguida, ajuste o número adequadamente.
 
 
-| Nome do parâmetro | type | DESCRIÇÃO |
+| Nome do parâmetro | Tipo | DESCRIÇÃO |
 |--------------------|--------------------|--------------------|
 | `autoscale-enabled` | booleano | Especifica se o dimensionamento automático está habilitado. Padrão: true |
 | `autoscale-min-replicas` | inteiro | Especifica o número mínimo de pods. Deve ser 0 ou maior. Padrão: 1 |

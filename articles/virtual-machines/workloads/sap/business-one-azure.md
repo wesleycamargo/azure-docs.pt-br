@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0960f569f2a582d9712473081f66205272cfe31a
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ca089672cf645af58952205dada66aa96ba0b65d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116956"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578236"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One em Máquinas Virtuais do Microsoft Azure
 Este documento fornece diretrizes para implantar o SAP Business One em Máquinas Virtuais do Microsoft Azure. A documentação não substitui a documentação de instalação do Business One para SAP. A documentação deve abranger as diretrizes básicas de planejamento e implantação da infraestrutura do Azure para executar os aplicativos do Business One.
@@ -30,7 +30,7 @@ O Business One dá suporte para dois bancos de dados diferentes:
 - SQL Server - consulte [Nota SAP Nº 928839 - Planejamento de liberação para Microsoft SQL Server](https://launchpad.support.sap.com/#/notes/928839)
 - SAP HANA - para obter a matriz de suporte do SAP Business One exata para SAP HANA, confira a [Matriz de Disponibilidade de Produtos SAP](https://support.sap.com/pam)
 
-Com relação ao SQL Server, aplicam-se as considerações básicas de implantação, conforme documentadas na [implantação do DBMS de Máquinas Virtuais do Microsoft Azure para SAP NetWeaver](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms-guide). para SAP HANA, as considerações são mencionadas neste documento.
+Com relação ao SQL Server, aplicam-se as considerações básicas de implantação, conforme documentadas na [implantação do DBMS de Máquinas Virtuais do Microsoft Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide). para SAP HANA, as considerações são mencionadas neste documento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar este guia, você precisa ter um conhecimento básico dos seguintes componentes do Azure:
@@ -41,7 +41,7 @@ Para usar este guia, você precisa ter um conhecimento básico dos seguintes com
 - [Rede do Azure e redes virtuais com CLI ](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Gerenciar discos do Azure com a CLI 2.0 do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
-Mesmo se você estiver interessado somente no Business One, o documento [Planejamento e implementação de Máquinas Virtuais do Microsoft Azure para SAP NetWeaver](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide) pode ser uma boa fonte de informações.
+Mesmo se você estiver interessado somente no Business One, o documento [Planejamento e implementação de Máquinas Virtuais do Microsoft Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) pode ser uma boa fonte de informações.
 
 A suposição é que você, como a instância implantando o SAP Business One está:
 
@@ -89,23 +89,23 @@ Em princípio, é sempre melhor usar as versões mais recentes do sistema operac
 Nos próximos capítulos, as peças de infraestrutura importantes para a implantação do SAP.
 
 ### <a name="azure-network-infrastructure"></a>Infraestrutura de rede do Azure
-A infraestrutura de rede necessária para implantar no Azure, depende se você implementa um sistema único do Business One para si próprio. Ou se você é um hoster que hospeda dezenas de sistemas Business One para clientes. Também é possível haver pequenas alterações no design de como você conecta o Azure. Percorrendo diferentes possibilidades, um design em que há uma conectividade de VPN no Azure e onde estende o Active Directory por meio de [VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design) ou [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) no Azure.
+A infraestrutura de rede necessária para implantar no Azure, depende se você implementa um sistema único do Business One para si próprio. Ou se você é um hoster que hospeda dezenas de sistemas Business One para clientes. Também é possível haver pequenas alterações no design de como você conecta o Azure. Percorrendo diferentes possibilidades, um design em que há uma conectividade de VPN no Azure e onde estende o Active Directory por meio de [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design) ou [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) no Azure.
 
 ![Configuração de rede simples com Business One](./media/business-one-azure/simple-network-with-VPN.PNG)
 
 A configuração simplificada apresentada introduz várias instâncias de segurança que permitem controlar e limitar roteamento. Isso inicia com 
 
 - O roteador/firewall no lado local do cliente.
-- A próxima instância é o [Grupo de Segurança de Rede do Azure](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) que é possível usar para introduzir regras de roteamento e segurança para a VNet do Azure na qual executa a configuração do SAP Business.
+- A próxima instância é o [Grupo de Segurança de Rede do Azure](https://docs.microsoft.com/azure/virtual-network/security-overview) que é possível usar para introduzir regras de roteamento e segurança para a VNet do Azure na qual executa a configuração do SAP Business.
 - Para evitar que usuários do cliente Business One também vejam o servidor que executa o servidor do Business One, o qual executa o banco de dados, separe a VM que hospeda o cliente Business One e o servidor do Business Onde em duas sub-redes diferentes dentro da VNet.
 - Você usaria o NSG do Azure atribuído às duas sub-redes diferentes novamente para limitar o acesso ao servidor do Business One.
 
-Uma versão mais sofisticada de uma configuração de rede do Azure é baseada nas [melhores práticas documentadas de arquitetura spoke e hub](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) do Azure. O padrão de arquitetura spoke e hub alteraria a primeira configuração simplificada para uma semelhante a esta:
+Uma versão mais sofisticada de uma configuração de rede do Azure é baseada nas [melhores práticas documentadas de arquitetura spoke e hub](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) do Azure. O padrão de arquitetura spoke e hub alteraria a primeira configuração simplificada para uma semelhante a esta:
 
 
 ![Configuração de spoke e hub com Business One](./media/business-one-azure/hub-spoke-network-with-VPN.PNG)
 
-Nos casos em que os usuários estão conectando através da Internet sem conectividade privada no Azure, o design da rede no Azure deverá estar alinhado com os princípios documentados na arquitetura de referência do Azure para [DMZ entre Azure e a Internet](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
+Nos casos em que os usuários estão conectando através da Internet sem conectividade privada no Azure, o design da rede no Azure deverá estar alinhado com os princípios documentados na arquitetura de referência do Azure para [DMZ entre Azure e a Internet](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
 ### <a name="business-one-database-server"></a>Servidor de banco de dados do Business One
 Para o tipo de banco de dados, o SQL Server e o SAP HANA estão disponíveis. Independente do DBMS, leia o documento [Considerações sobre implantação do DBMS de Máquinas Virtuais do Microsoft Azure para carga de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) para obter um reconhecimento geral das implantações do DBMS em VMs do Azure e os tópicos de rede e armazenamento relacionados.
@@ -151,7 +151,7 @@ Para as estratégias de backup e restauração do SAP HANA, é necessário ler o
 ### <a name="business-one-client-server"></a>Servidor do cliente Business One
 Para esses componentes, considerações de armazenamento não são a principal preocupação. no entanto, você quer ter uma plataforma confiável. Portanto, é necessário usar o Armazenamento Premium do Azure para essa VM, mesmo para o VHD de base. Dimensionar a VM, com os dados fornecidos no [Guia de Requisitos de Hardware do SAP Business One](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Para o Azure, é necessário focar e calcular os requisitos estabelecidos no capítulo 2.4 do documento. Ao calcular os requisitos, é necessário compará-los com os documentos a seguir para encontrar a VM ideal às suas necessidades:
 
-- [Tamanhos das máquinas virtuais do Windows no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)
+- [Tamanhos das máquinas virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 - [Nota SAP Nº 1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
 Compare o número de CPUs e memória necessários ao que é documentado pela Microsoft. Além disso, lembre-se da taxa de transferência de rede ao escolher as VMs.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: d5c1cb22fdfe59bd8409f9595b2fa4c3a0df771e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 41e422d0808cafb45b182c5f0a6bb7176a35516f
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641230"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35758613"
 ---
 # <a name="internet-of-things-security-overview"></a>Visão geral da segurança da Internet das Coisas
 Os serviços de IoT (Internet das Coisas) do Azure oferecem uma ampla variedade de funcionalidades. Esses serviços de nível corporativo permitem que você:
@@ -39,32 +39,32 @@ Para ajudá-lo a entender como proteger suas soluções de IoT, temos as informa
 ## <a name="security-architecture"></a>Arquitetura de segurança
 Durante a criação de um sistema, é importante compreender as ameaças potenciais para esse sistema e adicionar as defesas apropriadas da mesma forma, conforme o sistema é projetado e desenvolvido. É importante projetar o produto desde o início com a segurança em mente porque a compreensão de como um invasor pode conseguir comprometer um sistema ajuda a garantir que as mitigações adequadas estão em vigor desde o início.
 
-Você pode aprender sobre a arquitetura de segurança da IoT lendo o artigo [Arquitetura de segurança da Internet das Coisas](../iot-accelerators/iot-security-architecture.md).
+Você pode aprender sobre a arquitetura de segurança da IoT lendo o artigo [Arquitetura de segurança da Internet das Coisas](/azure/iot-fundamentals/iot-security-architecture).
 
 Este artigo discute os seguintes tópicos:
 
-* [A segurança começa com um modelo de risco](../iot-accelerators/iot-security-architecture.md#security-starts-with-a-threat-model)
-* [Segurança na IoT](../iot-accelerators/iot-security-architecture.md#security-in-iot)
-* [Fazendo a modelagem de risco da arquitetura de referência de IoT do Azure](../iot-accelerators/iot-security-architecture.md#threat-modeling-the-azure-iot-reference-architecture)
+* [A segurança começa com um modelo de risco](/azure/iot-fundamentals/iot-security-architecture#security-starts-with-a-threat-model)
+* [Segurança na IoT](/azure/iot-fundamentals/iot-security-architecture#security-in-iot)
+* [Fazendo a modelagem de risco da arquitetura de referência de IoT do Azure](/azure/iot-fundamentals/iot-security-architecture#threat-modeling-the-azure-iot-reference-architecture)
 
 ## <a name="security-from-the-ground-up"></a>Segurança desde o início
 A IoT apresenta desafios específicos de segurança, privacidade e conformidade para empresas em todo o mundo. Ao contrário da tecnologia cibernética tradicional, na qual esses problemas giram em torno do software e de como ele é implementado, a IoT se preocupa com o que acontece quando os mundos físico e cibernético convergem. Proteger as soluções da IoT exige a garantia de provisionamento seguro dos dispositivos, a conectividade segura entre eles e a nuvem e a proteção garantida dos dados na nuvem durante o processamento e o armazenamento. No entanto, trabalhando contra essa funcionalidade estão os dispositivos com recursos limitados, a distribuição geográfica das implantações e vários dispositivos em uma solução.
 
-Você pode aprender como lidar com a segurança nessas áreas lendo o artigo [Protegendo sua Internet das Coisas desde o princípio](../iot-accelerators/securing-iot-ground-up.md).
+Você pode aprender como lidar com a segurança nessas áreas lendo o artigo [Protegendo sua Internet das Coisas desde o princípio](/azure/iot-fundamentals/iot-security-ground-up).
 
 O artigo discute os seguintes tópicos:
 
-* [Infraestrutura segura desde o princípio](../iot-accelerators/securing-iot-ground-up.md#secure-infrastructure-from-the-ground-up)
-* [Microsoft Azure - infraestrutura segura da IoT para os seus negócios](../iot-accelerators/securing-iot-ground-up.md#microsoft-azure---secure-iot-infrastructure-for-your-business)
+* [Infraestrutura segura desde o princípio](/azure/iot-fundamentals/iot-security-ground-up#secure-infrastructure-from-the-ground-up)
+* [Microsoft Azure - infraestrutura segura da IoT para os seus negócios](/azure/iot-fundamentals/iot-security-ground-up#microsoft-azure---secure-iot-infrastructure-for-your-business)
 
 ## <a name="best-practices"></a>Práticas Recomendadas
 Proteger uma infraestrutura de IoT requer uma estratégia de segurança em camadas rigorosa. Desde proteger os dados na nuvem até proteger a integridade dos dados em trânsito na Internet pública até provisionar dispositivos com segurança, cada camada agrega maior garantia de segurança à infraestrutura total.
 
-Você pode aprender sobre as práticas recomendadas de segurança da Internet das Coisas lendo o artigo [Práticas recomendadas de segurança de Internet das Coisas](../iot-accelerators/iot-security-best-practices.md).
+Você pode aprender sobre as práticas recomendadas de segurança da Internet das Coisas lendo o artigo [Práticas recomendadas de segurança de Internet das Coisas](/azure/iot-fundamentals/iot-security-best-practices).
 
 O artigo discute os seguintes tópicos:
 
-* [Fabricante/integrador de hardware de IoT](../iot-accelerators/iot-security-best-practices.md#iot-hardware-manufacturerintegrator)
-* [Desenvolvedor de soluções IoT](../iot-accelerators/iot-security-best-practices.md#iot-solution-developer)
-* [Implantador de soluções IoT](../iot-accelerators/iot-security-best-practices.md#iot-solution-deployer)
-* [Operador de solução IoT](../iot-accelerators/iot-security-best-practices.md#iot-solution-operator)
+* [Fabricante/integrador de hardware de IoT](/azure/iot-fundamentals/iot-security-best-practices#iot-hardware-manufacturerintegrator)
+* [Desenvolvedor de soluções IoT](/azure/iot-fundamentals/iot-security-best-practices#iot-solution-developer)
+* [Implantador de soluções IoT](/azure/iot-fundamentals/iot-security-best-practices#iot-solution-deployer)
+* [Operador de solução IoT](/azure/iot-fundamentals/iot-security-best-practices#iot-solution-operator)

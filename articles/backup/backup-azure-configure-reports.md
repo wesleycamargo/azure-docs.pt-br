@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4839b1aaa56be1ad93fa1dd685ca3176d1cc8a27
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: c59653bf3709f7798fd92a44fa420b99f2cbc6b6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142068"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733541"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 Este artigo aborda as etapas para configurar relatórios para o Backup do Azure usando o cofre dos Serviços de Recuperação e acessar esses relatórios usando o Power BI. Depois de executar essas etapas, você poderá ir diretamente para o Power BI para exibir todos os relatórios, personalizar e criar relatórios. 
@@ -83,7 +83,7 @@ Depois de configurar a conta de armazenamento para relatórios usando o cofre de
 4. Insira o nome da conta de armazenamento configurada na etapa 5 acima e clique no botão **Avançar**.
 
     ![Insira o nome da conta de armazenamento](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Insira a chave de conta de armazenamento para esta conta de armazenamento. Você pode [exibir e copiar as chaves de acesso de armazenamento](../storage/common/storage-create-storage-account.md#manage-your-storage-account) navegando para sua conta de armazenamento no portal do Azure. 
+5. Insira a chave de conta de armazenamento para esta conta de armazenamento. Você pode [exibir e copiar as chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys) navegando para sua conta de armazenamento no portal do Azure. 
 
      ![Insira a conta de armazenamento](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      

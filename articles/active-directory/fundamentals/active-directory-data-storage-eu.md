@@ -2,24 +2,21 @@
 title: Onde o Microsoft Azure Active Directory armazena dados de identidade para clientes europeus | Microsoft Docs
 description: Saiba mais sobre onde o Microsoft Azure Active Directory armazena dados relacionados à identidade para os seus clientes europeus.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.author: lizross
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro
-ms.openlocfilehash: 0baa499f56fa6c074ac1c0f604e74f9e7adb5502
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d0015f40714b639d15245827ae0da3ca0f132df4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42023189"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733390"
 ---
 # <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Onde o Microsoft Azure Active Directory (Azure AD) armazena dados de identidade para clientes europeus
 O Microsoft Azure Active Directory ajuda você a gerenciar identidades do usuário e a criar políticas de acesso que ajudam os recursos da organização. Os dados de identidade são armazenados em um local que tem base no endereço de sua organização fornecida quando você se inscreveu no serviço. Por exemplo, quando você se inscreveu no Office 365 ou no Microsoft Azure. Para obter informações específicas sobre onde os dados de identidade estão armazenados, você pode usar a seção [Onde seus dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) do Microsoft Trust Center.
@@ -76,7 +73,6 @@ A maioria dos dados de identidade europeus relacionados ao Microsoft Azure Activ
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre qualquer um dos recursos e funcionalidade descrito acima, consulte esses artigos.
-- [Introdução ao Azure Active Directory](get-started-azure-ad.md)
 - [O que é a Autenticação Multifator?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
 - [Redefinição da senha de autoatendimento do Microsoft Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
 - [O que é o Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)

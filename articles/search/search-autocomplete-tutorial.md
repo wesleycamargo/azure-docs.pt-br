@@ -9,16 +9,16 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 7120080bfdc188c150c7065e1c0639ab8c04f173
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989664"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578167"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Tutorial: Adicionar preenchimento automático à caixa de pesquisa usando o Azure Search
 
-Neste tutorial, você aprenderá a usar [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions), [preenchimento automático](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) e [facetas](search-faceted-navigation.md) na [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/) e no [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) para criar uma caixa de pesquisa avançada. A opção *Sugestões* fornece recomendações de resultados reais com base no que o usuário digitou até agora. A opção *Preenchimento automático*, [um novo recurso de versão prévia](search-api-preview.md) no Azure Search, oferece termos do índice para concluir o que o usuário está digitando no momento. Vamos comparar as várias técnicas para melhorar a produtividade do usuário e agilizar e facilitar a localização do que estão procurando, levando a riqueza da pesquisa diretamente ao usuário enquanto ele digita.
+Neste tutorial, você aprenderá a usar [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions), [preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) e [facetas](search-faceted-navigation.md) na [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/) e no [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) para criar uma caixa de pesquisa avançada. A opção *Sugestões* fornece recomendações de resultados reais com base no que o usuário digitou até agora. A opção *Preenchimento automático*, [um novo recurso de versão prévia](search-api-preview.md) no Azure Search, oferece termos do índice para concluir o que o usuário está digitando no momento. Vamos comparar as várias técnicas para melhorar a produtividade do usuário e agilizar e facilitar a localização do que estão procurando, levando a riqueza da pesquisa diretamente ao usuário enquanto ele digita.
 
 Este tutorial orienta você por um aplicativo baseado em ASP.NET MVC que usa C# para chamar as [bibliotecas de cliente .NET do Azure Search](https://aka.ms/search-sdk) e JavaScript para chamar a API REST do Azure Search diretamente. O aplicativo para este tutorial usa um índice populado pelos dados de exemplo [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Você pode usar o índice já configurado na demonstração NYC Jobs ou preencher seu próprio índice usando um carregador de dados na solução de exemplo NYCJobs. O exemplo usa as bibliotecas JavaScript [jQuery UI](https://jqueryui.com/autocomplete/) e [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) para criar uma caixa de pesquisa que dá suporte a preenchimento automático. Usando esses componentes, juntamente com o Azure Search, você verá vários exemplos de como dar suporte a preenchimento automático com antecipação de digitação em sua caixa de pesquisa.
 
@@ -214,7 +214,7 @@ Este tutorial demonstra as etapas básicas para a criação de uma caixa de pesq
 Integrar sugestões e preenchimento automático em sua experiência de pesquisa.  Considerar como o uso do SDK do .NET ou a API REST diretamente pode ajudar a trazer o poder do Azure Search para seus usuários quando eles digitam para torná-los mais produtivos.
 
 > [!div class="nextstepaction"]
-> [API REST de preenchimento automático](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete)
-> [API REST de sugestões](https://docs.microsoft.com/en-us/rest/api/searchservice/suggestions)
-> [Atributo de índice de facetas em uma API REST de criação de índice](https://docs.microsoft.com/en-us/rest/api/searchservice/create-index)
+> [API REST de preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> [API REST de sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions)
+> [Atributo de índice de facetas em uma API REST de criação de índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 

@@ -8,17 +8,17 @@ manager: hjerez
 editor: jasonwhowell
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 233ae50246619c3e503e42081c3b4de88090f411
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c0f51e47038737d6aa743be718ad6b28c161c766
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835025"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35630916"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Referência da API da conta do Gerenciamento de Modelos do Azure Machine Learning
 
@@ -33,7 +33,7 @@ A API da conta do Gerenciamento de Modelos do Azure Machine Learning implementa 
 
 Você pode usar essa imagem para criar um serviço Web localmente, em um cluster do Serviço de Contêiner do Azure remoto ou em outro ambiente do Docker com suporte de sua escolha.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Verifique se você executou as etapas de instalação no documento [Guia de início rápido para instalação e criação](../service/quickstart-installation.md).
 
 Os seguintes itens são necessários antes de continuar:
@@ -81,12 +81,12 @@ Registra um modelo.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
-| model | body | Payload usado para registrar um modelo. | sim | [Modelo](#model) |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
+| model | body | Payload usado para registrar um modelo. | SIM | [Modelo](#model) |
 
 
 ### <a name="responses"></a>Respostas
@@ -107,11 +107,11 @@ Consulta a lista de modelos em uma conta. Você pode filtrar a lista de resultad
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
 | Nome | query | Nome do objeto. | Não  | string |
 | marca | query | Marca do modelo. | Não  | string |
 | count | query | Número de itens a serem recuperados em uma página. | Não  | string |
@@ -136,12 +136,12 @@ Obtém o modelo por ID.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| ID | caminho | ID do objeto. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| ID | caminho | ID do objeto. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
 
 ### <a name="responses"></a>Respostas
 | Código | DESCRIÇÃO | Esquema |
@@ -162,12 +162,12 @@ Registra um manifesto com o modelo registrado e todas as dependências.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
-| manifestRequest | body | Payload usado para registrar um manifesto. | sim | [Manifesto](#manifest) |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
+| manifestRequest | body | Payload usado para registrar um manifesto. | SIM | [Manifesto](#manifest) |
 
 ### <a name="responses"></a>Respostas
 | Código | DESCRIÇÃO | Esquema |
@@ -188,11 +188,11 @@ Consulta a lista de manifestos em uma conta. Você pode filtrar a lista de resul
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
 | modelId | query | ID do modelo. | Não  | string |
 | manifestName | query | Nome do manifesto. | Não  | string |
 | count | query | Número de itens a serem recuperados em uma página. | Não  | string |
@@ -217,12 +217,12 @@ Obtém o manifesto por ID.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| ID | caminho | ID do objeto. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| ID | caminho | ID do objeto. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
 
 ### <a name="responses"></a>Respostas
 | Código | DESCRIÇÃO | Esquema |
@@ -243,12 +243,12 @@ Cria uma imagem como uma imagem de Docker no Registro de Contêiner do Azure.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
-| imageRequest | body | Payload usado para criar uma imagem. | sim | [ImageRequest](#imagerequest) |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
+| imageRequest | body | Payload usado para criar uma imagem. | SIM | [ImageRequest](#imagerequest) |
 
 ### <a name="responses"></a>Respostas
 | Código | DESCRIÇÃO | Cabeçalhos | Esquema |
@@ -269,11 +269,11 @@ Consulta a lista de imagens em uma conta. Você pode filtrar a lista de resultad
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
 | manifestId | query | ID do manifesto. | Não  | string |
 | manifestName | query | Nome do manifesto. | Não  | string |
 | count | query | Número de itens a serem recuperados em uma página. | Não  | string |
@@ -298,12 +298,12 @@ Obtém uma imagem por ID.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| ID | caminho | ID da imagem. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| ID | caminho | ID da imagem. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
 
 ### <a name="responses"></a>Respostas
 | Código | DESCRIÇÃO | Esquema |
@@ -325,12 +325,12 @@ Cria um serviço usando uma imagem.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
-| serviceRequest | body | Payload usado para criar um serviço. | sim | [ServiceCreateRequest](#servicecreaterequest) |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
+| serviceRequest | body | Payload usado para criar um serviço. | SIM | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### <a name="responses"></a>Respostas
 | Código | DESCRIÇÃO | Cabeçalhos | Esquema |
@@ -352,11 +352,11 @@ Consulta a lista de serviços em uma conta. Você pode filtrar a lista de result
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
 | serviceName | query | Nome do serviço. | Não  | string |
 | modelId | query | Nome do modelo. | Não  | string |
 | modelName | query | ID do modelo. | Não  | string |
@@ -386,12 +386,12 @@ Obtém o serviço por ID.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| ID | caminho | ID do objeto. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| ID | caminho | ID do objeto. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
 
 ### <a name="responses"></a>Respostas
 | Código | DESCRIÇÃO | Esquema |
@@ -412,13 +412,13 @@ Atualiza um serviço existente.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| ID | caminho | ID do objeto. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
-| serviceUpdateRequest | body | Payload usado para atualizar um serviço existente. | sim |  [ServiceUpdateRequest](#serviceupdaterequest) |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| ID | caminho | ID do objeto. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
+| serviceUpdateRequest | body | Payload usado para atualizar um serviço existente. | SIM |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### <a name="responses"></a>Respostas
 | Código | DESCRIÇÃO | Cabeçalhos | Esquema |
@@ -440,12 +440,12 @@ Exclui um serviço.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| ID | caminho | ID do objeto. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| ID | caminho | ID do objeto. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
 
 ### <a name="responses"></a>Respostas
 | Código | DESCRIÇÃO | Esquema |
@@ -467,12 +467,12 @@ Obtém as chaves de serviço.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| ID | caminho | ID do serviço. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| ID | caminho | ID do serviço. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
 
 ### <a name="responses"></a>Respostas
 | Código | DESCRIÇÃO | Esquema |
@@ -493,13 +493,13 @@ Gera novamente as chaves de serviço e as retorna.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| ID | caminho | ID do serviço. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
-| regenerateKeyRequest | body | Payload usado para atualizar um serviço existente. | sim | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| ID | caminho | ID do serviço. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
+| regenerateKeyRequest | body | Payload usado para atualizar um serviço existente. | SIM | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
 
 ### <a name="responses"></a>Respostas
 | Código | DESCRIÇÃO | Esquema |
@@ -520,11 +520,11 @@ Consulta a lista de implantações em uma conta. Você pode filtrar a lista de r
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
 | serviceId | query | ID do serviço. | Não  | string |
 
 ### <a name="responses"></a>Respostas
@@ -546,12 +546,12 @@ Obtém a implantação por ID.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| ID | caminho | ID de implantação. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| ID | caminho | ID de implantação. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
 
 ### <a name="responses"></a>Respostas
 | Código | DESCRIÇÃO | Esquema |
@@ -572,12 +572,12 @@ Obtém o status da operação assíncrona por ID da operação.
 ### <a name="parameters"></a>parâmetros
 | NOME | Localizado em | DESCRIÇÃO | Obrigatório | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | Id de assinatura do Azure. | sim | string |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | sim | string |
-| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | sim | string |
-| ID | caminho | ID da operação. | sim | string |
-| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | sim | string |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | sim | string |
+| subscriptionId | caminho | Id de assinatura do Azure. | SIM | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta do Gerenciamento de Modelos está localizada. | SIM | string |
+| accountName | caminho | Nome da conta do Gerenciamento de Modelos. | SIM | string |
+| ID | caminho | ID da operação. | SIM | string |
+| api-version | query | Versão da API do provedor de recursos do Microsoft.Machine.Learning a ser usada. | SIM | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo como "Portador XXXXXX". | SIM | string |
 
 ### <a name="responses"></a>Respostas
 | Código | DESCRIÇÃO | Esquema |

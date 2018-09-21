@@ -9,18 +9,18 @@ ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: nolachar
-ms.openlocfilehash: 7cab8e0471151cd2ae7c2e31406f2460fdff6a0b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a62980f563c8fad525696aca73f8c036382fa820
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050379"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573783"
 ---
 # <a name="supported-language-list-and-status"></a>Lista de idiomas e status suportados
 
 Esses idiomas são suportados pela API do Bing Spell Check (somente no modo `spell`). 
 
-Observe que para trabalhar com qualquer outro idioma diferente de `en-US`, o `mkt` deve ser definido e `Accept-Language` ou `setLang` deve ser definido como descrito na [referência da API Spell Check v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+Observe que para trabalhar com qualquer outro idioma diferente de `en-US`, o `mkt` deve ser definido e `Accept-Language` ou `setLang` deve ser definido como descrito na [referência da API Spell Check v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
 
 | Linguagem    | Código de idioma |
 |:----------- |:-------------:|
@@ -33,14 +33,14 @@ Observe que para trabalhar com qualquer outro idioma diferente de `en-US`, o `mk
 | Holandês (Países Baixos)      | `nl-NL`          |
 | Inglês (Austrália)    | `en-AU`          |
 | Inglês (Canadá)     | `en-CA`          |
-| English (India)    | `en-IN`          |
+| Inglês (Índia)    | `en-IN`          |
 | Inglês (Indonésia)     | `en-ID`          |
 | Inglês (Malásia)     | `en-MY`          |
 | Inglês (Nova Zelândia)    | `en-NZ`          |
 | Inglês (Filipinas)     | `en-PH`          |
 | Inglês (África do Sul)    | `en-ZA`          |
 | Inglês (Reino Unido)    | `en-GB`          |
-| Inglês dos Estados Unidos)    | `en-US`          |
+| Inglês (Estados Unidos)    | `en-US`          |
 | Finlandês     | `fi`          |
 | Francês (Bélgica)     | `fr-BE`          |
 | Francês (Canadá)     | `fr-CA`          |

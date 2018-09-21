@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: mbullwin; mazhar
-ms.openlocfilehash: 0080217f718d8df9b62c7bc305fbc1365477cc4d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: mazhar
+ms.author: mbullwin
+ms.openlocfilehash: 5c3d41b648f59c8eb428f75a2673e847d19f04eb
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35630863"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Passo a passo: Ativar a telemetria para o Microsoft Dynamics CRM Online usando o Application Insights
 Este artigo mostra como obter dados de telemetria no [Microsoft Dynamics CRM Online](https://www.dynamics.com/) usando o [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Percorreremos o processo completo de adição de um script do Application Insights ao seu aplicativo, captura de dados e visualização de dados.
@@ -39,7 +41,7 @@ Para monitorar seu aplicativo, você adiciona um SDK do Application Insights a e
     Escolha ASP.NET como o tipo de aplicativo.
 3. Abra a página de Introdução e abra "Monitorar e diagnosticar aplicativos do lado do cliente".
 
-    ![Trecho de código para inserção na sua página da Web](./media/app-insights-sample-mscrm/03.png)
+    ![Snippet de código para inserção na sua página da Web](./media/app-insights-sample-mscrm/03.png)
 
 **Mantenha a página de código aberta** enquanto realiza a próxima etapa na outra janela do navegador. Você precisará do código em breve. 
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 31e37efc1aad3d355bdd8391535f317ec137f5d7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6d19c64c74a01a012bac3d867e2d65393ae21cd3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40161536"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577764"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlacionando os dados do Application Insights com fontes de dados personalizadas
 
@@ -51,7 +51,7 @@ Para começar a enviar dados para o Log Analytics. Existem várias opções:
 
 ## <a name="correlating-data"></a>Correlacionando dados
 
-O Application Insights se baseia na plataforma de dados do Log Analytics. Portanto, podemos usar [junções entre recursos](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search) para correlacionar os dados ingeridos no Log Analytics com nossos dados do Application Insights.
+O Application Insights se baseia na plataforma de dados do Log Analytics. Portanto, podemos usar [junções entre recursos](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) para correlacionar os dados ingeridos no Log Analytics com nossos dados do Application Insights.
 
 Por exemplo, podemos ingerir nosso inventário de laboratório e os locais em uma tabela chamada “LabLocations_CL” em um espaço de trabalho do Log Analytics chamado “myLA”. Se, em seguida, desejarmos examinar nossas solicitações rastreadas no aplicativo do Application Insights chamado “myAI” e correlacionar os nomes dos computadores que atenderam às solicitações para os locais desses computadores armazenados na tabela personalizada mencionada anteriormente, poderemos executar a seguinte consulta no contexto do Application Insights ou do Log Analytics:
 
@@ -66,4 +66,4 @@ app('myAI').requests
 ## <a name="next-steps"></a>Próximas etapas
 
 - Veja a referência da [API do Coletor de Dados](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api).
-- Para obter mais informações sobre [junções entre recursos](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search).
+- Para obter mais informações sobre [junções entre recursos](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).

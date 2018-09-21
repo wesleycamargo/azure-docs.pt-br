@@ -9,20 +9,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/17/2017
+ms.topic: conceptual
+ms.date: 09/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9b03aff140eec5b355383447f0a815220d6408e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bf247748415822d5ba1a0e652fdeff384d8e8db1
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982044"
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Monitore aplicativos de vários componentes com o Application Insights (visualização)
 
 Você pode monitorar aplicativos que consistem em vários componentes, funções ou serviços de servidor com [Application Insights do Azure](app-insights-overview.md). A integridade dos componentes e as relações entre eles são exibidas em um mapa de aplicativo único. Você pode rastrear a operações individuais por meio de vários componentes com correlação automática de HTTP. Os diagnósticos do contêiner podem ser integrados e correlacionados à telemetria de aplicativos. Use um único recurso do Application Insights para todos os componentes do aplicativo. 
 
-![Mapa de aplicativos de vários componentes](./media/app-insights-monitor-multi-role-apps/app-map.png)
+![Mapa de aplicativos de vários componentes](./media/app-insights-monitor-multi-role-apps/application-map-001.png)
 
 Usamos 'componente' aqui para indicar qualquer parte funcional de um aplicativo grande. Por exemplo, um aplicativo de negócios típico pode consistir em código do cliente em execução em navegadores da Web, conversando com um ou mais serviços de aplicativos Web, que, por sua vez, usam serviços de back-end. Os componentes de servidor podem ser hospedados no local ou na nuvem, podem ser funções da Web e de trabalho do Azure ou podem ser executados em contêineres como Docker ou Service Fabric. 
 
@@ -32,7 +33,7 @@ A principal técnica aqui é enviar telemetria de cada componente em seu aplicat
 
 Para obter mais informações sobre como substituir a propriedade `cloud_RoleName` consulte [Adicionar propriedades: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
 
-Em alguns casos, isso pode não ser apropriado e talvez você prefira usar recursos separados para diferentes grupos de componentes. Por exemplo, talvez seja necessário usar recursos diferentes para fins de cobranças ou gerenciamento. O uso de recursos separados significa que você não vê todos os componentes exibidos em um mapa de aplicativo único e não pode consultar componentes na [Análise](app-insights-analytics.md). Você também precisa configurar os recursos separados.
+Em alguns casos, isso pode não ser apropriado e talvez você prefira usar recursos separados para diferentes grupos de componentes. Por exemplo, talvez seja necessário usar recursos diferentes para fins de cobranças ou gerenciamento.
 
 Com essa limitação, vamos supor no restante desse documento que você quer enviar dados de vários componentes para um recurso do Application Insights.
 

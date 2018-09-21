@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: 17d57a809bcbd4c299675c07756b55423a160ed1
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: c07a9d92cac13d6325e66f44426f1a64e8ac53cb
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165121"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35764761"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Compartilhar painéis do Azure usando o Controle de Acesso Baseado em Função
 Depois de configurar um painel, você pode publicá-lo e compartilhá-lo com outros usuários na sua organização. Permita que outras pessoas vejam seu painel usando o [Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md) do Azure. Atribua um usuário ou grupo de usuários a uma função e essa função define se os usuários podem exibir ou modificar o painel publicado. 
@@ -45,7 +45,7 @@ Aqui está um exemplo.  Digamos que você tenha uma assinatura do Azure e vário
 No entanto, você também pode atribuir permissões ao grupo de recursos que contém vários painéis ou a um painel individual. Por exemplo, você pode decidir que um grupo de usuários deve ter permissões limitadas na assinatura, mas um maior acesso a um painel específico. Você pode atribuir os usuários a uma função desse painel. 
 
 ## <a name="publish-dashboard"></a>Publicar painel
-Vamos supor que você concluiu a configuração de um painel que deseja compartilhar com um grupo de usuários em sua assinatura. As etapas a seguir descrevem um grupo personalizado chamado Gerentes de Armazenamento, mas você pode dar o nome que quiser ao grupo. Para obter informações sobre como criar um grupo do Active Directory e adicionar usuários a ele, confira [Gerenciar grupos no Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
+Vamos supor que você concluiu a configuração de um painel que deseja compartilhar com um grupo de usuários em sua assinatura. As etapas a seguir descrevem um grupo personalizado chamado Gerentes de Armazenamento, mas você pode dar o nome que quiser ao grupo. Para obter informações sobre como criar um grupo do Active Directory e adicionar usuários a ele, confira [Gerenciar grupos no Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 1. No painel, selecione **Compartilhar**.
    

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c1247dfca6dea638da2113fef940b97ad3348b9a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160273"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297564"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura VPN com a MFA do Azure usando a extensão Servidor de Políticas de Rede para o Azure
 
@@ -122,7 +122,7 @@ Se o Módulo do PowerShell do Microsoft Azure Active Directory ainda não estive
 
 Para usar a extensão do NPS, os usuários locais devem ser sincronizados com o Azure Active Directory e habilitados para MFA. Este guia pressupõe que os usuários locais estejam sincronizados ao Azure Active Directory usando o Azure AD Connect. As instruções para habilitar usuários para MFA são fornecidas abaixo.
 
-Para obter informações sobre o Azure AD Connect, consulte [Integrar seus diretórios locais com o Azure Active Directory](../connect/active-directory-aadconnect.md). 
+Para obter informações sobre o Azure AD Connect, consulte [Integrar seus diretórios locais com o Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>ID do GUID do Azure Active Directory 
 
@@ -453,5 +453,5 @@ Para obter mais informações, consulte [Integrar sua infraestrutura existente d
 
 [Gateway de Área de Trabalho Remota e Servidor de Autenticação Multifator do Azure usando RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Integrar seus diretórios locais no Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Integrar seus diretórios locais no Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 

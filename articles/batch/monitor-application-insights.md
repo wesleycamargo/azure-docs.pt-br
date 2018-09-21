@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 9f989ada01a2ffced509b42df9e46aa001386ab6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5e0358ebf525c39c09df4268971fa71c02457821
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077387"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35764777"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorar e depurar um aplicativo .NET do Lote do Azure com o Application Insights
 
@@ -26,8 +26,8 @@ Este artigo mostra como adicionar e configurar a biblioteca do Application Insig
 
 Uma solução C# de exemplo com código para acompanhar este artigo está disponível no [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). Este exemplo adiciona o código de instrumentação do Application Insights ao exemplo do [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords). Se você não estiver familiarizado com esse exemplo, tente primeiro compilar e executar o TopNWords. Isso ajudará a compreender um fluxo de trabalho básico do Lote do processamento de um conjunto de blobs de entrada em paralelo em vários nós de computação. 
 
-## <a name="prerequisites"></a>pré-requisitos
-* [IDE do Visual Studio](https://www.visualstudio.com/vs) (Visual Studio 2015 ou uma versão mais recente)
+## <a name="prerequisites"></a>Pré-requisitos
+* [Visual Studio 2017](https://www.visualstudio.com/vs)
 
 * [Conta do Lote e conta de armazenamento vinculada](batch-account-create-portal.md)
 
@@ -66,7 +66,7 @@ O exemplo em TopNWords.cs usa as seguintes [chamadas de instrumentação](../app
 
 Este exemplo exclui propositalmente o tratamento de exceções. Em vez disso, o Application Insights informa automaticamente as exceções não tratadas, o que melhora significativamente a experiência de depuração. 
 
-O seguinte trecho ilustra como usar esses métodos.
+O seguinte snippet ilustra como usar esses métodos.
 
 ```csharp
 public void CountWords(string blobName, int numTopN, string storageAccountName, string storageAccountKey)
@@ -180,7 +180,7 @@ Para habilitar o inicializador de telemetria, o arquivo ApplicationInsights.conf
 
 ## <a name="update-the-job-and-tasks-to-include-application-insights-binaries"></a>Atualizar o trabalho e as tarefas para incluir binários do Application Insights
 
-Para que o Application Insights seja executado corretamente nos nós de computação, verifique se os binários estão posicionados corretamente. Adicione os binários necessários à coleção de arquivos de recursos da tarefa para que eles sejam baixados no momento em que a tarefa for executada. Os trechos a seguir são semelhantes ao código no Job.cs.
+Para que o Application Insights seja executado corretamente nos nós de computação, verifique se os binários estão posicionados corretamente. Adicione os binários necessários à coleção de arquivos de recursos da tarefa para que eles sejam baixados no momento em que a tarefa for executada. Os snippets a seguir são semelhantes ao código no Job.cs.
 
 Primeiro, crie uma lista estática de arquivos do Application Insights para upload.
 
@@ -312,8 +312,8 @@ private const string BatchStartTaskTelemetryRunnerAIConfig = "ApplicationInsight
 CloudPool pool = client.PoolOperations.CreatePool(
     topNWordsConfiguration.PoolId,
     targetDedicated: topNWordsConfiguration.PoolNodeCount,
-    virtualMachineSize: "small",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+    virtualMachineSize: "standard_d1_v2",
+    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 ...
 
 // Create a start task which will run a dummy exe in background that simply emits performance

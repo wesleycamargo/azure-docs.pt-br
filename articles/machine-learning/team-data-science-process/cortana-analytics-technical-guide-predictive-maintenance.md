@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 3715dcceb4330f6eaab01f49aee9d4d19663b62e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 985010457413c15622f85e8ce8c6955a64ae40e9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099647"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985891"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia técnico do Modelo de Solução do Cortana Intelligence para a manutenção preventiva no setor aeroespacial e em outras empresas
 
@@ -154,7 +154,7 @@ Depois que o Gerador de Dados é iniciado, o pipeline começa a esvaziar e os di
 1. Um dos trabalhos do Stream Analytics grava os dados brutos de entrada no armazenamento de blobs. Se você clicar no componente Armazenamento de Blobs de sua solução na tela na qual implantou a solução com êxito e clicar em Abrir no painel à direita, será levado para o [portal do Azure](https://portal.azure.com/). No portal, clique em Blobs. No painel seguinte, você vê uma lista de Contêineres. Clique em **maintenancesadata**. O próximo painel é a pasta **rawdata**. Dentro da pasta rawdata, há pastas com nomes como hour=17 e hour=18. A presença dessas pastas indica que dados não processados estão sendo gerados no seu computador e armazenados no armazenamento de blobs. Você deve ver arquivos csv com tamanhos finitos em MB nessas pastas.
 2. A última etapa do pipeline é gravar dados (por exemplo, previsões do aprendizado de máquina) no Banco de Dados SQL. Talvez seja preciso esperar até três horas para que os dados apareçam no Banco de Dados SQL. Uma forma de monitorar o volume de dados disponível no Banco de Dados SQL é pelo [portal do Azure](https://portal.azure.com/). No painel à esquerda, localize BANCOS DE DADOS SQL![ícone SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) e clique nele. Em seguida, localize o banco de dados **pmaintenancedb** e clique nele. Na próxima página, na parte inferior, clique em GERENCIAR
    
-    ![Ícone Gerenciar](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
+    ![Ícone Gerenciar](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)
    
     Aqui, é possível clicar em Nova Consulta e consular o número de linhas (por exemplo, selecione count(*) em PMResult ). À medida que o banco de dados aumenta, o número de linhas na tabela deve aumentar.
 

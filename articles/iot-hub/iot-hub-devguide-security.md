@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 227723ecea1401247f0df87bccfe058fb2273647
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 4e9a5808a718909b21698b551f516a238e3934b0
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145342"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605769"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -142,7 +142,7 @@ Veja os valores esperados:
 
 **Observação sobre o prefixo**: o prefixo URI é computado por segmento e não por caractere. Por exemplo, `/a/b` é um prefixo para `/a/b/c`, mas não para `/a/bc`.
 
-O seguinte trecho de Node.js mostra uma função chamada **generateSasToken** que calcula o token a partir das entradas `resourceUri, signingKey, policyName, expiresInMins`. As seções a seguir detalharão como inicializar as entradas diferentes para casos de uso com token diferentes.
+O seguinte snippet de Node.js mostra uma função chamada **generateSasToken** que calcula o token a partir das entradas `resourceUri, signingKey, policyName, expiresInMins`. As seções a seguir detalharão como inicializar as entradas diferentes para casos de uso com token diferentes.
 
 ```nodejs
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -328,7 +328,7 @@ Por exemplo, um serviço que usa a política de acesso compartilhado criada ante
 
 ```nodejs
 var endpoint ="myhub.azure-devices.net/devices";
-var policyName = 'device';
+var policyName = 'registryRead';
 var policyKey = '...';
 
 var token = generateSasToken(endpoint, policyKey, policyName, 60);
@@ -362,7 +362,7 @@ Também é possível usar o comando de extensão da CLI [az iot hub device-ident
 
 A classe **RegistryManager** fornece uma maneira programática de registrar um dispositivo. Em particular, os métodos **AddDeviceAsync** e **UpdateDeviceAsync** permitem que você se registre e atualize um dispositivo no registro de identidade do Hub IoT. Esses dois métodos têm uma instância **Dispositivo** como entrada. A classe **Device** inclui uma propriedade **Authentication** que permite especificar as impressões digitais primárias e secundárias do certificado X.509. A impressão digital representa um hash SHA256 do certificado X.509 (armazenado usando a codificação binária DER). Você tem a opção de especificar uma impressão digital primária ou uma impressão digital secundária, ou ambas. As impressões digitais primárias e secundárias têm suporte para lidar com cenários de substituição do certificado.
 
-Veja um exemplo de trecho de código em C\# para registrar um dispositivo usando uma impressão digital do certificado X.509:
+Veja um exemplo de snippet de código em C\# para registrar um dispositivo usando uma impressão digital do certificado X.509:
 
 ```csharp
 var device = new Device(deviceId)
@@ -387,7 +387,7 @@ O [SDK do dispositivo IoT do Azure para .NET][lnk-client-sdk] (versão 1.0.11 ou
 
 A classe **DeviceAuthenticationWithX509Certificate** dá suporte à criação de instâncias **DeviceClient** usando um certificado X.509. O certificado X.509 deve estar no formato PFX (também chamado de PKCS nº 12) que inclui a chave privada.
 
-Veja um trecho de código de exemplo:
+Veja um snippet de código de exemplo:
 
 ```csharp
 var authMethod = new DeviceAuthenticationWithX509Certificate("<device id>", x509Certificate);

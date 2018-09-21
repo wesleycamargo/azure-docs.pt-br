@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 72f7090c285e629149519920ac82f0fe962abc48
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577298"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580422"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -102,7 +102,7 @@ O objeto `JobHost` é o contêiner de tempo de execução de funções: ele escu
 
 ## <a name="enable-console-logging"></a>Habilitar o registro em log de console
 
-Há várias opções para fazer logon no projeto WebJobs SDK. A que recomendamos é a [estrutura de registro em log que foi desenvolvida para o ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging). Essa estrutura oferece desempenho melhor e mais flexibilidade em mídia e filtragem de armazenamento. 
+Há várias opções para fazer logon no projeto WebJobs SDK. A que recomendamos é a [estrutura de registro em log que foi desenvolvida para o ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging). Essa estrutura oferece desempenho melhor e mais flexibilidade em mídia e filtragem de armazenamento. 
 
 Nesta seção, você configura o registro em log do console que usa a nova estrutura.
 

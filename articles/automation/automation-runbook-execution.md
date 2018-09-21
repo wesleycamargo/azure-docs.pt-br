@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42141400"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982959"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -59,7 +59,7 @@ A tabela a seguir descreve os diferentes status possíveis para um trabalho.
 
 À direita da Conta de automação selecionada, você pode ver um resumo de todos os trabalhos de runbook para uma Conta de automação selecionada no bloco **Estatísticas de Trabalho**.
 
-![Bloco Estatísticas de Trabalho](./media/automation-runbook-execution/automation-account-job-status-summary.png).
+![Bloco Estatísticas de Trabalho](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 Esse bloco exibe a contagem e a representação gráfica do status do trabalho para todos os trabalhos executados.
 

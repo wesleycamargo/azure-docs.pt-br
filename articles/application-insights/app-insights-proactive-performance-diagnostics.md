@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2017
-ms.author: mbullwin; antonfr
-ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: antonfr
+ms.author: mbullwin
+ms.openlocfilehash: eef597bf0c9f28cdec5af56c6dfe8bcaaa2415bd
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868927"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35631024"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
 
@@ -69,7 +70,7 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
 ## <a name="faq"></a>Perguntas frequentes
 
 * *Portanto, a equipe da Microsoft examina os meus dados?*
-  * Nº O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](app-insights-data-retention-privacy.md).
+  * Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](app-insights-data-retention-privacy.md).
 * *Todos os dados coletados pelo Application Insights são analisados?*
   * Não no momento. Atualmente, analisamos o tempo de resposta de solicitação, o tempo de resposta da dependência e o tempo de carregamento da página. A análise de métricas adicionais está em nossa lista de pendências para o futuro.
 
@@ -85,7 +86,7 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
 
   * Executamos diariamente a análise da telemetria do dia anterior (dia inteiro no fuso-horário UTC).
 * *Então isso substitui os [alertas de métrica](app-insights-alerts.md)?*
-  * Nº  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
+  * Não.  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
 
 
 * *Se eu não fizer nada em resposta a uma notificação, receberei um lembrete?*

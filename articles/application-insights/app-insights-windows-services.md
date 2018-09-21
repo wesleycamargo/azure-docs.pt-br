@@ -1,5 +1,5 @@
 ---
-title: "Application Insights do Azure para funções de trabalho e de servidor do Windows | Microsoft Docs"
+title: Application Insights do Azure para funções de trabalho e de servidor do Windows | Microsoft Docs
 description: Adicione manualmente o SDK do Application Insights ao aplicativo ASP.NET para analisar o uso, a disponibilidade e o desempenho.
 services: application-insights
 documentationcenter: .net
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: bf7921926c69fff214e94a2d0edc22b28fb8eac0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3f2f0925cf6ec612b84765e42217723d8c8729c6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35630170"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurar manualmente o Application Insights para aplicativos .NET
 
@@ -111,7 +112,7 @@ No Visual Studio, você verá uma contagem dos eventos que foram recebidos.
 ## <a name="monitor"></a> Exibir sua telemetria
 Volte para o [Portal do Azure](https://portal.azure.com/) e navegue até o seu recurso do Application Insights.
 
-Procure dados nos gráficos de Visão Geral. Primeiro, você apenas verá um ou dois pontos. Por exemplo:
+Procure dados nos gráficos de Visão Geral. Primeiro, você apenas verá um ou dois pontos. Por exemplo: 
 
 ![Clique por mais dados](./media/app-insights-windows-services/12-first-perf.png)
 

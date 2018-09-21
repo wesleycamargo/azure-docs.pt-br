@@ -1,8 +1,8 @@
 ---
-title: "Explorando métricas no Azure Application Insights | Microsoft Docs"
-description: "Como interpretar os gráficos no gerenciador de métricas e como personalizar as folhas do gerenciador de métricas."
+title: Explorando métricas no Azure Application Insights | Microsoft Docs
+description: Como interpretar os gráficos no gerenciador de métricas e como personalizar as folhas do gerenciador de métricas.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 01b45323b74b54da157f4e9f1af783759c121be1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 66ef3330a435574405dbfb8b8c82d984bb877efe
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35630992"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas no Application Insights
 Métricas no [Application Insights][start] são contagens e valores medidos de eventos enviados em telemetria do seu aplicativo. Eles ajudam você a detectar problemas de desempenho e observar as tendências referentes a como seu aplicativo está sendo usado. Há uma grande variedade de métricas padrão, e você também pode criar suas próprias métricas e eventos personalizados.
@@ -143,9 +144,9 @@ Você deseja filtrar a telemetria em uma categoria de sua escolha? Por exemplo, 
 [Crie sua própria propriedade](app-insights-api-custom-events-metrics.md#properties). Defina-a em um [Inicializador de Telemetria](app-insights-api-custom-events-metrics.md#defaults) para que ela apareça em toda a telemetria, incluindo a telemetria padrão enviada por diferentes módulos do SDK.
 
 ## <a name="edit-the-chart-type"></a>Editar o tipo de gráfico
-Observe que você pode alternar entre gráficos e grades:
+Observe que você pode alternar entre grafos e grades:
 
-![Selecionar uma grade ou um gráfico e escolher um tipo de gráfico](./media/app-insights-metrics-explorer/16-chart-grid.png)
+![Selecionar uma grade ou um gráfico e escolher um tipo de grafo](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
 ## <a name="save-your-metrics-blade"></a>Salve sua folha de métricas
 Quando você tiver criado alguns gráficos, salve-os como favoritos. Se você utiliza uma conta organizacional, você pode escolher entre compartilhá-la ou não com outros membros da equipe.
@@ -186,7 +187,7 @@ Se desejar obter exibições ainda mais avançadas dos seus dados, você poderá
 
 Em um gráfico de métricas, clique no ícone do Analytics para ir diretamente à consulta do Analytics equivalente.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 *Não vejo dados no gráfico.*
 
 * Os filtros se aplicam a todos os gráficos da folha. Verifique se, ao se concentrar em um gráfico, não definiu um filtro que excluía todos os dados em outro.

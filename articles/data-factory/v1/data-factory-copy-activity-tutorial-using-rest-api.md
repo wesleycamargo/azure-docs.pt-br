@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d5256b2053d75569f9fce71d002aaede9b9e4aa6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 3bff6f00c67a2fa523113171855dce4e7b807f0b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096064"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734447"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: usar a API REST para criar um pipeline do Azure Data Factory a fim de copiar dados 
 > [!div class="op_single_selector"]
@@ -103,7 +103,7 @@ Crie os arquivos JSON a seguir na pasta onde curl.exe está localizado.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Substitua **nome da conta** e **chave da conta** pelo nome e pela chave da sua conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+> Substitua **nome da conta** e **chave da conta** pelo nome e pela chave da sua conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
 
 ```JSON
 {
@@ -175,7 +175,7 @@ Para obter detalhes sobre as propriedades JSON, confira [Serviço vinculado do A
 }
 ```
 
-A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
@@ -218,7 +218,7 @@ Para saber mais sobre essas propriedades JSON, confira o [artigo sobre o conecto
   }
 }
 ```
-A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho de código:
+A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |

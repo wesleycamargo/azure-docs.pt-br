@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c0ad9f71665e503fe794c68200b90a8474750823
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b048509f38356b19d52507f4dfb5bfa61122f9f6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173618"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576418"
 ---
 # <a name="default-values-and-boundaries"></a>Limites e valores padrão
 
@@ -35,8 +35,8 @@ API de Criação, máximo de chamadas HTTP por mês | 5 M
 API de Criação, máximo de chamadas HTTP por segundo | 25
 API de Sessão, máximo de chamadas HTTP por mês | 500K
 API de Sessão, máximo de chamadas HTTP por mês | 10
-Número máximo de entidades por modelo personalizadas (não programático) | Consulte a [documentação de limites do LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries) pois, na prática, o número real pode ser um pouco menor
-Número máximo de entidades pré-compiladas por modelo | Consulte a [documentação de limites do LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries)
+Número máximo de entidades por modelo personalizadas (não programático) | Consulte a [documentação de limites do LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries) pois, na prática, o número real pode ser um pouco menor
+Número máximo de entidades pré-compiladas por modelo | Consulte a [documentação de limites do LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries)
 Número máximo de entidades por modelo (no total)  | 100
 Número máximo de ações por modelo | 32
 Número máximo de diálogos de treinamento por modelo | 1000

@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: edefb6637dae2ff00144f0b7c07ad974430d096b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e0c2eca1e776f8dac34810dcbc306f5f2c7b9c8d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34794540"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35630753"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights para aplicativos Web Java que já estão em modo dinâmico
 
@@ -92,7 +92,7 @@ Substitua a chave de instrumentação que você obteve no Portal do Azure.
 * A correlação de eventos é uma adição ao componente de solicitação HTTP. Ele atribui um identificador a cada solicitação recebida pelo servidor e adiciona esse identificador como uma propriedade para cada item de telemetria, como a propriedade “Operation.Id”. Ele permite que você correlacione a telemetria associada com cada solicitação, definindo um filtro na [pesquisa de diagnóstico](app-insights-diagnostic-search.md).
 
 ## <a name="4-add-an-http-filter"></a>4. Adicionar um filtro HTTP
-Localize e abra o arquivo web.xml em seu projeto, então mescle o trecho de código a seguir sob o nó do aplicativo Web, no qual seus filtros de aplicativo estão configurados.
+Localize e abra o arquivo web.xml em seu projeto, então mescle o snippet de código a seguir sob o nó do aplicativo Web, no qual seus filtros de aplicativo estão configurados.
 
 Para obter os resultados mais precisos, o filtro deve ser mapeado antes de todos os outros filtros.
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 36e63d26bf7ada2d23fa3cd9fddbb5ba90494527
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 7971a5aeadd2b2edaa43da8bacae9743937ce30e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126015"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127339"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizar o acelerador da solução Monitoramento Remoto
 
@@ -35,7 +35,7 @@ As etapas a seguir descrevem o processo de configurar um ambiente local para o d
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Você só deve habilitar o acesso SSH durante o desenvolvimento e teste. Se você habilitar o SSH, [você deve desabilitá-lo novamente assim que possível](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines).
+    Você só deve habilitar o acesso SSH durante o desenvolvimento e teste. Se você habilitar o SSH, [você deve desabilitá-lo novamente assim que possível](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
 1. Use o portal do Azure ou a [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para localizar o nome e o endereço IP público de sua máquina virtual. Por exemplo: 
 
@@ -255,7 +255,7 @@ Você substituiu o painel **Alarmes** original por uma cópia chamada **CustAlar
 
 1. Abra o arquivo `src/components/pages/dashboard/panels/cust_alarms/alarmsPanel.js` .
 
-1. Modifique as definições de coluna conforme mostrado no seguinte trecho de código:
+1. Modifique as definições de coluna conforme mostrado no seguinte snippet de código:
 
     ```nodejs
     this.columnDefs = [
@@ -454,8 +454,8 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 Para modificar ainda mais a camada de apresentação e de visualizações na solução Monitoramento Remoto, você pode editar o código. Os repositórios do GitHub relevantes são:
 
-* [O microsserviço de configuração para soluções do Azure IoT (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
-* [O microsserviço de configuração para soluções do Azure IoT (Java)](https://github.com/Azure/pcs-ui-config-java/)
+* [O microsserviço de configuração para soluções do Azure IoT (.NET)](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)
+* [O microsserviço de configuração para soluções do Azure IoT (Java)](https://github.com/Azure/remote-monitoring-services-java/tree/master/config)
 * [Interface do usuário da Web do Monitoramento Remoto de PCS do Azure IoT](https://github.com/Azure/pcs-remote-monitoring-webui)
 
 ## <a name="next-steps"></a>Próximas etapas

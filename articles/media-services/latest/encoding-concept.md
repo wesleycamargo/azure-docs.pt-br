@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: juliako
-ms.openlocfilehash: e1c7536c59b110ae3dd753ff5f4b01195f8dadca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 69c5516ee503d774b143bb2d83f09ea863a00b31
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658859"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35765923"
 ---
 # <a name="encoding-with-azure-media-services"></a>Codificação com Serviços de Mídia do Azure
 
@@ -63,13 +63,13 @@ Os tutoriais a seguir mostram como codificar conteúdo com os Serviços de Mídi
 Os exemplos de código a seguir contêm código que mostra como codificar com os Serviços de Mídia:
 
 * [.NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore)
-* [CLI 2.0](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
+* [CLI do Azure](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
 
 ### <a name="sdks"></a>SDKs
 
 É possível usar qualquer um dos seguintes SDKs dos Serviços de Mídia v3 com suporte para codificar o conteúdo.
 
-* [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 * [REST](https://docs.microsoft.com/rest/api/media/transforms)
 * [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)

@@ -1,20 +1,21 @@
 ---
-title: Visão geral da Análise de Texto – Serviços Cognitivos do Azure | Microsoft Docs
+title: O que é a Análise de Texto?
+titleSuffix: Azure Cognitive Services
 description: Análise de Texto dos Serviços Cognitivos do Azure para análise de sentimento, extração de frases-chave, detecção de idioma e vinculação de entidade.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
 ms.technology: text-analytics
-ms.topic: article
-ms.date: 8/30/2018
+ms.topic: overview
+ms.date: 09/12/2018
 ms.author: ashmaka
-ms.openlocfilehash: 71af2bcbf58279681bbea66d4f76e951a2efce59
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: ffd528da1e8c94fdf1fe01bfb6820dc36c54824c
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43341479"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604817"
 ---
 # <a name="what-is-text-analytics"></a>O que é a Análise de Texto?
 

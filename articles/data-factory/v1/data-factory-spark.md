@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246379"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736403"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
 
@@ -109,7 +109,7 @@ Nesta etapa, você vincula sua conta de armazenamento ao data factory. Um conjun
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Substitua **nome da conta** e **chave de conta** pelo nome e pela chave de acesso de sua conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, veja como exibir, copiar e regenerar chaves de acesso de armazenamento em [Gerenciar sua conta de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Substitua **nome da conta** e **chave de conta** pelo nome e pela chave de acesso de sua conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, veja como exibir, copiar e regenerar chaves de acesso de armazenamento em [Gerenciar sua conta de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
 
 1. Para implantar o serviço vinculado, selecione **Implantar** na barra de comandos. Depois que o serviço vinculado for implantado com êxito, a janela Rascunho-1 desaparecerá. Você verá **AzureStorageLinkedService** no modo de exibição de árvore à esquerda.
 
@@ -120,7 +120,7 @@ Nesta etapa, você cria um serviço vinculado do HDInsight para vincular o clust
 
     ![Criar o serviço vinculado ao HDInsight](media/data-factory-spark/new-hdinsight-linked-service.png)
 
-1. Copie e cole o trecho a seguir na janela de Rascunho-1. No editor de JSON, execute as seguintes etapas:
+1. Copie e cole o snippet a seguir na janela de Rascunho-1. No editor de JSON, execute as seguintes etapas:
 
     a. Especifique o URI do cluster HDInsight Spark. Por exemplo: `https://<sparkclustername>.azurehdinsight.net/`.
 
@@ -158,7 +158,7 @@ O conjunto de dados de saída é o que aciona o agendamento (por hora, diariamen
 
 1. No Data Factory Editor, selecione **Mais** > **Novo conjunto de dados** > **Armazenamento de Blobs do Azure**.
 
-1. Copie e cole o trecho a seguir na janela de Rascunho-1. O trecho JSON define um conjunto de dados chamado **OutputDataset**. Além disso, você especifica que os resultados estão armazenados no contêiner de blobs denominado **adfspark** e na pasta denominada **pyFiles/output**. Conforme mencionado anteriormente, esse conjunto de dados é fictício. O programa do Spark neste exemplo não produz nenhuma saída. A seção **availability** especifica que o conjunto de dados de saída é produzido diariamente. 
+1. Copie e cole o snippet a seguir na janela de Rascunho-1. O snippet JSON define um conjunto de dados chamado **OutputDataset**. Além disso, você especifica que os resultados estão armazenados no contêiner de blobs denominado **adfspark** e na pasta denominada **pyFiles/output**. Conforme mencionado anteriormente, esse conjunto de dados é fictício. O programa do Spark neste exemplo não produz nenhuma saída. A seção **availability** especifica que o conjunto de dados de saída é produzido diariamente. 
 
     ```json
     {

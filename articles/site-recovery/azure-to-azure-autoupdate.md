@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922744"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574395"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do Serviço de Mobilidade no Azure para a replicação do Azure
 
@@ -79,8 +79,8 @@ Caso do botão de reparo não esteja disponível, consulte a mensagem de erro ex
 
  - **Erro**: a conta Executar como não tem permissão para acessar o recurso de serviços de recuperação.
 
-    **Ação recomendada**: exclua e, em seguida, [recrie a conta Executar como](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account) ou certifique-se de que o aplicativo do Azure Active Directory para a conta Executar como tem acesso ao recurso dos serviços de recuperação.
+    **Ação recomendada**: exclua e, em seguida, [recrie a conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account) ou certifique-se de que o aplicativo do Azure Active Directory para a conta Executar como tem acesso ao recurso dos serviços de recuperação.
 
 - **Erro**: a conta Executar como não foi encontrada. Um deles foi excluído ou não criado - o aplicativo do Azure Active Directory, a entidade de serviço, a função, o ativo do certificado de automação, o ativo de conexão de automação - ou a impressão digital não é idêntica entre o certificado e a conexão. 
 
-    **Ação recomendada**: exclua e [ crie novamente a conta Executar como](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account).
+    **Ação recomendada**: exclua e [ crie novamente a conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
