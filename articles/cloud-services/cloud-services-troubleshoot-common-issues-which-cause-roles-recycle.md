@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 7f513a7d3fe44cbbf06855059c87c10ddceef7c9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 20b98fa9656c9c66a81ff98a70fcdbfb29d4dad6
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
-ms.locfileid: "23984279"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35764937"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comuns que causam a reciclagem de funções
 Este artigo discute algumas das causas comuns dos problemas de implantação e fornece dicas de solução de problemas para ajudá-lo a resolvê-los. Uma indicação de que existe um problema com um aplicativo é quando há uma falha na inicialização da instância de função ou se ela alterna entre os estados inicializando, ocupado e parando.
@@ -40,10 +40,10 @@ Antes de compilar e empacotar seu aplicativo, verifique o seguinte:
 O Azure é um ambiente de 64 bits. Portanto, os assemblies do .NET compilados para um destino de 32 bits não funcionarão no Azure.
 
 ## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>A função gera exceções sem tratamento durante a inicialização ou interrupção
-Todas as exceções geradas pelos métodos da classe [RoleEntryPoint], que inclui os métodos [OnStart], [OnStop] e [Execute], são exceções sem tratamento. Se ocorrer uma exceção sem tratamento em um desses métodos, a função será reciclada. Se a função estiver sendo reciclada repetidamente, ela poderá gerar uma exceção sem tratamento a cada tentativa de inicialização.
+Todas as exceções geradas pelos métodos da classe [RoleEntryPoint], que inclui os métodos [OnStart], [OnStop] e [Run], são exceções sem tratamento. Se ocorrer uma exceção sem tratamento em um desses métodos, a função será reciclada. Se a função estiver sendo reciclada repetidamente, ela poderá gerar uma exceção sem tratamento a cada tentativa de inicialização.
 
 ## <a name="role-returns-from-run-method"></a>A função é retornada do método Run
-O método [Execute] se destina a ser executado por tempo indeterminado. Se o seu código substituir o método [Execute] , ele deverá ser suspenso por tempo indeterminado. Se o método [Execute] for retornado, a função será reciclada.
+O método [Run] se destina a ser executado por tempo indeterminado. Se o seu código substituir o método [Run] , ele deverá ser suspenso por tempo indeterminado. Se o método [Run] for retornado, a função será reciclada.
 
 ## <a name="incorrect-diagnosticsconnectionstring-setting"></a>Configuração incorreta de DiagnosticsConnectionString
 Se o aplicativo usar o Diagnóstico do Azure, o arquivo de configuração de serviço deverá especificar a definição de configuração `DiagnosticsConnectionString` . Essa configuração deve especificar uma conexão HTTPS à sua conta de armazenamento no Azure.
@@ -69,4 +69,4 @@ Veja mais cenários de reciclagem da função na [Série de blogs de Kevin Willi
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[Execute]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
+[Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
