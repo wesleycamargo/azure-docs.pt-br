@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: fa6c95c3986a398bdb4593235116b305a80616fb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04a172c40c24e4e0daaf17b495d2320f3a897a47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653786"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975240"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Aplicar políticas a VMs Linux com o Azure Resource Manager
 Usando políticas, uma organização pode impor várias convenções e regras em toda a empresa. A imposição do comportamento desejado pode ajudar a reduzir o risco e contribui para o sucesso da organização. Neste artigo, descrevemos como você pode usar as políticas do Azure Resource Manager para definir o comportamento desejado das Máquinas Virtuais de sua organização.
@@ -89,7 +89,7 @@ Use um curinga para modificar a política anterior a fim de permitir qualquer im
 }
 ```
 
-Para obter informações sobre campos de política, consulte [Aliases de política](../../azure-policy/policy-definition.md#aliases).
+Para obter informações sobre campos de política, consulte [Aliases de política](../../governance/policy/concepts/definition-structure.md#aliases).
 
 ## <a name="managed-disks"></a>Discos gerenciados
 

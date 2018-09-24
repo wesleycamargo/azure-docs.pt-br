@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ms.openlocfilehash: 99bc275db1f0c1b45b3db440d2e03d0db9ab5cf6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: ed93afa8e10fdfbb0d45f4500b4a648716e25e00
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363435"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952215"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Criar um ponto de extremidade de conversão de fala em texto personalizado 
 Depois de criar modelos de acústicos personalizados ou modelos de linguagem, você pode implantá-los em um ponto de extremidade de conversão de fala em texto personalizado. 
@@ -69,7 +70,7 @@ Quando a implantação estiver pronta, o nome de implantação se torna um link.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para mais tutoriais, consulte:
+Para ver mais tutoriais, consulte:
 * [Usar um ponto de extremidade personalizado de conversão de fala em texto](cognitive-services-custom-speech-use-endpoint.md)
 * [Criar um modelo acústico personalizado](cognitive-services-custom-speech-create-acoustic-model.md)
 * [Criar um modelo de linguagem personalizado](cognitive-services-custom-speech-create-language-model.md)

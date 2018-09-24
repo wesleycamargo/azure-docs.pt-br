@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f8ac885444c0ba52802024be9a78dfc0737e2673
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: df1ca1358d1b111d8412d730575eb7bf66c8ebdf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247676"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950005"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Criar um dispositivo do IoT Edge Linux que atua como um gateway transparente
 
@@ -155,7 +155,7 @@ Instalar este certificado no repositório de certificados do sistema operacional
   * Quando concluído, você verá uma mensagem "Importada com êxito".
 
 ### <a name="application-level"></a>Nível de aplicativo
-Para aplicativos .NET, você pode adicionar o trecho a seguir para confiar em um certificado no formato PEM. Inicializar a variável `certPath` com `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.
+Para aplicativos .NET, você pode adicionar o snippet a seguir para confiar em um certificado no formato PEM. Inicializar a variável `certPath` com `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.
 
    ```
    using System.Security.Cryptography.X509Certificates;
@@ -188,6 +188,8 @@ O tempo de execução de IoT Edge pode rotear as mensagens enviadas dos disposit
    ```
 
 Consulte o [artigo de composição do módulo][lnk-module-composition] para obter mais detalhes sobre o roteamento de mensagens.
+
+[!INCLUDE [](../../includes/iot-edge-extended-offline-preview.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 [Entender os requisitos e as ferramentas para desenvolvimento de módulos do IoT Edge][lnk-module-dev].

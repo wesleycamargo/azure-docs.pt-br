@@ -14,11 +14,11 @@ ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
 ms.openlocfilehash: 68514f1bc569d876f4cf851f97a690ae84cf43a6
-ms.sourcegitcommit: b34df37d1ac36161b377ba56c2f7128ba7327f3f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46891271"
+ms.locfileid: "46970287"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gerenciar perfis de versão de API no Azure Stack
 

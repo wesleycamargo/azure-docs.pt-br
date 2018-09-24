@@ -17,22 +17,22 @@ ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 815311797e1897259b961debc8a0f81157495570
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 23d041311c33110bf11efc78d162243a4bb25778
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596493"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997750"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referência de tokens do Azure Active Directory v2.0
+
 O ponto de extremidade do Azure AD (Azure Active Directory) v 2.0 emite vários tipos de tokens de segurança em cada [fluxo de autenticação](v2-app-types.md). Esta referência descreve o formato, as características de segurança e o conteúdo de cada tipo de token.
 
 > [!NOTE]
 > O ponto de extremidade v2.0 não dá suporte a todos os cenários e recursos do Azure Active Directory. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
->
->
 
 ## <a name="types-of-tokens"></a>Tipos de tokens
+
 O ponto de extremidade v2.0 dá suporte ao [protocolo de autorização do OAuth 2.0](active-directory-v2-protocols.md), que usa tokens de acesso e de atualização. O ponto de extremidade v 2.0 também dá suporte à autenticação e à entrada via [OpenID Connect](active-directory-v2-protocols.md). O OpenID Connect introduz um terceiro tipo de token, o token de ID. Cada um desses tokens é representado como um token de *portador*.
 
 Um token de portador é um token de segurança leve que concede ao portador acesso a um recurso protegido. O portador é qualquer parte que possa apresentar o token. Embora uma parte deva se autenticar no Azure AD para receber o token de portador, se não forem tomadas medidas para proteger o token durante a transmissão e o armazenamento, ele poderá ser interceptado e usado por uma parte não planejada. Alguns tokens de segurança têm um mecanismo interno para evitar que partes não autorizadas os utilizem, mas os tokens de portador não têm isso. Os tokens de portador devem ser transportados em um canal seguro, como segurança da camada de transporte (HTTPS). Se um token de portador for transmitido sem esse tipo de segurança, um terceiro mal-intencionado poderá usar um ataque"man-in-the-middle" para adquirir o token e usá-lo para acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança se aplicam ao armazenar ou manter em cache tokens de portador para uso posterior. Sempre verifique se o aplicativo transmite e armazena tokens de portador com segurança. Para obter mais considerações de segurança sobre tokens de portador, confira [RFC 6750 seção 5](http://tools.ietf.org/html/rfc6750).
@@ -40,6 +40,7 @@ Um token de portador é um token de segurança leve que concede ao portador aces
 Muitos dos tokens emitidos pelo ponto de extremidade v2.0 são implementados como Tokens Web JSON (JWTs). JWT é uma maneira compacta e protegida por URL para transferir informações entre duas partes. As informações em um JWT são chamadas de *declaração*. É uma asserção de informações sobre o portador e a entidade do token. As declarações JWT são objetos JSON (JavaScript Object Notation) que são codificados e serializados para transmissão. Como os JWTs emitidos pelo ponto de extremidade v2.0 são assinados, mas não criptografados, você pode inspecionar facilmente o conteúdo de um JWT para fins de depuração. Para obter mais informações sobre JWTs, confira a [especificação JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### <a name="id-tokens"></a>Tokens de ID
+
 Um token de ID é uma forma de token de segurança de entrada que o aplicativo recebe quando ele executa a autenticação usando [OpenID Connect](active-directory-v2-protocols.md). Tokens de ID são representadas como [JWTs](#types-of-tokens) e contêm declarações que você pode usar para conectar o usuário ao aplicativo. Você pode usar as declarações em um token de ID de várias maneiras. Normalmente, os administradores usam tokens de ID para exibir informações de conta ou para tomar decisões de controle de acesso em um aplicativo. O ponto de extremidade v2.0 emitirá somente um tipo de token de ID, que tem um conjunto consistente de declarações, independentemente do tipo de usuário conectado. O formato e o conteúdo de tokens de ID são os mesmos para usuários de contas pessoais da Microsoft e para contas corporativas ou de estudante.
 
 Atualmente, os tokens de ID são assinados, mas não criptografados. Quando o aplicativo recebe um token de ID, ele deve [validar a assinatura](#validating-tokens) para comprovar a autenticidade do token e validar algumas declarações no token para comprovar sua validade. As declarações validadas por um aplicativo variam dependendo dos requisitos do cenário, mas o aplicativo deve executar algumas [validações de declaração comuns](#validating-tokens) em cada cenário.
@@ -47,16 +48,16 @@ Atualmente, os tokens de ID são assinados, mas não criptografados. Quando o ap
 Fornecemos os detalhes completos sobre declarações em tokens de ID nas seções a seguir, além de um token de ID de exemplo. Observe que as declarações em tokens de ID não são retornadas em uma ordem específica. Além disso, novas declarações podem ser introduzidas em tokens de ID a qualquer momento. O aplicativo não deve ser interrompido quando novas declarações são introduzidas. A lista a seguir inclui as declarações que o aplicativo pode interpretar atualmente de forma confiável. Você pode encontrar mais detalhes na [especificação OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
 
 #### <a name="sample-id-token"></a>Token de ID de exemplo
+
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI2NzMxZGU3Ni0xNGE2LTQ5YWUtOTdiYy02ZWJhNjkxNDM5MWUiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTk4MTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlL3YyLjAiLCJpYXQiOjE0NTIyODUzMzEsIm5iZiI6MTQ1MjI4NTMzMSwiZXhwIjoxNDUyMjg5MjMxLCJuYW1lIjoiQmFiZSBSdXRoIiwibm9uY2UiOiIxMjM0NSIsIm9pZCI6ImExZGJkZGU4LWU0ZjktNDU3MS1hZDkzLTMwNTllMzc1MGQyMyIsInByZWZlcnJlZF91c2VybmFtZSI6InRoZWdyZWF0YmFtYmlub0BueXkub25taWNyb3NvZnQuY29tIiwic3ViIjoiTUY0Zi1nZ1dNRWppMTJLeW5KVU5RWnBoYVVUdkxjUXVnNWpkRjJubDAxUSIsInRpZCI6ImI5NDE5ODE4LTA5YWYtNDljMi1iMGMzLTY1M2FkYzFmMzc2ZSIsInZlciI6IjIuMCJ9.p_rYdrtJ1oCmgDBggNHB9O38KTnLCMGbMDODdirdmZbmJcTHiZDdtTc-hguu3krhbtOsoYM2HJeZM3Wsbp_YcfSKDY--X_NobMNsxbT7bqZHxDnA2jTMyrmt5v2EKUnEeVtSiJXyO3JWUq9R0dO-m4o9_8jGP6zHtR62zLaotTBYHmgeKpZgTFB9WtUq8DVdyMn_HSvQEfz-LWqckbcTwM_9RNKoGRVk38KChVJo4z5LkksYRarDo8QgQ7xEKmYmPvRr_I7gvM2bmlZQds2OeqWLB1NSNbFZqyFOCgYn3bAQ-nEQSKwBaA36jYGPOVG2r2Qv1uKcpSOxzxaQybzYpQ
 ```
 
 > [!TIP]
 > Para praticar, para verificar as declarações no token de ID de exemplo, cole o token de ID de exemplo em [jwt.ms](http://jwt.ms/).
->
->
 
 #### <a name="claims-in-id-tokens"></a>Declarações em tokens de ID
+
 | NOME | Declaração | Valor de exemplo | DESCRIÇÃO |
 | --- | --- | --- | --- |
 | audiência |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifica o destinatário pretendido do token. Em tokens de ID, a audiência é a ID do aplicativo, atribuída ao o aplicativo no Portal de Registro de Aplicativos da Microsoft. O aplicativo deve validar esse valor e rejeitar o token, caso o valor não seja correspondente. |
@@ -82,22 +83,25 @@ O ponto de extremidade v2.0 permite que aplicativos de terceiros registrados no 
 Quando você solicita um token de acesso do ponto de extremidade v2.0, ele também retorna metadados sobre o token de acesso para uso pelo aplicativo. Essas informações incluem a data de expiração do token de acesso e os escopos para os quais ele é válido. O aplicativo usa os metadados para executar o armazenamento em cache inteligente de tokens de acesso sem ter que analisar abertamente o token de acesso.
 
 ### <a name="refresh-tokens"></a>Tokens de atualização
+
 Tokens de atualização são tokens de segurança que o aplicativo pode usar para obter novos tokens de acesso em um fluxo OAuth 2.0. O aplicativo pode usar tokens de atualização para obter acesso de longo prazo a recursos em nome de um usuário sem a necessidade de interação com o usuário.
 
 Os tokens de atualização têm vários recursos. Um token de atualização recebido durante uma solicitação de token para um recurso pode ser resgatado para tokens de acesso para um recurso totalmente diferente.
 
 Para receber uma atualização em uma resposta de token, o aplicativo deve solicitar e receber o escopo `offline_access`. Para saber mais sobre o escopo `offline_access`, confira o artigo [Consentimento e escopos](v2-permissions-and-consent.md).
 
-Os tokens de atualização são e sempre serão completamente opacos para o aplicativo. Eles são emitidos pelo ponto de extremidade v2.0 do Azure AD e podem ser inspecionados e interpretados apenas pelo ponto de extremidade v2.0. Eles têm longa duração, mas o aplicativo não deve ser escrito para esperar que um token de atualização dure por qualquer período de tempo. Tokens de atualização podem ser invalidados a qualquer momento por vários motivos - para obter detalhes, consulte [revogação de token](v1-id-and-access-tokens.md#token-revocation). A única maneira de o aplicativo saber se um token de atualização é válido, é tentando resgatá-lo fazendo uma solicitação de token ao ponto de extremidade v2.0.
+Os tokens de atualização são e sempre serão completamente opacos para o aplicativo. Eles são emitidos pelo ponto de extremidade v2.0 do Azure AD e podem ser inspecionados e interpretados apenas pelo ponto de extremidade v2.0. Eles têm longa duração, mas o aplicativo não deve ser escrito para esperar que um token de atualização dure por qualquer período de tempo. Tokens de atualização podem ser invalidados a qualquer momento por vários motivos - para obter detalhes, consulte [revogação de token](access-tokens.md#revocation). A única maneira de o aplicativo saber se um token de atualização é válido, é tentando resgatá-lo fazendo uma solicitação de token ao ponto de extremidade v2.0.
 
 Ao resgatar um token de atualização para um novo token de acesso (e se o aplicativo tiver concedido o escopo `offline_access` ), você recebe um novo token de atualização na resposta de token. Salve o token de atualização emitido mais recentemente, para substituir o que foi usado na solicitação. Isso garante que os tokens de atualização permaneçam válidos pelo tempo máximo possível.
 
 ## <a name="validating-tokens"></a>Validando tokens
+
 Atualmente, a única validação de token que os aplicativos devem precisar executar é validar os tokens de ID. Para validar um token de ID, o aplicativo deve validar a assinatura do token de ID e as declarações contidas nele.
 
 <!-- TODO: Link --> A Microsoft fornece exemplos de código e bibliotecas que mostram como lidar facilmente com a validação de token. Nas próximas seções, descrevemos o processo subjacente. Várias bibliotecas de software livre de terceiros também estão disponíveis para validação de JWT. Há pelo menos uma opção de biblioteca para quase todas as plataformas e idiomas.
 
 ### <a name="validate-the-signature"></a>validar a assinatura
+
 Um JWT contém três segmentos, que são separados pelo caractere `.` . O primeiro segmento é conhecido como o *cabeçalho*, o segundo segmento é o *corpo* e o terceiro segmento é a *assinatura*. O segmento de assinatura pode ser usado para validar a autenticidade do token de ID, de modo que o aplicativo possa confiar nele.
 
 Os tokens de ID são assinados usando algoritmos de criptografia assimétrica padrão do setor, como RSA 256. O cabeçalho do token de ID tem informações sobre o método de criptografia e a chave usados para assinar o token. Por exemplo: 
@@ -131,6 +135,7 @@ Esse documento de metadados é um objeto JSON com várias informações úteis, 
 Executar a validação de assinatura está fora do escopo deste documento. Muitas bibliotecas de software livre estão disponíveis para ajudá-lo.
 
 ### <a name="validate-the-claims"></a>Validar as declarações
+
 Quando o aplicativo recebe um token de ID na conexão do usuário, ele também deve fazer algumas verificações nas declarações no token de ID. Elas incluem, mas sem limitação:
 
 * A declaração **público-alvo**, para verificar se o token de ID foi destinado a ser dado ao aplicativo
@@ -143,6 +148,7 @@ Para obter uma lista completa das validações de declaração que o aplicativo 
 Os detalhes dos valores esperados para essas declarações estão incluídos acima na [seção tokens de ID](# ID tokens).
 
 ## <a name="token-lifetimes"></a>Tempos de vida do token
+
 Fornecemos os tempos de vida de token a seguir para fins informativos. As informações podem ajudá-lo a desenvolver e depurar aplicativos. Os aplicativos não devem ser escritos com a expectativa de que esses tempos de vida permaneçam constantes. Os tempos de vida de token podem mudar e mudarão a qualquer momento.
 
 | A criptografia do token | Tempo de vida | DESCRIÇÃO |

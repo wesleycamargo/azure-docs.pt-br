@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: d2f7769469c9f3ebdbef5fc6ee1f09b1acd573ef
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: c9ade4d61a1b95d5041a13f9436f0d02a7951758
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715822"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981637"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o Registro de Contêiner do Azure do Serviço de Kubernetes do Azure
 
@@ -21,7 +21,7 @@ Quando você estiver usando o ACR (Registro de Contêiner do Azure) com o AKS (S
 
 ## <a name="grant-aks-access-to-acr"></a>Conceder acesso do AKS ao ACR
 
-Quando você cria um cluster do AKS, o Azure também cria uma entidade de serviço para dar suporte à operabilidade do cluster com outros recursos do Azure. Use essa entidade de serviço gerada automaticamente para autenticação com um registro de ACR. Para fazer isso, você precisará criar uma [atribuição de função](../role-based-access-control/overview.md#role-assignment) do Azure AD que concede acesso à entidade de serviço do cluster para o registro de contêiner.
+Quando você cria um cluster do AKS, o Azure também cria uma entidade de serviço para dar suporte à operabilidade do cluster com outros recursos do Azure. Use essa entidade de serviço gerada automaticamente para autenticação com um registro de ACR. Para fazer isso, você precisará criar uma [atribuição de função](../role-based-access-control/overview.md#role-assignments) do Azure AD que concede acesso à entidade de serviço do cluster para o registro de contêiner.
 
 Use o script a seguir para conceder à entidade de serviço gerada pelo AKS acesso a um registro de contêiner do Azure. Modifique as variáveis `AKS_*` e `ACR_*` de seu ambiente antes de executar o script.
 

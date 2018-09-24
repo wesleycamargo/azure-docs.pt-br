@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 72859f68fc1bb76a6c71bbd7b98cd713f1f0fe02
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8161fda80b5fa498f9321371c9ad2c8a2d97441a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296393"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962412"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegação e painéis no portal do Application Insights
 Após de ter [Configurado o Application Insights no seu projeto](app-insights-overview.md), os dados de telemetria sobre desempenho e uso do aplicativo aparecerá no recurso do Application Insights do projeto no [portal do Azure](https://portal.azure.com).
@@ -63,7 +63,7 @@ O gráfico é atualizado automaticamente com uma frequência que depende do inte
 * Intervalo de tempo acima de 24 horas: (intervalo de tempo)/60.
 
 ### <a name="pin-any-query-in-analytics"></a>Fixar qualquer consulta no Analytics
-Você também pode [fixar gráficos do Analytics](app-insights-analytics-using.md#pin-to-dashboard) a um painel [compartilhado](#share-dashboards-with-your-team). Isso permite que você adicione gráficos de qualquer consulta arbitrária junto com as métricas padrão. 
+Você também pode [fixar gráficos do Analytics](../log-analytics/query-language/get-started-analytics-portal.md) a um painel [compartilhado](#share-dashboards-with-your-team). Isso permite que você adicione gráficos de qualquer consulta arbitrária junto com as métricas padrão. 
 
 Os resultados são automaticamente recalculados a cada hora. Clique no ícone Atualizar no gráfico para recalcular imediatamente. (Atualizar do navegador não é recalculado.)
 

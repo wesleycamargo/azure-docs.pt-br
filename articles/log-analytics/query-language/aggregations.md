@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: f72fb6f654b4699214a22a7f96431c605af52f2d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 764c43a382442096a5d130334e54afdc135ba419
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603666"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966666"
 ---
 # <a name="aggregations-in-log-analytics-queries"></a>Operadores úteis em consultas do Log Analytics
 
@@ -37,13 +37,13 @@ Descreve as funções de agregação em consultas de análise de Log que oferece
 Conte o número de linhas no conjunto de resultados depois que os filtros forem aplicados. O exemplo a seguir retorna o número total de linhas na tabela _Perf_ dos últimos 30 minutos. O resultado é retornado em uma coluna chamada *count_*, a menos que você atribua um nome específico a ele:
 
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize count()
 ```
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize num_of_records=count() 
@@ -51,7 +51,7 @@ Perf
 
 Uma visualização de cronograma pode ser útil para ver uma tendência ao longo do tempo:
 
-```KQL
+```Kusto
 Perf 
 | where TimeGenerated > ago(30m) 
 | summarize count() by bin(TimeGenerated, 5m)
@@ -66,7 +66,7 @@ A saída deste exemplo mostra a linha de tendência de contagem de registros per
 ### <a name="dcount-dcountif"></a>DCount, dcountif
 Use `dcount`e`dcountif` para contar valores distintos em uma coluna específica. A consulta a seguir avalia quantos computadores distintos enviam pulsações na última hora:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcount(Computer)
@@ -74,7 +74,7 @@ Heartbeat
 
 Para contar apenas os computadores Linux que enviaram heartbeats, use `dcountif`:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcountif(Computer, OSType=="Linux")
@@ -83,7 +83,7 @@ Heartbeat
 ### <a name="evaluating-subgroups"></a>Avaliando subgrupos
 Para executar uma contagem ou outras agregações em subgrupos em seus dados, use a `by` palavra-chave. Por exemplo, para contar o número de computadores Linux distintos que enviaram pulsações em cada país:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry
@@ -100,7 +100,7 @@ Heartbeat
 
 Para analisar subgrupos ainda menores de seus dados, adicione nomes de coluna adicionais à seção`by`. Por exemplo, você pode querer contar os computadores distintos de cada país por OSType:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
@@ -112,7 +112,7 @@ Ao avaliar valores numéricos, uma prática comum é calculá-los usando `summar
 ### <a name="percentile"></a>Percentil
 Para encontrar o valor mediano, use a função `percentile` com um valor para especificar o percentil:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -121,7 +121,7 @@ Perf
 
 Você também pode especificar diferentes percentis para obter um resultado agregado para cada um:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -133,7 +133,7 @@ Isso pode mostrar que algumas CPUs de computadores têm valores medianos semelha
 ### <a name="variance"></a>Variação
 Para avaliar diretamente a variância de um valor, use os métodos de desvio padrão e variância:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -142,7 +142,7 @@ Perf
 
 Uma boa maneira de analisar a estabilidade do uso da CPU é combinar stdev com o cálculo mediano:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(130m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 

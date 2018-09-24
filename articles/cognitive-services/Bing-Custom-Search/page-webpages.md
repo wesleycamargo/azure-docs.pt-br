@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: f2f545a5a9195fc65515ea716f277723600cbb78
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5692776736090c55547c2fe934e2c0aaf840d3c5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363361"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982351"
 ---
 # <a name="paging-webpages"></a>Paginação de páginas da Web 
 
@@ -34,7 +34,7 @@ O exemplo a seguir mostra o campo `totalEstimatedMatches` que uma resposta da We
 }  
 ```  
   
-Para navegar pelas páginas da Web disponíveis, use os parâmetros de consulta [contagem](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#count) e [deslocamento](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#offset).  
+Para paginar as páginas da Web disponíveis, use os parâmetros de consulta [contagem](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#count) e [deslocamento](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#offset).  
   
 O parâmetro `count` especifica o número de resultados a serem retornados na resposta. O número máximo de resultados que você pode solicitar na resposta é 50. O padrão é 10. O número real entregue pode ser menor que o solicitado.
 
@@ -45,7 +45,7 @@ Se você quiser exibir 15 páginas da Web por página, você definiria `count` c
 O exemplo a seguir mostra um exemplo que solicita 15 imagens começando no deslocamento 45.  
   
 ```  
-GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us HTTP/1.1  
+GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us&customConfig=123456 HTTP/1.1  
 Ocp-Apim-Subscription-Key: <subscription ID>
 Host: api.cognitive.microsoft.com  
 ```  
@@ -53,7 +53,7 @@ Host: api.cognitive.microsoft.com
 Se o valor padrão `count` funcionar para a implementação, será necessário somente especificar o parâmetro de consulta `offset`.  
   
 ```  
-GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
+GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us&customConfig=123456 HTTP/1.1  
 Ocp-Apim-Subscription-Key: <subscription ID>  
 Host: api.cognitive.microsoft.com  
 ```  

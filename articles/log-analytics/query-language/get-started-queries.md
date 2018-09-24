@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 548c94ce502da8c6a8d208daafb5b0fb624de1e1
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b56a75074af239f60b82edbe1d074c6384c4aef1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603918"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982964"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Introdução às consultas no Log Analytics
 
@@ -50,7 +50,7 @@ As consultas podem começar com um nome de tabela ou com o comando *pesquisa*. V
 ### <a name="table-based-queries"></a>Consultas baseadas em tabela
 O Azure Log Analytics organiza dados em tabelas, cada composta por várias colunas. Todas as tabelas e colunas são mostradas no painel de esquema, no portal do Analytics. Identifica uma tabela que você está interessado e, em seguida, vejamos um pouco de dados:
 
-```KQL
+```Kusto
 SecurityEvent
 | take 10
 ```
@@ -66,7 +66,7 @@ Na verdade, estamos poderia executar a consulta mesmo sem adicionar `| take 10` 
 ### <a name="search-queries"></a>Consultas de pesquisa
 Consultas de pesquisa são menos estruturado e geralmente mais adequada para localizar registros que incluem um valor específico em qualquer uma de suas colunas:
 
-```KQL
+```Kusto
 search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
@@ -79,7 +79,7 @@ Essa consulta pesquisa a tabela *SecurityEvent* em busca de registros que conten
 ## <a name="sort-and-top"></a>Classificar e superior
 Embora **levar** é útil para obter alguns registros, os resultados são selecionados e exibidos em nenhuma ordem específica. Para obter uma exibição ordenada, você poderia **classificação** pela coluna preferencial:
 
-```
+```Kusto
 SecurityEvent   
 | sort by TimeGenerated desc
 ```
@@ -88,7 +88,7 @@ Que poderia retornar um número excessivo de resultados no entanto e também pod
 
 A melhor maneira de obter os registros mais recentes 10 é usar **superior**, que classifica a tabela inteira no lado do servidor e, em seguida, retorna os primeiros registros:
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 ```
@@ -103,7 +103,7 @@ Filtros, conforme indicado pelo seu nome, filtram os dados por uma condição es
 
 Para adicionar um filtro a uma consulta, use o operador **onde** seguido por uma ou mais condições. Por exemplo, a consulta a seguir retorna apenas *SecurityEvent* registros em que _nível_ é igual a _8_:
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8
 ```
@@ -119,14 +119,14 @@ Ao escrever as condições de filtro, você pode usar as expressões a seguir:
 
 Para filtrar por várias condições, você pode usar **e**:
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
 ou canalizar vários **em que** elementos um após o outro:
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8 
 | where EventID == 4672
@@ -146,7 +146,7 @@ O seletor de hora está no canto superior esquerdo, que indica que está consult
 ### <a name="time-filter-in-query"></a>Filtro de tempo na consulta
 Você também pode definir seu próprio intervalo de tempo adicionando um filtro de tempo à consulta. É melhor colocar o filtro de tempo imediatamente após o nome da tabela: 
 
-```KQL
+```Kusto
 SecurityEvent
 | where TimeGenerated > ago(30m) 
 | where toint(Level) >= 10
@@ -158,7 +158,7 @@ No filtro de hora acima, `ago(30m)` significa "30 minutos atrás", portanto, ess
 ## <a name="project-and-extend-select-and-compute-columns"></a>Projeto e Extensão: selecione e calcule colunas
 Use **projeto** para selecionar colunas específicas a serem incluídas nos resultados:
 
-```KQL
+```Kusto
 SecurityEvent 
 | top 10 by TimeGenerated 
 | project TimeGenerated, Computer, Activity
@@ -175,7 +175,7 @@ Você também pode usar **projeto** para renomear colunas e definir novos. O exe
 * Criar uma nova coluna chamada *EventCode*. A função **substring ()** é usada para obter apenas os quatro primeiros caracteres do campo Activity.
 
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated 
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
@@ -183,7 +183,7 @@ SecurityEvent
 
 **estender** mantém todas as colunas originais no conjunto de resultados e define outros adicionais. A seguinte consulta utiliza **estender** para adicionar um *localtime* coluna, que contém um valor de TimeGenerated localizado.
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 | extend localtime = TimeGenerated-8h
@@ -193,7 +193,7 @@ SecurityEvent
 Use **resumir** para identificar grupos de registros, de acordo com uma ou mais colunas, e aplicar agregações a eles. O uso mais comum do sistema operacional **resumir** é *contagem*, que retorna o número de resultados em cada grupo.
 
 A consulta a seguir examina todos os *Perf* registros de última hora, agrupa-os por *ObjectName*e conta os registros em cada grupo: 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
@@ -201,7 +201,7 @@ Perf
 
 Às vezes, faz sentido para definir grupos por várias dimensões. Cada combinação exclusiva desses valores define um grupo separado:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName, CounterName
@@ -209,7 +209,7 @@ Perf
 
 Outro uso comum é realizar cálculos matemáticos ou estatísticos em cada grupo. Por exemplo, o seguinte calcula a média *CounterValue* para cada computador:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer
@@ -217,7 +217,7 @@ Perf
 
 Infelizmente, os resultados dessa consulta não têm sentido, pois combinamos diferentes contadores de desempenho. Para tornar isso mais significativo, devemos calcular a média separadamente para cada combinação de *CounterName* e *computador*:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer, CounterName
@@ -228,7 +228,7 @@ Agrupar os resultados também pode ser baseado em uma coluna de hora ou outro va
 
 Para criar grupos com base em valores contínuos, é melhor dividir o intervalo em unidades gerenciáveis usando **bin**. A consulta a seguir analisa *Perf* registros que medem a memória livre (*MBytes disponíveis*) em um computador específico. Calcula o valor médio para cada período, se 1 hora, nos últimos 2 dias:
 
-```KQL
+```Kusto
 Perf 
 | where TimeGenerated > ago(2d)
 | where Computer == "ContosoAzADDS2" 

@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 7081c9e4f6e6deee196255f04180a8f2cc792876
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5ed6fa9f514bae3ea651edba6702714e2680091f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122488"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955938"
 ---
 # <a name="simple-enterprise-integration-architecture"></a>Arquitetura de integração empresarial simples
 
@@ -162,7 +162,7 @@ O Gerenciamento de API administra os segredos usando objetos chamados *valores* 
 
 ## <a name="diagnostics-and-monitoring"></a>Diagnóstico e monitoramento
 
-É possível usar o [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) paras monitoramento operacional tanto no [Gerenciamento de API](../api-management/api-management-howto-use-azure-monitor.md) quanto nos [Aplicativos Lógicos](../logic-apps/logic-apps-monitor-your-logic-apps.md). O Azure Monitor fornece informações com base nas métricas que configuradas para cada serviço e é habilitado por padrão.
+É possível usar o [Azure Monitor](../azure-monitor/overview.md) paras monitoramento operacional tanto no [Gerenciamento de API](../api-management/api-management-howto-use-azure-monitor.md) quanto nos [Aplicativos Lógicos](../logic-apps/logic-apps-monitor-your-logic-apps.md). O Azure Monitor fornece informações com base nas métricas que configuradas para cada serviço e é habilitado por padrão.
 
 Cada serviço também tem essas opções:
 

@@ -15,19 +15,19 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: victorh
-ms.openlocfilehash: ae61e3a8308e95c16ccde71de37fb10666ef0df9
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 30df26dc3a9697d3435779f91c32b2d99a747b88
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769113"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990460"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personalizar regras de firewall de aplicativo Web por do portal do Azure
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-customize-waf-rules-portal.md)
+> * [portal do Azure](application-gateway-customize-waf-rules-portal.md)
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [CLI 2.0 do Azure](application-gateway-customize-waf-rules-cli.md)
+> * [CLI do Azure](application-gateway-customize-waf-rules-cli.md)
 
 O WAF (firewall de aplicativo Web) do Gateway de Aplicativo do Azure fornece proteção para aplicativos Web. Essas proteções são fornecidas pelo CRS (conjunto de regras principais) do OWASP (Open Web Application Security Project). Algumas regras podem causar falsos positivos e bloquear o tráfego real. Por esse motivo, o Gateway de Aplicativo possibilita que a capacidade personalize regras e grupos de regras. Para obter mais informações sobre os grupos de regras e as regras específicas, consulte a [Lista de regras e grupos de regras de CRS do firewall de aplicativo Web](application-gateway-crs-rulegroups-rules.md).
 

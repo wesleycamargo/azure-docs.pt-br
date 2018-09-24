@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: 654b2559518cd52978153310fbb1e89a91838a8a
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6167e10219791466ca275ff02cc051e3227634e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35630924"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980025"
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Como usar a Biblioteca do Microsoft Machine Learning para Apache Spark
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="introduction"></a>Introdução
 
@@ -30,7 +33,7 @@ A MMLSpark ([Biblioteca do Microsoft Azure Machine Learning para Apache Spark](h
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para percorrer este guia de instruções, você precisa:
-- [Instalar o Azure Machine Learning Workbench](../service/quickstart-installation.md)
+- [Instalar o Azure Machine Learning Workbench](quickstart-installation.md)
 - [Configurar o cluster Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
 
 ## <a name="run-your-experiment-in-docker-container"></a>Executar seu experimento no contêiner do Docker

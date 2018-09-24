@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 5c1a884ebe6216c4e8099f2ada2182ccff68b63e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 435ef29192682f1bf19a9a53923dd043676256ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450326"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954935"
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Coletar dados de modelo usando a coleta de dados
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Você pode usar o recurso de coleta de dados de modelo no Azure Machine Learning para arquivar entradas e previsões do modelo de um serviço Web.
 
@@ -105,7 +108,7 @@ Para exibir os dados coletados no armazenamento de blobs:
 Os dados podem ser consumidos de blobs do Azure de diversas maneiras, tanto por meio de ferramentas de software livre quanto de software da Microsoft. Estes são alguns exemplos:
 - Machine Learning Workbench do Azure: abra o arquivo .csv no Azure Machine Learning Workbench adicionando o arquivo .csv como uma fonte de dados.
 - Excel: abra os arquivos csv diários como uma planilha.
-- [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): crie gráficos contendo dados extraídos por pull de dados .csv em blobs.
+- [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): crie gráficos contendo dados extraídos por pull de dados .csv em blobs.
 - [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): crie um dataframe com uma grande porção de dados csv.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")

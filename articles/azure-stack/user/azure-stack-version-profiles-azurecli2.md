@@ -13,20 +13,20 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ec3b1f43c7b89a545ee5bb26c4cc0d068a993021
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 59b637e6887a645430d902cd846cacda13b14cfe
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295846"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972803"
 ---
-# <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Use perfis de versão de API com a CLI do Azure 2.0 no Azure Stack
+# <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Use perfis de versão de API com a CLI do Azure no Azure Stack
 
 Você pode seguir as etapas neste artigo para definir a Interface de linha de comando (CLI do Azure) para gerenciar recursos do Kit de desenvolvimento do Azure Stack de plataformas de cliente Linux, Mac e Windows.
 
 ## <a name="install-cli"></a>Instalar a CLI
 
-Entre sua estação de trabalho de desenvolvimento e instale a CLI. O Azure Stack requer a versão 2.0 da CLI do Azure. Você pode instalar que usando as etapas descritas a [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) artigo. Para verificar se a instalação foi bem-sucedida, abra um terminal ou em uma janela de prompt de comando e execute o seguinte comando:
+Entre sua estação de trabalho de desenvolvimento e instale a CLI. O Azure Stack requer a versão 2.0 ou posterior da CLI do Azure. Você pode instalar que usando as etapas descritas a [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) artigo. Para verificar se a instalação foi bem-sucedida, abra um terminal ou em uma janela de prompt de comando e execute o seguinte comando:
 
 ```azurecli
 az --version

@@ -11,16 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.openlocfilehash: 101c47f4916ca3fab56800eaf012c55150769302
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7084251102984445e7c2341b78b44f85811ebea7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35631152"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958213"
 ---
 # <a name="logging-api-reference"></a>Referência da API de registro em log
 
-A biblioteca de registro em log do Azure ML permite que o programa emita métricas e arquivos controlados pelo serviço de histórico para serem analisados posteriormente. No momento, alguns tipos básicos de métricas e arquivos têm suporte e o conjunto de tipos com suporte aumentará com versões futuras do pacote do Python.
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+A biblioteca de registro em log do Azure ML permite que o programa emita métricas e arquivos controlados pelo serviço de histórico para serem analisados posteriormente. 
 
 ## <a name="uploading-metrics"></a>Carregamento de métricas
 

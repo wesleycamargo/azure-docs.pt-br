@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 7297633b5a8954eb39e0a40bfd45b02d3838a734
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 18d9a2dade271e61fa3db423da610a7f982aa47b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140393"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949665"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquinas virtuais que use Zonas de Disponibilidade
 
@@ -65,7 +65,7 @@ Quando você cria um conjunto de dimensionamento em uma única zona, você contr
 Para usar Zonas de Disponibilidade, seu conjunto de dimensionamento deve ser criado em uma [região do Azure com suporte](../availability-zones/az-overview.md#regions-that-support-availability-zones). Você pode criar um conjunto de dimensionamento que usa Zonas de Disponibilidade com um dos seguintes métodos:
 
 - [portal do Azure](#use-the-azure-portal)
-- [CLI 2.0 do Azure](#use-the-azure-cli-20)
+- [CLI do Azure](#use-the-azure-cli-20)
 - [PowerShell do Azure](#use-azure-powershell)
 - [Modelos do Gerenciador de Recursos do Azure](#use-azure-resource-manager-templates)
 
@@ -77,7 +77,7 @@ O processo para criar um conjunto de dimensionamento que use uma Zona de Disponi
 
 O conjunto de escala e os recursos de suporte, como o balanceador de carga do Azure e o endereço IP público, são criados na zona única especificada por você.
 
-## <a name="use-the-azure-cli-20"></a>Usar a CLI 2.0 do Azure
+## <a name="use-the-azure-cli"></a>Usar a CLI do Azure
 
 O processo para criar um conjunto de dimensionamento que use uma Zona de Disponibilidade é o mesmo detalhado no [artigo de introdução](quick-create-cli.md). Para usar Zonas de Disponibilidade, você deve criar seu conjunto de dimensionamento em uma região do Azure com suporte.
 

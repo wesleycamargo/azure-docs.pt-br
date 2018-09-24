@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 211f60b9c25b4bd20769f6a4840afaecf8373b9f
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ROBOTS: NOINDEX
+ms.openlocfilehash: 60abe46670353121ad308f8926a7ee178c76e74e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782338"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951654"
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Criar cluster DSVM e Spark HDI como destinos de computação
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Você pode facilmente aumentar ou expandir seu experimento de aprendizado de máquina adicionando destinos de computação adicionais como DSVM (máquina virtual de ciência de dados) com base no Ubuntu e o Apache Spark para cluster Azure HDInsight. Este artigo apresenta as etapas de criação desses destinos de computação no Azure. Para saber mais sobre destinos de computação do Azure ML, confira [visão geral do serviço de experimentação do Azure Machine Learning](experimentation-service-configuration.md).
 
@@ -48,7 +51,7 @@ Você também pode usar um modelo de gerenciamento de recursos do Azure para imp
 
 Primeiro, crie um arquivo `mydsvm.json` usando seu editor de texto favorito na pasta `docs`. (Se você não tiver uma pasta `docs` na pasta raiz do projeto, crie uma.) Usamos esse arquivo para configurar alguns parâmetros básicos para o modelo de gerenciamento de recursos do Azure. 
 
-Copie e cole o trecho JSON a seguir para o arquivo `mydsvm.json` e preencha os valores apropriados:
+Copie e cole o snippet JSON a seguir para o arquivo `mydsvm.json` e preencha os valores apropriados:
 
 ```json
 {

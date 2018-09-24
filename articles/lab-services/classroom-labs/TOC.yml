@@ -1,52 +1,59 @@
+items:
 - name: Documentação do Lab Services
   href: /azure/lab-services
 - name: Visão geral
   items:
-    - name: Sobre os laboratórios da sala de aula
-      href: classroom-labs-overview.md
-    - name: Comparar tipos de laboratório
-      href: ../compare-lab-types.md
+  - name: Sobre os laboratórios da sala de aula
+    href: classroom-labs-overview.md
+  - name: Comparar tipos de laboratório
+    href: ../compare-lab-types.md
 - name: Tutoriais
   items:
-    - name: 1. Configurar uma conta de laboratório
-      href: tutorial-setup-lab-account.md
-    - name: 2. Configurar um laboratório de sala de aula
-      href: tutorial-setup-classroom-lab.md
-    - name: 3. Acessar um laboratório de sala de aula
-      href: tutorial-connect-virtual-machine-classroom-lab.md
-    - name: 4. Acompanhar o uso de um laboratório de sala de aula
-      href: tutorial-track-usage.md
+  - name: 1. Configurar uma conta de laboratório
+    href: tutorial-setup-lab-account.md
+  - name: 2. Configurar um laboratório de sala de aula
+    href: tutorial-setup-classroom-lab.md
+  - name: 3. Acessar um laboratório de sala de aula
+    href: tutorial-connect-virtual-machine-classroom-lab.md
+  - name: 4. Acompanhar o uso de um laboratório de sala de aula
+    href: tutorial-track-usage.md
 - name: Guias de instruções
   items:
-    - name: Gerenciar contas de laboratório
-      href: how-to-manage-lab-accounts.md
-    - name: Gerenciar laboratórios de sala de aula
-      href: how-to-manage-classroom-labs.md
-    - name: Acessar laboratórios de sala de aula
-      href: how-to-use-classroom-lab.md
+  - name: Gerenciar contas de laboratório
+    href: how-to-manage-lab-accounts.md
+  - name: Gerenciar laboratórios de sala de aula
+    href: how-to-manage-classroom-labs.md
+  - name: Acessar laboratórios de sala de aula
+    href: how-to-use-classroom-lab.md
 - name: Referência
   items:
-    - name: CLI 2.0
-      href: /cli/azure/lab
-    - name: PowerShell
-      href: '/powershell/module/azurerm.devtestlabs/#devtest_labs'
-    - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/dtl/'
+  - name: CLI
+    href: /cli/azure/lab
+  - name: PowerShell
+    href: /powershell/module/azurerm.devtestlabs/#devtest_labs
+  - name: API REST
+    href: https://docs.microsoft.com/rest/api/dtl/
 - name: Recursos
   items:
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=developer-tools'
-    - name: Calculadora de preço
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Atualizações do serviço
-      href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDevTestLabs'
-    - name: Blog da equipe
-      href: 'https://blogs.msdn.microsoft.com/devtestlab/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-devtest-labs'
-    - name: vídeos
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/?category=developer-tools
+  - name: Calculadora de preço
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Atualizações do serviço
+    href: https://azure.microsoft.com/updates/?product=devtest-lab
+  - name: Fórum do MSDN
+    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDevTestLabs
+  - name: Blog da equipe
+    href: https://blogs.msdn.microsoft.com/devtestlab/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-devtest-labs
+  - name: vídeos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/devtest-lab/
+ms.openlocfilehash: 0e890b8d7a5db914229a7d05a1590c91e83bcb6f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946316"

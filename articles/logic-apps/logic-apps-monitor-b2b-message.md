@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: decc0271ae0e7c359f72648d7c4d0076892285da
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125168"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948002"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Monitorar mensagens B2B e configurar o registro em log para contas de integração no Aplicativo Lógico do Azure
 
@@ -32,7 +32,7 @@ Depois de configurar a comunicação B2B entre dois processos ou aplicativos de 
 
 ## <a name="turn-on-diagnostics-logging-for-your-integration-account"></a>Ativar o log de diagnósticos da conta de integração
 
-Ative o log diretamente na conta de integração ou [por meio do serviço Azure Monitor](#azure-monitor-service). O Azure Monitor fornece monitoramento básico com os dados no nível de infraestrutura. Saiba mais sobre o [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md).
+Ative o log diretamente na conta de integração ou [por meio do serviço Azure Monitor](#azure-monitor-service). O Azure Monitor fornece monitoramento básico com os dados no nível de infraestrutura. Saiba mais sobre o [Azure Monitor](../azure-monitor/overview.md).
 
 ### <a name="turn-on-diagnostics-logging-directly-from-your-integration-account"></a>Ativar o log de diagnósticos diretamente na conta de integração
 

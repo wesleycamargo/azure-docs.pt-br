@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ms.openlocfilehash: 6d92459deb3464cd97c215cbf9a8320628b6da80
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 44411e0c92f4e24e274761821dd99efbe60c5f5d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363700"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964966"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Migrar implantações para o novo modelo de preços
 A partir de julho de 2017, o Serviço de Fala Personalizado oferece um [novo modelo de preços](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/). O novo modelo é *mais fáceis de entender*, *mais simples de calcular os custos* e *mais flexível* em termos de dimensionamento. Para dimensionar, a Microsoft introduziu o conceito de uma unidade de escala. Cada unidade de escala pode lidar com cinco solicitações simultâneas. O dimensionamento de solicitações simultâneas no modelo antigo foi definido em 5 solicitações simultâneas para a camada S0 e 12 solicitações simultâneas para a camada S1. Abrimos esses limites para oferecer a você maior flexibilidade aos seus requisitos de caso de uso.

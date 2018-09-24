@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049117"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954833"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Transmitir os dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa
 
@@ -76,7 +76,7 @@ Recursos do Azure emitem dois tipos de dados de monitoramento:
 Ambos os tipos de dados são enviados para um hub de eventos usando uma configuração de diagnóstico de recurso. [Siga este guia](./monitoring-stream-diagnostic-logs-to-event-hubs.md) para definir uma configuração de diagnóstico de recurso em um determinado recurso. Defina uma configuração de diagnóstico de recurso em cada recurso do qual você deseja coletar logs.
 
 > [!TIP]
-> Você pode usar a Azure Policy para garantir que todos os recursos em um determinado escopo sempre sejam definidos com uma configuração de diagnóstico [usando o efeito DeployIfNotExists na regra de política](../azure-policy/policy-definition.md#policy-rule). Hoje DeployIfNotExists só é compatível com políticas internas.
+> Você pode usar a Azure Policy para garantir que todos os recursos em um determinado escopo sempre sejam definidos com uma configuração de diagnóstico [usando o efeito DeployIfNotExists na regra de política](../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="guest-os-data"></a>Dados de SO convidado
 

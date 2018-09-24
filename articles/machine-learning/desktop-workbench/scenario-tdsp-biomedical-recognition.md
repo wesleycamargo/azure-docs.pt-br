@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f6ce43c2d290bacee10e102cc6c382981db9917f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 775d0701f9eeaf7d26a83b814711bea630efb2a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139998"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973755"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconhecimento de entidade biomédica usando o Modelo TDSP (Processo de Ciência de Dados de Equipe)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 A extração de entidade é uma subtarefa da extração de informações (também conhecida como [Reconhecimento de Entidade Nomeada (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), identificação de entidade e grupamento de entidade). O objetivo deste cenário do mundo real é destacar como usar o Azure Machine Learning Workbench para resolver uma tarefa NLP (Processamento de linguagem natural) complicada como a extração de entidades de textos não estruturados:
 
@@ -95,7 +100,7 @@ A seguir está o link para o repositório público do GitHub do cenário do mund
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 * Uma [assinatura](https://azure.microsoft.com/free/) do Azure
-* Azure Machine Learning Workbench. Consulte o [guia de instalação](../service/quickstart-installation.md). Atualmente, o Azure Machine Learning Workbench pode ser instalado com os seguintes sistemas operacionais: 
+* Azure Machine Learning Workbench. Consulte o [guia de instalação](quickstart-installation.md). Atualmente, o Azure Machine Learning Workbench pode ser instalado com os seguintes sistemas operacionais: 
     * Windows 10 ou Windows Server 2016
     * macOS Sierra (ou mais recente)
 
@@ -118,7 +123,7 @@ Todas as dependências necessárias são definidas no arquivo aml_config/conda_d
 
 ### <a name="basic-instructions-for-azure-machine-learning-aml-workbench"></a>Instruções básicas para o AML (Azure Machine Learning) workbench
 * [Visão geral](../service/overview-what-is-azure-ml.md)
-* [Instalação](../service/quickstart-installation.md)
+* [Instalação](quickstart-installation.md)
 * [Usando o TDSP](how-to-use-tdsp-in-azure-ml.md)
 * [Como ler e escrever arquivos](how-to-read-write-files.md)
 * [Como usar blocos de anotações do Jupyter](how-to-use-jupyter-notebooks.md)

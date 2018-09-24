@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: c24d79d6983f7c32f5c563192bcfe412da586ef2
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 39a461a27e8d9d6d1b9712449586bfabf6124d22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603480"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989440"
 ---
 # <a name="joins-in-log-analytics-queries"></a>Junções em consultas do Log Analytics
 
@@ -32,7 +32,7 @@ ms.locfileid: "45603480"
 As junções permitem analisar os dados de várias tabelas na mesma consulta. Elas mesclam as linhas dos dois conjuntos de dados fazendo a correspondência entre valores das colunas especificadas.
 
 
-```KQL
+```Kusto
 SecurityEvent 
 | where EventID == 4624     // sign-in events
 | project Computer, Account, TargetLogonId, LogonTime=TimeGenerated
@@ -64,7 +64,7 @@ on $left.key1 == $right.key2
 ## <a name="lookup-tables"></a>Consultar Tabelas
 Um uso comum de junções é usar um mapeamento estático dos valores usando `datatable`, o que pode ajudar a transformar os resultados na forma mais apresentável. Por exemplo, para aprimorar os dados do evento de segurança com o nome do evento para cada ID do evento.
 
-```KQL
+```Kusto
 let DimTable = datatable(EventID:int, eventName:string)
   [
     4625, "Account activity",

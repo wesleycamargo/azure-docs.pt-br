@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ROBOTS: NOINDEX
+ms.openlocfilehash: 762955103aeb48eb8a9b62f4e3ffe193bba71a38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860966"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947210"
 ---
 # <a name="document-collection-analysis"></a>Análise da coleção de documentos
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Este cenário demonstra como resumir e analisar um grande conjunto de documentos, incluindo técnicas como aprendizado de frase, modelagem de tópico e análise de modelos de tópico usando o Azure ML Workbench. O Azure Machine Learning Workbench propicia um fácil aumento da coleção de documentos muito grandes e oferece mecanismos para treinar e ajustar modelos dentro de uma variedade de contextos computacionais, variando de computação local para Máquinas Virtuais de ciência de dados para o cluster Spark. Os blocos de anotações do Jupyter dentro do Azure Machine Learning Workbench oferecem um fácil desenvolvimento.
 
@@ -56,11 +61,11 @@ As técnicas/algoritmos de aprendizado de máquina usados neste cenário incluem
 
 1. Tendências tópicas e detecção de anomalias
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os pré-requisitos para executar este exemplo são os seguintes:
 
-* Certifique-se de que você tenha instalado devidamente o [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [Guia de início rápido de instalação e de criação](../service/quickstart-installation.md).
+* Certifique-se de que você tenha instalado devidamente o [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [Guia de início rápido de instalação e de criação](quickstart-installation.md).
 
 * Este exemplo pode ser executado em qualquer contexto de computação. No entanto, recomenda-se executá-lo em um computador com vários núcleos com pelo menos 16 GB de memória e 5 GB de espaço em disco.
 
@@ -90,12 +95,12 @@ Há nove campos de dados no arquivo de dados. Os nomes e as descrições do camp
 | `ID` | Cadeia de caracteres | A ID do projeto de lei/resolução. O formato deste campo é [tipo_do_projeto_de_lei] [número]-[congresso]. Por exemplo, "hconres1-93" significa que o tipo de projeto de lei é "hconres" (sigla para Resolução simultânea da casa, consulte [este documento](https://github.com/unitedstates/congress/wiki/bills#basic-information)), o número do projeto de lei é '1' e o número do Congresso é '93'. | Não  |
 | `Text` | Cadeia de caracteres | O conteúdo do projeto de lei/resolução. | Não  |
 | `Date` | Cadeia de caracteres | A data em que o projeto de lei/resolução foi inicialmente proposto. Em um formato de 'aaaa-mm-dd'. | Não  |
-| `SponsorName` | Cadeia de caracteres | O nome do principal responsável que propôs o projeto de lei/resolução. | sim |
-| `Type` | Cadeia de caracteres | O tipo do título do responsável principal, 'rep' (deputado) ou 'sen' (senador). | sim |
-| `State` | Cadeia de caracteres | O estado do responsável principal. | sim |
-| `District` | Número inteiro | O número do distrito do responsável principal se o título do responsável for deputado. | sim |
-| `Party` | Cadeia de caracteres | O partido do responsável principal. | sim |
-| `Subjects` | Cadeia de caracteres | Os termos de assunto adicionados cumulativamente pela Biblioteca do Congresso ao projeto de lei. Os termos são concatenados por vírgulas. Esses termos são escritos por uma pessoa na Biblioteca do Congresso e geralmente não estão presentes quando as informações no projeto de lei são publicadas pela primeira vez. Eles podem ser adicionados a qualquer momento. Portanto, no final da vida útil de um projeto de lei, talvez alguns assuntos possam não ser mais relevantes. | sim |
+| `SponsorName` | Cadeia de caracteres | O nome do principal responsável que propôs o projeto de lei/resolução. | SIM |
+| `Type` | Cadeia de caracteres | O tipo do título do responsável principal, 'rep' (deputado) ou 'sen' (senador). | SIM |
+| `State` | Cadeia de caracteres | O estado do responsável principal. | SIM |
+| `District` | Número inteiro | O número do distrito do responsável principal se o título do responsável for deputado. | SIM |
+| `Party` | Cadeia de caracteres | O partido do responsável principal. | SIM |
+| `Subjects` | Cadeia de caracteres | Os termos de assunto adicionados cumulativamente pela Biblioteca do Congresso ao projeto de lei. Os termos são concatenados por vírgulas. Esses termos são escritos por uma pessoa na Biblioteca do Congresso e geralmente não estão presentes quando as informações no projeto de lei são publicadas pela primeira vez. Eles podem ser adicionados a qualquer momento. Portanto, no final da vida útil de um projeto de lei, talvez alguns assuntos possam não ser mais relevantes. | SIM |
 
 ## <a name="scenario-structure"></a>Estrutura do cenário
 
@@ -153,7 +158,7 @@ A etapa do aprendizado de frase implementa uma estrutura básica para aprender f
 
 Esta etapa usa o texto limpo como entrada e aprende as frases mais evidente presentes em uma coleção grande de documentos. O aprendizado de frase é um processo iterativo que pode ser dividido em três tarefas: contagem de n-gramas, classificação de frases potenciais pelas Informações mútuas ponto a ponto ponderadas de suas palavras constituintes e a reescrita da frase para o texto. Essas três tarefas são executadas sequencialmente em várias iterações até que as frases especificadas tenham sido obtidas.
 
-No pacote Python de análise do documento, uma classe Python `PhraseLearner` é definida no arquivo `phraseLearning.py`. Abaixo está o trecho de código usado para aprender frases.
+No pacote Python de análise do documento, uma classe Python `PhraseLearner` é definida no arquivo `phraseLearning.py`. Abaixo está o snippet de código usado para aprender frases.
 
 ```python
 # Instantiate a PhraseLearner and run a configuration
@@ -191,7 +196,7 @@ Para a avaliação de perplexidade, uma curva em forma de 'U' deve descobrir o m
 
 Neste cenário, a perplexidade aumenta significativamente após 200 tópicos, enquanto o valor da coerência diminui significativamente após 200 tópicos também. Com base nesses grafos e no desejo de tópicos mais gerais versus por tópicos clusterizados, escolher 200 tópicos deve ser uma boa opção.
 
-É possível treinar um modelo de tópico LDA em uma execução de experimento ou treinar e avaliar vários modelos LDA com diferentes configurações do número de tópicos em uma única execução de experimento. É recomendável executar várias vezes para uma configuração e, em seguida, obter a média de avaliações de coerência e/ou de perplexidade. Os detalhes de como usar o pacote de análise do documentos podem ser encontrados no arquivo `step3.py`. O trecho de código de exemplo é o seguinte.
+É possível treinar um modelo de tópico LDA em uma execução de experimento ou treinar e avaliar vários modelos LDA com diferentes configurações do número de tópicos em uma única execução de experimento. É recomendável executar várias vezes para uma configuração e, em seguida, obter a média de avaliações de coerência e/ou de perplexidade. Os detalhes de como usar o pacote de análise do documentos podem ser encontrados no arquivo `step3.py`. O snippet de código de exemplo é o seguinte.
 
 ```python
 topicmodeler = TopicModeler(docs,

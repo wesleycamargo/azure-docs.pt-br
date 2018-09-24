@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 621601ad3576aad13f2f71062ee2351cf1a394c8
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c952882a0a12e288eaf4f5f1074a9a2e876a21d6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35630716"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986227"
 ---
 # <a name="combine-columns-by-example-transformation"></a>Transformação Combinar colunas por exemplo
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Essa transformação permite que o usuário adicione uma nova coluna combinando valores de várias colunas. O usuário pode especificar um separador ou fornecer exemplos de valores combinados para realizar essa transformação. Quando o usuário fornece exemplos de combinação, a transformação é tratada pelo mesmo mecanismo **Por exemplo** usado na transformação **Derivar coluna por exemplo**.
 
 ## <a name="how-to-perform-this-transformation"></a>Como executar essa transformação

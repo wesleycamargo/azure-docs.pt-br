@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: d674b0a6a16e22ed06577f7306ed6f4b9755dd0e
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: d441176c55ceb75c3f44df90224647ded802aeb6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42146084"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986619"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferir dados com o AzCopy no Linux
 
@@ -706,7 +706,7 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consult
 * [Introdução ao Armazenamento do Azure](../storage-introduction.md)
 * [Criar uma conta de armazenamento](../storage-create-storage-account.md)
 * [Gerenciar blobs com o Gerenciador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
-* [Usando a CLI 2.0 do Azure com o Armazenamento do Azure](../storage-azure-cli.md)
+* [Usando a CLI do Azure com o Armazenamento do Azure](../storage-azure-cli.md)
 * [Como usar o armazenamento de Blob por meio do C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Como usar o Armazenamento de Blob do Java](../blobs/storage-java-how-to-use-blob-storage.md)
 * [Como usar o armazenamento de Blob do Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 661ff7c07ba2bb17eb5830b38bb39e1c3e80bb55
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 288af0eae50634f44d6af8c787b56112bb3119ff
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45602898"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998586"
 ---
 # <a name="advanced-aggregations-in-log-analytics-queries"></a>Agregações avançadas em consultas do Log Analytics
 
@@ -34,7 +34,7 @@ Este artigo descreve algumas das opções de agregação mais avançadas dispon�
 ## <a name="generating-lists-and-sets"></a>Geração de listas e conjuntos
 Você pode usar `makelist` para dinamizar dados pela ordem de valores em uma coluna específica. Por exemplo, você pode querer explorar os eventos de pedido mais comuns em suas máquinas. Você pode essencialmente girar os dados pela ordem de EventIDs em cada máquina. 
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -50,7 +50,7 @@ Event
 
 Também é útil criar uma lista de valores distintos apenas. Isso é chamado de um _definir_ e pode ser gerado com `makeset`:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -67,11 +67,12 @@ Como `makelist`, `makeset` também trabalha com dados ordenados e gera os arrays
 ## <a name="expanding-lists"></a>Expansão de listas
 A operação inversa de `makelist` ou `makeset` é `mvexpand`, o que expande uma lista de valores para linhas separadas. Ele pode se expandir em qualquer número de colunas dinâmicas, tanto JSON quanto array. Por exemplo, você pode verificar a *pulsação* tabela para soluções que enviam dados de computadores que enviou uma pulsação na última hora:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, Solutions
 ```
+
 | Computador | Soluções | 
 |--------------|----------------------|
 | computador1 | "segurança", "atualizações", "changeTracking" |
@@ -81,23 +82,28 @@ Heartbeat
 
 Use `mvexpand` para mostrar cada valor em uma linha separada em vez de uma lista separada por vírgula:
 
-Pulsação | onde TimeGenerated> ago (1h) | projeto Computador, split (Soluções, ",") | Soluções MveXpand
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(1h)
+| project Computer, split(Solutions, ",")
+| mvexpand Solutions
 ```
-| Computer | Solutions | 
+
+| Computador | Soluções | 
 |--------------|----------------------|
-| computer1 | "security" |
-| computer1 | "updates" |
-| computer1 | "changeTracking" |
-| computer2 | "security" |
-| computer2 | "updates" |
-| computer3 | "antiMalware" |
-| computer3 | "changeTracking" |
+| computador1 | "segurança" |
+| computador1 | "atualizações" |
+| computador1 | "controle de alterações" |
+| computador2 | "segurança" |
+| computador2 | "atualizações" |
+| Computador3 | "antiMalware" |
+| Computador3 | "controle de alterações" |
 | ... | ... | ... |
-```
+
 
 Você pode usar `makelist` novamente agrupar itens juntos e, desta vez ver a lista de computadores por solução:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, split(Solutions, ",")
@@ -115,7 +121,7 @@ Heartbeat
 ## <a name="handling-missing-bins"></a>Handling missing bins
 A useful application of `mvexpand` is the need to fill default values in for missing bins. Por exemplo, suponha que você esteja procurando o tempo de atividade de uma determinada máquina, explorando sua pulsação. Você também deseja ver a origem da pulsação que está na coluna _categoria_. Normalmente, usaríamos um simples resumir instrução da seguinte maneira:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
@@ -131,7 +137,7 @@ Heartbeat
 
 Nesses resultados, o bucket associado a "2017-06-06T19: 00: 00Z" está ausente porque não há dados de pulsação para essa hora. Use a função `make-series` para atribuir um valor padrão a depósitos vazios. Isso gerará uma linha para cada categoria com duas colunas de matriz extras, uma para valores e outra para correspondência de intervalos de tempo:
 
-```KQL
+```Kusto
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
@@ -143,7 +149,7 @@ Heartbeat
 
 O terceiro elemento da matriz *count_* é 0 como esperado e há um registro de data e hora correspondente de "2017-06-06T19: 00: 00.0000000Z" na matriz _TimeGenerated_. Esse formato de matriz é difícil de ler, no entanto. Use `mvexpand` para expandir as matrizes e produzem o mesmo formato de saída gerada pelo `summarize`:
 
-```KQL
+```Kusto
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 | mvexpand TimeGenerated, count_
@@ -165,7 +171,7 @@ Heartbeat
 Um cenário comum é selecionar os nomes de algumas entidades específicas com base em um conjunto de critérios e, em seguida, filtrar um conjunto de dados diferente para esse conjunto de entidades. Por exemplo, você pode encontrar computadores que são conhecidos por ter atualizações ausentes e identificar os IPs que esses computadores chamavam:
 
 
-```KQL
+```Kusto
 let ComputersNeedingUpdate = toscalar(
     Update
     | summarize makeset(Computer)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: acf51056a084abc08bda2d7f73b561f442f57784
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: e63345c0265d52fdd80fe4542efb7f13324926cf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605514"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989611"
 ---
 # <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Criando gráficos e diagramas a partir de consultas do Log Analytics
 
@@ -34,7 +34,7 @@ Este artigo descreve várias visualizações no Azure Log Analytics para exibir 
 ## <a name="charting-the-results"></a>Colocando os resultados em gráficos
 Comece revisando quantos computadores há por sistema operacional durante a última hora:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | summarize count(Computer) by OSType  
@@ -52,7 +52,7 @@ Para obter uma visão melhor, selecione **Chart** e escolha a opção **Pie** pa
 ## <a name="timecharts"></a>Timecharts
 Mostre a média, o percentil 50 e 95 do tempo do processador em intervalos de 1 hora. A consulta gera várias séries e você pode selecionar quais séries serão exibidas no gráfico de tempo:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -67,7 +67,7 @@ Selecione o **linha** opção de exibição de gráfico:
 
 Uma linha de referência pode ajudar a identificar facilmente se a métrica excedeu um limite específico. Para adicionar uma linha a um gráfico, estenda o conjunto de dados com uma coluna constante:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -80,7 +80,7 @@ Perf
 ## <a name="multiple-dimensions"></a>Várias dimensões
 Várias expressões `by` na cláusula`summarize` de criam várias linhas nos resultados, uma para cada combinação de valores.
 
-```KQL
+```Kusto
 SecurityEvent
 | where TimeGenerated > ago(1d)
 | summarize count() by tostring(EventID), AccountType, bin(TimeGenerated, 1h)

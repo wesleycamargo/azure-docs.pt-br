@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: e69cf8753fb0cc9326e047ec97cbe08ee6f26610
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 040e54b02161386dcc16b943956f39b86b264303
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668454"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950515"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Começar a analisar seu aplicativo móvel com o App Center e o Application Insights
 
@@ -126,7 +126,7 @@ O Application Insights pode consultar, segmentar, filtrar e analisar a telemetri
    1. Selecione a consulta clicando em qualquer lugar na consulta no editor de texto.
    2. Em seguida, clique em **Ir** para executar a consulta. 
 
-   Saiba mais sobre a [Análise do Application Insights](app-insights-analytics.md) e a [linguagem de consulta do Log Analytics](https://docs.loganalytics.io/docs/Language-Reference).
+   Saiba mais sobre a [Análise do Application Insights](app-insights-analytics.md) e a [linguagem de consulta do Log Analytics](https://aka.ms/LogAnalyticsLanguageReference).
 
 
 2. **Segmentar e filtrar sua telemetria de evento personalizado.** Na página **Visão geral** do Application Insights, escolha **Usuários** no sumário.

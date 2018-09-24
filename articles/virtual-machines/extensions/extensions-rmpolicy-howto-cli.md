@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: f11d08e56fe1970aa7a0d82f368eb73589ece2fe
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 08fcb244ada319dccf62c134a0155dd117e79184
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412292"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977021"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usar a política do Azure para restringir a instalação de extensões nas VMs do Linux
 
 Se você quiser impedir o uso ou a instalação de certas extensões de suas VMs do Linux, você pode criar uma política do Azure usando o CLI para restringir as extensões de máquinas virtuais dentro de um grupo de recursos. 
 
-Este tutorial usa o CLI dentro da Cloud Shell do Azure, que é constantemente atualizada para a versão mais recente. Se você deseja executar a CLI do Azure localmente, você precisa instalar a versão 2.0.26 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Este tutorial usa o CLI dentro da Cloud Shell do Azure, que é constantemente atualizada para a versão mais recente. Se você deseja executar a CLI do Azure localmente, você precisa instalar a versão 2.0.26 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-rules-file"></a>Criar um arquivo de regras
 

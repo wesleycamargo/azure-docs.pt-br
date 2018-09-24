@@ -9,19 +9,19 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: c4af99055753a11a8258a4347a885e0d60e3d286
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b7230b5fdc519809463e3ee176aa14fa1553a48d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399100"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960304"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Início Rápido: carregar, listar e excluir blobs usando JavaScript/HTML no navegador
 Este guia de início rápido demonstra como gerenciar blobs a partir do código executado totalmente no navegador. A abordagem usada aqui mostra como usar medidas de segurança necessárias para garantir o acesso protegido à sua conta de Armazenamento de blob. Para concluir este início rápido, você precisa de uma [assinatura do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configurando regras de CORS para a conta de armazenamento 
 Antes de seu aplicativo Web poder acessar um armazenamento de blobs do cliente, a conta precisará ser configurada para habilitar [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), ou Compartilhamento de recursos entre origens. 
@@ -103,7 +103,7 @@ A execução de *init* adiciona arquivos necessários à instalação de um mód
 ```bash
 npm i http-server
 ```
-Em seguida, edite o arquivo *Package.jsON* e substitua a definição *scripts* pelo seguinte trecho de código:
+Em seguida, edite o arquivo *Package.jsON* e substitua a definição *scripts* pelo seguinte snippet de código:
 
 ```javascript
 "scripts": {

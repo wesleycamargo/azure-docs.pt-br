@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: cb05139241f92eb930a99c387e2f06cabac35caf
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 21cd4990e2117cef2d36fa2607a601afd1a4c4e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579863"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990494"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Termos de declaração de privacidade e de serviço para aplicativos registrados do Active Directory do Azure
 
@@ -54,12 +54,14 @@ Exemplos: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-stat
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Adicionando links aos termos de serviço e declaração de privacidade
 
 Quando os termos de serviço e a declaração de privacidade estiverem prontos, você poderá adicionar links para esses documentos no seu aplicativo usando um destes métodos:
+
 * [ através do portal do Azure ](#registered-in-azure-portal)
 * [ No Portal de Registro de Aplicativos ou no Centro de Desenvolvimento ](#registered-in-app-reg-portal)
 * [ Usando o objeto de aplicativo JSON ](#app-object-json)
 * [ Usando a API REST do MSGraph beta ](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Se você registrou seu aplicativo no portal do Azure
+
 Se você registrou seu aplicativo no portal do Azure, siga estas etapas.
 
 1. Faça login no  [ portal do Azure ](https://portal.azure.com/).
@@ -68,9 +70,10 @@ Se você registrou seu aplicativo no portal do Azure, siga estas etapas.
 4. Preencha o **termos da URL do serviço** e **URL da declaração de privacidade** campos.
 5. Salve suas alterações.
 
-![Seção de propriedades do aplicativo com os termos de serviço e a privacidade URLs de instrução](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![Seção de propriedades do aplicativo com os termos de serviço e a privacidade URLs de instrução](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="registered-in-app-reg-portal"></a>Se você registrou seu aplicativo no Portal de registro do aplicativo
+
 Siga estas etapas se você registrou seu aplicativo no Portal de registro de aplicativos ou no Centro de desenvolvimento.
 
 1. Entre no  [Portal de Registro de Aplicativos](https://apps.dev.microsoft.com/).
@@ -78,9 +81,10 @@ Siga estas etapas se você registrou seu aplicativo no Portal de registro de apl
 3. Preencha o **termos da URL do serviço** e **URL da declaração de privacidade** campos.
 4. Salve suas alterações.
 
-![Seção de perfil do aplicativo com termos de serviço e URLs de declaração de privacidade](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+    ![Seção de perfil do aplicativo com termos de serviço e URLs de declaração de privacidade](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"> </a> Usando o objeto de aplicativo JSON
+
 Se preferir modificar diretamente o objeto JSON do aplicativo, você poderá usar o editor de manifesto no Portal do Azure ou no Portal de Registro do Aplicativo para incluir links para os termos de serviço e a declaração de privacidade do seu aplicativo.
 
 ```json
@@ -91,6 +95,7 @@ Se preferir modificar diretamente o objeto JSON do aplicativo, você poderá usa
 ```
 
 ### <a name="msgraph-beta-rest-api"> </a> Usando a API REST do MSGraph beta
+
 Para atualizar programaticamente todos os seus aplicativos, você pode usar a API REST beta do MSGraph para atualizar todos os seus aplicativos para incluir links para os termos de serviço e documentos de declaração de privacidade.
 
 ```

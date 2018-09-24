@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 7c7b50098cfd1bcac534156dd905b37affab80bd
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0210e65c0859b00caac0fe66baa1c73063f644c8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35630562"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947934"
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Previsão de rotatividade de clientes usando o Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Em média, manter clientes existentes é cinco vezes mais barato do que o custo de recrutar novos. Como resultado, geralmente os executivos de marketing se veem tentando estimar a probabilidade de rotatividade de clientes e encontrar as ações necessárias para minimizar a taxa de rotatividade.
 
@@ -61,7 +66,7 @@ Nesta solução, usaremos um exemplo concreto da criação de um modelo de rotat
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis)
 
-* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](../service/quickstart-installation.md) para instalar o programa e criar um espaço de trabalho
+* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](quickstart-installation.md) para instalar o programa e criar um espaço de trabalho
 
 * Para a operacionalização, será melhor se você tiver um mecanismo do Docker instalado e em execução localmente. Caso contrário, será possível usar a opção de cluster, mas lembre-se de que executar um ACS (Serviço de Contêiner do Azure) pode ser caro.
 

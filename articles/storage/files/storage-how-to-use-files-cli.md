@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: ebf8605a0f4686a69f89adf0c36d072f12d3c750
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 07d1d1f7050437306d5c2737b9f62b5615753869
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525249"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980416"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>Gerenciar compartilhamentos de arquivos usando a CLI do Azure
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados no Windows, no Linux e no macOS. Este artigo percorre os fundamentos de trabalhar com compartilhamentos de arquivos do Azure usando a CLI do Azure. Saiba como: 
@@ -30,7 +30,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você decidir instala e usar a CLI do Azure localmente, para as etapas neste artigo, você deve estar executando a versão 2.0.4 ou posterior da CLI do Azure. Execute **az --version** para saber qual é a versão da sua CLI do Azure. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). 
+Se você decidir instala e usar a CLI do Azure localmente, para as etapas neste artigo, você deve estar executando a versão 2.0.4 ou posterior da CLI do Azure. Execute **az --version** para saber qual é a versão da sua CLI do Azure. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 Por padrão, os comandos da CLI do Azure são em JavaScript Object Notation (JSON). JSON é a forma padrão de enviar e receber mensagens a partir de APIs REST. Para facilitar o trabalho com as respostas em JSON, alguns dos exemplos neste artigo usam o parâmetro *query* nos comandos da CLI do Azure. Esse parâmetro utiliza a [linguagem de consulta JMESPath](http://jmespath.org/) para a análise do JSON. Você pode aprender mais sobre como usar os resultados dos comandos da CLI do Azure seguindo a linguagem de consulta JMESPath, consulte o [Tutorial de JMESPath](http://jmespath.org/tutorial.html).
 
