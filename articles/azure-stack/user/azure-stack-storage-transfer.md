@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 91ba9b388566cc72f3024943005af499b7c3f3ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ms.openlocfilehash: 46bc043681bbba37a2dfb6476e1dd0784e1abf10
+ms.sourcegitcommit: b34df37d1ac36161b377ba56c2f7128ba7327f3f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139670"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46874006"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Usar ferramentas de transferência de dados para o armazenamento do Azure Stack
 
@@ -246,7 +246,7 @@ A CLI do Azure é a experiência de linha de comando do Azure para gerenciar rec
 
 CLI do Azure é otimizada para gerenciar e administrar os recursos do Azure da linha de comando e para a criação de scripts de automação que funcionam no Azure Resource Manager. Ele fornece muitas das mesmas funções encontradas no portal do Azure Stack, incluindo o acesso de dados avançados.
 
-O Azure Stack requer a CLI do Azure versão 2.0. Para obter mais informações sobre como instalar e configurar a CLI do Azure com o Azure Stack, consulte [instalar e configurar a CLI do Azure Stack](azure-stack-version-profiles-azurecli2.md). Para obter mais informações sobre como usar a CLI 2.0 do Azure para executar várias tarefas ao trabalhar com recursos em sua conta de armazenamento do Azure Stack, consulte [usando a CLI 2.0 do Azure com o armazenamento do Azure](../../storage/storage-azure-cli.md)
+O Azure Stack requer a CLI do Azure versão 2.0 ou posterior. Para obter mais informações sobre como instalar e configurar a CLI do Azure com o Azure Stack, consulte [instalar e configurar a CLI do Azure Stack](azure-stack-version-profiles-azurecli2.md). Para obter mais informações sobre como usar a CLI do Azure para executar várias tarefas ao trabalhar com recursos em sua conta de armazenamento do Azure Stack, consulte [usando a CLI do Azure com o armazenamento do Azure](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Script de exemplo da CLI do Azure para o Azure Stack
 

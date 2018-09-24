@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 270587f484216d130848ee3c7bdc8ae1c1df0afc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: MT
+ms.openlocfilehash: 68514f1bc569d876f4cf851f97a690ae84cf43a6
+ms.sourcegitcommit: b34df37d1ac36161b377ba56c2f7128ba7327f3f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982084"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46891271"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gerenciar perfis de versão de API no Azure Stack
 
@@ -79,8 +79,8 @@ Você pode encontrar exemplos de código para ajudá-lo a integrar sua solução
 
 - **PowerShell**  
 Você pode usar o **AzureRM.Bootstrapper** disponíveis por meio da Galeria do PowerShell para obter os cmdlets do PowerShell necessários para trabalhar com perfis de versão da API do módulo. Para obter informações, consulte [perfis de versão da API de uso para o PowerShell](azure-stack-version-profiles-powershell.md).
-- **CLI 2.0 do Azure**  
-Você pode atualizar a configuração do seu ambiente para usar o perfil de versão de API específico do Azure Stack. Para obter informações, consulte [perfis de versão da API de uso do Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
+- **CLI do Azure**  
+Você pode atualizar a configuração do seu ambiente para usar o perfil de versão de API específico do Azure Stack. Para obter informações, consulte [perfis de versão da API de uso para a CLI do Azure](azure-stack-version-profiles-azurecli2.md).
 - **ACESSE**  
 No SDK GO, um perfil é uma combinação de diferentes tipos de recursos com diferentes versões de serviços diferentes. perfis estão disponíveis sob os perfis / caminho, com a versão na **AAAA-MM-DD** formato. Para obter informações, consulte [perfis de versão da API de uso para linguagem GO](azure-stack-version-profiles-go.md).
 - **Ruby**  
