@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 5fe292b92557b4786d638ac21c7adb1f50566feb
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3edf49484e5bc05a297b8d8969632fb902aa1714
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632001"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953728"
 ---
 # <a name="split-column-by-example-transformation"></a>Transformação Dividir coluna por exemplo
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Essa transformação divide preditivamente o conteúdo de uma coluna em limites significativos sem a necessidade de entrada do usuário. O algoritmo de divisão seleciona os limites depois de analisar o conteúdo da coluna. Esses limites podem ser definidos por
 * Um delimitador fixo,
 * Vários delimitadores arbitrários que aparecem em contextos específicos ou
@@ -182,4 +187,4 @@ No exemplo a seguir, gostaríamos de separar os valores de peso das unidades de 
 
 ## <a name="technical-notes"></a>Observações técnicas
 
-O recurso de transformação de divisão se baseia na técnica de **Síntese de Programa Preditiva**. Nessa técnica, os programas de transformação de dados são aprendidos automaticamente com base nos dados de entrada. Os programas são sintetizados em uma linguagem específica de domínio. O DSL se baseia nos delimitadores e campos que ocorrem em contextos de expressão regular específicos. É possível encontrar mais informações sobre essa tecnologia em uma [publicação recente sobre esse tópico](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 
+O recurso de transformação de divisão se baseia na técnica de **Síntese de Programa Preditiva**. Nessa técnica, os programas de transformação de dados são aprendidos automaticamente com base nos dados de entrada. Os programas são sintetizados em uma linguagem específica de domínio. O DSL se baseia nos delimitadores e campos que ocorrem em contextos de expressão regular específicos. É possível encontrar mais informações sobre essa tecnologia em uma [publicação recente sobre esse tópico](https://www.microsoft.com/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 

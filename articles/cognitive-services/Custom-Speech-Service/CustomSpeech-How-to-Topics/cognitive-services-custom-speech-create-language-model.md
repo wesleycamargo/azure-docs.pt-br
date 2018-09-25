@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 599302cbf614f800d35a9a8c6a401c9692fc2e39
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ROBOTS: NOINDEX
+ms.openlocfilehash: 29f5c5efb78e85e265b56cba9ba20daa123d334e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268273"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961035"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: criar um modelo de linguagem personalizado
 
@@ -28,7 +29,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma conta dos Serviços Cognitivos, crie uma [conta gratuita](https://cris.ai) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se sua conta de Serviços Cognitivos está conectada a uma assinatura abrindo a página [Assinaturas de Serviços Cognitivos](https://cris.ai/Subscriptions).
 

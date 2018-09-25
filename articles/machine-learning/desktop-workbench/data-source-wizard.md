@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: c74229504a43179673cc99ccff321b65e3f6ed4f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: a3aeb021d5d3726a31b62d66efc44dc29f3dded0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632013"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959641"
 ---
 # <a name="data-source-wizard"></a>Assistente de Fonte de Dados #
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 O Assistente de Fonte de Dados é uma maneira rápida e fácil de levar um conjunto de dados para o Azure ML Workbench sem código. É onde você também pode selecionar uma estratégia de exemplo para o conjunto de dados e os tipos de dados para cada coluna. 
 

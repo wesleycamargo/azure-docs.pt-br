@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/24/2017
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: b1dd37c07f3c887005d87e3231f62a4bca2f4a3d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 893495a5c37495438d9620595719ca6e733df012
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093108"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958111"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -35,7 +35,7 @@ A amostragem reduz os custos de tráfego e de dados e ajuda a evitar a limitaç�
 * Também é possível definir a amostragem manualmente, no portal, na página Uso e custos estimados, no SDK do ASP.NET no arquivo .config ou, no SDK do Java no arquivo ApplicationInsights.xml para reduzir também o tráfego.
 * Se você registrar eventos personalizados e desejar certificar-se de que um conjunto de eventos é retido ou descartado em conjunto, certifique-se de que eles têm o mesmo valor de OperationID.
 * O divisor de amostragem *n`itemCount` é relatado em cada registro na propriedade* , que, na Pesquisa, aparece sob o nome amigável "contagem de solicitação" ou "contagem de eventos". Quando a amostragem não estiver em operação, `itemCount==1`.
-* Se você escrever consultas de Análise, deverá [levar em conta a amostragem](app-insights-analytics-tour.md#counting-sampled-data). Em particular, em vez de simplesmente contar registros, você deve usar `summarize sum(itemCount)`.
+* Se você escrever consultas de Análise, deverá [levar em conta a amostragem](../log-analytics/query-language/aggregations.md). Em particular, em vez de simplesmente contar registros, você deve usar `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Tipos de amostragem
 Há três módulos de amostragem alternativos:
@@ -175,7 +175,7 @@ Remova o nó `AdaptiveSamplingTelemetryProcessor` do arquivo .config.
 ## <a name="sampling-for-web-pages-with-javascript"></a>Amostragem para áginas da Web com JavaScript
 Você pode configurar as páginas da Web para amostragem de taxa fixa de qualquer servidor. 
 
-Ao [configurar as páginas da Web para o Application Insights](app-insights-javascript.md), modifique o trecho de código JavaScript que você receber do portal do Application Insights. (Em aplicativos ASP.NET, o trecho de código geralmente vai em _Layout.cshtml.)  Insira uma linha como `samplingPercentage: 10,` antes da chave de instrumentação:
+Ao [configurar as páginas da Web para o Application Insights](app-insights-javascript.md), modifique o snippet de código JavaScript que você receber do portal do Application Insights. (Em aplicativos ASP.NET, o snippet de código geralmente vai em _Layout.cshtml.)  Insira uma linha como `samplingPercentage: 10,` antes da chave de instrumentação:
 
     <script>
     var appInsights= ... 
@@ -221,7 +221,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
 
     ```
 
-3. **Habilitar o módulo de amostragem de taxa fixa.** Adicione esse trecho de código a [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+3. **Habilitar o módulo de amostragem de taxa fixa.** Adicione esse snippet de código a [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
    
     ```XML
    
@@ -240,7 +240,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
 
 1. Fazer o download e configurar seu aplicativo da web com a versão mais recente [SDK de java do Application Insights](app-insights-java-get-started.md)
 
-2. **Habilita o módulo de taxa fixa de amostragem** adicionando o trecho a seguir ao arquivo ApplicationInsights.xml.
+2. **Habilita o módulo de taxa fixa de amostragem** adicionando o snippet a seguir ao arquivo ApplicationInsights.xml.
 
 ```XML
     <TelemetryProcessors>

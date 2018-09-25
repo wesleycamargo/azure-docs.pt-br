@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 6fbe043e0232701d2aabcbc09606864b5cc27450
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 110f787866296ec08b9937d56461d37574270a43
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702503"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980916"
 ---
 # <a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: desenvolvimento de aplicativo Web com o Azure Cosmos DB
 
@@ -26,7 +26,6 @@ ms.locfileid: "43702503"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
@@ -316,7 +315,7 @@ A primeira coisa a fazer aqui é adicionar uma classe que contenha toda a lógic
 
     Isso trata de conectar o repositório do Azure Cosmos DB. Agora, vamos adicionar nossa lógica do aplicativo.
 
-1. A primeira coisa que desejamos fazer com um aplicativo de lista de tarefas é exibir os itens incompletos.  Copie e cole o seguinte trecho de código em qualquer lugar na classe **DocumentDBRepository** .
+1. A primeira coisa que desejamos fazer com um aplicativo de lista de tarefas é exibir os itens incompletos.  Copie e cole o seguinte snippet de código em qualquer lugar na classe **DocumentDBRepository**.
    
         public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
         {
@@ -390,7 +389,7 @@ Vamos adicionar um código a DBRepository e ItemController do Cosmos do Azure pa
        }
    
    Este método simplesmente pega algum objeto passado para ele e persiste-o no Azure Cosmos DB.
-2. Abra o arquivo ItemController.cs e adicione o seguinte trecho de código à classe. É assim que o ASP.NET MVC passa a saber o que fazer para a ação **Criar** . Nesse caso, basta renderizar a exibição de Create.cshtml associada criada anteriormente.
+2. Abra o arquivo ItemController.cs e adicione o seguinte snippet de código à classe. É assim que o ASP.NET MVC passa a saber o que fazer para a ação **Criar** . Nesse caso, basta renderizar a exibição de Create.cshtml associada criada anteriormente.
    
         [ActionName("Create")]
         public async Task<ActionResult> CreateAsync()

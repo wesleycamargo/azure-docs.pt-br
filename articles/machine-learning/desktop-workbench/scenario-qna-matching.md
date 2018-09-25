@@ -12,14 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 33d95e0c17e8b9b18313cb0854532337ec76cfd1
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: e0f6148e1fb28838bf99c63fbfbfbfe8cd127c8c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42140813"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973194"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Correspondência de P e R usando o Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Responder a perguntas abertas é difícil e geralmente requer esforço manual de SMEs (especialistas no assunto). Para ajudar a reduzir as demandas em SMEs internos, as empresas geralmente criam listas de Perguntas frequentes como uma forma de auxiliar os usuários. Este exemplo demonstra vários métodos de aprendizado de máquina eficazes para corresponder consultas em aberto a pares de pergunta/respostas de perguntas frequentes pré-existentes. Este exemplo demonstra um processo de desenvolvimento fácil para criar essa solução usando o Azure Machine Learning Workbench. 
 
 ## <a name="link-to-the-gallery-github-repository"></a>Link para o repositório GitHub da galeria
@@ -42,7 +47,7 @@ As principais etapas necessárias para fornecer essa solução são as seguintes
 Os pré-requisitos para executar este exemplo são os seguintes:
 
 1. Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-2. Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](../service/quickstart-installation.md) para instalar o programa e criar um espaço de trabalho.
+2. Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](quickstart-installation.md) para instalar o programa e criar um espaço de trabalho.
 3. Este exemplo pode ser executado em qualquer contexto de computação. No entanto, recomenda-se executá-lo em um computador com vários núcleos com pelo menos 16 GB de memória e 5 GB de espaço em disco.
 
 ## <a name="create-a-new-workbench-project"></a>Criar um novo projeto de workbench
@@ -122,7 +127,7 @@ Os arquivos neste exemplo são organizados da seguinte maneira.
 
 Os três conjuntos de dados compilados são armazenados em um Armazenamento de blobs e recuperados no bloco de anotações do `Part_1_Data_Preparation.ipynb`.  
 
-Antes de treinar os modelos de classificação de texto, o texto nas perguntas é limpo e pré-processado para excluir trechos de código. Um aprendizado de frase sem supervisão é aplicado por meio do material de treinamento para aprender sequências informativas de várias palavras. Essas frases são representadas como unidades de única composta únicas na personalização BOWs (Bolsa de palavras) downstream usadas pelos modelos de classificação de texto.
+Antes de treinar os modelos de classificação de texto, o texto nas perguntas é limpo e pré-processado para excluir snippets de código. Um aprendizado de frase sem supervisão é aplicado por meio do material de treinamento para aprender sequências informativas de várias palavras. Essas frases são representadas como unidades de única composta únicas na personalização BOWs (Bolsa de palavras) downstream usadas pelos modelos de classificação de texto.
 
 As descrições detalhadas passo a passo do pré-processamento de texto e do aprendizado de frase podem ser encontradas nos Blocos de anotações `Part_1_Data_Preparation.ipynb` e `Part_2_Phrase_Learning.ipynb`, respectivamente.
 

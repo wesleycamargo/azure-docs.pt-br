@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 85a7b133655a3b1e4ca60c28e695e3057b293fdc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 91f75fdbe7bc7c66bbe581e9d4b295467acd4cd5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504508"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989661"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Como habilitar aplicativos clientes nativos para interagir com aplicativos de proxy
 
@@ -30,7 +30,7 @@ O Proxy de Aplicativo dá suporte a aplicativos cliente nativos aceitando os tok
 
 ![Relação entre os usuários finais, o Active Directory do Azure e os aplicativos publicados](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Use a Biblioteca de Autenticação do Azure AD, que trata da autenticação e dá suporte a vários ambientes de cliente, para publicar aplicativos nativos. O Proxy de Aplicativo se encaixa no [cenário de Aplicativo Nativo para API Web](../develop/authentication-scenarios.md#native-application-to-web-api). 
+Use a Biblioteca de Autenticação do Azure AD, que trata da autenticação e dá suporte a vários ambientes de cliente, para publicar aplicativos nativos. O Proxy de Aplicativo se encaixa no [cenário de Aplicativo Nativo para API Web](../develop/native-app.md). 
 
 Este artigo explica as quatro etapas para publicar um aplicativo nativo com o Proxy de Aplicativo e a Biblioteca de Autenticação do Azure AD. 
 
@@ -96,6 +96,6 @@ Quando a ADAL é editada com esses parâmetros, os usuários devem ser capazes d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o fluxo do aplicativo nativo, confira [Aplicativo nativo para API Web](../develop/authentication-scenarios.md#native-application-to-web-api)
+Para saber mais sobre o fluxo do aplicativo nativo, confira [Aplicativo nativo para API Web](../develop/native-app.md)
 
 Saiba mais sobre como configurar o [Logon único para o proxy de aplicativo](application-proxy-single-sign-on.md)

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 4614eedd08eabf5c1c2eec6f26e542e20b0875bf
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 53ad780ff0b199764c354327439fa69c360e7cb5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040496"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996801"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: implantar um aplicativo Java em um cluster do Service Fabric no Azure
 
@@ -46,7 +46,7 @@ Nesta série de tutoriais, você aprenderá a:
 Antes de começar este tutorial:
 
 * Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Instalar o SDK do Service Fabric para [Mac](service-fabric-get-started-mac.md) ou [Linux](service-fabric-get-started-linux.md)
 * [Instalar o Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -200,7 +200,7 @@ As etapas a seguir criam os recursos necessários para implantar seu aplicativo 
 
 ## <a name="deploy-your-application-to-the-cluster"></a>Implantar o aplicativo no cluster
 
-1. Antes de implantar seu aplicativo, você precisa adicionar o trecho de código a seguir no arquivo *Voting/VotingApplication/ApplicationManifest.xml*. O campo **X509FindValue** é a impressão digital retornada na Etapa 4 da seção **Criar um cluster do Service Fabric no Azure**. Este trecho de código está aninhado no campo **ApplicationManifest** (o campo raiz).
+1. Antes de implantar seu aplicativo, você precisa adicionar o snippet de código a seguir no arquivo *Voting/VotingApplication/ApplicationManifest.xml*. O campo **X509FindValue** é a impressão digital retornada na Etapa 4 da seção **Criar um cluster do Service Fabric no Azure**. Este snippet de código está aninhado no campo **ApplicationManifest** (o campo raiz).
 
     ```xml
     <Certificates>

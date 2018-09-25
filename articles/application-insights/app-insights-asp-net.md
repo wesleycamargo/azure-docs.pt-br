@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 73bb1e3d06066c422614bc9d6d3431b49be9c6de
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 86c0343a3492bf91eedda9303e3c6ac9cf86c4c3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992032"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947312"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para seu site ASP.NET
 
@@ -105,7 +105,7 @@ No portal, clique em qualquer bloco ou gráfico para ver mais detalhes.
 ## <a name="step-4-publish-your-app"></a>Etapa 4: Publicar seu aplicativo
 Publica seu aplicativo no servidor IIS ou no Azure. Observe o [Fluxo de Métricas Ativo](app-insights-metrics-explorer.md#live-metrics-stream) para verificar se tudo está funcionando corretamente.
 
-A telemetria se acumula no portal do Application Insights, em que você pode monitorar as métricas, pesquisar a telemetria e configurar [painéis](app-insights-dashboards.md). Você também pode usar a poderosa [linguagem de consulta do Log Analytics](https://docs.loganalytics.io/) para analisar o uso e o desempenho ou para encontrar eventos específicos.
+A telemetria se acumula no portal do Application Insights, em que você pode monitorar as métricas, pesquisar a telemetria e configurar [painéis](app-insights-dashboards.md). Você também pode usar a poderosa [linguagem de consulta do Log Analytics](https://aka.ms/LogAnalyticsLanguage) para analisar o uso e o desempenho ou para encontrar eventos específicos.
 
 Você também pode continuar a analisar a telemetria no [Visual Studio](app-insights-visual-studio.md) com ferramentas como pesquisa de diagnóstico e de [tendências](app-insights-visual-studio-trends.md).
 
@@ -141,7 +141,7 @@ Há tópicos alternativos para conferir se você está interessado em:
 
 ### <a name="more-telemetry"></a>Mais telemetria
 
-* **[Navegador e página carregam dados](app-insights-javascript.md)**  -insira um trecho de código em suas páginas da Web.
+* **[Navegador e página carregam dados](app-insights-javascript.md)** -insira um snippet de código em suas páginas da Web.
 * **[Obtenha monitoramento de dependência e de exceção mais detalhado](app-insights-monitor-performance-live-website-now.md)**  -instale o Monitor de Status no seu servidor.
 * **[Eventos personalizados de código](app-insights-api-custom-events-metrics.md)** para contagem, tempo ou medição de ações do usuário.
 * **[Obter dados de log](app-insights-asp-net-trace-logs.md)**  - correlacionar dados de log com a telemetria.

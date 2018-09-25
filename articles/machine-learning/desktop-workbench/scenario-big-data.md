@@ -16,14 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450666"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964694"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsão de carga de trabalho de servidor em terabytes de dados
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Este artigo aborda como os cientistas de dados podem usar o Azure Machine Learning Workbench para desenvolver soluções que exigem o uso de Big Data. Você pode começar com um exemplo de um grande conjunto de dados, iterar pela preparação de dados, engenharia de recursos e machine learning e estender o processo para o todo o conjunto de dados. 
 
@@ -49,11 +52,11 @@ Neste cenário, você vai se concentrar na previsão de carga de trabalho para c
 Os pré-requisitos para executar este exemplo são os seguintes:
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Para instalar o programa e criar um espaço de trabalho, consulte o [guia de instalação de início rápido](../service/quickstart-installation.md). Se você tiver várias assinaturas, você pode [definir a assinatura desejada para a assinatura ativa atual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
+* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Para instalar o programa e criar um espaço de trabalho, consulte o [guia de instalação de início rápido](quickstart-installation.md). Se você tiver várias assinaturas, você pode [definir a assinatura desejada para a assinatura ativa atual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (as instruções neste exemplo são geralmente as mesmas para sistemas macOS).
 * Uma máquina Virtual de ciência de dados (DSVM) para Linux (Ubuntu), preferencialmente na região Leste dos EUA, onde os dados se localizam. É possível provisionar uma DSVM Ubuntu seguindo estas [instruções](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Você também pode ver [este guia de início rápido](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Recomendamos usar uma máquina virtual com pelo menos 8 núcleos e 32 GB de memória. 
 
-Siga as [instruções](../service/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) para habilitar o acesso sem senha na VM para o AML Workbench.  Você pode optar por usar [a autenticação baseada em chave SSH para criar e usar a VM no Workbench AML](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Neste exemplo, usamos a senha para acessar a máquina virtual.  Salve a tabela a seguir com as informações da DSVM para etapas posteriores:
+Siga as [instruções](../desktop-workbench/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) para habilitar o acesso sem senha na VM para o AML Workbench.  Você pode optar por usar [a autenticação baseada em chave SSH para criar e usar a VM no Workbench AML](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Neste exemplo, usamos a senha para acessar a máquina virtual.  Salve a tabela a seguir com as informações da DSVM para etapas posteriores:
 
  Nome do campo| Valor |  
  |------------|------|

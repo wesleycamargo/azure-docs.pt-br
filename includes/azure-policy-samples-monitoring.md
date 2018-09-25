@@ -5,18 +5,18 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: d86dfee0dc7b11d53a58a5063ebab779fb7ac6cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1c37fee6e8c95d4a4536a2f1bdd86be1230baa24
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34664410"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47003594"
 ---
 ## <a name="monitoring"></a>Monitoramento
 
 |  |  |
 |---------|---------|
-| [Configuração de diagnóstico de auditoria](../articles/azure-policy/scripts/audit-diag-setting.md) | Auditará se as configurações de diagnóstico não estiverem habilitadas para tipos de recursos especificados. Você especifica uma matriz de tipos de recursos para verificar se as configurações de diagnóstico estão habilitadas. |
+| [Configuração de diagnóstico de auditoria](../articles/governance/policy/samples/audit-diag-setting.md) | Auditará se as configurações de diagnóstico não estiverem habilitadas para tipos de recursos especificados. Você especifica uma matriz de tipos de recursos para verificar se as configurações de diagnóstico estão habilitadas. |

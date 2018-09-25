@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ms.openlocfilehash: a74b69b84cc80809a25f18b580a18abb5721b8b1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: c51ef6b25b454d0b8bf450b791f5c0fa9c6dfdee
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363452"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999368"
 ---
 # <a name="enable-custom-pronunciation"></a>Habilitar pronúncia personalizada
 A pronúncia personalizada permite aos usuários definir o formulário fonético e a exibição de uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa é um arquivo de pronúncia (um arquivo. txt simples).
@@ -27,7 +28,7 @@ Display form <Tab> Spoken form <Newline>
 
 *Exemplos*:
 
-| Forma de exibição | Forma falada |
+| Formulário de exibição | Forma falada |
 |----------|-------|
 | C3PO | see three pea o |
 | L8R | late are |

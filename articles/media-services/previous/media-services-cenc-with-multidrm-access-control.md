@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: c125d5a741331d5c9476da23766057ac0c42cdbf
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: ffd8a82fb03c23a661223e16e75d2964249d2b96
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493720"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965816"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com controle de acesso usando os serviços de mídia do Azure
 
@@ -312,9 +312,9 @@ E se a substituição de chave acontecer depois que o Azure AD gerar um JWT, mas
 Como uma chave pode ser substituída a qualquer momento, mais de uma chave pública válida estará sempre disponível no documento de metadados de federação. A entrega de licenças dos Serviços de Mídia pode usar qualquer uma das chaves especificadas no documento. Como uma chave poderá ser substituída em breve, outra poderá ser sua substituição, e assim por diante.
 
 ### <a name="where-is-the-access-token"></a>Onde está o token de acesso?
-Se você der uma olhada em como um aplicativo Web chama um aplicativo de API em [Identidade do aplicativo com concessão de credenciais de cliente OAuth 2.0](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api), verá que o fluxo de autenticação é o seguinte:
+Se você der uma olhada em como um aplicativo Web chama um aplicativo de API em [Identidade do aplicativo com concessão de credenciais de cliente OAuth 2.0](../../active-directory/develop/web-api.md), verá que o fluxo de autenticação é o seguinte:
 
-* Um usuário entra no Azure AD no aplicativo Web. Para obter mais informações, consulte [Navegador da Web para aplicativo Web](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application).
+* Um usuário entra no Azure AD no aplicativo Web. Para obter mais informações, consulte [Navegador da Web para aplicativo Web](../../active-directory/develop/web-app.md).
 * O ponto de extremidade de autorização do AD do Azure redireciona o agente do usuário para o aplicativo cliente com um código de autorização. O agente do usuário retorna o código de autorização ao URI de redirecionamento do aplicativo cliente.
 * O aplicativo Web precisa adquirir um token de acesso para que ele possa autenticar a API da Web e recuperar o recurso desejado. Ele faz uma solicitação ao ponto de extremidade do token do Azure AD e fornece a credencial, a ID do cliente e o URI da ID do aplicativo da API da Web. Ele apresenta o código de autorização para comprovar que o usuário consentiu.
 * O Azure AD autentica o aplicativo e retorna um token de acesso JWT que é usado para chamar a API da Web.

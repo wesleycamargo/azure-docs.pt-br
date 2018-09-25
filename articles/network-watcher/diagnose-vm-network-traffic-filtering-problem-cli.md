@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2f6011103c86895c455b284a0982636a0d31fbe7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4be1fac519ee0a7bcd61bd4cced4d829c275679d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180463"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990103"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Início Rápido: Diagnosticar um problema de filtro de tráfego de rede de máquina virtual – CLI do Azure
 
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão do CLI, execute `az login` para criar uma conexão com o Azure. Os comandos CLI neste guia de início rápido são formatados para serem executados em um shell Bash.
+Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão do CLI, execute `az login` para criar uma conexão com o Azure. Os comandos CLI neste guia de início rápido são formatados para serem executados em um shell Bash.
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
@@ -56,7 +56,7 @@ A VM demora alguns minutos para criar. Não continue com as etapas restantes at�
 
 ## <a name="test-network-communication"></a>Testar comunicação de rede
 
-Para testar a comunicação de rede com o Observador de Rede, primeiro habilite um observador de rede na região onde está localizada a VM que deseja testar e, em seguida, use o recurso Verificar fluxo de IP do Observador de Rede para testar a comunicação.
+Para testar a comunicação de rede com o Observador de Rede, primeiro habilite um observador de rede na região onde está localizada a VM que deseja testar e, em seguida, use a funcionalidade Verificação de fluxo de IP do Observador de Rede para testar a comunicação.
 
 ### <a name="enable-network-watcher"></a>Habilitar o observador de rede
 

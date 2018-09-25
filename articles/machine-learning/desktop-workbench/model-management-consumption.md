@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ROBOTS: NOINDEX
+ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973168"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950607"
 ---
 # <a name="consuming-web-services"></a>Consumindo serviços Web
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Depois de implantar um modelo como um serviço Web em tempo real, você poderá enviar dados a ele e obter previsões de uma variedade de plataformas e aplicativos. O serviço Web em tempo real expõe uma API REST para obter previsões. Você pode enviar dados para o serviço Web no formato de única linha ou de várias linhas para obter uma ou mais previsões de cada vez.
 
 Com o [serviço Web do Azure Machine Learning](model-management-service-deploy.md), um aplicativo externo comunica-se com um modelo de previsão de forma síncrona, fazendo uma chamada HTTP POST para a URL do serviço. Para fazer uma chamada ao serviço Web, o aplicativo cliente precisa especificar a chave de API que é criada quando você implanta uma previsão e colocar os dados da solicitação no corpo da solicitação POST.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: 5c0726ea0da288d5306e28b101e4d3b59605b443
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c0b4e3e0a924c1353f7732737670dee7ed45a62a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894887"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953864"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>VMs de baixa prioridade em conjuntos de dimensionamento (versão prévia)
 
@@ -42,8 +42,8 @@ Se você quiser que suas VMs em seu conjunto de dimensionamento de baixa priorid
 ## <a name="deploying-low-priority-vms-on-scale-sets"></a>Implantação de VMs de baixa prioridade em conjuntos de dimensionamento
 
 Para implantar VMs de baixa prioridade em conjuntos de dimensionamento, você poderá definir o novo sinalizador *Prioridade* como *Baixa*. Todas as VMs no conjunto de dimensionamento serão definidas como baixa prioridade. Para criar um conjunto de dimensionamento com VMs de baixa prioridade, use um dos seguintes métodos:
-- [Portal do Azure](#use-the-azure-portal)
-- [CLI 2.0 do Azure](#use-the-azure-cli-20)
+- [portal do Azure](#use-the-azure-portal)
+- [CLI do Azure](#use-the-azure-cli-20)
 - [PowerShell do Azure](#use-azure-powershell)
 - [Modelos do Gerenciador de Recursos do Azure](#use-azure-resource-manager-templates)
 
@@ -51,7 +51,7 @@ Para implantar VMs de baixa prioridade em conjuntos de dimensionamento, você po
 
 O processo para criar um conjunto de dimensionamento que usa VMs de baixa prioridade é o mesmo detalhado no [artigo de introdução](quick-create-portal.md). Quando você estiver implantando um conjunto de escala, você pode optar por definir o sinalizador de baixa prioridade e a política de remoção: ![criar uma escala com baixa prioridade de VMs](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
-## <a name="use-the-azure-cli-20"></a>Usar a CLI 2.0 do Azure
+## <a name="use-the-azure-cli"></a>Usar a CLI do Azure
 
 O processo para criar um conjunto de dimensionamento com VMs de baixa prioridade é o mesmo detalhado no [artigo de introdução](quick-create-cli.md). Basta adicionar o parâmetro '--Priority' à chamada da CLI e defini-lo como *Baixa* conforme mostrado no exemplo a seguir:
 
