@@ -51,8 +51,7 @@ Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detal
 ### <a name="application-2"></a>Aplicativo nº 2: 
 Siga as mesmas etapas do aplicativo nº 1, com as seguintes exceções: 
 
-**Etapa nº 5**: a URL interna agora deve ser a URL do QlikSense com a porta de autenticação usada pelo aplicativo. O padrão é **4244** para HTTPS e 4248 para HTTP. Exemplo: **https&#58;//demo.qlik.com:4244**</br></br> 
-**Etapa nº 10:** Não configure o SSO e deixe o **Logon único desabilitado**
+**Etapa nº 5**: a URL interna agora deve ser a URL do QlikSense com a porta de autenticação usada pelo aplicativo. O padrão é **4244** para HTTPS e 4248 para HTTP. Exemplo: **https&#58;//demo.qlik.com:4244**</br></br>**Etapa nº 10:** Não configure o SSO e deixe o **Logon único desabilitado**
  
  
 ## <a name="testing"></a>Testando 
