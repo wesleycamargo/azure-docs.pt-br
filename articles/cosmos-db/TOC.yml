@@ -15,8 +15,6 @@ items:
       href: create-sql-api-java.md
     - name: Node.js
       href: create-sql-api-nodejs.md
-    - name: Node.js – Versão prévia V2
-      href: create-sql-api-nodejs-preview.md
     - name: Python
       href: create-sql-api-python.md
     - name: Xamarin
@@ -76,6 +74,17 @@ items:
     href: sql-api-resources.md
   - name: Distribuição global
     href: distribute-data-globally.md
+    items:
+    - name: Principais benefícios
+      href: distribute-data-globally-benefits.md
+    - name: Habilitar distribuição global
+      href: distribute-data-globally-turnkey.md
+    - name: Habilitar vários mestres
+      href: enable-multi-master.md
+    - name: Vários mestres com bancos de dados NoSQL de software livre
+      href: multi-master-oss-nosql.md
+    - name: Resolução de conflitos
+      href: multi-master-conflict-resolution.md
   - name: Produtividade
     href: request-units.md
     items:
@@ -87,11 +96,6 @@ items:
     href: indexing-policies.md
   - name: Modelos de consistência
     href: consistency-levels.md
-  - name: Vários mestres
-    href: multi-region-writers.md
-    items:
-    - name: Instalação de vários mestres
-      href: multi-master-workaround.md
   - name: Feed de alteração
     href: change-feed.md
   - name: Vida útil
@@ -111,6 +115,8 @@ items:
       href: vnet-service-endpoint.md
     - name: Suporte do Key Vault
       href: access-secrets-from-keyvault.md
+  - name: Pagar antecipadamente por capacidade reservada
+    href: cosmos-db-reserved-capacity.md
   - name: Backup e restauração
     href: online-backup-and-restore.md
   - name: Alta disponibilidade
@@ -141,8 +147,6 @@ items:
             href: sql-api-async-java-get-started.md
           - name: Node.js
             href: sql-api-nodejs-get-started.md
-          - name: Node.js – Versão prévia V2
-            href: sql-api-nodejs-get-started-preview.md
         - name: Compilar um aplicativo Web
           items:
           - name: .NET
@@ -151,10 +155,6 @@ items:
             href: sql-api-java-application.md
           - name: Node.js
             href: sql-api-nodejs-application.md
-          - name: Node.js – Versão prévia V2
-            href: sql-api-nodejs-application-preview.md
-          - name: Python
-            href: sql-api-python-application.md
           - name: Xamarin
             href: mobile-apps-with-xamarin.md
       - name: 2 - Migrar dados
@@ -173,8 +173,6 @@ items:
         href: sql-api-async-java-samples.md
       - name: Exemplos do Node.js
         href: sql-api-nodejs-samples.md
-      - name: Exemplos da versão prévia de Node.js – V2
-        href: sql-api-nodejs-samples-preview.md
       - name: Exemplos em Python
         href: sql-api-python-samples.md
       - name: PowerShell
@@ -287,12 +285,40 @@ items:
     items:
     - name: Introdução
       href: cassandra-introduction.md
+    - name: Suporte para Cassandra
+      href: cassandra-support.md
     - name: Tutoriais
       items:
-      - name: 1 - Criar conta
-        href: tutorial-develop-cassandra-java.md
-      - name: 2 - Migrar dados
+      - name: 1 - Criar conta e banco de dados
+        href: create-cassandra-api-account-java.md
+      - name: 2 - Carregar Dados
+        href: cassandra-api-load-data.md
+      - name: 3 - Consultar dados
+        href: cassandra-api-query-data.md
+      - name: 4 - Migrar dados
         href: cassandra-import-data.md
+    - name: Cassandra e Spark
+      items:
+      - name: Introdução
+        href: cassandra-spark-generic.md
+      - name: Conectar-se usando o Databricks
+        href: cassandra-spark-databricks.md
+      - name: Conectar-se usando o HDInsight
+        href: cassandra-spark-hdinsight.md
+      - name: Criar keyspace e tabela
+        href: cassandra-spark-ddl-ops.md
+      - name: Inserir dados
+        href: cassandra-spark-create-ops.md
+      - name: Ler dados
+        href: cassandra-spark-read-ops.md
+      - name: Upsert de dados
+        href: cassandra-spark-upsert-ops.md
+      - name: Excluir dados
+        href: cassandra-spark-delete-ops.md
+      - name: Operações de agregação
+        href: cassandra-spark-aggregation-ops.md
+      - name: Copiar dados da tabela
+        href: cassandra-spark-table-copy-ops.md
   - name: Docs API de Tabela
     items:
     - name: Introdução
@@ -438,6 +464,8 @@ items:
       href: bulk-executor-java.md
 - name: Recursos
   items:
+  - name: Desenvolva suas habilidades com o Microsoft Learn
+    href: /learn/browse/?products=azure-cosmos-db
   - name: Roteiro de consulta
     href: query-cheat-sheet.md
   - name: Espaço de consulta
@@ -460,9 +488,9 @@ items:
       href: use-cases.md
     - name: Aplicativos de mídia social
       href: social-media-apps.md
-ms.openlocfilehash: 2bc1fcfab7399cc52500b832721e7ca7509758fd
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 8d217ae35c38017061bbb1fb96d09de5928b2205
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737270"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042305"

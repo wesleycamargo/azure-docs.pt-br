@@ -1,37 +1,38 @@
 # [Documentação do Agendador](index.md)
 
 # Visão geral
-## [O que é o Agendador?](scheduler-intro.md)
+## [O que é o Agendador do Azure?](scheduler-intro.md)
 
 # Introdução
-## [Criar e gerenciar trabalhos](scheduler-get-started-portal.md)
-## [Conceitos e terminologia](scheduler-concepts-terms.md)
+## [Criar e gerenciar trabalhos - portal](scheduler-get-started-portal.md)
+## [Migrar do Agendador para Aplicativos Lógicos](migrate-from-scheduler-to-logic-apps.md)
 
-# Como
+# Conceitos
+## [Conceitos, termos e entidades](scheduler-concepts-terms.md)
+
+# Guias de instruções
 ## Planejar e projetar
 ### [Planos e cobrança](scheduler-plans-billing.md)
-### [Cotas e limites](scheduler-limits-defaults-errors.md)
+### [Limites, cotas e valores padrão](scheduler-limits-defaults-errors.md)
 ### [Alta disponibilidade e confiabilidade](scheduler-high-availability-reliability.md)
 
 ## Desenvolver
-### [Agendamentos complexos usando a API REST](scheduler-advanced-complexity.md)
-
+### [Compilar agendamentos complexos e recorrências avançadas](scheduler-advanced-complexity.md)
+### [Criar e gerenciar agendas - Azure PowerShell](scheduler-powershell-reference.md)
 
 ## Segurança
-### [Autenticação de saída](scheduler-outbound-authentication.md)
+### [Autenticar chamadas de saída](scheduler-outbound-authentication.md)
 
 # Referência
 ## [PowerShell do Azure](/powershell/module/azurerm.scheduler)
-## [REST](/rest/api/scheduler)
+## [API REST](/rest/api/scheduler)
 
 # Recursos
-## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Roteiro do Agendador do Azure](https://azure.microsoft.com/updates/?product=scheduler)
+## [Roteiro do Azure](https://azure.microsoft.com/updates/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Preços](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=scheduler)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
-
-
-

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2ee8284861d62d4405d0f949ee74b1992440b66e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 701bf7db8304189b9348cad1c920f3e5ec1fecf1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184553"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991123"
 documentType: LandingData
 title: Documentação do DNS do Azure
 metadata:
@@ -48,11 +48,14 @@ sections:
   - type: paragraph
     text: Saiba como hospedar seu domínio ao DNS do Azure, criar registros de DNS personalizados para um aplicativo Web usando o DNS do Azure, e criar uma zona DNS e registro privados.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/dns/dns-delegate-domain-azure-dns">Hospede seu domínio no DNS do Azure</a>
     - html: <a href="/azure/dns/dns-web-sites-custom-domain">Criar registros DNS personalizados para um aplicativo Web</a>
     - html: <a href="/azure/dns/private-dns-getstarted-powershell">Criar uma zona DNS e registro privados</a>
+    - html: <a href="/azure/dns/tutorial-alias-pip">Configurar um registro de alias para se referir a um endereço IP público do Azure</a>
+    - html: <a href="/azure/dns/tutorial-alias-tm">Configurar um registro de alias para dar suporte a nomes de domínio com o Gerenciador de Tráfego do apex</a>
+    - html: <a href="/azure/dns/tutorial-alias-rr">Configurar um registro de alias para registros da zona</a>
 - title: Treinamento em Vídeo Pluralsight gratuito
   items:
   - type: list

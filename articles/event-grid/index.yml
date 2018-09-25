@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 5134722ab2467d7bb63d76bd83c263457ec8284a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948104"
 documentType: LandingData
 title: Documentação da Grade de Eventos do Azure
 metadata:
@@ -13,12 +19,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/10/2017
   ms.author: carolz
-  ms.openlocfilehash: 494cd1b862169998a15786b70a6c7d88f830613e
-  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-  ms.translationtype: HT
-  ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/01/2018
-  ms.locfileid: "28921762"
 abstract:
   description: A Grade de Eventos do Azure é um serviço de roteamento de eventos inteligente totalmente gerenciado que permite um consumo de eventos uniforme usando um modelo do tipo publicar-assinar. Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real. Saiba como usar a Grade de Eventos do Azure com nossos guias de início rápido, tutoriais e exemplos.
 sections:
@@ -64,6 +64,19 @@ sections:
     - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitorar as alterações nas VMs com aplicativos lógicos</a>
     - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Redimensionar imagens carregadas</a>
     - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrando a Automação do Azure com a Grade de Eventos</a>
+- title: Desenvolva suas habilidades com o Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Escolha um modelo de sistema de mensagens no Azure para se conectar livremente aos serviços
+      href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+      image:
+        src: /learn/achievements/choose-a-messaging-model-in-azure-to-connect-your-services.svg
+        href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-event-grid">Mais aprendizado interativo...</a>
 - title: Referência
   items:
   - type: list

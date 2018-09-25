@@ -1,76 +1,88 @@
+items:
 - name: Documentação do controle de acesso baseado em funções
   href: index.yml
-  items: null
 - name: Visão geral
   items:
-    - name: O que é o RBAC?
-      href: overview.md
-    - name: Entender as diferentes funções
-      href: rbac-and-directory-admin-roles.md
+  - name: O que é o RBAC?
+    href: overview.md
+  - name: Entender as diferentes funções
+    href: rbac-and-directory-admin-roles.md
 - name: Guia de início rápido
   items:
-    - name: Conceder acesso a um usuário
-      href: quickstart-assign-role-user-portal.md
+  - name: Conceder acesso a um usuário
+    href: quickstart-assign-role-user-portal.md
 - name: Tutoriais
   items:
-    - name: Conceder acesso a um usuário - PowerShell
-      href: tutorial-role-assignments-user-powershell.md
-    - name: Conceder acesso a um grupo - PowerShell
-      href: tutorial-role-assignments-group-powershell.md
-    - name: Criar uma função personalizada - PowerShell
-      href: tutorial-custom-role-powershell.md
-    - name: Criar uma função personalizada - CLI
-      href: tutorial-custom-role-cli.md
+  - name: Conceder acesso a um usuário - PowerShell
+    href: tutorial-role-assignments-user-powershell.md
+  - name: Conceder acesso a um grupo - PowerShell
+    href: tutorial-role-assignments-group-powershell.md
+  - name: Criar uma função personalizada - PowerShell
+    href: tutorial-custom-role-powershell.md
+  - name: Criar uma função personalizada - CLI
+    href: tutorial-custom-role-cli.md
 - name: Conceitos
   items:
-    - name: Compreender as definições de função
-      href: role-definitions.md
-    - name: PIM (Privileged Identity Management) para RBAC
-      href: pim-azure-resource.md
-    - name: Acesso condicional para o gerenciamento do Azure
-      href: conditional-access-azure-management.md
+  - name: Compreender as definições de função
+    href: role-definitions.md
+  - name: Compreender negações de atribuição
+    href: deny-assignments.md
+  - name: PIM (Privileged Identity Management) para RBAC
+    href: pim-azure-resource.md
+  - name: Acesso condicional para o gerenciamento do Azure
+    href: conditional-access-azure-management.md
 - name: Guias de instruções
   items:
-    - name: Gerenciar acesso
-      items:
-        - name: Portal
-          href: role-assignments-portal.md
-        - name: PowerShell
-          href: role-assignments-powershell.md
-        - name: CLI do Azure
-          href: role-assignments-cli.md
-        - name: API REST
-          href: role-assignments-rest.md
-        - name: Modelo
-          href: role-assignments-template.md
-    - name: Funções personalizadas
-      href: custom-roles.md
-      items:
-        - name: PowerShell
-          href: custom-roles-powershell.md
-        - name: CLI do Azure
-          href: custom-roles-cli.md
-        - name: API REST
-          href: custom-roles-rest.md
-    - name: Exibir logs de atividade
-      href: change-history-report.md
-    - name: Elevar o acesso de Administrador global
-      href: elevate-access-global-admin.md
-    - name: Gerenciar o acesso a usuários externos
-      href: role-assignments-external-users.md
-    - name: Solucionar problemas
-      href: troubleshooting.md
+  - name: Gerenciar acesso
+    items:
+    - name: Portal
+      href: role-assignments-portal.md
+    - name: PowerShell
+      href: role-assignments-powershell.md
+    - name: CLI do Azure
+      href: role-assignments-cli.md
+    - name: API REST
+      href: role-assignments-rest.md
+    - name: Modelo
+      href: role-assignments-template.md
+  - name: Negar acesso
+    items:
+    - name: API REST
+      href: deny-assignments-rest.md
+  - name: Funções personalizadas
+    href: custom-roles.md
+    items:
+    - name: PowerShell
+      href: custom-roles-powershell.md
+    - name: CLI do Azure
+      href: custom-roles-cli.md
+    - name: API REST
+      href: custom-roles-rest.md
+  - name: Exibir logs de atividade
+    href: change-history-report.md
+  - name: Elevar o acesso de Administrador global
+    href: elevate-access-global-admin.md
+  - name: Gerenciar o acesso a usuários externos
+    href: role-assignments-external-users.md
+  - name: Solucionar problemas
+    href: troubleshooting.md
 - name: Referência
   items:
-    - name: Funções internas
-      href: built-in-roles.md
-    - name: Operações de provedor de recursos
-      href: resource-provider-operations.md
-    - name: Limites RBAC
-      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.resources
-    - name: CLI do Azure
-      href: /cli/azure/role?view=azure-cli-latest
-    - name: API REST
-      href: /rest/api/authorization/
+  - name: Funções internas
+    href: built-in-roles.md
+  - name: Operações de provedor de recursos
+    href: resource-provider-operations.md
+  - name: Limites RBAC
+    href: ../azure-subscription-service-limits.md#role-based-access-control-limits
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.resources
+  - name: CLI do Azure
+    href: /cli/azure/role?view=azure-cli-latest
+  - name: API REST
+    href: /rest/api/authorization/
+ms.openlocfilehash: 8a113e60cd9af0e7f9c0f192bc20ca674c56c0f8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982776"

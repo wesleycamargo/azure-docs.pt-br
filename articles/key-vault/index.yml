@@ -1,26 +1,24 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b797090b98d7ab552c3c342eeea341fd86c331c3
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 56697748a44cc3664e928639da09e6e604b03651
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41927173"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035854"
 documentType: LandingData
 title: Documentação do Cofre de Chaves
 metadata:
   title: Documentação do Azure Key Vault - Tutoriais, Referência de API | Microsoft Docs
   meta.description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
-  services: key-vault
-  author: czeumault
-  manager: carolz
+  author: barclayn
+  manager: mbaldwin
   layout: LandingPage
-  ms.assetid: 
   ms.service: key-vault
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/23/2017
-  ms.author: carolz
+  ms.date: 09/14/2018
+  ms.author: barclayn
 abstract:
   description: Saiba como usar o Cofre de Chaves para proteger e gerenciar as chaves de criptografia e os segredos usados por aplicativos e serviços de nuvem. Os tutoriais, as referências de API e outras documentações mostram como criar e manter as chaves e segredos que acessam e criptografam seus recursos e soluções.
 sections:
@@ -73,6 +71,19 @@ sections:
       image:
         src: media/index/get-started.svg
         href: /azure/key-vault/key-vault-use-from-web-application
+- title: Desenvolva suas habilidades com o Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Gerencie segredos em seus aplicativos de servidor com o Azure Key Vault
+      href: /learn/modules/manage-secrets-with-azure-key-vault/
+      image:
+        src: /learn/achievements/manage-secrets-with-azure-key-vault.svg
+        href: /learn/modules/manage-secrets-with-azure-key-vault/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-key-vault">Mais aprendizado interativo...</a>
 - title: Referência
   items:
   - type: list

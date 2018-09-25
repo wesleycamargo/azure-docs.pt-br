@@ -1,0 +1,40 @@
+items:
+- name: Documentação do Azure Resource Graph
+  href: index.yml
+- name: Visão geral
+  items:
+  - name: Visão geral do Azure Resource Graph
+    href: overview.md
+- name: Guia de início rápido
+  items:
+  - name: Execute sua primeira consulta – CLI do Azure
+    href: first-query-azurecli.md
+  - name: Execute sua primeira consulta – PowerShell
+    href: first-query-powershell.md
+  expanded: true
+- name: Exemplos
+  items:
+  - name: Consultas iniciais
+    href: ./samples/starter.md
+  - name: Consultas avançadas
+    href: ./samples/advanced.md
+  expanded: true
+- name: Conceitos
+  items:
+  - name: Noções básicas da linguagem de consulta
+    href: ./concepts/query-language.md
+  - name: Explore seus recursos do Azure com o Resource Graph
+    href: ./concepts/explore-resources.md
+  expanded: true
+- name: Recursos
+  items:
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Calculadora de preço
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 10701102a74e226626343d13a3dbbe4d34ac70f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982215"

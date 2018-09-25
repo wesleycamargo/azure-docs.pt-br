@@ -11,6 +11,9 @@ items:
   - name: Componentes do Hadoop no HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
 - name: Início rápido
   items:
   - name: Criar o cluster de Hadoop - Portal
@@ -263,7 +266,7 @@ items:
       - name: Usar o SDK .NET
         href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
         maintainContext: true
-      - name: Usar a CLI do Azure
+      - name: Usar a CLI clássica do Azure
         href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
         maintainContext: true
       - name: Use o Portal do Azure
@@ -282,7 +285,7 @@ items:
       - name: Usar PowerShell do Azure
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: Usar a CLI do Azure
+      - name: Usar a CLI clássica do Azure
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
@@ -527,9 +530,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 1e5219157971e06bc1a04346619f8e129bc6f32e
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: d4b73fcfa0db7ebad74bd8b1e4b1e3c1928f9e36
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41929363"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995237"

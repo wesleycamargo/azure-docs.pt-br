@@ -1,0 +1,225 @@
+items:
+- name: Documentação do Azure Policy
+  href: index.yml
+- name: Visão geral
+  items:
+  - name: Visão geral da Política do Azure
+    href: overview.md
+- name: Guia de início rápido
+  items:
+  - name: Atribuir uma política – Portal
+    href: assign-policy-portal.md
+  - name: Atribuir uma política – PowerShell
+    href: assign-policy-powershell.md
+  - name: Atribuir uma política – CLI do Azure
+    href: assign-policy-azurecli.md
+  expanded: true
+- name: Tutoriais
+  items:
+  - name: Criar e gerenciar a Política do Azure
+    href: ./tutorials/create-and-manage.md
+- name: Exemplos
+  href: ./samples/index.md
+  items:
+  - name: Geral
+    items:
+    - name: Nomenclatura
+      items:
+      - name: Permite vários padrões de nome
+        href: samples/allow-multiple-name-patterns.md
+      - name: Exigir padrão de curtida
+        href: samples/enforce-like-pattern.md
+      - name: Exigir padrão de correspondência
+        href: samples/enforce-match-pattern.md
+      - name: Exigir padrão de correspondência de marcação
+        href: samples/enforce-tag-match-pattern.md
+    - name: Marcas
+      items:
+      - name: Aplicar marca e seu valor padrão
+        href: samples/apply-tag-def-val.md
+      - name: Iniciativa de política de marcas de cobrança
+        href: samples/billing-tags-policy-init.md
+      - name: Impor marca e seu valor
+        href: samples/enforce-tag-val.md
+      - name: Impor marca e seu valor em grupos de recursos
+        href: samples/enforce-tag-rg.md
+    - name: Locais
+      items:
+      - name: Locais permitidos
+        href: samples/allowed-locs.md
+    - name: Tipos de recurso
+      items:
+      - name: Tipos de recursos permitidos
+        href: samples/allowed-res-types.md
+      - name: Tipos de recursos não permitidos
+        href: samples/not-allowed-res-type.md
+  - name: Computação
+    items:
+    - name: Máquinas virtuais
+      items:
+      - name: Permitir imagem de VM personalizada de um Grupo de Recursos
+        href: samples/allow-custom-vm-image.md
+      - name: SKUs permitidas para contas de armazenamento e máquinas virtuais
+        href: samples/allowed-skus-storage.md
+      - name: Imagens de VM aprovadas
+        href: samples/allowed-custom-images.md
+      - name: Auditar se a extensão não existir
+        href: samples/audit-ext-not-exist.md
+      - name: Extensões de VM não permitidas
+        href: samples/not-allowed-vm-ext.md
+    - name: conjuntos de escala de máquina virtual
+      items:
+      - name: Auditar quando a VM não usa um disco gerenciado
+        href: samples/create-vm-managed-disk.md
+      - name: Criar VM usando o disco gerenciado
+        href: samples/use-managed-disk-vm.md
+      - name: Negar benefício de uso híbrido
+        href: samples/deny-hybrid-use.md
+      - name: Permitir somente determinada imagem de plataforma de VM
+        href: samples/allow-certain-vm-image.md
+  - name: Data Lake
+    items:
+    - name: Aplicar criptografia do Data Lake Store
+      href: samples/enforce-datalakestore-encryption.md
+  - name: Monitoramento
+    items:
+    - name: Configuração de diagnóstico de auditoria
+      href: samples/audit-diag-setting.md
+  - name: Rede
+    items:
+    - name: Interfaces de rede
+      items:
+      - name: NSG X em cada NIC
+        href: samples/nsg-on-nic.md
+      - name: Usar sub-rede aprovada para adaptadores de rede de VM
+        href: samples/use-approved-subnet-vm-nics.md
+      - name: Usar vNet aprovada para adaptadores de rede de VM
+        href: samples/use-approved-vnet-vm-nics.md
+    - name: Redes virtuais
+      items:
+      - name: SKUs de gateway de aplicativo aprovadas
+        href: samples/allowed-app-gate-sku.md
+      - name: Nenhum emparelhamento de rede para a rede ER
+        href: samples/no-peering-er-net.md
+      - name: Nenhuma tabela de rotas definida pelo usuário
+        href: samples/no-user-def-route-table.md
+      - name: NSG X em cada sub-rede
+        href: samples/nsg-on-subnet.md
+      - name: Usar sub-rede aprovada para adaptadores de rede de VM
+        href: samples/use-approved-subnet-vm-nics.md
+      - name: Usar vNet aprovada para adaptadores de rede de VM
+        href: samples/use-approved-vnet-vm-nics.md
+    - name: Grupos de segurança de rede
+      items:
+      - name: NSG X em cada NIC
+        href: samples/nsg-on-nic.md
+      - name: NSG X em cada sub-rede
+        href: samples/nsg-on-subnet.md
+    - name: Express Routes
+      items:
+      - name: Largura de banda do Express Route permitida
+        href: samples/allowed-er-band.md
+      - name: SKUs de Express Route permitidas
+        href: samples/allowed-er-skus.md
+      - name: Local de emparelhamento permitido para Express Route
+        href: samples/allowed-peering-er.md
+    - name: Observadores de Rede
+      items:
+      - name: Auditar se o Observador de Rede não está habilitado para a região
+        href: samples/net-watch-not-enabled.md
+    - name: Application gateways
+      items:
+      - name: SKUs de gateway de aplicativo aprovadas
+        href: samples/allowed-app-gate-sku.md
+  - name: SQL
+    items:
+    - name: SQL Servers
+      items:
+      - name: Auditar nenhum administrador do Azure Active Directory
+        href: samples/audit-no-aad-admin.md
+      - name: Auditar configuração de detecção de ameaças no nível do Servidor
+        href: samples/audit-sql-ser-threat-det-setting.md
+      - name: Auditar configurações de auditoria do SQL Server
+        href: samples/sql-server-audit.md
+      - name: Auditar a configuração da auditoria no nível do SQL Server
+        href: samples/audit-sql-ser-leve-audit-setting.md
+      - name: Requer o SQL Server versão 12.0
+        href: samples/req-sql-12.md
+    - name: BANCOS DE DADOS SQL
+      items:
+      - name: SKUs do BD SQL permitidas
+        href: samples/allowed-sql-db-skus.md
+      - name: Auditar configuração de detecção de ameaças no nível do BD SQL
+        href: samples/audit-db-threat-det-setting.md
+      - name: Auditar criptografia do BD SQL
+        href: samples/sql-database-encryption-audit.md
+      - name: Auditar a configuração de auditoria no nível do BD SQL
+        href: samples/audit-sql-db-audit-setting.md
+      - name: Auditar o status da Transparent Data Encryption
+        href: samples/audit-trans-data-enc-status.md
+  - name: Armazenamento
+    items:
+    - name: SKUs permitidos para conta de armazenamento e VMs
+      href: samples/allowed-skus-storage.md
+    - name: SKUs de contas de armazenamento permitidas
+      href: samples/allowed-stor-acct-skus.md
+    - name: Negar camadas de acesso esporádico para contas de armazenamento
+      href: samples/deny-cool-access-tiering.md
+    - name: Assegurar tráfego HTTPS somente para conta de armazenamento
+      href: samples/ensure-https-stor-acct.md
+    - name: Assegurar a criptografia de arquivo de armazenamento
+      href: samples/ensure-store-file-enc.md
+    - name: Exigir criptografia de conta de armazenamento
+      href: samples/req-store-acct-enc.md
+- name: Conceitos
+  items:
+  - name: Estrutura de definição da Política do Azure
+    href: ./concepts/definition-structure.md
+  - name: Compreender os efeitos da Política
+    href: ./concepts/effects.md
+- name: Guias de instruções
+  items:
+  - name: Cria políticas de maneira programática
+    href: ./how-to/programmatically-create.md
+  - name: Obter dados de conformidade
+    href: ./how-to/getting-compliance-data.md
+  - name: Corrigir recursos sem conformidade
+    href: ./how-to/remediate-resources.md
+- name: Referência
+  items:
+  - name: CLI do Azure
+    href: /cli/azure/policy
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.resources/#policies
+  - name: API REST
+    items:
+    - name: Eventos
+      href: /rest/api/policy-insights/policyevents
+    - name: Estados
+      href: /rest/api/policy-insights/policystates
+    - name: Atribuições
+      href: /rest/api/resources/policyassignments
+    - name: Definições de Política
+      href: /rest/api/resources/policydefinitions
+    - name: Definições de Iniciativas
+      href: /rest/api/resources/policysetdefinitions
+- name: Recursos
+  items:
+  - name: GitHub - Exemplos de Política do Azure
+    href: https://github.com/Azure/azure-policy
+  - name: Vídeo - Compilação de 2018
+    href: https://channel9.msdn.com/events/Build/2018/THR2030
+  - name: Vídeo - Ignite de 2017
+    href: https://myignite.microsoft.com/videos/54781
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Calculadora de preço
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: UserVoice
+    href: https://feedback.azure.com/forums/915958-azure-governance
+ms.openlocfilehash: edae8729cc6089c61261b1e388512d5cbd856574
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054703"

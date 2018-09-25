@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 36685dccbe55a5c138566980e1c6da1962a6f35d
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 0366a92030d63986a5a2229594ecf30c744e0925
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781957"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957611"
 documentType: LandingData
 title: Gerenciador de Tráfego
 metadata:
@@ -46,6 +46,7 @@ sections:
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-performance-routing-method">Rotear tráfego de baixa latência</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribuir tráfego para um conjunto de pontos de extremidade</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Rotear tráfego para um ponto de extremidade de prioridade</a>
+    - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Rotear o tráfego com base na sub-rede do usuário</a>
 - title: Treinamento em Vídeo Pluralsight gratuito
   items:
   - type: list

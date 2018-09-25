@@ -5,6 +5,7 @@ items:
   items:
   - name: O que é Reconhecimento Vocal?
     href: what-is-luis.md
+  expanded: true
 - name: Guia de início rápido
   items:
   - name: Compilar um domínio de domínio predefinido
@@ -47,7 +48,6 @@ items:
         href: luis-get-started-python-add-utterance.md
       - name: Ruby
         href: luis-get-started-ruby-add-utterance.md
-  expanded: true
 - name: Tutoriais
   items:
   - name: Compilar aplicativo
@@ -262,14 +262,18 @@ items:
       href: luis-reference-prebuilt-deprecated.md
     - name: Entidade de email
       href: luis-reference-prebuilt-email.md
+    - name: Entidade GeographyV2
+      href: luis-reference-prebuilt-geographyV2.md
     - name: Entidade de KeyPhrase
       href: luis-reference-prebuilt-keyphrase.md
     - name: Entidade de número
       href: luis-reference-prebuilt-number.md
     - name: Entidade ordinal
       href: luis-reference-prebuilt-ordinal.md
-    - name: Entidade de porcentagem
+    - name: Entidade de percentual
       href: luis-reference-prebuilt-percentage.md
+    - name: Entidade PersonName
+      href: luis-reference-prebuilt-person.md
     - name: Entidade de número de telefone
       href: luis-reference-prebuilt-phonenumber.md
     - name: Entidade de temperatura
@@ -284,7 +288,7 @@ items:
     href: https://aka.ms/luis-endpoint-apis
   - name: Códigos HTTP
     href: luis-reference-response-codes.md
-  - name: CLI do Azure 2.0
+  - name: CLI do Azure
     href: https://aka.ms/az-cli-cognitiveservices
   - name: PowerShell do Azure RM
     href: https://aka.ms/azure-powershell-cognitiveservices
@@ -364,9 +368,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de Dados de Conhecimento
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 6c8c1e93de904de2624a34a8e81bcb225cbce6d6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 05bc00f8ff072b842de8a4ff673501aad8742123
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630255"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985946"

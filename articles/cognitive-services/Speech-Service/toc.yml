@@ -1,5 +1,5 @@
 items:
-- name: Serviço de Fala e SDK
+- name: Documentação do SDK do Serviço de Fala
   href: index.yml
 - name: Visão geral
   items:
@@ -34,14 +34,16 @@ items:
     - name: Usando Java (Windows ou Linux)
       displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
       href: quickstart-java-jre.md
+    - name: Usando JavaScript (navegador)
+      displayName: recognize speech, speech recognition, speech to text, stt
+      href: quickstart-js-browser.md
+    - name: Usando Objective-C (iOS)
+      displayName: recognize speech, speech recognition, speech to text, stt, xcode
+      href: quickstart-objectivec-ios.md
   - name: Introdução ao SDK de dispositivos de fala
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk-qsg.md
 - name: Tutoriais
-  items:
-  - name: Reconhecer intenções na fala (C#)
-    href: how-to-recognize-intents-from-speech-csharp.md
-- name: Guias de instruções
   items:
   - name: Reconhecer fala
     displayName: recognize speech, speech recognition, speech to text, stt
@@ -54,12 +56,11 @@ items:
       href: how-to-recognize-speech-java.md
     - name: REST
       href: how-to-recognize-speech-rest.md
-  - name: Sintetizar fala (REST)
-    displayName: synthesize speech, speech synthesis, text to speech, tts
-    href: how-to-text-to-speech.md
   - name: Reconhecer intenções a partir da fala
     displayName: recognize intent, intent recognition, language understanding service, luis
     items:
+    - name: C#
+      href: how-to-recognize-intents-from-speech-csharp.md
     - name: C++
       href: how-to-recognize-intents-from-speech-cpp.md
     - name: Java
@@ -73,29 +74,36 @@ items:
       href: how-to-translate-speech-cpp.md
     - name: Java
       href: how-to-translate-speech-java.md
+- name: Guias de instruções
+  items:
+  - name: Sintetizar fala (REST)
+    displayName: synthesize speech, speech synthesis, text to speech, tts
+    href: how-to-text-to-speech.md
   - name: Transcrição de lote (REST)
     displayName: recognize speech, speech recognition, speech to text, stt
     href: batch-transcription.md
   - name: Obter SDK dos dispositivos de fala
     displayName: roobo, speech devices sdk, download
     href: get-speech-devices-sdk.md
-  - name: Personalizar modelos acústicos
-    href: how-to-customize-acoustic-models.md
-  - name: Personalizar modelos de linguagem
-    href: how-to-customize-language-model.md
-  - name: Personalizar a pronúncia
-    href: how-to-customize-pronunciation.md
-  - name: Personalizar fontes de voz (bot brand voice)
-    href: how-to-customize-voice-font.md
+  - name: Personalizar
+    items:
+    - name: Personalizar modelos acústicos
+      href: how-to-customize-acoustic-models.md
+    - name: Personalizar modelos de linguagem
+      href: how-to-customize-language-model.md
+    - name: Personalizar a pronúncia
+      href: how-to-customize-pronunciation.md
+    - name: Personalizar fontes de voz (bot brand voice)
+      href: how-to-customize-voice-font.md
+    - name: Personalizar palavra de ativação do dispositivo (SKD de Dispositivos)
+      displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
+      href: speech-devices-sdk-create-kws.md
   - name: Amostras de memorando de voz
     href: record-custom-voice-samples.md
   - name: Preparar transcrições
     href: prepare-transcription.md
   - name: Usar transmissões de áudio personalizados
     href: how-to-use-audio-input-streams.md
-  - name: Personalizar palavra de ativação do dispositivo (SKD de Dispositivos)
-    displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
-    href: speech-devices-sdk-create-kws.md
 - name: Conceitos
   items:
   - name: Conversão de fala em texto
@@ -180,9 +188,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Política de privacidade e cookies
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: fd6df22b2d96dd72d6a3da0c6946a461420b3153
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 7b8b81afa5090144f1be7d747d4af1f4a319a0f1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605565"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985854"

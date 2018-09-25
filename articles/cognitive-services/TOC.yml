@@ -1,6 +1,6 @@
 items:
 - name: Documentação dos Serviços Cognitivos do Azure
-  href: index.yml
+  href: index.md
 - name: Visão geral
   items:
   - name: O que são Serviços Cognitivos?
@@ -12,20 +12,20 @@ items:
   items:
   - name: Criar uma conta
     href: cognitive-services-apis-create-account.md
-  - name: Compilar um classificador de imagem
-    href: ./custom-vision-service/getting-started-build-a-classifier.md
-  - name: Compilar um aplicativo de automação inicial
-    href: ./luis/luis-get-started-create-app.md
-  - name: Criar um aplicativo de análise de texto do .NET
-    href: ./text-analytics/quickstarts/csharp.md
 - name: Tutoriais
   items:
-  - name: Página de pesquisa personalizada
-    href: ./bing-custom-search/tutorials/custom-search-web-page.md
-  - name: Aplicativo de Reconhecimento Vocal
-    href: ./luis/luis-nodejs-tutorial-build-bot-framework-sample.md
-  - name: Melhorar a precisão da intenção de comandos
-    href: ./luis/luis-tutorial-batch-testing.md
+  - name: Desenvolver um aplicativo usando a Pesquisa Visual Computacional
+    href: ./Computer-vision/tutorials/csharptutorial.md
+  - name: Reconhecer intenções usando o SDK de Fala e o LUIS
+    href: ./speech-service/how-to-recognize-intents-from-speech-csharp.md
+  - name: Criar um aplicativo LUIS
+    href: ./luis/luis-quickstart-intents-only.md
+  - name: Usar Análise de Texto com o Power BI
+    href: ./Text-Analytics/tutorials/tutorial-power-bi-key-phrases.md
+  - name: Criar um aplicativo da Pesquisa na Web do Bing
+    href: ./bing-web-search/tutorial-bing-web-search-single-page-app.md
+  - name: Criar um aplicativo da Pesquisa de Imagem do Bing
+    href: ./bing-image-search/tutorial-bing-image-search-single-page-app.md
 - name: Recursos
   items:
   - name: Roteiro do Azure
@@ -42,9 +42,9 @@ items:
     href: http://go.microsoft.com/fwlink/?LinkId=698895
   - name: Base de Dados de Conhecimento
     href: https://cognitive.uservoice.com/knowledgebase
-ms.openlocfilehash: 8bd7984fd713a2acbb1ca2cc66e3d64bd49ef5a4
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 233a9bb508c8e6d02fd3e95cb8176f56bc9726b9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023818"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972590"

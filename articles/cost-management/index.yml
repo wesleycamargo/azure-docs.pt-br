@@ -1,47 +1,57 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: cad92cb36f3e5e038186e9b97f30bed9525e2fea
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978736"
 documentType: LandingData
 title: Documentação do gerenciamento de custo do Azure
 metadata:
   title: Documentação do Gerenciamento de Custos - Tutoriais, Referência de API | Microsoft Docs
-  description: O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar o Azure e outros recursos de nuvem. Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com tutoriais e guias de início rápido.
+  description: O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos que ajuda você a monitorar e controlar gastos do Azure e a otimizar o uso de recursos. Com nossos guias de início rápido e tutoriais, saiba como analisar custos, criar e gerenciar orçamentos, exportar dados e examinar recomendações e agir com base nelas.
   services: cost-management
   author: bandersmsft
-  manager: carmonm
+  manager: dougeby
   ms.service: cost-management
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/27/2018
+  ms.date: 09/14/2019
   ms.author: banders
-  ms.openlocfilehash: d6fa2486944fdecab67996bd7a8c7f656ffb2e72
-  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-  ms.translationtype: HT
-  ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/16/2018
-  ms.locfileid: "29935325"
 abstract:
-  description: O Gerenciamento de Custos do Azure licenciado pelo Cloudyn, uma subsidiária da Microsoft, é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar e gerenciar, da melhor forma, o Azure e outros recursos de nuvem. Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com tutoriais e guias de início rápido.
+  description: O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos que ajuda você a monitorar e controlar gastos do Azure e a otimizar o uso de recursos. Com nossos guias de início rápido e tutoriais, saiba como analisar custos, criar e gerenciar orçamentos, exportar dados e examinar recomendações e agir com base nelas.
 sections:
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: Saiba como registrar suas informações de contrato ou assinatura do Azure com o Gerenciamento de Custos e comece a exibir os dados de custo.
+    text: Saiba como começar a usar o Gerenciamento de Custos do Azure para analisar custos em sua organização.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Exibir Dados de Custo
-      href: quick-register-azure-sub
+      text: Analisar custos
+      href: quick-acm-cost-analysis
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com o Gerenciamento de Custos.
+    text: Saiba como criar orçamentos, exportar dados e examinar recomendações e agir com base nelas com o Gerenciamento de Custos.
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-review-usage">Analise o uso e os custos para detectar anomalias e eficiência</a>
-    - html: <a href="tutorial-forecast-spending">Previsão de despesas futuras</a>
-    - html: <a href="tutorial-manage-costs">Gerenciar os custos com a alocação de custos e relatórios de análise e estorno</a>
-    - html: <a href="tutorial-optimize-reserved-instances">Instâncias reservadas otimizadas</a>
-    - html: <a href="tutorial-user-access">Atribuir acesso aos dados de Gerenciamento de Custos</a>
+    - html: <a href="tutorial-acm-create-budgets">Criar e gerenciar orçamentos</a>
+    - html: <a href="tutorial-export-acm-data">Exportar Dados</a>
+    - html: <a href="tutorial-acm-opt-recommendations">Examinar recomendações de otimização e agir com base nelas</a>
+- title: Desenvolva suas habilidades com o Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Prever custos e otimizar gastos do Azure
+      href: /learn/modules/predict-costs-and-optimize-spending/
+      image:
+        src: /learn/achievements/predict-costs-and-optimize-spending.svg
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-cost-management">Mais aprendizado interativo...</a>

@@ -69,18 +69,21 @@ items:
     - name: Enviar e receber mensagens
       href: iot-hub-devguide-messaging.md
       items:
-      - name: Enviar mensagens de dispositivo para a nuvem para o Hub IoT
+      - name: Use esta encaminhamento de mensagens para enviar mensagens do dispositivo para a nuvem
         href: iot-hub-devguide-messages-d2c.md
-      - name: Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
-        href: iot-hub-devguide-messages-read-builtin.md
+        items:
+        - name: Criar e ler mensagens do Hub IoT
+          href: iot-hub-devguide-messages-construct.md
+        - name: Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
+          href: iot-hub-devguide-messages-read-builtin.md
+        - name: Usar regras de roteamentos e pontos de extremidade personalizados para mensagens de dispositivo para a nuvem
+          href: iot-hub-devguide-messages-read-custom.md
+        - name: Adicionar consultas a rotas de mensagens
+          href: iot-hub-devguide-routing-query-syntax.md
       - name: Reagir a eventos do Hub IoT
         href: iot-hub-event-grid.md
-      - name: Usar regras de roteamentos e pontos de extremidade personalizados para mensagens de dispositivo para a nuvem
-        href: iot-hub-devguide-messages-read-custom.md
       - name: Enviar mensagens de nuvem para o dispositivo do Hub IoT
         href: iot-hub-devguide-messages-c2d.md
-      - name: Criar e ler mensagens do Hub IoT
-        href: iot-hub-devguide-messages-construct.md
       - name: Escolha um protocolo de comunicação
         href: iot-hub-devguide-protocols.md
     - name: Carregar arquivos de um dispositivo
@@ -305,8 +308,6 @@ items:
       items:
       - name: Gerencie as mensagens para os dispositivos na nuvem com o Azure IoT Toolkit para VS Code
         href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-      - name: Salvar mensagens do Hub IoT no armazenamento de Blobs do Azure
-        href: iot-hub-store-data-in-azure-table-storage.md
       - name: Visualização de dados no Power BI
         href: iot-hub-live-data-visualization-in-power-bi.md
       - name: Visualização de dados com Aplicativos Web
@@ -315,7 +316,7 @@ items:
         href: iot-hub-weather-forecast-machine-learning.md
       - name: Gerenciamento de dispositivos com o Azure IoT Toolkit para VS Code
         href: iot-hub-device-management-iot-toolkit.md
-      - name: Gerenciamento de dispositivos com a extensão de IoT para a CLI 2.0 do Azure
+      - name: Gerenciamento de dispositivos com a extensão de IoT para a CLI do Azure
         href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
       - name: Monitoramento remoto e notificações com Aplicativos Lógicos
         href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
@@ -419,9 +420,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 20d59ad7f529c8c191a8149272a851f46684561e
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 57ffc64e9c644e27f24ada67366f820708860660
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629909"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064112"

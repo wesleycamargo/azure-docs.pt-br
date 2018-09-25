@@ -1,0 +1,61 @@
+items:
+- name: Documentação do Front Door Service
+  href: index.yml
+- name: Visão geral
+  items:
+  - name: O que é o Azure Front Door Service?
+    href: front-door-overview.md
+- name: Guia de início rápido
+  items:
+  - name: Criar um Front Door
+    href: quickstart-create-front-door.md
+- name: Tutoriais
+  items:
+  - name: Adicionar um domínio personalizado ao seu Front Door
+    href: front-door-custom-domain.md
+- name: Exemplos
+  items:
+  - name: Modelos do Resource Manager
+    href: front-door-quickstart-template-samples.md
+- name: Conceitos
+  items:
+  - name: Back-ends e pools de back-end
+    href: front-door-backend-pool.md
+  - name: Proteção contra DDoS e segurança da camada de aplicativo
+    href: front-door-ddos-security.md
+  - name: Balanceamento de carga com o conjunto de entrega de aplicativos do Azure
+    href: front-door-lb-with-azure-app-delivery-suite.md
+  - name: Arquitetura de roteamento
+    href: front-door-routing-architecture.md
+  - name: Métodos de roteamento de tráfego
+    href: front-door-routing-methods.md
+  - name: Como é feita a correspondência do Front Door com o roteamento para uma solicitação
+    href: front-door-route-matching.md
+  - name: Investigações de integridade
+    href: front-door-health-probes.md
+  - name: Regravação de URL
+    href: front-door-url-rewrite.md
+  - name: Armazenando em cache com o Front Door
+    href: front-door-caching.md
+  - name: Suporte do HTTP/2
+    href: front-door-http2.md
+  - name: Suporte de protocolo de cabeçalhos HTTP
+    href: front-door-http-headers-protocol.md
+  - name: Monitoramento
+    href: front-door-diagnostics.md
+- name: Recursos
+  items:
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/frontdoor/
+  - name: Calculadora de preço
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Atualizações de serviço
+    href: https://azure.microsoft.com/updates/?product=frontdoor
+ms.openlocfilehash: e44b12e49ea03cb344288367f1f9a97e195f39a4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949121"

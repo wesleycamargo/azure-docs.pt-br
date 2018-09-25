@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0e1c246a0132c53656cb0b993b870677698fe65f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 89399d59504328d40c08b9926b4ddb3fad3f8530
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732882"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978753"
 documentType: LandingData
 title: Documentação do Banco de dados SQL do Azure
 metadata:
@@ -155,6 +155,19 @@ sections:
     - html: Migrar um banco de dados existente para o Azure usando <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">RESTAURAR Banco de Dados</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Assistente de Migração de Banco de Dados</a> ou <a href="/azure/sql-database/sql-database-import">Importar BACPAC</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Proteja seu banco de dados SQL</a>
     - html: Distribuir dados globalmente usando o <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Banco de dados distribuído geograficamente</a>
+- title: Desenvolva suas habilidades com o Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Provisione um Banco de Dados SQL do Azure para armazenar dados de aplicativo
+      href: /learn/modules/provision-azure-sql-db/
+      image:
+        src: /learn/achievements/provision-azure-sql-db.svg
+        href: /learn/modules/provision-azure-sql-db/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-sql-database">Mais aprendizado interativo...</a>
 - title: Treinamento em Vídeo Pluralsight gratuito
   items:
   - type: list

@@ -1,0 +1,122 @@
+items:
+- name: Banco de Dados do Azure para documentos do MariaDB
+  href: index.yml
+- name: Visão geral
+  items:
+  - name: Banco de Dados do Azure para MariaDB
+    href: overview.md
+- name: Guia de início rápido
+  items:
+  - name: Criar Banco de dados - Portal
+    href: quickstart-create-mariadb-server-database-using-azure-portal.md
+  - name: Criar Banco de dados - CLI do Azure
+    href: quickstart-create-mariadb-server-database-using-azure-cli.md
+  - name: Conectar e consultar
+    items:
+    - name: Workbench do MySQL
+      href: connect-workbench.md
+  expanded: true
+- name: Tutoriais
+  items:
+  - name: 1 - Criar um banco de dados
+    items:
+    - name: Portal do Azure
+      href: tutorial-design-database-using-portal.md
+- name: Conceitos
+  items:
+  - name: Banco de dados e Servidores
+    items:
+    - name: Servidores
+      href: concepts-servers.md
+    - name: Versões com suporte
+      href: concepts-supported-versions.md
+    - name: Logs do servidor
+      href: concepts-server-logs.md
+    - name: Alta disponibilidade
+      href: concepts-high-availability.md
+  - name: Recursos
+    items:
+    - name: Tipos de preço
+      href: concepts-pricing-tiers.md
+    - name: limites
+      href: concepts-limits.md
+  - name: Acesso a dados e segurança
+    items:
+    - name: Regras de firewall
+      href: concepts-firewall-rules.md
+    - name: Configuração do SSL
+      href: concepts-ssl-connection-security.md
+  - name: Continuidade dos negócios
+    items:
+    - name: Visão geral
+      href: concepts-business-continuity.md
+    - name: Backup e restauração
+      href: concepts-backup.md
+  - name: Replicação
+    items:
+    - name: Replicação nos dados
+      href: concepts-data-in-replication.md
+- name: Guias de instruções
+  items:
+  - name: Regras de firewall
+    items:
+    - name: Portal do Azure
+      href: howto-manage-firewall-portal.md
+  - name: Restaurar um servidor
+    items:
+    - name: Portal do Azure
+      href: howto-restore-server-portal.md
+  - name: Migrar um banco de dados
+    items:
+    - name: Despejar e restaurar
+      href: howto-migrate-dump-restore.md
+  - name: Conectar aplicativos
+    items:
+    - name: Criar usuários
+      href: howto-create-users.md
+    - name: Cadeias de conexão
+      href: howto-connection-string.md
+    - name: Configurar SSL
+      href: howto-configure-ssl.md
+  - name: Configurar parâmetros do servidor
+    items:
+    - name: Portal do Azure
+      href: howto-server-parameters.md
+  - name: Acessar logs do servidor
+    items:
+    - name: Portal do Azure
+      href: howto-configure-server-logs-portal.md
+  - name: Replicação
+    items:
+    - name: Configurar replicação nos dados
+      href: howto-data-in-replication.md
+- name: Referência
+  items:
+  - name: API REST
+    href: /rest/api/mariadb
+  - name: Procedimentos armazenados de replicação nos dados
+    href: reference-data-in-stored-procedures.md
+- name: Recursos
+  items:
+  - name: Modelos de implantação
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/mariadb/
+  - name: Fórum do MSDN
+    href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-database-mariadb
+  - name: Solicitar um recurso
+    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+  - name: Disponibilidade de região
+    href: https://azure.microsoft.com/regions/services/
+  - name: Opções de suporte
+    href: https://azure.microsoft.com/support/options/
+ms.openlocfilehash: a1b24ca3800866f00a97647d59e1f7353a0bdcc9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958485"

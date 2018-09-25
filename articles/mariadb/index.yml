@@ -1,0 +1,54 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 54de8d6aa1ee06c1d9500490eb93a5ea37ecb6a4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961188"
+documentType: LandingData
+title: Documentação do Banco de Dados do Azure para MariaDB
+metadata:
+  title: Documentação do Azure para MariaDB - Tutoriais, Referência da API | Microsoft Docs
+  description: O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacional na nuvem da Microsoft, projetado para desenvolvedores com base no mecanismo de banco de dados para MariaDB de código aberto.
+  author: czeumault
+  manager: carolz
+  ms.service: mariadb
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/13/2017
+  ms.author: carolz
+abstract:
+  description: O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacional com base no mecanismo de banco de dados para MariaDB de código aberto.  Trata-se de um banco de dados totalmente gerenciado como uma oferta de serviço capaz de lidar com cargas de trabalho críticas com desempenho previsível e escalabilidade dinâmica. Desenvolva aplicativos com o Banco de Dados do Azure para MariaDB utilizando as ferramentas de software livre e a plataforma de sua escolha. Saiba como usar o Banco de Dados do Azure para MariaDB com nossos guias de início rápido, tutoriais e exemplos.
+sections:
+- title: Guia de início rápido de 5 minutos
+  items:
+  - type: paragraph
+    text: 'Aprenda como criar um banco de dados para MariaDB no Azure usando:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/virtual-machines/linux/media/index/portal.svg
+      text: Portal do Azure
+      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal
+    - image:
+        src: /azure/virtual-machines/linux/media/index/cli.svg
+      text: CLI do Azure
+      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-cli
+- title: Tutoriais Passo a Passo
+  items:
+  - type: paragraph
+    text: 'Aprenda a estruturar seu banco de dados e desenvolver aplicativos:'
+  - type: list
+    style: ordered
+    items:
+    - html: Projetar um banco de dados&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">portal do Azure</a>
+- title: Referência
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Linha de comando
+      html: <p><a href="/cli/azure/mariadb">CLI do Azure</a></p>
