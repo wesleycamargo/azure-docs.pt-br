@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: mabrigg
 ms.openlocfilehash: 39dc48b1357b07932efbccaf002f54ca58edae24
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35998317"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093289"
 ---
 # <a name="azure-stack-administration-basics"></a>Noções básicas de administração do Azure Stack
 Há várias coisas que você precisa saber se você é novo para a administração do Azure Stack. Este guia fornece uma visão geral de sua função como um operador do Azure Stack, e o que é preciso dizer que os usuários para que eles se tornarem rapidamente produtivos.

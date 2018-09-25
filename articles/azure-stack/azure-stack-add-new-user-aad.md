@@ -12,40 +12,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: c312658750c1e9ef024a837ccc16e5cd5be8a5ef
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 9a4d7200a2bc2445fcdfefc0332d67a045b5a2e1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35998339"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038010"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adicionar uma nova conta de locatário do Azure Stack no Active Directory do Azure
+
 Após [Implantando o Kit de desenvolvimento do Azure Stack](azure-stack-run-powershell-script.md), será necessário uma conta de usuário do locatário para que você possa explorar o portal de locatário e suas ofertas e planos de teste. Você pode criar uma conta de locatário [usando o portal do Azure](#create-an-azure-stack-tenant-account-using-the-azure-portal) ou pelo [usando o PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Criar uma conta de locatário do Azure Stack usando o portal do Azure
+
 É necessário ter uma assinatura do Azure para usar o portal do Azure.
 
 1. Entrar no [Azure](https://portal.azure.com).
-2. Na barra de navegação à esquerda do Microsoft Azure, clique em **Active Directory**.
-3. Na lista de diretórios, clique no diretório que deseja usar para o Azure Stack ou crie um novo.
-4. Nesta página de diretório, clique em **Usuários**.
-5. Clique em **Adicionar usuário**.
-6. No **adicionar usuário** assistente, o **tipo de usuário** , escolha **novo usuário em sua organização**.
-7. Na caixa **Nome de usuário** , digite um nome para o usuário.
-8. No assistente **@** , escolha a entrada apropriada.
-9. Clique na seta avançar.
-10. No **perfil de usuário** página do assistente, digite um **First name**, **Sobrenome**, e **nome de exibição**.
-11. No **função** , escolha **usuário**.
-12. Clique na seta avançar.
-13. Sobre o **obter senha temporária** , clique em **criar**.
-14. Copie a **Nova senha**.
-15. Entrar no Microsoft Azure com a nova conta. Altere a senha, quando solicitado.
-16. Entrar para `https://portal.local.azurestack.external` com a nova conta para ver o portal de locatário.
+2. Na barra de navegação à esquerda, selecione **do Active Directory** e alternar para o diretório que você deseja usar para o Azure Stack ou crie um novo.
+3. Selecione **Azure Active Directory** > **usuários** > **novo usuário**.
+
+    ![Usuários - página de todos os usuários com o novo usuário realçado](media/azure-stack-add-new-user-aad/new-user-all-users.png)
+
+4. Sobre o **usuário** página, preencha as informações necessárias.
+
+    ![Adicionar novo usuário, página de usuário com informações do usuário](media/azure-stack-add-new-user-aad/new-user-user.png)
+
+    - **Nome (obrigatório).** O primeiro e último nome do novo usuário. Por exemplo, Mary Parker.
+    - **Nome de usuário (obrigatório).** O nome de usuário do novo usuário. Por exemplo, mary@contoso.com.
+        A parte do nome de usuário do domínio deve usar o padrão inicial nome de domínio, <_nome_do_domínio_>. onmicrosoft.com ou um nome de domínio personalizado, como contoso.com. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [como adicionar um nome de domínio personalizado ao Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
+    - **Perfil.** Opcionalmente, você pode adicionar mais informações sobre o usuário. Você também pode adicionar informações do usuário em um momento posterior. Para obter mais informações sobre como adicionar informações do usuário, consulte [como adicionar ou alterar informações de perfil do usuário](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    - **Função de diretório.**  escolher **usuário**.
+
+5. Verifique **Mostrar senha** e copie a senha gerada automaticamente fornecida na **senha** caixa. Você precisará dessa senha para o processo de logon inicial.
+
+6. Selecione **Criar**.
+
+    O usuário é criado e adicionado ao seu locatário do Azure AD.
+
+7. Entre no portal do Microsoft Azure com a nova conta. Altere a senha, quando solicitado.
+8. Entrar para `https://portal.local.azurestack.external` com a nova conta para ver o portal de locatário.
 
 ## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>Criar uma conta de locatário do Azure Stack usando o PowerShell
+
 Se você não tiver uma assinatura do Azure, você não pode usar o portal do Azure para adicionar uma conta de usuário do locatário. Nesse caso, você pode usar o módulo Azure Active Directory para Windows PowerShell em vez disso.
 
 > [!NOTE]
