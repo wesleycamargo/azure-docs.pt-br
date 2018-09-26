@@ -1,22 +1,23 @@
 ---
-title: Carregar e indexar seus vídeos com o Azure Video Indexer | Microsoft Docs
-description: Este tópico demonstra como usar APIs para carregar e indexar seus vídeos com o Azure Video Indexer
+title: 'Exemplo: Carregar e indexar vídeos de índice com o Video Indexer'
+titlesuffix: Azure Cognitive Services
+description: Este tópico demonstra como usar APIs para carregar e indexar seus vídeos com o Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 08/17/2018
+ms.component: video-indexer
+ms.topic: sample
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: ac9d3f8fd10a3b65a2af2999b8c7ade7965de912
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e84411535b82b3e4861b529f490bdde0eb25fd42
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664439"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983879"
 ---
-# <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
+# <a name="example-upload-and-index-your-videos"></a>Exemplo: Carregar e indexar seus vídeos  
 
 Este artigo mostra como carregar um vídeo com o Indexador de Vídeo do Azure. A API do Video Indexer fornece duas opções de upload: 
 
@@ -33,7 +34,7 @@ O artigo também discute alguns dos parâmetros que você pode definir na API pa
 ## <a name="uploading-considerations"></a>Carregando considerações
     
 - Ao fazer o upload do seu vídeo com base no URL (preferencial), o endpoint deve ser protegido com o TLS 1.2 (ou superior)
-- A opção de matriz de bytes é limitada a 4GB e expira após 30 min
+- A opção de matriz de bytes é limitada a 2 GB e atinge o tempo limite após 30 min
 - A URL fornecida no `videoURL` param precisa ser codificado
 
 ## <a name="configurations-and-params"></a>Configurações e parâmetros
@@ -78,7 +79,7 @@ Se o `videoUrl` não for especificado, o Indexador de Vídeo espera que você pa
 
 ## <a name="code-sample"></a>Exemplo de código
 
-O seguinte trecho de código em C# demonstra o uso de todas as APIs do indexador de vídeo juntos.
+O seguinte snippet de código em C# demonstra o uso de todas as APIs do indexador de vídeo juntos.
 
 ```csharp
 public async Task Sample()
