@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: mtillman
-ms.openlocfilehash: 2d7288356834f4c57465c0043835edc3da86311f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8b28ca8d0aef745600539ab2785e67e3d67e95f9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962432"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063805"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -63,7 +63,6 @@ ms.locfileid: "46962432"
                                                     </div>
                                                 </a>
                                             </li>
-<!--This is the learning section 
                                             <li>
                                                 <a href="">
                                                     <div class="cardSize">
@@ -71,14 +70,14 @@ ms.locfileid: "46962432"
                                                             <div class="card">
                                                                 <div class="cardImageOuter">
                                                                     <div class="cardImage">
-                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
+                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="">Build your skills with Microsoft Learn</a></h3> 
+                                                                    <h3><a href="">Desenvolver suas habilidades com o Microsoft Learn</a></h3> 
                                                                     <p>
-                                                                        <a href="https://docs.microsoft.com/learn/modules/secure-azure-resources-with-conditional-access">Secure your Azure resources with conditional access</a><br>
-                                                                        <a href="">More interactive learning ...</a><br>
+                                                                        <a href="/learn/modules/secure-azure-resources-with-conditional-access/">Proteger seus recursos do Azure com acesso condicional</a><br>
+                                                                        <a href="/learn/browse/?products=azure-active-directory">Mais aprendizado interativo...</a><br>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -86,7 +85,6 @@ ms.locfileid: "46962432"
                                                     </div>
                                                 </a>
                                             </li>
- End of the learning section -->
                                         </ul>
                                     </li>
                                     <li>
@@ -101,7 +99,7 @@ ms.locfileid: "46962432"
                                                             <a href="manage-apps/application-proxy.md">Proxy de aplicativo para aplicativos locais</a><br>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="authentication/index.yml">Métodos de autenticação</a></h3>
+                                                        <h3><a href="authentication/index.yml">Autenticação</a></h3>
                                                         <p>
                                                             <a href="authentication/tutorial-mfa-applications.md">Habilitar MFA para o portal do Azure</a><br>
                                                             <a href="authentication/quickstart-sspr.md">Habilitar a redefinição de senha por autoatendimento</a><br>
@@ -122,11 +120,11 @@ ms.locfileid: "46962432"
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Conceder acesso a uma API Web do ASP.NET</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="governance/access-reviews-overview.md">Revisões de acesso</a></h3>
+                                                        <h3><a href="conditional-access/index.yml">Acesso condicional</a></h3>
                                                         <p>
-                                                            <a href="governance/create-access-review.md">Criar uma revisão de acesso</a><br>
-                                                            <a href="governance/perform-access-review.md">Executar uma análise de acesso</a><br>
-                                                            <a href="governance/active-directory-tou.md">Termos de uso</a>
+                                                            <a href="conditional-access/app-based-mfa.md">Exigir MFA para aplicativos específicos</a><br>
+                                                            <a href="conditional-access/require-tou.md">Exigir que os termos de uso sejam aceitos</a><br>
+                                                            <a href="conditional-access/app-sign-in-risk.md">Bloquear acesso quando for detectado um risco da sessão</a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -138,18 +136,11 @@ ms.locfileid: "46962432"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="conditional-access/index.yml">Acesso condicional</a></h3>
-                                                        <p>
-                                                            <a href="conditional-access/app-based-mfa.md">Exigir MFA para aplicativos específicos</a><br>
-                                                            <a href="conditional-access/require-tou.md">Exigir que os termos de uso sejam aceitos</a><br>
-                                                            <a href="conditional-access/app-sign-in-risk.md">Bloquear acesso quando for detectado um risco da sessão</a>
-                                                        </p>
-                                                        <br><br>
                                                         <h3><a href="develop/index.yml">Desenvolvedores</a></h3>
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">Sobre a plataforma de identitdade da Microsoft</a><br>
-                                                            <a href="develop/azure-ad-developers-guide.md">v1.0</a><br>
-                                                            <a href="develop/v2-overview.md">v2.0</a>
+                                                            <a href="develop/azure-ad-developers-guide.md">Plataforma v 1.0</a><br>
+                                                            <a href="develop/v2-overview.md">Plataforma v 2.0</a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="devices/index.yml">Gerenciamento de dispositivos</a></h3>
@@ -161,9 +152,9 @@ ms.locfileid: "46962432"
                                                         <br><br>
                                                         <h3><a href="/azure/active-directory-domain-services/index">Serviços de domínio</a></h3>
                                                         <p>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started.md">Habilitar Azure AD Domain Services</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md">Adicionar uma VM do Windows Server a um domínio gerenciado</a><br>
-                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md">Configurar LDAP seguro</a>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Habilitar Azure AD Domain Services</a><br>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal">Adicionar uma VM do Windows Server a um domínio gerenciado</a><br>
+                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap">Configurar LDAP seguro</a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="users-groups-roles/index.yml">Usuários corporativos</a></h3>
@@ -171,6 +162,13 @@ ms.locfileid: "46962432"
                                                             <a href="users-groups-roles/directory-assign-admin-roles.md">Atribuir funções de administrador</a><br>
                                                             <a href="users-groups-roles/licensing-groups-assign.md">Atribuir licenças a grupos</a><br>
                                                             <a href="users-groups-roles/groups-create-rule.md">Criar um grupo dinâmico</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="hybrid/index.yml">Identidade híbrida</a></h3>
+                                                        <p>
+                                                            <a href="hybrid/how-to-connect-install-roadmap.md">Instalar o Azure AD Connect</a><br>
+                                                            <a href="hybrid/how-to-connect-sso.md">Logon único com o Azure AD Connect</a><br>
+                                                            <a href="hybrid/how-to-connect-fed-whatis.md">Azure AD Connect e federação</a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -182,11 +180,11 @@ ms.locfileid: "46962432"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="hybrid/index.yml">Identidade híbrida</a></h3>
+                                                        <h3><a href="governance/access-reviews-overview.md">Revisões de acesso</a></h3>
                                                         <p>
-                                                            <a href="hybrid/tutorial-password-hash-sync.md">Azure AD Connect</a><br>
-                                                            <a href="hybrid/tutorial-passthrough-authentication.md">Integrar uma floresta do AD para a nuvem</a><br>
-                                                            <a href="hybrid/tutorial-federation.md">Federar uma floresta do AD para a nuvem</a>
+                                                            <a href="governance/create-access-review.md">Criar uma revisão de acesso</a><br>
+                                                            <a href="governance/perform-access-review.md">Executar uma análise de acesso</a><br>
+                                                            <a href="governance/active-directory-tou.md">Termos de uso</a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="identity-protection/index.yml">Proteção de identidade</a></h3>
@@ -203,7 +201,7 @@ ms.locfileid: "46962432"
                                                             <a href="managed-identities-azure-resources/services-support-msi.md">Serviços que oferecem suporte à identidade gerenciada</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="privileged-identity-management/index.yml">PIM</a></h3>
+                                                        <h3><a href="privileged-identity-management/index.yml">Privileged Identity Management (PIM)</a></h3>
                                                         <p>
                                                             <a href="privileged-identity-management/pim-getting-started.md">Começar a usar o PIM</a><br>
                                                             <a href="privileged-identity-management/pim-how-to-activate-role.md">Ativar minhas funções de diretório</a><br>

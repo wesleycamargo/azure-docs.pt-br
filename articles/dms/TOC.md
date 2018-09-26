@@ -19,7 +19,7 @@
 # Recursos
 ## [Problemas Conhecidos: migração online para Azure SQL DB](known-issues-azure-sql-online.md)
 ## [Problemas Conhecidos: migração online para banco de dados do Azure para MySQL](known-issues-azure-mysql-online.md)
-## [Problemas conhecidos: migração online para Azure DB do PosgreSQL](known-issues-azure-postgresql-online.md)
+## [Problemas conhecidos - Migração online para Azure DB do PostgreSQL](known-issues-azure-postgresql-online.md)
 ## [Comentários de voz do usuário](https://feedback.azure.com/forums/906100-azure-database-migration-service)
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Guia de migração de banco de dados](https://aka.ms/datamigration)

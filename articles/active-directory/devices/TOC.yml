@@ -20,6 +20,8 @@ items:
   items:
   - name: Gerenciar os dispositivos usando o portal do Azure
     href: device-management-azure-portal.md
+  - name: Gerenciar dispositivos obsoletos
+    href: manage-stale-devices.md
   - name: Planejar ingresso no Azure AD
     href: azureadjoin-plan.md
   - name: Planejar sua implementação de ingresso no Azure AD híbrido
@@ -49,9 +51,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: e20a017ea6ce00749cf0dad990dd7a66907e074b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b6d8a44707014535985ef781fd67978239112d63
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43130591"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037892"

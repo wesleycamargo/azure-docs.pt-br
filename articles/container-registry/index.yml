@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 02c604489d8db48a50598f99f6722d555e357f67
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f18334996e82d83046fa663af08d69dee21a3127
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951050"
+ms.locfileid: "47039591"
 documentType: LandingData
 title: Documentação do Registro de Contêiner do Azure
 metadata:
@@ -49,7 +49,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-build">Compilar imagens de contêiner com o ACR Build (visualização)</a>
+    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-build">Compilar imagens de contêiner com as Tarefas do ACR</a>
     - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Replicação geográfica do Registro de Contêiner</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Registro de Contêiner com Instâncias de Contêiner do Azure</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Registro de Contêiner com Serviço de Kubernetes do Azure (AKS)</a>

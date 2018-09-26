@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 739d46e900b51e93c0d232e57a54a9b05cfe49ce
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0a12a4f5f3004eb304116a7c8dc4056b5386fc1
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965068"
+ms.locfileid: "47055451"
 documentType: LandingData
 title: Documentação do Azure Resource Graph
 metadata:
@@ -35,3 +35,7 @@ sections:
         src: ./media/powershell.svg
       text: Azure PowerShell
       href: first-query-powershell.md
+- title: Comentários
+  items:
+  - type: paragraph
+    text: Para fornecer comentários sobre este recurso ou obter assistência com as consultas, visite a página <b>Gráfico de Recurso (versão prévia)</b> em <b>Azure Policy</b> no portal do Azure e clique em comentários. Você também pode enviar sugestões sobre o <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.
