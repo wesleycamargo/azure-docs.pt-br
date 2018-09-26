@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 69bf788ef30a18bbe70e251fdd6a814d0f528f55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0a96d947bce579d2c1d7d31de83c7ef53eabd3a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994557"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165799"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adicionar Kubernetes para o Azure Stack Marketplace
 
@@ -127,14 +127,20 @@ Ao atualizar o item de Kubernetes, você precisará remover o item que está no 
 
 Para remover o item de Kubernetes:
 
-1. Anote o nome do item atual, como `Microsoft.AzureStackKubernetesCluster.0.2.0`
+1. Conecte-se ao Azure Stack com o PowerShell como um operador. Para obter instruções, consulte [conectar-se ao Azure Stack com o PowerShell como um operador](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-admin).
 
-1. Conecte-se ao Azure Stack com o PowerShell.
-
-1. Use o seguinte cmdlet do PowerShell para remover o item:
+2. Localize o item atual do Kubernetes Cluster na Galeria.
 
     ```PowerShell  
-    $Itemname="Microsoft.AzureStackKubernetesCluster.0.2.0"
+    Get-AzsGalleryItem | Select Name
+    ```
+    
+3. Anote o nome do item atual, como `Microsoft.AzureStackKubernetesCluster.0.2.0`
+
+4. Use o seguinte cmdlet do PowerShell para remover o item:
+
+    ```PowerShell  
+    $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname
     ```
