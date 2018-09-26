@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b2ee21b77fc3bb26a1ca449ede198f8873a090c0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ecf300b4095b4b6c928f4caddf9ee51423f6e1cc
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036840"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163640"
 documentType: LandingData
 title: Gerenciamento do Azure – Governança
 metadata:
@@ -69,11 +69,3 @@ sections:
     - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
       html: <p>Permite aos administradores garantir que as cargas de trabalho atendam aos requisitos mínimos de governança de uma organização sem impedir que grupos de negócios e desenvolvedores cumpram rapidamente suas próprias metas.<br /><br /></p>
       title: Scaffold do Enterprise
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Política
-      html: <p>Linha de comando<ul><li><a href="/cli/azure/policy">CLI do Azure</a></li></ul></p><p>PowerShell<ul><li><a href="/powershell/module/azurerm.resources/#policies">PowerShell do Azure</a></li></ul></p><p>API REST<ul><li><a href="/rest/api/policy-insights/policyevents">Eventos</a></li><li><a href="/rest/api/policy-insights/policystates">Estados</a></li><li><a href="/rest/api/resources/policyassignments">Atribuições</a></li><li><a href="/rest/api/resources/policydefinitions">Definições de Política</a></li><li><a href="/rest/api/resources/policysetdefinitions">Definições de Iniciativas</a></li></ul></p>
