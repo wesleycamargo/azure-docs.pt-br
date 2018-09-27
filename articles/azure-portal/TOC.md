@@ -5,7 +5,7 @@
 # Conceitos
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Atalhos do teclado](azure-portal-keyboard-shortcuts.md)
-## [Dispositivos e navegadores com suporte](../azure-preview-portal-supported-browsers-devices.md)
+## [Dispositivos e navegadores com suporte](azure-portal-supported-browsers-devices.md)
 ## [Estrutura de Painéis do Azure](azure-portal-dashboards-structure.md)
 # Guias de instruções
 ## Implantar
