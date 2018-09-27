@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 686d911c7a59fa33508d130382a3fda4af28e665
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: f1541a0523ce0178ad3616a956d5188ef7df0ded
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466057"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395705"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
@@ -146,6 +146,8 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 
 ### <a name="portal"></a>Portal
 
+- A documentação técnica do Azure Stack enfoca a versão mais recente. Devido a alterações portal entre as versões, o que você vê ao usar os portais do Azure Stack podem ser diferentes daqueles que você vê na documentação. 
+
 - <!-- TBD - IS ASDK --> Você pode ver um painel em branco no portal. Para recuperar o painel, clique em **Editar painel**, em seguida, clique com botão direito e selecione **retornarão ao estado padrão**.
 
 - <!-- 2930718 - IS ASDK --> No portal do administrador ao acessar os detalhes de qualquer assinatura de usuário, depois de fechar a folha e clicando em **recentes**, o nome da assinatura de usuário não aparece.
@@ -217,6 +219,8 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 - <!-- 2724873 - IS --> Ao usar os cmdlets do PowerShell **Start-AzsScaleUnitNode** ou **AzsScaleunitNode Stop** para gerenciar unidades de escala, a primeira tentativa de iniciar ou parar a unidade de escala poderá falhar. Se o cmdlet falhar na primeira execução, execute o cmdlet uma segunda vez. A segunda execução deve ser bem-sucedida para concluir a operação. 
 
 - <!-- TBD - IS ASDK --> Quando você cria máquinas virtuais no portal do usuário do Azure Stack, o portal exibe um número incorreto de discos de dados que podem anexar a uma VM da série DS. As VMs da série DS podem acomodar a tantos discos de dados como a configuração do Azure.
+
+- <!-- TBD - IS ASDK --> Se você estiver usando um ambiente multilocatário, provisionar uma VM com disco gerenciado em uma assinatura não pertencente ao locatário padrão falhará com o seguinte erro: *a operação de recurso que foi concluída com o estado de provisionamento de terminal 'Failed'.*
 
 - <!-- TBD - IS ASDK --> Se uma extensão em uma implantação de VM o provisionamento leva muito tempo, os usuários devem permitir que o tempo limite de provisionamento em vez de tentar interromper o processo para desaloque ou exclua a VM.  
 

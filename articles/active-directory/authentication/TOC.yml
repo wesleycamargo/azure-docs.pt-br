@@ -72,6 +72,8 @@ items:
       href: howto-sspr-authenticationdata.md
     - name: Habilitar o write-back de senha
       href: howto-sspr-writeback.md
+    - name: SSPR para Windows 7, 8 e 8.1
+      href: howto-sspr-windows-7-8.md
   - name: MFA baseado em nuvem
     items:
     - name: Implantar o MFA baseado em nuvem
@@ -213,9 +215,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: b7f96b2ede36e9889dc42be500fb16d0ecfd5af1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 089a72487d919c6726bb4c5565e856c5c9f1b691
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037568"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161719"

@@ -1,6 +1,6 @@
 ---
 title: Referência de cmdlet Start-AzsReadinessChecker | Microsoft Docs
-description: Ajuda de cmdlet do PowerShell para o módulo do verificador de preparação de pilha do Azure.
+description: Ajuda de cmdlet do PowerShell para o módulo do verificador de preparação do Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 09/26/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 8481fbd6c7cb82b34070f9bc8cc6d7f3f4b2518c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a5b2a30549072387df0ae9300de6523ba4069514
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937861"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221274"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referência de cmdlet Start-AzsReadinessChecker
 
 Módulo: Microsoft.AzureStack.ReadinessChecker
 
-Esse módulo contém apenas um único cmdlet.  Esse cmdlet executa uma ou mais funções de pré-implantação ou pré-serviços de pilha do Azure.
+Esse módulo contém apenas um único cmdlet.  Esse cmdlet executa uma ou mais funções de pré-implantação ou pré-manutenção para o Azure Stack.
 
 ## <a name="syntax"></a>Sintaxe
 ```PowerShell
@@ -168,7 +168,7 @@ Start-AzsReadinessChecker
 
 
  ## <a name="description"></a>DESCRIÇÃO
-O **AzsReadinessChecker início** cmdlet valida certificados, contas do Azure, as assinaturas do Azure e Active Directories do Azure. Execute a validação antes de implantar o Azure pilha ou antes de pilha do Azure ações como rotação de segredo de manutenção. O cmdlet também pode ser usado para gerar solicitações de autenticação de certificado para certificados de infraestrutura e, opcionalmente, certificados de PaaS.  Por fim, o cmdlet pode remontar os certificados PFX para corrigir problemas comuns de empacotamento.
+O **AzsReadinessChecker início** cmdlet valida os certificados, as contas do Azure, as assinaturas do Azure e Active Directories do Azure. Execute a validação antes de implantar o Azure Stack ou antes da manutenção de ações como a rotação do segredo do Azure Stack. O cmdlet também pode ser usado para gerar solicitações de assinatura de certificado para certificados de infraestrutura e, opcionalmente, certificados de PaaS.  Por fim, o cmdlet pode reempacotar os certificados PFX para corrigir problemas comuns de empacotamento.
 
 ## <a name="examples"></a>Exemplos
 **Exemplo: Gerar a solicitação de assinatura de certificado**
@@ -177,10 +177,10 @@ O **AzsReadinessChecker início** cmdlet valida certificados, contas do Azure, a
 $regionName = 'east'
 $externalFQDN = 'azurestack.contoso.com'
 $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
-Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subjectName $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
+Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subject $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
 ```
 
-Neste exemplo, iniciar AzsReadinessChecker gera vários certificados solicitações CSR (assinatura) para certificados adequados para uma implantação do ADFS Azure pilha com um nome de região de "east" e um FQDN externo de "azurestack.contoso.com"
+Neste exemplo, iniciar AzsReadinessChecker gera vários certificados solicitações CSR (assinatura) para certificados adequados para uma implantação do ADFS do Azure Stack com um nome de região de "Leste" e um FQDN externo "azurestack.contoso.com"
 
 **Exemplo: Validar certificados**
 ```PowerShell
@@ -188,16 +188,16 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
 
-Neste exemplo, a senha PFX é solicitado a fornecer segurança e iniciar AzsReadinessChecker verifica a pasta relativa "Certificados" para certificados válidos para uma implantação do AAD com um nome de região de "east" e um FQDN externo de "azurestack.contoso.com" 
+Neste exemplo, a senha do PFX é solicitado a fornecer com segurança e início AzsReadinessChecker verifica a pasta "Certificados" relativa para certificados válidos para uma implantação de AAD com um nome de região "Leste" e um FQDN externo "azurestack.contoso.com" 
 
 **Exemplo: Validar certificados com dados de implantação (implantação e suporte)**
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -DeploymentDataJSONPath .\deploymentdata.json
 ```
-Neste exemplo de implantação e suporte, a senha PFX é solicitado a fornecer segurança e início AzsReadinessChecker verifica a pasta relativa "Certificados" para certificados válidos para uma implantação em que identidade, região e FQDN externo são lidos a partir de arquivo de implantação dados JSON gerado para implantação. 
+Neste exemplo de implantação e suporte, a senha do PFX é solicitado a fornecer com segurança e início AzsReadinessChecker verifica a pasta "Certificados" relativa para certificados válidos para uma implantação em que a identidade, região e FQDN externo são lidas das arquivo JSON da data de implantação gerado para implantação. 
 
-**Exemplo: Validar os certificados de PaaS**
+**Exemplo: Validar certificados do PaaS**
 ```PowerShell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -209,7 +209,7 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates – RegionName east -FQDN azurestack.contoso.com
 ```
 
-Neste exemplo, uma tabela de hash é construída com senhas para cada certificado de PaaS e caminhos. Certificados podem ser omitidos. Iniciar AzsReadinessChecker verifica cada caminho PFX existe e valida-los usando a região 'Leste' e o FQDN externo 'azurestack.contoso.com'.
+Neste exemplo, uma tabela de hash é construída com caminhos e senhas para cada certificado de PaaS. Certificados podem ser omitidos. Iniciar AzsReadinessChecker verifica cada caminho PFX existe e valida-os usando a região 'Leste' e o FQDN externo 'azurestack.contoso.com'.
 
 **Exemplo: Validar certificados de PaaS com dados de implantação**
 ```PowerShell
@@ -223,7 +223,7 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-Neste exemplo, uma tabela de hash é construída com senhas para cada certificado de PaaS e caminhos. Certificados podem ser omitidos. Iniciar AzsReadinessChecker verifica cada caminho PFX existe e valida o uso da região e FQDN externo ler o arquivo JSON de dados de implantação gerado para implantação. 
+Neste exemplo, uma tabela de hash é construída com caminhos e senhas para cada certificado de PaaS. Certificados podem ser omitidos. Início AzsReadinessChecker verifica cada caminho PFX existe e valida-os usando a região e o FQDN externo de leitura do arquivo JSON de implantação dados gerado para a implantação. 
 
 **Exemplo: Validar a identidade do Azure**
 ```PowerShell
@@ -231,16 +231,16 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-Neste exemplo, as credenciais da conta de administrador de serviço for solicitadas com segurança e iniciar AzsReadinessChecker verifica que a conta do Azure e o Azure Active Directory são válidos para uma implantação com um nome de diretório do locatário do AAD do "azurestack.contoso.com"
+Neste exemplo, as credenciais da conta de administrador de serviço for solicitado a fornecer com segurança e início AzsReadinessChecker verifica que a conta do Azure e o Azure Active Directory são válidos para uma implantação com um nome de diretório do locatário do AAD de "azurestack.contoso.com"
 
 
-**Exemplo: Validar a identidade do Azure com dados de implantação (suporte de implantação)**
+**Exemplo: Validar a identidade do Azure com os dados de implantação (suporte à implantação)**
 ```PowerSHell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-depploymentdata.json
 ```
 
-Neste exemplo, as credenciais da conta de administrador de serviço for solicitadas com segurança e iniciar AzsReadinessChecker verifica que a conta do Azure e o Azure Active Directory são válidos para uma implantação do AAD onde AzureCloud e TenantName são lidos os dados de implantação Arquivo JSON gerado para a implantação.
+Neste exemplo, as credenciais da conta de administrador de serviço for solicitado a fornecer com segurança e início AzsReadinessChecker verifica que a conta do Azure e o Azure Active Directory são válidos para uma implantação do AAD onde AzureCloud e TenantName são lidos os dados de implantação Arquivo JSON gerado para a implantação.
 
 
 **Exemplo: Validar o registro do Azure**
@@ -250,17 +250,17 @@ $subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment AzureCloud
 ```
 
-Neste exemplo, as credenciais do proprietário da assinatura for solicitadas com segurança e AzsReadinessChecker de início, em seguida, executa a validação em relação a conta e assinatura para garantir que ela pode ser usada para o registro de pilha do Azure. 
+Neste exemplo, as credenciais do proprietário da assinatura serão solicitado a fornecer com segurança e AzsReadinessChecker de início, em seguida, executa a validação em relação a determinada conta e assinatura para assegurar que ele pode ser usada para o registro do Azure Stack. 
 
 
-**Exemplo: Validar o registro do Azure com dados de implantação (equipe de implantação)**
+**Exemplo: Validar o registro do Azure com os dados de implantação (equipe de implantação)**
 ```PowerShell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner"e.g. subscriptionowner@contoso.onmicrosoft.com"
 $subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-Neste exemplo, as credenciais do proprietário da assinatura for solicitadas com segurança e AzsReadinessChecker de início, em seguida, executa a validação em relação a conta e assinatura para garantir que ela pode ser usada para o registro de pilha do Azure onde estão os detalhes adicionais ler o arquivo JSON de dados de implantação gerado para a implantação.
+Neste exemplo, as credenciais do proprietário da assinatura for solicitadas com segurança e AzsReadinessChecker de início, em seguida, executa a validação em relação a determinada conta e assinatura para assegurar que ele pode ser usada para o registro de pilha do Azure onde estão os detalhes adicionais leitura do arquivo JSON de implantação dados gerado para a implantação.
 
 **Exemplo: Pacote de importação/exportação PFX**
 ```PowerShell
@@ -268,29 +268,29 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
 ```
 
-Neste exemplo, a senha PFX é solicitada com segurança. O arquivo ssl.pfx será importado no repositório de certificados do computador local e re-exportado com a mesma senha e salvos como ssl_new.pfx.  Esse procedimento é para uso quando a validação de certificado sinalizados que uma chave privada não tem o conjunto de atributos do computador Local, a cadeia de certificados foi interrompida, irrelevantes certificados estão presentes no PFX ou a cadeia de certificados está na ordem errada.
+Neste exemplo, a senha do PFX é solicitada com segurança. O arquivo ssl.pfx será importado no repositório de certificados do computador local e re-exportado com a mesma senha e salva como ssl_new.pfx.  Esse procedimento é para uso quando sinalizado de validação de certificado que uma chave privada não tem o conjunto de atributos de computador Local, a cadeia de certificados é interrompida, irrelevantes certificados estão presentes no PFX ou a cadeia de certificados está na ordem errada.
 
 
-**Exemplo: Exibir relatório de validação (suporte de implantação)**
+**Exemplo: Exibir o relatório de validação (suporte à implantação)**
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 ```
 
-Neste exemplo, a equipe de suporte ou implantação recebe o relatório de prontidão do cliente (Contoso) e usa o início AzsReadinessChecker para exibir o status das execuções de validação executada Contoso.
+Neste exemplo, a equipe de suporte ou implantação recebe o relatório de prontidão do cliente (Contoso) e usa AzsReadinessChecker inicial para exibir o status das execuções de validação executada da Contoso.
 
-**Exemplo: Exibir relatório de validação de resumo de certificado validação somente (implantação e suporte)**
+**Exemplo: Exibir o relatório de validação de resumo para o certificado validação somente (implantação e suporte)**
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary
 ```
 
-Neste exemplo, a equipe de suporte ou implantação recebe o relatório de prontidão do cliente Contoso e usa AzsReadinessChecker de início para exibir um status resumido das execuções de validação de certificado que Contoso executou.
+Neste exemplo, a equipe de suporte ou implantação recebe o relatório de prontidão do cliente Contoso e usa AzsReadinessChecker inicial para exibir um status resumido das execuções de validação do certificado executada da Contoso.
 
 
 
 ## <a name="required-parameters"></a>Parâmetros necessários
 > -RegionName
 
-Especifica o nome da região da implantação de pilha do Azure.
+Especifica o nome da região da implantação do Azure Stack.
 |  |  |
 |----------------------------|--------------|
 |Digite:                       |Cadeia de caracteres        |
@@ -301,7 +301,7 @@ Especifica o nome da região da implantação de pilha do Azure.
 
 > -FQDN    
 
-Especifica o FQDN externo da implantação de pilha do Azure, também um alias como ExternalFQDN e ExternalDomainName.
+Especifica o FQDN externo da implantação do Azure Stack, também tem um alias como ExternalFQDN e ExternalDomainName.
 |  |  |
 |----------------------------|--------------|
 |Digite:                       |Cadeia de caracteres        |
@@ -314,19 +314,19 @@ Especifica o FQDN externo da implantação de pilha do Azure, também um alias c
 
 > -IdentitySystem    
 
-Especifica sistema de identidade os valores válidos a implantação do Azure pilha, AAD ou ADFS, para o Active Directory do Azure e serviços de Federação do Active Directory, respectivamente.
+Especifica os valores válidos da implantação do Azure Stack sistema de identidade, AAD ou ADFS, para o Azure Active Directory e Active Directory Federated Services respectivamente.
 |  |  |
 |----------------------------|--------------|
 |Digite:                       |Cadeia de caracteres        |
 |Posição:                   |nomeado         |
 |Valor padrão:              |Nenhum          |
-|Valores válidos:                |'AAD', 'ADFS'  |
+|Valores válidos:                |'ADD', 'ADFS'  |
 |Aceite entrada de pipeline:      |Falso         |
 |Aceite caracteres curinga: |Falso         |
 
 > -PfxPassword    
 
-Especifica a senha associada com os arquivos de certificado PFX.
+Especifica a senha associada a arquivos de certificado PFX.
 |  |  |
 |----------------------------|---------|
 |Digite:                       |SecureString |
@@ -337,7 +337,7 @@ Especifica a senha associada com os arquivos de certificado PFX.
 
 > -PaaSCertificates
 
-Especifica a tabela de hash que contêm caminhos e senhas para certificados de PaaS.
+Especifica a tabela de hash que contêm caminhos e as senhas para certificados de PaaS.
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Tabela de hash |
@@ -348,7 +348,7 @@ Especifica a tabela de hash que contêm caminhos e senhas para certificados de P
 
 > -DeploymentDataJSONPath
 
-Especifica o arquivo de configuração do Azure pilha implantação dados JSON. Esse arquivo é gerado para a implantação.
+Especifica o arquivo de configuração do Azure Stack implantação dados JSON. Esse arquivo é gerado para a implantação.
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -359,7 +359,7 @@ Especifica o arquivo de configuração do Azure pilha implantação dados JSON. 
 
 > -PfxPath
 
-Especifica o caminho para um certificado de um problema que exige a rotina de importação/exportação para corrigir, conforme indicado pela validação de certificado nesta ferramenta.
+Especifica o caminho para um certificado de um problema que exige a rotina de importação/exportação para corrigir, conforme indicado pela validação do certificado nessa ferramenta.
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -379,9 +379,9 @@ Especifica o caminho de destino para o arquivo PFX resultante da rotina de impor
 |Aceite entrada de pipeline:      |Falso    |
 |Aceite caracteres curinga: |Falso    |
 
-> -O assunto
+> -Assunto
 
-Especifica um dicionário ordenado de assunto para a geração de solicitação de certificado.
+Especifica um dicionário ordenado do assunto para a geração de solicitação de certificado.
 |  |  |
 |----------------------------|---------|
 |Digite:                       |OrderedDictionary   |
@@ -418,7 +418,7 @@ Especifica o caminho de destino para arquivos de solicitação de certificado, o
 
 > -AADServiceAdministrator
 
-Especifica o administrador de serviço do Azure Active Directory a ser usado para implantação de pilha do Azure.
+Especifica o administrador do serviço de diretório do Azure Active Directory a ser usado para implantação do Azure Stack.
 |  |  |
 |----------------------------|---------|
 |Digite:                       |PSCredential   |
@@ -429,7 +429,7 @@ Especifica o administrador de serviço do Azure Active Directory a ser usado par
 
 > -AADDirectoryTenantName
 
-Especifica o nome do Active Directory do Azure a ser usado para implantação de pilha do Azure.
+Especifica o nome do Active Directory do Azure a ser usado para implantação do Azure Stack.
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -440,7 +440,7 @@ Especifica o nome do Active Directory do Azure a ser usado para implantação de
 
 > -AzureEnvironment
 
-Especifica a instância dos serviços do Azure que contém as contas, diretórios e assinaturas a ser usado para registro e a implantação de pilha do Azure.
+Especifica a instância dos serviços do Azure que contém as contas, diretórios e assinaturas a ser usado para registro e implantação do Azure Stack.
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -452,7 +452,7 @@ Especifica a instância dos serviços do Azure que contém as contas, diretório
 
 > -RegistrationAccount
 
-Especifica a conta do registro a ser usado para registro de pilha do Azure.
+Especifica a conta de registro a ser usado para registro do Azure Stack.
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -463,7 +463,7 @@ Especifica a conta do registro a ser usado para registro de pilha do Azure.
 
 > -RegistrationSubscriptionID
 
-Especifica a ID de assinatura de registro a ser usado para registro de pilha do Azure.
+Especifica a ID de assinatura de registro a ser usado para registro do Azure Stack.
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Guid     |
@@ -474,7 +474,7 @@ Especifica a ID de assinatura de registro a ser usado para registro de pilha do 
 
 > -ReportPath
 
-Especifica o caminho para o relatório de preparação, o padrão é nome atual do relatório de diretório e padrão.
+Especifica o caminho para o relatório de preparação, o padrão é nome de relatório padrão e o diretório atual.
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
@@ -488,15 +488,15 @@ Especifica o caminho para o relatório de preparação, o padrão é nome atual 
 ## <a name="optional-parameters"></a>Parâmetros opcionais
 > -CertificatePath     
 
-Especifica o caminho no qual apenas o certificado necessário certificado pastas estão presentes.
+Especifica o caminho em que apenas o certificado necessário pastas de certificado estão presentes.
 
-Pastas necessárias para a implantação de pilha do Azure com o sistema de identidade do Active Directory do Azure são:
+As pastas necessárias para a implantação do Azure Stack com sistema de identidade do Active Directory do Azure são:
 
-ACSBlob, ACSQueue, ACSTable, Portal de administração, administrador ARM ARM público, KeyVault, KeyVaultInternal, Portal público
+ACSBlob, ACSQueue, ACSTable, Portal de administração, administração do ARM, público, KeyVault, KeyVaultInternal, Portal público de ARM
 
-Pasta necessária para pilha Azure implantação com o sistema de identidade de serviços de Federação do Active Directory são:
+Pasta necessária para o Azure Stack implantação com o sistema de identidade de serviços de Federação do Active Directory são:
 
-ACSBlob, ACSQueue, ACSTable, ADFS, Portal de administração, administração do ARM, ARM público, gráfico, KeyVault, KeyVaultInternal, Portal público
+ACSBlob, ACSQueue, ACSTable, ADFS, Portal de administração, Admin do ARM, público ARM, Graph, KeyVault, KeyVaultInternal, Portal público
 
 
 |  |  |
@@ -510,7 +510,7 @@ ACSBlob, ACSQueue, ACSTable, ADFS, Portal de administração, administração do
 
 > -IncludePaaS  
 
-Especifica se os serviços de PaaS/nomes de host deve ser adicionada para as solicitações de certificado.
+Especifica se os serviços de PaaS/nomes de host deve ser adicionado para as solicitações de certificado.
 
 
 |  |  |
@@ -524,20 +524,20 @@ Especifica se os serviços de PaaS/nomes de host deve ser adicionada para as sol
 
 > -ReportSections        
 
-Especifica se apenas Mostrar relatório de resumo, omite detalhes.
+Especifica se Mostrar relatório de resumo, apenas omite detalhes.
 |  |  |
 |----------------------------|---------|
 |Digite:                       |Cadeia de caracteres   |
 |Posição:                   |nomeado    |
 |Valor padrão:              |Todos      |
-|Valores válidos:                |'Certificado', 'AzureRegistration', 'AzureIdentity', 'Trabalhos', 'Todos' |
+|Valores válidos:                |'Certificado de ', 'AzureRegistration', 'AzureIdentity', 'Trabalhos', 'Todos' |
 |Aceite entrada de pipeline:      |Falso    |
 |Aceite caracteres curinga: |Falso    |
 
 
 > -Resumo 
 
-Especifica se apenas Mostrar relatório de resumo, omite detalhes.
+Especifica se Mostrar relatório de resumo, apenas omite detalhes.
 |  |  |
 |----------------------------|------------------|
 |Digite:                       |SwitchParameter   |
@@ -549,7 +549,7 @@ Especifica se apenas Mostrar relatório de resumo, omite detalhes.
 
 > -CleanReport  
 
-Remove o histórico de execução e validação anterior e grava as validações para um novo relatório.
+Remove o histórico de execução e validação anterior e grava as validações em um novo relatório.
 |  |  |
 |----------------------------|------------------|
 |Digite:                       |SwitchParameter   |
@@ -562,7 +562,7 @@ Remove o histórico de execução e validação anterior e grava as validações
 
 > -OutputPath    
 
-Especifica o caminho personalizado para salvar o relatório de preparação JSON e o arquivo de log detalhado.  Se o caminho não existir, a ferramenta tentará criar o diretório.
+Especifica o caminho personalizado para salvar o relatório de prontidão para JSON e o arquivo de log detalhado.  Se o caminho não existir, a ferramenta tentará criar o diretório.
 |  |  |
 |----------------------------|------------------|
 |Digite:                       |Cadeia de caracteres            |
@@ -587,7 +587,7 @@ Solicita confirmação antes de executar o cmdlet.
 
 > -WhatIf  
 
-Mostra o que aconteceria se o cmdlet fosse executado. O cmdlet não é executado.
+Mostra o que aconteceria se o cmdlet for executado. O cmdlet não é executado.
 |  |  |
 |----------------------------|------------------|
 |Digite:                       |SwitchParameter   |

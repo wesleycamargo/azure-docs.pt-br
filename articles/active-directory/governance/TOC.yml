@@ -1,33 +1,41 @@
 items:
-- name: Documentação de revisões de acesso do Azure AD
+- name: Documentação sobre a governança de identidade do Azure AD
+  href: index.yml
 - name: Visão geral
   items:
-  - name: O que é uma revisão de acesso?
-    href: access-reviews-overview.md
+  - name: O que é governança de identidade?
+    href: identity-governance-overview.md
+  expanded: true
 - name: Guias de instruções
   items:
-  - name: Criar uma análise de acesso
-    href: create-access-review.md
-  - name: Concluir uma revisão de acesso
-    href: complete-access-review.md
-  - name: Executar uma revisão de acesso
-    href: perform-access-review.md
-  - name: Examinar seu acesso
-    href: review-your-access.md
-  - name: Acesso de convidado com revisões de acesso
-    href: manage-guest-access-with-access-reviews.md
-  - name: Gerenciar o acesso do usuário com revisões
-    href: manage-user-access-with-access-reviews.md
-  - name: Gerenciar programas e seus controles
-    href: manage-programs-controls.md
-  - name: Recuperar resultados de revisão do acesso
-    href: retrieve-access-review.md
+  - name: Análises de acesso
+    items:
+    - name: O que é uma revisão de acesso?
+      href: access-reviews-overview.md
+    - name: Criar uma análise de acesso
+      href: create-access-review.md
+    - name: Concluir uma revisão de acesso
+      href: complete-access-review.md
+    - name: Executar uma revisão de acesso
+      href: perform-access-review.md
+    - name: Examinar seu acesso
+      href: review-your-access.md
+    - name: Acesso de convidado com revisões de acesso
+      href: manage-guest-access-with-access-reviews.md
+    - name: Gerenciar o acesso do usuário com revisões
+      href: manage-user-access-with-access-reviews.md
+    - name: Gerenciar programas e seus controles
+      href: manage-programs-controls.md
+    - name: Recuperar resultados de revisão do acesso
+      href: retrieve-access-review.md
+    - name: Gerenciar usuários excluídos
+      href: conditional-access-exclusion.md
   - name: Termos de uso
     href: active-directory-tou.md
   expanded: true
-ms.openlocfilehash: 302273bc1fe1ed73fff4cb4f5a8bc90f08636340
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b6280e42839344169ab651cd5d882bb6abfbf388
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45606738"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163130"
