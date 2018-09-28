@@ -225,9 +225,9 @@ items:
       href: nested-virtualization.md
   - name: Gerenciar os custos
     items:
-    - name: 'Pagar antecipadamente pela VMs: Reservas do Azure'
+    - name: Pagar antecipadamente por VMs - reservas do Azure
       href: prepay-reserved-vm-instances.md
-    - name: O que são Reservas do Azure?
+    - name: O que são as reservas do Azure?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: Flexibilidade do tamanho da instância
       href: reserved-vm-instance-size-flexibility.md
@@ -402,80 +402,8 @@ items:
         href: migration-classic-resource-manager-community-tools.md
       - name: Perguntas frequentes
         href: migration-classic-resource-manager-faq.md
-  - name: Solucionar problemas
-    items:
-    - name: Conexões de Área de Trabalho Remota
-      href: troubleshoot-rdp-connection.md
-      items:
-      - name: Etapas detalhadas
-        href: detailed-troubleshoot-rdp.md
-      - name: Mensagens de erro
-        href: troubleshoot-specific-rdp-errors.md
-    - name: Redefinir a senha RDP
-      href: reset-rdp.md
-    - name: Como redefinir a senha local sem agente do Azure
-      href: reset-local-password-without-agent.md
-    - name: Entender a reinicialização do sistema
-      href: understand-vm-reboot.md
-    - name: Redefinir NIC
-      href: reset-network-interface.md
-    - name: Diagnóstico de inicialização
-      href: boot-diagnostics.md
-    - name: Console serial
-      href: serial-console.md
-      items:
-      - name: Comandos do CMD e do PowerShell
-        href: serial-console-cmd-ps-commands.md
-    - name: Criar uma VM
-      href: troubleshoot-deployment-new-vm.md
-    - name: Problemas de implantação
-      href: troubleshoot-deploy-vm.md
-    - name: Reinicializar ou redimensionar uma VM
-      href: restart-resize-error-troubleshooting.md
-    - name: Acesso a aplicativos
-      href: troubleshoot-app-connection.md
-    - name: Problemas de ativação
-      href: troubleshoot-activation-problems.md
-    - name: Falhas na alocação
-      href: allocation-failure.md
-    - name: Falhas de alocação de VM clássica
-      href: allocation-failure-classic.md
-    - name: Reimplantar uma VM
-      href: redeploy-to-new-node.md
-    - name: Mensagens de erro comuns
-      href: error-messages.md
-    - name: Acesso de recuperação da VM
-      items:
-      - name: Azure PowerShell
-        href: troubleshoot-recovery-disks.md
-      - name: Portal do Azure
-        href: troubleshoot-recovery-disks-portal.md
-    - name: Como usar PerfInsights
-      href: how-to-use-perfInsights.md
-    - name: Extensão de VM de Diagnóstico de Desempenho
-      href: performance-diagnostics-vm-extension.md
-    - name: Diagnóstico de desempenho de máquinas virtuais do Azure
-      href: performance-diagnostics.md
-    - name: Usar a virtualização aninhada
-      href: troubleshoot-vm-by-use-nested-virtualization.md
-    - name: Instalar o agente VM no modo offline
-      href: install-vm-agent-offline.md
-    - name: Solucionar problemas de VHDs anexados
-      items:
-      - name: Armazenar erros de exclusão de recursos
-        href: storage-resource-deletion-errors.md
-      - name: Reinicializações inesperadas de VMs com VHDs anexados
-        href: unexpected-reboots-attached-vhds.md
-    - name: Erros de limitação
-      href: troubleshooting-throttling-errors.md
-    - name: Solucionar problemas de erros de inicialização
-      items:
-      - name: Erros de BitLocker
-        href: troubleshoot-bitlocker-boot-error.md
-      - name: Verificação de erros do sistema de arquivos
-        href: troubleshoot-check-disk-boot-error.md
-      - name: Erros de tela azul comuns
-        href: troubleshoot-common-blue-screen-error.md
+- name: Solucionar problemas
+  href: ../troubleshooting/index.md
 - name: Referência
   items:
   - name: CLI do Azure
@@ -514,9 +442,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: Perguntas frequentes
     href: faq.md
-ms.openlocfilehash: aca65942e3d0349c817e0f1132ec823f739f0377
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a991b7edc35256823a45b8ad65f9aa99eb7477c9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161498"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408463"

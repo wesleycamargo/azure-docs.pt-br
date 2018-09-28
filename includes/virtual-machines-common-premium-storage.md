@@ -5,26 +5,26 @@ services: storage
 author: ramankumarlive
 ms.service: storage
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: e6a2493b0bc9e2b4c9695e29ae0c175dac9814fe
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: ea312002a9a1a39505cd4748864ca9dfc1da43dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40238501"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060806"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de alto desempenho e discos gerenciados para VMs
+
 O Armazenamento Premium do Azure dá suporte de disco de alto desempenho e baixa latência para máquinas virtuais (VMs) com cargas de trabalho com uso intensivo de E/S (entrada/saída). Os discos de VM que usam Armazenamento Premium armazenam dados em SSDs (unidades de estado sólido). Para tirar proveito da velocidade e do desempenho dos discos de armazenamento premium, você pode migrar os discos de VM existentes para o Armazenamento Premium.
 
-No Azure, você pode anexar vários discos de armazenamento premium para uma VM. Usar vários discos dá aos seus aplicativos até 256 TB de armazenamento por VM. Com o Armazenamento Premium, seus aplicativos podem obter 80.000 operações de E/S por segundo (IOPS) por VM e uma taxa de transferência de disco de até 2.000 megabytes por segundo (MB/s) por VM. As operações de leitura oferecem muito menos latências.
+No Azure, você pode anexar vários discos de armazenamento premium para uma VM. Usar vários discos dá aos seus aplicativos até 256 TB de armazenamento por VM, se você usar os tamanhos de visualização que seu aplicativo pode ter até cerca de 2 PiB de armazenamento por VM. Com o Armazenamento Premium, seus aplicativos podem obter 80.000 operações de E/S por segundo (IOPS) por VM e uma taxa de transferência de disco de até 2.000 megabytes por segundo (MB/s) por VM. As operações de leitura oferecem muito menos latências.
 
 Com o armazenamento Premium, o Azure oferece a capacidade de realmente deslocar os exigentes aplicativos empresariais, como farms Dynamics AX, Dynamics CRM, Exchange Server, SAP Business Suite e SharePoint para a nuvem. Você pode executar cargas de trabalho de banco de dados de alto desempenho em aplicativos como o SQL Server, Oracle, MongoDB, MySQL e Redis, que exigem alto desempenho consistente e baixa latência.
 
 > [!NOTE]
 > Para obter o melhor desempenho para o seu aplicativo, é recomendável que você migre qualquer disco VM que requer alta IOPS para o Armazenamento Premium. Se o disco não requer IOPS alta, você pode ajudar a limitar os custos mantendo o armazenamento padrão do Azure. No armazenamento padrão, dados de disco VM são armazenados em unidades de disco rígido (HDD) em vez de SSDs.
-> 
 
 O Azure oferece duas maneiras de criar discos de armazenamento premium para VMs:
 
@@ -44,7 +44,6 @@ Para obter informações sobre como migrar suas VMs existentes para o Armazename
 
 > [!NOTE]
 > O Armazenamento Premium está disponível na maioria das regiões. Para obter a lista de regiões disponíveis, consulte a linha de **Armazenamento em Disco** em [Produtos do Azure disponíveis por região](https://azure.microsoft.com/regions/#services).
-> 
 
 ## <a name="features"></a>Recursos
 
@@ -52,7 +51,7 @@ Aqui estão alguns dos recursos de Armazenamento Premium:
 
 * **Discos de Armazenamento Premium**
 
-    O Armazenamento Premium dá suporte a discos VM que podem ser anexados a VMs da série de tamanho específico. O Armazenamento Premium dá suporte a uma ampla variedade de VMs do Azure. Você tem a opção de sete tamanhos de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P15 (256 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Tamanhos de disco P4 e P6 no momento têm suporte somente para o Managed Disks. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM. Descrevemos as especificações em mais detalhes em [Metas de desempenho e escalabilidade do Armazenamento Premium](#scalability-and-performance-targets).
+    O Armazenamento Premium dá suporte a discos VM que podem ser anexados a VMs da série de tamanho específico. O Armazenamento Premium dá suporte a uma ampla variedade de VMs do Azure. Você tem a opção de tamanhos de disco de GA oito: P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GiB), P20 (512 GiB), P30 (1024 GiB), P40 (2.048 GiB), P50 (4095 GiB). Além de três tamanhos de disco de visualização: P60 8.192 GiB (TiB 8), P70 16,348 GiB (TiB 16), P80 32.767 GiB (TiB 32). Atualmente, os tamanhos de disco P4, P6, P60, P70 P80 e têm suporte apenas para o Managed Disks. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM. Descrevemos as especificações em mais detalhes em [Metas de desempenho e escalabilidade do Armazenamento Premium](#scalability-and-performance-targets).
 
 * **Blobs de página Premium**
 
@@ -152,16 +151,11 @@ Se você estiver usando contas de Armazenamento Premium para discos não gerenci
 ### <a name="premium-storage-disk-limits"></a>Limites do disco de Armazenamento Premium
 Quando você provisiona um disco de Armazenamento Premium, o tamanho do disco determina os valores máximos de IOPS e taxa de transferência (largura de banda). O Azure oferece oito tipos de disco de armazenamento Premium: P4 (somente Managed Disks), P6 (somente Managed Disks), P10, P15, P20, P30, P40 e P50. Cada tipo de disco de armazenamento premium tem limites específicos de IOPS e taxa de transferência. Os limites para os tipos de disco são descritos na tabela a seguir:
 
-| Tipo de discos premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamanho do disco           | 32 GB| 64 GB| 128 GB| 256 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS por disco       | 120   | 240   | 500   | 1100   | 2.300              | 5.000              | 7500              | 7500              | 
-| Taxa de transferência por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
+| Tipo de Discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | P60   | P70   | P80   | |---------------------|-------|-------|-------|-------|-------|-------|-------|-------||-------||-------||-------| | Tamanho do disco           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB            | 1024 GiB (1 TiB)    | 2048 GiB (2 TiB)    | 4095 GiB (4 TiB)    | 8192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 TiB)    | | IOPS por disco      | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 12,500              | 15,000              | 20,000              | | Taxa de trans por segundo | 25 MB por segundo  | 50 MB por segundo | 100 MB por segundo  | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 480 MB por segundo | 750 MB por segundo | 750 MB por segundo |
 
 > [!NOTE]
 > Verifique se largura de banda suficiente está disponível na sua VM para direcionar o tráfego de disco, conforme descrito em [Suporte para Armazenamento Premium VMs](#premium-storage-supported-vms). Caso contrário, sua taxa de transferência do disco e o IOPS é restrita a valores mais baixos. A taxa de transferência máxima e IOPS se baseiam nos limites de VM, não nos limites de disco descritos na tabela anterior.  
-> 
-> 
+> O Azure projetou a plataforma Armazenamento Premium para ser extremamente paralela. Projetar seu aplicativo para ser multi-threaded ajudará a alcançar o destino de alto desempenho oferecido em tamanhos maiores de disco.
 
 Aqui estão algumas coisas importantes a saber sobre metas de desempenho e escalabilidade do Armazenamento Premium:
 
@@ -172,11 +166,10 @@ Aqui estão algumas coisas importantes a saber sobre metas de desempenho e escal
 * **Tamanho do disco**
 
     O Azure mapeia o tamanho do disco (arredondado) para a opção mais próxima do Disco de Armazenamento Premium, conforme especificado na tabela na seção anterior. Por exemplo, um tamanho de disco de 100 GB é classificado como uma opção P10. Pode executar até 500 IOPS, com taxa de transferência de até 100 MB/s. Da mesma forma, um disco de tamanho de 400 GB é classificado como P20. Pode executar até 2.300 IOPS, com taxa de transferência de 150 MB/s.
-    
+
     > [!NOTE]
     > Você pode aumentar com facilidade o tamanho dos discos existentes. Por exemplo, talvez você queira aumentar o tamanho de um disco de 30 GB para 128 GB ou até mesmo 1 TB. Ou, pode querer converter seu disco P20 para P30 porque precisa de mais capacidade ou mais IOPS e taxa de transferência. 
-    > 
- 
+
 * **Tamanho de E/S**
 
     O tamanho de uma E/S é 256 KB. Se os dados transferidos forem menores que 256 KB, serão considerados uma unidade de E/S. Tamanhos maiores de e/s são contados como várias entradas e saídas de tamanho de 256 KB. Por exemplo, 1.100 KB E/S é contado como cinco unidades de E/S.
@@ -193,9 +186,10 @@ Aqui estão algumas coisas importantes a saber sobre metas de desempenho e escal
 
 * **Acertos do cache**
 
-    Os acertos de cache não são limitados pelo IOPS ou Taxa de transferência alocada do disco. Por exemplo, quando você usa um disco de dados com a configuração de cache **ReadOnly** em uma VM com suporte do Armazenamento Premium, as Leituras realizadas do cache não estão sujeitas aos limites de taxa de transferência e IOPS do disco. Se a carga de trabalho de um disco for predominantemente de leitura, você poderá obter uma taxa de transferência muito alta. O cache está sujeito a limites separados de IOPS e taxa de transferência no nível da VM, com base no tamanho da VM. VMs da série DS têm aproximadamente 4.000 IOPS e taxa de transferência de 33 MB/s por núcleo para cache e E/S de SSD local. As VMs da série GS têm um limite de 5.000 IOPS e taxa de transferência de 50 MB/s por núcleo para cache e E/S de SSD local. 
+    Os acertos de cache não são limitados pelo IOPS ou Taxa de transferência alocada do disco. Por exemplo, quando você usa um disco de dados com a configuração de cache **ReadOnly** em uma VM com suporte do Armazenamento Premium, as Leituras realizadas do cache não estão sujeitas aos limites de taxa de transferência e IOPS do disco. Se a carga de trabalho de um disco for predominantemente de leitura, você poderá obter uma taxa de transferência muito alta. O cache está sujeito a limites separados de IOPS e taxa de transferência no nível da VM, com base no tamanho da VM. VMs da série DS têm aproximadamente 4.000 IOPS e taxa de transferência de 33 MB/s por núcleo para cache e E/S de SSD local. As VMs da série GS têm um limite de 5.000 IOPS e taxa de transferência de 50 MB/s por núcleo para cache e E/S de SSD local.
 
 ## <a name="throttling"></a>Limitação
+
 Uma limitação poderá ocorrer se seu aplicativo IOPS ou a taxa de transferência excederem os limites alocados para um disco de armazenamento premium. A limitação também poderá ocorrer se o tráfego total em todos os discos na VM exceder o limite de largura de banda em disco disponível para a máquina virtual. Para evitar a limitação, é recomendável que você limite o número de solicitações pendentes de E/S do disco. Use um limite com base nas metas de desempenho e escalabilidade para o disco que você forneceu e a largura de banda de disco disponível para a VM.  
 
 Seu aplicativo pode obter a latência menor quando ele é projetado para evitar a limitação. No entanto, se o número de solicitações de e/s pendentes para o disco for muito pequeno, seu aplicativo não poderá tirar proveito dos níveis máximos de IOPS e taxa de transferência que estão disponíveis no disco.
@@ -203,17 +197,19 @@ Seu aplicativo pode obter a latência menor quando ele é projetado para evitar 
 Os exemplos a seguir demonstram como calcular os níveis de limitação. Todos os cálculos baseiam-se no tamanho da unidade de E/S de 256 KB.
 
 ### <a name="example-1"></a>Exemplo 1
+
 O aplicativo processou 495 unidades de E/S de tamanho de 16 KB em um segundo em um disco P10. As unidades de E/S são contadas como 495 IOPS. Se você tentar uma e/s de 2 MB no mesmo segundo, o total de unidades de e/s é igual a 495 + 8 IOPS. Isso ocorre porque o E/S de 2 MB = unidades de E/S 2.048 KB / 256 KB = 8, quando o tamanho da unidade de E/S é 256 KB. Como a soma de 495 + 8 excede o limite de 500 IOPS para o disco, a limitação ocorre.
 
 ### <a name="example-2"></a>Exemplo 2
+
 Seu aplicativo processou 400 unidades de E/S de tamanho de 256 KB em um disco P10. A largura de banda total consumida é (400 × 256) / 1024 KB = 100 MB/s. Um disco P10 tem um limite de taxa de transferência de 100 MB/s. Se o seu aplicativo tentar realizar mais operações de E/S nesse segundo, ele é limitado porque excede o limite alocado.
 
 ### <a name="example-3"></a>Exemplo 3
+
 Você tem uma VM DS4 com dois discos P30 conectados. Cada disco P30 é capaz de ter uma taxa de transferência de 200 MB/s. No entanto, uma VM DS4 tem uma capacidade de largura de banda total do disco de 256 MB/s. Você não pode aplicar a taxa de transferência máxima aos os discos conectados nesta VM DS4 ao mesmo tempo. Para resolver esse problema, você pode sustentar o tráfego de 200 MB/s em um disco e 56 MB/s em outro disco. Se a soma do tráfego disco ultrapassar 256 MB/s, o tráfego de disco será limitado.
 
 > [!NOTE]
 > Se o tráfego de disco consistir principalmente de tamanhos de E/S pequenos, seu aplicativo provavelmente atingirá o limite IOPS antes do limite de taxa de transferência. No entanto, se o tráfego de disco consistir principalmente de tamanhos grandes de E/S, seu aplicativo provavelmente atingirá o limite de taxa de transferência primeiro, em vez do limite de IOPS. Você pode maximizar o IOPS do aplicativo e a capacidade de taxa de transferência usando tamanhos de E/S ideais. Além disso, você pode limitar o número de solicitações de E/S para um disco pendentes.
-> 
 
 Para saber mais sobre a criação de alto desempenho usando o Armazenamento Premium, confira [Design para desempenho com o Armazenamento Premium](../articles/virtual-machines/windows/premium-storage-performance.md).
 
@@ -312,11 +308,12 @@ Para obter informações detalhadas sobre os preços para Armazenamento Premium,
 * [Preços de Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Preços de discos gerenciados](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-## <a name="azure-backup-support"></a>Suporte de Backup do Azure 
+## <a name="azure-backup-support"></a>Suporte de Backup do Azure
 
 Para a recuperação de desastre regional, é necessário fazer backup dos discos da VM em outra região usando o [Backup do Azure](../articles/backup/backup-introduction-to-azure-backup.md) e uma conta de armazenamento GRS como o cofre de backup.
 
 Para criar um trabalho de backup com backups baseados em tempo, fácil restauração de VM e políticas de retenção de backup, use o Backup do Azure. Você pode usar os Backup com discos gerenciados e não gerenciados. Para obter mais informações, confira [Backup do Azure para máquinas virtuais com discos não gerenciados](../articles/backup/backup-azure-vms-first-look-arm.md) e [Backup do Azure para máquinas virtuais com discos gerenciados](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Para obter mais informações sobre o Armazenamento Premium, confira os artigos a seguir.

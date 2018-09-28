@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 09/26/2018
 ms.author: sethm
-ms.reviewer: JeffGoldner
-ms.openlocfilehash: 65e9b4371eab4e4e4978e91184ab9712b9ecc9eb
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: ''
+ms.openlocfilehash: be4d9b3ea7e5715d7c3a4df11b7e8bab4d1d4ca5
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629349"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405590"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operacionais convidados com suporte no Azure Stack
 
@@ -40,11 +40,12 @@ O Azure Stack oferece suporte os sistemas de operacionais de convidados do Windo
 | Windows Server 2008 SP2 | 64 bits |  Traga sua própria imagem |
 | Windows 10 *(veja a Observação 1)* | 64 bits, Pro e Enterprise | Traga sua própria imagem |
 
-***Observação 1:*** *para implantar sistemas de operacionais de cliente do Windows 10 no Azure Stack, você deve ter [Windows de licenciamento por usuário](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) ou de compra por meio de um Hoster multilocatário qualificado ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
+> [!NOTE]
+> Para implantar sistemas de operacionais de cliente do Windows 10 no Azure Stack, você deve ter [Windows de licenciamento por usuário](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) ou de compra por meio de um Hoster multilocatário qualificado ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).
 
 Imagens do Marketplace estão disponíveis para pagamento-como-o uso ou BYOL (EA/SPLA) de licenciamento. Não há suporte para uso de ambos em uma única instância do Azure Stack. Durante a implantação, o Azure Stack injeta uma versão adequada do agente convidado em imagem.
 
- Edições Datacenter estão disponíveis no mercado para download; os clientes podem trazer suas próprias imagens de servidor, incluindo outras edições. Imagens do Windows client não estão disponíveis no Marketplace.
+Edições Datacenter estão disponíveis no mercado para download; os clientes podem trazer suas próprias imagens de servidor, incluindo outras edições. Imagens do Windows client não estão disponíveis no Marketplace.
 
 ## <a name="linux"></a>Linux
 
@@ -70,6 +71,11 @@ Distribuições do Linux listadas como disponíveis no Marketplace incluem o nec
 | Ubuntu 16.04-LTS | 64 bits | Canônico | Sim |
 | 18.04-LTS do Ubuntu | 64 bits | Canônico | Sim |
 
-Outras distribuições do Linux podem ter suporte no futuro.
-
 Para obter informações de suporte do Red Hat Enterprise Linux, consulte [Red Hat e Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531).
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para obter mais informações sobre o Azure Stack Marketplace, consulte os artigos a seguir:
+
+[Baixar itens do Marketplace](azure-stack-download-azure-marketplace-item.md)  
+[Criar e publicar um item do Marketplace](azure-stack-create-and-publish-marketplace-item.md)

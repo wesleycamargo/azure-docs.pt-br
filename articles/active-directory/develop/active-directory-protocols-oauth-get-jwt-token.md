@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: routlaw
 ms.custom: aaddev
-ms.openlocfilehash: eb26101229ad60abae7a8a84f8dfa496488e84ba
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d77af898d5baef4fa7970132b0eb8deddb8f68cb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578996"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981790"
 ---
 # <a name="request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-active-directory"></a>Solicitar um token de acesso usando o OAuth 2.0 para acessar APIs da web e aplicativos protegidos pelo Active Directory do Azure
 
@@ -75,12 +75,12 @@ Uma resposta de token bem-sucedida conterá um token JWT e terá a seguinte apar
 ```
 | Parâmetro     | DESCRIÇÃO                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| access_token  | O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, como uma API Web.                                                                                                                                                                                                                                                                                                                                    |
+| access_token  | O [token de acesso](access-tokens.md) solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, como uma API Web.                                                                                                                                                                                                                                                                                                                                    |
 | token_type    | Indica o valor do tipo de token. O único tipo que oferece suporte ao AD do Azure é Portador                                                                                                                                                                                                                                                                                                                                                                           |
 | expires_in    | Por quanto tempo o token de acesso é válido (em segundos).                                                                                                                                                                                                                                                                                                                                                                                                       |
 | scope         | Os escopos para os quais o access_token é válido.                                                                                                                                                                                                                                                                                                                                                                                                         |
-| refresh_token | Um token de atualização do OAuth 2.0. O aplicativo pode usar esse token para adquirir tokens de acesso adicionais depois que o token de acesso atual expira. Os Refresh_tokens têm longa duração e podem ser usados para reter acesso a recursos por períodos estendidos. Para obter mais detalhes, confira a [referência ao token v2.0](v2-id-and-access-tokens.md). <br> **Observação:** somente fornecido se o escopo `offline_access` for solicitado.                                               |
-| id_token      | Um JWT (Token Web JSON) não assinado. O aplicativo pode decodificar os segmentos desse token para solicitar informações sobre o usuário que fez login. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, consulte a [referência de token do ponto de extremidade v2.0](v2-id-and-access-tokens.md). <br> **Observação:** somente fornecido se o escopo `openid` for solicitado. |
+| refresh_token | Um token de atualização do OAuth 2.0. O aplicativo pode usar esse token para adquirir tokens de acesso adicionais depois que o token de acesso atual expira. Os Refresh_tokens têm longa duração e podem ser usados para reter acesso a recursos por períodos estendidos. Para obter mais detalhes, confira a [referência à concessão de código v2.0](v2-oauth2-auth-code-flow.md#refresh-the-access-token). <br> **Observação:** somente fornecido se o escopo `offline_access` for solicitado.                                               |
+| id_token      | Um JWT (Token Web JSON) não assinado. O aplicativo pode decodificar os segmentos desse token para solicitar informações sobre o usuário que fez login. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, veja a [`id_token reference`](id-tokens.md). <br> **Observação:** somente fornecido se o escopo `openid` for solicitado. |
 
 
 

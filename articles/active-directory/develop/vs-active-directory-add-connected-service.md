@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 2e446bad042965e8466e74b9b1abd8661ea88f8b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 9b61362525962c5e01d7fef6d317cf9861dfd0a3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142029"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977886"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicionando um Active Directory do Azure usando Serviços Conectados no Visual Studio
 
@@ -35,7 +35,7 @@ No momento, o serviço conectado do Active Directory não dá suporte a aplicati
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Conectar-se ao Azure Active Directory usando a caixa de diálogo Serviços Conectados
 
-1. No Visual Studio, crie ou abra um projeto ASP.NET MVC ou um projeto de API Web ASP.NET. Você pode usar MVC, API da Web, aplicativo de página única, aplicativo de API do Azure, aplicativo móvel do Azure e modelos de serviço móvel do Azure.
+1. No Visual Studio, crie ou abra um projeto ASP.NET MVC ou um projeto de ASP.NET Web API. Você pode usar MVC, API Web, Aplicativo de Página Única, Aplicativo de API do Azure, Aplicativo Móvel do Azure e modelos do Serviço Móvel do Azure.
 
 1. Selecione o comando do menu **Projeto > Adicionar serviço conectado...**  ou clique duas vezes no nó **Serviços conectados** encontrado no projeto em Gerenciador de Soluções.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: b28e1931b9f615ae0eebe40b101f1959e9fcb40a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: db1d2f16c6497ce3c14d162a9c354dda995058f6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593036"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974775"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Práticas recomendadas em tratamento de erro para clientes da Biblioteca de autenticação do Azure Active Directory (ADAL)
 
@@ -182,7 +182,7 @@ O sistema operacional também pode gerar um conjunto de erros, que exigem o trat
 
 - Aplicativos de cliente nativo (iOS, Android, .NET Desktop ou Xamarin)
 - Aplicativos Web que chamam uma API de recurso (.NET)
-- Aplicativos de Página Única (JavaScript)
+- Aplicativos de página única (JavaScript)
 - Aplicativos de serviço a serviço (.NET, Java)
   - Todos os cenários, inclusive em nome de
   - Cenários específicos em nome de
@@ -365,9 +365,9 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Casos de erro e etapas práticas: aplicativos de Página Única (adal.js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Casos de erro e etapas práticas: aplicativos de página única (adal.js)
 
-Se você estiver criando um aplicativo de página única usando adal.js com AcquireToken, o código de tratamento de erro será semelhante ao de uma chamada silenciosa típica. Mais especificamente em adal.js, AcquireToken jamais mostra uma interface do usuário. 
+Se estiver criando um aplicativo de página única usando adal.js com AcquireToken, o código de tratamento de erro será semelhante ao de uma chamada silenciosa típica. Mais especificamente em adal.js, AcquireToken jamais mostra uma interface do usuário. 
 
 Um AcquireToken com falha tem os seguintes casos:
 

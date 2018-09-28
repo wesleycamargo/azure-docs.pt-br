@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: ab085d6a5cb38c46cf46a51da6d294732e2fd879
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e3d904358282f303a2d1ab35cf4fdc8026d7db55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979703"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060859"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Armazenamento Standard econômico e discos de VM do Azure gerenciados e não gerenciados
 
@@ -25,7 +25,7 @@ Este artigo se concentra no uso de armazenamento padrão para discos SSD standar
 
 Há duas maneiras de criar discos padrão para VMs do Azure:
 
-**Discos não gerenciados**: esse tipo de disco é o método original onde você gerencia as contas de armazenamento usadas para armazenar os arquivos VHD que correspondem aos discos de VM. Os arquivos VHD são armazenados como blobs de páginas nas contas de armazenamento. Discos não gerenciados podem ser anexados a qualquer tamanho de VM do Azure, incluindo as VMs que usam principalmente o armazenamento Premium, como a série DSv2 e GS. As VMs do Azure suportam anexar vários discos padrão, permitindo que até 256 TB de armazenamento por VM.
+**Discos não gerenciados**: esse tipo de disco é o método original onde você gerencia as contas de armazenamento usadas para armazenar os arquivos VHD que correspondem aos discos de VM. Os arquivos VHD são armazenados como blobs de páginas nas contas de armazenamento. Discos não gerenciados podem ser anexados a qualquer tamanho de VM do Azure, incluindo as VMs que usam principalmente o armazenamento Premium, como a série DSv2 e GS. As VMs do Azure suportam anexar vários discos padrão, permitindo que até 256 PiB de armazenamento por VM. Se você usar os tamanhos de disco de visualização, você pode ter até cerca de 2 PiB de armazenamento por VM. 
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): esse recurso gerencia as contas de armazenamento usadas para os discos de VM para você. Você só precisa especificar o tipo (Premium SSD, Standard SSD ou Standard HDD) e o tamanho do disco que você precisa, e o Azure criará e gerenciará o disco para você. Você não precisa se preocupar com o local em que colocará os discos em várias contas de armazenamento para garantir que fique dentro dos limites de escalabilidade das contas de armazenamento – o Azure cuida disso para você.
 
@@ -36,15 +36,15 @@ Para começar a usar o Armazenamento Standard do Azure, visite a página [Introd
 Para obter informações sobre como criar uma VM com Managed Disks, consulte um dos seguintes artigos.
 
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
-* [Criar uma VM Linux usando a CLI 2.0 do Azure](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Criar uma VM do Linux usando a CLI do Azure](../articles/virtual-machines/linux/quick-create-cli.md)
 
-## <a name="standard-storage-features"></a>Recursos do Armazenamento Standard 
+## <a name="standard-storage-features"></a>Recursos do Armazenamento Standard
 
 Vamos dar uma olhada em alguns dos recursos do Armazenamento Standard. Para saber mais, confira [Introdução ao Armazenamento do Azure](../articles/storage/common/storage-introduction.md).
 
 **Armazenamento Standard**: o Armazenamento Standard do Azure oferece suporte a discos do Azure, blobs do Azure, arquivos do Azure, tabelas do Azure e filas do Azure. Para usar os serviços de Armazenamento Standard, o primeiro passo é [Criar uma conta de armazenamento do Azure](../articles/storage/common/storage-quickstart-create-account.md).
 
-**Discos padrão do SSD:** os discos padrão SSD proporcionam um desempenho mais confiável do que discos de HDD Standard e estão disponíveis atualmente no modo de visualização. Para obter mais informações sobre a disponibilidade de região de discos Padrão SSD, consulte [disponibilidade de região de discos padrão SSD (versão prévia)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+**Discos SSD Standard:** o disco SSD proporciona um desempenho mais confiável do que discos de HDD Standard e estão disponíveis atualmente. Para obter mais informações sobre a disponibilidade de região de discos SSD Standard, consulte [disponibilidade de região de disco SSD](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
 **Discos de armazenamento Standard:** os HDD Standard podem ser anexados a todas as VMs do Azure, incluindo as VMs da série de tamanho usadas com o Armazenamento Premium, como as séries DSv2 e GS. Um disco HDD Standard só pode ser anexado a uma VM. No entanto, você pode anexar um ou mais desses discos em uma VM até a contagem máxima do disco definida para aquele tamanho de VM. Na seção a seguir sobre Metas de desempenho e escalabilidade do Armazenamento Standard, descrevemos as especificações em mais detalhes.
 
@@ -81,11 +81,11 @@ Ao contrário dos discos Premium, as operações de entrada/saída por segundo (
 
 | **Camada de VM**            | **VM de camada básica** | **VM de camada Standard** |
 |------------------------|-------------------|----------------------|
-| Tamanho máximo do disco          | 4095 GB           | 4095 GB              |
-| Máx. de 8 KB de IOPS por disco | Até 300         | Até 500            |
-| Largura de banda máxima por disco | Até 60 MB/s     | Até 60 MB/s        |
+| Tamanho máximo do disco          | 32,767 GiB           | 32,767 GiB        |
+| Máx. de 8 KB de IOPS por disco | Até 2.000         | Até 2.000        |
+| Largura de banda máxima por disco | Até 500 MB/s     | Até 500 MB/s      |
 
-Se a sua carga de trabalho requer suporte de disco de alto desempenho e baixa latência, considere usar o armazenamento Premium. Para conhecer mais benefícios do Armazenamento Premium, visite [Armazenamento Premium de alto desempenho e discos de VM do Azure](../articles/virtual-machines/windows/premium-storage.md). 
+Se a sua carga de trabalho requer suporte de disco de alto desempenho e baixa latência, considere usar o armazenamento Premium. Para conhecer mais benefícios do Armazenamento Premium, visite [Armazenamento Premium de alto desempenho e discos de VM do Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 ## <a name="snapshots-and-copy-blob"></a>Instantâneos e blob de cópia
 
@@ -121,9 +121,9 @@ Ao usar o Armazenamento Standard, as seguintes considerações de cobrança se a
 
 **Discos gerenciados**: a cobrança de discos gerenciados padrão depende do tamanho do disco provisionado. O Azure mapeia o tamanho provisionado (arredondado) para a opção mais próxima do Managed Disks, conforme especificado na tabela abaixo. Cada disco gerenciado será mapeado para um dos tamanhos provisionados com suporte e será cobrado adequadamente. Por exemplo, se criar um disco gerenciado padrão e especificar um tamanho provisionado de 200 GiB, você será cobrado de acordo com o preço do tipo de disco S15.
 
-| **Standard HDD Managed <br>Tipo de Disco** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
-| Tamanho do disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| **Standard HDD Managed <br>Tipo de Disco** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Tamanho do disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,385 GiB (16 TiB) | 32,767 GiB (32 TiB) |
 
 
 **Instantâneos**: os instantâneos de discos padrão serão cobrados pela capacidade adicional usada pelos instantâneos. Para saber mais sobre instantâneos, consulte [Criando um instantâneo de um Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
@@ -138,7 +138,7 @@ Para obter informações detalhadas sobre os preços de armazenamento Standard, 
 * [Preços de Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Preços do Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks)
 
-## <a name="azure-backup-service-support"></a>Suporte de serviço do Backup do Azure 
+## <a name="azure-backup-service-support"></a>Suporte de serviço do Backup do Azure
 
 O backup das máquinas virtuais com discos não gerenciados pode ser feito usando o Backup do Azure. [Mais detalhes](../articles/backup/backup-azure-vms-first-look-arm.md).
 
@@ -154,4 +154,4 @@ Você também pode usar o serviço de Backup do Azure com o Managed Disks para c
 
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 
-* [Criar uma VM Linux usando a CLI 2.0 do Azure](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Criar uma VM do Linux usando a CLI do Azure](../articles/virtual-machines/linux/quick-create-cli.md)

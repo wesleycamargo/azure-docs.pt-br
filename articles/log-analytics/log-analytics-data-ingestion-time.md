@@ -11,23 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2018
+ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: 0e513cc4f6a7d5d030ded807870de9eb0fdc0ed8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973178"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955227"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tempo de ingestão de dados no Log Analytics
-O Azure Log Analytics é um serviço de dados de alta escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. Geralmente, há dúvidas sobre o tempo necessário para que os dados fiquem disponíveis no Log Analytics depois de serem coletados. Este artigo explica os diferentes fatores que afetam essa latência.
+O Azure Log Analytics é um serviço de dados de alta escala no Azure Monitor que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. Geralmente, há dúvidas sobre o tempo necessário para que os dados fiquem disponíveis no Log Analytics depois de serem coletados. Este artigo explica os diferentes fatores que afetam essa latência.
 
 ## <a name="typical-latency"></a>Latência típica
-Latência refere-se ao tempo durante o qual os dados são criados no sistema monitorado e o tempo em que são disponibilizados para análise no Log Analytics. A latência típica de ingestão de dados no Log Analytics está entre 3 e 10 minutos, com 95% dos dados ingeridos em menos de 7 minutos. A latência específica para dados específicos variará conforme uma variedade de fatores explicados abaixo.
+Latência refere-se ao tempo durante o qual os dados são criados no sistema monitorado e o tempo em que são disponibilizados para análise no Log Analytics. A latência típica de ingestão de dados no Log Analytics está entre 2 e 5 minutos. A latência específica para dados específicos variará conforme uma variedade de fatores explicados abaixo.
 
-## <a name="sla-for-log-analytics"></a>SLA do Log Analytics
-O [Contrato de Nível de Serviço (SLA) do Log Analytics](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) é um contrato vinculante legal que define em quais casos a Microsoft reembolsa os clientes quando o serviço não cumpre seus objetivos. Isso não é baseado no desempenho típico do sistema, mas no pior das hipóteses, que considera possíveis situações catastróficas.
 
 ## <a name="factors-affecting-latency"></a>Fatores que afetam a latência
 O tempo total de ingestão para determinado conjunto de dados pode ser dividido nas áreas de alto nível a seguir. 
@@ -55,12 +53,12 @@ Os dados de log de atividades levarão cerca de 5 minutos para ficarem disponív
 Algumas soluções não coletam seus dados de um agente e podem usar um método de coleta que introduz latência adicional. Algumas soluções coletam dados em intervalos regulares sem tentar a coleta quase em tempo real. Exemplos específicos incluem os seguintes:
 
 - A solução do Office 365 sonda os logs de atividades usando a API de Gerenciamento de Atividade do Office 365, que atualmente não fornece nenhuma garantia de latência quase em tempo real.
-- Os dados das soluções Windows Analytics (Conformidade de Atualizações, por exemplo) são coletados pela solução com uma frequência diária.
+- Os dados das soluções de Análise do Windows (Conformidade de Atualizações, por exemplo) são coletados pela solução com uma frequência diária.
 
 Veja a documentação de cada solução para determinar sua frequência de coleta.
 
 ### <a name="pipeline-process-time"></a>Tempo de processo de pipeline
-Depois que os registros de log são ingeridos no pipeline do Log Analytics, eles são gravados em um armazenamento temporário para garantir o isolamento do locatário e garantir que os dados não sejam perdidos. Normalmente, esse processo adiciona 5 a 15 segundos. Algumas soluções de gerenciamento implementam algoritmos mais pesados para agregar dados e obter insights conforme os dados são recebidos. Por exemplo, o Monitoramento de Desempenho de Rede agrega os dados recebidos em intervalos de 3 minutos, efetivamente, adicionando uma latência de 3 minutos.
+Depois que os registros de log são ingeridos no pipeline do Log Analytics, eles são gravados em um armazenamento temporário para garantir o isolamento do locatário e garantir que os dados não sejam perdidos. Normalmente, esse processo adiciona 5 a 15 segundos. Algumas soluções de gerenciamento implementam algoritmos mais pesados para agregar dados e obter insights conforme os dados são recebidos. Por exemplo, o Monitoramento de Desempenho de Rede agrega os dados recebidos em intervalos de 3 minutos, efetivamente, adicionando uma latência de 3 minutos. Outro processo que adiciona latência é o processo que lida com logs personalizados. Em alguns casos, esse processo pode adicionar alguns minutos de latência aos logs que são coletados de arquivos pelo agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisionamento de novos tipos de dados personalizados
 Quando um novo tipo de dados personalizados é criado com base em um [log personalizado](../log-analytics/log-analytics-data-sources-custom-logs.md) ou na [API do Coletor de Dados](../log-analytics/log-analytics-data-collector-api.md), o sistema cria um contêiner de armazenamento dedicado. Essa é uma sobrecarga única que ocorre apenas na primeira aparência desse tipo de dados.

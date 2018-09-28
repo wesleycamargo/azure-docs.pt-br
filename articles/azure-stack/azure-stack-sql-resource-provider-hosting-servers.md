@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: c33d1fe1385619420215ec0f0fa3b0a2f90dddc0
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.reviewer: quying
+ms.openlocfilehash: 8fc24e58af51a249e3305dbe1496c499387be6b1
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299450"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407894"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do SQL
 
 Você pode hospedar uma instância do SQL em uma máquina virtual (VM) em [do Azure Stack](azure-stack-poc.md), ou em uma VM fora de seu ambiente do Azure Stack, desde que o provedor de recursos do SQL pode se conectar à instância.
+
+> [!NOTE]
+> Bancos de dados SQL deve ser ser criado no servidor do provedor de recursos de SQL. O provedor de recursos do SQL deve ser criado na assinatura padrão do provedor, enquanto os servidores de hospedagem SQL devem ser criados em uma assinatura faturável, do usuário. O servidor do provedor de recursos não deve ser usado para hospedar bancos de dados do usuário.
 
 ## <a name="overview"></a>Visão geral
 

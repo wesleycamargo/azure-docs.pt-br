@@ -16,14 +16,18 @@ ms.workload: identity
 ms.date: 04/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 48d03b590d718cf82d692dc177a69f6d54de43d1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 4afd4ce5b8a0ab4c076ebc3c587605dfe1204b8a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495910"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966377"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar a API do Microsoft Graph de um aplicativo da Plataforma Universal do Windows (XAML)
+
+
+> [!div renderon="docs"]
+> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Este guia explica como um aplicativo nativo da UWP (Plataforma Universal do Windows) pode solicitar um token de acesso e, em seguida, chamar a API do Microsoft Graph. O guia também se aplica para outras APIs que requerem tokens de acesso do ponto de extremidade do Azure Active Directory v2.
 
@@ -71,11 +75,14 @@ Este guia cria um aplicativo que exibe um botão usado para consultar a API do G
 2. Copie e cole o seguinte comando na janela **Console do Gerenciador de Pacotes**:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
 > [!NOTE]
 > Esse comando instala a [Biblioteca de Autenticação da Microsoft](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). A MSAL adquire, armazena em cache e atualiza os tokens de usuário que acessam as APIs protegidas pelo Azure Active Directory v2.
+
+> [!NOTE]
+> Este tutorial ainda não usa a versão mais recente de MSAL.NET, mas estamos trabalhando para atualizá-la.
 
 ## <a name="initialize-msal"></a>Inicializar a MSAL
 Esta etapa ajuda você a criar uma classe para lidar com a interação com a MSAL, por exemplo, a manipulação de tokens.

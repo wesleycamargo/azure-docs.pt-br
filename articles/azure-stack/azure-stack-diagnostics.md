@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: a36609ae63351070bb28469d9ccf1f3deb7bc6ff
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 5a9621ef9a8d6c545617e5bf3ef6f4197b70be88
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616942"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419588"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico do Azure Stack
 
@@ -143,14 +143,6 @@ if($s)
  |Nuvem|IdentityProvider|OnboardRP|     |   
  |HDInsight|iDns|PXE|     |
  |   |   |   |    |
-
-
-### <a name="bkmk_gui"></a>Coletar logs usando a interface gráfica do usuário
-Em vez de fornecer os parâmetros necessários para o cmdlet Get-AzureStackLog recuperar os logs do Azure Stack, você também pode aproveitar as ferramentas do Azure Stack livre disponíveis localizadas no Azure Stack ferramentas GitHub ferramentas repositório principal em http://aka.ms/AzureStackTools.
-
-O **ERCS_AzureStackLogs.ps1** é armazenado no repositório do GitHub de ferramentas de script do PowerShell e é atualizado regularmente. Para garantir que você tem a versão mais recente disponível, você deve baixá-lo diretamente do http://aka.ms/ERCS. Iniciada a partir de uma sessão do PowerShell administrativa, o script se conecta ao ponto de extremidade com privilégios e executa o Get-AzureStackLog com parâmetros fornecidos. Se nenhum parâmetro for fornecido, o script padrão é solicitar parâmetros por meio de uma interface gráfica do usuário.
-
-Para saber mais sobre o script do PowerShell ERCS_AzureStackLogs.ps1, você pode assistir [um vídeo curto](https://www.youtube.com/watch?v=Utt7pLsXEBc) ou exibir o script [arquivo Leiame](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) localizado no repositório do GitHub de ferramentas do Azure Stack. 
 
 ### <a name="additional-considerations"></a>Considerações adicionais
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ffe3dbf975984eb8df341728075e628d14080ada
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: e4bb17bd068076a9ffa9bcab5826f0efa84a19d7
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380226"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405998"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Perguntas frequentes na API de uso do Azure Stack
 
@@ -321,10 +321,10 @@ O uso é relatado para os provedores de recursos a seguir:
 **Notas de**: solicitação de entrada Total bytes de resposta + solicitação de saída total bytes + de FTP de entrada total de solicitação web de entrada total + de bytes de resposta implantar bytes de resposta de solicitação.  
   
 
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Como fazer o uso do Azure Stack APIs comparam com o [API de uso do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (atualmente em versão prévia)?
+## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Como fazer o uso do Azure Stack APIs comparam com o [API de uso do Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (atualmente em versão prévia)?
 * A API de uso do locatário é consistente com a API do Azure, com uma exceção: o *showDetails* sinalizador atualmente não tem suporte no Azure Stack.
 * A API de uso do provedor se aplica somente ao Azure Stack.
-* Atualmente, o [API RateCard](https://msdn.microsoft.com/library/azure/mt219004.aspx) que é disponível no Azure não está disponível no Azure Stack.
+* Atualmente, o [API RateCard](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) que é disponível no Azure não está disponível no Azure Stack.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Qual é a diferença entre o tempo de uso e a hora relatada?
 Relatórios de dados de uso tem dois valores de hora principal:

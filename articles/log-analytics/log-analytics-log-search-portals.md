@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/20/2018
-ms.author: magoedte; bwren
+ms.date: 09/17/2018
+ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 386aad94461fa3f2ceafb7564342797eefa2f086
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 4677b8d5601dcafbf4760e6f185ef70393229b1a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246357"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961052"
 ---
 # <a name="viewing-and-analyzing-data-in-log-analytics"></a>Exibir e analisar dados no Log Analytics
 Há duas opções disponíveis no portal do Azure para analisar dados armazenados na análise de Logs e para criar consultas de análise ad hoc. As consultas que você cria usando esses portais podem ser usadas para outros recursos, como alertas e painéis.
 
-## <a name="log-analytics-page-preview"></a>Página do Log Analytics (versão prévia)
-Abra a página do Log Analytics em **Logs (versão prévia)** no menu do Log Analytics. Isso é uma nova experiência para trabalhar com dados de log e criar consultas. Você pode obter uma apresentação para este portal e inspecionar os recursos na [Introdução à página do Log Analytics no portal do Azure](query-language/get-started-analytics-portal.md).
+## <a name="log-analytics-page"></a>Página do Log Analytics
+Abra a página do Log Analytics em **Logs** no menu do Log Analytics. Isso é uma nova experiência para trabalhar com dados de log e criar consultas. Você pode obter uma apresentação para este portal e inspecionar os recursos na [Introdução à página do Log Analytics no portal do Azure](query-language/get-started-analytics-portal.md).
 
-A página do Log Analytics fornece as seguintes melhorias ao longo de experiência [Pesquisa de logs](#log-search).
+A página do Log Analytics fornece as seguintes melhorias ao longo de experiência [Pesquisa de logs (clássica)](#log-search-classic).
 
 * Várias guias – crie guias separadas para trabalhar com várias consultas.
 * Visualizações avançadas – variedade de opções de gráficos.
@@ -44,6 +44,18 @@ A página do Log Analytics fornece as seguintes melhorias ao longo de experiênc
 
 ![Portal Análise Avançada](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
+### <a name="resource-logs"></a>Logs de recursos
+A nova experiência do Log Analytics integra-se com diversos recursos do Azure como máquinas virtuais. Isso significa que você pode abrir a página do Log Analytics diretamente por meio do menu de monitoramento do recurso sem alternar para o Azure Monitor ou o Log Analytics e perder o contexto do recurso. **Logs** ainda não foi habilitada para todos os recursos do Azure, mas ela começará a aparecer no menu do portal para tipos de recursos diferentes.
+
+Ao abrir o Log Analytics de um recurso específico, ele é analisado automaticamente para fazer registros somente desse recurso.   Se você quiser escrever uma consulta que inclua outros registros, precisará abri-la no menu do Log Analytics ou do Azure Monitor.
+
+As opções a seguir ainda não estão disponíveis por meio do modo de exibição de recursos do Log Analytics:
+
+- Salvar
+- Definir alerta
+- Gerenciador de consultas
+- Alternar para o workspace/recurso diferente (não planejado no momento)
+
 
 ### <a name="firewall-requirements"></a>Requisitos de firewall
 O navegador requer acesso aos endereços a seguir para acessar o portal do Log Analytics e o portal Análise Avançada.  Se seu navegador estiver acessando o portal do Azure por meio de um firewall, você deverá habilitar o acesso a esses endereços.
@@ -55,8 +67,9 @@ O navegador requer acesso aos endereços a seguir para acessar o portal do Log A
 | docs.loganalytics.io   | Dinâmico | 80.443 |
 
 
-## <a name="log-search"></a>Pesquisa de log
-Abra a página de pesquisa de Logs em **Logs** no menu do Log Analytics ou no menu **Log Analytics** do Azure Monitor. Isso é adequado para análise de dados de log usando consultas básicas. Ela fornece vários recursos para editar consultas sem ter um conhecimento completo da linguagem de consulta.  É possível obter um resumo desses recursos em [Criar pesquisas de logs no Azure Log Analytics usando a Pesquisa de Logs](log-analytics-log-search-log-search-portal.md). 
+## <a name="log-search-classic"></a>Pesquisa de logs (clássica)
+Abra a página de pesquisa de logs em **Logs (clássico)** no menu do Log Analytics ou no menu **Log Analytics** do Azure Monitor. Esta é a página clássica usada para trabalhar com consultas do Log Analytics que não têm os recursos adicionais da página [Log Analytics](#log-analytics-page) listados acima.
+
 
 
 ![Página da Pesquisa de Logs](media/log-analytics-log-search-portals/log-search-portal.png)

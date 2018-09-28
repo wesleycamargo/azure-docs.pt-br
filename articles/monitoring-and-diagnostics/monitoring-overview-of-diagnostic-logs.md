@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 9d2a20ce681ea7e7c4ff2f9b492653e9d9a57b2b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 630c8e5f48ba475755c3c9ffe632fcba086437e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248159"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983100"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Coletar e consumir dados de log dos recursos do Azure
 
@@ -45,7 +45,7 @@ Aqui estão algumas coisas que você pode fazer com os Logs de Diagnóstico:
 Você pode usar uma conta de armazenamento ou um namespace de Hubs de Evento que não esteja na mesma assinatura que os logs emissores. O usuário que define a configuração deve ter o devido acesso RBAC para ambas as assinaturas.
 
 > [!NOTE]
->  Atualmente, não é possível arquivar dados em uma conta de armazenamento que fica por trás de uma rede virtual protegida.
+>  Atualmente, não é possível arquivar logs de fluxo de rede em uma conta de armazenamento que fica por trás de uma rede virtual protegida.
 
 > [!WARNING]
 > O formato dos dados de log na conta de armazenamento será alterado para Linhas JSON em 1º de novembro de 2018. [Confira este artigo para obter uma descrição do impacto e saber como atualizar suas ferramentas para manipular o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
@@ -145,9 +145,9 @@ Você pode combinar esses parâmetros para permitir várias opções de saída.
 
 No momento, é possível configurar definições de diagnóstico de locatário usando o Azure PowerShell.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Habilitar a coleção de logs de diagnóstico de recursos por meio da CLI 2.0 do Azure
+### <a name="enable-collection-of-resource-diagnostic-logs-via-the-azure-cli"></a>Habilitar a coleção de logs de diagnóstico de recursos por meio da CLI do Azure
 
-Para habilitar a coleção de logs de diagnóstico de recursos por meio da CLI 2.0 do Azure, use o comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Para habilitar a coleção de logs de diagnóstico de recursos por meio da CLI do Azure, use o comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 Para habilitar o armazenamento de logs de diagnóstico em uma Conta de Armazenamento:
 

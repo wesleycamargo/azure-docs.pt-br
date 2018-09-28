@@ -5,22 +5,21 @@ services: active-directory
 keywords: ''
 author: CelesteDG
 manager: mtillman
-editor: PatAltimore
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 07/19/2017
+ms.date: 09/24/2018
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: ab6936d62aac5502d70239bacfbfd15bd6b793ab
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 229f74367262e07128fa9ea6c895d448b854ae0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145267"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958247"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Diretriz do desenvolvedor para acesso condicional do Azure Active Directory
 
@@ -40,14 +39,14 @@ Conhecimento de aplicativos de [único locatário](quickstart-v1-integrate-apps-
 
 ### <a name="app-types-impacted"></a>Tipos de aplicativo afetados
 
-Na maioria dos casos, o acesso condicional não altera o comportamento de um aplicativo nem requer alterações por parte do desenvolvedor. Somente em determinados casos em que um aplicativo solicita indireta ou silenciosamente um token para um serviço, um aplicativo exigirá alterações de código para tratar dos "desafios" do acesso condicional. O que pode ser tão simples quanto executar uma solicitação de entrada interativa. 
+Na maioria dos casos, o acesso condicional não altera o comportamento de um aplicativo nem requer alterações por parte do desenvolvedor. Somente em determinados casos em que um aplicativo solicita indireta ou silenciosamente um token para um serviço, um aplicativo exigirá alterações de código para tratar dos "desafios" do acesso condicional. O que pode ser tão simples quanto executar uma solicitação de entrada interativa.
 
-Especificamente, os seguintes cenários exigem código para tratar dos "desafios" do acesso condicional: 
+Especificamente, os seguintes cenários exigem código para tratar dos "desafios" do acesso condicional:
 
 * Aplicativos acessando o Microsoft Graph
 * Aplicativos executando o fluxo em nome de
 * Aplicativos acessando vários serviços/recursos
-* Aplicativos de única página usando ADAL.js
+* Aplicativos de página única usando ADAL.js
 * Aplicativos Web chamando um recurso
 
 As políticas de acesso condicional podem ser aplicadas ao aplicativo, mas também podem ser aplicadas a uma API Web acessada pelo seu aplicativo. Para saber mais sobre como configurar uma política de acesso condicional, consulte [Guia de Início Rápido: exigir MFA para aplicativos específicos com acesso condicional do Microsoft Azure Active Directory](../conditional-access/app-based-mfa.md).
@@ -87,7 +86,7 @@ As seguintes informações se aplicam apenas nestes cenários de acesso condicio
 * Aplicativos acessando o Microsoft Graph
 * Aplicativos executando o fluxo em nome de
 * Aplicativos acessando vários serviços/recursos
-* Aplicativos de única página usando ADAL.js
+* Aplicativos de página única usando ADAL.js
 
 As seções a seguir discutem cenários comuns que são mais complexos. O princípio operacional básico é que as políticas de acesso condicional são avaliadas no momento em que o token é solicitado para o serviço que tem uma política de acesso condicional aplicada, a menos que ele esteja sendo acessado por meio do Microsoft Graph.
 
@@ -147,7 +146,7 @@ Para obter exemplos de código que demonstrem como lidar com o desafio de declar
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Cenário: aplicativo executando o fluxo em nome de
 
-Nesse cenário, vamos acompanhar o caso em que um aplicativo nativo chama um serviço/API Web. Por sua vez, esse serviço faz [o fluxo "em nome de"](authentication-scenarios.md#application-types-and-scenarios) chamar um serviço downstream. Em nosso caso, aplicamos nossa política de acesso condicional ao serviço downstream (API Web 2) e estamos usando um aplicativo nativo em vez um aplicativo de servidor/daemon. 
+Nesse cenário, vamos acompanhar o caso em que um aplicativo nativo chama um serviço/API Web. Por sua vez, esse serviço faz o fluxo "em nome de" para chamar um serviço downstream. Em nosso caso, aplicamos nossa política de acesso condicional ao serviço downstream (API Web 2) e estamos usando um aplicativo nativo em vez um aplicativo de servidor/daemon. 
 
 ![Diagrama de aplicativo executando o fluxo em nome de](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -190,9 +189,9 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 Se o aplicativo estiver usando a biblioteca ADAL, uma falha ao adquirir o token será sempre repetida interativamente. Quando essa solicitação interativa ocorre, o usuário final tem a oportunidade de cumprir o acesso condicional. Isso não se aplica quando a solicitação é `AcquireTokenSilentAsync` ou `PromptBehavior.Never`, caso em que o aplicativo precisa executar uma solicitação ```AcquireToken``` interativa para dar ao usuário final a oportunidade de cumprir a política. 
 
-## <a name="scenario-single-page-app-spa-using-adaljs"></a>Cenário: SPA (Aplicativo de Única Página) usando ADAL.js
+## <a name="scenario-single-page-app-spa-using-adaljs"></a>Cenário: SPA (aplicativo de página única) usando ADAL.js
 
-Nesse cenário, vamos acompanhar o caso em que temos um SPA (aplicativo de única página) usando ADAL.js para chamar uma API Web protegida pelo acesso condicional. Essa é uma arquitetura simples, mas tem algumas nuanças que precisam ser levadas em consideração no desenvolvimento do acesso condicional.
+Nesse cenário, vamos acompanhar o caso em que temos um SPA (aplicativo de página única), usando ADAL.js, para chamar uma API Web protegida pelo acesso condicional. Essa é uma arquitetura simples, mas tem algumas nuanças que precisam ser levadas em consideração no desenvolvimento do acesso condicional.
 
 No ADAL.js, há algumas funções que obtêm tokens: `login()`, `acquireToken(...)`, `acquireTokenPopup(…)` e `acquireTokenRedirect(…)`. 
 
@@ -202,7 +201,7 @@ No ADAL.js, há algumas funções que obtêm tokens: `login()`, `acquireToken(..
 
 Quando um aplicativo precisa de um token de acesso para chamar uma API Web, ele tenta uma função `acquireToken(…)`. Se a sessão do token estiver expirada ou precisarmos cumprir uma política de acesso condicional, a função *acquireToken* falhará e o aplicativo usará `acquireTokenPopup()` ou `acquireTokenRedirect()`.
 
-![Diagrama do fluxo de aplicativo de única página usando ADAL](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
+![Diagrama do fluxo de aplicativo de página única usando ADAL](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
 Vamos examinar um exemplo com nosso cenário de acesso condicional. O usuário final apenas aterrissou no site e não tem uma sessão. Executamos uma chamada `login()`, obtemos um token de ID sem autenticação multifator. Em seguida, o usuário pressiona um botão que requer que o aplicativo solicite dados de uma API Web. O aplicativo tenta fazer uma chamada `acquireToken()`, mas falha porque o usuário ainda não executou a autenticação multifator e precisa cumprir a política de acesso condicional.
 

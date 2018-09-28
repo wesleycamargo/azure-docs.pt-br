@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f40b4c9fff57b105b7d96de69780fea83871032
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2a7842a50690049507e00b85c8736e63da002503
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302289"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950158"
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -66,15 +66,25 @@ O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circui
 >Emparelhamento público foi desabilitado em novos circuitos do ExpressRoute. Os serviços do Azure estão disponíveis no emparelhamento da Microsoft.
 >
 
+* Power BI
+* Dynamics 365 for Finance and Operations (anteriormente conhecido como Dynamics AX Online)
+* Há suporte para a maioria dos serviços do Azure. Verifique diretamente o serviço que você deseja utilizar para confirmar o suporte.<br>
+  Não há suporte para os serviços a seguir:
+    * CDN
+    * Teste de carga do Azure DevOps Services
+    * Autenticação Multifator
+    * Gerenciador de Tráfego
+
 ### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Teste de carga do Visual Studio Team Services
+* Teste de carga do Azure DevOps Services
 * Há suporte para a maioria dos serviços do Azure. Verifique diretamente o serviço que você deseja utilizar para confirmar o suporte.<br>Os seguintes serviços estão **não tem suporte**:
     * CDN
+    * Teste de carga do Azure DevOps Services
     * Autenticação Multifator
     * Gerenciador de Tráfego
 
@@ -337,3 +347,11 @@ O circuito existente continuará divulgando os prefixos para Office 365 e Dynami
 * O emparelhamento da Microsoft de circuitos de ExpressRoute configurados antes de 1º de agosto de 2017 terá todos os prefixos de serviço anunciados através do emparelhamento da Microsoft, mesmo que os filtros de rota não estejam definidos.
 
 * O emparelhamento da Microsoft de circuitos de ExpressRoute configurados em ou após 1º de agosto de 2017 não terá nenhum prefixo anunciado até que um filtro de rota seja anexado ao circuito. Você não verá nenhum prefixo por padrão.
+
+## <a name="globalreach"></a>ExpressRoute Direct (versão prévia)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-direct-faq-include.md)]
+
+## <a name="globalreach"></a>Alcance Global (versão prévia)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

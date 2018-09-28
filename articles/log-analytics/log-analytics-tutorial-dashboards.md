@@ -16,12 +16,12 @@ ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: a4b1e59ff9ac4d7f455c87e821fb014ba238d3c9
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2c7c1e71830eb3fe4f7240195dac828ac9dfed3a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127468"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951552"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e compartilhar painéis de dados do Log Analytics
 
@@ -56,7 +56,7 @@ Será solicitado que você escolha uma assinatura e o grupo de recursos para que
 
 Crie consultas básicas em uma única linha por meio do portal da Pesquisa de Logs no portal do Azure. O portal Pesquisa de Logs pode ser usado sem iniciar um portal externo e você pode usá-lo para executar uma variedade de funções com pesquisas de logs, incluindo a criação de regras de alerta, a criação de grupos de computadores e a exportação dos resultados da consulta. 
 
-O [portal de Análise Avançada](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) é um portal dedicado que fornece funcionalidade avançada não disponível no portal da Pesquisa de Logs. Os recursos incluem a capacidade de editar uma consulta em várias linhas e de executar código seletivamente, além do IntelliSense sensível ao contexto e da análise inteligente. No portal de Análise Avançada, você vai criar uma exibição de desempenho em formato gráfico, salvá-la para uma pesquisa futura e fixá-la no painel compartilhado criado anteriormente.   
+O [portal do Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md) é um portal dedicado que fornece funcionalidade avançada não disponível no portal da Pesquisa de Logs. Os recursos incluem a capacidade de editar uma consulta em várias linhas e de executar código seletivamente, além do IntelliSense sensível ao contexto e da análise inteligente. No portal de Análise Avançada, você vai criar uma exibição de desempenho em formato gráfico, salvá-la para uma pesquisa futura e fixá-la no painel compartilhado criado anteriormente.   
 
 Você inicia o portal Análise Avançada de um link no portal Pesquisa de Logs.<br> ![Iniciar o portal de Análise Avançada](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
 

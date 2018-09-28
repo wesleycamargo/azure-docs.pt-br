@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 84727ec3694f64d40ad002a248a255df9074d7f4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c7084a10aceafcdd1039893b810fcbd8b74b874b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263252"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967397"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Visão geral dos padrões comuns de dimensionamento automático
 Este artigo descreve alguns dos padrões comuns para dimensionar seu recurso no Azure.
 
-O dimensionamento automático do Azure Monitor se aplica somente aos VMSS (Conjuntos de Dimensionamento da Máquina Virtual), aos serviços de nuvem, aos planos do Serviço de Aplicativo e aos ambientes do Serviço de Aplicativo. 
+O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento de Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), [Serviço de Aplicativo – Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e [Serviços de Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 # <a name="lets-get-started"></a>Vamos começar
 
@@ -26,10 +26,10 @@ Este artigo pressupõe que você esteja familiarizado com o dimensionamento auto
 
 ## <a name="scale-based-on-cpu"></a>Dimensionamento com base na CPU
 
-Você tem um aplicativo Web (/VMSS/função de serviço de nuvem) e 
+Você tem um aplicativo Web (/VMSS/função de serviço de nuvem) e
 
 - Você deseja escalar/reduzir horizontalmente com base na CPU.
-- Você quer garantir também que haja um número mínimo de instâncias. 
+- Você quer garantir também que haja um número mínimo de instâncias.
 - Além disso, você deseja garantir que haja um limite máximo para o número de instâncias para as quais o dimensionamento pode ser feito.
 
 ![Dimensionamento com base na CPU][2]
@@ -45,7 +45,7 @@ Você tem um aplicativo Web (/VMSS/função de serviço de nuvem) e
 
 ## <a name="scale-differently-during-holidays"></a>Dimensionamento diferente durante feriados
 
-Você tem um aplicativo Web (/VMSS/função de serviço de nuvem) e 
+Você tem um aplicativo Web (/VMSS/função de serviço de nuvem) e
 
 - Por padrão, você deseja reduzir/escalar verticalmente com base no uso da CPU
 - No entanto, durante o período de férias (ou em dias específicos que são importantes para sua empresa), você deseja substituir os padrões e ter mais capacidade à sua disposição.
@@ -54,7 +54,7 @@ Você tem um aplicativo Web (/VMSS/função de serviço de nuvem) e
 
 ## <a name="scale-based-on-custom-metric"></a>Dimensionamento baseado em métrica personalizada
 
-Você tem um front-end da Web e uma camada de API que se comunica com o back-end. 
+Você tem um front-end da Web e uma camada de API que se comunica com o back-end.
 
 - Você deseja dimensionar a camada de API com base em eventos personalizados no front-end (exemplo: você quer dimensionar seu processo de check-out com base no número de itens no carrinho de compras)
 

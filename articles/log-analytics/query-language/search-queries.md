@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6a375da3c97790bd6a7a6fa505de82b2fc298385
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 250eddb043ccf9fa0b1bb92a298900f8ad820140
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141826"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992262"
 ---
 # <a name="search-queries-in-log-analytics"></a>Consultas de pesquisa no Log Analytics
 
 > [!NOTE]
-> Você deve concluir [Introdução às consultas no Log Analytics](get-started-queries.md) antes de concluir este tutorial.
+> Você deve concluir [Introdução às consultas no Log Analytics](get-started-queries.md) antes de concluir esta lição.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Consultas de Log Analytics do Azure podem começar com um nome de tabela ou um comando de pesquisa. Este tutorial abrange consultas baseadas em pesquisa. Há vantagens em cada método.
 
@@ -34,7 +36,7 @@ As consultas baseadas em tabela começam com o escopo da consulta e, portanto, t
 ## <a name="search-a-term"></a>Um termo de pesquisa
 O **pesquisa** comando normalmente é usado para pesquisar um termo específico. No exemplo a seguir, todas as colunas em todas as tabelas são verificadas para o termo "erro":
 
-```OQL
+```Kusto
 search "error"
 | take 100
 ```
@@ -44,13 +46,13 @@ Enquanto eles são fáceis de usar, consultas sem escopo como aquele mostrado ac
 ### <a name="table-scoping"></a>Tabela de escopo
 Para pesquisar um termo em uma tabela específica, adicione `in (table-name)` logo após o operador **search**:
 
-```OQL
+```Kusto
 search in (Event) "error"
 | take 100
 ```
 
 ou em várias tabelas:
-```OQL
+```Kusto
 search in (Event, SecurityEvent) "error"
 | take 100
 ```
@@ -58,7 +60,7 @@ search in (Event, SecurityEvent) "error"
 ### <a name="table-and-column-scoping"></a>Tabela e coluna de escopo
 Por padrão, a **pesquisa** avaliará todas as colunas no conjunto de dados. Para pesquisar somente uma coluna específica, use a seguinte sintaxe:
 
-```OQL
+```Kusto
 search in (Event) Source:"error"
 | take 100
 ```
@@ -69,7 +71,7 @@ search in (Event) Source:"error"
 ## <a name="case-sensitivity"></a>Diferenciar maiusculas de minúsculas
 Por padrão, pesquisa de termo diferencia maiusculas de minúsculas, portanto, pesquisar "dns" pode produzir resultados como "DNS", "dns" ou "Dns". Para tornar a pesquisa diferencia maiusculas de minúsculas, use o `kind` opção:
 
-```OQL
+```Kusto
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
@@ -78,26 +80,26 @@ search kind=case_sensitive in (Event) "DNS"
 O comando de **pesquisa** suporta curingas, no início, final ou meio de um termo.
 
 Para pesquisar termos que começam com "win":
-```OQL
+```Kusto
 search in (Event) "win*"
 | take 100
 ```
 
 Para pesquisar termos que terminem com ".com":
-```OQL
+```Kusto
 search in (Event) "*.com"
 | take 100
 ```
 
 Para pesquisar termos que contenham "www":
-```OQL
+```Kusto
 search in (Event) "*www*"
 | take 100
 ```
 
 Para pesquisar termos que começam com "corp" e terminam em ".com", como "corp.mydomain.com" "
 
-```OQL
+```Kusto
 search in (Event) "corp*.com"
 | take 100
 ```
@@ -110,21 +112,21 @@ Você também pode obter tudo em uma tabela usando apenas um curinga: `search in
 ## <a name="add-and--or-to-search-queries"></a>Adicione *e* / *ou* para pesquisar consultas
 Use **e** para procurar registros que contêm vários termos:
 
-```OQL
+```Kusto
 search in (Event) "error" and "register"
 | take 100
 ```
 
 Use **ou** para obter registros que contenham pelo menos um dos termos:
 
-```OQL
+```Kusto
 search in (Event) "error" or "register"
 | take 100
 ```
 
 Se você tiver várias condições de pesquisa, você pode combiná-los na mesma consulta usando parênteses:
 
-```OQL
+```Kusto
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
@@ -134,7 +136,7 @@ Os resultados deste exemplo seriam registros que contêm o termo "erro" e també
 ## <a name="pipe-search-queries"></a>Redirecionar consultas de pesquisa
 Assim como qualquer outro comando, a **pesquisa** pode ser canalizada para que os resultados da pesquisa possam ser filtrados, classificados e agregados. Por exemplo, para obter o número de *evento* registros que contêm "win":
 
-```OQL
+```Kusto
 search in (Event) "win"
 | count
 ```
@@ -144,4 +146,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Ver mais tutoriais sobre o [site de linguagem de consulta do Log Analytics](https://docs.loganalytics.io)
+- Veja mais tutoriais sobre o [site de linguagem de consulta do Log Analytics](https://aka.ms/LogAnalyticsLanguage).

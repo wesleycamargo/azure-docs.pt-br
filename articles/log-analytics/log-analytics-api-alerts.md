@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 9097ca13bf4f65db4b0924044a9c0f075e3703af
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 7f55b762bda5ff0c7bbedf414b18465656496cbb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128887"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984578"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerenciar regras de alerta no Log Analytics com a API REST
 A API de REST do Log Analytics permite criar e gerenciar alertas no OMS (Operations Management Suite).  Este artigo fornece detalhes da API e vários exemplos para executar operações diferentes.
 
 A API REST de Pesquisa do Log Analytics é RESTful e pode ser acessada por meio da API REST do Azure Resource Manager. Neste documento, você encontrará exemplos em que a API é acessada por meio de uma linha de comando do PowerShell usando o [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager. O uso do ARMClient e do PowerShell é uma das muitas opções para acessar a API de Pesquisa do Log Analytics. Com essas ferramentas, você pode utilizar a API RESTful do Azure Resource Manager para fazer chamadas aos espaços de trabalho do OMS e executar comandos de pesquisa dentro deles. A API produzirá resultados da pesquisa para você no formato JSON, permitindo que você use os resultados da pesquisa de diferentes maneiras por meio de programação.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Atualmente, os alertas somente podem ser criados com uma pesquisa salva no Log Analytics.  Você pode consultar a [API REST da Pesquisa de Log](log-analytics-log-search-api.md) para obter mais informações.
 
 ## <a name="schedules"></a>Agendas
@@ -95,14 +95,14 @@ Todas as ações têm as propriedades indicadas na tabela a seguir.  Diferentes 
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| type |Tipo da ação.  Atualmente, os valores possíveis são Alerta e Webhook. |
+| Tipo |Tipo da ação.  Atualmente, os valores possíveis são Alerta e Webhook. |
 | NOME |Nome de exibição para o alerta. |
 | Versão |A versão da API que está sendo usada.  Atualmente, isso sempre deve ser definido como 1. |
 
 ### <a name="retrieving-actions"></a>Recuperando ações
 
 > [!NOTE]
-> A partir de 14 de maio de 2018, todos os alertas em um espaço de trabalho serão automaticamente estendidos ao Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure agora são controladas em grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, você pode recuperar ou adicionar ações usando a [API do grupo de ações](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do workspace do Log Analytics serão estendidos automaticamente para o Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure agora são controladas em grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, você pode recuperar ou adicionar ações usando a [API do grupo de ações](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Use o método Get para recuperar todas as ações de um agendamento.
 
@@ -125,7 +125,7 @@ O formato da solicitação para criar uma nova ação varia conforme o tipo de a
 ### <a name="deleting-actions"></a>Excluindo ações
 
 > [!NOTE]
-> A partir de 14 de maio de 2018, todos os alertas em um espaço de trabalho serão automaticamente estendidos ao Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure agora são controladas em grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, você pode recuperar ou adicionar ações usando a [API do grupo de ações](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do workspace do Log Analytics serão estendidos automaticamente para o Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure agora são controladas em grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, você pode recuperar ou adicionar ações usando a [API do grupo de ações](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Use o método Delete com a ID de ação para excluir uma ação.
 
@@ -145,7 +145,7 @@ Um Agendamento deve ter somente uma ação de Alerta.  Ações de alerta têm um
 | Ações webhook | Enviar dados de Alertas, para o serviço desejado como JSON |Não é necessário, se os alertas são estendidos para o Azure|
 
 > [!NOTE]
-> A partir de 14 de maio de 2018, todos os alertas em um espaço de trabalho serão automaticamente estendidos ao Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
+> A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do workspace do Log Analytics serão estendidos automaticamente para o Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
 
 #### <a name="thresholds"></a>Limites
 Uma ação de Alerta deve ter somente um limite.  Quando os resultados de pesquisas salvas coincidem com o limite de uma ação associada à pesquisa, outros processos nesta ação são executados.  Uma ação também pode conter apenas um limite para ser usado com ações de outros tipos que não contêm os limites.
@@ -267,7 +267,7 @@ Por padrão, o assunto do email para alertas é: Notificação de Alerta <AlertN
         "AzNsNotification": {
           "GroupIds": [
             "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
-          ]
+          ],
           "CustomEmailSubject": "Azure Alert fired"
         },
         "Severity": "critical",
@@ -301,7 +301,7 @@ Os detalhes de webhook personalizados precisam ser enviados com os detalhes do A
         "AzNsNotification": {
           "GroupIds": [
             "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
-          ]
+          ],
           "CustomWebhookPayload": "{\"field1\":\"value1\",\"field2\":\"value2\"}",
           "CustomEmailSubject": "Azure Alert fired"
         },
@@ -323,7 +323,7 @@ Use o método Put com uma ID de ação existente para modificar um Grupo de Aç�
 Notificações por Email enviam email para um ou mais destinatários.  Elas incluem as propriedades indicadas na tabela a seguir.
 
 > [!NOTE]
-> A partir de 14 de maio de 2018, todos os alertas em um espaço de trabalho serão automaticamente estendidos ao Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure, como a Notificação de Email, agora são controladas em grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, você pode recuperar ou adicionar ações usando a [API do grupo de ações](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do workspace do Log Analytics serão estendidos automaticamente para o Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure, como a Notificação de Email, agora são controladas em grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, você pode recuperar ou adicionar ações usando a [API do grupo de ações](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Propriedade | DESCRIÇÃO |
@@ -367,7 +367,7 @@ Use o método Put com uma ID de ação existente para modificar uma ação de em
 As correções iniciam um runbook na Automação do Azure que tenta corrigir o problema identificado pelo alerta.  Você deve criar um webhook para o runbook usado em uma ação de correção e especificar o URI na propriedade WebhookUri.  Quando você cria essa ação usando o console do OMS, um novo webhook é criado automaticamente para o runbook.
 
 > [!NOTE]
-> A partir de 14 de maio de 2018, todos os alertas em um espaço de trabalho serão automaticamente estendidos ao Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure, como a Correção usando runbook, agora são controladas em grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, você pode recuperar ou adicionar ações usando a [API do grupo de ações](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do workspace do Log Analytics serão estendidos automaticamente para o Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure, como a Correção usando runbook, agora são controladas em grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, você pode recuperar ou adicionar ações usando a [API do grupo de ações](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 As correções incluem as propriedades indicadas na tabela a seguir.
 
@@ -426,7 +426,7 @@ Veja a seguir um exemplo completo para criar um novo alerta de email.  Ele cria 
 Ações de Webhook iniciam um processo chamando uma URL e, opcionalmente, fornecendo uma carga a ser enviada.  Elas são semelhantes às ações de Correção, exceto que se destinam a webhooks que podem invocar outros processos além de runbooks da Automação do Azure.  Eles também oferecem a opção adicional de fornecer uma carga a ser enviada para o processo remoto.
 
 > [!NOTE]
-> A partir de 14 de maio de 2018, todos os alertas em um espaço de trabalho serão automaticamente estendidos ao Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure, como a Correção usando runbook, agora são controladas em grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, você pode recuperar ou adicionar ações usando a [API do grupo de ações](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do workspace do Log Analytics serão estendidos automaticamente para o Azure. Um usuário pode começar voluntariamente a estender os alertas para o Azure antes de 14 de maio de 2018. Para obter mais informações, consulte [Estender alertas do OMS ao Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure, como a Correção usando runbook, agora são controladas em grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, você pode recuperar ou adicionar ações usando a [API do grupo de ações](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Ações de Webhook não têm um limite, devendo ser adicionadas a um agendamento que tem uma ação de Alerta com um limite.  

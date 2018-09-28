@@ -10,30 +10,37 @@ ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6edcd5b3df7c3c58c6568434f82fbc52cb9e28df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "43185413"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958859"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de identidade visual para aplicativos
 
-Este tópico discute as diretrizes de identidade visual que você deve usar ao desenvolver aplicativos com o Azure AD (Azure Active Directory). Essas diretrizes ajudarão a direcionar os clientes quando eles quiserem usar sua conta comercial ou de estudante, gerenciada no Azure AD, para inscrição e logon no seu aplicativo.
+Ao desenvolver aplicativos com o Azure AD (Azure Active Directory), você precisará direcionar os clientes quando eles quiserem usar sua conta corporativa ou de estudante (gerenciada no Azure AD) ou a conta pessoal para inscrição e conexão no seu aplicativo.
+
+Neste artigo, você vai:
+
+- Saber sobre os dois tipos de contas de usuário gerenciadas pela Microsoft e como fazer referência às contas do Azure AD em seu aplicativo
+- Descobrir o que você precisa fazer para adicionar o logotipo da Microsoft para uso em seu aplicativo
+- Baixar as imagens oficiais de **Entrar** ou **Entrar com a conta da Microsoft** a serem usadas em seu aplicativo
+- Saber sobre as regras de identidade visual e navegação
 
 ## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Contas pessoais versus contas comerciais ou de estudante da Microsoft
 
 A Microsoft gerencia dois tipos de contas de usuário:
 
-* **Contas pessoais** (anteriormente conhecidas como Windows Live ID). Essas contas representam a relação entre usuários *individuais* e a Microsoft e são usadas para acessar serviços e dispositivos do cliente da Microsoft. Essas contas são destinadas a uso pessoal.
-* **Contas comerciais ou de estudante.** Essas contas são gerenciadas pela Microsoft em nome de organizações que usam o Azure Active Directory. Essas contas são usadas para fazer logon no Office 365 e em outros serviços comerciais da Microsoft.
+- **Contas pessoais** (anteriormente conhecidas como Windows Live ID). Essas contas representam a relação entre usuários *individuais* e a Microsoft e são usadas para acessar serviços e dispositivos do cliente da Microsoft. Essas contas são destinadas a uso pessoal.
+- **Contas comerciais ou de estudante.** Essas contas são gerenciadas pela Microsoft em nome de organizações que usam o Azure Active Directory. Essas contas são usadas para fazer logon no Office 365 e em outros serviços comerciais da Microsoft.
 
 As contas comerciais ou de estudante da Microsoft  normalmente são atribuídas aos usuários finais (funcionários, estudantes e funcionários federais) por suas organizações (empresa, escola, órgão do governo). Essas contas são dominadas diretamente na nuvem (na plataforma do Azure AD) ou sincronizadas para o Azure AD de um diretório local, como o Active Directory do Windows Server. A Microsoft tem a *custódia* das contas comerciais ou de estudante, mas as contas são de propriedade e controladas pela organização.
 
@@ -41,8 +48,8 @@ As contas comerciais ou de estudante da Microsoft  normalmente são atribuídas 
 
 A Microsoft não expõe os usuários finais ao Azure ou os nomes de marca do Active Directory, e você também não deve fazê-lo.
 
-* Depois que os usuários estiverem conectados, use o nome e o logotipo da organização o máximo possível. Isso é melhor do que usar termos genéricos como “sua organização.”
-* Quando os usuários não estiverem conectados, refira-se às contas deles como "Contas corporativas ou de estudante" e use o logotipo da Microsoft para informar que a Microsoft gerencia essas contas. Não use termos como “conta comercial”, “conta empresarial” ou “conta corporativa”, que confundem o usuário.
+- Depois que os usuários estiverem conectados, use o nome e o logotipo da organização o máximo possível. Isso é melhor do que usar termos genéricos como “sua organização.”
+- Quando os usuários não estiverem conectados, refira-se às contas deles como "Contas corporativas ou de estudante" e use o logotipo da Microsoft para informar que a Microsoft gerencia essas contas. Não use termos como “conta comercial”, “conta empresarial” ou “conta corporativa”, que confundem o usuário.
 
 ## <a name="user-account-pictogram"></a>Imagem da conta de usuário
 
@@ -94,7 +101,6 @@ Para baixar as imagens oficiais para uso em seu aplicativo, clique com o botão 
 | Entrar com a Microsoft (tema claro) | ![PNG do tema claro do botão Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![SVG do tema claro do botão Entrar com a conta da Microsoft](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
 | Entrar (tema escuro)                 | ![PNG do tema escuro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![SVG do tema escuro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
 | Entrar (tema claro)                | ![PNG do tema claro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![SVG do tema claro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
-
 
 ## <a name="branding-dos-and-donts"></a>Regras de identidade visual
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: a2611f89d9eef1ec6bac34389fa4db833aecc087
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 21b0029ff12915c8416ad2366fbf6c45ddfaa288
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264081"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978405"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
@@ -29,37 +29,7 @@ O Azure Monitor Metrics Explorer é um componente do portal do Microsoft Azure q
 
 Métricas no Microsoft Azure são a série de valores medidos e as contagens coletadas e armazenadas ao longo do tempo. Há métricas padrão (ou da “plataforma”) e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de uso e integridade dos recursos do Azure. Por outro lado, as métricas personalizadas são enviadas para o Azure por meio de seus aplicativos usando a [API do Application Insights para eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). As métricas personalizadas são armazenadas nos recursos do Application Insights junto com outras métricas específicas ao aplicativo.
 
-## <a name="what-are-multi-dimensional-metrics"></a>O que são métricas multidimensionais?
 
-Muitos dos recursos do Azure agora expõem métricas multidimensionais. Essas métricas controlam várias séries de valores para uma ou muitas dimensões nomeadas. Por exemplo, uma métrica “Espaço em disco disponível” pode ter uma dimensão chamada “Unidade” com valores “C:”, “D:”, que permitirá exibir o espaço em disco disponível em todas as unidades ou para cada unidade individualmente. 
-
-O exemplo abaixo ilustra dois conjuntos de dados de uma métrica hipotética chamada “Taxa de Transferência de Rede”. O primeiro conjunto de dados não tem nenhuma dimensão. O segundo conjunto de dados mostra os valores com duas dimensões, “Endereço IP” e “Direção”:
-
-### <a name="network-throughput"></a>Taxa de Transferência de Rede
-(Essa métrica não tem dimensões)
-
- |Timestamp        | Valor da Métrica | 
-   | ------------- |:-------------| 
-   | 9/8/2017 8h14 | 1.331,8 Kbps | 
-   | 9/8/2017 8h15 | 1.141,4 Kbps |
-   | 9/8/2017 8h16 | 1.110,2 Kbps |
-
-Essa métrica não dimensional pode responder apenas a uma pergunta básica, como “qual era minha taxa de transferência de rede em determinado horário?”
-
-### <a name="network-throughput--two-dimensions-ip-and-direction"></a>Taxa de Transferência de Rede + duas dimensões (“IP” e “Direção”)
-
-| Timestamp          | Dimensão “IP” | Dimensão “Direção” | Valor da Métrica| 
-   | ------------- |:-----------------|:------------------- |:-----------|  
-   | 9/8/2017 8h14 | IP="192.168.5.2" | Direction="Send"    | 646,5 Kbps |
-   | 9/8/2017 8h14 | IP="192.168.5.2" | Direction="Receive" | 420,1 Kbps |
-   | 9/8/2017 8h14 | IP="10.24.2.15"  | Direction="Send"    | 150,0 Kbps | 
-   | 9/8/2017 8h14 | IP="10.24.2.15"  | Direction="Receive" | 115,2 Kbps |
-   | 9/8/2017 8h15 | IP="192.168.5.2" | Direction="Send"    | 515,2 Kbps |
-   | 9/8/2017 8h15 | IP="192.168.5.2" | Direction="Receive" | 371,1 Kbps |
-   | 9/8/2017 8h15 | IP="10.24.2.15"  | Direction="Send"    | 155,0 Kbps |
-   | 9/8/2017 8h15 | IP="10.24.2.15"  | Direction="Receive" | 100,1 Kbps |
-
-Essa métrica pode responder a perguntas como “qual era a taxa de transferência de rede para cada endereço IP?” e “quantos dados foram enviados vs. recebidos?” As métricas multidimensionais trazem um valor analítico e de diagnóstico adicional em comparação às métricas não dimensionais. 
 
 ## <a name="how-do-i-create-a-new-chart"></a>Como fazer para criar um novo gráfico?
 
@@ -69,24 +39,24 @@ Essa métrica pode responder a perguntas como “qual era a taxa de transferênc
 1. Abrir o portal do Azure
 2. Navegue para a nova guia **Monitor** e, em seguida, selecione **Métricas (versão prévia)**.
 
-   ![Imagem de Versão Prévia de Métricas](./media/monitoring-metric-charts/001.png)
+   ![Imagem de Versão Prévia de Métricas](./media/monitoring-metric-charts/0001.png)
 
 3. O **seletor de métrica** será aberto automaticamente para você. Escolha um recurso na lista para exibir suas métricas associadas. Apenas os recursos com métricas são mostrados na lista.
 
-   ![Imagem de Versão Prévia de Métricas](./media/monitoring-metric-charts/002.png)
+   ![Imagem de Versão Prévia de Métricas](./media/monitoring-metric-charts/0002.png)
 
    > [!NOTE]
    >Caso você tenha mais de uma assinatura do Azure, o Metrics Explorer extrairá os recursos de todas as assinaturas que estão selecionadas em Configurações do Portal -> Filtrar por lista de assinaturas. Para alterar isso, clique no ícone de engrenagem das configurações do Portal na parte superior da tela e selecione quais assinatura você deseja usar.
 
-4. Para alguns tipos de recurso (ou seja, Contas de Armazenamento e Máquinas Virtuais), antes de selecionar uma métrica, você deve escolher um **Subserviço**. Cada subserviço traz seu próprio conjunto de métricas relevantes apenas para esse subserviço e não para outros subserviços.
+4. Para alguns tipos de recurso (ou seja, Contas de Armazenamento e Máquinas Virtuais), antes de selecionar uma métrica, você deverá escolher um **Namespace**. Cada namespace contém seu próprio conjunto de métricas que são relevantes apenas para ele, e não para outros namespaces.
 
    Por exemplo, cada Armazenamento do Azure tem métricas dos subserviços “Blobs”, “Arquivos”, “Filas” e “Tabelas”, que fazem parte da conta de armazenamento. No entanto, a métrica “Contagem de Mensagens da Fila” é naturalmente aplicável ao subserviço “Fila” e não a outros subserviços da conta de armazenamento.
 
-   ![Imagem de Versão Prévia de Métricas](./media/monitoring-metric-charts/003.png)
+   ![Imagem de Versão Prévia de Métricas](./media/monitoring-metric-charts/0003.png)
 
 5. Selecione uma métrica na lista. Se souber um nome parcial da métrica desejada, comece a digitá-lo para ver uma lista filtrada das métricas disponíveis:
 
-   ![Imagem de Versão Prévia de Métricas](./media/monitoring-metric-charts/004.png)
+   ![Imagem de Versão Prévia de Métricas](./media/monitoring-metric-charts/0004.png)
 
 6. Depois de selecionar uma métrica, o gráfico será renderizado com a agregação padrão da métrica selecionada. Neste ponto, basta clicar fora do **seletor de métricas** para fechá-lo. Você também pode alternar o gráfico para uma agregação diferente. Para algumas métricas, a alternação da agregação permite escolher qual valor você deseja ver no gráfico. Por exemplo, alterne entre os valores de média, mínimo e máximo. 
 
@@ -105,15 +75,15 @@ Aplique filtros aos gráficos que mostram métricas com dimensões. Por exemplo,
 
 2. Selecione qual dimensão (propriedade) você deseja filtrar
 
-   ![imagem de métrica](./media/monitoring-metric-charts/006.png)
+   ![imagem de métrica](./media/monitoring-metric-charts/0006.png)
 
 3. Selecione quais valores de dimensão você deseja incluir ao plotar o gráfico (este exemplo mostra a filtragem das transações de armazenamento bem-sucedidas):
 
-   ![imagem de métrica](./media/monitoring-metric-charts/007.png)
+   ![imagem de métrica](./media/monitoring-metric-charts/0007.png)
 
 4. Depois de selecionar os valores de filtro, clique fora do Seletor de Filtro para fechá-lo. Agora o gráfico mostra quantas transações de armazenamento falharam:
 
-   ![imagem de métrica](./media/monitoring-metric-charts/008.png)
+   ![imagem de métrica](./media/monitoring-metric-charts/0008.png)
 
 5. Repita as etapas 1 a 4 para aplicar vários filtros aos mesmos gráficos.
 
@@ -130,11 +100,11 @@ Divida uma métrica pela dimensão para visualizar uma comparação de diferente
 
 2. Escolha uma dimensão na qual você deseja segmentar o gráfico: 
 
-   ![imagem de métrica](./media/monitoring-metric-charts/010.png)
+   ![imagem de métrica](./media/monitoring-metric-charts/0010.png)
 
    Agora o gráfico mostra várias linhas, uma para cada segmento de dimensão:
 
-   ![imagem de métrica](./media/monitoring-metric-charts/012.png)
+   ![imagem de métrica](./media/monitoring-metric-charts/0012.png)
 
 3. Clique fora do **Seletor de Agrupamento** para fechá-lo.
 
@@ -149,7 +119,7 @@ Para fixar um gráfico configurado em um painel:
 
 Depois de configurar o gráfico, clique no menu **Ações do Gráfico** no canto superior direito do gráfico e clique em **Fixar no painel**.
 
-   ![imagem de métrica](./media/monitoring-metric-charts/013.png)
+   ![imagem de métrica](./media/monitoring-metric-charts/0013.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

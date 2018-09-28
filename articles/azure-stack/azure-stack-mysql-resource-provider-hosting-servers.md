@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: aacf99afef344564d028e78892091c6618c7d495
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.reviewer: quying
+ms.openlocfilehash: b11ce8bbbf4b270f7a3b9689f95b0cbfca3b14c9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026682"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408871"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do MySQL
 
 Você pode hospedar uma instância do MySQL em uma máquina virtual (VM) em [do Azure Stack](azure-stack-poc.md), ou em uma VM fora de seu ambiente do Azure Stack, desde que o provedor de recursos do MySQL pode se conectar à instância.
+
+> [!NOTE]
+> Bancos de dados MySQL devem ser criados no servidor do provedor de recursos MySQL. O provedor de recursos do MySQL deve ser criado na assinatura padrão do provedor, enquanto os servidores de hospedagem MySQL devem ser criados em uma assinatura faturável, do usuário. O servidor do provedor de recursos não deve ser usado para hospedar bancos de dados do usuário.
 
 Versões do MySQL 5.6, 5.7 e 8.0 podem ser usadas para servidores de hospedagem. O RP MySQL não dá suporte à autenticação de caching_sha2_password; que será adicionado na próxima versão. Servidores MySQL 8.0 devem ser configurados para usar mysql_native_password. Também há suporte para o MariaDB.
 

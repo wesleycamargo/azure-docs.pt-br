@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 1686c283b0aa9f0713317b22e2ef2abd16e6b187
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: caa8f1a10652c16e181c47fbbe4f9f0c815cfd67
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579898"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983677"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar Logs de Diagnóstico do Azure
 
@@ -81,7 +81,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | RetentionEnabled |Não  |Booliano indicando se há uma política de retenção habilitada nesse recurso. |
 | RetentionInDays |Não  |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente. |
 
-## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Arquivar logs de diagnóstico por meio da CLI 2.0 do Azure
+## <a name="archive-diagnostic-logs-via-the-azure-cli"></a>Arquivar logs de diagnóstico por meio da CLI do Azure
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

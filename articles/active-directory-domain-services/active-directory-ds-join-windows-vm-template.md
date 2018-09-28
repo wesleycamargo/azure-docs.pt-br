@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 2b94496895c0ab06127b6c556b1240e3279e572f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 40eb0e8133626e77a1f61ddfc5df69ecf1b958f2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504406"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950787"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Ingressar uma máquina virtual do Windows Server em um domínio gerenciado usando modelos do Resource Manager
 Este artigo mostra como ingressar uma máquina virtual do Windows Server em um domínio gerenciado do Azure AD Domain Services usando modelos do Resource Manager.
@@ -39,7 +39,7 @@ Para executar as tarefas listadas neste artigo, você precisa do seguinte:
 ## <a name="install-and-configure-required-tools"></a>Instalar e configurar as ferramentas necessárias
 Você pode usar qualquer uma das opções a seguir para executar as etapas descritas neste documento:
 * **Azure PowerShell**: [Instalar e configurar](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **Interface de linha de comando de multiplaforma do Azure**: [Instalar e configurar](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+* **CLI do Azure**: [Instalar e configurar](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
 ## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Opção 1: Provisionar uma nova VM do Windows Server e ingressá-la em um domínio gerenciado

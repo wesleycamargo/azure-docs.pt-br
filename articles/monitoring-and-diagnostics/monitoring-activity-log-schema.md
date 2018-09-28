@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d267ffd5085c27c60e9eb229e2d9026fa83ef848
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003824"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998213"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema sobre eventos do Log de Atividades do Azure
 O **Log de Atividades do Azure** é um log que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Este artigo descreve o esquema de evento por categoria de dados. O esquema dos dados é diferente e depende se você está lendo os dados no portal, no PowerShell, na CLI ou diretamente por meio da API REST comparado à [transmissão dos dados para o armazenamento ou para os Hubs de Eventos usando um Perfil de Log](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema disponibilizado por meio do portal, do PowerShell, da CLI e da API REST. Um mapeamento dessas propriedades para o [esquema de logs de diagnóstico do Azure](./monitoring-diagnostic-logs-schema.md) é fornecido no final do artigo.
@@ -192,6 +192,95 @@ Essa categoria contém o registro de qualquer incidente de integridade do servi�
 }
 ```
 Consulte as [notificações de integridade de serviço](./monitoring-service-notifications.md) para obter a documentação sobre os valores nas propriedades.
+
+## <a name="resource-health"></a>Integridade de recursos
+Esta categoria contém o registro de qualquer evento de integridade do recurso ocorrido nos recursos do Azure. Um exemplo do tipo de evento que você veria nessa categoria é "Status de integridade da máquina virtual alterado para não disponível". Eventos de integridade de recursos podem representar um dos quatro status de integridade: Disponível, Não disponível, Degradado e Desconhecido. Além disso, os eventos de integridade de recursos podem ser categorizados como Iniciados pela plataforma ou Iniciados pelo usuário.
+
+### <a name="sample-event"></a>Evento de exemplo
+
+```json
+{
+    "channels": "Admin, Operation",
+    "correlationId": "28f1bfae-56d3-7urb-bff4-194d261248e9",
+    "description": "",
+    "eventDataId": "a80024e1-883d-37ur-8b01-7591a1befccb",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "ResourceHealth",
+        "localizedValue": "Resource Health"
+    },
+    "eventTimestamp": "2018-09-04T15:33:43.65Z",
+    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "level": "Critical",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Resourcehealth/healthevent/Activated/action",
+        "localizedValue": "Health Event Activated"
+    },
+    "resourceGroupName": "<resource group>",
+    "resourceProviderName": {
+        "value": "Microsoft.Resourcehealth/healthevent/action",
+        "localizedValue": "Microsoft.Resourcehealth/healthevent/action"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
+    "subscriptionId": "<subscription Id>",
+    "properties": {
+        "stage": "Active",
+        "title": "Virtual Machine health status changed to unavailable",
+        "details": "Virtual machine has experienced an unexpected event",
+        "healthStatus": "Unavailable",
+        "healthEventType": "Downtime",
+        "healthEventCause": "PlatformInitiated",
+        "healthEventCategory": "Unplanned"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="property-descriptions"></a>Descrições de propriedade
+| Nome do elemento | DESCRIÇÃO |
+| --- | --- |
+| canais | Sempre "Administrador, Operação" |
+| correlationId | Um GUID no formato de cadeia de caracteres. |
+| Descrição |Descrição de texto estático do evento de alerta. |
+| eventDataId |Identificador exclusivo do alerta de evento. |
+| categoria | Sempre "ResourceHealth" |
+| eventTimestamp |Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
+| level |Nível do evento. Um dos seguintes valores: "Crítico", "Erro", "Aviso", "Informativo" e "Detalhado" |
+| operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
+| operationName |Nome da operação. |
+| resourceGroupName |Nome do grupo de recursos que contém o recurso. |
+| resourceProviderName |Sempre "Microsoft.Resourcehealth/healthevent/action". |
+| resourceType | O tipo de recurso que foi afetado por um evento do Resource Health. |
+| ResourceId | Nome da ID de recursos do recurso afetado. |
+| status |Cadeia de caracteres que descreve o status do evento de integridade. Os valores podem ser: Ativo, Resolvido, Em andamento, Atualizado. |
+| subStatus | Geralmente é null para alertas. |
+| submissionTimestamp |Carimbo de hora quando o evento tornou-se disponível para consulta. |
+| subscriptionId |ID de Assinatura do Azure. |
+| propriedades |Conjunto de pares de `<Key, Value>` (ou seja, um Dicionário) que descreve os detalhes do evento.|
+| properties.title | Uma cadeia de caracteres de usuário amigável que descreve o status de integridade do recurso. |
+| properties.details | Uma cadeia de caracteres de usuário amigável que descreve mais detalhes sobre o evento. |
+| properties.currentHealthStatus | O status de integridade atual do recurso. Um dos seguintes valores: "Disponível", "Não disponível", "Degradado" e "Desconhecido". |
+| properties.previousHealthStatus | O status de integridade anterior do recurso. Um dos seguintes valores: "Disponível", "Não disponível", "Degradado" e "Desconhecido". |
+| properties.type | Uma descrição do tipo de evento de integridade do recurso. |
+| properties.cause | Uma descrição da causa do evento de integridade do recurso. "Iniciado pelo usuário" e "Iniciado pela plataforma". |
+
 
 ## <a name="alert"></a>Alerta
 Essa categoria contém o registro de todas as ativações de alertas do Azure. Um exemplo do tipo de evento que você vê nessa categoria é "% de CPU em myVM foi 80 nos últimos 5 minutos." Uma variedade de sistemas do Azure têm um conceito de alerta – você pode definir uma regra de algum tipo e receber uma notificação quando as condições corresponderem a essa regra. Cada vez que um tipo de alerta com suporte do Azure é 'ativado', ou as condições são atendidas para gerar uma notificação, um registro de ativação também é enviado para essa categoria de Log de Atividades.

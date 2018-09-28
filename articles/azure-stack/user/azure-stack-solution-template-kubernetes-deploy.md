@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 89c72e21733b01a3e42c0e58d65cb7877e47d374
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163487"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409347"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Implantar Kubernetes no Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!Note]  
-> Kubernetes no Azure Stack está em visualização. O operador do Azure Stack será necessário solicitar o acesso para o item do Marketplace de Cluster de Kubernetes necessário para executar as instruções neste artigo.
+> Kubernetes no Azure Stack está em visualização.
 
 O artigo a seguir examina usando um modelo de solução do Azure Resource Manager para implantar e provisionar os recursos do Kubernetes em uma única operação coordenada. Você precisa coletar as informações necessárias sobre a instalação do Azure Stack, gerar o modelo e, em seguida, implante a sua nuvem. Observação o modelo não é o mesmo serviço AKS gerenciado oferecido no Azure global.
 
@@ -55,6 +55,8 @@ Para começar, verifique se você tiver as permissões corretas e que o Azure St
 1. Verifique se você tiver uma assinatura válida no seu portal de locatário do Azure Stack e que você tem suficiente IP público endereços disponíveis para adicionar novos aplicativos.
 
     O cluster não pode ser implantado para Azure Stack **administrador** assinatura. Você deve usar um **usuário** assinatura. 
+
+1. Se você não tiver um Kubernetes Cluster no seu marketplace, fale com o administrador do Azure Stack.
 
 ## <a name="create-a-service-principal-in-azure-ad"></a>Criar uma entidade de serviço no Azure AD
 

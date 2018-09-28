@@ -1,6 +1,6 @@
 ---
-title: Introdução à API Web Node.js do Azure AD | Microsoft Docs
-description: Como compilar uma API Web REST do Node.js que se integre ao Azure AD para autenticação.
+title: Proteger uma API Web com o Azure AD | Microsoft Docs
+description: Saiba como criar uma API Web REST do Node.js que se integre ao Azure AD para autenticação.
 services: active-directory
 documentationcenter: nodejs
 author: CelesteDG
@@ -11,27 +11,34 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: article
-ms.date: 11/30/2017
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 3b203e5be82c01e7d586c90bae454aca23ebd630
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: f6f804ea9121d1728e31f1e694280e841f4b7f4e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579857"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946537"
 ---
-# <a name="azure-ad-nodejs-web-api-getting-started"></a>Introdução à API Web Node.js do Azure Active Directory
+# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Início Rápido: Proteger uma API Web com o Azure Active Directory
 
-Este artigo demonstra como proteger um ponto de extremidade de API [Restify](http://restify.com/) com o [Passport](http://passportjs.org/) usando o módulo [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) para lidar com a comunicação com o AAD (Azure Active Directory). 
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-O escopo deste tutorial abrange as preocupações relacionadas à proteção de pontos de extremidade de API. As preocupações sobre entrar e manter os tokens de autenticação não são implementadas aqui e são de responsabilidade de um aplicativo cliente. Para obter detalhes relativos a uma implementação de cliente, examine [Entrada e saída do aplicativo Web Node.js com o Azure AD](quickstart-v1-openid-connect-code.md).
+Neste início rápido, você aprenderá a proteger um ponto de extremidade de API [Restify](http://restify.com/) com o [Microsoft Passport](http://passportjs.org/) usando o módulo [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) para lidar com a comunicação com o Azure AD (Azure Active Directory).
+
+O escopo deste início rápido abrange as preocupações relacionadas à proteção de pontos de extremidade de API. As preocupações sobre entrar e manter os tokens de autenticação não são implementadas aqui e são de responsabilidade de um aplicativo cliente. Para obter detalhes relativos a uma implementação de cliente, examine [Entrada e saída do aplicativo Web Node.js com o Azure AD](quickstart-v1-openid-connect-code.md).
 
 O exemplo de código completo associado a este artigo está disponível no [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic).
 
-## <a name="create-the-sample-project"></a>Criar o projeto de exemplo
-Este aplicativo para servidores requer algumas dependências do pacote para dar suporte ao Restify e ao Passport, bem como dados da conta que são passados para o AAD.
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para começar, conclua estes pré-requisitos.
+
+### <a name="create-the-sample-project"></a>Criar o projeto de exemplo
+
+O aplicativo para servidores requer algumas dependências do pacote para dar suporte ao Restify e ao Passport, bem como dados da conta que são passados para o Azure AD.
 
 Para começar, adicione o código a seguir em um arquivo chamado `package.json`:
 
@@ -53,13 +60,13 @@ Para começar, adicione o código a seguir em um arquivo chamado `package.json`:
 
 Uma vez que `package.json` é criado, execute `npm install` no prompt de comando para instalar as dependências do pacote. 
 
-### <a name="configure-the-project-to-use-active-directory"></a>Configure o projeto para usar o Active Directory
+#### <a name="configure-the-project-to-use-active-directory"></a>Configure o projeto para usar o Active Directory
 
 Para começar a configurar o aplicativo, há alguns valores específicos da conta que você pode obter com a CLI do Azure. É a maneira mais fácil de começar a usar a CLI é usar o Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Insira o comando a seguir no Cloud Shell: 
+Insira o comando a seguir no Cloud Shell:
 
 ```azurecli-interactive
 az ad app create --display-name node-aad-demo --homepage http://localhost --identifier-uris http://node-aad-demo
@@ -94,12 +101,15 @@ module.exports.credentials = {
   clientID: clientID
 };
 ```
+
 Para obter mais informações sobre as configurações individuais, examine a documentação do módulo [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage).
 
-## <a name="implement-the-server"></a>Implementar o servidor
+### <a name="implement-the-server"></a>Implementar o servidor
+
 O módulo [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) apresenta duas estratégias de autenticação: [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) e de [Portador](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy). O servidor implementado neste artigo usa a estratégia de Portador para proteger o ponto de extremidade de API.
 
 ### <a name="step-1-import-dependencies"></a>Etapa 1: importar dependências
+
 Crie um novo arquivo chamado `app.js` e cole o texto a seguir:
 
 ```JavaScript
@@ -117,16 +127,13 @@ const
 Nesta seção de código:
 
 - Os módulos `restify` e `restify-plugins` são referenciados para configurar um servidor Restify.
-
-- Os módulos `passport` e `passport-azure-ad` são responsáveis pela comunicação com o AAD.
-
+- Os módulos `passport` e `passport-azure-ad` são responsáveis pela comunicação com o Azure AD.
 - A variável `config` é inicializada com valores do arquivo `config.js` criado na etapa anterior.
-
 - Uma matriz é criada para `authenticatedUserTokens` para armazenar os tokens de usuário conforme eles são passados para pontos de extremidade protegidos.
-
 - O `serverPort` é definido do arquivo de configuração ou da porta do ambiente de processo.
 
 ### <a name="step-2-instantiate-an-authentication-strategy"></a>Etapa 2: instanciar uma estratégia de autenticação
+
 Ao proteger um ponto de extremidade, você deve fornecer uma estratégia responsável por determinar se a solicitação atual se origina ou não de um usuário autenticado. Aqui a variável `authenticatonStrategy` é uma instância da classe `BearerStrategy` de `passport-azure-ad`. Adicione o código a seguir após as instruções `require`.
 
 ```JavaScript
@@ -145,6 +152,7 @@ const authenticationStrategy = new BearerStrategy(config.credentials, (token, do
     return done(null, currentUser, token);
 });
 ```
+
 Essa implementação usa o registro automático adicionando tokens de autenticação para a matriz `authenticatedUserTokens` se eles ainda não existem.
 
 Depois de criar uma nova instância da estratégia, você deve passá-la para o Passport por meio do método `use`. Adicione o código a seguir a `app.js` para usar a estratégia no Passport.
@@ -154,6 +162,7 @@ passport.use(authenticationStrategy);
 ```
 
 ### <a name="step-3-server-configuration"></a>Etapa 3: configuração do servidor
+
 Com a estratégia de autenticação definida, você pode configurar o servidor Restify com algumas configurações básicas e definido para usar o Passport para segurança.
 
 ```JavaScript
@@ -164,9 +173,9 @@ server.use(passport.session());
 ```
 Este servidor será inicializado e configurado para analisar os cabeçalhos de autorização e, em seguida, será definido para usar o Passport.
 
-
 ### <a name="step-4-define-routes"></a>Etapa 4: definir rotas
-Agora você pode definir rotas e decidir qual delas proteger com o AAD. Esse projeto inclui duas rotas em que o nível raiz é aberto e a rota `/api` é definida para exigir autenticação.
+
+Agora você pode definir rotas e decidir qual delas proteger com o Azure AD. Esse projeto inclui duas rotas em que o nível raiz é aberto e a rota `/api` é definida para exigir autenticação.
 
 Em `app.js`, adicione o código a seguir para a rota de nível raiz:
 
@@ -198,19 +207,19 @@ server.listen(serverPort);
 
 Agora que o servidor está implementado, você pode iniciar o servidor abrindo um prompt de comando e digitando:
 
-```Shell
+```shell
 npm start
 ```
 
 Com o servidor em execução, você pode enviar uma solicitação para o servidor para testar os resultados. Para demonstrar a resposta do roteiro raiz, abra um shell de busca e insira o código a seguir:
 
-```Shell 
+```shell
 curl -isS -X GET http://127.0.0.1:3000/
 ```
 
 Se você tiver configurado seu servidor corretamente, a resposta deverá ser semelhante a:
 
-```Shell
+```shell
 HTTP/1.1 200 OK
 Server: Azure Active Directroy with Node.js Demo
 Content-Type: application/json
@@ -223,13 +232,13 @@ Try: curl -isS -X GET http://127.0.0.1:3000/api
 
 Em seguida, você pode testar a rota que requer autenticação, inserindo o seguinte comando no shell de busca:
 
-```Shell 
+```shell
 curl -isS -X GET http://127.0.0.1:3000/api
 ```
 
 Se você tiver configurado o servidor corretamente, o servidor deverá responder com um status de `Unauthorized`.
 
-```Shell
+```shell
 HTTP/1.1 401 Unauthorized
 Server: Azure Active Directroy with Node.js Demo
 WWW-Authenticate: token is not found
@@ -239,10 +248,10 @@ Content-Length: 12
 
 Unauthorized
 ```
+
 Agora que você criou uma API segura, você pode implementar um cliente capaz de passar tokens de autenticação para a API.
 
 ## <a name="next-steps"></a>Próximas etapas
-Conforme mencionado na introdução, você deve implementar uma contraparte de cliente para se conectar ao servidor que manipula a entrada, a saída e o gerenciamento de tokens. Para exemplos de código, você pode se referir aos aplicativos cliente em [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) e [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). Para obter um tutorial passo a passo, consulte o seguinte artigo:
 
-> [!div class="nextstepaction"]
-> [Entrada e saída do aplicativo Web Node.js com o Azure AD](quickstart-v1-openid-connect-code.md)
+* Você deve implementar uma contraparte de cliente para se conectar ao servidor que manipula a entrada, a saída e o gerenciamento de tokens. Para exemplos de código, consulte os aplicativos cliente em [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) e [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android).
+* Para um tutorial passo a passo, veja [Entrada e saída do aplicativo Web Node.js com o Azure AD](quickstart-v1-openid-connect-code.md).
