@@ -1,27 +1,29 @@
 ---
-title: Visão geral do Gerenciamento de Custos do Azure | Microsoft Docs
-description: O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar o Azure e outros recursos de nuvem.
+title: Visão geral do Cloudyn no Azure | Microsoft Docs
+description: O Cloudyn é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar o Azure e outros recursos de nuvem.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: overview
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 05e53688e1350052fdbbc61451df8a51dc3349cd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f0eac454d6ac937fc3313e4c50f8872e320c7ca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162969"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985377"
 ---
-# <a name="what-is-azure-cost-management"></a>O que é o Gerenciamento de Custo do Azure?
+# <a name="what-is-cloudyn"></a>O que é o Cloudyn?
 
-O Gerenciamento de Custos do Azure licenciado pelo Cloudyn, uma subsidiária da Microsoft, permite acompanhar o uso da nuvem e as despesas de seus recursos do Azure e de outros provedores de nuvem, incluindo AWS e Google. Os relatórios do painel fáceis de entender ajudam com a alocação de custos e showbacks/estornos também. O Gerenciamento de Custo ajuda a otimizar seus gastos na nuvem identificando os recursos subutilizados que, posteriormente, você pode gerenciar e ajustar.
+O Cloudyn, uma subsidiária da Microsoft, permite acompanhar o uso da nuvem e as despesas de seus recursos do Azure e de outros provedores de nuvem, incluindo AWS e Google. Os relatórios do painel fáceis de entender ajudam com a alocação de custos e showbacks/estornos também. O Cloudyn ajuda a otimizar seus gastos na nuvem identificando os recursos subutilizados que, posteriormente, você pode gerenciar e ajustar.
 
-Para assistir a um vídeo de Introdução, consulte [Introdução ao Gerenciamento de Custos do Azure](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
+Para assistir a um vídeo de Introdução, consulte [Introdução ao Cloudyn do Azure](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
+
+O Gerenciamento de Custos do Azure oferece uma funcionalidade semelhante ao Cloudyn. O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos nativa do Azure. Ele ajuda a analisar custos, criar e gerenciar orçamentos, exportar dados e examinar recomendações e agir com base na otimização delas. Para obter mais informações, consulte [Gerenciamento de Custos do Azure](overview-cost-mgt.md).
 
 ## <a name="monitor-usage-and-spending"></a>Monitorar o uso e os gastos
 
@@ -29,12 +31,9 @@ O monitoramento do uso e dos gastos é extremamente importante para infraestrutu
 
 Os relatórios ajudam a monitorar os gastos para analisar e acompanhar o uso na nuvem, os custos e as tendências. Usando relatórios ao Longo do Tempo, você pode detectar anomalias que diferem das tendências normais. As ineficiências na implantação de nuvem são visíveis nos relatórios de otimização. Você também pode observar as ineficiências em relatórios de análise de custo.
 
-![Relatório de Custo ao Longo do Tempo](media\overview\cost-over-time-rpt.png)
-
-
 ## <a name="manage-costs"></a>Gerenciar os custos
 
-Os dados históricos podem ajudar a gerenciar os custos ao analisar o uso e os custos ao longo do tempo para identificar tendências. As tendências são então usadas para prever gastos futuros. O Gerenciamento de Custo também inclui relatórios de custos previstos úteis.
+Os dados históricos podem ajudar a gerenciar os custos ao analisar o uso e os custos ao longo do tempo para identificar tendências. As tendências são então usadas para prever gastos futuros. O Cloudyn também inclui relatórios de custos previstos úteis.
 
 A alocação de custos gerencia os custos analisando os custos de acordo com a política de marcação. Use marcações em suas contas personalizadas, recursos e entidades para refinar a alocação de custos. O Gerenciador de Categorias organiza as marcações para ajudar a fornecer mais governança. Além disso, use a alocação de custos para showback/estorno para mostrar a utilização de recursos e os custos associados para influenciar os comportamentos de consumo ou cobrar os clientes do locatário.
 
@@ -44,9 +43,7 @@ Os alertas ajudam a gerenciar os custos notificando-o automaticamente quando oco
 
 ## <a name="improve-efficiency"></a>Melhorar a eficiência
 
-Determine o uso ideal de VM e identifique as VMs ociosas ou remova VMs ociosas e os discos desanexados com o Gerenciamento de Custo. Usando as informações contidas nos relatórios de Ineficiência e Otimização de Dimensionamento, você pode criar um plano para reduzir ou remover as VMs ociosas. No entanto, atualmente não há suporte para relatórios de otimização em contas de parceiro ou assinaturas do CSP.
-
-![recomendações de dimensionamento](.\media\overview\sizing.png)
+Determine o uso ideal de VM e identifique as VMs ociosas ou remova VMs ociosas e os discos desanexados com o Cloudyn. Usando as informações contidas nos relatórios de Ineficiência e Otimização de Dimensionamento, você pode criar um plano para reduzir ou remover as VMs ociosas. No entanto, atualmente não há suporte para relatórios de otimização em contas de parceiro ou assinaturas do CSP.
 
 Se você provisionou instâncias Reservadas do AWS, melhore a utilização das instâncias reservadas com os relatórios de Otimização, em que é possível exibir as recomendações de compras, modificar reservas não utilizadas e planejar o provisionamento.
 
