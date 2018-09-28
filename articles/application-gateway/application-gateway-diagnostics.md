@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 256eac99feacc18a51e45c3f07cdceb7d687cacf
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 563194ea0b3e4bda2021c75c544d068f00d74ba7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293614"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963825"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integridade do back-end, logs de diagnóstico e métricas do Gateway de Aplicativo
 
@@ -36,7 +36,7 @@ O Gateway de Aplicativo fornece a capacidade de monitorar a integridade de membr
 O relatório de integridade do back-end reflete o resultado da investigação de integridade do Gateway de Aplicativo nas instâncias de back-end. Quando a investigação é bem-sucedida e o back-end pode receber tráfego, ele é considerado íntegro. Caso contrário, ele é considerado não íntegro.
 
 > [!IMPORTANT]
-> Se houver um NSG (grupo de segurança de rede) em uma sub-rede do Gateway do Aplicativo, abra os intervalos de porta 65503 a 65534 na sub-rede do Gateway de Aplicativo para o tráfego de entrada. Esse intervalo de portas é necessário para a comunicação da infraestrutura do Azure. Elas são protegidas (bloqueadas) por certificados do Azure. Sem os certificados apropriados, as entidades externas, incluindo os clientes desses gateways, não poderão iniciar nenhuma alteração nesses pontos de extremidade.
+> Se houver um NSG (grupo de segurança de rede) em uma sub-rede do Gateway do Aplicativo, abra os intervalos de porta 65503 a 65534 na sub-rede do Gateway de Aplicativo para o tráfego de entrada. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Elas são protegidas (bloqueadas) por certificados do Azure. Sem os certificados apropriados, as entidades externas, incluindo os clientes desses gateways, não poderão iniciar nenhuma alteração nesses pontos de extremidade.
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>Exibir a integridade do back-end por meio do portal
@@ -58,7 +58,7 @@ O seguinte código do PowerShell mostra como exibir a integridade do back-end us
 Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
-### <a name="view-back-end-health-through-azure-cli-20"></a>Exibir a integridade do back-end por meio da CLI 2.0 do Azure
+### <a name="view-back-end-health-through-azure-cli"></a>Exibir a integridade do back-end por meio da CLI do Azure
 
 ```azurecli
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
@@ -66,7 +66,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="results"></a>Resultados
 
-O seguinte trecho mostra um exemplo da resposta:
+O seguinte snippet mostra um exemplo da resposta:
 
 ```json
 {
@@ -311,6 +311,10 @@ Você também pode se conectar à sua conta de armazenamento e recuperar as entr
 > Se estiver familiarizado com o Visual Studio e os conceitos básicos de alteração de valores de constantes e variáveis em C#, você poderá usar as [ferramentas de conversor de log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
 > 
 > 
+
+#### <a name="analyzing-access-logs-through-goaccess"></a>Analisar logs de acesso por meio do GoAccess
+
+Publicamos um modelo do Resource Manager que instala e executa o popular analisador de logs [GoAccess](https://goaccess.io/) para logs de acesso do Gateway de Aplicativo. O GoAccess fornece valiosas estatísticas de tráfego HTTP, tais como visitantes exclusivos, arquivos solicitados, hosts, sistemas operacionais, navegadores, códigos de status HTTP e muito mais. Para obter mais detalhes, consulte o [arquivo Leiame na pasta de modelo do Resource Manager no GitHub](https://aka.ms/appgwgoaccessreadme).
 
 ## <a name="metrics"></a>Métricas
 

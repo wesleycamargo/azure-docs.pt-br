@@ -1,5 +1,6 @@
 ---
-title: Usando C#, integre o LUIS a um bot usando o SDK do Construtor de Bot - Serviços Cognitivos do Azure| Microsoft Docs
+title: Bot de LUIS com C# - Bot de aplicativo Web - SDK de Bot Framework 3.0
+titleSuffix: Azure Cognitive Services
 description: Usando C#, crie um bot de bate-papo integrado com reconhecimento vocal (LUIS). Este bot de bate-papo usa o domínio de HomeAutomation predefinido para implementar rapidamente uma solução de bot.
 services: cognitive-services
 author: diberry
@@ -7,18 +8,18 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: d0010ccf51fc688fa66e1be82c735ae38455509b
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2779c4109201cf40a8771f9e339d60680cb3ef31
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41929744"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950992"
 ---
-# <a name="web-app-bot-using-the-luis-template-for-c"></a>Bot do aplicativo Web que usa o modelo do LUIS para C#
+# <a name="luis-bot-in-c"></a>Bot de LUIS em C#
 
-Usando C#, crie um bot de bate-papo integrado com reconhecimento vocal (LUIS). Este bot de bate-papo usa o domínio de HomeAutomation predefinido para implementar rapidamente uma solução de bot. 
+Usando C#, crie um bot de bate-papo integrado com reconhecimento vocal (LUIS). Este bot de bate-papo usa o domínio de HomeAutomation predefinido para implementar rapidamente uma solução de bot. O bot é criado com o Bot Framework 3.x e o bot de aplicativo Web do Azure.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -46,7 +47,10 @@ Usando C#, crie um bot de bate-papo integrado com reconhecimento vocal (LUIS). E
 4. Em **Serviço de bot**, forneça as informações necessárias e clique em **Criar**. Isso cria e implanta o serviço de bot e o aplicativo LUIS no Azure. Se desejar usar a [preparação da fala](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), examine os [requisitos da região](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) antes de criar seu bot. 
     * Defina **Nome do aplicativo** como o nome do bot. O nome é usado como o subdomínio quando o bot é implantado na nuvem (por exemplo, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Selecione a assinatura, o [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), o plano do serviço de aplicativo e o [local](https://azure.microsoft.com/regions/).
-    * Selecione o modelo **Reconhecimento vocal (C#)** para o campo **Modelo de bot**.
+    * Para **Modelo de bot**, selecione:
+        * **SDK v3**
+        * **C#**
+        * **Reconhecimento vocal**
     * Selecione o **local do aplicativo LUIS**. Essa é a [região](luis-reference-regions.md) de criação na qual o aplicativo é criado.
     * Marque a caixa de seleção de confirmação para o aviso legal. Os termos do aviso legal estão abaixo da caixa de seleção.
 

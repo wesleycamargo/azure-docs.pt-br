@@ -1,6 +1,6 @@
 ---
 title: Configurar o Azure Key Vault para VMs do Linux | Microsoft Docs
-description: Como configurar o Key Vault para uso com uma máquina virtual do Azure Resource Manager com a CLI 2.0.
+description: Como configurar o Key Vault para uso com uma máquina virtual do Azure Resource Manager com a CLI do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-ms.openlocfilehash: eca03a221014aafe89f07842b5ba9cfed0176faf
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 04f47c0a4f6647ff0d45cc5dac40a677cc45563e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936502"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970253"
 ---
-# <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>Como configurar o Key Vault para máquinas virtuais com a CLI do Azure 2.0
+# <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Como configurar o Key Vault para máquinas virtuais com a CLI do Azure
 
-Na pilha do Azure Resource Manager, os segredos/certificados são modelados como recursos que são fornecidos pelo Key Vault. Para saber mais sobre o Cofre de Chaves do Azure, consulte [O que é o Cofre de Chaves do Azure?](../../key-vault/key-vault-whatis.md) Para que o Key Vault seja usado com VMs do Azure Resource Manager, a propriedade *EnabledForDeployment* no Key Vault deverá ser definida como true. Este artigo mostra como configurar o Key Vault para uso com VMs (máquinas virtuais) do Azure usando a CLI do Azure 2.0. 
+Na pilha do Azure Resource Manager, os segredos/certificados são modelados como recursos que são fornecidos pelo Key Vault. Para saber mais sobre o Cofre de Chaves do Azure, consulte [O que é o Cofre de Chaves do Azure?](../../key-vault/key-vault-whatis.md) Para que o Key Vault seja usado com VMs do Azure Resource Manager, a propriedade *EnabledForDeployment* no Key Vault deverá ser definida como true. Este artigo mostra como configurar o Key Vault para uso com VMs (máquinas virtuais) do Azure usando a CLI do Azure. 
 
-Para realizar essas etapas, é preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando o [logon az](/cli/azure/reference-index#az_login).
+Para realizar essas etapas, é preciso ter a [CLI do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index#az_login).
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chaves
 Crie um Key Vault e atribua a política de implantação com [az keyvault create](/cli/azure/keyvault#az_keyvault_create). O exemplo a seguir cria um Key Vault chamado `myKeyVault` no grupo de recursos `myResourceGroup`:

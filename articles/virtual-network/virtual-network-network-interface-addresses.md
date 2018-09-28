@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 7fe4fdbf6c6b3cbbd6d01ef5309699c3d3991d53
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3a74450ca8025f07b00dc18c9b81b147afa7439c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003807"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975291"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para um adaptador de rede do Azure
 
@@ -35,7 +35,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 - Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se estiver usando o Portal, abra https://portal.azure.com e faça logon com sua conta do Azure.
 - Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
-- Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
+- Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
 A conta que você realizou o logon, ou conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões de interface de rede](virtual-network-network-interface.md#permissions).
 
@@ -188,7 +188,7 @@ Cada adaptador de rede deve ter uma configuração de IP [primário](#primary) c
 Você pode atribuir um ou nenhum endereço [IPv6](#ipv6) privado a uma configuração de IP secundário de um adaptador de rede. O adaptador de rede não pode ter configurações de IP secundário. Não é possível adicionar uma configuração de IP com um endereço IPv6 usando o portal. Use o PowerShell ou a CLI para adicionar uma configuração de IP com um endereço IPv6 privado a um adaptador de rede existente. O adaptador de rede não pode ser conectado a uma VM existente.
 
 > [!NOTE]
-> Embora você possa criar uma interface de rede com um endereço IPv6 usando o portal, você não pode adicionar uma interface de rede existente para uma máquina virtual nova ou existente, usando o portal. Use o PowerShell ou a CLI 2.0 do Azure para criar um adaptador de rede com um endereço IPv6 privado, e depois anexá-lo ao criar uma máquina virtual. Não é possível anexar um adaptador de rede, com um endereço IPv6 privado atribuído a ele, a uma máquina virtual existente. Você não pode adicionar um endereço IPv6 privado a uma configuração de IP de qualquer adaptador de rede conectado a uma máquina virtual usando quaisquer ferramentas (portal, CLI ou PowerShell).
+> Embora você possa criar uma interface de rede com um endereço IPv6 usando o portal, você não pode adicionar uma interface de rede existente para uma máquina virtual nova ou existente, usando o portal. Use o PowerShell ou a CLI do Azure para criar uma interface de rede com um endereço IPv6 privado e, em seguida, conecte a interface de rede ao criar uma máquina virtual. Não é possível anexar um adaptador de rede, com um endereço IPv6 privado atribuído a ele, a uma máquina virtual existente. Você não pode adicionar um endereço IPv6 privado a uma configuração de IP de qualquer adaptador de rede conectado a uma máquina virtual usando quaisquer ferramentas (portal, CLI ou PowerShell).
 
 Não é possível atribuir um endereço IPv6 público a uma configuração de IP secundário.
 

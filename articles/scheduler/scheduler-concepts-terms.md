@@ -1,200 +1,323 @@
 ---
-title: Conceitos, termos e entidades do Agendador | Microsoft Docs
-description: Conceitos, terminologia e hierarquia de entidades do Agendador do Azure, incluindo trabalhos e coleções de trabalhos.  Fornece um exemplo completo de um trabalho agendado.
+title: Conceitos, termos e entidades – Agendador do Azure | Microsoft Docs
+description: Aprenda os conceitos, a terminologia e a hierarquia de entidades, incluindo trabalhos e coleções de trabalhos, no Agendador do Azure
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.suite: infrastructure-services
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: get-started-article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07b7cce4b026464ba34296b54c4ae90d6d2b1afa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418835"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981154"
 ---
-# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Conceitos, terminologia e hierarquia de entidades do Agendador
-## <a name="scheduler-entity-hierarchy"></a>Hierarquia de entidade do Agendador
-A tabela a seguir descreve os principais recursos expostos ou usados pela API do Agendador:
+# <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades do Agendador do Azure
 
-| Recurso | DESCRIÇÃO |
-| --- | --- |
-| **Coleção de trabalhos** |Uma coleção de trabalhos contém um grupo de trabalhos e mantém as configurações, cotas e limites que são compartilhados pelos trabalhos dentro da coleção. Uma coleção de trabalhos é criada por um proprietário de assinatura e agrupa os trabalhos com base em limites de uso ou aplicativo. Ele é restrito a uma região. Ele também permite a imposição de cotas para restringir o uso de todos os trabalhos na coleção. As cotas incluem MaxJobs e MaxRecurrence. |
-| **Trabalho** |Um trabalho define uma única ação recorrente com estratégias simples ou complexas para execução. As ações podem incluir solicitações HTTP, de fila de armazenamento, de barramento de serviço ou de tópico do barramento de serviço. |
-| **Histórico de trabalho** |Um histórico de trabalho representa os detalhes para a execução de um trabalho. Ele contém o êxito versus a falha, bem como os detalhes da resposta. |
+> [!IMPORTANT]
+> [Aplicativo Lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está sendo desativado. Para agendar trabalhos, [experimente o Aplicativo Lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-## <a name="scheduler-entity-management"></a>Gerenciamento de entidade do Agendador
-Em um alto nível, o Agendador e a API de gerenciamento do serviço expõem as seguintes operações nos recursos:
+## <a name="entity-hierarchy"></a>Hierarquia de entidades
 
-| Recurso | Descrição e endereço de URI |
-| --- | --- |
-| **Gerenciamento de coleção de trabalhos** |GET, PUT e DELETE dão suporte para criar e modificar as coleções e os trabalhos nelas contidos. Uma coleção de trabalhos é um contêiner para trabalhos, com o mapeamento para cotas e configurações compartilhadas. Os exemplos de cotas, descritos a seguir, são o número máximo de trabalhos e o menor intervalo de recorrência. <p>PUT e DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p> |
-| **Gerenciamento de trabalhos** |GET, PUT, POST, PATCH e DELETE dão suporte para criar e modificar trabalhos. Todos os trabalhos devem pertencer a uma coleção de trabalhos que já existe, para que não haja criação implícita. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p> |
-| **Gerenciamento de histórico de trabalho** |Suporte de GET para busca de 60 dias do histórico de execução do trabalho, tais como, tempo decorrido do trabalho e resultados de execução do trabalho. Adiciona suporte ao parâmetro de cadeia de caracteres consulta para filtrar com base no estado e status. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p> |
+A API REST do Agendador do Azure expõe e usa essas entidades principais, ou recursos:
+
+| Entidade | DESCRIÇÃO |
+|--------|-------------|
+| **Trabalho** | Define uma única ação recorrente com estratégias simples ou complexas para execução. As ações podem incluir solicitações HTTP, de fila de armazenamento, de fila de Barramento de Serviço ou de tópico do Barramento de Serviço. | 
+| **Coleção de trabalhos** | Contém um grupo de trabalhos e mantém as configurações, cotas e limites que são compartilhados pelos trabalhos na coleção. Como proprietário de uma assinatura do Azure, você pode criar coleções de trabalhos e trabalhos de grupo com base em limites de aplicativo ou uso. Uma coleção de trabalhos tem estes atributos: <p>– Restrita a uma região. <br>– Permite que você imponha cotas para que possa restringir o uso de todos os trabalhos em uma coleção. <br>– As cotas incluem MaxJobs e MaxRecurrence. | 
+| **Histórico de trabalho** | Descreve os detalhes para a execução de um trabalho, por exemplo, o status e os detalhes da resposta. |
+||| 
+
+## <a name="entity-management"></a>Gerenciamento de entidade
+
+Em um alto nível, a API REST do Agendador expõe essas operações para gerenciar as entidades.
+
+### <a name="job-management"></a>Gerenciamento de trabalhos
+
+Compatível com operações para criar e editar trabalhos. Todos os trabalhos devem pertencer a uma coleção de trabalhos existente, para que não haja criação implícita. Para obter mais informações, veja [API REST do Agendador – Trabalhos](https://docs.microsoft.com/rest/api/scheduler/jobs). Aqui está o endereço do URI para essas operações:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+
+### <a name="job-collection-management"></a>Gerenciamento de coleção de trabalhos
+
+Compatível com operações para criar e editar trabalhos e coleções de trabalhos, que são mapeados para cotas e configurações compartilhadas. Por exemplo, as cotas especificam o número máximo de trabalhos e o menor intervalo de recorrência. Para obter mais informações, veja [API REST do Agendador – Coleções de trabalhos](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Aqui está o endereço do URI para essas operações:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+
+### <a name="job-history-management"></a>Gerenciamento de histórico de trabalhos
+
+Compatível com a operação GET para buscar 60 dias de histórico de execução do trabalho, por exemplo, o tempo decorrido do trabalho e os resultados da execução do trabalho. Inclui o suporte ao parâmetro de cadeia de caracteres consulta para filtrar com base no estado e status. Para obter mais informações, veja [API REST do Agendador – Trabalhos – Histórico de trabalhos de lista](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Aqui está o endereço do URI para essa operação:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
 
 ## <a name="job-types"></a>Tipos de trabalho
-Existem vários tipos de trabalhos: trabalhos HTTP (incluindo trabalhos HTTPS que oferecem suporte a SSL), trabalhos de fila de armazenamento, trabalhos de fila do barramento de serviço e trabalhos de tópico do barramento de serviço. Trabalhos de HTTP são ideais se você tiver um ponto de extremidade de uma carga de trabalho ou serviço existente. Você pode usar os trabalhos de fila de armazenamento para postar mensagens em filas de armazenamento, portanto, esses trabalhos são ideais para cargas de trabalho que usam filas de armazenamento. Da mesma forma, os trabalhos de barramento de serviço são ideais para as cargas de trabalho que usam tópicos e filas do barramento de serviço.
 
-## <a name="the-job-entity-in-detail"></a>A entidade "trabalho" em detalhes
-Em um nível básico, um trabalho agendado tem várias partes:
+O Agendador do Azure é compatível com vários tipos de trabalho: 
 
-* A ação a ser executada quando o temporizador do trabalho é disparado  
-* (Opcional) O tempo para executar o trabalho  
-* (Opcional) Quando e com que frequência repetir o trabalho  
-* (Opcional) Uma ação a ser acionada, se a ação principal falhar  
+* Trabalhos HTTP, incluindo trabalhos HTTPS compatíveis com SSL, para quando você tem o ponto de extremidade para um serviço ou carga de trabalho existente
+* Trabalhos de fila de armazenamento para cargas de trabalho que usam filas de armazenamento, como o envio de mensagens para filas de armazenamento
+* Trabalhos de fila do Barramento de Serviço para cargas de trabalho que usam filas do Barramento de Serviço
+* Trabalhos de tópico do Barramento de Serviço para cargas de trabalho que usam tópicos do Barramento de Serviço
 
-Internamente, um trabalho agendado também contém dados fornecidos pelo sistema, como o próximo tempo de execução agendado.
+## <a name="job-definition"></a>Definição de trabalho
 
-O código a seguir fornece um exemplo completo de um trabalho agendado. Os detalhes são fornecidos nas seções seguintes.
+Em alto nível, um trabalho do Agendador tem essas partes básicas:
 
-    {
-        "startTime": "2012-08-04T00:00Z",               // optional
-        "action":
-        {
-            "type": "http",
-            "retryPolicy": { "retryType":"none" },
-            "request":
-            {
-                "uri": "http://contoso.com/foo",        // required
-                "method": "PUT",                        // required
-                "body": "Posting from a timer",         // optional
-                "headers":                              // optional
+* A ação executada quando o temporizador do trabalho é disparado
+* Opcional: o tempo para executar o trabalho
+* Opcional: quando e com que frequência repetir o trabalho
+* Opcional: uma ação de erro que é executada se a ação principal falha
 
-                {
-                    "Content-Type": "application/json"
-                },
-            },
-           "errorAction":
-           {
-               "type": "http",
-               "request":
-               {
-                   "uri": "http://contoso.com/notifyError",
-                   "method": "POST",
-               },
-           },
-        },
-        "recurrence":                                   // optional
-        {
-            "frequency": "week",                        // can be "year" "month" "day" "week" "minute"
-            "interval": 1,                              // optional, how often to fire (default to 1)
-            "schedule":                                 // optional (advanced scheduling specifics)
-            {
-                "weekDays": ["monday", "wednesday", "friday"],
-                "hours": [10, 22]
-            },
-            "count": 10,                                 // optional (default to recur infinitely)
-            "endTime": "2012-11-04",                     // optional (default to recur infinitely)
-        },
-        "state": "disabled",                           // enabled or disabled
-        "status":                                       // controlled by Scheduler service
-        {
-            "lastExecutionTime": "2007-03-01T13:00:00Z",
-            "nextExecutionTime": "2007-03-01T14:00:00Z ",
-            "executionCount": 3,
-                                                "failureCount": 0,
-                                                "faultedCount": 0
-        },
-    }
+O trabalho também inclui os dados fornecidos pelo sistema, como tempo de execução agendada do próximo do trabalho. A definição do código desse trabalho é um objeto no formato JSON (JavaScript Object Notation), que tem estes elementos:
 
-Como visto no trabalho agendado no exemplo acima, uma definição de trabalho tem várias partes:
+| Elemento | Obrigatório | DESCRIÇÃO | 
+|---------|----------|-------------| 
+| [**startTime**](#start-time) | Não  | A hora de início do trabalho com um deslocamento de fuso horário em [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) | 
+| [**action**](#action) | SIM | Os detalhes para a ação principal, que podem incluir um objeto **errorAction** | 
+| [**errorAction**](#error-action) | Não  | Os detalhes para a ação secundária que é executada se a ação principal falha |
+| [**recurrence**](#recurrence) | Não  | Os detalhes, como a frequência e o intervalo para um trabalho recorrente | 
+| [**retryPolicy**](#retry-policy) | Não  | Os detalhes de quantas vezes repetir uma ação | 
+| [**state**](#state) | SIM | Os detalhes do estado atual do trabalho |
+| [**Status**](#status) | SIM | Os detalhes do status atual do trabalho, que é controlado pelo serviço |
+||||
 
-* Hora de início ("startTime")  
-* Ação ("action"), que inclui a ação de erro ("errorAction")
-* Recorrência ("recurrence")  
-* Estado ("state")  
-* Status ("status")  
-* Política de novas tentativas ("retryPolicy")  
+Aqui está um exemplo que mostra uma definição de trabalho abrangente para uma ação HTTP com detalhes de elemento mais completos descritos nas seções posteriores: 
 
-Vamos examinar cada um em detalhes:
+```json
+"properties": {
+   "startTime": "2012-08-04T00:00Z",
+   "action": {
+      "type": "Http",
+      "request": {
+         "uri": "http://contoso.com/some-method", 
+         "method": "PUT",          
+         "body": "Posting from a timer",
+         "headers": {
+            "Content-Type": "application/json"
+         },
+         "retryPolicy": { 
+             "retryType": "None" 
+         },
+      },
+      "errorAction": {
+         "type": "Http",
+         "request": {
+            "uri": "http://contoso.com/notifyError",
+            "method": "POST"
+         }
+      }
+   },
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "weekDays": ["Monday", "Wednesday", "Friday"],
+         "hours": [10, 22]
+      },
+      "count": 10,
+      "endTime": "2012-11-04"
+   },
+   "state": "Disabled",
+   "status": {
+      "lastExecutionTime": "2007-03-01T13:00:00Z",
+      "nextExecutionTime": "2007-03-01T14:00:00Z ",
+      "executionCount": 3,
+      "failureCount": 0,
+      "faultedCount": 0
+   }
+}
+```
+
+<a name="start-time"></a>
 
 ## <a name="starttime"></a>startTime
-O "startTime" é a hora de início e permite que o chamador especifique um deslocamento de fuso horário na rede no [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-## <a name="action-and-erroraction"></a>action e errorAction
-A “ação” é a ação invocada em cada ocorrência e descreve um tipo de invocação de serviço. A ação é o que será executado na agenda fornecida. O agendador dá suporte a ações HTTP, de fila de armazenamento, de tópico do barramento de serviço e de fila do barramento de serviço.
+No objeto **startTime**, você pode especificar a hora de início e um deslocamento de fuso horário no [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-A ação no exemplo acima é uma ação de http. Abaixo está um exemplo de uma ação de fila de armazenamento:
+<a name="action"></a>
 
-    {
-            "type": "storageQueue",
-            "queueMessage":
-            {
-                "storageAccount": "myStorageAccount",  // required
-                "queueName": "myqueue",                // required
-                "sasToken": "TOKEN",                   // required
-                "message":                             // required
-                    "My message body",
-            },
+## <a name="action"></a>ação
+
+Seu trabalho do Agendador executa uma **action** primária com base no agendamento especificado. O Agendador é compatível com ações HTTP, de fila de armazenamento, de tópico do Barramento de Serviço e de fila do Barramento de Serviço. Se a **action** primária falha, o Agendador pode executar uma [**errorAction**](#errorAction) secundária que cuida do erro. O objeto **action** descreve estes elementos:
+
+* O tipo de serviço da ação
+* Os detalhes da ação
+* Uma **errorAction** alternativa
+
+O exemplo anterior descreve uma ação HTTP. Aqui está um exemplo de uma ação de fila de armazenamento:
+
+```json
+"action": {
+   "type": "storageQueue",
+   "queueMessage": {
+      "storageAccount": "myStorageAccount",  
+      "queueName": "myqueue",                
+      "sasToken": "TOKEN",                   
+      "message": "My message body"
     }
+}
+```
 
-A seguir, um exemplo de uma ação de tópico do barramento de serviço.
+Aqui está um exemplo de uma ação de fila do Barramento de Serviço:
 
-  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+```json
+"action": {
+   "type": "serviceBusQueue",
+   "serviceBusQueueMessage": {
+      "queueName": "q1",  
+      "namespace": "mySBNamespace",
+      "transportType": "netMessaging", // Either netMessaging or AMQP
+      "authentication": {  
+         "sasKeyName": "QPolicy",
+         "type": "sharedAccessKey"
+      },
+      "message": "Some message",  
+      "brokeredMessageProperties": {},
+      "customMessageProperties": {
+         "appname": "FromScheduler"
+      }
+   }
+},
+```
 
-A seguir, um exemplo de uma ação de fila do barramento de serviço:
+Aqui está um exemplo de uma ação de tópico do Barramento de Serviço:
 
-  "action": { "serviceBusQueueMessage": { "queueName": "q1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": {  
-        "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message",  
-      "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
+```json
+"action": {
+   "type": "serviceBusTopic",
+   "serviceBusTopicMessage": {
+      "topicPath": "t1",  
+      "namespace": "mySBNamespace",
+      "transportType": "netMessaging", // Either netMessaging or AMQP
+      "authentication": {
+         "sasKeyName": "QPolicy",
+         "type": "sharedAccessKey"
+      },
+      "message": "Some message",
+      "brokeredMessageProperties": {},
+      "customMessageProperties": {
+         "appname": "FromScheduler"
+      }
+   }
+},
+```
 
-"errorAction" é o manipulador de erro, a ação invocada quando ocorre falha na ação principal. Você pode usar essa variável para chamar um ponto de extremidade de tratamento de erros ou enviar uma notificação do usuário. Isso pode ser usado para atingir um ponto de extremidade secundário no caso em que o principal não está disponível (por exemplo, no caso de um desastre no site do ponto de extremidade) ou pode ser usado para notificar um ponto de extremidade de tratamento de erros. Assim como a ação principal, a ação de erro pode ser simples ou composta lógica com base em outras ações. Para saber como criar um token SAS, consulte [Criar e usar uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/jj721951.aspx).
+Para obter mais informações sobre os tokens de SAS (Assinatura de Acesso Compartilhado), consulte [Autorizar com Assinaturas de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+
+<a name="error-action"></a>
+
+## <a name="erroraction"></a>errorAction
+
+Se a **action** primária do trabalho falha, o Agendador pode executar um **errorAction** que cuida do erro. Na **action** primária, você pode especificar um objeto **errorAction** para que o Agendador possa chamar um ponto de extremidade de tratamento de erros ou enviar uma notificação de usuário. 
+
+Por exemplo, se ocorrer um desastre no ponto de extremidade primário, você poderá usar **errorAction** para chamar um ponto de extremidade secundário ou para notificar um ponto de extremidade de tratamento de erro. 
+
+Assim como **action** primária, você pode fazer com que a ação de erro use a lógica simples ou composta com base em outras ações. 
+
+<a name="recurrence"></a>
 
 ## <a name="recurrence"></a>recurrence
-A recorrência tem várias partes:
 
-* Frequência: uma por minuto, hora, dia, semana, mês, ano  
-* Intervalo: intervalo na frequência determinada para a recorrência  
-* Agenda prescrita: especificar minutos, horas, dias da semana, meses e dias do mês da recorrência  
-* Contagem: contagem de ocorrências  
-* Hora de término: nenhum trabalho será executado após a hora de término especificada  
+Um trabalho se repetirá se a definição do JSON do trabalho incluir o objeto **recurrence**, por exemplo:
 
-Um trabalho é recorrente se tiver um objeto recorrente especificado em sua definição JSON. Se count e endTime forem especificados, a regra de conclusão que ocorre primeiro será aplicada.
+```json
+"recurrence": {
+   "frequency": "Week",
+   "interval": 1,
+   "schedule": {
+      "hours": [10, 22],
+      "minutes": [0, 30],
+      "weekDays": ["Monday", "Wednesday", "Friday"]
+   },
+   "count": 10,
+   "endTime": "2012-11-04"
+},
+```
 
-## <a name="state"></a>state
-O estado do trabalho é um dos quatro valores: habilitado, desabilitado, concluído ou com falha. Você pode utilizar os recursos PUT ou PATCH nos trabalhos para atualizá-los para o estado habilitado ou desabilitado. Se um trabalho tiver sido concluído ou estiver com falha, este é um estado final que não pode ser atualizado (embora o trabalho possa ser excluído). A seguir está um exemplo da propriedade state:
+| Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
+|----------|----------|-------|-------------| 
+| **frequency** | Sim, quando **recurrence** é usado | "Minute", "Hour", "Day", "Week", "Month", "Year" | A unidade de tempo entre ocorrências | 
+| **interval** | Não  | 1 a 1000, inclusive | Um inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base em **frequency** | 
+| **schedule** | Não  | Varia | Os detalhes de agendamentos mais avançados e complexos. Veja **hours**, **minutes**, **weekDays**, **months** e **monthDays** | 
+| **horas** | Não  | 1 a 24 | Uma matriz com as marcas de hora para quando executar o trabalho | 
+| **minutos** | Não  | 1 a 24 | Uma matriz com as marcas de minutos para quando executar o trabalho | 
+| **months** | Não  | 1 a 12 | Uma matriz com os meses para quando executar o trabalho | 
+| **Dias do mês** | Não  | Varia | Uma matriz com os dias do mês para quando executar o trabalho | 
+| **Dias da semana** | Não  | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Uma matriz com os dias da semana para quando executar o trabalho | 
+| **count** | Não  | <*none*> | O número de recorrências. O padrão é repetir indefinidamente. Não é possível usar **count** e **endTime**, mas a regra que termina primeiro é respeitada. | 
+| **endTime** | Não  | <*none*> | A data e hora para quando interromper a recorrência. O padrão é repetir indefinidamente. Não é possível usar **count** e **endTime**, mas a regra que termina primeiro é respeitada. | 
+||||
 
-        "state": "disabled", // enabled, disabled, completed, or faulted
-Trabalhos concluídos e com falha são excluídos após 60 dias.
+Para obter mais informações sobre esses elementos, consulte [Criar agendamentos complexos e recorrências avançadas](../scheduler/scheduler-advanced-complexity.md).
 
-## <a name="status"></a>status
-Após o início de um trabalho do Agendador,  informações sobre o status atual do trabalho serão retornadas. Esse objeto não é configurável pelo usuário – ele é definido pelo sistema. No entanto, ele está incluído no objeto de trabalho (em vez de um recurso vinculado separado) para que qualquer um possa obter facilmente o status de um trabalho.
-
-O status do trabalho inclui o tempo de execução anterior (se houver), a hora da próxima execução agendada (para trabalhos em andamento) e a contagem de execução do trabalho.
+<a name="retry-policy"></a>
 
 ## <a name="retrypolicy"></a>retryPolicy
-Se um trabalho do Agendador falhar, é possível especificar uma política de repetição para determinar se e como a ação é repetida. Isso é determinado pelo objeto **retryType** – será definido como **nenhum** se não houver nenhuma política de repetição, conforme mostrado acima. Defina-o como **fixo** se houver uma política de repetição.
 
-Para definir uma política de nova tentativa, configurações adicionais de dois valores podem ser especificadas: um intervalo de nova tentativa (**retryInterval**) e o número de tentativas (**retryCount**).
+Para o caso quando um trabalho do Agendador falhar, você pode configurar uma política de repetição, que determina se e como o Agendador repete a ação. Por padrão, o Agendador tenta o trabalho novamente mais quatro vezes, em intervalos de 30 segundos. Você pode fazer com que essa política seja mais ou menos agressiva, por exemplo, essa política tentar novamente uma ação duas vezes por dia:
 
-Intervalo de nova tentativa, especificado com o objeto **retryInterval** , que é o intervalo entre as tentativas. O valor padrão é de 30 segundos, seu valor configurável mínimo é de 15 segundos e o valor máximo é de 18 meses. Ele é definido no formato ISO 8601. Da mesma forma, o valor do número de tentativas é especificado com o objeto **retryCount** ; esse é o número de vezes que uma nova tentativa será feita. O valor padrão é 4 e o valor máximo é 20\. Ambos **retryInterval** e **retryCount** são opcionais. Eles receberão seus valores padrão se **retryType** for definido como **fixo** e nenhum valor for especificado explicitamente.
+```json
+"retryPolicy": { 
+   "retryType": "Fixed",
+   "retryInterval": "PT1D",
+   "retryCount": 2
+},
+```
+
+| Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
+|----------|----------|-------|-------------| 
+| **retryType** | SIM | **Fixed**, **None** | Determina se você especifica uma política de repetição (**fixed**) ou não (**none**). | 
+| **retryInterval** | Não  | PT30S | Especifica o intervalo e a frequência entre as tentativas de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O valor mínimo é 15 segundos, enquanto o valor máximo é 18 meses. | 
+| **retryCount** | Não  | 4 | Especifica o número de tentativas de repetição. O valor máximo é 20. | 
+||||
+
+Para obter mais informações, consulte [Alta disponibilidade e confiabilidade](../scheduler/scheduler-high-availability-reliability.md).
+
+<a name="status"></a>
+
+## <a name="state"></a>state
+
+O estado de um trabalho é **Enabled**, **Disabled**, **Completed** ou **Faulted**, por exemplo: 
+
+`"state": "Disabled"`
+
+Para alterar os trabalhos para o estado **Enabled** ou **Disabled**, você pode usar a operação PUT ou PATCH nesses trabalhos.
+No entanto, se um trabalho tiver o estado **Completed** ou **Faulted**, não será possível atualizar o estado, embora você possa executar a operação DELETE no trabalho. O Agendador exclui os trabalhos concluídos ou com falha após 60 dias. 
+
+<a name="status"></a>
+
+## <a name="status"></a>status
+
+Depois que um trabalho é iniciado, o Agendador retorna informações sobre o status do trabalho por meio do objeto **status**, que apenas o Agendador controla. No entanto, você pode encontrar o objeto **status** dentro do objeto **job**. Aqui estão as informações que o status do trabalho incluem:
+
+* Hora da execução anterior, se houver
+* Hora da próxima execução agendada para trabalhos em andamento
+* O número de execuções de trabalho
+* O número de falhas, se houver
+* O número de falhas, se houver
+
+Por exemplo: 
+
+```json
+"status": {
+   "lastExecutionTime": "2007-03-01T13:00:00Z",
+   "nextExecutionTime": "2007-03-01T14:00:00Z ",
+   "executionCount": 3,
+   "failureCount": 0,
+   "faultedCount": 0
+}
+```
 
 ## <a name="see-also"></a>Consulte também
- [O que é o Agendador?](scheduler-intro.md)
 
- [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
-
- [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
-
- [Como criar agendas complexas e recorrência avançada com o Agendador do Azure](scheduler-advanced-complexity.md)
-
- [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
-
- [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
-
- [Alta disponibilidade e confiabilidade do Agendador do Azure](scheduler-high-availability-reliability.md)
-
- [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
-
- [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
-
+* [O que é o Agendador do Azure?](scheduler-intro.md)
+* [Conceitos, terminologia e hierarquia de entidades](scheduler-concepts-terms.md)
+* [Criar agendamentos complexos e recorrência avançada](scheduler-advanced-complexity.md)
+* [Limites, cotas, valores padrão e códigos de erro](scheduler-limits-defaults-errors.md)
+* [Referência da API REST do Agendador do Azure](https://docs.microsoft.com/rest/api/schedule)
+* [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)

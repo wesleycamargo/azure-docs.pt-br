@@ -1,6 +1,6 @@
 ---
-title: Exemplos da CLI do Azure 2.0 – Anexar e usar discos de dados | Microsoft Docs
-description: Exemplos da CLI do Azure 2.0
+title: Exemplos da CLI do Azure – Anexar e usar discos de dados | Microsoft Docs
+description: Exemplos de CLI do Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 63811e01145999077506914ab646576eeb511116
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4dd87cf705d17700bf4903dcbc5e08aaf309a810
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308064"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956842"
 ---
-# <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Anexar e usar discos de dados com um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure 2.0
+# <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Anexar e usar discos de dados com um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Esse script cria um conjunto de dimensionamento de máquinas virtuais e anexa e prepara os discos de dados.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -52,6 +52,6 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um conjunt
 | [az group delete](/cli/azure/ad/group#delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre a CLI do Azure 2.0, consulte a [documentação da CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/overview).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Outros exemplos de script da CLI do Azure 2.0 de conjunto de dimensionamento de máquinas virtuais podem ser encontrados na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../cli-samples.md).
+Outros exemplos de script da CLI do Azure de conjunto de dimensionamento de máquinas virtuais podem ser encontrados na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../cli-samples.md).

@@ -11,14 +11,18 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 5a772f8792c02139e45977e207b5be4bebc63a9c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4a2dff4dd57bdb0b010bbb4568d796f1e197a728
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906322"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971494"
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Como manter alterações e trabalhar com arquivos grandes
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Com o serviço de Experimentação do Azure Machine Learning, é possível configurar uma variedade de destinos de execução. Alguns destinos são locais, como um computador local ou um contêiner do Docker em um computador local. Outros são remotos, como um contêiner do Docker em um computador remoto ou um cluster HDInsight. Para saber mais, consulte [Visão geral do serviço de execução de experimento do Microsoft Azure Machine Learning](experimentation-service-configuration.md). 
 
 Para poder executar em um destino, será necessário copiar a pasta do projeto para o destino de computação. Isso será necessário mesmo com uma execução local que usa uma pasta temporária local para essa finalidade. 
@@ -48,6 +52,9 @@ Estes são alguns casos de uso comuns:
 * Treinando um modelo
 * Como criar um conjunto de dados
 * Como plotar um grafo como um arquivo de imagem como parte de sua execução do treinamento do modelo 
+
+>[!Note]
+> O tamanho máximo do arquivo rastreado na pasta de saídas após uma execução é de 512 MB. Isso significa que se seu script gerar um arquivo maior do que 512 MB na pasta de saída, ele não será coletado nela. 
 
 Além disso, é recomendável comparar as saídas das execuções, selecionar um arquivo de saída (como um modelo) produzido por uma execução anterior e usá-lo para uma tarefa subsequente (como pontuação).
 

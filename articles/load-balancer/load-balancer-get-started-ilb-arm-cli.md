@@ -1,6 +1,6 @@
 ---
-title: Criar um Load Balancer Básico - CLI do Azure 2.0 | Microsoft Docs
-description: Saiba como criar um balanceador de carga interno usando a CLI do Azure 2.0
+title: Criar um balanceador de carga básico interno - CLI do Azure | Microsoft Docs
+description: Saiba como criar um balanceador de carga interno usando a CLI do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: bd4dda835279a21509f77814f4d5f9e30e8a42c1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7e556d3900d257410050e37b714d2005675e185d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439191"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967703"
 ---
-# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Criar um balanceador de carga interno para balancear cargas de VMs usando a CLI do Azure 2.0
+# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Criar um balanceador de carga interno para balancear a carga de VMs usando a CLI do Azure
 
 Este artigo mostra como criar um balanceador de carga interno para balancear cargas de VMs. Para testar o balanceador de carga, implante duas máquinas virtuais (VMs) executando o servidor do Ubuntu a fim de balancear a carga de um aplicativo Web.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

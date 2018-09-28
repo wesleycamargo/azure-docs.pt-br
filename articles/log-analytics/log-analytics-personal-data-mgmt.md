@@ -15,16 +15,19 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 3692c83a4991fc67ec176687bd076ab14e4c640d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 9ea004a35f739a8c4f7ee1ed320bd6657ed4e820
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129363"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957907"
 ---
-# <a name="guidance-for-personal-data-stored-in-log-analytics"></a>Diretrizes para dados pessoais armazenados no Log Analytics
+# <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Diretrizes para dados pessoais armazenados no Log Analytics e no Application Insights
 
-O Log Analytics é um armazenamento de dados no qual é possível localizar dados pessoais. Este artigo abordará onde, no Log Analytics, esses dados normalmente estão localizado, bem como os recursos disponíveis para tratar os dados.
+O Log Analytics é um armazenamento de dados no qual é possível localizar dados pessoais. O Application Insights armazena seus dados em uma partição do Log Analytics. Este artigo abordará onde, no Log Analytics e no Application Insights, esses dados normalmente estão localizados, bem como os recursos disponíveis para tratar os dados.
+
+> [!NOTE]
+> Para os fins deste artigo, _dados de log_ referem-se aos dados enviados para um espaço de trabalho do Log Analytics, enquanto _dados de aplicativo_ referem-se aos dados coletados pelo Application Insights.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -39,6 +42,8 @@ Enquanto couber a você e à sua empresa determinar qual estratégia será adota
 ## <a name="where-to-look-for-private-data-in-log-analytics"></a>Onde pesquisa dados privados no Log Analytics?
 
 O Log Analytics é um armazenamento flexível que, enquanto prescreve um esquema aos dados, permite substituir todos os campos por valores personalizados. Além disso, qualquer esquema personalizado pode ser processado. Assim sendo, é impossível dizer exatamente onde os dados privados estarão localizados no espaço de trabalho específico. No entanto, os locais a seguir são bons pontos iniciais no inventário:
+
+### <a name="log-data"></a>Dados de log
 
 * *Endereços IP*: O Log Analytics coleta uma variedade de informações de IP em muitas tabelas diferentes. Por exemplo, a consulta a seguir mostra todas as tabelas nas quais os endereços IPv4 foram coletados nas últimas 24 horas:
     ```
@@ -55,15 +60,34 @@ Lembre-se de procurar não apenas nomes de usuários legíveis, mas também GUID
 * *Dados personalizados*: o Log Analytics permite a coleção em uma variedade de métodos: logs personalizados e campos personalizados, a [API do coletor de dados HTTP](log-analytics-data-collector-api.md) e dados personalizados coletados como parte dos logs de eventos do sistema. Todos são suscetíveis a conter dados privados e devem ser examinados para verificar se esses dados existem.
 * *Dados capturados pela solução*: como o mecanismo da solução é aberto, é recomendável revisar todas as tabelas geradas pelas soluções para garantir a conformidade.
 
+### <a name="application-data"></a>Dados do aplicativo
+
+* *Endereços IP*: enquanto o Application Insights ofuscará, por padrão, todos os campos de endereço IP para "0.0.0.0", é um padrão bastante comum substituir esse valor pelo IP do usuário atual para manter as informações de sessão. A consulta de análise abaixo pode ser usada para encontrar qualquer tabela que contém os valores na coluna de endereço IP diferentes de "0.0.0.0" nas últimas 24 horas:
+    ```
+    search client_IP != "0.0.0.0"
+    | where timestamp > ago(1d)
+    | summarize numNonObfuscatedIPs_24h = count() by $table
+    ```
+* *IDs de usuário*: por padrão, o Application Insights usará IDs geradas aleatoriamente para acompanhamento de usuário e de sessão. No entanto, é comum substituir esses campos para armazenar uma ID mais relevante para o aplicativo. Por exemplo: nomes de usuário, GUIDs do AAD etc. Essas IDs são geralmente consideradas no escopo como dados pessoais e, portanto, devem ser tratado apropriadamente. Nossa recomendação é sempre tentar ofuscar essas IDs ou torná-las anônimas. Os campos em que esses valores são geralmente encontrados incluem session_Id, user_Id, user_AuthenticatedId, user_AccountId, bem como customDimensions.
+* *Dados personalizados*: o Application Insights permite acrescentar um conjunto de dimensões personalizadas para qualquer tipo de dados. Essas dimensões podem ser *quaisquer* dados. Use a consulta a seguir para identificar quaisquer dimensões personalizadas coletadas nas últimas 24 horas:
+    ```
+    search * 
+    | where isnotempty(customDimensions)
+    | where timestamp > ago(1d)
+    | project $table, timestamp, name, customDimensions 
+    ```
+* *Dados na memória e em trânsito*: o Application Insights acompanhará solicitações, exceções, chamadas de dependência e rastreamentos. Dados privados podem frequentemente ser coletados no código e no nível de chamada HTTP. Examine as exceções, solicitações, dependências e tabelas de rastreamento para identificar quaisquer dados desse tipo. Use [inicializadores de telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) sempre que possível para ofuscar esses dados.
+* *Capturas do Depurador de Instantâneos*: o recurso [Depurador de Instantâneos](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) do Application Insights permite coletar instantâneos de depuração, sempre que uma exceção é detectada na instância de produção do seu aplicativo. Instantâneos vão expor o rastreamento de pilha completo levando às exceções, bem como os valores de variáveis locais em cada etapa na pilha. Infelizmente, esse recurso não permite a exclusão seletiva de pontos de alinhamento, nem o acesso programático aos dados no instantâneo. Portanto, se a taxa de retenção de instantâneo padrão não atende a seus requisitos de conformidade, a recomendação é desativar o recurso.
+
 ## <a name="how-to-export-and-delete-private-data"></a>Como exportar e excluir dados privados
 
-Conforme mencionado na seção [Estratégia para tratamento de dados pessoais](#strategy-for-personal-data-handling) anterior, é __altamente__ recomendável, se possível, reestruturar a política de coleta de dados para desabilitar a coleta de dados privados, ofuscando ou anonimizando-os, ou modificando-os de alguma outra forma, para evitar que sejam considerados "privados". O tratamento dos dados resultará, principalmente, em custos para você e sua equipe para definir e automatizar uma estratégia, compilar uma interface para seus clientes interagirem com os dados, e custos de manutenção contínuos. Além disso, é computacionalmente oneroso para o Log Analytics, e um grande volume de consultas simultâneas ou chamadas de API de limpeza têm o potencial de impactar negativamente todas as outras interações com a funcionalidade do Log Analytics. Dito isso, há de fato alguns cenários válidos em que dados privados devem ser coletados. Para esses casos, os dados devem ser tratados conforme descrito nesta seção.
+Conforme mencionado na seção [Estratégia para tratamento de dados pessoais](#strategy-for-personal-data-handling) anterior, é __altamente__ recomendável, se possível, reestruturar a política de coleta de dados para desabilitar a coleta de dados privados, ofuscando ou anonimizando-os, ou modificando-os de alguma outra forma, para evitar que sejam considerados "privados". O tratamento dos dados resultará, principalmente, em custos para você e sua equipe para definir e automatizar uma estratégia, compilar uma interface para seus clientes interagirem com os dados, e custos de manutenção contínuos. Além disso, é computacionalmente exigente para o Log Analytics e o Application Insights, e um grande volume de consultas simultâneas ou chamadas de API de limpeza têm o potencial de impactar negativamente todas as outras interações com a funcionalidade do Log Analytics. Dito isso, há de fato alguns cenários válidos em que dados privados devem ser coletados. Para esses casos, os dados devem ser tratados conforme descrito nesta seção.
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="view-and-export"></a>Exibir e exportar
 
-Para solicitações de visualização e exportação de dados, poderá ser usada uma [API de consulta](https://dev.loganalytics.io/). A lógica para converter a forma dos dados em uma forma apropriada para entregar aos usuários será de sua responsabilidade. [Azure Functions](https://azure.microsoft.com/services/functions/) é um ótimo local para hospedar essa lógica.
+Para exibir e exportar solicitações de dados, a [API de consulta do Log Analytics](https://dev.loganalytics.io/) ou a [API de consulta do Application Insights](https://dev.applicationinsights.io/quickstart) devem ser usadas. A lógica para converter a forma dos dados em uma forma apropriada para entregar aos usuários será de sua responsabilidade. [Azure Functions](https://azure.microsoft.com/services/functions/) é um ótimo local para hospedar essa lógica.
 
 ### <a name="delete"></a>Excluir
 
@@ -76,6 +100,8 @@ A limpeza é uma operação altamente privilegiada que nenhum aplicativo ou usu�
 
 Depois que a função do Azure Resource Manager for atribuída, dois novos caminhos de API estarão disponíveis: 
 
+#### <a name="log-data"></a>Dados de log
+
 * [Limpeza POST] (https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - obtém um objeto especificando parâmetros de dados para excluir e retorna um GUID de referência 
 * Status de limpeza GET – a chamada de limpeza POST retornará um cabeçalho 'x-ms-status-location' que incluirá uma URL que você poderá chamar para determinar o status da API de limpeza. Por exemplo: 
 
@@ -83,7 +109,21 @@ Depois que a função do Azure Resource Manager for atribuída, dois novos camin
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
 
-Embora esperemos que a grande maioria das operações de limpeza seja concluída muito mais rapidamente do que o SLA, devido ao grande impacto na plataforma de dados usada pelo Log Analytics, o SLA formal para a conclusão das operações de limpeza é definido em 30 dias. 
+> [!IMPORTANT]
+>  Embora esperemos que a grande maioria das operações de limpeza seja concluída muito mais rapidamente do que o SLA, devido ao grande impacto na plataforma de dados usada pelo Log Analytics, **o SLA formal para a conclusão das operações de limpeza é definido em 30 dias**. 
+
+#### <a name="application-data"></a>Dados do aplicativo
+
+* [Limpeza POST](https://docs.microsoft.com/rest/api/application-insights/components/purge) – obtém um objeto especificando parâmetros de dados para excluir e retorna um GUID de referência
+* Status de limpeza GET – a chamada de limpeza POST retornará um cabeçalho 'x-ms-status-location' que incluirá uma URL que você poderá chamar para determinar o status da API de limpeza. Por exemplo: 
+
+   ```
+   x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
+   ```
+
+> [!IMPORTANT]
+>  Embora a grande maioria das operações de limpeza possa ser concluída muito mais rapidamente do que o SLA, devido a seu grande impacto na plataforma de dados usada pelo Application Insights,  **o SLA formal para a conclusão das operações de limpeza é definido como 30 dias**.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como os dados são coletados, processados e protegidos, consulte [Segurança de dados do Log Analytics](log-analytics-data-security.md).
+- Para saber mais sobre como os dados do Log Analytcs são coletados, processados e protegidos, veja [Segurança de dados do Log Analytics](log-analytics-data-security.md).
+- Para saber mais sobre como os dados do Application Insights são coletados, processados e protegidos, confira [Segurança de dados do Application Insights](../application-insights/app-insights-data-retention-privacy.md).

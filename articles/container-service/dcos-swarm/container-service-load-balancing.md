@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 7e71b279d6681696b8666846cfbd27007f464679
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 8e8ad913c6e5b8e947b17ed8920285de3fcfd8ae
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37864852"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964353"
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Balancear a carga de contêineres em um cluster do Serviço de Contêiner do Azure DC/OS
 
@@ -27,7 +27,7 @@ Neste artigo, exploramos como criar um balanceador de carga interno em um Servi�
 
 É necessário um cluster de DC/SO do ACS para concluir as etapas neste tutorial. Se necessário, [este exemplo de script](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) pode criar um para você.
 
-Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se precisar de uma atualização, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

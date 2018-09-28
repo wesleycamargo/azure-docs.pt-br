@@ -1,6 +1,6 @@
 ---
-title: Usando a CLI 1.0 do Azure com o Armazenamento do Azure | Microsoft Docs
-description: Saiba como usar a CLI (Interface de Linha de Comando) 1.0 do Azure com o Armazenamento do Azure para criar e gerenciar contas de armazenamento, bem como trabalhar com blobs e arquivos do Azure. A CLI do Azure é uma ferramenta de plataforma cruzada
+title: Usar a CLI clássica do Azure com Armazenamento do Microsoft Azure | Microsoft Docs
+description: Saiba como usar a CLI (Interface de Linha de Comando) clássica do Azure com o Armazenamento do Microsoft Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure.
 services: storage
 author: seguler
 ms.service: storage
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: f406f12b3313670e8e2d89296f7c24478bb58c6c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e563c7000b600bed917f42d8ffb87df883564ef8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521499"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979321"
 ---
-# <a name="using-the-azure-cli-10-with-azure-storage"></a>Usando a CLI 1.0 do Azure com o Armazenamento do Azure
+# <a name="using-the-azure-classic-cli-with-azure-storage"></a>Usar a CLI clássica do Azure com o Armazenamento do Microsoft Azure
 
 ## <a name="overview"></a>Visão geral
 
-A CLI do Azure fornece um conjunto de comandos entre plataformas de software livre para trabalhar com a Plataforma Azure. Ela fornece grande parte das mesmas funcionalidades encontradas no [Portal do Azure](https://portal.azure.com) , bem como funcionalidades avançadas de acesso a dados.
+A CLI clássica do Azure fornece um conjunto de comandos de plataforma cruzada, de software livre, para trabalhar com a Plataforma do Azure. Ela fornece grande parte das mesmas funcionalidades encontradas no [Portal do Azure](https://portal.azure.com) , bem como funcionalidades avançadas de acesso a dados.
 
-Neste guia, exploraremos como usar a [CLI (Interface de Linha de Comando) do Azure](../../cli-install-nodejs.md) para executar uma variedade de tarefas de administração e desenvolvimento com o Armazenamento do Azure. É recomendável baixar e instalar ou atualizar para a CLI mais recente do Azure antes usar este guia.
+Neste guia, exploraremos como usar a [CLI clássica do Azure](../../cli-install-nodejs.md) para executar várias tarefas de desenvolvimento e administração com Armazenamento do Microsoft Azure. É recomendável que você baixe e instale ou atualize para a CLI clássica mais recente, antes de usar este guia.
 
-Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure. Este guia fornece vários scripts que demonstram o uso da CLI do Azure com o Armazenamento do Azure. Não se esqueça de atualizar as variáveis de script com base na sua configuração antes de executar cada script.
+Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure. O guia fornece vários scripts para demonstrar o uso da CLI clássica com o Armazenamento do Microsoft Azure. Não se esqueça de atualizar as variáveis de script com base na sua configuração antes de executar cada script.
 
 > [!NOTE]
-> O guia fornece exemplos de comando e scripts da CLI do Azure para contas de armazenamento clássico. Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) para ver comandos da CLI do Azure para contas de armazenamento do Resource Manager.
+> O guia fornece o comando de CLI clássica do Azure e exemplos de script para contas de armazenamento clássicas. Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recurso do Azure](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) para comandos de CLI clássica do Azure para contas de armazenamento do Gerenciador de Recursos.
 >
 >
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>Introdução ao Armazenamento do Azure e à CLI do Azure em 5 minutos
+## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>Introdução ao Armazenamento do Microsoft Azure e à CLI clássica do Azure em 5 minutos
 Nos exemplos deste guia, usamos o Ubuntu, mas outras plataformas de sistema operacional devem funcionar de forma semelhante.
 
 **Novo no Azure:** obtenha uma assinatura do Microsoft Azure e uma conta da Microsoft associada a essa assinatura. Para saber mais sobre as opções de compra do Azure, confira [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opções de compra](https://azure.microsoft.com/pricing/purchase-options/) e [Ofertas para membros](https://azure.microsoft.com/pricing/member-offers/) (para membros do MSDN, Microsoft Partner Network e BizSpark, entre outros programas da Microsoft).
@@ -41,12 +41,12 @@ Consulte [Atribuindo funções de administrador no Azure AD (Azure Active Direct
 
 **Depois de criar uma assinatura e conta do Microsoft Azure:**
 
-1. Baixe e instale a CLI do Azure seguindo as instruções descritas em [Instalar a CLI do Azure](../../cli-install-nodejs.md).
-2. Quando a CLI do Azure estiver instalada, você poderá usar o comando azure na sua interface de linha de comando (Bash, Terminal, Prompt de comando) para acessar os comandos da CLI do Azure. Digite o comando _azure_ e você deverá ver a saída a seguir.
+1. Baixe e instale a CLI Clássica do Azure seguindo as instruções descritas em [Instalar a CLI clássica do Azure](../../cli-install-nodejs.md).
+2. Depois que a CLI clássica for instalada, você poderá usar o comando azure a partir da interface de linha de comando (Bash, Terminal, Prompt de comando) para acessar os comandos da CLI clássica. Digite o comando _azure_ e você deverá ver a saída a seguir.
 
     ![Saída de comando do Azure](./media/storage-azure-cli/azure_command.png)   
-3. Na interface de linha de comando, digite `azure storage` para listar todos os comandos de armazenamento do Azure e obter uma primeira impressão das funcionalidades fornecidas pela CLI do Azure. Você pode digitar o nome do comando com o parâmetro **-h** (por exemplo, `azure storage share create -h`) para ver os detalhes da sintaxe do comando.
-4. Agora, você terá um script simples que mostra os comandos básicos da CLI do Azure para acessar o Armazenamento do Azure. Primeiramente, o script solicitará que você defina duas variáveis para sua conta e chave de armazenamento. Em seguida, o script criará um novo contêiner nessa nova conta de armazenamento e carregará um arquivo de imagem existente (blob) nesse contêiner. Depois que o script listar todos os blobs nesse contêiner, ele baixará o arquivo de imagem no diretório de destino, que existe no computador local.
+3. Na interface de linha de comando, digite `azure storage` para listar todos os comandos de armazenamento do azure e obter uma primeira impressão das funcionalidades que a CLI clássica fornece. Você pode digitar o nome do comando com o parâmetro **-h** (por exemplo, `azure storage share create -h`) para ver os detalhes da sintaxe do comando.
+4. Agora, forneceremos um script simples que mostra os comandos básicos da CLI clássica para acessar o Armazenamento do Microsoft Azure. Primeiramente, o script solicitará que você defina duas variáveis para sua conta e chave de armazenamento. Em seguida, o script criará um novo contêiner nessa nova conta de armazenamento e carregará um arquivo de imagem existente (blob) nesse contêiner. Depois que o script listar todos os blobs nesse contêiner, ele baixará o arquivo de imagem no diretório de destino, que existe no computador local.
 
     ```azurecli
     #!/bin/bash
@@ -88,9 +88,9 @@ Consulte [Atribuindo funções de administrador no Azure AD (Azure Active Direct
 
 Depois que o script é executado, você deve ter uma pasta de destino que inclui o arquivo de imagem baixada.
 
-## <a name="manage-storage-accounts-with-the-azure-cli"></a>Gerenciar contas de armazenamento com a CLI do Azure
+## <a name="manage-storage-accounts-with-the-azure-classic-cli"></a>Gerenciar contas de armazenamento com a CLI clássica do Azure
 ### <a name="connect-to-your-azure-subscription"></a>Conecte-se à sua assinatura do Azure
-Embora a maioria dos comandos de armazenamento funcione sem uma assinatura do Azure, é recomendável se conectar à sua assinatura na CLI do Azure. Para configurar a CLI do Azure para trabalhar com sua assinatura, siga as etapas em [Conectar uma assinatura do Azure da CLI do Azure](/cli/azure/authenticate-azure-cli).
+Embora a maioria dos comandos de armazenamento funcionem sem uma assinatura do Azure, é recomendável conectar-se à sua assinatura na CLI clássica.
 
 ### <a name="create-a-new-storage-account"></a>Criar uma nova conta de armazenamento
 Você precisa de uma conta de armazenamento para usar o Armazenamento do Azure. Depois de configurar seu computador para se conectar à sua assinatura, você pode criar uma nova conta de Armazenamento do Azure.
@@ -102,7 +102,7 @@ azure storage account create <account_name>
 O nome da conta de armazenamento deve ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas.
 
 ### <a name="set-a-default-azure-storage-account-in-environment-variables"></a>Definir uma conta de armazenamento padrão do Azure nas variáveis de ambiente
-Você pode ter várias contas de armazenamento na sua assinatura. É possível escolher uma delas e defini-la nas variáveis de ambiente para todos os comandos de armazenamento na mesma sessão. Isso permite executar os comandos de armazenamento da CLI do Azure sem especificar explicitamente a chave e a conta de armazenamento.
+Você pode ter várias contas de armazenamento na sua assinatura. É possível escolher uma delas e defini-la nas variáveis de ambiente para todos os comandos de armazenamento na mesma sessão. Isso permite executar os comandos de armazenamento da CLI clássica sem especificar explicitamente a chave e a conta de armazenamento.
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -177,7 +177,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## <a name="create-and-manage-file-shares"></a>Criar e gerenciar compartilhamentos de arquivos
-Os Arquivos do Azure ofereciam o armazenamento compartilhado para aplicativos com o uso do protocolo SMB padrão. As máquinas virtuais e os serviços de nuvem do Microsoft Azure, bem como aplicativos locais, podem compartilhar dados de arquivos por meio de compartilhamentos montados. Você pode gerenciar compartilhamentos de arquivos e dados de arquivos por meio da CLI do Azure. Para obter mais informações sobre Arquivos do Azure, consulte [Introdução aos Arquivos do Azure](../files/storage-files-introduction.md).
+Os Arquivos do Azure ofereciam o armazenamento compartilhado para aplicativos com o uso do protocolo SMB padrão. As máquinas virtuais e os serviços de nuvem do Microsoft Azure, bem como aplicativos locais, podem compartilhar dados de arquivos por meio de compartilhamentos montados. É possível gerenciar compartilhamentos de arquivos e dados de arquivos por meio da CLI clássica. Para obter mais informações sobre Arquivos do Azure, consulte [Introdução aos Arquivos do Azure](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Criar um compartilhamento de arquivos
 Um compartilhamento de Arquivos do Azure é um compartilhamento de arquivos do SMB no Azure. Todos os arquivos e diretórios devem ser criados em um compartilhamento de arquivos. Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos, e um compartilhamento pode conter um número ilimitado de arquivos, até os limites de capacidade da conta de armazenamento. O exemplo a seguir cria um compartilhamento de arquivos denominado **myshare**.
@@ -214,7 +214,7 @@ azure storage file list myshare myDir
 Observe que o nome do diretório é opcional para a operação de listagem. Se omitido, o comando listará o conteúdo do diretório raiz do compartilhamento.
 
 ### <a name="copy-files"></a>Copiar arquivos
-A partir da versão 0.9.8 da CLI do Azure, você pode copiar um arquivo para outro arquivo, um arquivo para um blob ou um blob para um arquivo. A seguir, demonstramos como executar essas operações de cópia usando comandos CLI. Para copiar um arquivo para o novo diretório:
+A partir da versão 0.9.8 da CLI clássica, é possível copiar um arquivo para outro arquivo, um arquivo para um blob ou um blob para um arquivo. A seguir, demonstramos como executar essas operações de cópia usando comandos CLI. Para copiar um arquivo para o novo diretório:
 
 ```azurecli
 azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare
@@ -230,9 +230,9 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode encontrar a referência de comandos da CLI 1.0 do Azure para trabalhar com recursos de Armazenamento aqui:
+Você pode encontrar referência de comando da CLI clássica do Azure para trabalhar com recursos de Armazenamento aqui:
 
-* [Comandos da CLI do Azure no modo Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
-* [Comandos da CLI do Azure no modo Gerenciamento de Serviços do Azure](../../cli-install-nodejs.md)
+* [Comandos da CLI clássica do Azure no modo do Gerenciador de Recursos](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
+* [Comandos da CLI clássica do Azure no modo do Gerenciamento de Serviços do Azure](../../cli-install-nodejs.md)
 
-Talvez você também queira testar a [CLI do Azure 2.0](../storage-azure-cli.md), nossa CLI de próxima geração escrita em Python para uso com o modelo de implantação do Resource Manager.
+Você também pode experimentar a versão mais recente da [CLI do Azure](../storage-azure-cli.md), para uso com o modelo de implantação do Resource Manager.

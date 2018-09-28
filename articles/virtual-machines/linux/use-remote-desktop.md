@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 5e79cfa2c428323d8531bec7eab875a2dace4ff2
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: aa1891ecec139746d6051dcabdb3c9db4f6062c6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934208"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996342"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar a Área de Trabalho Remota para conectar-se uma VM do Linux no Azure
 As VMs (máquinas virtuais) do Linux no Azure são normalmente gerenciadas a partir da linha de comando usando uma conexão SSH (secure shell). Para novos usuários Linux, ou para cenários de solução rápida de problemas, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([xfce](https://www.xfce.org)) e área de trabalho remota ([xrdp](http://www.xrdp.org)) para sua VM do Linux usando o modelo de implantação do Resource Manager.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo requer uma VM do Ubuntu 16.04 LTS existente no Azure. Se você precisar criar uma VM, use um dos seguintes métodos:
 
-- A [CLI 2.0 do Azure](quick-create-cli.md)
+- A [CLI do Azure](quick-create-cli.md)
 - O [Portal do Azure](quick-create-portal.md)
 
 
@@ -86,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Criar uma regra de Grupo de Segurança de Rede para tráfego de Área de Trabalho Remota
 Para permitir que o tráfego da Área de Trabalho Remota alcance sua VM do Linux, é necessário criar uma regra de grupo de segurança de rede que permite ao TCP na porta 3389 acessar sua VM. Para saber mais sobre grupos de segurança de rede, confira [O que é um grupo de segurança de rede?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Você também pode [usar o Portal do Azure para criar uma regra de grupo de segurança de rede](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-O exemplo a seguir cria uma regra de grupo de segurança de rede com [az vm open-port](/cli/azure/vm#az-vm-open-port) na porta *3389*. De 2.0 a CLI do Azure, não a sessão SSH para sua VM, abra a seguinte regra de grupo de segurança de rede:
+O exemplo a seguir cria uma regra de grupo de segurança de rede com [az vm open-port](/cli/azure/vm#az-vm-open-port) na porta *3389*. De CLI do Azure, não a sessão SSH para sua VM, abra a seguinte regra de grupo de segurança de rede:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389
@@ -102,7 +102,7 @@ Após a autenticação, o ambiente de área de trabalho xfce carregará e será 
 
 ![Ambiente de área de trabalho xfce por meio de xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
 
-Se o cliente RDP local usar o NLA (Autenticação no Nível da Rede), talvez você precise desabilitar essa configuração de conexão. Atualmente, o XRDP não dá suporte ao NLA. Examine também soluções RDP alternativas que dão suporte ao NLA, como o [FreeRDP](http://www.freerdp.com).
+Se o cliente RDP local usar o NLA (autenticação no nível da rede), talvez você precise desabilitar essa configuração de conexão. Atualmente, o XRDP não dá suporte ao NLA. Examine também soluções RDP alternativas que dão suporte ao NLA, como o [FreeRDP](http://www.freerdp.com).
 
 
 ## <a name="troubleshoot"></a>Solucionar problemas

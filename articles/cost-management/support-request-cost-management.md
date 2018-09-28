@@ -1,23 +1,23 @@
 ---
-title: Criar uma solicitação de suporte para Gerenciamento de Custos do Azure | Microsoft Docs
-description: Este artigo orienta você pelas etapas necessárias para criar uma solicitação de suporte para Gerenciamento de Custos.
+title: Criar uma solicitação de suporte para o Cloudyn no Azure | Microsoft Docs
+description: Este artigo orienta você pelas etapas necessárias para criar uma solicitação de suporte para Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 35d3153cb485f11fe17689f1ff1d3d88961878d3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d074b263d11c6b12a4283d2ff479a5b3dc1d6908
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296684"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952436"
 ---
-# <a name="create-a-support-request-for-cost-management"></a>Criar uma solicitação de suporte para Gerenciamento de Custos
+# <a name="create-a-support-request-for-cloudyn"></a>Criar uma solicitação de suporte para o Cloudyn
 
 Se você não encontrar as informações que está procurando, você pode abrir uma solicitação de suporte. Ou, se você suspeitar de um problema de uma interrupção do serviço ou um erro. Quando você abrir um tíquete de suporte, certifique-se de abri-lo para um único problema. Fazer assim ajuda a rotear rapidamente o problema relatado.
 
@@ -48,4 +48,4 @@ Para verificar o status de um incidente que você tiver preenchido, consulte [To
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre o Gerenciamento de Custos do Azure, continue com o tutorial [Analisar o uso e os custos](tutorial-review-usage.md) para Gerenciamento de Custos.
+- Para saber mais sobre Cloudyn, continue para [Examinar o uso e custos](tutorial-review-usage.md) tutorial para o Cloudyn.

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: jasonh
-ms.openlocfilehash: c10ff022d54510c4fb81bf1f922aeaaf4e9036bb
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 33458794ad74b367f1278364d7b4ace30f7d13a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104847"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953575"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade dos clusters Hadoop em HDInsight
 
@@ -208,13 +208,13 @@ Na interface de usuário da Web do Ambari, selecione o serviço do qual você de
 
 O tamanho de um nó só pode ser selecionado durante a criação do cluster. Você pode encontrar uma lista de diferentes tamanhos de VM disponíveis para o HDInsight na [página de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Ao criar um cluster, você pode especificar o tamanho dos nós. As informações a seguir fornecem orientação sobre como especificar o tamanho usando o [portal do Azure][preview-portal], o [Azure PowerShell][azure-powershell] e a [CLI do Azure][azure-cli]:
+Ao criar um cluster, você pode especificar o tamanho dos nós. As informações a seguir fornecem orientação sobre como especificar o tamanho usando o [portal do Azure][preview-portal], o [Azure PowerShell][azure-powershell] e a [CLI Clássica do Azure][azure-cli]:
 
 * **Portal do Azure**: ao criar um cluster, você pode definir o tamanho dos nós usados pelo cluster:
 
     ![Imagem do Assistente de criação de cluster com a seleção de tamanho do nó](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **CLI do Azure**: ao usar o comando `azure hdinsight cluster create`, é possível definir o tamanho dos nós de cabeçalho, de trabalho e do ZooKeeper usando os parâmetros `--headNodeSize`, `--workerNodeSize` e `--zookeeperNodeSize`.
+* **CLI Clássica do Azure**: ao usar o comando `azure hdinsight cluster create`, é possível definir o tamanho dos nós de cabeçalho, de trabalho e do ZooKeeper usando os parâmetros `--headNodeSize`, `--workerNodeSize` e `--zookeeperNodeSize`.
 
 * **Azure PowerShell**: ao usar o `New-AzureRmHDInsightCluster` cmdlet , é possível definir o tamanho dos nós de cabeçalho, de trabalho e do ZooKeeper usando os parâmetros `-HeadNodeVMSize`, `-WorkerNodeSize` e `-ZookeeperNodeSize`.
 
@@ -223,7 +223,7 @@ Ao criar um cluster, você pode especificar o tamanho dos nós. As informações
 Use os links a seguir para saber mais sobre os tópicos mencionados neste documento.
 
 * [Referência REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Instalar e configurar a CLI do Azure.](../cli-install-nodejs.md)
+* [Instalar e configurar a CLI Clássica do Azure](../cli-install-nodejs.md)
 * [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
 * [Gerenciar clusters HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Provisionar os clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)

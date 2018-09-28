@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7cd61fc63d0d7734b842ed222c67c6753da9a418
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b6f50844d6571cca6d63c1db7a85863e3d22d411
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363851"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948070"
 ---
 # <a name="what-is-bing-custom-search"></a>O que é a Pesquisa Personalizada do Bing?
 
@@ -30,18 +30,34 @@ A imagem a seguir mostra a simplicidade da integração de pesquisa personalizad
 
 ![alt imagem](./media/bcs-overview.png "Como funciona a Pesquisa Personalizada do Bing.")
 
-## <a name="customize-search-suggestions"></a>Personalizar as sugestões de pesquisa
+## <a name="adding-custom-search-box-suggestions"></a>Adicionando sugestões de caixa de pesquisa personalizada
 
-Se você se inscreveu na Pesquisa Personalizada no nível apropriado (consulte as [páginas de preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), pode personalizar as sugestões de pesquisa feitas em sua experiência de Pesquisa Personalizada. A API de Sugestão Automática Personalizada retorna uma lista de consultas sugeridas com base em uma cadeia de caracteres de consulta parcial que o usuário fornece. Com a Sugestão Automática Personalizada, você deve fornecer sugestões de pesquisa personalizada relevantes para sua experiência de pesquisa. Você especifica se deve retornar apenas sugestões personalizadas ou incluir sugestões do Bing. Se as sugestões do Bing estiverem incluídas, sugestões personalizadas aparecerão antes das sugestões do Bing. As sugestões do Bing são restritas ao contexto da instância de Pesquisa Personalizada.
+Você pode enriquecer sua experiência de pesquisa personalizada com sugestões de caixas de pesquisa personalizadas. Esse recurso permite que você forneça sugestões de pesquisa personalizadas relevantes para sua experiência de pesquisa. À medida que o usuário digita na caixa de pesquisa, a lista suspensa contém strings de consulta sugeridas com base na cadeia de caracteres de consulta parcial do usuário. Você pode especificar se deseja retornar apenas suas sugestões personalizadas ou incluir sugestões do Bing. [Leia mais](define-custom-suggestions.md).
+
+## <a name="adding-custom-image-search-experience"></a>Adicionando experiência de pesquisa de imagem personalizada
+
+Você pode enriquecer sua experiência de pesquisa personalizada com imagens. Semelhante aos resultados da Web, a pesquisa personalizada oferece suporte à pesquisa de imagens na lista de sites da sua instância. [Leia mais](get-images-from-instance.md).
+
+## <a name="adding-custom-video-search-experience"></a>Adicionando experiência de pesquisa de vídeo personalizada
+
+Você pode enriquecer sua experiência de pesquisa personalizada com vídeos. Semelhante aos resultados da Web, a pesquisa personalizada oferece suporte à pesquisa de vídeos na lista de sites da sua instância. [Leia mais](get-videos-from-instance.md).
+
+## <a name="sharing-your-custom-search-instance-with-others"></a>Compartilhando sua instância de pesquisa personalizada com outras pessoas
+
+Você pode facilmente permitir a edição e o teste colaborativo de sua instância, compartilhando-a com membros de sua equipe. [Leia mais](share-your-custom-search.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para começar rapidamente, consulte [Criar a primeira instância de Pesquisa Personalizada do Bing](quick-start.md).
 
-Para obter detalhes sobre as opções disponíveis para personalizar a instância de pesquisa, consulte [Definir uma instância de pesquisa personalizada](define-your-custom-view.md).
+Para detalhes sobre como personalizar sua instância de pesquisa, consulte [Definir uma instância de pesquisa personalizada](define-your-custom-view.md).
 
-Familiarize-se com a referência de [API de Pesquisa Personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference). A referência contém a lista de pontos de extremidade, cabeçalhos e parâmetros de consulta que você usaria para solicitar os resultados da pesquisa. Ela também inclui as definições dos objetos de resposta.
+Familiarize-se com o conteúdo de referência para cada um dos pontos de extremidade de pesquisa personalizados. A referência contém os pontos finais, cabeçalhos e parâmetros de consulta que você usaria para solicitar resultados de pesquisa. Ela também inclui as definições dos objetos de resposta.
 
-Para saber como personalizar sugestões, consulte [Definir sugestões de pesquisa personalizada](define-custom-suggestions.md).
+- [API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
+- [API de imagem personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
+- [API de Vidoe personalizado](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
+- [API de sugestão automática personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
+
 
 Leia os [Requisitos de exibição e uso do Bing](./use-and-display-requirements.md) para não violar nenhuma das regras sobre como usar os resultados da pesquisa.

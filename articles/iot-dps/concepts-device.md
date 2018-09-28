@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: bd77a56acee948995bb2fcbb5beea60f69cda9ee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 354ef48f7935536864cde9dc0d9a130fa5aeb865
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630146"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972854"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Conceitos de dispositivo do Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -28,9 +28,10 @@ O mecanismo de atestado é o método usado para confirmar a identidade de um dis
 > [!NOTE]
 > O Hub IoT usa o "esquema de autenticação" para um conceito semelhante nesse serviço.
 
-O Serviço de Provisionamento de Dispositivos dá suporte a duas formas de atestado:
+O Serviço de Provisionamento de Dispositivos dá suporte às seguintes formas de atestado:
 * **Certificados X.509** com base no fluxo de autenticação do certificado X.509 padrão.
 * **Trusted Platform Module (TPM)** com base em um desafio nonce, usando o padrão TPM para chaves para apresentar um token de Assinatura de Acesso Compartilhado (SAS) assinado. Isso não requer um TPM físico no dispositivo, mas o serviço espera atestar usando a chave de endosso de acordo com a [especificação TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Chave simétrica** com base em [tokens de segurança](../iot-hub/iot-hub-devguide-security.md#security-tokens) de SAS (assinatura de acesso compartilhado), que incluem uma assinatura de hash e uma expiração inserida. Para obter mais informações, veja [Atestado de chave simétrica](concepts-symmetric-key-attestation.md).
 
 ## <a name="hardware-security-module"></a>Módulo de segurança de hardware
 

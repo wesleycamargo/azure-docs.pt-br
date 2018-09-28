@@ -9,43 +9,40 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 5d9391cc486dc868a1a291ccc7095291cddd3e4c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 73c31c7175bd4dfcb182fb76784937c176ac7702
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858452"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977866"
 ---
 # <a name="call-bing-custom-search-endpoint-nodejs"></a>Chamar ponto de extremidade da Pesquisa Personalizada do Bing (Node.js)
 
-Este início rápido mostra como solicitar resultados de pesquisa da instância de pesquisa personalizada usando Node.js para chamar o ponto de extremidade da Pesquisa Personalizada do Bing. 
+Este início rápido mostra como solicitar resultados de pesquisa de sua instância de pesquisa personalizada usando o Node.js para chamar o ponto de extremidade da Pesquisa Personalizada do Bing. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
+
 Para concluir este início rápido, você precisa de:
 
-- Uma instância de pesquisa personalizada. Consulte [Criar a primeira instância da Pesquisa Personalizada do Bing ](quick-start.md).
-
+- Uma instância de pesquisa personalizada pronta para uso. Consulte [Criar a primeira instância da Pesquisa Personalizada do Bing](quick-start.md).
 - [Node. js](https://www.nodejs.org/) instalado.
-
--  [Conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.
+- Uma chave de assinatura. Você pode obter uma chave de assinatura quando ativar sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode usar uma chave de assinatura paga no painel do Azure (consulte [Conta da API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Executar o código
 
-Para chamar o ponto de extremidade da Pesquisa Personalizada do Bing, siga estas etapas:
+Para executar esse exemplo, siga estas etapas:
 
-1. Crie uma pasta para o código.
-
-2. Em um prompt de comando ou terminal, navegue até a pasta que você acabou de criar.
-
+1. Crie uma pasta para o código.  
+  
+2. Em um prompt de comando ou terminal, navegue até a pasta que você acabou de criar.  
+  
 3. Instale o módulo do nó de **solicitação**:
     <pre>
     npm install request
-    </pre>
+    </pre>  
     
-4. Crie o arquivo BingCustomSearch.js e copie o seguinte código para ele.
-
-5. Substitua **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** com a chave e ID de configuração (consulte a etapa 1).
-
+4. Crie um arquivo chamado BingCustomSearch.js na pasta que você criou e copie o seguinte código nele. Substitua **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** pela sua chave de assinatura e ID de configuração.  
+  
     ``` javascript
     var request = require("request");
     
@@ -74,11 +71,13 @@ Para chamar o ponto de extremidade da Pesquisa Personalizada do Bing, siga estas
             console.log();
         }
     })
-    ```
-6. Execute o código usando os seguintes comandos.
+    ```  
+  
+6. Execute o código usando o seguinte comando:  
+  
     ```    
     node BingCustomSearch.js
-   ``` 
+    ``` 
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configurar a experiência de interface do usuário hospedada](./hosted-ui.md)

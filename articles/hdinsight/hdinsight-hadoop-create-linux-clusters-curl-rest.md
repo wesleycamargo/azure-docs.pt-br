@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jasonh
-ms.openlocfilehash: 79ab8ad9d827b3d2dda8138260b9857f241afc45
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 6d2e0b06f0402ae26212be45a00b4c9a5394a117
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094060"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983694"
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Hadoop usando a API REST do Azure
 
@@ -218,7 +218,7 @@ Esse exemplo será usado nas etapas presentes neste documento. Substitua os *val
 
 ## <a name="log-in-to-your-azure-subscription"></a>Entre na sua assinatura do Azure
 
-Siga as etapas documentadas em [Introdução à CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e conecte-se à sua assinatura usando o comando `az login`.
+Siga as etapas documentadas em [Introdução à CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e conecte-se à sua assinatura usando o `az login` comando.
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 

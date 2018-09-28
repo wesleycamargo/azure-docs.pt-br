@@ -1,9 +1,9 @@
 ---
-title: O que é diferente no ponto de extremidade v2.0 do Azure AD? | Microsoft Docs
-description: Uma comparação entre o Azure AD original e os pontos de extremidade v2.0.
+title: Comparando o endpoint do Azure AD v2.0 com o endpoint v1.0 | Microsoft Docs
+description: Conheça as diferenças entre o endpoint do Azure AD v2.0 e o endpoint v1.0
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: andretms
 manager: mtillman
 editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
@@ -13,131 +13,219 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-ms.author: celested
-ms.reviewer: elisol, jmprieur, hirsin
+ms.date: 09/21/2018
+ms.author: andret
+ms.reviewer: hirsin, celested
 ms.custom: aaddev
-ms.openlocfilehash: 0e344f6e9dfee3793320dc9cb79e3231c2eeda87
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 02c7edc84d2ac3a91c33d8f266d022db5cd5cb40
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579925"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948944"
 ---
-# <a name="whats-different-about-the-v20-endpoint"></a>O que há de diferente no ponto de extremidade v2.0?
+# <a name="comparing-the-azure-ad-v20-endpoint-with-v10-endpoint"></a>Comparando o ponto de extremidade do Azure AD v2.0 com o ponto de extremidade da v1.0
 
-Se você estiver familiarizado com o Azure Active Directory (Azure AD) ou se tiver integrado aplicativos ao Azure AD anteriormente, poderá encontrar algumas diferenças inesperadas no ponto de extremidade v2.0. Este artigo chama a atenção para essas diferenças para seu reconhecimento.
+Ao desenvolver um novo aplicativo, é importante conhecer as diferenças entre os pontos de extremidade v1.0 e v2.0. Abaixo estão as principais diferenças, bem como algumas limitações existentes para o terminal v2.0.
 
 > [!NOTE]
-> Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
->
+> Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](#limitations).
 
-## <a name="microsoft-accounts-and-azure-ad-accounts"></a>Contas da Microsoft e contas do Azure AD
+## <a name="who-can-sign-in"></a>Quem pode entrar
 
-O ponto de extremidade v2.0 permite aos desenvolvedores criar aplicativos que aceitam entrada de Contas da Microsoft e de Contas do Azure AD usando um único ponto de extremidade. Isso oferece a você a capacidade de escrever seu aplicativo completamente independente de conta, o que significa que o aplicativo pode não saber o tipo de conta que com a qual o usuário entra. É possível deixar seu aplicativo com reconhecimento do tipo de conta que está sendo usada em uma sessão específica, mas isso não é necessário.
+![Quem pode entrar com endpoints v1.0 e v2.0](media/azure-ad-endpoint-comparison/who-can-sign-in.png)
 
-Por exemplo, se seu aplicativo chamar o [Microsoft Graph](https://graph.microsoft.io), alguns dados e funcionalidades adicionais estarão disponíveis para usuários corporativos, como os sites do SharePoint ou dados do Diretório. Porém, para várias ações, como [Ler o email de um usuário](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), o código pode ser escrito exatamente da mesma forma para as Contas da Microsoft e do Azure AD. 
+* O ponto de extremidade v1.0 permite que apenas contas do trabalho e da escola entrem no seu aplicativo (Azure AD)
 
-Integrar seu aplicativo com as contas da Microsoft e do AD do Azure agora é um processo simples. É possível usar um único conjunto de pontos de extremidade, uma única biblioteca e um único registro de aplicativo para acessar os mundos empresarial e do consumidor. Para saber mais sobre o ponto de extremidade v2.0, confira [a visão geral](active-directory-appmodel-v2-overview.md).
+* O endpoint v2.0 permite que contas do trabalho e da escola do Active Directory do Azure e de contas pessoais (MSA) (hotmail.com, outlook.com, msn.com) façam logon.
 
-## <a name="new-app-registration-portal"></a>Novo portal de registro de aplicativos
+* Os pontos de extremidade v1.0 e v2.0 também aceitam logins de *[usuários convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório do Azure AD para aplicativos configurados como *[locatário único](single-and-multi-tenant-apps.md)* ou para *aplicativos de vários locatários* configurados para apontar para o terminal específico do inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-Para registrar um aplicativo que funciona com o ponto de extremidade v2.0, você deve usar um portal de registro de aplicativos da Microsoft: [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). Esse é o portal em que é possível obter uma ID de aplicativo, personalizar a aparência da página de conexão do aplicativo e muito mais. Tudo que você precisa para acessar o portal é uma conta da plataforma Microsoft, seja ela pessoal ou corporativa/de estudante.
+O ponto de extremidade v2.0 permite que você crie aplicativos que aceitam login de contas pessoais e de trabalho e escola, permitindo que você escreva seu aplicativo completamente independente de sua conta. Por exemplo, se seu aplicativo chamar o [Microsoft Graph](https://graph.microsoft.io), alguns recursos e dados adicionais estarão disponíveis para contas de trabalho, como seus sites do SharePoint ou dados do Diretório. Mas, para muitas ações, como [a leitura de um e-mail de um usuário](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), o mesmo código pode acessar o e-mail para contas pessoais e de trabalho e escola.
 
-## <a name="one-app-id-for-all-platforms"></a>Uma ID do aplicativo para todas as plataformas
+Para o ponto de extremidade v2.0, você pode usar uma única biblioteca (MSAL) para obter acesso aos mundos do consumidor, educacional e empresarial.
 
-Se você já usou o Microsoft Azure Active Directory, provavelmente, você já registrou vários aplicativos diferentes para um único projeto. Por exemplo, se você criou um site da Web e um aplicativo iOS, era preciso registrá-los separadamente usando duas IDs de Aplicativo diferentes. O portal de registro de aplicativos do Azure AD forçou você a fazer essa distinção durante o registro:
-
-![Interface do usuário do registro de aplicativo antigo](./media/azure-ad-endpoint-comparison/old_app_registration.PNG)
-
-De forma semelhante, se você tiver um site e uma API Web de back-end, poderá ter registrado cada um deles como um aplicativo separado no Azure AD. Ou se você tiver um aplicativo iOS e um aplicativo Android, também poderá ter registrado dois aplicativos diferentes. O registro de cada componente de um aplicativo levou a alguns comportamentos inesperados para os desenvolvedores e seus clientes:
-
-* Cada componente apareceu como um aplicativo separado no locatário do Microsoft Azure Active Directory de cada cliente.
-* Quando um administrador de locatários tentou aplicar políticas, gerenciar o acesso ou excluir um aplicativo, ele precisou fazer isso para cada componente do aplicativo.
-* Quando os clientes forneceram seu consentimento para um aplicativo, cada componente foi exibido na tela de consentimento como um aplicativo distinto.
-
-Com o ponto de extremidade v2.0, agora você pode registrar todos os componentes de seu projeto como um registro de aplicativo único e usar uma única ID de Aplicativo para todo o projeto. É possível adicionar várias "plataformas" a cada projeto e fornecer os dados apropriados para cada plataforma que você adicionar. Claro, você pode criar quantos aplicativos desejar dependendo dos seus requisitos, mas, para a maioria dos casos, apenas uma Id de aplicativo deve ser necessária.
-
-Nosso objetivo é que isso resulte em uma experiência de desenvolvimento e gerenciamento de aplicativos mais simplificada e crie uma visão mais consolidada de um projeto simples no qual você estiver trabalhando.
-
-## <a name="scopes-not-resources"></a>Escopos, não recursos
-
-No Microsoft Azure Active Directory, um aplicativo pode se comportar como um **recurso** ou um contêiner de tokens. Um recurso pode definir um número de **escopos** ou **oAuth2Permissions** que ele entende, permitindo que os aplicativos cliente solicitem tokens a esse recurso para um determinado conjunto de escopos. Considere a API do Graph do AD do Azure como um exemplo de um recurso:
-
-* Identificador de recurso, ou `AppID URI`: `https://graph.windows.net/`
-* Escopos, ou `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc. 
-
-Tudo isso é válido para o ponto de extremidade v2.0. Um aplicativo ainda pode se comportar como recurso, definir escopos e ser identificado por um URI. Aplicativos cliente ainda podem solicitar acesso a esses escopos. No entanto, a maneira em que um cliente solicita essas permissões foi alterada. No passado, uma solicitação de autorização de OAuth 2.0 ao AD do Azure teria esta aparência:
-
-```
-GET https://login.microsoftonline.com/common/oauth2/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&resource=https%3A%2F%2Fgraph.windows.net%2F
-...
-```
-
-onde o parâmetro **resource** indicava o recurso para o qual o aplicativo cliente estava solicitando a autorização. O Microsoft Azure Active Directory computava as permissões exigidas pelo aplicativo com base na configuração estática no Portal do Azure e emitia os tokens de acordo. Agora, a mesma solicitação de autorização de OAuth 2.0 se parece com o seguinte:
-
-```
-GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
-...
-```
-
-onde o parâmetro **scope** indica quais recursos e permissões para o qual o aplicativo está solicitando a autorização. O recurso desejado ainda está presente na solicitação; ele simplesmente está englobado em cada um dos valores do parâmetro de escopo. Usar o parâmetro de escopo dessa maneira permite que o ponto de extremidade v2.0 seja mais compatível com a especificação OAuth 2.0 e esteja alinhado mais estreitamente com práticas comuns do setor. Ele também permite que os aplicativos realizem o [consentimento incremental](#incremental-and-dynamic-consent), que é descrito na próxima seção.
+ O ponto de extremidade do Azure AD v1.0 aceita logins apenas de contas do trabalho e da escola.
 
 ## <a name="incremental-and-dynamic-consent"></a>Consentimento incremental e dinâmico
 
-Anteriormente, os aplicativos registrados no Azure AD precisavam especificar suas permissões necessárias do OAuth 2.0 no Portal do Azure, no momento da criação do aplicativo:
+Os aplicativos que usam o endpoint do Azure AD v1.0 precisam especificar suas permissões necessárias do OAuth 2.0 antecipadamente, por exemplo:
 
-![Interface do usuário do registro de permissões](./media/azure-ad-endpoint-comparison/app_reg_permissions.PNG)
+![Interface do usuário do registro de permissões](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
-As permissões que um aplicativo precisava foram configuradas **estaticamente**. Embora isso tenha permitido que a configuração do aplicativo exista no Portal do Azure e tenha mantido o código agradável e simples, isso também apresenta alguns problemas para os desenvolvedores:
+As permissões definidas diretamente no registro do aplicativo são **static**. Embora as permissões estáticas do aplicativo definidas no portal do Azure mantivessem o código simples e agradável, ele pode apresentar alguns problemas para os desenvolvedores:
 
-* No momento da criação do aplicativo, o aplicativo tinha que conhecer todas as permissões que pudesse precisar. Adicionar permissões ao longo do tempo era um processo difícil.
-* Um aplicativo tinha que conhecer todos os recursos que fosse acessar antes do tempo. Era difícil criar aplicativos que pudessem acessar um número arbitrário de recursos.
-* Um aplicativo tinha que solicitar todas as permissões que nunca seriam necessárias após a primeira entrada do usuário. Em alguns casos, isso resultava em uma lista longa de permissões, o que desencorajava os usuários finais a aprovarem o acesso do aplicativo na entrada inicial.
+* O aplicativo precisa conhecer todas as permissões necessárias no momento da criação do aplicativo. Adicionar permissões ao longo do tempo era um processo difícil.
 
-Com o ponto de extremidade v2.0, é possível especificar **dinamicamente**as permissões que o aplicativo precisa, no tempo de execução, durante o uso normal do aplicativo. Para fazer isso, é possível especificar os escopos que o aplicativo precisa em qualquer ponto no tempo incluindo-os no parâmetro `scope` de uma solicitação de autorização:
+* O aplicativo precisa conhecer todos os recursos que jamais acessaria antes do tempo. Era difícil criar aplicativos que pudessem acessar um número arbitrário de recursos.
 
-```
-GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
+* O aplicativo precisa solicitar todas as permissões que precisaria no primeiro login do usuário. Em alguns casos, isso resultava em uma lista longa de permissões, o que desencorajava os usuários finais a aprovarem o acesso do aplicativo na entrada inicial.
+
+Com o ponto de extremidade v2.0, você pode ignorar as permissões definidas estaticamente definidas nas informações de registro do aplicativo no portal do Azure e especificar as permissões que seu aplicativo precisa **dinamicamente** durante a execução, durante o uso regular do aplicativo, independentemente de permissões definidas estaticamente nas informações de registro do aplicativo.
+
+Para fazer isso, você pode especificar os escopos que seu aplicativo precisa em um determinado ponto do tempo do aplicativo, incluindo os novos escopos no parâmetro `scope` ao solicitar um token de acesso, sem a necessidade de pré-defini-los nas informações de registro do aplicativo.
+
+Se o usuário ainda não tiver consentido em novos escopos adicionados à solicitação, ele será solicitado a consentir apenas com as novas permissões. Para obter mais informações, você pode ler sobre [permissões, autorização e escopos](v2-permissions-and-consent.md).
+
+Permitir que um aplicativo solicite permissões dinamicamente por meio do parâmetro `scope` fornece aos desenvolvedores controle total sobre a experiência do usuário. Se desejar, você também pode optar por carregar sua experiência de consentimento e solicitar todas as permissões em uma solicitação inicial de autorização. Ou, se seu aplicativo precisar de um grande número de permissões, você pode optar por reunir essas permissões do usuário de forma incremental, à medida que ele tentar usar determinados recursos do seu aplicativo ao longo do tempo.
+
+Observe que o consentimento do administrador em nome de uma organização ainda usa as permissões estáticas registradas para o aplicativo, portanto, é recomendável que você defina essas permissões para aplicativos usando o ponto de extremidade v2.0, caso precise de um administrador para dar consentimento em nome de todo organização. Isso reduz os ciclos exigidos pelo administrador da organização para configurar o aplicativo
+
+## <a name="scopes-not-resources"></a>Escopos, não recursos
+
+Para aplicativos que usam o endpoint v1.0, um aplicativo pode se comportar como um **recurso** ou um destinatário de tokens. Um recurso pode definir um número de **escopos** ou **oAuth2Permissions** que ele entende, permitindo que os aplicativos cliente solicitem tokens a esse recurso para um determinado conjunto de escopos. Considere a API do Graph do AD do Azure como um exemplo de um recurso:
+
+* Identificador de recurso, ou `AppID URI`: `https://graph.windows.net/`
+
+* Escopos, ou `OAuth2Permissions`: `Directory.Read`, `Directory.Write`e assim por diante.
+
+Tudo isso é válido para o ponto de extremidade v2.0. Um aplicativo ainda pode se comportar como recurso, definir escopos e ser identificado por um URI. Aplicativos cliente ainda podem solicitar acesso a esses escopos. No entanto, a maneira em que um cliente solicita essas permissões foi alterada. Para o ponto de extremidade v1.0, uma solicitação de autorização do OAuth 2.0 para o Azure AD pode ter parecido com:
+
+```text
+GET https://login.microsoftonline.com/common/oauth2/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
+&resource=https://graph.windows.net/
 ...
 ```
 
-O item acima solicita permissão para o aplicativo ler dados do diretório de um usuário do AD do Azure, bem como gravar dados no diretório dele. Se o usuário aceitou essas permissões no passado para esse aplicativo específico, eles digitarão suas credenciais e entrarão no aplicativo. Se o usuário não aceitou alguma dessas permissões, o ponto de extremidade v2.0 solicitará ao usuário consentimento para essas permissões. Para obter mais informações, você pode ler sobre [permissões, autorização e escopos](v2-permissions-and-consent.md).
+onde o parâmetro **resource** indicava o recurso para o qual o aplicativo cliente estava solicitando a autorização. O Microsoft Azure Active Directory computava as permissões exigidas pelo aplicativo com base na configuração estática no Portal do Azure e emitia os tokens de acordo. Para aplicativos que usam o terminal v2.0, a mesma solicitação de autorização do OAuth 2.0 é semelhante a:
 
-Permitir que um aplicativo solicite permissões dinamicamente por meio do parâmetro `scope` dá controle total a você sobre a experiência do usuário. Se desejar, você pode optar por antecipar a experiência de consentimento e pedir todas as permissões em uma solicitação de autorização inicial. Ou, se seu aplicativo precisar de um grande número de permissões, você pode optar por reunir essas permissões do usuário de forma incremental, à medida que ele tentar usar determinados recursos do seu aplicativo ao longo do tempo.
+```text
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
+client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
+&scope=https://graph.windows.net/directory.read%20https://graph.windows.net/directory.write
+...
+```
+
+Em que o parâmetro **escopo** indica para qual recurso e permissões o aplicativo está solicitando autorização. O recurso desejado ainda está presente na solicitação; ele simplesmente está englobado em cada um dos valores do parâmetro de escopo. Usar o parâmetro de escopo dessa maneira permite que o ponto de extremidade v2.0 seja mais compatível com a especificação OAuth 2.0 e esteja alinhado mais estreitamente com práticas comuns do setor. Ele também permite que os aplicativos realizem [consentimento incremental](#incremental-and-dynamic-consent), que é descrito anteriormente.
 
 ## <a name="well-known-scopes"></a>Escopos conhecidos
 
 ### <a name="offline-access"></a>Acesso offline
 
-Os aplicativos que usam o ponto de extremidade v2.0 podem exigir o uso de uma nova permissão conhecida para aplicativos – o escopo `offline_access`. Todos os aplicativos terão que solicitar essa permissão se precisarem acessar recursos em nome de um usuário por um longo período de tempo, mesmo quando o usuário pode não estiver usando o aplicativo de maneira ativa. O escopo `offline_access` será exibido para o usuário em caixas de diálogo de consentimento como "Acesso a seus dados offline", com as quais o usuário deverá concordar. Solicitar a permissão `offline_access` permitirá que seu aplicativo Web receba refresh_tokens do OAuth 2.0 a partir do ponto de extremidade v2.0. Refresh_tokens são duradouros e podem ser trocados por novos access_tokens do OAuth 2.0 por longos períodos de acesso. 
+Os aplicativos que usam o ponto de extremidade v2.0 podem exigir o uso de uma nova permissão conhecida para aplicativos – o escopo `offline_access`. Todos os aplicativos terão que solicitar essa permissão se precisarem acessar recursos em nome de um usuário por um longo período de tempo, mesmo quando o usuário pode não estiver usando o aplicativo de maneira ativa. O escopo `offline_access` aparecerá para o usuário em diálogos de consentimento como **Acesse seus dados a qualquer momento**, com os quais o usuário deve concordar. Solicitar a permissão `offline_access` permitirá que seu aplicativo Web receba refresh_tokens do OAuth 2.0 a partir do ponto de extremidade v2.0. Os tokens de atualização são de longa duração e podem ser trocados por novos tokens de acesso do OAuth 2.0 por longos períodos de acesso.
 
-Se o aplicativo não solicitar o escopo `offline_access`, ele não receberá refresh_tokens. Isso significa que, ao resgatar um authorization_code no fluxo de código de autorização do OAuth 2.0, você só receberá de volta um access_token do ponto de extremidade `/token`. Esse access_token permanecerá válido por um curto período de tempo (normalmente uma hora), mas acabará expirando. Nesse momento, seu aplicativo terá que redirecionar o usuário de volta ao ponto de extremidade `/authorize` para recuperar um novo authorization_code. Durante esse redirecionamento, o usuário pode ou não precisar digitar suas credenciais novamente ou consentir de novo as permissões, dependendo do tipo do aplicativo.
+Se o seu aplicativo não solicitar o escopo `offline_access`, ele não receberá tokens de atualização. Isso significa que, quando você resgatar um código de autorização no fluxo do código de autorização do OAuth 2.0, receberá apenas um token de acesso do ponto de extremidade `/token`. Esse token de acesso permanecerá válido por um curto período de tempo (geralmente uma hora), mas acabará expirando. Nesse momento, seu aplicativo precisará redirecionar o usuário de volta ao ponto de extremidade `/authorize` para recuperar um novo código de autorização. Durante esse redirecionamento, o usuário pode ou não precisar digitar suas credenciais novamente ou consentir de novo as permissões, dependendo do tipo do aplicativo.
 
-Para saber mais sobre OAuth 2.0, refresh_tokens e access_tokens, consulte a [referência de protocolo da v2.0](active-directory-v2-protocols.md).
+Para saber mais sobre o OAuth 2.0, `refresh_tokens` e `access_tokens`, confira a referência do protocolo [ v2.0 ](active-directory-v2-protocols.md).
 
 ### <a name="openid-profile-and-email"></a>OpenID, perfil e email
 
-Historicamente, o fluxo de conexão mais básico do OpenID Connect com o Azure Active Directory forneceria uma grande quantidade de informações sobre o usuário no id_token resultante. As declarações em um id_token podem incluir o nome do usuário, nome de usuário preferido, endereço de email, ID do objeto e muito mais.
+Historicamente, o fluxo de entrada mais básico do OpenID Connect com o Azure AD forneceria muitas informações sobre o usuário no *id_token* resultante. As reivindicações em um *id_token* podem incluir o nome do usuário, nome de usuário preferido, endereço de e-mail, ID do objeto e muito mais.
 
 As informações que o escopo de `openid` permite que seu aplicativo acesse agora estão restritas. O escopo de `openid` apenas permitirá que seu aplicativo faça logon do usuário e receba um identificador específico do aplicativo para o usuário. Se você quiser obter dados pessoais sobre o usuário em seu aplicativo, seu aplicativo precisará solicitar permissões adicionais do usuário. Dois novos escopos – escopos `email` e `profile` – permitirão que você solicite permissões adicionais.
 
-O escopo de `email` permite que seu aplicativo acesse o endereço de email principal do usuário por meio da declaração `email` no id_token. 
-
-O escopo `profile` permite que seu aplicativo acesse todas as outras informações básicas sobre o usuário – seu nome, nome de usuário preferido, ID do objeto etc.
+O escopo de `email` permite que seu aplicativo acesse o endereço de email principal do usuário por meio da declaração `email` no id_token. O escopo `profile` permite que seu aplicativo acesse todas as outras informações básicas sobre o usuário – seu nome, nome de usuário preferido, ID do objeto etc.
 
 Isso permite que você codifique seu aplicativo com uma divulgação mínima. Você só pode solicitar ao usuário o conjunto de informações de que seu aplicativo precisa para fazer seu trabalho. Para obter mais informações sobre os escopos, consulte a [referência de escopo da v2.0](v2-permissions-and-consent.md).
 
 ## <a name="token-claims"></a>Declarações de token
 
-As declarações em tokens emitidos pelo ponto de extremidade v 2.0 não serão idênticas aos tokens emitidos pelos pontos de extremidade do Microsoft Azure Active Directory disponível geralmente. Aplicativos migrando para o novo serviço de aplicativos não devem presumir que exista uma declaração específica em id_tokens ou access_tokens. Para saber mais sobre as declarações específicas emitidas em tokens da v2.0, consulte a [referência de token v2.0](v2-id-and-access-tokens.md).
+As declarações em tokens emitidos pelo ponto de extremidade v 2.0 não serão idênticas aos tokens emitidos pelos pontos de extremidade do Microsoft Azure Active Directory disponível geralmente. Aplicativos migrando para o novo serviço de aplicativos não devem presumir que exista uma declaração específica em id_tokens ou access_tokens. Mais detalhes sobre os diferentes tipos de tokens usados no endpoint v2.0 estão disponíveis na referência [do token de acesso](access-tokens.md) e na [`id_token` referência](id-tokens.md)
 
 ## <a name="limitations"></a>Limitações
 
-Há algumas restrições que merecem atenção ao usar o ponto v2.0. Para aprender sobre essas restrições, aplique ao seu cenário particular, consulte o [documento de limitações da v2.0](active-directory-v2-limitations.md).
+Existem algumas restrições a serem observadas ao usar a v2.0.
+
+Ao criar aplicativos que se integram à plataforma de identidade da Microsoft, você precisa decidir se os protocolos de ponto de extremidade e de autenticação v2.0 atendem às suas necessidades. O terminal e a plataforma v1.0 ainda são totalmente suportados e, em alguns aspectos, têm mais recursos que a v2.0. No entanto, v2.0 [introduz benefícios significativos](azure-ad-endpoint-comparison.md) para desenvolvedores.
+
+No momento, esta é uma recomendação simplificada para desenvolvedores:
+
+* Se você precisar dar suporte a contas pessoais da Microsoft em seu aplicativo, use a versão 2.0. Mas antes fazer isso, tenha certeza de que entende as limitações discutidas neste artigo.
+
+* Se o seu aplicativo precisar apenas suportar contas de trabalho e escola da Microsoft, não use a v2.0. Em vez disso, consulte a [v1.0 guia](azure-ad-developers-guide.md).
+
+O ponto de extremidade v2.0 evoluirá e eliminará as restrições listadas aqui, para que você precise usar apenas o ponto de extremidade v2.0. Enquanto isso, use este artigo para determinar se o ponto de extremidade v2.0 é adequado para você. Continuaremos a atualizar este artigo para refletir o estado atual do ponto de extremidade v2.0. Verifique novamente para reavaliar seus requisitos em relação aos recursos da v2.0.
+
+### <a name="restrictions-on-app-types"></a>Restrições de tipos de aplicativo
+
+No momento, os seguintes tipos de aplicativos atualmente não têm suporte do ponto de extremidade v2.0. Para obter uma descrição dos tipos de aplicativos compatíveis, consulte [Tipos de aplicativo na v2.0](v2-app-types.md).
+
+#### <a name="standalone-web-apis"></a>APIs da Web autônomas
+
+Você pode usar o ponto de extremidade v2.0 para [criar uma API Web segura com OAuth 2.0](v2-app-types.md#web-apis). No entanto, essa API Web só pode receber tokens de um aplicativo que tenha a mesma ID do aplicativo. Você não pode acessar uma API Web de um cliente com uma ID de aplicativo diferente. O cliente não poderá solicitar nem obter permissões para sua API Web.
+
+Para ver como criar uma API da Web que aceite tokens de um cliente que tenha o mesmo ID do Aplicativo, consulte as amostras da API da Web do terminal v2.0 na seção [v2.0 getting started](v2-overview.md#getting-started).
+
+### <a name="restrictions-on-app-registrations"></a>Restrições quanto a registros de aplicativos
+
+Atualmente, para cada aplicativo que deseja integrar ao ponto de extremidade v2.0, você deve criar um registro de aplicativo no novo [Portal de Registro de Aplicativo da Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). O aplicativos do Azure AD ou de conta da Microsoft existentes não são compatíveis com o ponto de extremidade v2.0. Os aplicativos registrados em qualquer portal que não seja o Portal de Registro de Aplicativo não são compatíveis com o ponto de extremidade v2.0.
+
+Além disso, os registros do aplicativo que você cria no [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) têm as seguintes condições:
+
+* Apenas dois segredos do aplicativo são permitidos por ID do Aplicativo.
+
+* Um registro de aplicativo registrado por um usuário com uma conta pessoal da Microsoft pode ser exibido e gerenciado somente por uma única conta de desenvolvedor. Ele não pode ser compartilhado entre vários desenvolvedores. Se você desejar compartilhar o registro do aplicativo entre vários desenvolvedores, poderá criar o aplicativo entrando no portal de registro com uma conta do Azure AD.
+
+* Existem várias restrições quanto ao formato do URL de redirecionamento permitido. Para mais informações sobre o URL de redirecionamento, consulte a próxima seção.
+
+### <a name="restrictions-on-redirect-urls"></a>Restrições em URLs de redirecionamento
+
+Os aplicativos registrados no Portal de registro de aplicativos estão restritos a um conjunto limitado de valores de URL de redirecionamento. O URL de redirecionamento para aplicativos e serviços da web deve começar com o esquema `https`, e todos os valores de URL de redirecionamento devem compartilhar um único domínio DNS. Por exemplo, você não pode registrar um aplicativo da web que tenha um desses URLs de redirecionamento:
+
+* `https://login-east.contoso.com`  
+* `https://login-west.contoso.com`
+
+O sistema de registro compara todo o nome DNS do URL de redirecionamento existente com o nome DNS do URL de redirecionamento que você está adicionando. A solicitação para adicionar o nome DNS falhará se alguma das condições abaixo for verdadeira:  
+
+* Todo o nome DNS do novo URL de redirecionamento não corresponde ao nome DNS do URL de redirecionamento existente.
+
+* O nome DNS completo da URL de redirecionamento novo não for um subdomínio da URL de redirecionamento existente.
+
+Por exemplo, se o aplicativo tem essa URL de redirecionamento:
+
+`https://login.contoso.com`
+
+Você pode adicionar a ele, desta forma:
+
+`https://login.contoso.com/new`
+
+Nesse caso, os nome DNS corresponde exatamente. Ou você pode fazer isto:
+
+`https://new.login.contoso.com`
+
+Nesse caso, você está se referindo a um subdomínio DNS logon.contoso.com. Se você quiser ter um aplicativo que tenha `login-east.contoso.com` e `login-west.contoso.com` como URLs de redirecionamento, adicione os URLs de redirecionamento nesta ordem:
+
+`https://contoso.com`  
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`  
+
+Você pode adicionar os dois últimos porque são subdomínios do primeiro URL de redirecionamento, contoso.com. Essa limitação será removida em uma versão futura.
+
+Observe também que você pode ter apenas 20 URLs de resposta para um aplicativo específico.
+
+Para saber como registrar um aplicativo no Portal de Registro de Aplicativo, veja [Como registrar um aplicativo no ponto de extremidade v2.0](quickstart-v2-register-an-app.md).
+
+### <a name="restrictions-on-libraries-and-sdks"></a>Restrição de bibliotecas e SDKs
+
+Atualmente, o suporte de biblioteca para o ponto de extremidade v2.0 é limitado. Se deseja usar o ponto de extremidade v2.0 em um aplicativo de produção, você tem estas opções:
+
+* Se estiver criando um aplicativo Web, você poderá usar com segurança nosso middleware do servidor disponível da Microsoft para realizar a entrada e a validação de token. Isso inclui o middleware OWIN Open ID Connect para ASP.NET e o plug-in Passport do Node.js. Para amostras de código que usam o middleware da Microsoft, consulte a seção [v2.0 introdução](v2-overview.md#getting-started).
+
+* Se você estiver criando um aplicativo móvel ou de área de trabalho, poderá usar uma das MSAL (Bibliotecas de Autenticação da Microsoft) de versão prévia. Essas bibliotecas são uma versão prévia com suporte de produção; portanto, é seguro usá-las em aplicativos de produção. Leia mais sobre os termos da versão prévia e as bibliotecas disponíveis na [referência de bibliotecas de autenticação](reference-v2-libraries.md).
+
+* Para outras plataformas não abrangidas pelas bibliotecas da Microsoft, é possível fazer a integração com o ponto de extremidade v2.0 enviando e recebendo diretamente mensagens de protocolo no código do aplicativo. Os protocolos OAuth e OpenID Connect v2.0 [foram explicitamente documentados](active-directory-v2-protocols.md) para ajudar você a executar essa integração.
+
+* Por fim, você pode usar bibliotecas de software livre do Open ID Connect e do OAuth para fazer a integração com o ponto de extremidade v2.0. O protocolo v2.0 deve ser compatível com muitas bibliotecas de protocolo de software livre sem grandes alterações. A disponibilidade desses tipos de bibliotecas varia por idioma e plataforma. Os sites do [Open ID Connect](http://openid.net/connect/) e do [OAuth 2.0](http://oauth.net/2/) mantêm uma lista das implementações populares. Para saber mais, confira [Bibliotecas de autenticação e v2.0 do Azure Active Directory](reference-v2-libraries.md) e para obter a lista de bibliotecas de cliente de software livre e exemplos testados com o ponto de extremidade v2.0.
+
+* Para referência, o ponto de extremidade `.well-known` para o ponto de extremidade comum v2.0 é `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` .  Substitua `common` pela ID do locatário para obter dados específicos para o locatário.  
+
+### <a name="restrictions-on-protocols"></a>Restrições quanto a protocolos
+
+O ponto de extremidade v2.0 não dá suporte ao SAML ou Web Services Federation; ele dá suporte apenas ao Open ID Connect e OAuth 2.0. Nem todos os recursos e funcionalidades dos protocolos OAuth foram incorporados ao ponto de extremidade v2.0.
+
+No momento, os recursos e as funcionalidades de protocolo a seguir *não estão disponíveis* no ponto de extremidade v2.0:
+
+* No momento, a declaração `email` será retornada somente se uma declaração opcional estiver configurada e o escopo scope=email tiver sido especificado na solicitação. No entanto, esse comportamento será alterado conforme o ponto de extremidade v2.0 for atualizado para estar ainda mais em conformidade com os padrões Open ID Connect e OAuth 2.0.
+
+* O ponto de extremidade v2.0 não dá suporte à emissão de declarações de função ou de grupo em tokens de ID.
+
+* Não há suporte para a [Concessão de Credenciais de Senha de Proprietário do Recurso do OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3) no ponto de extremidade v2.0.
+
+Além disso, o ponto de extremidade v2.0 não dá suporte a nenhum formato dos protocolos SAML ou Web Services Federation.
+
+Para entender melhor o escopo da funcionalidade de protocolo com suporte no ponto de extremidade v2.0, leia nossa [referência de protocolo do OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
+
+#### <a name="saml-restrictions"></a>Restrições de SAML
+
+Se você usou a ADAL (Active Directory Authentication Library) em aplicativos Windows, poderá aproveitar a autenticação integrada do Windows, que usa a concessão de declaração SAML (Security Assertion Markup Language). Com essa concessão, os usuários de locatários do Azure AD federados se autenticam com suas instâncias do Active Directory local sem inserir as credenciais. Atualmente, a concessão de asserção SAML não tem suporte no ponto de extremidade v2.0.

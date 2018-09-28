@@ -1,6 +1,6 @@
 ---
 title: Autorizar usuários para o Ambari Views – Azure HDInsight
-description: Como gerenciar permissões de usuário e de grupo do Ambari para clusters HDInsight ingressados no domínio.
+description: Como gerenciar permissões de usuários e grupos do Ambari para clusters do HDInsight com o ESP habilitado.
 services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: f1aa80ec9df8faee4cf5ea98910e28cfc11a7920
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4e05d4ff9c090fac0242921e15ef16439d3ed27f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782120"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954438"
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autorizar usuários para o Ambari Views
 
-Os [clusters HDInsight ingressados no domínio](./domain-joined/apache-domain-joined-introduction.md) fornecem recursos de nível empresarial, incluindo autenticação baseada no Azure Active Directory. Você pode [sincronizar novos usuários](hdinsight-sync-aad-users-to-cluster.md) adicionados aos grupos do Azure AD e que receberam acesso ao cluster, permitindo a esses usuários específicos executar determinadas ações. Há suporte para trabalhar com usuários, grupos e permissões no Ambari tanto para o cluster HDInsight de domínio e quanto para o cluster HDInsight padrão.
+[Empresa Pacote de Segurança (ESP) habilitados aglomerados HDInsight](./domain-joined/apache-domain-joined-introduction.md) fornecer recursos de nível empresarial, incluindo autenticação Azure com base no Active Directory. Você pode [sincronizar novos usuários](hdinsight-sync-aad-users-to-cluster.md) adicionados aos grupos do Azure AD e que receberam acesso ao cluster, permitindo a esses usuários específicos executar determinadas ações. Trabalhar com usuários, grupos e permissões no Ambari é suportado para clusters ESP HDInsight e clusters HDInsight padrão.
 
 Os usuários do Active Directory podem fazer logon nos nós de cluster usando suas credenciais de domínio. Eles também podem usar suas credenciais de domínio para autenticar interações de cluster com outros pontos de extremidade aprovados, como Hue, Ambari Views, ODBC, JDBC, PowerShell e APIs REST.
 
 > [!WARNING]
 > Não altere a senha do watchdog Ambari (hdinsightwatchdog) no seu cluster HDInsight baseado em Linux. A alteração da senha interrompe a capacidade de usar as ações de script ou executar operações de dimensionamento com o cluster.
 
-Se você ainda não tiver feito isso, siga [estas instruções](./domain-joined/apache-domain-joined-configure.md) para provisionar um novo cluster ingressado no domínio.
+Se você ainda não fez isso, siga [estas instruções](./domain-joined/apache-domain-joined-configure.md) para provisionar um novo cluster ESP.
 
 ## <a name="access-the-ambari-management-page"></a>Acessar a página de gerenciamento do Ambari
 
@@ -116,7 +116,7 @@ A exibição Lista fornece recursos de edição rápidos em duas categorias: Usu
 
     ![Exibição em lista das funções – usuários](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* A categoria Grupos da exibição Lista exibe todos os grupos e a função atribuída a cada grupo. Em nosso exemplo, a lista de grupos é sincronizada com os grupos do Azure AD especificados na propriedade **Acessar grupo de usuários** das configurações de domínio do cluster. Veja [Criar um cluster HDInsight associado a um domínio](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
+*  A categoria Grupos da exibição Lista exibe todos os grupos e a função atribuída a cada grupo. Em nosso exemplo, a lista de grupos é sincronizada com os grupos do Azure AD especificados na propriedade **Acessar grupo de usuários** das configurações de domínio do cluster. Ver [criar um cluster HDInsight com ESP habilitado](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
 
     ![Exibição em lista das funções – grupos](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 
@@ -136,7 +136,7 @@ Atribuímos a função de *Usuário de Cluster* ao usuário de domínio do Azure
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurar políticas do Hive no HDInsight ingressado no domínio](./domain-joined/apache-domain-joined-run-hive.md)
-* [Gerenciar clusters HDInsight ingressados no domínio](./domain-joined/apache-domain-joined-manage.md)
+* [Configurar políticas do Hive no HDInsight com ESP](./domain-joined/apache-domain-joined-run-hive.md)
+* [Gerenciar clusters HDInsight ESP](./domain-joined/apache-domain-joined-manage.md)
 * [Usar a exibição do Hive com o Hadoop no HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Sincronizar usuários do Azure AD com o cluster](hdinsight-sync-aad-users-to-cluster.md)

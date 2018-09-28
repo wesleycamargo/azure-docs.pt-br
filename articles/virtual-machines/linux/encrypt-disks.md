@@ -1,6 +1,6 @@
 ---
 title: Criptografar discos em uma VM do Linux no Azure | Microsoft Docs
-description: Como criptografar discos virtuais em uma VM Linux para aumentar a segurança usando a CLI do Azure 2.0
+description: Como criptografar discos virtuais em uma VM Linux para aumentar a segurança usando a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,19 +15,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 75ec087536d6f833a9a2106b1fdf4ed1fd73ef8e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 044486424f8bcc9d66998f775154eff9c52e7d1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634613"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981222"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Como criptografar uma máquina virtual Linux no Azure
-Para conformidade e segurança aprimoradas da VM (máquina virtual), os discos virtuais e a própria VM podem ser criptografados. VMs são criptografadas usando chaves criptográficas que são protegidas em um Azure Key Vault. Você controla essas chaves criptográficas e pode auditar seu uso. Este artigo detalha como criptografar discos virtuais em uma VM Linux usando a CLI do Azure 2.0. 
+
+Para conformidade e segurança aprimoradas da VM (máquina virtual), os discos virtuais e a própria VM podem ser criptografados. VMs são criptografadas usando chaves criptográficas que são protegidas em um Azure Key Vault. Você controla essas chaves criptográficas e pode auditar seu uso. Este artigo detalha como criptografar discos virtuais em uma VM Linux usando a CLI do Azure. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que esteja em execução a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este artigo exigirá que esteja em execução a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="overview-of-disk-encryption"></a>Visão geral da criptografia de disco
 Discos virtuais em VMs do Linux são criptografados em repouso usando [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Não há nenhuma taxa para criptografar discos virtuais no Azure. Chaves e criptográficas são armazenadas no Cofre de chaves do Azure usando a proteção de software ou você pode importar ou gerar as chaves em Módulos de segurança de Hardware (HSMs) certificados para padrões de nível 2 de FIPS 140-2. Você mantém o controle dessas chaves criptográficas e pode auditar seu uso. Essas chaves criptográficas são usadas para criptografar e descriptografar os discos virtuais conectados à sua VM. Uma entidade de serviço do Azure Active Directory fornece um mecanismo seguro para emitir essas chaves de criptografia, enquanto as VMs são ligadas e desligadas.

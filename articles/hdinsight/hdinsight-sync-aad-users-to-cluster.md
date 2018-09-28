@@ -5,36 +5,36 @@ services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 08/19/2018
-ms.openlocfilehash: 7e002a43c774bd1a6df9cfe46207ddebd02284b3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 09/24/2018
+ms.openlocfilehash: b63f2566220d556f9695687dc743a7d47e27acf1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104216"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984306"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar usuários do Azure Active Directory para um cluster HDInsight
 
-Os [clusters HDInsight ingressados no domínio](hdinsight-domain-joined-introduction.md) usam a autenticação forte com usuários do Azure AD (Azure Active Directory) e também usam políticas *RBAC* (controle de acesso baseado em função). Como você adicionou usuários e grupos no Azure AD, você pode sincronizar os usuários que precisam de acesso ao seu cluster.
+[Os clusters HDInsight com ESP (Enterprise Security Package - Pacote de Segurança Corporativa)](hdinsight-domain-joined-introduction.md) podem usar autenticação forte com usuários do Azure AD (Azure Active Directory), bem como usar *políticas de controle de acesso baseado em função* (RBAC). Como você adicionou usuários e grupos no Azure AD, você pode sincronizar os usuários que precisam de acesso ao seu cluster.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você ainda não tiver feito isso, [crie um cluster HDInsight ingressado no domínio](hdinsight-domain-joined-configure.md).
+Se você ainda não fez isso, [crie um cluster do HDInsight com o Enterprise Security Package](hdinsight-domain-joined-configure.md).
 
 ## <a name="add-new-azure-ad-users"></a>Adicionar novos usuários do Azure AD
 
 Para exibir seus hosts, abra a interface do usuário do Ambari Web. Cada nó será atualizado com novas configurações de atualização automática.
 
-1. No [portal do Azure](https://portal.azure.com), navegue até o diretório do Azure AD associado ao cluster ingressado no domínio.
+1. No [Portal do Azure](https://portal.azure.com), navegue até o diretório do Azure AD associado ao seu cluster do ESP.
 
 2. Selecione **Todos os usuários** no menu à esquerda, selecione **Novo usuário**.
 
     ![Painel Todos os usuários](./media/hdinsight-sync-aad-users-to-cluster/aad-users.png)
 
-3. Preencha o formulário de novo usuário. Selecione grupos que você criou para a atribuição de permissões com base em cluster. Neste exemplo, crie um grupo chamado "HiveUsers", aos quais você pode atribuir novos usuários. O [instruções de exemplo](hdinsight-domain-joined-configure.md) para criar um cluster ingressado no domínio incluem a adição de dois grupos, `HiveUsers` e `AAD DC Administrators`.
+3. Preencha o formulário de novo usuário. Selecione grupos que você criou para a atribuição de permissões com base em cluster. Neste exemplo, crie um grupo chamado "HiveUsers", aos quais você pode atribuir novos usuários. As [instruções de exemplo](hdinsight-domain-joined-configure.md) para criar um cluster ESP incluem a inclusão de dois grupos, `HiveUsers` e `AAD DC Administrators`.
 
     ![Painel Novo usuário](./media/hdinsight-sync-aad-users-to-cluster/aad-new-user.png)
 
@@ -148,6 +148,6 @@ Quando o novo usuário (ou qualquer outro usuário de domínio) faz logon no Amb
 
 ## <a name="see-also"></a>Consulte também
 
-* [Configurar políticas do Hive no HDInsight ingressado no domínio](hdinsight-domain-joined-run-hive.md)
-* [Gerenciar clusters HDInsight ingressados no domínio](hdinsight-domain-joined-manage.md)
+* [Configurar políticas do Hive no HDInsight com ESP](hdinsight-domain-joined-run-hive.md)
+* [Gerenciar clusters HDInsight com ESP](hdinsight-domain-joined-manage.md)
 * [Autorizar usuários para o Ambari](hdinsight-authorize-users-to-ambari.md)

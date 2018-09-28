@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 21ba95a7b3efff177afe63d22da3f6ba9848ded2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301024"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990223"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Estender alertas do Log Analytics para os Alertas do Azure
 O recurso de alertas no Azure Log Analytics está sendo substituído por Alertas do Azure. Como parte dessa transição, os alertas que você configurou originalmente no Log Analytics serão estendidos para o Azure. Caso não queira aguardar até que os alertas sejam movidos automaticamente para o Azure, você poderá iniciar o processo:
@@ -22,7 +22,7 @@ O recurso de alertas no Azure Log Analytics está sendo substituído por Alertas
 - Programaticamente usando a API AlertsVersion.  
 
 > [!NOTE]
-> A Microsoft estenderá automaticamente alertas criados no Log Analytics para os Alertas do Azure, a partir de 14 de maio de 2018, em uma série recorrente até que seja concluída. A Microsoft agenda a migração dos alertas para o Azure e, durante essa transição, os alertas poderão ser gerenciados no portal do Microsoft Operations Management Suite e no portal do Azure. Esse processo não é destrutivo nem interruptivo.  
+> A Microsoft aumenta automaticamente os alertas criados em instâncias de nuvem pública do Log Analytics para os Alertas do Azure, a partir de 14 de maio de 2018, em uma série recorrente até que seja concluída. Se você tiver problemas ao criar [grupos de ação](monitoring-action-groups.md), use [essas etapas de correção](monitoring-alerts-extend-tool.md#troubleshooting) para obter grupos de ação criados automaticamente. É possível usar essas etapas até 5 de julho de 2018. *Não se aplica a usuários de nuvem do Azure Government and Sovereign do Log Analytics*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Opção 1: iniciar a partir do conjunto do portal do Operations Management Suite
 As etapas a seguir descrevem como estender alertas para o espaço de trabalho do portal do Operations Management Suite.  
@@ -457,7 +457,7 @@ O script é detalhado e emite as etapas conforme é executado:
 Durante o processo de extensão de alertas, os problemas podem impedir que o sistema crie os [grupos de ações](monitoring-action-groups.md). Nesses casos, você vê uma mensagem de erro em uma faixa na seção **Alerta** do portal do Operations Management Suite ou na chamada GET feita para a API.
 
 > [!IMPORTANT]
-> Se você não executar as etapas de correção a seguir antes de 5 de julho de 2018, os alertas serão executados no Azure, mas não acionarão nenhuma ação ou notificação. Para receber notificações de alertas, será necessário editar manualmente e adicionar [grupos de ações](monitoring-action-groups.md) ou usar o script do [ PowerShell personalizado](#option-3---using-custom-powershell-script).
+> Se os usuários do Log Analytics com base na nuvem pública do Azure não executarem as etapas de correção a seguir antes de 5 de julho de 2018, os alertas serão executados no Azure, mas não acionarão nenhuma ação ou notificação. Para receber notificações de alertas, será necessário editar manualmente e adicionar [grupos de ações](monitoring-action-groups.md) ou usar o script do [ PowerShell personalizado](#option-3---using-custom-powershell-script).
 
 A seguir são apresentadas as etapas de correção para cada erro:
 - **Erro: o bloqueio de escopo está presente no nível de grupo de recursos/assinatura para operações de gravação**:   ![Captura de tela da página Configurações de Alerta do portal do Operations Management Suite, com a mensagem de erro Bloqueio de Escopo realçada](./media/monitor-alerts-extend/ErrorScopeLock.png)

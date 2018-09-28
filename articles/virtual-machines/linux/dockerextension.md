@@ -1,6 +1,6 @@
 ---
 title: Usar a extensão de VM do Docker do Azure | Microsoft Docs
-description: Saiba como usar a extensão de VM do Docker para implantar de maneira rápida e segura um ambiente Docker no Azure usando modelos do Resource Manager e a CLI 2.0 do Azure
+description: Saiba como usar a extensão de VM do Docker para implantar de maneira rápida e segura um ambiente Docker no Azure usando modelos do Resource Manager e a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 44c307a5f21937cd2a3ef345fd4573c67efdaf59
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 59dbbb8374455088d759a5e837b8d3bc22145d3e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928611"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981290"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Criar um ambiente de Docker no Azure usando a extensão de VM do Docker
-O Docker é uma plataforma popular de geração de imagens e gerenciamento de contêineres que permite que você trabalhe rapidamente com contêineres no Linux. No Azure, há várias maneiras de que você pode implantar o Docker de acordo com suas necessidades. Este artigo se concentra no uso de modelos do Azure Resource Manager e da extensão de VM do Docker com a CLI 2.0 do Azure. 
+
+O Docker é uma plataforma popular de geração de imagens e gerenciamento de contêineres que permite que você trabalhe rapidamente com contêineres no Linux. No Azure, há várias maneiras de que você pode implantar o Docker de acordo com suas necessidades. Este artigo se concentra no uso de modelos do Azure Resource Manager e da extensão de VM do Docker com a CLI do Azure. 
 
 > [!WARNING]
 > A extensão de VM Docker do Azure para Linux foi substituída e será desativada em novembro de 2018.
@@ -38,7 +39,7 @@ Para obter mais informações sobre os diferentes métodos de implantação, inc
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Implantar um modelo com a extensão de VM do Docker do Azure
-Vamos usar um modelo existente de início rápido para criar uma VM do Ubuntu que use a extensão de VM do Docker do Azure para instalar e configurar o host do Docker. Você pode conferir o modelo aqui: [Simple deployment of an Ubuntu VM with Docker (Implantação simples de uma VM do Ubuntu com o Docker)](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). É preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index#az_login).
+Vamos usar um modelo existente de início rápido para criar uma VM do Ubuntu que use a extensão de VM do Docker do Azure para instalar e configurar o host do Docker. Você pode conferir o modelo aqui: [Simple deployment of an Ubuntu VM with Docker (Implantação simples de uma VM do Ubuntu com o Docker)](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). É preciso ter a [CLI do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index#az_login).
 
 Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 

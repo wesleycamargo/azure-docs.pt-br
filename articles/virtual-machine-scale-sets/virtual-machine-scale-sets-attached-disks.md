@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 4dd13f1feedf53255daa351bd087845ec5cc845a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cfe49e7f4e3692518c890b48582a2f4a6aa16faa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187802"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952453"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Discos de dados conectados e conjuntos de dimensionamento de máquina virtual do Azure
 Para expandir o armazenamento disponível, os [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure oferecem suporte a instâncias de VM com discos de dados anexados. É possível anexar discos de dados ao criar o conjunto de dimensionamento ou em um já existente.
 
 > [!NOTE]
->  Ao criar um conjunto de dimensionamento com discos de dados anexado, você precisa montar e formatar os discos de dentro de uma VM para usá-los (assim como para VMs autônomas do Azure). Uma maneira conveniente de concluir esse processo é usar uma Extensão de script personalizado que chama um script para particionar e formatar todos os discos de dados em uma VM. Para obter exemplos disso, consulte [CLI do Azure 2.0](tutorial-use-disks-cli.md#prepare-the-data-disks) e [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
+>  Ao criar um conjunto de dimensionamento com discos de dados anexado, você precisa montar e formatar os discos de dentro de uma VM para usá-los (assim como para VMs autônomas do Azure). Uma maneira conveniente de concluir esse processo é usar uma Extensão de script personalizado que chama um script para particionar e formatar todos os discos de dados em uma VM. Para obter exemplos disso, veja [CLI do Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) e [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
 
 
 ## <a name="create-and-manage-disks-in-a-scale-set"></a>Criar e gerenciar discos em um conjunto de dimensionamento
 Para obter informações detalhadas sobre como criar um conjunto de dimensionamento com discos de dados anexado, preparar e formatar ou adicionar e remover discos de dados, consulte um dos seguintes tutoriais:
 
-- [CLI 2.0 do Azure](tutorial-use-disks-cli.md)
+- [CLI do Azure](tutorial-use-disks-cli.md)
 - [PowerShell do Azure](tutorial-use-disks-powershell.md)
 
 O restante deste artigo descreve os casos de uso específico, como clusters do Service Fabric que requerem discos de dados ou anexar discos de dados existente com conteúdo para um conjunto de dimensionamento.

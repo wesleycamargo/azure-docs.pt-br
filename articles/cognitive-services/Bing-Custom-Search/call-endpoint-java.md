@@ -9,34 +9,34 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 03d622e3c7a3315238f2bceedae529bbe06af299
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35364804"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951807"
 ---
 # <a name="call-bing-custom-search-endpoint-java"></a>Chamar ponto de extremidade da Pesquisa Personalizada do Bing (Java)
 
-Este início rápido mostra como solicitar resultados de pesquisa da instância de pesquisa personalizada usando Java para chamar o ponto de extremidade da Pesquisa Personalizada do Bing. 
+Esta guia de início rápido mostra como solicitar resultados de pesquisa da instância de pesquisa personalizada usando Java para chamar o ponto de extremidade da Pesquisa Personalizada do Bing. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
+
 Para concluir este início rápido, você precisa de:
-- Uma instância de pesquisa personalizada. Consulte [Criar a primeira instância da Pesquisa Personalizada do Bing ](quick-start.md).
 
+- Uma instância de pesquisa personalizada pronta para uso. Consulte [Criar a primeira instância da Pesquisa Personalizada do Bing](quick-start.md).
 - [Java](https://www.java.com) instalado.
-
-- Uma [Conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.
+- Uma chave de assinatura. É possível obter uma chave de assinatura quando você ativar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ou é possível usar uma chave de assinatura paga do painel do Azure (consulte [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Executar o código
 
-Para chamar o ponto de extremidade da Pesquisa Personalizada do Bing, siga estas etapas:
+Para executar esse exemplo, siga estas etapas:
 
-1. Usando o Java IDE de preferência, crie um pacote.
-2. Crie o arquivo CustomSrchJava.java e copie o seguinte código para ele.
-3. Substitua **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** com a chave e ID de configuração.
-
-    ``` Java
+1. Usando o Java IDE de preferência, crie um pacote.  
+  
+2. Crie um arquivo nomeado CustomSrchJava.java no pacote e copie o código a seguir nele. Substitua **SUA-CHAVE-DE-ASSINATURA** e **SUA-ID-DE-CONFIGURAÇÃO-PERSONALIZADA** pela chave de assinatura e a ID de configuração.  
+  
+    ```java
     import java.io.InputStream;
     import java.net.URL;
     import java.net.URLEncoder;
@@ -58,9 +58,9 @@ Para chamar o ponto de extremidade da Pesquisa Personalizada do Bing, siga estas
         static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
         static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
     
-        static String searchTerm = "Microsoft";  // Replace with search term specific to your defined sources.
+        static String searchTerm = "Microsoft";  // Replace with search term specific to your search scenario.
     
-        public static SearchResults SearchImages (String searchQuery) throws Exception {
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
             // construct URL of search request (endpoint + query string)
             URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
             HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -96,15 +96,15 @@ Para chamar o ponto de extremidade da Pesquisa Personalizada do Bing, siga estas
     
         public static void main (String[] args) {
             if (subscriptionKey.length() != 32) {
-                System.out.println("Invalid Bing Search API subscription key!");
+                System.out.println("Invalid Custom Search subscription key!");
                 System.out.println("Please paste yours into the source code.");
                 System.exit(1);
             }
     
             try {
-                System.out.println("Searching the Web for: " + searchTerm);
+                System.out.println("Searching your slice of the Web for: " + searchTerm);
     
-                SearchResults result = SearchImages(searchTerm);
+                SearchResults result = SearchWeb(searchTerm);
     
                 System.out.println("\nRelevant HTTP Headers:\n");
                 for (String header : result.relevantHeaders.keySet())
@@ -130,8 +130,8 @@ Para chamar o ponto de extremidade da Pesquisa Personalizada do Bing, siga estas
         }
     
     }
-    
-    ```
+    ```  
+  
 4. Execute o programa.
     
 ## <a name="next-steps"></a>Próximas etapas

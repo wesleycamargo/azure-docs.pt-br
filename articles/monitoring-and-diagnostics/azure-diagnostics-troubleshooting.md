@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 8f41605114de296b626418d0a868e3ed778c0640
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 6ea68bce81094f4745616e32c7434d6c833a45ee
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263839"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952572"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Este artigo descreve informações de solução de problemas relevantes para o uso do Diagnóstico do Azure. Para mais informações sobre o Diagnóstico do Azure, consulte [Visão geral do Diagnóstico do Azure](azure-diagnostics.md).
@@ -53,7 +53,7 @@ A seguir, são apresentados os caminhos para alguns logs e artefatos importantes
 | **Arquivo de log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Os dados de métrica não aparecem no Portal do Azure
-O Diagnóstico do Azure fornece dados de métrica que podem ser exibidos no Portal do Azure. Se tiver problemas para visualizar os dados no portal, verifique a tabela \* WADMetrics na conta de armazenamento do Diagnóstico do Azure para ver se os registros de métricas correspondentes estão presentes. 
+O Diagnóstico do Azure fornece dados de métrica que podem ser exibidos no Portal do Azure. Se tiver problemas para visualizar os dados no portal, verifique a tabela \* WADMetrics na conta de armazenamento do Diagnóstico do Azure para ver se os registros de métricas correspondentes estão presentes.
 
 Aqui, o **PartitionKey** da tabela é a ID de recurso, máquina virtual ou conjunto de dimensionamento de máquinas virtuais. **RowKey** é o nome da métrica (também conhecido como o nome do contador de desempenho).
 
@@ -83,7 +83,7 @@ Se a configuração estiver configurada corretamente, mas você ainda não pode 
 
 
 ## <a name="azure-diagnostics-isnt-starting"></a>O Diagnóstico do Azure não está iniciando
-Para obter informações sobre o motivo do Diagnóstico do Azure falhar ao iniciar, consulte os arquivos **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** no local dos arquivos de log fornecidos anteriormente. 
+Para obter informações sobre o motivo do Diagnóstico do Azure falhar ao iniciar, consulte os arquivos **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** no local dos arquivos de log fornecidos anteriormente.
 
 Se esses logs indicam `Monitoring Agent not reporting success after launch`, isso significa que houve uma falha ao iniciar MonAgentHost.exe. Examine os logs no local indicado para `MonAgentHost log file` na seção anterior.
 
@@ -105,14 +105,14 @@ O motivo mais comum para os dados de evento não serem sempre exibidos é porque
 
 Solução: corrija sua configuração do Diagnóstico e o reinstale.
 
-Se a conta de armazenamento estiver configurada corretamente, faça acesso remoto no computador e verifique se DiagnosticsPlugin.exe e MonAgentCore.exe estão executando. Se não estiverem executando, siga as etapas em [Diagnóstico do Azure não está iniciando](#azure-diagnostics-is-not-starting). 
+Se a conta de armazenamento estiver configurada corretamente, faça acesso remoto no computador e verifique se DiagnosticsPlugin.exe e MonAgentCore.exe estão executando. Se não estiverem executando, siga as etapas em [Diagnóstico do Azure não está iniciando](#azure-diagnostics-is-not-starting).
 
 Se os processos estiverem executando, acesse [Os dados estão sendo capturados localmente?](#is-data-getting-captured-locally) e siga as instruções.
 
 ### <a name="part-of-the-data-is-missing"></a>Parte dos dados está ausente
 Se você estiver obtendo alguns dados, mas não todos, isso significa que a coleta de dados/pipeline de transferência está configurado corretamente. Siga as subseções aqui para restringir o problema.
 
-#### <a name="is-the-collection-configured"></a>A coleção está configurada? 
+#### <a name="is-the-collection-configured"></a>A coleção está configurada?
 A configuração de Diagnóstico contém instruções para um determinado tipo de dados a ser coletado. [Revise a configuração](#how-to-check-diagnostics-extension-configuration) para verificar se está examinando apenas os dados configurados para a coleção.
 
 #### <a name="is-the-host-generating-data"></a>O host está gerando dados?
@@ -127,16 +127,16 @@ Se você não visualizar os logs de rastreamento sendo gerados, consulte [Mais i
 
 #### <a name="is-data-getting-captured-locally"></a>Os dados estão sendo capturados localmente?
 Em seguida, certifique-se de que os dados estão sendo capturados localmente.
-Os dados são armazenados localmente em arquivos `*.tsf` no [armazenamento local para dados de diagnóstico](#log-artifacts-path). Diferentes tipos de logs coletados em diferentes arquivos `.tsf`. Os nomes são semelhantes aos nomes de tabela no Armazenamento do Microsoft Azure. 
+Os dados são armazenados localmente em arquivos `*.tsf` no [armazenamento local para dados de diagnóstico](#log-artifacts-path). Diferentes tipos de logs coletados em diferentes arquivos `.tsf`. Os nomes são semelhantes aos nomes de tabela no Armazenamento do Microsoft Azure.
 
 Por exemplo, `Performance Counters` coletado em `PerformanceCountersTable.tsf`. Logs de eventos coletados em `WindowsEventLogsTable.tsf`. Utilize as instruções na seção [Extração de log local](#local-log-extraction) para abrir os arquivos de coleção local e verifique se estão coletados no disco.
 
-Se não for possível visualizar logs sendo coletados localmente e você já verificou que o host está gerando dados, provavelmente há um problema de configuração. Revise a configuração cuidadosamente. 
+Se não for possível visualizar logs sendo coletados localmente e você já verificou que o host está gerando dados, provavelmente há um problema de configuração. Revise a configuração cuidadosamente.
 
 Revise também a configuração que foi gerada para MonitoringAgent [MaConfig.xml](#log-artifacts-path). Verifique se há uma seção que descreve a origem do log relevante. Em seguida, verifique se não está perdido na translação entre a configuração do Diagnóstico e a configuração do agente de monitoramento.
 
 #### <a name="is-data-getting-transferred"></a>Os dados estão sendo transferidos?
-Se você verificou que os dados estão sendo capturados localmente, mas ainda não é possível visualizá-los na conta de armazenamento, siga as seguintes etapas: 
+Se você verificou que os dados estão sendo capturados localmente, mas ainda não é possível visualizá-los na conta de armazenamento, siga as seguintes etapas:
 
 - Verifique se você forneceu uma conta de armazenamento correta e que não substituiu as chaves para a conta de armazenamento fornecida. Para os Serviços de Nuvem do Azure, às vezes observamos que os usuários não atualizam `useDevelopmentStorage=true`.
 
@@ -215,7 +215,7 @@ A maneira mais fácil de verificar sua configuração de extensão é acessar o 
 
 Como alternativa, acesse a área de trabalho remota na máquina e examine o arquivo de Configuração de Diagnóstico do Azure descrito na [Seção do caminho de artefatos de log](#log-artifacts-path).
 
-Em ambos os casos, pesquise por **Microsoft.Azure.Diagnostics** e, em seguida, pelo campo **xmlCfg** ou **WadCfg**. 
+Em ambos os casos, pesquise por **Microsoft.Azure.Diagnostics** e, em seguida, pelo campo **xmlCfg** ou **WadCfg**.
 
 Se estiver pesquisando em uma máquina virtual e o campo **WadCfg** estiver presente, isso significa que a configuração está no formato JSON. Se o campo **xmlCfg** estiver presente, significa que a configuração está em XML e codificada em Base64. Você precisa [decodificá-la](http://www.bing.com/search?q=base64+decoder) para ver o XML que foi carregado pelo Diagnóstico.
 
@@ -247,22 +247,22 @@ O plug-in retorna os seguintes códigos de saída:
 | -112 |Erro geral |
 
 ### <a name="local-log-extraction"></a>Extração de log local
-O agente de monitoramento coleta logs e artefatos como arquivos `.tsf`. O arquivo `.tsf` não está legível, mas você pode convertê-lo em um `.csv` da seguinte maneira: 
+O agente de monitoramento coleta logs e artefatos como arquivos `.tsf`. O arquivo `.tsf` não está legível, mas você pode convertê-lo em um `.csv` da seguinte maneira:
 
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
 ```
 Um novo arquivo chamado `<relevantLogFile>.csv` será criado no mesmo caminho correspondente do arquivo `.tsf`.
 
->[!NOTE] 
+>[!NOTE]
 > É necessário somente executar esse utilitário com o arquivo .tsf principal (por exemplo, PerformanceCountersTable.tsf). Os arquivos de acompanhamento (por exemplo, PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf, e assim por diante) são processados automaticamente.
 
-### <a name="more-about-missing-trace-logs"></a>Mais informações sobre logs de rastreamento ausentes 
+### <a name="more-about-missing-trace-logs"></a>Mais informações sobre logs de rastreamento ausentes
 
 >[!NOTE]
-> As informações a seguir são aplicáveis principalmente aos Serviços de Nuvem do Azure, exceto se o DiagnosticsMonitorTraceListener foi configurado em um aplicativo que está executando na VM da IaaS. 
+> As informações a seguir são aplicáveis principalmente aos Serviços de Nuvem do Azure, exceto se o DiagnosticsMonitorTraceListener foi configurado em um aplicativo que está executando na VM da IaaS.
 
-- Certifique-se de que o **DiagnosticMonitorTraceListener** está configurado no web.config ou app.config.  Isso é configurado por padrão em projetos de serviços de nuvem. No entanto, alguns clientes comentam que as instruções de rastreamento não são coletadas pelos diagnósticos. 
+- Certifique-se de que o **DiagnosticMonitorTraceListener** está configurado no web.config ou app.config.  Isso é configurado por padrão em projetos de serviços de nuvem. No entanto, alguns clientes comentam que as instruções de rastreamento não são coletadas pelos diagnósticos.
 
 - Se os logs não estiverem sendo gravados a partir do **OnStart** ou do método **Executar**, certifique-se de que o **DiagnosticMonitorTraceListener** está no app.config.  Por padrão, ele está no web.config, mas isso somente é aplicável ao código executando no w3wp.exe. Portanto, é necessário que esteja no app.config para capturar rastreamentos executando no WaIISHost.exe.
 
@@ -275,11 +275,11 @@ Aqui está uma lista dos problemas conhecidos com mitigações conhecidas:
 
 **1. Dependência .NET 4.5**
 
-A Extensão de Diagnóstico do Microsoft Azure possui uma dependência de tempo de execução no .NET 4.5 Framework ou posterior. No momento da gravação, todas as máquinas provisionadas para os Serviços de Nuvem do Azure, assim como todas as imagens oficiais baseadas em máquinas virtuais do Azure têm o .NET 4.5 ou posterior instalado. 
+A Extensão de Diagnóstico do Microsoft Azure possui uma dependência de tempo de execução no .NET 4.5 Framework ou posterior. No momento da gravação, todas as máquinas provisionadas para os Serviços de Nuvem do Azure, assim como todas as imagens oficiais baseadas em máquinas virtuais do Azure têm o .NET 4.5 ou posterior instalado.
 
 Ainda é possível encontrar uma situação, na qual seja necessário executar a Extensão de Diagnóstico do Microsoft Azure em uma máquina que não tenha o .NET 4.5 ou posterior. Isso ocorre ao criar a máquina a partir de uma imagem antiga ou instantâneo, ou quando você traz seu próprio disco personalizado.
 
-Isso geralmente se manifesta como um código de saída **255** ao executar o **DiagnosticsPluginLauncher.exe.** A falha ocorre devido à seguinte exceção sem tratamento: 
+Isso geralmente se manifesta como um código de saída **255** ao executar o **DiagnosticsPluginLauncher.exe.** A falha ocorre devido à seguinte exceção sem tratamento:
 ```
 System.IO.FileLoadException: Could not load file or assembly 'System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies
 ```
@@ -290,8 +290,6 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 A experiência do portal nas máquinas virtuais mostra determinados contadores de desempenho por padrão. Se não for possível visualizar os contadores de desempenho mas souber que os dados estão sendo gerados porque estão disponíveis no armazenamento, verifique o seguinte:
 
-- Se os dados armazenados possuem nomes dos contadores no idioma inglês. Se os nomes dos contadores não estiverem em inglês, o gráfico de métrica do portal não será capaz de reconhecê-los.
+- Se os dados armazenados possuem nomes dos contadores no idioma inglês. Se os nomes dos contadores não estiverem em inglês, o gráfico de métrica do portal não será capaz de reconhecê-los. **Mitigação**: altera o idioma do computador para inglês para as contas do sistema. Para fazes isso, selecione **Painel de Controle** > **Região** > **Administrativo** > **Copiar Configurações**. Em seguida, desmarque **Tela de boas-vindas e contas do sistema** de modo que o idioma personalizado não seja aplicado à conta do sistema.
 
-- Se estiver utilizando caracteres curinga (\*) nos nomes do contador de desempenho, o portal não poderá correlacionar o contador coletado e configurado.
-
-**Mitigação**: altera o idioma do computador para inglês para as contas do sistema. Para fazes isso, selecione **Painel de Controle** > **Região** > **Administrativo** > **Copiar Configurações**. Em seguida, desmarque **Tela de boas-vindas e contas do sistema** de modo que o idioma personalizado não seja aplicado à conta do sistema. Certifique-se também de que não está utilizando curingas, caso você queira que o portal seja sua experiência de consumo principal.
+- Se estiver utilizando caracteres curinga (\*) nos nomes do contador de desempenho, o portal não poderá correlacionar o contador coletado e configurado quando os contadores de desempenho são enviados ao coletor do armazenamento do Azure. **Mitigação**: para garantir que você possa usar curingas e fazer com que o portal de expanda o (\*), encaminhe seus contadores de desempenho para o [coletor "Azure Monitor"](azure-diagnostics-schema.md#diagnostics-extension-111).

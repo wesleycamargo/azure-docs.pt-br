@@ -8,19 +8,18 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 9ff8c28a139d9a16d31a61b560ef7f5759d0a3f5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 78e3bec0d00336ce7cedc1434bf6ad7c65435969
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267723"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978175"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de autoescala usando modelos do Resource Manager para Conjuntos de Dimensionamento de VMs
 Você pode escalar e reduzir horizontalmente Conjuntos de Dimensionamento de Máquina Virtual com base nos limites de métrica de desempenho, em uma agenda recorrente ou em determinada data. Você também pode configurar notificações por email e webhook para ações de escala. Este passo a passo mostra um exemplo de configuração de todos esses objetos usando um modelo do Resource Manager em um Conjunto de Dimensionamento de VMs.
 
 > [!NOTE]
-> Este passo a passo explica as etapas para Conjuntos de Dimensionamento de VMs, as mesmas informações se aplicam ao dimensionamento automático de [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/) e [Serviço de Aplicativo - Aplicativos Web](https://azure.microsoft.com/services/app-service/web/).
-> Para uma configuração simples de redução/escala horizontal em um Conjunto de Dimensionamento de VM com base em um métrica de desempenho simples, como CPU, consulte os documentos [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) e [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
+> Este passo a passo explica as etapas para conjuntos de dimensionamento de VM, as mesmas informações se aplicam ao dimensionamento automático de [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), [Serviço de Aplicativo - Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e [serviços de Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Para uma configuração simples de expandir/reduzir em Conjuntos de Dimensionamento de VMs com base em uma métrica de desempenho simples, como CPU, consulte os documentos sobre o [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) e o [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
 >
 >
 

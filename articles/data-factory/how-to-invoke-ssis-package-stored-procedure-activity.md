@@ -13,20 +13,20 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 42abb5fdaf05424d5f39ecf4a2c88afcefd17312
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 98a833667aa4073e05b94a62a3e3aea4355e8fb0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084732"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958949"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Executar um pacote SSIS usando a atividade de Procedimento Armazenado no Azure Data Factory
 Este artigo descreve como executar um pacote SSIS em um pipeline do Azure Data Factory usando uma atividade de Procedimento Armazenado. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="azure-sql-database"></a>Banco de Dados SQL do Azure 
-Este artigo passo a passo usa um banco de dados SQL do Azure que hospeda o catálogo do SSIS. Também é possível usar uma Instância Gerenciada do Azure SQL (versão prévia).
+Este artigo passo a passo usa um banco de dados SQL do Azure que hospeda o catálogo do SSIS. Você também pode usar uma Instância Gerenciada do Banco de Dados SQL do Azure.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Criar um Integration Runtime do Azure-SSIS
 Crie um Integration Runtime do Azure-SSIS, caso você não tenha um, seguindo as instruções passo a passo no [Tutorial: Implantar pacotes do SSIS](tutorial-create-azure-ssis-runtime-portal.md).
@@ -80,7 +80,7 @@ Nesta etapa, você usa a interface do usuário do Data Factory para criar um pip
 3. Na janela de propriedades para a atividade do procedimento armazenado, alterne para a guia **Conta SQL** e clique em **+ Novo**. Você cria uma conexão com o Banco de dados SQL do Azure que hospeda o Catálogo SSIS (banco de dados SSISDB). 
    
     ![Botão Novo serviço vinculado](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
-4. Na janela **Novo serviço vinculado** execute as seguintes etapas: 
+4. Na janela **Novo Serviço Vinculado**, execute estas etapas: 
 
     1. Selecione **Banco de Dados SQL do Azure** para **Tipo**.
     2. Selecione o Azure Integration Runtime **Padrão** para se conectar ao Banco de Dados SQL do Azure que hospeda o banco de dados `SSISDB`.

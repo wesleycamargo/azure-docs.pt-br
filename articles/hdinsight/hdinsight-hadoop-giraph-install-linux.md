@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
-ms.openlocfilehash: 5fbc325e0b0b0e3cdf0d9156ab115d3cbf77f6dd
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f5d7a5587d47f7601f8dc3f65318a6b7d486f58e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104798"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953286"
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar o Giraph nos clusters Hadoop do HDInsight e usar o Giraph para processar grafos em grande escala
 
@@ -58,7 +58,7 @@ Esta seção fornece instruções sobre como usar o exemplo de script durante a 
 > [!NOTE]
 > As ações de script podem ser aplicadas por meio dos seguintes métodos:
 > * Azure PowerShell
-> * A CLI do Azure
+> * A CLI Clássica do Azure
 > * O SDK .NET do HDInsight
 > * Modelos do Gerenciador de Recursos do Azure
 > 

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 8a2bae12fae6a1bf8f5ecbdb2ae01dea5260f3cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5aecb218b66c06c87446e35e5c7c9ca8108b956c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30839137"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995543"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandos da CLI do Azure no modo do Gerenciador de Recursos
 Este artigo fornece a sintaxe e as opções de comandos da CLI (interface de linha de comando) do Azure que normalmente seriam usadas para criar e gerenciar recursos do Azure no modelo de implantação do Azure Resource Manager. É possível acessar esses comandos executando a CLI no modo ARM (Resource Manager). Essa não é uma referência completa, e sua versão da CLI poderá mostrar comandos ou parâmetros um pouco diferentes. Para obter uma visão geral dos recursos e dos grupos de recursos do Azure, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
 
 > [!NOTE]
-> Este artigo mostra comandos do modo Resource Manager na CLI do Azure, chamados de CLI 1.0 do Azure. Para trabalhar no modelo do Resource Manager, você também pode experimentar o [CLI do Azure 2.0](/cli/azure/install-az-cli2), nossa CLI de próxima geração para várias plataformas.
+> Este artigo mostra comandos no modo do Resource Manager na CLI do Azure, ocasionalmente chamada de CLI clássica do Azure. Para trabalhar no modelo do Resource Manager, também é possível experimentar a [CLI 2.0 do Azure](/cli/azure/install-az-cli2), nossa CLI de próxima geração para várias plataformas.
 >Saiba mais sobre as [CLIs novas e antigas do Azure](/cli/azure/old-and-new-clis).
 >
 

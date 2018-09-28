@@ -1,6 +1,6 @@
 ---
-title: Criar um ambiente Linux completo com a CLI do Azure 1.0 | Microsoft Docs
-description: Crie um armazenamento, uma VM Linux, uma rede virtual e uma sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo do zero usando a CLI 1.0 do Azure.
+title: Crie um ambiente Linux completo com o CLI do Azure Classic | Microsoft Docs
+description: Crie armazenamento, uma VM Linux, uma rede virtual e sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo a partir do zero usando a CLI Clássica do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 1fb5542af77fbb584effca24a74b9e233359cf0e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 560d1c55b159ed817c0b080171862c28ebe73f3e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932316"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952793"
 ---
-# <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Criar um ambiente Linux completo com a CLI do Azure 1.0
+# <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Crie um ambiente Linux completo com a CLI Clássica do Azure
 Neste artigo, vamos criar uma rede simples com um balanceador de carga e com um par de VMs úteis para desenvolvimento e computação simples. Percorreremos o processo, comando por comando, até que você tenha duas VMs do Linux funcionais e seguras às quais possa se conectar de qualquer lugar na Internet. Em seguida, você poderá passar para redes e ambientes mais complexos.
 
 Durante o processo, você entenderá sobre a hierarquia de dependência que o modelo de implantação do Gerenciador de Recursos lhe oferece e todos os recursos que proporciona. Após ver como o sistema é criado, você poderá recriá-lo muito mais rapidamente usando [modelos do Azure Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Além disso, após aprender como as partes de seu ambiente se encaixam, fica mais fácil criar modelos para automatizá-las.
@@ -33,20 +33,20 @@ O ambiente contém:
 * Um balanceador de carga com uma regra de balanceamento de carga na porta 80.
 * Regras de NSG (grupo de segurança de rede) para proteger sua VM contra tráfego indesejado.
 
-Para criar esse ambiente personalizado, é necessário ter a última [CLI 1.0 do Azure](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) no modo Resource Manager (`azure config mode arm`). Você também precisará de uma ferramenta de análise de JSON. Este exemplo usa [jq](https://stedolan.github.io/jq/).
+Para criar esse ambiente personalizado, você precisa da [Azure Classic CLI ](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mais recente no modo Gerenciador de recursos (`azure config mode arm`). Você também precisará de uma ferramenta de análise de JSON. Este exemplo usa [jq](https://stedolan.github.io/jq/).
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
-- [CLI 1.0 do Azure](#quick-commands) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
-- [CLI 2.0 do Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [CLI do Azure Classic](#quick-commands) - nossa CLI para os modelos de implantação de gerenciamento clássico e de recursos (este artigo)
+- [CLI do Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos
 
 
 ## <a name="quick-commands"></a>Comandos rápidos
 Se você precisar realizar rapidamente a tarefa, a seção a seguir detalha a base de dados de comandos para carregar uma VM no Azure. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, começando [aqui](#detailed-walkthrough).
 
-Verifique se [a CLI 1.0 do Azure](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) está conectada e usando o modo Resource Manager:
+Certifique-se de ter o [CLI Clássico do Azure](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) conectado e usando o modo Gerenciador de Recursos:
 
 ```azurecli
 azure config mode arm
@@ -270,7 +270,7 @@ azure group export myResourceGroup
 ## <a name="detailed-walkthrough"></a>Passo a passo detalhado
 As etapas detalhadas a seguir explicam o que cada comando faz enquanto você cria seu ambiente. Esses conceitos são úteis durante a criação de seus próprios ambientes personalizados para desenvolvimento ou produção.
 
-Verifique se [a CLI 1.0 do Azure](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) está conectada e usando o modo Resource Manager:
+Certifique-se de ter o [CLI Clássico do Azure](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) conectado e usando o modo Gerenciador de Recursos:
 
 ```azurecli
 azure config mode arm

@@ -1,6 +1,6 @@
 ---
-title: Carregar ou copiar uma VM do Linux personalizada com a CLI 2.0 do Azure | Microsoft Docs
-description: Carregue ou copie uma máquina virtual personalizada usando o modelo de implantação do Resource Manager e a CLI 2.0 do Azure
+title: Carregar ou copiar uma VM do Linux personalizada com a CLI do Azure | Microsoft Docs
+description: Carregue ou copie uma máquina virtual personalizada usando o modelo de implantação do Resource Manager e a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 3fb6957cf6af5c09a355b61c7c2440a929d1b837
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b5df02c9f07549aec406cf449bb0ae49ee9e280a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736658"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957424"
 ---
-# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Criar uma VM Linux usando disco personalizado com a CLI 2.0 do Azure
+# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Criar uma VM Linux usando disco personalizado com a CLI do Azure
 
 <!-- rename to create-vm-specialized -->
 
@@ -57,7 +57,7 @@ Para concluir as etapas a seguir, você precisa:
 > 
 
 
-* Certifique-se de que você tenha instalado a versão mais recente da [CLI 2.0 do Azure](/cli/azure/install-az-cli2) e entrado em uma conta do Azure usando [az login](/cli/azure/reference-index#az_login).
+* Certifique-se de que você tenha instalado a versão mais recente da [CLI do Azure](/cli/azure/install-az-cli2) e entrado em uma conta do Azure usando [az login](/cli/azure/reference-index#az_login).
 
 Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Exemplos de nomes de parâmetro incluem *myResourceGroup*, *mystorageaccount* e *mydisks*.
 

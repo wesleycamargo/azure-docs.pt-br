@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: bec02b3f3bde9f9cfab615d75cc6f05976ce981a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44cc582bfa0a6940de7eeea9b54e3979735c07e2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726213"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998212"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Criar um emparelhamento de rede virtual – modelos de implantação diferentes e na mesma assinatura
 
@@ -81,64 +81,66 @@ Use o [portal do Azure](#portal), a [CLI](#cli) (interface de linha de comando) 
 
 ## <a name="cli"></a>Criar emparelhamento – CLI do Azure
 
-1. [Instale](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a CLI do Azure 1.0 para criar a rede virtual (clássico).
-2. Abra uma sessão de comando e faça logon no Azure usando o comando `azure login`.
-3. Execute a CLI no modo de Gerenciamento de Serviços digitando o comando `azure config mode asm`.
-4. Para criar um grupo de recursos para a rede virtual (clássico), digite o comando a seguir:
- 
-    ```azurecli
-    azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
-    ```
+Conclua as etapas a seguir usando a CLI clássica do Azure e a CLI do Azure. Você pode concluir as etapas no Azure Cloud Shell, apenas selecionando o botão **Experimentar** em qualquer uma das etapas a seguir ou instalando a [CLI clássica](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e a [CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e executando os comandos no computador local.
 
-5. Crie um grupo de recursos e uma rede virtual (Resource Manager). Você pode usar a CLI 1.0 ou 2.0 ([instalar](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). Neste tutorial, a CLI 2.0 é usada para criar a rede virtual (Resource Manager), já que a 2.0 deve ser usada para criar o emparelhamento. Execute o script de CLI de Bash a seguir do computador local com a CLI 2.0.4 ou posterior instalada. Para opções de execução bash scripts da CLI no cliente Windows, consulte [instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows). Você também pode executar o script usando o Azure Cloud Shell. O Azure Cloud Shell é um shell Bash gratuito que podem ser executado diretamente no portal do Azure. Ele tem a CLI do Azure instalada e configurada para usar com sua conta. Clique no botão **Experimente** no script a seguir, o que invoca um Cloud Shell com o qual você pode fazer logon em sua conta do Azure. Para executar o script, clique no botão **Copiar** e cole o conteúdo para o Cloud Shell, em seguida, pressione `Enter`.
+1. Se estiver usando o Cloud Shell, pule para a etapa 2, porque o Cloud Shell entrará automaticamente no Azure. Abra uma sessão de comando e entre no Azure usando o comando `azure login`.
+2. Execute a CLI no modo de Gerenciamento de Serviços digitando o comando `azure config mode asm`.
+3. Para criar um grupo de recursos para a rede virtual (clássico), digite o comando a seguir:
 
-    ```azurecli-interactive
-    #!/bin/bash
+   ```azurecli-interactive
+   azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
+   ```
 
-    # Create a resource group.
-    az group create \
-      --name myResourceGroup \
-      --location eastus
+4. Execute o seguinte script de CLI de bash usando a CLI, não a CLI clássica. Para obter opções sobre a execução de scripts de CLI de bash no computador Windows, consulte [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows).
 
-    # Create the virtual network (Resource Manager).
-    az network vnet create \
-      --name myVnet1 \
-      --resource-group myResourceGroup \
-      --location eastus \
-      --address-prefix 10.0.0.0/16
-    ```
+   ```azurecli-interactive
+   #!/bin/bash
 
-6. Crie um emparelhamento de rede virtual entre as duas redes virtuais criadas por meio dos modelos de implantação diferentes. Copie o script a seguir em um editor de texto em seu computador. Substitua `<subscription id>` por sua ID da assinatura. Se você não souber a ID da assinatura, insira o comando `az account show`. O valor da **ID** na saída é sua ID da assinatura. Cole o script modificado em sua sessão da CLI e, em seguida, pressione `Enter`.
+   # Create a resource group.
+   az group create \
+     --name myResourceGroup \
+     --location eastus
 
-    ```azurecli-interactive
-    # Get the id for VNet1.
-    vnet1Id=$(az network vnet show \
-      --resource-group myResourceGroup \
-      --name myVnet1 \
-      --query id --out tsv)
+   # Create the virtual network (Resource Manager).
+   az network vnet create \
+     --name myVnet1 \
+     --resource-group myResourceGroup \
+     --location eastus \
+     --address-prefix 10.0.0.0/16
+   ```
 
-    # Peer VNet1 to VNet2.
-    az network vnet peering create \
-      --name myVnet1ToMyVnet2 \
-      --resource-group myResourceGroup \
-      --vnet-name myVnet1 \
-      --remote-vnet-id /subscriptions/<subscription id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet2 \
-      --allow-vnet-access
-    ```
-7. Após a execução do script, examine o emparelhamento da rede virtual (Resource Manager). Copie o comando a seguir, cole-o na sua sessão da CLI e, em seguida, pressione `Enter`:
+5. Crie um emparelhamento de rede virtual entre as duas redes virtuais criadas por meio dos diferentes modelos de implementação usando a CLI. Copie o script a seguir em um editor de texto em seu computador. Substitua `<subscription id>` por sua ID da assinatura. Se você não souber a ID da assinatura, insira o comando `az account show`. O valor da **ID** na saída é sua ID da assinatura. Cole o script modificado em sua sessão da CLI e, em seguida, pressione `Enter`.
 
-    ```azurecli-interactive
-    az network vnet peering list \
-      --resource-group myResourceGroup \
-      --vnet-name myVnet1 \
-      --output table
-    ```
-    
-    A saída mostra **Conectado** na coluna **PeeringState**. 
+   ```azurecli-interactive
+   # Get the id for VNet1.
+   vnet1Id=$(az network vnet show \
+     --resource-group myResourceGroup \
+     --name myVnet1 \
+     --query id --out tsv)
 
-    Todos os recursos do Azure criados na rede virtual agora podem se comunicar entre si por meio de seus endereços IP. Se você estiver usando a resolução de nomes padrão do Azure para as redes virtuais, os recursos nas redes virtuais não poderão resolver nomes entre as redes virtuais. Se você desejar resolver nomes entre redes virtuais em um emparelhamento, deverá criar seu próprio servidor DNS. Saiba como configurar a [Resolução de nomes usando seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-8. **Opcional**: embora a criação de máquinas virtuais não seja abordada neste tutorial, você poderá criar uma máquina virtual em cada rede virtual e conectar-se de uma máquina virtual a outra, para validar a conectividade.
-9. **Opcional**: para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-cli) deste artigo.
+   # Peer VNet1 to VNet2.
+   az network vnet peering create \
+     --name myVnet1ToMyVnet2 \
+     --resource-group myResourceGroup \
+     --vnet-name myVnet1 \
+     --remote-vnet-id /subscriptions/<subscription id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet2 \
+     --allow-vnet-access
+   ```
+
+6. Após a execução do script, examine o emparelhamento da rede virtual (Resource Manager). Copie o comando a seguir, cole-o na sua sessão da CLI e, em seguida, pressione `Enter`:
+
+   ```azurecli-interactive
+   az network vnet peering list \
+     --resource-group myResourceGroup \
+     --vnet-name myVnet1 \
+     --output table
+   ```
+
+   A saída mostra **Conectado** na coluna **PeeringState**.
+
+   Todos os recursos do Azure criados na rede virtual agora podem se comunicar entre si por meio de seus endereços IP. Se você estiver usando a resolução de nomes padrão do Azure para as redes virtuais, os recursos nas redes virtuais não poderão resolver nomes entre as redes virtuais. Se você desejar resolver nomes entre redes virtuais em um emparelhamento, deverá criar seu próprio servidor DNS. Saiba como configurar a [Resolução de nomes usando seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+7. **Opcional**: embora a criação de máquinas virtuais não seja abordada neste tutorial, você poderá criar uma máquina virtual em cada rede virtual e conectar-se de uma máquina virtual a outra, para validar a conectividade.
+8. **Opcional**: para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-cli) deste artigo.
 
 ## <a name="powershell"></a>Criar emparelhamento – PowerShell
 
@@ -214,15 +216,15 @@ Ao concluir este tutorial, talvez você deseje excluir os recursos criados no tu
 
 ### <a name="delete-cli"></a>Azure CLI
 
-1. Use a CLI do Azure 2.0 para excluir a rede virtual (Resource Manager) com o seguinte comando:
+1. Use a CLI do Azure para excluir a rede virtual (Resource Manager) com o seguinte comando:
 
     ```azurecli-interactive
     az group delete --name myResourceGroup --yes
     ```
 
-2. Use a CLI do Azure 1.0 para excluir a rede virtual (clássico) com os seguintes comandos:
+2. Use a CLI clássica para excluir a rede virtual (clássica) com os seguintes comandos:
 
-    ```azurecli
+    ```azurecli-interactive
     azure config mode asm
 
     azure network vnet delete --vnet myVnet2 --quiet

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: d2f5ce97ee81deaf590771f4794af4adf0fdbd1b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248580"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966531"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas frequentes sobre o acelerador de solução Connected Factory
 
@@ -111,7 +111,7 @@ A simulação registra automaticamente os seguintes dispositivos:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Usando o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou a ferramenta [a extensão IoT do Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension), verifique quais dispositivos estão registrados no hub IoT usado pela solução. Para usar o gerenciador de dispositivos, você precisa da cadeia de conexão do hub IoT na implantação. Para usar a extensão de IoT do Azure CLI 2.0, é necessário o nome do Hub IoT.
+Usando o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou [a extensão de IoT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) ferramenta, você pode verificar quais dispositivos estão registrados com o sua solução está usando o hub IoT. Para usar o gerenciador de dispositivos, você precisa da cadeia de conexão do hub IoT na implantação. Para usar a extensão de IoT para CLI do Azure, é necessário o nome do IoT Hub.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Como obter dados de log dos componentes da simulação?
 

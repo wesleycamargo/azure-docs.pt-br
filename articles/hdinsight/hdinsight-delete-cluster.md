@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 737cc120877a9d0f06a1f6d209bcf9a233aa7d19
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 39404ff74552b11e982cf5968c0eb131ea642e27
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091302"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979427"
 ---
-# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Excluir um cluster HDInsight usando o navegador, o PowerShell ou a CLI do Azure
+# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-classic-cli"></a>Excluir um cluster HDInsight usando o navegador, o PowerShell ou a CLI do Azure Clássico
 
-A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança ocorre por minuto, portanto, sempre exclua o cluster quando ele não estiver mais sendo usado. Neste documento, você aprenderá a excluir um cluster usando o Portal do Azure, o Azure PowerShell e a CLI do Azure 1.0.
+A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança ocorre por minuto, portanto, sempre exclua o cluster quando ele não estiver mais sendo usado. Neste documento, você aprenderá a excluir um cluster usando o portal do Azure, o Azure PowerShell e a CLI do Azure Clássico.
 
 > [!IMPORTANT]
 > A exclusão de um cluster HDInsight não exclui as contas do Armazenamento do Azure ou Data Laka Store associadas ao cluster. Você pode reutilizar os dados armazenados nesses serviços no futuro.
@@ -41,13 +41,12 @@ Em um prompt do PowerShell, use o seguinte comando para excluir o cluster:
 
 Substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight.
 
-## <a name="azure-cli-10"></a>CLI 1.0 do Azure
+## <a name="azure-classic-cli"></a>CLI Clássica do Azure
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Em um prompt, use o seguinte para excluir o cluster:
 
     azure hdinsight cluster delete CLUSTERNAME
 
 Substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight.
-
-> [!NOTE]
-> A CLI 2.0 do Azure não dá suporte a clusters de HDInsight excluindo no momento (23 de outubro de 2017).

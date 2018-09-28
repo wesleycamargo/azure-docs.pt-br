@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da4f06ff4e1478043bc147c2c08083e118bccbe4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4532355130fff987e25c5c804630fb6bdd7699df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723112"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959828"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo. Neste tutorial, você aprenderá a:
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.29 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.29 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="define-an-autoscale-profile"></a>Definir um perfil de autoescala
@@ -272,7 +272,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial você aprendeu a reduzir ou escalar aplicativos horizontal e automaticamente um conjunto de dimensionamento com a CLI do Azure 2.0:
+Neste tutorial, você aprendeu como dimensionar automaticamente ou reduzir horizontalmente um conjunto de dimensionamento com a CLI do Azure:
 
 > [!div class="checklist"]
 > * Usar o dimensionamento automático com um conjunto de dimensionamento
@@ -280,7 +280,7 @@ Neste tutorial você aprendeu a reduzir ou escalar aplicativos horizontal e auto
 > * Testar instâncias de VM sob estresse e disparar regras de dimensionamento automático
 > * Redimensionar automaticamente conforme a demanda é reduzida
 
-Para obter mais exemplos de conjuntos de dimensionamento de máquinas virtuais em ação, consulte os seguintes scripts de exemplo do exemplo da CLI do Azure 2.0:
+Para obter mais exemplos de máquina virtual conjuntos de dimensionamento em ação, consulte os seguintes scripts de exemplo de CLI do Azure de exemplo:
 
 > [!div class="nextstepaction"]
-> [Exemplos de script de conjunto de dimensionamento para a CLI do Azure 2.0](cli-samples.md)
+> [Exemplos de script de conjunto de dimensionamento para a CLI do Azure](cli-samples.md)

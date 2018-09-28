@@ -8,7 +8,6 @@ ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
-ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
@@ -16,17 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 05cb2a62cf0f001012f5faa022de233d7cbdce97
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2fd0fe55b975010a1eaafeb455d61a6cb3ebff77
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141424"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970916"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Estruturar projetos com modelo de Processo de Ciência de Dados da Equipe
 
-Este documento apresenta instruções sobre como criar projetos de ciência de dados no Azure Machine Learning com modelos de TDSP (Processo de Ciência de Dados da Equipe). Esses modelos ajudam a estruturar projetos para colaboração e reprodução. 
+Este documento fornece instruções sobre como criar projetos de ciência de dados em uma versão anterior do Azure Machine Learning usando os modelos de processo de ciência de dados de equipe (TDSP). Esses modelos ajudam a estruturar projetos para colaboração e reprodução. 
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 ## <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipe?
 O TDSP é um processo de ciência de dados ágil e iterativo para executar e fornecer soluções de análise avançada. É projetado para melhorar a colaboração e a eficiência das equipes de ciência de dados em organizações empresariais. Ele dá suporte a esses objetivos com quatro componentes principais:
@@ -52,7 +53,7 @@ Examine o seguinte *antes de* criar um novo projeto:
 * Examine o [modelo](https://aka.ms/tdspamlgithubrepo) do Machine Learning do TDSP.
 * Os conteúdos (que não seja os que já estão na pasta “docs”) deve ser menor que 25 MB. Consulte a observação após esta lista.
 * A pasta de dados de\_exemplo é somente para arquivos de dados pequenos (menos de 5 MB) com os quais você pode testar seu código ou começar o desenvolvimento inicial.
-* Armazenar arquivos, como Word, PowerPoint etc. pode aumentar substancialmente o tamanho da pasta “docs”. Aconselhamos que você encontre um Wiki de colaboração, [SharePoint](https://products.office.com/en-us/sharepoint/collaboration) ou outros recursos colaborativos para armazenar esses arquivos.
+* Armazenar arquivos, como Word, PowerPoint etc. pode aumentar substancialmente o tamanho da pasta “docs”. Aconselhamos que você encontre um Wiki de colaboração, [SharePoint](https://products.office.com/sharepoint/collaboration) ou outros recursos colaborativos para armazenar esses arquivos.
 * Para saber como manipular arquivos grandes e saídas no Machine Learning, consulte [Como manter alterações e lidar com arquivos grandes](http://aka.ms/aml-largefiles).
 
 > [!NOTE]

@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a93467404232b0fff51136cb7648d84a81165bdb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4ae9d8053f7463c069a7305bbd07a91a387e31d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697952"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972293"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais no portal do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo.
 
-Este artigo mostra como criar regras de dimensionamento automático no portal do Azure que monitoram o desempenho das instâncias de VM no seu conjunto de dimensionamento. Essas regras de dimensionamento automático aumentam ou diminuem o número de instâncias de VM em resposta a essas métricas de desempenho. Você também pode executar essas etapas com o [Azure PowerShell](tutorial-autoscale-powershell.md) ou a [CLI do Azure 2.0](tutorial-autoscale-cli.md).
+Este artigo mostra como criar regras de dimensionamento automático no portal do Azure que monitoram o desempenho das instâncias de VM no seu conjunto de dimensionamento. Essas regras de autoescala aumentam ou diminuem o número de instâncias de VM em resposta a essas métricas de desempenho. Você também pode concluir essas etapas com [Azure PowerShell](tutorial-autoscale-powershell.md) ou o [CLI do Azure](tutorial-autoscale-cli.md).
 
 
-## <a name="prerequisites"></a>pré-requisitos
-Para criar regras de autoescala, você precisará de um conjunto de dimensionamento de máquinas virtuais existente. É possível criar um conjunto de dimensionamento com o [Portal do Azure](quick-create-portal.md), o [Azure PowerShell](quick-create-powershell.md) ou a [CLI do Azure 2.0](quick-create-cli.md).
+## <a name="prerequisites"></a>Pré-requisitos
+Para criar regras de autoescala, você precisará de um conjunto de dimensionamento de máquinas virtuais existente. Você pode criar um conjunto de dimensionamento com o [portal do Azure](quick-create-portal.md), [do Azure PowerShell](quick-create-powershell.md), ou [CLI do Azure](quick-create-cli.md).
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Crie uma regra para expandir automaticamente

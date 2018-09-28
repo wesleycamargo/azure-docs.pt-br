@@ -6,21 +6,21 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: a52ab4ff65312088e65d56006b6f99a7470b88f6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 575c8a5bec4c7763c75154835830ba350f009e93
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287243"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946928"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o roteamento de mensagens com o Hub IoT
 
-O roteamento de mensagens permite enviar dados de telemetria de seus dispositivos IoT para pontos de extremidade internos compatíveis com o Hub de Eventos ou pontos de extremidade personalizados, como o Armazenamento de Blob, Fila do Barramento de Serviço, Tópico de Barramento de Serviço e Hubs de Eventos. Ao configurar o roteamento de mensagens, você pode criar regras de roteamento para personalizar a rota que corresponde a um determinado tipo de regra. Uma vez configurado, os dados de entrada são roteados automaticamente para os pontos de extremidade pelo Hub IoT. 
+O [roteamento de mensagens](iot-hub-devguide-messages-d2c.md) permite enviar dados de telemetria de seus dispositivos IoT para pontos de extremidade internos compatíveis com o Hub de Eventos ou para pontos de extremidade personalizados, como o Armazenamento de Blobs, a Fila do Barramento de Serviço, o Tópico do Barramento de Serviço e os Hubs de Eventos. Ao configurar o roteamento de mensagens, você pode criar [consultas de roteamento](iot-hub-devguide-routing-query-syntax.md) para personalizar a rota que corresponde a uma determinada condição. Uma vez configurado, os dados de entrada são roteados automaticamente para os pontos de extremidade pelo Hub IoT. 
 
-Neste tutorial, você aprenderá como configurar e usar regras de roteamento com o Hub IoT. Você irá rotear mensagens de um dispositivo IoT para um dos vários serviços, incluindo o Armazenamento de Blob e uma fila do Barramento de Serviço. As mensagens na fila do Barramento de Serviço serão escolhidas por um aplicativo lógico e enviadas por e-mail. As mensagens que não tenham roteamento especificamente configurado são enviadas para o ponto de extremidade padrão e exibidas em uma visualização do Power BI.
+Neste tutorial, você aprenderá como configurar e usar consultas de roteamento com o IoT Hub. Você irá rotear mensagens de um dispositivo IoT para um dos vários serviços, incluindo o Armazenamento de Blob e uma fila do Barramento de Serviço. As mensagens na fila do Barramento de Serviço serão escolhidas por um aplicativo lógico e enviadas por e-mail. As mensagens que não tenham roteamento especificamente configurado são enviadas para o ponto de extremidade padrão e exibidas em uma visualização do Power BI.
 
 Neste tutorial, você executa as seguintes tarefas:
 
@@ -39,58 +39,35 @@ Neste tutorial, você executa as seguintes tarefas:
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-- Instalar o [Visual Studio para Windows](https://www.visualstudio.com/). 
+- Instalar o [Visual Studio](https://www.visualstudio.com/). 
 
 - Uma conta do Power BI para analisar a análise de fluxo do ponto de extremidade padrão. ([Experimente o Power BI gratuitamente](https://app.powerbi.com/signupredirect?pbi_source=web).)
 
 - Uma conta do Office 365 para enviar e-mails de notificação. 
 
-Você precisará da CLI do Azure ou do Azure PowerShell para executar as etapas de instalação para este tutorial. 
-
-Para usar a CLI do Azure, embora você possa instalar a CLI do Azure localmente, é recomendável que você use o Azure Cloud Shell. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar os scripts da CLI do Azure. As ferramentas comuns do Azure estão pré-instaladas e configuradas no Cloud Shell para uso com sua conta, portanto você não precisará instalá-las localmente. 
-
-Para usar o PowerShell, instale-o localmente usando as instruções a seguir. 
-
-### <a name="azure-cloud-shell"></a>Azure Cloud Shell
-
-Há algumas maneiras de abrir o Cloud Shell:
-
-|  |   |
-|-----------------------------------------------|---|
-| Selecione **Experimente** no canto superior direito de um bloco de código. | ![Cloud Shell neste artigo](./media/tutorial-routing/cli-try-it.png) |
-| Abra o Cloud Shell em seu navegador. | [![https://shell.azure.com/bash](./media/tutorial-routing/launchcloudshell.png)](https://shell.azure.com) |
-| Selecione o botão **Cloud Shell** no menu no canto superior direito do [Portal do Azure](https://portal.azure.com). |    ![Cloud Shell no portal](./media/tutorial-routing/cloud-shell-menu.png) |
-|  |  |
-
-### <a name="using-azure-cli-locally"></a>Usando a CLI do Azure localmente
-
-Se você preferir usar a CLI localmente em lugar de usar o Cloud Shell, você deve ter a CLI do Azure versão do módulo 2.0.30.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). 
-
-### <a name="using-powershell-locally"></a>Usando o PowerShell localmente
-
-Este tutorial requer o módulo do Azure PowerShell, versão 5.7 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-resources"></a>Configurar recursos
 
-Para este tutorial, você precisa de um Hub IoT, uma conta de armazenamento e uma fila do Barramento de Serviço. Esses recursos podem todos ser criados usando a CLI do Azure ou o Azure PowerShell. Use o mesmo grupo de recursos e o local para todos os recursos. Em seguida, no final, você pode remover tudo em uma única etapa, excluindo o grupo de recursos.
+Para este tutorial, você precisa de um Hub IoT, uma conta de armazenamento e uma fila do Barramento de Serviço. Esses recursos podem ser criados usando a CLI do Azure ou o Azure PowerShell. Use o mesmo grupo de recursos e o local para todos os recursos. Em seguida, no final, você pode remover tudo em uma única etapa, excluindo o grupo de recursos.
 
-As seções a seguir descrevem como executar essas etapas necessárias. Siga as instruções da CLI *ou* do PowerShell.
+As seções a seguir descrevem como executar essas etapas necessárias. Execute as instruções da CLI *ou* do PowerShell.
 
 1. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
 
-    <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
+2. Criar um Hub IoT na camada S1. Adicionar um grupo de consumidores ao Hub IoT. O grupo de consumidores é usado pelo Azure Stream Analytics ao recuperar dados.
 
-1. Criar um Hub IoT na camada S1. Adicionar um grupo de consumidores ao Hub IoT. O grupo de consumidores é usado pelo Azure Stream Analytics ao recuperar dados.
+3. Crie uma conta de armazenamento padrão V1 com replicação Standard_LRS.
 
-1. Crie uma conta de armazenamento padrão V1 com replicação Standard_LRS.
+4. Criar um namespace do Barramento de Serviço e da fila. 
 
-1. Criar um namespace do Barramento de Serviço e da fila. 
+5. Crie uma identidade de dispositivo para o dispositivo simulado que envia mensagens para o hub. Salve a chave para a fase de teste.
 
-1. Crie uma identidade de dispositivo para o dispositivo simulado que envia mensagens para o hub. Salve a chave para a fase de teste.
+### <a name="set-up-your-resources-using-azure-cli"></a>Configurar os recursos usando a CLI do Azure
 
-### <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
+Copie e cole o script no Cloud Shell. Supondo que você já esteja conectado, ele executa o script uma linha de cada vez. 
 
-A maneira mais fácil de usar esse script é copiá-lo e colá-lo no Cloud Shell. Supondo que você já está conectado, ele executará o script de uma linha por vez. 
+As variáveis que devem ser globalmente exclusivas têm `$RANDOM` concatenados a elas. Quando o script é executado e as variáveis são definidas, uma cadeia de caracteres numérica aleatória é gerada e concatenada ao final da cadeia de caracteres fixa, tornando-a exclusiva.
 
 ```azurecli-interactive
 
@@ -182,9 +159,11 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ```
 
-### <a name="powershell-instructions"></a>Instruções do PowerShell
+### <a name="set-up-your-resources-using-azure-powershell"></a>Configurar os recursos usando o Azure PowerShell
 
-A maneira mais fácil de usar esse script é abrir o [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-6), copiar o script na área de transferência e, em seguida, colar o script inteiro na janela de script. Você pode alterar os valores para os nomes dos recursos (se desejar) e executar o script inteiro. 
+Copie e cole o script no Cloud Shell. Supondo que você já esteja conectado, ele executa o script uma linha de cada vez.
+
+As variáveis que devem ser globalmente exclusivas têm `$(Get-Random)` concatenados a elas. Quando o script é executado e as variáveis são definidas, uma cadeia de caracteres numérica aleatória é gerada e concatenada ao final da cadeia de caracteres fixa, tornando-a exclusiva.
 
 ```azurepowershell-interactive
 # Log into Azure account.
@@ -265,15 +244,15 @@ Em seguida, crie uma identidade de dispositivo e salve sua chave para uso poster
 
 1. Abra o [portal do Azure](https://portal.azure.com) e faça logon na sua conta do Azure.
 
-1. Clique em **grupos de recursos** e selecione o grupo de recursos. Este tutorial usa **ContosoResources**.
+2. Clique em **grupos de recursos** e selecione o grupo de recursos. Este tutorial usa **ContosoResources**.
 
-1. Na lista de recursos, clique em seu Hub IoT. Este tutorial usa **ContosoTestHub**. Selecione **dispositivos IoT** do painel de Hub.
+3. Na lista de recursos, clique em seu Hub IoT. Este tutorial usa **ContosoTestHub**. Selecione **dispositivos IoT** do painel de Hub.
 
-1. Clique em **+ Adicionar**. No painel Adicionar dispositivo, preencha a ID do dispositivo. Este tutorial usa **Contoso-Test-Device**. Deixe em branco as chaves e verifique **Gerar chaves automaticamente**. Certifique-se de que **Conectar o dispositivo ao Hub IoT** está habilitado. Clique em **Salvar**.
+4. Clique em **+ Adicionar**. No painel Adicionar dispositivo, preencha a ID do dispositivo. Este tutorial usa **Contoso-Test-Device**. Deixe em branco as chaves e verifique **Gerar chaves automaticamente**. Certifique-se de que **Conectar o dispositivo ao Hub IoT** está habilitado. Clique em **Salvar**.
 
    ![Captura de tela mostrando a tela adicionar dispositivo.](./media/tutorial-routing/add-device.png)
 
-1. Agora que ela é criada, clique no dispositivo para ver as chaves geradas. Clique no ícone Copiar na chave primária e salve-o em algum lugar, como o bloco de notas para a fase de teste deste tutorial.
+5. Agora que ela é criada, clique no dispositivo para ver as chaves geradas. Clique no ícone Copiar na chave primária e salve-o em algum lugar, como o bloco de notas para a fase de teste deste tutorial.
 
    ![Captura de tela mostrando os detalhes do dispositivo, incluindo as chaves.](./media/tutorial-routing/device-details.png)
 
@@ -289,69 +268,85 @@ Você vai para rotear mensagens para recursos diferentes com base nas propriedad
 
 ### <a name="routing-to-a-storage-account"></a>Rotear para uma conta de armazenamento 
 
-Agora, configure o roteamento para a conta de armazenamento. Definir um ponto de extremidade e, em seguida, configure uma rota para esse ponto de extremidade. As mensagens em que a propriedade **nível** está definida como **armazenamento** são gravados em uma conta de armazenamento automaticamente.
+Agora, configure o roteamento para a conta de armazenamento. Acesse o painel Roteamento de Mensagens e adicione uma rota. Ao adicionar a rota, defina um novo ponto de extremidade para ela. Depois que isso for configurado, as mensagens em que a propriedade **nível** estiver definida como **armazenamento** serão gravadas em uma conta de armazenamento automaticamente.
 
-1. No [portal do Azure](https://portal.azure.com), clique em **Grupos de recursos**, selecione o grupo de recursos. Este tutorial usa **ContosoResources**. Clique no Hub IoT na lista de recursos. Este tutorial usa **ContosoTestHub**. Clique em **Pontos de Extremidade**. No painel **pontos de extremidade**, clique em **+ Adicionar**. Insira as seguintes informações:
+1. No [portal do Azure](https://portal.azure.com), clique em **Grupos de recursos**, selecione o grupo de recursos. Este tutorial usa **ContosoResources**. 
 
-   **Nome**: Insira um nome para o ponto de extremidade. Este tutorial usa **StorageContainer**.
+2. Clique no Hub IoT na lista de recursos. Este tutorial usa **ContosoTestHub**. 
+
+3. Clique em **Roteamento de Mensagens**. No painel **Roteamento de Mensagens**, clique em +**Adicionar**. No painel **Adicionar uma Rota**, clique em +**Adicionar** ao lado do campo Ponto de Extremidade, conforme exibido na figura a seguir:
+
+   ![Captura de tela que mostra como começar a adicionar um ponto de extremidade a uma rota.](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+
+4. Selecione **Armazenamento de Blobs**. Será exibido o painel **Adicionar Ponto de Extremidade de Armazenamento**. 
+
+   ![Captura de tela mostrando a adição de um ponto de extremidade.](./media/tutorial-routing/message-routing-add-storage-ep.png)
+
+5. Insira um nome para o ponto de extremidade. Este tutorial usa **StorageContainer**.
+
+6. Clique em **Escolher um contêiner**. Você será direcionado a uma lista com as suas contas de armazenamento. Selecione aquela que você configurou nas etapas de preparação. Este tutorial usa **contosostorage**. É mostrada uma lista de contêineres nessa conta de armazenamento. Selecione o contêiner que você configurou nas etapas de preparação. Este tutorial usa **contosoresults**. Clique em **Selecionar**. Você retornará ao painel **Adicionar ponto de extremidade**. 
+
+7. Use os padrões no restante dos campos. Clique em **Criar** para criar o ponto de extremidade de armazenamento e adicioná-lo à rota. Você retornará ao painel **Adicionar uma rota**.
+
+8.  Agora, preencha o restante das informações da consulta de roteamento. Essa consulta especifica os critérios para enviar mensagens ao contêiner de armazenamento que você acabou de adicionar como um ponto de extremidade. Preencha os campos na tela. 
+
+   **Nome**: insira um nome para a consulta de roteamento. Este tutorial usa **StorageRoute**.
+
+   **Ponto de extremidade**: mostra o ponto de extremidade que você acabou de configurar. 
    
-   **Tipo de ponto de extremidade**: Selecione **Contêiner de Armazenamento do Azure** na lista suspensa.
+   **Fonte de dados**: selecione **Mensagens de Telemetria do Dispositivo** na lista suspensa.
 
-   Clique em **Escolher um contêiner** para ver a lista de contas de armazenamento. Selecione sua conta de armazenamento. Este tutorial usa **contosostorage**. Em seguida, selecione o contêiner. Este tutorial usa **contosoresults**. Clique em **Selecionar**, que retorna para o painel **Adicionar ponto de extremidade**. 
+   **Habilitar rota**: habilite essa opção.
    
-   ![Captura de tela mostrando a adição de um ponto de extremidade.](./media/tutorial-routing/add-endpoint-storage-account.png)
-   
-   Clique em **OK** para terminar de adicionar o ponto de extremidade.
-   
-1. Clique em **Rotas** no seu Hub IoT. Você vai criar uma regra de roteamento que roteia mensagens para o contêiner de armazenamento que você acabou de adicionar como um ponto de extremidade. Clique em **+Adicionar**, na parte superior do painel de Rotas. Preencha os campos na tela. 
+   **Consulta de roteamento**: insira `level="storage"` como a cadeia de consulta. 
 
-   **Nome**: insira um nome para a regra de roteamento. Este tutorial usa o **StorageRule**.
-
-   **Fonte de dados**: selecione **Mensagens de dispositivo** na lista suspensa.
-
-   **Ponto de extremidade**: selecione o ponto de extremidade que você configurou. Este tutorial usa **StorageContainer**. 
+   ![Captura de tela mostrando a criação de uma consulta de roteamento para a conta de armazenamento.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
-   **Cadeia de caracteres de consulta**: Insira `level="storage"` como a cadeia de caracteres de consulta. 
-
-   ![Captura de tela mostrando a criação de uma regra de roteamento para a conta de armazenamento.](./media/tutorial-routing/create-a-new-routing-rule-storage.png)
-   
-   Clique em **Salvar**. Quando terminar, ele retorna para o painel de Rotas, onde você pode ver a nova regra de roteamento para o armazenamento. Feche o painel de Rotas, que retorna para a página de Grupo de Recursos.
+   Clique em **Salvar**. Ao terminar, você retornará ao painel Roteamento de Mensagens, que exibe sua nova consulta de roteamento para o armazenamento. Feche o painel de Rotas, que retorna para a página de Grupo de Recursos.
 
 ### <a name="routing-to-a-service-bus-queue"></a>Roteamento para uma fila do Barramento de Serviço 
 
-Agora, configure o roteamento para a fila do Barramento de Serviço. Definir um ponto de extremidade e, em seguida, configure uma rota para esse ponto de extremidade. Mensagens onde a propriedade **nível** está definida como **crítica** são gravadas na fila do Barramento de Serviço, que dispara um aplicativo lógico, que envia um e-mail com as informações. 
+Agora, configure o roteamento para a fila do Barramento de Serviço. Acesse o painel Roteamento de Mensagens e adicione uma rota. Ao adicionar a rota, defina um novo ponto de extremidade para ela. Depois que isso for configurado, a mensagem em que a propriedade **nível** estiver definida como **crítica** será gravada na fila do Barramento de Serviço, que dispara um Aplicativo Lógico, que envia um email com as informações. 
 
-1. Na página do Grupo de Recursos, clique em seu Hub IoT e, em seguida, clique em **pontos de extremidade**. No painel **pontos de extremidade**, clique em **+ Adicionar**. Insira as seguintes informações.
+1. Na página Grupo de recursos, clique em seu Hub IoT e em **Roteamento de Mensagens**. 
 
-   **Nome**: Insira um nome para o ponto de extremidade. Este tutorial usa **CriticalQueue**. 
+2. No painel **Roteamento de Mensagens**, clique em +**Adicionar**. 
 
-   **Tipo de ponto de extremidade**: Selecione **Fila do Barramento de Serviço** na lista suspensa.
+3. No painel **Adicionar uma Rota**, clique em +**Adicionar** ao lado do campo Ponto de Extremidade. Selecione **Fila do Barramento de Serviço**. O painel **Adicionar Ponto de Extremidade do Barramento de Serviço** é exibido. 
 
-   **Namespace do Barramento de Serviço**: selecione o namespace do Barramento de Serviço para este tutorial na lista suspensa. Este tutorial usa **ContosoSBNamespace**.
+   ![Captura de tela de adição de um ponto de extremidade do barramento de serviço](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
-   **Fila do Barramento de Serviço**: Selecione fila do Barramento de Serviço na lista suspensa. Este tutorial usa **contososbqueue**.
+4. Preencha os campos:
 
-   ![Captura de tela mostrando a adição de um ponto de extremidade para a fila do Barramento de Serviço.](./media/tutorial-routing/add-endpoint-sb-queue.png)
-
-   Clique em **OK** para salvar o ponto de extremidade. Depois que ele for concluído, feche o painel de pontos de extremidade. 
-    
-1. Clique em **Rotas** no seu Hub IoT. Você vai criar uma regra de roteamento que roteia mensagens para a fila do Barramento de Serviço que você acabou de adicionar como um ponto de extremidade. Clique em **+Adicionar**, na parte superior do painel de Rotas. Preencha os campos na tela. 
-
-   **Nome**: insira um nome para a regra de roteamento. Este tutorial usa o **SBQueueRule**. 
-
-   **Fonte de dados**: selecione **Mensagens de dispositivo** na lista suspensa.
-
-   **Ponto de extremidade**: selecione o ponto de extremidade que você configurou, **CriticalQueue**.
-
-   **Cadeia de caracteres de consulta**: Insira `level="critical"` como a cadeia de caracteres de consulta. 
-
-   ![Captura de tela mostrando a criação de uma regra de roteamento para a fila do Barramento de Serviço.](./media/tutorial-routing/create-a-new-routing-rule-sbqueue.png)
+   **Nome do Ponto de Extremidade**: insira um nome para o ponto de extremidade. Este tutorial usa **CriticalQueue**.
    
-   Clique em **Salvar**. Ao retornar ao painel de Rotas, verá as suas novas regras de roteamentos, conforme exibido aqui.
+   **Namespace do Barramento de Serviço**: clique nesse campo para exibir a lista suspensa, selecione o namespace do barramento de serviço que você configurou nas etapas de preparação. Este tutorial usa **ContosoSBNamespace**.
 
-   ![Captura de tela mostrando as rotas que você acabou de configurar.](./media/tutorial-routing/show-routing-rules-for-hub.png)
+   **Fila do Barramento de Serviço**: clique nesse campo para exibir a lista suspensa e selecione a fila do barramento de serviço. Este tutorial usa **contososbqueue**.
 
-   Feche o painel de Rotas, que retorna para a página de Grupo de Recursos.
+5. Clique em **Criar** para adicionar o ponto de extremidade da fila do Barramento de Serviço. Você retornará ao painel **Adicionar uma rota**. 
+
+6.  Agora, preencha o restante das informações da consulta de roteamento. Essa consulta especifica os critérios para enviar mensagens à fila do Barramento de Serviço que você acabou de adicionar como um ponto de extremidade. Preencha os campos na tela. 
+
+   **Nome**: insira um nome para a consulta de roteamento. Este tutorial usa **SBQueueRoute**. 
+
+   **Ponto de extremidade**: mostra o ponto de extremidade que você acabou de configurar.
+
+   **Fonte de dados**: selecione **Mensagens de Telemetria do Dispositivo** na lista suspensa.
+
+   **Consulta de roteamento**: insira `level="critical"` como a cadeia de consulta. 
+
+   ![Captura de tela mostrando a criação de uma consulta de roteamento para a fila do Barramento de Serviço.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+
+7. Clique em **Salvar**. Ao retornar ao painel Rotas, você verá suas duas novas rotas, como exibido aqui.
+
+   ![Captura de tela mostrando as rotas que você acabou de configurar.](./media/tutorial-routing/message-routing-show-both-routes.png)
+
+8. Veja os pontos de extremidade personalizados que você configurou clicando na guia **Pontos de Extremidade Personalizados**.
+
+   ![Captura de tela mostrando os pontos de extremidade personalizados que você acabou de configurar.](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+
+9. Feche o painel Roteamento de Mensagens e você retornará ao painel Grupo de recursos.
 
 ## <a name="create-a-logic-app"></a>Criar um aplicativo lógico  
 

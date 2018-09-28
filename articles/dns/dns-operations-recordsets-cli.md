@@ -1,6 +1,6 @@
 ---
-title: Gerenciar registros DNS no DNS do Azure usando a CLI do Azure 2.0 | Microsoft Docs
-description: Gerenciando conjuntos de registros DNS e registros no DNS do Azure ao hospedar seu domínio no DNS do Azure. Todos os comandos da CLI 2.0 para operações em conjuntos de registros e registros.
+title: Gerenciar registros DNS no DNS do Azure usando o Azure CLI | Microsoft Docs
+description: Gerenciando conjuntos de registros DNS e registros no DNS do Azure ao hospedar seu domínio no DNS do Azure.
 services: dns
 documentationcenter: na
 author: vhorne
@@ -14,23 +14,23 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: victorh
-ms.openlocfilehash: 41366f29ecf5dcd6ffe23148acd61100681620df
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 1f1ee4f69cc1ab656df04ed30cae6f4c3e55bfa7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174247"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963808"
 ---
-# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Gerenciar registros e conjuntos de registros DNS no DNS do Azure usando a CLI do Azure 2.0
+# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Gerenciar registros DNS e conjuntos de registros no DNS do Azure usando a CLI do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](dns-operations-recordsets-portal.md)
-> * [CLI 2.0 do Azure](dns-operations-recordsets-cli.md)
+> * [CLI do Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-Este artigo mostra como gerenciar registros DNS para sua zona DNS usando a CLI (interface de linha de comando) do Azure 2.0 de plataforma cruzada, que está disponível para Windows, Mac e Linux. Você também pode gerenciar seus registros DNS usando o [Azure PowerShell](dns-operations-recordsets.md) ou o [Portal do Azure](dns-operations-recordsets-portal.md).
+Este artigo mostra como gerenciar registros DNS para sua zona DNS usando a CLI do Azure de plataforma cruzada, que está disponível para Windows, Mac e Linux. Você também pode gerenciar seus registros DNS usando o [Azure PowerShell](dns-operations-recordsets.md) ou o [Portal do Azure](dns-operations-recordsets-portal.md).
 
-Os exemplos neste artigo pressupõem que você já [instalou a CLI do Azure 2.0, entrou e criou uma zona DNS](dns-operations-dnszones-cli.md).
+Os exemplos neste artigo pressupõem que você já [instalou o Azure CLI, entrou e criou uma zona DNS](dns-operations-dnszones-cli.md).
 
 ## <a name="introduction"></a>Introdução
 

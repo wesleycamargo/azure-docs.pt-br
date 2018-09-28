@@ -1,6 +1,6 @@
 ---
-title: Personalizar regras de firewall do aplicativo Web no Gateway de Aplicativo do Azure – CLI do Azure 2.0 | Microsoft Docs
-description: Este artigo fornece informações sobre como personalizar regras de firewall de aplicativo Web no Gateway de Aplicativo com a CLI do Azure 2.0.
+title: Personalizar regras de firewall do aplicativo Web no Gateway de Aplicativo do Azure – CLI do Azure | Microsoft Docs
+description: Este artigo fornece informações sobre como personalizar regras de firewall de aplicativo Web no Gateway de Aplicativo com a CLI do Azure.
 documentationcenter: na
 services: application-gateway
 author: vhorne
@@ -14,19 +14,19 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: victorh
-ms.openlocfilehash: b0bd79bb7ce584a9abaffbb6c30d6fbfe64f87c2
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c02e4edabdcb73bc14c64b42788cddc98d78498c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204200"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964114"
 ---
-# <a name="customize-web-application-firewall-rules-through-the-azure-cli-20"></a>Personalizar as regras de firewall de aplicativo Web por meio da CLI do Azure 2.0
+# <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Personalizar as regras de firewall de aplicativo Web por meio da CLI do Azure
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-customize-waf-rules-portal.md)
+> * [portal do Azure](application-gateway-customize-waf-rules-portal.md)
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [CLI 2.0 do Azure](application-gateway-customize-waf-rules-cli.md)
+> * [CLI do Azure](application-gateway-customize-waf-rules-cli.md)
 
 O WAF (firewall de aplicativo Web) do Gateway de Aplicativo do Azure fornece proteção para aplicativos Web. Essas proteções são fornecidas pelo CRS (conjunto de regras principais) do OWASP (Open Web Application Security Project). Algumas regras podem causar falsos positivos e bloquear o tráfego real. Por esse motivo, o Gateway de Aplicativo possibilita que a capacidade personalize regras e grupos de regras. Para obter mais informações sobre os grupos de regras e as regras específicas, consulte a [Lista de regras e grupos de regras de CRS do firewall de aplicativo Web](application-gateway-crs-rulegroups-rules.md).
 

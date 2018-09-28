@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Criar um conjunto de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
-description: Saiba como usar a CLI do Azure 2.0 para criar um conjunto de dimensionamento de máquinas virtuais e algumas tarefas de gerenciamento comuns, por exemplo, como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.
+description: Aprenda a usar a CLI do Azure para criar um conjunto de dimensionamento de máquina virtual, juntamente com algumas tarefas comuns de gerenciamento, como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a076603519cdce5a16881e0f0703d8187001e058
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f00f7934bfb78c16f9e93dc2fcd94025e5f806a1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452542"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993266"
 ---
-# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Tutorial: Criar e gerenciar um conjunto de dimensionamento da máquinas virtuais usando a CLI do Azure 2.0
+# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: criar e gerenciar uma escala de máquina virtual definida com a CLI do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.29 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.29 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -303,7 +303,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu a executar algumas tarefas básicas de criação e gerenciamento do conjunto de dimensionamento com a CLI do Azure 2.0:
+Neste tutorial, você aprendeu a executar algumas tarefas básicas de criação e gerenciamento de conjuntos de escala com a CLI do Azure:
 
 > [!div class="checklist"]
 > * Criar e se conectar a um conjunto de dimensionamento de máquinas virtuais

@@ -15,22 +15,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 6c0eae36874c6d2738385c4530cc208a0b1362c4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cbd8e6c1d12fe506e5c31c980b1ec13bb121e75e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31424297"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958043"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Criar e carregar uma imagem de disco OpenBSD no Azure
 Este artigo mostra como criar e carregar um disco rígido virtual (VHD) que contém o sistema operacional OpenBSD. Depois de carregá-lo, você pode usá-lo como sua própria imagem para criar uma máquina virtual (VM) no Azure por meio da CLI do Azure.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você tenha os seguintes itens:
 
 * **Uma assinatura do Azure** - Se não tiver uma conta, você poderá criar uma em apenas alguns minutos. Se você tiver uma assinatura do MSDN, confira [Crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Caso contrário, saiba como [criar uma conta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).  
-* **CLI 2.0 do Azure** - Certifique-se de que você tenha instalado a versão mais recente da [CLI 2.0 do Azure](/cli/azure/install-azure-cli) e entrado em uma conta do Azure usando [login az](/cli/azure/reference-index#az_login).
+* **CLI do Azure** – Verifique se você instalou a versão mais recente da [CLI do Azure](/cli/azure/install-azure-cli) e entrou em uma conta do Azure usando [az login](/cli/azure/reference-index#az_login).
 * **Sistema operacional OpenBSD instalado em um arquivo .vhd** - Um sistema operacional OpenBSD com suporte ([AMD64 versão 6.1](https://ftp.openbsd.org/pub/OpenBSD/6.1/amd64/)) deve ser instalado em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd. Por exemplo, você pode usar uma solução de virtualização, como o Hyper-V, para criar o arquivo .vhd e instalar o sistema operacional. Para obter instruções sobre como instalar e usar o Hyper-V, confira [Instalar o Hyper-V e criar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 

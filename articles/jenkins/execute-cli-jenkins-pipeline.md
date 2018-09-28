@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: 7d9565db8fe46ee26fafa7bd021d771e728e9a77
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b9ca8848da543bbfb27246109c3a4ab97eb6bc58
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43101605"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974911"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implantar o Serviço de Aplicativo do Azure com o Jenkins e a CLI do Azure
 Para implantar um aplicativo Web do Java no Azure, você pode usar a CLI do Azure na [pipeline do Jenkins](https://jenkins.io/doc/book/pipeline/). Neste tutorial, você cria um pipeline de CI/CD em uma VM do Azure, incluindo como:
@@ -26,7 +26,7 @@ Para implantar um aplicativo Web do Java no Azure, você pode usar a CLI do Azur
 > * Criar pipeline do Jenkins
 > * Executar o pipeline e verificar o aplicativo Web
 
-Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

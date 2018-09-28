@@ -1,6 +1,6 @@
 ---
-title: Importar e exportar um arquivo de zona de domínio para o DNS do Azure usando a CLI 2.0 do Azure | Microsoft Docs
-description: Saiba como importar e exportar um arquivo de zona DNS para o DNS do Azure usando a CLI do Azure 2.0
+title: Importar e exportar um arquivo de zona de domínio para DNS do Azure usando CLI do Azure | Microsoft Docs
+description: Saiba como importar e exportar um arquivo de zona DNS para o DNS do Azure usando a CLI do Azure
 services: dns
 documentationcenter: na
 author: vhorne
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 7578d078b147b5c4bf42f5343d3fdfdf6f0bc42e
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 5afb607f0410b428d8e67fdff043a4e376dd60a5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171598"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956346"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>Importar e exportar um arquivo da zona DNS usando a CLI do Azure 2.0 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importar e exportar um arquivo de zona DNS usando a CLI do Azure 
 
-Este artigo explica como importar e exportar arquivos da zona DNS para o DNS do Azure usando a CLI do Azure 2.0.
+Este artigo explica como importar e exportar arquivos da zona DNS para DNS do Azure usando a CLI do Azure.
 
 ## <a name="introduction-to-dns-zone-migration"></a>Introdução à migração de zona DNS
 
@@ -30,7 +30,7 @@ Um arquivo de zona DNS é um arquivo de texto que contém detalhes de cada regis
 
 O DNS do Azure oferece suporte à importação e exportação de arquivos de zona usando a interface de linha de comando (CLI) do Azure. Atualmente, **não** há suporte para a importação do arquivo de zona por meio do Azure PowerShell ou do Portal do Azure.
 
-A CLI do Azure 2.0 é uma ferramenta de linha de comando de plataforma cruzada empregada para gerenciar os serviços do Azure. Ela está disponível para as plataformas Windows, Mac e Linux por meio da [página de downloads do Azure](https://azure.microsoft.com/downloads/). O a plataforma cruzada é importante para importar e exportar arquivos de zona, pois o software para servidores de nomes mais comum, o [BIND](https://www.isc.org/downloads/bind/), normalmente é executado no Linux.
+A CLI do Azure é uma ferramenta de linha de comando de plataforma cruzada usada para gerenciar os serviços do Azure. Ela está disponível para as plataformas Windows, Mac e Linux por meio da [página de downloads do Azure](https://azure.microsoft.com/downloads/). O a plataforma cruzada é importante para importar e exportar arquivos de zona, pois o software para servidores de nomes mais comum, o [BIND](https://www.isc.org/downloads/bind/), normalmente é executado no Linux.
 
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>Obtenha seu arquivo de zona DNS existente

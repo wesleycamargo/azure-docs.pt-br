@@ -1,6 +1,6 @@
 ---
-title: Exemplo de Script CLI do Azure - Dimensionar um aplicativo Web manualmente usando a CLI do Azure 2.0 | Microsoft Docs
-description: Exemplo de Script CLI do Azure - Dimensionar um aplicativo Web manualmente usando a CLI do Azure 2.0
+title: Exemplo de Script da CLI do Azure - Dimensionar um aplicativo Web manualmente usando CLI do Azure | Microsoft Docs
+description: Exemplo de Script da CLI do Azure - Dimensionar um aplicativo Web manualmente usando CLI do Azure
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 844250dce567bac280ae3a9a688cc8e5bc5852c9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 28ca20d44d18e8fe25153b7f9298d5174412ad79
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282439"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988573"
 ---
 # <a name="scale-a-web-app-manually"></a>Dimensionar manualmente um aplicativo Web
 
@@ -31,7 +31,7 @@ Esse script de exemplo cria um grupo de recursos, um plano de serviço de aplica
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, você precisará da CLI do Azure versão 2.0 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, você precisará da CLI do Azure versão 2.0 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 

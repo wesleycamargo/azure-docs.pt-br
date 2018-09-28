@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: a275df4567053149688694315ff24ac1ad7f711f
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 48b6287fef673c5f335531b6f230993969fc9e1c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186907"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996325"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Implantar o OpenShift Container Platform no Azure
 
@@ -139,7 +139,7 @@ Substitua os itens entre parênteses com suas informações específicas.
 ### <a name="deploy-by-using-azure-cli"></a>Implantar usando a CLI do Azure
 
 > [!NOTE] 
-> O comando a seguir requer a CLI do Azure 2.0.8 ou posterior. Você pode verificar a versão CLI com o comando `az --version`. Para atualizar a versão da CLI, confira [Instalar a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> O comando a seguir requer o Azure CLI.8 ou posterior. Você pode verificar a versão CLI com o comando `az --version`. Para atualizar a versão da CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
 O exemplo a seguir implanta o cluster do OpenShift e todos os recursos relacionados em um grupo de recursos denominado myResourceGroup com um nome de implantação de myOpenShiftCluster. O modelo é referenciado diretamente do repositório GitHub e um arquivo de parâmetros local chamado azuredeploy.parameters.json é usado.
 

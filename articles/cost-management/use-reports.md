@@ -1,29 +1,31 @@
 ---
-title: Usar relatórios do Gerenciamento de Custos no Gerenciamento de Custos do Azure | Microsoft Docs
-description: Este artigo descreve como usar vários relatórios do Gerenciamento de Custos no portal do Cloudyn.
+title: Usar relatórios do Cloudyn no Azure | Microsoft Docs
+description: Este artigo descreve como usar vários relatórios no portal do Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 055584bd27c978fb71e6c09995c28be7348acda8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 8267401a0dade0ca7cfb1dbf69d2fdfd6786f1df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906372"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976770"
 ---
-# <a name="use-cost-management-reports"></a>Usar relatórios do gerenciamento de custos
+# <a name="use-cloudyn-reports"></a>Usar relatórios do Cloudyn
 
-Este artigo descreve a finalidade dos relatórios de gerenciamento de custos que estão incluídos no portal do Cloudyn. Ele também descreve como você pode usar com eficiência os relatórios. A maioria dos relatórios é intuitiva e tem uma aparência uniforme. A maioria das ações que você pode fazer em um relatório, também poderá fazer em outros. Para ter uma visão geral sobre como usar relatórios de gerenciamento de custo, incluindo como personalizar e salvar ou agendar relatórios, consulte [Noções básicas sobre relatórios de custo](understanding-cost-reports.md).
+Este artigo descreve a finalidade dos relatórios Cloudyn que estão incluídos no portal do Cloudyn. Ele também descreve como você pode usar com eficiência os relatórios. A maioria dos relatórios é intuitiva e tem uma aparência uniforme. A maioria das ações que você pode fazer em um relatório, também poderá fazer em outros. Para obter uma visão geral sobre como usar os relatórios da Cloudyn, incluindo como personalizar e salvar ou agendar relatórios, consulte [Noções básicas sobre relatórios de custo](understanding-cost-reports.md).
+
+O Azure Cost Management oferece funcionalidade semelhante ao Cloudyn. O Azure Cost Management é uma solução nativa de gerenciamento de custos do Azure. Ele ajuda você a analisar custos, criar e gerenciar orçamentos, exportar dados e rever e agir de acordo com recomendações de otimização para economizar dinheiro. Para obter mais informações, consulte [gerenciamento de custos do Azure](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Tipos de relatório
 
-Há três tipos de relatórios de gerenciamento de custos:
+Existem três tipos de relatórios Cloudyn:
 
 - Relatórios ao longo do tempo. Por exemplo, o relatório Custo ao Longo do Tempo. Os relatórios ao longo do tempo mostram uma série de tempo dos dados ao longo de um intervalo selecionado com uma resolução predefinida e mostram uma resolução semanal para os últimos dois meses. Você pode usar o agrupamento e a filtragem para ampliar e ver vários pontos de dados.
   - Os relatórios ao longo do tempo podem ajudá-lo a exibir as tendências e detectar picos ou anomalias.
@@ -49,7 +51,7 @@ Os relatórios de _análise de custo_ exibem dados de cobrança de seus provedor
 
 Alguns relatórios de _análise de custos_ não agrupam os custos por marcas de recurso. E, as informações de cobrança baseadas em marcas só aparecem em relatórios depois de alocar os custos com a criação de um modelo de custo usando [Alocação de custos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-Os relatórios de _alocação de custos_ estão disponíveis depois que você cria um modelo de custo usando a [Alocação de Custos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). O Gerenciamento de Custos processa os dados de custo e cobrança, e _corresponde_ os dados aos dados de uso e marca de suas contas na nuvem. Para corresponder aos dados, o Gerenciamento de Custos requer acesso aos seus dados de uso. Se tiver contas sem credenciais, elas serão rotuladas como _recursos não categorizados_.
+Os relatórios de _alocação de custos_ estão disponíveis depois que você cria um modelo de custo usando a [Alocação de Custos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). O Cloudyn processa os dados de custo e faturamento e faz a _correspondência_ dos dados com os dados de uso e tag de suas contas na nuvem. Para corresponder aos dados, o Cloudyn requer acesso aos seus dados de uso. Se tiver contas sem credenciais, elas serão rotuladas como _recursos não categorizados_.
 
 ## <a name="dashboards"></a>Painéis
 
@@ -57,7 +59,7 @@ Os painéis no Cloudyn fornecem uma visão geral de relatórios. Painéis são c
 
 ## <a name="budget-information-in-reports"></a>Informações de orçamento em relatórios
 
-Muitos relatórios de gerenciamento de custos mostram informações de orçamento depois que você tiver criado um manualmente. Assim, os relatórios não mostrarão as informações de orçamento até você criar um orçamento. Para saber mais, veja [Configurações de orçamento](#budget-settings).
+Muitos relatórios Cloudyn mostram informações de orçamento depois de ter criado um manualmente. Assim, os relatórios não mostrarão as informações de orçamento até você criar um orçamento. Para saber mais, veja [Configurações de orçamento](#budget-settings).
 
 ## <a name="reports-and-reporting-features"></a>Relatórios e recursos de relatórios
 
@@ -81,7 +83,7 @@ O relatório de análise de custo é um cálculo de recuperação e estorno, com
 
 As políticas definidas em [Alocação de custos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) são usados no relatório de análise de custo e os resultados são, em seguida, combinados com as informações dos dados brutos de seu fornecedor de nuvem.
 
-Como esse relatório é calculado? O serviço Gerenciamento de Custos faz a alocação manter a integridade de cada conta associada aplicando a _afinidade de conta_. A afinidade faz com que uma conta que não usa um serviço específico não tenha custos desse serviço alocados a ela. Os custos acumulados na conta permanecem nessa conta e não são calculados pelas políticas de alocação. Por exemplo, você pode ter cinco contas associadas. Se apenas três delas usam serviços de armazenamento, o custo dos serviços de armazenamento só é alocado entre marcas nas três contas.
+Como esse relatório é calculado? O serviço do Cloudyn garante a alocação mantenha a integridade de cada conta associada aplicando _afinidade de conta_. A afinidade faz com que uma conta que não usa um serviço específico não tenha custos desse serviço alocados a ela. Os custos acumulados na conta permanecem nessa conta e não são calculados pelas políticas de alocação. Por exemplo, você pode ter cinco contas associadas. Se apenas três delas usam serviços de armazenamento, o custo dos serviços de armazenamento só é alocado entre marcas nas três contas.
 
 Use o relatório de análise de custo para:
 
@@ -147,7 +149,7 @@ Esse conjunto de relatórios de custos amortizados mostram tarifas de serviço s
 - Taxas de compra de instâncias reservadas
 - Alguns itens do Azure Marketplace
 
-No arquivo de cobrança, as tarifas avulsas são caracterizadas quando as datas de início e término do consumo do serviço (carimbo de data/hora) têm valores iguais. O serviço Gerenciamento de Custos reconhece as tarifas como valores únicos que são amortizados. Não são amortizados outros serviços baseados em consumo com custos de uso sob demanda.
+No arquivo de cobrança, as tarifas avulsas são caracterizadas quando as datas de início e término do consumo do serviço (carimbo de data/hora) têm valores iguais. O serviço Cloudyn reconhece as tarifas como episódios únicos que estão amortizados. Não são amortizados outros serviços baseados em consumo com custos de uso sob demanda.
 
 Os relatórios de custos amortizados incluem:
 
@@ -158,9 +160,9 @@ Os relatórios de custos amortizados incluem:
 
 O relatório de análise de custo fornece informações sobre o consumo e gastos na nuvem durante um período de tempo selecionado. As políticas definidas na [Alocação de Custos360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) são usadas no relatório de análise de custo.
 
-Como o Gerenciamento de Custos calcula esse relatório?
+Como o Cloudyn calcula esse relatório?
 
-O Gerenciamento de Custos faz essa alocação manter a integridade de cada conta associada aplicando a _afinidade de conta_. A afinidade faz com que uma conta que não usa um serviço específico também não tenha custos desse serviço alocados a ela. Os custos acumulados na conta permanecem nessa conta e não são calculados pelas políticas de alocação. Por exemplo, você pode ter cinco contas associadas. Se apenas três delas usam serviços de armazenamento, o custo dos serviços de armazenamento só é alocado entre marcas nas três contas.
+O Cloudyn faz com que a alocação mantenha a integridade de cada conta associada aplicando _afinidade de conta_. A afinidade faz com que uma conta que não usa um serviço específico também não tenha custos desse serviço alocados a ela. Os custos acumulados na conta permanecem nessa conta e não são calculados pelas políticas de alocação. Por exemplo, você pode ter cinco contas associadas. Se apenas três delas usam serviços de armazenamento, o custo dos serviços de armazenamento só é alocado entre marcas nas três contas.
 
 Use o relatório de análise de custo para:
 
@@ -206,7 +208,7 @@ Os encargos personalizados são mostrados em relatórios de custo. Por exemplo, 
 
 Você pode usar Alocação de custos 360 para criar modelos personalizados de alocação de custos para atribuir os custos a recursos de nuvem consumidos. Muitos relatórios mostram informações de modelos personalizados de custo que você criou com modelos personalizados de custo. E alguns relatórios mostram apenas as informações depois de você ter criado um modelo personalizado de custos com alocação de custos.
 
-Para obter mais informações sobre como criar modelos personalizados de custos, consulte [Tutorial: gerenciar custos usando o Gerenciamento de Custos do Azure](tutorial-manage-costs.md).
+Para obter mais informações sobre a criação de modelos de custo personalizados, consulte [Tutorial: gerenciar custos usando o Cloudyn](tutorial-manage-costs.md).
 
 ### <a name="cost-vs-budget-over-time-report"></a>Relatório de Custos versus  Orçamento ao Longo do Tempo
 
@@ -248,11 +250,11 @@ Ao concluir, seu orçamento será exibido nos relatórios de análise de custo e
 
 ### <a name="azure-resource-explorer-report"></a>Relatório do Azure Resource Explorer
 
-O relatório do Azure Resource Explorer mostra uma lista de todos os recursos do Azure disponíveis no Gerenciamento de Custos. Para usar efetivamente o relatório, suas contas do Azure devem ter as métricas estendidas habilitadas. As métricas estendidas fornecem acesso de Gerenciamento de Custos para suas VMs do Azure. Para ter mais informações, consulte [Adicionar métricas estendidas para máquinas virtuais do Azure](azure-vm-extended-metrics.md).
+O relatório do Azure Resource Explorer mostra uma lista em massa de todos os recursos do Azure disponíveis no Cloudyn. Para usar efetivamente o relatório, suas contas do Azure devem ter as métricas estendidas habilitadas. Métricas estendidas fornecem acesso Cloudyn às suas VMs do Azure. Para ter mais informações, consulte [Adicionar métricas estendidas para máquinas virtuais do Azure](azure-vm-extended-metrics.md).
 
 ### <a name="azure-resources-over-time-report"></a>Relatório de recursos do Azure ao longo do tempo
 
-O relatório de recursos do Azure ao longo do tempo mostra uma análise detalhada de todos os recursos em execução em um período específico. Para usar efetivamente o relatório, suas contas do Azure devem ter as métricas estendidas habilitadas. As métricas estendidas fornecem acesso de Gerenciamento de Custos para suas VMs do Azure. Para ter mais informações, consulte [Adicionar métricas estendidas para máquinas virtuais do Azure](azure-vm-extended-metrics.md).
+O relatório de recursos do Azure ao longo do tempo mostra uma análise detalhada de todos os recursos em execução em um período específico. Para usar efetivamente o relatório, suas contas do Azure devem ter as métricas estendidas habilitadas. Métricas estendidas fornecem acesso Cloudyn às suas VMs do Azure. Para ter mais informações, consulte [Adicionar métricas estendidas para máquinas virtuais do Azure](azure-vm-extended-metrics.md).
 
 ### <a name="instance-explorer-report"></a>Relatório do Instance Explorer
 
@@ -355,7 +357,7 @@ Três opções de pagamento para RIs, que são todos antecipados:
 - Sem antecipação, em que o custo de RI é pago em prestações mensais ao longo da duração da RI, oferecendo o desconto mais baixo
 - Pagamentos parciais antecipados, no qual ¼ a ½ do preço é pago com antecedência e o restante em prestações mensais, com uma taxa de desconto menor, mas próxima à taxa antecipada total
 
-O Gerenciamento de Custos avalia o tempo de atividade de cada máquina nos últimos 30 dias. O Gerenciamento de Custos recomenda comprar RIs quando ele for mais econômico para executar a máquina com uma RI no nível de tempo de atividade atual.
+O Cloudyn avalia o tempo de atividade de cada máquina nos últimos 30 dias. A Cloudyn recomenda a compra de RIs quando for mais econômico executar a máquina com um RI no nível atual de uptime.
 
 O relatório mostra a justificativa para essa recomendações para você poupar dinheiro ao longo do ano. As recomendações sugerem substituir as instâncias sob demanda com as RIs. Você pode comprar RIs diretamente do relatório.
 
@@ -363,9 +365,9 @@ Cada guia é aberta como um relatório completo. Seções importantes nas guias:
 
 - **Impacto de compra de RI do EC2** - esta seção fornece uma simulação da diferença entre as instâncias reservadas versus sob demanda. Clique em **Ampliar** para ver o relatório completo de impacto de compra de RI do EC2 com os filtros já definidos para a sua recomendação. Este relatório mostra o impacto de compra de todas as possíveis compras de RI. Você pode ajustar o tempo de atividade médio esperado para ver o potencial de economia ao adquirir instâncias reservadas do EC2.
 
-- **Análise de economia** - esta seção mostra o potencial de economia obtida e o mês em que as economias são conquistadas ao seguir as recomendações do Gerenciamento de Custos. A economia real e a porcentagem salva estão realçadas em vermelho.
+- **Saving Analysis** - Esta seção fornece as economias potenciais obtidas e o mês em que as economias são atualizadas ao seguir as recomendações da Cloudyn. A economia real e a porcentagem salva estão realçadas em vermelho.
 
-- **Comparação de tipo de RI do EC2** - esta seção enfatiza os destaques do ROI da implantação recomendada do Gerenciamento de Custos, incluindo todas as opções relevantes. Os resultados desse relatório supõem que a máquina esteja em execução em 100% do tempo de atividade. Clique em **Ampliar** para abrir o relatório detalhado.
+- **Comparação do tipo EC2 RI**: esta seção enfatiza os destaques do ROI da implantação recomendada da Cloudyn, incluindo todas as opções relevantes. Os resultados desse relatório supõem que a máquina esteja em execução em 100% do tempo de atividade. Clique em **Ampliar** para abrir o relatório detalhado.
 
 - **Instâncias ao longo do tempo** - esta seção exibe uma análise de todas as instâncias associadas com a recomendação, sob demanda, instâncias reservadas e à vista. Clique em **Ampliar** para abrir o relatório detalhado.
 - **Pontos de equilíbrio** - esta seção exibe uma tabela de todas as possíveis implantações recomendadas e o ROI e o mês quando ocorre o ROI. Clique em **Ampliar** para abrir o relatório detalhado.
@@ -394,7 +396,7 @@ O relatório de recomendações de compra de instância reservada do RDS recomen
 Cada guia é aberta como um relatório completo. Seções importantes nas guias:
 
 - **Impacto de compra de RI do RDS** - esta seção fornece uma simulação da diferença entre as instâncias reservadas versus sob demanda. Clique em **Ampliar** para ver o relatório completo de impacto de compra de RI do RDS com os filtros já definidos para a sua recomendação. Este relatório permite ver o impacto de compra de todas as possíveis compras de RI.  Você pode ajustar o tempo de atividade médio esperado e ver o potencial de economia por RIs de compra.
-- **Análise de economia** - esta seção mostra o potencial de economia obtida e o mês em que as economias são conquistadas ao seguir as recomendações do Gerenciamento de Custos. A economia real e a porcentagem salva estão realçadas em vermelho.
+- **Saving Analysis** - Esta seção fornece as economias potenciais obtidas e o mês em que as economias são atualizadas ao seguir as recomendações da Cloudyn. A economia real e a porcentagem salva estão realçadas em vermelho.
 
 - **Comparação de tipo de RI do RDS** - esta seção enfatiza os destaques do ROI da implantação recomendada, incluindo todas as opções relevantes. Os resultados desse relatório supõem que a máquina esteja em execução em 100% do tempo de atividade. Clique em **Ampliar** para abrir o relatório detalhado para a máquina selecionada.
 - **Instâncias ao longo do tempo** - esta seção exibe uma análise de todas as instâncias associadas com a recomendação, sob demanda, instâncias reservadas e à vista. Clique em **Ampliar** para abrir o relatório detalhado.
@@ -417,7 +419,7 @@ Você não pode baixar a lista de IDs de instância que são recomendadas para d
 
 Considere o exemplo de redução a seguir:
 
-Você tem seis instâncias m3.xlarge em execução. A análise do Gerenciamento de Custos mostra que cinco delas têm baixa utilização de CPU. Considere a possibilidade de fazer uma diminuição de tamanho delas.
+Você tem seis instâncias m3.xlarge em execução. A análise da Cloudyn mostra que cinco deles têm baixa utilização da CPU. Considere a possibilidade de fazer uma diminuição de tamanho delas.
 
 No Impacto de custo, esse dado é calculado. Neste exemplo, ao expandir o item de linha, você pode ver que o preço atual para uma instância m3.xlarge (Linux/Unix) custa US$ 0,266 por hora e uma instância m3.large (Linux/Unix) custa US$ 0,133 por hora. Portanto, o custo anual é US$ 11.651 para cinco instâncias m3.xlarge em execução com 100% de utilização. O custo anual é US$ 5.825 para cinco instâncias m3.large em execução com 100% de utilização. O potencial de economia é US$ 5.825.
 
@@ -425,7 +427,7 @@ Para exibir as justificativas de dimensionamento mais econômicas, clique em + p
 
 - A seção **Justificativa de Recomendação** exibe a implantação atual e o número de instâncias recomendado para diminuir o tamanho.
 - A seção **Impacto de custo** exibe o cálculo usado para determinar o potencial de economia.
-- A seção **Economia potencial anual** exibe a economia potencial anual quando houver uma redução por recomendação do Gerenciamento de Custos.
+- A seção **Potential Annual Savings** (Economia potencial anual) exibe a possível economia anual ao reduzir o tamanho por recomendação da Cloudyn.
 
 ### <a name="all-sizing-recommendations-report"></a>Relatório de recomendações de todos os dimensionamentos
 
@@ -483,11 +485,11 @@ Para exibir as métricas de uma instância específica ao longo do tempo:
 
 ### <a name="rds-sizing-recommendations-report"></a>Relatório de recomendações de dimensionamento do RDS
 
-O relatório de recomendações de dimensionamento do RDS fornece recomendações para otimizar o uso da nuvem. Ele fornece uma lista de instâncias subutilizadas que são candidatas para diminuir de tamanho. As recomendações do Gerenciamento de Custos baseiam-se nos dados de uso e o desempenho nos últimos 30 dias. Você pode filtrar recomendações por Nome da conta, Região, Tipo de instância e Status.
+O relatório de recomendações de dimensionamento do RDS fornece recomendações para otimizar o uso da nuvem. Ele fornece uma lista de instâncias subutilizadas que são candidatas para diminuir de tamanho. As recomendações do Cloudyn são baseadas nos dados de uso e desempenho dos últimos 30 dias. Você pode filtrar recomendações por Nome da conta, Região, Tipo de instância e Status.
 
 ### <a name="sizing-threshold-manager-report"></a>Relatório do gerenciador de limite de dimensionamento
 
-As recomendações de dimensionamento internas do Gerenciamento de Custos são calculadas usando um algoritmo complexo para fornecer sugestões precisas de dimensionamento. Você pode ajustar os limites para as recomendações de redução.
+As recomendações de dimensionamento internas da Cloudyn são calculadas usando um algoritmo complexo para fornecer sugestões precisas de dimensionamento. Você pode ajustar os limites para as recomendações de redução.
 
 Para ajustar manualmente as recomendações de dimensionamento de limite:
 

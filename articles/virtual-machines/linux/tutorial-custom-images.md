@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Criar imagens personalizadas da VM com a CLI do Azure | Microsoft Docs
-description: Neste tutorial, você aprende a usar a CL1 2.0 do Azure para criar uma imagem de máquina virtual personalizada no Microsoft Azure
+description: Neste tutorial, você aprende a usar a CLI do Azure para criar uma imagem de máquina virtual personalizada no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 68c0dec2ff9d5da2d4e4abeab435bdb70c33ba48
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: d8e6afb61fd9fa25b220f3267ee718f0859ae9a4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810184"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948784"
 ---
-# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli-20"></a>Tutorial: criar uma imagem personalizada de uma VM do Azure com a CLI 2.0 do Microsoft Azure
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutorial: criar uma imagem personalizada de uma VM do Azure com a CLI do Azure
 
 Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria. As imagens personalizadas podem ser usadas para configurações de inicialização como o pré-carregamento de aplicativos, configurações de aplicativos e outras configurações do sistema operacional. Neste tutorial, você criará sua própria imagem personalizada de uma máquina virtual do Azure. Você aprenderá como:
 
@@ -36,7 +36,7 @@ Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

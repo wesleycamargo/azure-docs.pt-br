@@ -1,6 +1,6 @@
 ---
-title: Recursos com suporte para alertas de métrica do Azure Monitor mais recentes
-description: Referência sobre métricas e logs de suporte para novos alertas de métrica do Azure quase em tempo real.
+title: Recursos com suporte para alertas de métrica no Azure Monitor
+description: Referência sobre métricas e logs de suporte para alertas de métrica no Azure Monitor
 author: snehithm
 services: monitoring
 ms.service: azure-monitor
@@ -8,17 +8,18 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 019f245a7cc1feedcbd520c336f53a60ed1e9ddc
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 102f087f31aa304aaaee49e0e39ff8c6874127b4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579082"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966776"
 ---
-# <a name="supported-resources-for-newer-azure-monitor-metric-alerts"></a>Recursos com suporte para alertas de métrica do Azure Monitor mais recentes
-Agora, o Azure Monitor dá suporte a um [novo tipo de alerta de métrica](monitoring-overview-unified-alerts.md), que tem vantagens significativas sobre os [alertas de métrica clássicos](insights-alerts-portal.md) mais antigos. As métricas estão disponíveis para uma [ampla lista de serviços do Azure](monitoring-supported-metrics.md). Os alertas mais recentes dão suporte a um subconjunto (cada vez maior) de tipos de recurso. Este artigo lista esse subconjunto. 
+# <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos com suporte para alertas de métrica no Azure Monitor
 
-Use também alertas de métrica mais recentes em logs populares do Log Analytics extraídos como métricas como parte das Métricas de Logs (Versão Prévia)  
+Agora, o Azure Monitor dá suporte a um [novo tipo de alerta de métrica](monitoring-overview-unified-alerts.md), que tem vantagens significativas sobre os [alertas de métrica clássicos](insights-alerts-portal.md) mais antigos. As métricas estão disponíveis para uma [ampla lista de serviços do Azure](monitoring-supported-metrics.md). Os alertas mais recentes dão suporte a um subconjunto (cada vez maior) de tipos de recurso. Este artigo lista esse subconjunto.
+
+Use também os alertas de métrica mais recentes em logs populares do Log Analytics extraídos como métricas como parte das Métricas de Logs 
 - [Contadores de desempenho](../log-analytics/log-analytics-data-sources-performance-counters.md) para computadores Windows e Linux
 - [Registros de pulsação para Integridade do Agente](../operations-management-suite/oms-solution-agenthealth.md)
 - Registros de [gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md)
@@ -28,7 +29,7 @@ Use também alertas de métrica mais recentes em logs populares do Log Analytics
 > A métrica e/ou dimensão específica só será exibida se os respectivos dados existirem no período escolhido. Essas métricas estão disponíveis para os clientes com espaços de trabalho do Azure Log Analytics no Leste dos EUA, no Centro-oeste dos EUA e na Europa Ocidental. Atualmente, as métricas do Log Analytics estão em versão prévia pública e estão sujeitas a alterações.
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, suporte REST
-Atualmente, é possível criar alertas de métrica mais novos apenas no portal do Azure, [API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) ou [Modelos do Gerenciador de Recursos](monitoring-create-metric-alerts-with-templates.md). O suporte para a configuração de alertas mais recentes usando o PowerShell e a interface de linha de comando do Azure (CLI 2.0 do Azure) estará disponível em breve.
+Atualmente, é possível criar alertas de métrica mais novos apenas no portal do Azure, [API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) ou [Modelos do Gerenciador de Recursos](monitoring-create-metric-alerts-with-templates.md). Suporte para configurar os alertas mais recentes usando o PowerShell e a CLI do Azure versões 2.0 e superiores em breve.
 
 ## <a name="metrics-and-dimensions-supported"></a>Medidas e dimensões com suporte
 Os alertas de métrica mais recentes fornecem suporte a alertas para métricas que usam dimensões. É possível usar dimensões para filtrar sua métrica para o nível certo. Todas as métricas compatíveis, juntamente com as dimensões aplicáveis, podem ser exploradas e visualizadas do [Azure Monitor – Metrics Explorer (versão prévia)](monitoring-metric-charts.md).
@@ -66,7 +67,9 @@ Esta é a lista completa das origens métricas do Azure Monitor com suporte pelo
 |Microsoft.Storage/storageAccounts/services     |     SIM    | [Serviços de blob](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Serviços de arquivo](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [Serviços de fila](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) e [Serviços de tabela](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  N/D       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 | Microsoft.Web/serverfarms | SIM | [Planos do Serviço de Aplicativo](monitoring-supported-metrics.md#microsoftwebserverfarms)  |
-|Microsoft.OperationalInsights/workspaces (Versão prévia) | SIM|[Espaços de trabalho do Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
+| Microsoft.Web/sites | SIM | [Serviços de Aplicativos](monitoring-supported-metrics.md#microsoftwebsites-excluding-functions) e [Funções](monitoring-supported-metrics.md#microsoftwebsites-functions)|
+| Microsoft.Web/sites/slots | SIM | [Slots do Serviço de Aplicativo](monitoring-supported-metrics.md#microsoftwebsitesslots)|
+|Microsoft.OperationalInsights/workspaces| SIM|[Espaços de trabalho do Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
 
 
 

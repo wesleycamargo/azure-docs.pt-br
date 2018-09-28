@@ -1,28 +1,32 @@
 ---
-title: 'Tutorial: Examinar o uso e os custos do Gerenciamento de Custos do Azure | Microsoft Docs'
+title: 'Tutorial: examinar o uso e os custos com a Cloudyn no Azure | Microsoft Docs'
 description: Neste tutorial, você analisa o uso e os custos para acompanhar tendências, detectar ineficiências e criar alertas.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 5505ec8dd25e5468fad81d4eb26980202425969a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 72eaa6f085581f34b696a946e2168eceaa21a849
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35627528"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987706"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>Tutorial: Examinar o uso e os custos
 
-O Gerenciamento de Custos do Azure mostra o uso e os custos para que seja possível acompanhar tendências, detectar ineficiências e criar alertas. Todos os dados de uso e de custo são exibidos em relatórios e painéis da Cloudyn. Os exemplos neste tutorial demonstram como examinar o uso e os custos usando painéis e relatórios. Neste tutorial, você aprenderá como:
+O Cloudyn mostra o uso e custos para que você possa acompanhar tendências, detectam ineficiências e criar alertas. Todos os dados de uso e de custo são exibidos em relatórios e painéis da Cloudyn. Os exemplos neste tutorial demonstram como examinar o uso e os custos usando painéis e relatórios.
+
+O Azure Cost Management oferece funcionalidade semelhante ao Cloudyn. O Azure Cost Management é uma solução nativa de gerenciamento de custos do Azure. Ele ajuda você a analisar custos, criar e gerenciar orçamentos, exportar dados e rever e agir de acordo com recomendações de otimização para economizar dinheiro. Para obter mais informações, consulte [gerenciamento de custos do Azure](overview-cost-mgt.md).
+
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Acompanhar as tendências de uso e custo
@@ -35,7 +39,7 @@ Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azu
 ## <a name="prerequisites"></a>pré-requisitos
 
 - Você deve ter uma conta do Azure.
-- Você deve ter um registro de avaliação ou uma assinatura paga do Gerenciamento de Custos do Azure.
+- Você deve ter um registro de avaliação ou assinatura paga do Cloudyn.
 
 ## <a name="open-the-cloudyn-portal"></a>Abra o portal da Cloudyn
 
@@ -59,7 +63,7 @@ No exemplo anterior, menos dinheiro foi gasto a partir de 31/08/2017 do que ante
 
 No exemplo, você vê claramente que o custo de armazenamento do Azure caiu a partir de 31-08-2017 enquanto as despesas com outros serviços do Azure permaneceram no mesmo nível. Portanto, o que causou essa redução de gastos? Neste exemplo, alguns funcionários estavam de férias do trabalho em não usaram o serviço de armazenamento.
 
-Para assistir a um vídeo de tutorial sobre o acompanhamento de tendências de custo e uso, consulte [Analisar seus dados de cobrança da nuvem vs. tempo com Gerenciamento de Custos do Azure](https://youtu.be/7LsVPHglM0g).
+Para assistir a um vídeo de tutorial sobre o acompanhamento de tendências de uso e custo, consulte [analisar seus dados versus tempo com a Cloudyn de cobrança da nuvem](https://youtu.be/7LsVPHglM0g).
 
 ## <a name="detect-usage-inefficiencies"></a>Detectar ineficiências de uso
 
@@ -83,7 +87,7 @@ Exiba as IDs da instância VM clicando no símbolo de mais ao lado de **Lista de
 
 ![Lista de candidatos](./media/tutorial-review-usage/sizing03.png)
 
-Para assistir a um vídeo de tutorial sobre como detectar ineficiências de uso, consulte [Otimizando o tamanho da VM no Gerenciamento de Custos do Azure](https://youtu.be/1xaZBNmV704).
+Para assistir a um vídeo tutorial sobre como detectar ineficiências de uso, consulte [Otimizando o tamanho da VM no Cloudyn](https://youtu.be/1xaZBNmV704).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Criar alertas para gastos incomuns
 

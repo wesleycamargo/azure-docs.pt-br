@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9a48b3ff9769e2757ac7930feb14d6537d96fae3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4cf516550e9f9852ec50981932c2df8f236d0358
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109231"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961307"
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Criar clusters Hadoop no HDInsight usando modelos do Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá várias maneiras de criar clusters do Azure HDIns
 Para seguir as instruções neste artigo, você precisará de:
 
 * Uma [assinatura do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell e/ou CLI do Azure.
+* O Azure PowerShell e / ou o CLI Clássico do Azure.
 
 ### <a name="resource-manager-templates"></a>Modelos do Gerenciador de Recursos
 Um modelo do Resource Manager torna mais fácil criar os seguintes recursos para o seu aplicativo em uma única operação coordenada:
@@ -49,7 +49,7 @@ O Resource Manager permite que você exporte um modelo do Resource Manager dos r
 
 - Portal do Azure: consulte [Exportar um modelo do Azure Resource Manager dos recursos existentes](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: consulte [Exportar modelos do Azure Resource Manager com o PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- CLI do Azure: consulte [Exportar modelos do Azure Resource Manager com a CLI do Azure](../azure-resource-manager/resource-manager-export-template-cli.md).
+- CLI Clássica do Azure: consulte [Exportar modelos do Azure Resource Manager com CLI do Azure Classic](../azure-resource-manager/resource-manager-export-template-cli.md).
 
 
 ## <a name="deploy-using-the-portal"></a>Implantar usando o portal
@@ -60,9 +60,9 @@ Você pode implantar um modelo do Resource Manager usando o portal do Azure. Par
 
 Você pode implantar um modelo do Resource Manager usando o Azure PowerShell. Para obter mais informações, consulte [Implantar recursos com modelos do Resource Manager e do Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) e [implantar modelo do Resource Manager privado com o token SAS e o Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
 
-## <a name="deploy-using-cli"></a>Implantar usando a CLI
+## <a name="deploy-using-azure-cli"></a>Implantar usando a CLI do Azure
 
-Você pode implantar um modelo do Resource Manager usando a CLI do Azure. Para obter mais informações, consulte [Implantar recursos com modelos do Resource Manager e da CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) e [implantar modelo do Resource Manager privado com o token SAS e a CLI do Azure](../azure-resource-manager/resource-manager-cli-sas-token.md).
+Você pode implantar um modelo do Resource Manager usando CLI clássica. Para obter mais informações, consulte [Implantar recursos com modelos do Resource Manager e da CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) e [implantar modelo do Resource Manager privado com o token SAS e a CLI do Azure](../azure-resource-manager/resource-manager-cli-sas-token.md).
 
 ## <a name="deploy-using-the-rest-api"></a>Implantar usando a API REST
 Você pode implantar um modelo do Resource Manager usando a API REST. Para obter mais informações, consulte [Implantar recursos com modelos do Resource Manager e a API REST do Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md).

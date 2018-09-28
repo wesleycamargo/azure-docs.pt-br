@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 1a5df1081edeb8b8e7520064a71534f70a9a9d33
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344293"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954391"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
 Este artigo lista alguns dos termos comuns usados nos artigos do Hub IoT.
@@ -27,11 +27,11 @@ O gerenciamento automático do dispositivo no Hub IoT do Azure automatiza muitas
 ## <a name="automatic-device-configuration"></a>Configuração de dispositivo automática
 O back-end da sua solução pode usar [configurações de dispositivo automáticas](iot-hub-auto-device-config.md) para atribuir as propriedades desejadas a um conjunto de [dispositivos gêmeos](#device-twin) e relatar o status usando métricas do sistema e métricas personalizadas. 
 
-## <a name="azure-cli"></a>CLI do Azure
-A [CLI do Azure](../cli-install-nodejs.md) é uma ferramenta de comando de plataforma cruzada, de software livre, baseada em shell para criar e gerenciar os recursos no Microsoft Azure. Esta versão da CLI é implementada usando o Node.js.
+## <a name="azure-classic-cli"></a>Azure classic CLI
+O [CLI clássico do Azure](../cli-install-nodejs.md) é uma ferramenta de comando baseada em shell, de plataforma cruzada e código aberto para criar e gerenciar recursos no Microsoft Azure. Esta versão da CLI deve ser usada apenas para implantações clássicas.
 
-## <a name="azure-cli-20"></a>CLI do Azure 2.0
-A [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) é uma ferramenta de comando de plataforma cruzada, de software livre, baseada em shell para criar e gerenciar os recursos no Microsoft Azure. Esta versão de visualização da CLI é implementada usando Python.
+## <a name="azure-cli"></a>CLI do Azure
+A [CLI do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) é uma ferramenta de comando de plataforma cruzada, de software livre, baseada em shell para criar e gerenciar os recursos no Microsoft Azure.
 
 
 ## <a name="azure-iot-device-sdks"></a>SDKs do dispositivo IoT do Azure
@@ -185,8 +185,8 @@ Você pode usar a [API REST dos recursos do Hub IoT](https://docs.microsoft.com/
 ## <a name="iot-solution-accelerators"></a>Aceleradores de solução do IoT
 Os aceleradores de solução do Azure IoT incluem vários serviços do Azure para oferecer diferentes soluções. Essas soluções permitem que você realize rapidamente implementações de ponta a ponta de cenários comuns de IoT. Para obter mais informações, consulte [O que são os aceleradores de solução do Azure IoT?](../iot-accelerators/about-iot-accelerators.md)
 
-## <a name="the-iot-extension-for-azure-cli-20"></a>A extensão de IoT para o Azure CLI 2.0
-[A extensão de IoT do Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) é uma ferramenta de linha de comando de plataforma cruzada. A ferramenta permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry), envie e receba mensagens e arquivos de seus dispositivos e monitore as operações do hub IoT.
+## <a name="the-iot-extension-for-azure-cli"></a>A extensão IoT para o CLI do Azure 
+[A extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) é uma ferramenta de linha de comando de plataforma cruzada. A ferramenta permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry), envie e receba mensagens e arquivos de seus dispositivos e monitore as operações do hub IoT.
 
 ## <a name="job"></a>Trabalho
 O back-end de sua solução pode usar [trabalhos](iot-hub-devguide-jobs.md) para agendar e controlar atividades em um conjunto de dispositivos registrados no Hub IoT. As atividades incluem atualização de [propriedades desejadas](#desired-properties) do dispositivo gêmeo, atualização de [marcas](#tags) do dispositivo gêmeo e invocação de [métodos diretos](#direct-method). O [Hub IoT](#iot-hub) também usa  para [importar e exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) do [registro de identidade](#identity-registry).

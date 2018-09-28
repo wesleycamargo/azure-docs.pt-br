@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Alta disponibilidade para VMs Linux no Azure | Microsoft Docs
-description: Neste tutorial, você aprenderá a usar a CLI 2.0 do Azure para implantar máquinas virtuais altamente disponíveis em Conjuntos de Disponibilidade
+description: Neste tutorial, você aprenderá como usar a CLI do Azure para implantar máquinas virtuais altamente disponíveis em Conjuntos de Disponibilidade
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a31ca4dc326eb6ada37813cacd8bb1dc337c7fdc
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ee1c3cb079d77fe8e510695514e77c8ae9795c30
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044235"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950498"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli-20"></a>Tutorial: Criar e implantar máquinas virtuais altamente disponíveis com a CLI 2.0 do Azure
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: criar e implantar máquinas virtuais altamente disponíveis com a CLI do Azure
 
 Neste tutorial, você aprenderá a aumentar a disponibilidade e a confiabilidade de suas soluções de Máquina Virtual no Azure usando uma funcionalidade chamada Conjuntos de Disponibilidade. Os Conjuntos de disponibilidade garantem que as VMs implantadas no Azure sejam distribuídas entre vários clusters de hardware isolados. Isso garante que, se ocorrer uma falha de hardware ou de software no Azure, apenas um subconjunto de suas VMs será afetado e a solução geral permanecerá disponível e operacional.
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="availability-set-overview"></a>Visão geral do conjunto de disponibilidade
 

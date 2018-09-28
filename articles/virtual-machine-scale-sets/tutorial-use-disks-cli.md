@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Criar e usar discos para conjuntos de dimensionamento com CLI do Azure 2.0 | Microsoft Docs
-description: Saiba como usar a CLI do Azure 2.0 para criar e usar Managed Disks com conjuntos de dimensionamento de máquinas virtuais, incluindo como adicionar, preparar, listar e desanexar discos.
+title: Tutorial - Criar e usar discos para conjuntos de dimensionamento com o CLI do Azure | Microsoft Docs
+description: Aprenda a usar a CLI do Azure para criar e usar Discos gerenciados com o conjunto de dimensionamento de máquinas virtuais, incluindo como adicionar, preparar, listar e desanexar discos.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3c34ebda3700bb34952fb067bc965069004aee75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ae26e851e60f654a502779fe2a8b41e13dc47915
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719472"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993622"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli-20"></a>Tutorial: criar e usar discos com um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure 2.0
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: crie e use discos com escala de máquina virtual definida com a CLI do Azure
 Conjuntos de dimensionamento de máquinas virtuais usam discos para armazenar o sistema operacional da instância de VM, aplicativos e dados. Ao criar e gerenciar um conjunto de dimensionamento, é importante escolher um tamanho e uma configuração de disco apropriados para a carga de trabalho esperada. Este tutorial aborda como criar e gerenciar os discos de VM. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.29 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.29 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 
 ## <a name="default-azure-disks"></a>Discos padrão do Azure
@@ -298,7 +298,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu a criar e usar discos com conjuntos de dimensionamento com a CLI do Azure 2.0:
+Neste tutorial, você aprendeu como criar e usar discos com conjuntos de dimensionamento com a CLI do Azure:
 
 > [!div class="checklist"]
 > * Discos de sistema operacional e discos temporários

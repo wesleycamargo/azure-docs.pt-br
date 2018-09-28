@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 05/15/2018
+ms.date: 06/18/2018
 ms.author: danlep
-ms.openlocfilehash: 3f2551fbc91b91cdc5f7d6e764c5345ddbd18544
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 62eafcc6d5d8f9aa99404964167db48c9bba0c37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121977"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957322"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Visão geral das ferramentas e APIs de Lote
 
@@ -60,7 +60,7 @@ As APIs do Azure Resource Manager para o Lote fornecem acesso programático a co
 Essas ferramentas de linha de comando fornecem a mesma funcionalidade que o serviço do Lote e as APIs de gerenciamento do Lote: 
 
 * [Cmdlets do PowerShell do Lote][batch_ps]: os cmdlets do Lote do Azure no módulo do [Azure PowerShell](/powershell/azure/overview) permitem que você gerencie recursos do Lote com o PowerShell.
-* [CLI do Azure 2.0](/cli/azure): a CLI do Azure (Interface de linha de comando do Azure) é um conjunto de ferramentas de plataforma cruzada que fornece comandos do shell para interagir com muitos serviços do Azure, incluindo o serviço do Lote e o serviço de Gerenciamento do Lote. Consulte [Gerenciar recursos do Lote de com a CLI do Azure](batch-cli-get-started.md) para obter mais informações sobre como usar a CLI do Azure com o Lote.
+* [CLI do Azure](/cli/azure): a CLI do Azure é um conjunto de ferramentas de plataforma cruzada que fornece comandos do shell para interação com muitos serviços do Azure, incluindo o serviço de Lote e o serviço de Gerenciamento de lotes. Consulte [Gerenciar recursos do Lote de com a CLI do Azure](batch-cli-get-started.md) para obter mais informações sobre como usar a CLI do Azure com o Lote.
 
 ## <a name="other-tools-for-application-development"></a>Outras ferramentas para desenvolvimento de aplicativos
 

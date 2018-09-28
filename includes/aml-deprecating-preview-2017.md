@@ -1,0 +1,2 @@
+>[!Note]
+>**Este artigo está obsoleto.** Suporte para versões anteriores desse serviço será encerrado incrementalmente. [Exibir linha do tempo de suporte](../articles/machine-learning/service/overview-what-happened-to-workbench.md#timeline). Começar a usar a versão mais recente com isso [quickstart](../articles/machine-learning/service/index.yml).

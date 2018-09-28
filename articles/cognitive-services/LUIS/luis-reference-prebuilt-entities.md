@@ -1,6 +1,6 @@
 ---
-title: Referência de entidades predefinidas de LUIS – Azure | Microsoft Docs
-titleSuffix: Azure
+title: Entidades predefinidas - LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém listas das entidades predefinidas incluídas em LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 731ac279b4b0c162809d8e0638b9337924859b3d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 8645cff25ee2d874120cd88f0dc2fa278e68f070
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238822"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976387"
 ---
 # <a name="entities-per-culture"></a>Entidades por cultura
 
@@ -28,17 +28,19 @@ Entidade predefinida   |   Inglês (Estados Unidos)<br>```En-us```   |   Francê
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    ✔   |   ✔   |   -   |   ✔   |    ✔   |   -   |   ✔   |   -   |   -   |   -   |   -   |   -   |
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [Email](luis-reference-prebuilt-email.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   |   ✔   |   ✔   |   ✔   |   -   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [Percentual](luis-reference-prebuilt-percentage.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   |    -   |    -   |    -   |    ✔   |    -   |    -   |    -   |   -   |   -   |   -   |   -   |
 [Número de telefone](luis-reference-prebuilt-phonenumber.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 
 Veja as observações sobre [Entidades predefinidas preteridas](luis-reference-prebuilt-deprecated.md)
 
-A KeyPhrase não está disponível em todas as subculturas do português (Brasil) - ```pt-BR```.
+A frase-chave não está disponível em todas as subculturas de Português (Brasil) - ```pt-BR```.
 
 <!--
 ## Examples of prebuilt entities in en-us culture
@@ -66,7 +68,7 @@ Prebuilt entity   |   Example utterance   |   JSON
 -->
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Contribuir para culturas de entidade predefinida
-As entidades predefinidas são desenvolvidas no projeto de software livre Recognizers-Text. [Contribua](https://github.com/Microsoft/Recognizers-Text) para o projeto. Esse projeto inclui exemplos de moeda por cultura. 
+As entidades predefinidas são desenvolvidas no projeto de software livre Recognizers-Text. [Contribua com](https://github.com/Microsoft/Recognizers-Text) para o projeto. Esse projeto inclui exemplos de moeda por cultura. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

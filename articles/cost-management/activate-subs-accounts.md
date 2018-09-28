@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: ec56f9fdf21459857c8115222da921b6681a3ac5
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 1726cf947ad027eabd79aa35da92df37e1681003
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247229"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959607"
 ---
-# <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Ativar assinaturas e contas do Azure com o Gerenciamento de Custos do Azure
+# <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Ativar assinaturas e contas do Azure com o Cloudyn
 
-Adicionar ou atualizar suas credenciais do Azure Resource Manager permite que o Gerenciamento de Custos do Azure descubra todas as contas e assinaturas no seu locatário do Azure. Se você também tem a extensão de diagnóstico do Azure habilitada em suas máquinas virtuais, Gerenciamento de Custos do Azure pode coletar métricas estendidas como CPU e memória. Este artigo descreve como habilitar o acesso usando APIs do Azure Resource Manager para contas novas e existentes. Ele também descreve como resolver problemas comuns de conta.
+Adicionar ou atualizar suas credenciais do Azure Resource Manager permite que o Cloudyn descubra todas as contas e assinaturas no seu locatário do Azure. Se você também tem a extensão do Diagnóstico do Azure habilitada em suas máquinas virtuais, o Cloudyn pode coletar métricas estendidas como CPU e memória. Este artigo descreve como habilitar o acesso usando APIs do Azure Resource Manager para contas novas e existentes. Ele também descreve como resolver problemas comuns de conta.
 
-Gerenciamento de Custos do Azure não pode acessar a maioria dos dados de sua assinatura do Azure quando a assinatura não está _ativa_. Você deve editar contas _não ativas_ para que o Gerenciamento de Custos do Azure possa acessá-las.
+O Cloudyn não pode acessar a maioria dos dados de sua assinatura do Azure quando ela _não está ativa_. Você deve editar contas _não ativas_ para que o Cloudyn possa acessá-las.
 
 ## <a name="required-azure-permissions"></a>Permissões necessárias do Azure
 
@@ -47,17 +47,17 @@ Se sua conta tiver a função **Colaborador**, você não tem a permissão adequ
 
 ## <a name="add-an-account-or-update-a-subscription"></a>Adicionar uma conta ou atualizar uma assinatura
 
-Quando você adiciona uma assinatura a uma atualização de conta, você concede ao Gerenciamento de Custos do Azure acesso para seus dados do Azure.
+Quando você adiciona uma assinatura a uma atualização de conta, você concede ao Cloudyn acesso a seus dados do Azure.
 
 ### <a name="add-a-new-account-subscription"></a>Adicionar uma nova conta (assinatura)
 
-1. No portal do Gerenciamento de Custos do Azure, clique no símbolo de engrenagem no canto superior direito e selecione **Contas na Nuvem**.
+1. No portal do Cloudyn, clique no símbolo de engrenagem no canto superior direito e selecione **Contas do Cloud**.
 2. Clique em **Adicionar nova conta** e a caixa **Adicionar nova conta** é exibida. Insira as informações necessárias.  
     ![Caixa Adicionar nova conta](./media/activate-subs-accounts//add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Atualizar uma assinatura
 
-1. Se você quiser atualizar uma assinatura _não ativa_ que já existe no Gerenciamento de Custos do Azure no Gerenciamento de Contas, clique no símbolo de lápis de edição à direita do _GUID de locatário_ pai. As assinaturas são agrupadas em um locatário pai, portanto, evite ativar assinaturas individualmente.
+1. Se você quiser atualizar uma assinatura _não ativa_ que já existe no Cloudyn no Gerenciamento de Contas, clique no símbolo de lápis de edição à direita do _GUID de locatário_ pai. As assinaturas são agrupadas em um locatário pai, portanto, evite ativar assinaturas individualmente.
     ![Redescobrir assinaturas](./media/activate-subs-accounts/existing-sub.png)
 2. Se necessário, insira a ID de locatário. Se você não souber sua ID de locatário, use as seguintes etapas para localizá-lo:
     1. Entre no [Portal do Azure](https://portal.azure.com).
@@ -71,39 +71,42 @@ Quando você adiciona uma assinatura a uma atualização de conta, você concede
     3. Em **Minhas assinaturas**, selecione a assinatura.
     4. Sua ID de taxa é mostrada em **ID da oferta**. Copiar a ID de oferta para a assinatura.
 4. Na caixa Adicionar nova conta (ou Editar assinatura), clique em **Salvar** (ou **Próxima**). Você será redirecionado para o portal do Azure.
-5. Entre no portal. Clique em **Aceitar** para autorizar o coletor do Gerenciamento de Custos do Azure acessar sua conta do Azure.
+5. Entre no portal. Clique em **Aceitar** para autorizar o coletor do Cloudyn a acessar sua conta do Azure.
 
-    Você será redirecionado para a página de gerenciamento das Contas do Gerenciamento de Custos do Azure e sua assinatura será atualizada com o status de conta **ativa**. Um símbolo de marca de seleção verde na coluna do Gerenciador de Recursos deve ser exibida.
+    Você será redirecionado para a página de gerenciamento das Contas do Cloudyn e sua assinatura será atualizada com o status de conta **ativa**. Um símbolo de marca de seleção verde na coluna do Gerenciador de Recursos deve ser exibida.
 
     Se você não vir um símbolo de marca de seleção verde para uma ou mais assinaturas, isso significa que você não tem permissões para criar o aplicativo de leitor (o CloudynCollector) para a assinatura. Um usuário com permissões mais altas para a assinatura precisa repetir esse processo.
 
-Assista ao vídeo [Conectar-se ao Azure Resource Manager com o Gerenciamento de Custos do Azure](https://youtu.be/oCIwvfBB6kk) que orienta o processo.
+Assista ao vídeo [Conectar-se ao Azure Resource Manager com o Cloudyn](https://youtu.be/oCIwvfBB6kk) que guia você pelo processo.
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 
 ## <a name="resolve-common-indirect-enterprise-set-up-problems"></a>Como resolver problemas comuns de configuração de empresa indireta
 
-Ao usar o portal do Gerenciamento de Custos do Azure pela primeira vez, você poderá ver as seguintes mensagens se for um usuário do Contrato Enterprise ou Provedor de Solução de Nuvem (CSP):
+Ao usar o portal do Cloudyn pela primeira vez, você poderá ver as seguintes mensagens se for um usuário do Contrato Enterprise ou Provedor de Solução de Nuvem (CSP):
 
-- *A chave de API especificada não é uma chave de registro de nível superior* exibida no assistente de **Configurar Gerenciamento de Custos do Azure**.
+- *A chave de API especificada não é uma chave de registro de nível superior* exibida no assistente **Configurar o Cloudyn**.
 - *Inscrição direta – Não* exibido no portal do Contrato Enterprise.
-- *Nenhum dado de uso encontrado nos últimos 30 dias. Entre em contato com o distribuidor para ter certeza de que a marcação foi habilitada para sua conta do Azure* exibido no portal do Gerenciamento de Custos do Azure.
+- *Nenhum dado de uso encontrado nos últimos 30 dias. Entre em contato com o distribuidor para ter certeza de que o markup foi habilitado para sua conta do Azure* exibido no portal do Cloudyn.
 
-As mensagens anteriores indicam que você adquiriu um Contrato Enterprise do Azure por meio de um revendedor ou CSP. Seu revendedor ou CSP precisa habilitar o _markup_ para que você possa exibir os dados da conta do Azure no Gerenciamento de Custos do Azure.
+As mensagens anteriores indicam que você adquiriu um Contrato Enterprise do Azure por meio de um revendedor ou CSP. Seu revendedor ou CSP precisa habilitar o _markup_ para que você possa exibir os dados da conta do Azure no Cloudyn.
 
 Veja como corrigir os problemas:
 
 1. Seu revendedor precisa habilitar _marcação_ para sua conta. Para obter instruções, consulte o [Guia de integração de cliente indireto](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. Você gera a chave de Contrato Enterprise do Azure para usar com o Gerenciamento de Custos do Azure. Para obter instruções, consulte [Registrar um Contrato Enterprise do Azure e exibir dados de custo](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
+2. Você gera a chave de Contrato Enterprise do Azure para usar com o Cloudyn. Para obter instruções, consulte [Registrar um Contrato Enterprise do Azure e exibir dados de custo](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
-Habilite a API de cobrança do Azure antes de gerar a chave de API do Contrato Enterprise do Azure para configurar o Gerenciamento de Custos do Azure seguindo as instruções em:
+Habilite a API de cobrança do Azure antes de gerar a chave de API do Contrato Enterprise do Azure para configurar o Cloudyn seguindo as instruções em:
 
 - [Visão geral das APIs de Relatórios para clientes Enterprise](../billing/billing-enterprise-api.md)
 - [API de relatórios do Microsoft Azure Enterprise Portal](https://ea.azure.com/helpdocs/reportingAPI) em **Habilitando o acesso a dados para a API**
 
 Você também precisa conceder permissões para administradores de departamento, proprietários de conta e administradores de empresa para _exibir encargos_ com a API de cobrança.
 
-Somente um administrador do serviço Azure pode habilitar o Gerenciamento de Custos. As permissões de coadministrador são insuficientes. No entanto, você pode contornar o requisito do administrador. É possível solicitar que o administrador do Active Directory do Azure conceda permissão para autorizar o **CloudynAzureCollector** com um script do PowerShell. O script a seguir concede permissão para registrar a Entidade de Serviço do Azure Active Directory **CloudynAzureCollector**. Quando executada com êxito, a operação termina com o navegador mostrando a URL http://localhost:8080/CloudynJava.
+<<<<<<< HEAD Somente um administrador de serviços do Azure pode habilitar o Gerenciamento de Custos. As permissões de coadministrador são insuficientes. No entanto, você pode contornar o requisito do administrador. É possível solicitar que o administrador do Active Directory do Azure conceda permissão para autorizar o **CloudynAzureCollector** com um script do PowerShell. O script a seguir concede permissão para registrar a Entidade de Serviço do Azure Active Directory **CloudynAzureCollector**. Quando executada com êxito, a operação termina com o navegador mostrando a URL http://localhost:8080/CloudynJava.
+======= Somente um administrador de serviços do Azure pode habilitar o Cloudyn. As permissões de coadministrador são insuficientes. No entanto, você pode contornar o requisito do administrador. É possível solicitar que o administrador do Active Directory do Azure conceda permissão para autorizar o **CloudynAzureCollector** com um script do PowerShell. O script a seguir concede permissão para registrar a Entidade de Serviço do Azure Active Directory **CloudynAzureCollector**.
+
+>>>>>>> 9f3b4a46614ba7306c044dce8be6ee7cc3bf101d
 
 ```
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
@@ -132,4 +135,4 @@ $url = "https://login.windows.net/"+$tenant+"/oauth2/authorize?api-version=1&res
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você ainda não concluiu o primeiro tutorial de Gerenciamento de Custos, leia-o em [Examinar o uso e os custos](tutorial-review-usage.md).
+- Se você ainda não concluiu o primeiro tutorial do Cloudyn, leia-o em [Examinar o uso e os custos](tutorial-review-usage.md).

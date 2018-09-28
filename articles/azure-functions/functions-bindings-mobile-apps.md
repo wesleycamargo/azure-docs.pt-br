@@ -11,14 +11,17 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a68e7cfe2966592861f3fb58c99327c5849a6004
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 6b5a45bfcfc02c6b313e868fb3ba037ce3ba48c9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721584"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967567"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associações de Aplicativos Móveis para o Azure Functions 
+
+> [!NOTE]
+> Associações de aplicativos móveis do Azure só estão disponíveis para o Azure Functions 1.x. Eles não têm suporte no Azure Functions 2.x.
 
 Este artigo explica como trabalhar com associações dos [Aplicativos Móveis do Azure](../app-service-mobile/app-service-mobile-value-prop.md) no Azure Functions. O Azure Functions dá suporte a associações de entrada e saída para os Aplicativos Móveis.
 
@@ -31,12 +34,6 @@ As associações dos Aplicativos Móveis permitem ler e atualizar tabelas de dad
 As ligações de aplicativos para dispositivos móveis são fornecidas no pacote [ do Microsoft.Azure.WebJobs.Extensions.MobileApps ](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet, versão 1.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
-
-## <a name="packages---functions-2x"></a>Pacotes - Functions 2. x
-
-As ligações de aplicativos para dispositivos móveis são fornecidas no pacote [ do Microsoft.Azure.WebJobs.Extensions.MobileApps ](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet, versão 3.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/).
-
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="input"></a>Entrada
 

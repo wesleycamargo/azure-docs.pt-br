@@ -9,44 +9,45 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 32644fe0cf0a6e1666d2d1ee6efb826bf753f001
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ed00b75fa956d0197d3672d84b097f99ec3c35ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814856"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956364"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>Chamar ponto de extremidade da Pesquisa Personalizada do Bing (C#)
 
-Este início rápido mostra como solicitar resultados de pesquisa da instância de pesquisa personalizada usando C# para chamar o ponto de extremidade da Pesquisa Personalizada do Bing. 
+Este início rápido mostra como solicitar resultados de pesquisa de sua instância de pesquisa personalizada usando o C# para chamar o ponto de extremidade da Pesquisa Personalizada do Bing. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
--  Uma instância de pesquisa personalizada pronta para uso. Consulte [Criar a primeira instância da Pesquisa Personalizada do Bing](quick-start.md).
--  [.NET Core](https://www.microsoft.com/net/download/core) instalado.
-- Uma [Conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.  
+Para concluir este início rápido, você precisa de:
 
-  >[!NOTE]  
-  >Os clientes da Pesquisa Personalizada do Bing que têm a chave da versão prévia provisionada em ou antes de 15 de outubro de 2017 poderão usar suas chaves até 30 de novembro de 2017 ou até que eles tenham usado o número máximo de consultas permitidas. Depois disso, eles precisam migrar para a versão geralmente disponível no Azure. 
- 
+- Uma instância de pesquisa personalizada pronta para uso. Consulte [Criar a primeira instância da Pesquisa Personalizada do Bing](quick-start.md).
+- [.NET Core](https://www.microsoft.com/net/download/core) instalado.
+- Uma chave de assinatura. Você pode obter uma chave de assinatura quando ativar sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode usar uma chave de assinatura paga no painel do Azure (consulte [Conta da API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+
+
 ## <a name="run-the-code"></a>Executar o código
 
 Para executar esse exemplo, siga estas etapas:
 
-1. Crie uma pasta para o código.
-2. Em um prompt de comando ou terminal, navegue até a pasta que você acabou de criar.
+1. Crie uma pasta para o código.  
+  
+2. Em um prompt de comando ou terminal, navegue até a pasta que você acabou de criar.  
+  
 3. Execute os seguintes comandos:
     ```
     dotnet new console -o BingCustomSearch
     cd BingCustomSearch
     dotnet add package Newtonsoft.Json
     dotnet restore
-   ```
+    ```
+  
+4. Copie o seguinte código para Program.cs. Substitua **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** pela sua chave de assinatura e ID de configuração.
 
-4. Copie o seguinte código para Program.cs.
-5. Substitua **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** com a chave e ID de configuração.
-
-    ``` CSharp
+    ```csharp
     using System;
     using System.Net.Http;
     using System.Web;
@@ -118,13 +119,13 @@ Para executar esse exemplo, siga estas etapas:
         }
     }
     ```
-6. Compile o aplicativo usando o comando a seguir. Observe o caminho de dll referenciado pela saída do comando.
+6. Compile o aplicativo usando o comando a seguir. Anote o caminho da DLL referenciado pela saída do comando.
 
     <pre>
     dotnet build 
     </pre>
     
-7. Execute o aplicativo usando o comando a seguir, substituindo **PATH TO OUTPUT** pelo caminho referido na etapa de build.
+7. Executar o aplicativo usando o comando a seguir substituindo **caminho-para-saída** com o caminho DLL mencionado na etapa 6.
 
     <pre>    
     dotnet **PATH TO OUTPUT**

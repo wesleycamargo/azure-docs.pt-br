@@ -1,83 +1,87 @@
 ---
-title: Planos e Cobrança no Agendador do Azure
-description: Planos e Cobrança no Agendador do Azure
+title: Planos e Cobrança - Agendador do Microsoft Azure
+description: Saiba mais sobre planos e cobrança do Agendador do Azure
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: 03f335634b7ce1fe4aa6251d6ec21922ed9b84c8
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 74f13628b62d53a84b4d19255a30a6bc4a7367ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887480"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974282"
 ---
-# <a name="plans-and-billing-in-azure-scheduler"></a>Planos e Cobrança no Agendador do Azure
-## <a name="job-collection-plans"></a>Planos de Coleção de Trabalho
-Coleções de trabalho são a entidade faturável no Agendador do Azure. As coleções de trabalhos contêm vários trabalhos e são apresentadas em três planos – Standard, P10 Premium e P20 Premium – descritos abaixo.
+# <a name="plans-and-billing-for-azure-scheduler"></a>Planos e Cobrança do Agendador do Azure
 
-| **Plano de Coleção de Trabalho** | **Número máximo de trabalhos por Coleção de Trabalhos** | **Recorrência Máxima** | **Máximo de Coleções de Trabalho por Assinatura** | **Limites** |
+> [!IMPORTANT]
+> [Aplicativo Lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Microsoft Azure, que está sendo desativado. Para agendar trabalhos, [experimente o Aplicativo Lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+## <a name="job-collection-plans"></a>Planos de coleção de trabalhos
+
+No Agendador do Azure, uma coleção de trabalhos contém um número específico de trabalhos. A coleção de trabalhos é a entidade faturável e fornecida nos planos Standard, P10 Premium e P20 Premium, que são descritos aqui: 
+
+| Plano de coleção de trabalhos | Máximo de trabalhos por coleção | Recorrência máxima | Máximo de coleções de trabalhos por assinatura | limites | 
 |:--- |:--- |:--- |:--- |:--- |
-| **Standard** |50 trabalhos por coleção de trabalhos |Uma vez por minuto. Não é possível executar trabalhos com uma frequência maior do que uma vez por minuto |São permitidas até 100 coleções de trabalho standard por assinatura |Acesso ao conjunto completo de recursos do Agendador |
-| **P10 Premium** |50 trabalhos por coleção de trabalhos |Uma vez por minuto. Não é possível executar trabalhos com uma frequência maior do que uma vez por minuto |São permitidas até 10.000 coleções de trabalhos Premium P10 por assinatura. <a href="mailto:wapteams@microsoft.com">Entre em contato conosco</a>para obter mais informações. |Acesso ao conjunto completo de recursos do Agendador |
-| **P20 Premium** |1000 trabalhos por coleção de trabalhos |Uma vez por minuto. Não é possível executar trabalhos com uma frequência maior do que uma vez por minuto |São permitidas até 10.000 coleções de trabalhos Premium P20 por assinatura. <a href="mailto:wapteams@microsoft.com">Entre em contato conosco</a>para obter mais informações. |Acesso ao conjunto completo de recursos do Agendador |
-
-## <a name="upgrades-and-downgrades-of-job-collection-plans"></a>Atualizações e Downgrades de Planos de Coleção de Trabalhos
-É possível fazer upgrade ou downgrade de um plano de coleção de trabalhos a qualquer momento entre os planos Standard, P10 Premium e P20 Premium.
-
-## <a name="billing-and-azure-plans"></a>Planos de cobrança e do Azure
-Se você tiver mais de 100 coleções de trabalhos standard (10 unidades de cobrança standard), então é melhor ter todas as coleções de trabalhos no plano premium.
-
-Se você tiver uma coleção de trabalhos standard e uma coleção de trabalhos premium, será cobrada uma unidade de cobrança standard *e* uma unidade de cobrança premium. As listas de serviço do Agendador com base no número de coleções de trabalhos ativos que são definidos como standard ou premium; isso é explicado com mais detalhes nas próximas duas seções.
-
-## <a name="standard-billable-units"></a>Unidades faturáveis Standard
-Uma unidade faturável padrão pode incluir até 10 coleções de trabalhos standard. Como um conjunto de trabalhos standard pode ter até 50 trabalhos por coleção de trabalhos, uma unidade de cobrança standard permite que uma assinatura tenha até 500 trabalhos, até quase 22 milhões de execuções de trabalhos por mês.
-
-Se você tiver entre 1 e 10 coleções de trabalhos standard, você será cobrado por uma unidade de cobrança standard. Se você tiver entre 11 e 20 coleções de trabalhos standard, você será cobrado por duas unidades de cobrança standard. Se você tiver entre 21 e 30 coleções de trabalhos standard, você será cobrado por três unidades de cobrança standard e assim por diante.
-
-## <a name="p10-premium-billable-units"></a>Unidades faturáveis Premium P10
-Uma unidade faturável premium P10 pode incluir até 10.000 coleções de trabalhos premium P10. Como um conjunto de trabalhos premium P10 pode ter até 50 trabalhos por coleção de trabalhos, uma unidade de cobrança premium permite que uma assinatura tenha até 500.000 trabalhos, até quase 22 bilhões de execuções de trabalhos por mês.
-
-Se você tiver entre 1 e 10.000 coleções de trabalhos premium P10, você será cobrado por uma unidade de cobrança premium. Se você tiver entre 10.001 e 20.000 coleções de trabalhos premium, você será cobrado por 2 unidades de cobrança premium P10 e assim por diante.
-
-Portanto, coleções de trabalhos premium P10 têm a mesma funcionalidade que as coleções de trabalhos standard, mas fornecem uma quebra de preço no caso do seu aplicativo precisar de muitas coleções de trabalho.
-
-## <a name="p20-premium-billable-units"></a>Unidades Faturáveis Premium P20
-Uma unidade faturável premium P20 pode incluir até 5.000 coleções de trabalhos premium P20. Como um conjunto de trabalhos premium P20 pode ter até 1.000 trabalhos por coleção de trabalhos, uma unidade de cobrança premium permite que uma assinatura tenha até 5.000.000 trabalhos, até quase 220 bilhões de execuções de trabalhos por mês.
-
-As coleções de trabalhos premium P20 fornecem os mesmos recursos das coleções de trabalhos premium P10, mas também dão suporte a um número maior de trabalhos por coleção de trabalho e a um número total maior geral de trabalhos do que o premium 10, permitindo que você tenha mais escalabilidade.
-
-## <a name="billing-and-active-status"></a>Status de Cobrança e Ativo
-As coleções de trabalhos estão sempre ativas, a menos que a assinatura inteira tenha entrado em algum estado temporário desabilitado devido a problemas de cobrança. A única maneira de garantir que uma coleção de trabalhos não seja cobrada é excluí-la.
-
-Embora seja possível desabilitar todos os trabalhos em uma coleção de trabalhos em uma única operação, o status de cobrança da coleção de trabalhos não será alterado e ela *ainda* será cobrada. Da mesma forma, coleções de trabalhos vazias são consideradas ativas e serão cobradas.
+| **Standard** | 50 trabalhos por coleção | Um por minuto. Não pode executar trabalhos com mais frequência do que um por minuto. | Cada assinatura do Azure pode ter até 100 contas de coleções de trabalhos Standard. | Acesso ao conjunto de recursos completo do Agendador | 
+| **P10 Premium** | 50 trabalhos por coleção | Um por minuto. Não pode executar trabalhos com mais frequência do que um por minuto. | Cada assinatura do Azure pode ter até 10.000 contas de coleções de trabalhos P10 Premium. Para obter mais coleções, <a href="mailto:wapteams@microsoft.com">Contate-nos</a>. | Acesso ao conjunto de recursos completo do Agendador |
+| **P20 Premium** | 1000 trabalhos por coleção | Um por minuto. Não pode executar trabalhos com mais frequência do que um por minuto. | Cada assinatura do Azure pode ter até 5.000 contas de coleções de trabalhos P20 Premium. Para obter mais coleções, <a href="mailto:wapteams@microsoft.com">Contate-nos</a>. | Acesso ao conjunto de recursos completo do Agendador |
+|||||| 
 
 ## <a name="pricing"></a>Preços
+
 Para obter detalhes sobre preços, confira [Preços do Agendador](https://azure.microsoft.com/pricing/details/scheduler/).
 
-## <a name="see-also"></a>Veja também
- [O que é o Agendador?](scheduler-intro.md)
+## <a name="upgrade-or-downgrade-plans"></a>Fazer upgrade ou downgrade de planos
 
- [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
+A qualquer momento, é possível fazer upgrade ou downgrade de um plano de coleção de trabalhos entre os planos Standard, P10 Premium e P20 Premium.
 
- [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
+## <a name="active-status-and-billing"></a>Status ativo e cobrança
 
- [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
+As coleções de trabalhos ficam sempre ativas, a menos que a assinatura do Azure inteira entre em algum estado desabilitado temporário devido a problemas de cobrança. E, embora seja possível desabilitar todos os trabalhos em uma coleção de trabalhos por uma única operação, essa ação não altera o status de cobrança da coleção de trabalhos, então, essa coleção *ainda* será cobrada. As coleções de trabalhos vazias são consideradas ativas e são cobradas.
 
- [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
+Para certificar-se de que uma coleção de trabalhos não seja cobrada, é necessário excluir a coleção de trabalhos.
 
- [Alta disponibilidade e confiabilidade do Agendador do Azure](scheduler-high-availability-reliability.md)
+## <a name="standard-billable-units"></a>Unidades faturáveis standard
 
- [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
+Uma unidade faturável standard pode incluir até 10 coleções de trabalhos Standard. Como uma coleção de trabalhos Standard pode ter até 50 trabalhos por coleção, uma unidade de cobrança standard permite que a assinatura do Azure tenha até 500 trabalhos, ou até cerca de 22 *milhões* de execuções de trabalhos por mês. Esta lista explica como você é cobrado com base em vários números de coleções de trabalhos Standard:
 
- [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
+* Se você tiver entre 1 e 10 coleções de trabalhos Standard, será cobrado por uma unidade de cobrança standard. 
 
+* Se você tiver entre 11 e 20 coleções de trabalhos Standard, será cobrado por duas unidades de cobrança standard. 
+
+* Se você tiver entre 21 e 30 coleções de trabalhos Standard, será cobrado por três unidades de cobrança standard e assim por diante.
+
+## <a name="p10-premium-billable-units"></a>Unidades faturáveis P10 premium
+
+Uma unidade faturável P10 premium pode incluir até 10.000 coleções de trabalhos P10 Premium. Como uma coleção de trabalhos P10 Premium pode ter até 50 trabalhos por coleção, uma unidade de cobrança P10 premium permite que a assinatura do Azure tenha até 500.000 trabalhos, ou até cerca de 22 *bilhões* de execuções de trabalhos por mês. 
+
+Coleções de trabalhos P10 Premium fornecem os mesmos recursos que as coleções de trabalhos Standard, mas oferecem uma redução de preço para os aplicativos que exigem várias coleções de trabalho e fornecem mais escalabilidade. Esta lista explica como você é cobrado com base em vários números de coleções de trabalhos P10 Premium:
+
+* Se você tiver entre 1 e 10.000 coleções de trabalhos P10 Premium, será cobrado por uma unidade de cobrança P10 premium. 
+
+* Se você tiver entre 10.001 e 20.000 coleções de trabalhos P10 Premium, será cobrado por 2 unidades de cobrança P10 premium e assim por diante.
+
+## <a name="p20-premium-billable-units"></a>Unidades faturáveis P20 premium
+
+Uma unidade faturável P20 premium pode incluir até 5.000 coleções de trabalhos P20 Premium. Como uma coleção de trabalhos P20 Premium pode ter até 1.000 trabalhos por coleção, uma unidade de cobrança P20 premium permite que a assinatura do Azure tenha até 5.000.000 trabalhos, ou até cerca de 220 *bilhões* de execuções de trabalhos por mês.
+
+As coleções de trabalhos P20 Premium fornecem os mesmos recursos das coleções de trabalhos P10 Premium, mas também dão suporte a um número maior de trabalhos por coleção e a um número total maior geral de trabalhos do que o P10 Premium, fornecendo mais escalabilidade.
+
+## <a name="plan-comparison"></a>Comparação de planos
+
+* Se você tiver mais de 100 coleções de trabalhos Standard (10 unidades de cobrança standard), então pode obter um melhor negócio tendo todas as coleções de trabalhos em um plano Premium.
+
+* Se você tiver uma coleção de trabalhos Standard e uma coleção de trabalhos Premium, será cobrada uma unidade de cobrança standard *e* uma unidade de cobrança premium.
+
+  O serviço do Agendador faz a cobrança com base no número de coleções de trabalhos ativas que são definidas como standard ou premium.
+
+## <a name="see-also"></a>Consulte também
+
+* [O que é o Agendador do Azure?](scheduler-intro.md)
+* [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
+* [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)

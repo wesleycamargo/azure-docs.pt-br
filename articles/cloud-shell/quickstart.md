@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: juluk
-ms.openlocfilehash: 4b7e4302bba2efed12e19043da1f592bed12a2fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0b3616a723e793ab1ce8d7bcca1f53ca10ec4f96
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608875"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970644"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guia de início rápido para o Back no Azure Cloud Shell
 
@@ -36,7 +36,7 @@ Este documento fornece detalhes sobre como usar o Bash no Azure Cloud Shell no [
 3. Selecione "Criar armazenamento"
 
 > [!TIP]
-> Você é autenticado automaticamente na CLI do Azure 2.0 em cada sessão.
+> Você é autenticado automaticamente na CLI do Azure em cada sessão.
 
 ### <a name="select-the-bash-environment"></a>Selecione o ambiente Bash
 Verifique se o menu suspenso do ambiente no lado esquerdo da janela do shell diz `Bash`. <br>
@@ -63,14 +63,14 @@ az group create --location westus --name MyRG
 ```
 
 ### <a name="create-a-linux-vm"></a>Criar uma VM do Linux
-Crie uma VM do Ubuntu em seu novo grupo de recursos. A CLI do Azure 2.0 criará chaves SSH e configurará a VM com elas. <br>
+Crie uma VM do Ubuntu em seu novo grupo de recursos. A CLI do Azure criará chaves SSH e configurará a VM com elas. <br>
 
 ```azurecli-interactive
 az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
 ```
 
 > [!NOTE]
-> Usando `--generate-ssh-keys` instrui a CLI do Azure 2.0 para criar e configurar as chaves públicas e privadas em sua VM e diretório `$Home`. Por padrão, as chaves são colocadas no Cloud Shell em `/home/<user>/.ssh/id_rsa` e `/home/<user>/.ssh/id_rsa.pub`. Sua pasta `.ssh` é mantida na imagem de 5 GB do compartilhamento de arquivos anexado usado para manter `$Home`.
+> O uso de `--generate-ssh-keys` instrui a CLI do Azure a criar e configurar as chaves públicas e privadas em sua VM e no diretório `$Home`. Por padrão, as chaves são colocadas no Cloud Shell em `/home/<user>/.ssh/id_rsa` e `/home/<user>/.ssh/id_rsa.pub`. Sua pasta `.ssh` é mantida na imagem de 5 GB do compartilhamento de arquivos anexado usado para manter `$Home`.
 
 Seu nome de usuário nessa VM será o nome de usuário usado no Cloud Shell ($User@Azure:).
 
@@ -100,5 +100,5 @@ az group delete -n MyRG
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre como manter arquivos para Bash no Cloud Shell](persisting-shell-storage.md) <br>
-[Saiba mais sobre a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Saiba mais sobre a CLI do Azure](https://docs.microsoft.com/cli/azure/) <br>
 [Saiba mais sobre o armazenamento de Arquivos do Azure](../storage/files/storage-files-introduction.md) <br>

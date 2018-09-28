@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 19dd6a693daf0b54c7df448f21bdb098d9bbdcac
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1efe5a12da665901cdf1d09d45c36a1e3272c367
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653494"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948665"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 Embora o Azure Resource Manager ofereça vários recursos incríveis, é fundamental planejar sua jornada de migração para garantir que tudo ocorra sem problemas. Gastar tempo no planejamento garantirá que não ocorram problemas durante a execução das atividades de migração. 
@@ -122,7 +122,7 @@ Veja a seguir os problemas descobertos em muitas das migrações de maior porte.
     - Grupos de segurança de rede
     - Tabelas de Rotas
 
-    Você pode verificar suas cotas atuais do Azure Resource Manager usando os comandos a seguir com a última versão da CLI 2.0 do Azure.
+    Você pode verificar suas cotas atuais do Azure Resource Manager usando os comandos a seguir com a última versão da CLI do Azure.
 
     **Computação** *(Núcleos, Conjuntos de Disponibilidade)*
 

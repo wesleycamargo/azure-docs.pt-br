@@ -1,6 +1,6 @@
 ---
-title: Usar o DNS interno para resolução de nomes da VM com a CLI 2.0 do Azure | Microsoft Docs
-description: Como criar placas de adaptador de rede virtual e usar DNS interno para resolução de nome da VM no Azure com a CLI do Azure 2.0
+title: Usar DNS interno para resolução de nomes de VM com CLI do Azure | Microsoft Docs
+description: Como criar adaptadores de rede de rede virtual e usar DNS interno para resolução de nomes de VM no Azure com a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -15,15 +15,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: c1ca250d7255877cc811bf7c03034ecbb8f1f372
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: acfdd9070b49805c20b8ef921b5387c151448aa1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936897"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961494"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Criar placas de adaptador de rede virtual e usar DNS interno para resolução de nome da VM no Azure
-Este artigo mostra como definir nomes DNS internos estáticos para VMs Linux usando vNics (placas de interface de rede virtual) e nomes de rótulo DNS com a CLI 2.0 do Azure. Nomes DNS estáticos são usados para serviços de infraestrutura permanentes como um servidor de build Jenkins, que é usado para este documento ou um servidor Git.
+
+Este artigo mostra como definir nomes DNS internos estáticos para VMs do Linux usando vNics (adaptadores de rede de rede virtual) e nomes de rótulo DNS com a CLI do Azure. Nomes DNS estáticos são usados para serviços de infraestrutura permanentes como um servidor de build Jenkins, que é usado para este documento ou um servidor Git.
 
 Esses requisitos são:
 
@@ -31,7 +32,7 @@ Esses requisitos são:
 * [arquivos de chave SSH pública e privada](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Comandos rápidos
-Se você precisar executar a tarefa rapidamente, a seção a seguir fornecerá detalhes dos comandos necessários. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, começando [aqui](#detailed-walkthrough). Para realizar essas etapas, é preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando o [logon az](/cli/azure/reference-index#az_login).
+Se você precisar executar a tarefa rapidamente, a seção a seguir fornecerá detalhes dos comandos necessários. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, começando [aqui](#detailed-walkthrough). Para realizar essas etapas, é preciso ter a [CLI do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index#az_login).
 
 Pré-requisitos: grupo de recursos, rede virtual e sub-rede, grupo de segurança de rede com o SSH de entrada.
 

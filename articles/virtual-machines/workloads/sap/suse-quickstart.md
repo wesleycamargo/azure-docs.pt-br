@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: cc4438a770a8092275373ccf8da9cc9951a1f906
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858605"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950039"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Executando o SAP NetWeaver em VMs do SUSE Linux no Microsoft Azure
 Este artigo descreve fatores que devem ser levados em consideração quando você estiver executando o SAP NetWeaver em VMs (máquinas virtuais) do SUSE Linux no Microsoft Azure. A partir de 19 de maio de 2016, o SAP NetWeaver possui suporte oficial em VMs do SUSE Linux no Azure. Todos os detalhes relativos a versões do Linux, versões de kernel do SAP e outros pré-requisitos podem ser encontrados na Nota SAP 1928533 "Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure".
@@ -119,7 +119,7 @@ Você deve criar novas VMs SUSE usando arquivos de modelo JSON no novo modelo do
    ```
 Para obter mais informações sobre os arquivos de modelo JSON, consulte [Criação de modelos do Azure Resource Manager](../../../resource-group-authoring-templates.md) e [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 
-Para obter mais informações sobre o CLI e o Azure Resource Manager, consulte [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
+Para obter mais informações sobre a CLI Clássica do Azure e o Azure Resource Manager, consulte [Usar a CLI Clássica do Azure para Mac, Linux e Windows com o Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
 
 ## <a name="sap-license-and-hardware-key"></a>Chave de licença e hardware do SAP
 Para a certificação oficial SAP-Azure, um novo mecanismo foi introduzido para calcular a chave de hardware do SAP usada para a licença do SAP. O kernel do SAP precisou ser adaptado para fazer uso do novo algoritmo. As versões anteriores de kernel do SAP para Linux não incluíam essa alteração de código. Portanto, pode acontecer que, em certas situações (por exemplo, no redimensionamento da VM do Azure), a chave de hardware do SAP tenha sido alterada e a licença do SAP não fosse mais válida. Uma solução é fornecida com kernels de Linux SAP mais recentes.  Os patches de kernel do SAP estão documentados detalhadamente na nota do SAP 1928533.

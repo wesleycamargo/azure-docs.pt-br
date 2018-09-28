@@ -1,6 +1,6 @@
 ---
-title: Criar uma VM Linux usando a CLI 1.0 do Azure | Microsoft Docs
-description: Criar uma VM Linux no Azure usando a CLI 1.0 do Azure
+title: Criar uma VM Linux usando a CLI clássica do Azure | Microsoft Docs
+description: Criar uma VM Linux no Azure usando a CLI clássica do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-ms.openlocfilehash: ea9eab1a02a29005917848ed54ab8ba160b89b63
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 94362256dfb5b8deff233f7c575d0720f29eec5c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30901802"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987842"
 ---
-# <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Criar uma VM Linux usando a CLI do Azure 1.0
+# <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Criar uma VM Linux usando a CLI do Azure clássica
 
 Este artigo mostra como implantar rapidamente uma nova VM (máquina virtual) no Azure usando o comando `azure vm quick-create` na CLI (interface de linha de comando) do Azure. O comando `quick-create` implanta uma VM em uma infraestrutura básica e protegida que você pode usar para criar um protótipo ou testar um conceito rapidamente.
 
 > [!NOTE]
-Para criar uma VM usando a CLI do Azure 2.0, consulte [Criar uma VM com a CLI do Azure](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para criar uma VM usando a CLI do Azure, consulte [Criar uma VM com a CLI do Azure](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Você também pode implantar rapidamente uma VM do Linux usando o [portal do Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

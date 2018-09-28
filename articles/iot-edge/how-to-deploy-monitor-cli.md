@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b90c26eaa36c906dda904106b104c3dbf04a55ce
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c94a58a19558350c3c20377ce750f6758f688c0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257973"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998501"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implantar e monitorar módulos do IoT Edge em escala usando a CLI do Azure
 
@@ -24,20 +24,20 @@ O Azure IoT Edge possibilita mover a análise para a borda e fornece uma interfa
 
 Gerencie dispositivos individuais e implante módulos neles um de cada vez. No entanto, se você quiser fazer alterações em dispositivos em grande escala, você pode criar uma **implantação automática de IoT Edge**, que faz parte do gerenciamento de dispositivo automático no Hub IoT. Implantações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos ao mesmo tempo, acompanhar o status e a integridade dos módulos e fazer alterações, quando necessário. 
 
-Neste artigo, que você configura a CLI 2.0 do Azure e a extensão de IoT. Em seguida, você aprenderá como implantar módulos em um conjunto de dispositivos do IoT Edge e monitorar o progresso usando os comandos da CLI disponíveis.
+Neste artigo, você configura a CLI do Azure e a extensão IoT. Em seguida, você aprenderá como implantar módulos em um conjunto de dispositivos do IoT Edge e monitorar o progresso usando os comandos da CLI disponíveis.
 
 ## <a name="cli-prerequisites"></a>Pré-requisitos da CLI
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-using-cli.md) na assinatura do Azure. 
 * [Dispositivos do IoT Edge](how-to-register-device-cli.md) com o tempo de execução do IoT Edge instalado.
-* [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. A versão 2.0 da CLI do Azure deve ser 2.0.24 ou superior. Use `az –-version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
-* [Extensão de IoT para CLI 2.0 do Azure](https://github.com/Azure/azure-iot-cli-extension).
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.24 ou superior. Use `az –-version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
+* O [extensão de IoT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
 Um manifesto de implantação é um documento JSON que descreve quais módulos implantar, como os dados fluem entre os módulos e as propriedades desejadas dos módulos gêmeos. Para obter mais informações sobre como os manifestos de implantação funcionam e como criá-los, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
 
-Para implantar módulos usando a CLI 2.0 do Azure, salve o manifesto de implantação localmente como um arquivo .txt. Você usará o caminho do arquivo na próxima seção quando executar o comando para aplicar a configuração ao dispositivo. 
+Para implantar módulos usando a CLI do Azure, salve o manifesto de implantação localmente como um arquivo .txt. Você usará o caminho do arquivo na próxima seção quando executar o comando para aplicar a configuração ao dispositivo. 
 
 A seguir, é apresentado um manifesto básico de implantação com um módulo como um exemplo:
 

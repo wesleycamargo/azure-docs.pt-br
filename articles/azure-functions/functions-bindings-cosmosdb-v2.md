@@ -1,5 +1,5 @@
 ---
-title: Associações do Azure Cosmos DB para Functions 2.x (Versão Prévia)
+title: Associações do Azure Cosmos DB para Functions 2.x
 description: Entenda como usar gatilhos e associações do Azure Cosmos DB no Azure Functions.
 services: functions
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ea1403ed8afe6e84a3118d891e8c2d34b390d158
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d39c27614fd4d534db36df1af61b2d419493c4d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093423"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953462"
 ---
-# <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Associações do Azure Cosmos DB para Azure Functions 2.x (Versão Prévia)
+# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associações do Azure Cosmos DB para o Azure Functions 2.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versão 1 – já disponível](functions-bindings-cosmosdb.md)
@@ -27,7 +27,7 @@ ms.locfileid: "44093423"
 Este artigo explica como trabalhar com associações do [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) no Azure Functions 2.x. O Azure Functions dá suporte a associações de gatilho, entrada e saída para o Azure Cosmos DB.
 
 > [!NOTE]
-> Este artigo é para o [Azure Functions versão 2. x](functions-versions.md), que está na Versão Prévia.  Para obter informações sobre como usar essas associações em Functions 1. x, consulte [Associações do Azure Cosmos DB para Azure Functions 1. x](functions-bindings-cosmosdb.md).
+> Este artigo destina-se [Azure Functions versão 2.x](functions-versions.md).  Para obter informações sobre como usar essas associações em Functions 1. x, consulte [Associações do Azure Cosmos DB para Azure Functions 1. x](functions-bindings-cosmosdb.md).
 >
 > Essa associação era originalmente denominada DocumentDB. No Functions versão 2.x, o gatilho, associações e pacote são chamados de Cosmos DB.
 

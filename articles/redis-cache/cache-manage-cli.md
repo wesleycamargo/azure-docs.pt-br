@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o Cache Redis do Azure usando a CLI do Azure | Microsoft Docs
-description: Saiba como instalar a CLI do Azure em qualquer plataforma, como usá-la para se conectar à sua conta do Azure e como criar e gerenciar um cache Redis da CLI do Azure.
+title: Gerenciar Cache Redis do Azure usando CLI clássica do Azure | Microsoft Docs
+description: Saiba como instalar a CLI clássica do Azure em qualquer plataforma, como usá-lo para conectar-se a conta do Azure e como criar e gerenciar um cache Redis da CLI clássica.
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -14,34 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0e8bbaad920f35028c51641779a3272f73f81f37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27911271"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978396"
 ---
-# <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Como criar e gerenciar o Cache Redis do Azure usando a Interface de Linha de Comando do Azure (CLI do Azure)
+# <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-classic-cli"></a>Como criar e gerenciar Cache Redis do Azure usando a CLI clássica do Azure
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
-> * [CLI do Azure](cache-manage-cli.md)
->
+> * [CLI clássica do Azure](cache-manage-cli.md)
 >
 
-A CLI do Azure é uma ótima maneira de gerenciar sua infraestrutura do Azure de qualquer plataforma. Este artigo mostra como criar e gerenciar suas instâncias do Cache Redis do Azure usando a CLI do Azure.
+A CLI clássica do Azure é uma ótima maneira de gerenciar a infraestrutura do Azure em qualquer plataforma. Este artigo mostra como criar e gerenciar as instâncias do Cache Redis do Azure usando a CLI clássica do Azure.
 
+[!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 > [!NOTE]
-> Este artigo se aplica a uma versão anterior da CLI do Azure. Para os scripts de exemplo da CLI do Azure 2.0 mais recentes, consulte [Exemplos de Cache Redis da CLI do Azure](cli-samples.md).
-> 
-> 
+> Para obter os scripts de exemplo mais recentes da CLI do Azure, consulte [Exemplos de cache Redis da CLI do Azure](cli-samples.md).
 
-## <a name="prerequisites"></a>pré-requisitos
-Para criar e gerenciar as instâncias do Cache Redis do Azure usando a CLI do Azure, você deverá concluir as etapas a seguir.
+## <a name="prerequisites"></a>Pré-requisitos
+Para criar e gerenciar instâncias do Cache Redis do Azure usando a CLI clássica do Azure, é necessário concluir as etapas a seguir.
 
 * Você deve ter uma conta do Azure. Se não tiver uma, você poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
-* [Instale a CLI do Azure](../cli-install-nodejs.md).
-* Conecte sua instalação da CLI do Azure a uma conta do Azure pessoal, ou a uma conta corporativa ou de estudante do Azure, e faça logon na CLI do Azure usando o comando `azure login` . Para entender as diferenças e escolher entre elas, veja [Conectar-se a uma assinatura do Azure a partir da interface de linha de comando do Azure (CLI do Azure)](/cli/azure/authenticate-azure-cli).
-* Antes de executar um dos comandos a seguir, alterne a CLI do Azure para o modo Gerenciador de Recursos executando o comando `azure config mode arm` . Para obter mais informações, consulte [Use a CLI do Azure para gerenciar recursos e grupos de recursos do Azure](../xplat-cli-azure-resource-manager.md).
+* [Instalar a CLI clássica do Azure](../cli-install-nodejs.md).
+* Conecte a instalação da CLI do Azure a uma conta pessoal do Azure, ou a uma conta corporativa ou de estudante do Azure, e faça logon a partir da CLI clássica usando o comando `azure login`.
+* Antes de executar qualquer um dos comandos a seguir, alterne a CLI clássica para o modo Gerenciador de Recursos, executando o comando `azure config mode arm`. Para obter mais informações, consulte [Use a CLI clássica do Azure para gerenciar recursos e grupos de recursos do Azure](../xplat-cli-azure-resource-manager.md).
 
 ## <a name="redis-cache-properties"></a>Propriedades do Cache Redis
 As propriedades a seguir são usadas durante a criação e a atualização de instâncias do Cache Redis.

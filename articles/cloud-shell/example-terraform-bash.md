@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8512c04cb0efc698ca688724c3806291bb02d200
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386513"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947628"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Implantar com Terraform do Bash no Azure Cloud Shell
 Este artigo mostra as etapas para criar um grupo de recursos com o [provedor do Terraform do AzureRM](https://www.terraform.io/docs/providers/azurerm/index.html). 
@@ -26,9 +26,9 @@ Este artigo mostra as etapas para criar um grupo de recursos com o [provedor do 
 O [Hashicorp Terraform](https://www.terraform.io/) é uma ferramenta de software livre que codifica APIs em arquivos de configuração declarativa que podem ser compartilhados entre os membros da equipe para ser editado, revisado e ter controle de versão. O provedor do Microsoft AzureRM é usado para interagir com os recursos com suporte pelo Azure Resource Manager por meio das APIs do AzureRM. 
 
 ## <a name="automatic-authentication"></a>Autenticação automática
-O Terraform é instalado em Bash no Cloud Shell por padrão. Além disso, o Cloud Shell autentica automaticamente sua assinatura padrão da CLI do Azure 2.0 para implantar recursos por meio dos módulos do Terraform do Azure.
+O Terraform é instalado em Bash no Cloud Shell por padrão. Além disso, o Cloud Shell autentica automaticamente sua assinatura da CLI do Azure padrão para implantar recursos por meio dos módulos do Terraform Azure.
 
-O Terraform usa a assinatura padrão da CLI do Azure 2.0 que está definida. Para atualizar assinaturas padrão, execute:
+Terraform usa a assinatura de CLI padrão do Azure que está definida. Para atualizar assinaturas padrão, execute:
 
 ```azurecli-interactive
 az account set --subscription mySubscriptionName
@@ -144,7 +144,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 O [comando terraform apply](https://www.terraform.io/docs/commands/apply.html) é usado para aplicar as alterações necessárias para alcançar o estado desejado da configuração.
 
-### <a name="verify-deployment-with-azure-cli-20"></a>Verificar a implantação com a CLI do Azure 2.0
+### <a name="verify-deployment-with-azure-cli"></a>Verificar a implantação com a CLI do Azure
 Execute `az group show -n myRgName` para verificar se o recurso foi provisionado com êxito.
 
 ```azcliinteractive

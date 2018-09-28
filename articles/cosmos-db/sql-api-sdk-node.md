@@ -2,22 +2,21 @@
 title: 'Azure Cosmos DB: SQL Node.js API, SDK & recursos | Microsoft Docs'
 description: Saiba tudo sobre o SDK e a API do SQL Node.js, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do Node.js para o Azure Cosmos DB.
 services: cosmos-db
-author: rnagpal
-manager: kfile
+author: deborahc
 editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 5/3/2018
+ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e19c1cb7b297d2537e969e0dd632dae3e1c3d211
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b6983b49135b5a8adbef1d0cfc5a407cb7b0c7ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594340"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960542"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Node.js do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -40,12 +39,16 @@ ms.locfileid: "39594340"
 |Documentação da API  |  [Documentação de referência de SDK do JavaScript](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
 |Instruções de instalação do SDK  |  [Instruções de instalação](https://github.com/Azure/azure-cosmos-js#installation)
 |Contribuir para o SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
-| Exemplos | [Exemplos de código do Node.js](sql-api-nodejs-samples-preview.md)
-| Tutorial de introdução | [Introdução ao SDK do JavaScript](sql-api-nodejs-get-started-preview.md)
-| Tutorial do aplicativo Web | [Criar um aplicativo web Node.js usando o Azure Cosmos DB](sql-api-nodejs-application-preview.md)
+| Exemplos | [Exemplos de código do Node.js](sql-api-nodejs-samples.md)
+| Tutorial de introdução | [Introdução ao SDK do JavaScript](sql-api-nodejs-get-started.md)
+| Tutorial do aplicativo Web | [Criar um aplicativo web Node.js usando o Azure Cosmos DB](sql-api-nodejs-application.md)
 | Plataforma atual com suporte | [Node. js v6](https://nodejs.org/en/blog/release/v6.10.3/) – obrigatório para a versão SDK 2.0.0 e superior.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="2.0.0"/>2.0.0</a>
+* Disponibilidade geral da versão 2.0.0 do SDK do JavaScript
+* Suporte adicionado para gravações de várias regiões.
 
 ### <a name="2.0.0-3"/>2.0.0-3</a>
 * RC1 da Versão 2.0.0 do SDK do JavaScript para a visualização pública.

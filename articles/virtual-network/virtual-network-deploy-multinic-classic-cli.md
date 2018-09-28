@@ -1,6 +1,6 @@
 ---
-title: Criar uma VM (Clássica) com várias NICs - CLI do Azure 1.0 | Microsoft Docs
-description: Saiba como criar uma VM (Clássica) com várias placas de rede usando a CLI (interface de linha de comando) do Azure 1.0.
+title: Criar uma VM (clássica) com várias NICs – CLI Clássica do Azure | Microsoft Docs
+description: Saiba como criar uma VM (Clássica) com várias placas de rede usando a CLI (interface de linha de comando) Clássica do Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b56ab474ff23748487c50bd34487c80242c6429
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4ea53048819bfdad5c45e522115aa6e493dfc8bc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651979"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953339"
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Criar uma VM (Clássica) com várias NICs usando a CLI do Azure 1.0
+# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>Criar uma VM (Clássica) com várias NICs usando a CLI Clássica do Azure
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
@@ -36,7 +36,7 @@ Você pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces d
 
 As etapas a seguir usam um grupo de recursos chamado *IaaSStory* para os serviços Web e o grupo de recursos e *IaaSStory-BackEnd* para os servidores DB.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de criar os servidores DB, você precisa criar o grupo de recursos *IaaSStory* com todos os recursos necessários para este cenário. Para criar esses recursos, conclua as etapas a seguir. Criar uma rede virtual, seguindo as etapas do artigo [Criar uma rede virtual](virtual-networks-create-vnet-classic-cli.md).
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]

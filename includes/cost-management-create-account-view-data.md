@@ -5,16 +5,16 @@ services: cost-management
 author: bandersmsft
 ms.service: cost-management
 ms.topic: include
-ms.date: 04/26/2018
+ms.date: 09/17/2018
 ms.author: banders
 manager: dougeby
 ms.custom: include file
-ms.openlocfilehash: 1b65775ef5ad40ca9e9c1e2c96fe1c2b8d92afdc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4acc3f43f04c51e5303c8eba1d934580802312b5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32198848"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47017626"
 ---
 ## <a name="view-cost-data"></a>Exibir dados de custo
 
@@ -26,27 +26,27 @@ Neste exemplo, o painel de gerenciamento mostra custos consolidados para a empre
 
 Se você não tiver certeza da finalidade do relatório em um painel, focalize o símbolo **i** para ver uma explicação. Clique em qualquer relatório em um painel para exibir o relatório completo.
 
-Você também pode exibir relatórios usando o menu de relatórios na parte superior do portal. Vamos dar uma olhada nos gastos do recurso do Azure da Contoso nos últimos 30 dias. Clique em **Custo** > **Análise de Custo** > **Análise de Custo Real**. Desmarque quaisquer valores, se houver qualquer conjunto de marcas, grupos ou filtros em seu relatório.
+Você também pode exibir relatórios usando o menu de relatórios na parte superior do portal. Vamos dar uma olhada nos gastos do recurso do Azure da Contoso nos últimos 30 dias. Clique em **Custos** > **Análise de Custo** > **Análise de Custo Real**. Desmarque quaisquer valores, se houver qualquer conjunto de marcas, grupos ou filtros em seu relatório.
 
 ![Análise de Custo Real](./media/cost-management-create-account-view-data/actual-cost-01.png)
 
-Neste exemplo, US$ 75.970 é o custo total e o orçamento é US$ 130.000.
+Neste exemplo, US$ 122.273 é o custo total e o orçamento é US$ 290.000.
 
 Agora, vamos modificar o formato de relatório e definir grupos e filtros para restringir os resultados para os custos do Azure. Defina o **Intervalo de Datas** dos últimos 30 dias. No canto superior direito, clique no símbolo de coluna para formatar como um gráfico de barras e em grupos, selecione **Provedor**. Em seguida, defina um filtro para **Provedor** como **Azure**.
 
 ![Análise de Custo Real filtrado](./media/cost-management-create-account-view-data/actual-cost-02.png)
 
-Neste exemplo, o custo total de recursos do Azure foi de US$ 3.839 nos últimos 30 dias.
+Neste exemplo, o custo total de recursos do Azure foi de US$ 3.309 nos últimos 30 dias.
 
 Clique com botão direito do mouse na barra do provedor (Azure) e faça drilldown até **Tipos de recurso**.
 
 ![fazer drill down](./media/cost-management-create-account-view-data/actual-cost-03.png)
 
-A imagem a seguir mostra os custos de recursos do Azure incorridos pela Contoso. O total foi US$ 3.839. Neste exemplo, cerca de metade dos custos foram para o armazenamento redundante localmente e sobre a outra metade dos custos foram para várias instâncias de VM.
+A imagem a seguir mostra os custos de recursos do Azure incorridos pela Contoso. O total foi US$ 3.309. Neste exemplo, cerca de metade dos custos foram para Standard_A1 VMs e sobre a outra metade dos custos foram para vários serviços do Azure e instâncias de VM.
 
 ![tipos de recurso](./media/cost-management-create-account-view-data/actual-cost-04.png)
 
-Clique com o botão direito do mouse em um tipo de recurso e selecione **Entidades de Custo** para exibir entidades e os serviços que consumiram o recurso. Os serviços de VM e de Trabalho em DevOps consumiram US$ 486,60 e US$ 435,71 neste exemplo. O total de ambos é US$ 922.
+Clique com o botão direito do mouse em um tipo de recurso e selecione **Entidades de Custo** para exibir entidades e os serviços que consumiram o recurso. Na imagem de exemplo a seguir o armazenamento com redundância local é definido como o tipo de recurso. A Contoso | Armazenamento do Azure consumido US $15.65. Engenharia | O armazenamento do Azure consumido US $164.25. Infra-estrutura compartilhada | Armazenamento do Azure consumido US $116.58. O custo total para os serviços é US $296.
 
 ![entidades e serviços de custo](./media/cost-management-create-account-view-data/actual-cost-05.png)
 

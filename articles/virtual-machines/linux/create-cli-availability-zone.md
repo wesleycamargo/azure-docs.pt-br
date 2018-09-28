@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 512b6cde1a1de70f020a9af1254d2bc8e78f1b5f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c202379f236bcd2fea05ad9d135096bc724898e7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905509"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956414"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Crie uma máquina virtual do Linux em uma zona de disponibilidade com a CLI do Azure
 
@@ -29,7 +29,7 @@ Este artigo aborda usando o CLI do Azure para criar uma máquina virtual do Linu
 
 Para usar uma zona de disponibilidade, crie a máquina virtual em uma [região do Azure com suporte](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
-Certifique-se de que você instalou a versão mais recente do [CLI do Azure 2.0](/cli/azure/install-az-cli2) e entrou em uma conta do Azure com [az login](/cli/azure/reference-index#az_login).
+Verifique se você instalou a versão mais recente da [CLI do Azure](/cli/azure/install-az-cli2) e entrou em uma conta do Azure com [az login](/cli/azure/reference-index#az_login).
 
 
 ## <a name="check-vm-sku-availability"></a>Verificar a disponibilidade do SKU de VM

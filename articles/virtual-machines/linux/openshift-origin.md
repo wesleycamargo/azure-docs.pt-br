@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 0d3a9f05802bef7d6dfc99fcfae6668044f214c8
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 75a02e61adf3e5477b9945afc778e867d5d9c88c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190297"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958128"
 ---
 # <a name="deploy-okd-in-azure"></a>Implantar o OKD no Azure
 
@@ -99,7 +99,7 @@ O exemplo a seguir cria um arquivo de parâmetros chamado azuredeploy.parameters
 
 
 > [!NOTE] 
-> O comando a seguir requer a CLI do Azure 2.0.8 ou posterior. Você pode verificar a versão CLI com o comando `az --version`. Para atualizar a versão da CLI, confira [Instalar a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> O comando a seguir requer o Azure CLI.8 ou posterior. Você pode verificar a versão CLI com o comando `az --version`. Para atualizar a versão da CLI, consulte [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 O exemplo a seguir implanta o cluster do OKD e todos os recursos relacionados em um grupo de recursos denominado myResourceGroup, com um nome de implantação de myOpenShiftCluster. O modelo é referenciado diretamente do repositório GitHub por um arquivo de parâmetros local chamado azuredeploy.parameters.json.
 

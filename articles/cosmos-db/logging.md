@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: acc327bd9fa6828a65243b6d0ad0c6da4b98f48d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857092"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963382"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Log de diagnósticos do Azure Cosmos DB
 
@@ -29,9 +29,9 @@ A imagem a seguir mostra os diferentes tipos de logs do Azure disponíveis:
 
 ![Diferentes tipos de logs do Azure](./media/logging/azurelogging.png)
 
-Na imagem, os **Recursos de computação** representam os recursos do Azure para os quais você pode acessar o sistema operacional convidado da Microsoft. Por exemplo, Máquinas Virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais, Serviço de Contêiner do Azure etc. são considerados recursos de computação. Recursos de computação geram Logs de atividades, Logs de diagnóstico e Logs de aplicativos. Para saber mais, veja o artigo [Monitoramento do Azure: recursos de computação](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset).
+Na imagem, os **Recursos de computação** representam os recursos do Azure para os quais você pode acessar o sistema operacional convidado da Microsoft. Por exemplo, Máquinas Virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais, Serviço de Contêiner do Azure etc. são considerados recursos de computação. Recursos de computação geram Logs de atividades, Logs de diagnóstico e Logs de aplicativos. Para saber mais, consulte o artigo [Fontes de dados de monitoramento no Azure](../monitoring/monitoring-data-sources.md#).
 
-Os **Recursos que não são de computação** são recursos nos quais você não pode acessar o sistema operacional subjacente e trabalhar diretamente com o recurso. Por exemplo, Grupos de Segurança de Rede, Aplicativos Lógicos etc. Azure Cosmos DB é um recurso que não é de computação. Você pode exibir os logs dos recursos que não são de computação no Log de Atividades ou habilitar a opção Logs de Diagnóstico no portal. Para saber mais, consulte o artigo [Monitoramento do Azure: recursos que não são de computação](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else).
+Os **Recursos que não são de computação** são recursos nos quais você não pode acessar o sistema operacional subjacente e trabalhar diretamente com o recurso. Por exemplo, Grupos de Segurança de Rede, Aplicativos Lógicos etc. Azure Cosmos DB é um recurso que não é de computação. Você pode exibir os logs dos recursos que não são de computação no Log de Atividades ou habilitar a opção Logs de Diagnóstico no portal. Para saber mais, consulte o artigo [Fontes de dados no Azure Monitor](../monitoring/monitoring-data-sources.md).
 
 O Log de Atividades registra as operações em um nível de assinatura para o Azure Cosmos DB. Operações como ListKeys, Write DatabaseAccounts etc. são registradas. Os Logs de Diagnóstico fornecem um registro em log mais granular e permitem que você registre DataPlaneRequests (Criar, Ler, Consultar etc.) e MongoRequests.
 
@@ -446,7 +446,7 @@ A tabela a seguir descreve o conteúdo de cada entrada de log.
 | **properties** | n/d | O conteúdo desse campo é descrito nas linhas a seguir. |
 | **activityId** | **activityId_g** | O GUID exclusivo da operação registrada. |
 | **userAgent** | **userAgent_s** | Uma cadeia de caracteres que especifica o agente do usuário cliente que executa a solicitação. O formato é {nome do agente do usuário}/{versão}.|
-| **resourceType** | **ResourceType** | O tipo do recurso acessado. Esse valor pode ser um dos seguintes tipos de recursos: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
+| **resourceType** | **ResourceType** | O tipo do recurso acessado. Esse valor pode ser um dos seguintes tipos de recursos: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
 | **statusCode** | **statusCode_s** | O status da resposta da operação. |
 | **requestResourceId** | **ResourceId** | O resourceId referente à solicitação. O valor pode apontar para databaseRid, collectionRid ou documentRid, dependendo da operação executada.|
 | **clientIpAddress** | **clientIpAddress_s** | Endereço IP do cliente. |

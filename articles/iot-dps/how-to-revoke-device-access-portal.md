@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: d0720c23e0831b446a92855383fab06b0bfacbc7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e66d896a7df48645dad39b5b978c4f7c2f8d8cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525460"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954544"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como cancelar o registro de um dispositivo do Provisionamento de Dispositivos no Hub IoT
 
@@ -34,9 +34,12 @@ Para adicionar temporariamente o dispositivo à lista de bloqueios desabilitando
 2. Na lista de recursos, selecione o serviço de provisionamento do qual você deseja adicionar seu dispositivo à lista de bloqueios.
 3. No seu serviço de provisionamento, selecione **Gerenciar registros** e, em seguida, selecione a guia **Registros Individuais**.
 4. Selecione a entrada de registro do dispositivo que você deseja adicionar à lista de bloqueios. 
-5. Role até a parte inferior e selecione **Desabilitar** na opção **Habilitar entrada** e, em seguida, selecione **Salvar**.  
 
-   [![Desabilitar a entrada de registro individual no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+    ![Selecione seu registro individual](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+
+5. Na página de registro, role até a parte inferior e selecione **Desabilitar** na opção **Habilitar entrada** e, em seguida, selecione **Salvar**.  
+
+   ![Desabilitar a entrada de registro individual no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
 Para adicionar permanentemente um dispositivo à lista de bloqueios excluindo sua entrada de registro:
 
@@ -47,7 +50,8 @@ Para adicionar permanentemente um dispositivo à lista de bloqueios excluindo su
 5. Selecione **Excluir** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que deseja remover o registro. 
 
    ![Excluir a entrada de registro individual no portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
-    
+
+
 Depois de concluir o procedimento, você deve ver sua entrada removida da lista de registros individuais.  
 
 ## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Adicionar um intermediário X.509 ou Certificado de AC raiz à lista de bloqueios usando um grupo de registros
@@ -91,14 +95,18 @@ Para adicionar um dispositivo individual à lista de bloqueios em um grupo de re
 1. Faça logon no portal do Azure e clique em **Todos os recursos** no menu à esquerda.
 2. Na lista de recursos, selecione o serviço de provisionamento que contém o grupo de registros do dispositivo que você deseja adicionar à lista de bloqueios.
 3. No seu serviço de provisionamento, selecione **Gerenciar registros** e, em seguida, selecione a guia **Registros Individuais**.
-4. Selecione o botão **Adicionar** na parte superior. 
-5. Selecione **X.509** como o mecanismo de certificação para o dispositivo e carregue o certificado do dispositivo. Esse é o certificado de entidade final assinado instalado no dispositivo. O dispositivo usa para gerar certificados para autenticação.
-6. Para a **ID de dispositivo do Hub IoT**, insira a ID para o dispositivo. 
-7. Selecione **Desabilitar** na botão **Habilitar entrada** e, em seguida, selecione **Salvar**. 
+4. Selecione o botão **Adicionar registro individual** na parte superior. 
+5. Na página **Adicionar registro**, selecione **X.509** como o **mecanismo** de atestado para o dispositivo.
+
+    Carregue o certificado do dispositivo e insira a ID do dispositivo para ser adicionada à lista de bloqueios. Para o certificado, use o certificado de entidade final assinado instalado no dispositivo. O dispositivo usa o certificado de entidade final assinado para autenticação.
+
+    ![Definir as propriedades do dispositivo para o dispositivo incluído na lista negra](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+
+6. Role até a parte inferior da página **Adicionar registro** e selecione **Desabilitar** na opção **Habilitar entrada** e, em seguida, selecione **Salvar**. 
 
     [![Usar a entrada de registro individual desabilitada para desabilitar o dispositivo do registro de grupo, no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-Após a criação bem-sucedida de seu registro, você deverá ver o dispositivo aparecer na guia **Registros Individuais**.
+Após a criação bem-sucedida de seu registro, você deverá ver o registro do dispositivo desabilitado listado na guia **Registros Individuais**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

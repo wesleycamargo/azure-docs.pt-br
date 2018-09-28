@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Usar uma imagem de VM personalizada em um conjunto de dimensionamento com a CLI do Azure 2.0 | Microsoft Docs
-description: Aprenda a usar a CLI do Azure 2.0 para criar uma imagem de VM personalizada que pode ser usada para implantar um conjunto de dimensionamento de máquinas virtuais
+title: Tutorial - Usar uma imagem de VM personalizada em um conjunto de dimensionamento com a CLI 2.0 do Azure | Microsoft Docs
+description: Aprenda a usar a CLI 2.0 do Azure para criar uma imagem de VM personalizada que pode ser usada para implantar um conjunto de dimensionamento de máquinas virtuais
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d5ee37b8ab79e29efcb4d12f36e927b2ed9e9e71
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5eee55846bd6f5821be1e40b969a35f5e50bd205
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918712"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967363"
 ---
-# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Tutorial: criar e usar discos uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure 2.0
+# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: criar e usar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com a CLI 2.0 do Azure
 Ao criar um conjunto de dimensionamento, você especifica uma imagem a ser usada quando as instâncias de VM forem implantadas. Para reduzir a quantidade de tarefas depois que as instâncias de VM forem implantadas, é possível usar uma imagem de VM personalizada. Esta imagem de VM personalizada inclui todas as instalações ou configurações de aplicativo necessárias. Todas as instâncias de VM criadas no conjunto de dimensionamento usam a imagem de VM personalizada e estão prontas para atender ao tráfego do aplicativo. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.29 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.29 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-and-configure-a-source-vm"></a>Criar e configurar uma VM de origem
@@ -160,7 +160,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu a criar e usar uma imagem de VM personalizada para seus conjuntos de dimensionamento com a CLI do Azure 2.0:
+Neste tutorial, você aprendeu a criar e usar uma imagem de VM personalizada para seus conjuntos de dimensionamento com a CLI 2.0 do Azure:
 
 > [!div class="checklist"]
 > * Criar e personalizar uma VM

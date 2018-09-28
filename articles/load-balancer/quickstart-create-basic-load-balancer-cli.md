@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Criar um balanceador de carga público – CLI do Azure | Microsoft Docs'
-description: Este início rápido mostra como criar um balanceador de carga público usando a CLI do Azure
+description: O início rápido mostra como criar um balanceador de carga público usando a CLI do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -17,20 +17,20 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7cca2475228155de6dc1f5c00a0d306e3a40c11a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3eb7ae721b0c275ffa39e04904e19c067b949214
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441979"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965476"
 ---
-# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Início Rápido: Criar um balanceador de carga público para balancear cargas de VMs usando a CLI 2.0 do Azure
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início rápido: Criar um balanceador de carga público para balancear a carga de VMs usando a CLI do Azure
 
 Este início rápido mostra como criar um Azure Load Balancer. Para testar o balanceador de carga, implante duas máquinas virtuais (VMs) executando o servidor do Ubuntu e balanceie a carga de um aplicativo Web.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

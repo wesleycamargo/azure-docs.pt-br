@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: alteração, controle, automação
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 08/27/2018
+ms.date: 09/12/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: fd94fd234067f63eab424c7f757d4adf842e7b46
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 16d5a025f0c0ff571298e0f528fb9119e37950f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43120578"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995238"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solucionar problemas de alterações em seu ambiente
 
@@ -32,6 +32,7 @@ Neste tutorial, você aprenderá a:
 > * Habilitar conexão do log de atividades
 > * Disparar um evento
 > * Exibir alterações
+> * Configurar alertas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,9 +42,9 @@ Para concluir este tutorial, você precisará:
 * Uma [conta de Automação](automation-offering-get-started.md) para manter os runbooks inspetor e de ação e a tarefa do observador.
 * Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md) a ser carregada.
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Faça logon no Portal do Azure em http://portal.azure.com.
+Entre no Portal do Azure em http://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Habilitar Controle de alterações e Inventário
 
@@ -57,7 +58,7 @@ A tela ![Habilitar alteração](./media/automation-tutorial-troubleshoot-changes
 Um espaço de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) é usado para coletar dados gerados por recursos e serviços como Inventário.
 O espaço de trabalho fornece um único local para examinar e analisar dados de várias fontes.
 
-Durante a integração, a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o Hybrid Worker.
+Durante a integração, a VM é provisionada com o MMA (Microsoft Monitoring Agent) e o hybrid worker.
 Esse agente é usado para comunicar-se com a VM e obter informações sobre o software instalado.
 
 A habilitação da solução pode levar até 15 minutos. Durante esse tempo, não feche a janela do navegador.
@@ -66,20 +67,22 @@ Pode levar entre 30 minutos e 6 horas para que os dados fiquem disponíveis para
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Usando o Controle de alterações no Log Analytics
 
-O controle de alterações gera dados de log que são enviados para o Log Analytics. Para pesquisar os logs executando consultas, selecione **Log Analytics** na parte superior da janela **Controle de alterações**.
-Os dados do Controle de alterações são armazenados com o tipo **ConfigurationChange**. A consulta de exemplo do Log Analytics retorna todos os serviços do Windows que foram interrompidos.
+O controle de alterações gera dados de log que são enviados para o Log Analytics.
+Para pesquisar os logs executando consultas, selecione **Log Analytics** na parte superior da janela **Controle de alterações**.
+Os dados do Controle de alterações são armazenados com o tipo **ConfigurationChange**.
+A consulta de exemplo do Log Analytics retorna todos os serviços do Windows que foram interrompidos.
 
 ```
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Para saber mais sobre como executar e pesquisar arquivos de log no Log Analytics, consulte [Azure Log Analytics](https://docs.loganalytics.io/index).
+Para saber mais sobre como executar e pesquisar arquivos de log no Log Analytics, consulte [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
 
 ## <a name="configure-change-tracking"></a>Configurar o Controle de alterações
 
 O Controle de alterações oferece a capacidade de controlar alterações de configuração em sua VM. As etapas a seguir mostrarão como configurar o controle de arquivos e de chaves do Registro.
- 
+
 Para escolher quais arquivos e chaves do Registro coletar e rastrear, selecione **Editar configurações** na parte superior da página **Controle de alterações**.
 
 > [!NOTE]
@@ -92,7 +95,7 @@ Na janela **Configuração do Espaço de Trabalho**, adicione as chaves do Regis
 1. Na guia **Registro do Windows**, selecione **Adicionar**.
     A janela **Adicionar Registro do Windows para Controle de Alterações** se abre.
 
-3. Em **Adicionar o Registro do Windows para o Controle de Alterações**, insira as informações para a chave rastrear e clique em **Salvar**
+1. Em **Adicionar o Registro do Windows para o Controle de Alterações**, insira as informações para a chave rastrear e clique em **Salvar**
 
 |Propriedade  |DESCRIÇÃO  |
 |---------|---------|
@@ -112,7 +115,7 @@ Na janela **Configuração do Espaço de Trabalho**, adicione as chaves do Regis
 |habilitado     | Determina se a configuração é aplicada        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado        |
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos        |
-|Inserir o Caminho     | O caminho para verificar o arquivo. Por exemplo: "c:\temp\\\*.txt"<br>Você também pode usar variáveis de ambiente, como "%winDir%\System32\\\*.*"         |
+|Inserir o Caminho     | O caminho para verificar em busca do arquivo. Por exemplo: "c:\temp\\\*.txt"<br>Você também pode usar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"         |
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **verdadeiro** ou **falso**.|
 
@@ -168,6 +171,49 @@ Selecione uma alteração **WindowsServices**. Isso abre a janela **Detalhes da 
 
 ![Exibindo detalhes de alteração no portal](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
+## <a name="configure-alerts"></a>Configurar alertas
+
+Pode ser útil exibir as alterações no portal do Azure, mas poder ser alertado quando uma alteração ocorrer, como um serviço interrompido, é mais útil.
+
+Para adicionar um alerta para um serviço parado, no portal do Azure, vá para **Monitor**. E então, em **Serviços Compartilhados**, selecione **Alertas** e clique em **+ Nova regra de alerta**
+
+Em **1. Defina a condição de alerta**, clique em **+ Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione seu espaço de trabalho do Log Analytics e selecione **Concluído**.
+
+![Selecionar um recurso](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
+
+Selecione **+ Adicionar critérios**.
+Em **Configurar lógica de sinal**, na tabela, selecione **Pesquisa de logs personalizada**. Insira a seguinte consulta na caixa de texto Consulta de pesquisa:
+
+```loganalytics
+ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
+```
+
+Essa consulta retorna os computadores que tiveram o serviço W3SVC interrompido no período de tempo especificado.
+
+Em **Lógica de alerta**, para **Limite**, digite **0**. Quando tiver terminado, selecione **Concluído**.
+
+![Configurar sinal lógico](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
+
+Em **2. Defina os detalhes do alerta** e insira um nome e uma descrição para o alerta. Defina **Severidade** como **Informativo(Sev 2)**, **Aviso(Sev 1)** ou **Crítico(Sev 0)**.
+
+![Definir os detalhes do alerta](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
+
+Em **3. Defina o grupo de ação** e selecione **Novo grupo de ação**. Um grupo de ação é um grupo de ações que você pode usar através de vários alertas. As ações podem incluir, dentre outras, notificações email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md).
+
+Na caixa **Nome do grupo de ação**, digite um nome para o alerta e um nome curto. O nome curto é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
+
+Em **Ações**, insira um nome para a ação, como **Administradores de Email**. Em **TIPO DE AÇÃO**, selecione **Email/SMS/Push/Voz**. Em **DETALHES**, selecione **Editar detalhes**.
+
+![Adicionar grupo de ações](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+
+No painel **Email/SMS/Push/Voz**, digite um nome. Marque a caixa de seleção **Email** e digite um endereço de email válido. Clique em **OK** na página **Email/SMS/Push/Voz** e, em seguida, clique em **OK** na página **Adicionar grupo de ações**.
+
+Para personalizar o assunto do email de alerta, em **Criar regra**, em **Personalizar Ações**, selecione **Assunto do email**. Quando terminar, selecione **Criar regra de alerta**. O alerta indica quando uma implantação de atualização for bem-sucedida e quais computadores fazem parte da execução de implantação de atualização.
+
+A imagem a seguir é um email de exemplo recebido quando o serviço W3SVC é interrompido.
+
+![email](./media/automation-tutorial-troubleshoot-changes/email.png)
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:
@@ -179,6 +225,7 @@ Neste tutorial, você aprendeu a:
 > * Habilitar conexão do log de atividades
 > * Disparar um evento
 > * Exibir alterações
+> * Configurar alertas
 
 Passe para a visão geral da solução de Controle de alterações e Inventário para saber mais sobre ela.
 

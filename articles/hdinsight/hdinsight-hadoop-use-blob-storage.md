@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 027204065429a9eebd2e8121cbac8bc18b9d9ce6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 91be34468dae0fb1c24080fbe53c3c8056e8c1a3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091428"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967839"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usar o Armazenamento do Azure com clusters HDInsight
 
@@ -133,11 +133,11 @@ Se você tiver [instalado e configurado o Azure PowerShell][powershell-install],
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="use-azure-cli"></a>Usar a CLI do Azure
+### <a name="use-azure-classic-cli"></a>Usar a CLI Clássica do Azure
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-Se você tiver [instalado e configurado a CLI do Azure](../cli-install-nodejs.md), o comando a seguir pode ser usado para uma conta de armazenamento e o contêiner.
+Se você tiver [instalado e configurado a CLI Clássica do Azure](../cli-install-nodejs.md), o comando a seguir poderá ser usado para um contêiner e conta de armazenamento.
 
     azure storage account create <storageaccountname> --type LRS
 
@@ -264,24 +264,24 @@ $clusterName = "<HDInsightClusterName>"
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-### <a name="use-azure-cli"></a>Usar a CLI do Azure
+### <a name="use-azure-classic-cli"></a>Usar a CLI Clássica do Azure
 Use o comando a seguir para listar os comandos relacionados ao blob:
 
     azure storage blob
 
-**Exemplo de como usar a CLI do Azure para carregar um arquivo**
+**Exemplo de como usar a CLI Clássica do Azure para carregar um arquivo**
 
     azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Exemplo de como usar a CLI do Azure para baixar um arquivo**
+**Exemplo de como usar a CLI Clássica do Azure para baixar um arquivo**
 
     azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Exemplo de como usar a CLI do Azure para excluir um arquivo**
+**Exemplo de como usar a CLI Clássica do Azure para excluir um arquivo**
 
     azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Exemplo de como usar a CLI do Azure para listar arquivos**
+**Exemplo de como usar a CLI Clássica do Azure para listar arquivos**
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
