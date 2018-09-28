@@ -12,28 +12,83 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: eb1a60ff533e9e24f3dc80057129da47a2d9a726
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 06b30d1381d8fba1d6f053576f6556e6d02f2ae9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128515"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949155"
 ---
 # <a name="log-analytics-faq"></a>Perguntas frequentes do Log Analytics
 Essas Perguntas frequentes da Microsoft são uma lista de perguntas frequentes sobre o Log Analytics no Microsoft Azure. Se você tiver alguma pergunta adicional sobre o Log Analytics, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
 
+
+## <a name="new-logs-experience"></a>Nova experiência de Logs
+
+### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>P: Qual é a diferença entre a nova experiência de Logs e o Log Analytics?
+
+R: Elas são iguais. [O Log Analytics está sendo integrado como um recurso no Azure Monitor](../azure-monitor/azure-monitor-rebrand.md) a fim de fornecer uma experiência de monitoramento mais unificada. A nova experiência de Logs no Azure Monitor é exatamente igual às consultas do Log Analytics que muitos clientes já estão usando.
+
+### <a name="q-can-i-still-use-log-search"></a>P: Ainda posso usar a Pesquisa de Log? 
+
+R: A Pesquisa de Log ainda está disponível no portal do OMS e no portal do Azure sob o nome **Logs (clássico)**. O portal do OMS será oficialmente desativado em 15 de janeiro de 2019. A experiência clássica de Logs no portal do Azure será desativada gradualmente e substituída pela nova experiência de Logs. 
+
+### <a name="q-can-i-still-use-advanced-analytics-portal"></a>P. Ainda posso usar o portal avançado do Analytics? 
+A nova experiência de Logs no portal do Azure tem base no [portal avançado do Analytics](https://portal.loganalytics.io/), mas ainda é possível acessá-lo fora do portal do Azure. O roteiro para desativar esse portal externo será anunciado em breve.
+
+### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>P. Por que não consigo ver os botões Gerenciador de Consultas e Salvar na nova experiência de Logs?
+
+Os botões **Gerenciador de Consulta**, **Salvar** e **Definir Alerta** não estão disponíveis ao explorar Logs no contexto de um recurso específico. Para criar alertas, salvar ou carregar uma consulta, os Logs devem receber o escopo de um espaço de trabalho. Para abrir os Logs no contexto do espaço de trabalho, selecione **Todos os serviços** > **Monitor** > **Logs**. O último espaço de trabalho usado é selecionado, mas você pode selecionar qualquer outro espaço de trabalho. Confira [Exibir e analisar dados no Log Analytics](../log-analytics/log-analytics-log-search-portals.md) para saber mais.
+
+### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>P. Como faço para extrair Campos Personalizados na nova experiência de Logs? 
+
+R: No momento, há suporte para a extração de Campos Personalizados na experiência clássica de Logs. 
+
+### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>P. Onde posso encontrar a exibição Lista nos novos Logs? 
+
+R: A exibição Lista não está disponível nos novos Logs. Há uma seta à esquerda de cada registro na tabela de resultados. Clique nessa seta para abrir os detalhes de um registro específico. 
+
+### <a name="q-after-running-a-query-a-list-of-suggested-filters-shows-up-but-it-doesnt-include-all-filters-how-can-i-see-the-rest"></a>P. Após a execução de uma consulta, uma lista de filtros sugeridos é exibida, mas ela não inclui todos os filtros. Como posso ver o restante? 
+
+R: O que você vê atualmente é uma versão prévia da nova implementação de Filtros. Agora, isso tem base em seu conjunto completo de resultados, em vez de ficar limitado a 10.000 registros da interface do usuário. Atualmente, essa é uma lista dos filtros mais populares e dos 10 valores mais comuns para cada filtro. 
+
+### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>P. Por que estou recebendo o erro: "Registre o provedor de recursos 'Microsoft.Insights' para esta assinatura para habilitar essa consulta" nos Logs, após realizar o drilling da VM? 
+
+R: Por padrão, vários provedores de recursos são automaticamente registrados; no entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Isso configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Para saber mais, veja [Provedores e tipos de recursos](../azure-resource-manager/resource-manager-supported-services.md#portal).
+
+### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>P. Por que não estou obtendo uma mensagem de erro de acesso ao acessar os Logs de uma página da VM? 
+
+R: Para exibir os Logs da VM, você precisará receber permissão de leitura para os espaços de trabalho que armazena os logs da VM. Nesses casos, o administrador deve conceder a você permissões no Azure.
+
+### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>P. Por que consigo acessar meu espaço de trabalho no portal do OMS, mas recebo o erro "Você não tem acesso" no portal do Azure?  
+
+R: Para acessar um espaço de trabalho no Azure, você deve ter recebido permissões no Azure. Há alguns casos em que talvez você não tenha as permissões de acesso apropriadas. Nesses casos, seu administrador deve conceder a você as permissões no Azure. Confira [Portal do OMS migrando para o Azure](../log-analytics/log-analytics-oms-portal-transition.md) para saber mais.
+
+### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>P. Por que não consigo ver a entrada do Designer de Exibição nos Logs? 
+R: O Designer de Exibição só está disponível nos Logs para os usuários que receberam permissões de Colaborador ou superior.
+
+
 ## <a name="general"></a>Geral
+
+### <a name="q-how-can-i-see-my-views-and-solutions-in-azure-portal"></a>P. Como posso ver minhas exibições e soluções no portal do Azure? 
+
+R: A lista de exibições e soluções instaladas estão disponíveis no portal do Azure. Clique em **Todos os serviços**. Na lista de recursos, selecione **Monitor**, depois clique em **...Mais**. O último espaço de trabalho usado é selecionado, mas você pode selecionar qualquer outro espaço de trabalho. 
+
+### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>P. Por que não consigo criar espaços de trabalho na região Centro-oeste dos EUA? 
+
+R: Essa região está no limite de capacidade temporário. Planejamos solucionar esse limite no primeiro semestre de 2019.
+
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>P. O Log Analytics usa o mesmo agente da Central de Segurança do Azure?
 
-a. No início de junho de 2017, a Central de Segurança do Azure começou a usar o Microsoft Monitoring Agent para coletar e armazenar dados. Para saber mais, veja [Perguntas frequentes sobre a migração da Plataforma Central de Segurança do Azure](../security-center/security-center-platform-migration-faq.md).
+R: No início de junho de 2017, a Central de Segurança do Azure começou a usar o Microsoft Monitoring Agent para coletar e armazenar dados. Para saber mais, veja [Perguntas frequentes sobre a migração da Plataforma Central de Segurança do Azure](../security-center/security-center-platform-migration-faq.md).
 
 ### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>P. Quais verificações são executadas pelas soluções AD e Avaliação do SQL?
 
-R. A consulta a seguir mostra uma descrição de todas as verificações executadas no momento:
+R: A consulta a seguir mostra uma descrição de todas as verificações executadas no momento:
 
 ```
 (Type=SQLAssessmentRecommendation OR Type=ADAssessmentRecommendation) | dedup RecommendationId | select FocusArea, ActionArea, Recommendation, Description | sort Type, FocusArea,ActionArea, Recommendation
@@ -41,7 +96,7 @@ R. A consulta a seguir mostra uma descrição de todas as verificações executa
 
 Os resultados podem então ser exportados para o Excel para análise adicional.
 
-### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>P: Por que vejo algo diferente do OMS no console do System Center Operations Manager?
+### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>P. Por que vejo algo diferente do OMS no console do System Center Operations Manager?
 
 R: Dependendo do Pacote Cumulativo de Atualizações do Operations Manager em que você estiver, poderá ver um nó para *System Center Advisor*, *Insights Operacionais* ou *Log Analytics*.
 
