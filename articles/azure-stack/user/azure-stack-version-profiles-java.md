@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: b5a876ea8b5cc70ee0ca0dcac8628c12dc2b009b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ffd22f3612d55258737cb9c004b2b0f4e9326f07
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414942"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452506"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Usar perfis de versão da API Java no Azure Stack
 
@@ -63,7 +63,7 @@ Use as etapas a seguir para instalar o SDK do Java:
 
 1.  Siga as instruções oficiais para instalar o Git. Para obter instruções, consulte [Introdução - instalação do Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  Siga as instruções oficiais para instalar o [SDK do Java](http://zulu.org/download/)) e [Maven](https://maven.apache.org/). A versão correta é a versão 8 do Kit de desenvolvedor de Java. O Apache Maven correto é a versão 3.0 ou superior. A variável de ambiente JAVA_HOME deve ser definida como o local de instalação do Java Development Kit para concluir o guia de início rápido. Para obter mais informações, consulte [criar sua primeira função com Java e Maven](../../azure-functions/functions-create-first-java-maven.md).
+2.  Siga as instruções oficiais para instalar o [SDK do Java](http://zulu.org/download/) e [Maven](https://maven.apache.org/). A versão correta é a versão 8 do Kit de desenvolvedor de Java. O Apache Maven correto é a versão 3.0 ou superior. A variável de ambiente JAVA_HOME deve ser definida como o local de instalação do Java Development Kit para concluir o guia de início rápido. Para obter mais informações, consulte [criar sua primeira função com Java e Maven](../../azure-functions/functions-create-first-java-maven.md).
 
 3.  Para instalar os pacotes de dependência correto, abra o arquivo POM. XML em seu aplicativo Java. Adicione uma dependência, conforme mostrado no código a seguir:
 
@@ -89,7 +89,7 @@ Use as etapas a seguir para instalar o SDK do Java:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar o SDK do .NET do Azure com o Azure Stack, você deve fornecer os seguintes valores e, em seguida, definir valores com variáveis de ambiente. Para definir as variáveis de ambiente, consulte as instruções seguintes à tabela para seu sistema operacional.
+Para usar o SDK de Java do Azure com o Azure Stack, você deve fornecer os seguintes valores e, em seguida, definir valores com variáveis de ambiente. Para definir as variáveis de ambiente, consulte as instruções seguintes à tabela para seu sistema operacional.
 
 | Valor                     | Variáveis de ambiente | DESCRIÇÃO                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -128,7 +128,9 @@ Observe as seguintes considerações:
 
 - O **ResourceManagerUrl** no Azure Stack desenvolvimento ASDK (Kit) é: https://management.local.azurestack.external/
 
-- O **ResourceManagerUrl** em sistemas integrados é: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` para recuperar os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+- O **ResourceManagerUrl** em sistemas integrados é: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+
+Para recuperar os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
 
 Arquivo JSON de exemplo:
 
@@ -149,9 +151,7 @@ Arquivo JSON de exemplo:
 
 1.  **com.microsoft.Azure.Profile\_2018\_03\_01\_híbrida**: perfil mais recente criado para o Azure Stack. Use esse perfil para os serviços sejam mais compatíveis com o Azure Stack como são 1808 carimbo ou adicional.
 
-2.  **com.microsoft.Azure.Profile\_2017\_03\_09\_perfil**: se você estiver usando um carimbo de menor do que a compilação 1808, usar esse perfil.
-
-3.  **com.microsoft.Azure**: consiste nas versões mais recentes de todos os serviços de perfil. Use as versões mais recentes de todos os serviços.
+2.  **com.microsoft.Azure**: consiste nas versões mais recentes de todos os serviços de perfil. Use as versões mais recentes de todos os serviços.
 
 Para obter mais informações sobre perfis de API e o Azure Stack, consulte o [perfis de resumo da API](../user/azure-stack-version-profiles.md#summary-of-api-profiles).
 
@@ -231,14 +231,14 @@ Você pode usar os seguintes exemplos do GitHub como referências para a criaç�
 
 2.  Criar uma entidade de serviço e atribuir uma função para acessar a assinatura. Para obter instruções sobre como criar uma entidade de serviço, consulte [usar o Azure PowerShell para criar uma entidade de serviço com um certificado](../azure-stack-create-service-principals.md).
 
-3.  Recupere os valores necessários a seguir:
+3.  Recupere os valores de variáveis de ambiente necessárias a seguir:
     
-   1.  ID do locatário
-   2.  ID do cliente
-   3.  Segredo do cliente
-   4.  ID da assinatura
-   5.  Ponto de extremidade do Gerenciador de recursos
-   6.  Local do recurso
+   1.  TENANT_ID
+   2.  CLIENT_ID
+   3.  CLIENT_SECRET
+   4.  SUBSCRIPTION_ID
+   5.  ARM_ENDPOINT
+   6.  RESOURCE_LOCATION
 
 4.  Defina as seguintes variáveis de ambiente usando as informações que você recuperou da entidade de serviço criado usando o prompt de comando:
     
@@ -273,10 +273,8 @@ Você pode usar os seguintes exemplos do GitHub como referências para a criaç�
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-7.  No arquivo POM. XML, adicione a dependência a seguir para usar o perfil de 2018-03-01-híbrido para o Azure Stack. Essa dependência instalará os módulos associados a esse perfil para os provedores de recursos de computação, rede, armazenamento, serviços de aplicativo e KeyVault.
-    
-   Observe que você pode usar o perfil mais recente para o destino do Azure:
-        
+6.  No arquivo POM. XML, adicione a dependência a seguir para usar o perfil de 2018-03-01-híbrido para o Azure Stack. Essa dependência instalará os módulos associados a esse perfil para os provedores de recursos de computação, rede, armazenamento, serviços de aplicativo e KeyVault.
+      
    ```xml
    <dependency>
    <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>

@@ -6,23 +6,22 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: b0e694e4-3575-424c-afda-7d48c2025a62
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: cdfdaf9195f14e3cbe3db2a4507bd91a3133a26e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071378"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452319"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>Gerenciar a capacidade de armazenamento para o Azure Stack
+# <a name="manage-storage-capacity-for-azure-stack"></a>Gerenciar a capacidade de armazenamento para o Azure Stack 
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
@@ -86,10 +85,15 @@ Como um operador de nuvem, você pode monitorar a capacidade de armazenamento de
 - **Capacidade utilizada** é a quantidade de dados em bytes que são usados por todas as extensões dos arquivos que armazenam os dados de locatário e metadados associados.
 
 ### <a name="use-the-administrator-portal"></a>Usar o portal do administrador
-Como um operador de nuvem, você pode usar o portal de administração para exibir a capacidade de armazenamento de todos os compartilhamentos. **Vá para o armazenamento** > **compartilhamentos de arquivos** para abrir a lista de compartilhamento de arquivo onde você pode exibir as informações de uso.
-![Exemplo: Compartilhamentos de arquivos do armazenamento](media/azure-stack-manage-storage-shares/storage-file-shares.png)
-- **TOTAL** é o espaço total em bytes, que estão disponíveis no compartilhamento. Esse espaço é usado para dados e metadados que é mantido pelos serviços de armazenamento.
-- **USADO** é a quantidade de dados em bytes que são usados por todas as extensões dos arquivos que armazenam os dados de locatário e metadados associados.
+Como um operador de nuvem, você pode usar o portal de administração para exibir a capacidade de armazenamento de todos os compartilhamentos.
+
+1. Entrar para o [portal de administração](https://adminportal.local.azurestack.external).
+2. Selecione **todos os serviços** > **armazenamento** para abrir a lista de compartilhamento de arquivo onde você pode exibir as informações de uso. 
+
+  ![Exemplo: Compartilhamentos de arquivos do armazenamento](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+
+  - **TOTAL** é o espaço total em bytes, que estão disponíveis no compartilhamento. Esse espaço é usado para dados e metadados que é mantido pelos serviços de armazenamento.
+  - **USADO** é a quantidade de dados em bytes que são usados por todas as extensões dos arquivos que armazenam os dados de locatário e metadados associados.
 
 ### <a name="storage-space-alerts"></a>Alertas de espaço de armazenamento
 Quando você usa o portal de administração, você receberá alertas sobre compartilhamentos que têm espaço suficiente.

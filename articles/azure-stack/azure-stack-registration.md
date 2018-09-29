@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364594"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452523"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
@@ -94,6 +94,19 @@ Pode ser a sua implantação do Azure Stack *conectados* ou *desconectado*.
  - **Desconectado**  
  Com o desconectado da opção de implantação do Azure, você pode implantar e usar o Azure Stack sem uma conexão à Internet. No entanto, com uma implantação desconectada, você está limitado a um repositório de identidades do AD FS e o modelo de cobrança com base em capacidade.
     - [Registrar um desconectado do Azure Stack usando o **capacidade** modelo de cobrança ](#register-disconnected-with-capacity-billing)
+
+### <a name="determine-a-unique-registration-name-to-use"></a>Determinar um nome exclusivo de registro para usar 
+Quando você registra o Azure Stack com o Azure, você deve fornecer um nome exclusivo do registro. Uma maneira fácil de associar sua assinatura do Azure Stack com o registro do Azure é usar o Azure Stack **ID da nuvem**. 
+
+> [!NOTE]
+> Registros de pilha do Azure usando o modelo de cobrança com base em capacidade serão necessário alterar o nome exclusivo ao registrar novamente depois que as assinaturas anuais expirarem.
+
+Para determinar a ID de nuvem para sua implantação do Azure Stack, abra o PowerShell como administrador em um computador que possa acessar o ponto de extremidade com privilégios, execute os seguintes comandos e registre os **CloudID** valor: 
+
+```powershell
+Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
+Run: get-azurestackstampinformation 
+```
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Registre-se conectado com cobrança pré-paga
 
@@ -257,7 +270,7 @@ Em seguida, você precisa recuperar uma chave de ativação do recurso do regist
 Para obter a chave de ativação, execute os seguintes cmdlets do PowerShell:  
 
   ```Powershell
-  $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
+  $RegistrationResourceName = "AzureStack-<unique-registration-name>"
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath
   ```
@@ -351,7 +364,7 @@ Você pode usar o token de registro usado para criar o recurso:
 Ou você pode usar o nome de registro:
 
   ```Powershell
-  $registrationName = "AzureStack-<Cloud ID of Azure Stack Environment>"
+  $registrationName = "AzureStack-<unique-registration-name>"
   Unregister-AzsEnvironment -RegistrationName $registrationName
   ```
 
