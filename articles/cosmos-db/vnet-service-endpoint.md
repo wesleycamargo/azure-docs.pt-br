@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: e6b263c1eb9fe3b151f0a51b5da9a92b8ced4549
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109735"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037125"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Proteger o acesso a uma conta do Azure Cosmos DB usando o ponto de extremidade de serviço da Rede Virtual do Azure
 
@@ -25,9 +25,6 @@ O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído g
 ![arquitetura do ponto de extremidade de serviço de rede virtual](./media/vnet-service-endpoint/vnet-service-endpoint-architecture.png)
 
 Depois que uma conta do Azure Cosmos DB é configurada com um ponto de extremidade de serviço de rede virtual, ela pode ser acessada somente por meio da sub-rede especificada, todo o acesso público/internet é removido. Para saber os detalhes sobre pontos de extremidade de serviço, consulte o artigo [Visão geral de pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md) do Azure.
-
-> [!NOTE]
-> Atualmente, os pontos de extremidade de serviço de Rede Virtual podem ser configurados para a API do SQL do Azure Cosmos DB ou para as contas da API Mongo. A capacidade de configurar pontos de extremidade de serviço para outras APIs e nuvens soberanas, como Azure Alemanha ou Azure Governamental, estará disponível em breve. Se você tiver um firewall IP existente configurado para a conta do Azure Cosmos DB, observe a configuração do firewall, remova o firewall IP e, em seguida, configure a ACL do ponto de extremidade de serviço. Depois de configurar o ponto de extremidade de serviço, você poderá habilitar novamente o firewall IP, se necessário.
 
 ## <a name="configure-service-endpoint-by-using-azure-portal"></a>Configurar o ponto de extremidade de serviço usando o portal do Azure
 ### <a name="configure-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Configurar o ponto de extremidade de serviço para uma rede virtual do Azure existente e a sub-rede

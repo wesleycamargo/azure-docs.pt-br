@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ca3f689ef91c0a1bcb751c78d4fa1d799ed3888b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7af0d4819d4044f4cccc43cde1cffe7dff7982a7
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984613"
+ms.locfileid: "47056430"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e atribuir um blueprint do Azure no portal
 
@@ -119,7 +119,7 @@ A primeira etapa na definição de um padrão padrão para conformidade é compo
 
 ## <a name="edit-a-blueprint"></a>Editar um plano gráfico
 
-Em [Crie um blueprint](#create_a_blueprint), uma Descrição não foi fornecida nem a atribuição de função foi adicionada ao novo grupo de recursos. Ambos podem ser corrigidos executando as seguintes etapas:
+Em [Crie um blueprint](#create-a-blueprint), uma Descrição não foi fornecida nem a atribuição de função foi adicionada ao novo grupo de recursos. Ambos podem ser corrigidos executando as seguintes etapas:
 
 1. Selecione **Definições do Blueprint** na página à esquerda.
 
@@ -225,7 +225,7 @@ Os Blueprints podem ser removidos de uma assinatura se eles não forem mais nece
 ## <a name="next-steps"></a>Próximas etapas
 
 - Aprenda sobre o [ciclo de vida do blueprint](./concepts/lifecycle.md)
-- Entenda como usar o [parâmetros estáticos e dinâmicos](./concepts/parameters.md)
+- Entenda como usar [parâmetros estáticos e dinâmicos](./concepts/parameters.md)
 - Aprenda a personalizar o [especificações técnicas de ordem de sequenciamento](./concepts/sequencing-order.md)
 - Saiba como fazer uso de [especificações técnicas de recurso de bloqueio](./concepts/resource-locking.md)
 - Saiba como [atualizar atribuições existentes](./how-to/update-existing-assignments.md)

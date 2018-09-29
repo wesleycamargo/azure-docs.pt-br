@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1a18b6f627a28b912baeda6f180297dc703e665e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634080"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031196"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Tutorial: enviar por push uma imagem atualizada para implantações regionais
 
@@ -138,7 +138,7 @@ Neste tutorial, você atualizou e enviou por push uma nova versão do contêiner
 
 Além de replicação geográfica, o ACR Build é outro recurso de Registro de Contêiner do Azure que pode ajudar a otimizar seu pipeline de implantação do contêiner. Iniciar com a visão geral de ACR Build para ter uma ideia de seus recursos:
 
-[Automatizar o sistema operacional e a aplicação de patch de framework com ACR Build](container-registry-build-overview.md)
+[Automatizar o sistema operacional e a aplicação de patch de framework com ACR Build](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

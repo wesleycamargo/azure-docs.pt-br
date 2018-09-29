@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/21/2018
-ms.openlocfilehash: 18f6647a8412477384a48aa777461f99b2fbcb0a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.date: 09/27/2018
+ms.openlocfilehash: 696932135cdd3850e04d25370867c0273b99b3bf
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379529"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423537"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Tipos de preço do Banco de Dados do Azure para PostgreSQL
 
@@ -74,6 +74,11 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 | Oeste do Japão | X | X |
 | Coreia Central |  | X |
 | Sul da Coreia |  | X |
+| Alemanha Central |  | X |
+| DoD Central dos EUA  | X |  |
+| DoD do Leste dos EUA  | X |  |
+| Governo dos EUA do Arizona |  | X |
+| Governo dos EUA do Texas |  | X |
 
 ## <a name="storage"></a>Armazenamento
 
@@ -120,4 +125,4 @@ Para as informações mais recentes sobre preços, consulte a [página de preço
 
 - Saiba como [criar um servidor PostgreSQL no portal](tutorial-design-database-using-azure-portal.md).
 - Saiba como [monitorar e dimensionar um Banco de Dados do Azure para servidor PostgreSQL usando a CLI do Azure](scripts/sample-scale-server-up-or-down.md).
-- Saiba mais sobre as [Limitações de serviço](concepts-limits.md).
+- Saiba mais sobre as [Limitações de serviço](concepts-limits.md). 

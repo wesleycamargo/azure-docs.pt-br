@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f6cfb7bb988b080189da444cb77e0c258417b1ac
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9a07fa2010eef22c4d1477641d07dee70ab5a9cb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574701"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227415"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Como gerenciar conectividade e mensagens confiáveis usando SDKs do dispositivo do Hub IoT
 
@@ -54,7 +54,7 @@ Falhas de conexão podem acontecer em vários níveis:
 - Erros no nível de protocolo para transporte MQTT, AMQP e HTTP como links desconectados ou sessões expiradas
 - Erros no nível de aplicativo que resultam de erros locais, como credenciais inválidas ou comportamento de serviço, como exceder cota ou limitação
 
-Os SDKs do dispositivo detectam erros nos três níveis.  Erros relacionados a SO e erros de hardware não são detectados e manipulados pelos SDKs do dispositivo.  O design é baseado nas [Diretrizes de Tratamento de Falhas Transitórias](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) do Azure Architecture Center.
+Os SDKs do dispositivo detectam erros nos três níveis.  Erros relacionados a SO e erros de hardware não são detectados e manipulados pelos SDKs do dispositivo.  O design é baseado nas [Diretrizes de Tratamento de Falhas Transitórias](/azure/architecture/best-practices/transient-faults#general-guidelines) do Azure Architecture Center.
 
 ### <a name="retry-patterns"></a>Padrões de repetição
 

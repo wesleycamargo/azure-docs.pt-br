@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 3559a25f3073f88e99379e98bc4562209b0c0825
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f80c0f3cdc114b53c002266820e8d9b8773acc5d
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42108437"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432182"
 ---
 # <a name="about-the-speech-translation-api"></a>Sobre a API de Tradução de Fala
 
@@ -32,7 +32,7 @@ A API de Tradução de Fala utiliza as mesmas tecnologias empregadas em vários 
 
 O mecanismo de tradução da Microsoft subjacente consiste em duas abordagens diferentes: SMT (tradução automática estatística) e NMT (tradução automática neural). Esta última, uma abordagem de inteligência artificial empregando redes neurais, é a abordagem mais moderna à tradução automática. A NMT fornece traduções melhores – não apenas mais precisas, mas também mais fluentes e naturais. O motivo principal dessa fluidez é que a NMT usa o contexto completo de uma sentença para traduzir palavras.
 
-Hoje, Microsoft migrou para NMT para os idiomas mais populares, empregando SMT somente para idiomas usados com menor frequência. Todos os [idiomas disponíveis para tradução de fala em fala](supported-languages.md#speech-translation) também são alimentadas por NMT. A tradução com conversão de fala em texto pode usar SMT ou NMT, dependendo do par de idiomas. Se o idioma de destino é compatível com a NMT, a tradução completa é ativada pela NMT. Se o idioma de destino não é compatível com a NMT, a tradução é uma combinação da NMT e da SMT usando o inglês como o "pivô" entre os dois idiomas.
+Hoje, Microsoft migrou para NMT para os idiomas mais populares, empregando SMT somente para idiomas usados com menor frequência. Todos os [idiomas disponíveis para tradução de fala em fala](language-support.md#speech-translation) também são alimentadas por NMT. A tradução com conversão de fala em texto pode usar SMT ou NMT, dependendo do par de idiomas. Se o idioma de destino é compatível com a NMT, a tradução completa é ativada pela NMT. Se o idioma de destino não é compatível com a NMT, a tradução é uma combinação da NMT e da SMT usando o inglês como o "pivô" entre os dois idiomas.
 
 As diferenças entre os modelos são internas ao mecanismo de tradução. Os usuários observam apenas a qualidade da tradução melhor, especialmente para chinês, japonês e árabe.
 

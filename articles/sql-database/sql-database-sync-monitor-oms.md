@@ -2,19 +2,22 @@
 title: Monitorar a Sincronização de Dados SQL do Azure com o Log Analytics | Microsoft Docs
 description: Saiba como monitorar a Sincronização de Dados SQL do Azure usando Log Analytics
 services: sql-database
-ms.date: 04/01/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
+ms.reviewer: douglasl
 manager: craigg
-ms.custom: data-sync
-ms.openlocfilehash: 3bad71834d11b640bbc3577bf67c10357fad36dc
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 04/01/2018
+ms.openlocfilehash: a5792998654ed1d334e514591da3bef9805a5e79
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618303"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163351"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Monitorar Sincronização de Dados SQL com o Log Analytics 
 

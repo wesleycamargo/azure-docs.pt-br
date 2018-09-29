@@ -2,20 +2,22 @@
 title: Auditoria da Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
 description: Saiba como começar com a Auditoria da Instância Gerenciada do Banco de Dados SQL do Azure usando o T-SQL
 services: sql-database
-author: giladm
-manager: craigg
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/28/2018
+author: giladm
 ms.author: giladm
-ms.openlocfilehash: 7671b49921799e63b01d0eb85e90a8b75b2d5a48
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 38dee577ff57e6ba440fb4062315b57e4eb7957b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544287"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162246"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Comece com a Auditoria da Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -104,7 +106,7 @@ A seção a seguir descreve a configuração de auditoria na Instância Gerencia
     Se não for especificado, `RETENTION_DAYS` padrão é 0 (retenção ilimitada).
 
     Para informações adicionais:
-    - [Diferenças de auditoria entre a Instância Gerenciada, o banco de dados SQL do Azure e o SQL Server](#subheading-3)
+    - [Diferenças de auditoria entre a Instância Gerenciada, o banco de dados SQL do Azure e o SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
     - [CRIAR AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTERAR AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 

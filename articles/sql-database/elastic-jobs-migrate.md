@@ -2,18 +2,22 @@
 title: Migrar para os novos trabalhos de Banco de Dados Elástico | Microsoft Docs
 description: Migrar para os novos trabalhos de Banco de Dados Elástico.
 services: sql-database
-author: johnpaulkee
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: johnpaulkee
 ms.author: johnpaulkee
-ms.openlocfilehash: 7b6dd7d3724f486670b07709d317739d01e9fd21
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: cf9520c257b2d3aa133fa4861face02b378af26f
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035299"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055417"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrar para os novos trabalhos de Banco de Dados Elástico
 
@@ -30,7 +34,7 @@ A versão atualizada dos trabalhos de Banco de Dados Elástico tem um novo conju
 
 Se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Instale o módulo de versão prévia 4.8.1 do **AzureRM.Sql** para obter os cmdlets de trabalho elástico mais recentes. Execute os comandos do PowerShell a seguir com acesso administrativo.
+Instalar o módulo **AzureRM.Sql** 4.8.1-preview mais recente para obter os cmdlets de Trabalho Elástico. Execute os comandos do PowerShell a seguir com acesso administrativo.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on

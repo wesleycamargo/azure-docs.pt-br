@@ -1,21 +1,23 @@
 ---
 title: Tutorial de SaaS multilocatário- Banco de Dados SQL do Azure | Microsoft Docs
 description: Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
-keywords: tutorial do banco de dados SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: SaaS
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: billgib
+manager: craigg
 ms.date: 01/31/2018
-ms.author: billgib
-ms.openlocfilehash: 0f2495ddc5d5053582d67bd44cdf80d018f79e42
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 92a1745f8da9783a22c7cbf417acb0709759f41c
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646146"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054284"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
 
@@ -61,7 +63,7 @@ Um modelo do Azure Resource Manager é usado para implantar e configurar o aplic
 
 No final deste tutorial, você terá um conjunto de aplicativos de locatário autônomo, com cada banco de dados registrado no catálogo.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos: 
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * Os três aplicativos de locatário de exemplo são implantados. Para implantar esses aplicativos em menos de cinco minutos, consulte [Implantar e explorar o padrão de aplicativo autônomo SaaS Wingtip Tickets](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy).

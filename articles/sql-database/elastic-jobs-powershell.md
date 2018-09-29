@@ -2,18 +2,22 @@
 title: Criar um agente de Trabalho Elástico do Banco de Dados SQL do Azure usando o PowerShell | Microsoft Docs
 description: Saiba como criar e gerenciar um agente de Trabalho Elástico usando o PowerShell.
 services: sql-database
-author: johnpaulkee
-manager: craigg
 ms.service: sql-database
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: tutorial
-ms.date: 06/14/2018
+author: johnpaulkee
 ms.author: joke
-ms.openlocfilehash: 2cc8db0ce849e0f0d376824665aac7dbc2af29db
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.reviwer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 56dd6eff7744ddddf57b747574ee9800174d6365
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035210"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055485"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Trabalho Elástico usando o PowerShell
 
@@ -205,7 +209,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 Um [grupo de destino](elastic-jobs-overview.md#target-group) define o conjunto de um ou mais bancos de dados em que uma etapa de trabalho será executada. 
 
-O seguinte trecho de código cria dois grupos de destino: *ServerGroup* e *ServerGroupExcludingDb2*. *ServerGroup* tem como alvo todos os bancos de dados existentes no momento da execução e *ServerGroupExcludingDb2* tem como alvo todos os bancos de dados no servidor, exceto *TargetDb2*:
+O seguinte snippet de código cria dois grupos de destino: *ServerGroup* e *ServerGroupExcludingDb2*. *ServerGroup* tem como alvo todos os bancos de dados existentes no momento da execução e *ServerGroupExcludingDb2* tem como alvo todos os bancos de dados no servidor, exceto *TargetDb2*:
 
 ```powershell
 Write-Output "Creating test target groups..."
@@ -262,7 +266,7 @@ Após a conclusão bem-sucedida, você deverá ver duas tabelas novas no TargetD
 
 ## <a name="monitor-status-of-job-executions"></a>Monitorar status de execuções de trabalho
 
-Os seguintes trechos de código obtêm os detalhes de execução do trabalho:
+Os seguintes snippets de código obtêm os detalhes de execução do trabalho:
 
 ```powershell
 # Get the latest 10 executions run

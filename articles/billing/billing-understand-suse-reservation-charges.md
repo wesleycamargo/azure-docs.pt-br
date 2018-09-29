@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
-ms.author: yashar
-ms.openlocfilehash: 20fae715923da93799b2d0ac8adc2083d726a95a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.author: cwatson
+ms.openlocfilehash: 62f75be44ed92528b48fc0f093f5966284662312
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43310630"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393682"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-plan-discount-is-applied"></a>Entenda como o desconto do plano de software do SUSE Linux Enterprise é aplicado
 
@@ -126,7 +126,7 @@ Nomes do marketplace no portal do Azure:
 
 Para saber mais sobre as reservas, consulte os seguintes artigos:
 
-- [O que são as reservas do Azure?](billing-save-compute-costs-reservations.md)
+- [O que são Reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Pagar antecipadamente por planos de software do SUSE com reservas do Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gerenciar Reservas do Azure](billing-manage-reserved-vm-instance.md)

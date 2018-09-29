@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 6decb0e9188db00608be35d9ba4e84df92ceb671
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 02f6e2648c007cfe87984e8de886b8b76e1e8d16
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072327"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409908"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Solucionar problemas de conectividade entre VMs do Azure
 
@@ -103,7 +103,7 @@ Todas as VMs criadas no Azure usando o modelo de implantação clássico podem s
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Etapa 8: tentar se conectar a um compartilhamento de rede de VM
 
-Se você não puder se conectar a um compartilhamento de rede de VM, o problema pode ser causado por NICs não disponíveis na VM. Para excluir as NICs não disponíveis, consulte [Como excluir as NICs não disponíveis](../virtual-machines/windows/reset-network-interface.md#delete-the-unavailable-nics)
+Se você não puder se conectar a um compartilhamento de rede de VM, o problema pode ser causado por NICs não disponíveis na VM. Para excluir as NICs não disponíveis, consulte [Como excluir as NICs não disponíveis](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
 
 ### <a name="step-9-check-inter-vnet-connectivity"></a>Etapa 9: verificar a conectividade entre VNets
 

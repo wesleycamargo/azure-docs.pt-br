@@ -3,7 +3,7 @@ title: Carregar um Certificado de Gerenciamento de Serviços do Azure | Microsof
 description: Saiba como carregar o certificado de Gerenciamento de Serviços para o portal do Azure.
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
-ms.author: adegeo
-ms.openlocfilehash: be548a8e823d4c7109951183886764738a66ecea
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jeconnoc
+ms.openlocfilehash: 788ce1f2543b9ed76d718cf01d28292f49594414
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32152004"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037347"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Carregar um Certificado de Gerenciamento de Serviços do Azure
 Os certificados de gerenciamento permitem que você autentique com o modelo de implantação clássico fornecido pelo Azure. Muitos programas e ferramentas (como o Visual Studio ou o SDK do Azure) usam esses certificados para automatizar a configuração e a implantação de diversos serviços do Azure. 

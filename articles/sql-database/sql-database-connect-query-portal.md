@@ -3,19 +3,22 @@ title: 'Portal do Azure: consultar o Banco de Dados SQL do Azure usando o Editor
 description: Saiba como se conectar ao Banco de dados SQL no portal do Azure usando o Editor de consultas SQL. Em seguida, execute instruções T-SQL (Transact-SQL) para consultar e editar dados.
 keywords: conectar-se ao banco de dados sql,portal do azure,portal,editor de consultas
 services: sql-database
-author: ayoolubeko
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 01/10/2018
+author: ayoolubeko
 ms.author: ayolubek
-ms.openlocfilehash: 4dca277326ec89d0c7ab512e9d107ce68cefb2ca
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 01/10/2018
+ms.openlocfilehash: 6990ae0eb05af630efb8683397907200bf6d94ed
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050843"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063380"
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portal do Azure: usar o editor Consulta SQL para se conectar e consultar dados
 

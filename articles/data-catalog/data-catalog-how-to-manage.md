@@ -2,18 +2,18 @@
 title: Gerenciar ativos de dados no Catálogo de Dados do Azure
 description: O artigo destaca como controlar a visibilidade e a propriedade de ativos de dados registrados no Catálogo de Dados do Azure.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: e102b1f436b4f6d39f57445b02638ffd11f27786
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 46af78dae6d5c1607f56d36732adce5e677e0c65
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052953"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407631"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gerenciar ativos de dados no Catálogo de Dados do Azure
 ## <a name="introduction"></a>Introdução

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: b94f6ad4c7c6f3b5e93cdb890e053a3d1678e161
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722942"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094421"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformar e proteger sua API 
 
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 
 ![Políticas](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 + Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
@@ -73,7 +73,7 @@ Para ver a resposta original:
 4. Na janela **Processamento de saída**, clique no triângulo (ao lado do lápis) e selecione **Editor de código**.
      ![Editar política](./media/set-edit-policies/set-edit-policies01.png)
 5. Posicione o cursor dentro do elemento **&lt;outbound&gt;**.
-6. Na janela à direita, em **Políticas de transformação**, clique em **+ Definir cabeçalho HTTP** duas vezes (para inserir dois trechos de código de política).
+6. Na janela à direita, em **Políticas de transformação**, clique em **+ Definir cabeçalho HTTP** duas vezes (para inserir dois snippets de código de política).
 
     ![Políticas](./media/transform-api/transform-api.png)
 7. Modifique seu código **<outbound>** para ter a seguinte aparência:

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 0ad22562bd1f36bba7c0ab99fe504e82645033d3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: dcdc84f100ce534ea517f0201b0c090c3059a318
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131403"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160920"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtros em exibições do Log Analytics
 Um **filtro** em uma [exibição do Log Analytics](log-analytics-view-designer.md) permite que os usuários filtrem os dados na exibição pelo valor de uma propriedade específica sem modificar a exibição em si.  Por exemplo, você pode permitir que os usuários da sua exibição filtrem somente os dados de um computador ou conjunto de computadores específico.  É possível criar vários filtros em uma única exibição para permitir que os usuários filtrem por várias propriedades.  Este artigo descreve como usar um filtro e adicioná-lo a uma exibição personalizada.
@@ -49,7 +49,7 @@ A tabela a seguir descreve as configurações de um filtro.
 | Configuração | DESCRIÇÃO |
 |:---|:---|
 | Nome do campo | Nome do campo usado para filtragem.  Isso deve corresponder ao campo summarize na **Consulta de valores**. |
-| Consulta de valores | Consulta que deve ser executada para popular a lista suspensa do filtro para o usuário.  É preciso que ela use [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) ou [distinct](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) para fornecer valores exclusivos para determinado campo, o qual deve corresponder ao **Nome do campo**.  Você pode usar [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) para classificar os valores que são exibidos para o usuário. |
+| Consulta de valores | Consulta que deve ser executada para popular a lista suspensa do filtro para o usuário.  É preciso que ela use [summarize](/azure/kusto/query/summarizeoperator) ou [distinct](/azure/kusto/query/distinctoperator) para fornecer valores exclusivos para determinado campo, o qual deve corresponder ao **Nome do campo**.  Você pode usar [sort](/azure/kusto/query/sortoperator) para classificar os valores que são exibidos para o usuário. |
 | Marca | Nome do campo que é usado em consultas de apoio do filtro e que também é exibido para o usuário. |
 
 ### <a name="examples"></a>Exemplos

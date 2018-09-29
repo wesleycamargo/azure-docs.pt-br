@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: 2784102cdc778188f0874a15e3ff02e4cc2e3eb8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5c7c2fe101315959d07ce4912905bbf59a7ee664
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33904973"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452795"
 ---
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
 
@@ -22,8 +22,10 @@ N o Visual Studio, crie um novo projeto de **Aplicativo de Console (.NET Framewo
 ### <a name="add-the-relay-nuget-package"></a>Adicione o pacote NuGet de retransmissão
 
 1. Clique com o botão direito do mouse no projeto recém-criado e selecione **Gerenciar Pacotes NuGet**.
-2. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Retransmissão do Microsoft Azure**. 
-3. Selecione **Instalar** para concluir a instalação. Feche a caixa de diálogo.
+2. Selecione a opção **Incluir pré-lançamento**. 
+3. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Retransmissão do Microsoft Azure**.
+4. Para obter a versão, selecione **2.0.0-preview1-20180523**. 
+5. Selecione **Instalar** para concluir a instalação. Feche a caixa de diálogo.
 
 ### <a name="write-code-to-receive-messages"></a>Gravar código para receber mensagens
 
@@ -35,13 +37,21 @@ N o Visual Studio, crie um novo projeto de **Aplicativo de Console (.NET Framewo
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
+    using System.Net;
     ```
 2. Adicione constantes à classe `Program` para os detalhes da conexão híbrida. Substitua os espaços reservados entre colchetes pelos valores obtidos quando você criou a conexão híbrida. Use o nome totalmente qualificado do namespace.
    
     ```csharp
+    // replace {RelayNamespace} with the name of your namespace
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
+
+    // replace {HybridConnectionName} with the name of your hybrid connection
     private const string ConnectionName = "{HybridConnectionName}";
+
+    // replace {SAKKeyName} with the name of your Shared Access Policies key, which is RootManageSharedAccessKey by default
     private const string KeyName = "{SASKeyName}";
+
+    // replace {SASKey} with the primary key of the namespace you saved earlier
     private const string Key = "{SASKey}";
     ```
 

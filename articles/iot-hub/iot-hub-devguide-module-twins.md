@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 8f567ba43c1657783f9898863aef980627800481
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0df1170079e66bda95e38bcf17dcce738269eeb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436312"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039370"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Entender e usar módulos gêmeos no Hub IoT
 
@@ -138,7 +138,7 @@ No exemplo anterior, as propriedades relatadas e desejadas do módulo gêmeo `te
 3. O back-end da solução pode acompanhar os resultados da operação de configuração em vários módulos [consultando][lnk-query] os módulos gêmeos.
 
 > [!NOTE]
-> Os trechos anteriores são exemplos, otimizados para facilitar a leitura, de uma forma de codificar uma configuração de módulo e seu status. O Hub IoT não impõe um esquema específico para as propriedades desejadas e reportadas do módulo gêmeo nos módulos gêmeos.
+> Os snippets anteriores são exemplos, otimizados para facilitar a leitura, de uma forma de codificar uma configuração de módulo e seu status. O Hub IoT não impõe um esquema específico para as propriedades desejadas e reportadas do módulo gêmeo nos módulos gêmeos.
 > 
 > 
 
@@ -250,7 +250,7 @@ Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com a
     }
     ```
 
-* Todos os valores de cadeia de caracteres podem ter no máximo 4 KB de comprimento.
+* Todos os valores de cadeia de caracteres podem ter no máximo 512 bytes de comprimento.
 
 ## <a name="module-twin-size"></a>Tamanho do módulo gêmeo
 O Hub IoT impõe um limite de tamanho de 8 KB em cada um dos valores totais respectivos de `tags`, `properties/desired` e `properties/reported`, excluindo elementos somente leitura.

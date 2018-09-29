@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 424782be2d814df6d598591198b5005fb494d3da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fe4cc3c06af6868396f5db6fd88804022f5f9793
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302111"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432459"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Alertas e métricas do Gerenciador de Tráfego
 
@@ -46,7 +46,7 @@ A Figura 2 exibe as mesmas informações, porém, elas são divididas por pontos
 *Figura 2: Exibição dividida com volume de consulta mostrado por ponto de extremidade retornado*
 
 ## <a name="endpoint-status-by-endpoint"></a>Status do ponto de extremidade por ponto de extremidade
-Use [esta métrica](../monitoring-and-diagnostics/monitoring-supported-metrics.md) para entender o status de integridade dos pontos de extremidade no perfil. Ela usa dois valores:
+Use [esta métrica](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) para entender o status de integridade dos pontos de extremidade no perfil. Ela usa dois valores:
  - use **1**, se o ponto de extremidade estiver ativo.
  - use **0**, se o ponto de extremidade estiver inativo.
 

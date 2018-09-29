@@ -2,18 +2,18 @@
 title: Exemplos de desenvolvedor do Catálogo de Dados do Azure
 description: Este artigo fornece uma visão geral dos exemplos de desenvolvedor disponíveis para a API REST do Catálogo de Dados.
 services: data-catalog
-author: spelluru
-ms.author: spelluru
+author: markingmyname
+ms.author: maghan
 ms.assetid: 0dc23edd-04d8-49fc-841e-d132fb109ce7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 98d17e5fc8b2348887d6a9e361a455474d666db4
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a4f88b63fa91dcec52b86be568ef4c98ee82c277
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052951"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404318"
 ---
 # <a name="data-catalog-developer-samples"></a>Exemplos de desenvolvedor do Catálogo de Dados
 Comece a desenvolver aplicativos de Catálogo de Dados usando a API REST do Catálogo de Dados. A API REST do Catálogo de Dados é uma API baseada em REST que fornece acesso programático aos recursos do Catálogo de Dados para registrar, anotar e pesquisar ativos de dados programaticamente.

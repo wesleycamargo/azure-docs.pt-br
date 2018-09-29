@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d467bc88e1ed3b8dbe42a17095e4f0d14f14fe9a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2191ffabee31d12fb5b581280f924546b0078255
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950226"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405457"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Fazer upgrade do tempo de execução de um cluster do Service Fabric no Azure
 
@@ -42,7 +42,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou [cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) seguro no Azure usando um modelo
 > * [Reduzir ou escalar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
 > * Atualizar o tempo de execução de um cluster
-> * [Implantar o Gerenciamento de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [Excluir um cluster](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -204,6 +204,3 @@ Neste tutorial, você aprendeu como:
 > * Fazer upgrade do tempo de execução do cluster
 > * Monitorar o upgrade
 
-Em seguida, avance para o próximo tutorial para saber como implantar um Gerenciamento de API com um cluster do Service Fabric.
-> [!div class="nextstepaction"]
-> [Implantar o Gerenciamento de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)

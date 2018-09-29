@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
-ms.openlocfilehash: 6601ade7db52043de8150a3fca671591b9b469fd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: 4bfaaa51e39a7db297626a8009306eef9e3efa80
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063452"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393774"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreenda os termos na sua fatura do Microsoft Azure
 
@@ -100,7 +100,7 @@ A tabela a seguir descreve os cabeçalhos de coluna de encargos de uso mostrados
 | Termo |DESCRIÇÃO |
 | --- | --- |
 | NOME |Identifica o serviço de nível superior para o uso |
-| type |Define o tipo de serviço do Azure e pode afetar a tarifa |
+| Tipo |Define o tipo de serviço do Azure e pode afetar a tarifa |
 | Recurso |Identifica a unidade de medida para o medidor sendo consumido |
 | Região |Identifica o local do datacenter para determinados serviços que são cobrados com base no local do datacenter |
 | Consumido |O valor do medidor usado durante o período de cobrança |

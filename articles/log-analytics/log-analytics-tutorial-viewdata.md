@@ -15,12 +15,12 @@ ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: 31e9e6b173a578b09f656850271ed5a8f0f2baa8
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b5d7b71b76eebc0c14fe1403791c3d4b6cefd7f4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391324"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161024"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics
 
@@ -85,7 +85,7 @@ Adicione propriedades ao painel de filtro, selecionando **Adicionar para filtros
 
 Você tem somente a opção **Filtro** para propriedades com o nome em azul ao focalizá-las.  Estes são campos *pesquisáveis* que estão indexados para as condições de pesquisa.  Os campos em cinza são *campos pesquisáveis de texto livre* que somente possuem a opção **Mostrar referências**.  Esta opção retorna registros que possuem esse valor em qualquer propriedade.
 
-É possível agrupar os resultados em uma propriedade única, selecionando a opção **Agrupar por** no menu de registro.  Isso adicionará um operador [resumido](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) à sua consulta que exibirá os resultados em um gráfico.  É possível agrupar em mais de uma propriedade, mas será necessário editar a consulta diretamente.  Selecione o menu de registro próximo à propriedade **Computador** e selecione **Agrupar por 'Computador'**.  
+É possível agrupar os resultados em uma propriedade única, selecionando a opção **Agrupar por** no menu de registro.  Isso adicionará um operador [resumido](/azure/kusto/query/summarizeoperator) à sua consulta que exibirá os resultados em um gráfico.  É possível agrupar em mais de uma propriedade, mas será necessário editar a consulta diretamente.  Selecione o menu de registro próximo à propriedade **Computador** e selecione **Agrupar por 'Computador'**.  
 
 ![Agrupar por computador](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 
@@ -130,7 +130,7 @@ Perf | where ObjectName == "Processor"  | where CounterName == "% Processor Time
 
 ![Utilização do processador](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
 
-Isso limita os dados para um contador particular, mas ainda não o coloca em uma forma particularmente útil.  É possível exibir os dados em um gráfico de linhas, mas primeiro deverá agrupar por computador e TimeGenerated.  Para agrupar em campos múltiplo será necessário modificar a consulta diretamente, então, modifique a consulta para o seguinte.  Isso usa a função [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) na propriedade **CounterValue** para calcular o valor médio ao longo de cada hora.
+Isso limita os dados para um contador particular, mas ainda não o coloca em uma forma particularmente útil.  É possível exibir os dados em um gráfico de linhas, mas primeiro deverá agrupar por computador e TimeGenerated.  Para agrupar em campos múltiplo será necessário modificar a consulta diretamente, então, modifique a consulta para o seguinte.  Isso usa a função [avg](/azure/kusto/query/avg-aggfunction) na propriedade **CounterValue** para calcular o valor médio ao longo de cada hora.
 
 ```
 Perf  
@@ -140,7 +140,7 @@ Perf
 
 ![Gráfico de dados de desempenho](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
 
-Agora que os dados estão adequadamente agrupados, você poderá exibi-los em um gráfico visual, adicionando o operador [renderizar](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator).  
+Agora que os dados estão adequadamente agrupados, você poderá exibi-los em um gráfico visual, adicionando o operador [renderizar](/azure/kusto/query/renderoperator).  
 
 ```
 Perf  

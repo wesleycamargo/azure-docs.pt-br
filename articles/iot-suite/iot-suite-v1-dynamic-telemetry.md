@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 60e9ee00fabf15a62e782c70bca251b1a8e617c3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723648"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096609"
 ---
 # <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>Usar telemetria dinâmica com a solução pré-configurada de monitoramento remoto
 
@@ -88,7 +88,7 @@ A próxima etapa é substituir a telemetria gerada pelo dispositivo simulado Nod
 
 ## <a name="customize-the-dashboard-display"></a>Personalizar a exibição do painel
 
-A mensagem **Informações do Dispositivo** pode incluir metadados sobre a telemetria que o dispositivo pode enviar para o Hub IoT. Esses metadados podem especificar os tipos de telemetria enviados pelo dispositivo. Modifique o valor de **deviceMetaData** no arquivo remote_monitoring.js a fim de incluir uma definição de **Telemetria** logo após a definição de **Comandos**. O seguinte trecho de código mostra a definição **Comandos** (não se esqueça de adicionar um `,` após a definição de **Comandos**):
+A mensagem **Informações do Dispositivo** pode incluir metadados sobre a telemetria que o dispositivo pode enviar para o Hub IoT. Esses metadados podem especificar os tipos de telemetria enviados pelo dispositivo. Modifique o valor de **deviceMetaData** no arquivo remote_monitoring.js a fim de incluir uma definição de **Telemetria** logo após a definição de **Comandos**. O seguinte snippet de código mostra a definição **Comandos** (não se esqueça de adicionar um `,` após a definição de **Comandos**):
 
 ```nodejs
 'Commands': [{
@@ -123,7 +123,7 @@ A mensagem **Informações do Dispositivo** pode incluir metadados sobre a telem
 > A solução de monitoramento remoto usa uma correspondência que diferencia maiúsculas e minúsculas a fim de comparar a definição de metadados com os dados no fluxo de telemetria.
 
 
-A adição de uma definição de **Telemetria** , como mostra o trecho de código acima, não altera o comportamento do painel. No entanto, os metadados também podem incluir um atributo **DisplayName** para personalizar a exibição no painel. Atualize a definição de metadados de **Telemetria** conforme mostra o trecho a seguir:
+A adição de uma definição de **Telemetria** , como mostra o snippet de código acima, não altera o comportamento do painel. No entanto, os metadados também podem incluir um atributo **DisplayName** para personalizar a exibição no painel. Atualize a definição de metadados de **Telemetria** conforme mostra o snippet a seguir:
 
 ```nodejs
 'Telemetry': [

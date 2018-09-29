@@ -7,14 +7,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 18e2cc9457252dbd931b03fc08382287fd3a3c1e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: cfce11546249310ce00e5f19ba81520cc9dd78cf
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304638"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392628"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Práticas recomendadas para melhorias de desempenho usando o Sistema de Mensagens do Barramento de Serviço
 
@@ -42,7 +42,7 @@ Os objetos de cliente do Barramento de Serviço, como [QueueClient][QueueClient]
 
 A execução de uma operação (enviar, receber, excluir etc.) leva algum tempo. Esse tempo inclui o processamento da operação pelo serviço do barramento de serviço, além da latência da solicitação e resposta. Para aumentar o número de operações por hora, elas devem ser executadas simultaneamente. 
 
-O cliente agenda operações simultâneas realizando operações assíncronas. A próxima solicitação é iniciada antes que a solicitação anterior seja concluída. O trecho de código a seguir é um exemplo de uma operação de envio assíncrono:
+O cliente agenda operações simultâneas realizando operações assíncronas. A próxima solicitação é iniciada antes que a solicitação anterior seja concluída. O snippet de código a seguir é um exemplo de uma operação de envio assíncrono:
   
  ```csharp
   Message m1 = new BrokeredMessage(body);

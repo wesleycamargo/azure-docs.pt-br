@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Entender quais códigos de resposta HTTP são retornados pelas APIs de Criação e de Ponto de extremidade
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: diberry
-ms.openlocfilehash: 5fd64b5fa3e3c084aee1e63c5233ccffc93917ae
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 07982716ff655f980844ca3dbcf7e8d7df1827c4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237924"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031213"
 ---
 # <a name="luis-api-http-response-codes"></a>Códigos de resposta HTTP da API de LUIS
 As APIs de [criação](https://aka.ms/luis-authoring-apis) e de [ponto de extremidade](https://aka.ms/luis-endpoint-apis) retornam códigos de resposta HTTP. Enquanto as mensagens de resposta incluem informações específicas a uma solicitação, o código de status de resposta HTTP é geral. 

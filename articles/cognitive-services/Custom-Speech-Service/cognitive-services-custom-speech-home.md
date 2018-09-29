@@ -1,21 +1,22 @@
 ---
-title: Visão geral do Serviço de Fala Personalizado no Azure | Microsoft Docs
+title: O que é o Serviço de Fala Personalizado?
+titlesuffix: Azure Cognitive Services
 description: O Serviço de Fala Personalizada é um serviço baseado em nuvem que permite aos usuários para personalizar modelos de fala para transcrição de fala em texto.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: overview
 ms.date: 02/07/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: da88989753069f7ba8ca2c2e2806a648f3df4e3c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f90fc40a42806cfb002da2d9943eaa41736df4d7
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948359"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222736"
 ---
 # <a name="what-is-custom-speech-service"></a>O que é o Serviço de Fala Personalizado?
 

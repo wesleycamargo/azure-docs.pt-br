@@ -3,18 +3,18 @@ title: Painel do aplicativo para aplicativos do LUIS | Microsoft Docs
 description: Saiba mais sobre o painel do aplicativo, uma ferramenta de relatório visualizado que permite monitorar seus aplicativos em uma visão rápida.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: 518227d9f4165a08fafefa357de255d97c710f61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cab07a994f2bdfb7ef8491adbb482c1902e4d4cb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224493"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031978"
 ---
 # <a name="application-dashboard"></a>Painel do aplicativo
 O painel do aplicativo permite que você monitore seu aplicativo em uma visão rápida. O **Painel** é exibido quando você abre um aplicativo clicando no nome do aplicativo na página **Meus Aplicativos** e selecione **Painel** no painel superior. 
