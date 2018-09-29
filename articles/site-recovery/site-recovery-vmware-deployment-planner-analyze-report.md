@@ -2,24 +2,18 @@
 title: Planejador de implantação do Azure Site Recovery para VMware ao Azure | Microsoft Docs
 description: Este artigo descreve a análise do relatório gerado do Planejador de Implantações do Azure Site Recovery para o cenário do VMware para o Azure.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 2b4c603e9333f46498e3cd93f10208da2ed3c77b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d6851002ac9903b74cee53b42b83784ccfe957f3
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921239"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182018"
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Relatório do Planejador de Implantações do Azure Site Recovery
 O relatório gerado do Microsoft Excel contém as seguintes planilhas:

@@ -2,24 +2,18 @@
 title: Planejador de implantação do Azure Site Recovery para VMware ao Azure | Microsoft Docs
 description: o artigo descreve o modo de execução do Planejador de Implantações do Azure Site Recovery para o cenário do VMware para o Azure.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 8298f4a31db974f75e80aef7589bfd31fd7c7491
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9408323e58ec4df8ca806aea39fdf40c2ddb8a4f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921045"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226748"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Executar o Planejador de Implantações do Azure Site Recovery para VMware para o Azure
 Este artigo é o guia do usuário do Planejador de Implantação do Azure Site Recovery para implantações de produção do VMware para o Azure.
@@ -275,7 +269,7 @@ A taxa de transferência é medida em um momento específico e é a taxa de tran
 
 ### <a name="example"></a>Exemplo
 ```
-ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -Virtualization VMware -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 >[!NOTE]

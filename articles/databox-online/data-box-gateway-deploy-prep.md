@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: f4c3cf5329c10cda3691370e946b8397662a8d66
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c21245e05625f65b6b5dcf5f7081f5f5d1abb52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953405"
+ms.locfileid: "47030585"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Tutorial: Preparar para implantar o Azure Data Box Gateway (visualização)
 
@@ -40,7 +40,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 
 > [!IMPORTANT]
-> - O Data Box Gateway está na pré-visualização. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução. 
+> - O Gateway do Data Box está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução. 
 
 ### <a name="get-started"></a>Introdução
 
@@ -59,7 +59,7 @@ Agora, você pode começar a configurar o portal do Azure.
 
 Aqui você encontra os pré-requisitos de configuração para o recurso Data Box Gateway, o dispositivo Data Box Gateway e a rede do datacenter.
 
-### <a name="for-the-data-box-gateway-resource"></a>Para o recurso de Gateway da caixa de dados
+### <a name="for-the-data-box-gateway-resource"></a>Para o recurso de Gateway do Data Box
 
 Antes de começar, verifique se:
 
@@ -85,11 +85,11 @@ Antes de começar, verifique se:
 
 * A rede no seu datacenter é configurada de acordo com os requisitos de rede do seu dispositivo Data Box Gateway. Para obter mais informações, consulte os [Requisitos de sistema do Gateway de caixa de dados](data-box-gateway-system-requirements.md).
 
-* Seu Data Box Gateway possui uma largura de banda de Internet dedicada de 20 Mbps (ou mais) disponível o tempo todo. Essa largura de banda não deve ser compartilhada com outros aplicativos. Se estiver usando a aceleração de rede, para que a otimização funcione, recomendamos o uso de largura de banda de Internet de 32 Mbps ou mais.
+* O Gateway do Data Box tem uma largura de banda de Internet dedicada de 20 Mbps (ou mais) disponível o tempo todo. Essa largura de banda não deve ser compartilhada com outros aplicativos. Se estiver usando a aceleração de rede, para que a otimização funcione, recomendamos o uso de largura de banda de Internet de 32 Mbps ou mais.
 
 ## <a name="create-a-new-resource"></a>Criar um novo recurso
 
-Uma única instância do recurso Data Box Gateway pode gerenciar vários dispositivos virtuais do Data Box Gateway. Execute as etapas a seguir para criar um novo recurso de gateway de caixa de dados. 
+Execute as etapas a seguir para criar um novo recurso de gateway de caixa de dados. 
 
 Se você tiver um recurso do Data Box Gateway existente para gerenciar seus dispositivos virtuais, ignore esta etapa e vá para [Obter a chave de ativação](#get-the-activation-key).
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bce9e7de13ff95024685ccf916541357f5362727
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 622a8777f5ed329636c7023bb52790756f8d7206
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070644"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422619"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Alterar as informações de perfil de conta do Azure, como email de contato, endereço e número de telefone
 
@@ -46,7 +46,7 @@ Sim. O administrador da conta é a pessoa que configura a conta do Azure e quem 
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>Atualizar meu email do perfil também atualiza meu endereço de email de logon?
 
-Nº Atualizar o endereço de email do perfil não atualiza seu endereço de email de logon. Para alterar seu endereço de email de logon, você precisa transferir a propriedade da conta.
+Não. Atualizar o endereço de email do perfil não atualiza seu endereço de email de logon. Para alterar seu endereço de email de logon, você precisa transferir a propriedade da conta.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>Atualizar meu endereço do perfil também atualiza meu endereço de cobrança do cartão de crédito?
 
@@ -55,10 +55,6 @@ Para saber como atualizar suas informações de cobrança, consulte [Alterar o c
 ### <a name="why-cant-i-update-the-country"></a>Por que não é possível atualizar o país?
 
 Devido a restrições técnicas, não podemos alterar o país em uma conta existente. No entanto, você pode criar uma conta no país desejado e, em seguida, entrar em contato com o suporte do Azure para migrar os serviços para essa conta.
-
-### <a name="what-email-address-does-the-azure-billing-alerts-preview-feature-use"></a>Qual endereço de email o recurso de visualização de Alertas de Cobrança do Azure usa?
-
-Você recebe notificações de alerta no endereço de email adicionado ao se inscrever nos alertas. O endereço de email usado para os alertas é diferente daquele do Administrador da Conta. Para obter mais informações, veja [Configurar alertas de cobrança para suas assinaturas do Microsoft Azure](billing-set-up-alerts.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 

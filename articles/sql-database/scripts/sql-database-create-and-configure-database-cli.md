@@ -2,24 +2,22 @@
 title: Exemplo da CLI para criar um banco de dados SQL do Azure | Microsoft Docs
 description: Use este script de exemplo da CLI do Azure para criar um banco de dados SQL.
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: janeng
-editor: carlrab
 ms.service: sql-database
-ms.custom: DBs & servers, mvc
+ms.subservice: single-database
+ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
+author: CarlRabeler
+manager: craigg
 ms.author: carlrab
-ms.date: 09/07/2018
-ms.openlocfilehash: a7537b59a73c00a5364bfa4a758a6584a9ef6003
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: ''
+ms.date: 09/20/2018
+ms.openlocfilehash: d239236e9e6f7133aa57eb617c3cc9e8626fc178
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964268"
+ms.locfileid: "47055468"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Use a CLI para criar um banco de dados SQL do Azure individual e configurar uma regra de firewall
 
@@ -49,11 +47,11 @@ Este script usa os seguintes comandos. Cada comando da tabela é vinculado à do
 
 | Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Cria um servidor lógico que hospeda o Banco de Dados SQL. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | Cria uma regra de firewall para permitir o acesso a todos os bancos de dados SQL no servidor do intervalo de endereços IP inserido. |
-| [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Cria o Banco de Dados SQL no servidor lógico. |
-| [az group delete](/cli/azure/resource#az_resource_delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Cria um servidor lógico que hospeda o Banco de Dados SQL. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Cria uma regra de firewall para permitir o acesso a todos os bancos de dados SQL no servidor do intervalo de endereços IP inserido. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Cria o Banco de Dados SQL no servidor lógico. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

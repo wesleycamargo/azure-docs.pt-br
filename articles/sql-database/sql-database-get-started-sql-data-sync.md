@@ -2,20 +2,22 @@
 title: Configurar Sincronização de Dados SQL do Azure | Microsoft Docs
 description: Este tutorial mostra como configurar a Sincronização de Dados SQL do Azure
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/10/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: ccdffaf0c224cc4579f24ca5f3ca60a6c53f3bd6
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+manager: craigg
+ms.date: 04/10/2018
+ms.openlocfilehash: f1d439d043feb36fba0cc6c9c9d1b5569a4d8182
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160396"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166768"
 ---
 # <a name="set-up-sql-data-sync"></a>Configurar Sincronização de Dados SQL
 Neste tutorial, você aprenderá a configurar a Sincronização de Dados SQL do Azure criando um grupo de sincronização híbrido que contém as instâncias de Banco de Dados SQL do Azure e do SQL Server. O novo grupo de sincronização ficará totalmente configurado e sincronizado no agendamento que você definir.

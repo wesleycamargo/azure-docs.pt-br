@@ -2,19 +2,22 @@
 title: Introdução às consultas entre bancos de dados (particionamento vertical) | Microsoft Docs
 description: como usar a consulta de banco de dados elástico com bancos de dados particionados verticalmente
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/03/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 62dda46f2f78b01722016a9bbd1e6db05814a0bf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/03/2018
+ms.openlocfilehash: d78767f9360c8cb3a304af19f619dd9f74d3fb8e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448553"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162977"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introdução às consultas entre bancos de dados (particionamento vertical) (preview)
 
@@ -24,7 +27,7 @@ Quando tiver concluído, você saberá como configurar e usar um Banco de Dados 
 
 Para saber mais sobre o recurso de consulta de banco de dados elástico, veja a [visão geral da consulta de banco de dados elástico do Banco de Dados SQL do Azure](sql-database-elastic-query-overview.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 A permissão para ALTERAR QUALQUER FONTE DE DADOS EXTERNA é exigida. Essa permissão está incluída na permissão ALTERAR BANCO DE DADOS. As permissões para ALTERAR QUALQUER FONTE DE DADOS EXTERNA são necessárias para referenciar a fonte de dados subjacente.
 
@@ -111,7 +114,7 @@ Para saber mais sobre preços, consulte [Preços do Banco de Dados SQL](https://
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma visão geral de consulta elástica, consulte [Visão geral de consulta elástica](sql-database-elastic-query-overview.md).
-* Para sintaxe e exemplos de consultas para dados particionados verticalmente, veja [Consulta de dados particionados verticalmente](sql-database-elastic-query-vertical-partitioning.md)
+* Para sintaxe e amostras de consultas para dados particionados verticalmente, consulte [Consultando dados particionados verticalmente)](sql-database-elastic-query-vertical-partitioning.md)
 * Para um tutorial sobre particionamento horizontal (fragmentação), consulte [Introdução à consulta elástica para particionamento horizontal (fragmentação)](sql-database-elastic-query-getting-started.md).
 * Para sintaxe e amostras de consultas para dados particionados horizontalmente, consulte [Consultando dados particionados horizontalmente)](sql-database-elastic-query-horizontal-partitioning.md)
 * Consulte [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que executa uma instrução Transact-SQL em um único Banco de Dados SQL do Azure remoto ou um conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.

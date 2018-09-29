@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52aabcfd908afeea3bb9bf36eefad706b74d8ba9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954391"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227139"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
 Este artigo lista alguns dos termos comuns usados nos artigos do Hub IoT.
@@ -219,7 +219,7 @@ No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), as pro
 O [Azure Resource Manager](#azure-resource-manager) usa grupos de recursos para agrupar recursos relacionados. Você pode usar um grupo de recursos para executar operações em todos os recursos no grupo simultaneamente.
 
 ## <a name="retry-policy"></a>Política de repetição
-Use uma política de repetição para tratar [erros transitórios](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) quando você se conectar a um serviço de nuvem.
+Use uma política de repetição para tratar [erros transitórios](/azure/architecture/best-practices/transient-faults) quando você se conectar a um serviço de nuvem.
 
 ## <a name="routing-rules"></a>Regras de roteamento
 Configurar [as regras de roteamento](iot-hub-devguide-messages-read-custom.md) em seu hub IoT para rotear mensagens de dispositivo para a nuvem para um [ponto de extremidade interno](#built-in-endpoints) ou [pontos de extremidade personalizados](#custom-endpoints) para processamento pelo back-end da sua solução.

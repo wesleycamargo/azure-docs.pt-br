@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0d9001834a33675dc4aab8d78282fb2987419ec3
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 5743408b000dd7497a10f27db2a4ea9d87082b8d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35630877"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091788"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Monitorar o desempenho do aplicativo Web do Azure
 No [Portal do Azure](https://portal.azure.com), você pode configurar o monitoramento de desempenho de aplicativo dos seus [aplicativos Web do Azure](../app-service/app-service-web-overview.md). O [Azure Application Insights](app-insights-overview.md) equipa seu aplicativo para enviar a telemetria sobre suas atividades para o serviço Application Insights, onde ela é armazenada e analisada. Lá, os gráficos de métricas e as ferramentas de pesquisa podem ser usados para ajudar a diagnosticar problemas, melhorar o desempenho e avaliar o uso.

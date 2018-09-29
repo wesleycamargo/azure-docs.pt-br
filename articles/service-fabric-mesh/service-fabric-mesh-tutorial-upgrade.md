@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a734eb7b4efecf14a4d47a660c00d561a5fa6677
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c23646bca6109d27e57b2f928363e65c83c634eb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971800"
+ms.locfileid: "47031145"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: Aprenda como atualizar um aplicativo do Service Fabric usando o Visual Studio
 
@@ -46,7 +46,7 @@ Antes de começar este tutorial:
 
 * Se você não tiver implantado o aplicativo de tarefas, siga as instruções em [Publicar um aplicativo da Web do Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
 
-# <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Atualizar um serviço de malha de malha de serviço usando o Visual Studio
+## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Atualizar um serviço de malha de malha de serviço usando o Visual Studio
 
 Este artigo mostra como atualizar de forma independente um micro serviço em um aplicativo.  Neste exemplo, modificaremos o serviço `WebFrontEnd` para exibir uma categoria de tarefa. Em seguida, atualizaremos o serviço implantado.
 

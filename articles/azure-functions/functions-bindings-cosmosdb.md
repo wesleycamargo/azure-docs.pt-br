@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 50a8e491998b37a7ffebd5551cf755e8a9ca738a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 281d74b6836516e03771d82c96fab628eac12f1a
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093289"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395824"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associações do Azure Cosmos DB para Azure Functions 1.x
 
@@ -1607,11 +1607,10 @@ Por padrão, quando você grava no parâmetro de saída em sua função, um docu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Vá para um guia de início rápido que use um gatilho do Cosmos DB](functions-create-cosmos-db-triggered-function.md)
+* [Saiba mais sobre a computação de banco de dados sem servidor com o Cosmos DB](..\cosmos-db\serverless-computing-database.md)
+* [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [Saiba mais sobre a computação de banco de dados sem servidor com o Cosmos DB](..\cosmos-db\serverless-computing-database.md)
-
-> [!div class="nextstepaction"]
-> [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
+--->

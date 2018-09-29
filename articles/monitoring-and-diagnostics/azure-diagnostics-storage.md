@@ -2,18 +2,18 @@
 title: Armazenar e Exibir Dados de Diagnóstico no Armazenamento do Azure
 description: Obter dados de diagnóstico do Azure no Armazenamento do Azure e exibi-los
 services: azure-monitor
-author: thraka
+author: jpconnock
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/01/2016
-ms.author: adegeo
+ms.author: jeconnoc
 ms.component: diagnostic-extension
-ms.openlocfilehash: 6590e6991f07b7315c09a995152879c991fafcef
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 733c84ef9e6cee1a8ea488f0007ade1e72f39737
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267655"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033233"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Armazenar e exibir dados de diagnóstico no Armazenamento do Azure
 Os dados de diagnóstico não são armazenados permanentemente, a menos que sejam transferidos para o emulador de armazenamento do Microsoft Azure ou para o armazenamento do Azure. Quando estiverem no armazenamento, eles poderão ser exibidos com uma das várias ferramentas disponíveis.

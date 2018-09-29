@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT Suite e Aplicativos Lógicos | Microsoft Docs"
-description: "Um tutorial sobre como conectar aplicativos lógicos para o Azure IoT Suite para processo empresarial."
-services: 
+title: Azure IoT Suite e Aplicativos Lógicos | Microsoft Docs
+description: Um tutorial sobre como conectar aplicativos lógicos para o Azure IoT Suite para processo empresarial.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4629a7af-56ca-4b21-a769-5fa18bc3ab07
 ms.service: iot-suite
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
 ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47106245"
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Tutorial: conectar um aplicativo lógico à solução pré-configurada de monitoramento remoto do Azure IoT Suite
 A solução pré-configurada de monitoramento remoto do [Microsoft Azure IoT Suite][lnk-internetofthings] é uma ótima maneira de começar rapidamente com um conjunto de recursos de ponta a ponta que é um exemplo de uma solução IoT. Este tutorial explica como adicionar um aplicativo lógico à sua solução pré-configurada de monitoramento remoto do Microsoft Azure IoT Suite. Essas etapas demonstram como é possível aproveitar ainda mais sua solução de IoT conectando-a a um processo empresarial.
@@ -106,7 +107,7 @@ Para começar, configure o aplicativo lógico a ser usado com a solução pré-c
 ## <a name="set-up-the-eventprocessor-web-job"></a>Configurar o Trabalho Web EventProcessor
 Nesta seção, você conecta sua solução pré-configurada ao Aplicativo Lógico criado. Para concluir essa tarefa, adicione a URL para disparar o Aplicativo Lógico à ação, que dispara quando um valor de sensor de dispositivo excede um limite.
 
-1. Use seu cliente git para clonar a versão mais recente do [repositório github azure-iot-remote-monitoring][lnk-rmgithub]. Por exemplo:
+1. Use seu cliente git para clonar a versão mais recente do [repositório github azure-iot-remote-monitoring][lnk-rmgithub]. Por exemplo: 
    
     ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git

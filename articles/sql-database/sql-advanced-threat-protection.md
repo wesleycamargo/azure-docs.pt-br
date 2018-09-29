@@ -2,19 +2,21 @@
 title: Detecção de Ameaças Avançadas – Banco de Dados SQL do Azure | Microsoft Docs
 description: Saiba sobre a funcionalidade para descobrir e classificar dados sensíveis, gerenciando suas vulnerabilidades do banco de dados e detectando atividades anômalas que podem indicar uma ameaça ao banco de dados do Azure SQL.
 services: sql-database
-author: ronitr
-manager: craigg
 ms.service: sql-database
+ms.subservice: security
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/17/2018
+author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
-ms.openlocfilehash: 350f43dcb15062b4d44fc537e664b257f77d8e88
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+manager: craigg
+ms.date: 05/17/2018
+ms.openlocfilehash: cb3d8629d5d72644e647da14e7c3b31a4914814d
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497817"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159543"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Proteção Avançada contra Ameaças para o Banco de Dados SQL do Microsoft Azure
 

@@ -1,21 +1,23 @@
 ---
 title: Configuração de segurança da divisão e mesclagem | Microsoft Docs
 description: Configurar certificados x409 para criptografia com o serviço de divisão/mesclagem para escala elástica.
-metakeywords: Elastic Database certificates security
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: bb2090aba61f32e79fe3a9fd950e6e3688193d7d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: ca93d97c3e0ddab0377ef437a04e7e3e31197b97
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647078"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166345"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança da divisão e mesclagem
 Para usar o serviço de divisão/mesclagem, você deve configurar corretamente a segurança. O serviço é parte do recurso de Dimensionamento Elástico do Banco de Dados SQL do Microsoft Azure. Para saber mais, confira o [Tutorial do serviço de divisão e mesclagem da escala elástica](sql-database-elastic-scale-configure-deploy-split-and-merge.md).

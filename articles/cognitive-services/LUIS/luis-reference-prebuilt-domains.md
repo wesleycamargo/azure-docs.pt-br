@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Referência para os domínios predefinidos, que são conjuntos predefinidos de tentativas e entidades de idioma Noções básicas sobre inteligente serviços (LUÍS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238889"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040033"
 ---
 # <a name="prebuilt-domain-reference"></a>Referência de domínio predefinido
 Esta referência contém informações sobre o [domínios pré-compilada](luis-how-to-use-prebuilt-domains.md), que são conjuntos predefinidos de entidades que oferece LUÍS e tentativas.
@@ -67,7 +67,7 @@ O domínio de calendário fornece tentativas e entidades relacionadas a entradas
 ### <a name="entities"></a>Entidades
 | Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
-| Localização | Local do item de calendário, reunião ou compromisso. Endereços, cidades e regiões são bons exemplos de locais.| Academia 209 Nashville <br/><br/>897 casa de panqueca<br/><br/>Garagem|
+| Local padrão | Local do item de calendário, reunião ou compromisso. Endereços, cidades e regiões são bons exemplos de locais.| Academia 209 Nashville <br/><br/>897 casa de panqueca<br/><br/>Garagem|
 | Assunto | O título de uma reunião ou compromisso.| Consulta odontológica <br/><br/>Almoçar com Julia<br/><br/>Consulta médica|
 
 ## <a name="camera"></a>Câmera 
@@ -615,7 +615,7 @@ What's the average temperature in India in september?
 ### <a name="entities"></a>Entidades
 | Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
-| Localização| A localização absoluta para um pedido de tempo.|Seattle<br/>Paris<br/>Palo Alto|
+| Local padrão| A localização absoluta para um pedido de tempo.|Seattle<br/>Paris<br/>Palo Alto|
 
 ## <a name="web"></a>Web 
 O domínio da Web fornece uma intenção de navegar para um site.

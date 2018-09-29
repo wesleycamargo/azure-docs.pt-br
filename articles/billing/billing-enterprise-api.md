@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
-ms.author: aedwin
-ms.openlocfilehash: b67e6202c470be46b3100c06e503c05415371c6e
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: erikre
+ms.openlocfilehash: 7cc5b0cb12e806b0946ce421e7ee6daa4de76afa
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920155"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47390589"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Visão geral das APIs de Relatórios para clientes Enterprise
 As APIs de Relatórios permitem que clientes Enterprise do Azure efetuem pull de modo programático dos dados de consumo e cobrança nas ferramentas preferidas de análise de dados. Os clientes Enterprise assinaram um [EA (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para fazer compromissos financeiros negociados e obter acesso a preços personalizados para recursos do Azure.

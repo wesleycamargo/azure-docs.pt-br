@@ -9,12 +9,12 @@ ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 4fb8d45c285ee3c1651039619808b8964c5313cd
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: dfe561e7a7231c8e7f9465819a01cd4b0a35f47c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983073"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434527"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Use o portal do Azure para fazer backup de várias máquinas virtuais
 
@@ -42,15 +42,15 @@ O cofre dos Serviços de Recuperação contém os dados de backup e a política 
 
     ![Menu Abrir Cofre](./media/tutorial-backup-vm-at-scale/provide-vault-detail-2.png)
 
-3. No menu Cofre dos Serviços de Recuperação, 
+3. No menu Cofre dos Serviços de Recuperação,
 
-    - Digite *myRecoveryServicesVault* em **Nome**,
+    - Digite *myRecoveryServicesVault* em **Nome**.
     - A ID da assinatura atual aparecerá em **Assinatura**. Se tiver assinaturas adicionais, você poderá escolher outra assinatura para o novo cofre.
     - Em **Grupo de Recursos**, selecione **Usar Existente** e selecione *myResourceGroup*. Se *myResourceGroup* não existir, selecione **Criar Novo** e digite *myResourceGroup*.
     - No menu suspenso **Localização**, escolha *Europa Ocidental*.
     - Clique em **Criar** para criar seu Cofre dos Serviços de Recuperação.
 
-Um Cofre dos Serviços de Recuperação deverá estar no mesmo local que as máquinas virtuais que estão sendo protegidas. Se você tiver máquinas virtuais em várias regiões, crie um Cofre dos Serviços de Recuperação em cada região. Este tutorial criará um Cofre dos Serviços de Recuperação na *Europa Ocidental* porque este é local em que a *myVM* (a máquina virtual criada com o guia de início rápido) foi criada.
+Um Cofre dos Serviços de Recuperação deverá estar no mesmo local que as máquinas virtuais que estão sendo protegidas. Se você tiver máquinas virtuais em várias regiões, crie um cofre de Serviços de Recuperação em cada região. Este tutorial criará um Cofre dos Serviços de Recuperação na *Europa Ocidental* porque este é local em que a *myVM* (a máquina virtual criada com o guia de início rápido) foi criada.
 
 Talvez demore alguns minutos para o cofre de Serviços de Recuperação ser criado. Monitore as notificações de status na área superior direita do portal. Depois que o cofre é criado, ele aparece na lista de cofres dos Serviços de Recuperação.
 
@@ -76,7 +76,7 @@ Após criar o Cofre dos Serviços de Recuperação, a próxima etapa é configur
 
     ![Selecionar carga de trabalho](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
-5. No menu **Política de backup**, para **Nome da política**, digite *Finanças*. Insira as seguintes alterações na Política de Backup: 
+5. No menu **Política de backup**, para **Nome da política**, digite *Finanças*. Insira as seguintes alterações na Política de Backup:
     - Para a **Frequência de backup**, defina o fuso horário para *Hora Central*. Como o complexo esportivo está localizado no Texas, o proprietário deseja que o horário definido seja o local. Deixe a frequência de backup definida como Diariamente às 03h30.
     - Para a **Retenção do ponto de backup diário**, defina o período para 90 dias.
     - Para a **Retenção do ponto de backup semanal**, use o ponto de restauração *Segunda-feira* e mantenha-o por 52 semanas.
@@ -84,21 +84,21 @@ Após criar o Cofre dos Serviços de Recuperação, a próxima etapa é configur
     - Desmarque a opção **Retenção do ponto de backup anual**. O líder de finanças não deseja manter dados por mais de 36 meses.
     - Clique em **OK** para criar a política de backup.
 
-    ![Selecionar carga de trabalho](./media/tutorial-backup-vm-at-scale/set-new-policy.png) 
+    ![Selecionar carga de trabalho](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
     Depois de criar a política de backup, associe-a às máquinas virtuais.
 
-6. Na caixa de diálogo **Selecionar máquinas virtuais**, selecione *myVM* e clique em **OK** para implantar a política de backup nas máquinas virtuais. 
+6. Na caixa de diálogo **Selecionar máquinas virtuais**, selecione *myVM* e clique em **OK** para implantar a política de backup nas máquinas virtuais.
 
     Todas as máquinas virtuais que estão no mesmo local e ainda não estão associadas a uma política de backup, aparecerão. *myVMH1* e *myVMR1* são selecionados para serem associados à política de *Finanças*.
 
-    ![Selecionar carga de trabalho](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png) 
+    ![Selecionar carga de trabalho](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png)
 
     Ao término da implantação, você receberá uma notificação de que ela foi concluída com êxito.
 
 ## <a name="initial-backup"></a>Backup inicial
 
-Você habilitou o backup para os Cofres dos Serviços de Recuperação, mas um backup inicial não foi criado. Uma melhor prática para a recuperação de desastre é disparar o primeiro backup para que seus dados sejam protegidos. 
+Você habilitou o backup para os Cofres dos Serviços de Recuperação, mas um backup inicial não foi criado. Uma melhor prática para a recuperação de desastre é disparar o primeiro backup para que seus dados sejam protegidos.
 
 Para executar um trabalho de backup sob demanda:
 
@@ -130,10 +130,10 @@ Para executar um trabalho de backup sob demanda:
 
     As notificações de implantação informam que o trabalho de backup foi disparado, e que você pode monitorar o andamento do trabalho na página de Trabalhos de backup. Dependendo do tamanho da sua máquina virtual, a criação do backup inicial poderá demorar um pouco.
 
-    Quando o trabalho de backup inicial for concluído, você poderá ver seu status no menu Trabalho de backup. O trabalho de backup sob demanda criou o ponto de restauração inicial para *myVM*. Se você quiser fazer backup de outras máquinas virtuais, repita essas etapas em cada máquina virtual. 
+    Quando o trabalho de backup inicial for concluído, você poderá ver seu status no menu Trabalho de backup. O trabalho de backup sob demanda criou o ponto de restauração inicial para *myVM*. Se você quiser fazer backup de outras máquinas virtuais, repita essas etapas em cada máquina virtual.
 
     ![Bloco dos Trabalhos de Backup](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
-  
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você planeja continuar trabalhando com os tutoriais subsequentes, não limpe os recursos criados neste tutorial. Caso contrário, siga estas etapas para excluir todos os recursos criados por esse tutorial no Portal do Azure.
@@ -153,15 +153,15 @@ Se você planeja continuar trabalhando com os tutoriais subsequentes, não limpe
 
     ![Ícone Configurações](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
-4. No menu de contexto, selecione **Interromper backup** para abrir o menu Interromper backup. 
+4. No menu de contexto, selecione **Interromper backup** para abrir o menu Interromper backup.
 
     ![Ícone Configurações](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
 
 5. No menu **Interromper backup**, selecione o menu suspenso superior e escolha **Excluir Dados de Backup**.
 
 6. Na caixa de diálogo **Digite o nome do item de Backup**, digite *myVM*.
- 
-7. Depois que o item de backup for verificado (uma marca de seleção aparecerá), o botão **Interromper Backup** será habilitado. Clique em **Interromper Backup** para interromper a política e excluir os pontos de restauração. 
+
+7. Depois que o item de backup for verificado (uma marca de seleção aparecerá), o botão **Interromper Backup** será habilitado. Clique em **Interromper Backup** para interromper a política e excluir os pontos de restauração.
 
     ![Clique em Interromper Backup para excluir o cofre](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
@@ -183,7 +183,7 @@ Neste tutorial, você usou o portal do Azure para:
 > * Atribuir a política para proteger várias máquinas virtuais
 > * Disparar um backup sob demanda para máquinas virtuais
 
-Continue no próximo tutorial para restaurar uma máquina virtual do Azure de um disco. 
+Continue no próximo tutorial para restaurar uma máquina virtual do Azure de um disco.
 
 > [!div class="nextstepaction"]
 > [Restaurar VMs usando a CLI](./tutorial-restore-disk.md)
