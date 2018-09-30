@@ -16,7 +16,7 @@ ms.locfileid: "44345940"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usar Rascunho com o AKS (Serviço de Kubernetes do Azure)
 
-Draf é uma ferramenta de software livre que ajuda a empacotar e implantar contêineres de aplicativos em um cluster do Kubernetes, deixando você livre para concentrar-se no ciclo de desenvolvimento – o "loop interno" do desenvolvimento concentrado. O Rascunho funciona como o código está sendo desenvolvido, mas antes de comprometer-se com o controle de versão. Com o Rascunho, você pode reimplantar rapidamente um aplicativo no Kubernetes quando ocorrem alterações de código. Para obter mais informações sobre o Rascunho, consulte a [Documentação do Rascunho no Gitub][draft-documentation].
+Draft é uma ferramenta de software livre que ajuda a empacotar e implantar contêineres de aplicativos em um cluster do Kubernetes, deixando você livre para concentrar-se no ciclo de desenvolvimento – o "loop interno" do desenvolvimento concentrado. O Rascunho funciona como o código está sendo desenvolvido, mas antes de comprometer-se com o controle de versão. Com o Rascunho, você pode reimplantar rapidamente um aplicativo no Kubernetes quando ocorrem alterações de código. Para obter mais informações sobre o Rascunho, consulte a [Documentação do Rascunho no Gitub][draft-documentation].
 
 Este artigo mostra como usar o Rascunho com um cluster do Kubernetes no AKS.
 
