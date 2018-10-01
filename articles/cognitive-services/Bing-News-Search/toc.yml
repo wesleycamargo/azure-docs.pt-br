@@ -1,91 +1,98 @@
+items:
 - name: Documentação da Pesquisa de Notícias do Bing
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que é a Pesquisa de Notícias do Bing?
-      href: search-the-web.md
+  - name: O que é a Pesquisa de Notícias do Bing?
+    href: search-the-web.md
 - name: Guias de início rápido da API REST
-  expanded: true
   items:
-    - name: Introdução
-      href: quickstart.md
-    - name: 'C#'
-      href: csharp.md
-    - name: Java
-      href: java.md
-    - name: Node.js
-      href: nodejs.md
-    - name: PHP
-      href: php.md
-    - name: Python
-      href: python.md
-    - name: Ruby
-      href: ruby.md
+  - name: Introdução
+    href: quickstart.md
+  - name: C#
+    href: csharp.md
+  - name: Java
+    href: java.md
+  - name: Node.js
+    href: nodejs.md
+  - name: PHP
+    href: php.md
+  - name: Python
+    href: python.md
+  - name: Ruby
+    href: ruby.md
+  expanded: true
 - name: Guias de início rápido do SDK
   items:
-    - name: Visão geral dos exemplos do SDK
-      href: sdk.md
-    - name: 'Guia de início rápido do C# do SDK da Pesquisa de Notícias'
-      href: news-search-sdk-quickstart.md
-    - name: Guia de início rápido do Node.js do SDK da Pesquisa de Notícias
-      href: news-search-sdk-node-quickstart.md
-    - name: Guia de início rápido do Python do SDK da Pesquisa de Notícias
-      href: news-sdk-python-quickstart.md
-    - name: Guia de início rápido do Java do SDK da Pesquisa de Notícias
-      href: news-sdk-java-quickstart.md
+  - name: Visão geral dos exemplos do SDK
+    href: sdk.md
+  - name: Guia de início rápido do C# do SDK da Pesquisa de Notícias
+    href: news-search-sdk-quickstart.md
+  - name: Guia de início rápido do Node.js do SDK da Pesquisa de Notícias
+    href: news-search-sdk-node-quickstart.md
+  - name: Guia de início rápido do Python do SDK da Pesquisa de Notícias
+    href: news-sdk-python-quickstart.md
+  - name: Guia de início rápido do Java do SDK da Pesquisa de Notícias
+    href: news-sdk-java-quickstart.md
 - name: Tutoriais
   items:
-    - name: Aplicativo Web de página única
-      href: tutorial-bing-news-search-single-page-app.md
-    - name: Aplicativo Web de página única (código-fonte)
-      href: tutorial-bing-news-search-single-page-app-source.md
+  - name: Aplicativo Web de página única
+    href: tutorial-bing-news-search-single-page-app.md
+  - name: Aplicativo Web de página única (código-fonte)
+    href: tutorial-bing-news-search-single-page-app-source.md
 - name: Exemplos
   items:
-    - name: Exemplos de código
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search'
+  - name: Exemplos de código
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search
 - name: Guias de instruções
   items:
-    - name: Requisitos de uso e exibição
-      href: UseAndDisplayRequirements.md
-    - name: Lidar com realce de ocorrências
-      href: hit-highlighting.md
-    - name: Notícias para página
-      href: paging-news.md
-    - name: Miniaturas de redimensionamento e corte
-      href: resize-and-crop-thumbnails.md
-    - name: Atualizar de v5 para v7
-      href: bing-news-upgrade-guide-v5-to-v7.md
-    - name: Trabalhar com o Visual Studio
-      items:
-        - name: Use o serviço conectado da Pesquisa de Notícias do Bing
-          href: vs-bing-news-search-connected-service.md
+  - name: Requisitos de uso e exibição
+    href: UseAndDisplayRequirements.md
+  - name: Lidar com realce de ocorrências
+    href: hit-highlighting.md
+  - name: Notícias para página
+    href: paging-news.md
+  - name: Miniaturas de redimensionamento e corte
+    href: resize-and-crop-thumbnails.md
+  - name: Atualizar de v5 para v7
+    href: bing-news-upgrade-guide-v5-to-v7.md
+  - name: Trabalhar com o Visual Studio
+    items:
+    - name: Use o serviço conectado da Pesquisa de Notícias do Bing
+      href: vs-bing-news-search-connected-service.md
 - name: Referência
   items:
-    - name: API de Pesquisa de Notícias do Bing v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference'
-    - name: API de Pesquisa de Notícias do Bing v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference'
+  - name: API de Pesquisa de Notícias do Bing v7
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
+  - name: API de Pesquisa de Notícias do Bing v5
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference
 - name: Recursos
   items:
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/911449-bing-news-search-api'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/search?q=bing+news+search'
-    - name: Disponibilidade regional
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Base de Dados de Conhecimento
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
-    - name: Obter chave de API
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api'
-    - name: Experimente!
-      href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553'
-    - name: Ponto de extremidade da Pesquisa de Notícias do Bing
-      href: endpoint-news.md
-    - name: Países e mercados com suporte
-      href: supported-countries-markets.md
-    - name: Análise da API de Pesquisa de Notícias do Bing
-      href: bing-news-stats.md
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/911449-bing-news-search-api
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=bing+news+search
+  - name: Disponibilidade regional
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Base de Dados de Conhecimento
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Obter chave de API
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api
+  - name: Experimente!
+    href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
+  - name: Ponto de extremidade da Pesquisa de Notícias do Bing
+    href: endpoint-news.md
+  - name: Suporte de idioma e região
+    href: language-support.md
+  - name: Análise da API de Pesquisa de Notícias do Bing
+    href: bing-news-stats.md
+ms.openlocfilehash: 18f4cb1a123c4dd535df9c82821271c6e3372796
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434646"
