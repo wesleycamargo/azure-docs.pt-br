@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/18/2018
+ms.date: 9/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d031059f9811cedb703fec4920e00fd1b2e3f877
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6b369c8209e62ff3c98b3fdf78378b403b0a0d2d
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045335"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017646"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure
 
@@ -62,19 +62,30 @@ Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os gr
   - Qualquer pessoa que tenha acesso a uma assinatura pode ver o contexto no qual essa assinatura está na hierarquia.  
   - Ninguém recebeu o acesso padrão ao grupo de gerenciamento raiz. Os Administradores Globais do Diretório são os únicos usuários que podem se elevar para obter acesso.  Depois de terem acesso, os administradores de diretório podem atribuir qualquer função RBAC a outros usuários para gerenciamento.  
 
-> [!NOTE]
-> Se o diretório começou a usar o serviço de grupos de gerenciamento antes de 25/6/2018, o diretório pode não estar configurado com todas as assinaturas na hierarquia. A equipe do grupo de gerenciamento está atualizando retroativamente cada diretório que começou a usar grupos de gerenciamento no Public Preview antes dessa data em julho/agosto de 2018. Todas as assinaturas dos diretórios se tornarão filho no grupo de gerenciamento raiz anterior.
->
-> Em caso de dúvidas sobre esse processo retroativo, contate managementgroups@microsoft.com  
-  
-## <a name="initial-setup-of-management-groups"></a>Configuração inicial dos grupos de gerenciamento
-
-Quando um usuário começa a usar grupos de gerenciamento, ocorre um processo de configuração inicial. A primeira etapa é a criação do grupo de gerenciamento raiz no diretório. Depois que esse grupo é criado, todas as assinaturas existentes no diretório se tornam filho do grupo de gerenciamento raiz. O motivo para esse processo é verificar se há apenas uma hierarquia de grupo de gerenciamento em um diretório. A única hierarquia dentro do diretório permite que os clientes administrativos apliquem políticas e o acesso global que outros clientes no diretório não podem ignorar. Tudo o que foi atribuído na raiz será aplicado a todos os grupos de gerenciamento, todas as assinaturas, todos os grupos de recursos e todos os recursos do diretório, tendo uma hierarquia dentro do diretório.
-
 > [!IMPORTANT]
 > Qualquer atribuição de acesso de usuário ou atribuição de política no grupo de gerenciamento raiz **se aplica a todos os recursos do diretório**.
 > Devido a isso, todos os clientes devem avaliar a necessidade de ter os itens definidos nesse escopo.
 > As atribuições de acesso do usuário e de política devem ser "Deve ter" somente nesse escopo.  
+
+## <a name="initial-setup-of-management-groups"></a>Configuração inicial dos grupos de gerenciamento
+
+Quando um usuário começa a usar grupos de gerenciamento, ocorre um processo de configuração inicial. A primeira etapa é a criação do grupo de gerenciamento raiz no diretório. Depois que esse grupo é criado, todas as assinaturas existentes no diretório se tornam filho do grupo de gerenciamento raiz. O motivo para esse processo é verificar se há apenas uma hierarquia de grupo de gerenciamento em um diretório. A única hierarquia dentro do diretório permite que os clientes administrativos apliquem políticas e o acesso global que outros clientes no diretório não podem ignorar. Tudo o que foi atribuído na raiz será aplicado a todos os grupos de gerenciamento, todas as assinaturas, todos os grupos de recursos e todos os recursos do diretório, tendo uma hierarquia dentro do diretório.
+
+## <a name="trouble-seeing-all-subscriptions"></a>Problemas para ver todas as assinaturas
+
+Alguns diretórios que, começaram a usar os grupos de gerenciamento no início na versão prévia (25 de junho de 2018), podiam ter um problema em que todas as assinaturas não são impostas na hierarquia.  Isso ocorre porque os processos para impor as assinaturas na hierarquia foram implementados depois que uma atribuição de função ou política foi feita no grupo de gerenciamento raiz no diretório.
+
+### <a name="how-to-resolve-the-issue"></a>Como resolver o problema
+
+Há duas opções de autoatendimento para resolver isso.
+
+1. Remover todas as atribuições de Função e Política do grupo de gerenciamento raiz
+    1. Ao remover as atribuições de função e política do grupo de gerenciamento raiz, o serviço preencherá todas as assinaturas na hierarquia no próximo ciclo de 24h.  O motivo para essa verificação é garantir que não seja concedido nenhum acesso acidental ou atribuição de política a todas as assinaturas de locatários.
+    1. A melhor maneira de fazer esse processo sem afetar seus serviços é aplicar as atribuições de função ou política um nível abaixo do grupo de gerenciamento raiz. Em seguida, você pode remover todas as atribuições do escopo raiz.
+1. Chamar a API diretamente para iniciar o processo de preenchimento
+    1. Qualquer cliente autorizado no diretório pode chamar as APIs *TenantBackfillStatusRequest* ou *StartTenantBackfillRequest*. Quando a API StartTenantBackfillRequest é chamada, ela inicia o processo de configuração inicial de mover todas as assinaturas para a hierarquia. Esse processo também inicia a imposição de que a nova assinatura seja filha do grupo de gerenciamento raiz. O processo pode ser feito sem alterar quaisquer atribuições no nível raiz, pois você informa não ter problemas que qualquer atribuição de política ou acesso na raiz possa ser aplicada a todas as assinaturas.
+
+Se você tiver dúvidas sobre esse processo de preenchimento, entre em contato com: managementgroups@microsoft.com  
   
 ## <a name="management-group-access"></a>Acesso do grupo de gerenciamento
 

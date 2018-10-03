@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 8de34e4ac01dea9cf4a0c718883e8cc828be6403
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 61c91f7e1f2ba266be6453bb6e6fb25f3834485e
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714608"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585889"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infraestrutura de chave pública do Azure Stack
 
@@ -39,7 +39,7 @@ A lista a seguir descreve os requisitos de certificado são necessários para im
 - Sua infraestrutura do Azure Stack deve ter acesso à rede local de lista de revogação de certificados (CRL) da autoridade de certificação publicado no certificado. Essa CRL deve ser um ponto de extremidade http
 - Quando a rotação de certificados, os certificados devem ser emitidos por qualquer um da mesma autoridade de certificado interno usada para assinar certificados fornecidos na implantação ou qualquer autoridade de certificação pública acima
 - Não há suporte para o uso de certificados autoassinados
-- Para a implantação e a rotação que você pode usam um único certificado, que abrange todos os espaços de nome nos campos de nome de assunto e o nome alternativo da entidade (SAN) do certificado ou você pode usar o indivíduo certificados para cada um dos namespaces abaixo que o Azure Stack você planeja utilizar os serviços exigem. Observação: as duas abordagens exigem o uso de curingas para pontos de extremidade em que eles são necessários, como **KeyVault** e **KeyVaultInternal**. 
+- Para a implantação e a rotação que você pode usam um único certificado, que abrange todos os espaços de nome nos campos de nome de assunto e o nome alternativo da entidade (SAN) do certificado ou você pode usar o indivíduo certificados para cada um dos namespaces abaixo que o Azure Stack você planeja utilizar os serviços exigem. As duas abordagens exigem o uso de curingas para pontos de extremidade em que eles são necessários, tais como **KeyVault** e **KeyVaultInternal**. 
 - O algoritmo de assinatura de certificado deve ser o 3DES. O algoritmo não pode ser SHA1, pois ele deve ser mais forte. 
 - O formato do certificado deve ser PFX, como as chaves públicas e privadas são necessárias para a instalação do Azure Stack. 
 - Os arquivos pfx de certificado devem ter um valor de "Assinatura Digital" e "KeyEncipherment" em seu campo "Key Usage".

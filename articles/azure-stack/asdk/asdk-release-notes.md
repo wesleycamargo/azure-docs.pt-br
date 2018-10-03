@@ -11,88 +11,61 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
-git ms.author: sethm
+ms.date: 10/01/2018
+ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 1adfef9c679ccbe7a56178a041175713f4932aac
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: d322fe378e7f662c233e9572dfc79dcd961137bd
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056532"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237799"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Kit de desenvolvimento de pilha do Azure  
 Este artigo fornece informações sobre problemas conhecidos no Kit de desenvolvimento do Azure Stack, correções e aprimoramentos. Se você não tiver certeza de qual versão você está executando, você poderá [usar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Mantenha-se atualizado com o que há de novo no ASDK assinando o [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## <a name="build-11808097"></a>Compilação 1.1808.0.97
+## <a name="build-11809xxx"></a>Criar 1.1809.x.xx
 
 ### <a name="new-features"></a>Novos recursos
 Esta compilação inclui os seguintes aprimoramentos e correções para o Azure Stack.  
 
-- <!-- 2682594   | ASDK  -->   **Todos os ambientes do Azure Stack agora usam o formato de fuso horário do tempo Universal Coordenado (UTC).**  Todos os dados de log e informações relacionadas agora exibe em formato UTC. 
+- <!--  2712869   | IS  ASDK -->  **Cliente de syslog do Azure Stack (disponibilidade geral)** esse cliente permite o encaminhamento de auditorias, alertas e logs de segurança relacionados à infraestrutura do Azure Stack para um syslog server ou segurança informações e eventos (SIEM) software de gerenciamento externo para o Azure Stack. O cliente de syslog agora dá suporte a especificação da porta na qual o servidor syslog está escutando.
 
-- <!-- 2437250  | IS  ASDK --> **Há suporte para discos gerenciados.** Agora você pode usar o Managed Disks em máquinas virtuais do Azure Stack e conjuntos de dimensionamento de máquina virtual. Para obter mais informações, consulte [Managed Disks do Azure Stack: diferenças e considerações](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
- 
-- <!-- 2563799  | IS  ASDK -->  **O Azure Monitor**. Como o Azure Monitor no Azure, o Azure Monitor no Azure Stack fornece logs e métricas de infraestrutura de nível básico para a maioria dos serviços. Para obter mais informações, consulte [do Azure Monitor no Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
+Com esta versão, o cliente do syslog está geralmente disponível, e ele pode ser usado em ambientes de produção.
 
-- <!-- ASDK --> **Itens da Galeria para conjuntos de dimensionamento de máquinas virtuais agora são internos**.  Conjunto de dimensionamento de máquina virtual de itens de galeria agora ficam disponíveis nos portais do usuário e administrador sem precisar baixá-los. 
-
-- <!-- IS, ASDK --> **Conjunto de dimensionamento de máquina virtual dimensionamento**.  Você pode usar o portal para [escalar um conjunto de dimensionamento de máquinas virtuais](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
-
-- <!-- 2489570 | IS ASDK--> **Suporte para configurações de política de IPSec/IKE personalizadas** para [gateways de VPN no Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
-
-- <!-- | IS ASDK--> **Item do marketplace Kubernetes**. Agora você pode implantar um cluster Kubernetes usando o [item do Marketplace do Kubernetes](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add). Os usuários podem selecionar o item de Kubernetes e preencha alguns parâmetros ao implantar um cluster Kubernetes no Azure Stack. A finalidade dos modelos é tornar isso simples para os usuários para implantações de Kubernetes de desenvolvimento/teste de instalação em poucas etapas.
-
-- <!-- | IS ASDK--> **Modelos de Blockchain**. Agora você pode executar [implantações de consortium Ethereum](/azure/azure-stack/azure-stack-ethereum) no Azure Stack. Você pode encontrar três novos modelos na [do Azure Stack modelos de início rápido](https://github.com/Azure/AzureStack-QuickStart-Templates). Eles permitem que o usuário implantar e configurar uma rede de Ethereum consortium vários membros com o mínimo de conhecimento do Azure e Ethereum. A finalidade dos modelos é tornar isso simples para os usuários para implantações de Blockchain de desenvolvimento/teste de instalação em poucas etapas.
-
-- <!-- | IS ASDK--> **O API versão 2017-03-09-perfil foi atualizado para 2018-03-01-hybrid**. Perfis de API especificar o provedor de recursos do Azure e a versão da API para pontos de extremidade REST do Azure. Para obter mais informações sobre perfis, consulte [perfis de versão da API de gerenciar no Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
-
+Para obter mais informações, consulte [encaminhamento de syslog do Azure Stack](../azure-stack-integrate-security.md).
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
-- <!-- IS ASDK--> Corrigimos o problema para a criação de uma conjunto de disponibilidade no portal do que resultou em conjunto com um domínio de falha e um domínio de atualização de 1.
 
-- <!-- IS ASDK --> Configurações para escalar conjuntos de dimensionamento de máquinas virtuais agora estão disponíveis no portal.  
+- <!-- 2702741 -  IS ASDK --> Corrigido um problema no qual IPs públicos que foram implantados usando a alocação dinâmica o método não eram garantia de ser preservada após a emissão de uma interrupção da desalocação. Agora são preservados.
 
-- <!-- 2494144- IS, ASDK --> O problema que impedia a que aparece ao selecionar um tamanho de VM para a implantação de alguns tamanhos de máquinas virtuais F-series agora está resolvido. 
-
-- <!-- IS, ASDK --> Melhorias de desempenho durante a criação de máquinas virtuais e muito mais otimizada o uso de armazenamento subjacente.
+- <!-- 3078022 - IS ASDK --> Se uma máquina virtual foi interrompida e desalocada antes 1808 pode não ser realocada após a atualização 1808.  Esse problema foi corrigido no 1809. Instâncias que foram nesse estado e não pôde ser iniciadas podem ser iniciadas no 1809 com essa correção. A correção também impede que esse problema ocorra.
 
 - **Várias correções de** para desempenho, estabilidade, segurança e o sistema operacional que é usado pelo Azure Stack
 
 
 ### <a name="changes"></a>Alterações
+
 - <!-- 1697698  | IS, ASDK --> *Tutoriais de início rápido* no link agora de painel do portal de usuário para os artigos relevantes na documentação do Azure Stack on-line.
 
 - <!-- 2515955   | IS ,ASDK--> *Todos os serviços* substitui *mais serviços* nos portais de administrador e usuário do Azure Stack. Agora você pode usar *todos os serviços* como uma alternativa para navegar nos portais do Azure Stack da mesma maneira que faria em portais do Azure.
 
-- <!-- TBD | IS, ASDK --> *+ Criar um recurso* substitui *+ novo* nos portais de administrador e usuário do Azure Stack.  Agora você pode usar *+ criar um recurso* como uma alternativa para navegar nos portais do Azure Stack da mesma maneira que faria em portais do Azure. 
-
-- <!--  TBD – IS, ASDK --> *Um básico* tamanhos de máquina virtual estão desativados para [criando conjuntos de dimensionamento de máquina virtual](.\.\azure-stack-compute-add-scalesets.md) (VMSS) por meio do portal. Para criar um VMSS com esse tamanho, use o PowerShell ou um modelo. 
+- <!--  TBD – IS, ASDK --> *Um básico* tamanhos de máquina virtual estão desativados para [criando conjuntos de dimensionamento de máquina virtual](../azure-stack-compute-add-scalesets.md) (VMSS) por meio do portal. Para criar um VMSS com esse tamanho, use o PowerShell ou um modelo. 
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
 #### <a name="portal"></a>Portal  
-- <!-- 2967387 – IS, ASDK --> A conta usada para entrar no portal de administrador ou usuário do Azure Stack é exibido como **usuário não identificado**. Isso ocorre quando a conta não tenha um uma *primeira* ou *última* nome especificado. Para contornar esse problema, edite a conta de usuário para fornecer o primeiro ou último nome. Você deve, em seguida, saia e entre novamente no portal. 
 
--  <!--  2873083 - IS ASDK --> Ao usar o portal para criar uma escala de máquina virtual definido (VMSS), o *tamanho da instância* suspenso não carrega corretamente quando você usa o Internet Explorer. Para contornar esse problema, use outro navegador ao usar o portal para criar um VMSS.  
+- <!-- 1697698  | IS, ASDK --> *Tutoriais de início rápido* no link agora de painel do portal de usuário para os artigos relevantes na documentação do Azure Stack on-line.
 
-- <!-- TBD  ASDK --> O fuso horário de padrão para todas as implantações do Azure Stack agora são definidos para o tempo Universal Coordenado (UTC). Você pode selecionar um fuso horário ao instalar o Azure Stack, no entanto, ele será revertido automaticamente para UTC como padrão durante a instalação.
+- <!-- 2515955   | IS ,ASDK--> *Todos os serviços* substitui *mais serviços* nos portais de administrador e usuário do Azure Stack. Agora você pode usar *todos os serviços* como uma alternativa para navegar nos portais do Azure Stack da mesma maneira que faria em portais do Azure.
 
-- <!-- 2931230 – IS  ASDK --> Os planos são adicionados a uma assinatura de usuário como um plano de complemento não podem ser excluídos, mesmo quando você remove o plano da assinatura do usuário. O plano permanecerá até que as assinaturas que o plano de complemento de referência também são excluídas. 
-
-- <!--2760466 – IS  ASDK --> Quando você instala um novo ambiente do Azure Stack que executa esta versão, o alerta indicar *ativação necessária* podem não ser exibidos. [Ativação](.\.\azure-stack-registration.md) é necessária antes que você pode usar a distribuição do marketplace. 
-
-- <!-- TBD - IS ASDK --> Os dois tipos de assinatura administrativos foram [introduzido na versão 1804](.\.\azure-stack-update-1804.md#new-features) não deve ser usado. Os tipos de assinatura são **assinatura de medição**, e **assinatura de consumo**. Esses tipos de assinatura são **assinatura de medição**, e **assinatura de consumo**. Esses tipos de assinatura são visíveis em novos ambientes Azure Stack, começando com a versão 1804, mas ainda não estão prontos para uso. Você deve continuar a usar o **assinatura do provedor padrão** tipo.
-
-- <!-- TBD -  IS ASDK --> Excluindo resultados de assinaturas do usuário em recursos órfãos. Como alternativa, primeiro exclua os recursos de usuário ou grupo de recursos inteiro e, em seguida, exclua as assinaturas do usuário.
-
-- <!-- TBD -  IS ASDK --> Você não pode exibir as permissões para sua assinatura usando os portais do Azure Stack. Como alternativa, use o PowerShell para verificar permissões.
-
-
+- <!--  TBD – IS, ASDK --> *Um básico* tamanhos de máquina virtual estão desativados para [criando conjuntos de dimensionamento de máquina virtual](../azure-stack-compute-add-scalesets.md) (VMSS) por meio do portal. Para criar um VMSS com esse tamanho, use o PowerShell ou um modelo.
 
 #### <a name="health-and-monitoring"></a>Monitoramento e integridade
+
 - <!-- 1264761 - IS ASDK -->  Você pode ver os alertas para o *controlador de integridade* componente que tem os seguintes detalhes:  
 
    #1 do alerta:
@@ -113,6 +86,16 @@ Esta compilação inclui os seguintes aprimoramentos e correções para o Azure 
 
 
 #### <a name="compute"></a>Computação  
+
+- <!-- 3090289 – IS, ASDK --> Depois de aplicar o 1808 de atualização, você pode encontrar os seguintes problemas ao implantar VMs com discos gerenciados:
+
+   1. Se a assinatura foi criada antes da atualização 1808, implantação de VM com discos gerenciados podem falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas para cada assinatura:
+      1. No portal do locatário, vá para **assinaturas** e localize a assinatura. Clique em **provedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **registrar novamente**.
+      2. Sob a mesma assinatura, vá para **controle de acesso (IAM)**, verifique se **do Azure Stack – Managed Disk** está listado.
+   2. Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas:
+      1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4465859).
+      2. Siga as etapas em [deste artigo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
+
 - <!-- 2869209 – IS, ASDK --> Ao usar o [ **Add AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), você deve usar o **- OsUri** parâmetro como a conta de armazenamento em que o disco é carregado do URI. Se você usar o caminho local do disco, o cmdlet falhará com o seguinte erro: *operação de execução longa falhou com status 'Failed'*. 
 
 - <!--  2966665 – IS, ASDK --> Anexar discos de dados do SSD para tamanho premium managed disk máquinas virtuais (DS, DSv2, Fs e Fs_V2) falhará com um erro: *Falha ao atualizar discos para a máquina virtual 'vmname' erro: operação solicitada não pode ser executada porque o tipo de conta de armazenamento ' Premium_LRS' não há suporte para o tamanho da VM ' Standard_DS/Ds_V2/FS/Fs_v2)*

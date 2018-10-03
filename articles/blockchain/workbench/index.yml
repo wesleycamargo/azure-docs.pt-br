@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: a42db3dd4af0e02e001b3a4fbcc5f3b126606a6f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239750"
 documentType: LandingData
 title: Documentação do Azure Blockchain Workbench
 metadata:
@@ -13,12 +19,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/17/2018
   ms.author: patricka
-  ms.openlocfilehash: f4092abc4b7ea4724bc060a62fb54c69f4e36837
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-  ms.translationtype: HT
-  ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/07/2018
-  ms.locfileid: "33765893"
 abstract:
   description: Saiba como criar aplicativos de blockchain. Tutoriais, referências de API e outras documentações mostram como implantar o Azure Blockchain Workbench para criar e usar aplicativos de blockchain no Azure.
 sections:

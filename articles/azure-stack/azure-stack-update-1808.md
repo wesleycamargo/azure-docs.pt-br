@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7278f784316fdbd7170bb69b9414911b8f5b3823
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 94e18b6a4fc367a9697078f8e0c1a307ae15d4be
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452676"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017934"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
@@ -137,7 +137,7 @@ Essa atualização também contém atenuação para a vulnerabilidade de canal d
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
 Após a instalação dessa atualização, instale os Hotfixes aplicáveis. Para obter mais informações, consulte os seguintes artigos de base de Conhecimento, bem como nossos [política de manutenção](azure-stack-servicing-policy.md). 
-- [KB 4464226 – o Azure Stack Hotfix Azure Stack Hotfix 1.1808.1.99]( https://support.microsoft.com/help/4464226)
+- [KB 4465859 – o Azure Stack Hotfix Azure Stack Hotfix 1.1808.2.104](https://support.microsoft.com/help/4465859/)
 
 
 ## <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
@@ -230,8 +230,6 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 - <!-- 2724873 - IS --> Ao usar os cmdlets do PowerShell **Start-AzsScaleUnitNode** ou **AzsScaleunitNode Stop** para gerenciar unidades de escala, a primeira tentativa de iniciar ou parar a unidade de escala poderá falhar. Se o cmdlet falhar na primeira execução, execute o cmdlet uma segunda vez. A segunda execução deve ser bem-sucedida para concluir a operação. 
 
 - <!-- TBD - IS ASDK --> Quando você cria máquinas virtuais no portal do usuário do Azure Stack, o portal exibe um número incorreto de discos de dados que podem anexar a uma VM da série DS. As VMs da série DS podem acomodar a tantos discos de dados como a configuração do Azure.
-
-- <!-- TBD - IS ASDK --> Se você estiver usando um ambiente multilocatário, provisionar uma VM com disco gerenciado em uma assinatura não pertencente ao locatário padrão falhará com o seguinte erro: *a operação de recurso que foi concluída com o estado de provisionamento de terminal 'Failed'.*
 
 - <!-- TBD - IS ASDK --> Se uma extensão em uma implantação de VM o provisionamento leva muito tempo, os usuários devem permitir que o tempo limite de provisionamento em vez de tentar interromper o processo para desaloque ou exclua a VM.  
 

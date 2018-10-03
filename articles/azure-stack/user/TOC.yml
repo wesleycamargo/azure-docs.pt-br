@@ -22,28 +22,32 @@ items:
   expanded: true
 - name: Tutoriais
   items:
-  - name: Criar bancos de dados SQL altamente disponíveis
-    href: azure-stack-tutorial-sql.md
-  - name: Criar bancos de dados MySQL altamente disponíveis
-    href: azure-stack-tutorial-mysql.md
-  - name: Implantar aplicativos no Azure Stack e no Azure
-    href: azure-stack-solution-pipeline.md
-  - name: Configurar identidade de nuvem híbrida
-    href: azure-stack-solution-hybrid-identity.md
-  - name: Configurar a conectividade de nuvem híbrida
-    href: azure-stack-solution-hybrid-connectivity.md
-  - name: Assinar uma oferta
-    href: azure-stack-subscribe-services.md
-  - name: Criar uma máquina virtual de um modelo
-    href: azure-stack-create-vm-template.md
-  - name: Criar uma solução de aprendizado de máquina de borda
-    href: azure-stack-solution-machine-learning.md
-  - name: Criar uma solução de análise de dados preparados
-    href: azure-stack-solution-staged-data-analytics.md
-  - name: Criar soluções de colocação em escala de nuvem com o Azure
-    href: azure-stack-solution-cloud-burst.md
-  - name: Criar uma solução de aplicativo distribuído geograficamente
-    href: azure-stack-solution-geo-distributed.md
+  - name: Tarefas comuns
+    items:
+    - name: Assinar uma oferta
+      href: azure-stack-subscribe-services.md
+    - name: Criar uma máquina virtual de um modelo
+      href: azure-stack-create-vm-template.md
+    - name: Criar bancos de dados SQL altamente disponíveis
+      href: azure-stack-tutorial-sql.md
+    - name: Criar bancos de dados MySQL altamente disponíveis
+      href: azure-stack-tutorial-mysql.md
+  - name: Padrões de nuvem híbrida
+    items:
+    - name: Implantar aplicativos no Azure Stack e no Azure
+      href: azure-stack-solution-pipeline.md
+    - name: Configurar identidade de nuvem híbrida
+      href: azure-stack-solution-hybrid-identity.md
+    - name: Configurar a conectividade de nuvem híbrida
+      href: azure-stack-solution-hybrid-connectivity.md
+    - name: Criar uma solução de aprendizado de máquina de borda
+      href: azure-stack-solution-machine-learning.md
+    - name: Criar uma solução de análise de dados preparados
+      href: azure-stack-solution-staged-data-analytics.md
+    - name: Criar soluções de colocação em escala de nuvem com o Azure
+      href: azure-stack-solution-cloud-burst.md
+    - name: Criar uma solução de aplicativo distribuído geograficamente
+      href: azure-stack-solution-geo-distributed.md
 - name: Guias de instruções
   items:
   - name: Usar o Portal do Azure Stack
@@ -208,9 +212,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Treinamento e certificação
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: a67adb5f0b641f5f4eadfeb08c9802214d9f217b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 52dbfaf7b7ea7b6f264dcb9ac3d75aec782c8bff
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405403"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239397"

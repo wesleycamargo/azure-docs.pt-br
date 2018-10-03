@@ -11,25 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/02/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b704db0b79d056f5c7081d3fed117e1d1f22b336
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978821"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237885"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de análise de dados preparados com o Azure e o Azure Stack 
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Saiba como usar fontes locais e ambientes de nuvem pública para atender às demandas das instalações de várias empresas. O Azure Stack oferece uma solução rápida, segura e flexível para coletar, processar, armazenar e distribuir dados locais e remotos, especialmente quando a segurança, confidencialidade, políticas corporativas e requisitos normativos podem diferir entre os locais e usuários.
+Saiba como usar fontes locais e ambientes de nuvem pública para atender às demandas das instalações de várias empresas. O Azure Stack oferece uma solução rápida, segura e flexível para coletar, processar, armazenar e distribuir dados locais e remotos, especialmente quando a segurança, confidencialidade, políticas corporativas e requisitos normativos podem diferir entre os locais de e usuários.
 
 Nesse padrão, os clientes estão coletando dados que requer análise no ponto de coleta para que decisões rápidas podem ser feitas. Geralmente, essa coleta de dados ocorre sem acesso à Internet. Quando a conectividade for estabelecida, você precisa fazer uma análise de uso intensivo de recursos dos dados para obter informações adicionais. Você ainda pode analisar os dados quando uma nuvem pública está muito atrasado ou indisponível.
 
-Neste tutorial, você criará um ambiente de exemplo para:
+Neste tutorial, crie um ambiente de exemplo para:
 
 > [!div class="checklist"]
 > - Crie o blob de armazenamento de dados brutos.
@@ -55,7 +55,7 @@ Algumas preparações é necessário para criar essa solução:
 
 -   Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
 
--   Os dados processados por essas funções não são fornecidos. Dados devem ser gerados e disponível para carregar no contêiner de blob de armazenamento do Azure Stack.
+-   Você precisará fornecer seus próprios dados a ser processado pelas funções. Dados devem ser gerados e disponível para carregar no contêiner de blob de armazenamento do Azure Stack.
 
 ## <a name="issues-and-considerations"></a>Problemas e considerações
 
@@ -123,17 +123,11 @@ O contêiner de blob e a conta de armazenamento manterá todos os dados originai
 
 Crie uma nova função do Azure Stack para mover limpar dados do Azure Stack para Azure.
 
-1.  Crie uma nova função clicando em **funções**, em seguida, a **+ nova função** botão.
+### <a name="create-the-azure-stack-function-app"></a>Criar o aplicativo de funções do Azure Stack
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image3.png)
-
-2.  Selecione **gatilho de temporizador**.
-
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image4.png)
-
-3.  Selecione **C\#**  como o idioma e o nome da função: `upload-to-azure` definir o agendamento `0 0 * * * *`, que em CRON notação é de uma vez de uma hora.
-
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image5.png)
+1. Entrar a [portal do Azure Stack](https://portal.local.azurestack.external).
+2. Selecione **Todos os serviços**.
+3. Selecione **aplicativos de funções** na **Web + móvel** grupo.
 
 4.  Crie o aplicativo de funções usando as configurações especificadas na tabela abaixo da imagem.
 
@@ -148,7 +142,7 @@ Crie uma nova função do Azure Stack para mover limpar dados do Azure Stack par
     | Plano de consumo | Plano de hospedagem que define como os recursos são alocados para seu aplicativo de funções. O padrão de plano de consumo, os recursos são adicionados dinamicamente conforme exigido por suas funções. Essa hospedagem sem servidor, você só paga por na execução de suas funções. |  |
     | Local padrão | Região mais próximo de você | Escolha uma região perto de você ou perto de outros serviços do access de funções. |
     | **Conta de armazenamento** |  |  |
-    | \<conta de armazenamento criada acima > | Nome da nova conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Você também pode usar uma conta existente. |  |
+    | \<conta de armazenamento criada acima > | Nome da nova conta de armazenamento usada pelo seu aplicativo de funções. Nomes de conta de armazenamento devem estar entre 3 e 24 caracteres de comprimento. O nome só pode usar números e letras minúsculas. Você também pode usar uma conta existente. |  |
 
     **Exemplo:**
 
@@ -164,13 +158,25 @@ Crie uma nova função do Azure Stack para mover limpar dados do Azure Stack par
 
 ![Aplicativo de funções criado com êxito.](media\azure-stack-solution-staged-data-analytics\image8.png)
 
+### <a name="add-a-function-to-the-azure-stack-function-app"></a>Adicionar uma função ao aplicativo de funções do Azure Stack
+
+1.  Crie uma nova função clicando em **funções**, em seguida, a **+ nova função** botão.
+
+    ![Alt text](media\azure-stack-solution-staged-data-analytics\image3.png)
+
+2.  Selecione **gatilho de temporizador**.
+
+    ![Alt text](media\azure-stack-solution-staged-data-analytics\image4.png)
+
+3.  Selecione **C\#**  como o idioma e o nome da função: `upload-to-azure` definir o agendamento `0 0 * * * *`, que em CRON notação é de uma vez de uma hora.
+
+    ![Alt text](media\azure-stack-solution-staged-data-analytics\image5.png)
+
 ## <a name="create-a-blob-storage-triggered-function"></a>Criar uma função disparada pelo Armazenamento de Blobs
 
-1.  Expanda o aplicativo de funções e selecione o **+** lado **funções**. Se esta for a primeira função no aplicativo de funções, selecione **função personalizada**. Exibe o conjunto completo de modelos de função.
+1.  Expanda o aplicativo de funções e selecione o **+** lado **funções**.
 
-  ![Página de início rápido de funções no portal do Azure](media\azure-stack-solution-staged-data-analytics\image9.png)
-
-2.  No campo de pesquisa, digite o blob e, em seguida, escolha a linguagem desejada para o modelo de gatilho do armazenamento de Blob.
+2.  No campo de pesquisa, digite `blob` e, em seguida, escolha a linguagem desejada para o **gatilho de Blob** modelo.
 
   ![Escolha o modelo de gatilho de armazenamento de Blob.](media\azure-stack-solution-staged-data-analytics\image10.png)
 

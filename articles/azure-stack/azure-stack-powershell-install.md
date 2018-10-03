@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 3603ec1aa8fa6f76cb6b7a75fa7df334b4102aec
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f6644d8a2e01242937943f8139059abbd65d1913
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367739"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017392"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instale o PowerShell para o Azure Stack
 
@@ -27,7 +27,7 @@ ms.locfileid: "46367739"
 
 Para trabalhar com sua nuvem, você deve instalar os módulos do Azure Stack compatíveis do PowerShell. Compatibilidade é habilitada por meio de um recurso chamado *perfis de API*.
 
-Perfis de API fornecem uma maneira de gerenciar as diferenças de versão entre o Azure e o Azure Stack. Um perfil de versão de API é um conjunto de módulos do PowerShell do Azure Resource Manager com as versões de API específicas. Cada plataforma de nuvem tem um conjunto de perfis de versão de API com suporte. Por exemplo, Azure Stack dá suporte a uma versão de perfil com data específica, como **2018-03-01-hybrid**, e o Azure dá suporte a **mais recente** perfil da versão de API. Quando você instala um perfil, são instalados os módulos do PowerShell do Azure Resource Manager que correspondem ao perfil especificado.  
+Perfis de API fornecem uma maneira de gerenciar as diferenças de versão entre o Azure e o Azure Stack. Um perfil de versão de API é um conjunto de módulos do PowerShell do Azure Resource Manager com as versões de API específicas. Cada plataforma de nuvem tem um conjunto de perfis de versão de API com suporte. Por exemplo, Azure Stack dá suporte a uma versão de perfil com data específica, como **2018-03-01-hybrid**, e o Azure dá suporte a **mais recente** perfil da versão de API. Quando você instala um perfil, são instalados os módulos do PowerShell do Azure Resource Manager que correspondem ao perfil especificado.
 
 Você pode instalar o Azure Stack compatível com módulos do PowerShell na Internet conectado, parcialmente conectada ou desconectada cenários. Este artigo explica as instruções detalhadas para instalar o PowerShell para o Azure Stack para esses cenários.
 
@@ -35,29 +35,26 @@ Você pode instalar o Azure Stack compatível com módulos do PowerShell na Inte
 
 Antes de começar com o Azure Stack e o PowerShell, você deve ter os seguintes pré-requisitos:
 
-- **PowerShell versão 5.0**  
-Para verificar sua versão, execute **$PSVersionTable.PSVersion** e comparar as **principais** versão. Se você não tiver o PowerShell 5.0, execute as [instalando o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+- **PowerShell versão 5.0** para verificar sua versão, execute **$PSVersionTable.PSVersion** e comparar as **principais** versão. Se você não tiver o PowerShell 5.0, execute as [instalando o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
 
-  > [!Note]  
+  > [!Note]
   > PowerShell 5.0 requer uma máquina Windows.
 
-- **Executar o Powershell no prompt de comando elevado**  
-  Você deve executar o PowerShell com privilégios administrativos.
+- **Executar o Powershell no prompt de comando elevado** deve executar o PowerShell com privilégios administrativos.
 
-- **Acesso de galeria do PowerShell**  
-  Você precisa de acesso para o [da Galeria do PowerShell](https://www.powershellgallery.com). A Galeria é o repositório central do conteúdo do PowerShell. O **PowerShellGet** módulo contém cmdlets para descoberta, instalação, atualização e publicação artefatos do PowerShell como módulos, recursos DSC, capacidades de função e de scripts na Galeria do PowerShell e outro particular repositórios. Se você estiver usando o PowerShell em um cenário desconectado, você deve recuperar os recursos de um computador com uma conexão à Internet e armazená-los em um local acessível em seu computador desconectado.
+- **Acesso de galeria do PowerShell** você precisa de acesso para o [da Galeria do PowerShell](https://www.powershellgallery.com). A Galeria é o repositório central do conteúdo do PowerShell. O **PowerShellGet** módulo contém cmdlets para descoberta, instalação, atualização e publicação artefatos do PowerShell como módulos, recursos DSC, capacidades de função e de scripts na Galeria do PowerShell e outro particular repositórios. Se você estiver usando o PowerShell em um cenário desconectado, você deve recuperar os recursos de um computador com uma conexão à Internet e armazená-los em um local acessível em seu computador desconectado.
 
 
 ## <a name="2-validate-the-powershell-gallery-accessibility"></a>2. Validar a acessibilidade de galeria do PowerShell
 
 Valide se PSGallery for registrado como um repositório.
 
-> [!Note]  
-> Esta etapa requer acesso à Internet. 
+> [!Note]
+> Esta etapa requer acesso à Internet.
 
 Abra um prompt do PowerShell com privilégios elevados e execute os seguintes cmdlets:
 
-````PowerShell  
+````PowerShell
 Import-Module -Name PowerShellGet -ErrorAction Stop
 Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
@@ -76,11 +73,11 @@ Antes de instalar a versão necessária, certifique-se de que você desinstale t
 
 1. Para desinstalar os módulos do AzureRM PowerShell existentes, feche todas as sessões ativas do PowerShell e execute os seguintes cmdlets:
 
-  ````PowerShell  
-    Uninstall-Module AzureRM.AzureStackAdmin -Force
-    Uninstall-Module AzureRM.AzureStackStorage -Force
+  ````PowerShell
+    Uninstall-Module -Name AzureRM.AzureStackAdmin -Force
+    Uninstall-Module -Name AzureRM.AzureStackStorage -Force
     Uninstall-Module -Name AzureStack -Force
-    Get-Module Azs.* -ListAvailable | Uninstall-Module -Force
+    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force
   ````
 
 2. Excluir todas as pastas que começam com `Azure` do `C:\Program Files\WindowsPowerShell\Modules` e `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` pastas. A exclusão dessas pastas remove todos os módulos do PowerShell existentes.
@@ -93,8 +90,8 @@ Execute o seguinte script do PowerShell para instalar esses módulos em sua esta
 
   - O Azure Stack 1808 ou posterior.
 
-    ```PowerShell  
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
+    ```PowerShell
+    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRm.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -103,12 +100,12 @@ Execute o seguinte script do PowerShell para instalar esses módulos em sua esta
     Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
 
-> [!Note]  
+> [!Note]
 > Para atualizar o Azure PowerShell do **2017-03-09-perfil** ao **2018-03-01-hybrid**, consulte a [guia de migração](https://github.com/bganapa/azure-powershell/blob/migration-guide/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
 
   - O Azure Stack 1807 ou anterior.
 
-    ```PowerShell  
+    ```PowerShell
     Install-Module -Name AzureRm.BootStrapper
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
     Install-Module -Name AzureStack -RequiredVersion 1.4.0
@@ -116,7 +113,7 @@ Execute o seguinte script do PowerShell para instalar esses módulos em sua esta
 
   - O Azure Stack 1804 ou anterior.
 
-    ```PowerShell  
+    ```PowerShell
     Install-Module -Name AzureRm.BootStrapper
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
     Install-Module -Name AzureStack -RequiredVersion 1.2.11
@@ -124,9 +121,9 @@ Execute o seguinte script do PowerShell para instalar esses módulos em sua esta
 
 Confirme a instalação executando o seguinte comando:
 
-```PowerShell  
-Get-Module "Azure*" -ListAvailable
-Get-Module "Azs*" -ListAvailable
+```PowerShell
+Get-Module -Name "Azure*" -ListAvailable
+Get-Module -Name "Azs*" -ListAvailable
 ```
 
 Se a instalação for bem-sucedida, os módulos AzureRM e AzureStack são exibidos na saída.
@@ -139,7 +136,7 @@ Entre em um computador com acesso à Internet e usar os scripts a seguir para ba
 
   - O Azure Stack 1808 ou posterior.
 
-    ````PowerShell  
+    ````PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -150,10 +147,10 @@ Entre em um computador com acesso à Internet e usar os scripts a seguir para ba
 
   - O Azure Stack 1807 ou anterior.
 
-    > [!Note]  
+    > [!Note]
     Para atualizar a partir de 1.2.11 versão, consulte a [guia de migração](https://aka.ms/azspowershellmigration).
 
-    ````PowerShell  
+    ````PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -164,7 +161,7 @@ Entre em um computador com acesso à Internet e usar os scripts a seguir para ba
 
   - O Azure Stack 1804 ou anterior.
 
-    ````PowerShell  
+    ````PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -190,9 +187,9 @@ Entre em um computador com acesso à Internet e usar os scripts a seguir para ba
 
    Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation  -InstallationPolicy Trusted
 
-   Install-Module AzureRM -Repository $RepoName
+   Install-Module -Name AzureRM -Repository $RepoName
 
-   Install-Module AzureStack -Repository $RepoName 
+   Install-Module -Name AzureStack -Repository $RepoName
    ```
 
 ## <a name="6-configure-powershell-to-use-a-proxy-server"></a>6. Configurar o PowerShell para usar um servidor proxy
@@ -202,7 +199,7 @@ Em cenários que exigem um servidor proxy para acessar a Internet, você primeir
 1. Abra um prompt elevado do PowerShell.
 2. Execute os seguintes comandos:
 
-   ```PowerShell  
+   ```PowerShell
    #To use Windows credentials for proxy authentication
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
 
@@ -213,6 +210,6 @@ Em cenários que exigem um servidor proxy para acessar a Internet, você primeir
 ## <a name="next-steps"></a>Próximas etapas
 
  - [Baixar ferramentas do Azure Stack no GitHub](azure-stack-powershell-download.md)
- - [Configurar o ambiente do PowerShell do usuário do Azure Stack](user/azure-stack-powershell-configure-user.md)  
- - [Configurar o ambiente do PowerShell do operador do Azure Stack](azure-stack-powershell-configure-admin.md) 
- - [Gerenciar perfis de versão de API no Azure Stack](user/azure-stack-version-profiles.md)  
+ - [Configurar o ambiente do PowerShell do usuário do Azure Stack](user/azure-stack-powershell-configure-user.md)
+ - [Configurar o ambiente do PowerShell do operador do Azure Stack](azure-stack-powershell-configure-admin.md)
+ - [Gerenciar perfis de versão de API no Azure Stack](user/azure-stack-version-profiles.md)

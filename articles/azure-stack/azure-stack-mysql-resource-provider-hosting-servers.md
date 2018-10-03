@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b11ce8bbbf4b270f7a3b9689f95b0cbfca3b14c9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 72824e5afb9f8d77c2f7d3bd01e6ff2035e95a95
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408871"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237257"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do MySQL
 
