@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: d322fe378e7f662c233e9572dfc79dcd961137bd
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 72c28f8d4f8d867d16c374e3dd659d845010813e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237799"
+ms.locfileid: "48249087"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Kit de desenvolvimento de pilha do Azure  
 Este artigo fornece informações sobre problemas conhecidos no Kit de desenvolvimento do Azure Stack, correções e aprimoramentos. Se você não tiver certeza de qual versão você está executando, você poderá [usar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Mantenha-se atualizado com o que há de novo no ASDK assinando o [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## <a name="build-11809xxx"></a>Criar 1.1809.x.xx
+## <a name="build-11808097"></a>Compilação 1.1808.0.97
 
 ### <a name="new-features"></a>Novos recursos
 Esta compilação inclui os seguintes aprimoramentos e correções para o Azure Stack.  
@@ -86,6 +86,8 @@ Para obter mais informações, consulte [encaminhamento de syslog do Azure Stack
 
 
 #### <a name="compute"></a>Computação  
+
+- <!-- 3099544 – IS, ASDK --> Quando você cria uma nova máquina virtual (VM) usando o portal do Azure Stack, e você selecionar o tamanho da VM, a coluna USD por mês é exibida com um **indisponível** mensagem. Esta coluna não deve aparecer; exibindo a VM coluna preço não é suportada no Azure Stack.
 
 - <!-- 3090289 – IS, ASDK --> Depois de aplicar o 1808 de atualização, você pode encontrar os seguintes problemas ao implantar VMs com discos gerenciados:
 

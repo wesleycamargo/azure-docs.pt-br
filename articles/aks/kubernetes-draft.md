@@ -1,6 +1,6 @@
 ---
 title: Usar o Draft com AKS e Registro de Contêiner do Azure
-description: Usar o Rascunho com AKS e Registro de Contêiner do Azure
+description: Usar o Draft com AKS e Registro de Contêiner do Azure
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -16,7 +16,7 @@ ms.locfileid: "44345940"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usar Rascunho com o AKS (Serviço de Kubernetes do Azure)
 
-Draft é uma ferramenta de software livre que ajuda a empacotar e implantar contêineres de aplicativos em um cluster do Kubernetes, deixando você livre para concentrar-se no ciclo de desenvolvimento – o "loop interno" do desenvolvimento concentrado. O Rascunho funciona como o código está sendo desenvolvido, mas antes de comprometer-se com o controle de versão. Com o Rascunho, você pode reimplantar rapidamente um aplicativo no Kubernetes quando ocorrem alterações de código. Para obter mais informações sobre o Rascunho, consulte a [Documentação do Rascunho no Gitub][draft-documentation].
+Draf é uma ferramenta de software livre que ajuda a empacotar e implantar contêineres de aplicativos em um cluster do Kubernetes, deixando você livre para concentrar-se no ciclo de desenvolvimento – o "loop interno" do desenvolvimento concentrado. O Rascunho funciona como o código está sendo desenvolvido, mas antes de comprometer-se com o controle de versão. Com o Rascunho, você pode reimplantar rapidamente um aplicativo no Kubernetes quando ocorrem alterações de código. Para obter mais informações sobre o Rascunho, consulte a [Documentação do Rascunho no Gitub][draft-documentation].
 
 Este artigo mostra como usar o Rascunho com um cluster do Kubernetes no AKS.
 
@@ -89,7 +89,7 @@ Como uma relação de confiança foi criada entre o AKS e o ACR, senhas ou segre
 
 ## <a name="run-an-application"></a>Executar um aplicativo
 
-Para ver o Draft em ação, vamos implantar um aplicativo de exemplo do [repositório do Draft][draft-repo]. Primeiro, clone o repositório:
+Para ver o Rascunho em ação, vamos implantar um aplicativo de exemplo do [repositório do Rascunho][draft-repo]. Primeiro, clone o repositório:
 
 ```console
 git clone https://github.com/Azure/draft
@@ -258,7 +258,7 @@ Hello World, I'm Java in AKS!
 Para obter mais informações sobre o uso do Draft, consulte a documentação do Draft no GitHub.
 
 > [!div class="nextstepaction"]
-> [Documentação do Draft][draft-documentation]
+> [Documentação do Rascunho][draft-documentation]
 
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs

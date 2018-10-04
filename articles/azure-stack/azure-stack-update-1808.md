@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 94e18b6a4fc367a9697078f8e0c1a307ae15d4be
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 5370b2e49b400211dd30804db3a07e646cfe312c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017934"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249240"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
@@ -205,6 +205,8 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 
 ### <a name="compute"></a>Computação
 
+- <!-- 3099544 – IS, ASDK --> Quando você cria uma nova máquina virtual (VM) usando o portal do Azure Stack, e você selecionar o tamanho da VM, a coluna USD por mês é exibida com um **indisponível** mensagem. Esta coluna não deve aparecer; exibindo a VM coluna preço não é suportada no Azure Stack.
+
 - <!-- 3090289 – IS, ASDK --> Depois de aplicar o 1808 de atualização, você pode encontrar os seguintes problemas ao implantar VMs com discos gerenciados:
 
    1. Se a assinatura foi criada antes da atualização 1808, implantação de VM com discos gerenciados podem falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas para cada assinatura:
@@ -213,7 +215,6 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
    2. Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas:
       1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4465859).
       2. Siga as etapas em [deste artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
-
 
 - <!-- 2869209 – IS, ASDK --> Ao usar o [ **Add AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), você deve usar o **- OsUri** parâmetro como a conta de armazenamento em que o disco é carregado do URI. Se você usar o caminho local do disco, o cmdlet falhará com o seguinte erro: *operação de execução longa falhou com status 'Failed'*. 
 
