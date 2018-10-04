@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ed5da0afe67deaa7000c1bf3b8d75bdea14f2ecd
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 7fcf0b924868d755bc76f7d1e695e73afc4eae6a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616319"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993384"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Início Rápido: implantar um aplicativo de serviços confiáveis do Service Fabric em Java
 
@@ -101,7 +101,7 @@ Entre e ingresse em um [cluster do Linux](http://aka.ms/tryservicefabric). Baixe
 O Service Fabric fornece várias ferramentas que você pode usar para gerenciar um cluster e seus aplicativos:
 
 * Service Fabric Explorer, uma ferramenta baseada no navegador.
-* CLI (Interface de Linha de Comando) do Service Fabric, que é executada sobre a CLI 2.0 do Azure.
+* CLI (Interface de Linha de Comando) do Service Fabric, que é executada sobre a CLI do Azure.
 * Comandos do PowerShell.
 
 Neste início rápido você usa a CLI do Service Fabric e o Service Fabric Explorer.
@@ -132,7 +132,7 @@ A impressão digital do certificado precisa ser adicionada ao seu aplicativo por
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. No arquivo `Voting/VotingApplication/ApplicationManifest.xml`, adicione o trecho de código a seguir sob da marca **ApplicationManifest**. O **X509FindValue** deve ser a impressão digital da etapa anterior (sem ponto e vírgula). 
+2. No arquivo `Voting/VotingApplication/ApplicationManifest.xml`, adicione o snippet de código a seguir sob da marca **ApplicationManifest**. O **X509FindValue** deve ser a impressão digital da etapa anterior (sem ponto e vírgula). 
 
     ```xml
     <Certificates>

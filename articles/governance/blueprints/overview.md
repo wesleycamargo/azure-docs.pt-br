@@ -16,22 +16,22 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46957480"
 ---
-# <a name="what-is-azure-blueprints"></a>O que é especificações técnicas do Azure?
+# <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
 Assim como um blueprint permite que um engenheiro ou arquiteto desenhe os parâmetros de projeto de um projeto, o Azure Blueprints permite que arquitetos de nuvem e TI definam um conjunto repetitivo de recursos do Azure que implementa e adere aos padrões, padrões e requisitos de uma organização. O Azure Blueprints permite que as equipes de desenvolvimento forneçam e criem novos ambientes rapidamente, sabendo que eles são criados dentro da conformidade organizacional e contêm um conjunto de componentes integrados - como redes - para acelerar o desenvolvimento e a entrega.
 
 Blueprints são uma maneira declarativa de orquestrar a implementação de vários modelos de recursos e outros artefatos, como:
 
 - Atribuições de função
-- Atribuições de Política
-- Modelos do Gerenciador de Recursos do Azure
+- Atribuições de Políticas
+- Modelos do Azure Resource Manager
 - Grupos de recursos
 
 ## <a name="how-it-is-different-from-resource-manager-templates"></a>Como é diferente dos modelos do Resource Manager
 
-O Blueprints foi desenvolvido para ajudar na _configuração do ambiente_, que geralmente consiste em um conjunto de grupos de recursos, políticas e atribuições de funções, além de implantações de modelos do Resource Manager. Um blueprint é um pacote para reunir cada um desses _artefatos_ e permitir que você componha e versão esse pacote - inclusive por meio de um pipeline de IC / CD. Por fim, cada um é atribuído a uma assinatura em uma única operação que pode ser auditada e rastreada.
+O Blueprints foi desenvolvido para ajudar na _configuração do ambiente_, que geralmente consiste em um conjunto de grupos de recursos, políticas e atribuições de funções, além de implantações de modelos do Resource Manager. Um blueprint é um pacote para reunir cada um desses _artefatos_ e permitir que você componha e versione esse pacote - inclusive por meio de um pipeline de CI / CD. Por fim, cada um é atribuído a uma assinatura em uma única operação que pode ser auditada e rastreada.
 
-Quase tudo o que você deseja incluir na implantação em Blueprints pode ser feito com um modelo do Resource Manager. No entanto, um modelo do Gerenciador de recursos é um documento que não existe nativamente no Azure - cada um é armazenado localmente ou no controle de origem. O modelo é usado para implantações de um ou mais recursos do Azure, mas, quando esses recursos são implantados, a conexão e o relacionamento com o modelo usado são perdidos.
+Quase tudo o que você deseja incluir na implantação em Blueprints pode ser feito com um modelo do Resource Manager. No entanto, um modelo do Resource Manager é um documento que não existe nativamente no Azure - cada um é armazenado localmente ou no controle de origem. O modelo é usado para implantações de um ou mais recursos do Azure, mas, quando esses recursos são implantados, a conexão e o relacionamento com o modelo usado são perdidos.
 
 Com o Blueprints, a relação entre a definição do blueprint (o _que deve ser_ implementado) e a atribuição do blueprint (o _que foi_ implementado) permanece. Essa conexão permite rastreamento e auditoria aprimorados de implantações, a capacidade de atualizar várias assinaturas de uma só vez que são governadas pelo mesmo blueprint e muito mais.
 
