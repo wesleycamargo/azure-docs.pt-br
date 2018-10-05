@@ -1,20 +1,21 @@
 ---
-title: Conceitos empresariais para um aplicativo LUIS – Azure | Microsoft Docs
+title: Conceitos empresariais para um aplicativo LUIS – Reconhecimento vocal
+titleSuffix: Azure Cognitive Services
 description: Compreenda os conceitos de design de aplicativos LUIS grandes.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fda4a089866950688d88f9f47988c1540abe1cc0
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3782874ac69b299e24cf1555b290a9d2d86b6285
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224853"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038333"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias empresariais para um aplicativo LUIS
 Examine essas estratégias de design para seu aplicativo empresarial.
@@ -50,9 +51,7 @@ Use a ferramenta de linha de comando [Expedir][dispatch-tool], encontrada em [Bo
 
 ![Imagem conceitual da arquitetura de expedição](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-O domínio pai é observado no LUIS como um aplicativo **V Dispatch**. 
-
-![Captura de tela da lista de aplicativos LUIS com o aplicativo LUIS criado pela ferramenta de expedição](./media/luis-concept-enterprise/dispatch.png)
+O domínio pai é indicado no LUIS com uma versão chamada `Dispatch` na lista de aplicativos. 
 
 O chatbot recebe a declaração e envia ao aplicativo LUIS pai para previsão. A principal intenção prevista do aplicativo pai determina qual aplicativo LUIS filho é chamado em seguida. O chatbot envia a declaração ao aplicativo filho para obter uma previsão mais específica.
 
@@ -66,4 +65,4 @@ Um aplicativo de expedição tem 500 fontes de expedição, equivalentes a 500 i
 * Saiba como [testar um lote](luis-how-to-batch-test.md)
 
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
-[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[dispatch-tool]: https://aka.ms/dispatch-tool

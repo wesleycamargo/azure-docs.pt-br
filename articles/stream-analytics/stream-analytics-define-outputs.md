@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: d717737bc2b15e57ae32faffaece96f78a7cc013
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e9c09d31af1b6ea214ae2d0fc6fd7399c07fd8c0
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577813"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434528"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Entender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para um trabalho do Azure Stream Analytics. As saídas permitem armazenar e salvar os resultados do trabalho do Stream Analytics. Usando os dados de saída, você pode fazer mais análise de negócios e data warehouse de seus dados. 
@@ -63,7 +63,7 @@ Para renovar a autorização, **Pare** seu trabalho > vá para sua saída do Dat
 ![Autorizar o Repositório Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>Banco de dados SQL
-[banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) pode ser usado como saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam de o conteúdo ser hospedado em um banco de dados relacional. Os trabalhos do Stream Analytics gravam em uma tabela existente em um banco de dados SQL do Azure.  O esquema da tabela deve corresponder exatamente aos campos e seus tipos sendo a saída do seu trabalho. Um [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) também pode ser especificado como uma saída por meio da opção de saída do Banco de Dados SQL. A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de dados SQL.
+[banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) pode ser usado como saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam de o conteúdo ser hospedado em um banco de dados relacional. Os trabalhos do Stream Analytics gravam em uma tabela existente em um banco de dados SQL do Azure.  O esquema da tabela deve corresponder exatamente aos campos e seus tipos sendo a saída do seu trabalho. Um [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) também pode ser especificado como uma saída por meio da opção de saída do Banco de Dados SQL. Para saber mais sobre as maneiras de melhorar a taxa de transferência de gravação, consulte o artigo [Stream Analytics com o Banco de dados SQL do Azure como saída](stream-analytics-sql-output-perf.md). A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de dados SQL.
 
 | Nome da propriedade | DESCRIÇÃO |
 | --- | --- |
@@ -71,7 +71,7 @@ Para renovar a autorização, **Pare** seu trabalho > vá para sua saída do Dat
 | Banco de dados | O nome do banco de dados para o qual você está enviando a saída. |
 | Nome do servidor | Nome do servidor de Banco de Dados SQL do Azure. |
 | Nome de Usuário | O nome de usuário, que tem acesso para gravar no banco de dados. |
-| Senha | A senha para se conectar ao banco de dados. |
+| Senha | A senha para se conectar ao banco de dados |
 | Tabela | O nome da tabela em que a saída é gravada. O nome da tabela diferencia maiúsculas de minúsculas e o esquema da tabela deve corresponder exatamente ao número de campos e seus tipos sendo gerados por sua saída de trabalho. |
 
 > [!NOTE]
@@ -297,7 +297,7 @@ A tabela a seguir resume o suporte de partição e o número de gravadores de sa
 | Tipo de saída | Suporte ao particionamento | Chave de partição  | Número de gravadores de saída | 
 | --- | --- | --- | --- |
 | Repositório Azure Data Lake | SIM | Use tokens de {data} e {hora} no padrão de prefixo de caminho. Escolha o formato de data, como DD/MM/AAAA, MM/DD/AAAA, MM-DD-AAAA. HH é usado para o formato de hora. | Segue o particionamento de entrada para [consultas totalmente paralelizáveis](stream-analytics-scale-jobs.md). | 
-| Banco de Dados SQL do Azure | Não  | Nenhum | Não aplicável. | 
+| Banco de Dados SQL do Azure | SIM | Baseado na cláusula PARTITION BY na consulta | Segue o particionamento de entrada para [consultas totalmente paralelizáveis](stream-analytics-scale-jobs.md). | 
 | Armazenamento de Blobs do Azure | SIM | Use os tokens de {data} e {hora} dos seus campos de evento no padrão do caminho. Escolha o formato de data, como DD/MM/AAAA, MM/DD/AAAA, MM-DD-AAAA. HH é usado para o formato de hora. Como parte da [versão prévia](https://aka.ms/ASAPreview), a saída de blob pode ser particionada por um atributo de evento personalizado único {fieldname} ou {datetime:\<specifier>}. | Segue o particionamento de entrada para [consultas totalmente paralelizáveis](stream-analytics-scale-jobs.md). | 
 | Hub de Eventos do Azure | SIM | SIM | Varia dependendo do alinhamento da partição.</br> Quando a chave de partição de saída do Hub de Eventos é alinhada de forma igual com a etapa de consulta (anterior) de upstream, o número de gravadores é o mesmo que o de partições do Hub de Eventos de saída. Cada gravador usa [a classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) do EventHub para enviar eventos para a partição específica. </br> Quando a chave de partição de saída do Hub de Eventos não é alinhada com a etapa de consulta (anterior) de upstream, o número de gravadores é o mesmo que o de partições nessa etapa anterior. Cada gravador usa a [classe SendBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) do EventHubClient para enviar eventos para todas as partições de saída. |
 | Power BI | Não  | Nenhum | Não aplicável. | 

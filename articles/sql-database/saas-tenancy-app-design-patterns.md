@@ -1,22 +1,23 @@
 ---
 title: Padrões de SaaS multilocatário- Banco de Dados SQL do Azure | Microsoft Docs
 description: Aprenda sobre os requisitos e os padrões da arquitetura de dados comuns de aplicativos de banco de dados SaaS (software como serviço) multilocatários executados no ambiente de nuvem do Azure.
-keywords: tutorial do banco de dados SQL
 services: sql-database
-author: billgib
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.reviewer: genemi
-ms.author: billgib
-ms.openlocfilehash: 39be48019979ceb1337cbd3008c8cf071d403310
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib, sstein
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737673"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227479"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locatário de banco de dados de SaaS multilocatários
 
@@ -74,7 +75,7 @@ Nesse modelo, todo o aplicativo é instalado várias vezes, uma vez para cada lo
 
 Cada instância de aplicativo é instalada em um grupo de recursos do Azure separado.  O grupo de recursos pode pertencer a uma assinatura que pertence ou ao fornecedor do software ou ao locatário.  Em ambos os casos, o fornecedor pode gerenciar o software para o locatário.  Cada instância do aplicativo está configurada para se conectar ao seu banco de dados correspondente.
 
-Cada banco de dados de locatário é implantado como um banco de dados autônomo.  Esse modelo fornece o maior isolamento de banco de dados.  Mas o isolamento requer que os recursos suficientes ser alocados para cada banco de dados para lidar com suas cargas de pico.  Aqui é mais importante que os pools Elásticos não podem ser usados para bancos de dados implantados em diferentes grupos de recursos ou a assinaturas diferentes.  Essa limitação torna esse aplicativo de único locatário autônomo a solução mais cara da perspectiva de custo geral do banco de dados de modelo.
+Cada banco de dados de locatário é implantado como um banco de dados individual.  Esse modelo fornece o maior isolamento de banco de dados.  Mas o isolamento requer que os recursos suficientes ser alocados para cada banco de dados para lidar com suas cargas de pico.  Aqui é mais importante que os pools Elásticos não podem ser usados para bancos de dados implantados em diferentes grupos de recursos ou a assinaturas diferentes.  Essa limitação torna esse aplicativo de único locatário autônomo a solução mais cara da perspectiva de custo geral do banco de dados de modelo.
 
 #### <a name="vendor-management"></a>Gerenciamento de fornecedor
 
@@ -131,13 +132,13 @@ Por exemplo, você pode automatizar a recuperação de um único locatário em u
 
 #### <a name="lower-cost"></a>Menor custo
 
-Em geral, bancos de dados multilocatários tem o mais baixo por locatário de custo.  Custos de recurso para um banco de dados autônomo são menores do que para um pool Elástico ainda dimensionado.  Além disso, para cenários em que os locatários precisam apenas armazenamento limitada, potencialmente milhões de locatários podem ser armazenadas em um único banco de dados.  Nenhum pool Elástico pode conter milhões de bancos de dados.  No entanto, uma solução que contém os bancos de dados de 1000 por pool, com os pools de 1000, é possível alcançar a escala de milhões com o risco de se tornar difíceis de gerenciar.
+Em geral, bancos de dados multilocatários tem o mais baixo por locatário de custo.  Os custos de recurso para um banco de dados individual são menores do que para um pool elástico do mesmo tamanho.  Além disso, para cenários em que os locatários precisam apenas armazenamento limitada, potencialmente milhões de locatários podem ser armazenadas em um único banco de dados.  Nenhum pool Elástico pode conter milhões de bancos de dados.  No entanto, uma solução que contém os bancos de dados de 1000 por pool, com os pools de 1000, é possível alcançar a escala de milhões com o risco de se tornar difíceis de gerenciar.
 
 Duas variações de um modelo de banco de dados multilocatário são discutidas os itens a seguir, com o modelo de multilocatário fragmentado, sendo a mais flexível e escalonável.
 
 ## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. Aplicativo de multilocatário com o banco de dados por locatário
 
-O padrão de banco de dados multilocatário mais simples usa um banco de dados independente única para hospedar dados para todos os locatários.  À medida que mais locatários são adicionados, o banco de dados é dimensionado com mais recursos de computação e armazenamento.  Essa expansão pode ser tudo o que é necessário, embora sempre há um limite de escala principal.  No entanto, longa antes que o limite é atingido o banco de dados torna-se difíceis de gerenciar.
+O padrão de banco de dados multilocatário mais simples usa um banco de dados individual para hospedar dados para todos os locatários.  À medida que mais locatários são adicionados, o banco de dados é dimensionado com mais recursos de computação e armazenamento.  Essa expansão pode ser tudo o que é necessário, embora sempre há um limite de escala principal.  No entanto, longa antes que o limite é atingido o banco de dados torna-se difíceis de gerenciar.
 
 Operações de gerenciamento que concentram-se em locatários individuais são mais complexas para implementar em um banco de dados de vários locatários.  E, em grande escala essas operações podem se tornar muito lentas.  Um exemplo é uma restauração point-in-time de dados para somente um locatário.
 
@@ -173,7 +174,7 @@ No modelo híbrido, todos os bancos de dados tem o identificador do locatário e
 
 A qualquer momento, você pode mover um locatário específico para seu próprio banco de dados de vários locatários.  E a qualquer momento, você pode mudar de ideia e mover o locatário de volta para um banco de dados que contém vários locatários.  Você também pode atribuir um locatário para o novo banco de dados de único locatário ao provisionar o novo banco de dados.
 
-O modelo híbrido brilha quando há grandes diferenças entre as necessidades de recursos de grupos de identificação de locatários.  Por exemplo, suponha que locatários participando de uma avaliação gratuita não têm garantia de mesmo nível alto de desempenho que são de assinatura de locatários.  A política pode ser para locatários na fase de avaliação gratuita para ser armazenado em um banco de dados multilocatário é compartilhado entre todos os locatários de avaliação gratuitos.  Quando um locatário de avaliação gratuito assina o nível de serviço básico, o locatário pode ser movido para outro banco de dados de vários locatários que pode ter menos de locatários.  Um assinante que paga para o nível de serviço premium pôde ser movido para o seu banco de dados novo por único locatário obtido.
+O modelo híbrido brilha quando há grandes diferenças entre as necessidades de recursos de grupos de identificação de locatários.  Por exemplo, suponha que locatários participando de uma avaliação gratuita não têm garantia de mesmo nível alto de desempenho que são de assinatura de locatários.  A política pode ser para locatários na fase de avaliação gratuita para ser armazenado em um banco de dados multilocatário é compartilhado entre todos os locatários de avaliação gratuitos.  Quando um locatário de avaliação gratuita assina a camada de serviço Básica, o locatário pode ser movido para outro banco de dados de vários locatários com menos de locatários.  Um assinante que paga pela camada de serviço Premium pôde ser movido para seu próprio novo banco de dados de locatário único.
 
 #### <a name="pools"></a>Pools
 
@@ -186,9 +187,9 @@ A tabela a seguir resume as diferenças entre o Functions e o WebJobs.
 | Medida | Aplicativo independente | Banco de dados por locatário | Multilocatário fragmentado |
 | :---------- | :------------- | :------------------ | :------------------- |
 | Escala | Média<br />1-100s | Muito alta<br />1-100.000s | Ilimitado<br />1-1.000.000s |
-| Isolamento de locatário | Muito alta | Alto | Baixo; exceto para qualquer locatário singleton (ou seja, somente em um banco de dados MT). |
+| Isolamento de locatário | Muito alta | Alto | Baixo, exceto para qualquer locatário único (ou seja, sozinho em um banco de dados de MT). |
 | Banco de dados por locatário | Alta; é dimensionado para picos. | Baixo; pools usados. | Mais baixo, para locatários pequenos em MT bancos de dados. |
-| Monitoramento e gerenciamento de desempenho | Por locatário somente | Agregação + por locatário | Agregação; Embora é por locatário somente para singletons. |
+| Monitoramento e gerenciamento de desempenho | Por locatário somente | Agregação + por locatário | Agregação, embora seja por locatário somente para únicos. |
 | Complexidade de desenvolvimento | Baixo | Baixo | Médio; devido à fragmentação. |
 | Complexidade operacional | Alta-baixa. Individualmente simples e complexas em escala. | Média-baixa. Padrões de endereço complexidade em escala. | Alta-baixa. Gerenciamento de locatário individual é complexo. |
 | &nbsp; ||||

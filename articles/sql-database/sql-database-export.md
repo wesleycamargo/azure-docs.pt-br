@@ -2,19 +2,22 @@
 title: Exportar um banco de dados SQL do Azure para um arquivo BACPAC | Microsoft Docs
 description: Exportar um Banco de Dados SQL do Azure para um arquivo BACPAC usando o portal do Azure
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
-ms.date: 04/01/2018
-ms.author: carlrab
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: c2f29d8c660e3d39f91bcdd97209d2e88f5ae864
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: a867a57e54efae6d735a9918a637fa3b4f9e37bc
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647945"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160281"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportar um Banco de Dados SQL do Azure para um arquivo BACPAC
 
@@ -31,7 +34,7 @@ Quando for preciso exportar um banco de dados para arquivamento ou para mover pa
 * Se você estiver exportando para o armazenamento de blobs, o tamanho máximo de um arquivo BACPAC é de 200 GB. Para arquivar um arquivo BACPAC maior, exporte para o armazenamento local.
 * Não há suporte para a exportação de um arquivo BACPAC no armazenamento Premium do Azure usando os métodos abordados neste artigo.
 * Se a operação de exportação do Banco de Dados SQL do Azure exceder 20 horas, ela poderá ser cancelada. Para aumentar o desempenho durante a exportação, você pode:
-  * Aumentar temporariamente seu nível de serviço.
+  * Aumente temporariamente o tamanho de computação.
   * Interromper toda a atividade de leitura e gravação durante a exportação.
   * Use um [índice clusterizado](https://msdn.microsoft.com/library/ms190457.aspx) com valores não nulos em todas as tabelas grandes. Sem índices clusterizados, a exportação poderá falhar se demorar mais de 6 a 12 horas. Isso ocorre porque o serviço de exportação precisa concluir a verificação da tabela para tentar exportar a tabela inteira. Uma boa maneira de determinar se as tabelas são otimizadas para exportação é executar **DBCC SHOW_STATISTICS** e verificar se *RANGE_HI_KEY* não é nulo e seu valor tem boa distribuição. Para obter detalhes, consulte [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
 

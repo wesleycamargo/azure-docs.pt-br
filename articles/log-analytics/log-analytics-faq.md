@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 06b30d1381d8fba1d6f053576f6556e6d02f2ae9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d873d28ec772735b8f21551cde1c7d0eab79a18c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949155"
+ms.locfileid: "47035132"
 ---
 # <a name="log-analytics-faq"></a>Perguntas frequentes do Log Analytics
 Essas Perguntas frequentes da Microsoft são uma lista de perguntas frequentes sobre o Log Analytics no Microsoft Azure. Se você tiver alguma pergunta adicional sobre o Log Analytics, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -69,6 +69,10 @@ R: Para acessar um espaço de trabalho no Azure, você deve ter recebido permiss
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>P. Por que não consigo ver a entrada do Designer de Exibição nos Logs? 
 R: O Designer de Exibição só está disponível nos Logs para os usuários que receberam permissões de Colaborador ou superior.
+
+### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>P. Ainda posso usar o portal da Análise fora do Azure?
+a. Sim, a página Logs no Azure e o [portal de Análise Avançada](https://portal.loganalytics.io) baseiam-se no mesmo código. O Log Analytics está sendo integrado como um recurso no Azure Monitor a fim de fornecer uma experiência de monitoramento mais unificada. Você ainda poderá acessar o portal de Análise usando a URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+
 
 
 ## <a name="general"></a>Geral

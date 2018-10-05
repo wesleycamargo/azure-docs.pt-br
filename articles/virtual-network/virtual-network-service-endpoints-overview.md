@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: a4824cadfaad2115a64427df618bac5e6c6df6ee
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: dcc0456637c17e779593b121025596149398afba
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382290"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410214"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de rede virtual
 
@@ -28,15 +28,20 @@ Os pontos de extremidade de serviço de VNet (rede virtual) estendem o espaço d
 
 Este recurso está disponível para os seguintes serviços e regiões do Azure:
 
+**Disponível**
+
 - **[Armazenamento do Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: disponível em todas as regiões do Azure.
 - **[Banco de Dados SQL do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponível em todas as regiões do Azure.
+- **[Servidor de Banco de Dados do Azure para PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: amplamente disponível em regiões do Azure nas quais o serviço de banco de dados está disponível.
+- **[Servidor de Banco de Dados do Azure para MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponível em versão prévia em regiões do Azure em que o serviço de banco de dados está disponível.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em todas as regiões de nuvem pública do Azure.
 - **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: disponível ao público em geral em todas as regiões de nuvem pública do Azure.
+
+**Visualização**
+
 - **[SQL Data Warehouse do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponível em todas as regiões de nuvem pública do Azure.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponível em versão prévia.
 - **[Hubs de Eventos do Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponível em versão prévia.
-- **[Servidor de Banco de Dados do Azure para PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: amplamente disponível em regiões do Azure nas quais o serviço de banco de dados está disponível.
-- **[Servidor de Banco de Dados do Azure para MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponível em versão prévia em regiões do Azure em que o serviço de banco de dados está disponível.
 
 Para obter as notificações mais recentes, verifique a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

@@ -1,22 +1,23 @@
 ---
-title: Testar seu aplicativo LUIS – Azure | Microsoft Docs
-description: Use o LUIS (Serviço Inteligente de Reconhecimento Vocal) para trabalhar continuamente em seu aplicativo para refiná-lo e melhorar seu reconhecimento vocal.
+title: Testar seu aplicativo LUIS
+titleSuffix: Azure Cognitive Services
+description: O teste é o processo de fornecer exemplo de declarações ao LUIS e obter uma resposta de intenções e entidades reconhecidas pelo LUIS. É possível testar o LUIS interativamente, um enunciado por vez ou fornecer um lote de enunciados. Com o teste, você compara o modelo ativo atual com o modelo publicado.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d231eaf98358e3f8237a820e59433558d293872f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7999f25d9c8bd9a8e44bd858d2860d94be16a62f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224340"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033219"
 ---
-# <a name="testing-in-luis"></a>Testando no LUIS
+# <a name="testing-example-utterances-in-luis"></a>Testando os enunciados de exemplo no LUIS
 
 O teste é o processo de fornecer exemplo de declarações ao LUIS e obter uma resposta de intenções e entidades reconhecidas pelo LUIS. 
 
@@ -25,6 +26,7 @@ O teste é o processo de fornecer exemplo de declarações ao LUIS e obter uma r
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
 <a name="E-(exponent)-notation"></a>
+
 ## <a name="what-is-a-score-in-testing"></a>O que é uma pontuação no teste?
 Confira os conceitos [Pontuação de previsão](luis-concept-prediction-score.md) para saber mais sobre as pontuações de previsão.
 

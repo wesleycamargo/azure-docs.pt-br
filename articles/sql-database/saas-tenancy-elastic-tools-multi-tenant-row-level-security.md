@@ -1,21 +1,23 @@
 ---
 title: Aplicativos multilocatários com RLS e ferramentas de banco de dados elástico | Microsoft Docs
 description: Use ferramentas de banco de dados elástico com segurança em nível de linha para criar um aplicativo com uma camada de dados altamente dimensionável.
-metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
-manager: craigg
-author: tmullaney
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: tmullaney
 ms.author: thmullan
-ms.openlocfilehash: 02ad01185a86aa5a975be2a66b54a214029dd73f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 94430d3b72bb5b8e8bde0e9e2e9fb2eb2b0c3632
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645803"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056277"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha
 
@@ -35,10 +37,10 @@ O objetivo é usar as APIs do [roteamento dependente de dados](sql-database-elas
 
 ## <a name="download-the-sample-project"></a>Baixar o projeto de exemplo
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 - Usar o Visual Studio (2012 ou superior) 
-- Criar três Bancos de Dados SQL do Azure 
+- Criar três bancos de dados SQL do Azure 
 - Baixar o projeto de exemplo: [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Fragmentos Multilocatários](http://go.microsoft.com/?linkid=9888163)
   - Preencha as informações dos seus bancos de dados no início do **Program.cs** 
 

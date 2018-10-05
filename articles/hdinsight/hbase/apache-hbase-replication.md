@@ -3,18 +3,18 @@ title: Configurar a replicação de cluster HBase nas redes virtuais do Azure
 description: Saiba como configurar a replicação de HBase de uma versão do HDInsight para outra para balanceamento de carga, alta disponibilidade, migração sem tempo de inatividade, atualizações e recuperação de desastre.
 services: hdinsight,virtual-network
 author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/11/2018
-ms.author: jasonh
-ms.openlocfilehash: 624165f5ee1140ade9b9ce03c5249d297c8d83f1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/15/2018
+ms.openlocfilehash: 51f5f3b9742de45b1b72104c8cf08079d0719763
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047476"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224368"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster HBase nas redes virtuais do Azure
 
@@ -109,6 +109,7 @@ Para instalar ao Bind, você precisa localizar o endereço IP público das duas 
 2. Abra a máquina virtual DNS selecionando **Grupos de recursos > [nome do grupo de recursos] > [vnet1DNS]**.  O nome do grupo de recursos é o que você criar no último procedimento. Os nomes de máquina virtual DNS padrão são *vnet1DNS* e *vnet2NDS*.
 3. Selecione **Propriedades** para abrir a página de propriedades da rede virtual.
 4. Anote o **endereço IP público**e também verifique a **endereço IP privado**.  O endereço IP privado será **10.1.0.4** para vnet1DNS e **10.2.0.4** para vnet2DNS.  
+5. Altere os servidores DNS das duas redes virtuais para usar servidores DNS padrão (fornecidos pelo Azure) para permitir o acesso de entrada e de saída para baixar pacotes para instalar o Bind nas etapas a seguir.
 
 Para instalar o Bind, use o seguinte procedimento:
 
@@ -135,7 +136,7 @@ Para instalar o Bind, use o seguinte procedimento:
     sudo apt-get install bind9 -y
     ```
 
-3. Para configurar o Bind para encaminhar solicitações de resolução de nomes para o servidor DNS local, use o seguinte texto como o conteúdo do arquivo `/etc/bind/named.conf.options`:
+3. Configure o Bind para encaminhar solicitações de resolução de nome para seu servidor DNS local. Para fazer isso, use o seguinte texto como o conteúdo do arquivo `/etc/bind/named.conf.options`:
 
     ```
     acl goodclients {
@@ -151,7 +152,7 @@ Para instalar o Bind, use o seguinte procedimento:
         allow-query { goodclients; };
 
         forwarders {
-            168.63.129.16 #This is the Azure DNS server
+            168.63.129.16; #This is the Azure DNS server
         };
 
         dnssec-validation auto;
@@ -217,7 +218,7 @@ Para instalar o Bind, use o seguinte procedimento:
 
     ```bash
     sudo apt install dnsutils
-    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
     > [!IMPORTANT]
@@ -277,7 +278,7 @@ Para criar uma tabela de **Contatos** e inserir alguns dados na tabela, siga as 
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 
-As etapas a seguir mostram como chamar o script de ação de script no Portal do Azure. Para obter informações sobre como executar uma ação de script usando o Azure PowerShell e a ferramenta de linha de comando do Azure (CLI do Azure), consulte [Personalizar clusters HDInsight usando a ação de script](../hdinsight-hadoop-customize-cluster-linux.md).
+As etapas a seguir mostram como chamar o script de ação de script no Portal do Azure. Para obter informações de como executar uma ação de script usando o Azure PowerShell e a CLI Clássica do Azure, confira [Personalizar clusters do HDInsight usando a ação de script](../hdinsight-hadoop-customize-cluster-linux.md).
 
 **Para habilitar a replicação de HBase no Portal do Azure**
 

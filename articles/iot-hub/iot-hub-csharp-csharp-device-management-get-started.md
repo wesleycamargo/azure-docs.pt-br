@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: dobett
-ms.openlocfilehash: ed591007e6ad83dfbafe13db0bd3d8b53fc216f3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: bca25f5e7a6fd7685d20236033a5a225c5183a2d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106362"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225337"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Introdução ao gerenciamento de dispositivos (.NET/.NET)
 
@@ -213,7 +213,7 @@ Nesta seção, você fará o seguinte:
 8. No Visual Studio, no Gerenciador de Soluções, clique com o botão direito na solução e clique em **Definir Projetos de Inicialização...**. Selecione **Projeto único de inicialização** e, em seguida, selecione o projeto **SimulateManagedDevice** no menu suspenso. Compilar a solução.       
 
 > [!NOTE]
-> Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugerido no artigo [Tratamento de falhas transitórias](https://msdn.microsoft.com/library/hh680901.aspx) do MSDN.
+> Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugerido no artigo [Tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="run-the-apps"></a>Executar os aplicativos
 

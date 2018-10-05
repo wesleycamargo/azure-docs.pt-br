@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2f5d2f3634545001dc6dc1419530223b5a1a85a3
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 8f3185a2c7633ba0cb5a9b266bcddf023d3c36e1
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435784"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166445"
 ---
 # <a name="my-first-powershell-runbook"></a>Meu primeiro runbook do PowerShell
 
@@ -83,7 +83,17 @@ O runbook criado ainda está em modo de Rascunho. Você precisa publicá-lo ante
 12. Você pode clicar nesse trabalho para abrir o mesmo painel do Trabalho exibido ao iniciar o runbook. Isso permite que você volte no tempo e veja os detalhes de qualquer trabalho que foi criado para um determinado runbook.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Etapa 5: adicionar autenticação para gerenciar recursos do Azure
-Você testou e publicou seu runbook, mas, até o momento, ele não faz nada útil. Você gostaria que ele gerencie recursos do Azure. No entanto, ele não será capaz de fazer isso a menos que você o autentique usando as credenciais mencionadas nos [pré-requisitos](#prerequisites). Você faz isso com o cmdlet **Connect-AzureRmAccount**.
+Você testou e publicou seu runbook, mas, até o momento, ele não faz nada útil. Você gostaria que ele gerencie recursos do Azure. No entanto, ele não será capaz de fazer isso a menos que você o autentique usando as credenciais mencionadas nos [pré-requisitos](#prerequisites). Você faz isso com o cmdlet **Connect-AzureRmAccount**. Se você estiver gerenciando recursos entre várias assinaturas, precisará usar o parâmetro **-AzureRmContext** junto com [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
+
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $AzureContext
+   ```
 
 1. Abra o editor de texto clicando em **Editar** na página MyFirstRunbook-PowerShell.
 2. Você não precisa da linha **Write-Output**, então vamos continuar e excluí-la.

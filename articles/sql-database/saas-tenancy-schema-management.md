@@ -1,25 +1,26 @@
 ---
-title: Gerenciar o esquema de Banco de Dados Azure SQL em um aplicativo multilocatário | Microsoft Docs
-description: Gerenciar o esquema para vários locatários em um aplicativo multilocatário que usa o Banco de Dados SQL do Azure
-keywords: tutorial do banco de dados SQL
+title: Gerenciar o esquema do Banco de Dados SQL do Azure em um aplicativo de locatário único | Microsoft Docs
+description: Gerenciar o Esquema para vários locatários em um aplicativo de locatário único que usa o Banco de Dados SQL do Azure
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 2e4af3e3e1ef1d9da7c66b929885e3ec749b462f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 2f747eb09fd13647c4b6764ce3cc4fe72c00bcf0
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646265"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054839"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerenciar o esquema em um aplicativo SaaS usando o padrão de banco de dados por locatário com o Banco de Dados SQL do Azure
-
+ 
 Conforme um aplicativo de banco de dados evolui, alterações inevitavelmente precisam ser feitas no esquema do banco de dados ou nos dados de referência.  As tarefas de manutenção de banco de dados também são exigidas periodicamente. O gerenciamento de um aplicativo que usa o padrão de banco de dados por locatário requer que você aplique essas alterações ou tarefas de manutenção em um grupo de bancos de dados de locatário.
 
 Este tutorial explora dois cenários: implantação de atualizações de dados de referência para todos os locatários e recriação de um índice na tabela que contém os dados de referência. O recurso [Trabalhos elásticos](sql-database-elastic-jobs-overview.md) é usado para executar essas ações em todos os bancos de dados de locatário e no banco de dados de modelo usado para criar novos bancos de dados de locatário.

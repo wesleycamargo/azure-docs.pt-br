@@ -1,21 +1,22 @@
 ---
-title: Usar um ponto de extremidade de fala personalizada com o Serviço de Fala Personalizada no Azure | Microsoft Docs
-description: Saiba como usar um ponto de extremidade de conversão de fala em texto personalizado com o Serviço de Fala Personalizada em Serviços Cognitivos.
+title: Usar um ponto de extremidade de fala personalizado – Serviço de Fala Personalizado
+titlesuffix: Azure Cognitive Services
+description: Saiba como usar um ponto de extremidade personalizado de conversão de fala em texto com o Serviço de Fala Personalizado.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 55583952df3b83331f1f622a4fce269713ecf2a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 98c1b58e58490199b0258dfcc8df183c3fe9a8bd
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966513"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223365"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Usar um ponto de extremidade personalizado de conversão de fala em texto
 Você pode enviar solicitações para um ponto de extremidade de conversão fala em texto do Serviço de Fala Personalizada do Azure, de maneira semelhante possível ao ponto de extremidade de fala padrão dos Serviços Cognitivos. Esses pontos de extremidade são funcionalmente idênticos aos pontos de extremidade padrão da API de Fala. Assim, a mesma funcionalidade que está disponível via a biblioteca de cliente ou a API REST para a API de Fala também está disponível para o ponto de extremidade personalizado.

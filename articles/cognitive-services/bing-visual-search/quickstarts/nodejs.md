@@ -1,25 +1,25 @@
 ---
-title: Início rápido do JavaScript para API de Pesquisa Visual do Bing | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Mostra como fazer upload de uma imagem para a API de Pesquisa Visual do Bing e obter insights sobre a imagem.
+title: 'Início Rápido: Criar uma consulta de pesquisa visual, Node.js – Pesquisa Visual do Bing'
+titleSuffix: Azure Cognitive Services
+description: Como carregar uma imagem na API da Pesquisa Visual do Bing e obter insights sobre a imagem.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 60b1dc9b8ea9eda258e9776b8967df38c97d964e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: b13738c5bfd8fc75224bf934ae8be56e7c2edd69
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071694"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225490"
 ---
-# <a name="your-first-bing-visual-search-query-in-javascript"></a>Sua primeira consulta de Pesquisa Visual do Bing em JavaScript
+# <a name="quickstart-your-first-bing-visual-search-query-in-javascript"></a>Início Rápido: Sua primeira consulta da Pesquisa Visual do Bing em JavaScript
 
-API de Pesquisa Visual do Bing retorna informações sobre uma imagem que você fornece. Você pode fornecer a imagem usando a URL da imagem, um token de insights ou fazendo upload de uma imagem. Para obter informações sobre essas opções, consulte [O que é a API de Pesquisa Visual do Bing?](../overview.md) Este artigo demonstra como fazer upload de uma imagem. Fazer upload de uma imagem pode ser útil em cenários móveis em que você tira uma foto de um ponto de referência conhecido e obtém informações sobre ele. Por exemplo, os insights podem incluir fatos secundários sobre o ponto de referência. 
+A API de Pesquisa Visual do Bing retorna informações sobre uma imagem que você fornece. Você pode fornecer a imagem usando a URL da imagem, um token de insights ou fazendo upload de uma imagem. Para obter informações sobre essas opções, consulte [O que é a API de Pesquisa Visual do Bing?](../overview.md) Este artigo demonstra como fazer upload de uma imagem. Fazer upload de uma imagem pode ser útil em cenários móveis em que você tira uma foto de um ponto de referência conhecido e obtém informações sobre ele. Por exemplo, os insights podem incluir fatos secundários sobre o ponto de referência. 
 
 Se você fizer upload de uma imagem local, inclua no corpo do POST os dados de formulário mostrados a seguir. Os dados de formulário precisam incluir o cabeçalho Content-Disposition. Seu parâmetro `name` precisa ser definido como "image" e o parâmetro `filename` pode ser definido como qualquer cadeia de caracteres. O conteúdo do formulário é o binário da imagem. O tamanho máximo de imagem que você pode fazer upload é 1 MB. 
 

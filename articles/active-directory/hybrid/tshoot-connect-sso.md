@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2b6bd3b04dfbc7446e92dfcb16db64cc3c693c5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310615"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055893"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
@@ -36,7 +36,7 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 - Se um usuário fizer parte de muitos grupos no Active Directory, o tíquete Kerberos do usuário provavelmente será muito grande para processar e isso causará falha no SSO Contínuo. Solicitações de HTTPS do Azure AD podem ter cabeçalhos com um tamanho máximo de 50 KB; os tíquetes Kerberos precisam ser muito menores do que o limite para acomodar outros artefatos do Azure AD (tipicamente, 2 a 5 KB), como cookies. Nossa recomendação é reduzir as associações de grupo do usuário e tentar novamente.
 - Se você estiver sincronizando 30 ou mais florestas do Active Directory, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-the-feature) o recurso em seu locatário.
 - Adicionar a URL do serviço Azure AD (https://autologon.microsoftazuread-sso.com)) à zona Sites confiáveis em vez da zona Intranet local *bloqueia a entrada dos usuários*.
-- Desabilitar o uso do tipo de criptografia **RC4_HMAC_MD5** para Kerberos em suas configurações do Active Directory irá interromper o SSO Contínuo. Na ferramenta do Editor de Gerenciamento de Política de Grupo, verifique se o valor da política para **RC4_HMAC_MD5** em **Configuração do Computador -> Configurações do Windows -> Configurações de Segurança -> Políticas Locais -> Opções de Segurança -> "Segurança de Rede: Configurar tipos de criptografia permitidos para Kerberos"** é" Habilitado ".
+- O Seamless SSO usa o tipo de criptografia **RC4_HMAC_MD5** para Kerberos. Desabilitar o uso do tipo de criptografia **RC4_HMAC_MD5** em suas configurações do Active Directory interromperá o Seamless SSO. Na ferramenta do Editor de Gerenciamento de Política de Grupo, verifique se o valor da política para **RC4_HMAC_MD5** em **Configuração do Computador -> Configurações do Windows -> Configurações de Segurança -> Políticas Locais -> Opções de Segurança -> "Segurança de Rede: configurar tipos de criptografia permitidos para Kerberos"** está **habilitado**. Além disso, o Seamless SSO não usa outros tipos de criptografia, portanto, verifique se eles estão **desabilitados**.
 
 ## <a name="check-status-of-feature"></a>Verificar o status do recurso
 

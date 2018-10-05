@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: bf744d2aaab168b8ce918f7b776d8855cdc5ad16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ad498dc8c5bea9516bef5a62495fc0d0cc8f7399
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975234"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419688"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Tutorial: Provisionar o Gateway do Azure Data Box no Hyper-V (Versão prévia)
 
@@ -87,7 +87,7 @@ Para criar um dispositivo virtual, você precisa de:
 
     * Um mínimo de quatro núcleos.
     * Pelo menos 8 GB de RAM.
-    * Uma interface de rede conectada à rede capaz de rotear o tráfego para a Internet. .
+    * Uma interface de rede conectada à rede capaz de rotear o tráfego para a Internet. 
     * Um disco de SO de 250 GB.
     * Um disco virtual de 2 TB de dados do sistema.
 
@@ -105,9 +105,6 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
    ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. Na página **Antes de começar** do Assistente de Nova Máquina Virtual, clique em **Avançar**.
 5. Na página **Especificar nome e localização**, forneça um **Nome** para seu dispositivo virtual. Clique em **Próximo**.
-   
-   > [!IMPORTANT]
-   > Nesta versão, você só pode usar letras maiúsculas para o nome do seu dispositivo virtual.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. Na página **Especificar geração**, escolha **Geração 2** para o tipo de imagem do dispositivo vhdx e clique em **Avançar**.    
@@ -171,17 +168,10 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 3. Você terá que esperar de 10 a 15 minutos para que o dispositivo esteja pronto. Será exibida uma mensagem de status no console para indicar o andamento. Depois que o dispositivo estiver pronto, vá para **Ação**. Pressione `Ctrl + Alt + Delete` para entrar no dispositivo virtual. O usuário padrão é *EdgeUser* e a senha padrão é *Password1*.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-4. Por motivos de segurança, a senha do administrador do dispositivo expira no primeiro logon. Você será solicitado a alterar a senha.
-
-   Insira uma senha que contenha pelo menos oito caracteres. A senha deve cumprir pelo menos três dos quatro requisitos a seguir: caracteres maiúsculos, minúsculos, numéricos e especiais. Insira a senha novamente para confirmá-la. Você é notificado de que a senha foi alterada.
    
-5. Depois que a senha for alterada com êxito, o dispositivo virtual poderá ser reiniciado. Aguarde até o dispositivo iniciar.  O console do Windows PowerShell do dispositivo é exibido junto com uma barra de progresso.
-
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image22.png)
-
-6. As etapas 6 a 8 se aplicam somente na inicialização de um ambiente não DHCP. Se você estiver em um ambiente DHCP, ignore essas etapas e vá para a etapa 9. Caso tenha inicializado seu dispositivo em um ambiente não DHCP, você uma mensagem sobre isso.
+6. As etapas 5 a 7 se aplicam somente na inicialização de um ambiente não DHCP. Se você estiver em um ambiente DHCP, ignore essas etapas. Caso tenha inicializado seu dispositivo em um ambiente não DHCP, você uma mensagem sobre isso.
     
-7. Para configurar a rede, use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela é `DATA1`.
+7. Para configurar a rede, use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela é `Ethernet`.
 
 8. Use o cmdlet `Set-HcsIpAddress` para configurar a rede. Veja os exemplos a seguir:
 
@@ -192,7 +182,7 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
    ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá um erro no texto da faixa. Modifique a configuração do dispositivo para que o computador tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na [Etapa 1: Verificar se o sistema de host atende aos requisitos mínimos do dispositivo virtual](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá um erro no texto da faixa. Modifique a configuração do dispositivo para que o computador tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração em [Verificar se o sistema de host atende aos requisitos mínimos do dispositivo virtual](#check-the-host-system).
 
 <!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 

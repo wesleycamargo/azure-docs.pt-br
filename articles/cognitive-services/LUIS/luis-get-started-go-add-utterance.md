@@ -1,20 +1,20 @@
 ---
-title: Início Rápido – alterar o modelo e treinar o aplicativo LUIS usando Go – Serviços Cognitivos do Azure | Microsoft Docs
-description: Neste início rápido de Go, adicione exemplos de enunciados a um aplicativo Automação de Página Inicial e treine o aplicativo. Exemplos de enunciados consistem em texto de conversa do usuário mapeado para uma intenção. Ao mostrar exemplos de enunciados para intenções, você ensina o LUIS quais tipos de textos fornecidos pelo usuário pertencem a qual intenção.
+title: Início Rápido da linguagem Go – alterar o modelo e treinar o aplicativo LUIS
+description: Neste início rápido da linguagem Go, adicione enunciados de exemplo a um aplicativo de Automação Residencial e treine o aplicativo. Exemplos de enunciados consistem em texto de conversa do usuário mapeado para uma intenção. Ao mostrar exemplos de enunciados para intenções, você ensina o LUIS quais tipos de textos fornecidos pelo usuário pertencem a qual intenção.
 titleSuffix: Microsoft Cognitive Services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: da57a7e46cccbf0a9b34b3961a831e7982160e6b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2cd8c1aa2deb2af97d4f720efa0e40146b15b888
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157660"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031859"
 ---
 # <a name="quickstart-change-model-using-go"></a>Início Rápido: Alterar o modelo usando Go
 

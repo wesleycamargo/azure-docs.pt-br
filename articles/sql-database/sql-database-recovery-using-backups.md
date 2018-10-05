@@ -2,20 +2,22 @@
 title: Restaurar um banco de dados SQL do Azure de um backup | Microsoft Docs
 description: Saiba mais sobre a Restauração Pontual, que permite que você reverta um Banco de Dados SQL do Azure para um ponto anterior no tempo (até 35 dias).
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 75805cad43f015f1741193ec5a1ead1fa7603f41
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 4c9edd60ffa1cd9ed5d95b37592fa49f44117818
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144154"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161328"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
 O Banco de Dados SQL fornece essas opções para recuperação de banco de dados usando [backups automáticos de banco de dados](sql-database-automated-backups.md) e [backups de retenção de longo prazo](sql-database-long-term-retention.md). Você pode restaurar de um backup de banco de dados para:
@@ -32,7 +34,7 @@ Um banco de dados restaurado incorre em um custo de armazenamento extra nas segu
 - Restauração de P11 – P15 para S4 ou S12 ou P1– P6 se o tamanho máximo do banco de dados for superior a 500 GB.
 - Restauração de P1–P6 para S4-S12 se o tamanho máximo do banco de dados for superior a 250 GB.
 
-O custo extra ocorre porque o tamanho máximo do banco de dados restaurado é maior do que a quantidade de armazenamento incluída para o nível de desempenho, e qualquer armazenamento extra provisionado acima da quantidade incluída recebe uma cobrança extra.  Para obter detalhes de preço do armazenamento extra, confira a página [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).  Se a quantidade real de espaço usado for menor do que a quantidade de armazenamento incluída, esse custo extra poderá ser evitado por meio da redução do tamanho máximo do banco de dados para a quantidade incluída.  
+O custo extra ocorre porque o tamanho máximo do banco de dados restaurado é maior do que a quantidade de armazenamento incluída para o tamanho de computação, e o armazenamento extra provisionado acima da quantidade incluída recebe uma cobrança extra.  Para obter detalhes de preço do armazenamento extra, confira a página [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).  Se a quantidade real de espaço usado for menor do que a quantidade de armazenamento incluída, esse custo extra poderá ser evitado por meio da redução do tamanho máximo do banco de dados para a quantidade incluída.  
 
 > [!NOTE]
 > [Backups de banco de dados automatizados](sql-database-automated-backups.md) são usadas quando você cria uma [cópia de banco de dados](sql-database-copy.md). 
@@ -43,7 +45,7 @@ O custo extra ocorre porque o tamanho máximo do banco de dados restaurado é ma
 O tempo de recuperação para restaurar um banco de dados usando backups de banco de dados automatizado é afetado por vários fatores: 
 
 * O tamanho do banco de dados
-* O nível de desempenho do banco de dados
+* O tamanho de computação do banco de dados
 * O número de logs de transações envolvidos
 * A quantidade de atividade que precisa ser repetida para recuperar até o ponto de restauração
 * A largura de banda de rede se a restauração for para uma região diferente 
@@ -72,11 +74,11 @@ Você pode restaurar um banco de dados existente para um ponto anterior no tempo
 > Para obter um script de exemplo do PowerShell que mostra como executar uma recuperação pontual de um banco de dados, consulte [Restaurar um banco de dados SQL usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
 >
 
-O banco de dados pode ser restaurado para qualquer nível de desempenho ou de camada de serviço e como um banco de dados individual ou em um pool elástico. Certifique-se de ter recursos suficientes no servidor lógico ou no pool elástico para o qual você está restaurando o banco de dados. Uma vez concluído, o banco de dados restaurado é um banco de dados online normal e totalmente acessível. O banco de dados restaurado é cobrado a taxas normais com base em seu nível de desempenho e na camada de serviço. Você não incorrerá encargos até que a restauração do banco de dados seja concluída.
+O banco de dados pode ser restaurado para qualquer tamanho de computação ou camada de serviço e como um banco de dados individual ou em um pool elástico. Certifique-se de ter recursos suficientes no servidor lógico ou no pool elástico para o qual você está restaurando o banco de dados. Uma vez concluído, o banco de dados restaurado é um banco de dados online normal e totalmente acessível. O banco de dados restaurado é cobrado a taxas normais com base em seu tamanho de computação e na camada de serviço. Você não incorrerá encargos até que a restauração do banco de dados seja concluída.
 
 Um banco de dados geralmente é restaurado para um ponto anterior para fins de recuperação. Ao fazê-lo, você poderá tratar o banco de dados restaurado como um substituto do banco de dados original ou usá-lo para recuperar os dados e, em seguida, atualizar o banco de dados original. 
 
-* ***Substituição de banco de dados:*** se o banco de dados restaurado se destinar a ser um substituto do banco de dados original, você deverá verificar se o nível de desempenho e/ou a camada de serviço são adequados e escalar o banco de dados, se necessário. Você pode renomear o banco de dados original e, em seguida, dar ao banco de dados restaurado o nome original usando o comando [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) no T-SQL. 
+* ***Substituição de banco de dados:*** se o banco de dados restaurado for um substituto do banco de dados original, você deverá verificar se o tamanho de computação e/ou a camada de serviço são adequados e podem dimensionar o banco de dados, se necessário. Você pode renomear o banco de dados original e, em seguida, dar ao banco de dados restaurado o nome original usando o comando [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) no T-SQL. 
 * ***Recuperação de dados:*** se planejar recuperar dados do banco de dados restaurado para se recuperar de um erro de aplicativo ou de usuário, você precisará escrever e executar os scripts de recuperação de dados necessários para extrair dados do banco de dados restaurado para o banco de dados original. Embora a operação de restauração possa demorar muito para concluir, o banco de dados em restauração é visível na lista de banco de dados por todo o processo de restauração. Se você excluir o banco de dados durante a restauração, a operação de restauração será cancelada e você não será cobrado pelo banco de dados cuja restauração não foi concluída. 
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -146,7 +148,7 @@ Conforme discutido anteriormente, além do Portal do Azure, a recuperação de b
 |  | |
 
 ## <a name="summary"></a>Resumo
-Backups automáticos protegem seus bancos de dados contra erros de usuário e de aplicativo, exclusão acidental do banco de dados e interrupções prolongadas. Essa funcionalidade interna está disponível para todas as camadas de serviço e níveis de desempenho. 
+Backups automáticos protegem seus bancos de dados contra erros de usuário e de aplicativo, exclusão acidental do banco de dados e interrupções prolongadas. Essa funcionalidade interna está disponível para todas as camadas de serviço e tamanhos de computação. 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma visão geral e os cenários de continuidade dos negócios, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).

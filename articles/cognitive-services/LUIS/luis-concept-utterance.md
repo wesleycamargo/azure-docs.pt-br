@@ -1,20 +1,21 @@
 ---
-title: Enunciados em aplicativos de LUIS no Azure | Microsoft Docs
-description: Adicione enunciados em aplicativos LUIS (Serviço Inteligente de Reconhecimento Vocal).
+title: Enunciados em aplicativos do LUIS
+titleSuffix: Azure Cognitive Services
+description: Enunciados são entradas do usuário que seu aplicativo precisa interpretar. Colete frases que você acredita que os usuários vão inserir. Inclua enunciados que tenham o mesmo significado, mas sejam construídos de modo diferente em termos de comprimento e posicionamento de palavras.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6f962d0aaf631051c841be29d2854a89bf58ac25
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 39c99cc35f4c2549efc9c20af0680b77483325c5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224408"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038928"
 ---
 # <a name="utterances-in-luis"></a>Enunciados em LUIS
 
@@ -35,12 +36,14 @@ Ao escolher enunciados, lembre-se de que o que você considera um termo ou frase
 Você descobrirá que, mesmo que você se esforce para criar padrões de frases variados, ainda repetirá algum vocabulário.
 
 Pegue estes enunciados de exemplo:
-```
-how do I get a computer?
-Where do I get a computer?
-I want to get a computer, how do I go about it?
-When can I have a computer? 
-```
+
+|Exemplo de enunciados|
+|--|
+|Como obtenho um computador?|
+|Onde obtenho um computador?|
+|Quero obter um computador, como faço isso?|
+|Quando posso ter um computador?| 
+
 O termo principal aqui, "computador", não é variado. As pessoas poderiam dizer computador desktop, laptop, estação de trabalho ou até mesmo apenas computador. O LUIS infere de modo inteligente os sinônimos com base no contexto, mas quando você cria enunciados para treinamento, ainda é melhor variá-los.
 
 ## <a name="example-utterances-in-each-intent"></a>Enunciados de exemplo em cada intenção

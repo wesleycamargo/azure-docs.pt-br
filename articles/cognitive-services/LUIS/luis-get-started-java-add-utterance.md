@@ -1,20 +1,21 @@
 ---
-title: Início Rápido – alterar o modelo e treinar o aplicativo LUIS usando Java – Serviços Cognitivos do Azure | Microsoft Docs
+title: Início Rápido do Java – alterar o modelo e treinar o aplicativo LUIS
+titleSuffix: Azure Cognitive Services
 description: Neste início rápido de Java, adicione exemplos de enunciados a um aplicativo Automação de Página Inicial e treine o aplicativo. Exemplos de enunciados consistem em texto de conversa do usuário mapeado para uma intenção. Ao mostrar exemplos de enunciados para intenções, você ensina o LUIS quais tipos de textos fornecidos pelo usuário pertencem a qual intenção.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ddb22bce77dda55ad6e83efa8c0ca2c476f78836
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8500dfdd639b4f1de46a0b79b87a8564d338b6ab
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161111"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042017"
 ---
 # <a name="quickstart-change-model-using-java"></a>Início Rápido: Alterar o modelo usando Java 
 
@@ -38,7 +39,7 @@ ms.locfileid: "44161111"
 
    [!code-java[Java Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=23-26 "Java Dependencies")]
 
-2. Crie a classe `AddUtterances`. Essa classe contém todos os trechos de código seguintes.
+2. Crie a classe `AddUtterances`. Essa classe contém todos os snippets de código seguintes.
 
     ```Java
     public class AddUtterances {

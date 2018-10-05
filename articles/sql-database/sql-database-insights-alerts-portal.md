@@ -1,20 +1,23 @@
 ---
 title: Usar o portal do Azure para criar alertas de Banco de Dados SQL | Microsoft Docs
 description: Use o portal do Azure para criar alertas do Banco de Dados SQL, que podem disparar notificações ou automação quando as condições especificadas são atendidas.
-author: aamalvea
-manager: craigg
 services: sql-database
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: aamalvea
 ms.author: aamalvea
-ms.openlocfilehash: 349f1bbb0bfcc737d70e32947dd217c2cd51e194
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648016"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159305"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usar o Portal do Azure para criar alertas para o Banco de Dados SQL do Azure e para o Data Warehouse
 
@@ -34,7 +37,7 @@ Você pode configurar um alerta para fazer o seguinte quando ele dispara:
 
 Você pode configurar e obter informações sobre o uso de regras de alerta
 
-* [Portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [CLI (Interface de linha de comando)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -43,7 +46,7 @@ Você pode configurar e obter informações sobre o uso de regras de alerta
 1. No [Portal](https://portal.azure.com/), localize o recurso no qual você está interessado em monitor e selecione-o.
 2. Esta etapa é diferente para o BD SQL e pools elásticos do que para o SQL DW: 
 
-   - **SOMENTE BD SQL e Pools Elásticos**: selecione **Alertas** ou **Regras de alerta** na seção MONITORAMENTO. O texto e o ícone podem variar um pouco para recursos diferentes.  
+   - **SOMENTE BD SQL e Pools elásticos**: selecione **Alertas** ou **Regras de alerta** na seção MONITORAMENTO. O texto e o ícone podem variar um pouco para recursos diferentes.  
    
      ![Monitoramento](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
   
@@ -108,7 +111,7 @@ Depois de criar um alerta, você poderá selecioná-lo e:
 | SQL Data Warehouse | connection_successful | Conexões bem sucedidas | Total | 10 minutos |
 | SQL Data Warehouse | connection_failed | Conexões com falha | Total | 10 minutos |
 | SQL Data Warehouse | blocked_by_firewall | Bloqueado pelo firewall | Total | 10 minutos |
-| SQL Data Warehouse | service_level_objective | Objetivo de nível de serviço do banco de dados | Total | 10 minutos |
+| SQL Data Warehouse | service_level_objective | Camada de serviço do banco de dados | Total | 10 minutos |
 | SQL Data Warehouse | dwu_limit | limite de dwu | Máximo | 10 minutos |
 | SQL Data Warehouse | dwu_consumption_percent | Porcentagem de DWU | Média | 10 minutos |
 | SQL Data Warehouse | dwu_used | DWU usado | Média | 10 minutos |

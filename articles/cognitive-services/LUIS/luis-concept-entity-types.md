@@ -1,20 +1,21 @@
 ---
-title: Noções básicas sobre tipos de entidade em aplicativos LUIS no Azure | Microsoft Docs
+title: Tipos de entidade em aplicativos LUIS – Reconhecimento vocal
+titleSuffix: Azure Cognitive Services
 description: Adicione entidades (principais dados no domínio do seu aplicativo) em aplicativos LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 3ed10ac428b7ce2e528ccf46e34c1d394523bdec
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282272"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042441"
 ---
 # <a name="entities-in-luis"></a>Entidades no LUIS
 
@@ -45,10 +46,10 @@ Se a escolha ou a disposição das palavras for a mesma, mas não significar a m
 
 Nas declarações a seguir, a palavra `fair` é um homógrafo. Sua ortografia é a mesma, mas tem um significado diferente:
 
-```
-What kind of county fairs are happening in the Seattle area this summer?
-Is the current rating for the Seattle review fair?
-```
+|Enunciado|
+|--|
+|Que tipos de festivais regionais estão acontecendo na área de Seattle neste verão?|
+|A classificação atual para a análise de Seattle é justa?|
 
 Se você quiser que uma entidade de evento localize todos os dados do evento, rotule a palavra `fair` na primeira declaração, mas não na segunda.
 

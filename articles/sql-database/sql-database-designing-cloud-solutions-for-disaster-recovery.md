@@ -3,20 +3,22 @@ title: Projetar serviços globalmente disponíveis usando o banco de dados SQL d
 description: Saiba mais sobre a criação de um aplicativo para serviços altamente disponíveis usando o Banco de Dados SQL do Azure.
 keywords: recuperação de desastre em nuvem, soluções de recuperação de desastre, backup de dados de aplicativo, replicação geográfica, planejamento de continuidade de negócios
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/26/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+manager: craigg
+ms.date: 07/26/2018
+ms.openlocfilehash: 8522fea10a4ec8f85d20e5a9ec04712c77bb6b94
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264647"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064253"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Criar serviços globalmente disponíveis usando o banco de dados SQL
 
@@ -160,4 +162,4 @@ A estratégia específica de recuperação de desastre em nuvem pode combinar ou
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma visão geral e os cenários de continuidade dos negócios, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 * Para saber mais sobre a replicação geográfica e grupos de failover, consulte [Replicação geográfica ativa](sql-database-geo-replication-overview.md)  
-* Para obter informações sobre o uso da replicação geográfica ativa com Pools elásticos, confira [Estratégias de recuperação de desastres do pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Para obter informações sobre a replicação geográfica ativa com pools elásticos, confira [Estratégias de recuperação de desastre do pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

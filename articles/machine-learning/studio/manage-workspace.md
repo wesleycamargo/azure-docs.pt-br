@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 8c8e65d5fd7efd1f9212b76e1a72b91a0ea07272
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6e1febfff211dd92f8990d1880562e64382de5f0
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835059"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095439"
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Gerenciar um espaço de trabalho do Azure Machine Learning
 
@@ -51,7 +51,7 @@ Para gerenciar os serviços Web associados a esse espaço de trabalho, use o Por
 > [!NOTE]
 > Para implantar ou gerenciar Novos serviços Web, você deverá ser atribuído a uma função de colaborador ou de administrador na assinatura na qual o serviço Web é implantado. Se você convidar outro usuário para um espaço de trabalho do Machine Learning, deverá atribuí-lo a uma função de colaborador ou de administrador na assinatura antes de implantar ou gerenciar os serviços Web. 
 > 
->Para saber mais sobre como configurar permissões de acesso, consulte [Exibir atribuições de acesso para usuários e grupos no Portal do Azure](../../role-based-access-control/role-assignments-users.md).
+>Para obter mais informações sobre como definir permissões de acesso, confira [Gerenciar o acesso usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [implantar o Machine Learning com modelos do Azure Resource Manager](deploy-with-resource-manager-template.md). 

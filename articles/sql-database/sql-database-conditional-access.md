@@ -2,25 +2,33 @@
 title: Acesso Condicional – Banco de Dados SQL do Azure e Data Warehouse | Microsoft Doc
 description: Saiba como configurar o Acesso Condicional para o Banco de Dados SQL do Azure e o Data Warehouse.
 services: sql-database
-author: GithubMirek
-manager: johammer
-ms.custom: security
 ms.service: sql-database
+ms.subservice: security
+ms.custom: sql-data-warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: GithubMirek
 ms.author: mireks
-ms.openlocfilehash: 83762136659756204aab5da367b905f66e770087
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: e7386e2f926132f5657bdb17011dafe1e1c7b101
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647452"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063074"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Acesso Condicional (MFA) com o Banco de Dados SQL do Azure e o Data Warehouse  
 
-O Banco de Dados SQL e o SQL Data Warehouse dão suporte ao Acesso Condicional da Microsoft. As próximas etapas mostram como configurar o Banco de Dados SQL para impor uma política de Acesso Condicional.  
+O [Banco de Dados SQL](sql-database-technical-overview.md) do Azure e o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) dão suporte ao Acesso Condicional da Microsoft. 
 
-## <a name="prerequisites"></a>pré-requisitos  
+> [!NOTE]
+> Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
+
+As próximas etapas mostram como configurar o Banco de Dados SQL para impor uma política de Acesso Condicional.  
+
+## <a name="prerequisites"></a>Pré-requisitos  
 - Você deve configurar o Banco de Dados SQL ou o SQL Data Warehouse para dar suporte à autenticação do Azure Active Directory. Para obter etapas específicas, consulte [Configurar e gerenciar a autenticação do Azure Active Directory com o Banco de Dados SQL ou o SQL Data Warehouse](sql-database-aad-authentication-configure.md).  
 - Quando a autenticação multifator estiver habilitada, você deverá se conectar com uma ferramenta com suporte, como o último SSMS. Para obter mais informações, consulte [Configurar a autenticação multifator do Banco de Dados SQL do Azure para o SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 

@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: d4ebecd11f4ca3d12a55cf25db31e31d7f528db8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b6d548183cfa548f9ad35f06922752c929e318ac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343722"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041948"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar minha conta para verificação em duas etapas
 A verificação em duas etapas é uma etapa adicional de segurança que ajuda a proteger sua conta, tornando mais difícil para outras pessoas invadi-la. Se você está lendo este artigo, é provável que tenha um email de seu administrador do trabalho ou escola sobre Autenticação Multifator. Ou talvez você tenha tentado entrar e recebido uma mensagem pedindo para configurar uma verificação de segurança adicional. Se esse for o caso, **você não poderá entrar até concluir o processo de registro automático**.
@@ -47,6 +47,9 @@ A primeira pergunta no processo de registro é como você deseja que entremos em
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>Usar um aplicativo móvel como método de contato
 Usar esse método requer que você instale um aplicativo autenticador em seu telefone ou tablet. As etapas nesse artigo baseiam-se no aplicativo Microsoft Authenticator, disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+
+>[!NOTE]
+>Você não precisa usar o aplicativo Microsoft Authenticator. Se você já estiver usando outro aplicativo de autenticador, continue usando-o.
 
 1. Selecione **Aplicativo móvel** na lista suspensa.
 2. Selecione **Receber notificações para verificação** ou **Usar código de verificação**, então selecione **Configurar**.

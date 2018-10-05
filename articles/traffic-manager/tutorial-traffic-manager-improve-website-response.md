@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: 89518d30b862e18fb7c989c95144ffa7f1c294fc
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 087dcda5826d96ad064c472fc897be7e61133387
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40024544"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392484"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Melhorar a resposta de site usando o Gerenciador de Tráfego 
 
@@ -171,7 +171,7 @@ Crie um perfil do Gerenciador de Tráfego que direciona o tráfego do usuário e
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | NOME                   | Esse nome deve ser exclusivo na zona trafficmanager.net e resulta no nome DNS, trafficmanager.net, que é usado para acessar o seu perfil do Gerenciador de Tráfego.                                   |
-    | Método de roteamento          | Selecione o método de encaminhamento **Prioridades**.                                       |
+    | Método de roteamento          | Selecione o método de roteamento **Desempenho**.                                       |
     | Assinatura            | Selecione sua assinatura.                          |
     | Grupo de recursos          | Selecione **Criar novo** e insira *myResourceGroupTM1*. |
     | Local padrão                | Selecione **Leste dos EUA**.  Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que será implantado globalmente.                              |

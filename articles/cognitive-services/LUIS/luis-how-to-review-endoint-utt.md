@@ -1,20 +1,21 @@
 ---
-title: Declarações sugeridas de rótulo com o LUIS | Microsoft Docs
-description: Use o Reconhecimento vocal (LUIS) para rotular declarações sugeridas e ajudar a melhorar o aprendizado de máquina ativo.
+title: Examinar os enunciados de ponto de extremidade para LUIS (Reconhecimento vocal)
+titleSuffix: Azure Cognitive Services
+description: O recurso inovador do LUIS é o conceito de aprendizado ativo. Depois que o LUIS tiver consultas de ponto de extremidade, o aprendizado ativo melhorará a qualidade dos resultados selecionando os enunciados sobre os quais ele não tem certeza. Se você rotular essas declarações, treiná-las e publicá-las, o LUIS identificará as declarações com mais precisão.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 5e195b8ef5aeb35b73c22438980fe2b2e3856977
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224544"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030788"
 ---
 # <a name="review-endpoint-utterances"></a>Examinar declarações de ponto de extremidade
 
@@ -24,8 +25,6 @@ O recurso inovador do LUIS é o [conceito](luis-concept-review-endpoint-utteranc
 1. Abra o aplicativo (por exemplo, TravelAgent) selecionando o nome na página **Meus Aplicativos** e selecione **Compilar** na barra superior.
 
 2. Em **Melhorar o desempenho do aplicativo**, selecione **Examinar declarações de ponto de extremidade**.
-
-    ![Revisar declarações](./media/label-suggested-utterances/review.png)
 
 3. Na página **Examinar declarações de ponto de extremidade**, clique na caixa de texto **Filtrar lista por intenção ou entidade**. Essa lista suspensa inclui todas as intenções em **INTENÇÕES** e todas as entidades em **ENTIDADES**.
 

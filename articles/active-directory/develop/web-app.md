@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: ea1117e202868465e3ea4004d21cf62d175a357a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0eec1100c5246bb9f5c281971453ac60abc0339f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963910"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224996"
 ---
 # <a name="web-apps"></a>Aplicativos Web
 
@@ -44,7 +44,7 @@ Veja os exemplos de código do navegador da Web para cenários de aplicativo Web
 
 ## <a name="app-registration"></a>Registro do aplicativo
 
-Para registrar um aplicativo Web, veja [Registrar um aplicativo no ponto de extremidade do Azure AD v 2.0](quickstart-v2-register-an-app.md).
+Para registrar um aplicativo Web, confira [Registrar um aplicativo no ponto de extremidade do Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
 
 * Locatário único: se você estiver criando um aplicativo apenas para a sua organização, ele deverá ser registrado no diretório da sua empresa usando o portal do Azure.
 * Multilocatário: se você estiver criando um aplicativo que pode ser usado por usuários fora da sua organização, ele deve ser registrado no diretório da sua empresa, mas também deve ser registrado no diretório de cada organização que usará o aplicativo. Para disponibilizar seu aplicativo em seu diretório, você pode incluir um processo de inscrição para os clientes que os permita ter autorização para seu aplicativo. Ao se inscreverem para seu aplicativo, uma caixa de diálogo será apresentada, mostrando as permissões exigidas pelo aplicativo e, em seguida, a opção de consentimento. Dependendo das permissões necessárias, um administrador na outra organização talvez precise dar consentimento. Quando o usuário ou administrador der seu consentimento, o aplicativo é registrado em seu diretório.

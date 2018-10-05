@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 7619056ace5d9b3cf083a40a6cfa06a0cac0561e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2668279b33d2d8d1c0adf92c138cc6347c95bd4d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949682"
+ms.locfileid: "47035344"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notas de versão da versão prévia do Gateway do Azure Data Box
 
@@ -52,9 +52,11 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para o Gateway do D
 | **4.** |Renomear |Não há suporte para renomeação de objetos. |Entre em contato com o Suporte da Microsoft se esse recurso for crucial para seu fluxo de trabalho. |
 | **5.** |Copiar| Se um arquivo somente leitura for copiado no dispositivo, a propriedade somente leitura não será preservada. | |
 | **6.** |Logs| Devido a um bug nesta versão, você poderá ver as instâncias do código de erro 110 em *error.xml* com nomes de item irreconhecíveis. | |
-| **7.** |Carregar | Devido a um bug nesta versão, você pode ver instâncias do código de erro 2003 durante o upload de arquivos específicos. | |
-| **8.** |Exclusão | Devido a um bug nesta versão, se um compartilhamento NFS for excluído, o compartilhamento não poderá ser excluído. O status do compartilhamento mostrará *Excluindo*.  |Isso ocorre apenas quando o compartilhamento estiver usando um nome de arquivo sem suporte. |
-| **9.** |Ajuda online |Talvez os links para a Ajuda no portal do Azure não levem à documentação.|Os links para a Ajuda funcionarão na versão de Disponibilidade geral. |
+| **7.** |Carregar | Devido a um bug nesta versão, poderá ocorrer casos do código de erro 2003 durante o upload de arquivos específicos. | |
+| **8.** |Tipos de arquivo | Não há suporte para os seguintes tipos de arquivo do Linux: arquivos de caracteres, arquivos de bloco, soquetes, pipes e links simbólicos.  |A cópia desses arquivos resulta na criação de arquivos de comprimento 0 no compartilhamento NFS. Esses arquivos permanecem no estado de erro e também são relatados no *error.xml*. |
+| **9.** |Exclusão | Devido a um bug nesta versão, se um compartilhamento NFS for excluído, o compartilhamento não poderá ser excluído. O status do compartilhamento mostrará *Excluindo*.  |Isso ocorre apenas quando o compartilhamento estiver usando um nome de arquivo sem suporte. |
+| **10.** |Atualizar | As permissões e ACLs (listas de controle de acesso) não são preservadas em uma operação de atualização.  | |
+| **11.** |Ajuda online |Talvez os links para a Ajuda no portal do Azure não levem à documentação.|Os links para a Ajuda funcionarão na versão de Disponibilidade geral. |
 
 
 

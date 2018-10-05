@@ -8,16 +8,21 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 512f251a91a035d3d48566c414076b1a5b6d8805
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 961f82cd4970abfdd11a30b2847a14f8ff1880b0
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37907093"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454557"
 ---
 Os tamanhos de VM otimizados para armazenamento oferecem taxa de transferência de disco alta e de E/S e são ideais para bancos de dados Big Data, SQL e NoSQL. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
 
-A série Ls oferece até 32 vCPUs, usando a [família de processadores Intel® Xeon® E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls obtém o mesmo desempenho de CPU da série G/GS e vem com 8 GiB de memória por vCPU.  
+A série Ls oferece até 32 vCPUs, usando a [família de processadores Intel® Xeon® E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls obtém o mesmo desempenho de CPU da série G/GS e vem com 8 GiB de memória por vCPU.  As VMs da série Ls são ideais para aplicativos que exigem baixa latência, alta taxa de transferência e um amplo armazenamento em disco local. 
+
+Exemplos de casos de uso: bancos de dados NoSQL, tais como Cassandra, MongoDB, Cloudera e Redis, armazenamento de dados e grandes bancos de dados transacionais.
+
+> [!NOTE]
+> A série Ls é otimizada para uso do disco temporário conectado ao computador da VM em vez do uso de discos de dados duráveis. A alta taxa de transferência e o IOPS do disco temporário torna a série Ls ideal para repositórios NoSQL, como Apache Cassandra e MongoDB, que replicam dados entre várias VMs para obter persistência no caso de falha de uma única VM. A série Ls não é compatível com a criação de um cache local para aumentar o IOPS que pode ser obtido por discos de dados duráveis.
 
 ## <a name="ls-series"></a>Série Ls
 

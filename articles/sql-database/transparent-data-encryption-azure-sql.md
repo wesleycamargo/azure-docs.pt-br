@@ -2,27 +2,26 @@
 title: Transparent Data Encryption para Data Warehouse e Banco de Dados SQL do Azure | Microsoft Docs
 description: Uma visão geral do Transparent Data Encryption para Data Warehouse e Banco de Dados SQL do Azure. O documento abrange os benefícios e as opções de configuração que incluem Transparent Data Encryption gerenciado pelo serviço e Bring Your Own Key.
 services: sql-database
-author: becczhang
-manager: craigg
-ms.prod: ''
-ms.reviewer: carlrab
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
-ms.tgt_pltfrm: ''
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/09/2018
+author: becczhang
 ms.author: aliceku
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: afc53fc1abce74b247ec2e25bc3e4845bc870860
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.reviewer: vanto
+manager: craigg
+ms.date: 07/09/2018
+ms.openlocfilehash: 50b433c65dec1f667f32aaf60148a6e393c67320
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380192"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165919"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption para Data Warehouse e Banco de Dados SQL do Azure
 
-A TDE (Transparent Data Encryption) ajuda a proteger o Banco de Dados SQL do Azure e Data Warehouse do Azure contra a ameaça de atividade mal-intencionada. Ela realiza a criptografia e a descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem a necessidade de alterações no aplicativo. Por padrão, a TDE está habilitada para todos os Banco de Dados SQL do Azure implantados recentemente. A TDE não pode ser utilizada para criptografar o banco de dados **mestre** lógico no Banco de Dados SQL.  O banco de dados **mestre** contém os objetos necessários para executar as operações de TDE nos bancos de dados do usuário.
+A TDE (Transparent Data Encryption) ajuda a proteger o Banco de Dados SQL do Azure e Data Warehouse do Azure contra a ameaça de atividade mal-intencionada. Ela realiza a criptografia e a descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem a necessidade de alterações no aplicativo. Por padrão, a TDE está habilitada para todos os bancos de dados SQL do Azure recém-implantados. A TDE não pode ser utilizada para criptografar o banco de dados **mestre** lógico no Banco de Dados SQL.  O banco de dados **mestre** contém os objetos necessários para executar as operações de TDE nos bancos de dados do usuário.
 
 Será necessário habilitar a TDE manualmente para bancos de dados mais antigos ou para SQL Data Warehouse do Microsoft Azure.  
 

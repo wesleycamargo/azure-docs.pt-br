@@ -1,20 +1,21 @@
 ---
-title: Noções básicas sobre recursos em aplicativos LUIS no Azure | Microsoft Docs
-description: Saiba mais sobre os recursos que ajudam a melhorar o desempenho de um aplicativo LUIS. Os recursos incluem listas de frase e padrões para reconhecer expressões regulares.
+title: Recursos em aplicativos LUIS nos Serviços Cognitivos do Azure
+titleSuffix: Azure Cognitive Services
+description: Adicione recursos a um modelo de linguagem para fornecer dicas sobre como reconhecer a entrada que você deseja identificar ou classificar. Os recursos ajudam o LUIS a reconhecer intenções e entidades.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8d3f006f27d1d728f89458deba27e1c1a63b6de5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 015679b6020e9d2a4d702f9d6e723ecd9499d8dc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224921"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034460"
 ---
 # <a name="phrase-list-features-in-luis"></a>Recursos de lista de frase no LUIS
 

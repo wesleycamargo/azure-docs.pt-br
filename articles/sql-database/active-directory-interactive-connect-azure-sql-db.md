@@ -2,20 +2,22 @@
 title: Conexões de ActiveDirectoryInteractive com SQL | Microsoft Docs
 description: Exemplo de código em C#, com explicações, para se conectar ao Banco de Dados SQL do Azure usando o modo SqlAuthenticationMethod.ActiveDirectoryInteractive.
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
+ms.subservice: security
 ms.custom: active directory
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/06/2018
+author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.openlocfilehash: 3d6eb70b3ce9072dc2c51220af89549022b5dacf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.date: 04/06/2018
+manager: craigg
+ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238261"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055519"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Use o modo ActiveDirectoryInteractive para se conectar ao Banco de Dados SQL do Azure
 
@@ -122,13 +124,13 @@ O programa em C# se baseia no namespace **Microsoft.IdentityModel.Clients.Active
 
 O exemplo de C# se baseia no namespace **System.Data.SqlClient**. A enumeração **SqlAuthenticationMethod** é de interesse especial. Essa enumeração tem os seguintes valores:
 
-- **SqlAuthenticationMethod.ActiveDirectory\*Interactive**\*:&nbsp; use com um nome de usuário do Azure AD para executar a MFA (autenticação multifator).
+- **SqlAuthenticationMethod.ActiveDirectory *Interactive***:&nbsp; use com um nome de usuário do Microsoft Azure AD para obter MFA (autenticação multifator).
     - Esse valor é o foco deste artigo. Ele produz uma experiência interativa exibindo caixas de diálogo para a senha do usuário e, em seguida, para a validação de MFA se ela é imposta ao usuário.
     - Esse valor está disponível a partir do .NET Framework versão 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory*Integrated***:&nbsp; use para uma conta *federada*. Para uma conta federada, o nome de usuário é conhecido pelo domínio do Windows. Esse método não é compatível com a MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Integrated***:&nbsp; use para uma conta *federada*. Para uma conta federada, o nome de usuário é conhecido pelo domínio do Windows. Esse método não é compatível com a MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory\*Password**\*:&nbsp; use para autenticação que requer um usuário do Azure AD e a senha do usuário. O Banco de Dados SQL do Azure executa a autenticação. Esse método não é compatível com a MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Password***:&nbsp; use para autenticação que requer um usuário do Microsoft Azure AD e a senha do usuário. O Banco de Dados SQL do Azure executa a autenticação. Esse método não é compatível com a MFA.
 
 
 

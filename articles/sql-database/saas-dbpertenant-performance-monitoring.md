@@ -1,21 +1,23 @@
 ---
 title: Monitoração do desempenho de vários bancos de dados do Azure SQL em um aplicativo de SaaS multilocatário | Microsoft Docs
 description: Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
-keywords: tutorial do banco de dados SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: d8e260b8dabb4c6823d59374a7b8661e024f1b3d
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: e774394eeb95fbc8d80e181a614a7e30258a100e
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752264"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056763"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 
@@ -49,9 +51,9 @@ Os pools e os bancos de dados nos pools, devem ser monitorados para garantir que
 ### <a name="performance-management-strategies"></a>Estratégias de gerenciamento de desempenho
 
 * Para evitar precisar monitorar o desempenho manualmente, é mais eficaz **definir alertas que são disparados quando os bancos de dados ou os pools se desviam dos intervalos normais**.
-* Para responder às flutuações de curto prazo no nível de desempenho agregado de um pool, o **nível de eDTU do pool pode ser aumentado ou reduzido**. Se esse flutuação ocorre de maneira regular ou previsível, **o dimensionamento do pool pode ser agendado para ocorrer automaticamente**. Por exemplo, reduzir verticalmente quando você souber que sua carga de trabalho é leve, talvez durante a noite ou durante os finais de semana.
+* Para responder às flutuações de curto prazo no tamanho de computação agregado de um pool, o **nível de eDTU do pool pode ser aumentado ou reduzido**. Se esse flutuação ocorre de maneira regular ou previsível, **o dimensionamento do pool pode ser agendado para ocorrer automaticamente**. Por exemplo, reduzir verticalmente quando você souber que sua carga de trabalho é leve, talvez durante a noite ou durante os finais de semana.
 * Para responder a flutuações de longo prazo ou alterações no número de bancos de dados, **os bancos de dados individuais podem ser movidos para outros pools**.
-* Para responder a aumentos de curto prazo na *carga de um banco de dados* individual, **bancos de dados individuais podem ser retirados de um pool e serem atribuídos a um nível de desempenho individual**. Depois que a carga for reduzida, o banco de dados poderá ser retornado ao pool. Quando isso é conhecido com antecedência, os bancos de dados podem ser movidos preventivamente para garantir que o banco de dados sempre tenha os recursos necessários e para evitar o impacto em outros bancos de dados no pool. Se esse requisito for previsível, como um local com um crescimento súbito nas vendas de ingressos para um evento popular, esse comportamento de gerenciamento poderá ser integrado ao aplicativo.
+* Para responder a aumentos de curto prazo na carga de um banco de dados *individual*, **bancos de dados individuais podem ser retirados de um pool e serem atribuídos a um tamanho de computação individual**. Depois que a carga for reduzida, o banco de dados poderá ser retornado ao pool. Quando isso é conhecido com antecedência, os bancos de dados podem ser movidos preventivamente para garantir que o banco de dados sempre tenha os recursos necessários e para evitar o impacto em outros bancos de dados no pool. Se esse requisito for previsível, como um local com um crescimento súbito nas vendas de ingressos para um evento popular, esse comportamento de gerenciamento poderá ser integrado ao aplicativo.
 
 O [Portal do Azure](https://portal.azure.com) fornece monitoramento e alertas internos sobre a maioria dos recursos. Para o Banco de Dados SQL, o monitoramento e o alerta estão disponíveis em bancos de dados e pools. Esse monitoramento e alertas internos são específicos ao recurso e, portanto, é conveniente usá-los para pequenas quantidades de recursos, mas não são muito convenientes ao trabalhar com muitos recursos.
 
@@ -207,7 +209,7 @@ Este exercício simula o efeito do Contoso Concert Hall experimentando uma alta 
 2. Inspecione a exibição **Monitoramento do banco de dados elástico** que mostra os bancos de dados mais ativos na última hora. O banco de dados *contosoconcerthall* logo deve aparecer como um dos cinco bancos de dados mais ativos.
 3. **Clique no** **gráfico** Monitoramento do banco de dados elástico e ele abrirá a página **Utilização de Recursos do Banco de Dados**, em que você pode monitorar um dos bancos de dados. Isso permite isolar a exibição do banco de dados *contosoconcerthall*.
 4. Na lista de bancos de dados, clique em **contosoconcerthall**.
-5. Clique em **Tipo de Preço (DTUs em escala)** para abrir a página **Configurar desempenho**, em que você pode definir um nível de desempenho autônomo para o banco de dados.
+5. Clique em **Tipo de Preço (DTUs em escala)** para abrir a página **Configurar desempenho**, na qual é possível definir um tamanho de computação para o banco de dados.
 6. Clique na guia **Standard** para abrir as opções de escala na camada Standard.
 7. Deslize o **controle deslizante de DTU** para a direita para selecionar **100** DTUs. Observe que isso corresponde ao objetivo de serviço **S3**.
 8. Clique em **Aplicar** para mover o banco de dados para fora do pool e torná-lo um banco de dados *Standard S3*.

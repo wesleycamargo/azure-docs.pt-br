@@ -1,25 +1,27 @@
 ---
 title: Detecção de Ameaças – Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
-description: A Detecção de Ameaças detecta as atividades anormais do banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
+description: A Detecção de Ameaças detecta atividades anormais do banco de dados que indicam possíveis ameaças de segurança contra o banco de dados em uma Instância Gerenciada.
 services: sql-database
-author: rmatchoro
-manager: craigg
 ms.service: sql-database
-ms.custom: security, managed instance
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/07/2018
+author: rmatchoro
 ms.author: ronmat
-ms.reviewer: carlrab
-ms.openlocfilehash: 14ef907717045e2e0cf297694d92468a65e57e4d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 7f05bd6c96a8e22b1e039c3edcec491b7c079d54
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650070"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162402"
 ---
 # <a name="azure-sql-database-managed-instance-threat-detection"></a>Detecção de Ameaças da Instância Gerenciada do Banco de Dados SQL do Azure
 
-A Detecção de Ameaças do SQL detecta atividades anormais que indicam tentativas potencialmente perigosas e incomuns para acessar ou explorar bancos de dados em uma Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia).
+A Detecção de Ameaças do SQL detecta atividades anormais que indicam tentativas potencialmente perigosas e incomuns para acessar ou explorar bancos de dados em uma Instância Gerenciada do Banco de Dados SQL do Azure.
 
 ## <a name="overview"></a>Visão geral
 

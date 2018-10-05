@@ -2,19 +2,22 @@
 title: Implementar uma solução de Banco de Dados SQL do Azure distribuída geograficamente | Microsoft Docs
 description: Saiba como configurar o Banco de Dados SQL do Azure e o aplicativo para o failover para um banco de dados replicado e failover de teste.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,business continuity
-ms.topic: tutorial
-ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 65cf954f5d91176715181620671f620264069bdc
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416612"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166218"
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implementar um banco de dados distribuído geograficamente
 
@@ -30,7 +33,7 @@ Neste tutorial, você irá configurar um banco de dados SQL do Azure e o aplicat
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
@@ -38,8 +41,8 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 - Um Banco de Dados SQL do Azure instalado. Este tutorial usa o banco de dados de exemplo AdventureWorksLT com um nome de **mySampleDatabase** de um desses inícios rápidos:
 
    - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
-   - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
-   - [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
+   - [Criar Banco de dados - CLI](sql-database-cli-samples.md)
+   - [Criar Banco de dados - PowerShell](sql-database-powershell-samples.md)
 
 - Tendo identificado um método para executar scripts SQL no banco de dados, você pode usar uma das ferramentas de consulta a seguir:
    - O editor de consultas no [Portal do Azure](https://portal.azure.com). Para obter mais informações sobre como usar o editor de consultas no Portal do Azure, consulte [Conectar e consultar usando o Editor de Consultas](sql-database-get-started-portal.md#query-the-sql-database).
@@ -54,7 +57,7 @@ Conecte-se ao banco de dados e crie contas de usuário usando uma das ferramenta
 - SQL Server Management Studio
 - Visual Studio Code
 
-Essas contas de usuário são replicadas automaticamente para o servidor secundário (e mantidas sincronizadas). Para usar o SQL Server Management Studio ou o Visual Studio Code, talvez seja necessário configurar uma regra de firewall, se você estiver se conectando de um cliente em um endereço IP para o qual você ainda não tiver configurou um firewall. Para encontrar as etapas detalhadas, consulte [Criar uma regra de firewall no nível de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+Essas contas de usuário são replicadas automaticamente para o servidor secundário (e mantidas sincronizadas). Para usar o SQL Server Management Studio ou o Visual Studio Code, talvez seja necessário configurar uma regra de firewall, se você estiver se conectando de um cliente em um endereço IP para o qual você ainda não tiver configurou um firewall. Para encontrar as etapas detalhadas, consulte [Criar uma regra de firewall no nível de servidor](sql-database-get-started-portal-firewall.md).
 
 - Na janela de consulta, execute a consulta a seguir para criar duas contas de usuário em seu banco de dados. Esse script concede ao **db_owner** permissões para a conta **app_admin** e concede as permissões **SELECT** e **UPDATE** à conta **app_user**. 
 
@@ -70,7 +73,7 @@ Essas contas de usuário são replicadas automaticamente para o servidor secund�
 
 ## <a name="create-database-level-firewall"></a>Criar firewall no nível de banco de dados
 
-Crie uma [regra de firewall de nível de banco de dados](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) para seu Banco de Dados SQL. Essa regra de firewall de nível de banco de dados é replicada automaticamente para o servidor secundário criado neste tutorial. Para manter a simplicidade (neste tutorial), use o endereço IP público do computador em que você está executando as etapas nesse tutorial. Para determinar o endereço IP usado para a regra de firewall de nível de servidor para o computador atual, consulte [Criar um firewall de nível de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).  
+Crie uma [regra de firewall de nível de banco de dados](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) para seu Banco de Dados SQL. Essa regra de firewall de nível de banco de dados é replicada automaticamente para o servidor secundário criado neste tutorial. Para manter a simplicidade (neste tutorial), use o endereço IP público do computador em que você está executando as etapas nesse tutorial. Para determinar o endereço IP usado para a regra de firewall de nível de servidor para o computador atual, consulte [Criar um firewall de nível de servidor](sql-database-get-started-portal-firewall.md).  
 
 - Na janela de consulta aberta, substitua a consulta anterior pela consulta seguinte, substituindo os endereços IP pelos endereços IP apropriados para o seu ambiente.  
 
@@ -390,8 +393,8 @@ Neste tutorial, você aprendeu a configurar um banco de dados SQL do Azure e o a
 > * Criar e compilar um aplicativo Java para consultar um Banco de Dados SQL do Azure
 > * Executar uma análise de recuperação de desastre
 
-Vá para o próximo tutorial para aprender a criar uma Instância Gerenciada.
+Avance para o próximo tutorial para migrar o SQL Server para uma Instância Gerenciada do Banco de Dados SQL do Azure usando o DMS.
 
 > [!div class="nextstepaction"]
->[Criar uma Instância Gerenciada](sql-database-managed-instance-create-tutorial-portal.md)
+>[Migrar o SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure usando DMS](../dms/tutorial-sql-server-to-managed-instance.md)
 

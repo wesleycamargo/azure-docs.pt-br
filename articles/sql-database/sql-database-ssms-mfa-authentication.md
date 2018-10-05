@@ -2,24 +2,26 @@
 title: Autenticação Multifator do Azure - SQL do Azure | Microsoft Docs
 description: O Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure dão suporte a conexões do SSMS (SQL Server Management Studio) usando a Autenticação Universal do Active Directory.
 services: sql-database
-documentationcenter: ''
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: GithubMirek
 ms.author: mireks
-ms.openlocfilehash: f3c94f41a4f5d7947b862054263ee07ff8ccd98c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 90d4756c251103275fe0a37b0c36562b69a0e035
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650002"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166649"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Autenticação Universal com o Banco de Dados SQL e SQL Data Warehouse (suporte SSMS para MFA)
 O Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure dão suporte a conexões do SSMS (SQL Server Management Studio) usando a *Autenticação Universal do Active Directory*. 
-**Baixar a última versão do SSMS** - No computador cliente, baixe a última versão do SSMS em [Baixar o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Para todos os recursos neste tópico, use pelo menos a versão 17.2 de julho de 2017.  A caixa de diálogo de conexão mais recente, possui esta aparência: ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "Preenche a caixa de Nome de usuário.")  
+**Baixar a última versão do SSMS** - No computador cliente, baixe a última versão do SSMS em [Baixar o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Para todos os recursos neste artigo, use pelo menos a versão 17.2 de julho de 2017.  A caixa de diálogo de conexão mais recente, possui esta aparência: ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "Preenche a caixa de Nome de usuário.")  
 
 ## <a name="the-five-authentication-options"></a>As cinco opções de autenticação  
 - A Autenticação Universal do Active Directory dá suporte a dois métodos de autenticação não interativa (autenticação `Active Directory - Password` e autenticação `Active Directory - Integrated`). Os métodos de Autenticação `Active Directory - Password` e `Active Directory - Integrated` não interativos podem ser usados em muitos aplicativos diferentes (ADO.NET, JDBC, ODBC, etc.). Esses dois métodos nunca resultam em caixas de diálogo pop-up.
@@ -35,11 +37,11 @@ Começando com o [SSMS versão 17](https://docs.microsoft.com/sql/ssms/download-
    ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
 
 ### <a name="azure-ad-business-to-business-support"></a>Suporte entre empresas do Azure AD   
-Os usuários do Azure AD com suporte para cenários de B2B do Azure AD como usuários convidados (consulte [O que é colaboração B2B do Azure](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)) podem se conectar ao Banco de Dados SQL e SQL Data Warehouse apenas como parte dos membros de um grupo criado no Azure AD atual e mapeados manualmente usando a instrução `CREATE USER` do Transact-SQL em um determinado banco de dados. Por exemplo, se `steve@gmail.com` é convidado para o Azure AD `contosotest` (com o domínio do Azure Ad `contosotest.onmicrosoft.com`), um grupo do Azure AD, como `usergroup` deve ser criado no Azure AD que contém o membro `steve@gmail.com`. Em seguida, esse grupo deve ser criado para um banco de dados específico (ou seja, MyDatabase) pelo administrador do SQL do Azure AD ou DBO do Azure AD executando uma instrução `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` do Transact-SQL. Depois que o usuário de banco de dados for criado o usuário `steve@gmail.com` pode fazer logon em `MyDatabase` usando a opção `Active Directory – Universal with MFA support` de autenticação do SSMS. O grupo de usuários, por padrão, possui somente a permissão de conexão e qualquer acesso a dados adicional precisará ser concedido da maneira normal. Observe que o usuário `steve@gmail.com` como um usuário convidado deve marcar a caixa e adicionar o nome de domínio do AD `contosotest.onmicrosoft.com` na caixa de diálogo **Propriedade de Conexão** do SSMS. A opção **ID de locatário ou nome de domínio do AD** tem suporte apenas para opções de conexão Universal com MFA, caso contrário, ela fica acinzentada.
+Os usuários do Azure AD com suporte para cenários de B2B do Azure AD como usuários convidados (consulte [O que é colaboração B2B do Azure](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)) podem se conectar ao Banco de Dados SQL e SQL Data Warehouse apenas como parte dos membros de um grupo criado no Azure AD atual e mapeados manualmente usando a instrução `CREATE USER` do Transact-SQL em um determinado banco de dados. Por exemplo, se `steve@gmail.com` é convidado para o Azure AD `contosotest` (com o domínio do Azure Ad `contosotest.onmicrosoft.com`), um grupo do Azure AD, como `usergroup` deve ser criado no Azure AD que contém o membro `steve@gmail.com`. Em seguida, esse grupo deve ser criado para um banco de dados específico (ou seja, MyDatabase) pelo administrador do SQL do Azure AD ou DBO do Azure AD executando uma instrução `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` do Transact-SQL. Depois que o usuário de banco de dados for criado, o usuário `steve@gmail.com` poderá fazer logon em `MyDatabase` usando a opção de autenticação de SSMS `Active Directory – Universal with MFA support`. O grupo de usuários, por padrão, possui somente a permissão de conexão e qualquer acesso a dados adicional precisará ser concedido da maneira normal. Observe que o usuário `steve@gmail.com` como um usuário convidado precisa marcar a caixa e adicionar o nome de domínio do AD `contosotest.onmicrosoft.com` na caixa de diálogo **Propriedade de Conexão** do SSMS. A opção **ID de locatário ou nome de domínio do AD** tem suporte apenas para opções de conexão Universal com MFA, caso contrário, ela fica acinzentada.
 
 ## <a name="universal-authentication-limitations-for-sql-database-and-sql-data-warehouse"></a>Limitações da Autenticação Universal para o Banco de Dados SQL e SQL Data Warehouse
 - O SSMS e o SqlPackage.exe são as únicas ferramentas atualmente habilitadas para MFA por meio da Autenticação Universal do Active Directory.
-- O SSMS versão 17.2, dá suporte a acesso simultâneo de vários usuário usando a Autenticação Universal com MFA. As versões 17.0 e 17.1 restringiam o logon para uma instância do SSMS usando Autenticação Universal a uma única conta do Azure Active Directory. Para fazer logon como outra conta do Azure AD, você deve usar outra instância do SSMS. (Essa restrição é limitada à Autenticação Universal do Active Directory, você pode fazer logon em diferentes servidores usando a Autenticação de Senha do Active Directory, a Autenticação Integrada do Active Directory ou a Autenticação do SQL Server).
+- O SSMS versão 17.2, dá suporte a acesso simultâneo de vários usuário usando a Autenticação Universal com MFA. As versões 17.0 e 17.1 restringiram o logon para uma instância do SSMS usando Autenticação Universal a uma única conta do Azure Active Directory. Para fazer logon como outra conta do Azure AD, você deve usar outra instância do SSMS. (Essa restrição é limitada à Autenticação Universal do Active Directory, você pode fazer logon em diferentes servidores usando a Autenticação de Senha do Active Directory, a Autenticação Integrada do Active Directory ou a Autenticação do SQL Server).
 - O SSMS dá suporte à Autenticação Universal do Active Directory para a visualização do Pesquisador de Objetos, do Editor de Consultas e do Repositório de Consultas.
 - O SSMS versão 17.2 fornece suporte ao Assistente de DacFx para Eportação/Extração/Implantação de Dados de banco de dados. Depois que um usuário específico é autenticado por meio da caixa de diálogo de autenticação inicial usando a Autenticação Universal, o Assistente de DacFx funciona da mesma maneira que faz para todos os outros métodos de autenticação.
 - O Designer de Tabela de SSMS não dá suporte à Autenticação Universal.

@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 1ec47ddf5769dd8ed624277a86db57f449581b90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948682"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405913"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
-Os alertas de métrica no Azure Monitor funcionam com métricas multidimensionais. Essas métricas podem ser métricas de plataforma, métricas personalizadas (versão prévia), logs populares do Log Analytics convertidos em métricas ou métricas padrão do Application Insights. Os alertas de métrica verificam, em intervalos regulares, se as condições em uma métrica ou em uma série temporal delas são verdadeiras e notificam você quando as condições são atendidas. Os alertas de métrica são baseados no estado, ou seja, eles só enviam notificações quando o estado é alterado.
+Os alertas de métrica no Azure Monitor funcionam com métricas multidimensionais. Essas métricas podem ser métricas de plataforma, [métricas personalizadas](metrics-custom-overview.md), [logs populares do Log Analytics convertidos em métricas](monitoring-metric-alerts-logs.md) ou métricas padrão do Application Insights. Os alertas de métrica verificam, em intervalos regulares, se as condições em uma ou mais séries temporais de métrica são verdadeiras e notificam você quando as condições são atendidas. Os alertas de métrica são baseados em estado, ou seja, eles só enviam notificações quando o estado é alterado.
 
 ## <a name="how-do-metric-alerts-work"></a>Como funcionam os alertas de métrica
 
@@ -75,11 +75,17 @@ Digamos que você tem um aplicativo Web que esteja sob grande demanda e será ne
 
 Essa regra monitorará automaticamente todos os valores para a instância, ou seja, você pode monitorar suas instâncias conforme elas surgem sem precisar modificar a regra de alerta de métrica novamente.
 
-### <a name="monitoring-multiple-resource-using-metric-alerts"></a>Monitorando vários recursos usando alertas de métrica
+### <a name="monitoring-multiple-resources-using-metric-alerts"></a>Monitoramento de vários recursos usando alertas de métrica
 
-Como você viu na seção anterior, é possível ter uma única regra de alerta de métrica que monitora cada combinação de dimensão individual (ou seja, uma série temporal de métrica). No entanto, você ainda está limitado a fazê-la um recurso por vez. Os alertas de métrica também dão suporte ao monitoramento de vários recursos com uma regra na versão prévia. Se você tiver centenas de VMs em sua assinatura, esse novo recurso ajuda a configurar rapidamente o monitoramento para elas. 
+Como você viu na seção anterior, é possível ter uma única regra de alerta de métrica que monitora cada combinação de dimensão individual (ou seja, uma série temporal de métrica). No entanto, anteriormente havia a limitação de fazer isso em um recurso de cada vez. O Azure Monitor também dá suporte ao monitoramento de vários recursos com uma regra de alerta de métrica. Esse recurso está atualmente na versão prévia com suporte apenas em máquinas virtuais. Além disso, um único alerta de métrica pode monitorar os recursos em uma única região do Azure.
 
-Esse recurso está atualmente na visualização. Atualmente, não há suporte no portal do Azure para a criação de regras de alerta de métrica que monitoram vários recursos. Você pode criar essas regras por meio de modelos do Azure Resource Manager.
+Você pode especificar o escopo de monitoramento de um único alerta de métrica de uma destas três maneiras:
+
+- como uma lista de máquinas virtuais em uma região do Azure dentro de uma assinatura
+- todas as máquinas virtuais (em uma única região do Azure) em um ou mais grupos de recursos em uma assinatura
+- todas as máquinas virtuais (em uma região do Azure) em uma assinatura
+
+Atualmente, não há suporte no portal do Azure para a criação de regras de alerta de métrica que monitoram vários recursos. Você pode criar essas regras por meio de [modelos do Azure Resource Manager](monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). Você receberá notificações individuais para cada máquina virtual. 
 
 ## <a name="typical-latency"></a>Latência típica
 

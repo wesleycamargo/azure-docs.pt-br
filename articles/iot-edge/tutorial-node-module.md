@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 06/26/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6c47deebfe9617cdb21f473b282dd6ea2b912dc0
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 016c221a2f864ecfd4bb96b076a32ed1ae639c6b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920510"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422789"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Node.js em seu dispositivo simulado
 
@@ -39,7 +39,7 @@ Um dispositivo do Azure IoT Edge:
 
 Recursos de nuvem:
 
-* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão no Azure. 
+* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) de camada gratuita no Azure. 
 
 Recursos de desenvolvimento:
 
@@ -144,7 +144,7 @@ Cada modelo é fornecido com código de exemplo incluído, que usa dados de sens
         });
     ```
 
-8. Copie o trecho de código a seguir para o retorno de chamada da função `client.open()`, após `client.on()` dentro da instrução `else`. Essa função é invocada quando as propriedades desejadas são atualizadas.
+8. Copie o snippet de código a seguir para o retorno de chamada da função `client.open()`, após `client.on()` dentro da instrução `else`. Essa função é invocada quando as propriedades desejadas são atualizadas.
 
     ```javascript
     client.getTwin(function (err, twin) {

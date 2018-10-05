@@ -2,30 +2,26 @@
 title: Exemplo do PowerShell para monitorar e dimensionar um único Banco de Dados SQL do Azure | Microsoft Docs
 description: Script de exemplo do Azure PowerShell para monitorar e dimensionar um único banco de dados SQL do Azure
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: performance
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/07/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 8766ffe34263b80a5f4c9023620a7e0fb9002ec7
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8586a4eb5c4325f258ad8f461b05e7368750d17a
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049007"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056114"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>Usar o PowerShell para monitorar e dimensionar um único banco e dados SQL
 
-Este exemplo de script do PowerShell monitora as métricas de desempenho de um banco de dados, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho. 
+Este exemplo de script do PowerShell monitora as métricas de desempenho de um banco de dados, dimensiona-o para um tamanho de computação maior e cria uma regra de alerta em uma das métricas de desempenho. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

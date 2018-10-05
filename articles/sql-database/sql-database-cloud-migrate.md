@@ -3,23 +3,26 @@ title: Migração do banco de dados do SQL Server para o Banco de Dados SQL do A
 description: Saiba mais sobre a migração de banco de dados do SQL Server para o Banco de Dados SQL do Azure na nuvem.
 keywords: migração de banco de dados, migração de banco de dados do sql server, ferramentas de migração de banco de dados, migrar banco de dados, migrar banco de dados sql
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/16/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: a9acff6f2b3e668707a6ef4cc3c736ebd28b4d3a
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 65258622c006cc384df24898c18b154b4c523a7f
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309374"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064281"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração do banco de dados do SQL Server para o Banco de Dados SQL do Azure
 
-Neste artigo, você aprende sobre os principais métodos para migrar um banco de dados do SQL Server 2005 ou posterior para um banco de dados individual ou em pool no Banco de Dados SQL do Azure. Para obter informações sobre como migrar para uma Instância Gerenciada, consulte [Migrar uma instância do SQL Server para uma Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia)](sql-database-managed-instance-migrate.md). 
+Neste artigo, você aprende sobre os principais métodos para migrar um banco de dados do SQL Server 2005 ou posterior para um banco de dados individual ou em pool no Banco de Dados SQL do Azure. Para obter informações sobre como migrar para uma Instância Gerenciada, consulte [Migrar uma instância do SQL Server para uma Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-migrate.md). 
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migrar para um banco de dados individual ou um banco de dados em pool
 Há dois métodos principais para migrar um banco de dados do SQL Server 2005 ou posterior para um banco de dados individual ou em pool no Banco de Dados SQL do Azure. O primeiro método é mais simples, mas requer algum tempo de inatividade, possivelmente substancial, durante a migração. O segundo método é mais complexo, mas elimina substancialmente o tempo de inatividade durante a migração.
@@ -51,7 +54,7 @@ A lista a seguir contém o fluxo de trabalho geral para uma migração de banco 
 
 A lista a seguir contém recomendações para melhorar o desempenho durante o processo de importação.
 
-* Escolha o mais alto nível de serviço e nível de desempenho que seu orçamento permitir para maximizar o desempenho de transferência. Você pode reduzir verticalmente após a migração para economizar dinheiro. 
+* Escolha a camada de serviço e tamanho de computação mais altos que seu orçamento permitir para maximizar o desempenho de transferência. Você pode reduzir verticalmente após a migração para economizar dinheiro. 
 * Minimize a distância entre o arquivo BACPAC e o data center de destino.
 * Desabilitar estatísticas automaticamente durante a migração
 * Índices e tabelas de partição

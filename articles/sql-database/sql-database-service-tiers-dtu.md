@@ -1,24 +1,27 @@
 ---
 title: Camadas do serviço do Banco de Dados SQL do Azure - DTU | Microsoft Docs
-description: Saiba mais sobre as camadas de serviço para bancos de dados únicos e em pool para fornecer níveis de desempenho e tamanhos de armazenamento.
+description: Saiba mais sobre as camadas de serviço para bancos de dados individuais e em pool para fornecer tamanhos de computação e tamanhos de armazenamento.
 services: sql-database
-author: sachinpMSFT
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
 manager: craigg
-ms.author: carlrab
-ms.openlocfilehash: d0250d508ca6d21ee09c9402e10d2fdb025529ac
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.date: 09/14/2018
+ms.openlocfilehash: 2f9362a6d771df3cdb11855844025bc8d9ea732e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42140815"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162365"
 ---
-# <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Escolha uma camada de serviço com base em DTU, nível de desempenho e recursos de armazenamento 
+# <a name="choosing-a-dtu-based-service-tier-compute-size-and-storage-resources"></a>Escolhendo uma camada de serviço baseada em DTU, tamanho de computação e recursos de armazenamento 
 
-As camadas de serviço são diferenciadas pelos intervalos de níveis de desempenho com uma quantidade fixa de armazenamento incluído, período de retenção fixo para backups e preço fixo. Todas as camadas de serviço fornecem flexibilidade para alterar os níveis de desempenho sem tempo de inatividade. Os bancos de dados individuais e os pools elásticos são cobrados por hora com base na camada de serviço e no nível de desempenho.
+As camadas de serviço são diferenciadas por um intervalo de tamanhos de computação com uma quantidade fixa de armazenamento incluído, um período de retenção fixo para backups e um preço fixo. Todas as camadas de serviço fornecem flexibilidade para alterar os tamanhos de computação sem tempo de inatividade. Os bancos de dados individuais e os pools elásticos são cobrados por hora com base na camada de serviço e no tamanho de computação.
 
 > [!IMPORTANT]
 > A Instância Gerenciada do Banco de Dados SQL, atualmente em visualização pública, não dá suporte a um modelo de compra baseado em DTU. Para obter mais informações, consulte [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md). 
@@ -40,7 +43,7 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU de banco de dados único e limite de armazenamento
 
-Os níveis de desempenho são expressos em termos de DTUs (Unidades de transação de banco de dados) para bancos de dados individuais, e eDTUs (Unidades de transação de banco de dados elásticos) para pools elásticos. Para saber mais sobre DTUs e eDTUs, consulte [O que são DTUs e eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
+Os tamanhos de computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para saber mais sobre DTUs e eDTUs, consulte [O que são DTUs e eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
@@ -73,7 +76,7 @@ Os níveis de desempenho são expressos em termos de DTUs (Unidades de transaç�
 As características físicas (CPU, memória, IO) associadas a cada medida de DTU são calibradas usando um parâmetro de comparação que simula a carga de trabalho do banco de dados real.
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Correlacionando resultados do parâmetro de comparação ao desempenho de um banco de dados real
-É importante entender que todos os parâmetros de comparação são representativos e indicativos apenas. As taxas de transação obtidas com o aplicativo de parâmetro de comparação não serão iguais às que podem ser obtidas com outros aplicativos. O parâmetro de comparação compreende um conjunto de tipos de transação diferentes executados em um esquema com uma variedade de tabelas e de tipos de dados. Embora o parâmetro de comparação exercite as mesmas operações básicas comuns a todas as cargas de trabalho OLTP, ele não representa qualquer classe específica de banco de dados ou de aplicativo. O objetivo do parâmetro de comparação é fornecer um guia razoável para o desempenho relativo de um banco de dados que pode ser esperado ao dimensionar horizontal ou verticalmente entre os níveis de desempenho. Na realidade, os bancos de dados de diferentes tamanhos e complexidade, lidam com combinações diferentes de cargas de trabalho e responderão de formas diferentes. Por exemplo, um aplicativo de E/S intensiva pode atingir os limites de E/S mais cedo ou um aplicativo de uso intensivo de CPU pode atingir os limites de CPU mais cedo. Não há nenhuma garantia de que qualquer banco de dados específico será dimensionado da mesma forma que o parâmetro de comparação em um aumento da carga.
+É importante entender que todos os parâmetros de comparação são representativos e indicativos apenas. As taxas de transação obtidas com o aplicativo de parâmetro de comparação não serão iguais às que podem ser obtidas com outros aplicativos. O parâmetro de comparação compreende um conjunto de tipos de transação diferentes executados em um esquema com uma variedade de tabelas e de tipos de dados. Embora o parâmetro de comparação exercite as mesmas operações básicas comuns a todas as cargas de trabalho OLTP, ele não representa qualquer classe específica de banco de dados ou de aplicativo. A meta do parâmetro de comparação é fornecer um guia razoável para o desempenho relativo de um banco de dados que pode ser esperado ao escalar ou reduzir verticalmente entre os tamanhos de computação. Na realidade, os bancos de dados de diferentes tamanhos e complexidade, lidam com combinações diferentes de cargas de trabalho e responderão de formas diferentes. Por exemplo, um aplicativo de E/S intensiva pode atingir os limites de E/S mais cedo ou um aplicativo de uso intensivo de CPU pode atingir os limites de CPU mais cedo. Não há nenhuma garantia de que qualquer banco de dados específico será dimensionado da mesma forma que o parâmetro de comparação em um aumento da carga.
 
 O parâmetro de comparação e sua metodologia são descritos em mais detalhes abaixo.
 
@@ -155,5 +158,5 @@ As principais métricas no parâmetro de comparação são a taxa de transferên
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter detalhes sobre níveis de desempenho específicos e opções de tamanho de armazenamento disponíveis para bancos de dados individuais, consulte [Limites de recursos baseados em DTU do Banco de Dados SQL para bancos de dados individuais](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
-- Para obter detalhes sobre níveis de desempenho específicos e opções de tamanho de armazenamento disponíveis para pools elásticos, consulte [Limites de recursos baseados em DTU do Banco de Dados SQL ](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- Para obter detalhes sobre os tamanhos de computação específicos e as opções de tamanho de armazenamento disponíveis para bancos de dados individuais, confira [Limites de recursos baseados em DTU do Banco de Dados SQL para bancos de dados individuais](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- Para obter detalhes sobre os tamanhos de computação específicos e opções de tamanho de armazenamento disponíveis para pools elásticos, confira [Limites de recursos baseados em DTU do Banco de Dados SQL](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

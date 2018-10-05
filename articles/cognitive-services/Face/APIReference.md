@@ -1,21 +1,9 @@
+<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->
 ---
-title: Referência de API para o serviço de API de Detecção Facial | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: A referência da API fornece informações sobre o Gerenciamento de Pessoa, o Gerenciamento de LargePersonGroup/PersonGroup, o Gerenciamento de LargeFaceList/FaceList e APIs de Algoritmos de Face.
-services: cognitive-services
-author: SteveMSFT
-manager: corncar
-ms.service: cognitive-services
-ms.component: face-api
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: sbowles
-ms.openlocfilehash: 94c03d4f07a18c0c63d76965b1b31dce66388843
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364686"
+title: Referência de API – API de Detecção Facial titleSuffix: Serviços Cognitivos do Azure description: A referência da API fornece informações sobre o Gerenciamento de Pessoa, o Gerenciamento de LargePersonGroup/PersonGroup, o Gerenciamento de LargeFaceList/FaceList e APIs de Algoritmos de Detecção Facial.
+services: cognitive-services author: SteveMSFT manager: cgronlun
+
+ms.service: cognitive-services ms.component: face-api ms.topic: reference ms.date: 01/03/2018 ms.author: sbowles
 ---
 # <a name="api-reference"></a>Referência de API
 

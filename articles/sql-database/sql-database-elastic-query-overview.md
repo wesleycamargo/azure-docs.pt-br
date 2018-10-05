@@ -2,19 +2,22 @@
 title: Visão geral da consulta elástica do Banco de Dados SQL do Azure | Microsoft Docs
 description: A consulta elástica permite que você execute uma consulta Transact-SQL que abranja vários bancos de dados.
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/03/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: 52fce1cf1acb5e084c629c9cad6486d6a599b4fd
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8a7962866b70ae0ec99b8425a365575fbd4e5913
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435752"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164355"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Visão geral da consulta elástica do Banco de Dados SQL do Azure (visualização)
 
@@ -28,7 +31,7 @@ Consulte em bancos de dados SQL do Azure totalmente em T-SQL. Isso permite consu
 
 ### <a name="available-on-standard-tier"></a>Disponível no nível Standard
 
-Consulta elástica é compatível com o nível de desempenho Standard e Premium. Veja a seção sobre Limitações da Preview abaixo sobre os limitações de desempenho para os níveis de desempenho inferiores.
+Há suporte para a consulta elástica nas camadas de serviço Standard e Premium. Veja a seção de Limitações da versão prévia abaixo sobre as limitações de desempenho das camadas de serviço inferiores.
 
 ### <a name="push-parameters-to-remote-databases"></a>Parâmetros de envio por push para bancos de dados remotos
 
@@ -101,7 +104,7 @@ O uso de uma consulta elástica para executar tarefas de relatórios em uma cama
 
 > [!NOTE]
 > Consulta de banco de dados Elástico (nó principal) pode ser separado do banco de dados, ou pode ser o mesmo banco de dados que hospeda o mapa do fragmento.
-> Qualquer configuração que você escolher, verifique se essa camada de serviço e o desempenho do banco de dados for alta o suficiente para lidar com o valor esperado de solicitações de logon/consulta.
+> Seja qual for a configuração que você escolher, verifique se a camada de serviço e o tamanho de computação do banco de dados é alta o suficiente para lidar com o valor esperado de solicitações de logon/consulta.
 
 As seguintes etapas configuram consultas de banco de dados elástico para cenários de particionamento horizontal que exigem o acesso a um conjunto de tabelas que estão localizadas (normalmente) em vários Bancos de Dados SQL remotos:
 
@@ -133,7 +136,7 @@ A consulta elástica está incluída no custo dos bancos de dados do Banco de Da
 
 ## <a name="preview-limitations"></a>Limitações de visualização
 
-* A execução da primeira consulta elástica pode levar alguns minutos no nível de desempenho Standard. Esse tempo é necessário para carregar a funcionalidade de consulta elástica; o desempenho do carregamento melhora com níveis mais altos de desempenho.
+* A execução da primeira consulta elástica pode levar alguns minutos na camada de serviço Standard. Esse tempo é necessário para carregar a funcionalidade de consulta elástica. O desempenho do carregamento melhora com as camadas de serviço e os tamanhos de computação mais altos.
 * Ainda não há suporte para scripts de fontes de dados externas ou de tabelas externas do SSMS ou SSDT.
 * A Importação/Exportação do Banco de Dados SQL ainda não dá suporte a tabelas externas e fontes de dados externas. Se precisar usar a função Importação/Exportação, remova esses objetos antes da exportação e depois recrie-os após a importação.
 * Atualmente, a consulta elástica dá suporte apenas ao acesso somente leitura para tabelas externas. Você pode, no entanto, usar a funcionalidade completa do T-SQL no banco de dados no qual a tabela externa é definida. Isso pode ser útil para, por exemplo, manter os resultados temporários usando, por exemplo, SELECT <column_list> INTO <local_table>, ou para definir os procedimentos armazenados no banco de dados de consulta elástica que se referem a tabelas externas.

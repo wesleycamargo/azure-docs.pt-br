@@ -1,51 +1,27 @@
 ---
-title: Use o teste de lote para aprimorar as previsões do LUIS | Microsoft Docs
-titleSuffix: Azure
-description: Carregue o teste de lote, examine os resultados e aprimore as previsões do LUIS com alterações.
+title: 'Tutorial 2: Teste em lotes com um conjunto de mil enunciados '
+titleSuffix: Azure Cognitive Services
+description: Este tutorial demonstra como usar o teste em lotes para localizar problemas de previsão de enunciado em seu aplicativo e corrigi-los.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 5abaeaee87d54e82df29e75b89c83522b8746730
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158238"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162523"
 ---
-# <a name="improve-app-with-batch-test"></a>Melhore o aplicativo com teste em lotes
+# <a name="tutorial-2-batch-test-data-sets"></a>Tutorial 2: Conjuntos de dados de teste em lotes
 
-Este tutorial demonstra como usar o teste de lote para localizar problemas de previsão de declaração.  
-
-Neste tutorial, você aprenderá como:
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-* Criar um arquivo de teste de lote 
-* Executar um teste de lote
-* Examinar resultados de teste
-* Corrigir erros 
-* Testar novamente o lote
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Antes de começar
-
-Se você não tiver o aplicativo de Recursos Humanos do tutorial [analisar enunciados de ponto de extremidade](luis-tutorial-review-endpoint-utterances.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON em um novo aplicativo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json).
-
-Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `batchtest`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. 
-
-Treine o aplicativo.
-
-## <a name="purpose-of-batch-testing"></a>Finalidade do teste em lotes
+Este tutorial demonstra como usar o teste em lotes para localizar problemas de previsão de enunciado em seu aplicativo e corrigi-los.  
 
 O teste em lotes permite que você valide o estado do modelo ativo e treinado com um conjunto conhecido de entidades e enunciados rotulados. No arquivo em lotes em formato JSON, adicione os enunciados e defina os rótulos de entidade que você precisa prever dentro do enunciado. 
-
-<!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> Ao usar um aplicativo diferente deste tutorial, certifique-se de *não* usar os enunciados de exemplo já adicionados a uma intenção. Para verificar os enunciados de teste em lotes em relação aos enunciados de exemplo, [exporte](luis-how-to-start-new-app.md#export-app) o aplicativo. Compare o enunciado de exemplo do aplicativo com os enunciados de teste em lotes. 
 
 Requisitos para o teste em lotes:
 
@@ -53,13 +29,42 @@ Requisitos para o teste em lotes:
 * Sem duplicatas. 
 * Tipos de entidades permitidas: apenas entidades de aprendizado de máquina simples, hierárquica (somente pai) e composta. Teste em lotes é útil apenas para intenções e entidades de aprendizado de máquina.
 
-## <a name="create-a-batch-file-with-utterances"></a>Crie um arquivo em lotes com enunciados
+Ao usar um aplicativo diferente deste tutorial, *não* use os enunciados de exemplo já adicionados a uma intenção. 
 
-1. Crie `HumanResources-jobs-batch.json` em um editor de texto como [VSCode](https://code.visualstudio.com/). 
+**Neste tutorial, você aprenderá a:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Usar o aplicativo do tutorial existente
+> * Criar um arquivo de teste de lote 
+> * Executar um teste de lote
+> * Examinar resultados de teste
+> * Corrigir erros 
+> * Testar novamente o lote
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Usar o aplicativo existente
+
+Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
+
+Se não tiver o aplicativo HumanResources do tutorial anterior, siga estas etapas:
+
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+
+2. Importe o JSON em um novo aplicativo.
+
+3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `batchtest`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL. 
+
+4. Treine o aplicativo.
+
+## <a name="batch-file"></a>Arquivo em lotes
+
+1. Crie `HumanResources-jobs-batch.json` em um editor de texto ou [baixe-o](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json). 
 
 2. No arquivo em lotes em formato JSON, adicione enunciados com a **Intenção** que você quer que seja prevista no teste. 
 
-   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## <a name="run-the-batch"></a>Executar o lote
 
@@ -73,13 +78,13 @@ Requisitos para o teste em lotes:
 
     [![Captura de tela do aplicativo de LUIS com o conjunto de dados de importação realçado](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
-4. Escolha o local do sistema de arquivos do arquivo `HumanResources-jobs-batch.json`.
+4. Escolha o local do arquivo do `HumanResources-jobs-batch.json`.
 
 5. Nomeie o conjunto de dados `intents only` e selecione **Concluído**.
 
     ![Escolher arquivo](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
-6. Selecione o botão **Executar**. Aguarde até que o teste seja concluído.
+6. Selecione o botão **Executar**. 
 
 7. Selecione **Ver resultados**.
 
@@ -109,7 +114,7 @@ Observe que ambas as intenções possuem a mesma contagem de erros. Uma previsã
 
 Os enunciados que correspondem ao ponto principal na seção **Falso positivo** são `Can I apply for any database jobs with this resume?` e `Can I apply for any database jobs with this resume?`. Para o primeiro enunciado, a palavra `resume` foi usada apenas em **ApplyForJob**. Para o segundo enunciado, a palavra `apply` foi usada apenas na intenção **ApplyForJob**.
 
-## <a name="fix-the-app-based-on-batch-results"></a>Corrigir o aplicativo com base nos resultados do lote
+## <a name="fix-the-app"></a>Corrigir o aplicativo
 
 O objetivo desta seção é ter todos os enunciados corretamente previstos para **GetJobInformation**, corrigindo o aplicativo. 
 
@@ -119,7 +124,7 @@ Também há a possibilidade de pensar em remover enunciados da intenção **Appl
 
 A primeira correção é adicionar mais enunciados à intenção **GetJobInformation**. A segunda correção é reduzir o peso das palavras como `resume` e `apply` da intenção **ApplyForJob**. 
 
-### <a name="add-more-utterances-to-getjobinformation"></a>Adicionar mais enunciados para **GetJobInformation**
+### <a name="add-more-utterances"></a>Adicionar mais enunciados
 
 1. Feche o painel de teste em lotes, selecionando o botão **Testar** no painel de navegação superior. 
 
@@ -149,7 +154,7 @@ A primeira correção é adicionar mais enunciados à intenção **GetJobInforma
 
 4. Treine o aplicativo selecionando **Treinar** no canto superior direito da navegação.
 
-## <a name="verify-the-fix-worked"></a>Verificar se a correção funcionou
+## <a name="verify-the-new-model"></a>Verificar o novo modelo
 
 Para verificar se os enunciados no teste em lotes estão previstos corretamente, execute o teste em lotes novamente.
 
@@ -171,12 +176,12 @@ Ao gravar e testar arquivos em lotes pela primeira vez, é melhor começar com a
 
 O valor de uma entidade **Trabalho**, fornecido nos enunciados de teste, geralmente é uma ou duas palavras, com alguns exemplos sendo mais palavras. Se o _próprio_ aplicativo de recursos humanos normalmente tiver nomes de trabalho com muitas palavras, os enunciados de exemplo rotulados com a entidade **Trabalho** nesse aplicativo não funcionarão bem.
 
-1. Crie `HumanResources-entities-batch.json` em um editor de texto como [VSCode](https://code.visualstudio.com/). Ou baixe [o arquivo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) do repositório Github LUIS-Samples.
+1. Crie `HumanResources-entities-batch.json` em um editor de texto, como o [VSCode](https://code.visualstudio.com/), ou [baixe-o](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json).
 
 
 2. No arquivo em lotes em formato JSON, adicione uma matriz de objetos que inclua enunciados com a **Intenção** que você quer prever no teste, bem como os locais de quaisquer entidades no enunciado. Como uma entidade é baseada em token, certifique-se de iniciar e parar cada entidade em um caractere. Não inicie nem termine o enunciado em um espaço. Isso causa um erro durante a importação do arquivo em lotes.  
 
-   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
 
 ## <a name="run-the-batch-with-entities"></a>Executa o lote com entidades
@@ -222,15 +227,13 @@ Essas tarefas são deixadas para você fazer.
 
 Adicionar um [padrão](luis-concept-patterns.md) antes que a entidade seja corretamente prevista não corrigirá o problema. Isso ocorre porque o padrão não corresponderá até que todas as entidades no padrão sejam detectadas. 
 
-## <a name="what-has-this-tutorial-accomplished"></a>O que foi realizado com este tutorial?
-
-A precisão de previsão do aplicativo aumentou, localizando erros no lote e corrigindo o modelo. 
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
+
+O tutorial usou um teste em lotes para encontrar problemas no modelo atual. O modelo foi corrigido e testado novamente com o arquivo em lotes para verificar se a alteração estava correta.
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre padrões](luis-tutorial-pattern.md)

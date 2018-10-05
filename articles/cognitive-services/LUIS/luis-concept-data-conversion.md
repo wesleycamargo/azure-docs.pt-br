@@ -1,23 +1,24 @@
 ---
-title: Reconhecimento conceitos de conversão de dados no LUIS - Azure | Microsoft Docs
+title: Conceitos de conversão de dados no LUIS – Reconhecimento vocal
+titleSuffix: Azure Cognitive Services
 description: Saiba como as expressões podem ser alteradas antes das previsões no Reconhecimento vocal (LUIS)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 05a02191af171936dd9f5c4bf469b9c84aa144a3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3862a0dbd94b5764cf506b05201d8dc60430fc7d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223694"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038962"
 ---
 # <a name="data-conversion-concepts-in-luis"></a>Conceitos de conversão de dados no LUIS
-O LUIS fornece uma forma de converter expressões de expressões faladas a expressões em texto antes da previsão. 
+O LUIS usa o serviço de Fala dos Serviços Cognitivos para converter enunciados falados em enunciados de texto antes da previsão. 
 
 ## <a name="speech-to-intent-conversion-concepts"></a>Conceitos de conversão de fala em intenção
 Conversão de fala em texto no LUIS permite que você envie expressões faladas a um ponto de extremidade e receba uma resposta de previsão LUIS. O processo é uma integração entre o serviço de [Fala](https://docs.microsoft.com/azure/cognitive-services/Speech) com LUIS. 

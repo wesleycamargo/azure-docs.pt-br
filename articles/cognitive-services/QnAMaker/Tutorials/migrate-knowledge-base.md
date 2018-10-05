@@ -1,28 +1,28 @@
 ---
-title: Como importar uma base de dados de conhecimento – Serviços Cognitivos da Microsoft | Microsoft Docs
-titleSuffix: Azure
+title: Migrar as bases de dados de conhecimento de visualização – QnA Maker
+titleSuffix: Azure Cognitive Services
 description: Como importar uma base de dados de conhecimento
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: ce8f98f9bdb37d5f326e942fe5b5e815e5272c56
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35364870"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031621"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento usando export-import
 O QnA Maker anunciou a disponibilidade geral (GA) em 7 de maio de 2018 na conferência \\\build\. A GA do QnA Maker tem uma nova arquitetura criada no Azure. As Bases de Dados de Conhecimento criadas com a versão prévia gratuita do QnA Maker precisarão ser migrada para a GA do QnA. A versão prévia do QnA Maker será preterida em novembro de 2018. Para obter mais informações sobre as alterações na GA do QnA Maker, consulte o anúncio da [postagem de blog](https://aka.ms/qnamakerga-blog) da GA do QnA Maker.
 
 O QnA Maker agora tem um [modelo de preços](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
 
-pré-requisitos
+Pré-requisitos
 > [!div class="checklist"]
 > * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 > * Configurar um novo [serviço do QnA Maker](../How-To/set-up-qnamaker-service-azure.md)

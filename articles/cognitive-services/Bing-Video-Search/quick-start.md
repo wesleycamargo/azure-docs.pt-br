@@ -1,23 +1,23 @@
 ---
-title: Início Rápido da API de Pesquisa de Vídeo | Microsoft Docs
+title: 'Início Rápido: API de Pesquisa de Vídeo do Bing'
+titlesuffix: Azure Cognitive Services
 description: Mostra como começar a usar a API de Pesquisa de Vídeo do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 7E59692A-83A8-4F4C-B122-1F0EDC8E5C86
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0bd0f067d64cac3ebac342ebadcfcc010a47af7b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: abeeec95755a566216ac65b2edf5c831a8ab93b6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364406"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225507"
 ---
-# <a name="your-first-video-search-query"></a>Sua primeira consulta de pesquisa de vídeo
+# <a name="quickstart-your-first-video-search-query"></a>Início Rápido: Sua primeira consulta de pesquisa de vídeo
 
 Antes de fazer sua primeira chamada, você precisa obter uma chave de assinatura dos Serviços Cognitivos da Pesquisa do Bing. Para obter uma chave, confira [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api).
 
@@ -29,7 +29,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/videos/search
    
 A solicitação precisa usar o protocolo HTTPS.
 
-Recomendamos que todas as solicitações sejam originadas de um servidor. A distribuição da chave como parte de um aplicativo cliente fornece mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, fazer chamadas em um servidor fornece um ponto único de atualização para versões futuras da API.
+É recomendável que todas as solicitações sejam originadas de um servidor. A distribuição da chave como parte de um aplicativo cliente fornece mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, fazer chamadas em um servidor fornece um ponto único de atualização para versões futuras da API.
 
   
 A solicitação precisa especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query), que contém o termo de pesquisa do usuário. Embora seja opcional, a solicitação também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#mkt), que identifica o mercado do qual você deseja obter os resultados. Para obter uma lista de parâmetros de consulta opcionais, como `pricing`, confira [Parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta precisam ser codificados em URL.  

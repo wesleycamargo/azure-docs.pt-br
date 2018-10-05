@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/26/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 0d511c1f6dfd482e5754741da15b2852ee77c11e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: db85f85011154dcc7adfa9d569e9015a9c5c33ca
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33207520"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055030"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Visão geral do monitoramento dos contêineres no Azure
-Com o Azure, você pode, efetivamente, monitorar e gerenciar suas cargas de trabalho implantadas em contêineres do Azure executando Kubernetes ou Docker. É importante entender como os contêineres com vários aplicativos de microsserviço são executados para prestar um serviço confiável em grande escala e para suporte do seu plano de monitoramento. Este artigo fornece uma visão geral dos recursos de gerenciamento e monitoramento no Azure para ajudar a entender cada recurso e quais são apropriados com base nos seus requisitos.
+Com o Azure, você pode, efetivamente, monitorar e gerenciar suas cargas de trabalho implantadas em contêineres do Azure executando Kubernetes ou Docker. É importante entender como os contêineres com vários aplicativos de microsserviço são executados para prestar um serviço confiável em grande escala e para suporte do seu plano de monitoramento. Este artigo fornece uma visão geral dos recursos de gerenciamento e monitoramento no Azure para ajudar a entender cada um deles e quais são apropriados dependendo dos seus requisitos.
 
-Usando o recurso de [integridade do contêiner do Azure Monitor](monitoring-container-health.md), você pode exibir rapidamente o desempenho e a integridade da infra-estrutura de contêiner do Linux e investigar problemas rapidamente. A telemetria é armazenada em um espaço de trabalho do Log Analytics e integrada ao portal do Azure, onde você pode explorar, filtrar e segmentar dados agregados com painéis para ficar de olho na carga, integridade e desempenho.  
+Usando o [Azure Monitor para contêineres](monitoring-container-insights-overview.md), é possível exibir rapidamente o desempenho e a integridade da infraestrutura de contêineres do Linux e investigar os problemas com agilidade. A telemetria é armazenada em um espaço de trabalho do Log Analytics e integrada ao portal do Azure, onde você pode explorar, filtrar e segmentar dados agregados com painéis para ficar de olho na carga, integridade e desempenho.  
 
 Para contêineres em execução fora do serviço hospedado do Azure Kubernetes, a [solução de contêiner do Docker e do Windows](../log-analytics/log-analytics-containers.md) do Log Analytics ajuda você a exibir e gerenciar seus hosts de contêiner do Windows e do Docker. No espaço de trabalho do Log Analytics, você pode exibir detalhes do inventário, o desempenho e eventos de nós e contêineres no ambiente. Você pode exibir informações detalhadas de auditoria, mostrando os comandos usados com contêineres e você pode solucionar problemas de contêineres exibindo e pesquisando logs centralizados sem a necessidade de acessar remotamente os hosts do Docker ou do Windows.
 

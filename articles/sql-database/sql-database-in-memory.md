@@ -2,19 +2,22 @@
 title: Tecnologias In-Memory do Banco de Dados SQL do Azure | Microsoft Docs
 description: As tecnologias In-Memory do Banco de Dados SQL do Azure melhoram muito o desempenho de cargas de trabalho transacionais e analíticas.
 services: sql-database
-author: jodebrui
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: jodebrui
 ms.author: jodebrui
-ms.openlocfilehash: f4e056e9f8461085df6ae447672e2c9ec91aa3ca
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/16/2018
+ms.openlocfilehash: 8fd430aa710c7e36133b40c7079b9d727774c68f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092395"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166921"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho usando tecnologias In-Memory no Banco de Dados SQL
 
@@ -72,7 +75,7 @@ Vídeos detalhados sobre as tecnologias:
 
 O OLTP in-memory inclui tabelas com otimização de memória, que são usadas para armazenar dados do usuário. Essas tabelas precisam caber na memória. Como você gerencia a memória diretamente no serviço do Banco de Dados SQL, temos o conceito de uma cota para dados de usuário. Esse conceito é conhecido como *Armazenamento de OLTP In-Memory*.
 
-Cada tipo de preço de banco de dados independente e cada tipo de preço de pool elástico com suporte incluem determinada quantidade de Armazenamento do OLTP in-memory. Consulte [Limites de recurso baseado em DTU – banco de dados individual](sql-database-dtu-resource-limits-single-databases.md), [Limites de recurso baseado em DTU – pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md), [Limites de recurso baseado em vCore – bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [Limites de recurso baseado em vCore – pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
+Cada tipo de preço de banco de dados individual e de pool elástico compatível inclui determinada quantidade de armazenamento do OLTP in-memory. Consulte [Limites de recurso baseado em DTU – banco de dados individual](sql-database-dtu-resource-limits-single-databases.md), [Limites de recurso baseado em DTU – pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md), [Limites de recurso baseado em vCore – bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [Limites de recurso baseado em vCore – pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Os itens a seguir contam para seu limite de armazenamento do OLTP in-memory:
 

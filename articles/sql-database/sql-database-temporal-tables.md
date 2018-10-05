@@ -2,19 +2,22 @@
 title: Introdução às Tabelas Temporais no Banco de Dados SQL do Azure | Microsoft Docs
 description: Saiba como começar a usar as Tabelas Temporais no Banco de Dados SQL do Azure.
 services: sql-database
-author: bonova
-ms.date: 03/21/2018
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 140d2c9f6c334cec7d2761d05d7b20eb7106b9fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 03/21/2018
+ms.openlocfilehash: d18630f9b4cea28bd19b2ac24e7b8c3d1822e17c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649033"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166411"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introdução às Tabelas Temporais no Banco de Dados SQL do Azure
 As Tabelas Temporais são um novo recurso de programação do Banco de Dados SQL do Azure que permite controlar e analisar o histórico completo de alterações em seus dados, sem a necessidade de codificação personalizada. As Tabelas Temporais mantêm os dados relacionados ao contexto de tempo, de forma que os fatos armazenados possam ser interpretados como válidos apenas no período específico. Essa propriedade das Tabelas Temporais permite uma análise eficiente baseada em tempo e a obtenção de informações da evolução dos dados.
@@ -22,7 +25,7 @@ As Tabelas Temporais são um novo recurso de programação do Banco de Dados SQL
 ## <a name="temporal-scenario"></a>Cenário Temporal
 Este artigo ilustra as etapas para utilizar as Tabelas Temporais em um cenário de aplicativo. Suponha que você queira acompanhar a atividade de usuário em um novo site que está sendo desenvolvido do zero ou em um site existente que você deseja estender com análises de atividade do usuário. Neste exemplo simplificado, estamos supondo que o número de páginas da Web visitadas durante um período é um indicador do que precisa ser capturado e monitorado no banco de dados do site hospedado no Banco de Dados SQL do Azure. O objetivo da análise do histórico da atividade de usuário é obter entradas para reprojetar o site e fornecer uma experiência melhor para os visitantes.
 
-O modelo de banco de dados para esse cenário é muito simples: a métrica de atividade do usuário é representada por um único campo de inteiro, **PageVisited**, e é capturada com informações básicas no perfil do usuário. Além disso, para a análise baseada em tempo, você manteria uma série de linhas para cada usuário, onde cada linha representa o número de páginas visitadas por um usuário específico em um período específico.
+O modelo de banco de dados para esse cenário é muito simples: a métrica de atividade do usuário é representada por um único campo de inteiro, **PageVisited**, e é capturada com informações básicas no perfil do usuário. Além disso, para a análise baseada em tempo, você manteria uma série de linhas para cada usuário, em que cada linha representa o número de páginas visitadas por um usuário específico em determinado período.
 
 ![Esquema](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
@@ -41,11 +44,11 @@ Use o item de menu de contexto "Nova Tabela Versionada pelo Sistema” no Pesqui
 
 ![SSMSNewTable](./media/sql-database-temporal-tables/AzureTemporal2.png)
 
-No SSDT, você escolheu o modelo "Tabela Temporal (Versionada pelo Sistema)" ao adicionar novos itens ao projeto de banco de dados. Isso abrirá o designer de tabela e permitirá que você especifique o layout da tabela com facilidade:
+No SSDT, escolha o modelo “Tabela temporal (com versão do sistema)” ao adicionar novos itens ao projeto de banco de dados. Isso abrirá o designer de tabela e permitirá que você especifique o layout da tabela com facilidade:
 
 ![SSDTNewTable](./media/sql-database-temporal-tables/AzureTemporal3.png)
 
-Você também pode criar uma tabela temporal ao especificar diretamente as instruções Transact-SQL, conforme mostrado no exemplo a seguir. Observe que os elementos obrigatórios de todas as tabelas temporais são a definição PERIOD e a cláusula SYSTEM_VERSIONING com uma referência a outra tabela de usuário que armazenará versões de linha de histórico:
+Também é possível criar uma tabela temporal especificando diretamente as instruções Transact-SQL, conforme mostrado no exemplo a seguir. Observe que os elementos obrigatórios de todas as tabelas temporais são a definição PERIOD e a cláusula SYSTEM_VERSIONING com uma referência a outra tabela de usuário que armazenará versões de linha de histórico:
 
 ````
 CREATE TABLE WebsiteUserInfo 

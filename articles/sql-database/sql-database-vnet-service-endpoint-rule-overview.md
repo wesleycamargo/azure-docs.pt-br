@@ -3,20 +3,21 @@ title: Pontos de extremidade e regras de serviço de rede virtual para o Banco d
 description: Marque uma sub-rede como um ponto de extremidade de serviço de Rede virtual. Em seguida, o ponto de extremidade como uma regra de rede virtual para a ACL de seu banco de dados SQL do Azure. Seu Banco de dados SQL do Microsoft Azure então aceita a comunicação de todas as máquinas virtuais e outros nós na sub-rede.
 services: sql-database
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-author: DhruvMsft
-manager: craigg
-ms.custom: VNet Service endpoints
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/28/2018
-ms.reviewer: carlrab
+author: DhruvMsft
 ms.author: dmalik
-ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.reviewer: vanto, genemi
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: 90138664e5eab9110f51bbd3d3755dec0ed59ea8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143803"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166802"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados SQL do Azure e SQL Data Warehouse
 
@@ -125,7 +126,7 @@ Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rb
 
 Para o Banco de Dados SQL do Azure, o recurso de regras de rede virtual tem as seguintes limitações:
 
-- Um aplicativo Web pode ser mapeado para um IP privado em uma sub-rede/rede virtual. Mesmo se os pontos de extremidade de serviço são ativados por meio da rede virtual/sub-rede determinada, as conexões do aplicativo Web para o servidor terão uma fonte IP pública Azure, não uma fonte de sub-rede/rede virtual. Para habilitar a conectividade de um aplicativo Web para um servidor que tem regras de firewall de rede virtual, você deve **Permitir todos os serviços do Azure** no servidor.
+- Um aplicativo Web pode ser mapeado para um IP privado em uma sub-rede/rede virtual. Mesmo se os pontos de extremidade de serviço são ativados por meio da rede virtual/sub-rede determinada, as conexões do aplicativo Web para o servidor terão uma fonte IP pública Azure, não uma fonte de sub-rede/rede virtual. Para habilitar a conectividade de um aplicativo Web para um servidor com regras de firewall de VNET, você precisa **Permitir que os serviços do Azure acessem o servidor** no servidor.
 
 - No firewall do Banco de Dados SQL, cada regra de rede virtual faz referência a uma sub-rede. Todas essas sub-redes referenciadas devem ser hospedadas na mesma região geográfica que hospeda o Banco de Dados SQL.
 
@@ -157,23 +158,23 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-removing-allow-all-azure-services"></a>Impacto da remoção de “Permitir todos os serviços do Azure”
+## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>Impacto da remoção de 'Permitir que os serviços do Azure acessem o servidor'
 
-Muitos usuários desejam remover **Permitir todos os serviços do Azure** dos seus Azure SQL Servers e substituí-lo por uma regra de firewall da VNet.
+Muitos usuários desejam remover a opção **Permitir que os serviços do Azure acessem o servidor** dos seus Azure SQL Servers e substituí-la por uma regra de firewall da VNET.
 No entanto, remover isso afeta os seguintes recursos do Azure SQLDB:
 
 #### <a name="import-export-service"></a>Serviço de Importação/Exportação
-O Serviço de Importação/Exportação do Azure SQLDB é executado em máquinas virtuais no Azure. Essas máquinas virtuais não estão em sua VNet e, portanto, obtêm um IP do Azure ao se conectarem ao banco de dados. Ao remover **Permitir todos os serviços do Azure**, essas máquinas virtuais não poderão acessar os bancos de dados.
+O Serviço de Importação/Exportação do Azure SQLDB é executado em máquinas virtuais no Azure. Essas máquinas virtuais não estão em sua VNet e, portanto, obtêm um IP do Azure ao se conectarem ao banco de dados. Se você remover **Permitir que os serviços do Azure acessem o servidor**, essas VMs não poderão acessar seus bancos de dados.
 Você pode contornar o problema. Execute a importação ou exportação do BACPAC diretamente no seu código usando a API do DACFx. Certifique-se de que isso está implantado em uma VM que está na sub-rede da VNet para a qual você definiu a regra de firewall.
 
 #### <a name="sql-database-query-editor"></a>Editor de Consulta do Banco de Dados SQL
-O Editor de Consulta do Banco de Dados SQL do Azure é implantado em máquinas virtuais no Azure. Essas máquinas virtuais não estão em sua VNet. Portanto, as máquinas virtuais obtêm um IP do Azure ao se conectarem ao seu banco de dados. Ao remover **Permitir todos os serviços do Azure**, essas máquinas virtuais não poderão acessar os bancos de dados.
+O Editor de Consulta do Banco de Dados SQL do Azure é implantado em máquinas virtuais no Azure. Essas máquinas virtuais não estão em sua VNet. Portanto, as máquinas virtuais obtêm um IP do Azure ao se conectarem ao seu banco de dados. Se você remover **Permitir que os serviços do Azure acessem o servidor**, essas VMs não poderão acessar seus bancos de dados.
 
 #### <a name="table-auditing"></a>Auditoria de tabela
 No momento, há duas maneiras para habilitar a auditoria do Banco de Dados SQL. A auditoria de tabela falha depois que você habilita pontos de extremidade de serviço no Azure SQL Server. Aqui, a mitigação é movida para a auditoria de blob.
 
 #### <a name="impact-on-data-sync"></a>Impacto sobre a Sincronização de Dados
-O Banco de Dados SQL do Azure tem o recurso de Sincronização de Dados que se conecta a bancos de dados usando IPs do Azure. Ao usar pontos de extremidade de serviço, é provável que você desative a opção de **Permitir que serviços do Microsoft Azure** acessem seu servidor lógico. Isso interromperá o recurso de Sincronização de Dados.
+O Banco de Dados SQL do Azure tem o recurso de Sincronização de Dados que se conecta a bancos de dados usando IPs do Azure. Ao usar pontos de extremidade de serviço, é provável que você desabilite o acesso **Permitir que os serviços do Azure acessem o servidor** ao servidor lógico. Isso interromperá o recurso de Sincronização de Dados.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impacto de usar pontos de extremidade de serviço de VNet com Armazenamento do Azure
 
@@ -184,7 +185,7 @@ Se optar por usar esse recurso com uma conta de Armazenamento que está sendo us
 O PolyBase normalmente é usado para carregar dados no Azure SQLDW de contas de Armazenamento. Se a conta de Armazenamento da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes de VNet, a conectividade do PolyBase à conta será interrompida. Há uma mitigação para isso, e você pode entrar em contato com o Suporte da Microsoft para obter mais informações.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Auditoria de blob do Azure SQLDB
-A auditoria de blob envia por push logs de auditoria para sua própria conta de armazenamento. Se essa conta de armazenamento usar o recurso de pontos de extremidade de serviço VENT, a conectividade do Azure SQLDB à conta de armazenamento será interrompida.
+A auditoria de blob envia por push logs de auditoria para sua própria conta de armazenamento. Se essa conta de armazenamento usar o recurso de pontos de extremidade de serviço VNET, a conectividade do Azure SQLDB com a conta de armazenamento será interrompida.
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionando uma regra de Firewall da VNET ao servidor sem a ativação de pontos de extremidade de serviço da VNET
 
@@ -254,7 +255,7 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 
 ### <a name="azure-portal-steps"></a>etapas do portal do Azure
 
-1. Faça logon no [Portal do Azure][http-azure-portal-link-ref-477t].
+1. Entre no [Portal do Azure][http-azure-portal-link-ref-477t].
 
 2. Em seguida, navegue até o portal de **servidores SQL**&gt;**Firewall / Redes virtuais**.
 

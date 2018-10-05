@@ -1,23 +1,30 @@
 ---
 title: Gerenciando bancos de dados de nuvem com escala horizontal | Microsoft Docs
 description: Use o serviço de trabalho de banco de dados elástico para executar um script em um grupo de bancos de dados.
-metakeywords: azure sql database elastic databases
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 5e2c233ec631f6a3e57d2203a9678b42f909a885
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 649a76fad8f54339a6b1e429b3966945410573f7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646078"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166785"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gerenciando bancos de dados de nuvem com escalonamento horizontal
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+Os **trabalhos de Banco de Dados Elástico** são um serviço de nuvem do Azure hospedado pelo cliente, que permite a execução de tarefas administrativas ad hoc e agendadas, as quais são chamadas de **trabalhos**. Com os trabalhos, é possível gerenciar de maneira fácil e confiável grandes grupos de Bancos de Dados SQL do Azure executando scripts Transact-SQL para realizar operações administrativas. 
+
 Para gerenciar bancos de dados fragmentados escalados horizontalmente, o recurso de **Trabalhos do Banco de Dados Elástico** (visualização) permite executar um script Transact-SQL (T-SQL) confiável em um grupo de bancos de dados, incluindo:
 
 * um conjunto personalizado de bancos de dados (explicado abaixo)
@@ -30,7 +37,7 @@ Para gerenciar bancos de dados fragmentados escalados horizontalmente, o recurso
 * [Criar e gerenciar trabalhos usando o PowerShell](sql-database-elastic-jobs-powershell.md).
 * [Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal](sql-database-elastic-jobs-getting-started.md)
 
-Os **trabalhos de Banco de Dados Elástico** atualmente são um serviço de nuvem do Azure hospedado pelo cliente, que permite a execução de tarefas administrativas ad hoc e agendadas, as quais são chamadas de **trabalhos**. Com os trabalhos, você pode gerenciar de maneira fácil e confiável grandes grupos de Bancos de Dados do Azure SQL executando scripts Transact-SQL para executar operações administrativas. 
+
 
 ![Serviço do trabalho de banco de dados elástico][1]
 
@@ -41,11 +48,11 @@ Realize facilmente alterações de esquema, gerenciamento de credenciais, atuali
 
 **Relatórios**
 
-Agregue dados de uma coleção de Bancos de Dados SQL do Azure em uma tabela de destino único.
+Agregar dados de uma coleção de bancos de dados SQL do Azure em apenas uma tabela de destino.
 
 **Reduzir a sobrecarga**
 
-Normalmente, você deve se conectar a cada banco de dados de forma independente a fim de executar instruções Transact-SQL ou realizar outras tarefas administrativas. Um trabalho lida com a tarefa de fazer logon em cada banco de dados no grupo de destino. Você também define, mantém e persiste em scripts T-SQL que serão executados em um grupo de Bancos de Dados SQL do Azure.
+Normalmente, você deve se conectar a cada banco de dados de forma independente a fim de executar instruções Transact-SQL ou realizar outras tarefas administrativas. Um trabalho lida com a tarefa de fazer logon em cada banco de dados no grupo de destino. Você também define, atualiza e mantém os scripts T-SQL a serem executados em um grupo de bancos de dados SQL do Azure.
 
 **Contabilização**
 
@@ -53,7 +60,7 @@ Os trabalhos executam o script e registram em log o status de execução para ca
 
 **Flexibilidade**
 
-Defina grupos personalizados de Bancos de Dados SQL do Azure e defina agendas para executar um trabalho.
+Definir grupos personalizados de bancos de dados SQL do Azure e agendar as execuções de um trabalho.
 
 > [!NOTE]
 > No portal do Azure, apenas um conjunto reduzido de funções limitadas aos pools elásticos do SQL Azure está disponível. Use as APIs do PowerShell para acessar o conjunto completo de funcionalidades atuais.

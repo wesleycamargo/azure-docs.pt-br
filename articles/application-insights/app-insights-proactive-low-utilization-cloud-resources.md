@@ -1,8 +1,8 @@
 ---
-title: "Detecção Inteligente - Baixa utilização de recursos de nuvem detectada pelo Azure Application Insights | Microsoft Docs"
-description: "Monitorar aplicativos com o Azure Application Insights para baixa utilização de recursos de nuvem."
+title: Detecção Inteligente - Baixa utilização de recursos de nuvem detectada pelo Azure Application Insights | Microsoft Docs
+description: Monitorar aplicativos com o Azure Application Insights para baixa utilização de recursos de nuvem.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
@@ -10,20 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8382f6047ae222a01cc0e8d6ca9dcf5593d0dff6
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ca4f944f605db96a2cedf2682f3ff4c811007ffb
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094905"
 ---
-# <a name="low-utilization-of-cloud-resources-preview"></a>Baixa utilização de recursos de nuvem (visualização)
+# <a name="low-cpu-utilization-in-cloud-resources-preview"></a>Baixa utilização de CPU nos recursos de nuvem (versão prévia)
 
-O Application Insights analisa automaticamente o consumo de CPU de cada instância de função em seu aplicativo e detecta instâncias com baixa utilização da CPU. Essa detecção permite diminuir os recursos do Azure e reduzir os custos, diminuindo o número de instâncias de função que cada função utiliza ou reduzindo o número de funções.
+O Application Insights analisa automaticamente o consumo de CPU de cada instância de função no seu aplicativo e detecta instâncias com baixa utilização de CPU. Essa detecção permite diminuir os recursos do Azure e reduzir os custos, diminuindo o número de instâncias de função que cada função utiliza ou reduzindo o número de funções.
 
-Este recurso não exige nenhuma configuração especial, diferente de [configurar contadores de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) para seu aplicativo. Ele está ativo quando seu aplicativo gera telemetria de contador de desempenho da CPU suficiente (% tempo do processador).
+Este recurso não exige nenhuma configuração especial, diferente de [configurar contadores de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) para seu aplicativo. Ele fica ativo quando seu aplicativo gera telemetria de contador de desempenho da CPU suficiente (% de tempo do processador).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando eu receberia este tipo de notificação de detecção inteligente?
 Uma notificação comum ocorre quando muitas de suas instâncias de função web/trabalho exibem a baixa utilização da CPU.

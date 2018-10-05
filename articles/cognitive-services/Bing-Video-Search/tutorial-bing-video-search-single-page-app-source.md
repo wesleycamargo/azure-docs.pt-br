@@ -1,22 +1,23 @@
 ---
-title: Aplicativo Web de página única de Pesquisa de Vídeo do Bing (código-fonte) | Microsoft Docs
+title: 'Tutorial: Criar um aplicativo Web de página única – Pesquisa de Vídeo do Bing'
+titlesuffix: Azure Cognitive Services
 description: Código-fonte para tutorial mostrando como usar a API de Pesquisa de Vídeo do Bing em um aplicativo Web de página única.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: bed17c1df2b7c8dff9f874e43be8d67900fd7836
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: rosh
+ms.openlocfilehash: b0856be88382e1bb7a4cc65f5fd05910b814e152
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112453"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223280"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicativo de Pesquisa de Vídeo de página única
+# <a name="tutorial-single-page-bing-video-search-app"></a>Tutorial: Aplicativo de página única da Pesquisa de Vídeo do Bing
 
 Esse é o código-fonte completo discutido no [tutorial de aplicativo de página única](tutorial-bing-video-search-single-page-app.md) para a Pesquisa de Vídeo do Bing. Para executar o aplicativo, copie o código-fonte em um Bloco de Notas ou outro editor de texto e salve-o como `bing.html`. Abra o arquivo salvo no Microsoft Edge ou outro navegador popular.
 

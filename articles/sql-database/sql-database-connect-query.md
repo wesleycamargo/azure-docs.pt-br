@@ -2,20 +2,22 @@
 title: Guias de início rápido para se conectar e consultar no Banco de Dados SQL do Azure | Microsoft Docs
 description: Guias de início rápido de banco de dados SQL do Azure mostrando como se conectar e fazer consultas em um banco de dados do SQL Azure.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc
+ms.subservice: operations
+ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-ms.date: 04/24/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: ec39c5ad0771c2bc78655e52c58949db6e9b3353
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/24/2018
+ms.openlocfilehash: 576e0adca21f5cd3313893035ff66bd83a0a0164
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186004"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063516"
 ---
 # <a name="azure-sql-database-connect-and-query-quickstarts"></a>Guias de início rápido para se conectar e consultar no Banco de Dados SQL do Azure
 
@@ -26,8 +28,8 @@ O documento a seguir inclui contém links para exemplos do Azure que mostram com
 | |  |
 |---|---|
 |[SQL Server Management Studio](sql-database-connect-query-ssms.md)|Este guia rápido demonstra como usar o SSMS para conectar um banco de dados SQL do Azure, em seguida, usar instruções Transact-SQL para consultar, inserir, atualizar e excluir os dados no banco de dados.|
-|[SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Este início rápido demonstra como usar o SQL Operations Studio (versão prévia) para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL (T-SQL) para criar o TutorialDB usado nos tutoriais do SQL Operations Studio (versão prévia).|
-|[Portal do Azure](sql-database-connect-query-portal.md)|Este guia rápido demonstra como usar o editor de consultas para se conectar a um banco de dados SQL e depois usar instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados.|
+|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Este início rápido demonstra como usar o Azure Data Studio para se conectar a um banco de dados SQL do Azure e usar instruções T-SQL (Transact-SQL) para criar o TutorialDB usado nos tutoriais do Azure Data Studio.|
+|[portal do Azure](sql-database-connect-query-portal.md)|Este guia rápido demonstra como usar o editor de consultas para se conectar a um banco de dados SQL e depois usar instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados.|
 |[Visual Studio Code](sql-database-connect-query-vscode.md)|Este início rápido demonstra como usar o Visual Studio Code para conectar um banco de dados SQL do Azure e depois usar as instruções Transact-SQL para consultar, inserir, atualizar e excluir os dados no banco de dados.|
 |[.NET com Visual Studio](sql-database-connect-query-dotnet-visual-studio.md)|Este início rápido demonstra como usar o .NET Framework a fim de criar um programa C# com o Visual Studio para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.|
 |[.NET Core](sql-database-connect-query-dotnet-core.md)|Este início rápido demonstra como usar o .NET Core no Windows/Linux/macOS a fim de criar um programa C# para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.|

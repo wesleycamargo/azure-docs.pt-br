@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0a624d850b8c3260acb24cb17566090e8ad0043e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233930"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039421"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitar o gerenciamento de atualizações, o controle de alterações e as soluções de inventário em várias VMs
 
@@ -43,17 +43,62 @@ A imagem a seguir é para o gerenciamento de atualizações. O controle de alter
 
 A lista de máquinas virtuais é filtrada para mostrar somente as máquinas virtuais que estão na mesma assinatura e local. Se suas máquinas virtuais estiverem em mais de três grupos de recursos, os três primeiros grupos de recursos serão selecionados.
 
+### <a name="resource-group-limit"></a> Limitações de integração
+
+O número de grupos de recursos que você pode usar para a integração é limitado pelos [limites de implantação do Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). As implantações do Resource Manager, que não devem ser confundidas com implantações de atualização, estão limitadas a cinco grupos de recursos por implantação. Para garantir a integridade da integração, dois desses grupos de recursos são reservados para configurar o workspace do Log Analytics, a conta de Automação e os recursos relacionados. Isso deixa você com três grupos de recursos para selecionar para a implantação.
+
 Use os controles de filtro para selecionar máquinas virtuais em assinaturas diferentes, locais e grupos de recursos.
 
 ![Solução integrada de gerenciamento de atualização](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Revise as opções para o espaço de trabalho de análise de Log e a conta de automação. Um novo espaço de trabalho e a conta de automação são selecionadas pelo padrão. Se você tiver um espaço de trabalho de análise de Log existente e a conta de automação que você deseja usar, clique em **alterar** para selecioná-los a partir da página de **configuração**. Quando terminar, clique em **Salvar**.
+Revise as opções para o espaço de trabalho de análise de Log e a conta de automação. Um workspace existente e a conta de Automação são selecionados por padrão. Se desejar usar um workspace do Log Analytics diferente e a Conta de Automação, clique em **PERSONALIZAR** para selecioná-los na página **Configuração personalizada**. Quando você escolhe um workspace do Log Analytics, é feita uma verificação para determinar se ele está vinculado a uma Conta de Automação. Se uma Conta de Automação vinculada for encontrada, você verá a tela a seguir. Quando terminar, clique em **OK**.
 
 ![Selecione espaço de trabalho e conta](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+
+Se o workspace selecionado não estiver vinculado a uma Conta de Automação, você verá a tela a seguir. Selecione uma Conta de Automação e clique em **OK** ao concluir.
+
+![Nenhum workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
 Desmarque a caixa de seleção ao lado de qualquer máquina virtual que você não deseja habilitar. Máquinas virtuais que não podem ser habilitadas já estão desmarcadas.
 
 Clique em **Ativar** para ativar a solução. A solução demora até 15 minutos para habilitar.
+
+## <a name="unlink-workspace"></a>Desvincular o espaço de trabalho
+
+As soluções a seguir são dependentes de um workspace do Log Analytics:
+
+* [Gerenciamento de atualizações](automation-update-management.md)
+* [Controle de alterações](automation-change-tracking.md)
+* [Iniciar/parar VMs durante os horários fora de pico](automation-solution-vm-management.md)
+
+Caso decida que não quer mais integrar sua conta de Automação ao Log Analytics, você poderá desvincular a conta diretamente no Portal do Azure. Antes de prosseguir, você precisa remover as soluções mencionadas anteriormente, caso contrário, esse processo será impedido de continuar. Examine o artigo sobre a solução específica que você importou para entender as etapas necessárias para removê-la.
+
+Depois de remover essas soluções, você poderá executar as etapas a seguir para desvincular sua conta de Automação.
+
+> [!NOTE]
+> Algumas soluções, incluindo versões anteriores da solução de monitoramento do Azure SQL, podem ter criado ativos de automação e também podem precisar ser removidas antes de desvincular o espaço de trabalho.
+
+1. No portal do Azure, abra sua conta da Automação e, na página da conta da Automação, selecione **Espaço de trabalho vinculado** na seção **Recursos Relacionados** à esquerda.
+
+1. Na página Desvincular o espaço de trabalho, clique em **Desvincular o espaço de trabalho**.
+
+   ![Página Desvincular espaço de trabalho](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
+
+   Você receberá uma solicitação perguntando se deseja prosseguir.
+
+1. Enquanto a Automação do Azure tenta desvincular a conta do seu espaço de trabalho do Log Analytics, você pode acompanhar o progresso no menu **Notificações**.
+
+Se você tiver usado a solução Gerenciamento de Atualizações, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
+
+* Atualizar agendas - Cada uma terá nomes que correspondam às implantações de atualizações que você criou)
+
+* Grupos de trabalho híbrido criados para a solução - Cada um receberá um nome semelhante a machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
+
+Se você tiver usado a solução Iniciar/parar VMs durante os horários fora de pico, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
+
+* Iniciar e parar agendas de runbook da VM
+* Iniciar e parar runbooks da VM
+* variáveis
 
 ## <a name="troubleshooting"></a>solução de problemas
 

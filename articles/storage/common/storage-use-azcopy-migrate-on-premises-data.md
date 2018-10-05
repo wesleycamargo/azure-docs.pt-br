@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: bb3df82e66024b49e399ab2f7795a27932f7559e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bfc87a30250dd98c1b26616f680b5981070623f5
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953966"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182545"
 ---
-#  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrar dados locais para o armazenamento em nuvem usando o AzCopy
+#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Tutorial: Migrar os dados locais para o armazenamento em nuvem usando o AzCopy
 
 O AzCopy é uma ferramenta de linha de comando para copiar dados para ou do Armazenamento de Blobs do Azure, Arquivos do Azure e Armazenamento de Tabelas do Azure, usando comandos simples. Os comandos são projetados para desempenho ideal. Você pode copiar dados entre um sistema de arquivos e uma conta de armazenamento, ou entre contas de armazenamento.  
 

@@ -3,19 +3,22 @@ title: Códigos de erro de SQL – erro de conexão de banco de dados | Microsof
 description: 'Saiba mais sobre os códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL, como erros comuns de conexão de banco de dados, problemas de cópia de banco de dados e erros gerais. '
 keywords: código de erro de sql, acessar sql, erro de conexão de banco de dados, códigos de erro de sql
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: d97ec2cc67da7c4bc1479c55a9a7c35c0c754532
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: d5b98f573b60115002e813ebbef59eb7983ce3c2
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092521"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064378"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro de SQL em aplicativos cliente do Banco de Dados SQL: erros de conexão de banco de dados e outros problemas
 
@@ -111,7 +114,7 @@ Os seguintes erros estão relacionados à criação e ao uso de pools elásticos
 | 40857 |EX_USER |Pool elástico não encontrado para o servidor: '%ls', nome do pool elástico: '%ls'. |nome do servidor; nome do pool elástico |O pool elástico especificado não existe no servidor especificado. |Forneça um nome de pool elástico válido. |
 | 40858 |EX_USER |O pool elástico '%ls' já existe no servidor: '%ls' |nome do pool elástico, nome do servidor |O pool elástico especificado já existe no servidor lógico especificado. |Forneça um novo nome de pool elástico. |
 | 40859 |EX_USER |O pool elástico não dá suporte à camada de serviço '%ls'. |camada de serviço do pool elástico |A camada de serviço especificada não dá suporte ao provisionamento de pool elástico. |Forneça a edição correta ou deixe a camada de serviço em branco para o padrão. |
-| 40860 |EX_USER |A combinação de pool elástico '%ls' e objetivo de serviço '%ls' é inválida. |nome do pool elástico; nome de objetivo de nível de serviço |O pool elástico e o objetivo de serviço podem ser especificados juntos somente se o objetivo de serviço for especificado como “ElasticPool”. |Especifique a combinação correta de pool elástico e objetivo de serviço. |
+| 40860 |EX_USER |A combinação de pool elástico '%ls' e objetivo de serviço '%ls' é inválida. |nome do pool elástico; camada do servidor |O pool elástico e a camada de serviço poderão ser especificados juntos somente se o tipo de recurso for especificado como “ElasticPool”. |Especifique a combinação correta de pool elástico e camada de serviço. |
 | 40861 |EX_USER |A edição do banco de dados '%.*ls' não pode ser diferente da camada de serviço do pool elástico, que é '%.* ls'. |edição do banco de dados, camada de serviço do pool elástico |A edição do banco de dados é diferente da camada de serviço do pool elástico. |Não especifique uma edição de banco de dados diferente da camada de serviço do pool elástico.  Observe que a edição do banco de dados não precisa ser especificada. |
 | 40862 |EX_USER |O nome do pool elástico deverá ser especificado se o objetivo de serviço do pool elástico for especificado. |Nenhum |O objetivo de serviço do pool elástico não identifica exclusivamente um pool elástico. |Especifique o nome do pool elástico se você estiver usando o objetivo de serviço do pool elástico. |
 | 40864 |EX_USER |A quantidade mínima de DTUs para o pool elástico deve ser de (%d) DTUs para a camada de serviço '%.*ls'. |DTUs para o pool elástico; camada de serviço do pool elástico. |Tentando definir uma quantidade de DTUs para o pool elástico abaixo do limite mínimo. |Tente configurar novamente as DTUs para o pool elástico de acordo com o limite mínimo. |

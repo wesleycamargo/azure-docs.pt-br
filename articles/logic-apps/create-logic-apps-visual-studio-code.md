@@ -9,19 +9,19 @@ ms.author: estfan
 ms.topic: article
 ms.reviewer: klam, deli, LADocs
 ms.suite: integration
-ms.date: 09/24/2018
-ms.openlocfilehash: fd92b093b70dba2df3ec645b3ecb77233d3ebd5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 36e8161eb8be16b75d843a2b7a65fc3dd70d9c02
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958349"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405281"
 ---
 # <a name="create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Crie e gerencie fluxos de trabalho de aplicativos lógicos automatizados - Visual Studio Code
 
 Com o [Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o Visual Studio Code, você pode criar e gerenciar aplicativos lógicos que ajudam a automatizar tarefas, fluxos de trabalho e processos para integrar aplicativos, dados, sistemas e serviços em organizações e empresas. Este artigo mostra como você pode criar e editar definições de fluxo de trabalho de aplicativo lógico trabalhando em uma experiência baseada em código. Você também pode trabalhar em aplicativos lógicos já implantados no <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> na nuvem. 
 
-Embora você possa executar essas mesmas tarefas no <a href="https://portal.azure.com" target="_blank">Portal do Azure</a> e no Visual Studio, é possível começar mais rapidamente no Código do Visual Studio quando quiser trabalhar diretamente no código. Por exemplo, você também pode desativar, ativar, excluir e atualizar aplicativos lógicos já criados.
+Embora você possa executar essas mesmas tarefas no <a href="https://portal.azure.com" target="_blank">Portal do Azure</a> e no Visual Studio, é possível começar mais rapidamente no Código do Visual Studio quando quiser trabalhar diretamente no código. Por exemplo, você também pode desativar, ativar, excluir e atualizar aplicativos lógicos já criados. Além disso, você pode trabalhar em aplicativos lógicos e nas contas de integração de qualquer plataforma de desenvolvimento em que o Visual Studio Code é executado, como Linux, Windows e Mac.
 
 Para este artigo, você pode criar o mesmo aplicativo lógico que no início rápido de [para criar um aplicativo lógico no Portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), que se concentra mais nos conceitos básicos. No Visual Studio Code, o aplicativo lógico se parece com este exemplo:
 
@@ -43,7 +43,7 @@ Antes de começar, verifique se você possui estes itens:
 
   * Extensão de código do Visual Studio para aplicativos de lógica do Azure
 
-    Você pode instalar essa extensão de dentro do código do Visual Studio. 
+    Você pode instalar essa extensão do [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) ou diretamente do Visual Studio Code. 
     Certifique-se de recarregar o código do Visual Studio após a instalação. 
 
     ![Encontre "Extensão de código do Visual Studio para aplicativos de lógica do Azure"](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
@@ -52,7 +52,7 @@ Antes de começar, verifique se você possui estes itens:
 
     ![Extensão instalada](./media/create-logic-apps-visual-studio-code/installed-extension.png)
 
-    Para obter mais informações, consulte <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">Marketplace de extensão</a>. 
+    Para obter mais informações, consulte <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">Marketplace de extensão</a>. Você também pode exibir e enviar contribuições para a versão de software livre dessa extensão visitando a [Extensão de aplicativos lógicos do Azure para Visual Studio Code no GitHub](https://github.com/Microsoft/vscode-azurelogicapps). 
 
 <a name="sign-in-azure"></a>
 

@@ -1,27 +1,28 @@
 ---
-title: Introdução do Azure Content Moderator | Microsoft Docs
-description: Como começar com o Azure Content Moderator.
+title: Introdução ao Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Como começar com o Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: sajagtap
-ms.openlocfilehash: ae4333047ebd95733c7baaed0323a0c2c477d323
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c2ac0ccd89b5f1436a151e3d69c5d7423090f244
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363746"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225287"
 ---
 # <a name="get-started-with-content-moderator"></a>Introdução ao Content Moderator
 
-Comece a usar as APIs do Content Moderator e a ferramenta de análise das seguintes maneiras:
+Comece a usar o Content Moderator das seguintes maneiras:
 
-- [Inicie com a ferramenta de análise](#start-with-the-review-tool) para criar as chaves de API e uma equipe de análise. Explore a ferramenta de análise e saiba como integrar usando as APIs do Content Moderator.
-- [Assine o Content Moderator](#start-with-the-apis) no portal do Azure. Você ainda precisa se inscrever online para criar uma equipe de análise.
+- [Inicie com a ferramenta de análise](#start-with-the-review-tool) para obter a chave de API e criar uma equipe de análise. O benefício é que você pode usar a chave de API para chamar as APIs de moderação para examinar conteúdo e as APIs de análise para gerar revisões, sem etapas adicionais.
+- [Assine o Content Moderator](#start-with-the-apis) no Azure para obter a chave de API. Confira a [referência de API](api-reference.md) e os [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Você ainda precisa se inscrever online para criar uma equipe de análise.
 - [Use o conector de Fluxo e modelos](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/) para verificar uma grande variedade de integrações com um designer fácil de usar.
 
 Independentemente da opção escolhida, consulte o artigo [Gerenciando credenciais](review-tool-user-guide/credentials.md) para encontrar as credenciais de sua API.
@@ -55,9 +56,9 @@ Aprenda a usar todos os [recursos da ferramenta de análise](Review-Tool-User-Gu
 
 ### <a name="use-the-apis"></a>Usar as APIs
 
-Agora que você explorou as experiências de moderação de conteúdo e ferramenta de análise, saiba como integrar o Content Moderator em seus aplicativos de negócios. Use a seção a seguir para saber mais e acelerar seu conhecimento com os SDKs e exemplos.
+Saiba como integrar o Content Moderator com seus aplicativos de negócios. Confira a [referência de API](api-reference.md) e os [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net).
 
-## <a name="start-with-the-apis"></a>Iniciar com as APIs
+## <a name="subscribe-in-the-azure-portal"></a>Assinar no portal do Azure
 
 [Assine o Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) no portal do Azure. Inicie com uma das seguintes APIs:
 
@@ -85,4 +86,4 @@ Comece aqui escolhendo entre as APIs de Trabalho, Revisão e Fluxo de Trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como iniciar a moderação de conteúdo com a [API de moderação de imagem](image-moderation-api.md).
+Confira a [referência de API](api-reference.md) e os [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Inicie rapidamente sua integração com [amostras do SDK do .NET](sdk-and-samples.md#net-sdk-samples), [amostras da API REST em C#](https://github.com/sanjeev3/azure-docs-pr/blob/master/articles/cognitive-services/Content-Moderator/sdk-and-samples.md#rest-api-samples-in-c) e [tutoriais](sdk-and-samples.md#tutorials).

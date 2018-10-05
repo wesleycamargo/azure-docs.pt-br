@@ -2,19 +2,22 @@
 title: Escalar horizontalmente um banco de dados SQL do Azure | Microsoft Docs
 description: Como usar o ShardMapManager, a biblioteca de cliente do banco de dados elástico
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/16/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 7e156142a68b30471646ea3a9181ce7d0097e626
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 03/16/2018
+ms.openlocfilehash: 71496a11deff5236161931d572e75d4a84b75c5f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646986"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162059"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Escale horizontalmente os bancos de dados com o gerenciador do mapa de fragmentos
 Para escalar horizontalmente os bancos de dados no SQL Azure, use um gerenciador do mapa de fragmentos. O gerenciador do mapa de fragmentos é um banco de dados especial que mantém informações de mapeamento global sobre todos os fragmentos (bancos de dados) em um conjunto de fragmentos. Os metadados permitem que um aplicativo se conecte ao banco de dados correto com base no valor da **chave de fragmentação**. Além disso, cada fragmento no conjunto contém mapas que acompanham os dados de fragmento local (conhecido como **shardlets**). 
@@ -31,7 +34,7 @@ Para cada fragmento, você deve selecionar o tipo do mapa de fragmentos a ser cr
    1. Mapeamento de lista
    2. Mapeamento de intervalo
 
-Para um modelo de locatário único, crie um mapa de fragmentos de **mapeamento de lista** . O modelo de locatário único atribui um banco de dados por locatário. Esse é um modelo eficaz para desenvolvedores de SaaS, pois simplifica o gerenciamento.
+Para um modelo de locatário único, crie um mapa de fragmentos de **list-mapping**. O modelo de locatário único atribui um banco de dados por locatário. Esse é um modelo eficaz para desenvolvedores de SaaS, pois simplifica o gerenciamento.
 
 ![Mapeamento de lista][1]
 
@@ -60,7 +63,7 @@ A Escala Elástica dá suporte aos tipos a seguir, como chaves de fragmentação
 Mapas de fragmentos podem ser construídos usando **listas de valores de chave de fragmentação individuais** ou **intervalos de valores de chave de fragmentação**. 
 
 ### <a name="list-shard-maps"></a>Mapas de fragmentos de lista
-**Fragmentos** contêm **shardlets** e o mapeamento de shardlets para fragmentos é mantido por um mapa de fragmentos. Uma **lista de mapas de fragmento** é uma associação entre os valores de chave individuais, que identificam os shardlets e os bancos de dados que servem como fragmentos.  **Mapeamentos de lista** são valores de chaves explícitos e diferentes que podem ser mapeados para o mesmo banco de dados. Por exemplo, a chave 1 é mapeada para o banco de dados A e os valores 3 e 6 fazem referência ao banco de dados B.
+**Fragmentos** contêm **shardlets** e o mapeamento de shardlets para fragmentos é mantido por um mapa de fragmentos. Uma **lista de mapas de fragmento** é uma associação entre os valores de chave individuais, que identificam os shardlets e os bancos de dados que servem como fragmentos.  **Mapeamentos de lista** são valores de chaves explícitos e diferentes que podem ser mapeados para o mesmo banco de dados. Por exemplo, o valor da chave 1 é mapeado para o Banco de dados A e os valores 3 e 6 são mapeados para o Banco de dados B.
 
 | Chave | Local de fragmento |
 | --- | --- |
@@ -97,7 +100,7 @@ Um objeto **ShardMapManager** é construído usando-se um padrão de fábrica ([
 
 **Observação:** o **ShardMapManager** deve ser instanciado apenas uma vez por domínio de aplicativo, dentro do código de inicialização de um aplicativo. A criação de instâncias adicionais de ShardMapManager no mesmo domínio de aplicativo resulta em uma maior utilização de memória e CPU do aplicativo. Um **ShardMapManager** pode conter diversos mapas de fragmento. Enquanto um mapa do fragmento único pode ser suficiente para muitos aplicativos, há vezes quando conjuntos diferentes de bancos de dados são usados para esquemas diferentes ou para fins exclusivos e, nesses casos, vários mapas de fragmentação podem ser preferíveis. 
 
-Nesse código, um aplicativo tenta abrir um **ShardMapManager** existente com o método TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager). Se os objetos que representam um **ShardMapManager** Global (GSM) ainda não existirem no banco de dados, a biblioteca de cliente os criará no local usando o método CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)).
+Nesse código, um aplicativo tenta abrir um **ShardMapManager** existente com o método TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager). Se os objetos que representam um **ShardMapManager** Global (GSM) ainda não existirem no banco de dados, a biblioteca de clientes os criará usando o método CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)).
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.

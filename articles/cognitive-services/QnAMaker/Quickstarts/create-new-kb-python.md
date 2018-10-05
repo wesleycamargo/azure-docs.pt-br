@@ -1,24 +1,27 @@
 ---
-title: Criar uma nova base de dados de conhecimento – início rápido em Python – para a API de QnA Maker da Microsoft (V4) – Serviços Cognitivos do Azure | Microsoft Docs
-description: Crie uma base de dados de conhecimento em Python para manter suas perguntas frequentes ou manuais de produto para que você possa começar a usar o QnA Maker.
+title: 'Início Rápido: API do Python – Criar uma base de dados de conhecimento – QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: Este início rápido orienta você pela criação programática de um exemplo de base de dados de conhecimento de QnA Maker, que será exibido no painel do Azure da sua conta da API dos serviços Cognitivos.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: a8e3ae73c76c13d44267f221d37a07eea721a608
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 9a3b801058a2614b9b484a3ebf414a9225c5371e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "43768490"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033287"
 ---
 # <a name="create-a-new-knowledge-base-in-python"></a>Criar uma nova base de dados de conhecimento em Python
 
 Neste início rápido orienta você pela criação de um exemplo de base de dados de Conhecimento de QnA Maker, programaticamente, que será exibido no painel do Azure da sua conta da API dos serviços Cognitivos.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 Dois exemplos de URLs de perguntas frequentes são apresentados abaixo (em 'urls' do item de dicionário **req**). O QnA Maker extrai automaticamente perguntas e respostas do conteúdo semiestruturado, como perguntas frequentes, conforme explicado em mais detalhes neste documento de [fontes de dados](../Concepts/data-sources-supported.md). Você também pode usar seus próprio URLs de perguntas frequentes neste guia de início rápido.
 

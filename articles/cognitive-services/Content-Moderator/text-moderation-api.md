@@ -1,20 +1,20 @@
 ---
-title: Content Moderator do Azure - Moderação de texto | Microsoft Docs
+title: Moderação de texto – Content Moderator
 description: Use a moderação de texto para possíveis textos indesejados, PII e listas de termos personalizada.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 4c4a0ccfc93a6a48a0178183b94cc03cb576930a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085752"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226561"
 ---
 # <a name="text-moderation"></a>Moderação de texto
 
@@ -44,13 +44,13 @@ Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](Text
     }
 
 > [!NOTE]
-> Para o parâmetro **language**, atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por computador (versão prévia do recurso). **Este recurso dá somente para inglês**.
+> Para o parâmetro **language**, atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por computador (versão prévia do recurso). **Esse recurso dá suporte ao inglês apenas**.
 >
-> Para detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo, ou deixe-o vazio.
+> Para a detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe vazio.
 
 ## <a name="classification"></a>classificação
 
-O **recurso de classificação de texto** assistido por computador do Content Moderator dá suporte **somente em inglês** e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado, dependendo do contexto. Ele transmite a probabilidade de cada categoria e pode recomendar uma análise humana. O recurso utiliza um modelo treinado para identificar possíveis linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para análise. 
+O **recurso de classificação de texto** assistido por computador do Content Moderator dá suporte **somente em inglês** e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado, dependendo do contexto. Ele transmite a probabilidade de cada categoria e pode recomendar uma análise humana. O recurso utiliza um modelo treinado para identificar uma possível linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para análise. 
 
 A extração a seguir na extração JSON mostra uma saída de exemplo:
 
@@ -72,8 +72,8 @@ A extração a seguir na extração JSON mostra uma saída de exemplo:
 - `Category1` refere-se à presença potencial de linguagem que pode ser considerada sexualmente explícita ou para adulto em determinadas situações.
 - `Category2` refere-se à presença potencial de linguagem que pode ser considerada sexualmente sugestiva ou para adulto em determinadas situações.
 - `Category3` refere-se à potencial presença de linguagem que pode ser considerada ofensiva em determinadas situações.
-- `Score` é entre 0 e 1. Quanto maior a pontuação, maior o modelo estará prevendo que a categoria pode ser aplicável. Essa versão prévia depende de um modelo estatístico, em vez de resultados codificados manualmente. É recomendável testar com o seu próprio conteúdo para determinar como cada categoria alinha-se aos seus requisitos.
-- `ReviewRecommended` é verdadeiro ou falso, dependendo dos limites da pontuação interna. Os clientes devem avaliar se desejam usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
+- `Score` fica entre 0 e 1. Quanto maior a pontuação, mais o modelo irá prever que a categoria pode ser aplicável. Esse recurso se baseia em um modelo estatístico, em vez dos resultados codificados manualmente. É recomendável testar com seu próprio conteúdo para determinar como cada categoria se alinha com seus requisitos.
+- `ReviewRecommended` é verdadeiro ou falso, dependendo dos limites internos da pontuação. Os clientes devem avaliar se desejam usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
 
 ## <a name="personally-identifiable-information-pii"></a>PII (Informações de Identificação Pessoal)
 

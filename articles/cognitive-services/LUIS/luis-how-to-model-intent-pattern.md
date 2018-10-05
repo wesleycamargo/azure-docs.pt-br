@@ -1,21 +1,21 @@
 ---
-title: Adicionar modelos padrão em aplicativos LUIS | Microsoft Docs
-titleSuffix: Azure
+title: Adicionar modelos de padrão em vez de mais enunciados em aplicativos LUIS
+titleSuffix: Azure Cognitive Services
 description: Saiba como adicionar modelos padrão em aplicativos LUIS (Reconhecimento Vocal) para aumentar a precisão da previsão.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 8926ce48a8426aa667787f7bbe104e27e1a68669
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c97092385cdc28ba6e4d916ae8039f065f97d31d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124677"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030805"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar Padrões para aumentar a precisão da previsão
 Depois que um aplicativo LUIS receber declarações do ponto de extremidade, use o [conceito](luis-concept-patterns.md) de Padrões para aumentar a precisão da previsão de declarações que revelam um padrão na ordem e na escolha de palavras. Os Padrões usam [entidades](luis-concept-entity-types.md), e a funções que elas têm de extrair dados usando uma sintaxe de padrão específica. 

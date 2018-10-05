@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1aa4cf5d0cae728392f09626293de0506c81757f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2e455845a145e07bc59378818b95e23e572cb577
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976968"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227088"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Início rápido: Provisionar um dispositivo simulado com chaves simétricas
 
 Neste início rápido, você aprenderá como criar e executar um simulador de dispositivo em um computador de desenvolvimento do Windows. Você configurará esse dispositivo simulado para usar uma chave simétrica para autenticar com uma instância de Serviço de Provisionamento de Dispositivos e ser atribuído a um Hub IoT. O código de exemplo do [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) será usado para simular uma sequência de inicialização para o dispositivo que inicia o provisionamento. O dispositivo será reconhecido com base em um registro individual com uma instância de serviço de provisionamento e atribuído a um Hub IoT.
 
-Embora este artigo demonstre o provisionamento com um registro individual, é possível usar os mesmos procedimentos com grupos de registros. A única diferença é que você deve usar uma chave de dispositivo derivada com uma ID de registro exclusiva para o dispositivo. Com grupos de registros, a chave simétrica de registro e a ID de registro não são usadas diretamente. Embora não seja limitado apenas a dispositivos herdados, [Como provisionar dispositivos herdados usando atestado de chave simétrica](how-to-legacy-device-symm-key.md) fornece um exemplo. Para obter mais informações, consulte [Registros de grupo para atestado de chave simétrica](concepts-symmetric-key-attestation.md#group-enrollments).
+Embora este artigo demonstre o provisionamento com um registro individual, é possível usar os mesmos procedimentos com grupos de registros. A única diferença é que você deve usar uma chave de dispositivo derivada com uma ID de registro exclusiva para o dispositivo. Com grupos de registros, a chave simétrica no registro não é usada diretamente. Embora os grupos de registros de chave simétrica não sejam limitados apenas a dispositivos herdados, [Como provisionar dispositivos herdados usando atestado de chave simétrica](how-to-legacy-device-symm-key.md) fornece um exemplo de grupo de registros. Para obter mais informações, consulte [Registros de grupo para atestado de chave simétrica](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Para obter informações conceituais mais detalhadas sobre atestado de chave simétrica, consulte [Atestado de chave simétrica](concepts-symmetric-key-attestation.md). Se você não estiver familiarizado com o processo de provisionamento automático, analise os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). 
+Se você não estiver familiarizado com o processo de provisionamento automático, analise os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). 
 
 Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar com este início rápido. Este início rápido requer que você já tenha criado a instância de Serviço de Provisionamento de Dispositivos.
 

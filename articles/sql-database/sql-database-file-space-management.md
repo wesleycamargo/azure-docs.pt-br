@@ -2,19 +2,22 @@
 title: Gerenciamento de espaço de arquivo do Banco de Dados SQL do Azure | Microsoft Docs
 description: Esta página descreve como gerenciar o espaço no arquivo com o Banco de Dados SQL do Azure e fornece exemplos de código para determinar se você precisa reduzir um banco de dados, além de como executar uma operação de redução do banco de dados.
 services: sql-database
-author: oslake
-manager: craigg
 ms.service: sql-database
-ms.custom: how-to
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/15/2018
+author: oslake
 ms.author: moslake
-ms.openlocfilehash: 498e83e7c312480af6d2eff7d44bd13aee9c55fd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145665"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159934"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gerenciar espaço no arquivo no Banco de Dados SQL do Azure
 Este artigo descreve os diferentes tipos de espaço de armazenamento no Banco de Dados SQL do Azure e as etapas que podem ser executadas quando o espaço no arquivo alocado para bancos de dados e pools elásticos precisa ser gerenciado explicitamente.
@@ -27,7 +30,7 @@ No Banco de Dados SQL do Azure, as métricas de tamanho de armazenamento exibida
 - T-SQL: [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Há padrões de carga de trabalho que a alocação de arquivos de dados subjacente para bancos de dados pode se tornar maior do que a quantidade de páginas de dados usada.  Isso pode ocorrer quando o espaço usado aumenta e os dados são excluídos posteriormente.  Isso é porque o espaço no arquivo alocado não é recuperado automaticamente quando os dados são excluídos.  Nesses cenários, o espaço alocado para um pool ou banco de dados pode exceder os limites com suporte e impedir que o crescimento de dados ou impedir alterações de nível de desempenho e exigem a redução de arquivos de dados para reduzir.
+Há padrões de carga de trabalho que a alocação de arquivos de dados subjacente para bancos de dados pode se tornar maior do que a quantidade de páginas de dados usada.  Isso pode ocorrer quando o espaço usado aumenta e os dados são excluídos posteriormente.  Isso é porque o espaço no arquivo alocado não é recuperado automaticamente quando os dados são excluídos.  Nesses cenários, o espaço alocado para um pool ou banco de dados pode exceder os limites compatíveis e impedir o crescimento de dados ou alterações na camada de serviço ou no tamanho de computação, exigindo a redução de arquivos de dados para atenuar a questão.
 
 O serviço Banco de Dados SQL não reduz automaticamente os arquivos de banco de dados para recuperar espaço alocado não utilizado devido ao possível impacto no desempenho do banco de dados.  No entanto, os clientes podem reduzir o arquivo em um banco de dados no momento de sua escolha, seguindo as etapas descritas em [Recuperar espaço não utilizado alocado](#reclaim-unused-allocated-space). 
 

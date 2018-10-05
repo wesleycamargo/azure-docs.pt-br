@@ -1,20 +1,21 @@
 ---
-title: Início Rápido – alterar o modelo e treinar o aplicativo LUIS usando Python – Serviços Cognitivos do Azure | Microsoft Docs
-description: Neste início rápido do Node.js, adicione enunciados de exemplo a um aplicativo Automação de Página Inicial e treine o aplicativo. Exemplos de enunciados consistem em texto de conversa do usuário mapeado para uma intenção. Ao mostrar exemplos de enunciados para intenções, você ensina o LUIS quais tipos de textos fornecidos pelo usuário pertencem a qual intenção.
+title: Início Rápido do Python – alterar o modelo e treinar o aplicativo LUIS
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido do Python, adicione enunciados de exemplo a um aplicativo de Automação Residencial e treine o aplicativo. Exemplos de enunciados consistem em texto de conversa do usuário mapeado para uma intenção. Ao mostrar exemplos de enunciados para intenções, você ensina o LUIS quais tipos de textos fornecidos pelo usuário pertencem a qual intenção.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9fe3863509404f43f39e3aa197a79d322a0b643b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ff076954d51605935bb41488ec6a757c2f7806a1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160686"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040169"
 ---
 # <a name="quickstart-change-model-using-python"></a>Início Rápido: Alterar o modelo usando Python
 

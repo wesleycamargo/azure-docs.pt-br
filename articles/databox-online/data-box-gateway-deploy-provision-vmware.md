@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: d0c6f8723909b71501894c9363932c752c1e130c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989848"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419535"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Provisionar o Gateway do Azure Data Box no VMware (Versão prévia)
 
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Verificar se o host atende aos requisitos mínimos de dispositivo
-> * Provisionar um dispositivo virtual no hipervisor
+> * Provisionar um dispositivo virtual no VMWare
 > * Iniciar o dispositivo virtual e obter o endereço IP
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -74,7 +74,7 @@ Antes de implantar um dispositivo virtual, verifique se:
 Antes de começar:
 
 - Revise os requisitos de rede para implantar um Gateway do Data Box e configurar a rede de datacenter de acordo com os requisitos. Saiba mais em [Requisitos de rede do Gateway do Data Box](data-box-gateway-system-requirements.md#networking-requirements).
-- Verifique se a largura de banda de Internet mínima é de 20 Mbps, para permitir o funcionamento ideal do dispositivo.
+- Garanta que a largura de banda mínima da Internet seja de 20 Mbps, para permitir o funcionamento ideal do dispositivo.
 
 ## <a name="check-the-host-system"></a>Verificar o sistema host
 
@@ -198,7 +198,7 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 
 6. As etapas 5 a 7 se aplicam somente na inicialização de um ambiente não DHCP. Se você estiver em um ambiente DHCP, ignore essas etapas e vá para a etapa 8. Caso você tenha inicializado seu dispositivo em um ambiente não DHCP, verá uma mensagem: **Usar o cmdlet Set-HcsIPAddress para configurar a rede**. 
    
-7. Para configurar a rede, no prompt de comando, use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela é `DATA1`.
+7. Para configurar a rede, no prompt de comando, use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela é `Ethernet`.
 
 8. Use o cmdlet `Set-HcsIpAddress` para configurar a rede. Um exemplo é mostrado abaixo:
 
@@ -208,7 +208,7 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá um erro no texto da faixa (mostrado abaixo). Será necessário modificar a configuração do dispositivo para que ele tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na [Etapa 1: Verificar se o sistema de host atende aos requisitos mínimos do dispositivo virtual](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá um erro no texto da faixa (mostrado abaixo). Será necessário modificar a configuração do dispositivo para que ele tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração em [Verificar se o sistema host atende aos requisitos mínimos de dispositivo virtual](#check-the-host-system).
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -221,7 +221,7 @@ Neste tutorial, você aprendeu sobre os tópicos do Data Box Gateway, como:
 
 > [!div class="checklist"]
 > * Verificar se o host atende aos requisitos mínimos de dispositivo
-> * Provisionar um dispositivo virtual no hipervisor
+> * Provisionar um dispositivo virtual no VMWare
 > * Iniciar o dispositivo virtual e obter o endereço IP
 
 Vá para o próximo tutorial para aprender a conectar, configurar e ativar suas redes virtuais.

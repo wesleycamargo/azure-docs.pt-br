@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145294"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163895"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar problemas de erros com runbooks
 
@@ -93,11 +93,18 @@ Esse erro ocorre se o nome da assinatura não é válido ou se o usuário do Act
 
 Para determinar se você tiver autenticada corretamente para o Azure e ter acesso à assinatura que você está tentando selecionar, execute as seguintes etapas:  
 
-1. Certifique-se de execute o cmdlet **Add-AzureAccount** antes de executar o cmdlet **Select-AzureSubscription**.  
-2. Se essa mensagem de erro ainda for exibida, modifique o código adicionando o cmdlet **Get-AzureSubscription** após o cmdlet **Add-AzureAccount** e então execute o código. Agora, verifique se a saída de Get-AzureSubscription contém os detalhes de sua assinatura.  
+1. Execute o cmdlet **Add-AzureAccount** antes de executar o cmdlet **Select-AzureSubscription**.  
+2. Se essa mensagem de erro ainda for exibida, modifique o código adicionando o parâmetro **-AzureRmContext** após o cmdlet **Add-AzureAccount** e execute o código.
 
-   * Se você não encontrar detalhes da assinatura na saída, isso indicará que a assinatura ainda não foi inicializada.  
-   * Se encontrar os detalhes da assinatura na saída, confirme se está usando o nome ou a ID corretos da assinatura com o cmdlet **Select-AzureSubscription** .
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $context = Get-AzureRmContext
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
+   ```
 
 ### <a name="auth-failed-mfa"></a>Cenário: Autenticação do Azure falhou porque a autenticação multifator é habilitada
 
@@ -151,7 +158,7 @@ O runbook filho não está usando o contexto correto durante a execução.
 
 #### <a name="resolution"></a>Resolução
 
-Ao trabalhar com várias assinaturas, o contexto de assinatura pode ser perdido ao invocar runbooks filhos. Para garantir que o contexto da assinatura é passado para os runbooks filho, adicione o `DefaultProfile` parâmetro para o cmdlet e passe o contexto para ele.
+Ao trabalhar com várias assinaturas, o contexto de assinatura pode ser perdido ao invocar runbooks filhos. Para garantir que o contexto da assinatura é passado para os runbooks filho, adicione o parâmetro `AzureRmContext` ao cmdlet e passe o contexto para ele.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
@@ -171,7 +178,7 @@ Start-AzureRmAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
+    -AzureRmContext $AzureContext `
     –Parameters $params –wait
 ```
 
@@ -216,17 +223,19 @@ Esse erro pode ser causado pelos seguintes motivos:
 
 1. Limite de Memória. Há limites documentados sobre a quantidade de memória alocada a [Limites do serviço de automação](../../azure-subscription-service-limits.md#automation-limits) da Área Restrita, de modo que um trabalho pode falhar se estiver usando mais de 400 MB de memória.
 
-2. Módulo Incompatível. Isso poderá ocorrer se as dependências do módulo não estiverem corretas, nesse caso, seu runbook normalmente retornará uma mensagem de “Comando não encontrado” ou “Não é possível associar o parâmetro”.
+1. Soquetes de rede. Áreas restritas do Azure são limitadas a 1.000 soquetes de rede simultâneos, conforme descrito em [Limites de serviço de automação](../../azure-subscription-service-limits.md#automation-limits).
+
+1. Módulo Incompatível. Isso poderá ocorrer se as dependências do módulo não estiverem corretas, nesse caso, seu runbook normalmente retornará uma mensagem de “Comando não encontrado” ou “Não é possível associar o parâmetro”.
 
 #### <a name="resolution"></a>Resolução
 
 Qualquer uma das soluções a seguir corrige o problema:
 
-* Métodos sugeridos para trabalhar dentro do limite de memória são dividir a carga de trabalho entre vários runbooks, não processar muitos dados na memória, não gravar saída desnecessária de seus runbooks nem considerar quantos pontos de verificação você grava nos runbooks de fluxo de trabalho do PowerShell.  
+* Métodos sugeridos para trabalhar dentro do limite de memória são dividir a carga de trabalho entre vários runbooks, não processar muitos dados na memória, não gravar saída desnecessária de seus runbooks nem considerar quantos pontos de verificação você grava nos runbooks de fluxo de trabalho do PowerShell. Você pode usar o método clear, como `$myVar.clear()` para limpar a variável e use `[GC]::Collect()` para executar a coleta de lixo imediatamente. Isso reduzirá o volume de memória do seu runbook durante o tempo de execução.
 
 * Atualize os módulos do Azure seguindo as etapas [Como atualizar os módulos do Azure PowerShell na Automação do Azure](../automation-update-azure-modules.md).  
 
-* Outra solução é executar o runbook em um [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers não são limitados pela [justa](../automation-runbook-execution.md#fair-share) limita o que são de áreas restritas do Azure.
+* Outra solução é executar o runbook em um [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers não são limitados pelos limites de memória e rede aos quais as áreas restritas do Azure são restritas.
 
 ### <a name="fails-deserialized-object"></a>Cenário: O Runbook falha devido a objeto desserializado
 

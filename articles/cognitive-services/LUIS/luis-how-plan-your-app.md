@@ -1,20 +1,21 @@
 ---
-title: Planejar seus aplicativos de Compreensão de Idioma (LUIS) - Serviço Cognitivo do Azure | Microsoft Docs
+title: Planejar os aplicativos LUIS (Reconhecimento vocal)
+titleSuffix: Azure Cognitive Services
 description: Descreva intenções e entidades de aplicativo relevantes e crie seus planos de aplicativo no LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/06/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 7c8974767621ad574b243fba5c3e49d97ec142e6
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: a7e137c864d216b6b936181c3482358bd10f175a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842265"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037262"
 ---
 # <a name="plan-your-luis-app"></a>Planejar seu aplicativo LUIS
 

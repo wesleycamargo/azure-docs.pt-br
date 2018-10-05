@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: cb8ba5169a6ebfbb11ba0acfa9b9f463b7cdf6a1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 7d8325ce04a9fa7853fb622062022a6938375f96
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520795"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47430974"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Visão geral de IP público em nível de instância (Clássico)
 Um ILPIP (IP público em nível de instância) é um endereço IP público que pode ser atribuído diretamente a uma VM ou instância de função dos Serviços de Nuvem, em vez de ao serviço de nuvem no qual a VM ou a instância de função reside. Ele não substitui o VIP (IP virtual) que é atribuído ao serviço de nuvem. Ao contrário, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
@@ -31,10 +31,13 @@ Um ILPIP (IP público em nível de instância) é um endereço IP público que p
 
 Conforme mostrado na Figura 1, o serviço de nuvem é acessado por meio de um VIP, enquanto as VMs individuais são normalmente acessadas usando VIP:&lt;número da porta&gt;. Ao atribuir um ILPIP a uma VM específica, essa VM pode ser acessada diretamente por meio desse endereço IP.
 
-Quando você cria um serviço de nuvem no Azure, registros DNS A correspondentes são criados automaticamente para permitir o acesso ao serviço por meio de um FQDN (nome de domínio totalmente qualificado) em vez de usar o VIP real. O mesmo processo ocorre para um ILPIP, permitindo o acesso à VM ou à instância de função pelo FQDN, em vez do ILPIP. Por exemplo, se você criar um serviço de nuvem chamado *contosoadservice* e configurar uma função web chamada *contosoweb* com duas instâncias, o Azure registrará os seguintes registros A para as instâncias:
+Quando você cria um serviço de nuvem no Azure, registros DNS A correspondentes são criados automaticamente para permitir o acesso ao serviço por meio de um FQDN (nome de domínio totalmente qualificado) em vez de usar o VIP real. O mesmo processo ocorre para um ILPIP, permitindo o acesso à VM ou à instância de função pelo FQDN, em vez do ILPIP. Por exemplo, se você criar um serviço de nuvem chamado *contosoadservice* e configurar uma função web chamada *contosoweb* com duas instâncias, e no .cscfg `domainNameLabel` for definido como *WebPublicIP*, o Azure registrará os seguintes registros A para as instâncias:
 
-* contosoweb\_IN_0.contosoadservice.cloudapp.net
-* contosoweb\_IN_1.contosoadservice.cloudapp.net 
+
+* WebPublicIP.0.contosoadservice.cloudapp.net
+* WebPublicIP.1.contosoadservice.cloudapp.net
+* ...
+
 
 > [!NOTE]
 > Você pode atribuir apenas um ILPIP para cada VM ou instância de função. É possível usar até 5 ILPIPs por assinatura. Não há suporte para ILPIPs em VMs com várias NICs.
@@ -152,7 +155,7 @@ Para adicionar um ILPIP a uma instância de função dos Serviços de Nuvem, con
         <AddressAssignments>
           <InstanceAddress roleName="WebRole1">
         <PublicIPs>
-          <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
+          <PublicIP name="MyPublicIP" domainNameLabel="WebPublicIP" />
             </PublicIPs>
           </InstanceAddress>
         </AddressAssignments>
@@ -162,14 +165,22 @@ Para adicionar um ILPIP a uma instância de função dos Serviços de Nuvem, con
 3. Carregue o arquivo .cscfg do serviço de nuvem concluindo as etapas do artigo [Como configurar os Serviços de Nuvem](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg).
 
 ### <a name="how-to-retrieve-ilpip-information-for-a-cloud-service"></a>Como recuperar informações de ILPIP para um Serviço de Nuvem
-Para exibir as informações de ILPIP da instância de função, execute o seguinte comando do PowerShell e observe os valores de *PublicIPAddress* e *PublicIPName*:
+Para exibir as informações de ILPIP da instância de função, execute o seguinte comando do PowerShell e observe os valores de *PublicIPAddress*, *PublicIPName*, *PublicIPDomainNameLabel* e *PublicIPFqdns*:
 
 ```powershell
-$roles = Get-AzureRole -ServiceName PaaSFTPService -Slot Production -RoleName WorkerRole1 -InstanceDetails
+Add-AzureAccount
+
+$roles = Get-AzureRole -ServiceName <Cloud Service Name> -Slot Production -RoleName WebRole1 -InstanceDetails
 
 $roles[0].PublicIPAddress
 $roles[1].PublicIPAddress
 ```
+
+Você também pode usar `nslookup` para consultar o registro A do subdomínio:
+
+```batch
+nslookup WebPublicIP.0.<Cloud Service Name>.cloudapp.net
+``` 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássica.

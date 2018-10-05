@@ -10,11 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5f9bae34dabba71861adc9b2aeb0d33b8a1e226
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091399"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerenciar uma Máquina Virtual do Azure com a coleta de inventário
 
@@ -26,7 +27,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Este artigo pressupõe que você tem uma VM para configurar a solução. Se você não tiver uma máquina virtual do Azure, [crie uma máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -87,6 +88,24 @@ As tabelas a seguir fornecem informações sobre cada propriedade que pode ser c
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Usar o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
 |Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** - Ignora os links simbólicos e não inclui os arquivos/diretórios referenciados<br>**Seguir** - Segue os links simbólicos durante a recursão e inclui também os arquivos/diretórios referenciados<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do tratamento do conteúdo retornado      |
+
+## <a name="manage-machine-groups"></a>Gerenciar grupos de computadores
+
+O inventário permite que você crie e exiba grupos de computadores no Log Analytics. Grupos de computadores são coleções de computadores definidos por uma consulta no Log Analytics.
+
+Para exibir seus grupos de computadores, selecione a guia **Grupos de computadores** na página Inventário.
+
+![Exibir grupos de computadores na página de inventário](./media/automation-vm-inventory/inventory-machine-groups.png)
+
+Selecionar um grupo de computadores na lista abre a página de grupos de Computadores. Esta página mostra detalhes sobre o grupo de computadores. Esses detalhes incluem a consulta da análise de log que é usada para definir o grupo. Na parte inferior da página, há uma lista paginada dos computadores que fazem parte do grupo.
+
+![Página Exibir grupo de computadores](./media/automation-vm-inventory/machine-group-page.png)
+
+Clique no botão **+ Clonar** para clonar o grupo de computadores. Aqui, você precisa atribuir ao grupo um novo nome e um alias para o grupo. A definição pode ser alterada neste momento. Depois de alterar a consulta, pressione **Validar consulta** para visualizar os computadores que seriam selecionados. Quando estiver satisfeito com o grupo, clique em **Criar** para criar o grupo de computadores
+
+Se quiser criar um novo grupo de computadores, selecione **+ Criar um grupo de computadores**. Esse botão abre a **página Criar um grupo de computadores**, na qual é possível definir o novo grupo. Clique em **Criar** para criar o grupo.
+
+![Criar novo grupo de computadores](./media/automation-vm-inventory/create-new-group.png)
 
 ## <a name="disconnect-your-virtual-machine-from-management"></a>Desconectar a máquina virtual do gerenciamento
 

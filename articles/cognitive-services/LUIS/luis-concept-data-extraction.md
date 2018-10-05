@@ -1,34 +1,35 @@
 ---
-title: Noções básicas sobre conceitos de extração de dados no LUIS – Azure | Microsoft Docs
+title: Conceitos de extração de dados no LUIS – Reconhecimento vocal
+titleSuffix: Azure Cognitive Services
 description: Saiba quais tipos de dados podem ser extraídos do LUIS (Reconhecimento vocal)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 39d36ee0c46d3e6954c3264f37f3f575130186b9
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225675"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434476"
 ---
 # <a name="data-extraction"></a>Extração de dados
-O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chatbot para executar uma ação.
+O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chat bot para executar uma ação. Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON.
 
-Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON. Os dados mais difíceis de extrair são dados de aprendizado de máquina, porque eles não são uma correspondência exata do texto. A extração de dados das [entidades](luis-concept-entity-types.md) de aprendizado de máquina precisa fazer parte do [ciclo de criação](luis-concept-app-iteration.md) até que você esteja confiante de receber os dados esperados. 
+Os dados mais difíceis de extrair são dados de aprendizado de máquina, porque eles não são uma correspondência exata do texto. A extração de dados das [entidades](luis-concept-entity-types.md) de aprendizado de máquina precisa fazer parte do [ciclo de criação](luis-concept-app-iteration.md) até que você esteja confiante de receber os dados esperados.
 
 ## <a name="data-location-and-key-usage"></a>Local dos dados e uso da chave
-O LUIS fornece os dados do [ponto de extremidade](luis-glossary.md#endpoint) publicado. A **solicitação HTTPS** (POST ou GET) contém a declaração, assim como algumas configurações opcionais, como ambientes de preparo ou de produção. 
+O LUIS fornece os dados do [ponto de extremidade](luis-glossary.md#endpoint) publicado. A **solicitação HTTPS** (POST ou GET) contém a declaração, assim como algumas configurações opcionais, como ambientes de preparo ou de produção.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
 O `appID` estará disponível na página **Configurações** do seu aplicativo LUIS, assim como parte da URL (após `/apps/`) quando você estiver editando esse aplicativo LUIS. A `subscription-key` é a chave do ponto de extremidade usada para consultar seu aplicativo. Embora seja possível usar a chave início/criação gratuita enquanto estiver treinando o LUIS, é importante alterar a chave de ponto de extremidade para uma chave que dê suporte ao [uso esperado do LUIS](luis-boundaries.md#key-limits). A unidade `timezoneOffset` é de minutos.
 
-A **resposta HTTPS** contém todas as informações de intenção e de entidade que o LUIS pode determinar com base no modelo publicado atual do ponto de extremidade de preparo ou de produção. A URL do ponto de extremidade é encontrada na no site do [LUIS](luis-reference-regions.md), na página **Publicar**. 
+A **resposta HTTPS** contém todas as informações de intenção e de entidade que o LUIS pode determinar com base no modelo publicado atual do ponto de extremidade de preparo ou de produção. A URL de ponto de extremidade é encontrada no site [LUIS](luis-reference-regions.md), na seção **Gerenciar**, na página **Chaves e os pontos de extremidade**.
 
 ## <a name="data-from-intents"></a>Dados de intenções
 Os dados primários são o **nome da intenção** da pontuação mais alta. Usando o `MyStore` [início rápido](luis-quickstart-intents-only.md), a resposta do ponto de extremidade é:
@@ -103,7 +104,7 @@ Se você adicionar domínios predefinidos, o nome da intenção indicará o dom�
   "entities": []
 }
 ```
-    
+
 |Domínio|Objeto de dados|Tipo de Dados|Local dos dados|Valor|
 |--|--|--|--|--|
 |Utilidades|Intenção|Cadeia de caracteres|intents[0].intent|"<b>Utilities</b>.ShowNext"|
@@ -112,9 +113,9 @@ Se você adicionar domínios predefinidos, o nome da intenção indicará o dom�
 
 
 ## <a name="data-from-entities"></a>Dados de entidades
-A maioria dos chatbots e aplicativos precisam de mais do que o nome da intenção. Esses dados adicionais e opcionais são provenientes de entidades descobertas na declaração. Cada tipo de entidade retorna diferentes informações sobre a correspondência. 
+A maioria dos chatbots e aplicativos precisam de mais do que o nome da intenção. Esses dados adicionais e opcionais são provenientes de entidades descobertas na declaração. Cada tipo de entidade retorna diferentes informações sobre a correspondência.
 
-Uma única palavra ou frase em uma declaração pode corresponder a mais de uma entidade. Nesse caso, cada entidade de correspondência é retornada com sua pontuação. 
+Uma única palavra ou frase em uma declaração pode corresponder a mais de uma entidade. Nesse caso, cada entidade de correspondência é retornada com sua pontuação.
 
 Todas as entidades são retornadas na matriz de **entidades** da resposta do ponto de extremidade:
 
@@ -140,13 +141,13 @@ Todas as entidades são retornadas na matriz de **entidades** da resposta do pon
 ```
 
 ## <a name="tokenized-entity-returned"></a>Entidade indexada retornada
-Várias [culturas](luis-supported-languages.md#tokenization) retornam o objeto de entidade com o `entity` valor [indexado](luis-glossary.md#token). Os startIndex e endIndex retornados pelo LUIS no objeto de entidade não mapeiam o valor novo e indexado, mas a consulta original para você extrair a entidade bruta programaticamente. 
+Várias [culturas](luis-language-support.md#tokenization) retornam o objeto de entidade com o `entity` valor [indexado](luis-glossary.md#token). Os startIndex e endIndex retornados pelo LUIS no objeto de entidade não mapeiam o valor novo e indexado, mas a consulta original para você extrair a entidade bruta programaticamente. 
 
 Por exemplo, em alemão, a palavra `das Bauernbrot` é indexado em `das bauern brot`. O valor indexado, `das bauern brot`, é retornado e o valor original pode ser determinado programaticamente do startIndex e do endIndex da consulta original, dando a você `das Bauernbrot`.
 
 ## <a name="simple-entity-data"></a>Dados de entidade simples
 
-Uma [entidade simples](luis-concept-entity-types.md) é um valor de aprendizado de máquina. Ele pode ser uma palavra ou frase. 
+Uma [entidade simples](luis-concept-entity-types.md) é um valor de aprendizado de máquina. Ele pode ser uma palavra ou frase.
 
 `Bob Jones wants 3 meatball pho`
 
@@ -172,13 +173,13 @@ Os dados retornados do ponto de extremidade incluem o nome da entidade, o texto 
 
 ## <a name="hierarchical-entity-data"></a>Dados de entidade hierárquica
 
-Entidades [hierárquicas](luis-concept-entity-types.md) são de aprendizado de máquina e podem incluir uma palavra ou frase. Filhos são identificados pelo contexto. Se estiver procurando uma relação pai-filho com correspondência exata do texto, use uma entidade [Lista](#list-entity-data). 
+Entidades [hierárquicas](luis-concept-entity-types.md) são de aprendizado de máquina e podem incluir uma palavra ou frase. Filhos são identificados pelo contexto. Se estiver procurando uma relação pai-filho com correspondência exata do texto, use uma entidade [Lista](#list-entity-data).
 
 `book 2 tickets to paris`
 
-Na declaração anterior, `paris` é rotulado como um filho `Location::ToLocation` da entidade hierárquica `Location`. 
+Na declaração anterior, `paris` é rotulado como um filho `Location::ToLocation` da entidade hierárquica `Location`.
 
-Os dados retornados do ponto de extremidade incluem o nome da entidade e o nome do filho, o texto descoberto da declaração, o local do texto descoberto e a pontuação: 
+Os dados retornados do ponto de extremidade incluem o nome da entidade e o nome do filho, o texto descoberto da declaração, o local do texto descoberto e a pontuação:
 
 ```JSON
 "entities": [
@@ -194,7 +195,7 @@ Os dados retornados do ponto de extremidade incluem o nome da entidade e o nome 
 
 |Objeto de dados|Pai|Filho|Valor|
 |--|--|--|--|--|
-|Entidade hierárquica|Localização|ToLocation|"paris"|
+|Entidade hierárquica|Local padrão|ToLocation|"paris"|
 
 ## <a name="composite-entity-data"></a>Dados da entidade composta
 Entidades [compostas](luis-concept-entity-types.md) são de aprendizado de máquina e podem incluir uma palavra ou frase. Por exemplo, considere uma entidade composta de `number` e `Location::ToLocation` predefinidos com a seguinte declaração:
@@ -258,9 +259,9 @@ Entidades compostas são retornadas em uma matriz `compositeEntities` e todas as
 
 ## <a name="list-entity-data"></a>Dados da entidade Lista
 
-Uma entidade [lista](luis-concept-entity-types.md) não é de aprendizado de máquina. É uma correspondência exata do texto. Uma lista representa os itens na lista junto com os sinônimos desses itens. O LUIS marca qualquer correspondência a um item em qualquer lista como uma entidade na resposta. Um sinônimo pode estar em mais de uma lista. 
+Uma entidade [lista](luis-concept-entity-types.md) não é de aprendizado de máquina. É uma correspondência exata do texto. Uma lista representa os itens na lista junto com os sinônimos desses itens. O LUIS marca qualquer correspondência a um item em qualquer lista como uma entidade na resposta. Um sinônimo pode estar em mais de uma lista.
 
-Suponha que o aplicativo tem uma lista, chamada `Cities`, que permite variações de nomes de cidade que incluem a cidade do aeroporto (SEA), o código do aeroporto (SEA), o CEP (98101) e o código da área de telefone (206). 
+Suponha que o aplicativo tem uma lista, chamada `Cities`, que permite variações de nomes de cidade que incluem a cidade do aeroporto (SEA), o código do aeroporto (SEA), o CEP (98101) e o código da área de telefone (206).
 
 |Item de lista|Sinônimos do item|
 |---|---|
@@ -269,7 +270,7 @@ Suponha que o aplicativo tem uma lista, chamada `Cities`, que permite variaçõe
 
 `book 2 tickets to paris`
 
-Na declaração anterior, a palavra `paris` é mapeada para o item paris como parte da entidade de lista `Cities`. A entidade de lista corresponde ao nome normalizado do item, assim como aos sinônimos do item. 
+Na declaração anterior, a palavra `paris` é mapeada para o item paris como parte da entidade de lista `Cities`. A entidade de lista corresponde ao nome normalizado do item, assim como aos sinônimos do item.
 
 ```JSON
 "entities": [
@@ -389,7 +390,7 @@ Entidades [predefinidas](luis-concept-entity-types.md) são descobertas com base
       }
     }
   ]
-``` 
+```
 
 ## <a name="regular-expression-entity-data"></a>Dados de entidade de expressão regular
 Entidades de [expressão regular](luis-concept-entity-types.md) são descobertas com base em uma correspondência de expressão regular usando uma expressão que você fornece ao criar a entidade. Ao usar o `kb[0-9]{6}` como a definição de entidade de expressão regular, a resposta JSON a seguir é uma declaração de exemplo com as entidades de expressão regular retornadas para a consulta `When was kb123456 published?`:
@@ -423,19 +424,19 @@ Entidades de [expressão regular](luis-concept-entity-types.md) são descobertas
 ```
 
 ## <a name="extracting-names"></a>Extraindo nomes
-Obter nomes de uma declaração é difícil, porque um nome pode ser quase qualquer combinação de letras e palavras. Dependendo de qual tipo de nome você está extraindo, você tem várias opções. Elas não são regras, são diretrizes. 
+Obter nomes de uma declaração é difícil, porque um nome pode ser quase qualquer combinação de letras e palavras. Dependendo de qual tipo de nome você está extraindo, você tem várias opções. Elas não são regras, são diretrizes.
 
 ### <a name="names-of-people"></a>Nomes de pessoas
-Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade hierárquica com nomes e sobrenomes como filhos ou uma entidade simples com funções de nome e sobrenome. Certifique-se de dar exemplos que usam o nome e o sobrenome em diferentes partes da declaração, em declarações de comprimentos diferentes e declarações entre todas as intenções, incluindo a intenção None. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente. 
+Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade hierárquica com nomes e sobrenomes como filhos ou uma entidade simples com funções de nome e sobrenome. Certifique-se de dar exemplos que usam o nome e o sobrenome em diferentes partes da declaração, em declarações de comprimentos diferentes e declarações entre todas as intenções, incluindo a intenção None. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ### <a name="names-of-places"></a>Nomes de locais
-Nomes de local são definidos e conhecidos, como cidades, municípios, estados, províncias e países. Se seu aplicativo usar um conjunto conhecido de locais, considere a entidade de lista. Se você precisar localizar todos os nomes de locais, crie uma entidade simples e forneça uma variedade de exemplos. Adicione uma lista de frase de nomes de local para reforçar qual é a aparência de nomes de local em seu aplicativo. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente. 
+Nomes de local são definidos e conhecidos, como cidades, municípios, estados, províncias e países. Se seu aplicativo usar um conjunto conhecido de locais, considere a entidade de lista. Se você precisar localizar todos os nomes de locais, crie uma entidade simples e forneça uma variedade de exemplos. Adicione uma lista de frase de nomes de local para reforçar qual é a aparência de nomes de local em seu aplicativo. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ### <a name="new-and-emerging-names"></a>Nomes novos e emergentes
-Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esse é o tipo mais difícil de extração de dados. Comece com uma entidade simples e adicione uma lista de frases. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente. 
+Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esse é o tipo mais difícil de extração de dados. Comece com uma entidade simples e adicione uma lista de frases. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ## <a name="pattern-roles-data"></a>Dados de funções de padrão
-Funções são diferenças contextuais de entidades. 
+Funções são diferenças contextuais de entidades.
 
 ```JSON
 {
@@ -496,7 +497,7 @@ Funções são diferenças contextuais de entidades.
 ```
 
 ## <a name="patternany-entity-data"></a>Dados de entidade pattern.any
-Entidades pattern.any são entidades de comprimento variável usadas em declarações de modelo de um [padrão](luis-concept-patterns.md). 
+Entidades pattern.any são entidades de comprimento variável usadas em declarações de modelo de um [padrão](luis-concept-patterns.md).
 
 ```JSON
 {
@@ -567,13 +568,37 @@ Para todas as outras culturas, a resposta é:
 ### <a name="key-phrase-extraction-entity-data"></a>Dados de entidade de extração de frases-chave
 A entidade de extração de frases-chave retorna frases-chave na declaração, fornecida pela [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
-<!-- TBD: verify JSON-->
 ```JSON
-"keyPhrases": [
-    "places",
-    "beautiful views",
-    "favorite trail"
-]
+{
+  "query": "Is there a map of places with beautiful views on a favorite trail?",
+  "topScoringIntent": {
+    "intent": "GetJobInformation",
+    "score": 0.764368951
+  },
+  "intents": [
+    ...
+  ],
+  "entities": [
+    {
+      "entity": "beautiful views",
+      "type": "builtin.keyPhrase",
+      "startIndex": 30,
+      "endIndex": 44
+    },
+    {
+      "entity": "map of places",
+      "type": "builtin.keyPhrase",
+      "startIndex": 11,
+      "endIndex": 23
+    },
+    {
+      "entity": "favorite trail",
+      "type": "builtin.keyPhrase",
+      "startIndex": 51,
+      "endIndex": 64
+    }
+  ]
+}
 ```
 
 ## <a name="data-matching-multiple-entities"></a>Dados que correspondem a várias entidades
@@ -581,7 +606,7 @@ O LUIS retorna todas as entidades descobertas na declaração. Como resultado, s
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-O ponto de extremidade LUIS pode descobrir os mesmos dados em diferentes entidades: 
+O ponto de extremidade LUIS pode descobrir os mesmos dados em diferentes entidades:
 
 ```JSON
 {

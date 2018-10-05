@@ -1,24 +1,27 @@
 ---
-title: Criar uma nova base de dados de conhecimento – início rápido em C# – para a API de QnA Maker da Microsoft (V4) – Serviços Cognitivos do Azure | Microsoft Docs
-description: Crie uma base de dados de conhecimento em C# para manter suas perguntas frequentes ou manuais de produto para que você possa começar a usar o QnA Maker.
+title: 'Início Rápido: API do C# – Criar uma base de dados de conhecimento – QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: Este início rápido orienta você pela criação programática de um exemplo de base de dados de conhecimento de QnA Maker, que será exibido no painel do Azure da sua conta da API dos serviços Cognitivos.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 16d17a335bb84212497010b3eeb930582fa86dc4
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 8a0840a96f21f76f3a742d973c86dd02929b8e30
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "43768474"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039438"
 ---
 # <a name="create-a-new-knowledge-base-in-c"></a>Criar uma nova base de dados de conhecimento em C#
 
 Este início rápido orienta você pela criação programática de um exemplo de base de dados de conhecimento de QnA Maker, que será exibido no painel do Azure da sua conta da API dos serviços Cognitivos.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 Dois exemplos de URLs de perguntas frequentes são apresentados abaixo ('urls' em kb da cadeia de caracteres). O QnA Maker extrai automaticamente perguntas e respostas do conteúdo semiestruturado, como perguntas frequentes, conforme explicado em mais detalhes neste documento de [fontes de dados](../Concepts/data-sources-supported.md). Você também pode usar seus próprio URLs de perguntas frequentes neste guia de início rápido.
 

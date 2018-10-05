@@ -3,10 +3,8 @@ title: Suplemento do Excel para serviços Web do Machine Learning | Microsoft Do
 description: Como usar os serviços Web do Azure Machine Learning diretamente no Excel sem escrever nenhum código.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
-editor: cgronlun
+author: marthalc
+ms.author: marthalc
 ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
 ms.component: studio
@@ -15,26 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 68e2f72dfd8cc58d42263f4b6378d89304aaaa4d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8fade171095ff6a9f4c10925089452d8925e11fe
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834185"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095801"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Suplemento do Excel para serviços Web de Azure Machine Learning
+# <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Suplemento do Excel para serviços Web do Azure Machine Learning Studio
 O Excel torna fácil chamar serviços Web diretamente, sem a necessidade de escrever nenhum código.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Etapas para usar um serviço Web existente na pasta de trabalho
 
-1. Abra o [arquivo de exemplo do Excel](http://aka.ms/amlexcel-sample-2), que contém o suplemento do Excel e os dados sobre passageiros do Titanic.
+1. Abra o [arquivo de exemplo do Excel](http://aka.ms/amlexcel-sample-2), que contém o suplemento do Excel e os dados sobre passageiros do Titanic. 
+ 
+> [!NOTE]
+> Você verá a lista de serviços Web relacionados ao arquivo e, na parte inferior, uma caixa de seleção para "Previsão automática". Se você habilitar a previsão automática, as previsões de **todos** os seus serviços serão atualizadas sempre que houver uma alteração nas entradas. Se estiver desmarcada, clique em "Prever tudo" para atualizar. Para habilitar a previsão automática em um nível de serviço, vá para a etapa 6.
+
 2. Escolha o serviço Web clicando nele - "Titanic Survivor Predictor (exemplo de suplemento do Excel) [Pontuação]" neste exemplo.
    
     ![Selecionar o serviço Web][01]
 3. Isso levará você à seção **Prever**.  Esta pasta de trabalho já contém dados de exemplo, mas para uma pasta de trabalho em branco você pode selecionar uma célula no Excel e clicar em **Usar dados de exemplo**.
 4. Selecione os dados com cabeçalhos e clique no ícone de intervalo de dados de entrada.  Verifique se a caixa "Meus dados contêm cabeçalhos" está marcada.
 5. Em **Saída**, insira o número da célula em que você deseja colocar a saída, por exemplo, "H1" aqui.
-6. Clique em **Prever**.
+6. Clique em **Prever**. Se você marcar a caixa de seleção "Previsão automática", qualquer alteração nas áreas selecionadas (aquelas especificadas como entrada) disparará uma solicitação e uma atualização das células de saída sem a necessidade de você pressionar o botão de previsão.
    
     ![Seção Prever][02]
 

@@ -1,25 +1,29 @@
 ---
-title: Trabalhos de Banco de Dados Elástico do Azure SQL | Microsoft Docs
+title: Trabalhos de Banco de Dados Elástico do SQL do Azure | Microsoft Docs
 description: Usar trabalhos de Banco de Dados Elástico para executar scripts T-SQL (Transact-SQL) em um conjunto de um ou mais bancos de dados SQL do Azure
 services: sql-database
-author: srinia
-manager: craigg
 ms.service: sql-database
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: overview
-ms.date: 07/26/2018
+author: srinia
 ms.author: srinia
-ms.openlocfilehash: 0e01270b6ba12bde0e5f379903b80620646c4d1f
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/26/2018
+ms.openlocfilehash: a029697c2fdd3c9bd3b3da2c2b5a1420d0dd0a8c
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309037"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054720"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Gerenciar grupos de bancos de dados com trabalhos de Banco de Dados Elástico
 
 Os **Trabalhos de Banco de Dados Elástico** permitem executar um ou mais scripts T-SQL em paralelo, em um grande número de bancos de dados, seja com agendamento ou sob demanda.
 
-**Executar trabalhos em qualquer combinação de bancos de dados**: um ou mais bancos de dados individuais, todos os bancos de dados em um servidor, todos os bancos de dados em um pool elástico ou mapa de fragmentos, com a flexibilidade adicional de poder incluir ou excluir qualquer banco de dados específico. **Os trabalhos podem ser executados em vários servidores, vários pools e pode até mesmo executar em bancos de dados em assinaturas diferentes.** Os servidores e pools são enumerados dinamicamente no tempo de execução e, portanto, os trabalhos são executados em todos os bancos de dados existentes no grupo de destino no momento da execução.
+**Execute trabalhos em qualquer combinação de bancos de dados**: um ou mais bancos de dados individuais, todos os bancos de dados em um servidor, todos os bancos de dados em um pool elástico ou mapa de fragmentos, com a flexibilidade extra de poder incluir ou excluir qualquer banco de dados. **Os trabalhos podem ser executados em diversos servidores e pools, até mesmo em bancos de dados presentes em assinaturas diferentes.** Os servidores e pools são enumerados dinamicamente no tempo de execução e, portanto, os trabalhos são executados em todos os bancos de dados existentes no grupo de destino no momento da execução.
 
 A imagem a seguir mostra um agente de trabalho executando trabalhos em diferentes tipos de grupos de destino:
 
@@ -30,19 +34,19 @@ A imagem a seguir mostra um agente de trabalho executando trabalhos em diferente
 
 ### <a name="manage-many-databases"></a>Gerenciar vários bancos de dados
 
-- Agende tarefas administrativas para serem executadas todos os dias da semana, após o horário comercial, etc.
-- Implante alterações de esquema, gerenciamento de credenciais, coleta de dados de desempenho ou coleta de telemetria do locatário (cliente). Atualize os dados de referência (informações comuns a todos os bancos de dados).
+- Agendar tarefas administrativas para serem executadas todos os dias úteis, após o horário comercial etc.
+- Implantar alterações de esquema, gerenciamento de credenciais, coleta de dados de desempenho ou coleta de telemetria do locatário (cliente). Atualizar dados de referência (informações comuns a todos os bancos de dados).
 - Recompilar índices para melhorar o desempenho da consulta. Configure trabalhos para serem executados em um conjunto de bancos de dados de modo recorrente, por exemplo, fora dos horários de pico.
 - Coletar resultados de consulta de um conjunto de bancos de dados em uma tabela central em uma base contínua. Consultas de desempenho podem ser executadas continuamente e configuradas para disparar tarefas adicionais a serem executadas.
 
 ### <a name="collect-data-for-reporting"></a>Coletar dados para relatórios
 
-- Agregue dados de uma coleção de bancos de dados SQL do Azure em uma tabela de destino único.
+- Agregar dados de uma coleção de bancos de dados SQL do Azure em apenas uma tabela de destino.
 - Executar consultas de processamento de dados mais longas em um grande conjunto de bancos de dados, por exemplo, a coleta de telemetria do cliente. Resultados são coletados em uma única tabela de destino para análise posterior.
 
 ### <a name="reduce-overhead"></a>Reduzir sobrecarga
 
-- Normalmente, você deve se conectar a cada banco de dados de forma independente a fim de executar instruções Transact-SQL ou realizar outras tarefas administrativas. Um trabalho lida com a tarefa de fazer logon em cada banco de dados no grupo de destino. Você também define, mantém e persiste scripts T-SQL que serão executados em um grupo de bancos de dados SQL do Azure.
+- Normalmente, você deve se conectar a cada banco de dados de forma independente a fim de executar instruções Transact-SQL ou realizar outras tarefas administrativas. Um trabalho lida com a tarefa de fazer logon em cada banco de dados no grupo de destino. Você também define, atualiza e mantém os scripts T-SQL a serem executados em um grupo de bancos de dados SQL do Azure.
 
 ### <a name="accounting"></a>Contabilidade
 
@@ -50,39 +54,39 @@ A imagem a seguir mostra um agente de trabalho executando trabalhos em diferente
 
 ### <a name="flexibility"></a>Flexibilidade
 
-- Defina grupos personalizados de bancos de dados SQL do Azure e defina agendas para executar um trabalho.
+- Definir grupos personalizados de bancos de dados SQL do Azure e agendar as execuções de um trabalho.
 
 
 ## <a name="elastic-job-components"></a>Componentes do Trabalho Elástico
 
-|Componente  | Descrição (mais detalhes estão abaixo da tabela) |
+|Componente  | Descrição (confira mais detalhes abaixo da tabela) |
 |---------|---------|
 |[**Agente de Trabalho Elástico**](#elastic-job-agent) |  O recurso do Azure que você cria para executar e gerenciar trabalhos.   |
 |[**Banco de dados de trabalhos**](#job-database)    |    Um banco de dados SQL do Azure que o agente de trabalho usa para armazenar dados relacionados ao trabalho, definições de trabalho, etc.      |
 |[**Grupo de destino**](#target-group)      |  O conjunto de servidores, pools, bancos de dados e mapas de fragmentos nos quais o trabalho é executado.       |
-|[**Trabalho**](#job)  |  Um trabalho é uma unidade de trabalho composta de uma ou mais [etapas de trabalho](#job-step). As etapas de trabalho especificam a execução do script T-SQL, bem como outros detalhes necessários para executar o script.  |
+|[**Trabalho**](#job)  |  Um trabalho é uma unidade de trabalho composta de uma ou mais [etapas de trabalho](#job-step). As etapas de trabalho especificam qual script T-SQL deve ser executado, bem como outros detalhes necessários para a execução do script.  |
 
 
 ### <a name="elastic-job-agent"></a>Agente de trabalho elástico
 
 Um agente de Trabalho Elástico é o recurso do Azure para criar, executar e gerenciar trabalhos. O agente de Trabalho Elástico é um recurso do Azure que você cria no portal (há suporte também para [PowerShell](elastic-jobs-powershell.md) e REST). 
 
-A criação de um **agente de Trabalho Elástico** requer um banco de dados SQL já criado. O agente configura esse banco de dados existente como o [ *Banco de dados do trabalho*](#job-database).
+A criação de um **agente de Trabalho Elástico** requer um banco de dados SQL já criado. O agente configura esse banco de dados existente como o [*Banco de dados do trabalho*](#job-database).
 
-O agente de Trabalho Elástico é gratuito. O banco de dados de trabalhos é cobrado pela mesma taxa de qualquer banco de dados SQL.
+O agente de Trabalho Elástico é gratuito. O banco de dados de trabalhos usa a mesma taxa de cobrança de qualquer banco de dados SQL.
 
 ### <a name="job-database"></a>Banco de dados de trabalhos
 
-O *banco de dados de trabalhos* é usado para definir os trabalhos e rastrear o status e o histórico das execuções do trabalho. O *banco de dados de trabalhos* também é usado para armazenar metadados do agente, logs, resultados, definições de trabalho e também contém muitos procedimentos armazenados úteis e outros objetos de banco de dados para criar, executar e gerenciar trabalhos usando o T-SQL.
+O *banco de dados de trabalhos* é usado para definir os trabalhos e rastrear o status e o histórico das execuções de trabalho. O *banco de dados de trabalhos* também é usado para armazenar metadados de agente, logs, resultados e definições de trabalho. Além disso, ele contém muitos procedimentos armazenados úteis e outros objetos de banco de dados usados para criar, executar e gerenciar trabalhos usando o T-SQL.
 
 Na versão prévia atual, um banco de dados existente do SQL Azure (S0 ou superior) é necessário para criar um agente de Trabalho Elástico.
 
-O *Banco de dados de trabalhos* não precisa ser literalmente novo, mas deve ser uma camada limpa, vazia, S0 ou de serviço superior. A camada de serviço recomendada do *Banco de dados de trabalhos* é S1 ou superior, mas realmente depende das necessidades de desempenho de seus trabalhos: número de etapas de trabalho, quantas vezes e com que frequência os trabalhos são executados. Por exemplo, um banco de dados S0 pode ser suficiente para um agente de trabalho que executa alguns trabalhos por hora, mas a execução de um trabalho a cada minuto poderia não ter desempenho suficientemente alto e uma camada de serviço superior poderia ser melhor.
+O *Banco de dados de trabalhos* não precisa ser literalmente novo, mas deve ser uma camada limpa, vazia, S0 ou de serviço superior. A camada de serviço recomendada do *Banco de dados de trabalhos* é S1 ou superior, mas isso depende das necessidades de desempenho de seus trabalhos, considerando o número de etapas de trabalho e quantas vezes e com que frequência os trabalhos são executados. Por exemplo, um banco de dados S0 pode ser suficiente para um agente de trabalho que executa apenas alguns trabalhos por hora, mas não para um agente que executa um trabalho por minuto; neste caso, seria indicada uma camada de serviço mais alta.
 
 
 #### <a name="job-database-permissions"></a>Permissões de banco de dados de trabalhos
 
-Durante a criação do agente de trabalho, um esquema, tabelas e uma função chamada *jobs_reader* são criados no *Banco de dados de trabalhos*. A função é criada com a seguinte permissão e foi projetada para oferecer aos administradores um melhor controle de acesso para monitoramento do trabalho:
+Durante a criação do agente de trabalho, um esquema, tabelas e uma função chamada *jobs_reader* são criados no *Banco de dados de trabalhos*. A função, projetada para oferecer aos administradores um controle de acesso mais rígido para monitoramento de trabalho, tem a seguinte permissão:
 
 
 |Nome da função  |permissões de esquema 'jobs'  |permissões de esquema 'jobs_internal'  |
@@ -96,17 +100,17 @@ Durante a criação do agente de trabalho, um esquema, tabelas e uma função ch
 
 ### <a name="target-group"></a>Grupo de destino
 
-Um *grupo de destino* define o conjunto de bancos de dados em que uma etapa de trabalho será executada. Um grupo de destino pode conter qualquer número e combinação do seguinte:
+Um *grupo de destino* define o conjunto de bancos de dados em que uma etapa de trabalho será executada. Um grupo de destino pode conter qualquer quantidade ou combinação dos seguintes itens:
 
 - **Servidor SQL do Azure**: se um servidor for especificado, todos os bancos de dados existentes no servidor no momento da execução do trabalho farão parte do grupo. A credencial de banco de dados mestre deve ser fornecida para que o grupo possa ser enumerado e atualizado antes da execução do trabalho.
-- **Pool elástico**: se um pool elástico for especificado, todos os bancos de dados que estão no pool elástico no momento da execução do trabalho farão parte do grupo. Assim como com o servidor, a credencial de banco de dados mestre deve ser fornecida para que o grupo possa ser atualizado antes da execução do trabalho.
+- **Pool elástico**: se um pool elástico for especificado, todos os bancos de dados presentes no pool elástico no momento da execução do trabalho farão parte do grupo. Assim como ocorre para servidores, a credencial de banco de dados mestre deve ser fornecida para que o grupo possa ser atualizado antes da execução do trabalho.
 - **Banco de dados único**: especifica um ou mais bancos de dados individuais como parte do grupo.
 - **Mapa de fragmentos**: bancos de dados de um mapa de fragmentos.
 
 > [!TIP]
-> No momento da execução do trabalho, a *enumeração dinâmica* reavalia o conjunto de bancos de dados em grupos de destino que incluam servidores ou grupos. A enumeração dinâmica faz com que os **trabalhos sejam executados em todos os bancos de dados existentes no servidor ou pool no momento da execução do trabalho**. A reavaliação da lista de bancos de dados no tempo de execução é especialmente útil para cenários em que a associação de pools ou servidores é alterada com frequência.
+> No momento da execução do trabalho, a *enumeração dinâmica* reavalia o conjunto de bancos de dados em grupos de destino que incluem servidores ou grupos. A enumeração dinâmica garante que os **trabalhos serão executados em todos os bancos de dados existentes no servidor ou pool no momento da execução do trabalho**. A reavaliação da lista de bancos de dados no tempo de execução é especialmente útil para cenários em que a associação de pools ou servidores é alterada com frequência.
 
-Pools e bancos de dados únicos podem ser especificados como incluídos ou excluídos do grupo. Isso permite a criação de um grupo de destino com qualquer combinação de bancos de dados. Por exemplo, você pode adicionar um servidor a um grupo de destino, mas excluir bancos de dados específicos em um pool elástico (ou excluir um pool inteiro).
+É possível incluir ou excluir pools e bancos de dados individuais do grupo. Isso permite a criação de um grupo de destino com qualquer combinação de bancos de dados. Por exemplo, você pode adicionar um servidor a um grupo de destino, mas excluir bancos de dados específicos em um pool elástico (ou excluir um pool inteiro).
 
 Um grupo de destino pode incluir bancos de dados em várias assinaturas e em várias regiões. Observe que as execuções entre regiões têm maior latência do que as execuções dentro da mesma região.
 
@@ -206,7 +210,7 @@ Vale a pena observar algumas diferenças entre o SQL Server Agent (disponível n
 
 |  |Trabalhos elásticos  |SQL Server Agent |
 |---------|---------|---------|
-|Escopo     |  Qualquer número de bancos de dados SQL do Azure e/ou data warehouses na mesma nuvem do Azure que a do agente de trabalho. Os destinos podem estar em diferentes servidores lógicos, assinaturas e/ou regiões. <br><br>Os grupos de destino podem ser compostos de bancos de dados ou data warehouses individuais ou dos bancos de dados em um servidor, pool ou mapa de fragmentos (enumerados dinamicamente no tempo de execução do trabalho). | Qualquer banco de dados único na mesma instância do SQL Server que o SQL Agent. |
+|Escopo     |  Qualquer número de bancos de dados SQL do Azure e/ou data warehouses na mesma nuvem do Azure do agente de trabalho. Os destinos podem estar em diferentes servidores lógicos, assinaturas e/ou regiões. <br><br>Os grupos de destino podem ser compostos de bancos de dados ou data warehouses individuais ou dos bancos de dados em um servidor, pool ou mapa de fragmentos (enumerados dinamicamente no tempo de execução do trabalho). | Qualquer banco de dados único na mesma instância do SQL Server que o SQL Agent. |
 |Ferramentas e APIs com suporte     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SSMS (SQL Server Management Studio)     |
 
 

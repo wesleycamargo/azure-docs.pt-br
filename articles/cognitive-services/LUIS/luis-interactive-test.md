@@ -1,24 +1,25 @@
 ---
-title: Treinar e testar seu aplicativo LUIS – Azure | Microsoft Docs
+title: Testar o aplicativo LUIS no portal do LUIS
+titleSuffix: Azure Cognitive Services
 description: Use o LUIS (Serviço Inteligente de Reconhecimento Vocal) para trabalhar continuamente em seu aplicativo para refiná-lo e melhorar seu reconhecimento vocal.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 925b96b61de876d40105c89556fd6dcb600d1b1a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6bb03975e36e93c2496eb4c6013be21ebc891ed1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223643"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039694"
 ---
 # <a name="test-your-luis-app"></a>Testar seu aplicativo LUIS
 <a name="train-your-app"></a>
-[Treinar](luis-how-to-train.md) e [testar](luis-concept-test.md) um aplicativo é um processo iterativo. Após treinar seu aplicativo LUIS, teste-o com declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Caso contrário, faça atualizações no aplicativo LUIS, treine e teste novamente. 
+[O teste](luis-concept-test.md) de um aplicativo é um processo iterativo. Após treinar seu aplicativo LUIS, teste-o com declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Caso contrário, faça atualizações no aplicativo LUIS, treine e teste novamente. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>

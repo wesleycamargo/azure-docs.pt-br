@@ -5,28 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/20/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: abd4a3b21ede2ddbdede2ec133938d412d5d4c8d
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 6354d89ff5a23ccb51b85737b3a842c08534683e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248158"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223603"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Use uma identidade do Microsoft Azure Active Directory para acessar o Armazenamento do Microsoft Azure com CLI ou PowerShell (visualização)
 
-O Armazenamento do Microsoft Azure fornece extensões de visualização para CLI do Azure e do PowerShell que permitem que você faça logon e execute comandos de script sob uma identidade do Microsoft Azure Active Directory (Azure AD). Uma identidade do Azure Active Directory pode ser um usuário, grupo ou entidade de serviço de aplicativo ou pode ser uma [identidade de serviço gerenciada](../../active-directory/managed-service-identity/overview.md). Você pode atribuir permissões para acessar recursos de armazenamento à identidade o Microsoft Azure Active Directory através do controle de acesso com base em função (RBAC). Para obter mais informações sobre as funções RBAC no Armazenamento do Microsoft Azure, consulte [Gerenciar direitos de acesso a dados de Armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md).
+O Armazenamento do Microsoft Azure fornece extensões de visualização para CLI do Azure e do PowerShell que permitem que você faça logon e execute comandos de script sob uma identidade do Microsoft Azure Active Directory (Azure AD). Uma identidade do Azure Active Directory pode ser um usuário, grupo ou entidade de serviço de aplicativo ou pode ser uma [identidade de serviço gerenciada](../../active-directory/managed-identities-azure-resources/overview.md). Você pode atribuir permissões para acessar recursos de armazenamento à identidade o Microsoft Azure Active Directory através do controle de acesso com base em função (RBAC). Para obter mais informações sobre as funções RBAC no Armazenamento do Microsoft Azure, consulte [Gerenciar direitos de acesso a dados de Armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md).
 
 Ao realizar logon na CLI do Azure ou PowerShell com uma identidade do Microsoft Azure Active Directory, um token de acesso é devolvido para acessar o Armazenamento do Microsoft Azure com essa identidade. Esse token é usado automaticamente pela CLI ou o PowerShell para autorizar operações no Armazenamento do Microsoft Azure. Para operações com suporte, você não precisa passar uma chave de conta ou token SAS com o comando.
 
-> [!IMPORTANT]
-> Esta versão prévia é destinada apenas para uso não produtivo. Os SLAs (contratos de nível de serviço) de produção não estarão disponíveis até que a integração do Microsoft Azure Active Directory para Armazenamento do Microsoft Azure seja declarada geralmente disponível. Se a integração do Microsoft Azure Active Directory ainda não tiver suporte no seu cenário, continue usando os tokens de autorização ou a chave compartilhada nos aplicativos. Para obter informações adicionais sobre a versão prévia, consulte [Autenticar o acesso ao Armazenamento do Microsoft Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).
->
-> Durante a versão prévia, as atribuições de função do RBAC podem levar até cinco minutos para serem propagadas.
->
-> A integração do Microsoft Azure Active Directory ao Armazenamento do Microsoft Azure requer o uso de HTTPS para operações de Armazenamento do Microsoft Azure.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="supported-operations"></a>Operações com suporte
 
@@ -61,40 +56,50 @@ A variável de ambiente associada ao `--auth-mode` parâmetro é `AZURE_STORAGE_
 
 ## <a name="call-powershell-commands-with-an-azure-ad-identity"></a>Chame os comandos de PowerShell com uma identidade do Microsoft Azure Active Directory
 
+O Azure PowerShell dá suporte para entrar com uma identidade do Azure AD somente com um dos seguintes módulos de versão prévia: 
+
+- 4.4.0-preview 
+- 4.4.1-preview 
+
 Para usar o Microsoft Azure PowerShell para entrar com uma identidade do Microsoft Azure Active Directory:
 
-1. Verifique se tem a versão mais recente do PowerShellGet instalado. Execute o comando a seguir para o mais recente:
+1. Desinstale as instalações anteriores do Azure PowerShell:
+
+    - Remova as instalações anteriores do Azure PowerShell do Windows usando a configuração **Aplicativos e recursos** em **Configurações**.
+    - Remova todos os módulos do **Azure*** de `%Program Files%\WindowsPowerShell\Modules`.
+
+1. Verifique se tem a versão mais recente do PowerShellGet instalado. Abra uma janela do Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
  
     ```powershell
-    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber -RequiredVersion "4.4.1-preview"
+    Install-Module PowerShellGet –Repository PSGallery –Force
     ```
+1. Feche e reabra a janela do PowerShell depois de instalar o PowerShellGet. 
 
-2. Desinstale as instalações anteriores do Microsoft Azure PowerShell.
-3. Instalar o AzureRM:
+1. Instale a versão mais recente do Azure PowerShell:
 
     ```powershell
     Install-Module AzureRM –Repository PSGallery –AllowClobber
     ```
 
-4. Instale o módulo de versão prévia:
+1. Instale um dos módulos de versão prévia do Armazenamento do Azure que dá suporte ao Azure AD:
 
     ```powershell
-    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber 
+    Install-Module Azure.Storage –Repository PSGallery -RequiredVersion 4.4.1-preview  –AllowPrerelease –AllowClobber –Force 
     ```
+1. Feche e reabra a janela do PowerShell.
+1. Chame o cmdlet do [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) para criar um contexto e incluir o `-UseConnectedAccount` parâmetro. 
+1. Para chamar um cmdlet com uma identidade do Azure AD, passe o contexto recém-criado para o cmdlet.
 
-5. Chame o cmdlet do [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) para criar um contexto e incluir o `-UseConnectedAccount` parâmetro. 
-6. Para chamar um cmdlet com uma identidade do Microsoft Azure Active Directory, passe o contexto para o cmdlet.
-
-O exemplo a seguir mostra como listar os blobs em um contêiner do Azure PowerShell usando a identidade do Microsoft Azure Active Directory: 
+O exemplo a seguir mostra como listar os blobs em um contêiner do Azure PowerShell usando uma identidade do Azure AD. Lembre-se de substituir os valores de espaço reservado para conta e os nomes de contêineres pelos seus próprios valores: 
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -UseConnectedAccount 
-Get-AzureStorageBlob -Container $sample-container -Context $ctx 
+$ctx = New-AzureStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
+Get-AzureStorageBlob -Container sample-container -Context $ctx 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre as funções RBAC para armazenamento do Azure, consulte [Gerenciar os direitos de acesso aos dados de armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md).
-- Para saber como usar a Identidade de Serviço Gerenciada com o Armazenamento do Microsoft Azure, consulte [Autenticar com Microsoft Azure Active Directory a partir de uma Identidade de Serviço Gerenciada do Azure (versão prévia)](storage-auth-aad-msi.md).
+- Para saber mais sobre como usar identidades gerenciadas para recursos do Azure com o Armazenamento do Azure, confira [Autenticar o acesso aos blobs e às filas com as identidades gerenciadas do Azure para Recursos do Azure (versão prévia)](storage-auth-aad-msi.md).
 - Para saber como autorizar o acesso aos contêineres e filas de seus aplicativos de armazenamento, consulte [Use o Microsoft Azure Active Directory com aplicativos de armazenamento](storage-auth-aad-app.md).
 - Para obter informações adicionais sobre a integração do Microsoft Azure Active Directory para Blobs e Filas do Azure, consulte a postagem de blog da equipe do Armazenamento do Microsoft Azure, [ Anunciando a Visualização da Autenticação do Azure AD para o Armazenamento do Azure ](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

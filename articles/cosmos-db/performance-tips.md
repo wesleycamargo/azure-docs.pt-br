@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 47896b681c2ba43d4ca41682ec51e0dfd167c9d5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a805294ecb416d18f3ce13981d26a7d25cd5a204
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700949"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432844"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para o Azure Cosmos DB e .NET
 
@@ -42,7 +42,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
    * Modo Direto
 
-     O modo direto oferece suporte à conectividade por meio de protocolos TCP e HTTPS. Atualmente, o direto tem suporte no .NET 2.0 padrão somente na plataforma Windows. Ao usar o Modo Direto, há duas opções de protocolo disponíveis:
+     O modo direto oferece suporte à conectividade por meio de protocolos TCP e HTTPS. Atualmente, há suporte para o modo direto no .NET Standard 2.0. Ao usar o Modo Direto, há duas opções de protocolo disponíveis:
 
     * TCP
     * HTTPS

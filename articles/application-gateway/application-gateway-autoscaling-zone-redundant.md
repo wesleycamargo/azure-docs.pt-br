@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5d051ed049964af708056e2963f04cb478c15906
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ab1c9405042de02183b8742fa940a3a5a482923a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951501"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165222"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Escalonamento automático e gateway de aplicativos redundante de zona (visualização pública)
 
@@ -54,6 +54,7 @@ Durante a versão prévia, não há nenhum encargo. Você será cobrado por recu
 |Dimensionamento automático de firewall de aplicativo Web|WAF não oferece suporte ao modo de dimensionamento automático. Modo de capacidade fixo é suportado.|
 
 ## <a name="next-steps"></a>Próximas etapas
+- [Criar um gateway de aplicativo com redundância de zona e dimensionamento automático com um endereço IP virtual reservado usando o Azure PowerShell](tutorial-autoscale-ps.md)
 - Saiba mais sobre [Gateway de aplicativo](overview.md).
 - Saiba mais sobre [Firewall do Azure](../firewall/overview.md). 
 

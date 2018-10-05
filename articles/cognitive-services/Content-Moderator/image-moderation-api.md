@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator – Moderação de imagem | Microsoft Docs
+title: Imagem de moderação – Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Use a moderação de imagem para moderar imagens inadequadas
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: c7cbc343c6e9113642d0ac79f4a4d60a404e8171
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6c5fed78c67f974a2af11efd133e9a79ec52124b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364583"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219644"
 ---
 # <a name="image-moderation"></a>Moderação de imagem
 
@@ -37,7 +38,7 @@ A operação **Avaliar** retorna uma pontuação de confiança entre 0 e 1. Ela 
 
 > - `isImageAdultClassified` representa a presença potencial de imagens que podem ser consideradas sexualmente explícitas ou de conteúdo para adulto em determinadas situações.
 > - `isImageRacyClassified` representa a presença potencial de imagens que podem ser consideradas sexualmente sugestivas ou de conteúdo para adulto em determinadas situações.
-> - As pontuações estão entre 0 e 1. Quanto maior a pontuação, maior o modelo estará prevendo que a categoria pode ser aplicável. Essa versão prévia se baseia em um modelo estatístico, em vez de em resultados codificados manualmente. É recomendável testar com o seu próprio conteúdo para determinar como cada categoria se alinha aos seus requisitos.
+> - As pontuações estão entre 0 e 1. Quanto maior a pontuação, maior o modelo estará prevendo que a categoria pode ser aplicável. Essa visualização se baseia em um modelo estatístico, em vez dos resultados codificados manualmente. É recomendável testar com o seu próprio conteúdo para determinar como cada categoria se alinha aos seus requisitos.
 > - Os valores boolianos são true ou false dependendo dos limites da pontuação interna. Os clientes devem avaliar se desejam usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
 >
 
@@ -143,7 +144,7 @@ Extração de exemplo:
 
 Para casos com mais nuances, use a [ferramenta de análise](Review-Tool-User-Guide/human-in-the-loop.md) do Content Moderator e sua API para capturar os resultados de moderação e o conteúdo na revisão para seus moderadores humanos. Eles examinam as marcações atribuídas por máquina e confirmam suas decisões finais.
 
-![Análise de imagem para moderadores humanos](images/moderation-reviews-quickstart-dotnet.PNG)
+![Revisão de imagem para moderadores humanos](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>Próximas etapas
 

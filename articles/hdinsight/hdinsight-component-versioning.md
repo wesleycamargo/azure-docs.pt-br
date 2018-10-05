@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 120068cb9dcd92b2b18c2e175793d2072baa2724
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5be239fd3c77872a59b37efc6de5fc42aca9bb0c
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112156"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395807"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes e versões do Hadoop disponíveis com o HDInsight?
 
@@ -29,32 +29,32 @@ O HDInsight do Azure dá suporte a várias versões do cluster Hadoop que podem 
 As versões do componente associadas às versões do cluster HDInsight são listadas na tabela a seguir: 
 
 > [!NOTE]
-> A versão padrão para o serviço HDInsight pode ser alterada sem aviso prévio. Se você tiver uma dependência de versão, especifique a versão do HDInsight ao criar clusters com o .NET SDK com o Azure PowerShell e a CLI do Azure.
+> A versão padrão para o serviço HDInsight pode ser alterada sem aviso prévio. Se você tiver uma dependência de versão, especifique a versão do HDInsight ao criar clusters com o SDK do .NET com o Azure PowerShell e a CLI Clássica do Azure.
 
-| Componente | HDInsight 3.6 (padrão) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
-| --- | --- | --- | --- | --- | --- | --- |--- |
-| Hortonworks Data Platform |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2,0 |
-| Apache Hadoop e YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
-| Apache Tez |0.7.0 |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
-| Apache Pig |0.16.0 |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
-| Apache Hive e HCatalog |1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
-| Apache Hive2 | 2.1.0 |-|-|-|-|-|-|
-| Apache Tez Hive2 | 0.8.4 |-|-|-|-|-|-|
-| Apache Ranger | 0.7.0 |0.6.0 |-|-|-|-|-|
-| HBase no Apache |1.1.2 |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
-| Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
-| Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
-| O Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
-| Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
-| O Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
-| Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (somente Windows) |-|-|
-| Apache Livy |0,4 |0.3 |0.3 |0,2 |-|-|-|
-| Apache Kafka | 1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
-| Apache Ambari | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
-| Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
-| Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
-| Apache Slider | 0.92.0 |-|-|-|-|-|-|
+| Componente | HDInsight 4.0 (Versão Prévia) | HDInsight 3.6 (Padrão) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
+| --- | --- | --- | --- | --- | --- | --- | --- |--- |
+| Hortonworks Data Platform |3.0 |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2,0 |
+| Apache Hadoop e YARN |2.9.1 |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
+| Apache Tez |0.9.1 |0.7.0 |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
+| Apache Pig |0.16.0 |0.16.0 |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
+| Apache Hive e HCatalog |-|1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
+| Apache Hive |3.1.0 | 2.1.0 |-|-|-|-|-|-|
+| Apache Tez Hive2 |-| 0.8.4 |-|-|-|-|-|-|
+| Apache Ranger |1.1.0 |0.7.0 |0.6.0 |-|-|-|-|-|
+| HBase no Apache |2.0.1 |1.1.2 |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
+| Apache Sqoop |1.4.7 |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
+| Apache Oozie |4.3.1 |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
+| O Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
+| Apache Storm |1.2.1 |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
+| O Apache Mahout |-|0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
+| Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
+| Apache Spark |2.3.1 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (somente Windows) |-|-|
+| Apache Livy |0,5 |0,4 |0.3 |0.3 |0,2 |-|-|-|
+| Apache Kafka | 1.0.1 |1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
+| Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
+| Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
+| Apache Slider |-| 0.92.0 |-|-|-|-|-|-|
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Verificar informações atuais de versão do componente do Hadoop
 
@@ -78,7 +78,11 @@ A tabela a seguir lista as versões do HDInsight estão disponíveis no Portal d
 
 | Versão do HDInsight | Versão do HDP | SO da VM | Data do lançamento | Data de expiração do suporte | Data de baixa | Alta disponibilidade |  Disponibilidade no Portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 4.0 <br> (Visualização) |HDP 3.0 |Ubuntu 16.0.4 LTS |24 de setembro de 2018 | | |SIM |SIM |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de abril de 2017 | | |SIM |SIM |
+| HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |13 de março de 2019 |13 de março de 2019 |SIM |SIM |
+
+*A compatibilidade com o HDInsight 3.5 foi estendida apenas para tipos de cluster do Spark*
 
 > [!NOTE]
 > Depois que o suporte para uma versão tiver expirado, ela poderá não estar disponível por meio do Portal do Microsoft Azure. No entanto, as versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando do Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) e o SDK .NET até a data de baixa da versão.
@@ -90,7 +94,7 @@ A tabela a seguir lista as versões do HDInsight que **não** estão disponívei
 
 | Versão do HDInsight | Versão do HDP | SO da VM | Data do lançamento | Data de expiração do suporte | Data de baixa | Alta disponibilidade |  Disponibilidade no Portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |5 de setembro de 2017 |28 de junho de 2018 |SIM |Não  |
+| HDInsight 3.5 <br> (Não Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |5 de setembro de 2017 |28 de junho de 2018 |SIM |Não  |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de março de 2016 |29 de dezembro de 2016 |9 de janeiro de 2018 |SIM |Não  |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2018 |SIM |Não  |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2017 |SIM |Não  |
@@ -200,6 +204,7 @@ A _data de baixa_ é a data após a qual a versão do cluster não pode ser cria
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Notas de versão do Hortonworks associadas a versões do HDInsight
 
 A seção fornece links para notas de versão para as distribuições do Hortonworks Data Platform e componentes do Apache que são usados com o HDInsight.
+* O cluster do HDInsight versão 4.0 usa uma distribuição do Hadoop baseada no [Hortonworks Data Platform 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html)
 * O cluster do HDInsight versão 3.6 usa uma distribuição do Hadoop baseada no [Hortonworks Data Platform 2.6](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html).
 * O cluster do HDInsight versão 3.5 usa uma distribuição do Hadoop baseada no [Hortonworks Data Platform 2.5](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html). Versão 3.5 do cluster HDInsight é o cluster Hadoop _padrão_ que é criado no Portal do Azure.
 * O cluster HDInsight versão 3.4 usa uma distribuição do Hadoop baseada em [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html).
@@ -242,7 +247,7 @@ As tabelas abaixo listam os tamanhos de VM (máquina virtual) padrão para clust
   | Borda: tamanho de VM recomendado | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Apenas Sul do Brasil e Oeste do Japão (sem tamanhos v2):
 
-  | Tipo de cluster | O Hadoop | HBase | Consulta Interativa |Storm | Spark | ML Server |
+  | Tipo de cluster | O Hadoop | HBase | Consulta Interativa |Storm | Spark | Serviço do Machine Learning |
   | --- | --- | --- | --- | --- | --- | --- |
   | Cabeçalho: tamanho padrão da VM |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | Cabeçalho: tamanhos de VM recomendados |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |

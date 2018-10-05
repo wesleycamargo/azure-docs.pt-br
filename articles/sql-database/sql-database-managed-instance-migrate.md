@@ -1,36 +1,37 @@
 ---
 title: Migrar a instância do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
 description: Saiba como migrar uma instância do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure.
-keywords: migração de banco de dados, migração de banco de dados do sql server, ferramentas de migração de banco de dados, migrar banco de dados, migrar banco de dados sql
 services: sql-database
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 author: bonova
+ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.service: sql-database
-ms.custom: managed instance
-ms.topic: conceptual
-ms.date: 07/24/2018
-ms.author: bonova
-ms.openlocfilehash: e152fa4bb439f1881dc9974bfdf1b3e8c77c434a
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 09/26/2018
+ms.openlocfilehash: 7653ce7b0823b4e91685e77701a307370261f7e6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42144136"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394041"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração da instância do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure
 
-Neste artigo, você aprenderá sobre os métodos para migrar um SQL Server 2005 ou instância de versão posterior para a [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md) (versão prévia).
+Neste artigo, você aprenderá sobre os métodos para migrar uma instância do SQL Server 2005 ou de versão posterior para a [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md) (versão prévia).
 
 Em um nível alto, o processo de migração de banco de dados se parece com:
 
 ![processo de migração](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Avaliar a compatibilidade da Instância Gerenciada](sql-database-managed-instance-migrate.md#assess-managed-instance-compatibility)
-- [Escolher a opção de conectividade do aplicativo](sql-database-managed-instance-migrate.md#choose-app-connectivity-option)
-- [Implantar em uma Instância Gerenciada de tamanho ideal](sql-database-managed-instance-migrate.md#deploy-to-an-optimally-sized-managed-instance)
-- [Selecionar o método de migração e migrar](sql-database-managed-instance-migrate.md#select-migration-method-and-migrate)
-- [Monitorar aplicativos](sql-database-managed-instance-migrate.md#monitor-applications)
+- [Avaliar a compatibilidade da Instância Gerenciada](#assess-managed-instance-compatibility)
+- [Escolher a opção de conectividade do aplicativo](sql-database-managed-instance-connect-app.md)
+- [Implantar em uma Instância Gerenciada de tamanho ideal](#deploy-to-an-optimally-sized-managed-instance)
+- [Selecionar o método de migração e migrar](#select-migration-method-and-migrate)
+- [Monitorar aplicativos](#monitor-applications)
 
 > [!NOTE]
 > Para migrar um único banco de dados para um banco de dados individual ou pool elástico, consulte [Migrar um banco de dados do Microsoft SQL Server para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
@@ -39,9 +40,9 @@ Em um nível alto, o processo de migração de banco de dados se parece com:
 
 Primeiro, determine se a Instância Gerenciada é compatível com os requisitos do banco de dados do aplicativo. A Instância Gerenciada é projetada para fornecer migração lift-and-shift fácil para a maioria dos aplicativos existentes que utilizam o SQL Server local ou em máquinas virtuais. No entanto, às vezes é necessário recursos ou capacidades que ainda não têm suporte e o custo de implementar uma solução alternativa é muito alto. 
 
-Utilize o [DMA (Assistente de Migração de Dados)](https://docs.microsoft.com/sql/dma/dma-overview) para detectar possíveis problemas de compatibilidade que afetam a funcionalidade do banco de dados no Banco de Dados SQL do Azure. O DMA ainda não fornece suporte à Instância Gerenciada como destino de migração, mas é recomendável executar a avaliação em relação ao Banco de Dados SQL do Azure e revisar cuidadosamente a lista de problemas de compatibilidade e paridade de recursos relatados com a documentação do produto. Consulte as [diferenças entre o Singleton de Banco de Dados SQL do Azure e a Instância Gerenciada](sql-database-features.md) para verificar se há algum problema de bloqueio relatado que não bloqueia a Instância Gerenciada, porque a maioria dos problemas de bloqueio que impedem a migração para o Banco de Dados SQL do Azure foi removida com a Instância Gerenciada. Por exemplo, recursos como consultas entre banco de dados, transações entre banco de dados dentro da mesma instância, servidor vinculado para outras fontes do SQL, CLR, tabelas temporárias globais, exibições de nível de instância, Service Broker e similares estão disponíveis em Instâncias Gerenciadas. 
+Utilize o [DMA (Assistente de Migração de Dados)](https://docs.microsoft.com/sql/dma/dma-overview) para detectar possíveis problemas de compatibilidade que afetam a funcionalidade do banco de dados no Banco de Dados SQL do Azure. O DMA ainda não fornece suporte à Instância Gerenciada como destino de migração, mas é recomendável executar a avaliação em relação ao Banco de Dados SQL do Azure e revisar cuidadosamente a lista de problemas de compatibilidade e paridade de recursos relatados com a documentação do produto. Confira os [recursos do Banco de Dados SQL do Azure](sql-database-features.md) para verificar se há algum problema de bloqueio relatado que não bloqueia a Instância Gerenciada, porque a maioria dos problemas de bloqueio que impedem a migração para o Banco de Dados SQL do Azure foi removida com a Instância Gerenciada. Por exemplo, recursos como consultas entre banco de dados, transações entre banco de dados dentro da mesma instância, servidor vinculado para outras fontes do SQL, CLR, tabelas temporárias globais, exibições de nível de instância, Service Broker e similares estão disponíveis em Instâncias Gerenciadas. 
 
-Se houver alguns problemas de bloqueio relatados que não são removidos na Instância Gerenciada do SQL do Azure, você precisará considerar uma opção alternativa, como [SQL Server em Máquinas Virtuais no Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Estes são alguns exemplos:
+Se houver algum problema de bloqueio relatado que não foi removido na Instância Gerenciada do Banco de Dados SQL do Azure, considere uma opção alternativa, como o [SQL Server em Máquinas Virtuais no Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Estes são alguns exemplos:
 
 - Se você precisar de acesso direto ao sistema operacional ou ao sistema de arquivos, por exemplo, para instalar agentes personalizados ou de terceiros na mesma máquina virtual com o SQL Server.
 - Se você tiver uma dependência estrita de recursos que ainda não têm suporte, como transações entre instâncias, PolyBase e FileStream/FileTable.
@@ -81,7 +82,7 @@ A Instância Gerenciada oferece suporte às opções de migração de banco de d
 
 O [DMS (Serviço de Migração de Banco de Dados do Azure)](../dms/dms-overview.md) é um serviço totalmente gerenciado projetado para permitir migrações contínuas de várias fontes de banco de dados para plataformas de dados do Azure com um tempo de inatividade mínimo. Esse serviço simplifica as tarefas necessárias para mover bancos de dados de terceiros e SQL Server existentes para o Azure. As opções de implantação na Visualização Pública incluem Banco de Dados SQL do Azure, Instância Gerenciada e SQL Server em uma Máquina Virtual do Azure. O DMS é o método recomendado de migração para as cargas de trabalho empresariais. 
 
-Se você usar o SQL Server Integration Services (SSIS) no SQL Server no local, o DMS ainda não oferece suporte a migração de catálogo do SSIS (SSISDB) que armazena pacotes do SSIS, mas pode provisionar o Integration Runtime (RI) do Azure-SSIS no Azure Data Factory (ADF) que cria um novo SSISDB no Banco de Dados SQL do Azure/Instância Gerenciada e, em seguida, reimplantar seus pacotes nele. Consulte [Criar IR do Azure-SSIS no ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+Se você usar o SQL Server Integration Services (SSIS) no SQL Server no local, o DMS ainda não oferece suporte a migração de catálogo do SSIS (SSISDB) que armazena pacotes do SSIS, mas pode provisionar o Integration Runtime (RI) do Azure-SSIS no Azure Data Factory (ADF) que cria um novo SSISDB no Banco de Dados SQL do Azure/Instância Gerenciada e, em seguida, reimplantar seus pacotes nele. Consulte [Criar IR do Azure-SSIS no ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
 Para saber mais sobre esse cenário e as etapas de configuração do DMS, consulte [Migrar o banco de dados local para a Instância Gerenciada utilizando DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -100,13 +101,15 @@ A tabela a seguir fornece mais informações sobre os métodos que podem ser uti
 |Coloque o backup no Armazenamento do Microsoft Azure|SQL 2012 SP1 CU2 anterior|Upload do arquivo .bak diretamente para Armazenamento do Microsoft Azure|
 ||2012 SP1 CU2 - 2016|Backup direto utilizando a sintaxe [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)|
 ||2016 e posterior|Backup direto utilizando [WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Restaurar do Armazenamento do Microsoft Azure para a Instância Gerenciada|[RESTORE FROM URL com SAS CREDENTIAL](sql-database-managed-instance-restore-from-backup-tutorial.md)|
+|Restaurar do Armazenamento do Microsoft Azure para a Instância Gerenciada|[RESTORE FROM URL com SAS CREDENTIAL](sql-database-managed-instance-get-started-restore.md)|
 
 > [!IMPORTANT]
-> - Ao migrar um banco de dados protegido por [Transparent Data Encryption](transparent-data-encryption-azure-sql.md) para Instância Gerenciada do SQL do Azure usando a opção de restauração nativa, o certificado correspondente do local ou do SQL Server de IaaS deverá ser migrado antes da restauração do banco de dados. Para etapas detalhadas, consulte [Migrar o certificado TDE para Instância Gerenciada](sql-database-managed-instance-migrate-tde-certificate.md)
+> - Durante a migração de um banco de dados protegido por [Transparent Data Encryption](transparent-data-encryption-azure-sql.md) para a Instância Gerenciada do Banco de Dados SQL do Azure usando a opção de restauração nativa, o certificado correspondente do SQL Server local ou de IaaS deve ser migrado antes da restauração do banco de dados. Para etapas detalhadas, consulte [Migrar o certificado TDE para Instância Gerenciada](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Não há suporte para restauração de bancos de dados do sistema. Para migrar objetos de nível de instância (armazenados em bancos de dados mestres ou msdb), é recomendável script e executar scripts T-SQL na instância de destino.
 
-Para um tutorial completo que inclui a restauração de um backup de banco de dados para uma Instância Gerenciada usando uma credencial de SAS, consulte [Restaurar do backup para uma Instância Gerenciada](sql-database-managed-instance-restore-from-backup-tutorial.md).
+Para obter um início rápido que mostra como restaurar um backup de banco de dados em uma Instância Gerenciada usando uma credencial de SAS, confira [Restaurar do backup para uma Instância Gerenciada](sql-database-managed-instance-get-started-restore.md).
+
+> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 ## <a name="monitor-applications"></a>Monitorar aplicativos
 

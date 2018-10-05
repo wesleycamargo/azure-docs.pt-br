@@ -2,22 +2,30 @@
 title: Autenticação do Azure Active Directory – SQL do Azure (Visão Geral) | Microsoft Docs
 description: Saiba como usar o Azure Active Directory para autenticação com o Banco de Dados SQL, a Instância Gerenciada e o SQL Data Warehouse
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: data warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/07/2018
+author: GithubMirek
 ms.author: mireks
-ms.openlocfilehash: c016d593f62e2f0616b426a87baf8d9390645b4a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 06/13/2018
+ms.openlocfilehash: c11ba5fd88beeeb9b895abb1ee258c3109c40807
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645058"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064060"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Usar a Autenticação do Azure Active Directory para autenticação com o Banco de Dados SQL, a Instância Gerenciada ou o SQL Data Warehouse
-A autenticação do Azure Active Directory é um mecanismo de conexão com o Banco de Dados SQL do Microsoft Azure e o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure Active Directory (Azure AD). Com a autenticação do Azure AD, é possível gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de IDs fornece um único local para gerenciar os usuários do banco de dados e simplifica o gerenciamento de permissões. Os benefícios incluem o seguinte:
+A autenticação do Azure Active Directory é um mecanismo de conexão com o [Banco de Dados SQL](sql-database-technical-overview.md) do Azure e o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD (Azure Active Directory). 
+
+> [!NOTE]
+> Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
+
+Com a autenticação do Azure AD, é possível gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de IDs fornece um único local para gerenciar os usuários do banco de dados e simplifica o gerenciamento de permissões. Os benefícios incluem o seguinte:
 
 * Ele fornece uma alternativa para autenticação do SQL Server.
 * Ajuda a interromper a proliferação de identidades de usuário entre os servidores de banco de dados.

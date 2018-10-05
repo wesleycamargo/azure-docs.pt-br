@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 92ebd399cea88440e0f76ee1f34cb5930d3121d9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c4e237af7e85223839b3f26bcc33007f8abb9d0a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578677"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034222"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize recursos em seu datacenter ou nuvem usando o Hybrid Runbook Worker
 
@@ -26,11 +26,11 @@ A imagem a seguir ilustra essa funcionalidade:
 
 Cada Runbook Worker Híbrido é membro de um grupo de Runbook Worker Híbrido que você especifica ao instalar o agente. Um grupo pode conter um único agente, mas você pode instalar vários agentes em um grupo para ter alta disponibilidade.
 
-Quando você inicia um runbook em um Runbook Worker Híbrido, deve especificar o grupo no qual ele será executado. Cada operador no grupo de sonda de automação do Azure para ver se todos os trabalhos estão disponíveis. Se um trabalho estiver disponível, o primeiro funcionário a obter o trabalho o fará. Você não pode especificar um trabalhador específico.
+Quando você inicia um runbook em um Runbook Worker Híbrido, deve especificar o grupo no qual ele será executado. Cada operador no grupo de sonda de automação do Azure para ver se todos os trabalhos estão disponíveis. Se um trabalho estiver disponível, o primeiro funcionário a obter o trabalho o fará. Você não pode especificar um trabalhador específico. Os [limites](../azure-subscription-service-limits.md#automation-limits) do trabalho se aplicam a áreas restritas do Azure e a Hybrid Runbook Workers.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Instalar um trabalhador de runbook híbrido
 
-O processo para instalar um Hybrid Runbook Worker depende do sistema operacional. A tabela a seguir contém links para os métodos que você pode usar para a instalação. 
+O processo para instalar um Hybrid Runbook Worker depende do sistema operacional. A tabela a seguir contém links para os métodos que você pode usar para a instalação.
 
 Para instalar e configurar um Windows Hybrid Runbook Worker, você pode usar dois métodos. O método recomendado é usar um runbook de automação para automatizar completamente o processo de configuração de um computador com Windows. O segundo método é seguir um procedimento passo a passo para instalar e configurar a função manualmente. Para máquinas Linux, você executa um script Python para instalar o agente na máquina.
 

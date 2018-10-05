@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d25f46804c3320b7d941a945f3c4d9a5dfb6970c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b7de476c6b96856e9b783ed8182985846bb39cfa
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702122"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452387"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK do .NET do Azure Cosmos DB para a API do SQL: download e notas de versão
 > [!div class="op_single_selector"]
@@ -50,6 +50,24 @@ ms.locfileid: "43702122"
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
+
+* Adição de maior resiliência a falhas transitórias de solicitação de várias regiões.
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+
+* Adição de compatibilidade à gravação em várias regiões.
+* Melhorias de desempenho de consultar entre partições com TOP e MaxBufferedItemCount.
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+
+* Adicionado suporte para cancelamento de solicitações.
+* Adicionado SetCurrentLocation para ConnectionPolicy, que preenche automaticamente as localizações preferenciais com base na região.
+* Corrigido o Bug em Consultas de Partição Cruzada com Mín/Máx e um filtro que não corresponde a nenhum documento em uma partição individual.
+* Os métodos DocumentClient agora têm paridade com IDocumentClient.
+* Pilha de transporte de TCP direto atualizada para reduzir o número de conexões estabelecidas.
+* Adicionado suporte para TCP de modo direto para clientes não Windows.
+
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * Adicionado suporte para cancelamento de solicitações.
@@ -75,7 +93,7 @@ ms.locfileid: "43702122"
 
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
-* Correção do bug que é acessado em determinadas condições de corrida, que resulta em erros intermitentes "Microsoft.Azure.Documents.NotFoundException: A sessão de leitura não está disponível para o token de sessão de entrada" ao usar o nível de consistência de sessão.
+* Correção do bug que ocorria em determinadas condições de corrida, que resultava em erros intermitentes “Microsoft.Azure.Documents.NotFoundException: a sessão de leitura não está disponível para o token de sessão de entrada” ao usar o nível de consistência de sessão.
 
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
@@ -309,8 +327,9 @@ Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rej
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
-| [2.0.0-preview2](#2.0.0-preview2) |26 de julho de 2018 |--- |
-| [2.0.0-preview](#2.0.0-preview) |11 de maio de 2018 |--- |
+| [2.1.1](#2.1.1) |27 de setembro de 2018 |--- |
+| [2.1.0](#2.1.0) |21 de setembro de 2018 |--- |
+| [2.0.0](#2.0.0) |07 de setembro de 2018 |--- |
 | [1.22.0](#1.22.0) |19 de abril de 2018 |--- |
 | [1.21.1](#1.20.1) |09 de março de 2018 |--- |
 | [1.20.2](#1.20.1) |21 de fevereiro de 2018 |--- |

@@ -1,5 +1,5 @@
 ---
-title: Tempo limite de ociosidade para Redefinição de TCP do Load Balancer | Microsoft Docs
+title: Redefinição de TCP do Balanceador de Carga quando ocioso | Microsoft Docs
 description: Load Balancer com pacotes TCP RST bidirecionais em tempo limite de ociosidade
 services: load-balancer
 documentationcenter: na
@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2018
+ms.date: 09/26/2018
 ms.author: kumud
-ms.openlocfilehash: 6ec8754e9a6e1afb9dcb400215570d08ebd4342b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0b533a48e94db880f23d42decc5c3fb39a27e5ac
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973718"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395637"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-timeout-public-preview"></a>Load Balancer com tempo limite de ociosidade para Redefinição de TCP (Visualização Pública)
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Balanceador de Carga com Redefinição de TCP quando ocioso (Versão Prévia Pública)
 
 Você pode usar o [Standard Load Balancer](load-balancer-standard-overview.md) para criar um aplicativo comportamento mais previsível para seus cenários com Redefinições de TCP bidirecionais (pacote TCP RST) para cada tempo limite de ociosidade configurável.  O comportamento de padrão do Load Balancer é remover fluxos silenciosamente quando o tempo limite de ociosidade de um fluxo for atingido.
+
+![Redefinição de TCP do Balanceador de Carga](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
 >A funcionalidade de Load Balancer com tempo limite de ociosidade para redefinição do TCP está disponível como Visualização Pública no momento e disponibilizada em um conjunto limitado de [regiões](#regions). Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
@@ -73,6 +75,8 @@ Esse parâmetro está efetivo atualmente nas seguintes regiões.  Em regiões n�
 
 | Região |
 |---|
+| Sudeste da Ásia |
+| Europa Ocidental |
 | Leste dos EUA 2 |
 | Norte do Reino Unido |
 | Oeste dos EUA |
@@ -87,4 +91,4 @@ Essa tabela será atualizada conforme a versão prévia for expandida para outra
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Standard Load Balancer](load-balancer-standard-overview.md).
-- Saiba mais sobre [regras de saída](https://aka.ms/lboutboundrules).
+- Saiba mais sobre [regras de saída](load-balancer-outbound-rules-overview.md).

@@ -1,21 +1,21 @@
 ---
-title: Adicionar entidades em aplicativos de LUIS | Microsoft Docs
-titleSuffix: Azure
+title: Adicionar entidades aos aplicativos do LUIS
+titleSuffix: Azure Cognitive Services
 description: Adicionar entidades (dados chave no domínio do aplicativo) em aplicativos LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e97f9a5391799849983bd98db5400e0a842627b7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e82955da24e127e5536c2e40ad2cccf07c5fa173
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224119"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031995"
 ---
 # <a name="manage-entities"></a>Gerenciar entidades
 Após identificar as [intenções](luis-concept-intent.md) do aplicativo, será necessário [rotular enunciados de exemplo](luis-concept-utterance.md) com [entidades](luis-concept-entity-types.md). As entidades são as partes importantes de um comando ou pergunta e podem ser essenciais para que o aplicativo cliente execute a tarefa. 
@@ -31,8 +31,6 @@ Entidades pré-compiladas são definidas no projeto [Recognizers-Text](https://g
  
 2. Na página **Entidades**, selecione **Gerenciar entidades pré-compiladas**.
 
-    ![Captura de tela da adição de entidade pré-compilada na página Entidades](./media/add-entities/manage-prebuilt-entities-button.png)
-
 3. Na caixa de diálogo **Adicionar ou remover entidades pré-compiladas**, selecione as entidades pré-compiladas **número** e **datetimeV2**. Em seguida, selecione **Concluído**.
 
     ![Captura de tela da caixa de diálogo Adicionar entidade pré-compilada](./media/add-entities/list-of-prebuilt-entities.png)
@@ -43,8 +41,6 @@ Entidades pré-compiladas são definidas no projeto [Recognizers-Text](https://g
 Uma entidade simples é uma entidade genérica que descreve um conceito único. 
 
 1. No aplicativo, na seção **Compilar**, clique em **Entidades** no painel esquerdo e selecione **Criar nova entidade**.
-
-    ![Captura de tela da página Entidades com o botão Criar nova entidade realçado](./media/add-entities/create-new-entity-button.png)
 
 2. Na caixa de diálogo pop-up, digite `Airline` na caixa **Nome da entidade**, selecione **Simples** na lista **Tipo de entidade** e, em seguida, selecione **Concluído**.
 

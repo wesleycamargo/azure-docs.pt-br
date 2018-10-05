@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: kgremban
-ms.openlocfilehash: 588ee4b7d728aa16201cbe9c325d25a9cc5c9884
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 831b1c12514e57d378e22d007c75d8a3715f7276
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185451"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219916"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Agendar e difundir trabalhos (Python)
 
@@ -149,7 +149,7 @@ Nesta seção, você cria um aplicativo de console do Python que responde a um m
 1. Salve e feche o arquivo **simDevice.py**.
 
 > [!NOTE]
-> Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias][lnk-transient-faults] do MSDN.
+> Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugerido no artigo [Tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
 > 
 > 
 
@@ -334,7 +334,6 @@ Para continuar a introdução ao Hub IoT, consulte [Introdução ao Azure IoT Ed
 [lnk-python-download]: https://www.python.org/downloads/
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[lnk-transient-faults]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults
 
 [1]: ./media/iot-hub-python-python-schedule-jobs/1.png
 [2]: ./media/iot-hub-python-python-schedule-jobs/2.png

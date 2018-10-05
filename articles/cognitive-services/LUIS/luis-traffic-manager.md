@@ -1,20 +1,21 @@
 ---
-title: Use o Gerenciador de Tráfego do Microsoft Azure para aumentar a cota do ponto de extremidade no LUIS (Reconhecimento vocal) – Azure| Microsoft Docs
-description: Usar o Gerenciador de Tráfego do Microsoft Azure para distribuir a cota do ponto de extremidade entre várias assinaturas no LUIS (Reconhecimento vocal) para aumentar a cota do ponto de extremidade
+title: Usar o Gerenciador de Tráfego do Microsoft Azure para aumentar a cota do ponto de extremidade no LUIS (Reconhecimento vocal)
+titleSuffix: Azure Cognitive Services
+description: O LUIS (Reconhecimento vocal) oferece a capacidade de aumentar a cota de solicitação do ponto de extremidade além da cota de uma única chave. Isso é feito criando mais chaves para o LUIS e adicionando-as ao aplicativo LUIS na página **Publicar** na seção **Recursos e Chaves**.
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 909c32452db216f79633b94c31f39350b7a6ee20
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 28fc0d0061d1826f0e17c26325ea227e001dccda
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248621"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042169"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar o Gerenciador de Tráfego do Microsoft Azure para gerenciar a cota do ponto de extremidade entre chaves
 O LUIS (Reconhecimento vocal) oferece a capacidade de aumentar a cota de solicitação do ponto de extremidade além da cota de uma única chave. Isso é feito criando mais chaves para o LUIS e adicionando-as ao aplicativo LUIS na página **Publicar** na seção **Recursos e Chaves**. 
@@ -44,9 +45,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Captura de tela do portal do Azure com duas chaves LUIS no grupo de recursos luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. No site do [LUIS][LUIS], na página **Publicar**, adicione chaves ao aplicativo e republique-o. 
-
-    ![Captura de tela do portal do LUIS com duas chaves LUIS na página Publicar](./media/traffic-manager/luis-keys-in-luis.png)
+2. No site do [LUIS][LUIS], na seção **Gerenciar**, na página **Chaves e os pontos de extremidade**, atribua as chaves para o aplicativo e republique-o selecionando o botão **Publicar** no menu superior direito. 
 
     A URL de exemplo na coluna **ponto de extremidade** usa uma solicitação GET com a chave de ponto de extremidade como um parâmetro de consulta. Copie as URLs do ponto de extremidade das duas novas chaves. Elas são usadas como parte da configuração do Gerenciador de Tráfego posteriormente neste artigo.
 
@@ -350,7 +349,7 @@ dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
 
 A resposta bem-sucedida com o ponto de extremidade LUIS é:
 
-```cmd
+```json
 [
     {
         value: 'westus.api.cognitive.microsoft.com', 

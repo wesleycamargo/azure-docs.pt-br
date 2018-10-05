@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: b54a302c022a8af84c1964c13ffadc52b45c4ca4
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b7908f9f9aef51857f0ffb07102e1df245b7a259
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696812"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064429"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions
 
@@ -110,15 +110,12 @@ Em todos esses casos de uso, como a função desacoplou o próprio aplicativo, v
 ## <a name="tooling"></a>Ferramentas
 
 A integração nativa entre o Azure Cosmos DB e o Azure Functions está disponível no portal do Azure e no Visual Studio 2017.
-* No portal do Azure Functions, você pode criar um gatilho do Azure Cosmos DB. Para obter instruções sobre o guia de início rápido, consulte [Criar um gatilho do Azure Cosmos DB no portal do Azure](https://aka.ms/cosmosdbtriggerportalfunc) e ![Criar um gatilho do Azure Cosmos DB no portal do Azure Functions](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
-* No portal do Azure Functions, também adicione associações de entrada e associações de saída do Azure Cosmos DB a outros tipos de gatilhos. Para obter instruções sobre o guia de início rápido, consulte [Armazenar dados não estruturados usando o Azure Functions e o Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
-    ![Criar um gatilho do Azure Cosmos DB no portal do Azure Functions](./media/serverless-computing-database/function-portal-input-binding.png)
-*   No portal do Azure Cosmos DB, adicione um gatilho do Azure Cosmos DB a um aplicativo existente do Azure Function no mesmo grupo de recursos.
-    ![Criar um gatilho do Azure Cosmos DB no portal do Azure Functions](./media/serverless-computing-database/cosmos-db-portal.png)
-* No Visual Studio 2017, você pode criar um gatilho de banco de dados do Azure Cosmos DB usando o modelo integrado:
+
+* No portal do Azure Functions, você pode criar um gatilho do Azure Cosmos DB. Para ver as instruções para início rápido, consulte [Criar um gatilho do Azure Cosmos DB no portal do Azure](https://aka.ms/cosmosdbtriggerportalfunc).
+* No portal do Azure Cosmos DB, adicione um gatilho do Azure Cosmos DB a um aplicativo existente do Azure Function no mesmo grupo de recursos.
+* No Visual Studio 2017, você pode criar um gatilho do Azure Cosmos DB usando as [Ferramentas do Azure Functions para Visual Studio 2017](../azure-functions/functions-develop-vs.md):
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
-
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>Por que escolher a integração do Azure Functions para a computação sem servidor?
 
@@ -152,7 +149,6 @@ Agora vamos conectar o Azure Cosmos DB e o Azure Functions de verdade:
 
 * [Criar um gatilho do Azure Cosmos DB no portal do Azure](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Criar um gatilho HTTP do Azure Functions com uma associação de entrada do Azure Cosmos DB](https://aka.ms/cosmosdbinputbind)
-* [Armazenar dados não estruturados usando o Azure Functions e o Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
 * [Associações e gatilhos do Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md)
 
 

@@ -1,20 +1,21 @@
 ---
-title: Criar seu primeiro aplicativo LUIS (Serviço Inteligente de Reconhecimento Vocal) em 10 minutos – LUIS de Serviços Cognitivos | Microsoft Docs
-description: Neste início rápido, crie um aplicativo LUIS que use o domínio predefinido `HomeAutomation` para ligar e desligar luzes e dispositivos. Este domínio predefinido fornece intenções, entidades e exemplos de enunciados a você. Quando terminar, você terá um ponto de extremidade do LUIS em execução na nuvem.
+title: A 10 minutos do seu primeiro aplicativo LUIS
+titleSuffix: Azure Cognitive Services
+description: Crie um aplicativo LUIS que use o domínio predefinido `HomeAutomation` para ligar e desligar luzes e eletrodomésticos. Este domínio predefinido fornece intenções, entidades e exemplos de enunciados a você. Quando terminar, você terá um ponto de extremidade do LUIS em execução na nuvem.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 457f23936dec0cf85e9aebbf3e54bba37c2f3ca3
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 12a660b49d1a81865c34ceda38f041de9be31eb1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "43768527"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037466"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: Usar o aplicativo de automação Inicial predefinido
 
@@ -54,11 +55,7 @@ Quando o domínio for adicionado com êxito, a caixa de domínio predefinido exi
 
 ## <a name="intents-and-entities"></a>Intenções e entidades
 
-Selecione **Intenções** no painel de navegação à esquerda para examinar as intenções do domínio HomeAutomation. 
-
-[![](media/luis-quickstart-new-app/home-automation-intents.png "Captura de tela da lista de intenções com nomes de Intenção na tabela destacados")](media/luis-quickstart-new-app/home-automation-intents.png)
-
-Cada intenção tem exemplos de enunciados.
+Selecione **Intenções** no painel de navegação à esquerda para examinar as intenções do domínio HomeAutomation. Cada intenção tem exemplos de enunciados.
 
 > [!NOTE]
 > **None** é uma intenção fornecida por todos os aplicativos LUIS. Você pode usá-la para lidar com enunciados que não correspondem à funcionalidade que seu aplicativo fornece. 
@@ -67,11 +64,9 @@ Selecione a intenção **HomeAutomation.TurnOff**. Você pode ver que a intenç�
 
 [![](media/luis-quickstart-new-app/home-automation-turnon.png "Captura de tela da intenção HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
-## <a name="train-your-app"></a>Treinar seu aplicativo
+## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
 
-Selecione **Treinar** na barra de navegação superior.
-
-[![](media/luis-quickstart-new-app/trained.png "Captura de tela da intenção HomeAutomation.TurnOff com a notificação de sucesso em verde")](media/luis-quickstart-new-app/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-your-app"></a>Testar seu aplicativo
 Depois de treinar seu aplicativo, você pode testá-lo. Selecione **Testar** na navegação superior. Digite uma expressão de teste, como "Desligar as luzes" no painel de Teste Interativo e pressione Enter. 
@@ -89,29 +84,23 @@ Neste exemplo, "Desligar as luzes" é identificado corretamente como a intençã
 
 Selecione **Testar** novamente para recolher o painel de teste. 
 
-## <a name="publish-your-app"></a>Publicar seu aplicativo
-Selecione **Publicar** na navegação superior. 
+<a name="publish-your-app"></a>
 
-[![](media/luis-quickstart-new-app/publish.png "Captura de tela do aplicativo com o botão Publicar realçado")](media/luis-quickstart-new-app/publish.png)
+## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
 
-Selecione o Slot de produção e o botão **Publicar**.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-A barra de notificação verde na parte superior indica que o aplicativo foi publicado com êxito.
+## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto de extremidade com um enunciado diferente
 
-[![](media/luis-quickstart-new-app/published.png "Captura de tela do aplicativo com sucesso na publicação")](media/luis-quickstart-new-app/published.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-Depois de publicar com êxito, você pode usar a URL do ponto de extremidade exibida na página **Publicar aplicativo**.
+2. Vá até o final da URL no endereço, digite `turn off the living room light` e pressione Enter. O navegador exibe a resposta JSON do seu ponto de extremidade HTTP.
 
-[![](media/luis-quickstart-new-app/endpoint.png "Captura de tela da página Publicar com a URL do ponto de extremidade realçada")](media/luis-quickstart-new-app/endpoint.png)
-
-## <a name="use-your-app"></a>Usar seu aplicativo
-Você pode testar seu ponto de extremidade publicado em um navegador usando a URL gerada. Defina essa URL no navegador, defina o parâmetro de URL "&q" para a sua consulta de teste. Por exemplo, adicione `turn off the living room light` ao final da URL e pressione Enter. O navegador exibe a resposta JSON do seu ponto de extremidade HTTP.
-
-
-[![](media/luis-quickstart-new-app/turn-off-living-room.png "Captura de tela do navegador com o resultado JSON detecta a intenção de TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
-
+    [![](media/luis-quickstart-new-app/turn-off-living-room.png "Captura de tela do navegador com o resultado JSON detecta a intenção de TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo LUIS. Para fazer isso, selecione o botão de reticências (***...***) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: Introdução ao gerenciamento de dispositivos no Azure Active Directory | Microsoft Docs
+title: O que é gerenciamento de dispositivos no Azure Active Directory? | Microsoft Docs
 description: Saiba como o gerenciamento de dispositivos pode ajudar você a controlar os dispositivos que estão acessando os recursos do seu ambiente.
 services: active-directory
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/21/2018
+ms.topic: overview
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 7e71ff5f5da17165d5127f3547d8eb0756411b8c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 3baa48113022bed1bdc7caa5854a231334c975af
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597686"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224623"
 ---
-# <a name="introduction-to-device-management-in-azure-active-directory"></a>Introdução ao gerenciamento de dispositivos no Azure Active Directory
+# <a name="what-is-device-management-in-azure-active-directory"></a>O que é gerenciamento de dispositivos no Azure Active Directory?
 
 Em um mundo que prioriza os dispositivos móveis e a nuvem, o Azure AD (Azure Active Directory) permite o logon único em dispositivos, aplicativos e serviços de qualquer lugar. Com a proliferação de dispositivos, incluindo a abordagem BYOD (traga seu próprio dispositivo), os profissionais de TI se deparam com duas metas conflitantes:
 
@@ -121,7 +121,7 @@ Por mais de uma década, muitas organizações têm usado o ingresso no domínio
 
 Normalmente, as organizações com um espaço local dependem de métodos de geração de imagens para provisionar dispositivos e, muitas vezes, usam o **SCCM (System Center Configuration Manager)** ou a **GP (Política de Grupo)** para gerenciá-los.
 
-Se seu ambiente tiver um espaço local do AD e você também quiser se beneficiar dos recursos fornecidos pelo Azure Active Directory, será possível implementar dispositivos adicionados ao Azure AD híbrido. Esses dispositivos são adicionados ao Active Directory local e ao Azure Active Directory.
+Se seu ambiente tiver um espaço local do AD e você também quiser se beneficiar dos recursos fornecidos pelo Azure Active Directory, será possível implementar dispositivos adicionados ao Azure AD híbrido. Esses dispositivos são ingressados no Active Directory local e registrados no Azure Active Directory.
 
 ![Dispositivos registrados no Azure AD](./media/overview/01.png)
 

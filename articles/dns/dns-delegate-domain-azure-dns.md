@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 44f5bf9a28d56e85bae1d50136c50868ec96eb4e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: ea0dc257d691326bc073b4cbff37e847a6990f02
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205434"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452285"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Hospedar seu domínio no DNS do Azure
 
@@ -70,6 +70,9 @@ O DNS do Azure cria automaticamente os registros NS autoritativos na zona que co
 Agora que a zona DNS foi criada e você tem os servidores de nomes, você precisa atualizar o domínio pai com os servidores de nome do DNS do Azure. Cada registrador tem suas próprias ferramentas de gerenciamento de DNS para alterar os registros de servidor de nomes para um domínio. Na página de gerenciamento do DNS do registrador, edite os registros NS e substitua-os por aqueles criados pelos servidores de nomes de domínio do Azure.
 
 Ao delegar um domínio ao DNS do Azure, você deve usar os servidores de nomes fornecidos pelo DNS do Azure. É recomendável usar todos os quatro servidores de nomes, independentemente do nome do seu domínio. A delegação de domínio não requer que o servidor de nomes use o mesmo domínio de nível superior do seu domínio.
+
+> [!NOTE]
+> Ao copiar cada endereço de servidor de nome, lembre-se de copiar o ponto à direita no final do endereço. O ponto à direita indica o final de um nome de domínio totalmente qualificado. Alguns registradores podem acrescentar o ponto quando ele ainda não consta no final do nome NS. Mas para estar em conformidade com o RFC do DNS, você deve incluir o ponto à direita, porque não é possível garantir que cada registrador o acrescentará.
 
 Atualmente, o Azure DNS não dá suporte às delegações que usam nomes de servidores em sua própria zona, às vezes chamados de *servidores de nome intuitivos*.
 

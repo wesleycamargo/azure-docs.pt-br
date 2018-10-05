@@ -10,15 +10,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/14/2018
+ms.topic: conceptual
+ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 97cc6d6e922ab0bedd729eddca754ae016f041bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0413357b6e17bf66b0ae9b504bc23b9702d03c91
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958009"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220968"
 ---
 # <a name="azure-monitor-overview"></a>Visão geral do Azure Monitor
 
@@ -47,7 +47,7 @@ A linguagem de consulta do Log Analytics é adequada para consultas de log simpl
 ![Logs](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Quais dados são coletados pelo Azure Monitor?
-O Log Analytics pode coletar dados de várias fontes. Você pode pensar em dados de monitoramento de seus aplicativos em camadas, que vão do aplicativo, de operações e serviços de que ele depende, até a própria plataforma. O Azure Monitor coleta dados de cada uma dos seguintes camadas:
+O Azure Monitor pode coletar dados de várias fontes. Você pode pensar em dados de monitoramento de seus aplicativos em camadas, que vão do aplicativo, de operações e serviços de que ele depende, até a própria plataforma. O Azure Monitor coleta dados de cada uma dos seguintes camadas:
 
 - **Dados de monitoramento de aplicativo**: dados sobre o desempenho e a funcionalidade do código que você escreveu, independentemente da plataforma.
 - **Dados de monitoramento de SO convidado**: dados sobre o sistema operacional no qual o aplicativo é executado. Ele pode estar em execução no Azure, em outra nuvem ou localmente. 
@@ -145,9 +145,6 @@ Várias APIs estão disponíveis para ler e gravar logs e métricas do e para o 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre:
 
-* [Azure Monitor](https://azure.microsoft.com/services/monitor/) para introduzir com alertas e principais métricas de monitoramento.
-* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) se você estiver tentando diagnosticar problemas em seu aplicativo Web do Serviço de Aplicativo.
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) para analisar logs e dados de monitoramento coletados.
-
-
-
+* [Métricas e logs](../monitoring/monitoring-data-collection.md) para os dados coletados pelo Azure Monitor.
+* [Fontes de dados](../monitoring/monitoring-data-sources.md) para a maneira como os diferentes componentes do seu aplicativo enviam telemetria.
+* [Log Analytics](../log-analytics/log-analytics-queries.md) para analisar os dados coletados.

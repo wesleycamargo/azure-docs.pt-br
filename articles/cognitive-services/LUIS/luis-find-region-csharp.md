@@ -1,29 +1,30 @@
 ---
-title: Localize a região do LUIS com C# nos limites de Reconhecimento vocal (LUIS) | Microsoft Docs
+title: Encontrar a região do ponto de extremidade com o C# no LUIS
+titleSuffix: Azure Cognitive Services
 description: Programaticamente, localize a região de publicação com chave de ponto de extremidade e ID de aplicativo para LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6f2688e492dbba718dc55825de164c189a9b46c9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 53c3d1abb24ae0d5b33a2a100dda07fd20ae92d1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225101"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039625"
 ---
-# <a name="region-can-be-determined-from-api-call"></a>A região pode ser determinada da chamada à API 
+# <a name="find-endpoint-region-with-c"></a>Encontrar a região do ponto de extremidade com o C# 
 Se você tiver a ID do aplicativo LUIS e a ID da assinatura do LUIS, poderá encontrar a região que será usada para consultas de ponto de extremidade.
 
 > [!NOTE] 
 > A solução C# completa está disponível nos [**exemplos de LUIS** no repositório Github](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
 
-## <a name="luis-endpoint-query-strategy"></a>Estratégia de consulta de ponto de extremidade de LUIS
-Cada consulta de ponto de extremidade de LUIS exige:
+## <a name="luis-endpoint-query-strategy"></a>Estratégia de consulta de ponto de extremidade do LUIS
+Cada consulta de ponto de extremidade do LUIS exige:
 
 * Uma chave de ponto de extremidade
 * Uma ID do aplicativo

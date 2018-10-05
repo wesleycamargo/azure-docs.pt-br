@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/29/2018
+ms.date: 09/27/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 1726cf947ad027eabd79aa35da92df37e1681003
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 304a52f5571790ea49587a5aeda433f003f0e0bd
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959607"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423061"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Ativar assinaturas e contas do Azure com o Cloudyn
 
@@ -40,7 +40,7 @@ Se sua conta tiver a função **Colaborador**, você não tem a permissão adequ
 2. No portal do Azure, selecione **Azure Active Directory**.
 3. No Azure Active Directory, selecione **Configurações de Usuário**.
 4. Verifique a opção **Registros do Aplicativo**.
-    - Se estiver definido como **Sim**, os usuários não administradores podem registrar aplicativos do AD. Essa configuração significa que qualquer usuário no locatário do Azure AD pode registrar um aplicativo. Você pode prosseguir com as permissões de assinatura do Azure necessárias.  
+    - Se estiver definido como **Sim**, os usuários não administradores podem registrar aplicativos do AD. Essa configuração significa que qualquer usuário no locatário do Azure AD pode registrar um aplicativo.  
     ![Registros de aplicativo](./media/activate-subs-accounts/app-register.png)
     - Se a opção **Registros do aplicativo** estiver definida como **Não**, apenas os usuários administrativos do locatário podem registrar aplicativos do Active Directory do Azure. Seu administrador de locatário deve registrar o aplicativo CloudynCollector.
 
@@ -103,10 +103,8 @@ Habilite a API de cobrança do Azure antes de gerar a chave de API do Contrato E
 
 Você também precisa conceder permissões para administradores de departamento, proprietários de conta e administradores de empresa para _exibir encargos_ com a API de cobrança.
 
-<<<<<<< HEAD Somente um administrador de serviços do Azure pode habilitar o Gerenciamento de Custos. As permissões de coadministrador são insuficientes. No entanto, você pode contornar o requisito do administrador. É possível solicitar que o administrador do Active Directory do Azure conceda permissão para autorizar o **CloudynAzureCollector** com um script do PowerShell. O script a seguir concede permissão para registrar a Entidade de Serviço do Azure Active Directory **CloudynAzureCollector**. Quando executada com êxito, a operação termina com o navegador mostrando a URL http://localhost:8080/CloudynJava.
-======= Somente um administrador de serviços do Azure pode habilitar o Cloudyn. As permissões de coadministrador são insuficientes. No entanto, você pode contornar o requisito do administrador. É possível solicitar que o administrador do Active Directory do Azure conceda permissão para autorizar o **CloudynAzureCollector** com um script do PowerShell. O script a seguir concede permissão para registrar a Entidade de Serviço do Azure Active Directory **CloudynAzureCollector**.
+Somente um administrador de serviços do Azure pode habilitar o Cloudyn. As permissões de coadministrador são insuficientes. No entanto, você pode contornar o requisito do administrador. É possível solicitar que o administrador do Active Directory do Azure conceda permissão para autorizar o **CloudynAzureCollector** com um script do PowerShell. O script a seguir concede permissão para registrar a Entidade de Serviço do Azure Active Directory **CloudynAzureCollector**.
 
->>>>>>> 9f3b4a46614ba7306c044dce8be6ee7cc3bf101d
 
 ```
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

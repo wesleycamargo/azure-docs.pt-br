@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f832b05969c028880f6e375ff4a2ee8dc7a7eaf4
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 9c9c04a8310a46605cf5733131db1418b7cb7f7a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141820"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218777"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Reconhecer o tempo de execução do Azure IoT Edge e sua arquitetura
 
@@ -23,7 +23,7 @@ O tempo de execução do IoT Edge executa as seguintes funções em dispositivos
 
 * Instala e atualiza as cargas de trabalho no dispositivo.
 * Mantém os padrões de segurança do Azure IoT Edge no dispositivo.
-* Garante que os módulos do [IoT Edge][lnk-modules] sempre estejam em execução.
+* Faz com que os [módulos do IoT Edge][lnk-modules] estejam sempre em execução.
 * Fornece um relatório sobre a integridade do módulo para a nuvem para o monitoramento remoto.
 * Facilita a comunicação entre os dispositivos de folha de downstream e os dispositivos IoT Edge.
 * Facilita a comunicação entre os módulos e o dispositivo IoT Edge.
@@ -31,9 +31,9 @@ O tempo de execução do IoT Edge executa as seguintes funções em dispositivos
 
 ![O tempo de execução do IoT Edge comunica insights e integridade de módulo para o Hub IoT][1]
 
-As responsabilidades do tempo de execução do IoT Edge se enquadram em duas categorias: gerenciamento de módulo e comunicação. Essas duas funções são executadas por dois componentes que representam o tempo de execução do IoT Edge. O hub do IoT Edge é responsável pela comunicação, enquanto o agente do IoT Edge gerencia a implantação e o monitoramento de módulos. 
+As responsabilidades do tempo de execução do IoT Edge se enquadram em duas categorias: gerenciamento de comunicação e de módulo. Essas duas funções são executadas por dois componentes que representam o tempo de execução do IoT Edge. O hub do IoT Edge é responsável pela comunicação, enquanto o agente do IoT Edge gerencia a implantação e o monitoramento de módulos. 
 
-O agente do Edge e o hub do Edge são módulos, assim como qualquer outro módulo em execução em um dispositivo IoT Edge. 
+Tanto o hub quanto o agente do Edge são módulos, assim como qualquer outro módulo em execução em um dispositivo IoT Edge. 
 
 ## <a name="iot-edge-hub"></a>Hub do IoT Edge
 
@@ -117,7 +117,7 @@ Para obter mais informações sobre a estrutura de segurança do Azure IoT Edge,
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Entender os módulos do Azure IoT Edge][lnk-modules]
+[Entender os certificados do Azure IoT Edge][lnk-certs]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png
@@ -126,4 +126,4 @@ Para obter mais informações sobre a estrutura de segurança do Azure IoT Edge,
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
 <!-- Links -->
-[lnk-modules]: iot-edge-modules.md
+[lnk-certs]: iot-edge-certs.md

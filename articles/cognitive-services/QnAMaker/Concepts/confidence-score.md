@@ -1,21 +1,21 @@
 ---
-title: Pontuação de Confiança – Serviços Cognitivos da Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Explicação sobre a pontuação de confiança
+title: Pontuação de confiança – QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Uma pontuação de confiança indica o grau de correspondência entre a pergunta de usuário e a resposta retornada.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: c97bdb7e57275ebd1893bc28248c4ecc6b35c153
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 33da5cf5724b8314ce813f12eb077d9a15ec1b2a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364244"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041516"
 ---
 # <a name="confidence-score"></a>Pontuação de Confiança
 

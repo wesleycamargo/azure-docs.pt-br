@@ -2,19 +2,22 @@
 title: Banco de Dados SQL do Microsoft Azure - consultas de leitura em réplicas | Microsoft Docs
 description: O Banco de Dados SQL do Microsoft Azure fornece a capacidade de balancear a carga de cargas de trabalho somente leitura usando a capacidade de réplicas somente leitura - chamadas de Expansão de Leitura.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 8/27/2018
+author: anosov1960
 ms.author: sashan
-ms.openlocfilehash: c0fa4a9868aa19032888aa50a0d300dd2e88fcca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: d82f4e03176911804702db2ea18a5bc9a95583a3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124810"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158684"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura (visualização)
 
@@ -26,7 +29,7 @@ Cada banco de dados na camada Premium ([modelo de compra com base em DTU](sql-da
 
 ![Réplicas somente leitura](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-Essas réplicas são provisionadas com o mesmo nível de desempenho que a réplica de leitura-gravação usada pelas conexões de banco de dados regulares. O recurso **Escala de leitura** permite que você balanceie a carga de cargas de trabalho somente leitura do Banco de Dados SQL do Microsoft Azure usando a capacidade de uma das réplicas somente leitura em vez de compartilhar a réplica de leitura-gravação. Dessa forma, a carga de trabalho somente leitura serão isoladas da carga de trabalho principal de leitura/gravação e não afetarão o desempenho. O recurso destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análises e, portanto, poderiam obter benefícios de desempenho usando essa capacidade adicional sem nenhum custo extra.
+Essas réplicas são provisionadas com o mesmo tamanho de computação que a réplica de leitura-gravação usada pelas conexões de banco de dados regulares. O recurso **Escala de leitura** permite que você balanceie a carga de cargas de trabalho somente leitura do Banco de Dados SQL do Microsoft Azure usando a capacidade de uma das réplicas somente leitura em vez de compartilhar a réplica de leitura-gravação. Dessa forma, a carga de trabalho somente leitura serão isoladas da carga de trabalho principal de leitura/gravação e não afetarão o desempenho. O recurso destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análises e, portanto, poderiam obter benefícios de desempenho usando essa capacidade adicional sem nenhum custo extra.
 
 Para usar o recurso Expansão de leitura com um determinado banco de dados, você deve habilitá-lo ao criar o banco de dados ou posteriormente, alterando a configuração usando o PowerShell invocando os cmdlets [et-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ou por meio da API REST do Azure Resource Manager usando o método [Bancos de dados - Criar ou Atualizar](/rest/api/sql/databases/createorupdate). 
 
@@ -119,7 +122,7 @@ Para obter mais informações, consulte [Bancos de dados - Criar ou Atualizar](/
 Se estiver usando escala de leitura para balancear a carga de cargas de trabalho somente leitura em um banco de dados que é replicado geograficamente (por exemplo, um membro de um grupo de failover), verifique se a escala de leitura está habilitada nos bancos de dados primário e secundário replicado geograficamente. Isso garantirá o mesmo efeito de balanceamento de carga quando seu aplicativo se conectar ao novo primário após o failover. Se estiver se conectando ao banco de dados secundário geograficamente replicado com escala de leitura habilitada, suas sessões com `ApplicationIntent=ReadOnly` serão roteadas para uma das réplicas da mesma forma que roteamos conexões no banco de dados primário.  As sessões sem `ApplicationIntent=ReadOnly` serão roteadas para a réplica primária do secundário replicado geograficamente, que também é somente leitura. Como o banco de dados secundário replicado geograficamente tem um ponto de extremidade diferente do banco de dados primário, historicamente para acessar o secundário não era necessário configurar o `ApplicationIntent=ReadOnly`. Para garantir a compatibilidade com versões anteriores, o `sys.geo_replication_links` DMV mostra `secondary_allow_connections=2` (qualquer conexão de cliente é permitida).
 
 > [!NOTE]
-> Durante a versão prévia, não realizamos rodízio nem qualquer outro roteamento balanceado de carga entre as réplicas locais do banco de dados secundário. 
+> Durante a versão prévia, round robin e demais roteamentos balanceados de carga entre as réplicas locais do banco de dados secundário não são compatíveis. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

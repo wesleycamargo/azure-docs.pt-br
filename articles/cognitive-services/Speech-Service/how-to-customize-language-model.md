@@ -1,6 +1,6 @@
 ---
-title: Como criar um modelo de linguagem com o Serviço de Fala - Serviços Cognitivos da Microsoft
-description: Aprenda como criar um modelo de linguagem com o Serviço de Fala nos Serviços Cognitivos da Microsoft.
+title: Como criar um modelo de linguagem com os Serviços de Fala – Serviços Cognitivos da Microsoft
+description: Aprenda a criar um modelo de linguagem com os Serviços de Fala – Serviços Cognitivos da Microsoft.
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
@@ -8,16 +8,16 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 97659bf38b6d06464eee37a33e87d0c528cdcd37
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 54bf38bf5a5858a2d7ac7237f58fc4db386dbac1
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126931"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423316"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Criar um modelo de linguagem personalizado
 
-Neste documento você criará um modelo de linguagem personalizado que você poderá usar em conjunto com os modelos de fala existentes e de última geração da Microsoft para adicionar a interação de voz ao seu aplicativo.
+Neste documento, você cria um modelo de linguagem personalizado. Você pode, então, usar esse modelo de linguagem personalizado em conjunto com os modelos de fala existentes e de última geração da Microsoft para adicionar a interação de voz ao seu aplicativo.
 
 O documento discute como:
 > [!div class="checklist"]
@@ -29,90 +29,98 @@ Se você não tiver uma conta dos Serviços Cognitivos, crie uma [conta gratuita
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Verifique se sua conta de Serviços Cognitivos está conectada a uma assinatura abrindo a página [Assinaturas de Serviços Cognitivos](https://customspeech.ai/Subscriptions).
+Para garantir que sua conta de Serviços Cognitivos esteja conectada a uma assinatura, abra a página [Assinaturas de Serviços Cognitivos](https://customspeech.ai/Subscriptions).
 
-Você pode se conectar a uma assinatura do Serviço de Fala criada no portal do Azure clicando no botão **Conectar-se a uma assinatura existente**.
+Para se conectar a uma assinatura de Serviços de Fala criada no portal do Azure, selecione o botão **Conectar a assinatura existente**.
 
-Para obter informações sobre como criar uma assinatura do Serviço de Fala no portal do Azure, consulte a página de [introdução](get-started.md).
+Para obter informações sobre como criar uma assinatura do Serviço de Fala no portal do Azure, veja a página de [Introdução](get-started.md).
 
 ## <a name="prepare-the-data"></a>Preparar os dados
 
 Para criar um modelo de linguagem personalizado para seu aplicativo, você precisa fornecer uma lista de enunciados de exemplo para o sistema, por exemplo:
 
-*   “o paciente teve urticaria na semana passada.”
+*   "O paciente teve urticaria na semana passada."
 *   “O paciente teve uma cicatriz de herniorrafia bem curada.”
 
-As frases não precisam ser frases completas ou estar gramaticalmente corretas e devem refletir com precisão a entrada falada que o sistema deve encontrar na implantação. Esses exemplos devem refletir o estilo e o conteúdo da tarefa que os usuários executarão com seu aplicativo.
+As frases não precisam estar completas nem gramaticalmente corretas, mas devem refletir com precisão a entrada falada que o sistema deve encontrar na implantação. Esses exemplos devem refletir o estilo e o conteúdo da tarefa que os usuários executarão com seu aplicativo.
 
 Os dados de modelo de linguagem devem ser escritos em BOM para UTF-8. O arquivo de texto deve conter um exemplo (frase, enunciado ou consulta) por linha.
 
-Se desejar que alguns termos tenham um peso mais alto (importância), você pode adicionar vários enunciados que incluam esse termo aos seus dados. 
+Se você quiser que determinados termos tenham um peso mais alto (importância), poderá adicionar aos seus dados várias declarações que incluam esses termos. 
 
 Os principais requisitos para os dados de linguagem estão resumidos na tabela a seguir.
 
 | Propriedade | Valor |
 |----------|-------|
-| Codificação de Texto | BOM para UTF-8|
-| n° de enunciados por linha | 1 |
+| Codificação de texto | BOM para UTF-8|
+| Nº de enunciados por linha | 1 |
 | Tamanho máximo do arquivo | 1.5 GB |
-| Comentários | evite repetir os caracteres mais frequentemente do que quatro vezes, por exemplo “aaaaa”|
-| Comentários | não há caracteres especiais, como '\t' ou outros caracteres UTF-8 acima de U+00A1 em [tabela de caracteres Unicode](http://www.utf8-chartable.de/)|
+| Comentários | Evite repetir os caracteres com uma frequência maior que quatro vezes, por exemplo, "aaaaa"|
+| Comentários | Não use caracteres especiais, como '\t' ou outros caracteres UTF-8 acima de U+00A1 na [tabela de caracteres Unicode](http://www.utf8-chartable.de/)|
 | Comentários | URIs também serão rejeitados porque não há uma única forma para pronunciar um URI|
 
-Quando o texto é importado, o texto é normalizado para poder ser processado pelo sistema. No entanto, há algumas normalizações importantes que devem ser executadas pelo usuário _antes_ de carregar os dados. Consulte as [Diretrizes de transcrição](prepare-transcription.md) para determinar a linguagem apropriada ao preparar seus dados de linguagem.
+Quando o texto é importado, o texto é normalizado para poder ser processado pelo sistema. No entanto, há algumas normalizações importantes que devem ser executadas pelo usuário _antes_ de carregar os dados. Veja as [diretrizes de transcrição](prepare-transcription.md) para determinar a linguagem apropriada a ser usada ao preparar seus dados de linguagem.
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-Os idiomas a seguir têm suporte para modelos de linguagem de **Conversão de fala em texto** personalizados.
+Veja a lista completa de [idiomas com suporte](supported-languages.md) para modelo de linguagem de **Conversão de Fala em Texto** personalizados.
 
-Clique para obter uma lista completa de [linguagens com suporte](supported-languages.md)
+
 
 ## <a name="import-the-language-data-set"></a>Importar o conjunto de dados de linguagem
 
-Clique no botão “Importar” na linha “Conjuntos de dados de linguagem”; o site exibirá uma página para carregar um novo conjunto de dados.
+Selecione o botão **Importar** na linha **Conjuntos de Dados de Linguagem**; o site exibirá uma página para carregar um novo conjunto de dados.
 
-Quando você estiver pronto para importar seu conjunto de dados de linguagem, faça logon na [Portal de Serviço de Fala](https://customspeech.ai).  Depois, clique no menu suspenso de “Fala Personalizada” na faixa de opções e selecione “Dados de Adaptação”. Na primeira tentativa de carregar os dados para o Serviço de Fala, você verá uma tabela vazia chamada “Conjuntos de dados”.
+Quando você estiver pronto para importar seu conjunto de dados de linguagem, faça logon no [portal de Serviço de Fala](https://customspeech.ai). Primeiro, selecione o menu suspenso **Fala Personalizada** na faixa de opções superior. Em seguida, selecione **Dados de Adaptação**. Na primeira vez que você tentar fazer upload dados para Serviços de Fala, verá uma tabela vazia chamada **Conjuntos de Dados**.
 
-Para importar um novo conjunto de dados, clique no botão “Importar” na linha “Conjuntos de dados de linguagem”; o site exibirá uma página para carregar um novo conjunto de dados. Insira um Nome e uma Descrição para ajudar a identificar o conjunto de dados no futuro e escolha a localidade. Em seguida, use o botão “Escolher Arquivo” para localizar o arquivo de texto dos dados de linguagem. Depois disso, clique em “Importar” e o conjunto de dados será carregado. Dependendo do tamanho do conjunto de dados, a importação pode levar vários minutos.
+Para importar um novo conjunto de dados, selecione o botão **Importar** na linha **Conjuntos de Dados de Linguagem**. Em seguida, o site exibe uma página para carregar um novo conjunto de dados. Insira um **Nome** e uma **Descrição** para ajudar a identificar o conjunto de dados no futuro e então escolha a localidade. 
 
-![experimentar](media/stt/speech-language-datasets-import.png)
+Em seguida, use o botão **Escolher Arquivo** para localizar o arquivo de texto dos dados de linguagem. Depois disso, clique em **Importar** e o conjunto de dados será carregado. Dependendo do tamanho do conjunto de dados, a importação pode levar vários minutos.
 
-Quando a importação for concluída, você retornará para a tabela de dados de linguagem e verá uma entrada que corresponde ao seu conjunto de dados de linguagem. Observe que uma id exclusiva (GUID) foi atribuída a ela. Os dados também terão um status que reflete o estado atual. O status será: “Aguardando”, enquanto estiver na fila para processamento; “Processando”, durante a validação; e “Concluído”, quando os dados estiverem prontos para uso. A validação de dados executa uma série de verificações sobre o texto no arquivo e algumas normalizações de texto dos dados.
+![Experimente](media/stt/speech-language-datasets-import.png)
 
-Quando o status for “Concluído”, você pode clicar em “Exibir Relatório” para ver o relatório de verificação dos dados de linguagem. O número de enunciados que passaram ou falharam na verificação é exibido, juntamente com detalhes sobre os enunciados com falha. No exemplo a seguir, dois exemplos falharam na verificação devido a caracteres incorretos (nesse conjunto de dados, a primeira linha tinha dois caracteres TAB e a segunda tinha vários caracteres fora do conjunto de caracteres imprimíveis ASCII, já a terceira linha estava em branco).
+Depois que a importação for concluída, os dados de linguagem terão uma entrada correspondente ao seu conjunto de dados de linguagem. Observe que um GUID (ID) exclusivo foi atribuído a ela. Os dados também têm um status que reflete o estado atual. O status será **Aguardando** enquanto eles estiverem na fila para processamento; **Processando** durante a validação; e **Concluído** quando os dados estiverem prontos para uso. A validação de dados executa uma série de verificações no texto no arquivo. Também realiza alguma normalização de texto nos dados.
 
-![experimentar](media/stt/speech-language-datasets-report.png)
+Quando o status for **Concluído**, você pode selecionar **Exibir Relatório** para ver o relatório de verificação dos dados de linguagem. O número de enunciados que passaram ou falharam na verificação é exibido, juntamente com detalhes sobre os enunciados com falha. No exemplo a seguir, dois exemplos falharam na verificação devido a caracteres incorretos. (Neste conjunto de dados, a primeira linha tinha dois caracteres de tabulação, a segunda tinha vários caracteres que não faziam parte do conjunto de caracteres imprimível ASCII e a terceira linha estava em branco).
 
-Quando o status do conjunto de dados de linguagem for “Concluído”, ele pode ser usado para criar um modelo de linguagem personalizado.
+![Experimente](media/stt/speech-language-datasets-report.png)
 
-![experimentar](media/stt/speech-language-datasets.png)
+Quando o status do conjunto de dados de linguagem for **Concluído**, ele pode ser usado para criar um modelo de linguagem personalizado.
+
+![Experimente](media/stt/speech-language-datasets.png)
 
 ## <a name="create-a-custom-language-model"></a>Criar um modelo de linguagem personalizado
 
-Quando seus dados de linguagem estiverem prontos, clique em “Modelos de Linguagem” no menu suspenso “Menu” para iniciar o processo de criação de modelo de linguagem personalizado. Esta página contém uma tabela chamada “Modelos de Linguagem” com seus modelos personalizados de linguagem atual. Se você ainda não tiver criado nenhum modelo de linguagem personalizado, a tabela estará vazia. A localidade atual é mostrada na tabela ao lado da entrada de dados relevantes.
+Depois que seus dados de linguagem estiverem prontos, clique em **Modelos de Linguagem** no menu suspenso **Menu** para iniciar o processo de criação de modelo de linguagem personalizado. Esta página contém uma tabela chamada **Modelos de Linguagem** com seus atuais modelos de linguagem personalizados. Se você ainda não tiver criado nenhum modelo de linguagem personalizado, a tabela estará vazia. A localidade atual é mostrada na tabela ao lado da entrada de dados relevantes.
 
-A localidade apropriada deve ser selecionada antes de executar qualquer ação. A localidade atual é indicada no título da tabela em todas as páginas de dados, modelo e implantação. Para alterar a localidade, clique no botão "Alterar Localidade", localizado abaixo do título da tabela que levará você para a página e confirmação de localidade. Clique em “OK” para retornar à tabela.
+A localidade apropriada deve ser selecionada antes de executar qualquer ação. A localidade atual é indicada no título da tabela em todas as páginas de dados, modelo e implantação. Para alterar a localidade, selecione o botão **Alterar Localidade** que está localizado sob o título da tabela.  Isso o leva para uma página de confirmação de localidade. Selecione **OK** para retornar à tabela.
 
-Na página “Criar o Modelo de Linguagem”, insira um “Nome” e uma “Descrição” para ajudar a manter o controle das informações pertinentes sobre esse modelo, como o conjunto de dados usado. Em seguida, selecione o “Modelo de Linguagem Base” no menu suspenso. Esse modelo será o ponto de partida para sua personalização. Há dois modelos de linguagem base para escolher. O modelo Pesquisa e Ditado é apropriado para fala dirigida a um aplicativo, como comandos, consultas de pesquisa ou ditado. O modelo Conversacional é apropriado para reconhecimento de fala falada em um estilo conversacional. Esse tipo de fala normalmente é direcionado a outra pessoa e ocorre em call centers ou em reuniões. Um novo modelo chamado “Universal” também está disponível publicamente. O modelo Universal tem como objetivo lidar com todos os cenários e, eventualmente, substituir os modelos de Pesquisa e Ditado e os modelos de Conversação.
+Na página Criar Modelo de Linguagem, insira um **Nome** e uma **Descrição** para ajudar a manter o controle das informações pertinentes sobre esse modelo, como o conjunto de dados usado. Em seguida, selecione o **Modelo de Linguagem Base** no menu suspenso. Esse modelo é o ponto de partida para sua personalização. 
 
-5.  No exemplo abaixo, depois de ter especificado o modelo de linguagem base, selecione o conjunto de dados de linguagem que você deseja usar para a personalização usando o menu suspenso “Dados de Linguagem”
+Há dois modelos de linguagem base para escolher. O modelo Pesquisa e Ditado é apropriado para fala dirigida a um aplicativo, como comandos, consultas de pesquisa ou ditado. O modelo Conversacional é apropriado para reconhecimento de fala que é falada em um estilo conversacional. Esse tipo de fala normalmente é direcionado a outra pessoa e ocorre em call centers ou em reuniões. 
 
-![experimentar](media/stt/speech-language-models-create2.png)
+Na página "Criar Modelo de Linguagem", insira um **Nome** e uma **Descrição** para ajudar a manter o controle das informações pertinentes sobre esse modelo, como o conjunto de dados usado. Em seguida, selecione o **Modelo de Linguagem Base** no menu suspenso. Esse modelo é o ponto de partida para sua personalização. Há dois modelos de linguagem base para escolher. 
 
-Assim como acontece com a criação de modelo acústico, você pode optar por executar testes offline de seu novo modelo quando o processamento for concluído. As avaliações de modelo exigem um conjunto de dados acústicos.
+O modelo Pesquisa e Ditado é apropriado para fala dirigida a um aplicativo, como comandos, consultas de pesquisa ou ditado. O modelo Conversacional é apropriado para reconhecimento de fala que é falada em um estilo conversacional. Esse tipo de fala normalmente é direcionado a outra pessoa e ocorre em call centers ou em reuniões. Um novo modelo chamado "Universal" também está disponível ao público geral. O modelo Universal tem como objetivo lidar com todos os cenários e, eventualmente, substituir os modelos de Pesquisa e Ditado e os modelos de Conversação.
 
-Para executar o teste offline do seu modelo de linguagem, selecione a caixa de seleção ao lado de “Teste Offline”. Depois, selecione um modelo acústico no menu suspenso. Caso não tenha criado nenhum modelo acústico personalizado, os modelos acústicos base da Microsoft serão os únicos modelos no menu. Caso tenha selecionado um modelo básico de LM conversacional, você precisa usar aqui um AM conversacional. Caso você use uma pesquisa e dite o modelo de LM, você deve selecionar uma pesquisa e ditar o modelo de AM.
+Conforme mostrado no exemplo a seguir, depois de especificar o modelo de linguagem de base, use o menu suspenso **Dados de Linguagem** para selecionar o conjunto de dados de linguagem que você deseja usar para a personalização.
 
-Por fim, selecione o conjunto de dados acústicos que você deseja usar para executar a avaliação.
+![Experimente](media/stt/speech-language-models-create2.png)
 
-Quando você estiver pronto para iniciar o processamento, pressione “Criar”, que o levará para a tabela de modelos de linguagem. Haverá uma nova entrada na tabela correspondente a esse modelo. O status reflete o estado do modelo e passará por vários estados, incluindo “Aguardando”, “Processando” e “Concluído”.
+Assim como acontece com a criação de modelo acústico, você pode optar por executar teste offline de seu novo modelo quando o processamento for concluído. As avaliações de modelo exigem um conjunto de dados acústicos.
 
-Quando o modelo tiver alcançado o estado de “Concluído”, ele pode ser implantado para um ponto de extremidade. Clicar em “Exibir Resultado” mostrará os resultados de teste offline, se executado.
+Para executar o teste offline do seu modelo de linguagem, selecione a caixa de seleção ao lado de **Teste Offline**. Depois, selecione um modelo acústico no menu suspenso. Caso não tenha criado nenhum modelo acústico personalizado, os modelos acústicos base da Microsoft serão os únicos modelos no menu. Se tiver selecionado um modelo básico de LM conversacional, você precisará usar aqui um AM conversacional. Se você usar uma pesquisa e dite o modelo de LM, deverá selecionar uma pesquisa e ditar o modelo de AM.
 
-Caso queira alterar o “Nome” ou a “Descrição” do modelo em algum momento, você pode usar o link “Editar” na linha apropriada da tabela de modelos de linguagem.
+Por fim, selecione o conjunto de dados acústico que você deseja usar para fazer a avaliação.
+
+Quando estiver pronto para iniciar o processamento, selecione **Criar**. Em seguida, você verá a tabela de modelos de linguagem. Haverá uma nova entrada na tabela correspondente a esse modelo. O status reflete o estado do modelo e passará por vários estados, incluindo **Aguardando**, **Processando** e **Concluído**.
+
+Quando o modelo tiver alcançado o estado de **Concluído**, ele poderá ser implantado para um ponto de extremidade. Selecionar **Exibir Resultado** mostra os resultados de teste offline, se você o tiver executado.
+
+Caso queira alterar o **Nome** ou a **Descrição** do modelo em algum momento, poderá usar o link **Editar** na linha apropriada da tabela de modelos de linguagem.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Obtenha sua assinatura de avaliação de fala](https://azure.microsoft.com/try/cognitive-services/)
+- [Obter sua assinatura de avaliação de Serviços de Fala](https://azure.microsoft.com/try/cognitive-services/)
 - [Como reconhecer fala no C#](quickstart-csharp-dotnet-windows.md)
 - [Dados de exemplo do Git](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

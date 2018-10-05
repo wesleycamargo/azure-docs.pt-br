@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136887"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038757"
 ---
 # <a name="using-search-in-application-insights"></a>Usar a Pesquisa no Application Insights
 A Pesquisa é um recurso do [Application Insights](app-insights-overview.md) que você usa para localizar e explorar itens individuais de telemetria, como exibições de página, exceções ou solicitações da Web. Você também pode exibir rastreamentos de log e eventos que você tenha codificado.
@@ -123,8 +123,8 @@ Estas são algumas expressões de pesquisa que você pode usar:
 | Exemplo de consulta | Efeito |
 | --- | --- |
 | `apple` |Encontrar todos os eventos no período cujos campos incluem a palavra “maçã” |
-| `apple AND banana` |Encontrar eventos que contêm as duas palavras. Use "AND” em letras maiúsculas, e não "and". |
-| `apple OR banana`<br/>`apple banana` |Encontrar eventos que contêm uma das duas palavras. Use "OR", e não "or".<br/>Forma abreviada. |
+| `apple AND banana` <br/>`apple banana` |Encontrar eventos que contêm as duas palavras. Use "AND” em letras maiúsculas, e não "and". <br/>Forma abreviada. |
+| `apple OR banana` |Encontrar eventos que contêm uma das duas palavras. Use "OR", e não "or". |
 | `apple NOT banana` |Encontre eventos que contêm uma das palavras, mas não a outra. |
 
 ## <a name="sampling"></a>amostragem
@@ -133,13 +133,13 @@ Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.
 [Saiba mais sobre amostragem](app-insights-sampling.md).
 
 ## <a name="create-work-item"></a>Criar um item de trabalho
-Você pode criar um bug no GitHub ou Visual Studio Team Services com os detalhes de qualquer item de telemetria. 
+Você pode criar um bug no GitHub ou Azure DevOps com os detalhes de qualquer item de telemetria. 
 
 ![Clique em Novo Item de Trabalho, edite os campos e, em seguida, clique em OK.](./media/app-insights-diagnostic-search/42.png)
 
-Na primeira vez que fizer isso, será solicitado que você configure um link para sua conta e projeto do Team Services.
+Na primeira vez que fizer isso, será solicitado que você configure um link para sua conta e projeto do Azure DevOps.
 
-![Preencha a URL do servidor do Team Services e o Nome do projeto e, em seguida, clique em Autorizar](./media/app-insights-diagnostic-search/41.png)
+![Preencha a URL do Azure DevOps Services e do Nome do projeto, e clique em Autorizar](./media/app-insights-diagnostic-search/41.png)
 
 (Você também pode configurar o link na folha Itens de Trabalho.)
 

@@ -1,20 +1,21 @@
 ---
-title: Início rápido do Node.js para API de QnA Maker (V4) da Microsoft - Serviços Cognitivos do Azure | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar a API de Tradução de Texto da Microsoft nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: Node.js para API de QnA Maker (V4)'
+titleSuffix: Azure Cognitive Services
+description: Obtenha informações e amostras de código para ajudá-lo a começar a usar rapidamente a API de Tradução de Texto da Microsoft nos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 6da1ec00e04ea993923a97c4641880a5f31d18fa
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 05a15ddf8d7668896052c38afc549bc7b3cb056a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868167"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434323"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Início rápido para API de QnA Maker da Microsoft com Node.js 
 <a name="HOLTop"></a>
@@ -24,10 +25,10 @@ Este artigo mostra como usar a [API de QnA Maker da Microsoft](../Overview/overv
 - [Como criar uma nova base de dados de conhecimento.](#Create)
 - [Atualizar uma base de dados de conhecimento existente.](#Update)
 - [Obter o status de uma solicitação para criar ou atualizar uma base de dados de conhecimento.](#Status)
-- [Publicar uma base de dados conhecimento existente.](#Publish)
+- [Publicar em uma base de dados de conhecimento existente.](#Publish)
 - [Substituir o conteúdo de uma base de dados de conhecimento existente.](#Replace)
 - [Baixar o conteúdo de uma base de dados de conhecimento.](#GetQnA)
-- [Obter respostas para uma pergunta usando uma base de dados de conhecimento.](#GetAnswers)
+- [Obter respostas a uma pergunta usando uma base de dados de conhecimento.](#GetAnswers)
 - [Obter informações sobre uma base de dados de conhecimento.](#GetKB)
 - [Obter informações sobre todas as bases de dados de conhecimento pertencentes ao usuário especificado.](#GetKBsByUser)
 - [Excluir uma base de dados de conhecimento.](#Delete)
@@ -36,11 +37,13 @@ Este artigo mostra como usar a [API de QnA Maker da Microsoft](../Overview/overv
 - [Obter o conjunto atual de alterações de palavras.](#GetAlterations)
 - [Substituir o conjunto atual de alterações de palavras.](#PutAlterations)
 
-## <a name="prerequisites"></a>pré-requisitos
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 É necessário ter o [Node.js 6](https://nodejs.org/en/download/) para executar esse código.
 
-É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de QnA Maker da Microsoft**. Você precisará de uma chave de assinatura paga no [painel do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de QnA Maker da Microsoft**. Você precisará de uma chave de assinatura paga do seu [painel do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 <a name="Create"></a>
 
@@ -106,7 +109,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -205,7 +208,7 @@ create_kb (path, content, function (result) {
 });
 ```
 
-**Criar resposta da base de dados de conhecimento**
+**Criar a resposta da base de dados de conhecimento**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -240,7 +243,7 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 <a name="Update"></a>
 
-## <a name="update-knowledge-base"></a>Atualizar base de dados de conhecimento
+## <a name="update-knowledge-base"></a>Atualizar a base de dados de conhecimento
 
 O código a seguir atualiza uma base de dados de conhecimento existente, usando o método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
@@ -305,7 +308,7 @@ let patch = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -435,7 +438,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Obter status da solicitação
 
-É possível chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) para verificar o status de uma solicitação para criar ou atualizar uma base de dados de conhecimento. Para ver como esse método é utilizado, consulte o código de exemplo para o método [Criar](#Create) ou [Atualizar](#Update).
+É possível chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) para verificar o status de uma solicitação para criar ou atualizar uma base de dados de conhecimento. Para ver como esse método é utilizado, confira o código de exemplo do método [Create](#Create) ou [Update](#Update).
 
 [Voltar ao início](#HOLTop)
 
@@ -506,7 +509,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -618,7 +621,7 @@ let put = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -817,14 +820,14 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 <a name="GetAnswers"></a>
 
-## <a name="get-answers-to-a-question-using-a-knowledge-base"></a>Obter respostas para uma pergunta usando uma base de dados de conhecimento
+## <a name="get-answers-to-a-question-using-a-knowledge-base"></a>Obter respostas a uma pergunta usando uma base de dados de conhecimento
 
 O código a seguir obtém respostas para uma pergunta usando a base de dados de conhecimento especificada, usando o método **Gerar respostas**.
 
 1. Crie um novo projeto Node.js no IDE favorito.
 1. Adicione o código fornecido abaixo.
-1. Substitua o valor `host` pelo nome do site da assinatura do QnA Maker. Para obter mais informações, consulte [Criar um serviço do QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
-1. Substitua o valor `endpoint_key` por uma chave de ponto de extremidade válida para a assinatura. Observe que isso não é o mesmo que a chave de assinatura. É possível obter as chaves de ponto de extremidade usando o método [Obter chaves do ponto de extremidade](#GetKeys).
+1. Substitua o valor `host` pelo nome do site da sua assinatura do QnA Maker. Para obter mais informações, consulte [Criar um serviço do QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
+1. Substitua o valor `endpoint_key` por uma chave de ponto de extremidade válida para a sua assinatura. Observe que não será igual à sua chave de assinatura. É possível obter as chaves de ponto de extremidade usando o método [Obter chaves do ponto de extremidade](#GetKeys).
 1. Substitua o valor `kb` pela ID da base de dados de conhecimento que você quer consultar. Observe que essa base de dados de conhecimento já deve ter sido publicada usando o método [Publicar](#Publish).
 1. Execute o programa.
 
@@ -894,7 +897,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Authorization' : 'EndpointKey ' + endpoint_key,
         }
     };
@@ -922,7 +925,7 @@ get_answers (method, content, function (result) {
 });
 ```
 
-**Obter resposta da pergunta**
+**Resposta de obter respostas**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -1256,7 +1259,7 @@ let http_delete = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -1289,7 +1292,7 @@ delete_kb (path, '', function (result) {
 });
 ```
 
-**Excluir resposta da base de dados de conhecimento**
+**Resposta de excluir da base de dados de conhecimento**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -1389,7 +1392,7 @@ get_keys (path, function (result) {
 });
 ```
 
-**Obter resposta de chaves do ponto de extremidade**
+**Resposta de obter chaves de ponto de extremidade**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -1469,7 +1472,7 @@ let patch = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -1515,7 +1518,7 @@ refresh_keys (path, content, function (result) {
 });
 ```
 
-**Atualizar resposta de chaves do ponto de extremidade**
+**Resposta de atualizar chaves do ponto de extremidade**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -1616,7 +1619,7 @@ get_alterations (path, function (result) {
 });
 ```
 
-**Obter resposta de alterações de palavras**
+**Resposta de obter alterações de palavras**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -1699,7 +1702,7 @@ let put = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -1745,7 +1748,7 @@ put_alterations (path, content, function (result) {
 });
 ```
 
-**Substituir resposta de alterações de palavras**
+**Resposta de substituir alterações de palavras**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 

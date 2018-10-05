@@ -2,19 +2,22 @@
 title: Dimensionar os recursos de pool elástico – banco de dados do Azure SQL | Microsoft Docs
 description: Esta página descreve os recursos de escala para pools elásticos no Banco de Dados do Azure SQL.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 0f63739c8718ed7d6625bd18de4fdfff4df60276
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+author: oslake
+ms.author: moslake
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 2b304ac26f9a18b0e98cb4c42de3ca386637d864
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412331"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164712"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensionar os recursos de pool elástico no banco de dados do Azure SQL
 
@@ -29,11 +32,11 @@ Este artigo descreve como dimensionar os recursos de computação e armazenament
 - O preço do armazenamento para um pool elástico é a quantidade de armazenamento multiplicada pelo preço unitário do armazenamento da camada de serviço. Para obter detalhes sobre o preço de armazenamento extra, confira [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [Gerenciar espaço no arquivo no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL](sql-database-file-space-management.md).
 
 ## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>Modelo de compra com base em vCore: alterar recursos de computação de pool elástico (vCores)
 
-Você pode aumentar ou diminuir o nível de desempenho para um pool elástico com base nos recurso necessários usando o [Portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), a [CLI do Azure](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) ou a [API REST](/rest/api/sql/elasticpools/update).
+Você pode aumentar ou diminuir o tamanho de computação para um pool elástico com base nos recursos necessários usando o [portal do Azure](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), a [CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou a [API REST](/rest/api/sql/elasticpools/update).
 
 - No redimensionamento de vCores de pool, as conexões de banco de dados ficam desativadas por um curto período. Esse é o mesmo comportamento que ocorre ao redimensionar DTUs para um único banco de dados (não em um pool). Para obter detalhes sobre a duração e o impacto da inativação das conexões de um banco de dados durante as operações de redimensionamento, confira [Redimensionar DTUs para um único banco de dados](#single-database-change-storage-size). 
 - A duração do redimensionamento de vCores do pool pode depender da quantidade total de espaço de armazenamento usado por todos os bancos de dados no pool. Em geral, a latência do redimensionamento tem uma média de 90 minutos ou menos por 100 GB. Por exemplo, se o espaço total usado por todos os bancos de dados no pool for de 200 GB, a latência prevista para redimensionar o pool será de 3 horas ou menos. Em alguns casos, na camada Standard ou Básica, a latência de redimensionamento pode ficar abaixo de cinco minutos, independentemente da quantidade de espaço usado.
@@ -42,16 +45,16 @@ Você pode aumentar ou diminuir o nível de desempenho para um pool elástico co
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>Modelo de compra com base em DTU: alterar o tamanho de armazenamento do pool elástico
 
-- O preço de eDTU para um pool elástico inclui uma determinada quantidade de armazenamento sem custo adicional. O armazenamento extra além da quantidade incluída pode ser provisionado mediante um custo adicional até o limite máximo de tamanho, em incrementos de 250 GB até 1 TB e, em seguida, em incrementos de 256 GB além de 1 TB. Para conhecer os valores de armazenamento incluídos e os limites de tamanho máximos, confira [Pool elástico: tamanhos de armazenamento e níveis de desempenho](#elastic-pool-storage-sizes-and-performance-levels).
-- É possível provisionar o armazenamento extra para um pool elástico aumentando seu tamanho máximo usando o [Portal do Azure](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), a [CLI do Azure](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) ou a [API REST](/rest/api/sql/elasticpools/update).
+- O preço de eDTU para um pool elástico inclui uma determinada quantidade de armazenamento sem custo adicional. O armazenamento extra além da quantidade incluída pode ser provisionado mediante um custo adicional até o limite máximo de tamanho, em incrementos de 250 GB até 1 TB e, em seguida, em incrementos de 256 GB além de 1 TB. Para conhecer os valores de armazenamento incluídos e os limites de tamanho máximos, consulte [Pool elástico: tamanhos de armazenamento e de computação](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- É possível provisionar o armazenamento extra para um pool elástico aumentando seu tamanho máximo usando o [Portal do Azure](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), a [CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou a [API REST](/rest/api/sql/elasticpools/update).
 - O preço do armazenamento extra para um pool elástico é a quantidade de armazenamento extra multiplicada pelo preço unitário do armazenamento extra da camada de serviço. Para obter detalhes sobre o preço de armazenamento extra, confira [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [Gerenciar espaço no arquivo no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL](sql-database-file-space-management.md).
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>Modelo de compra com base em DTU: alterar recursos de computação de pool elástico (eDTUs)
 
-Você pode aumentar ou diminuir os recursos disponíveis para um pool elástico com base nos recurso necessários usando o [Portal do Azure](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), a [CLI do Azure](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update), ou a [API REST](/rest/api/sql/elasticpools/update).
+Você pode aumentar ou diminuir os recursos disponíveis para um pool elástico com base nos recurso necessários usando o [Portal do Azure](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), a [CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou a [API REST](/rest/api/sql/elasticpools/update).
 
 - Ao redimensionar eDTUs de pool, as conexões de banco de dados ficam desativadas por um curto período. Esse é o mesmo comportamento que ocorre ao redimensionar DTUs para um único banco de dados (não em um pool). Para obter detalhes sobre a duração e o impacto da inativação das conexões de um banco de dados durante as operações de redimensionamento, confira [Redimensionar DTUs para um único banco de dados](#single-database-change-storage-size). 
 - A duração do redimensionamento de eDTUs do pool pode depender da quantidade total de espaço de armazenamento usado por todos os bancos de dados no pool. Em geral, a latência do redimensionamento tem uma média de 90 minutos ou menos por 100 GB. Por exemplo, se o espaço total usado por todos os bancos de dados no pool for de 200 GB, a latência prevista para redimensionar o pool será de 3 horas ou menos. Em alguns casos, na camada Standard ou Básica, a latência de redimensionamento pode ficar abaixo de cinco minutos, independentemente da quantidade de espaço usado.

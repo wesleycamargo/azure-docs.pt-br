@@ -1,22 +1,23 @@
 ---
-title: Analisar o texto de linguagem natural em Reconhecimento Vocal (LUIS) usando Go – Serviços Cognitivos do Azure | Microsoft Docs
+title: Início Rápido da linguagem Go – prever a intenção – LUIS
+titleSuffix: Azure Cognitive Services
 description: Neste início rápido, use um aplicativo LUIS público disponível para determinar a intenção do usuário do texto de conversa. Usando Go, envie a intenção do usuário como texto para o ponto de extremidade de previsão de HTTP do aplicativo público. No ponto de extremidade, LUIS aplica o modelo do aplicativo público para analisar o texto de idioma natural quanto ao significado, determinando a intenção geral e extraindo dados relevantes para o domínio do assunto do aplicativo.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b00d815b712d98136b474d1e73afe7e35d1c7ef4
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f19c46fcc7dcff2e02786bb3a03082f831e880a2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160159"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032726"
 ---
-# <a name="quickstart-call-a-luis-endpoint-using-go"></a>Início Rápido: chamar um ponto de extremidade LUIS usando Go
+# <a name="quickstart-get-intent-using-go"></a>Início Rápido: Obter a intenção usando o Go
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -32,11 +33,11 @@ ms.locfileid: "44160159"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Analisar o texto com navegador
+## <a name="get-intent-with-browser"></a>Obter a intenção com o navegador
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-go"></a>Analisar texto com Go
+## <a name="get-intent-programmatically"></a>Obter a intenção de forma programática
 
 Você pode usar o Go para acessar os mesmos resultados que você viu na janela do navegador na etapa anterior. 
 

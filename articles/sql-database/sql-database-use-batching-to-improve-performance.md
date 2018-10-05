@@ -2,19 +2,22 @@
 title: Como usar o envio em lote para melhorar o desempenho do aplicativo Banco de Dados SQL do Azure
 description: O tópico fornece provas de que as operações de banco de dados de envio em lote melhorar consideravelmente a velocidade e a escalabilidade de seus aplicativos de Banco de Dados SQL do Azure. Embora essas técnicas de envio em lote funcionem para qualquer banco de dados do SQL Server, o foco do artigo é no Azure.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: c0e1ff3cf018e185ae2dfb329e2aa56766cc247c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 21dc28658f7f6f31bc7536df739a70238a3bcb8f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649774"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160801"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do aplicativo Banco de Dados SQL
 O envio de operações em lote para o Banco de Dados SQL do Azure melhora consideravelmente o desempenho e a escalabilidade dos aplicativos. Para compreender os benefícios, a primeira parte deste artigo aborda alguns exemplos de resultados de teste que comparam solicitações sequenciais e em lote para um Banco de Dados SQL. O restante do artigo mostra as técnicas, os cenários e considerações para ajudar você a usar o envio em lote com sucesso em seus aplicativos do Azure.
@@ -104,9 +107,7 @@ A tabela a seguir mostra alguns resultados de teste ad hoc. Os testes executaram
 | 1000 |21479 |2756 |
 
 > [!NOTE]
-> Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
-> 
-> 
+> Os resultados não são parâmetros de comparação. Veja a [observação sobre os resultados de tempo neste artigo](#note-about-timing-results-in-this-article).
 
 Com base nos resultados do teste anterior, a disposição de uma única operação em uma transação reduz o desempenho. Mas, à medida que você aumenta o número de operações em uma única transação, o aprimoramento do desempenho fica mais evidente. A diferença de desempenho também é mais perceptível quando todas as operações ocorrem dentro do datacenter do Microsoft Azure. O aumento da latência devido ao uso do Banco de Dados SQL fora do datacenter do Microsoft Azure ofusca o ganho de desempenho do uso das transações.
 
@@ -186,7 +187,7 @@ A tabela a seguir mostra os resultados do teste ad hoc do uso de parâmetros com
 | 10000 |23830 |3586 |
 
 > [!NOTE]
-> Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
+> Os resultados não são parâmetros de comparação. Veja a [observação sobre os resultados de tempo neste artigo](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -223,7 +224,7 @@ Os seguintes resultados do teste ad hoc mostram o desempenho do envio em lote co
 | 10000 |21605 |2737 |
 
 > [!NOTE]
-> Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
+> Os resultados não são parâmetros de comparação. Veja a [observação sobre os resultados de tempo neste artigo](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -264,7 +265,7 @@ Os seguintes resultados do teste ad hoc mostram o desempenho desse tipo de instr
 | 100 |33 |51 |
 
 > [!NOTE]
-> Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
+> Os resultados não são parâmetros de comparação. Veja a [observação sobre os resultados de tempo neste artigo](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -306,7 +307,7 @@ Em nossos testes, geralmente não houve vantagem em dividir lotes grandes em par
 | 50 |20 |630 |
 
 > [!NOTE]
-> Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
+> Os resultados não são parâmetros de comparação. Veja a [observação sobre os resultados de tempo neste artigo](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -327,7 +328,7 @@ E se você adotasse a abordagem de redução do tamanho de lote, mas usasse vár
 | 100 [10] |488 |439 |391 |
 
 > [!NOTE]
-> Os resultados não são parâmetros de comparação. Consulte a [Observação sobre os resultados de tempo neste tópico](#note-about-timing-results-in-this-topic)
+> Os resultados não são parâmetros de comparação. Veja a [observação sobre os resultados de tempo neste artigo](#note-about-timing-results-in-this-article).
 > 
 > 
 

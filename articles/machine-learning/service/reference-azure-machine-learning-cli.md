@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 5d14373b265ea30d235cc5bc7b87ee13c4fd8105
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991786"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158896"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>O que é a CLI do Azure Machine Learning?
 
@@ -42,6 +42,8 @@ az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-
 az extension remove -n azure-cli-ml
 ```
 
+Você pode atualizar a CLI usando as etapas **remover** e **adicionar** acima.
+
 ## <a name="using-the-cli-vs-the-sdk"></a>Usar a CLI vs. o SDK
 A CLI é mais adequada para automação por uma persona de dev-ops ou como parte de um pipeline de entrega e integração contínua. É otimizada para lidar com tarefas pouco frequentes e altamente parametrizadas. 
 
@@ -54,6 +56,8 @@ Os exemplos incluem:
 É recomendável aos cientistas de dados usar o SDK do Azure ML.
 
 ## <a name="common-machine-learning-cli-commands"></a>Comandos comuns da CLI de aprendizado de máquina
+> [!NOTE]
+> Os exemplos de arquivos que você pode usar para executar com êxito os comandos a seguir podem ser encontrados [aqui.](https://github.com/Azure/MachineLearningNotebooks/tree/cli/cli)
 
 Utilize o conjunto de comandos `az ml` avançado para interagir com o serviço em qualquer ambiente de linha de comando, incluindo o Cloud Shell do portal do Azure.
 
@@ -62,16 +66,16 @@ A seguir, um exemplo de comandos comuns:
 ### <a name="workspace-creation--compute-setup"></a>Criação de espaço de trabalho e configuração de computação
 
 + Crie um Workspace do Azure Machine Learning, o recurso de nível superior para aprendizado de máquina.
-  ```AzureCLI
-  az ml workspace create -n myworkspace -g myresourcegroup
-  ```
+   ```AzureCLI
+   az ml workspace create -n myworkspace -g myresourcegroup
+   ```
 
 + Defina a CLI para usar esse espaço de trabalho por padrão.
-```AzureCLI
-az configure --defaults aml_workspace=myworkspace group=myresourcegroup
-```
+   ```AzureCLI
+   az configure --defaults aml_workspace=myworkspace group=myresourcegroup
+   ```
 
-+ Crie uma DSVM (VM de Ciência de Dados) para modelos de treinamento. Também é possível criar clusters BatchAI para treinamento distribuído.
++ Criar uma DSVM (VM de Ciência de Dados). Você também pode criar clusters da BatchAI para treinamento distribuído ou clusters do AKS para implantação.
   ```AzureCLI
   az ml computetarget setup dsvm -n mydsvm
   ```
@@ -82,9 +86,10 @@ az configure --defaults aml_workspace=myworkspace group=myresourcegroup
   az ml project attach --experiment-name myhistory
   ```
 
-+ Envie um experimento no serviço do Azure Machine Learning no destino de computação de sua escolha (este exemplo usa uma Máquina Virtual de Ciência de Dados)
++ Faça um teste no serviço Azure Machine Learning no destino de computação da sua escolha. Este exemplo será executado em seu ambiente de computação local. Verifique se o arquivo de ambiente do Conda captura as dependências do Python.
+
   ```AzureCLI
-  az ml run submit -c mydsvm train.py
+  az ml run submit -c local train.py
   ```
 
 + Exiba uma lista de experimentos enviados.
@@ -96,17 +101,17 @@ az ml history list
 
 + Registre um modelo com Azure Machine Learning.
   ```AzureCLI
-  az ml model register -n mymodel -m mymodel.pkl  -w myworkspace -g myresourcegroup
+  az ml model register -n mymodel -m sklearn_regression_model.pkl
   ```
 
 + Crie uma imagem para conter o modelo de machine learning e dependências. 
   ```AzureCLI
-  az ml image create -n myimage -r python -m rfmodel.pkl -f score.py -c myenv.yml
+  az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
 + Implante o modelo empacotado em destinos, incluindo ACI e AKS.
   ```AzureCLI
-  az ml service create aci -n myaciservice -i myimage:1
+  az ml service create aci -n myaciservice --image-id myimage:1
   ```
     
 ## <a name="full-command-list"></a>Lista de comandos completa

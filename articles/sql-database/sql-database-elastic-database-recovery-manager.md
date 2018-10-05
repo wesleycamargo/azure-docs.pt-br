@@ -2,19 +2,22 @@
 title: Usando o Gerenciador de Recuperação para corrigir problemas do mapa de fragmentos | Microsoft Docs
 description: Use a classe RecoveryManager para resolver problemas com mapas de fragmentos
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 6257edbb567be3ebb3151724e7e50ca81905ad40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 09eb2312ef2268169535b644470a754e46b51b18
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646228"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166853"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Usando a classe RecoveryManager para corrigir problemas do mapa de fragmentos
 A classe [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) fornece aos aplicativos ADO.Net a capacidade de detectar e de corrigir facilmente qualquer inconsistência entre o GSM (mapa de fragmentos global) e o LSM (mapa de fragmentos local) em um ambiente de banco de dados fragmentado. 
@@ -122,7 +125,7 @@ Este exemplo adiciona um fragmento ao Mapa de Fragmentos que foi restaurado rece
 Em caso de um failover geográfico, o banco de dados secundário será disponibilizado para gravação e se tornará o novo banco de dados primário. O nome do servidor e, possivelmente, do banco de dados (dependendo da sua configuração) podem ser diferentes do primário original. Portanto, as entradas do mapeamento para o fragmento no GSM e LSM devem ser corrigidas. Da mesma forma, se o banco de dados for restaurado para um nome ou local diferente, ou para um ponto anterior no tempo, isso poderá causar inconsistências nos mapas de fragmentos. O Gerenciador de Mapas de Fragmentos manipula a distribuição de conexões abertas para o banco de dados correto. A distribuição baseia-se nos dados no mapa de fragmentos e no valor da chave de fragmentação que é o destino da solicitação dos aplicativos. Após um failover geográfico, essas informações devem ser atualizadas com o nome de servidor, nome do banco de dados e mapeamento de fragmentos precisos do banco de dados recuperado. 
 
 ## <a name="best-practices"></a>Práticas recomendadas
-O failover geográfico e a recuperação são operações normalmente gerenciadas por um administrador de nuvem do aplicativo intencionalmente utilizando um dos recursos de continuidade de negócios dos Bancos de Dados SQL do Azure. O planejamento da continuidade de negócios exige processos, procedimentos e medidas para garantir que as operações de negócios possam continuar sem interrupção. Os métodos disponíveis como parte da classe RecoveryManager devem ser usados dentro desse fluxo de trabalho para garantir que o GSM e LSM sejam mantidos atualizados com base na ação de recuperação tomada. Há cinco etapas básicas para garantir que o GSM e o LSM reflitam adequadamente as informações precisas depois de um evento de failover. O código do aplicativo para executar essas etapas pode ser integrado ao fluxo de trabalho e às ferramentas existentes. 
+O failover geográfico e a recuperação são operações normalmente gerenciadas por um administrador de nuvem do aplicativo intencionalmente utilizando um dos recursos de continuidade dos negócios dos bancos de dados SQL do Azure. O planejamento da continuidade de negócios exige processos, procedimentos e medidas para garantir que as operações de negócios possam continuar sem interrupção. Os métodos disponíveis como parte da classe RecoveryManager devem ser usados dentro desse fluxo de trabalho para garantir que o GSM e LSM sejam mantidos atualizados com base na ação de recuperação tomada. Há cinco etapas básicas para garantir que o GSM e o LSM reflitam adequadamente as informações precisas depois de um evento de failover. O código do aplicativo para executar essas etapas pode ser integrado ao fluxo de trabalho e às ferramentas existentes. 
 
 1. Recupere o RecoveryManager do ShardMapManager. 
 2. Desanexe o fragmento antigo do mapa de fragmentos.

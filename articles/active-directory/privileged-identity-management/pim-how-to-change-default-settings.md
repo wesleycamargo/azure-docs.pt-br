@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 09/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665427"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038981"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Definir configurações de função do diretório do Azure AD no PIM
 
@@ -63,24 +63,23 @@ Use a opção **Autenticação Multifator** para especificar se os usuários dev
 * Os usuários que têm contas da Microsoft para seus endereços de email (normalmente @outlook.com, mas nem sempre) não podem se registrar para MFA do Azure. Se quiser atribuir funções aos usuários com contas da Microsoft, você deverá torná-los administradores permanentes ou desabilitar o MFA para essa função.
 * Você não pode desabilitar o MFA para funções com altos privilégios do Azure AD e do Office365. Esse é um recurso de segurança, porque estas funções devem ser protegidas com cuidado:  
   
-  * Administrador de aplicativos
-  * Administrador do servidor de Proxy de Aplicativo
-  * Administrador de cobrança  
-  * Administrador de conformidade  
+  * Administrador de cobrança
+  * Administrador de Aplicativos de Nuvem
+  * Administrador de conformidade
+  * Administrador de acesso condicional
   * Administrador de serviços do CRM
-  * Aprovador de acesso do Sistema de Proteção de Dados do Cliente
-  * Gravador de diretório  
-  * Administrador do Exchange  
+  * Aprovador de acesso do cofre do cliente
+  * Gravadores de diretório
+  * Administrador do Exchange
   * Administrador global
-  * Administrador de serviço do Intune
-  * Administrador de caixa de correio  
-  * Suporte de camada 1 do parceiro  
-  * Suporte de camada 2 do parceiro  
+  * Administrador da Proteção de Informações
+  * Administrador de serviços do Intune
+  * Administrador de serviços do Power BI
   * Administrador de função com privilégios
-  * Administrador de segurança  
-  * Administrador do SharePoint  
-  * Administrador do Skype for Business  
-  * Administrador da conta de usuário  
+  * Administrador de segurança
+  * Administrador de serviços do SharePoint
+  * Administrador do Skype for Business
+  * Administrador de usuários
 
 Para obter mais informações, consulte [MFA (Autenticação Multifator) e PIM](pim-how-to-require-mfa.md).
 

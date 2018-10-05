@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: e5421ca791ae9d0059639000f33b77be57f4d891
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2f0568064eed556429675ffb34c84d588ac670d5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968026"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064349"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Como integrar o Azure Monitor para VMs 
 Este artigo descreve como configurar o Azure Monitor para VMs para monitorar a integridade do sistema operacional das máquinas virtuais do Azure e descobrir e mapear as dependências de aplicativo que possam estar hospedadas nelas.  
@@ -52,23 +52,90 @@ Para habilitar a solução, você precisa ser um membro da função Colaborador 
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
-As seguintes versões dos sistemas operacionais Windows e Linux são oficialmente compatíveis com o Azure Monitor para VMs:
+A tabela a seguir lista os sistemas operacionais Windows e Linux compatíveis com o Azure Monitor para VMs.  Mais adiante nesta seção, será fornecida uma lista completa, detalhando as versões principais e secundárias do sistema operacional Linux e do kernel com suporte.
 
 |Versão do SO |Desempenho |Mapas |Integridade |  
 |-----------|------------|-----|-------|  
+|Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |  
 |Windows Server 2012 R2 | X | X | |  
 |Windows Server 2012 | X | X | |  
 |Windows Server 2008 R2 | X | X| |  
 |RHEL 7, 6| X | X| X |  
-|Ubuntu 18.04, 16.04, 14.04 | X | X| X |  
-|Cent OS Linux 7, 6 | X | X| X |  
+|Ubuntu 18.04, 16.04, 14.04 | X | X | X |  
+|Cent OS Linux 7, 6 | X | X | X |  
 |SLES 12 | X | X | X |  
 |Oracle Linux 7 | X<sup>1</sup> | | X |  
 |Oracle Linux 6 | X | X | X |  
 |Debian 9.4, 8 | X<sup>1</sup> | | X | 
 
 <sup>1</sup> O recurso Desempenho do Azure Monitor para VMs só está disponível no Azure Monitor; ele não está disponível quando você o acessa no painel esquerdo da VM do Azure diretamente.  
+
+>[!NOTE]
+>As informações a seguir aplicam-se ao suporte do sistema operacional Linux:  
+> - Somente as versões de kernel padrão e Linux SMP têm suporte.  
+> - Nenhuma distribuição do Linux dá suporte às versões de kernel não padrão, como PAE e Xen. Por exemplo, não há suporte para um sistema com a cadeia de caracteres de versão "2.6.16.21-0.8-xen".  
+> - Não há suporte para kernels personalizados, incluindo recompilações de kernels padrão.  
+> - Não há suporte para o kernel CentOSPlus.  
+
+
+#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
+
+| Versão do SO | Versão do kernel |
+|:--|:--|
+| 7.0 | 3.10.0-123 |
+| 7.1 | 3.10.0-229 |
+| 7,2 | 3.10.0-327 |
+| 7.3 | 3.10.0-514 |
+| 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
+
+#### <a name="red-hat-linux-6"></a>Red Hat Linux 6
+
+| Versão do SO | Versão do kernel |
+|:--|:--|
+| 6,0 | 2.6.32-71 |
+| 6.1 | 2.6.32-131 |
+| 6.2 | 2.6.32-220 |
+| 6.3 | 2.6.32-279 |
+| 6.4 | 2.6.32-358 |
+| 6.5 | 2.6.32-431 |
+| 6.6 | 2.6.32-504 |
+| 6.7 | 2.6.32-573 |
+| 6,8 | 2.6.32-642 |
+| 6.9 | 2.6.32-696 |
+
+#### <a name="ubuntu-server"></a>Ubuntu Server
+
+| Versão do SO | Versão do kernel |
+|:--|:--|
+| Ubuntu 18.04 | kernel 4.15.* |
+| Ubuntu 16.04.3 | kernel 4.15.* |
+| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
+| 14.04 | 3.13.\*<br>4.4.\* |
+
+#### <a name="oracle-enterprise-linux-6-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 6 com Unbreakable Enterprise Kernel
+| Versão do SO | Versão do kernel
+|:--|:--|
+| 6.2 | Oracle 2.6.32-300 (UEK R1) |
+| 6.3 | Oracle 2.6.39-200 (UEK R2) |
+| 6.4 | Oracle 2.6.39-400 (UEK R2) |
+| 6.5 | Oracle 2.6.39-400 (UEK R2 i386) |
+| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
+
+#### <a name="oracle-enterprise-linux-5-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 5 com Unbreakable Enterprise Kernel
+
+| Versão do SO | Versão do kernel
+|:--|:--|
+| 5.10 | Oracle 2.6.39-400 (UEK R2) |
+| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+
+#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
+
+| Versão do SO | Versão do kernel
+|:--|:--|
+|12 SP2 | 4.4.* |
+|12 SP3 | 4.4.* |
 
 ### <a name="hybrid-environment-connected-sources"></a>Fontes conectadas do ambiente híbrido
 O Mapa do Azure Monitor para VMs obtém seus dados do Microsoft Dependency Agent. O Dependency Agent depende do agente do Log Analytics para suas conexões com o Log Analytics. Isso significa que um sistema precisa ter o agente do Log Analytics instalado e configurado com o Dependency Agent.  A tabela a seguir descreve as fontes conectadas para as quais o recurso Mapa dá suporte em um ambiente híbrido.
@@ -89,8 +156,8 @@ O Dependency Agent pode ser baixado no local a seguir.
 
 | Arquivo | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
 
 ## <a name="diagnostic-and-usage-data"></a>Dados de uso e de diagnóstico
 A Microsoft coleta automaticamente dados de uso e de desempenho por meio do uso do serviço Azure Monitor. A Microsoft utiliza esses dados para fornecer e aprimorar a qualidade, a segurança e a integridade do serviço. Para fornecer funcionalidades precisas e eficientes de solução de problemas, os dados do recurso Mapa incluem informações sobre a configuração de seu software, como sistema operacional e versão, endereço IP, nome DNS e nome da estação de trabalho. A Microsoft não coleta nomes, endereços ou outras informações de contato.
@@ -152,7 +219,7 @@ Para habilitar o monitoramento da VM do Azure no portal do Azure, faça o seguin
 5. Na página **Integração de Insights do Azure Monitor**, caso você tenha um workspace existente do Log Analytics na mesma assinatura, selecione-o na lista suspensa.  A lista pré-seleciona o workspace e o local padrão nos quais a máquina virtual é implantada na assinatura. 
 
     >[!NOTE]
-    >Caso deseje criar um workspace do Log Analytics para armazenar os dados de monitoramento da VM, siga as instruções em [Criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). Crie o workspace na mesma assinatura na qual a VM é implantada. 
+    >Caso deseje criar um workspace do Log Analytics para armazenar os dados de monitoramento da VM, siga as instruções em [Criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md) em uma das regiões com suporte já listadas.   
 
 Depois de habilitar o monitoramento, poderão ser necessários cerca de 10 minutos antes da exibição das métricas de integridade para a máquina virtual. 
 

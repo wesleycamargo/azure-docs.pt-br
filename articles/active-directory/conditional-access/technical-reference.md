@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0055968e4333f5ac7653a37fcd728b040024ee55
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e44b68a2ed2786b449e2680ca4a8ca531058b85c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629840"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432771"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs
 
@@ -64,7 +64,7 @@ Você pode atribuir uma política de acesso condicional aos seguintes aplicativo
 
 - Microsoft Power BI 
 
-- Microsoft Visual Studio Team Services
+- Azure DevOps
 
 - Equipes da Microsoft
 
@@ -192,7 +192,7 @@ Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos 
 |Aplicativo móvel do Outlook|Office 365 Exchange Online|Android, iOS|
 |Aplicativo PowerBI|Serviço PowerBI|Windows 10, Windows 8.1, Windows 7, Android e iOS|
 |Skype for Business|Office 365 Exchange Online|Android, IOS |
-|Aplicativo Visual Studio Team Services|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS e Android|
+|Aplicativo do Azure DevOps|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS e Android|
 
 
 
@@ -223,6 +223,9 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 - Equipes da Microsoft
 - Microsoft Visio
 - Microsoft Word
+- Microsoft To-Do
+- Microsoft Stream
+- Microsoft Edge
 
 
 

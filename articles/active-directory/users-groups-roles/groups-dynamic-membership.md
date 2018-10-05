@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9c0bb676cc59820d3ae83612893c8920d5d0aebe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c3121f8b303d9f82ed949d598a942906d0d24f7e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424364"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041016"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
 No Active Directory do Azure (Azure AD), você pode criar regras complexas baseadas em atributos para habilitar associações dinâmicas para grupos. Associação de grupos dinâmica reduz a sobrecarga administrativa de adicionar e remover usuários. Este artigo detalha as propriedades e a sintaxe para criar regras de associação dinâmica para usuários ou dispositivos. Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365.
 
-Quando os atributos de um usuário ou um dispositivo são alterados, o sistema avalia todas as regras de grupo dinâmicas em um diretório para ver se a alteração dispararia adições ou remoções de grupo. Se um usuário ou dispositivo atender a uma regra em um grupo, ele será adicionado como membro desse grupo. Se não atenderem mais à regra, eles serão removidos.
+Quando os atributos de um usuário ou um dispositivo são alterados, o sistema avalia todas as regras de grupo dinâmicas em um diretório para ver se a alteração dispararia adições ou remoções de grupo. Se um usuário ou dispositivo atender a uma regra em um grupo, ele será adicionado como membro desse grupo. Se não atenderem mais à regra, eles serão removidos. Manualmente, não é possível adicionar nem remover um membro de um grupo dinâmico.
 
 * Você pode criar um grupo dinâmico para dispositivos ou usuários, mas não pode criar uma regra que contenha tanto usuários quanto dispositivos.
 * Você não pode criar um grupo de dispositivos com base em atributos os proprietários do dispositivo. Regras de associação de dispositivo só podem fazer referência a atributos do dispositivo.

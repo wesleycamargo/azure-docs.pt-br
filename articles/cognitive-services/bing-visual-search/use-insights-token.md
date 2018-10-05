@@ -1,21 +1,21 @@
 ---
-title: Usar token de insights com API de Pesquisa Visual do Bing | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Mostra como usar o token de insights de uma imagem com API de Pesquisa Visual para obter insights sobre uma imagem.
+title: Usando token de insights – Pesquisa Visual do Bing
+titleSuffix: Azure Cognitive Services
+description: Mostra como usar o token de insights de uma imagem com a API da Pesquisa Visual do Bing para obter insights sobre uma imagem.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 569ae89a712d14fb36989e756f99725dce398c0a
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: e853545e07709d82fa1e3b1143392e6d6012f6f6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126551"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227581"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Usar um token de insights para obter insights sobre uma imagem
 

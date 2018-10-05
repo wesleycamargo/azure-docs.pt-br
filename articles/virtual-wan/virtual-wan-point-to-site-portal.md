@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/21/2018
+ms.date: 09/26/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: bf0e766f082b2e137c90b5ea66bb7570bea2e1e6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8a4c0c1426200e6c2d5041131fd0dd9cde4761cf
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963365"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409279"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma conexão ponto a site usando a WAN Virtual do Azure (versão prévia)
 
@@ -40,6 +40,38 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
+## <a name="register"></a>Registrar esse recurso
+
+Clique em **TryIt** para registrar esse recurso com facilidade usando o Azure Cloud Shell.
+
+>[!NOTE]
+>Se não for possível registrar esse recurso, você não poderá o usar nem o ver no portal.
+>
+>
+
+Depois de clicar em **TryIt** para abrir o Azure Cloud Shell, copie e cole os seguintes comandos:
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+```
+ 
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+```
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
+
+Depois que o recurso for mostrado como registrado, registre novamente a assinatura no namespace Microsoft.Network.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
 
 ## <a name="vnet"></a>1. Criar uma rede virtual
 
@@ -47,7 +79,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="openvwan"></a>2. Criar uma WAN virtual
 
-Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e entre com sua conta do Azure.
+Em um navegador, acesse o [portal do Azure (versão prévia)](http://aka.ms/azurevirtualwanpreviewfeatures) e entre com sua conta do Azure.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 

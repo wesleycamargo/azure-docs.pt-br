@@ -2,19 +2,22 @@
 title: Perguntas frequentes do Banco de dados SQL do Azure | Microsoft Docs
 description: Respostas a perguntas comuns feitas por clientes sobre bancos de dados de nuvem e o Banco de Dados SQL do Azure, o sistema de gerenciamento de bancos de dados relacionais da Microsoft (RDBMS) e o banco de dados como um serviço na nuvem.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: reference
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/29/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8aaf89426cf392faaf6339f49300bf7d2b7dcfcd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286325"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166615"
 ---
 # <a name="sql-database-faq"></a>Perguntas frequentes sobre o Banco de Dados SQL
 
@@ -41,7 +44,7 @@ Em muitos casos, os aplicativos podem se beneficiar da simplicidade de um pacote
 Os modelos baseados em DTU e vCore continuarão a existir paralelamente. Estamos lançando o modelo baseado em vCore em reposta às solicitações de clientes por maior transparência em relação aos recursos de banco de dados e à capacidade para escalar recursos de armazenamento e computação de maneira separada. O modelo baseado em vCore também possibilita economia adicional aos clientes com o Software Assurance ativo por meio do Benefício Híbrido do Azure para SQL Server.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>Como devo escolher entre o modelo de compra baseado em DTU em comparação ao modelo de compra baseado em vCore? 
-A DT (Unidade de Transmissão de Dados) é baseada em uma medida combinada de CPU, memória, leituras e gravações. Os níveis de desempenho baseados em DTU representam pacotes pré-configurados de recursos para gerar níveis diferentes de desempenho do aplicativo. Clientes que não querem se preocupar com os recursos subjacentes e preferem a simplicidade de um pacote pré-configurado enquanto pagam um valor fixa a cada mês podem achar o modelo baseado em DTU mais adequado às suas necessidades. No entanto, para clientes que precisam de mais informações sobre os recursos subjacentes ou precisam escaloná-los independentemente para atingir o desempenho ideal, o modelo baseado em vCore será a melhor escolha.  Além disso, se um cliente tiver um SA (Software Assurance) ativo para SQL Server, ele poderá aproveitar o investimento existente e economizar até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  As opções dentro de cada um dos modelos de compra fornecem os benefícios de um serviço totalmente gerenciado, como backups automáticos, atualizações de software e patches. 
+A DT (Unidade de Transmissão de Dados) é baseada em uma medida combinada de CPU, memória, leituras e gravações. Os tamanhos de computação baseados em DTU representam pacotes pré-configurados de recursos para gerar níveis diferentes de desempenho do aplicativo. Clientes que não querem se preocupar com os recursos subjacentes e preferem a simplicidade de um pacote pré-configurado enquanto pagam um valor fixa a cada mês podem achar o modelo baseado em DTU mais adequado às suas necessidades. No entanto, para clientes que precisam de mais informações sobre os recursos subjacentes ou precisam escaloná-los independentemente para atingir o desempenho ideal, o modelo baseado em vCore será a melhor escolha.  Além disso, se um cliente tiver um SA (Software Assurance) ativo para SQL Server, ele poderá aproveitar o investimento existente e economizar até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  As opções dentro de cada um dos modelos de compra fornecem os benefícios de um serviço totalmente gerenciado, como backups automáticos, atualizações de software e patches. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>O que é o Benefício Híbrido do Azure para SQL Server? 
 O [Benefício Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) ajuda a maximizar o valor de seus investimentos de licenciamento atuais e acelerar sua migração para a nuvem. O Benefício Híbrido do Azure para SQL Server é um benefício baseado no Azure que permite usar as licenças do SQL Server com o Software Assurance para pagar uma taxa reduzida (“taxa base”) no Banco de Dados SQL. O Benefício Híbrido do Azure para SQL Server está disponível na visualização pública do modelo de compra baseado em vCore para bancos de dados individuais do Bando de Dados SQL e pools elásticos. É possível aplicar esse benefício mesmo se a SKU estiver ativa, mas observe que a taxa base será aplicada a partir do momento em que selecioná-la no Portal do Azure. Não há emissão retroativa de crédito.
@@ -71,15 +74,15 @@ A [Instância Gerenciada](sql-database-managed-instance.md) está disponível ap
 O custo de computação reflete a capacidade de computação total provisionada para o aplicativo. Na camada de serviço Comercialmente Crítico, alocamos automaticamente pelo menos 3 réplicas Always ON. Para refletir essa alocação adicional de recursos de computação, o preço do vCore é aproximadamente 2,7 vezes maior no Comercialmente Crítico. Pelo mesmo motivo, o maior preço de armazenamento por GB na camada Comercialmente Crítico reflete E/S elevada e baixa latência do armazenamento SSD. Ao mesmo tempo, o custo do armazenamento de backup não é diferente porque, em ambos os casos, usamos uma classe de armazenamento Standard.
 
 ## <a name="how-am-i-charged-for-storage---based-on-what-i-configure-upfront-or-on-what-the-database-uses"></a>Como sou cobrado pelo armazenamento - baseado naquilo que configuro inicialmente ou sobre o que o banco de dados utiliza?
-Diferentes tipos de armazenamento são cobrados de formas diferentes. Para armazenamento de dados, você será cobrado pelo armazenamento provisionado baseado no tamanho máximo do banco de dados ou do pool selecionado. O custo não muda, a menos que você reduza ou aumente esse máximo. O armazenamento de backup está associado a backups automatizados de sua instância. Aumentar o período de retenção de backup aumenta o armazenamento de backup consumido por sua instância. Não haverá cobrança adicional se o armazenamento de backup chegar até 100% do armazenamento de servidor provisionado total. O consumo adicional de armazenamento de backup é cobrado em GB por mês. Por exemplo, se você tiver um tamanho de armazenamento de banco de dados de 100 GB, terá 100 GB de backup sem custo adicional. Mas se o backup é de 110 GB, você paga pelos 10 GB adicionais.
+Diferentes tipos de armazenamento são cobrados de formas diferentes. Para armazenamento de dados, você será cobrado pelo armazenamento provisionado baseado no tamanho máximo do banco de dados ou do pool selecionado. O custo não muda, a menos que você reduza ou aumente esse máximo. O armazenamento de backup está associado a backups automatizados de sua instância é alocado dinamicamente. Aumentar o período de retenção de backup aumenta o armazenamento de backup consumido por sua instância. Não haverá cobrança adicional se o armazenamento de backup chegar até 100% do armazenamento de servidor provisionado total. O consumo adicional de armazenamento de backup é cobrado em GB por mês. Por exemplo, se você tiver um tamanho de armazenamento de banco de dados de 100 GB, terá 100 GB de backup sem custo adicional. Mas se o backup é de 110 GB, você paga pelos 10 GB adicionais. 
 
 Para o armazenamento de backup de um banco de dados individual, você é cobrado em uma base proporcional para o armazenamento que foi alocado para os backups do banco de dados menos o tamanho do banco de dados. Para o armazenamento de backup de um pool elástico, você é cobrado em uma base proporcional para o armazenamento que foi alocado para os backups do banco de dados de todos os bancos de dados no pool, menos o tamanho máximo de dados do pool elástico. Qualquer aumento no tamanho do banco de dados ou pool elástico, ou aumento na taxa de transações, requer mais armazenamento e, portanto, aumenta a sua conta de armazenamento de backup.  Quando você aumenta o tamanho máximo de dados, esse novo valor é deduzido do tamanho do armazenamento de backup cobrado.
 
 ## <a name="how-do-i-select-the-right-sku-when-converting-an-existing-database-to-the-new-service-tiers"></a>Como fazer para selecionar a SKU certa ao converter um banco de dados existente para as novas camadas de serviço? 
 Para aplicativos de Banco de Dados SQL existentes que usam o modelo baseado em DTU, a camada de serviço de Uso Geral é comparável à camada Standard. A camada de serviço Comercialmente Crítico é comparável à camada Premium. Em ambos os casos, você deve alocar pelo menos 1 vCore para cada 100 DTUs que o aplicativo usa no modelo baseado em DTU.
 
-## <a name="do-the-new-vcore-based-service-tiers-offer-the-performance-levels-compatible-with-all-existing-service-level-objectives-slos"></a>As novas camadas de serviço baseadas no vCore oferecem os níveis de desempenho compatíveis com todos os SLOs (objetivos do nível de serviço) existentes?
-As novas camadas de serviço baseadas em vCore oferecem opções de desempenho comparáveis para todos os pools elásticos e bancos de dados usando 100 DTUs ou mais.  Continuaremos a adicionar mais SLOs ao longo do tempo para acomodar cargas de trabalho de DTU sub-100.
+## <a name="do-the-new-vcore-based-service-tiers-offer-the-compute-sizes-compatible-with-all-existing-compute-sizes"></a>As novas camadas de serviço baseadas em vCore oferecem tamanhos de computação compatíveis com todos os tamanhos de computação existentes?
+As novas camadas de serviço baseadas em vCore oferecem opções de desempenho comparáveis para todos os pools elásticos e bancos de dados usando 100 DTUs ou mais.  Continuaremos a adicionar mais tamanhos de computação ao longo do tempo para acomodar cargas de trabalho com menos de 100 DTUs.
 
 ## <a name="are-there-any-database-feature-differences-between-the-existing-dtu-based-and-new-vcore-based-service-tiers"></a>Há alguma diferença de recurso de banco de dados entre as camadas de serviço baseadas em DTU e novas baseadas em vCore? 
 As novas camadas de serviço dão suporte a um superconjunto dos recursos disponíveis com as ofertas atuais baseadas em DTU. Os recursos adicionais incluem um conjunto de DMVs (exibições de gerenciamento dinâmico) e opções adicionais de configuração de recurso. 
@@ -110,7 +113,7 @@ Como o modelo vCore permite o controle independente da quantidade de computaçã
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>Com que frequência eu posso ajustar os recursos por pool?
 Quantas vezes desejar. Consulte [Gerenciar pools elásticos](sql-database-elastic-pool.md).
 
-## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Quanto tempo leva para alterar a camada de serviço ou o nível de desempenho de um banco de dados individual ou incluir ou retirar um banco de dados de um pool elástico?
+## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Quanto tempo leva para alterar a camada de serviço ou o tamanho de computação de um banco de dados individual ou para incluir ou retirar um banco de dados de um pool elástico?
 A alteração da camada de serviço de um banco de dados e a inclusão e a retirada de um pool exige que o banco de dados seja copiado para a plataforma como uma operação em segundo plano. Alterar a camada de serviço pode levar alguns minutos a várias horas, dependendo do tamanho dos bancos de dados. Em ambos os casos, os bancos de dados permanecem online e disponíveis durante a movimentação. Para obter detalhes sobre como alterar os bancos de dados únicos, consulte [Alterar a camada de serviço de um banco de dados](sql-database-service-tiers-dtu.md). 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Quando eu devo usar um banco de dados únicos em vez de bancos de dados elásticos?
@@ -120,7 +123,7 @@ Em geral, os pools elásticos são projetados para um típico [padrão de aplica
 O Banco de Dados SQL cobra uma taxa horária previsível com base no [modelo de compra](sql-database-service-tiers-dtu.md). O uso real é calculado e rateado por hora, de modo que sua fatura poderá mostrar frações de hora. Por exemplo, se um banco de dados existir por 12 horas em um mês, sua fatura mostrará a utilização de 0,5 dia. 
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>E se um banco de dados único ficar ativo por menos de uma hora ou usar uma camada de serviço mais alta por menos de uma hora?
-Você será cobrado por cada hora em que um banco de dados existir usando a camada de serviço mais alta mais o nível de desempenho aplicado durante aquela hora, independentemente do uso ou se o banco de dados ficou ativo por menos de uma hora. Por exemplo, se você criar um banco de dados individual e o excluir depois de cinco minutos, sua fatura apresentará uma cobrança referente a uma hora de banco de dados. 
+Você será cobrado pelas horas em que um banco de dados existir usando a camada de serviço mais alta mais o tamanho de computação aplicado durante essas horas, independentemente do uso ou se o banco de dados ficou ativo por menos de uma hora. Por exemplo, se você criar um banco de dados individual e o excluir depois de cinco minutos, sua fatura apresentará uma cobrança referente a uma hora de banco de dados. 
 
 Exemplos:
 
@@ -141,8 +144,8 @@ Exemplos de modelos de compra baseados em DTU:
 Pools elásticos são cobrados de acordo com as seguintes características:
 
 * Um pool elástico é cobrado após sua criação, mesmo quando ele não contém bancos de dados.
-* Um pool elástico é cobrado por hora. Essa frequência de medição é a mesma dos níveis de desempenho de bancos de dados individuais.
-* Se um pool elástico for redimensionado, o pool não será cobrado de acordo com a nova quantidade de recursos até que a operação de redimensionamento seja concluída. Isso segue o mesmo padrão que a alteração do nível de desempenho de bancos de dados individuais.
+* Um pool elástico é cobrado por hora. Essa é a mesma frequência de medição que para tamanhos de computação de bancos de dados individuais.
+* Se um pool elástico for redimensionado, o pool não será cobrado de acordo com a nova quantidade de recursos até que a operação de redimensionamento seja concluída. Isso segue o mesmo padrão que a alteração do tamanho de computação de bancos de dados individuais.
 * O preço de um pool elástico é baseado nos recursos do pool. O preço de um pool elástico é independente do número e da utilização dos bancos de dados elásticos dentro dele.
 
 Para obter detalhes, consulte [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/), [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).

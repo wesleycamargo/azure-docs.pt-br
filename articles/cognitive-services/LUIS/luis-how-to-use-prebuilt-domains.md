@@ -1,20 +1,21 @@
 ---
-title: Usar domínios predefinidos em aplicativos do LUIS no Azure | Microsoft Docs
-description: Saiba como usar domínios predefinidos em aplicativos Serviço Inteligente de Reconhecimento Vocal (LUIS)
+title: Usar os domínios predefinidos para criar aplicativos mais rapidamente em aplicativos LUIS
+titleSuffix: Azure Cognitive Services
+description: O LUIS (Reconhecimento vocal) fornece domínios predefinidos, que são conjuntos predefinidos de intenções e entidades que trabalham juntas para domínios ou categorias comuns de aplicativos cliente. Os domínios predefinidos têm sido previamente treinados e estão prontos para serem adicionados ao seu aplicativo do LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: df57f9adf5bf7f5f652a77ddeafe950463c6a9fc
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1aa7e1bf9c1a584803a60a5061b4ae4cc8664ff4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224170"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037364"
 ---
 # <a name="use-prebuilt-domains-in-luis-apps"></a>Usar os domínios predefinidos em aplicativos do LUIS  
 

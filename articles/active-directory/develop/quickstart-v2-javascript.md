@@ -3,7 +3,7 @@ title: Início rápido do JavaScript do Azure AD v2 | Microsoft Docs
 description: Saiba como aplicativos JavaScript podem chamar uma API que exige tokens de acesso pelo ponto de extremidade do Azure Active Directory v2.0
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: navyasric
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/21/2018
-ms.author: andret
+ms.date: 09/24/2018
+ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 4c64552ab23331755bf1d292bede61e78b339df0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1b884571707aab71e8a8d124ba68f938e5a63a43
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987417"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063737"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Início rápido: conectar os usuários e adquirir um token de acesso de um aplicativo JavaScript
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-Neste início rápido, você aprenderá como usar um exemplo de código que demonstra como um aplicativo de página única (SPA) do JavaScript pode conectar contas corporativas, pessoais e de estudante, obter um token de acesso e chamar a API do Microsoft Graph.
+Neste início rápido, você aprenderá como usar um exemplo de código que demonstra como um SPA (aplicativo de página única) do JavaScript pode conectar contas corporativas, pessoais e de estudante e obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web.
 
 ![Como funciona o aplicativo de exemplo gerado por esse Início rápido](media/quickstart-v2-javascript/javascriptspa-intro.png)
 
@@ -55,40 +55,41 @@ Neste início rápido, você aprenderá como usar um exemplo de código que demo
 #### <a name="step-2-download-the-project"></a>Etapa 2: Baixar o projeto
 
 Você pode escolher a opção mais adequada para seu ambiente de desenvolvimento.
-* [Baixar os principais arquivos do projeto para um servidor Web local, como Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip)
-* [Baixar o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
+* [Baixar os principais arquivos do projeto para um servidor Web local, como Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
+* [Baixar o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 Extraia o arquivo zip para uma pasta local (por exemplo, **C:\Azure-Samples**).
 
 #### <a name="step-3-configure-your-javascript-app"></a>Etapa 3: Configurar o aplicativo JavaScript
 
 > [!div renderon="docs"]
-> Edite `msalconfig.js` e substitua `Enter_the_Application_Id_here` pela ID do Aplicativo do aplicativo que você acabou de registrar. Localize a *ID do aplicativo* na página *Visão geral*.
+> Edite `index.html` e substitua `Enter_the_Application_Id_here` em `applicationConfig` pela ID do Aplicativo que você acabou de registrar.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Edite `msalconfig.js` e substitua msalconfig por:
+> Edite `index.html` e substitua `applicationConfig` por:
 
 ```javascript
-var msalconfig = {
+var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
-    redirectUri: location.origin
+    graphScopes: ["user.read"],
+    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
 > [!NOTE]
-> Se você usar [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), o URI de redirecionamento será definido como `http://localhost:30662/` conforme estiver configurado no projeto do exemplo de código. Se você usar [Node.js](https://nodejs.org/en/download/) ou qualquer outro servidor Web, defina o redirecionamento de URI como `http://localhost:30662/` e configure o servidor para iniciar a escuta nessa porta.
+>Se você usar [Node.js](https://nodejs.org/en/download/), o arquivo *server.js* será configurado para o servidor para começar a escutar na porta 30662.
+> Se você usar o [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), o arquivo *.csproj* de exemplo de código será configurado para o servidor para começar a escutar na porta 30662.
 >
 
 #### <a name="step-4-run-the-project"></a>Etapa 4: Executar o projeto
-
-Se estiver usando o Visual Studio, pressione **F5** para executar seu projeto.
 
 Se estiver usando o Node.js, em uma linha de comando, execute o item a seguir no diretório do projeto para iniciar o servidor:
  ```batch
  npm install
  node server.js
  ```
-Abra um navegador da Web e acesse `http://localhost:30662/`. Clique no botão **Chamar a API do Microsoft Graph** para iniciar a entrada.
+Abra um navegador da Web e acesse `http://localhost:30662/`. Clique no botão **Entrar** para iniciar a entrada e depois chamar a API do Microsoft Graph.
 
+Se você estiver usando o Visual Studio, certifique-se de selecionar a solução de projeto e pressione **F5** para executar o projeto.
 
 ## <a name="more-information"></a>Mais informações
 
@@ -98,7 +99,7 @@ MSAL é a biblioteca usada para conectar usuários e solicitar tokens usados par
 
 ```html
 <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.min.js"></script>
-````
+```
 
 Como alternativa, se tiver o Node instalado, você poderá fazer o download dele pelo npm:
 
@@ -111,32 +112,33 @@ npm install msal
 O código de início rápido também mostra como inicializar a biblioteca:
 
 ```javascript
-var userAgentApplication = new Msal.UserAgentApplication(msalconfig.clientID, null, loginCallback, {
-    redirectUri: msalconfig.redirectUri
-});
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 ```
 
 > |Where  |  |
 > |---------|---------|
 > |`ClientId`     |ID do aplicativo referente ao aplicativo registrado no portal do Azure|
 > |`authority`    |É a URL da autoridade. Passar *null* define a autoridade padrão como `https://login.microsoftonline.com/common`. Se seu aplicativo for de locatário único (direcionamento de contas em apenas um diretório), defina esse valor como `https://login.microsoftonline.com/<tenant name or ID>`|
-> |`loginCallBack`| O método de retorno de chamada é chamado depois que a autenticação é redirecionada para o aplicativo|
-> |`redirectUri`  |A URL à qual os usuários são enviados após a autenticação com o Azure AD|
+> |`tokenReceivedCallback`| O método de retorno de chamada é chamado depois que a autenticação é redirecionada para o aplicativo. Aqui `acquireTokenRedirectCallBack` é passado. Isso será nulo se usar loginPopup.|
+> |`options`  |Uma coleção de parâmetros opcionais. Nesse caso `storeAuthStateInCookie` e `cacheLocation` são a configuração opcional. Consulte a [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) para obter mais detalhes sobre as opções. |
 
 ### <a name="sign-in-users"></a>Conectar usuários
 
 O trecho de código a seguir mostra como realizar a conexão de usuários:
 
 ```javascript
-userAgentApplication.loginRedirect(graphAPIScopes);
+myMSALObj.loginPopup(applicationConfig.graphScopes).then(function (idToken) {
+    //Callback code here
+})
 ```
 
 > |Where  |  |
 > |---------|---------|
-> | `graphAPIScopes`   | (Opcional) Contém os escopos que estão sendo solicitados para o consentimento do usuário no momento do logon (por exemplo, `[ "user.read" ]` para o Microsoft Graph ou `[ "api://<Application ID>/access_as_user" ]` para as APIs Web personalizadas). |
+> | `scopes`   | (Opcional) Contém os escopos que estão sendo solicitados para o consentimento do usuário no momento do logon (por exemplo, `[ "user.read" ]` para o Microsoft Graph ou `[ "<Application ID URL>/scope" ]` para as APIs Web personalizadas, isto é, `api://<Application ID>/access_as_user`). Aqui `applicationConfig.graphScopes` é passado. |
 
 > [!TIP]
-> Como alternativa, você talvez queira usar o método `loginPopup` para exibir uma janela pop-up para a conexão do usuário.
+> Como alternativa, talvez você queira usar o método `loginRedirect` para redirecionar a página atual para a página de entrada, em vez de uma janela pop-up.
+
 
 ### <a name="request-tokens"></a>Solicitar tokens
 
@@ -147,13 +149,14 @@ A MSAL tem três métodos usados para adquirir tokens: `acquireTokenRedirect`, `
 O método `acquireTokenSilent` manipula as aquisições e a renovação de tokens sem nenhuma interação do usuário. Após o método `loginRedirect` ou `loginPopup` ser executado pela primeira vez, `acquireTokenSilent` é o método normalmente usado para obter tokens usados para acessar recursos protegidos nas próximas chamadas. As chamadas para solicitar ou renovar tokens são feitas no modo silencioso.
 
 ```javascript
-// Try to acquire the token used to query Graph API silently first:
-userAgentApplication.acquireTokenSilent(graphAPIScopes)
+myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (accessToken) {
+    // Callback code here
+})
 ```
 
 > |Where  |  |
 > |---------|---------|
-> | `graphAPIScopes`   | Contém os escopos que são solicitados para retorno no token de acesso da API (por exemplo, `[ "user.read" ]` para o Microsoft Graph ou `[ "api://<Application ID>/access_as_user" ]` para as APIs Web personalizadas). |
+> | `scopes`   | Contém os escopos que são solicitados para retorno no token de acesso da API (por exemplo, `[ "user.read" ]` para o Microsoft Graph ou `[ "<Application ID URL>/scope" ]` para as APIs Web personalizadas, isto é, `api://<Application ID>/access_as_user`). Aqui `applicationConfig.graphScopes` é passado.|
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
@@ -164,11 +167,16 @@ userAgentApplication.acquireTokenSilent(graphAPIScopes)
 
 O padrão usual recomendado para a maioria dos aplicativos é chamar `acquireTokenSilent` primeiro, depois capturar a exceção e, em seguida, chamar `acquireTokenRedirect` (ou `acquireTokenPopup`) para iniciar uma solicitação interativa.
 
-Chamar o `acquireTokenRedirect(scope)` resulta no redirecionamento dos usuários para o ponto de extremidade do Azure AD v2.0 (ou `acquireTokenPopup(scope)` resulta em uma janela pop-up) em que os usuários precisam interagir confirmando as credenciais deles ou dando consentimento para o recurso necessário, ou ainda concluindo a autenticação de dois fatores.
+Chamar o `acquireTokenPopup(scope)` resulta em uma janela pop-up para entrar (ou `acquireTokenRedirect(scope)` resulta no redirecionamento dos usuários para o ponto de extremidade do Azure AD v2.0) em que os usuários precisam interagir confirmando as credenciais deles ou fornecendo consentimento para o recurso necessário, ou ainda concluindo a autenticação de dois fatores.
 
 ```javascript
-userAgentApplication.acquireTokenRedirect(graphAPIScopes);
+myMSALObj.acquireTokenPopup(applicationConfig.graphScopes).then(function (accessToken) {
+    // Callback code here
+})
 ```
+
+> [!NOTE]
+> Esse início rápido usa os métodos `loginRedirect` e `acquireTokenRedirect` quando o navegador usado é o Internet Explorer devido a um [problema conhecido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) relacionado à manipulação de janelas pop-up pelo navegador Internet Explorer.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -2,19 +2,22 @@
 title: 'Portal do Azure: replicação geográfica do Banco de Dados SQL | Microsoft Docs'
 description: Configurar a replicação geográfica para o Banco de Dados SQL do Azure usando o Portal do Azure e inicializar o failover
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
-ms.author: carlrab
-ms.openlocfilehash: 27fb8f369ad23592902c05fe5275fc54bc6cf148
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 592e4c2dc375da34b3a6039bef7ea4da0fa3315b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090462"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163963"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar a replicação geográfica ativa para o Banco de Dados SQL do Azure usando o Portal do Azure e inicializar o failover
 
@@ -34,7 +37,7 @@ As etapas a seguir criam um novo banco de dados secundário em uma parceria de r
 
 Para adicionar um banco de dados secundário, você deve ser o proprietário ou coproprietário da assinatura.
 
-O banco de dados secundário tem o mesmo nome do banco de dados primário e, por padrão, tem o mesmo nível de serviço. O banco de dados secundário pode ser um banco de dados individual ou um banco de dados em um pool elástico. Para obter mais informações, consulte [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+O banco de dados secundário tem o mesmo nome do banco de dados primário e, por padrão, tem a mesma camada de serviço e tamanho de computação. O banco de dados secundário pode ser um banco de dados individual ou um banco de dados em um pool elástico. Para obter mais informações, consulte [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 Depois que o banco de dados secundário for criado e propagado, os dados começarão a serem replicados desde o banco de dados primário até o novo banco de dados secundário.
 
 > [!NOTE]

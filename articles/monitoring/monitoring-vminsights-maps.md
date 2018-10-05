@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: magoedte
-ms.openlocfilehash: 30f9a874853f4cb492d7a562d0d2439b73cf62dc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e75409e791c00dc0a5bec591aecfbaa019df8f81
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989967"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225155"
 ---
 # <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>Usando o Azure Monitor para o Mapa de VMs para entender os componentes do aplicativo
-A exibição dos componentes de aplicativo descobertos em máquinas virtuais do Windows e do Linux em execução no Azure em seu ambiente pode ser feita de duas maneiras com o Azure Monitor para VMs: em uma máquina virtual diretamente ou entre grupos de VMs do Azure Monitor. 
+A exibição dos componentes de aplicativo descobertos em máquinas virtuais do Windows e do Linux em execução em ambientes do Azure pode ser feita de duas maneiras com o Azure Monitor para VMs, de uma máquina virtual diretamente ou entre grupos de VMs do Azure Monitor. 
 
-Este artigo ajudará você a entender a experiência entre as duas perspectivas e como usar o recurso Mapa. Para obter informações sobre como configurar o Azure Monitor para VMs, confira [Habilitar o Azure Monitor para VMs](monitoring-vminsights-onboard.md).
+Este artigo ajudará você a entender a experiência entre as duas perspectivas e como usar o recurso Mapa. Para obter informações sobre como configurar o Monitor do Azure para VMs, consulte [Ativar o Monitor do Azure para VMs](monitoring-vminsights-onboard.md).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -91,7 +91,7 @@ Se o grupo incluir servidores monitorados e não monitorados, selecione a seçã
 Para acessar o Azure Monitor para VMs diretamente em uma máquina virtual, realize o procedimento a seguir.
 
 1. No Portal do Azure, selecione **Máquinas Virtuais**. 
-2. Na lista, escolha uma VM e, na seção **Monitoramento**, escolha **Insights (versão prévia)**.  
+2. Na lista, escolha uma máquina virtual e, na **Monitoring** seção escolher **Insights (visualização)**.  
 3. Selecione a guia **Mapa**.
 
 O Mapa visualiza as dependências de VMs, ou seja, os grupos de processos e os processos em execução com conexões de rede ativas, em um intervalo de tempo especificado.  Por padrão, o mapa mostra os últimos 30 minutos.  Usando o seletor **TimeRange** no canto superior esquerdo, você pode consultar intervalos de tempo históricos de até uma hora para mostrar como as dependências eram no passado (por exemplo, durante um incidente ou antes de uma alteração).  

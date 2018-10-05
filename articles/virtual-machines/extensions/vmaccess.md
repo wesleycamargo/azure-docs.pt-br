@@ -3,7 +3,7 @@ title: Redefinir o acesso a uma VM do Linux do Azure | Microsoft Docs
 description: Como gerenciar usuários administrativos e redefinir o acesso em VMs Linux usando a extensão VMAccess e a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,18 +15,21 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998620"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452047"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gerenciar usuários administrativos, SSH e verificar ou reparar discos em VMs Linux do usando a extensão VMAccess com a CLI do Azure
 ## <a name="overview"></a>Visão geral
 O disco em sua VM do Linux está mostrando erros. De alguma forma, você redefiniu a senha raiz para sua VM do Linux ou excluiu acidentalmente sua chave privada SSH. Se isso tiver ocorrido na época do datacenter, você precisará ir até lá e abrir o KVM para acessar o console do servidor. Considere a Extensão VMAccess do Azure como o comutador KVM que permite que você acesse o console para redefinir o acesso para o Linux ou para realizar a manutenção no nível de disco.
 
 Este artigo mostra como usar a extensão VMAccess do Azure para verificar ou reparar um disco, redefinir o acesso do usuário, gerenciar contas de usuário administrativo ou atualizar a configuração do SSH no Linux quando eles estão sendo executados como máquinas virtuais do Azure Resource Manager. Se precisar gerenciar máquinas virtuais Clássicas, você poderá seguir as instruções encontradas na [documentação de VM clássica](../linux/classic/reset-access-classic.md). 
+ 
+> [!NOTE]
+> Se você usar a extensão VMAccess para redefinir a senha da sua VM depois de instalar a extensão de logon do AAD, será preciso executar novamente a extensão de logon do AAD para habilitar novamente o logon do AAD para seu computador.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="operating-system"></a>Sistema operacional

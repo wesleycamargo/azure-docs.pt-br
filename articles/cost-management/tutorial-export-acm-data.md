@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/13/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b1c7323dc108f5ee7a8bf6075abfe2a3e2fb9810
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0765e79b90eed49742f5eead33063907eb1db1f4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953133"
+ms.locfileid: "47030839"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: criar e gerenciar dados exportados
 
@@ -31,8 +31,15 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Conta de Contrato Enterprise do Azure
-- Conta de Armazenamento do Azure configurada para armazenamento de blobs ou de arquivos
+A exportação de dados está disponível para todos os clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/). Há suporte para as seguintes permissões do Azure por assinatura para exportações de dados por usuário e por grupo:
+
+- Proprietário – pode criar, modificar ou excluir exportações agendadas de uma assinatura.
+- Colaborador – pode criar, modificar ou excluir suas próprias exportações agendadas. Pode modificar o nome de exportações agendadas criadas por outras pessoas.
+- Leitor – pode agendar exportações às quais tem permissão.
+
+Para contas de Armazenamento do Azure:
+- São necessárias permissões de gravação para alterar a conta de armazenamento configurada, independentemente das permissões de exportação.
+- Sua conta de Armazenamento do Azure precisa ser configurada para o Armazenamento de Blobs ou de Arquivos.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/).

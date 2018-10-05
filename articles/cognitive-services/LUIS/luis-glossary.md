@@ -1,30 +1,32 @@
 ---
 title: Glossário do serviço de API do LUIS (Reconhecimento vocal) | Microsoft Docs
+titleSuffix: Azure Cognitive Services
 description: O glossário explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3f99e58a38bbe9ecc87165b5e6fa24a5a49e5e4a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a741cb1c2643e48080018e5c9f4ada7038bce29e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390051"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434799"
 ---
 # <a name="glossary"></a>Glossário
+O glossário do LUIS (Reconhecimento vocal) explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
 
 ## <a name="active-version"></a>Versão ativa
 
-A versão ativa do LUIS é a versão que recebe alterações no modelo. No site do [LUIS](luis-reference-regions.md), se desejar fazer alterações em uma versão que não é a versão ativa, será necessário definir primeiro essa versão como ativa. 
+A versão ativa do LUIS é a versão que recebe alterações no modelo. No site do [LUIS](luis-reference-regions.md), se desejar fazer alterações em uma versão que não é a versão ativa, será necessário definir primeiro essa versão como ativa.
 
 ## <a name="authoring"></a>Criação
 
-A criação é a capacidade de criar, gerenciar e implantar um [aplicativo LUIS](#luis-app), usando o site do [LUIS](luis-reference-regions.md) ou as [APIs de criação](https://aka.ms/luis-authoring-api). 
+A criação é a capacidade de criar, gerenciar e implantar um [aplicativo LUIS](#luis-app), usando o site do [LUIS](luis-reference-regions.md) ou as [APIs de criação](https://aka.ms/luis-authoring-api).
 
 ## <a name="authoring-key"></a>Chave de criação
 
@@ -68,11 +70,11 @@ O mesmo que [versão ativa](#active-version)
 
 ## <a name="domain"></a>Domínio
 
-No contexto do LUIS, um **domínio** é uma área de conhecimento. Seu domínio é específico para a área de conhecimento do aplicativo. Isso pode ser uma área geral, como o aplicativo de agente de viagem. Um aplicativo de agente de viagem também pode ser específico apenas para as áreas de informações da sua empresa, como os locais geográficos, idiomas e serviços específicos. 
+No contexto do LUIS, um **domínio** é uma área de conhecimento. Seu domínio é específico para a área de conhecimento do aplicativo. Isso pode ser uma área geral, como o aplicativo de agente de viagem. Um aplicativo de agente de viagem também pode ser específico apenas para as áreas de informações da sua empresa, como os locais geográficos, idiomas e serviços específicos.
 
 ## <a name="endpoint"></a>Ponto de extremidade
 
-A URL do [ponto de extremidade LUIS](https://aka.ms/luis-endpoint-apis) é onde você envia consultas LUIS após o [aplicativo LUIS](#luis-app) ser criado e publicado. A URL de ponto de extremidade contém a região do aplicativo publicado, bem como a ID do aplicativo. É possível localizar o ponto de extremidade na página **[Publicar](luis-how-to-publish-app.md)** do seu aplicativo, na tabela Recursos e Chaves ou é possível obter a URL de ponto de extremidade na API [Obter informações do aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
+A URL do [ponto de extremidade LUIS](https://aka.ms/luis-endpoint-apis) é onde você envia consultas LUIS após o [aplicativo LUIS](#luis-app) ser criado e publicado. A URL de ponto de extremidade contém a região do aplicativo publicado, bem como a ID do aplicativo. Você pode encontrar o ponto de extremidade na página **[Chaves e pontos de extremidade](/luis-how-to-manage-keys.md)** do aplicativo ou obter a URL do ponto de extremidade na API [Obter Informações do Aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
 
 Um exemplo de ponto de extremidade tem a seguinte aparência:
 
@@ -88,7 +90,7 @@ Um exemplo de ponto de extremidade tem a seguinte aparência:
 
 ## <a name="entity"></a>Entidade
 
-[Entidades](luis-concept-entity-types.md) são importantes palavras em [declarações](luis-concept-utterance.md) que descrevem informações relevantes para a [intenção](luis-concept-intent.md), e algumas vezes são essenciais para ela. Uma entidade é essencialmente um tipo de dados no LUIS. 
+[Entidades](luis-concept-entity-types.md) são importantes palavras em [declarações](luis-concept-utterance.md) que descrevem informações relevantes para a [intenção](luis-concept-intent.md), e algumas vezes são essenciais para ela. Uma entidade é essencialmente um tipo de dados no LUIS.
 
 ## <a name="f-measure"></a>Medida F
 
@@ -112,7 +114,7 @@ Uma [intenção](luis-concept-intent.md) representa uma tarefa ou ação que o u
 
 ## <a name="labeling"></a>Rotulação
 
-Rotulação é o processo de associar uma palavra ou frase na [declaração](#utterance) da intenção com uma [entidade](#entity) (tipo de dados). 
+Rotulação é o processo de associar uma palavra ou frase na [declaração](#utterance) da intenção com uma [entidade](#entity) (tipo de dados).
 
 ## <a name="luis-app"></a>Aplicativo LUIS
 
@@ -123,26 +125,26 @@ Um aplicativo LUIS é um modelo de dados treinado para processamento de linguage
 Cada aplicativo tem um proprietário, que é a pessoa que criou o aplicativo. O proprietário pode adicionar [colaboradores](#collaborator).
 
 ## <a name="pattern"></a>Padrões
-O recurso Padrão anterior é substituído por [Padrões](luis-concept-patterns.md). Use padrões para melhorar a precisão da previsão fornecendo menos exemplos de treinamento. 
+O recurso Padrão anterior é substituído por [Padrões](luis-concept-patterns.md). Use padrões para melhorar a precisão da previsão fornecendo menos exemplos de treinamento.
 
 ## <a name="phrase-list"></a>Lista de frases
 
-Uma [lista de frases](luis-concept-feature.md#what-is-a-phrase-list-feature) inclui um grupo de valores (palavras ou frases) que pertencem à mesma classe e devem ser tratadas de maneira semelhante (por exemplo, nomes de cidades ou produtos). Uma lista intercambiável é tratada como sinônimos. 
+Uma [lista de frases](luis-concept-feature.md#what-is-a-phrase-list-feature) inclui um grupo de valores (palavras ou frases) que pertencem à mesma classe e devem ser tratadas de maneira semelhante (por exemplo, nomes de cidades ou produtos). Uma lista intercambiável é tratada como sinônimos.
 
 ## <a name="prebuilt-domains"></a>Domínio predefinido
 
-Um [domínio predefinido](luis-how-to-use-prebuilt-domains.md) é um aplicativo LUIS configurado para um domínio específico, como automação residencial (HomeAutomation) ou reservas de restaurante (RestaurantReservation). As intenções, declarações e entidades são configuradas para esse domínio. 
+Um [domínio predefinido](luis-how-to-use-prebuilt-domains.md) é um aplicativo LUIS configurado para um domínio específico, como automação residencial (HomeAutomation) ou reservas de restaurante (RestaurantReservation). As intenções, declarações e entidades são configuradas para esse domínio.
 
 ## <a name="prebuilt-entity"></a>Entidade predefinida
 
-Uma [entidade predefinida](luis-prebuilt-entities.md) é um LUIS de entidade que fornece tipos comuns de informações, como número, URL e email. Opte por adicionar uma entidade predefinida ao seu aplicativo. 
+Uma [entidade predefinida](luis-prebuilt-entities.md) é um LUIS de entidade que fornece tipos comuns de informações, como número, URL e email. Opte por adicionar uma entidade predefinida ao seu aplicativo.
 
 ## <a name="precision"></a>Precisão
 No [teste de lote](luis-interactive-test.md#batch-testing), a precisão (também chamada de valor preditivo positivo) é a fração de enunciados relevantes entre os enunciados recuperados.
 
 ## <a name="programmatic-key"></a>Chave programática
 
-Renomeada para [chave de criação](#authoring-key). 
+Renomeada para [chave de criação](#authoring-key).
 
 ## <a name="publish"></a>Publicar
 
@@ -150,24 +152,24 @@ Publicar significa tornar uma [versão ativa](#active-version) do LUIS disponív
 
 ## <a name="quota"></a>Cota
 
-A cota LUIS é a limitação do [nível de assinatura do Azure](https://aka.ms/luis-price-tier). A cota LUIS pode ser limitada por solicitações por segundo (HTTP Status 429) e solicitações totais em um mês (HTTP Status 403). 
+A cota LUIS é a limitação do [nível de assinatura do Azure](https://aka.ms/luis-price-tier). A cota LUIS pode ser limitada por solicitações por segundo (HTTP Status 429) e solicitações totais em um mês (HTTP Status 403).
 
 ## <a name="recall"></a>Recuperação
-No [teste de lote](luis-interactive-test.md#batch-testing), recall (também conhecido como sensibilidade) é a capacidade de generalização do LUIS. 
+No [teste de lote](luis-interactive-test.md#batch-testing), recall (também conhecido como sensibilidade) é a capacidade de generalização do LUIS.
 
 ## <a name="semantic-dictionary"></a>Dicionário semântico
 Um dicionário semântico é fornecido na página Entidade de lista e na página Lista de frases. O dicionário semântico fornece sugestões de palavras com base no escopo atual.
 
 ## <a name="sentiment-analysis"></a>Análise de sentimento
-A Análise de sentimento fornece valores positivos ou negativos das declarações fornecidas pela [Análise de Texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/). 
+A Análise de sentimento fornece valores positivos ou negativos das declarações fornecidas pela [Análise de Texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/).
 
 ## <a name="speech-priming"></a>Preparação da fala
 
-A preparação da fala permite que seu serviço de fala seja preparado com seu modelo LUIS. 
+A preparação da fala permite que seu serviço de fala seja preparado com seu modelo LUIS.
 
 ## <a name="spelling-correction"></a>Correção ortográfica
 
-Na página Publicar, habilite a [Verificação Ortográfica do Bing](luis-how-to-publish-app.md#enable-bing-spell-checker) para corrigir palavras com ortografia incorreta nas declarações antes da previsão. 
+Habilite verificação ortográfica do Bing para corrigir as palavras com ortografia incorreta nos enunciados antes da previsão.
 
 ## <a name="starter-key"></a>Chave de início
 
@@ -175,7 +177,7 @@ O mesmo que [chave programática](#programmatic-key), renomeada para Chave de cr
 
 ## <a name="subscription-key"></a>Chave de assinatura
 
-A chave de assinatura é a chave de **ponto de extremidade** associada ao serviço de LUIS [criado no Azure](luis-how-to-azure-subscription.md). Essa chave não é a [chave de criação](#programmatic-key). Se você tiver uma chave de ponto de extremidade, ela deverá ser usada para qualquer solicitação de ponto de extremidade, em vez da chave de criação. É possível ver a chave de ponto de extremidade atual dentro da URL do ponto de extremidade na parte inferior da página [**Publicar Aplicativo** no ](luis-how-to-publish-app.md) site do [LUIS](luis-reference-regions.md). É o valor do par nome/valor de **subscription-key**. 
+A chave de assinatura é a chave de **ponto de extremidade** associada ao serviço de LUIS [criado no Azure](luis-how-to-azure-subscription.md). Essa chave não é a [chave de criação](#programmatic-key). Se você tiver uma chave de ponto de extremidade, ela deverá ser usada para qualquer solicitação de ponto de extremidade, em vez da chave de criação. É possível ver a chave de ponto de extremidade atual dentro da URL do ponto de extremidade na parte inferior da [**página Chaves e pontos de extremidade**](luis-how-to-manage-keys.md) no site do [LUIS](luis-reference-regions.md). É o valor do par nome/valor de **subscription-key**.
 
 ## <a name="test"></a>Testar
 
@@ -183,12 +185,12 @@ A chave de assinatura é a chave de **ponto de extremidade** associada ao servi�
 
 ## <a name="timezoneoffset"></a>Diferença de fuso horário
 
-O ponto de extremidade inclui timezoneOffset. Este é o número, em minutos, que você deseja adicionar ou remover da entidade predefinida datetimeV2. Por exemplo, se a declaração for "que horas são agora?", o datetimeV2 retornado será a hora atual da solicitação do cliente. Se a solicitação do cliente for proveniente de um bot ou de outro aplicativo que não for o mesmo que o usuário do seu bot, você deverá passar o deslocamento entre o bot e o usuário. 
+O ponto de extremidade inclui timezoneOffset. Este é o número, em minutos, que você deseja adicionar ou remover da entidade predefinida datetimeV2. Por exemplo, se a declaração for "que horas são agora?", o datetimeV2 retornado será a hora atual da solicitação do cliente. Se a solicitação do cliente for proveniente de um bot ou de outro aplicativo que não for o mesmo que o usuário do seu bot, você deverá passar o deslocamento entre o bot e o usuário.
 
 Confira [Alterar o fuso horário da entidade datetimeV2 predefinida](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
 ## <a name="token"></a>Token
-Um token é a menor unidade pode ser rotulada em uma entidade. A geração de tokens é baseada na [cultura](luis-supported-languages.md#tokenization) do aplicativo.
+Um token é a menor unidade pode ser rotulada em uma entidade. A geração de tokens é baseada na [cultura](luis-language-support.md#tokenization) do aplicativo.
 
 ## <a name="train"></a>Treinar
 
@@ -204,7 +206,7 @@ No [teste de lote](luis-interactive-test.md#batch-testing), os pontos de dados r
 
 ## <a name="utterance"></a>Declaração
 
-Uma declaração é a frase de linguagem natural como "reservar 2 passagens para Seattle na próxima terça-feira". Os exemplos de declaração são adicionados à intenção. 
+Uma declaração é a frase de linguagem natural como "reservar 2 passagens para Seattle na próxima terça-feira". Os exemplos de declaração são adicionados à intenção.
 
 ## <a name="version"></a>Versão
 

@@ -5,65 +5,72 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 58245478cf49c030c435b487e233bbc893a2b9a3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: bc3eb2721dd9fc0c4cde407a8257f6be73201a2a
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296349"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423350"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adicionar métricas estendidas para máquinas virtuais do Azure
 
-Gerenciamento de Custos usa dados de métrica do Azure de suas VMs do Azure para mostrar informações detalhadas sobre seus recursos. Dados da métrica, também chamados de contadores de desempenho, são usados pelo Gerenciamento de Custos para gerar relatórios. No entanto, o Gerenciamento de Custos não coleta automaticamente todos os dados de métrica do Azure de VMs convidadas — você deve habilitar a coleta de métricas. Este artigo ajuda você a habilitar e configurar métricas de diagnóstico adicionais para suas VMs do Azure.
+O Cloudyn usa dados de métrica do Azure de suas VMs do Azure para mostrar informações detalhadas sobre seus recursos. Dados da métrica, também chamados de contadores de desempenho, são usados pelo Cloudyn para gerar relatórios. No entanto, o Cloudyn não coleta automaticamente todos os dados de métrica do Azure de VMs convidadas — você precisa habilitar a coleta de métricas. Este artigo ajuda você a habilitar e configurar métricas de diagnóstico adicionais para suas VMs do Azure.
 
 Depois que você habilita a coleta de métricas, você pode:
 
 - Saber quando suas VMs são atingir seus limites de CPU, memória e disco.
 - Detectar problemas e tendências de uso.
 - Controlar os custos de dimensionamento de acordo com o uso.
-- Obter recomendações de otimização de dimensionamento custo-efetiva do Gerenciamento de Custos.
+- Obter recomendações de otimização de dimensionamento com bom custo-benefício do Cloudyn.
 
 Por exemplo, convém monitorar o percentual de CPU e memória das suas VMs do Azure. As métricas de máquina virtual do Azure correspondem às _porcentagem de CPU [Host]_ e _porcentagem de memória [convidado]_.
 
-## <a name="verify-that-metrics-are-enabled-on-vms"></a>Verifique se a métrica está habilitada em máquinas virtuais
+> [!NOTE]
+> A coleta de dados de métrica estendida só é compatível com o monitoramento no nível do convidado do Azure. O Cloudyn não é compatível com a extensão de VM do Log Analytics.
+
+## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinar se as métricas estendidas estão habilitadas
 
 1. Entre no Portal do Azure em http://portal.azure.com.
 2. Em **Máquinas virtuais**, selecione uma máquina virtual e, em seguida, em **Monitoramento**, selecione **Métricas**. É mostrada uma lista das métricas disponíveis.
 3. Selecione algumas métricas e é mostrado um gráfico de dados para elas.  
     ![Métrica de exemplo – porcentagem de CPU de host](./media/azure-vm-extended-metrics/metric01.png)
 
-No exemplo anterior, um conjunto limitado de métricas padrão estão disponíveis para seus hosts, mas as métricas de memória não estão. Métricas da memória fazem parte das métricas estendidas. Você deve executar algumas etapas adicionais para habilitar a métrica estendida. As informações a seguir o orientará para habilitá-las.
+No exemplo anterior, um conjunto limitado de métricas padrão estão disponíveis para seus hosts, mas as métricas de memória não estão. Métricas da memória fazem parte das métricas estendidas. Nesse caso, as métricas estendidas não estão habilitadas para a VM. Você deve executar algumas etapas adicionais para habilitar a métrica estendida. As informações a seguir o orientará para habilitá-las.
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Habilitar métricas estendidas no portal do Azure
 
 Métricas padrão são as métricas do computador host. A métrica de _porcentagem de CPU [Host]_ é um exemplo. Também há métricas básicas para VMs convidadas e também são chamadas métricas estendidas. Exemplos de métricas estendidas incluem _porcentagem de memória [convidado]_ e _memória disponível [convidado]_.
 
-Habilitar métricas estendidas é simples. Para cada VM, habilite o monitoramento em nível de convidado. Quando você habilita o monitoramento de nível de convidado, o agente de diagnóstico do Azure é instalado na VM. O processo a seguir é o mesmo para VMs clássicas e regulares e o mesmo para VMs do Windows e do Linux.
+Habilitar métricas estendidas é simples. Para cada VM, habilite o monitoramento em nível de convidado. Quando você habilita o monitoramento de nível de convidado, o agente de diagnóstico do Azure é instalado na VM. Por padrão, um conjunto básico de métricas estendidas é adicionado. O processo a seguir é o mesmo para VMs clássicas e regulares e o mesmo para VMs do Windows e do Linux.
+
+Tenha em mente que o monitoramento de nível de convidado do Azure e do Linux exige uma conta de armazenamento. Quando habilita o monitoramento de nível de convidado, se você não escolher uma conta de armazenamento existente, ela será criada para você.
 
 ### <a name="enable-guest-level-monitoring-on-existing-vms"></a>Habilitar o monitoramento em nível de convidado em VMs existentes
 
 1. Em **Máquinas Virtuais**, exiba a lista das suas VMs e, em seguida, selecione uma VM.
-2. Em **Monitoramento**, selecione **Métricas**.
-3. Clique em **Configurações do Diagnóstico**.
-4. Na página de Configurações de Diagnóstico, clique em **Habilitar o monitoramento de nível de convidado**. As VMs do Linux requerem usar uma conta de armazenamento existente. Se você não escolher uma conta de armazenamento para uma VM do Windows, será criado uma para você.  
+2. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
+3. Na página de Configurações de Diagnóstico, clique em **Habilitar o monitoramento de nível de convidado**.  
     ![Habilitar o monitoramento de nível de convidado](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
-5. Depois de alguns minutos, o agente de diagnóstico do Azure está instalado na VM. Atualize a página e a lista de métricas disponíveis é atualizada com as métricas de convidado.  
+4. Depois de alguns minutos, o agente de diagnóstico do Azure está instalado na VM. Um conjunto básico de métricas é adicionado. Atualize a página. Os contadores de desempenho adicionados são exibidos na guia Visão geral.
+5. Em Monitoramento, selecione **Métricas**.
+6. No gráfico de métricas em **Namespace da Métrica**, selecione **Convidado (Clássico)**.
+7. Na lista Métrica, você pode exibir todos os contadores de desempenho disponíveis para a VM convidada.  
     ![Métricas estendidas](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### <a name="enable-guest-level-monitoring-on-new-vms"></a>Habilitar o monitoramento em nível de convidado em VMs novas
 
-Quando você cria VMs novas, certifique-se de selecionar **Diagnóstico do sistema operacional convidado**. As VMs do Linux requerem usar uma conta de armazenamento existente. Se você não escolher uma conta de armazenamento para uma VM do Windows, será criado uma para você.
+Quando você cria novas VMs, na guia Gerenciamento, selecione **Ativado** para **Diagnóstico de SO convidado**.
 
 ![Habilitar o diagnóstico do sistema operacional convidado](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
 ## <a name="resource-manager-credentials"></a>Credenciais de Gerenciador de Recursos
 
-Depois de habilitar métricas estendidas, certifique-se de que o Gerenciamento de Custos tem acesso às suas [credenciais de Gerenciador de Recursos](activate-subs-accounts.md). Suas credenciais são necessárias para o Gerenciamento de Custos coletar e exibir dados de desempenho para suas VMs. Eles também são usados para criar recomendações de otimização de custo. Gerenciamento de Custos precisa de pelo menos três dias de dados de desempenho de uma instância para determinar se é um candidato para uma recomendação de downsizing.
+Depois de habilitar métricas estendidas, certifique-se de que o Cloudyn tem acesso às suas [credenciais do Resource Manager](activate-subs-accounts.md). Suas credenciais são necessárias para o Cloudyn coletar e exibir dados de desempenho para suas VMs. Eles também são usados para criar recomendações de otimização de custo. O Cloudyn precisa de pelo menos três dias de dados de desempenho de uma instância para determinar se é um candidato para uma recomendação de downsizing.
 
 ## <a name="enable-vm-metrics-with-a-script"></a>Habilitar as métricas VM com um script
 
@@ -77,4 +84,4 @@ Para exibir as métricas de desempenho em suas instâncias do Azure no portal de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você ainda não tiver habilitado o acesso à API do Azure Resource Manager para suas contas, vá para [Ativar contas e assinaturas do Azure](activate-subs-accounts.md)
+- Se você ainda não tiver habilitado o acesso à API do Azure Resource Manager para suas contas, vá para [Ativar contas e assinaturas do Azure](activate-subs-accounts.md).

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 17b4bc68b2dc996134626b1822cfd17f0a9a7572
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005868"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161634"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Visão geral do Azure Load Balancer Standard
 
@@ -232,6 +232,8 @@ O Load Balancer Standard é um produto cobrado com base no número de regras de 
 - Saiba mais sobre o [Diagnóstico do Load Balancer Standard](load-balancer-standard-diagnostics.md).
 - Saiba mais sobre [as métricas multidimensionais suportadas](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) para diagnósticos no [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Saiba mais sobre como usar o [Azure Load Balancer para conexões de saída](load-balancer-outbound-connections.md).
+- Saiba mais sobre as [Regras de saída](load-balancer-outbound-rules-overview.md).
+- Saiba mais sobre a [Redefinição de TCP quando ocioso](load-balancer-tcp-reset.md).
 - Saiba mais sobre [o Standard Load Balancer com as regras de balanceamento das Portas de Alta Disponibilidade](load-balancer-ha-ports-overview.md).
 - Saiba mais sobre como usar o [Azure Load Balancer com vários Front-ends](load-balancer-multivip-overview.md).
 - Saiba mais sobre as [Redes Virtuais](../virtual-network/virtual-networks-overview.md).

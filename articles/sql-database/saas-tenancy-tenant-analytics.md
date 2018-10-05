@@ -1,26 +1,27 @@
 ---
 title: Executar análise entre locatários usando dados extraídos | Microsoft Docs
-description: Consultas de análise entre locatários usando dados extraídos de vários bancos de dados do Banco de Dados Azure SQL.
-keywords: tutorial do banco de dados SQL
+description: Consultas de análise entre locatários usando dados extraídos de vários bancos de dados do Banco de Dados SQL do Azure em um único aplicativo de locatário.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: 68057a2ae5925aa16288844759a34592aa7c7573
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: anjangsh,billgib,genemi
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: bd766dfb712921a57dd23c4fdecc25dd623eb833
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644953"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393257"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Análise entre locatários usando dados extraídos
-
-Neste tutorial, você percorre um cenário completo de análise. O cenário demonstra como a análise pode habilitar as empresas a tomar decisões inteligentes. Usando dados extraídos de cada banco de dados de locatário, você usa a análise para obter informações sobre comportamento de locatário e uso do aplicativo. Este cenário envolve três etapas: 
+# <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise entre locatários usando dados extraídos – Aplicativo de locatário único
+ 
+Neste tutorial, você percorrerá um cenário completo de análise para a implementação de um único locatário. O cenário demonstra como a análise pode habilitar as empresas a tomar decisões inteligentes. Usando dados extraídos de cada banco de dados de locatário, você usa a análise para obter informações sobre o comportamento de locatários, incluindo o uso do aplicativo de exemplo Wingtip Tickets SaaS. Este cenário envolve três etapas: 
 
 1.  **Extraia dados** de cada banco de dados de locatário e **carregue-os** em um repositório analítico.
 2.  **Transforme os dados extraídos** para processamento de análise.
@@ -64,7 +65,7 @@ A compreensão de como cada locatário está usando o serviço é usada para exp
 
 ## <a name="setup"></a>Configuração
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, certifique-se de atender a todos os seguintes pré-requisitos:
 
@@ -206,12 +207,12 @@ Você pode analisar os dados novamente para ver se essa grande demanda ocorre pa
 
 A plotagem anterior da Contoso Concert Hall mostra que a grande demanda não ocorre para todos os eventos. Familiarize-se com as opções de filtro para ver as tendências de vendas de outros locais.
 
-As percepções de padrões de vendas de tíquetes podem levar o Wingtip Tickets a otimizar seu modelo de negócios. Em vez de recarregar todos os locatários igualmente, talvez Wingtip deva introduzir as camadas de serviço com diferentes níveis de desempenho. Locais maiores que precisam vender mais tíquetes por dia podem receber a oferta de uma camada superior com um SLA (contrato de nível de serviço) superior. Esses locais podem ter seus bancos de dados colocados em pool com limites de recursos maiores por banco de dados. Cada camada de serviço pode ter uma alocação de vendas por hora, com valores adicionais cobrados por exceder a alocação. Locais maiores que têm picos de vendas periódicos pode se beneficiar dos níveis mais altos e Wingtip Tickets podem monetizar seus serviços com mais eficiência.
+As percepções de padrões de vendas de tíquetes podem levar o Wingtip Tickets a otimizar seu modelo de negócios. Em vez de recarregar todos os locatários igualmente, talvez Wingtip possa introduzir as camadas de serviço com diferentes tamanhos de computação. Locais maiores que precisam vender mais tíquetes por dia podem receber a oferta de uma camada superior com um SLA (contrato de nível de serviço) superior. Esses locais podem ter seus bancos de dados colocados em pool com limites de recursos maiores por banco de dados. Cada camada de serviço pode ter uma alocação de vendas por hora, com valores adicionais cobrados por exceder a alocação. Locais maiores que têm picos de vendas periódicos pode se beneficiar dos níveis mais altos e Wingtip Tickets podem monetizar seus serviços com mais eficiência.
 
 Enquanto isso, alguns clientes de Wingtip Tickets reclamam que se esforçam para vender tíquetes suficientes para justificar o custo do serviço. Talvez nessas percepções haja uma oportunidade de aumentar as vendas de tíquetes para locais com baixo desempenho. Vendas mais altas aumentariam o valor percebido do serviço. Clique com o botão direito do mouse em fact_Tickets e selecione **Nova medida**. Digite a seguinte expressão para a nova medida chamada **AverageTicketsSold**:
 
 ```
-AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
+AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CALCULATE( SUM(TableName[Tickets Sold] ) ) )
 ```
 
 Selecione as opções de visualização a seguir para plotar os tíquetes de porcentagem vendidos em cada local para determinar o sucesso relativo.
@@ -241,3 +242,4 @@ Parabéns!
 
 - [Tutoriais adicionais que aproveitam o aplicativo de SaaS do Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - [Trabalhos elásticos](sql-database-elastic-jobs-overview.md).
+- [Análise entre locatários usando dados extraídos – Aplicativo multilocatário](saas-multitenantdb-tenant-analytics.md)

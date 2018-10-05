@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cd89c41b43be1da339ca7dcc64110e7145a93903
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 72cf094dc6206fcb156a3e4dae6e89662e2085d8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857323"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434850"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução de problemas: problemas de conexão de ponto a site do Azure
 
@@ -45,13 +45,13 @@ Para resolver esse problema, siga estas etapas:
 
 2. Verifique se os certificados abaixo estão no local correto:
 
-    | Certificado | Localização |
+    | Certificado | Local padrão |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-3. Vá para Usuários\<UserName>AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, instale manualmente o certificado (arquivo *.cer) no repositório do computador e do usuário.
+3. Acesse C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID> e instale manualmente o certificado (arquivo *.cer) no repositório do computador e do usuário.
 
 Para saber mais sobre como instalar o certificado do cliente, confira [Gerar e exportar certificados para conexões ponto a site](vpn-gateway-certificates-point-to-site.md).
 
@@ -93,7 +93,7 @@ Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, re
 
 1. Verifique se os certificados abaixo estão no local correto:
 
-    | Certificado | Localização |
+    | Certificado | Local padrão |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
@@ -276,7 +276,7 @@ Você remove a conexão VPN ponto a site e reinstala o cliente VPN. Nessa situa�
 
 ### <a name="solution"></a>Solução
 
-Para resolver o problema, exclua os arquivos de configuração do cliente VPN antigos **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** e, em seguida, execute novamente o instalador do cliente VPN.
+Para resolver o problema, exclua os arquivos de configuração do cliente VPN antigos **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** e, em seguida, execute novamente o instalador do cliente VPN.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>O cliente VPN ponto a site não pode resolver o FQDN dos recursos no domínio local
 
@@ -361,7 +361,7 @@ Esse problema pode ser causado pelas instalações anteriores do cliente VPN.
 
 ### <a name="solution"></a>Solução
 
-Exclua os arquivos de configuração do cliente VPN antigos **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** e execute novamente o instalador do cliente VPN. 
+Exclua os arquivos de configuração do cliente VPN antigos **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** e execute novamente o instalador do cliente VPN. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>O cliente VPN hiberna ou suspende após algum tempo
 

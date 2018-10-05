@@ -1,28 +1,23 @@
 ---
 title: PowerShell - Remover um protetor de TDE - Banco de Dados SQL do Microsoft Azure| Microsoft Docs
 description: Guia de instruções para responder a um protetor de TDE potencialmente comprometido de um Data Warehouse ou Banco de Dados SQL do Azure usando TDE com o suporte BYOK (Bring Your Own Key).
-keywords: ''
 services: sql-database
-documentationcenter: ''
-author: becczhang
-manager: craigg
-ms.prod: ''
-ms.reviewer: ''
-ms.suite: sql
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
+ms.subservice: security
 ms.custom: ''
-ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/07/2017
+author: becczhang
 ms.author: rebeccaz
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: feb187101ec02d6e765d6b025f518dc416f55b8b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 08/07/2017
+ms.openlocfilehash: f965a008ed5973a544dba686e54e041ca6ef7673
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043201"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165986"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remover um protetor de TDE (Transparent Data Encryption) usando PowerShell
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -40,7 +35,7 @@ Se houver a suspeita de que uma chave está comprometida, de modo que um serviç
 Lembre-se de que, depois que o protetor de TDE for excluído no Key Vault, **todas as conexões com os bancos de dados criptografados no servidor serão bloqueadas e esses bancos de dados ficarão offline e serão removidos em 24 horas**. Backups antigos criptografados com a chave comprometida não serão mais acessíveis.
 
 Este guia de instruções abrange duas abordagens, dependendo do resultado desejado após a resposta ao incidente:
-- Para manter os Bancos de Dados SQL/Data Warehouses do Azure **acessíveis**
+- Para manter os bancos de dados SQL/Data Warehouses do Azure **acessíveis**
 - Para tornar os bancos de dados SQL/Data Warehouses do Azure **inacessíveis**
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Para manter os recursos criptografados acessíveis

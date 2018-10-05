@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ef3cfb77a47face18ea5f3b75cbbf08d3e275d2e
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 956bdf4770bd2a42a9ede6f59c2aa80d44d9429a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42022729"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041584"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo TPM simulado usando o Node.js do SDK do dispositivo Python para o Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -132,9 +132,9 @@ Se você não estiver familiarizado com o processo de provisionamento automátic
 
 1. Faça logon no Portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o Serviço de Provisionamento de Dispositivos.
 
-1. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** guia e clique no botão **Adicionar** na parte superior. 
+1. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** e clique no botão **Adicionar registro individual** na parte superior. 
 
-1. Em **Adicionar a entrada da lista de registro**, insira as seguintes informações:
+1. No painel **Adicionar Registro**, insira as seguintes informações:
     - Selecione **TPM** como o atestado de identidade *Mecanismo*.
     - Insira a *ID de Registro* e *Chave de Endosso* para seu dispositivo do TPM.
     - Opcionalmente, você pode fornecer as seguintes informações:

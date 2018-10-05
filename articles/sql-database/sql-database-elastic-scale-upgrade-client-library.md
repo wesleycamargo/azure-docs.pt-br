@@ -2,26 +2,29 @@
 title: Atualizar para a biblioteca de cliente de banco de dados elástico mais recente | Microsoft Docs
 description: Use o Nuget para atualizar a biblioteca de cliente do banco de dados elástico.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 56500a21822f7c7122a20cb676b9ad307de49c87
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 9fb29b18397be83f5dc56464b3366d91c47f43b3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647003"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160784"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Atualizar um aplicativo para usar a biblioteca de cliente de banco de dados elástico mais recente
 Novas versões da [biblioteca de cliente de Banco de Dados Elástico](sql-database-elastic-database-client-library.md) estão disponíveis por meio do NuGet e da interface do Gerenciador de Pacotes NuGet no Visual Studio. Atualizações contêm correções de bugs e suporte para novos recursos de biblioteca de cliente.
 
 **Para obter a versão mais recente:** acesse [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
-Recompile seu aplicativo com a nova biblioteca, além de alterar os metadados do Gerenciador de Mapa de Fragmentos existentes armazenados em seus Bancos de Dados SQL do Azure para dar suporte aos novos recursos.
+Recrie o aplicativo com a nova biblioteca, além de alterar os metadados existentes do Gerenciador de Mapa de Fragmentos armazenados nos bancos de dados SQL do Azure para dar suporte a novos recursos.
 
 Executar estas etapas nesta ordem garante que as versões antigas da biblioteca de cliente não estejam mais presentes em seu ambiente quando objetos de metadados são atualizados, o que significa que os objetos de metadados da versão antiga não serão criados após a atualização.   
 

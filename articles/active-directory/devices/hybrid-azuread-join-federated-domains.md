@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: f4659d2dc8dfd52ae6f7ec19dc29ec31c9b3ca6b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047335"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391790"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar ingresso no Azure Active Directory híbrido para domínios federados
 
@@ -122,7 +122,7 @@ Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect, ser�
 
     a. Selecione a floresta.
 
-    b. Selecione o serviço de autenticação.
+    b. Selecione o serviço de autenticação. Você deve selecionar o servidor do AD FS, a menos que sua organização tenha exclusivamente clientes do Windows 10.
 
     c. Clique em **Adicionar** para inserir as credenciais do administrador corporativo.
 
@@ -170,7 +170,7 @@ A política a seguir deve ser definida como **Todos** : **os usuários podem reg
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Definir as configurações de Intranet Local para registro do dispositivo
 
-Para concluir com êxito o ingresso no Azure AD híbrido dos dispositivos de nível inferior do Windows e evitar prompts de certificado quando os dispositivos autenticarem no Azure AD, você pode enviar uma política aos dispositivos ingressados no domínio para adicionar as seguintes URLs à zona da Intranet Local no Internet Explorer:
+Para concluir com êxito o ingresso no Azure AD híbrido dos dispositivos de nível inferior do Windows e evitar prompts de certificado quando os dispositivos autenticarem no Azure AD, envie uma política por push aos dispositivos ingressados no domínio para adicionar as seguintes URLs à zona da Intranet Local no Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 

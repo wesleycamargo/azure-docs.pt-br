@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b577f697f4467656166b83ea78efdfe6d742941f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982959"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032522"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -145,7 +145,8 @@ Isso serve para proteger o serviço contra runbooks em execução indefinidament
 
 Se o runbook não tiver nenhum ponto de verificação ou o trabalho não atingir o primeiro ponto de verificação antes de ser descarregado, ele será reiniciado desde o início.
 
-Para tarefas de execução longa, é recomendável usar um [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Os Hybrid Runbook Workers não são limitados por fração justa e não têm uma limitação de quanto tempo um runbook pode ser executado.
+Para tarefas de execução longa, é recomendável usar um [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Os Hybrid Runbook Workers não são limitados por fração justa e não têm uma limitação de quanto tempo um runbook pode ser executado. Os outros [limites](../azure-subscription-service-limits.md#automation-limits) do trabalho se aplicam a áreas restritas do Azure e ao Hybrid Runbook Workers.
+
 
 Se estiver usando um runbook de Fluxo de trabalho do PowerShell no Azure, ao criar um runbook, verifique se o tempo para executar as atividades entre dois pontos de verificação não excede três horas. Talvez seja necessário adicionar pontos de verificação ao seu runbook para que não alcance esse limite de três horas ou ultrapasse as operações de execução. Por exemplo, o runbook pode executar uma reindexação em um grande banco de dados SQL. Se essa operação única não for concluída dentro do limite adequado, o trabalho é descarregado e reiniciado desde o início. Nesse caso, você deve dividir a operação de reindexação em várias etapas, como a reindexação de uma tabela de cada vez, e inserir um ponto de verificação após cada operação para que o trabalho possa continuar após a conclusão da última operação.
 

@@ -6,15 +6,15 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/15/2018
+ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bca4b13ea2a003ea428351bcff44944630387e1b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528003"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033916"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>O que fazer se uma interrupção no Armazenamento do Azure ocorrer
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas em uma ou mais regiões. Para ajudá-lo a lidar com essas ocorrências raras, fornecemos as seguintes diretrizes de alto nível para serviços de Armazenamento do Azure.
@@ -43,18 +43,16 @@ Se você escolheu [RA-GRS (armazenamento com redundância geográfica de acesso 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>O que esperar se ocorrer um failover de Armazenamento
 Se você tiver escolhido [GRS (armazenamento com redundância geográfica)](storage-redundancy-grs.md) ou [RA-GRS (armazenamento com redundância geográfica de acesso de leitura)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recomendado), o Armazenamento do Azure mantém seus dados duráveis em duas regiões (primária e secundária). Em ambas as regiões, o Armazenamento do Azure mantém constantemente várias réplicas de seus dados.
 
-Quando um desastre regional afeta sua região primária, primeiro tentaremos restaurar o serviço nessa região. Dependendo da natureza do desastre e seus impactos, em algumas ocasiões raras não será possível restaurar a região primária. Nesse ponto, executaremos um failover geográfico. A replicação de dados entre regiões é um processo assíncrono que pode envolver um atraso, portanto, é possível que as alterações que ainda não foram replicadas para a região secundária sejam perdidas. Você pode consultar o ["Horário da última sincronização" da sua conta de armazenamento](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) para obter detalhes sobre o status da replicação.
+Quando um desastre regional afeta sua região primária, primeiro tentamos restaurar o serviço nessa região para fornecer a melhor combinação de RTO e RPO. Dependendo da natureza do desastre e seus impactos, em algumas ocasiões raras não será possível restaurar a região primária. Nesse ponto, executaremos um failover geográfico. A replicação de dados entre regiões é um processo assíncrono que envolve um atraso, portanto, é possível que as alterações que ainda não foram replicadas para a região secundária sejam perdidas.
 
 Alguns pontos sobre a experiência de failover geográfico de armazenamento:
 
-* O failover geográfico de armazenamento somente será disparado pela equipe do Armazenamento do Azure – não é necessária nenhuma ação do cliente.
-* Os pontos de extremidade de serviço armazenamento existente para blobs, tabelas, filas e arquivos permanecerão os mesmos após o failover; a entrada DNS fornecida pela Microsoft precisa ser atualizada para mudar da região primária para a região secundária.  A Microsoft executará essa atualização automaticamente como parte do processo de failover geográfico.
+* O failover geográfico de armazenamento somente será disparado pela equipe do Armazenamento do Azure – não é necessária nenhuma ação do cliente. O failover é disparado quando a equipe de armazenamento do Azure esgota todas as opções de restauração de dados na mesma região, o que fornece a melhor combinação de RTO e RPO.
+* Os pontos de extremidade de serviço armazenamento existente para blobs, tabelas, filas e arquivos permanecerão os mesmos após o failover; a entrada DNS fornecida pela Microsoft precisa ser atualizada para mudar da região primária para a região secundária. A Microsoft executará essa atualização automaticamente como parte do processo de failover geográfico.
 * Antes e durante o failover geográfico, você não terá acesso de gravação à conta de armazenamento devido ao impacto do desastre, mas você poderá ler por meio do secundário se sua conta de armazenamento tiver sido configurada como RA-GRS.
-* Quando o failover geográfico for concluído e as alterações DNS propagadas, o acesso de leitura e gravação à sua conta de armazenamento será retomado. Isso indica o que costumava ser seu ponto de extremidade secundário. 
-* Observe que você terá acesso de gravação se tiver GRS ou RA-GRS configurado para a conta de armazenamento. 
-* Você pode consultar ["Horário do Último Failover Geográfico" da sua conta de armazenamento](https://msdn.microsoft.com/library/azure/ee460802.aspx) para obter mais detalhes.
-* Após o failover, sua conta de armazenamento estará em funcionamento total, mas em um status "degradado", pois costuma ficar hospedada em uma região autônoma sem replicação geográfica possível. Para reduzir esse risco, podemos restaurar a região primária original e, em seguida, fazer um failback geográfico para restaurar o estado original. Se a região primária original for irrecuperável, alocaremos outra região secundária.
-  Para obter mais detalhes sobre a infraestrutura de replicação geográfica de Armazenamento do Azure, consulte o artigo no blog da equipe de Armazenamento sobre [Opções de Redundância e RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* Quando o failover de área geográfica for concluído e as alterações de DNS forem propagadas, o acesso de leitura e gravação à conta de armazenamento será restaurado se você tiver GRS ou RA-GRS. O ponto de extremidade que antes era seu ponto de extremidade secundário se tornará seu ponto de extremidade primário. 
+* Você pode verificar o status da localização primária e consultar o último horário de failover de área geográfica da conta de armazenamento. Para obter mais informações, confira [Contas de armazenamento – Obter Propriedades](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/getproperties).
+* Após o failover, sua conta de armazenamento estará em funcionamento total, mas em um estado "degradado", pois ela estará hospedada em uma região autônoma sem a possibilidade de replicação geográfica. Para reduzir esse risco, podemos restaurar a região primária original e, em seguida, fazer um failback geográfico para restaurar o estado original. Se a região primária original for irrecuperável, alocaremos outra região secundária.
 
 ## <a name="best-practices-for-protecting-your-data"></a>Melhores Práticas para proteger seus dados
 Há algumas abordagens recomendadas para fazer backup de seus dados de armazenamento regularmente.

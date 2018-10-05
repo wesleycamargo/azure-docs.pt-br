@@ -1,20 +1,21 @@
 ---
-title: Exportação e a exclusão de dados do cliente – LUIS – Serviços Cognitivos do Azure | | Microsoft Docs
-description: Referência de exportação e exclusão de dados do cliente do LUIS (Serviço Inteligente de Reconhecimento Vocal).
+title: Exportação e exclusão de dados do cliente – Reconhecimento vocal – LUIS
+titleSuffix: Azure Cognitive Services
+description: O LUIS (Serviço Inteligente de Reconhecimento Vocal) preserva o conteúdo do cliente para operar o serviço, mas o usuário do LUIS tem controle total sobre a exibição, a exportação e a exclusão dos próprios dados. Isso pode ser feito por meio do portal da Web do LUIS ou de APIs Programáticas do LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c6fba28ea3a4b24f02b62b6c3f124569378e5bc8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 103307e9657f183ed6876ef6ff499666c928690f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43130519"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037483"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e excluir dados do cliente no LUIS (Serviço Inteligente de Reconhecimento Vocal) nos Serviços Cognitivos
 

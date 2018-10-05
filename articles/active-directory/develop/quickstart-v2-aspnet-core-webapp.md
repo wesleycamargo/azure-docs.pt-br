@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/25/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: f57dc1707a9e25e4ea308142e804cdbc80d4308a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba67acec778a48c084897095aa457e5637240a57
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984935"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227411"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Adicionar entrada com a Microsoft para um aplicativo Web do ASP.NET Core
 
@@ -62,7 +62,7 @@ Este início rápido oferece um exemplo de código que demonstra como um aplicat
 
 1. Extraia o arquivo zip para uma pasta local (por exemplo, **C:\Azure-Samples**)
 1. Se você usa o Visual Studio 2017, abra o projeto no Visual Studio (opcional)
-1. Edite **appsettings.json** e substitua o valor de `ClientId` pela ID do aplicativo no aplicativo que você acabou de registrar:
+1. Edite **appsettings.json** e substitua o valor de `ClientId` pela ID do Aplicativo recém-registrado:
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 0df7c7680137be9a4b2c7c3cedb46330f4d3e5bd
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f9bc9bf540f7f44e07bc4bb0ae8ef6910ae78476
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246360"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222379"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Use o Microsoft Visual Studio para visualizar os trabalhos do Azure Stream Analytics
 
@@ -53,7 +53,7 @@ Os trabalhos do Stream Analytics do Azure podem ser gerenciados totalmente da ex
 
 ## <a name="check-job-results"></a>Veriricar resultados de trabalho
 
-Ferramentas do Stream Analytics para o Microsoft Visual Studio atualmente dão suporte a visualização de saída para o armazenamento de BLOBs e armazenamento do armazenamento do Azure Data Lake Storage. Para exibir o resultado, simplesmente clique duas vezes no nó de saída do diagrama de trabalho na **Exibição de Trabalho** e insira as credenciais apropriadas.
+Atualmente, as ferramentas do Stream Analytics para o Visual Studio dão suporte a visualização de saída para o Azure Data Lake Storage e o armazenamento de blobs. Para exibir o resultado, simplesmente clique duas vezes no nó de saída do diagrama de trabalho na **Exibição de Trabalho** e insira as credenciais apropriadas.
 
    ![Saída do Trabalho do Stream Analytics](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
 
@@ -88,5 +88,5 @@ Os resultados da **Conexão de Teste** são exibidos na janela de **Saída**.
 
 * [Monitorar e gerenciar trabalhos do Azure Stream Analytics usando o Microsoft Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
 * [Início Rápido: criar um trabalho do Stream Analytics usando o Microsoft Visual Studio](stream-analytics-quick-create-vs.md)
-* [Tutorial: implantar um trabalho do Azure Stream Analytics com CI/CD usando o VSTS](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Tutorial: Implantar um trabalho do Azure Stream Analytics com CI/CD usando o Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Integrar e desenvolver continuamente com ferramentas do Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

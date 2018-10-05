@@ -1,23 +1,23 @@
 ---
-title: Pesquisa Visual SDK Python Quickstart | Microsoft Docs
-description: Configuração para pesquisa Visual aplicativo do console Python SDK
+title: 'Início Rápido: SDK da Pesquisa Visual do Bing, Python'
 titleSuffix: Azure Cognitive Services
+description: Configuração para pesquisa Visual aplicativo do console Python SDK
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: f7a1f275f9059abdceaef577fb5ca722c9951366
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 269eaccbf834646b540123dfeeeec7c569b8ced4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939378"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222634"
 ---
-# <a name="visual-search-sdk-python-quickstart"></a>Início Rápido Pesquisa visual SDK Python
+# <a name="quickstart-bing-visual-search-sdk-python"></a>Início Rápido: SDK da Pesquisa Visual do Bing, Python
 
 O SDK da Pesquisa Visual do Bing usa a funcionalidade da API REST para pedidos web e analisar resultados.
 O [código-fonte para exemplos de SDK da Pesquisa Visual do Bing Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) está disponível no Git Hub.
@@ -32,7 +32,7 @@ Cenários de código são documentados sob os seguintes cabeçalhos:
 ## <a name="application-dependencies"></a>Dependências de aplicativo
 * Uma chave API de Serviços Cognitivos é necessária para autenticar chamadas SDK. Inscreva-se em uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). A avaliação gratuita para sete dias com 1 chamada por segundo. Para cenário de produção, [compre chave de acesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte também [informações de preço](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
 * Se você não tiver, instale o Python. O SDK é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6.
-* A recomendação geral para o desenvolvimento em Python é usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [ módulo venv](https://pypi.python.org/pypi/virtualenv). Instale o virtualenv para o Python 2.7.
+* A recomendação geral para o desenvolvimento em Python é usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv). Instale o virtualenv para o Python 2.7.
 ```
 python -m venv mytestenv
 ```
@@ -325,4 +325,4 @@ O código a seguir envia um token de insights de imagem no parâmetro knowledgeR
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Exemplos de SDK do .NET dos serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Exemplos de SDK do .NET dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

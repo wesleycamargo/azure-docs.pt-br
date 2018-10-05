@@ -1,26 +1,27 @@
 ---
-title: Azure Content Moderator - Fluxos de trabalho de moderação de conteúdo no console de API | Microsoft Docs
+title: Fluxos de trabalho de moderação de conteúdo no console da API – Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Saiba como usar fluxos de trabalho de moderação de conteúdo no console do API.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: sajagtap
-ms.openlocfilehash: 700b2bea5e902141659266a94d61ceb810c1b802
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4ef8951b30fa7aede08a1af3c834192b5ed18649
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363482"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223843"
 ---
 # <a name="workflows-from-the-api-console"></a>Fluxo de trabalho do console de API
 
 Use as [operações de fluxo de trabalho](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) no Content Moderator do Azure para criar ou atualizar um fluxo de trabalho ou obter os detalhes de fluxo de trabalho usando a API de Revisão. Você pode definir expressões simples, complexas e inclusive aninhadas para os fluxos de trabalho usando essa API. Os fluxos de trabalho aparecem na ferramenta de análise para sua equipe usar. Os fluxos de trabalho também são usados por operações de trabalho da API de Revisão.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Vá para a [ferramenta de análise](https://contentmoderator.cognitive.microsoft.com/). Inscreva-se, caso ainda não tenha feito isso. 
 2. Na ferramenta de análise, em **Configurações**, selecione a guia **Fluxos de trabalho**, como mostra o [tutorial do fluxo de trabalho](Review-Tool-User-Guide/Workflows.md) da ferramenta de análise.

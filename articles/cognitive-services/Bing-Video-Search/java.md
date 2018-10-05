@@ -1,32 +1,33 @@
 ---
-title: Início rápido do Java para Serviços Cognitivos do Azure, API de Pesquisa de Vídeo do Bing | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Vídeo do Bing nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: API de Pesquisa de Vídeo do Bing, Java'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Vídeo do Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: db9bc353c86565956881c90ce3a3b6275e1b8771
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ec5aa9e832a24fcd3b029727217bffb3b4d94e0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364404"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223229"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-java"></a>Início rápido da API de Pesquisa de Vídeo do Bing com Java
+# <a name="quickstart-bing-video-search-api-with-java"></a>Início Rápido: API de Pesquisa de Vídeo do Bing com o Java
 
 Este artigo mostra como usar a API de Pesquisa do Bing, parte dos Serviços Cognitivos da Microsoft no Azure. Embora este artigo utilize o Java, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
 
 O exemplo de código foi gravado para ser executado no Java 7 como um aplicativo de console.
 
-Consulte a [Referência de API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) para obter detalhes técnicos sobre as APIs.
+Veja a [referência de API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) para obter detalhes técnicos sobre as APIs.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. Você precisará ter a chave de acesso fornecida ao ativar a avaliação gratuita ou poderá usar uma chave de assinatura paga no painel do Azure.
+É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. Você precisará ter a chave de acesso fornecida ao ativar a avaliação gratuita ou poderá usar uma chave de assinatura paga no painel do Azure.
 
 ## <a name="bing-video-search"></a>Pesquisa de vídeo do Bing
 
@@ -35,7 +36,7 @@ A [API de Pesquisa de Vídeo do Bing](https://docs.microsoft.com/rest/api/cognit
 1. Baixe ou instale a [biblioteca gson](https://github.com/google/gson).
 2. Crie um projeto Java em seu IDE ou editor favorito.
 3. Adicione o código fornecido abaixo.
-4. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a assinatura.
+4. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua assinatura.
 5. Execute o programa.
 
 ```java

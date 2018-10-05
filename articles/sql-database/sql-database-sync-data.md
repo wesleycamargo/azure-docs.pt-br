@@ -2,20 +2,22 @@
 title: Sincronização de Dados SQL do Azure | Microsoft Docs
 description: Esta visão geral apresenta a Sincronização de Dados SQL do Azure
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
-ms.custom: data-sync
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/09/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: ba1fdcf64592bdfe23195e781a21d7a2db693325
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+manager: craigg
+ms.date: 08/09/2018
+ms.openlocfilehash: ae7ac2726ccb97264b387eb9ae5476ae1946a783
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146091"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161974"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL
 
@@ -47,9 +49,9 @@ Um Grupo de Sincronização tem as seguintes propriedades:
 
 ## <a name="when-to-use-data-sync"></a>Quando usar a Sincronização de Dados
 
-A Sincronização de Dados é útil em casos onde os dados precisam ser atualizados em vários Bancos de Dados SQL do Microsoft Azure ou bancos de dados do Microsoft SQL Server. Estes são os casos de uso principais para Sincronização de Dados:
+A Sincronização de Dados é útil nos casos em que os dados precisam ser mantidos atualizados em vários bancos de dados SQL do Azure ou bancos de dados do SQL Server. Estes são os casos de uso principais para Sincronização de Dados:
 
--   **Sincronização de Dados Híbrida:** com a Sincronização de Dados, você pode manter os dados sincronizados entre seus bancos de dados local e os Bancos de Dados SQL do Azure para habilitar aplicativos híbridos. Esse recurso pode ser atraente para clientes que estejam avaliando a mudança para a nuvem e gostariam de colocar alguns dos seus aplicativos no Azure.
+-   **Sincronização de Dados Híbrida:** com a Sincronização de Dados, você pode manter os dados sincronizados entre os bancos de dados locais e os bancos de dados SQL do Azure para habilitar aplicativos híbridos. Esse recurso pode ser atraente para clientes que estejam avaliando a mudança para a nuvem e gostariam de colocar alguns dos seus aplicativos no Azure.
 
 -   **Aplicativos Distribuídos:** Em muitos casos, é útil separar diferentes cargas de trabalho em bancos de dados diferentes. Por exemplo, se você tiver um banco de dados de produção grande, mas você também precisa executar uma carga de trabalho de relatório ou análise de dados, é útil ter um segundo banco de dados para essa carga de trabalho adicional. Essa abordagem minimiza o impacto no desempenho da sua carga de trabalho de produção. Você pode usar a Sincronização de Dados para manter esses dois bancos de dados sincronizados.
 

@@ -1,25 +1,26 @@
 ---
-title: Adicionar intenções em aplicativos do LUIS | Microsoft Docs
-description: Use Reconhecimento vocal (LUIS) para adicionar intenções para ajudar os aplicativos a entenderem as solicitações do usuário e reagir a elas corretamente.
+title: Adicionar intenções a aplicativos do LUIS
+titleSuffix: Azure Cognitive Services
+description: Adicione intenções ao seu aplicativo do LUIS para identificar grupos de perguntas ou comandos que têm as mesmas intenções.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 9b7207a16a89e48ad64b2dbc48a5293d0cf8aa25
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225879"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036075"
 ---
 # <a name="manage-intents"></a>Gerenciar intenções 
 Adicionar [intenções](luis-concept-intent.md) ao seu aplicativo do LUIS para identificar grupos de perguntas ou comandos que têm as mesmas intenções. 
 
-Adicione e gerencie suas intenções da página **Intenções**, disponível em **Intenções** no painel esquerdo do LUIS. 
+As intenções são gerenciadas na seção **Build** na barra de ferramentas superior. Adicione e gerencie suas intenções da página **Intenções**, disponível no painel esquerdo. 
 
 O procedimento a seguir demonstra como adicionar a intenção "Bookflight" no aplicativo TravelAgent.
 
@@ -28,7 +29,6 @@ O procedimento a seguir demonstra como adicionar a intenção "Bookflight" no ap
 1. Abra o aplicativo (por exemplo, TravelAgent) clicando em seu nome na página **Meus Aplicativos** e clique em **Intenções** no painel esquerdo. 
 2. Na página **Intenções**, clique em **Criar nova intenção**.
 
-    ![Lista de intenções](./media/luis-how-to-add-intents/IntentsList.png)
 3. Na caixa de diálogo **Criar nova intenção**, digite o nome da intenção "BookFlight" e clique em **Concluído**.
 
     ![Adicionar intenção](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
@@ -105,7 +105,7 @@ Para excluir várias declarações:
 2. Selecione **Concluído** na caixa de diálogo **Excluir declarações?**.
 
 ## <a name="search-in-utterances-on-intent-page"></a>Pesquisar em declarações na página de intenções
-Em uma intenção, você pode procurar declarações que contêm texto (palavras ou frases). Por exemplo, você pode perceber um erro que envolve uma palavra específica e deseja localizar todos os exemplos que incluem essa palavra específica. 
+Você pode procurar enunciados que contêm texto (palavras ou frases) na lista de enunciados de intenção. Por exemplo, você pode perceber um erro que envolve uma palavra específica e deseja localizar todos os exemplos que incluem essa palavra específica. 
 
 1. Selecione o ícone de lupa na barra de ferramentas.
 

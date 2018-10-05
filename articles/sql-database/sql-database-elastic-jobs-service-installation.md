@@ -2,26 +2,34 @@
 title: Instalando trabalhos de banco de dados elástico | Microsoft Docs
 description: Percorra a instalação do recurso de trabalho elástico.
 services: sql-database
-manager: craigg
-author: ddove
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 5760ca693f347068e03770b348d88b3b2adbf678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 37052c86736a05012b9bb996f07bbf2568d7c879
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645605"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163148"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Visão geral de Instalando trabalhos de Banco de Dados Elástico
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+
 Os [**trabalhos de Banco de Dados Elástico**](sql-database-elastic-jobs-overview.md) podem ser instalados por meio do PowerShell ou pelo portal do Azure. Será possível obter acesso para criar e gerenciar trabalhos usando a API do PowerShell apenas se você instalar o pacote do PowerShell. Além disso, as APIs do PowerShell fornecem muito mais funcionalidade do que o portal neste momento.
 
 Se você já tiver instalado os **trabalhos de Banco de Dados Elástico** por meio do Portal usando um **pool elástico** existente, a versão prévia mais recente do Powershell incluirá scripts para atualizar sua instalação existente. É altamente recomendável atualizar sua instalação para a versão mais recente dos componentes dos **trabalhos de Banco de Dados Elástico** para aproveitar a nova funcionalidade exposta por meio das APIs do PowerShell.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure. Para obter uma avaliação gratuita, veja [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * PowerShell do Azure. Instale a versão mais recente usando o [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 * [Utilitário de Linha de Comando do NuGet](https://nuget.org/nuget.exe) é usado para instalar o pacote de trabalhos de Banco de Dados Elástico. Para obter mais informações, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
@@ -88,7 +96,7 @@ Os parâmetros fornecidos nesta chamada de exemplo podem ser modificados para as
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Fornece o objetivo de nível de serviço para uma edição Standard. O padrão desse parâmetro é S0. Valores de parâmetro S0/S1/S2/S3/S4/S6/S9/S12 são aceitos, o que faz com que o Banco de Dados SQL do Azure use o respectivo SLO. Para obter mais informações sobre SLOs do Banco de Dados SQL, consulte [Elastic Database jobs components and pricing (Preço e componentes de trabalhos do Banco de Dados Elástico)](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fornece o tamanho de computação para uma edição Standard. O padrão desse parâmetro é S0. Os valores de parâmetro S0/S1/S2/S3/S4/S6/S9/S12 são aceitos, que fazem com que o Banco de Dados SQL do Azure use o respectivo tamanho de computação. Para obter mais informações sobre os tamanhos de computação do Banco de Dados SQL, consulte [Preço e componentes de trabalhos do Banco de Dados Elástico](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>

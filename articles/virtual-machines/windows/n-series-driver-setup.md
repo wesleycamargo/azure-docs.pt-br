@@ -1,5 +1,5 @@
 ---
-title: Configuração de drivers da série N do Azure para Windows | Microsoft Docs
+title: Configuração de drivers de GPU da série N do Azure para Windows | Microsoft Docs
 description: Como configurar drivers de GPU NVIDIA para VMs da série N executando Windows Server ou Windows no Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50d9ea88afc0e7d96d71b2ab26c8a8489ae41fee
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a4d259c7f9a139b3c31d96e75d588c7be162189c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719637"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033234"
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>Configurar drivers de GPU para VMs da série N executando Windows 
-Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam o Windows, instale os drivers de GPU NVIDIA. A [Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) instala drivers CUDA ou GRID NVIDIA apropriados em VMs da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como modelos do Azure PowerShell ou do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) para saber quais são os sistemas operacionais compatíveis e as etapas de implantação.
+# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instalar drivers de GPU NVIDIA em VMs da série N que executam o Windows 
+
+Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam o Windows, é necessário instalar os drivers GPU NVIDIA. A [Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) instala drivers CUDA ou GRID NVIDIA apropriados em VMs da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como Azure PowerShell ou modelos do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) para saber quais são os sistemas operacionais compatíveis e as etapas de implantação.
 
 Se você optar por instalar os drivers de GPU manualmente, este artigo fornecerá os sistemas operacionais compatíveis, os drivers e as etapas de instalação e verificação. As informações de instalação manual de driver também estão disponíveis para [VMs do Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -38,7 +39,7 @@ Para especificações básicas, capacidades de armazenamento e detalhes de disco
 
 2. Baixe, extraia e instale o driver com suporte para o sistema operacional Windows.
 
-Em VMs NV do Azure, uma reinicialização é necessária após a instalação de drivers. Em VMs NC, uma reinicialização não é necessária.
+Uma reinicialização é necessária após a instalação do driver de GRID em uma VM. Uma reinicialização não é necessária após a instalação do driver de CUDA.
 
 ## <a name="verify-driver-installation"></a>Verificar a instalação de drivers
 
@@ -64,7 +65,7 @@ Para instalar a última extensão HpcVMDrivers versão 1.1 em uma VM compatível
   ```
   Para obter mais informações, consulte [Recursos e extensões da máquina virtual para Windows](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-A rede RDMA dá suporte ao tráfego da Interface de transmissão de mensagens (MPI) para aplicativos executados com [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) ou Intel MPI 5.x. 
+A rede RDMA dá suporte ao tráfego da Interface de transmissão de mensagens (MPI) para aplicativos executados com [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) ou Intel MPI 5.x. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

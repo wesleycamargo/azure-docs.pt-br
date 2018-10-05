@@ -2,26 +2,29 @@
 title: Consulta entre bancos de dados na nuvem com esquemas diferentes | Microsoft Docs
 description: como configurar consultas entre bancos de dados em partições verticais
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: 6b4dd9017c336c2034bac81ba92d219b511a38a4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 3d94a52aaafca91d45d7f1a6406d3f998fbffe9f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645748"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161753"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consultar entre bancos de dados na nuvem com esquemas diferentes (visualização)
 ![Consultar tabelas em bancos de dados diferentes][1]
 
 Bancos de dados particionados verticalmente usam diferentes conjuntos de tabelas diferentes bancos de dados. Isso significa que o esquema é diferente em bancos de dados diferentes. Por exemplo, todas as tabelas de inventário estão em um banco de dados, enquanto todas as tabelas relacionadas à contabilidade estão em um segundo banco de dados. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * O usuário deve ter a permissão para ALTERAR QUALQUER FONTE DE DADOS EXTERNA. Essa permissão está incluída na permissão ALTERAR BANCO DE DADOS.
 * As permissões para ALTERAR QUALQUER FONTE DE DADOS EXTERNA são necessárias para referenciar a fonte de dados subjacente.
 
@@ -45,7 +48,7 @@ A credencial é usada pela consulta elástica para se conectar aos bancos de dad
     [;]
 
 > [!NOTE]
-> Verifique se o `<username>` não inclui nenhum sufixo **"@servername"**. 
+> Verifique se o `<username>` não inclui nenhum sufixo **"\@servername"**. 
 >
 
 ## <a name="create-external-data-sources"></a>Criar fontes de dados externas

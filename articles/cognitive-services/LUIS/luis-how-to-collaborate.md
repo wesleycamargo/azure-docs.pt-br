@@ -1,38 +1,56 @@
 ---
-title: Colaborar com outros colaboradores em aplicativos LUIS no Azure | Microsoft Docs
-description: Saiba como colaborar com outros colaboradores em aplicativos LUIS (Reconhecimento vocal).
+title: Colaborar com outros colaboradores em aplicativos LUIS
+titleSuffix: Azure Cognitive Services
+description: Um proprietário de aplicativo pode adicionar colaboradores ao aplicativo. Esses colaboradores podem modificar o modelo, treinar e publicar o aplicativo.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 99f37cb6dc5e05fc5eb4bde09685435ee57fecc6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b7d108bfc0c4283e7856b93daba3f4f92af4cc5b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397768"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042186"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Como gerenciar autores e colaboradores 
 
-Você pode colaborar com outras pessoas em seu aplicativo LUIS. 
+Um proprietário de aplicativo pode adicionar colaboradores ao aplicativo. Esses colaboradores podem modificar o modelo, treinar e publicar o aplicativo. 
 
-## <a name="owner-and-collaborators"></a>Proprietário e colaboradores
-
-Um aplicativo tem um único autor, mas pode ter vários colaboradores. 
+<a name="owner-and-collaborators"></a>
 
 ## <a name="add-collaborator"></a>Adicionar colaborador
 
-Para permitir que os colaboradores editem seu aplicativo LUIS, na página **Configurações** do aplicativo LUIS, insira o email do colaborador e clique em **Adicionar colaborador**. Os colaboradores podem entrar e editar o aplicativo LUIS ao mesmo tempo em que você está trabalhando no aplicativo.
+Um aplicativo tem um único autor, mas pode ter vários colaboradores. Para permitir que os colaboradores editem o aplicativo LUIS, você deve adicionar o email que eles usam para acessar o portal do LUIS à lista de colaboradores. Depois que eles são adicionados, o aplicativo aparece no portal do LUIS deles.
 
-![Adicionar colaborador](./media/luis-how-to-collaborate/add-collaborator.png)
+1. Selecione **Gerenciar** no menu superior direito e selecione **Colaboradores** no menu esquerdo.
+
+2. Selecione **Adicionar Colaborador** na barra de ferramentas.
+
+    [![](./media/luis-how-to-collaborate/add-collaborator.png "Adicionar colaborador")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
+
+3. Insira o endereço de email que o colaborador usa para entrar no portal do LUIS.
+
+    ![Adicionar o endereço de email do colaborado](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
 
 ## <a name="transfer-of-ownership"></a>Transferência de propriedade
 
 Embora atualmente o LUIS não dê suporte à transferência de propriedade, você pode exportar seu aplicativo e outro usuário do LUIS pode importá-lo. Pode haver pequenas diferenças nas pontuações do LUIS entre os dois aplicativos. 
+
+## <a name="azure-active-directory-resources"></a>Recursos do Azure Active Directory
+
+Se você usar o Azure AD (Azure Active Directory) em sua organização, o LUIS precisará de permissão para acessar as informações sobre seus usuários quando eles quiserem usar o LUIS. Os recursos exigidos pelo LUIS são mínimos. 
+
+Você vê a descrição detalhada ao tentar se inscrever com uma conta que tem consentimento do administrador ou não precisa dele, como o consentimento do administrador:
+
+* Permite que você entre no aplicativo com sua conta organizacional e permite que o aplicativo leia seu perfil. Ele também permite que o aplicativo leia informações básicas da empresa.
+* Permite que o aplicativo veja e atualize seus dados, mesmo quando não estiver usando o aplicativo no momento.
+
+A primeira permissão concede permissão ao LUIS para ler dados de perfil básicos, como ID de usuário, email e nome. A segunda permissão é necessária para atualizar o token de acesso do usuário.
 
 ## <a name="azure-active-directory-tenant-user"></a>Usuário de locatário do Azure Active Directory
 
@@ -46,10 +64,11 @@ Segundo, o administrador do locatário faz logon no LUIS e verá uma caixa de di
 
 Se o administrador do locatário não fizer logon no LUIS, o administrador pode acessar [consentimento](https://account.activedirectory.windowsazure.com/r#/applications) para LUIS. 
 
-![Permissão do Azure Active Directory pelo website do aplicativo](./media/luis-how-to-account-settings/tenant-permissions.png)
+![Permissão do Azure Active Directory pelo website do aplicativo](./media/luis-how-to-collaborate/tenant-permissions.png)
 
 Se o administrador do locatário deseja que somente determinados usuários usem o LUIS, consulte este [blog de identidade](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
 
 ### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Contas de usuários com vários emails para colaboradores
 
 Se você adicionar colaboradores a um aplicativo LUIS, você está especificando o endereço de email exato que um colaborador necessita para usar LUIS como colaborador. Enquanto o Azure Active Directory (AD do Azure) permite que um único usuário tenha mais de uma conta de email usada alternadamente, LUIS exige que o usuário faça logon com o endereço de email especificado na lista do colaborador.
+

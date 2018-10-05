@@ -3,7 +3,7 @@ title: Recursos e extensões da VM do Azure para Windows | Microsoft Docs
 description: Saiba quais extensões estão disponíveis para as máquinas virtuais do Azure, agrupadas pelas funcionalidades fornecidas ou aperfeiçoadas.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc2433b8ac12bc1d485b6f23b56f356041e5128e
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: d7b183a5b87d5777609deac02e4424d9451e9643
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783093"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452489"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -66,7 +66,7 @@ Algumas extensões não têm suporte em todos os sistemas de operacionais e pode
 Os pacotes de extensão são baixados do repositório de extensão do Armazenamento do Microsoft Azure, e os carregamentos de status de extensão são postados no Armazenamento do Microsoft Azure. Se usar a versão com [suporte](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, você não precisará permitir o acesso ao Armazenamento do Microsoft Azure na região da VM, já que poderá usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente. Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Microsoft Azure nessa região por meio da VM.
 
 > [!IMPORTANT]
-> Se você tiver bloqueado o acesso a *168.63.129.1* usando o firewall de convidado, as extensões falharão independentemente das informações acima.
+> Se você tiver bloqueado o acesso a *168.63.129.16* usando o firewall convidado, as extensões falharão independentemente das informações acima.
 
 Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao Armazenamento do Microsoft Azure, você poderá permitir acesso usando Marcas de Serviço do NSG do Azure para [Armazenamento](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 

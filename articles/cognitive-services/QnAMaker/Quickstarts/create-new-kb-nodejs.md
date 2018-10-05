@@ -1,24 +1,26 @@
 ---
-title: Criar uma nova base de dados de conhecimento – início rápido em Node.js – para a API de QnA Maker da Microsoft (V4) – Serviços Cognitivos do Azure | Microsoft Docs
-description: Crie uma base de dados de conhecimento em Node.js para manter suas perguntas frequentes ou manuais de produto para que você possa começar a usar o QnA Maker.
+title: 'Início Rápido: API do Node.js – Criar uma base de dados de conhecimento – QnA Maker'
+description: Este início rápido orienta você pela criação programática de um exemplo de base de dados de conhecimento de QnA Maker, que será exibido no painel do Azure da sua conta da API dos serviços Cognitivos.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: cbf89aa3a10012ea2d99972c6a83dd351739c5a6
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 435c937e64d0befc5a3bf30f9d58ccd303247b9e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "43768492"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037296"
 ---
 # <a name="create-a-new-knowledge-base-in-nodejs"></a>Criar uma nova base de dados de conhecimento em Node.js
 
 Neste início rápido orienta você pela criação de um exemplo de base de dados de Conhecimento de QnA Maker, programaticamente, que será exibido no painel do Azure da sua conta da API dos serviços Cognitivos.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 Dois exemplos de URLs de perguntas frequentes são apresentados abaixo (em 'urls' de **req={}**) que fornecerão conteúdo. O QnA Maker extrai automaticamente perguntas e respostas do conteúdo semiestruturado, conforme explicado neste documento de [fontes de dados](../Concepts/data-sources-supported.md). Você também pode usar seus próprio URLs de perguntas frequentes neste guia de início rápido.
 

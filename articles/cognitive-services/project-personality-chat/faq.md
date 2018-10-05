@@ -1,26 +1,28 @@
 ---
-title: Perguntas frequentes sobre Chat de Personalidade – Serviços Cognitivos do Azure | Microsoft Docs
+title: Perguntas frequentes – Personality Chat
+titlesuffix: Azure Cognitive Services
 description: Perguntas frequentes sobre Chat de Personalidade
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
+ms.component: personality-chat
 ms.topic: faq
 ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
-ms.openlocfilehash: 5304b25672f9951e004876dfd19af75ea7d86502
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 274b232f321b3ad739d18a8580b4a178dbde633e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364766"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219814"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ## <a name="why-doesnt-this-answer-every-question-i-ask-it-like-other-chat-bots"></a>Por que isso não responde todas as perguntas que eu faço, como outros chat bots?
 
-O Projeto Chat de Personalidade melhorará um bot com conversa casual comum que demonstra personalidade e cria uma experiência de usuário mais completa. Ele não é projetado para realizar conversas longas sobre tópicos que não são relevantes para a função principal do bot. Embora ele pudesse responder a todas as conversas, ele foi restringindo, na versão beta, a domínios de conversa casual comum.
+O Projeto Chat de Personalidade melhorará um bot com conversa casual comum que demonstra personalidade e cria uma experiência de usuário mais completa. Ele não é projetado para realizar conversas longas sobre tópicos que não são relevantes para a função principal do bot. Embora ele possa responder a todas as conversas, ele fica restrito, na versão beta, a domínios de conversa casual comuns.
 
 ## <a name="how-can-i-customize-the-personality-to-suit-my-brand"></a>Como posso personalizar a personalidade de acordo com a minha marca?
 

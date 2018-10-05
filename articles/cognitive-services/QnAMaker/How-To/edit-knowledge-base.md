@@ -1,21 +1,21 @@
 ---
-title: Como editar uma base de dados de conhecimento - Serviços Cognitivos da Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Como editar uma base de dados de conhecimento
+title: Editar uma base de dados de conhecimento – QnA Maker
+titleSuffix: Azure Cognitive Services
+description: O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhecimento, fornecendo uma experiência de edição fácil de usar.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: eaa65bf3d257399fceadaa42f0d9ddbbf8afe234
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364255"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451877"
 ---
 # <a name="edit-a-knowledge-base"></a>Editar uma base de dados de conhecimento
 
@@ -30,8 +30,24 @@ O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhe
     ![Minhas Bases de Dados de Conhecimento](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
 2. Selecione uma base de dados de conhecimento específica para fazer edições nela.
+ 
+3. Clique em **Configurações**.
 
-3. Quando você terminar de fazer alterações à base de dados de conhecimento, clique em **Salvar e treinar** no canto superior direito da página para manter as alterações.    
+   Aqui você pode editar o campo obrigatório Nome do Serviço.
+  
+   Você pode adicionar novas URLs para adicionar um novo conteúdo de perguntas frequentes na base de dados de conhecimento clicando no link **Gerenciar base de dados de conhecimentos -> '+ Adicionar URL'**.
+   
+   Você pode excluir as URLs existentes clicando em **excluir ícone**.
+   
+   Se você quiser que a base de dados de conhecimento rastreie o conteúdo mais recente das URLs existentes, marque o nome da caixa de seleção **'Atualizar'** para atualizar a base de dados de conhecimentos com o conteúdo da URL mais recente.
+   
+Você pode adicionar o documento de arquivo com suporte na base de dados de conhecimento clicando em **Gerenciar base de dados de conhecimento -> '+ Adicionar Arquivo'**
+
+Você também pode importar qualquer base de dados de conhecimento existente clicando no botão **'Importar Base de Dados de Conhecimento'**. 
+   
+A atualização da base de dados de conhecimento depende do **tipo de preço de gerenciamento** usado durante a criação de serviço do QnA Maker associado à base de dados de conhecimento. Você também pode atualizar o tipo de gerenciamento no portal do Azure, se necessário.
+
+4. Quando você terminar de fazer alterações à base de dados de conhecimento, clique em **Salvar e treinar** no canto superior direito da página para manter as alterações.    
 
     ![Salvar e Treinar](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 

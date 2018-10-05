@@ -1,32 +1,33 @@
 ---
-title: Início Rápido de PHP para Serviços Cognitivos do Azure, API de Pesquisa de Vídeo do Bing | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Vídeo do Bing nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: Pesquisa de Vídeo do Bing, PHP'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Vídeo do Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 2e7dc1fc82f143b51461595f9c92294a359bdc62
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4e64771802564da1e1cb9efccef1ef63b38c2b80
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364400"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224708"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-php"></a>Início rápido para API de Pesquisa de Vídeo do Bing com PHP
+# <a name="quickstart-bing-video-search-api-with-php"></a>Início Rápido: API de Pesquisa de Vídeo do Bing com o PHP
 
 Este artigo mostra como usar a API de Pesquisa de Vídeo do Bing, parte dos Serviços Cognitivos da Microsoft no Azure. Embora este artigo utilize o PHP, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
 
 O código de exemplo foi gravado para funcionar no PHP 5.6.
 
-Consulte a [Referência de API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) para obter detalhes técnicos sobre as APIs.
+Veja a [referência de API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) para obter detalhes técnicos sobre as APIs.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. Você precisará ter a chave de acesso fornecida ao ativar a avaliação gratuita ou poderá usar uma chave de assinatura paga no painel do Azure.
+É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. Você precisará ter a chave de acesso fornecida ao ativar a avaliação gratuita ou poderá usar uma chave de assinatura paga no painel do Azure.
 
 ## <a name="bing-video-search"></a>Pesquisa de vídeo do Bing
 
@@ -35,7 +36,7 @@ A [API de Pesquisa de Vídeo do Bing](https://docs.microsoft.com/rest/api/cognit
 1. Verifique se o suporte a HTTP seguro está habilitado em `php.ini`, conforme descrito no comentário do código.
 2. Crie um projeto PHP em seu IDE ou editor favorito.
 3. Adicione o código fornecido abaixo.
-4. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
+4. Substitua o valor `accessKey` por uma chave de acesso válida para a sua assinatura.
 5. Execute o programa.
 
 ```php

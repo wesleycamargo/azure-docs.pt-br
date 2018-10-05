@@ -2,21 +2,22 @@
 title: Backups do Banco de Dados SQL do Azure automáticos e com redundância geográfica | Microsoft Docs
 description: O Banco de dados SQL cria automaticamente um backup de banco de dados local a cada poucos minutos e usa o armazenamento com redundância geográfica de acesso de leitura do Azure para redundância geográfica.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.workload: Active
-ms.date: 07/25/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ce7c41730bec4e014225fb8c744d029493f5ec2c
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+manager: craigg
+ms.date: 09/25/2018
+ms.openlocfilehash: 5c6ebfcb7eae52915af24fc67e9b3c774656149d
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246779"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181134"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre backups automáticos de Banco de Dados SQL
 
@@ -26,7 +27,7 @@ O Banco de Dados SQL cria automaticamente backups do banco de dados e usa o RA-G
 
 ## <a name="what-is-a-sql-database-backup"></a>O que é um backup de Banco de Dados SQL?
 
-O Banco de Dados SQL usa tecnologia SQL Server para criar backups [completos](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciais](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) e de [log de transações](https://msdn.microsoft.com/library/ms191429.aspx) para finalidades de PITR ( Recuperação Pontual). Os backups de log de transações geralmente ocorrem a cada 5 a 10 minutos e os backups diferenciais geralmente ocorrem a cada 12 horas, com a frequência baseada no nível de desempenho e na quantidade de atividade do banco de dados. Os backups de log de transações, com os backups completos e diferenciais, permitem restaurar um banco de dados para um ponto no tempo específico e para o mesmo servidor que hospeda o banco de dados. Os backups são armazenados em blobs de armazenamento RA-GRS que são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
+O Banco de Dados SQL usa tecnologia SQL Server para criar backups [completos](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciais](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) e de [log de transações](https://msdn.microsoft.com/library/ms191429.aspx) para finalidades de PITR ( Recuperação Pontual). Os backups de log de transações geralmente ocorrem a cada 5 a 10 minutos e os backups diferenciais geralmente ocorrem a cada 12 horas, com a frequência baseada no tamanho de computação e na quantidade de atividade do banco de dados. Os backups de log de transações, com os backups completos e diferenciais, permitem restaurar um banco de dados para um ponto no tempo específico e para o mesmo servidor que hospeda o banco de dados. Os backups são armazenados em blobs de armazenamento RA-GRS que são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
 
 
 Use esses backups para:
@@ -66,7 +67,7 @@ Se você aumentar o período de retenção de PITR atual, o Banco de Dados SQL m
 
 ## <a name="how-often-do-backups-happen"></a>Com que frequência os backups ocorrem?
 ### <a name="backups-for-point-in-time-restore"></a>Backups para a Recuperação Pontual
-O Banco de Dados SQL permite o autoatendimento para PITR (Recuperação Pontual) ao criar automaticamente o backup completo, backups diferenciais e backups de log de transações. Backups completos de banco de dados são criados semanalmente, backups diferenciais de banco de dados geralmente são criados a cada 12 horas e backups de log de transações geralmente são criados a cada 5 a 10 minutos, com a frequência baseada no nível de desempenho e na quantidade de atividade do banco de dados. O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Normalmente ele é concluído em 30 minutos, mas pode levar mais tempo quando o banco de dados tem um tamanho significativo. Por exemplo, o backup inicial pode levar mais tempo para um banco de dados restaurado ou uma cópia do banco de dados. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato de todos os backups de banco de dados é determinado pelo serviço do Banco de Dados SQL, pois ele equilibra a carga de trabalho geral do sistema.
+O Banco de Dados SQL permite o autoatendimento para PITR (Recuperação Pontual) ao criar automaticamente o backup completo, backups diferenciais e backups de log de transações. Os backups completos de banco de dados são criados semanalmente, os backups diferenciais de banco de dados geralmente são criados a cada 12 horas e os backups de log de transações geralmente são criados a cada 5 a 10 minutos, com a frequência baseada no tamanho de computação e na quantidade de atividade do banco de dados. O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Normalmente ele é concluído em 30 minutos, mas pode levar mais tempo quando o banco de dados tem um tamanho significativo. Por exemplo, o backup inicial pode levar mais tempo para um banco de dados restaurado ou uma cópia do banco de dados. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato de todos os backups de banco de dados é determinado pelo serviço do Banco de Dados SQL, pois ele equilibra a carga de trabalho geral do sistema.
 
 Os backups de PITR têm redundância geográfica e são protegidos pela [Replicação inter-regional do Armazenamento do Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -82,6 +83,10 @@ Para obter mais informações, confira [Retenção de backup de longo prazo](sql
 ## <a name="are-backups-encrypted"></a>Os backups são criptografados?
 
 Quando o banco de dados é criptografado com TDE, os backups são criptografados automaticamente em repouso, incluindo os backups de LTR. Quando a TDE está habilitada para um banco de dados SQL do Azure, os backups também são criptografados. Todos os novos bancos de dados SQL do Azure são configurados com TDE habilitada por padrão. Para obter mais informações sobre a TDE, confira [Transparent Data Encryption com o Banco de Dados SQL do Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+
+## <a name="how-does-microsoft-ensure-backup-integrity"></a>Como a Microsoft garante a integridade do backup
+
+Continuamente, a equipe de engenharia do Banco de Dados SQL do Azure testa automaticamente a restauração de backups de banco de dados automatizados entre o serviço. Após a restauração, os bancos de dados também recebem verificações de integridade usando DBCC CHECKDB. Os problemas encontrados durante a verificação de integridade resultarão em um alerta para a equipe de engenharia. Para obter mais informações sobre a integridade dos dados no Banco de Dados SQL do Azure, confira [Integridade dos dados no Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
 ## <a name="how-do-automated-backups-impact-my-compliance"></a>Como os backups automatizados afetam minha conformidade?
 

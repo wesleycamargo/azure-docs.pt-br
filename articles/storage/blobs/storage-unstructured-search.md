@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: eba2ef280e60693cfd4402348fe61b122cdccdf6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 902009d7807b1ce340000c271350af1c37231d77
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399849"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181185"
 ---
-# <a name="search-unstructured-data-in-cloud-storage"></a>Pesquisar dados não estruturados no armazenamento em nuvem
+# <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Tutorial: Pesquisar dados não estruturados no armazenamento em nuvem
 
 Neste tutorial, você aprenderá a pesquisar dados não estruturados usando o [Azure Search](../../search/search-what-is-azure-search.md) com dados armazenados em blobs do Azure. Os dados não estruturados são dados que não são organizados de maneira predefinida ou não têm um modelo de dados. Um exemplo seria um arquivo .txt.
 

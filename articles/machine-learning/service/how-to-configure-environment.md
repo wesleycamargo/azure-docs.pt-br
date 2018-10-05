@@ -9,14 +9,14 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 7796accffb7041e567c5e18857d09e105b5268ce
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 675dae022376fc62292f3b079bd735939b9199c2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961562"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220288"
 ---
-# <a name="how-to-configure-a-development-environment-for-the-azure-machine-learning-service"></a>Como configurar um ambiente de desenvolvimento para o serviço de aprendizado de máquina do Azure
+# <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Configurar um ambiente de desenvolvimento para o serviço Azure Machine Learning
 
 Aprenda a configurar seu ambiente de desenvolvimento para trabalhar com o serviço de Aprendizado de Máquina do Azure. Você aprenderá a criar um arquivo de configuração que associa seu ambiente a um espaço de trabalho do Azure Machine Learning. Você também aprenderá a configurar os seguintes ambientes de desenvolvimento:
 
@@ -39,17 +39,31 @@ A abordagem recomendada é usar o Continuum Anaconda [conda virtual environments
 
 O arquivo de configuração da área de trabalho é usado pelo SDK para se comunicar com a área de trabalho do serviço de Aprendizado de Máquina do Azure.  Há duas maneiras de obter esse arquivo:
 
-* Quando você completa o início rápido de [quickstart](quickstart-get-started.md), o arquivo `config.json` é criado para você nos blocos de anotações do Azure.  Este arquivo contém as informações de configuração para o seu espaço de trabalho.  Faça o download no mesmo diretório que os scripts ou blocos de anotações que fazem referência a ele.
+* Conclua o [Início Rápido](quickstart-get-started.md) para criar um workspace e um arquivo de configuração. O arquivo `config.json` é criado para você em Azure Notebooks.  Este arquivo contém as informações de configuração para o seu espaço de trabalho.  Baixe ou copie-o no mesmo diretório que os scripts ou blocos de anotações que o referenciam.
+
 
 * Crie o arquivo de configuração você mesmo com as seguintes etapas:
 
     1. Abra seu espaço de trabalho na [portal do Azure](https://portal.azure.com). Cópia de __nome do espaço de trabalho__, __grupo de recursos__, e __ID da assinatura__. Esses valores são usados para criar o arquivo de configuração.
 
-       O painel de espaço de trabalho do portal é suportado apenas nos navegadores Edge, Chrome e Firefox.
-    
         ![Portal do Azure](./media/how-to-configure-environment/configure.png) 
     
-    3. Em um editor de texto, crie um arquivo chamado **config.json**.  Adicione o seguinte conteúdo a esse arquivo, inserindo seus valores no portal:
+    1. Crie o arquivo com esse código Python. Execute o código no mesmo diretório que os scripts ou blocos de anotações que referenciam o workspace:
+        ```
+        from azureml.core import Workspace
+
+        subscription_id ='<subscription-id>'
+        resource_group ='<resource-group>'
+        workspace_name = '<workspace-name>'
+        
+        try:
+           ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)
+           ws.write_config()
+           print('Library configuration succeeded')
+        except:
+           print('Workspace not found')
+        ```
+        Isso grava o seguinte arquivo `aml_config/config.json`: 
     
         ```json
         {
@@ -58,12 +72,11 @@ O arquivo de configuração da área de trabalho é usado pelo SDK para se comun
         "workspace_name": "<workspace-name>"
         }
         ```
-    
-        >[!NOTE] 
-        >Posteriormente no seu código, você lê este arquivo com: `ws = Workspace.from_config()`
-    
-    4. Certifique-se de salvar **config.json** no mesmo diretório que os scripts ou blocos de notas que fazem referência a ele.
-    
+        Copie o diretório `aml_config` ou apenas o arquivo `config.json` em outro diretório que referencie o workspace.
+
+>[!NOTE] 
+>Outros scripts ou blocos de anotações no mesmo diretório ou abaixo serão carregados com o workspace `ws=Workspace.from_config()`
+
 ## <a name="azure-notebooks-and-data-science-virtual-machine"></a>Computadores portáteis do Azure e máquina virtual de dados de ciência
 
 Os Notebooks do Azure e as Máquinas Virtuais do Windows Azure Data Science (DSVM) são pré-configurados para funcionar com o serviço de Aprendizado de Máquina do Azure. Os componentes necessários, como o SDK do Aprendizado de Máquina do Azure, são pré-instalados nesses ambientes.
@@ -98,7 +111,7 @@ Para obter um exemplo do uso de Azure Notebooks com o serviço de Aprendizado de
 3. Para instalar o SDK do Aprendizado de Máquina do Azure com extras de notebook, use o seguinte comando:
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl,contrib]
+    pip install --upgrade azureml-sdk[notebooks,automl]
     ```
 
     Pode levar vários minutos para instalar o SDK.
@@ -155,7 +168,7 @@ Para obter um exemplo do uso de Azure Notebooks com o serviço de Aprendizado de
 2. Para instalar o SDK do Aprendizado de Máquina do Azure, use o seguinte comando:
  
     ```shell
-    pip install --upgrade azureml-sdk[automl,contrib]
+    pip install --upgrade azureml-sdk[automl]
     ```
 
 4. Para instalar o código do Visual Studio Tools for AI, consulte a entrada do mercado do Visual Studio para [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai). 

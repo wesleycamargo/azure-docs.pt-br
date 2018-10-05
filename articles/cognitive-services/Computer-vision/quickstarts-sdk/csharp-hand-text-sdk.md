@@ -1,25 +1,27 @@
 ---
-title: Início rápido de C# da API de Pesquisa Visual Computacional – texto manuscrito do sdk | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, você extrai texto manuscrito de uma imagem usando a biblioteca de clientes C# do Windows de Pesquisa Visual Computacional nos Serviços Cognitivos.
+title: 'Início Rápido: extrair texto – SDK, C# – Pesquisa Visual Computacional'
+titleSuffix: Azure Cognitive Services
+description: Neste Início Rápido, você extrai texto de uma imagem usando a biblioteca de clientes C# do Windows da Pesquisa Visual Computacional.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 7eb87e3d4b1703bf1ee0e30c930b0bc724b7f22f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/27/2018
+ms.author: nolachar
+ms.openlocfilehash: 86808756721b2dc983df6eaf8a9e643a12d73969
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43768567"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408996"
 ---
-# <a name="quickstart-extract-handwritten-text---sdk-c35"></a>Início Rápido: Extrair texto manuscrito – SDK, C&#35;
+# <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Início Rápido: Extrair texto usando o SDK da Pesquisa Visual Computacional e C#
 
-Neste início rápido, você extrai texto manuscrito de uma imagem usando a biblioteca de clientes do Windows de Pesquisa Visual Computacional.
+Neste Início Rápido, você pode extrair texto manuscrito ou impresso de uma imagem usando a biblioteca de clientes do Windows da Pesquisa Visual Computacional.
+
+O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +31,7 @@ Neste início rápido, você extrai texto manuscrito de uma imagem usando a bibl
 
 ## <a name="recognizetextasync-method"></a>Método RecognizeTextAsync
 
-Os métodos `RecognizeTextAsync` e `RecognizeTextInStreamAsync` encapsulam a [API de Reconhecimento de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) para imagens locais e remotas, respectivamente. O método `GetTextOperationResultAsync` encapsula a [Obter API de Resultados da Operação de Reconhecimento de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201).  Você pode usar esses métodos para detectar texto manuscrito em uma imagem e extrair os caracteres reconhecidos para um fluxo de caracteres utilizável por computador.
+Os métodos `RecognizeTextAsync` e `RecognizeTextInStreamAsync` encapsulam a [API de Reconhecimento de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) para imagens locais e remotas, respectivamente. O método `GetTextOperationResultAsync` encapsula a [Obter API de Resultados da Operação de Reconhecimento de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201).  Você pode usar esses métodos para detectar texto em uma imagem e extrair os caracteres reconhecidos para um fluxo de caracteres utilizável por computador.
 
 Para executar a amostra, siga estas etapas:
 
@@ -40,7 +42,8 @@ Para executar a amostra, siga estas etapas:
     1. Selecione **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** quando ela for exibida, então clique na caixa de seleção ao lado do nome do seu projeto e escolha **Instalar**.
 1. Substitua `Program.cs` pelo código a seguir.
 1. Substitua `<Subscription Key>` pela sua chave de assinatura válida.
-1. Altere `computerVision.AzureRegion = AzureRegions.Westcentralus` para o local do qual você obteve suas chaves de assinatura, se necessário.
+1. Altere `computerVision.Endpoint` para a região do Azure associada às suas chaves de assinatura, se necessário.
+1. Se desejar, defina `textRecognitionMode` para `TextRecognitionMode.Printed`.
 1. Substitua `<LocalImage>` pelo nome de arquivo e caminho de uma imagem local.
 1. Opcionalmente, defina `remoteImageUrl` para uma imagem diferente.
 1. Execute o programa.
@@ -53,12 +56,16 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace ImageHandText
+namespace ExtractText
 {
     class Program
     {
         // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
         private const string subscriptionKey = "<SubscriptionKey>";
+
+        // For printed text, change to TextRecognitionMode.Printed
+        private const TextRecognitionMode textRecognitionMode =
+            TextRecognitionMode.Handwritten;
 
         // localImagePath = @"C:\Documents\LocalImage.jpg"
         private const string localImagePath = @"<LocalImage>";
@@ -72,33 +79,33 @@ namespace ImageHandText
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
+            ComputerVisionClient computerVision = new ComputerVisionClient(
                 new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             Console.WriteLine("Images being analyzed ...");
-            var t1 = ExtractRemoteHandTextAsync(computerVision, remoteImageUrl);
-            var t2 = ExtractLocalHandTextAsync(computerVision, localImagePath);
+            var t1 = ExtractRemoteTextAsync(computerVision, remoteImageUrl);
+            var t2 = ExtractLocalTextAsync(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 
         // Recognize text from a remote image
-        private static async Task ExtractRemoteHandTextAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+        private static async Task ExtractRemoteTextAsync(
+            ComputerVisionClient computerVision, string imageUrl)
         {
             if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
             {
@@ -108,15 +115,16 @@ namespace ImageHandText
             }
 
             // Start the async process to recognize the text
-            RecognizeTextHeaders textHeaders = await computerVision.RecognizeTextAsync(
-                    imageUrl, TextRecognitionMode.Handwritten);
+            RecognizeTextHeaders textHeaders =
+                await computerVision.RecognizeTextAsync(
+                    imageUrl, textRecognitionMode);
 
             await GetTextAsync(computerVision, textHeaders.OperationLocation);
         }
 
         // Recognize text from a local image
-        private static async Task ExtractLocalHandTextAsync(
-            ComputerVisionAPI computerVision, string imagePath)
+        private static async Task ExtractLocalTextAsync(
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {
@@ -130,7 +138,7 @@ namespace ImageHandText
                 // Start the async process to recognize the text
                 RecognizeTextInStreamHeaders textHeaders =
                     await computerVision.RecognizeTextInStreamAsync(
-                        imageStream, TextRecognitionMode.Handwritten);
+                        imageStream, textRecognitionMode);
 
                 await GetTextAsync(computerVision, textHeaders.OperationLocation);
             }
@@ -138,7 +146,7 @@ namespace ImageHandText
 
         // Retrieve the recognized text
         private static async Task GetTextAsync(
-            ComputerVisionAPI computerVision, string operationLocation)
+            ComputerVisionClient computerVision, string operationLocation)
         {
             // Retrieve the URI where the recognized text will be
             // stored from the Operation-Location header
@@ -165,7 +173,7 @@ namespace ImageHandText
             // Display the results
             Console.WriteLine();
             var lines = result.RecognitionResult.Lines;
-            foreach(Line line in lines)
+            foreach (Line line in lines)
             {
                 Console.WriteLine(line.Text);
             }
@@ -179,7 +187,7 @@ namespace ImageHandText
 
 Uma resposta bem-sucedida exibe as linhas do texto reconhecido para cada imagem.
 
-Veja [Inícios Rápidos de API: extrair texto manuscrito com C#](../QuickStarts/CSharp-hand-text.md#recognize-text-response) para obter um exemplo de saída JSON bruta.
+Veja [Início Rápido: Extrair texto manuscrito – REST, C#](../QuickStarts/CSharp-hand-text.md#examine-the-response) para obter um exemplo de saída JSON bruta.
 
 ```cmd
 Calling GetHandwritingRecognitionOperationResultAsync()

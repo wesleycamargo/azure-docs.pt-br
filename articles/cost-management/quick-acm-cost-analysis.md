@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2018
+ms.date: 09/21/2018s
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0e94392b882d111d925c864feb9aaeb54bae4e2a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980399"
+ms.locfileid: "47041533"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início rápido: explore e analise custos com análise de custos
 
@@ -23,7 +23,7 @@ Antes de poder controlar e otimizar adequadamente seus custos do Azure, você pr
 
 Neste início rápido, você usa a análise de custo para explorar e analisar seus custos organizacionais. Você pode visualizar os custos agregados por organização para entender onde os custos ocorrem ao longo do tempo e identificar tendências de gastos. Você pode visualizar os custos acumulados ao longo do tempo para estimar as tendências de custo mensais, trimestrais ou mesmo anuais em comparação a um orçamento. Um orçamento ajuda o provedor a aderir às restrições financeiras. E um orçamento é usado para visualizar os custos diários ou mensais para isolar as irregularidades de gastos. E, então, você pode baixar dados do relatório atual para análise posterior ou para usar em um sistema externo.
 
-Neste início rápido, você aprenderá como
+Neste guia de início rápido, você aprende a:
 
 - Examine os custos de análise de custo
 - Personalizar as exibições de custo
@@ -32,11 +32,15 @@ Neste início rápido, você aprenderá como
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A análise de custos está disponível para todos os clientes do Enterprise Agreement (EA). Você deve ter acesso de leitura a pelo menos um dos seguintes escopos para visualizar os dados de custo.
+A análise de custo está disponível para todos os clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/). Você precisa ter acesso de leitura a pelo menos um ou mais dos seguintes escopos para exibir os dados de custo.
 
-- EA do Azure (registro) da conta de cobrança
-- Assinatura de EA do Azure
-- Grupo de recursos de assinatura de EA do Azure
+- Conta de cobrança
+- department
+- Conta de registro
+- Grupo de gerenciamento
+- Assinatura
+- Grupo de recursos
+
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -44,7 +48,11 @@ A análise de custos está disponível para todos os clientes do Enterprise Agre
 
 ## <a name="review-costs-in-cost-analysis"></a>Examine os custos de análise de custo
 
-Para analisar seus custos com a análise de custos, abra o Portal do Azure e navegue para **Gerenciamento de Custos + Faturamento** &gt; **Contas de faturamento** &gt; selecione sua conta de faturamento do EA &gt; em Gerenciamento de Custos , selecione **Análise de custo**.
+Para examinar os custos com análise de custo, no portal do Azure, navegue até **Gerenciamento de Custos + Cobrança** &gt; **Gerenciamento de Custos** &gt; **Alterar escopo**, escolha um escopo e, em seguida, clique em **Selecionar**.
+
+O escopo que você seleciona é usado em todo o Gerenciamento de Custos para fornecer a consolidação de dados e para controlar o acesso a informações de custo. Ao usar escopos, você não faz multisseleção. Você seleciona um escopo mais amplo com o acúmulo de outros e, em seguida, filtra o que deseja. Isso é importante para entender porque algumas pessoas não devem ter acesso a um escopo pai acumulado por escopos filho.
+
+Clique em **Abrir análise de custo**.
 
 A visão inicial da análise de custos inclui as seguintes áreas:
 

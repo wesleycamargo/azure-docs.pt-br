@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/20/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2c2dd2208cf910456fa8f94ca739b7ef8875d475
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: df32ed7a6d3bc0c9e349f576f5f48832bf9906dd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354315"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041914"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>O conjunto errado de usuários está sendo provisionado para um aplicativo da Galeria do Azure AD
 
@@ -109,7 +109,7 @@ Se o provisionamento estiver configurado e em execução para um aplicativo, nov
 >
 >
 
-Se o provisionamento de grupos estiver habilitado, certifique-se de rever os mapeamentos de atributos para garantir que um campo apropriado esteja sendo usado para a "ID correspondente". Este pode ser o nome de exibição ou alias de email, uma vez que o grupo e seus membros não serão provisionados se a propriedade correspondente estiver vazia ou não for preenchida para um grupo no Azure AD.
+Se o provisionamento de grupos é habilitado, certifique-se de rever os mapeamentos de atributos para garantir que um campo apropriado está sendo usado para a "ID correspondente". Essa ID correspondente pode ser o nome de exibição ou o alias do email. O grupo e seus membros não serão provisionados se a propriedade correspondente estiver vazia ou não for populada para um grupo no Microsoft Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](user-provisioning.md)

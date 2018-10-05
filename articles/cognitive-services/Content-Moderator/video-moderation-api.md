@@ -1,26 +1,27 @@
 ---
-title: Azure Content Moderator – moderação de vídeo | Microsoft Docs
+title: Moderação de vídeo – Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Use moderação de vídeo para verificar possível conteúdo para adulto.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: sajagtap
-ms.openlocfilehash: ef58f5990d4a0a19ab2b8c61b42ab2a0754dc6fa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b6240ef0883e1a523c50c9b641065deb2669d53
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364590"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226528"
 ---
 # <a name="video-moderation"></a>Moderação de vídeo
 
 Hoje, visualizadores online geram bilhões de exibições de vídeo em sites da mídia social regionais e populares, e esse número está aumentando. Aplicando serviços com base de aprendizado de máquina para prever possível conteúdo adulto e estimulante, você reduz o custo de seus esforços de moderação.
 
-## <a name="sign-up-for-the-content-moderator-media-processor-public-preview"></a>Inscreva-se para o processador de mídia do Content Moderator (versão prévia pública)
+## <a name="sign-up-for-the-content-moderator-media-processor-preview"></a>Inscrever-se no processador de mídia do Content Moderator (versão prévia)
 
 ### <a name="create-a-free-azure-account"></a>Criar uma conta gratuita do Azure
 
@@ -54,7 +55,7 @@ Use o [Gerenciador de AMS (Serviços de Mídia do Azure)](https://azure.microsof
 
    No código de exemplo, dê ao projeto o nome de **VideoModeration**.
 
-1. Selecione esse projeto como o único projeto de inicialização para a solução.
+1. Escolha esse projeto como o único projeto de inicialização para a solução.
 
 ### <a name="install-required-packages"></a>Instalar os pacotes necessários
 
@@ -368,8 +369,8 @@ Depois que o trabalho de Moderação de Conteúdo estiver concluído, analise a 
 
 > - `adultScore` representa a presença em potencial e a pontuação de previsão do conteúdo que pode ser considerado sexualmente explícito ou adulto em determinadas situações.
 > - `racyScore` representa a presença em potencial e a pontuação de previsão do conteúdo que pode ser considerado sexualmente sugestivo ou maduro em determinadas situações.
-> - `adultScore` e `racyScore` estão entre 0 e 1. Quanto maior a pontuação, maior o modelo estará prevendo que a categoria pode ser aplicável. Essa versão prévia se baseia em um modelo estatístico, em vez de em resultados codificados manualmente. É recomendável testar com o seu próprio conteúdo para determinar como cada categoria se alinha aos seus requisitos.
-> - `reviewRecommended` é true ou false, dependendo dos limites da pontuação interna. Os clientes devem avaliar se desejam usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
+> - `adultScore` e `racyScore` estão entre 0 e 1. Quanto maior a pontuação, maior o modelo estará prevendo que a categoria pode ser aplicável. Essa visualização se baseia em um modelo estatístico, em vez dos resultados codificados manualmente. É recomendável testar com seu próprio conteúdo para determinar como cada categoria se alinha com seus requisitos.
+> - `reviewRecommended` é verdadeiro ou falso, dependendo dos limites internos da pontuação. Os clientes devem avaliar se é para usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
 >
 
     {

@@ -1,20 +1,21 @@
 ---
-title: SDKs do Content Moderation e exemplos para o Azure Content Moderator | Microsoft Docs
+title: SDKs e exemplos – Content Moderator, Python, Java, Node.js e .NET
+titlesuffix: Azure Cognitive Services
 description: Obter SDKs e exemplos para Content Moderator
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: sample
 ms.date: 02/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 40b8fc0f63383e837f0813f876f20806e6e8c6eb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a57f6a312b00d7ec3d927c6fda319f1de8663c9c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363470"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220441"
 ---
 # <a name="content-moderator-sdks-and-samples"></a>SDKs do Content Moderator e exemplos
 
@@ -64,7 +65,7 @@ Veja todos os exemplos de .NET nos [Exemplos amostras de .NET do Content Moderat
 - [Análises de imagem](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageReviews)
 - [Trabalhos de imagem](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageJob)
 
-Para obter explicações passo a passo desses exemplos, consulte o [webinar sob demanda](https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html).
+Para obter explicações passo a passo desses exemplos, confira o [webinar sob demanda](https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html).
 
 ## <a name="tutorials"></a>Tutoriais
 - [Moderação de catálogo de comércio eletrônico](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration). Consulte o [tutorial](ecommerce-retail-catalog-moderation.md).

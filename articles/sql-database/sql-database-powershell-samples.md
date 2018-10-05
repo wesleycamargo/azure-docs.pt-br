@@ -2,23 +2,22 @@
 title: Exemplos de script do Azure PowerShell para Banco de Dados SQL | Microsoft Docs
 description: Exemplos de script do Azure PowerShell para ajudá-lo a criar e gerenciar servidores de Banco de Dados SQL do Azure, pools elásticos, bancos de dados e firewalls.
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: tysonn
-tags: azure-service-management
 ms.service: sql-database
-ms.custom: overview-samples, mvc
+ms.subservice: development
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-ms.date: 07/16/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 81f39c2ecc014ee53dcff2fab88ff0f890e1a610
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 87b020e74e9eaee9a5e20acd3bb84d48e40273c6
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091874"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163691"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Amostras do Azure PowerShell para o Banco de Dados SQL do Azure
 
@@ -28,14 +27,15 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 |---|---|
 |**Criar um banco de dados individual e um pool elástico**||
 | [Criar um Banco de Dados individual e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este exemplo de script do PowerShell cria um Banco de Dados SQL do Azure e configura uma regra de firewall no nível do servidor. |
-| [Criar pools Elásticos e mover bancos de dados em pools](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell cria pools elásticos do Banco de Dados SQL do Azure, move os bancos de dados em pool e altera os níveis de desempenho.|
+| [Criar pools Elásticos e mover bancos de dados em pools](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell cria pools elásticos do Banco de Dados SQL do Azure, move os bancos de dados em pool e altera os tamanhos de computação.|
+| [Criar e gerenciar uma Instância Gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Esses scripts da CLI mostram que você precisa criar e gerenciar uma instância gerenciada usando o Azure PowerShell |
 |**Configurar a replicação geográfica e o failover**||
 | [Configurar e fazer failover de um banco de dados individual usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell configura a replicação geográfica ativa para um único Banco de Dados SQL do Azure e faz o failover desse banco de dados para a réplica secundária. |
 | [Configurar e fazer failover de um banco de dados em pool usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell configura a replicação geográfica ativa para um único Banco de Dados SQL do Azure em um pool elástico SQL e faz o failover dele para a réplica secundária. |
 | [Configurar e fazer failover de um grupo de failover para um banco de dados individual](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell configura um grupo de failover para uma instância de servidor de Banco de Dados SQL do Azure, adiciona um banco de dados ao grupo de failover e realiza o failover dele para o servidor secundário |
 |**Dimensionar um banco de dados individual e um pool elástico**||
-| [Dimensionar um banco de dados individual](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitora as métricas de desempenho de um Banco de Dados SQL do Azure, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho. |
-| [Dimensionar um pool elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitora as métricas de desempenho de um pool elástico do Banco de Dados SQL do Azure, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho.  |
+| [Dimensionar um banco de dados individual](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitora as métricas de desempenho de um Banco de Dados SQL do Azure, dimensiona-o para um tamanho de computação mais alto e cria uma regra de alerta em uma das métricas de desempenho. |
+| [Dimensionar um pool elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitora as métricas de desempenho de um pool elástico do Banco de Dados SQL do Azure, dimensiona-o para um tamanho de computação mais alto e cria uma regra de alerta em uma das métricas de desempenho.  |
 | **Auditoria e detecção de ameaças** |
 | [Configurar auditoria e detecção de ameaças](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell configura políticas de detecção de ameaças e auditoria para um Banco de Dados SQL do Azure. |
 | **Restaurar, copiar e importar um banco de dados**||

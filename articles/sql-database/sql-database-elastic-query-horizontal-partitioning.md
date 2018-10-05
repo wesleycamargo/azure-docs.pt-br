@@ -2,20 +2,22 @@
 title: Relatórios entre bancos de dados em nuvem expandidos | Microsoft Docs
 description: como configurar consultas elásticas em partições horizontais
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: fcb498542a496e4a887c825808642d3f586ef1d9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 906c6825dbfdf7d4873c765d0b3eba626ef52e1b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646347"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159356"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados em nuvem expandidos (visualização)
 ![Consultar em fragmentos][1]
@@ -26,7 +28,7 @@ Para um início rápido, confira [Relatórios entre bancos de dados em nuvem exp
 
 Para bancos de dados não fragmentados, consulte [Query across cloud databases with different schemas (Consulta entre bancos de dados na nuvem com esquemas diferentes)](sql-database-elastic-query-vertical-partitioning.md). 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Crie um mapa de fragmentos usando a biblioteca de cliente do banco de dados elástico. Confira [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). Ou use o aplicativo de exemplo em [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
 * Como alternativa, confira [Migrar bancos de dados existentes para bancos de dados expandidos](sql-database-elastic-convert-to-use-elastic-tools.md).
 * O usuário deve ter a permissão para ALTERAR QUALQUER FONTE DE DADOS EXTERNA. Essa permissão está incluída na permissão ALTERAR BANCO DE DADOS.
@@ -49,7 +51,7 @@ A credencial é usada pela consulta elástica para se conectar aos bancos de dad
     [;]
 
 > [!NOTE]
-> Certifique-se de que o *"\<nome de usuário\>"* não inclui nenhum sufixo *"@servername"*. 
+> Verifique se o *"\<username\>"* não inclui nenhum sufixo *"\@servername"*. 
 > 
 > 
 

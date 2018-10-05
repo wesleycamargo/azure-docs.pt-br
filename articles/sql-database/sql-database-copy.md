@@ -2,19 +2,22 @@
 title: Copiar um banco de dados SQL do Azure | Microsoft Docs
 description: Crie uma cópia transacionalmente consistente de um banco de dados SQL do Azure existente no mesmo servidor ou em um servidor diferente.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
-ms.date: 04/01/2018
-ms.author: carlrab
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: 2217df046cf95ddcd12f6dcaa41b2c3f8b0090f6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 2ce86bee96f22b4079afee3eacbeee7ea15a6ffa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646194"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226000"
 ---
 # <a name="copy-an-azure-sql-database"></a>Copiar um Banco de Dados SQL do Azure
 
@@ -22,7 +25,7 @@ O Banco de Dados SQL do Azure fornece vários métodos para criar uma cópia tra
 
 ## <a name="overview"></a>Visão geral
 
-Uma cópia do banco de dados é um instantâneo do banco de dados de origem no momento da solicitação de cópia. Você pode selecionar o mesmo servidor ou um servidor diferente, sua camada de serviço e nível de desempenho, ou um nível de desempenho diferente na mesma camada de serviço (edição). Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Neste ponto, é possível atualizar ou fazer o downgrade para qualquer edição. Os logons, os usuários e as permissões podem ser gerenciados independentemente.  
+Uma cópia do banco de dados é um instantâneo do banco de dados de origem no momento da solicitação de cópia. Você pode selecionar o mesmo servidor ou um servidor diferente, a camada de serviço e o tamanho de computação dele, ou um tamanho de computação diferente na mesma camada de serviço (edição). Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Neste ponto, é possível atualizar ou fazer o downgrade para qualquer edição. Os logons, os usuários e as permissões podem ser gerenciados independentemente.  
 
 ## <a name="logins-in-the-database-copy"></a>Logons na cópia do banco de dados
 
@@ -30,7 +33,7 @@ Quando você copia um banco de dados no mesmo servidor lógico, os mesmos logons
 
 Quando você copia um banco de dados para um servidor lógico diferente, a entidade de segurança no novo servidor torna-se a proprietária do banco de dados no novo banco de dados. Se você usar [usuários de banco de dados independente](sql-database-manage-logins.md) para acesso aos dados, garanta que os bancos de dados primários e secundários sempre tenham as mesmas credenciais de usuário. Portanto, depois que a cópia for concluída, será possível acessá-la imediatamente com as mesmas credenciais. 
 
-Se você usar o [Azure Active Directory](../active-directory/active-directory-whatis.md), será possível acabar completamente com a necessidade de gerenciar credenciais na cópia. No entanto, quando você copia o banco de dados para um novo servidor, o acesso baseado em logon geralmente não funciona, porque os logons não existirão no novo servidor. Para saber como gerenciar logins quando você copia um banco de dados para um servidor lógico diferente, consulte [How to manage Azure SQL database security after disaster recovery (Como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre)](sql-database-geo-replication-security-config.md). 
+Se você usar o [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), será possível acabar completamente com a necessidade de gerenciar credenciais na cópia. No entanto, quando você copia o banco de dados para um novo servidor, o acesso baseado em logon geralmente não funciona, porque os logons não existirão no novo servidor. Para saber como gerenciar logins quando você copia um banco de dados para um servidor lógico diferente, consulte [How to manage Azure SQL database security after disaster recovery (Como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre)](sql-database-geo-replication-security-config.md). 
 
 Depois que a cópia for bem-sucedida e antes que outros usuários sejam remapeados, somente o logon que tiver iniciado a cópia, o proprietário do banco de dados, poderá fazer logon no novo banco de dados. Para resolver logons após a conclusão da operação de cópia, confira [Resolver logons](#resolve-logins).
 
@@ -68,7 +71,7 @@ Esse comando copia o Banco de dados 1 para um novo banco de dados chamado Databa
 
     -- Execute on the master database.
     -- Start copying.
-    CREATE DATABASE Database1_copy AS COPY OF Database1;
+    CREATE DATABASE Database2 AS COPY OF Database1;
 
 ### <a name="copy-a-sql-database-to-a-different-server"></a>Copiar um banco de dados SQL para um servidor diferente
 
@@ -78,7 +81,7 @@ Esse comando copia o Database1 no servidor 1- para um novo banco de dados chamad
 
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
-    CREATE DATABASE Database1_copy AS COPY OF server1.Database1;
+    CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorar o andamento da operação de cópia

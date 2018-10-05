@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919729"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166870"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Redefinição de senha do Azure AD a partir da tela de logon
 
@@ -45,8 +45,6 @@ Implantar a alteração de configuração para habilitar a redefinição de senh
    * Opcionalmente, forneça uma descrição significativa do perfil
    * Plataforma **Windows 10 e superior**
    * Tipo de perfil **Personalizado**
-
-   ![CreateProfile][CreateProfile]
 
 3. Definir **Configurações**
    * **Adicionar** a seguinte configuração de OMA-URI para habilitar o link Redefinir senha
@@ -100,7 +98,6 @@ Agora que a política foi configurada e atribuída, o que muda para o usuário? 
 ![LoginScreen][LoginScreen]
 
 Quando os usuários tentam fazer logon, eles agora veem um link Redefinir senha que abre a experiência de redefinição de senha de autoatendimento na tela de logon. Essa funcionalidade permite aos usuários redefinir a senha sem a necessidade de usar outro dispositivo para acessar um navegador da Web.
-Quando os usuários tentam fazer logon, eles agora veem um link Redefinir senha que abre a experiência de redefinição de senha de autoatendimento na tela de logon. Essa funcionalidade permite aos usuários redefinir a senha sem a necessidade de usar outro dispositivo para acessar um navegador da Web.
 
 Os usuários podem encontrar orientações sobre esse recuso em [Redefinir sua senha corporativa ou de estudante](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
@@ -114,7 +111,11 @@ Ao testar essa funcionalidade usando a Área de Trabalho Remota, o link de “Re
 
 * Atualmente não há suporte para a redefinição de senha a partir de uma Área de Trabalho Remota.
 
-Se a tela de bloqueio do Windows for desabilitada usando um registro de chave ou diretiva de grupo, a **redefinição de senha** não estará disponível.
+Se a tela de bloqueio do Windows for desabilitada usando uma chave do Registro ou uma política de grupo, **Redefinir senha** não estará disponível.
+
+O log de auditoria do Microsoft Azure AD inclui informações sobre o endereço IP e o ClientType em que a redefinição de senha ocorreu.
+
+![Exemplo de redefinição de senha na tela de logon no log de auditoria do Microsoft Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -127,6 +128,5 @@ Neste tutorial, você permitirá que os usuários redefinam suas senhas na tela 
 > [!div class="nextstepaction"]
 > [Avaliar o risco ao entrar](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Criar perfil de configuração de dispositivo do Intune para habilitar o link Redefinir senha na tela de logon do Windows 10"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Atribuir a política de configuração de dispositivo do Intune a um grupo de dispositivos Windows 10"
 [LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Link Redefinir senha na tela de logon do Windows 10"

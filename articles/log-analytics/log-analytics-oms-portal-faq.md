@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 09/25/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 503d5913efe67bd0de738f68921b9631c63acfa8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.component: ''
+ms.openlocfilehash: d1ad629ff5c6909256baa94573d045a8c2c09fb5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116037"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223824"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns sobre a transição do portal do OMS para o Portal do Azure para usuários do Log Analytics
 Inicialmente, o Log Analytics usava seu próprio portal, o portal do OMS, para gerenciar as configurações e analisar os dados coletados.  Todas as funcionalidades desse portal foram transferidas para o Portal do Azure, onde continuarão a ser desenvolvidas.
@@ -83,7 +83,7 @@ Gerencie a maioria das configurações de Fonte conectada no menu **Configuraç�
 | Armazenamento do Azure     | Menu **Configurações avançadas** do espaço de trabalho. |
 | System Center     | Menu **Configurações avançadas** do espaço de trabalho. |
 | Office 365        | Confira ao [documentação da solução de gerenciamento do Office 365](../operations-management-suite/oms-solution-office-365.md) para ver detalhes da configuração. |
-| Telemetria do Windows | Não disponível ainda no Portal do Azure. |
+| Telemetria do Windows | Menu de configurações da solução. Confira [Windows Analytics no portal do Azure](/windows/deployment/update/windows-analytics-azure-portal) para obter detalhes de configuração. |
 | Conector ITSM    | Veja [Conectar produtos/serviços de ITSM com o Conector de Gerenciamento de Serviços de TI](../log-analytics/log-analytics-itsmc-connections.md) para obter instruções sobre como conectar seu serviço de ITSM com o Log Analytics. |
 
 ### <a name="data"></a>Dados

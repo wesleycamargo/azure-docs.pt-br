@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Implantar um modelo de classificação de imagem na ACI (Instância de Contêiner do Azure) - Azure Machine Learning'
-description: Saiba como implantar um modelo de classificação de imagem scikit-learn com um Jupyter Notebook do Python.  Este tutorial é parte dois de uma série de duas partes.
-author: hning86
-ms.author: haining
+title: 'Tutorial: implantar um modelo de classificação de imagem na ACI (Instância de Contêiner do Azure) com os serviços do Azure Machine Learning'
+description: Este tutorial mostra como usar os serviços do Azure Machine Learning para implantar um modelo de classificação de imagem com scikit-learn em um Python Jupyter Notebook.  Este tutorial é parte dois de uma série de duas partes.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: tutorial
+author: hning86
+ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e79df258701fa1d269e45e00a92b0961306ffbe3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eda4a1dabd20eee73cfbfa4dc0dd2b0eaa56788e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968621"
+ms.locfileid: "47031230"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Tutorial nº 2: Implantar um modelo de classificação de imagem na ACI (Instância de Contêiner do Azure)
 
@@ -35,7 +35,7 @@ A ACI não é ideal para implantações de produção, mas é ótima para testar
 
 ## <a name="get-the-notebook"></a>Obter o bloco de anotações
 
-Para sua conveniência, este tutorial está disponível como um Jupyter Notebook. Use um desses métodos para executar o notebook `tutorials/02.deploy-models.ipynb`:
+Para sua conveniência, este tutorial está disponível como um notebook Jupyter. Use qualquer um desses métodos para executar o `tutorials/02.deploy-models.ipynb` notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -374,7 +374,7 @@ service.delete()
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial do Azure Machine Learning, você usou o Python para:
+Neste tutorial de Machine Learning do Azure, você usou o Python para:
 
 > [!div class="checklist"]
 > * Configurar o ambiente de teste

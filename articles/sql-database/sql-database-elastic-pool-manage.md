@@ -1,22 +1,23 @@
 ---
 title: Criar e gerenciar pools elásticos – banco de dados SQL do Azure | Microsoft Docs
 description: Criar e gerenciar pools elásticos do Azure SQL.
-keywords: vários bancos de dados, recursos de banco de dados, desempenho de banco de dados
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
-ms.date: 08/01/2018
-ms.author: ninarn
+subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: oslake
+ms.author: moslake
 ms.reviewer: carlrab
-ms.openlocfilehash: cbfbe02926907ca3ca5b6c13932c8b67862c8456
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 6418694097c472afd6a2c706e55a9026ab03dcff
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842016"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162705"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Criar e gerenciar pools elásticos no banco de dados do Azure SQL
 
@@ -70,12 +71,12 @@ Para criar e gerenciar pools elásticos do Banco de Dados SQL com a [CLI do Azur
 
 | Cmdlet | DESCRIÇÃO |
 | --- | --- |
-|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Cria um pool elástico.|
-|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Retorna uma lista de pools elásticos em um servidor.|
-|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Retorna uma lista de bancos de dados em um pool elástico.|
-|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Também inclui as configurações DTU do pool disponível, limites de armazenamento e configurações por banco de dados. Para reduzir o detalhamento, os limites de armazenamento adicionais e as configurações por banco de dados ficam ocultos por padrão.|
-|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Atualiza um pool elástico.|
-|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Excluir o pool elástico.|
+|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|Cria um pool elástico.|
+|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Retorna uma lista de pools elásticos em um servidor.|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Retorna uma lista de bancos de dados em um pool elástico.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Também inclui as configurações DTU do pool disponível, limites de armazenamento e configurações por banco de dados. Para reduzir o detalhamento, os limites de armazenamento adicionais e as configurações por banco de dados ficam ocultos por padrão.|
+|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Atualiza um pool elástico.|
+|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Excluir o pool elástico.|
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: gerenciar bancos de dados em pool
 
@@ -99,12 +100,12 @@ Para criar e gerenciar pools elásticos do Banco de Dados SQL e bancos de dados 
 
 | Comando | DESCRIÇÃO |
 | --- | --- |
-|[Pools Elásticos – Criar ou Atualizar](/rest/api/sql/elasticpools/createorupdate)|Cria um novo pool elástico ou atualiza um pool elástico existente.|
-|[Pools Elásticos – Excluir](/rest/api/sql/elasticpools/delete)|Excluir o pool elástico.|
-|[Pools Elásticos – Obter](/rest/api/sql/elasticpools/get)|Obtém um pool elástico.|
-|[Pools Elásticos – Listar por Servidor](/rest/api/sql/elasticpools/listbyserver)|Retorna uma lista de pools elásticos em um servidor.|
-|[Pools Elásticos – Atualizar](/rest/api/sql/elasticpools/update)|Atualiza um pool elástico existente.|
-|[Atividades do Pool Elástico](/rest/api/sql/elasticpoolactivities)|Retorna as atividades do pool elástico.|
+|[Pools elásticos – Criar ou Atualizar](/rest/api/sql/elasticpools/createorupdate)|Cria um novo pool elástico ou atualiza um pool elástico existente.|
+|[Pools elásticos – Excluir](/rest/api/sql/elasticpools/delete)|Excluir o pool elástico.|
+|[Pools elásticos – Obter](/rest/api/sql/elasticpools/get)|Obtém um pool elástico.|
+|[Pools elásticos – Listar por Servidor](/rest/api/sql/elasticpools/listbyserver)|Retorna uma lista de pools elásticos em um servidor.|
+|[Pools elásticos – Atualizar](/rest/api/sql/elasticpools/update)|Atualiza um pool elástico existente.|
+|[Atividades do pool elástico](/rest/api/sql/elasticpoolactivities)|Retorna as atividades do pool elástico.|
 |[Atividades do Banco de Dados de Pool Elástico](/rest/api/sql/elasticpooldatabaseactivities)|Retorna as atividades nos bancos de dados dentro de um pool elástico.|
 |[Banco de Dados – Criar ou Atualizar](/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
 |[Bancos de Dados – Obter](/rest/api/sql/databases/get)|Obtém um banco de dados.|

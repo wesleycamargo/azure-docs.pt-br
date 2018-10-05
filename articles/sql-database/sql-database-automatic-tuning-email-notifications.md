@@ -1,21 +1,23 @@
 ---
 title: Guia de instruções para austar automático as notificações por email – Banco de Dados SQL do Microsoft Azure | Microsoft Docs
-description: O Banco de Dados SQL do Microsoft Azure analisa a consulta SQL e automaticamente se adapta à carga de trabalho do usuário.
+description: Habilite notificações por email para o ajuste automático de consulta do Banco de Dados SQL do Azure.
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/05/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: 643740ea76769f857e8c99ebaa6d27eceed99067
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 86639be7c4d934929272e6d578485bfc8bfb9cc9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644324"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064094"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por email para ajuste automático
 
@@ -205,12 +207,12 @@ A próxima etapa é adicionar três trabalhos (criar, obter saída e enviar emai
 1. Crie uma ação para executar o script de PowerShell para recuperar as recomendações de ajuste
 - Selecione “**+Nova etapa**”, seguido por “**Adicionar uma ação**” dentro do painel Recorrência do fluxo
 - No campo de pesquisa, digite “**automação**” e selecione “**Automação do Azure – criar trabalho**” nos resultados da pesquisa
-- No painel de trabalho Criar, configure as propriedades do trabalho. Para essa configuração, você precisará de detalhes da sua ID de assinatura do Azure, grupo de recursos e conta de automação **registrada anteriormente** no **painel da conta de automação**. Para saber mais sobre as opções disponíveis nesta seção, consulte [Automação do Azure – criar trabalho](https://docs.microsoft.com/connectors/azureautomation/#Create_job).
+- No painel de trabalho Criar, configure as propriedades do trabalho. Para essa configuração, você precisará de detalhes da sua ID de assinatura do Azure, grupo de recursos e conta de automação **registrada anteriormente** no **painel da conta de automação**. Para saber mais sobre as opções disponíveis nesta seção, consulte [Automação do Azure – criar trabalho](https://docs.microsoft.com/connectors/azureautomation/#create-job).
 - Conclua a criação dessa ação clicando em “**Salvar fluxo**”
 
 2. Criar ação para recuperar a saída do script de PowerShell executado
 - Selecione “**+Nova etapa**”, seguido por “**Adicionar uma ação**” dentro do painel Recorrência do fluxo
-- No campo de pesquisa, digite “**automação**” e selecione “**Automação do Azure – obter saída do trabalho**” nos resultados da pesquisa. Para saber mais sobre as opções disponíveis nesta seção, consulte [Automação do Azure – obter saída do trabalho](https://docs.microsoft.com/connectors/azureautomation/#Get_job_output).
+- No campo de pesquisa, digite “**automação**” e selecione “**Automação do Azure – obter saída do trabalho**” nos resultados da pesquisa. Para saber mais sobre as opções disponíveis nesta seção, consulte [Automação do Azure – obter saída do trabalho](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
 - Preencher os campos necessários (semelhante à criação do trabalho anterior) – preencha sua ID de assinatura do Azure, grupo de recursos e conta de automação (como inserido no painel Conta de Automação)
 - Clique no campo “**ID do trabalho**” para que o menu “**Conteúdo dinâmico**” apareça. Dentro desse menu, selecione a opção “**ID do trabalho**”.
 - Conclua a criação dessa ação clicando em “**Salvar fluxo**”

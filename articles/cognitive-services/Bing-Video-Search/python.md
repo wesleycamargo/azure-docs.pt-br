@@ -1,21 +1,23 @@
 ---
-title: Início Rápido do Python para os Serviços Cognitivos do Azure, API de Pesquisa de Vídeo do Bing | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Vídeo do Bing nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: Pesquisa de Vídeo do Bing, Python'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Vídeo do Bing.
 services: cognitive-services
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: ce4356f05e69540bc3bc3241e2ec1751ff7a7276
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 797eb476aa3386949b08efb957edf48a97e40d6b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363671"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220001"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-python"></a>Início rápido para API de Pesquisa de Vídeo do Bing com Python
+# <a name="quickstart-bing-video-search-api-with-python"></a>Início Rápido: API de Pesquisa de Vídeo do Bing com o Python
 
 Este passo a passo mostra como usar a API de Pesquisa de Vídeo do Bing, parte dos Serviços Cognitivos da Microsoft no Azure. Veja a [referência de API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) para obter detalhes técnicos sobre as APIs.
 
@@ -24,7 +26,7 @@ Você pode executar esse exemplo como um bloco de anotações do Jupyter em [MyB
 [![Associador](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.
 
 ## <a name="running-the-walkthrough"></a>Executando o passo a passo

@@ -1,24 +1,27 @@
 ---
-title: Criar uma nova base de dados de conhecimento – início rápido em Java – para a API de QnA Maker da Microsoft (v4) – Serviços Cognitivos do Azure | Microsoft Docs
-description: Crie uma base de dados de conhecimento em Java para manter suas perguntas frequentes ou manuais de produto para que você possa começar a usar o QnA Maker.
+title: 'Início Rápido: API do Java – Criar uma base de dados de conhecimento – QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: Este início rápido orienta você pela criação programática de um exemplo de base de dados de conhecimento do QnA Maker, que será exibida no Painel do Azure de sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 3d637a4a046318a95eeeb532cbb7a9938cb1004d
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 5dfea3a8b4b5a79585b910fd2fad4ffbda4729fd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "43768488"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037602"
 ---
 # <a name="create-a-new-knowledge-base-in-java"></a>Criar uma nova base de dados de conhecimento em Java
 
 Este início rápido orienta você pela criação programática de um exemplo de base de dados de conhecimento de QnA Maker, que será exibido no painel do Azure da sua conta da API dos serviços Cognitivos.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 Dois exemplos de URLs de perguntas frequentes são apresentados abaixo (em 'kb.urls' de **getKB()**) e apresentam conteúdo. O QnA Maker extrai automaticamente perguntas e respostas do conteúdo semiestruturado, como perguntas frequentes, conforme explicado em mais detalhes neste documento de [fontes de dados](../Concepts/data-sources-supported.md). Você também pode usar seus próprio URLs de perguntas frequentes neste guia de início rápido.
 

@@ -1,10 +1,9 @@
-
 Para saber mais sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 
 ## <a name="attach-an-empty-disk"></a>Anexar um disco vazio
-1. Abra a CLI do Azure 1.0 e [conecte-se à sua assinatura do Azure](/cli/azure/authenticate-azure-cli). Verifique se você está no modo de Gerenciamento de Serviços do Azure (`azure config mode asm`).
+1. Abra a CLI clássica do Azure e [conecte-se à sua assinatura do Azure](/cli/azure/authenticate-azure-cli). Verifique se você está no modo de Gerenciamento de Serviços do Azure (`azure config mode asm`).
 2. Insira `azure vm disk attach-new` para criar e anexar um novo disco, conforme o exemplo abaixo. Substitua *myVM* pelo nome da máquina virtual Linux e especifique o tamanho do disco em GB, que é de *100 GB* neste exemplo:
 
     ```azurecli
@@ -37,7 +36,7 @@ Para saber mais sobre discos, consulte [Sobre discos e VHDs para máquinas virtu
 ## <a name="attach-an-existing-disk"></a>Anexar um disco existente
 Anexar um disco existente exige que você tenha um .vhd disponível em uma conta de armazenamento.
 
-1. Abra a CLI do Azure 1.0 e [conecte-se à sua assinatura do Azure](/cli/azure/authenticate-azure-cli). Verifique se você está no modo de Gerenciamento de Serviços do Azure (`azure config mode asm`).
+1. Abra a CLI clássica do Azure e [conecte-se à sua assinatura do Azure](/cli/azure/authenticate-azure-cli). Verifique se você está no modo de Gerenciamento de Serviços do Azure (`azure config mode asm`).
 2. Verifique se o VHD que você deseja anexar já está carregado à sua assinatura do Azure:
    
     ```azurecli

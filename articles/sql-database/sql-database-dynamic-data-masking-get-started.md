@@ -2,19 +2,22 @@
 title: Máscara de dados dinâmicos do Banco de Dados SQL do Azure | Microsoft Docs
 description: A Máscara de dados dinâmicos do Banco de Dados SQL limita a exposição de dados confidenciais através do mascaramento dos dados para usuários sem privilégios
 services: sql-database
-author: ronitr
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: ronitr
 ms.author: ronitr
-ms.openlocfilehash: 714fe94d295157f0d4d90139da98254f46794731
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 872e700842ce69ca955035120d4e09ec9facf7ec
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141816"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165544"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Máscara de dados dinâmicos do Banco de Dados SQL
 
@@ -52,5 +55,5 @@ O mecanismo de recomendações DDM sinaliza determinados campos do banco de dado
 Confira [Cmdlets do Banco de Dados SQL do Azure](https://docs.microsoft.com/powershell/module/azurerm.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Configurar a máscara de dados dinâmica para o banco de dados usando a API REST
-Confira [Operações para Bancos de Dados SQL do Azure](https://msdn.microsoft.com/library/dn505719.aspx).
+Confira [Operações para o Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 

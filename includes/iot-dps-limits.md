@@ -16,7 +16,8 @@ A tabela a seguir lista os limites que se aplicam aos recursos do Serviço de Pr
 
 O serviço de Provisionamento de Dispositivo restringe as solicitações quando as seguintes cotas são excedidas:
 
-| Restrição | Valor por serviço |
+| Restrição | Valor por unidade |
 | --- | --- |
-| Operações | 100/min |
-| Registros de dispositivo | 100/min |
+| Operações | 200/min/serviço |
+| Registros de dispositivo | 200/min/serviço |
+| Operação de sondagem de dispositivo | 5/10s/dispositivo |

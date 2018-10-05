@@ -1,20 +1,21 @@
 ---
-title: Reconhecimento de como as funções são usadas em entidades baseadas em padrões – Azure | Microsoft Docs
-description: Saiba como uma função é usada em uma entidade baseada em padrões para dar um nome a um subtipo de entidade contextual.
+title: Reconhecimento de como as funções são usadas em entidades baseadas em padrões
+titleSuffix: Azure Cognitive Services
+description: As funções são subtipos nomeados e contextuais de uma entidade usada apenas em padrões. Por exemplo, no enunciado “compre uma passagem de Nova York para Londres” Nova York e Londres são cidades, mas cada uma tem um significado diferente na frase. Nova York é a cidade de origem e Londres é a cidade de destino.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d2692cdce9da7428bd7b30c4feaf7347792618f5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222696"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035191"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>As funções de entidade em Padrões são subtipos contextuais
 As funções são subtipos nomeados, contextuais de uma entidade usada apenas em [padrões](luis-concept-patterns.md).
@@ -25,15 +26,16 @@ As funções dão um nome para essas diferenças:
 
 |Entidade|Função|Finalidade|
 |--|--|--|
-|Localização|origin|de onde o avião parte|
-|Localização|destino|onde o avião pousa|
+|Local padrão|origin|de onde o avião parte|
+|Local padrão|destino|onde o avião pousa|
 
 ## <a name="how-are-roles-used-in-patterns"></a>Como as funções são usadas em padrões?
 Na declaração modelo do padrão, as funções são usadas dentro da declaração: 
 
-```
-buy a ticket from {Location:origin} to {Location:destination}
-```
+|Padrão com funções de entidade|
+|--|
+|`buy a ticket from {Location:origin} to {Location:destination}`|
+
 
 ## <a name="role-syntax-in-patterns"></a>Sintaxe da função em padrões
 A entidade e a função estão entre parênteses, `{}`. A entidade e a função são separadas por dois-pontos. 

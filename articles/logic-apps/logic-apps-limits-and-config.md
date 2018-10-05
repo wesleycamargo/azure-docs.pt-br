@@ -3,19 +3,18 @@ title: Limites e configuração – Aplicativos Lógicos do Azure | Microsoft Do
 description: Valores de limites e de configuração do serviço para os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 08/10/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 49b8efe6b5d56c3edaf8b311ff3c6667a8952536
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.topic: article
+ms.date: 09/26/2018
+ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142019"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452438"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -305,8 +304,13 @@ Todos os aplicativos lógicos em uma região usam os mesmos intervalos de endere
 Para dar suporte às chamadas que os [conectores](../connectors/apis-list.md) fazem, defina suas configurações de firewall para que elas incluam esses endereços IP de saída, com base nas regiões em que os aplicativos lógicos existem.
 
 > [!IMPORTANT]
->
 > Se você tiver configurações existentes, atualize-as **assim que possível antes de 1º de setembro de 2018** para que elas incluam e correspondam aos endereços IP nessa lista para as regiões em que os aplicativos lógicos existem. 
+> 
+> Os Aplicativos Lógicos não permitem a conexão direta com a contas de Armazenamento do Azure por meio de firewalls. Para acessar essas contas de armazenamento, use uma das opções aqui: 
+>
+> * Criar um [ambiente de serviço de integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode se conectar aos recursos em uma rede virtual do Azure. 
+> 
+> * Se você já usa o Gerenciamento de API, você pode usar esse serviço nesse cenário. Para obter mais informações, confira [Arquitetura Enterprise Integration simples](http://aka.ms/aisarch).
 
 | Região de Aplicativos Lógicos | IP de Saída | 
 |-------------------|-------------|  

@@ -1,21 +1,22 @@
 ---
-title: Idiomas e localidades com suporte no Serviço de Fala Personalizado no Azure | Microsoft Docs
+title: Localidades e idiomas compatíveis – Serviço de Fala Personalizado
+titlesuffix: Azure Cognitive Services
 description: Visão geral dos idiomas com suporte do Serviço de Fala Personalizado nos Serviços Cognitivos.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f186681c7e46d2e47ed7eee55c8f61290c48fcb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34af6673689244364ab3a1fe3f2a6ab056ea8598
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987519"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223948"
 ---
 # <a name="supported-locales-in-custom-speech-service"></a>Localidades com suporte no Serviço de Fala Personalizado
 Atualmente, o Serviço de Fala Personalizado dá suporte para a personalização de modelos nas seguintes localidades:

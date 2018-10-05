@@ -2,24 +2,26 @@
 title: Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
 description: Este artigo aborda as diferenças de T-SQL entre a Instância Gerenciada do Banco de Dados SQL do Azure e o SQL Server.
 services: sql-database
-author: jovanpop-msft
-ms.reviewer: carlrab, bonova
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 0813/2018
+author: jovanpop-msft
 ms.author: jovanpop
+ms.reviewer: carlrab, bonova
 manager: craigg
-ms.openlocfilehash: 57c6b52df3e8f6c47eb794cda4b47bfa2d7de374
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 08/13/2018
+ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051231"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166496"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure em relação ao SQL Server 
 
-A Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia) fornece alta compatibilidade com o mecanismo de banco de dados do SQL Server local. A maioria dos recursos do mecanismo de banco de dados do SQL Server são compatíveis com a Instância Gerenciada. Como ainda há algumas diferenças no comportamento e na sintaxe, este artigo resume e explica essas diferenças.
+A Instância Gerenciada do Banco de Dados SQL do Azure fornece alta compatibilidade com o Mecanismo de Banco de Dados do SQL Server local. A maioria dos recursos do mecanismo de banco de dados do SQL Server são compatíveis com a Instância Gerenciada. Como ainda há algumas diferenças no comportamento e na sintaxe, este artigo resume e explica essas diferenças.
  - [Diferenças de T-SQL e recursos sem suporte](#Differences)
  - [Recursos que têm comportamento diferente na Instância Gerenciada](#Changes)
  - [Limitações temporárias e problemas conhecidos](#Issues)
@@ -267,7 +269,7 @@ Não há suporte para tabelas externas que fazem referência aos arquivos no arm
 
 ### <a name="replication"></a>Replicação 
  
-Há suporte para replicação na Instância Gerenciada. Para saber mais sobre a Replicação, consulte [Replicação do SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+A replicação está disponível para versão prévia pública na Instância Gerenciada. Para saber mais sobre a Replicação, consulte [Replicação do SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>Instrução RESTAURAR 
  
@@ -335,23 +337,24 @@ Para obter informações sobre instruções de restauração, consulte [instruç
 - `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db` não têm suporte. Consulte [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - Não há suporte para `sp_renamedb`. Consulte [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### <a name="sql-server-agent"></a>SQL Server Agent 
- 
+### <a name="sql-server-agent"></a>SQL Server Agent
+
 - As configurações do agente SQL são somente leitura. O procedimento `sp_set_agent_properties` não tem suporte na Instância Gerenciada.  
-- Trabalhos - somente as etapas de trabalho T-SQL têm suporte atualmente (mais etapas serão adicionadas durante a versão prévia pública).
- - SSIS ainda não tem suporte. 
- - A Replicação ainda não é compatível  
-  - O leitor de Log de Transações ainda não tem suporte.  
-  - Ainda não há suporte para instantâneos.  
-  - Ainda não há suporte para distribuidores.  
-  - Não há suporte para mesclagem.  
+- Trabalhos: etapas de trabalho T-SQL são compatíveis no momento
+- Outros tipos de etapas de trabalho não são compatíveis no momento (mais tipos de etapa serão adicionados durante a versão prévia pública).
+  - Os trabalhos de replicação não compatíveis incluem:
+    - Leitor do log de transações.  
+    - Instantâneo.
+    - Distribuidor.  
+    - Mesclagem.  
+  - SSIS ainda não tem suporte. 
   - Não há suporte para leitor de fila.  
- - Ainda não há suporte para o shell de comando. 
+  - Ainda não há suporte para o shell de comando. 
   - A Instância Gerenciada não pode acessar recursos externos (por exemplo, compartilhamentos de rede via robocopy).  
- - Ainda não há suporte para o PowerShell.
- - Não há suporte para os Analysis Services.  
+  - Ainda não há suporte para o PowerShell.
+  - Não há suporte para os Analysis Services.  
 - Há suporte parcial para notificações.
- - Há suporte para notificação de email, é necessário configurar um perfil do Database Mail. Só pode haver um perfil do Database Mail e ele deve ser chamado de `AzureManagedInstance_dbmail_profile` na versão prévia pública (limitação temporária).  
+- Há suporte para notificação de email, é necessário configurar um perfil do Database Mail. Só pode haver um perfil do Database Mail e ele deve ser chamado de `AzureManagedInstance_dbmail_profile` na versão prévia pública (limitação temporária).  
  - Não há suporte para pager.  
  - Não há suporte a NetSend. 
  - Ainda não há suporte para alertas.
@@ -414,15 +417,58 @@ Certifique-se de que você removeu `?` à esquerda da chave de SAS gerada usando
 
 O SQL Server Management Studio e o SQL Server Data Tools podem ter alguns problemas ao acessar a Instância Gerenciada. Todos os problemas de ferramentas serão abordados antes da disponibilidade geral.
 
-### <a name="incorrect-database-names"></a>Nomes incorretos de bancos de dados
+### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Nomes de banco de dados incorretos em algumas exibições, logs e mensagens
 
-A Instância Gerenciada pode mostrar o valor de guid em vez do nome do banco de dados durante a restauração ou em algumas mensagens de erro. Esses problemas serão corrigidos antes da disponibilidade geral.
+Várias entradas de exibições do sistema, contadores de desempenho, mensagens de erro, XEvents e logs de erros exibem identificadores do banco de dados GUID em vez dos nomes reais do banco de dados. Não dependa desses identificadores GUID porque eles serão substituídos por nomes de banco de dados reais no futuro.
 
 ### <a name="database-mail-profile"></a>Perfil do Database Mail
 Só pode haver apenas um perfil do Database Mail e ele deve ser chamado de `AzureManagedInstance_dbmail_profile`. Essa é uma limitação temporária que será removida em breve.
+
+### <a name="error-logs-are-not-persisted"></a>Os logs de erros não são persistentes
+Os logs de erros disponíveis na instância gerenciada não são persistentes e seu tamanho não está incluído no limite de armazenamento máximo. Os logs de erros podem ser apagados automaticamente no caso de failover.
+
+### <a name="error-logs-are-verbose"></a>Os logs de erro são detalhados
+A Instância Gerenciada coloca informações detalhadas nos logs de erro e muitas delas não são relevantes. A quantidade de informações nos logs de erro será reduzida no futuro.
+
+**Solução alternativa**: usar um procedimento personalizado para a leitura de logs de erros que filtra algumas entradas não relevantes. Para obter detalhes, confira [Instância gerenciada do banco de dados SQL do Azure – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+
+### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>O escopo de transação em dois bancos de dados dentro da mesma instância não é compatível
+A classe `TransactionScope` no .Net não funciona se duas consultas são enviadas para os dois bancos de dados dentro da mesma instância no mesmo escopo de transação:
+
+```C#
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
+    }
+
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
+    }
+
+    scope.Complete();
+}
+
+```
+
+Embora esse código funcione com os dados na mesma instância, ele precisou do MSDTC.
+
+**Solução alternativa**: usar [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para usar outro banco de dados no contexto de conexão em vez de usar duas conexões.
+
+### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>Os módulos CLR e os servidores vinculados às vezes não podem fazer referência ao endereço IP local
+Os módulos CLR colocados na Instância Gerenciada e consultas distribuídas/servidores da vinculados que fazem referência à instância atual às vezes não podem resolver o IP da instância local. Esse é um erro temporário.
+
+**Solução alternativa**: usar conexões de contexto no módulo CLR, se possível.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para mais detalhes sobre a Instância Gerenciada, consulte [O que é uma Instância Gerenciada](sql-database-managed-instance.md)
 - Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
-- Para obter um tutorial mostrando como criar uma nova Instância Gerenciada, consulte [Criando uma Instância Gerenciada](sql-database-managed-instance-get-started.md).
+- Para obter um início rápido mostrando como criar uma nova Instância Gerenciada, confira [Criando uma Instância Gerenciada](sql-database-managed-instance-get-started.md).

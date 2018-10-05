@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 79f507c342f5a13c4d3784cf312f0bf8aeffa3e3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26fcc3eb78af53360cca57382b4c06b017f36c0e
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957238"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063261"
 ---
-## <a name="what-is-azure-monitor-for-vms"></a>O que é o Azure Monitor para VMs?
+# <a name="what-is-azure-monitor-for-vms"></a>O que é o Azure Monitor para VMs?
 
 O Azure Monitor para VMs monitora suas VMs (máquina virtuais) do Azure em escala analisando o desempenho e a integridade das VMs do Windows e do Linux, incluindo seus diferentes processos e dependências interconectados a outros recursos e processos externos. A solução inclui suporte para monitorar o desempenho e as dependências de aplicativos nas VMs hospedadas localmente ou em outro provedor de nuvem.  Ela inclui três recursos principais para fornecer esse insight detalhado:
 
@@ -57,4 +57,4 @@ Assim que você integra o Azure Monitor para VMs, os dados coletados pelas VMs p
 O tamanho do log varia de acordo com o tamanho das cadeias de caracteres de contadores e pode aumentar com o número de discos lógicos e de adaptadores de rede.  Se você já tiver um workspace e estiver coletando esses contadores, não será aplicado nenhum encargo duplicado.  Se você já estiver usando o Mapa do Serviço, a única alteração será que os dados de conexão adicionais passarão a ser enviados ao Azure Monitor.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Integrar o Azure Monitor para VMs](monitoring-vminsights-onboard.md) para iniciar o monitoramento das máquinas virtuais do Azure.
+Examine [Integrar o Azure Monitor para VMs](monitoring-vminsights-onboard.md) para entender os requisitos e os métodos usados para habilitar o monitoramento das máquinas virtuais.

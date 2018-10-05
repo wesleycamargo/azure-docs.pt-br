@@ -2,19 +2,22 @@
 title: Arquitetura de conectividade do Banco de Dados SQL do Azure | Microsoft Docs
 description: Este documento explica a arquitetura de conectividade do Banco de Dados SQL do Azure de dentro ou de fora do Azure.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: DhruvMsft
+ms.author: dhruv
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 01/24/2018
-ms.author: carlrab
-ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 66f558db713ab951864fe694f27f2e60d52e875a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493665"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064114"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de Conectividade do Banco de Dados SQL do Azure 
 
@@ -51,13 +54,16 @@ Se você estiver se conectando de fora do Azure, as conexões têm uma política
 ![visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Ao usar pontos de extremidade de serviço com o banco de dados SQL do Azure, sua política é **Proxy** por padrão. Para habilitar a conectividade de dentro de sua rede virtual, permita conexões de saída para os endereços de IP de Gateway de banco de dados de SQL do Azure especificados na lista abaixo. Ao usar pontos de extremidade de serviço é altamente recomendável alterar sua política de conexão para **Redirecionar** para permitir um melhor desempenho. Se você alterar sua política de conexão para **Redirecionar** não será suficiente para permitir a saída em seu NSG ao gateway do Azure SQLDB IPs listados abaixo, você deve permitir a saída para todos os IPs do Azure SQLDB. Isso pode ser feito com a ajuda de Marcas de Serviço do NSG (Grupos de Segurança de Rede). Para saber mais, confira [Marcas do Serviço](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+> Ao usar pontos de extremidade de serviço com o banco de dados SQL do Azure, sua política é **Proxy** por padrão. Para habilitar a conectividade de dentro da sua VNET, permita conexões de saída para os endereços IP do Gateway do Banco de Dados SQL do Azure especificados na lista abaixo. Ao usar pontos de extremidade de serviço é altamente recomendável alterar sua política de conexão para **Redirecionar** para permitir um melhor desempenho. Se você alterar sua política de conexão para **Redirecionar** não será suficiente para permitir a saída em seu NSG ao gateway do Azure SQLDB IPs listados abaixo, você deve permitir a saída para todos os IPs do Azure SQLDB. Isso pode ser feito com a ajuda de Marcas de Serviço do NSG (Grupos de Segurança de Rede). Para saber mais, confira [Marcas do Serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços IP de gateway do Banco de Dados SQL do Azure
 
 Para se conectar a um banco de dados SQL do Azure a partir de recursos locais, você precisa permitir o tráfego de rede de saída para o gateway do Banco de Dados SQL do Azure para a sua região do Azure. As conexões vão somente por meio do gateway ao conectar-se no modo de Proxy, que é o padrão ao se conectar a partir de recursos locais.
 
 A tabela a seguir lista os IPs primários e secundários do gateway do Banco de Dados SQL do Azure para todas as regiões de dados. Para algumas regiões, há dois endereços IP. Nessas regiões, o endereço IP primário é o endereço IP atual do gateway e o segundo endereço IP é um endereço IP de failover. O failover é o endereço para o qual podemos pode mover seu servidor para manter a alta disponibilidade do serviço. Para essas regiões, é recomendável que você permita a saída para ambos os endereços IP. O segundo endereço IP pertence à Microsoft e não escutará nenhum serviço até que ele seja ativado pelo Banco de Dados SQL do Azure para aceitar conexões.
+
+> [!IMPORTANT]
+> Se você estiver se conectando de dentro do Azure, a política de conexão será **Redirecionar** por padrão (exceto se você estiver usando pontos de extremidade de serviço). Não será suficiente permitir os IPs a seguir. Você precisará permitir todos os IPs do Banco de Dados SQL do Azure. Se você estiver se conectando de dentro de uma VNET, isso poderá ser feito com a ajuda de marcas de serviço de NSG (Grupos de Segurança de Rede). Para saber mais, confira [Marcas do Serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Nome da Região | Endereço IP primário | Endereço IP secundário |
 | --- | --- |--- |
@@ -160,10 +166,10 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script para alterar as configurações de conexão via CLI do Azure 2.0
+## <a name="script-to-change-connection-settings-via-azure-cli"></a>Script para mudar as configurações de conexão pela CLI do Azure
 
 > [!IMPORTANT]
-> Esse script requer a [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Este script requer a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
 O script da CLI a seguir mostra como alterar a política de conexão.

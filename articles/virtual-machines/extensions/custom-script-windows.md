@@ -3,7 +3,7 @@ title: Extensão de script personalizado do Azure para Windows | Microsoft Docs
 description: Automatizar tarefas de configuração de VM do Windows usando a Extensão de Script Personalizado
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: roiyz
-ms.openlocfilehash: c00d4d481c992e90597276d0ce8655aef2be731f
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 1201e7ec232a5bd45351072949dc0b9c19af434f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037954"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452166"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -139,7 +139,8 @@ Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Ma
 
 ## <a name="powershell-deployment"></a>Implantação do PowerShell
 
-O comando `Set-AzureRmVMCustomScriptExtension` pode ser usado para adicionar a Extensão de Script Personalizado a uma máquina virtual existente. Para saber mais, confira [Set-AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+O comando `Set-AzureRmVMCustomScriptExtension` pode ser usado para adicionar a Extensão de Script Personalizado a uma máquina virtual existente. Para obter mais informações, confira [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `

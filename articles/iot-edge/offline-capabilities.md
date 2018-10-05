@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ddc07db4e101bb16321478d17d84ffe0d30f0afd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f4afad753da4a314ade3fb7433c6be3e489e05b0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946214"
+ms.locfileid: "47033678"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Entender os recursos offline estendidos para dispositivos, módulos e dispositivos filho do IoT Edge (versão prévia)
 
@@ -28,19 +28,19 @@ Quando um dispositivo do IoT Edge entra em modo offline, o hub do Edge assume tr
 
 O exemplo a seguir mostra como um cenário de IoT Edge opera no modo offline:
 
-1. Configure um dispositivo do IoT Edge. 
+1. **Configurar um dispositivo IoT Edge.**
 
    Dispositivos do IoT Edge automaticamente têm recursos offline habilitados. Para estender essa funcionalidade para outros dispositivos de IoT, você precisa declarar uma relação de pai-filho entre os dispositivos no Hub IoT. 
 
-2. Sincronize com o Hub IoT.
+2. **Sincronizar com o Hub IoT.**
 
    Pelo menos uma vez após a instalação do tempo de execução do IoT Edge, o dispositivo do IoT Edge precisa estar online para sincronizar com o Hub IoT. Nessa sincronização, o dispositivo do IoT Edge obtém detalhes sobre todos os dispositivos filho atribuídos a ele. O dispositivo do IoT Edge também atualiza seu cache local com segurança para permitir operações offline e recupera as configurações para o armazenamento local de mensagens de telemetria. 
 
-3. Fique offline. 
+3. **Ficar offline.**
 
    Enquanto estiver desconectado do Hub IoT, o dispositivo do IoT Edge, seus módulos implantados e quaisquer dispositivos de IoT filho poderão operar indefinidamente. Os módulos e dispositivos filho podem ser iniciados e reiniciados ao autenticar com o hub do Edge enquanto estiverem offline. A telemetria upstream associada para o Hub IoT é armazenada localmente. A comunicação entre os módulos ou entre dispositivos de IoT filho é mantida por meio de métodos diretos ou mensagens. 
 
-4. Reconecte e sincronize novamente com o Hub IoT.
+4. **Reconectar e sincronizar novamente com o Hub IoT.**
 
    Quando a conexão com o Hub IoT for restaurada, o dispositivo do IoT Edge será sincronizado novamente. As mensagens armazenadas localmente são entregues na mesma ordem em que foram armazenadas. Todas as diferenças entre as propriedades desejadas e relatadas dos módulos e dispositivos são reconciliadas. O dispositivo do IoT Edge atualiza qualquer alteração de seu conjunto de dispositivos de IoT filho atribuídos.
 
@@ -69,17 +69,19 @@ No portal do Azure, você pode acessar as definições do módulo de agente do E
 No modelo de implantação JSON, as variáveis de ambiente são declaradas como mostrado no exemplo a seguir: 
 
 ```json
-"edgeAgent": {
+"edgeHub": {
     "type": "docker",
     "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-        "createOptions": ""
+        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
     },
     "env": {
         "UpstreamProtocol": {
             "value": "MQTT"
         }
     },
+    "status": "running",
+    "restartPolicy": "always"
 }
 ```
 

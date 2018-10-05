@@ -1,24 +1,24 @@
 ---
-title: Saiba como Padrões aumentam a precisão da previsão | Microsoft Docs
-titleSuffix: Azure
-description: Saiba como definir padrões para aumentar a pontuação da previsão da intenção e encontrar entidades.
+title: Saiba como os Padrões aumentam a precisão da previsão
+titleSuffix: Azure Cognitive Services
+description: Os padrões são definidos para aumentar a precisão quando várias expressões são muito similares. Um padrão permite que você alcance maior precisão para uma intenção sem fornecer muitos enunciados a mais.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c08419e3fb5b25284121a0eac30c38c8ba7570f1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5ade15b3f80d725af4ece31a36ea0b670f5f5147
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225210"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031536"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões aumentam a precisão da previsão
-Os padrões são definidos para aumentar a precisão quando várias expressões são muito similares. Ao fornecer um padrão para a expressão, LUIS pode ter uma alta confiabilidade da previsão. 
+Os padrões são definidos para aumentar a precisão quando várias expressões são muito similares.  Um padrão permite que você alcance maior precisão para uma intenção sem fornecer muitos enunciados a mais. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>Os padrões resolvem baixa confiabilidade de intenção
 Considere um aplicativo de recursos humanos que relata o organograma em relação a um funcionário. Dado o nome e a relação de um funcionário, LUIS retorna os funcionários envolvidos. Considere um funcionário, Tom, com uma gerente chamada Alice e uma equipe de subordinados chamados: Michael, Rebecca e Carl.
@@ -60,25 +60,25 @@ As entidades em padrões estão entre chaves, `{}`. Os padrões podem incluir en
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintaxe para adicionar uma entidade em um modelo de padrão
 Para adicionar uma entidade no modelo de padrão, coloque o nome de entidade entre chaves, como `Who does {Employee} manage?`. 
 
-```
-Who does {Employee} manage?
-```
+|Padrão com entidade|
+|--|
+|`Who does {Employee} manage?`|
 
 ### <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Sintaxe para adicionar uma entidade e função em um modelo de padrão
 Uma função de entidade é denotada como `{entity:role}` com o nome de entidade, seguido por dois-pontos e, em seguida, o nome da função. Para adicionar uma entidade com uma função no modelo de padrão, coloque o nome de entidade e o nome da função entre chaves, como `Book a ticket from {Location:Origin} to {Location:Destination}`. 
 
-```
-Book a ticket from {Location:Origin} to {Location:Destination}
-```
+|Padrão com funções de entidade|
+|--|
+|`Book a ticket from {Location:Origin} to {Location:Destination}`|
 
 ### <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Sintaxe para adicionar um pattern.any em um modelo de padrão
 A entidade Pattern.any permite que você adicione uma entidade de comprimento variado para o padrão. O pattern.any pode ser qualquer comprimento desde que o modelo de padrão seja seguido. 
 
 Para adicionar uma entidade **Pattern.any** no modelo padrão, coloque a entidade Pattern.any com as chaves, como `How much does {Booktitle} cost and what format is it available in?`.  
 
-```
-How much does {Booktitle} cost and what format is it available in?
-```
+|Padrão com a entidade Pattern.any|
+|--|
+|`How much does {Booktitle} cost and what format is it available in?`|
 
 |Títulos de livro no padrão|
 |--|
@@ -107,9 +107,9 @@ Para corrigir esta expressão no padrão, adicione `the man from la mancha` como
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Sintaxe para marcar texto opcional em uma expressão de exemplo
 Marque texto opcional na expressão usando a sintaxe colchete de expressão regular, `[]`. O texto opcional pode aninhar colchetes até apenas dois colchetes.
 
-```
-[find] email about {subject} [from {person}]
-```
+|Padrão com texto opcional|
+|--|
+|`[find] email about {subject} [from {person}]`|
 
 Sinais de pontuação, como `.`, `!`, e `?` podem ser ignorados com os colchetes. Para ignorar essas marcas, cada marca deve estar em um padrão separado. A sintaxe opcional atualmente não dá suporte para ignorar um item em uma lista de vários itens.
 

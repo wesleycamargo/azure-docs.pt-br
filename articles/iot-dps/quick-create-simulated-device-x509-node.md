@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 1a3015a458a579b0aadf51d610db512eb908352b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 92c2bc013af13b70ae6dac419ae4aaf4dbb8c9e1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023187"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031825"
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Node.js para o Serviço de Provisionamento de Dispositivos no Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -71,9 +71,9 @@ Você usará o código de exemplo do [SDK do Azure IoT para Node.js](https://git
 
 4. Entre no [Portal do Azure](https://portal.azure.com), clique no botão **Todos os recursos** no menu esquerdo e abra a instância do Serviço de Provisionamento de Dispositivos.
 
-5. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** guia e clique no botão **Adicionar** na parte superior. 
+5. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** e clique no botão **Adicionar registro individual** na parte superior. 
 
-6. No painel **Adicionar registro**, insira as seguintes informações:
+6. No painel **Adicionar Registro**, insira as seguintes informações:
     - Selecione **X.509** como o *Mecanismo* de atestado de identidade.
     - No *arquivo primário certificate .pem ou .cer*, clique em *Selecionar um arquivo* para selecionar o arquivo de certificado **{certificate-name}_cert.pem** criado na etapa anterior.  
     - Opcionalmente, você pode fornecer as seguintes informações:
@@ -82,7 +82,7 @@ Você usará o código de exemplo do [SDK do Azure IoT para Node.js](https://git
       - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
    - Uma vez concluído, clique no botão **Salvar**. 
 
-    [![Adicionar um registro individual para atestado de X.509 no portal](./media/quick-create-simulated-device-x509-node/individual-enrollment.png)](./media/quick-create-simulated-device-x509-node/individual-enrollment.png#lightbox)
+    [![Adicionar um registro individual para atestado de X.509 no portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
     No registro bem-sucedido, o dispositivo X.509 é exibido como **{certificatename}** na coluna *ID do Registro* na guia o *Registros Individuais*. Anote esse valor para usar mais tarde.
 
@@ -122,7 +122,7 @@ O [SDK do dispositivo Node.js do Hub IoT do Azure](https://github.com/Azure/azur
 
 6. No portal, navegue até o Hub IoT vinculado ao seu serviço de provisionamento e abra a folha **Dispositivos IoT**. No provisionamento bem-sucedido do dispositivo X.509 simulado para o hub, sua ID de dispositivo aparecerá na folha **Dispositivos IoT** com o *STATUS* **habilitado**. Talvez seja necessário clicar no botão **Atualizar** na parte superior, se você já tiver aberto a folha antes de executar o aplicativo de dispositivo de exemplo. 
 
-    ![Dispositivo é registrado no Hub IoT](./media/quick-create-simulated-device-x509-node/hub-registration.png) 
+    ![Dispositivo é registrado no Hub IoT](./media/quick-create-simulated-device-x509-node/hubregistration.png) 
 
     Se você tiver alterado o *estado de dispositivo gêmeo inicial* do valor padrão na entrada de registro para o seu dispositivo, pode receber o estado desejado duas do hub e agir de acordo. Para saber mais, veja [Noções básicas e uso de dispositivos gêmeos no Hub IoT](../iot-hub/iot-hub-devguide-device-twins.md).
 

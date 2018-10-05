@@ -1,26 +1,23 @@
 ---
 title: Executar consultas de análise em bancos de dados de locatário usando o SQL Data Warehouse do Azure | Microsoft Docs
-description: Consultas de análise entre locatários usando dados extraídos de vários bancos de dados do Banco de Dados Azure SQL.
-keywords: tutorial do banco de dados SQL
+description: Consultas de análise entre locatários usando dados extraídos do Banco de Dados SQL do Azure, SQL Data Warehouse, Azure Data Factory ou Power BI.
 services: sql-database
-documentationcenter: ''
-author: anumjs
-manager: craigg
-editor: MightyPen
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: ''
+ms.subservice: scenario
+ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/08/2017
+author: anumjs
 ms.author: anjangsh
-ms.openlocfilehash: c7580e5481288695d3b5dea8fd0547f5f2c4c2b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: MightyPen
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643994"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056583"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explore a análise de SaaS com o Banco de Dados SQL do Azure, o SQL Data Warehouse, o Data Factory e o Power BI
 
@@ -68,7 +65,7 @@ Este tutorial fornece exemplos básicos de insights que podem ser obtidos dos da
 
 ## <a name="setup"></a>Configuração
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 > [!NOTE]
 > Este tutorial usa recursos do Azure Data Factory que estão na fase de versão prévia limitada (parametrização de serviço vinculado). Se quiser fazer este tutorial, forneça sua ID de assinatura [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu). Nós enviaremos uma confirmação assim que sua assinatura for habilitada.
@@ -230,7 +227,7 @@ Você pode analisar os dados novamente para ver se essa grande demanda ocorre pa
 
 Este gráfico de vendas cumulativas de ingressos ao longo do tempo para o Contoso Concert Hall para cada evento mostra que o pico de vendas não ocorre para todos os eventos. Familiarize-se com as opções de filtro para explorar as tendências de vendas de outras casas de shows.
 
-As percepções de padrões de vendas de tíquetes podem levar o Wingtip Tickets a otimizar seu modelo de negócios. Em vez de recarregar todos os locatários igualmente, talvez Wingtip deva introduzir as camadas de serviço com diferentes níveis de desempenho. Locais maiores que precisam vender mais tíquetes por dia podem receber a oferta de uma camada superior com um SLA (contrato de nível de serviço) superior. Esses locais podem ter seus bancos de dados colocados em pool com limites de recursos maiores por banco de dados. Cada camada de serviço pode ter uma alocação de vendas por hora, com valores adicionais cobrados por exceder a alocação. Locais maiores que têm picos de vendas periódicos pode se beneficiar dos níveis mais altos e Wingtip Tickets podem monetizar seus serviços com mais eficiência.
+As percepções de padrões de vendas de tíquetes podem levar o Wingtip Tickets a otimizar seu modelo de negócios. Em vez de recarregar todos os locatários igualmente, talvez Wingtip possa introduzir as camadas de serviço com diferentes tamanhos de computação. Locais maiores que precisam vender mais tíquetes por dia podem receber a oferta de uma camada superior com um SLA (contrato de nível de serviço) superior. Esses locais podem ter seus bancos de dados colocados em pool com limites de recursos maiores por banco de dados. Cada camada de serviço pode ter uma alocação de vendas por hora, com valores adicionais cobrados por exceder a alocação. Locais maiores que têm picos de vendas periódicos pode se beneficiar dos níveis mais altos e Wingtip Tickets podem monetizar seus serviços com mais eficiência.
 
 Enquanto isso, alguns clientes de Wingtip Tickets reclamam que se esforçam para vender tíquetes suficientes para justificar o custo do serviço. Talvez nessas percepções haja uma oportunidade de aumentar as vendas de tíquetes para locais com baixo desempenho. Vendas mais altas aumentariam o valor percebido do serviço. Clique com o botão direito do mouse em fact_Tickets e selecione **Nova medida**. Digite a seguinte expressão para a nova medida chamada **AverageTicketsSold**:
 

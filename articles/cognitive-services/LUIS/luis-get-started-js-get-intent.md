@@ -1,22 +1,23 @@
 ---
-title: Analisar o texto de linguagem natural em Reconhecimento Vocal (LUIS) usando JavaScript – Serviços Cognitivos – Serviços Cognitivos do Azure | Microsoft Docs
+title: Início Rápido do JavaScript – prever a intenção – LUIS
+titleSuffix: Azure Cognitive Services
 description: Neste início rápido, use um aplicativo LUIS público disponível para determinar a intenção do usuário do texto de conversa. Usando JavaScript, envie a intenção do usuário como texto para o ponto de extremidade de previsão de HTTP do aplicativo público. No ponto de extremidade, LUIS aplica o modelo do aplicativo público para analisar o texto de idioma natural quanto ao significado, determinando a intenção geral e extraindo dados relevantes para o domínio do assunto do aplicativo.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d787f744ff0fe7315553e9dd6f4465122f7e06b2
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: cbbf0d2388f83f4e38f0a63b6bc181d4a24e0aa0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159700"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039473"
 ---
-# <a name="quickstart-analyze-text-using-javascript"></a>Início Rápido: Analisar texto usando Javascript
+# <a name="quickstart-get-intent-using-javascript"></a>Início Rápido: Obter a intenção usando o JavaScript
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -34,11 +35,11 @@ ms.locfileid: "44159700"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Analisar o texto com navegador
+## <a name="get-intent-with-browser"></a>Obter a intenção com o navegador
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-javascript"></a>Analisar texto com Javascript 
+## <a name="get-intent-programmatically"></a>Obter a intenção de forma programática
 
 Você pode usar o JavaScript para acessar os mesmos resultados que você viu na janela do navegador na etapa anterior. 
 

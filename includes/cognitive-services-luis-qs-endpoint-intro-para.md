@@ -1,0 +1,24 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: cognitive-services
+author: diberry
+manager: cgronlun
+ms.service: cognitive-services
+ms.component: luis
+ms.topic: include
+ms.custom: include file
+ms.date: 08/16/2018
+ms.author: diberry
+ms.openlocfilehash: 2d8f994313f68c6b055df12465eb45075d01267f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47043980"
+---
+Neste início rápido, use um aplicativo LUIS público disponível para determinar a intenção do usuário do texto de conversa. Envie a intenção do usuário como texto para o ponto de extremidade de previsão de HTTP do aplicativo público. No ponto de extremidade, LUIS aplica o modelo do aplicativo público para analisar o texto de idioma natural quanto ao significado, determinando a intenção geral e extraindo dados relevantes para o domínio do assunto do aplicativo. 
+
+Este início rápido usa a API REST do ponto de extremidade. Para obter mais informações, consulte a [documentação da API do ponto de extremidade](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78).
+
+Para este artigo, você precisará de uma conta gratuita do [LUIS](http://www.luis.ai). 

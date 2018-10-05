@@ -32,13 +32,13 @@ Para obter mais detalhes, consulte nossa [política de suporte para contêineres
 
 Você pode usar as ferramentas padrão no sistema operacional para criar um RSA SSH público e um par de chaves privadas para autenticação em relação a máquinas virtuais Linux para o cluster. Para obter as etapas, confira as diretrizes de [OS X e Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) ou [Windows](../articles/virtual-machines/linux/ssh-from-windows.md). 
 
-Se você usar [comandos da CLI do Azure 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) para implantar um cluster do serviço de contêiner, as chaves SSH poderão ser geradas automaticamente para seu cluster.
+Se você usar [comandos da CLI do Azure](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) para implantar um cluster do serviço de contêiner, as chaves SSH poderão ser geradas automaticamente para seu cluster.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Como criar uma entidade de serviço para o cluster Kubernetes?
 
 Uma ID de entidade e senha de serviço do Azure Active Directory também são necessárias para criar um cluster Kubernetes no Serviço de Contêiner do Azure. Para obter mais informações, confira [Sobre a entidade de serviço para um cluster Kubernetes](../articles/container-service/kubernetes/container-service-kubernetes-service-principal.md).
 
-Se você usar [comandos da CLI do Azure 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) para implantar um cluster Kubernetes, as credenciais de entidade de serviço poderão ser geradas automaticamente para o seu cluster.
+Se você usar [comandos da CLI do Azure](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) para implantar um cluster Kubernetes, as credenciais de entidade de serviço poderão ser geradas automaticamente para o seu cluster.
 
 ### <a name="how-large-a-cluster-can-i-create"></a>Posso criar um cluster de qual tamanho?
 Você pode criar um cluster com 1, 3 ou 5 nós mestres. Você pode escolher até 100 nós de agente.
@@ -105,4 +105,4 @@ Há alguns problemas conhecidos do DNS no Windows cujas correções ainda estão
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais](../articles/container-service/kubernetes/container-service-intro-kubernetes.md) sobre o Serviço de Contêiner do Azure.
-* Implantar um cluster de serviço de contêiner usando o [portal](../articles/container-service/dcos-swarm/container-service-deployment.md) ou a [CLI do Azure 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).
+* Implantar um cluster de serviço de contêiner usando o [portal](../articles/container-service/dcos-swarm/container-service-deployment.md) ou a [CLI do Azure](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).

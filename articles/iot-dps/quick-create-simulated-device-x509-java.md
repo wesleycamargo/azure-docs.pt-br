@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 0c5eefbd6d7758ad2a7640a1fbff3435fcd1d315
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 694c4fe10ec8f738131768d80dd70c5bd18fe223
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091690"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040730"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento do Dispositivo Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -77,9 +77,9 @@ Você usará o código de exemplo do [SDK do Azure IoT para Java](https://github
 
 5. Entre no [Portal do Azure](https://portal.azure.com), clique no botão **Todos os recursos** no menu esquerdo e abra a instância do Serviço de Provisionamento de Dispositivos.
 
-6. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** guia e clique no botão **Adicionar** na parte superior. 
+6. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** e clique no botão **Adicionar registro individual** na parte superior. 
 
-7. No painel **Adicionar registro**, insira as seguintes informações:
+7. No painel **Adicionar Registro**, insira as seguintes informações:
     - Selecione **X.509** como o *Mecanismo* de atestado de identidade.
     - No *Arquivo .pem ou .cer de certificado primário*, clique em *Selecionar um arquivo* para selecionar o arquivo de certificado **X509individual.pem** criado na etapa anterior.  
     - Opcionalmente, você pode fornecer as seguintes informações:
@@ -88,7 +88,7 @@ Você usará o código de exemplo do [SDK do Azure IoT para Java](https://github
       - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
    - Uma vez concluído, clique no botão **Salvar**. 
 
-    [![Adicionar um registro individual para atestado de X.509 no portal](./media/quick-create-simulated-device-x509-csharp/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+    [![Adicionar um registro individual para atestado de X.509 no portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
      Após o registro bem-sucedido, o dispositivo X.509 será exibido como **microsoftriotcore** na coluna *ID de Registro* na guia *Registros Individuais*. 
 
@@ -145,7 +145,7 @@ Você usará o código de exemplo do [SDK do Azure IoT para Java](https://github
 
 5. No Portal do Azure, navegue até o hub IoT vinculado ao seu serviço de provisionamento e abra a folha **Device Explorer**. Após o provisionamento bem-sucedido do dispositivo X.509 simulado para o hub, sua ID de dispositivo aparecerá na folha **Device Explorer** com o *STATUS* **habilitado**.  Talvez seja necessário clicar no botão **Atualizar** na parte superior, se você já tiver aberto a folha antes de executar o aplicativo de dispositivo de exemplo. 
 
-    ![Dispositivo é registrado no Hub IoT](./media/java-quick-create-simulated-device-x509/hub-registration.png) 
+    ![Dispositivo é registrado no Hub IoT](./media/java-quick-create-simulated-device-x509/hubregistration.png) 
 
 > [!NOTE]
 > Se você tiver alterado o *estado de dispositivo gêmeo inicial* do valor padrão na entrada de registro para o seu dispositivo, pode receber o estado desejado duas do hub e agir de acordo. Para saber mais, veja [Noções básicas e uso de dispositivos gêmeos no Hub IoT](../iot-hub/iot-hub-devguide-device-twins.md).

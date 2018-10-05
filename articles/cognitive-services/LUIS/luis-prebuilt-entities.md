@@ -1,24 +1,25 @@
 ---
-title: Entidades predefinidas em LUIS | Microsoft Docs
-description: Este artigo contém listas de entidades predefinidas incluídas em LUIS (Serviço Inteligente de Reconhecimento Vocal).
+title: Entidades predefinidas para LUIS (Reconhecimento vocal)
+titleSuffix: Azure Cognitive Services
+description: O LUIS incluem um conjunto de entidades predefinidas para reconhecer tipos comuns de informações, como datas, horas, números, medidas e moeda. O suporte a entidade predefinida varia conforme a cultura do seu aplicativo de LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 95ff173a843e7ad18ec396a1130b2e2b4035f656
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e3bd203c9ab1d6daaae04866cf195b3ca28c3078
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248230"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041550"
 ---
-# <a name="prebuilt-entities"></a>Entidades predefinidas
+# <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entidades predefinidas para reconhecer os tipos de dados comuns
 
-O LUIS incluem um conjunto de entidades predefinidas para reconhecer tipos comuns de informações, como datas, horas, números, medidas e moeda. O suporte a entidade predefinida varia conforme a cultura do seu aplicativo de LUIS. Para obter uma lista completa de entidades predefinidas compatíveis com LUIS, incluindo suporte por cultura, veja a [referência de entidade predefinida](./luis-reference-prebuilt-entities.md).
+O LUIS inclui um conjunto de entidades predefinidas para reconhecer tipos comuns de informações como datas, horas, números, medidas e moeda. O suporte a entidade predefinida varia conforme a cultura do seu aplicativo de LUIS. Para obter uma lista completa de entidades predefinidas compatíveis com LUIS, incluindo suporte por cultura, veja a [referência de entidade predefinida](./luis-reference-prebuilt-entities.md).
 
 > [!NOTE]
 > **builtin.datetime** foi preterido. Ele foi substituído por [**builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), que fornece o reconhecimento de intervalos de data e hora, bem como reconhecimento aprimorado de datas e horas ambíguas.
@@ -28,7 +29,6 @@ O LUIS incluem um conjunto de entidades predefinidas para reconhecer tipos comun
 1. Abra seu aplicativo clicando no nome na página **Meus Aplicativos** e, em seguida, clicando em **Entidades** no lado esquerdo. 
 2. Na página **Entidades**, clique em **Gerenciar entidades predefinidas**.
 
-    ![Página de Entidades – Gerenciar entidades predefinidas](./media/luis-use-prebuilt-entity/add-prebuilt-entity-button.png)
 3. Na caixa de diálogo **Adicionar entidades predefinidas**, clique na entidade predefinida que você deseja adicionar (por exemplo, "datetimeV2"). Em seguida, clique em **Salvar**.
 
     ![Adicionar caixa de diálogo de entidade predefinida](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)
@@ -73,7 +73,7 @@ A entidade predefinida **datetimeV2** reconhece datas, horas, intervalos de data
 2. Clique na URL do ponto de extremidade na página **Publicar Aplicativo** para abrir o ponto de extremidade LUIS em um navegador da Web. 
 3. Acrescente um enunciado à URL que contém um intervalo de datas. Por exemplo, você pode digitar em `book a flight tomorrow` e ver se o LUIS identifica `tomorrow` como uma entidade `builtin.datetimeV2.date` e identifica a data de amanhã como seu valor no campo `resolution`. 
 
-O exemplo a seguir mostra como poderia ser a resposta JSON do LUIS se a data de hoje fosse de 31 de outubro de 2017.
+O exemplo a seguir mostra como poderia ser a resposta JSON do LUIS se a data de hoje fosse 31 de outubro de 2017.
 
 ```json
 {

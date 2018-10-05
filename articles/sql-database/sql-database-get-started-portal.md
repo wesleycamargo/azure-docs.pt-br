@@ -1,25 +1,27 @@
 ---
 title: 'Portal do Azure: Criar um banco de dados SQL | Microsoft Docs'
 description: Crie um servidor lógico, uma regra de firewall no nível do servidor e um banco de dados do Banco de Dados SQL no portal do Azure e consulte-o.
-keywords: tutorial do banco de dados SQL, criar um banco de dados SQL
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 07/16/2018
+author: sachinpMSFT
 ms.author: sachinp
-ms.openlocfilehash: 172ee6c2200334a57ebaa073d7ff530d19b2f07d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 0e7ea33fa775bfba934d68d7cbcdd754880c3e55
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090523"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165000"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar um Banco de Dados SQL do Azure no portal do Azure
 
-Este início rápido mostra como criar um banco de dados SQL no Azure usando o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md). O Banco de Dados SQL do Azure é uma oferta de "Banco de Dados como Serviço" que permite executar e dimensionar os bancos de dados do SQL Server altamente disponíveis na nuvem. Este guia rápido mostra como começar por meio da criação de um banco de dados SQL usando o Portal do Azure.
+Este início rápido mostra como criar um banco de dados SQL no Azure usando o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md). O Banco de Dados SQL do Azure é uma oferta de "Banco de Dados como Serviço" que permite executar e dimensionar os bancos de dados do SQL Server altamente disponíveis na nuvem. Este Início Rápido mostra como começar a criar e, em seguida, a consultar um Banco de Dados SQL usando o portal do Azure.
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -28,7 +30,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
-Faça logon no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-sql-database"></a>Criar um banco de dados SQL
 
@@ -96,36 +98,6 @@ Execute estas etapas para criar um Banco de Dados SQL que contém os dados de ex
 
      ![notificação](./media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall no nível de servidor
-
-O serviço do Banco de Dados SQL cria um firewall no nível do servidor impedindo que os aplicativos e ferramentas externos conectem o servidor ou os bancos de dados no servidor, a menos que uma regra de firewall seja criada para abrir o firewall para endereços IP específicos. Execute estas etapas a fim de criar uma [regra de firewall no nível do servidor do Banco de Dados SQL](sql-database-firewall-configure.md) para o endereço IP do seu cliente e habilitar a conectividade externa por meio do firewall do Banco de Dados SQL somente para seu endereço IP.
-
-> [!NOTE]
-> O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isto acontecer, você não poderá conectar o servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
->
-
-1. Depois da implantação ser concluída, clique em **Bancos de dados SQL** no menu à esquerda, depois, clique em **mySampleDatabase** na página **Bancos de dados SQL**. A página de visão geral de seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver-20170824.database.windows.net**) e fornece opções para configurações adicionais.
-
-2. Copie esse nome do servidor totalmente qualificado para se conectar ao servidor e aos bancos de dados nos próximos inícios rápidos.
-
-   ![nome do servidor](./media/sql-database-get-started-portal/server-name.png)
-
-3. Clique em **Definir o firewall do servidor** na barra de ferramentas, conforme mostrado na imagem anterior. A página **Configurações do firewall** do servidor de Banco de Dados SQL é aberta.
-
-   ![regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule.png)
-
-4. Clique em **Adicionar IP do cliente** na barra de ferramentas para adicionar seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
-
-5. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
-
-6. Clique em **OK**, em seguida, feche a página **Configurações do Firewall**.
-
-Agora, você pode conectar o servidor do Banco de Dados SQL e seus bancos de dados usando o SQL Server Management Studio ou outra ferramenta de sua escolha neste endereço IP usando a conta do administrador do servidor criada anteriormente.
-
-> [!IMPORTANT]
-> Por padrão, o acesso através do firewall do Banco de Dados SQL está habilitado para todos os serviços do Azure. Clique em **DESATIVAR** nesta página para desabilitar todos os serviços do Azure.
->
-
 ## <a name="query-the-sql-database"></a>Consultar o Banco de Dados SQL
 
 Agora que você criou um banco de dados de exemplo no Azure, usaremos a ferramenta de consulta interna no portal do Azure para confirmar que você pode conectar o banco de dados e consultar os dados.
@@ -161,7 +133,9 @@ Salvar esses recursos se você deseja ir para as [Próximas etapas](#next-steps)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Agora que você tem um banco de dados, é possível [se conectar e consultar](sql-database-connect-query.md) usando uma das suas ferramentas ou linguagens favoritas. 
-- Para saber como projetar seu primeiro banco de dados, criar tabelas e inserir dados, consulte um destes tutoriais:
- - [Projetar seu primeiro banco de dados SQL do Azure usando o SSMS](sql-database-design-first-database.md)
-  - [Criar um banco de dados SQL do Azure e conectar-se com C# e o ADO.NET](sql-database-design-first-database-csharp.md)
+- Agora que você já tem um banco de dados, será necessário criar uma regra de firewall no nível do servidor para conectar-se a ele usando suas ferramentas locais. Confira [Criar regra de firewall no nível do servidor](sql-database-get-started-portal-firewall.md)
+- Se estiver criando uma regra de firewall no nível do servidor, você poderá [conectar e consultar](sql-database-connect-query.md) usando uma das suas ferramentas ou linguagens favoritas, incluindo
+  - [Conectar e consultar usando o SQL Server Management Studio](sql-database-connect-query-ssms.md)
+  - [Conectar e consultar usando o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+- Para criar bancos de dados usando a CLI do Azure, confira [Exemplos da CLI do Azure](sql-database-cli-samples.md)
+- Para criar bancos de dados usando o Azure PowerShell, confira [Amostras do Azure PowerShell](sql-database-powershell-samples.md)

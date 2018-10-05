@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: ''
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d0da9107fe1dd34481ca0bf1aa9a0b260bb10951
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e47ffbe15291275a7104d5e201a597d084cdbdd9
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946622"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422857"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: perguntas frequentes
 
@@ -117,7 +117,7 @@ A.
 A.-->
 
 ### <a name="q-the-system-fault-indicator-led-on-the-front-operating-panel-is-on-what-should-i-do"></a>P. O LED indicador de falha do sistema no painel de operação frontal está ativado. O que devo fazer?
-a. Se o LED indicador de falha do sistema estiver aceso, ele indicará que o sistema não está íntegro. Contate o Suporte da Microsoft para as próximas etapas.
+a. Se o LED indicador de falha do sistema estiver aceso, ele indicará que o sistema não está íntegro. [Contate o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md) para as próximas etapas.
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>P. Não consigo acessar a senha de desbloqueio do Data Box no portal do Azure. Por que isso ocorre?
 a. Se você não puder acessar a senha de desbloqueio no portal do Azure, verifique as permissões em sua assinatura e na conta de armazenamento. Verifique se você tem permissão de colaborador ou proprietário no nível do grupo de recursos. Caso contrário, você precisa ter, pelo menos, a permissão de função Operador do Data Box para ver as credenciais de acesso.
@@ -127,8 +127,8 @@ a. Se você não puder acessar a senha de desbloqueio no portal do Azure, verifi
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>P. Como fazer para rastrear o Data Box desde a realização do pedido até a devolução do dispositivo? 
 a.  Rastreie o status do pedido do Data Box no portal do Azure. Ao criar o pedido, é necessário também fornecer um email para notificações. Através desse email você será notificado sobre todas as alterações de status do pedido. Para obter mais informações, consulte como [configurar emails de notificação](data-box-portal-ui-admin.md#edit-notification-details).
 
-### <a name="q-how-do-i-return-the-disks"></a>P. Como fazer para retornar os discos? 
-a.  A Microsoft exibe uma etiqueta de remessa na tela de E-ink. Cole a etiqueta na embalagem para envio e leve o pacote lacrado à transportadora responsável. Se o rótulo estiver danificado ou for perdido, vá para **Visão geral > Baixar etiqueta de remessa** e baixe um novo rótulo de remessa de devolução.
+### <a name="q-how-do-i-return-the-device"></a>P. Como devolver o dispositivo? 
+a.  A Microsoft exibe uma etiqueta de remessa na tela de papel eletrônico. Se a etiqueta de remessa não aparecer na tela de papel eletrônico, acesse **Visão geral > Baixar etiqueta de remessa**. Baixe e imprima a etiqueta, insira-a no compartimento de plástico transparente no dispositivo e devolva o dispositivo para a transportadora. 
 
 ### <a name="q-i-received-an-email-notification-that-my-device-has-reached-the-azure-datacenter-how-do-i-find-out-if-the-data-upload-is-in-progress"></a>P. Recebi uma notificação por email informando que meu dispositivo foi recebido no datacenter do Azure. Como fazer para descobrir se o upload de dados está em andamento?
 a. Acesse seu pedido do Data Box no portal do Azure e acesse **Visão Geral**. Se o upload dos dados para o Azure tiver sido iniciado, você verá o progresso da cópia no painel direito. 
@@ -181,11 +181,11 @@ a. Se o dispositivo chegou danificado ou se há evidência de adulteração, nã
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>P. Posso usar minha própria transportadora para enviar o Data Box?
 a. Para o serviço Data Box, a Microsoft cuida do envio entre o datacenter do Azure. Caso deseje usar sua própria transportadora, use o serviço de Importação/Exportação do Azure. Para obter mais informações, acesse [O que é o serviço de Importação/Exportação do Azure?](../storage/common/storage-import-export-service.md)
 
-### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>P. A tela de E-ink não mostra a etiqueta de remessa de devolução. O que devo fazer?
-a. Se a tela de E-ink não mostrar a etiqueta de remessa de devolução, execute as seguintes etapas:
+### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>P. A tela de papel eletrônico não está mostrando a etiqueta de remessa de devolução. O que devo fazer?
+a. Se a tela de papel eletrônico não mostrar a etiqueta de remessa de devolução, execute as seguintes etapas:
 - Remova a etiqueta de remessa antiga e os adesivos do envio anterior.
-- Acesse seu pedido no portal do Azure. Acesse Visão Geral e baixe a etiqueta de remessa. Para obter mais informações, acesse [Baixar a etiqueta de remessa](data-box-portal-admin.md#download-shipping-label).
-- Imprima a etiqueta de remessa e insira-a na capa clara anexada ao dispositivo. 
+- Acesse seu pedido no portal do Azure. Acesse **Visão geral** e **Baixe a etiqueta de remessa**. Para obter mais informações, acesse [Baixar a etiqueta de remessa](data-box-portal-admin.md#download-shipping-label).
+- Imprima a etiqueta de remessa e insira-a no compartimento de plástico transparente anexado ao dispositivo. 
 - Verifique se a etiqueta de remessa está claramente visível. 
 
 ### <a name="q-how-is-my-data-protected-during-transit"></a>P. Como meus dados são protegidos durante o trânsito? 
@@ -204,12 +204,11 @@ a. Sim. Você pode ligar o dispositivo e adicionar mais dados. Você precisará 
 a.  Depois que o status do pedido de **Cópia de Dados** for exibido como **Concluído**, você deverá conseguir acessar os dados imediatamente.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>P. Onde meus dados estão localizados no Azure após o carregamento?
-a.  Quando você copia os dados para o Data Box, dependendo se os dados são um blob de blocos ou um blob de páginas ou arquivos do Azure, eles são carregados em um desses caminhos em sua conta do Armazenamento do Azure:
- - `<You_storage_account_name_BlockBlob>/<my_container>/Blob` 
- - `<Your_storage_account_name_PageBlob>/<my_container>/Blob`
- - `<Your_storage_account_name_AzFile>/` 
-
-Em compartilhamentos de blob de blocos e blob de páginas, as entidades de primeiro nível são contêineres e as entidades de segundo nível são blobs. Em compartilhamentos de Arquivos do Azure, as entidades de primeiro nível são compartilhamentos e entidades de segundo nível são arquivos.
+a.  Quando você copia os dados para o Data Box, independentemente se os dados são um blob de blocos, um blob de páginas ou arquivos do Azure, eles são carregados em um dos caminhos a seguir em sua conta do Armazenamento do Azure.
+ - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+ -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
+ 
+ Como alternativa, você pode acessar sua conta de Armazenamento do Azure no portal do Azure e navegar de lá.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>P. Acabei de ver que não segui os requisitos de nomenclatura do Azure para meus contêineres. Meus dados serão carregados no Azure?
 a.  Se os nomes de contêiner têm uma letra maiúscula, elas serão automaticamente convertidas em minúsculas. Se os nomes não estiverem em conformidade com outros requisitos (caracteres especiais, outros idiomas e assim por diante), o upload falhará. Para obter mais informações sobre as melhores práticas para nomear compartilhamentos, contêineres e arquivos, acesse: 

@@ -1,22 +1,23 @@
 ---
-title: Analisar o texto de linguagem natural em Reconhecimento Vocal (LUIS) usando C# – Serviços Cognitivos do Azure | Microsoft Docs
+title: Início Rápido do C# – prever a intenção – LUIS
+titleSuffix: Azure Cognitive Services
 description: Neste início rápido, use um aplicativo LUIS público disponível para determinar a intenção do usuário do texto de conversa. Usando C#, envie a intenção do usuário como texto para o ponto de extremidade de previsão de HTTP do aplicativo público. No ponto de extremidade, LUIS aplica o modelo do aplicativo público para analisar o texto de idioma natural quanto ao significado, determinando a intenção geral e extraindo dados relevantes para o domínio do assunto do aplicativo.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b6ddd48fc6bfa5c099e42f3717a2113f871b4f9a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 51c23029cc771db5351575ce329944a9f06dd286
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163253"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035837"
 ---
-# <a name="quickstart-analyze-text-using-c"></a>Início Rápido: Analisar texto usando C#
+# <a name="quickstart-get-intent-using-c"></a>Início Rápido: Obter a intenção usando o C#
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -35,11 +36,11 @@ ms.locfileid: "44163253"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Analisar o texto com navegador
+## <a name="get-intent-with-browser"></a>Obter a intenção com o navegador
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-c"></a>Analisar texto com C# 
+## <a name="get-intent-programmatically"></a>Obter a intenção de forma programática
 
 Use C# para consultar a [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) GET do ponto de extremidade de previsão para obter os mesmos resultados vistos na janela do navegador na seção anterior. 
 

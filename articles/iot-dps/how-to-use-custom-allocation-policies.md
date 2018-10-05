@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 503a8026fe11d1cdb3d0fc0c2680d8d545a1c992
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89cb44366d4752052d990a1506482c9108cde103
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955226"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161689"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como usar políticas de alocação personalizadas
 
 
-Uma política de alocação personalizada proporciona a você mais controle sobre como os dispositivos são atribuídos a um Hub IoT. Isso é feito usando código personalizado em uma [função do Azure](../azure-functions/functions-overview.md) para atribuir dispositivos a um Hub IoT. O Serviço de Provisionamento de Dispositivos chama o código de função do Azure que fornece o grupo de Hubs IoT. O código de função retorna as informações do Hub IoT para provisionar o dispositivo.
+Uma política de alocação personalizada proporciona a você mais controle sobre como os dispositivos são atribuídos a um Hub IoT. Isso é feito usando código personalizado em uma [função do Azure](../azure-functions/functions-overview.md) para atribuir dispositivos a um Hub IoT. O serviço de provisionamento de dispositivos chama o código de função do Azure, fornecendo todas as informações relevantes sobre o dispositivo e o registro. O código de função é executado e retorna as informações do Hub IoT para provisionar o dispositivo.
 
 Por meio de políticas de alocação personalizadas, você define suas próprias políticas de alocação quando as políticas fornecidas pelo Serviço de Provisionamento de Dispositivos não atendem aos requisitos do seu cenário.
 
@@ -45,7 +45,7 @@ Neste artigo, você realizará as seguintes etapas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md).
+* Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 * Visual Studio 2015 ou [Visual Studio 2017](https://www.visualstudio.com/vs/) com a carga de trabalho ["Desenvolvimento para Desktop com C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
@@ -107,7 +107,9 @@ Nesta seção, você criará um novo grupo de registro que usará a política de
     ![Adicionar grupo de registros de alocação personalizado para atestado de chave simétrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
 
-4. Em **Adicionar grupo de registros**, clique em **Vincular um novo Hub IoT** para vincular ambos os seus novos Hubs IoT divisionários.
+4. Em **Adicionar grupo de registros**, clique em **Vincular um novo Hub IoT** para vincular ambos os seus novos Hubs IoT divisionários. 
+
+    Você precisa executar esta etapa para ambos os Hubs IoT divisionários.
 
     **Assinatura**: se você tem várias assinaturas, escolha a assinatura em que você criou os Hubs IoT divisionários.
 
@@ -278,9 +280,9 @@ Nesta seção, você criará um novo grupo de registro que usará a política de
 
 Nesta seção, você criará duas chaves de dispositivo exclusivas. Uma chave será usada para um dispositivo de resistência simulado. A outra chave será usada para um dispositivo de bomba térmica simulado.
 
-Para gerar a chave do dispositivo, use a **Chave primária** que você anotou anteriormente para computar o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro de dispositivo para cada um dos dispositivos, depois converta o resultado no formato Base64.
+Para gerar a chave do dispositivo, use a **Chave primária** que você anotou anteriormente para computar o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro de dispositivo para cada um dos dispositivos, depois converta o resultado no formato Base64. Para obter mais informações sobre como criar chaves de dispositivo derivadas com grupos de registro, veja a seção de registros de grupo de [Atestado de chave simétrica](concepts-symmetric-key-attestation.md).
 
-Use as duas IDs de registro de dispositivo a seguir e compute uma chave de dispositivo para ambos os dispositivos. As duas IDs de registro têm um sufixo válido para trabalhar com o código de exemplo para a política de alocação personalizada:
+Para o exemplo neste artigo, use as duas IDs de registro de dispositivo a seguir e compute uma chave de dispositivo para ambos os dispositivos. As duas IDs de registro têm um sufixo válido para trabalhar com o código de exemplo para a política de alocação personalizada:
 
 - **breakroom499-contoso-tstrsd-007**
 - **mainbuilding167-contoso-hpsd-088**
@@ -289,53 +291,53 @@ Use as duas IDs de registro de dispositivo a seguir e compute uma chave de dispo
 
 Se estiver usando uma estação de trabalho do Linux, você poderá usar openssl para gerar suas chaves de dispositivo derivadas, conforme mostrado no exemplo a seguir.
 
-Substitua o valor de **CHAVE** pela **Chave primária** que você anotou anteriormente.
+1. Substitua o valor de **CHAVE** pela **Chave primária** que você anotou anteriormente.
 
-```bash
-KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
+    ```bash
+    KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
 
-REG_ID1=breakroom499-contoso-tstrsd-007
-REG_ID2=mainbuilding167-contoso-hpsd-088
+    REG_ID1=breakroom499-contoso-tstrsd-007
+    REG_ID2=mainbuilding167-contoso-hpsd-088
 
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+    devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
 
-echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-```
+    echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
+    ```
 
-```bash
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```bash
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 #### <a name="windows-based-workstations"></a>Estações de trabalho baseadas em Windows
 
 Se estiver usando uma estação de trabalho baseada no Windows, você poderá usar o PowerShell para gerar sua chave de dispositivo derivada, conforme mostrado no exemplo a seguir.
 
-Substitua o valor de **CHAVE** pela **Chave primária** que você anotou anteriormente.
+1. Substitua o valor de **CHAVE** pela **Chave primária** que você anotou anteriormente.
 
-```PowerShell
-$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
+    ```PowerShell
+    $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
-$REG_ID1='breakroom499-contoso-tstrsd-007'
-$REG_ID2='mainbuilding167-contoso-hpsd-088'
+    $REG_ID1='breakroom499-contoso-tstrsd-007'
+    $REG_ID2='mainbuilding167-contoso-hpsd-088'
 
-$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-$hmacsha256.key = [Convert]::FromBase64String($key)
-$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-$derivedkey1 = [Convert]::ToBase64String($sig1)
-$derivedkey2 = [Convert]::ToBase64String($sig2)
+    $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+    $hmacsha256.key = [Convert]::FromBase64String($key)
+    $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
+    $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
+    $derivedkey1 = [Convert]::ToBase64String($sig1)
+    $derivedkey2 = [Convert]::ToBase64String($sig2)
 
-echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-```
+    echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
+    ```
 
-```PowerShell
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```PowerShell
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 Os dispositivos simulados usarão as chaves do dispositivo derivadas com cada ID de registro para realizar o atestado de chave simétrica.
@@ -369,7 +371,7 @@ Esta seção é voltada para uma estação de trabalho baseada em Windows. Para 
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho de "Desenvolvimento para Desktop com C++") estejam instalados em seu computador, **antes** da instalação de `CMake`. Após a instalação dos pré-requisitos e verificação do download, instale o sistema de compilação CMake.
 
-2. Abra um prompt de comando ou o shell Bash do Git. Execute o seguinte comando para clonar o repositório do GitHub SDK de C do IoT do Azure:
+2. Abra um prompt de comando ou o shell Bash do Git. Execute o seguinte comando para clonar o repositório GitHub do SDK de C do IoT do Azure:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -422,7 +424,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
     ![Extrair informações do ponto de extremidade do Serviço de Provisionamento de Dispositivo na folha do portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. No Visual Studio, abra o arquivo de solução **azure_iot_sdks.sln**, que foi gerado pela execução de CMake anteriormente. O arquivo de solução deve estar no seguinte local:
+2. No Visual Studio, abra o arquivo de solução **azure_iot_sdks.sln**, que foi gerado pela execução de CMake anteriormente. O arquivo da solução deve estar no seguinte local:
 
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
@@ -436,7 +438,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     static const char* id_scope = "0ne00002193";
     ```
 
-5. Encontre a definição da função `main()` no mesmo arquivo. Verifique se a variável `hsm_type` está definida como `SECURE_DEVICE_TYPE_SYMMETRIC_KEY`, conforme mostrado abaixo:
+5. Encontre a definição da função `main()` no mesmo arquivo. Certifique-se de que a variável `hsm_type` está configurada para `SECURE_DEVICE_TYPE_SYMMETRIC_KEY`, conforme mostrado abaixo:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -449,7 +451,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
 #### <a name="simulate-the-contoso-toaster-device"></a>Simular o dispositivo de resistência da Contoso
 
-1. Na janela *Gerenciador de Soluções* do Visual Studio, navegue até o projeto **hsm\_security\_client** e expanda-a. Expanda **Arquivos de origem** e abra **hsm\_client\_key.c**. 
+1. Na janela *Gerenciador de Soluções* do Visual Studio, navegue até o projeto **hsm\_security\_client** e expanda-a. Expanda **Arquivos de Origem** e abra **hsm\_client\_key.c**. 
 
     Localize a declaração das constantes `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Faça as alterações a seguir ao arquivo e salve-o.
 

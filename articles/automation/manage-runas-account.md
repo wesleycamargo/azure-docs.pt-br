@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32a7b7026df1522abe2ca3dc7b212b06e08ff905
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: a8821b2e1be10cddafba04109041e76ef65f6a6a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544270"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433694"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerenciar contas Executar como da Automação do Azure
 
 As contas Executar como na Automação do Azure são usadas para fornecer autenticação para o gerenciamento de recursos no Azure com os cmdlets do Azure.
 
-Quando você cria uma conta Executar como, ela cria uma nova entidade de serviço no Azure Active Directory e atribui a função Colaborador a esse usuário no nível da assinatura.
+Quando você cria uma conta Executar como, ela cria uma nova entidade de serviço no Azure Active Directory e atribui a função Colaborador a esse usuário no nível da assinatura. Para runbooks que usam Hybrid Runbook Workers em máquinas virtuais do Azure, você pode usar [identidades gerenciadas para recursos do Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) em vez de contas Executar como para autenticar para recursos do Azure.
 
 Há dois tipos de Contas Executar como:
 

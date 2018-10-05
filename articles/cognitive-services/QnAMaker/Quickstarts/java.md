@@ -1,20 +1,21 @@
 ---
-title: Início rápido do Java para API de QnA Maker (v4) da Microsoft - Serviços Cognitivos do Azure | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar a API de Tradução de Texto da Microsoft nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: Java para API de QnA Maker (v4)'
+titleSuffix: Azure Cognitive Services
+description: Obtenha informações e amostras de código para ajudá-lo a começar a usar rapidamente a API de Tradução de Texto da Microsoft nos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: d8df77d43441331bdda38814e4bddfb29d1576c1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 8cf9df5130f11fd07dbf468ad0ad93dff4584b21
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868391"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031469"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Início rápido para API de QnA Maker da Microsoft com Java 
 <a name="HOLTop"></a>
@@ -24,10 +25,10 @@ Este artigo mostra como usar a [API de QnA Maker da Microsoft](../Overview/overv
 - [Criar uma nova base de dados de conhecimento.](#Create)
 - [Atualizar uma base de dados de conhecimento existente.](#Update)
 - [Obter o status de uma solicitação para criar ou atualizar uma base de dados de conhecimento.](#Status)
-- [Publicar uma base de dados conhecimento existente.](#Publish)
+- [Publicar em uma base de dados de conhecimento existente.](#Publish)
 - [Substituir o conteúdo de uma base de dados de conhecimento existente.](#Replace)
 - [Baixar o conteúdo de uma base de dados de conhecimento.](#GetQnA)
-- [Obter respostas para uma pergunta usando uma base de dados de conhecimento.](#GetAnswers)
+- [Obter respostas a uma pergunta usando uma base de dados de conhecimento.](#GetAnswers)
 - [Obter informações sobre uma base de dados de conhecimento.](#GetKB)
 - [Obter informações sobre todas as bases de dados de conhecimento pertencentes ao usuário especificado.](#GetKBsByUser)
 - [Excluir uma base de dados de conhecimento.](#Delete)
@@ -36,11 +37,13 @@ Este artigo mostra como usar a [API de QnA Maker da Microsoft](../Overview/overv
 - [Obter o conjunto atual de alterações de palavras.](#GetAlterations)
 - [Substituir o conjunto atual de alterações de palavras.](#PutAlterations)
 
-## <a name="prerequisites"></a>pré-requisitos
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 É necessário ter o [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar esse código. Você pode usar um Java IDE, caso tenha um favorito, mas um editor de texto será suficiente.
 
-É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de QnA Maker da Microsoft**. Você precisará de uma chave de assinatura paga no [painel do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de QnA Maker da Microsoft**. Você precisará de uma chave de assinatura paga do seu [painel do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 <a name="Create"></a>
 
@@ -259,7 +262,7 @@ public class CreateKB {
 }
 ```
 
-**Criar resposta da base de dados de conhecimento**
+**Criar a resposta da base de dados de conhecimento**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -294,7 +297,7 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 <a name="Update"></a>
 
-## <a name="update-knowledge-base"></a>Atualizar base de dados de conhecimento
+## <a name="update-knowledge-base"></a>Atualizar a base de dados de conhecimento
 
 O código a seguir atualiza uma base de dados de conhecimento existente, usando o método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
@@ -598,7 +601,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Obter status da solicitação
 
-É possível chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) para verificar o status de uma solicitação para criar ou atualizar uma base de dados de conhecimento. Para ver como esse método é utilizado, consulte o código de exemplo para o método [Criar](#Create) ou [Atualizar](#Update).
+É possível chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) para verificar o status de uma solicitação para criar ou atualizar uma base de dados de conhecimento. Para ver como esse método é utilizado, confira o código de exemplo do método [Create](#Create) ou [Update](#Update).
 
 [Voltar ao início](#HOLTop)
 
@@ -1053,9 +1056,9 @@ O código a seguir obtém respostas para uma pergunta usando a base de dados de 
 
 1. Crie um novo projeto Java no IDE favorito.
 1. Adicione o código fornecido abaixo.
-1. Substitua o valor `host` pelo nome do site da assinatura do QnA Maker. Para obter mais informações, consulte [Criar um serviço do QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
-1. Substitua o valor `endpoint_key` por uma chave de ponto de extremidade válida para a assinatura. Observe que isso não é o mesmo que a chave de assinatura. É possível obter as chaves de ponto de extremidade usando o método [Obter chaves do ponto de extremidade](#GetKeys).
-1. Substitua o valor `kb` pela ID da base de conhecimento que você quer consultar. Observe que essa base de dados de conhecimento já deve ter sido publicada usando o método [Publicar](#Publish).
+1. Substitua o valor `host` pelo nome do site da sua assinatura do QnA Maker. Para obter mais informações, consulte [Criar um serviço do QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
+1. Substitua o valor `endpoint_key` por uma chave de ponto de extremidade válida para a sua assinatura. Observe que não será igual à sua chave de assinatura. É possível obter as chaves de ponto de extremidade usando o método [Obter chaves do ponto de extremidade](#GetKeys).
+1. Substitua o valor `kb` pela ID da base de dados de conhecimento que você quer consultar. Observe que essa base de dados de conhecimento já deve ter sido publicada usando o método [Publicar](#Publish).
 1. Execute o programa.
 
 ```java
@@ -1164,7 +1167,7 @@ public class GetAnswers {
 }
 ```
 
-**Obter resposta da pergunta**
+**Resposta de obter respostas**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -1564,7 +1567,7 @@ public class DeleteKB {
 }
 ```
 
-**Excluir resposta da base de dados de conhecimento**
+**Resposta de excluir da base de dados de conhecimento**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -1676,7 +1679,7 @@ public class GetEndpointKeys {
 }
 ```
 
-**Obter resposta de chaves do ponto de extremidade**
+**Resposta de obter chaves de ponto de extremidade**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -1840,7 +1843,7 @@ public class RefreshKeys {
 }
 ```
 
-**Atualizar resposta de chaves do ponto de extremidade**
+**Resposta de atualizar chaves do ponto de extremidade**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -1953,7 +1956,7 @@ public class GetAlterations {
 }
 ```
 
-**Obter resposta de alterações de palavras**
+**Resposta de obter alterações de palavras**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -2110,7 +2113,7 @@ public class PutAlterations {
 }
 ```
 
-**Substituir resposta de alterações de palavras**
+**Resposta de substituir alterações de palavras**
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 

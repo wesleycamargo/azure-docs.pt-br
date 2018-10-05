@@ -1,21 +1,23 @@
 ---
 title: Monitorar o desempenho de um banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário | Microsoft Docs
 description: Monitorar e gerenciar o desempenho do banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
-keywords: tutorial do banco de dados SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 75431715b5948525e92c99b778842d26a684da82
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 873660f362d2ad0002f512f911d4149519092787
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753432"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055938"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorar e gerenciar o desempenho do banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
 
@@ -44,9 +46,9 @@ O gerenciamento de desempenho do banco de dados consiste na compilação e anál
 ### <a name="performance-management-strategies"></a>Estratégias de gerenciamento de desempenho
 
 * Para evitar precisar monitorar o desempenho manualmente, é mais eficaz **definir alertas que são disparados quando os bancos de dados se desviam dos intervalos normais**.
-* Para responder a flutuações de curto prazo no nível de desempenho de um banco de dados, o **nível de DTU pode ser escalado verticalmente ou reduzido verticalmente**. Se essa flutuação acontecer de maneira regular ou previsível, **o dimensionamento do banco de dados poderá ser agendado para ocorrer automaticamente**. Por exemplo, reduzir verticalmente quando você souber que sua carga de trabalho é leve, talvez durante a noite ou durante os finais de semana.
+* Para responder a flutuações de curto prazo no tamanho de computação de um banco de dados, o **nível de DTU pode ser escalado ou reduzido verticalmente**. Se essa flutuação acontecer de maneira regular ou previsível, **o dimensionamento do banco de dados poderá ser agendado para ocorrer automaticamente**. Por exemplo, reduzir verticalmente quando você souber que sua carga de trabalho é leve, talvez durante a noite ou durante os finais de semana.
 * Para responder a flutuações de longo prazo ou a alterações nos locatários, **os locatários individuais podem ser movidos para outro banco de dados**.
-* Para responder a aumentos de curto prazo em cargas de locatários *individuais*, **os locatários individuais podem ser retirados de um banco de dados e atribuídos a um nível de desempenho individual**. Depois que a carga é reduzida, o locatário pode ser devolvido ao banco de dados multilocatário. Quando isso é conhecido com antecedência, os locatários podem ser movidos preventivamente para garantir que o banco de dados sempre tenha os recursos necessários e para evitar o impacto em outros locatários no banco de dados multilocatário. Se esse requisito for previsível, como um local com um crescimento súbito nas vendas de ingressos para um evento popular, esse comportamento de gerenciamento poderá ser integrado ao aplicativo.
+* Para responder a aumentos de curto prazo em cargas de locatários *individuais*, **os locatários individuais podem ser retirados de um banco de dados e atribuídos a um tamanho de computação individual**. Depois que a carga é reduzida, o locatário pode ser devolvido ao banco de dados multilocatário. Quando isso é conhecido com antecedência, os locatários podem ser movidos preventivamente para garantir que o banco de dados sempre tenha os recursos necessários e para evitar o impacto em outros locatários no banco de dados multilocatário. Se esse requisito for previsível, como um local com um crescimento súbito nas vendas de ingressos para um evento popular, esse comportamento de gerenciamento poderá ser integrado ao aplicativo.
 
 O [Portal do Azure](https://portal.azure.com) fornece monitoramento e alertas internos sobre a maioria dos recursos. Para o Banco de Dados SQL, o monitoramento e o alerta estão disponíveis em bancos de dados. Esse monitoramento e alertas internos são específicos ao recurso e, portanto, é conveniente usá-los para pequenas quantidades de recursos, mas não são convenientes ao trabalhar com muitos recursos.
 

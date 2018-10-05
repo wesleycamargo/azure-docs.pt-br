@@ -1,20 +1,21 @@
 ---
-title: Noções básicas sobre a colaboração do aplicativo LUIS – Azure | Microsoft Docs
+title: Colaboração de aplicativo LUIS – Reconhecimento vocal
+titleSuffix: Azure Cognitive Services
 description: Os aplicativos LUIS requerem um proprietário único e colaboradores opcionais.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 38fc33a6fb823e0435a9c96979c5a9a4539cd6ba
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399564"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038758"
 ---
 # <a name="collaborating"></a>Colaborando
 
@@ -30,6 +31,11 @@ Consulte [Usuário do locatário do Azure Active Directory](luis-how-to-collabor
 ## <a name="luis-app-owner"></a>Proprietário do aplicativo LUIS
 A conta que cria um aplicativo é o proprietário. Cada aplicativo tem um único proprietário. O proprietário está listado nas **[Configurações](luis-how-to-collaborate.md)** do aplicativo. Esta é a conta que pode excluir o aplicativo. Esta também é a conta que recebe o email quando a cota do ponto de extremidade atinge 75% do limite mensal. 
 
+## <a name="authorization-roles"></a>Funções de autorização
+O LUIS não dá suporte a funções diferentes para os proprietários e colaboradores com uma exceção. O proprietário é a única conta que pode excluir o aplicativo.
+
+Se você tiver interesse em controlar o acesso ao modelo, considere dividir o modelo em aplicativos LUIS menores com um conjunto mais limitado de colaboradores. Use [Expedir](https://aka.ms/dispatch-tool) para permitir que um aplicativo LUIS pai gerencie a coordenação entre os aplicativos pai e filho.
+
 ## <a name="transfer-ownership"></a>Transferir propriedade
 O LUIS não oferece transferência de propriedade; contudo, qualquer colaborador pode exportar o aplicativo e criar um aplicativo importando-o. Lembre-se de que o novo aplicativo tem uma ID do aplicativo diferente. O novo aplicativo precisa ser treinado, publicado e o novo ponto de extremidade, usado.
 
@@ -41,7 +47,7 @@ Se desejar compartilhar vários aplicativos com os colaboradores, cada aplicativ
 ## <a name="managing-multiple-authors"></a>Gerenciando vários autores
 No momento, o site do [LUIS](luis-reference-regions.md#luis-website) não oferece criação no nível da transação. É possível permitir que os autores trabalhem em versões independentes de uma versão base. Dois diferentes métodos são descritos nas seções a seguir.
 
-### <a name="manage-multiple-versions-inside-the-same-app"></a>Gerenciar várias versões dentro do mesmo aplicativo
+## <a name="manage-multiple-versions-inside-the-same-app"></a>Gerenciar várias versões dentro do mesmo aplicativo
 Comece [clonando](luis-how-to-manage-versions.md#clone-a-version), de uma versão base, para cada autor. 
 
 Cada autor faz alterações em sua própria versão do aplicativo. Depois que cada autor estiver satisfeito com o modelo, exporte as novas versões para os arquivos JSON.  
@@ -50,7 +56,7 @@ Aplicativos exportados são arquivos formatados para JSON, que podem ser compara
 
 Esse método permite que você tenha uma versão ativa, uma versão do estágio e uma versão publicada. É possível comparar os resultados no painel de teste interativo entre as três versões.
 
-### <a name="manage-multiple-versions-as-apps"></a>Gerenciar várias versões como aplicativos
+## <a name="manage-multiple-versions-as-apps"></a>Gerenciar várias versões como aplicativos
 [Exporte](luis-how-to-manage-versions.md#export-version) a versão base. Cada autor importa a versão. A pessoa que importa o aplicativo é o proprietário da versão. Quando ela terminar de modificar o aplicativo, exporte a versão. 
 
 Aplicativos exportados são arquivos formatados para JSON, que podem ser comparados com a exportação base quanto a alterações. Combine os arquivos para criar um único arquivo JSON da nova versão. Altere a propriedade **versionId** no JSON para significar a nova versão mesclada. Importe essa versão para o aplicativo original.

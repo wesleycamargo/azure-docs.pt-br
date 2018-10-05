@@ -1,21 +1,21 @@
 ---
-title: Como configurar um serviço QnA Maker - Serviços Cognitivos da Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Como configurar um serviço do QnA Maker
+title: Configurar um serviço do QnA Maker – QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Antes de criar quaisquer bases de dados de conhecimento do QnA Maker, primeiro você deve configurar um serviço de QnA Maker no Azure. Qualquer pessoa com autorização para criar novos recursos em uma assinatura pode configurar o serviço QnA Maker.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: ce452dd686529e017b4eae4717eadb044b389409
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 87bcd23983c1d973f7e90caf806092c909b7b9e4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364247"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032539"
 ---
 # <a name="create-a-qna-maker-service"></a>Criar um serviço do QnA Maker
 

@@ -1,21 +1,21 @@
 ---
-title: Ciclo de vida de desenvolvimento de uma base de dados de conhecimento - Serviços Cognitivos da Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Ciclo de vida de desenvolvimento de uma base de dados de conhecimento
+title: Ciclo de vida de desenvolvimento de uma base de dados de conhecimento – QnA Maker
+titleSuffix: Azure Cognitive Services
+description: O QnA Maker aprende melhor em um ciclo iterativo de alterações de modelo, exemplos de expressão, publicação e coleta de dados de consultas de ponto de extremidade.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: 9ecdd2c7823eed145621b214690eff7681065507
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 5af829b3355c6d68bace959b66f9511877d08b83
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35364893"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040907"
 ---
 # <a name="knowledge-base-lifecycle"></a>Ciclo de vida da base de dados de Conhecimento
 O QnA Maker aprende melhor em um ciclo iterativo de alterações de modelo, exemplos de expressão, publicação e coleta de dados de consultas de ponto de extremidade. 

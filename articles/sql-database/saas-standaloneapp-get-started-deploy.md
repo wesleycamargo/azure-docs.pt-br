@@ -1,21 +1,23 @@
 ---
-title: Tutorial de SaaS multilocatário- Banco de Dados SQL do Azure | Microsoft Docs
+title: Tutorial de SaaS com um locatário – Banco de Dados SQL do Azure | Microsoft Docs
 description: Implante e explore um aplicativo SaaS autônomo de locatário único que usa o Banco de Dados SQL do Azure.
-keywords: tutorial do banco de dados SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: 32cfa2e9bd48dd4e27da5c4010391c032d67d96b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: sstein
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 1e74a0c915471fecb3b8e0662559eb5bfe189b3d
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644715"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423010"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo autônomo de locatário único que usa o Banco de Dados SQL do Azure
 
@@ -25,7 +27,7 @@ O aplicativo autônomo ou um padrão de aplicativo por locatário implanta uma i
 
 Neste tutorial, você implantará três aplicativos autônomos para três locatários na assinatura do Azure.  Você tem acesso completo para explorar e trabalhar com os componentes individuais do aplicativo.
 
-O código-fonte do aplicativo e os scripts de gerenciamento estão disponíveis no repositório GitHub [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp).
+O código-fonte do aplicativo e os scripts de gerenciamento estão disponíveis no repositório GitHub [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp). O aplicativo foi criado usando o Visual Studio 2015 e não é possível abri-lo e compilá-lo no Visual Studio 2017 sem atualizar.
 
 
 Neste tutorial, você aprende:

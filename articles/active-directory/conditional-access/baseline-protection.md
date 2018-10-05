@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 57fef112186834ead76f6223e32cb358e4d6d053
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ef2b5dd393974ddf700235991b60ec66031e34c2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024066"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222260"
 ---
 # <a name="what-is-baseline-protection-preview"></a>O que é proteção de linha de base (versão prévia)?  
 
@@ -56,7 +56,7 @@ Essa política de linha de base fornece a opção de excluir usuários e grupos.
 
 ## <a name="enable-a-baseline-policy"></a>Habilitar uma política de linha de base 
 
-Enquanto as políticas de linha de base estão em visualização, por padrão, elas não são ativadas. É necessário habilitar manualmente uma política para ativá-la. Assim que esse recurso alcançar a disponibilidade geral, as políticas serão ativadas por padrão. A alteração de comportamento planejada é o motivo pelo que você tem uma adição a ativar e desativar uma terceira opção para definir o estado de uma política: **Habilitar automaticamente a política no futuro**. Selecionando essa opção, você deixa a Microsoft decidir quando ativar uma política.      
+Enquanto as políticas de linha de base estão em visualização, por padrão, elas não são ativadas. É necessário habilitar manualmente uma política para ativá-la. Se você habilitar explicitamente as políticas de linha de base no estágio de versão prévia, elas permanecerão ativas quando esse recurso atingir a disponibilidade geral. A alteração de comportamento planejada é o motivo pelo qual, além de ativar e desativar, há uma terceira opção para definir o estado de uma política: **Habilitar automaticamente a política futuramente**. Ao selecionar essa opção, você pode deixar as políticas desabilitadas durante a versão prévia, mas permitir que a Microsoft as habilite automaticamente quando esse recurso atingir a disponibilidade geral. Se você não habilitar explicitamente as políticas de linha de base agora e não selecionar a opção **Habilitar automaticamente a política futuramente**, as políticas permanecerão desabilitadas quando esse recurso atingir a disponibilidade geral.
 
 
 **Para habilitar uma política de linha de base:**  

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: alkohli
-ms.openlocfilehash: 0204445464a9d61b4e25be1d71373ce8394b32f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957664"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161923"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Tutorial: Copiar dados para a caixa de dados do Azure 
 
@@ -38,17 +38,17 @@ Antes de começar, verifique se:
 
 1. Você concluiu o [Tutorial: Configurar a Caixa de Dados do Azure](data-box-deploy-set-up.md).
 2. Você recebeu sua caixa de dados e o status do pedido no portal está **Entregue**.
-3. Você tem um computador host que possui os dados que deseja copiar para a Caixa de Dados. O computador host deve
+3. Você tem um computador host que tem os dados que você deseja copiar para o Data Box. O computador host deve
     - Executar um [Sistema operacional com suporte](data-box-system-requirements.md).
     - Estar conectado a uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se uma conexão de 10 GbE não estiver disponível, um link de dados de 1 GbE poderá ser usado, mas as velocidades de cópia serão afetadas. 
 
 ## <a name="connect-to-data-box"></a>Conectar-se à caixa de dados
 
 Com base na conta de armazenamento selecionada, o Data Box cria até:
-- Três compartilhamentos para cada conta de armazenamento associada (GPv1 e GPv2).
+- Três compartilhamentos para cada conta de armazenamento associada para GPv1 e GPv2.
 - Uma ação para a conta premium ou de armazenamento de blobs. 
 
-Sob o blob de bloco e os compartilhamentos de blob de página, as entidades de primeiro nível são contêineres e as entidades de segundo nível são blobs. Em compartilhamentos para arquivos do Azure, entidades de primeiro nível são compartilhamentos, entidades de segundo nível são arquivos.
+Sob o blob de bloco e os compartilhamentos de blob de página, as entidades de primeiro nível são contêineres e as entidades de segundo nível são blobs. Em compartilhamentos de Arquivos do Azure, as entidades de primeiro nível são compartilhamentos e entidades de segundo nível são arquivos.
 
 Considere o exemplo a seguir. 
 
@@ -80,7 +80,7 @@ Se você estiver usando um computador de host do Windows Server, execute as segu
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-    Digite a senha do compartilhamento quando solicitado. A amostra a seguir mostra a conexão a um compartilhamento por meio do comando anterior.
+    Quando solicitado, digite a senha do compartilhamento. A amostra a seguir mostra a conexão a um compartilhamento por meio do comando anterior.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
@@ -88,7 +88,7 @@ Se você estiver usando um computador de host do Windows Server, execute as segu
     The command completed successfully.
     ```
 
-4. Pressione Windows + R. No **executados** janela, especifique o `\\<device IP address>`. Clique em **OK**. Isso abre o File Explorer.
+4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK**. O File Explorer será aberto.
     
     ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
@@ -233,7 +233,7 @@ Para garantir a integridade dos dados, a soma de verificação é computada em l
 
 Se você estiver usando um computador host Linux, use um utilitário de cópia semelhante ao Robocopy. Algumas das alternativas disponíveis no Linux são [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) ou [Ultracopier](https://ultracopier.first-world.info/).  
 
-O comando cp é um dos melhores opções para copiar um diretório. Para mais informações sobre o uso, vá para [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
+O comando `cp` é uma das melhores opções para copiar um diretório. Para mais informações sobre o uso, vá para [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
 
 Se usar a opção de rsync para obter uma cópia com multithread, siga estas diretrizes:
 
@@ -273,7 +273,7 @@ Etapa final é preparar o dispositivo para o envio. Nesta etapa, todos os compar
    
     ![Preparar para o envio 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
 
-2. Se a soma de verificação não estiver ativada, você terá a opção de ativar a soma de verificação. Recomendamos que, para a integridade de seus dados, você realize a validação da soma de verificação. Selecionar **Habilitar soma de verificação** acionará o cálculo da soma de verificação e poderá levar algum tempo, dependendo do tamanho dos dados. Clique em **iniciar preparação**.
+2. Por padrão, as somas de verificação são computadas embutidas ao preparar para o envio. O cálculo da soma de verificação pode levar algum tempo dependendo do tamanho dos seus dados. Clique em **iniciar preparação**.
     1. Os compartilhamentos de dispositivos ficam off-line e o dispositivo fica bloqueado quando nos preparamos para enviar.
         
         ![Preparar para o envio 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 

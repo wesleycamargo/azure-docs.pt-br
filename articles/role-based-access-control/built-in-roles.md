@@ -1,6 +1,6 @@
 ---
-title: Funções internas no Azure | Microsoft Docs
-description: Descreve as funções internas para o RBAC (controle de acesso baseado em função) no Azure. Lista as ações, NotActions, DataActions e NotDataActions.
+title: Funções internas para recursos do Azure | Microsoft Docs
+description: Descreve as funções internas do RBAC (controle de acesso baseado em função) e os recursos do Azure. Lista as ações, NotActions, DataActions e NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,18 +11,18 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/19/2018
+ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: e03b2ab45edd57a124dcc960ff518ece4902d2fa
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6fe9a106975a03fabc9d674ede694e683dc3cd94
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048361"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410265"
 ---
-# <a name="built-in-roles-in-azure"></a>Funções internas no Azure
+# <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 O [controle de acesso baseado em função (RBAC)](overview.md) tem várias definições de função interna que você pode atribuir a usuários, grupos e entidades de serviço. Atribuições de função são a maneira de controlar o acesso aos recursos no Azure. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias [funções personalizadas](custom-roles.md).
 
 As funções internas estão sempre em evolução. Para obter as definições de função mais recentes, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) ou [lista de definições de função az](/cli/azure/role/definition#az-role-definition-list).
@@ -43,7 +43,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Função do operador de serviço de gerenciamento da API](#api-management-service-operator-role) | Pode gerenciar serviços, mas não as APIs |
 | [Função do leitor do serviço de gerenciamento da API](#api-management-service-reader-role) | Acesso somente leitura ao serviço e APIs |
 | [Colaborador de componente do Application Insights](#application-insights-component-contributor) | Pode gerenciar os componentes do Application Insights |
-| [Depurador de Instantâneos do Application Insights](#application-insights-snapshot-debugger) | Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essa função não está incluída em nenhuma das funções [Proprietário](#owner) e [Colaborador](#contributor). |
+| [Depurador de Instantâneos do Application Insights](#application-insights-snapshot-debugger) | Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor). |
 | [Operador do Trabalho de Automação](#automation-job-operator) | Criar e gerenciar trabalhos usando runbooks de Automação. |
 | [Operador de automação](#automation-operator) | Os Operadores de Automação podem iniciar, interromper, suspender e retomar trabalhos |
 | [Operador de runbook de Automação](#automation-runbook-operator) | Ler propriedades do Runbook - para poder criar Trabalhos do runbook. |
@@ -62,16 +62,21 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador de rede clássica](#classic-network-contributor) | Permite que você gerencie redes clássicas, mas não acessá-las. |
 | [Colaborador da conta de armazenamento clássica](#classic-storage-account-contributor) | Permite que você gerencie contas de armazenamento clássico, mas não acessá-las. |
 | [Função do Serviço de Operador da Chave da Conta de Armazenamento Clássica](#classic-storage-account-key-operator-service-role) | Os Operadores da Chave da Conta de Armazenamento Clássica têm permissão para listar e regenerar chaves nas Contas de Armazenamento Clássicas |
-| [Colaborador de Máquina Virtual Clássica](#classic-virtual-machine-contributor) | Permite gerenciar máquinas virtuais clássicas, mas não o acesso a elas, nem à rede virtual ou conta de armazenamento à qual estão conectadas.|
+| [Colaborador de Máquina Virtual Clássica](#classic-virtual-machine-contributor) | Permite gerenciar máquinas virtuais clássicas, mas não o acesso a elas, nem à rede virtual ou conta de armazenamento à qual estão conectadas. |
+| [Colaborador dos Serviços Cognitivos](#cognitive-services-contributor) | Permite criar, ler, atualizar, excluir e gerenciar chaves dos Serviços Cognitivos. |
+| [Usuário dos Serviços Cognitivos](#cognitive-services-user) | Permite ler e listar as chaves dos Serviços Cognitivos. |
 | [Função de leitor de conta do Cosmos DB](#cosmos-db-account-reader-role) | Pode ler dados de contas do Azure Cosmos DB. Consulte [Colaborador de conta do DocumentDB](#documentdb-account-contributor) para gerenciar contas do Azure Cosmos DB. |
+| [Colaborador do Gerenciamento de Custos](#cost-management-contributor) | Pode exibir os custos e gerenciar a configuração de custo (por exemplo, orçamentos, exportações) |
+| [Leitor do Gerenciamento de Custos](#cost-management-reader) | Pode exibir dados e configuração de custos (por exemplo, orçamentos, exportações) |
 | [Colaborador do Data Box](#data-box-contributor) | Permite que você gerencie tudo sob o serviço Data Box exceto fornecer acesso a outras pessoas. |
-| [Operador do Data Box](#data-box-operator) | Permite que você gerencie o serviço do Azure Data Box, exceto a ordem de criação ou edição de detalhes do pedido e fornecer acesso a outras pessoas. |
+| [Leitor do Data Box](#data-box-reader) | Permite que você gerencie o serviço do Azure Data Box, exceto a ordem de criação ou edição de detalhes do pedido e fornecer acesso a outras pessoas. |
 | [Colaborador da fábrica de dados](#data-factory-contributor) | Permite que você gerencie as fábricas de dados, mas não tem acesso a elas. |
 | [Desenvolvedor do Data Lake Analytics](#data-lake-analytics-developer) | Permite enviar, monitorar e gerenciar seus próprios trabalhos, mas não criar nem excluir contas do Data Lake Analytics. |
 | [Limpador de Dados](#data-purger) | Pode limpar os dados de análise |
 | [Usuário do DevTest Labs](#devtest-labs-user) | Permite-lhe conectar, iniciar, reiniciar e encerrar suas máquinas virtuais nos Azure DevTest Labs. |
 | [Colaborador de zona DNS](#dns-zone-contributor) | Permite gerenciar zonas DNS e conjuntos de registros no DNS do Azure, mas não permite controlar quem tem acesso a eles. |
 | [Colaborador de Conta do DocumentDB](#documentdb-account-contributor) | Pode gerenciar contas do Azure Cosmos DB. O Azure Cosmos DB era anteriormente conhecido como DocumentDB. |
+| [Colaborador dos serviços de domínio do HDInsight](#hdinsight-domain-services-contributor) | Pode ler, criar, modificar e excluir operações relacionadas aos serviços de domínio necessárias para o Enterprise Security Package do HDInsight |
 | [Colaborador de conta do sistemas inteligentes](#intelligent-systems-account-contributor) | Permite gerenciar contas do Intelligent Systems, mas não acessá-las. |
 | [Colaborador do Key Vault](#key-vault-contributor) | Permite gerenciar cofres de chaves, mas não acessá-los. |
 | [Criador de laboratório](#lab-creator) | Permite a você criar, gerenciar e excluir os laboratórios gerenciados nas contas de laboratório do Azure. |
@@ -80,6 +85,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador de Aplicativo Lógico](#logic-app-contributor) | Permite gerenciar o aplicativo lógico, mas não o acesso a ele. |
 | [Operador de Aplicativo Lógico](#logic-app-operator) | Permite que você leia, habilite e desabilite o aplicativo lógico. |
 | [Função do Operador de Aplicativos Gerenciado](#managed-application-operator-role) | Permite que você leia e execute as ações nos recursos de aplicativo gerenciado |
+| [Leitor de aplicativos gerenciados](#managed-applications-reader) | Permite ler os recursos de um aplicativo gerenciado e solicitar acesso JIT. |
 | [Colaborador de Identidade Gerenciada](#managed-identity-contributor) | Criar, ler, atualizar e excluir a identidade atribuída pelo usuário |
 | [Operador de Identidade Gerenciada](#managed-identity-operator) | Ler e atribuir identidade atribuída pelo usuário |
 | [Colaborador do Grupo de Gerenciamento](#management-group-contributor) | Função de Colaborador do Grupo de Gerenciamento |
@@ -89,6 +95,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Leitor de monitoramento](#monitoring-reader) | Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Colaborador de rede](#network-contributor) | Permite gerenciar redes, mas não acessá-las. |
 | [Colaborador de Conta APM do New Relic](#new-relic-apm-account-contributor) | Permite que você gerencie contas e aplicativos do Gerenciamento de desempenho de aplicativos da New Relic, mas não tem acesso a eles. |
+| [Teste do administrador do PowerApps](#powerapps-administrator-test) | Permite gerenciar zonas DNS e conjuntos de registros no DNS do Azure, mas não permite controlar quem tem acesso a eles. |
 | [Acesso a Dados e Leitor](#reader-and-data-access) | Permite que você exiba tudo, mas não permitirá que exclua ou crie uma conta de armazenamento ou um recurso contido. Ele também permitirá o acesso de leitura/gravação a todos os dados contidos em uma conta de armazenamento por meio de acesso às chaves de conta de armazenamento. |
 | [Colaborador do Cache Redis](#redis-cache-contributor) | Permite gerenciar caches Redis, mas não acessá-los. |
 | [Colaborador da Política de Recursos (Versão prévia)](#resource-policy-contributor-preview) | (Versão prévia) Os usuários com aterramento da EA, com direitos para criar/modificar a política de recursos, criam um tíquete de suporte e recursos/hierarquia de leitura. |
@@ -259,7 +266,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Fornece ao usuário a permissão para usar os recursos do Depurador de Instantâneos do Application Insights |
+> | **Descrição** | Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor). |
 > | **Id** | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
@@ -371,6 +378,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
 > | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp é uma operação interna usada pelo serviço |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Gerenciar os resultados da operação no gerenciamento de backup |
@@ -391,14 +399,13 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obter os alertas para o cofre dos Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Gerenciar operações de descoberta para buscar contêineres recém-criados |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Atualizar a lista de contêineres |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Criar e gerenciar identidades registradas |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Criar e gerenciar o uso do cofre dos Serviços de Recuperação |
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
-> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ## <a name="backup-operator"></a>Operador de Backup
@@ -504,9 +511,10 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
 > | Microsoft.Billing/*/read | Ler Informações de cobrança |
-> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Commerce/*/read |  |
+> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Management/managementGroups/read | Listar grupos de gerenciamento para o usuário autenticado. |
+> | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ## <a name="biztalk-contributor"></a>Colaborador do BizTalk
@@ -653,6 +661,52 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
+## <a name="cognitive-services-contributor"></a>Colaborador dos Serviços Cognitivos
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite criar, ler, atualizar, excluir e gerenciar chaves dos Serviços Cognitivos. |
+> | **Id** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
+> | **Ações** |  |
+> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+> | Microsoft.CognitiveServices/* |  |
+> | Microsoft.Features/features/read | Obter os recursos de uma assinatura. |
+> | Microsoft.Features/providers/features/read | Obter o recurso de uma assinatura em determinado provedor de recursos. |
+> | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do Insights |
+> | Microsoft.Insights/diagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
+> | Microsoft.Insights/logDefinitions/read | Ler definições de log |
+> | Microsoft.Insights/metricdefinitions/read | Ler definições de métrica |
+> | Microsoft.Insights/metrics/read | Ler métrica |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
+> | Microsoft.Resources/deployments/operations/read | Obter ou lista operações de implantação. |
+> | Microsoft.Resources/subscriptions/operationresults/read | Obter os resultados da operação da assinatura. |
+> | Microsoft.Resources/subscriptions/read | Obter a lista de assinaturas. |
+> | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+
+## <a name="cognitive-services-user"></a>Usuário dos Serviços Cognitivos
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite ler e listar as chaves dos Serviços Cognitivos. |
+> | **Id** | a97b65f3-24c7-4388-baec-2e87135dc908 |
+> | **Ações** |  |
+> | Microsoft.CognitiveServices/*/read |  |
+> | Microsoft.CognitiveServices/accounts/listkeys/action | Listar chaves |
+> | Microsoft.Insights/metricdefinitions/read | Ler definições de métrica |
+> | Microsoft.Insights/metrics/read | Ler métrica |
+> | Microsoft.Insights/alertRules/read | Ler alerta de métrica clássico |
+> | Microsoft.Insights/diagnosticSettings/read | Ler uma configuração de diagnóstico de recurso |
+> | Microsoft.Insights/logDefinitions/read | Ler definições de log |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | Microsoft.Resources/deployments/operations/read | Obter ou lista operações de implantação. |
+> | Microsoft.Resources/subscriptions/operationresults/read | Obter os resultados da operação da assinatura. |
+> | Microsoft.Resources/subscriptions/read | Obter a lista de assinaturas. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+
 ## <a name="cosmos-db-account-reader-role"></a>Função de leitor de conta do Cosmos DB
 > [!div class="mx-tableFixed"]
 > | | |
@@ -665,6 +719,34 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.DocumentDB/databaseAccounts/readonlykeys/action | Ler as chaves somente leitura da conta do banco de dados. |
 > | Microsoft.Insights/MetricDefinitions/read | Ler definições de métrica |
 > | Microsoft.Insights/Metrics/read | Ler métrica |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+
+## <a name="cost-management-contributor"></a>Colaborador do Gerenciamento de Custos
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Pode exibir os custos e gerenciar a configuração de custo (por exemplo, orçamentos, exportações) |
+> | **Id** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
+> | **Ações** |  |
+> | Microsoft.Consumption/* |  |
+> | Microsoft.CostManagement/* |  |
+> | Microsoft.Billing/billingPeriods/read | Listar os períodos de cobrança disponíveis |
+> | Microsoft.Resources/subscriptions/read | Obter a lista de assinaturas. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+
+## <a name="cost-management-reader"></a>Leitor do Gerenciamento de Custos
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Pode exibir dados e configuração de custos (por exemplo, orçamentos, exportações) |
+> | **Id** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | **Ações** |  |
+> | Microsoft.Consumption/*/read |  |
+> | Microsoft.CostManagement/*/read |  |
+> | Microsoft.Billing/billingPeriods/read | Listar os períodos de cobrança disponíveis |
+> | Microsoft.Resources/subscriptions/read | Obter a lista de assinaturas. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
@@ -682,7 +764,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | Microsoft.Databox/* |  |
 
-## <a name="data-box-operator"></a>Operador do Data Box
+## <a name="data-box-reader"></a>Leitor do Data Box
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -690,9 +772,12 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+> | Microsoft.Databox/*/read |  |
+> | Microsoft.Databox/jobs/listsecrets/action |  |
+> | Microsoft.Databox/jobs/listcredentials/action | Lista as credenciais não criptografadas relacionadas ao pedido. |
+> | Microsoft.Databox/locations/availableSkus/action | Este método retorna a lista de SKUs disponíveis. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
-> | Microsoft.Databox/jobs/listsecrets/action | Lista os segredos não criptografados relacionados ao pedido. |
 
 ## <a name="data-factory-contributor"></a>Colaborador da fábrica de dados
 > [!div class="mx-tableFixed"]
@@ -822,6 +907,17 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
+## <a name="hdinsight-domain-services-contributor"></a>Colaborador dos serviços de domínio do HDInsight
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Pode ler, criar, modificar e excluir operações relacionadas aos serviços de domínio necessárias para o Enterprise Security Package do HDInsight |
+> | **Id** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
+> | **Ações** |  |
+> | Microsoft.AAD/*/read |  |
+> | Microsoft.AAD/domainServices/*/read |  |
+> | Microsoft.AAD/domainServices/oucontainer/* |  |
+
 ## <a name="intelligent-systems-account-contributor"></a>Colaborador de conta do sistemas inteligentes
 > [!div class="mx-tableFixed"]
 > | | |
@@ -864,7 +960,8 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Criar um laboratório em uma conta de laboratório. |
-> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Obter informações sobre disponibilidade regional para cada categoria de tamanho configurado em uma conta de laboratório |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action |  |
+> | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Obter informações sobre disponibilidade regional para cada categoria de tamanho configurado em uma conta de laboratório |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
@@ -964,6 +1061,17 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | **Ações** |  |
 > | Microsoft.Solutions/applications/read | Recuperar uma lista de aplicativos. |
 
+## <a name="managed-applications-reader"></a>Leitor de aplicativos gerenciados
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite ler os recursos de um aplicativo gerenciado e solicitar acesso JIT. |
+> | **Id** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
+> | **Ações** |  |
+> | */leitura | Ler recursos de todos os tipos, exceto segredos. |
+> | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
+> | Microsoft.Solutions/jitRequests/* |  |
+
 ## <a name="managed-identity-contributor"></a>Colaborador de Identidade Gerenciada
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1045,7 +1153,8 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Recupera as chaves compartilhadas do espaço de trabalho. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao espaço de trabalho. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Leia/grave/exclua configurações de insights de armazenamento do Log Analytics. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
-> | Microsoft.WorkloadMonitor/workloads/* |  |
+> | Microsoft.WorkloadMonitor/monitors/* |  |
+> | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>Publicador de Métricas de Monitoramento
@@ -1101,6 +1210,21 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | NewRelic.APM/accounts/* |  |
+
+## <a name="powerapps-administrator-test"></a>Teste do administrador do PowerApps
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite gerenciar zonas DNS e conjuntos de registros no DNS do Azure, mas não permite controlar quem tem acesso a eles. |
+> | **Id** | befefa01-2a29-4897-83a8-272ff33ce314 |
+> | **Ações** |  |
+> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+> | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do Insights |
+> | Microsoft.Network/dnsZones/* |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ## <a name="reader-and-data-access"></a>Acesso a Dados e Leitor
 > [!div class="mx-tableFixed"]
@@ -1387,6 +1511,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Sql/servers/read | Retornar a lista de servidores ou obter as propriedades para o servidor especificado. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Não é possível editar políticas de auditoria |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Não é possível editar configurações de auditoria |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Recuperar os registros de auditoria do blob do banco de dados |
@@ -1414,6 +1539,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Criar e gerenciar políticas de auditoria do servidor SQL |
 > | Microsoft.Sql/servers/auditingSettings/* | Criar e gerenciar a configuração de auditoria do servidor SQL |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Criar e gerenciar políticas de auditoria de banco de dados do servidor SQL |
@@ -1453,6 +1579,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Sql/servers/* | Criar e gerenciar servidores SQL |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Não é possível editar políticas de auditoria do servidor SQL |
 > | Microsoft.Sql/servers/auditingSettings/* | Não é possível editar configurações de auditoria do servidor SQL |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Não é possível editar políticas de auditoria de banco de dados do servidor SQL |
@@ -1632,10 +1759,10 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
 > | Microsoft.Network/virtualNetworks/subnets/join/action | Ingressar em uma rede virtual |
 > | Microsoft.RecoveryServices/locations/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Criar uma Intenção de Proteção de backup |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Retornar detalhes do objeto do item protegido |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Criar um item protegido de backup |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Criar uma Intenção de Proteção de backup |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retornar todas as políticas de proteção |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Criar uma política de proteção |
 > | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
@@ -1644,6 +1771,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
+> | Microsoft.SqlVirtualMachine/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retornar as chaves de acesso da conta de armazenamento especificada. |
 > | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |

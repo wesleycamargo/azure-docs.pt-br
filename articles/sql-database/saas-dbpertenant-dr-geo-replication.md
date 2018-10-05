@@ -1,21 +1,23 @@
 ---
 title: Recuperação de desastre para aplicativos SaaS usando Replicação Geográfica do Banco de Dados SQL do Microsoft Azure | Microsoft Docs
 description: Saiba como usar réplicas geográficas do Banco de Dados SQL do Azure para recuperar um aplicativo SaaS multilocatário no caso de uma interrupção
-keywords: tutorial do banco de dados SQL
 services: sql-database
-author: AyoOlubeko
-manager: craigg
 ms.service: sql-database
-ms.custom: saas apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/09/2018
+author: AyoOlubeko
 ms.author: ayolubek
-ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/09/2018
+ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34645786"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056328"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastre para um aplicativo SaaS multilocatário usando replicação geográfica do banco de dados
 
@@ -51,9 +53,9 @@ Um plano de recuperação de desastre com base em replicação geográfica inclu
 Todas as partes precisam ser consideradas com cuidado, especialmente se estiverem operando em escala. Em geral, o plano deve atingir várias metas:
 
 * Configuração
-    * Estabelecer e manter um ambiente de imagem espelho da região de recuperação. Criar pools elásticos e replicar qualquer banco de dados autônomo nesse ambiente de recuperação reserva capacidade na região de recuperação. Manter esse ambiente inclui a replicação de novos bancos de dados de locatário conforme eles são provisionados.  
+    * Estabelecer e manter um ambiente de imagem espelho da região de recuperação. Criar pools elásticos e replicar qualquer banco de dados individual nesse ambiente de recuperação reserva capacidade na região de recuperação. Manter esse ambiente inclui a replicação de novos bancos de dados de locatário conforme eles são provisionados.  
 * Recuperação
-    * Onde um ambiente de recuperação reduzido é usado para minimizar os custos diários, pools e bancos de dados independentes devem ser expandidos para adquirir capacidade completamente operacional na região de recuperação
+    * Onde um ambiente de recuperação reduzido é usado para minimizar os custos diários, pools e bancos de dados individuais precisam ser expandidos para adquirir capacidade completamente operacional na região de recuperação
     * Habilitar novo provisionamento de locatário na região de recuperação assim que possível  
     * Ser otimizado para restauração de locatários em ordem de prioridade
     * Ser otimizado para colocar os locatários online o mais rápido possível ao seguir as etapas em paralelo quando for prático
@@ -158,7 +160,7 @@ O script de recuperação executa as seguintes tarefas:
 
 1. Marca todos os locatários existentes no catálogo de recuperação como offline para impedir o acesso a bancos de dados de locatário antes do failover.
 
-1. Atualiza a configuração de todos os pools elásticos e bancos de dados independentes replicados na região de recuperação para espelhar a configuração na região original. (Essa tarefa é necessária somente se pools ou bancos de dados replicados no ambiente de recuperação forem reduzidos durante operações normais para reduzir os custos).
+1. Atualiza a configuração de todos os pools elásticos e bancos de dados individuais replicados na região de recuperação para espelhar a configuração na região original. (Essa tarefa é necessária somente se pools ou bancos de dados replicados no ambiente de recuperação forem reduzidos durante operações normais para reduzir os custos).
 
 1. Habilita o ponto de extremidade do Gerenciador de Tráfego para o aplicativo Web na região de recuperação. Habilitar este ponto de extremidade permite que o aplicativo provisione novos locatários. Neste estágio, os locatários existentes ainda estão offline.
 

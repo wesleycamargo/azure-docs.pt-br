@@ -1,20 +1,21 @@
 ---
-title: Aplicativo de pesquisa de Vídeo de página única do Bing | Microsoft Docs
+title: 'Tutorial: Criar um aplicativo de página única da Pesquisa de Vídeo do Bing'
+titlesuffix: Azure Cognitive Services
 description: Explica como usar a API de Pesquisa de Vídeo do Bing em um aplicativo Web de página única.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: 55f662721e007e03c8f43f19d8b905e755cfe1d8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: a7c6646a69aec11797d354da28baca669b802ab0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364430"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226595"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: aplicativo de Pesquisa de Vídeo de página única
 A API de Pesquisa de Vídeo do Bing permite que você faça pesquisas na Web e obtenha resultados de vídeo relevantes para uma consulta de pesquisa. Neste tutorial, criaremos um aplicativo Web de página única que usa a API de Pesquisa do Bing para exibir os resultados da pesquisa na página. O aplicativo inclui componentes HTML, CSS e JavaScript.
@@ -258,15 +259,15 @@ function handleOnLoad() {
 > Se ocorrer um erro na operação de pesquisa, a API de Pesquisa de Notícias do Bing retornará um código de status HTTP não 200 e incluirá informações de erro na resposta JSON. Além disso, se a solicitação tinha limite de taxa, a API retorna uma resposta vazia.
 Uma solicitação HTTP bem-sucedida *não* necessariamente significa que a pesquisa em si foi bem-sucedida. 
 
-Grande parte do código nas duas funções anteriores é dedicada ao tratamento de erro. Podem ocorrer erros nos seguintes estágios:
+Grande parte do código nas duas funções anteriores é dedicada ao tratamento de erro. Erros podem ocorrer nos seguintes estágios:
 
-|Estágio|Possíveis erros|Manipulado por|
+|Estágio|Erro(s) potencial(is)|Manipulado por|
 |-|-|-|
 |Criando o objeto de solicitação do JavaScript|URL inválida|Bloco `try`/`catch`|
-|Fazendo a solicitação|Erros de rede, conexões anuladas|Manipuladores de eventos `error` e `abort`|
-|Executando a pesquisa|Solicitação inválida, JSON inválido, limites de taxa|testes no manipulador de eventos `load`|
+|Fazer a solicitação|Erros de rede, conexões anuladas|Manipuladores de eventos `error` e `abort`|
+|Executar a pesquisa|Solicitação inválida, JSON inválido, limites de taxa|testes no manipulador de eventos `load`|
 
-Os erros são tratados com uma chamada a `renderErrorMessage()` com os detalhes conhecidos sobre o erro. Se a resposta passar no desafio completo de testes de erro, chamaremos `renderSearchResults()` para exibir os resultados da pesquisa na página.
+Os erros são tratados com uma chamada a `renderErrorMessage()` com os detalhes conhecidos sobre o erro. Se a resposta passar no desafio completo de testes de erro, chamamos `renderSearchResults()` para exibir os resultados da pesquisa na página.
 
 ## <a name="displaying-search-results"></a>Exibindo os resultados da pesquisa
 A função principal para exibir os resultados da pesquisa é `renderSearchResults()`. Essa função usa o JSON retornado pelo serviço de Pesquisa de Notícias do Bing e renderiza os resultados das notícias e as pesquisas relacionadas se houver.
@@ -377,20 +378,20 @@ O tamanho da miniatura é usado na marcação `<img>` e nos campos `h` e `w` na 
 ## <a name="persisting-client-id"></a>Persistindo a ID do cliente
 As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-ClientID` que deve ser enviado novamente para a API com solicitações sucessivas. Se várias APIs de Pesquisa do Bing estiverem sendo usadas, a mesma ID do cliente deverá ser usada com todas elas, se possível.
 
-O fornecimento do cabeçalho `X-MSEdge-ClientID` permite que as APIs do Bing associem todas as pesquisas do usuário, o que oferece dois benefícios importantes.
+Fornecer o cabeçalho `X-MSEdge-ClientID` permite que as APIs do Bing associem todas as pesquisas do usuário, o que oferece dois benefícios importantes.
 
 Primeiro, ele permite que o mecanismo de pesquisa do Bing aplique o contexto passado às pesquisas para encontrar resultados que melhor atendam às expectativas do usuário. Se um usuário tiver pesquisado termos relacionados à navegação anteriormente, por exemplo, uma pesquisa posterior por "nós" poderá, preferencialmente, retornar informações sobre os nós usados em navegação.
 
 Em segundo lugar, o Bing poderá selecionar usuários aleatoriamente para experimentar novos recursos antes de eles ficarem amplamente disponíveis. O fornecimento da mesma ID do cliente com cada solicitação garante que os usuários que veem o recurso sempre o vejam. Sem a ID do cliente, o usuário poderá ver um recurso aparecer e desaparecer, aparentemente de forma aleatória, nos resultados da pesquisa.
 
-As políticas de segurança do navegador (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` fique disponível para o JavaScript. Essa limitação ocorre quando a resposta da pesquisa tem uma origem diferente da página que a solicitou. Em um ambiente de produção, você deve lidar com essa política hospedando um script do servidor que faz a chamada à API no mesmo domínio da página da Web. Como o script tem a mesma origem da página da Web, o cabeçalho `X-MSEdge-ClientID` estará disponível para o JavaScript.
+As políticas de segurança do navegador (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` fique disponível para JavaScript. Essa limitação ocorre quando a resposta da pesquisa tem uma origem diferente da página que a solicitou. Em um ambiente de produção, você deve lidar com essa política hospedando um script do servidor que faz a chamada à API no mesmo domínio da página da Web. Como o script tem a mesma origem da página da Web, o cabeçalho `X-MSEdge-ClientID` estará disponível para o JavaScript.
 
 > [!NOTE]
 > Em um aplicativo Web de produção, você deve executar a solicitação do servidor. Caso contrário, a chave de API de Pesquisa do Bing precisará ser incluída na página da Web, na qual ela estará disponível para qualquer pessoa que exiba a origem. Você é cobrado por todos os usos em sua chave de assinatura de API, até mesmo por solicitações feitas por partes não autorizadas. Portanto, é importante não expor sua chave.
 
 Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que inclui os cabeçalhos de resposta na lista de permissões e disponibiliza-os para o JavaScript.
 
-É fácil instalar um proxy CORS para permitir que o aplicativo de tutorial acesse o cabeçalho da ID do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, emita o seguinte comando em uma janela Comando:
+É fácil instalar um proxy CORS para permitir que o aplicativo de tutorial acesse o cabeçalho da ID do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, emita o seguinte comando em uma janela de comando:
 
     npm install -g cors-proxy-server
 
@@ -402,7 +403,7 @@ Por fim, inicie o proxy CORS com o seguinte comando:
 
     cors-proxy-server
 
-Deixe a janela Comando aberta enquanto usa o aplicativo de tutorial, porque se você fechá-la, isso interromperá o proxy. Na seção expansível Cabeçalhos HTTP abaixo dos resultados da pesquisa, agora você pode ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
+Deixe a janela Comando aberta enquanto usa o aplicativo de tutorial, porque se você fechá-la, isso interromperá o proxy. Na seção Cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

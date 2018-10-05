@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/19/2018
 ms.author: magoedte
-ms.openlocfilehash: e8723bd8e26eb66d9333c2093b5ada8bc78ca14b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 308a447ff99cd11ad6a28df0bdb515764b0f546b
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989594"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063448"
 ---
 # <a name="azure-monitor-for-vms-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Monitor para VMs
 Essas perguntas frequentes da Microsoft são uma lista de perguntas frequentes sobre o Azure Monitor para VMs no Microsoft Azure. Caso tenha outras dúvidas sobre a solução, acesse o [fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -93,3 +93,6 @@ Embora tenhamos feito melhorias no Mapa para lidar com configurações grandes e
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Por que o gráfico de rede na guia Desempenho tem uma aparência diferente do gráfico de rede na página Visão Geral da VM do Azure?
 
 A página de visão geral de uma VM do Azure exibe gráficos com base na medida do host da atividade na VM convidada.  Para o gráfico de rede na Visão Geral da VM do Azure, ela exibe apenas o tráfego de rede que será cobrado.  Isso não inclui o tráfego entre VNETs.  Os dados e os gráficos mostrados para o Azure Monitor para VMs se baseiam nos dados da VM convidada e o gráfico de rede exibe todo o tráfego de TCP/IP de entrada e saída nessa VM, incluindo entre VNETs.
+
+## <a name="next-steps"></a>Próximas etapas
+Examine [Integrar o Azure Monitor para VMs](monitoring-vminsights-onboard.md) para entender os requisitos e os métodos usados para habilitar o monitoramento das máquinas virtuais.

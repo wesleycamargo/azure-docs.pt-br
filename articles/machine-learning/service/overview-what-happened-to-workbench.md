@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 56a8da6d39e39ab68b2b854c6899b88a3618d223
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 620d8b370b050a4d91ee6d94cba2c133b4313aed
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997719"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159977"
 ---
 # <a name="what-happened-to-workbench-in-azure-machine-learning-preview"></a>O que aconteceu com o Workbench no Aprendizado de Máquina do Azure (visualização)?
 
@@ -42,7 +42,7 @@ A maioria dos artefatos criados na versão anterior do serviço do Azure Machine
 
 ## <a name="support-timeline"></a>Linha do tempo de suporte
 
-Você pode continuar usando suas contas de gerenciamento de experimentos e modelos, bem como o aplicativo Workbench por mais algum tempo após setembro de 2018. O suporte para os seguintes recursos será removido progressivamente nos 3-4 meses após esse lançamento. Você ainda pode encontrar a documentação para os velhos recursos na seção Recursos na parte inferior da [tabela de conteúdo](../desktop-workbench/tutorial-classifying-iris-part-1.md).
+Você pode continuar usando suas contas de gerenciamento de experimentos e modelos, bem como o aplicativo Workbench por mais algum tempo após setembro de 2018. O suporte para os seguintes recursos será removido progressivamente nos 3-4 meses após esse lançamento. Você ainda pode encontrar a documentação para os recursos antigos na [seção Recursos](../desktop-workbench/tutorial-classifying-iris-part-1.md) na parte inferior do sumário.
 
 |Fase|Detalhes do suporte para recursos anteriores|
 |:---:|----------------|
@@ -67,9 +67,9 @@ Painel de espaço de trabalho do portal tem suporte nos navegadores Microsoft Ed
 
 Seus arquivos de preparação de dados preexistentes não são portáveis para a versão mais recente, já que não temos mais o Workbench. No entanto, você ainda pode preparar seus dados para modelagem.  
 
-Com conjuntos de dados menores, você pode usar o [SDK de preparação de dados de aprendizado de máquina do Azure](https://docs.microsoft.com/python/api/azureml_dataprep/?view=azure-dataprep-py) para preparar rapidamente seus dados antes da modelagem. 
+Com conjuntos de dados menores, é possível usar o <a href="http://aka.ms/aml-sdk" target="_blank">SDK de preparação de dados do Azure Machine Learning</a> para preparar rapidamente seus dados antes da modelagem. 
 
-Você pode usar esse mesmo SDK para grandes conjuntos de dados ou usar o Azure Databricks para preparar a grandes conjuntos de dados. [Saiba como obter a SDK de preparação de dados](how-to-data-prep.md). 
+Você pode usar esse mesmo <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> para grandes conjuntos de dados ou usar o Azure Databricks para preparar conjuntos de Big Data. 
 
 ## <a name="will-projects-persist"></a>Projetos persistirá?
 
@@ -77,13 +77,13 @@ Você não perderá nenhum código ou trabalho. Na versão mais antiga, os proje
 
 Como grande parte do conteúdo do projeto já estava em sua máquina local, você só precisa criar um arquivo de configuração nesse diretório e referenciá-lo em seu código para se conectar ao seu espaço de trabalho. [Saiba como migrar seus projetos existentes.](how-to-migrate.md#projects)
 
-Saiba como começar a usar [em Python com o SDK](quickstart-get-started.md).
+Saiba como começar a usar [no Python com o SDK principal](quickstart-get-started.md).
 
 ## <a name="what-about-my-registers-models-and-images"></a>E quanto aos meus modelos de registradores e imagens?
  
 Os modelos registrados em seu registro de modelo antigo devem ser migrados para o novo espaço de trabalho se você quiser continuar a usá-los. Você pode fazer isso [fazendo o download dos modelos e registrando-os novamente](how-to-migrate.md) em sua nova área de trabalho. 
 
-As imagens que você criou em seu registro de imagem antigo devem ser recriadas no novo espaço de trabalho para continuar a usá-las. Você pode fazer isso seguindo a seção [create docker image](how-to-deploy-to-aci.md). 
+As imagens que você criou em seu registro de imagem antigo devem ser recriadas no novo espaço de trabalho para continuar a usá-las. Você pode fazer isso seguindo a seção [create docker image](how-to-deploy-to-aci.md#configure-an-image). 
 
 ## <a name="what-about-deployed-web-services"></a>E serviços web implantados?
 
@@ -112,5 +112,5 @@ Os pacotes de domínio para [Visão Computacional, Análise de Texto e Previsão
 Saiba mais sobre [a arquitetura mais recente para o serviço de Azure Machine Learning](concept-azure-machine-learning-architecture.md) e tente um dos tutoriais ou guias de início rápido:
 
 * [O que é o serviço Azure Machine Learning](overview-what-is-azure-ml.md)
-* [Início rápido: Criar um espaço de trabalho com o Python](quickstart-get-started.md)
+* [Início Rápido: Criar um espaço de trabalho com o Python](quickstart-get-started.md)
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md)

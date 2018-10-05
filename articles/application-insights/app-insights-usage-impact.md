@@ -1,22 +1,24 @@
 ---
 title: Impacto do uso do Azure Application Insights | Microsoft Docs
-description: "Analise como propriedades diferentes podem afetar as taxas de conversão para partes dos aplicativos."
+description: Analise como propriedades diferentes podem afetar as taxas de conversão para partes dos aplicativos.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2018
-ms.author: mbullwin ; daviste
-ms.openlocfilehash: d76db02647ce878343f60fc84cf063c5b7833438
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.reviewer: daviste
+ms.author: mbullwin
+ms.openlocfilehash: 9188776fdd213f01523069b08bd898f48bee57a4
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091474"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise do Impact com o Application Insights
 
@@ -66,7 +68,7 @@ Neste caso, os resultados deixam de se ajustar a um modelo de eixo x contínuo c
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Como a ferramenta Impact calcula essas taxas de conversão?
 
-Nos bastidores, a ferramenta Impact depende do [Coeficiente de correlação Pearson] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Os resultados são computados entre -1 e 1 com -1 que representando a correlação de zero e 1 representando uma correlação positiva.
+Nos bastidores, a ferramenta Impact depende do [coeficiente de correlação Pearson] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Os resultados são computados entre -1 e 1 com -1 que representando a correlação de zero e 1 representando uma correlação positiva.
 
 A análise básica de como o Impact Analysis funciona é a seguinte:
 

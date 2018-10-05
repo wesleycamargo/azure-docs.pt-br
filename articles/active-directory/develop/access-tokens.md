@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a047a36112ff599038500f0cb58305f07a5838dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c6399c2662a655f1c4ba50380a5ac4dde6ddda78
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994812"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221140"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Tokens de acesso do Azure Active Directory
 
@@ -112,7 +112,7 @@ As declarações estão presentes somente se existe um valor para preenchê-lo. 
 
 #### <a name="v10-basic-claims"></a>Declarações básicas v1.0
 
-As declarações a seguir serão incluídas nos tokens v1.0, se aplicável, mas não são incluídas nos tokens v2.0 por padrão. Caso esteja usando v2.0 e precise dessas declarações, solicite-as usando [declarações opcionais](active-directory-optional-claims.md).
+As declarações a seguir serão incluídas nos tokens v1.0, se aplicável, mas não são incluídas nos tokens v2.0 por padrão. Caso esteja usando a v2.0 e precise de uma dessas declarações, solicite-as usando [declarações opcionais](active-directory-optional-claims.md).
 
 | Declaração | Formatar | DESCRIÇÃO |
 |-----|--------|-------------|

@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2018
+ms.date: 09/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 776f70b6b24288006d52cb0e91797d1074180160
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841498"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452608"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o Disco do Azure Data Box e verificar
 
@@ -30,17 +30,14 @@ Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Copiar dados para o Disco do Data Box
-> * Verificar a integridade dos dados
+> * Verificar os dados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
 - Você concluiu o [Tutorial: Instalar e configurar o Disco do Azure Data Box](data-box-disk-deploy-set-up.md).
-- Os discos foram desempacotados e ativados.
-- Você tem um computador host para copiar dados para os discos. O computador host deve
-    - Executar um [Sistema operacional com suporte](data-box-disk-system-requirements.md).
-    - Ter o [Windows PowerShell 4 instalado](https://www.microsoft.com/download/details.aspx?id=40855).
-    - Ter o [.NET Framework 4.5 instalado](https://www.microsoft.com/download/details.aspx?id=30653).
+- Os discos são desbloqueados e conectados a um computador cliente.
+- O computador cliente usado para copiar dados para os discos precisa executar um [Sistema operacional com suporte](data-box-disk-system-requirements.md).
 
 
 ## <a name="copy-data-to-disks"></a>Copiar dados para os discos
@@ -59,6 +56,7 @@ Execute as seguintes etapas para fazer a conexão e copiar dados do computador p
 
     Siga os requisitos de nomenclatura do Azure para nomes de contêiner e blob.
 
+    #### <a name="azure-naming-conventions-for-container-and-blob-names"></a>Convenções de nomenclatura do Azure para nomes de contêiner e blob
     |Entidade   |Convenções  |
     |---------|---------|
     |Nomes de contêiner de blob de blocos e blob de páginas     |É necessário iniciar com uma letra ou um número e pode conter apenas letras minúsculas, números e hifens. Cada hífen (-) precisa ser imediatamente precedido e seguido por uma letra ou um número. Hifens consecutivos não são permitidos em nomes. <br>Precisa ser um nome DNS válido com tamanho de 3 a 63 caracteres.          |
@@ -165,17 +163,21 @@ Execute as seguintes etapas para fazer a conexão e copiar dados do computador p
 > -  Durante a cópia de dados, verifique se o tamanho dos dados está em conformidade com os limites de tamanho descritos nos [limites do armazenamento do Azure e do Disco do Data Box](data-box-disk-limits.md). 
 > - Se dados estiverem sendo carregados pelo Disco do Data Box e por outro aplicativo fora do Disco do Data Box ao mesmo tempo, isso poderá causar falha no trabalho de upload e corromper os dados.
 
-## <a name="verify-data-integrity"></a>Verificar a integridade dos dados
+## <a name="verify-data"></a>Verificar os dados 
 
-Para verificar a integridade dos dados, execute as etapas a seguir.
+Para verificar os dados, execute as seguintes etapas.
 
-1. Execute `AzureExpressDiskService.ps1` para validação de soma de verificação. No Explorador de Arquivos, vá para a pasta *AzureImportExport* da unidade. Clique com botão direito do mouse e selecione **Executar com o PowerShell**. 
+1. Execute `DataBoxDiskValidation.cmd` para validação de soma de verificação na pasta *AzureImportExport* da unidade. 
+    
+    ![Saída da ferramenta de validação do Disco do Data Box](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-    ![Executar soma de verificação](media/data-box-disk-deploy-copy-data/data-box-disk-checksum.png)
-
-2. Dependendo do tamanho dos dados, esta etapa pode demorar um pouco. Um resumo do processo de verificação de integridade de dados e o tempo para concluir o processo são exibidos quando o script é concluído. Você pode pressionar **Enter** para sair da janela de comando.
+2. Escolha a opção apropriada. **É recomendado que você sempre valide os arquivos e gere somas de verificação selecionando a opção 2**. Dependendo do tamanho dos dados, esta etapa pode demorar um pouco. Depois que o script for concluído, saia da janela Comando. Se houver erros durante a validação e a geração da soma de verificação, você será notificado e também será fornecido um link para os logs de erros.
 
     ![Saída da soma de verificação](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
+
+    > [!TIP]
+    > - Redefina a ferramenta entre duas execuções.
+    > - Use a opção 1 para validar os arquivos lidando apenas com um grande conjunto de dados que contém arquivos pequenos (~ KBs). Nesses casos, a geração da soma de verificação pode levar muito tempo e o desempenho pode ficar muito lento.
 
 3. Se estiver usando vários discos, execute o comando para cada disco.
 

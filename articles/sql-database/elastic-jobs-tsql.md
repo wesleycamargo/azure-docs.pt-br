@@ -2,18 +2,22 @@
 title: Criar e gerenciar trabalhos de Banco de Dados Elástico SQL do Azure usando o T-SQL (Transact-SQL) | Microsoft Docs
 description: Execute scripts em vários bancos de dados com o agente do Trabalho de Banco de Dados Elástico usando o T-SQL (Transact-SQL).
 services: sql-database
-author: jaredmoo
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 ms.author: jaredmoo
-ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+author: jaredmoo
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842573"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056780"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usar o T-SQL (Transact-SQL) para criar e gerenciar trabalhos de Banco de Dados Elástico
 
@@ -482,7 +486,7 @@ sp_add_job precisa ser executado por meio do banco de dados do agente de trabalh
 Depois que sp_add_job for executado para adicionar um trabalho, sp_add_jobstep poderá ser usado para adicionar etapas que executam as atividades para o trabalho. O número de versão inicial do trabalho é 0, que será incrementado para 1 quando a primeira etapa for adicionada.
 
 #### <a name="permissions"></a>Permissões
-Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Para restringir um usuário a poder apenas monitorar trabalhos, é possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
+Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Elas restringem um usuário a poder apenas monitorar trabalhos. É possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
 
 - jobs_reader
 
@@ -544,7 +548,7 @@ A data na qual a execução do trabalho pode parar. schedule_end_time é DATETIM
 Depois que sp_add_job for executado para adicionar um trabalho, sp_add_jobstep poderá ser usado para adicionar etapas que executam as atividades para o trabalho. O número de versão inicial do trabalho é 0, que será incrementado para 1 quando a primeira etapa for adicionada.
 
 #### <a name="permissions"></a>Permissões
-Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Para restringir um usuário a poder apenas monitorar trabalhos, é possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
+Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Elas restringem um usuário a poder apenas monitorar trabalhos. É possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
 - jobs_reader
 
 Para obter detalhes sobre as permissões dessas funções, confira a seção Permissão neste documento. Somente os membros da função sysadmin podem usar esse procedimento armazenado para editar os atributos dos trabalhos pertencentes a outros usuários.
@@ -576,7 +580,7 @@ Especifica se deve ocorrer a exclusão se o trabalho tiver execuções em andame
 O histórico de trabalhos é excluído automaticamente quando um trabalho é excluído.
 
 #### <a name="permissions"></a>Permissões
-Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Para restringir um usuário a poder apenas monitorar trabalhos, é possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
+Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Elas restringem um usuário a poder apenas monitorar trabalhos. É possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
 - jobs_reader
 
 Para obter detalhes sobre as permissões dessas funções, confira a seção Permissão neste documento. Somente os membros da função sysadmin podem usar esse procedimento armazenado para editar os atributos dos trabalhos pertencentes a outros usuários.
@@ -701,7 +705,7 @@ O nível máximo de paralelismo por pool elástico. Se estiver definido, a execu
 Quando sp_add_jobstep é bem-sucedido, o número de versão atual do trabalho é incrementado. Na próxima vez em que o trabalho for executado, a nova versão será usada. Se o trabalho estiver em execução no momento, essa execução não conterá a nova etapa.
 
 #### <a name="permissions"></a>Permissões
-Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Para restringir um usuário a poder apenas monitorar trabalhos, é possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:  
+Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Elas restringem um usuário a poder apenas monitorar trabalhos. É possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:  
 
 - jobs_reader
 
@@ -825,7 +829,7 @@ O nível máximo de paralelismo por pool elástico. Se estiver definido, a execu
 As execuções do trabalho em andamento não serão afetadas. Quando sp_update_jobstep for bem-sucedida, o número de versão do trabalho será incrementado. Na próxima vez em que o trabalho for executado, a nova versão será usada.
 
 #### <a name="permissions"></a>Permissões
-Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Para restringir um usuário a poder apenas monitorar trabalhos, é possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
+Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Elas restringem um usuário a poder apenas monitorar trabalhos. É possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
 
 - jobs_reader
 
@@ -870,7 +874,7 @@ As execuções do trabalho em andamento não serão afetadas. Quando sp_update_j
 As outras etapas de trabalho serão renumeradas automaticamente para preencher a lacuna deixada pela etapa de trabalho excluída.
  
 #### <a name="permissions"></a>Permissões
-Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Para restringir um usuário a poder apenas monitorar trabalhos, é possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
+Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Elas restringem um usuário a poder apenas monitorar trabalhos. É possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
 - jobs_reader
 
 Para obter detalhes sobre as permissões dessas funções, confira a seção Permissão neste documento. Somente os membros da função sysadmin podem usar esse procedimento armazenado para editar os atributos dos trabalhos pertencentes a outros usuários.
@@ -906,7 +910,7 @@ Parâmetro de saída que será atribuído à ID da execução do trabalho. job_v
 Nenhuma.
  
 #### <a name="permissions"></a>Permissões
-Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Para restringir um usuário a poder apenas monitorar trabalhos, é possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
+Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Elas restringem um usuário a poder apenas monitorar trabalhos. É possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
 - jobs_reader
 
 Para obter detalhes sobre as permissões dessas funções, confira a seção Permissão neste documento. Somente os membros da função sysadmin podem usar esse procedimento armazenado para editar os atributos dos trabalhos pertencentes a outros usuários.
@@ -934,7 +938,7 @@ O número de identificação da execução de trabalho a ser interrompida. job_e
 Nenhuma.
  
 #### <a name="permissions"></a>Permissões
-Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Para restringir um usuário a poder apenas monitorar trabalhos, é possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
+Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Elas restringem um usuário a poder apenas monitorar trabalhos. É possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
 - jobs_reader
 
 Para obter detalhes sobre as permissões dessas funções, confira a seção Permissão neste documento. Somente os membros da função sysadmin podem usar esse procedimento armazenado para editar os atributos dos trabalhos pertencentes a outros usuários.
@@ -966,7 +970,7 @@ O nome do grupo de destino a ser criado. target_group_name é nvarchar(128), sem
 Os grupos de destino fornecem uma maneira fácil de direcionar a um trabalho em uma coleção de bancos de dados.
 
 #### <a name="permissions"></a>Permissões
-Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Para restringir um usuário a poder apenas monitorar trabalhos, é possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
+Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Elas restringem um usuário a poder apenas monitorar trabalhos. É possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
 - jobs_reader
 
 Para obter detalhes sobre as permissões dessas funções, confira a seção Permissão neste documento. Somente os membros da função sysadmin podem usar esse procedimento armazenado para editar os atributos dos trabalhos pertencentes a outros usuários.
@@ -994,7 +998,7 @@ O nome do grupo de destino a ser excluído. target_group_name é nvarchar(128), 
 Nenhuma.
 
 #### <a name="permissions"></a>Permissões
-Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Para restringir um usuário a poder apenas monitorar trabalhos, é possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
+Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Elas restringem um usuário a poder apenas monitorar trabalhos. É possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
 - jobs_reader
 
 Para obter detalhes sobre as permissões dessas funções, confira a seção Permissão neste documento. Somente os membros da função sysadmin podem usar esse procedimento armazenado para editar os atributos dos trabalhos pertencentes a outros usuários.
@@ -1050,7 +1054,7 @@ Valores do código de retorno 0 (sucesso) ou 1 (falha)
 Um trabalho é executado em todos os bancos de dados em um servidor ou em um pool elástico no momento da execução, quando um servidor lógico ou um pool elástico é incluído no grupo de destino.
 
 #### <a name="permissions"></a>Permissões
-Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Para restringir um usuário a poder apenas monitorar trabalhos, é possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
+Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Elas restringem um usuário a poder apenas monitorar trabalhos. É possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
 - jobs_reader
 
 Para obter detalhes sobre as permissões dessas funções, confira a seção Permissão neste documento. Somente os membros da função sysadmin podem usar esse procedimento armazenado para editar os atributos dos trabalhos pertencentes a outros usuários.
@@ -1115,7 +1119,7 @@ O nome do grupo de destino do qual o membro do grupo de destino deve ser removid
 Os grupos de destino fornecem uma maneira fácil de direcionar a um trabalho em uma coleção de bancos de dados.
 
 #### <a name="permissions"></a>Permissões
-Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Para restringir um usuário a poder apenas monitorar trabalhos, é possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
+Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Elas restringem um usuário a poder apenas monitorar trabalhos. É possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
 - jobs_reader
 
 Para obter detalhes sobre as permissões dessas funções, confira a seção Permissão neste documento. Somente os membros da função sysadmin podem usar esse procedimento armazenado para editar os atributos dos trabalhos pertencentes a outros usuários.
@@ -1166,7 +1170,7 @@ O nome do trabalho cujos registros de histórico devem ser excluídos. job_name 
 0 (êxito) ou 1 (falha) Os grupos de Destino de Comentários oferecem uma maneira fácil de direcionar a um trabalho em uma coleção de bancos de dados.
 
 #### <a name="permissions"></a>Permissões
-Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Para restringir um usuário a poder apenas monitorar trabalhos, é possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
+Por padrão, os membros da função de servidor fixa sysadmin podem executar esse procedimento armazenado. Elas restringem um usuário a poder apenas monitorar trabalhos. É possível conceder ao usuário a seguinte função de banco de dados no banco de dados do agente de trabalho especificado ao criar o agente de trabalho:
 - jobs_reader
 
 Para obter detalhes sobre as permissões dessas funções, confira a seção Permissão neste documento. Somente os membros da função sysadmin podem usar esse procedimento armazenado para editar os atributos dos trabalhos pertencentes a outros usuários.
@@ -1336,7 +1340,7 @@ Mostra todos os membros de todos os grupos de destino.
 
 ## <a name="resources"></a>Recursos
 
- - ![Ícone de link do tópico](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Ícone de link do tópico") [Convenções de sintaxe Transact-SQL](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ - ![Ícone de link do tópico](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Ícone de link do tópico") [Convenções de sintaxe Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Próximas etapas

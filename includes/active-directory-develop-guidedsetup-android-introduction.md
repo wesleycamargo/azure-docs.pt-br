@@ -12,46 +12,43 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 23b7ca44b72b8840579f369954f41f554d4c8852
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: a1cd25012461ae8bb445dcb1de8fe5be49e04760
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943412"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060533"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Entrada de usuários e chamada à API do Microsoft Graph em um aplicativo Android
+# <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Conectar usuários e chamar o Microsoft Graph em um aplicativo Android
 
-Este guia demonstra como um aplicativo nativo Android pode obter um token de acesso e chamar a API do Microsoft Graph ou outras APIs que exigem tokens de acesso por meio do ponto de extremidade do Azure Active Directory v2.
+Neste tutorial, você aprenderá como criar um aplicativo Android e integrá-lo à plataforma de identidade da Microsoft. Especificamente, este aplicativo conectará um usuário, obterá um token de acesso para chamar a API do Microsoft Graph e fará uma solicitação básica para a API do Microsoft Graph.  
 
-Após completar este guia, seu aplicativo poderá aceitar conexões de contas pessoais (incluindo outlook.com, live.com e outras) e contas corporativas ou de estudante de qualquer empresa ou organização que utilize o Azure Active Directory. O aplicativo, em seguida, chama uma API que é protegida pelo ponto de extremidade do Azure Active Directory v2.  
+Após concluir este guia, seu aplicativo aceitará conexões de contas Microsoft pessoais (incluindo outlook.com, live.com e outras) e contas corporativas ou de estudante de qualquer empresa ou organização que utilize o Azure Active Directory. 
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como o aplicativo de exemplo gerado por este guia funciona
 ![Como funciona esta amostra](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
 
-O aplicativo de exemplo que você criou com este guia se baseia em um cenário no qual um aplicativo Android é usado para consultar uma API Web que aceita tokens do ponto de extremidade do Azure Active Directory v2 (nesse caso, a API do Microsoft Graph). Para esse cenário, o seu aplicativo adiciona o token adquirido às solicitações HTTP por meio do cabeçalho de Autorização. A Biblioteca de Autenticação da Microsoft (MSAL) lida com a aquisição e a renovação de tokens para você.
+O aplicativo nesse exemplo conectará usuários e obterá dados em seu nome.  Esses dados serão acessados por meio de uma API remota (API do Microsoft Graph neste caso) que requer autorização e também é protegida pela plataforma de identidade da Microsoft. 
 
-## <a name="prerequisites"></a>pré-requisitos
-* Esta Instalação Guiada se concentra no Android Studio, mas qualquer outro ambiente de desenvolvimento de aplicativos do Android também é aceitável. 
-* O SDK 21 ou mais novo do Android é necessário (o recomendado é o SDK 25).
+Mais especificamente, 
+* Seu aplicativo iniciará uma página da Web para conectar o usuário.
+* Será emitido um token de acesso para seu aplicativo para a API do Microsoft Graph.
+* O token de acesso será incluído na solicitação HTTP para API Web.
+* Processe a resposta do Microsoft Graph. 
+
+Este exemplo usa a biblioteca de autenticação da Microsoft para Android (MSAL) para estar coordenado e ajudando com a autenticação. A MSAL automaticamente renovará tokens, fornecerá o SSO entre outros aplicativos no dispositivo, ajudará a gerenciar as contas e lidará da maioria dos casos de acesso condicional. 
+
+## <a name="prerequisites"></a>Pré-requisitos
+* Esta instalação guiada usa o Android Studio 3.0. 
+* O Android 21 ou posterior é necessário (recomendável o 25+).
 * É necessário o Google Chrome ou um navegador da Web que usa Guias Personalizadas para esta versão da MSAL para Android.
 
-> [!NOTE]
-> O Google Chrome não está incluído com o Emulador do Visual Studio para Android. Recomendamos testar esse código em um Emulador com a API 25 ou uma imagem com a API 21 ou mais recente que tenha o Google Chrome instalado.
+## <a name="library"></a>Biblioteca
 
-## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Manipulando a aquisição de token para acessar APIs Web protegidas
-
-Após a autenticação do usuário, o aplicativo de exemplo recebe um token de acesso que pode ser usado para consultar a API do Microsoft Graph ou uma API Web protegida pelo Azure Active Directory v2.
-
-APIs, como o Microsoft Graph, exigem um token de acesso para permitir o acesso a recursos específicos. Por exemplo, um token de acesso é necessário para ler o perfil ou acessar o calendário de um usuário, ou enviar um email. O aplicativo pode solicitar um token de acesso usando a MSAL para acessar esses recursos especificando escopos de API. Esse token de acesso é então adicionado ao cabeçalho de Autorização HTTP de cada chamada feita no recurso protegido. 
-
-A MSAL gerencia o armazenamento em cache e a atualização de tokens de acesso para você, de forma que o aplicativo não precise fazer isso.
-
-## <a name="libraries"></a>Bibliotecas
-
-Este guia usa as seguintes bibliotecas:
+Este guia usa a seguinte biblioteca de autenticação:
 
 |Biblioteca|DESCRIÇÃO|
 |---|---|

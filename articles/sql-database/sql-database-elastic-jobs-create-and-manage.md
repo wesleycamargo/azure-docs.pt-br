@@ -2,21 +2,24 @@
 title: Gerenciar grupos dos bancos de dados SQL do Azure | Microsoft Docs
 description: Explore a criação e o gerenciamento de um trabalho elástico.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: b367ddafc659db4dc4b8d658ac9dc007c4671b8c
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/16/2018
+ms.openlocfilehash: dca4ae2c8aa75b7af40ed4f8430968b8477c6802
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092776"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165663"
 ---
-# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal usando trabalhos elásticos (preview)
+# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Criar e gerenciar bancos de dados SQL do Azure com escala horizontal usando trabalhos elásticos (versão prévia)
 
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]

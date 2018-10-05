@@ -2,19 +2,22 @@
 title: Migrar o Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando DMA | Microsoft Docs
 description: Saiba como migrar seu Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando DMA.
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,migrate
-ms.topic: tutorial
-ms.date: 07/02/2018
-ms.author: carlrab
-ms.openlocfilehash: 1d8ec772293354c059f21aaae8006f5c40540058
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 58016636dad24b9b7d5278ce89643e6cd8d5be9e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050197"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162842"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migrar seu Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando DMA
 
@@ -246,11 +249,11 @@ Use o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-ser
 
 ## <a name="change-database-properties"></a>Alterar as propriedades de banco de dados
 
-Você pode alterar a camada de serviço, o nível de desempenho e o nível de compatibilidade usando o SQL Server Management Studio. Durante a fase de importação, recomendamos que você importar um banco de dados de nível de desempenho superior para melhor desempenho, mas se você reduzir após a importação ser concluída para economizar dinheiro até que você esteja pronto para usar ativamente o banco de dados importado. Alterar o nível de compatibilidade pode resultar em melhor desempenho e o acesso aos recursos mais recentes do serviço de banco de dados SQL do Azure. Quando você migrar um banco de dados mais antigo, seu nível de compatibilidade do banco de dados será mantido, o que é compatível com o banco de dados que está sendo importado. Para obter mais informações, consulte [Desempenho de consultas aprimorado com nível de compatibilidade 130 no banco de dados SQL do Azure](sql-database-compatibility-level-query-performance-130.md).
+Você pode alterar a camada de serviço, o tamanho de computação e o nível de compatibilidade usando o SQL Server Management Studio. Durante a fase de importação, recomendamos que você importe um para uma camada de serviço ou tamanho de computação maiores, mas reduzir verticalmente após a importação ser concluída para economizar dinheiro até estar pronto para usar ativamente o banco de dados importado. Alterar o nível de compatibilidade pode resultar em melhor desempenho e o acesso aos recursos mais recentes do serviço de banco de dados SQL do Azure. Quando você migrar um banco de dados mais antigo, seu nível de compatibilidade do banco de dados será mantido, o que é compatível com o banco de dados que está sendo importado. Para obter mais informações, consulte [Desempenho de consultas aprimorado com nível de compatibilidade 130 no banco de dados SQL do Azure](sql-database-compatibility-level-query-performance-130.md).
 
 1. No Pesquisador de Objetos, clique com o botão direito do mouse em **mySampleDatabase** e clique em **Nova consulta**. Uma janela de consulta se abre conectada ao banco de dados.
 
-2. Execute o seguinte comando para definir a camada de serviço como **Standard** e o nível de desempenho para **S1**.
+2. Execute o seguinte comando para definir a camada de serviço como **Standard** e o tamanho de computação como **S1**.
 
     ```sql
     ALTER DATABASE mySampleDatabase 

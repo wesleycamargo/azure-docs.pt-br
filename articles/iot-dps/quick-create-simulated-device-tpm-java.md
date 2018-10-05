@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 18342b7f3980bcd43b386c3282dda6ebf17eebba
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: b6c6e407e0bd54c4713056fdee12f7a4c355af97
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023188"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030891"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo TPM simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento do Dispositivo Hub IoT do Azure
 
@@ -91,9 +91,9 @@ Se você não estiver familiarizado com o processo de provisionamento automátic
 
 1. Faça logon no Portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o Serviço de Provisionamento de Dispositivos.
 
-1. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** guia e clique no botão **Adicionar** na parte superior. 
+1. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** e clique no botão **Adicionar registro individual** na parte superior. 
 
-1. Em **Adicionar a entrada da lista de registro**, insira as seguintes informações:
+1. No painel **Adicionar Registro**, insira as seguintes informações:
     - Selecione **TPM** como o atestado de identidade *Mecanismo*.
     - Insira a *ID de Registro* e *Chave de Endosso* para seu dispositivo do TPM, conforme anotados anteriormente. 
     - Selecione um hub IoT vinculado com o serviço de provisionamento.
@@ -101,7 +101,7 @@ Se você não estiver familiarizado com o processo de provisionamento automátic
     - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
     - Uma vez concluído, clique no botão **Salvar**. 
 
-    ![Inserir informações de registro de dispositivo na folha do portal](./media/java-quick-create-simulated-device/enter-device-enrollment.png)  
+    ![Inserir informações de registro de dispositivo na folha do portal](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    Em caso de registro bem-sucedido, a *ID de Registro* do seu dispositivo é exibida na lista na guia *Registros Individuais*. 
 
@@ -114,7 +114,7 @@ Se você não estiver familiarizado com o processo de provisionamento automátic
 
 1. Com o êxito no provisionamento do seu dispositivo simulado para o Hub IoT vinculado ao serviço de provisionamento, a ID do dispositivo aparece na folha **Device Explorer** do hub.
 
-    ![Dispositivo é registrado no Hub IoT](./media/java-quick-create-simulated-device/hub-registration.png) 
+    ![Dispositivo é registrado no Hub IoT](./media/java-quick-create-simulated-device/hubregistration.png) 
 
     Se você tiver alterado o *estado de dispositivo gêmeo inicial* do valor padrão na entrada de registro para o seu dispositivo, pode receber o estado desejado duas do hub e agir de acordo. Para saber mais, veja [Noções básicas e uso de dispositivos gêmeos no Hub IoT](../iot-hub/iot-hub-devguide-device-twins.md)
 

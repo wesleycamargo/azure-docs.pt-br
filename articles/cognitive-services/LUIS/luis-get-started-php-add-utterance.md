@@ -1,20 +1,21 @@
 ---
-title: Início Rápido – alterar o modelo e treinar o aplicativo LUIS usando PHP – Serviços Cognitivos do Azure | Microsoft Docs
+title: Início Rápido do PHP – alterar o modelo e treinar o aplicativo LUIS
+titleSuffix: Azure Cognitive Services
 description: Neste início rápido de PHP, adicione exemplos de enunciados a um aplicativo Automação de Página Inicial e treine o aplicativo. Exemplos de enunciados consistem em texto de conversa do usuário mapeado para uma intenção. Ao mostrar exemplos de enunciados para intenções, você ensina o LUIS quais tipos de textos fornecidos pelo usuário pertencem a qual intenção.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 31840f34b99bbb474776ce81a7f87df94a0e338e
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: c2f2343b889166a9fe7ea9356ee82620dba27d08
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44156980"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034256"
 ---
 # <a name="quickstart-change-model-using-php"></a>Início Rápido: Alterar o modelo usando PHP 
 

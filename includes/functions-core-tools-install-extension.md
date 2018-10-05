@@ -5,23 +5,29 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 04/06/2018
+ms.date: 09/21/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d166a77a0636efea3b63660fde2187e3f2ec15c0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f1b53c53b1e5fb089eb9b8a9b816b11a1eea126d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38944909"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044502"
 ---
-Quando você desenvolve funções localmente, pode instalar as extensões necessárias usando as ferramentas do Azure Functions Core do Terminal ou de um prompt de comando. 
+Quando você desenvolve funções localmente, pode instalar as extensões necessárias usando as ferramentas do Azure Functions Core do Terminal ou de um prompt de comando.
 
-Depois de atualizar seu arquivo *function.json* para incluir todas as associações de sua função precisa, execute o `func extensions install` comando na pasta do projeto. O comando lê o arquivo *function.json* arquivo para ver os pacotes que você precisa e, em seguida, instala-os.
+Depois de atualizar o arquivo *function.json* para incluir todas as associações que a função precisa, execute o comando a seguir na pasta do projeto.
+
+```bash
+func extensions install
+```
+
+O comando lê o arquivo *function.json* para saber quais são os pacotes necessários, instala-os e recria o projeto de extensão. Ele adiciona as novas associações na versão atual, mas não atualiza as associações existentes. Use a opção `--force` para atualizar as associações existentes para a versão mais recente nas novas instalações.
 
 Se você deseja instalar uma versão específica de um pacote ou se você deseja instalar pacotes antes de editar o arquivo *function.json*, use o comando `func extensions install` com o nome do pacote, conforme mostrado no exemplo a seguir:
 
-```
+```bash
 func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
 ```
 

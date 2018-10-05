@@ -1,24 +1,27 @@
 ---
-title: Publicar a base de dados de conhecimento – Início Rápido do Java – Serviços Cognitivos do Azure | Microsoft Docs
+title: 'Início Rápido: Publicar base de dados de conhecimento do Java – QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Como publicar uma base de dados de conhecimento em Java para o QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: fd815802643a67fe340098e97687fc6438a18ea0
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: a625151a0f6595e02ed899f2f8f7273c8e4f5cde
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43768412"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036915"
 ---
 # <a name="publish-a-knowledge-base-in-java"></a>Como publicar uma base de dados de conhecimento em Java
 
 O código a seguir publica uma base de dados de conhecimento existente usando o método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 1. Crie um novo projeto Java no IDE favorito.
 2. Adicione o código fornecido abaixo.

@@ -1,20 +1,21 @@
 ---
-title: Gerenciar sua assinatura do ponto de extremidade do Azure | Microsoft Docs
+title: Gerenciamento de assinatura de ponto de extremidade no LUIS
+titleSuffix: Azure Cognitive Services
 description: Neste artigo, você cria uma chave de ponto de extremidade limitada para sua conta do LUIS para fornecer tráfego ilimitado ao seu ponto de extremidade de acordo com um plano de pagamento.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0b735499ae589e44c2ce5076fce38ec47ddd69c7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c7c6009d9fec14e8633a37e5384dd203f2f5fa60
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223272"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040373"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Gerenciar suas chaves de assinatura do ponto de extremidade do Azure
 
@@ -26,7 +27,7 @@ Para testar e protótipo apenas, use a camada gratuita (F0). Para sistemas de pr
 <a name="create-luis-service"></a>
 ## <a name="create-luis-endpoint-key"></a>Criar chave de ponto de extremidade LUIS
 
-1. Entrar no **[Microsoft Azure](https://ms.portal.azure.com/)** 
+1. Entrar no **[Microsoft Azure](https://ms.portal.azure.com/)**. 
 2. Clique no sinal verde **+** de entrada no painel superior esquerdo e procure "LUIS" no marketplace, clique em **Reconhecimento Vocal** e siga as instruções em **criar experiência**  para criar uma conta de assinatura do LUIS. 
 
     ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
@@ -40,8 +41,7 @@ Para testar e protótipo apenas, use a camada gratuita (F0). Para sistemas de pr
     ![Chaves do Azure](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Faça login no site do [LUIS](luis-reference-regions.md) na sua região e [adicione a nova chave de ponto de extremidade do LUIS](luis-how-to-manage-keys.md#assign-endpoint-key). 
-    > * Você precisa se lembrar do nome do serviço do Azure que você criou para selecioná-lo na página de publicação do [LUIS](luis-reference-regions.md) da região.  
+    > Entre no site do [LUIS](luis-reference-regions.md) na sua região e [atribua a nova chave de ponto de extremidade do LUIS](luis-how-to-manage-keys.md#assign-endpoint-key). Você precisa do nome da assinatura do LUIS da etapa 3.
 
 ## <a name="change-luis-pricing-tier"></a>Alterar o tipo de preço do LUIS
 

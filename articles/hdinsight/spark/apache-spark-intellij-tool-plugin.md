@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk
-ms.openlocfilehash: ed0118584d51f08d64a88dc1e7e6e2ba5f95cb0a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 07c2b506007daccd53a8b06a43064e6e274ac43b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042584"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433351"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usar o Kit de Ferramentas do Azure para IntelliJ a fim de criar aplicativos Spark para um cluster HDInsight
 
@@ -181,8 +181,12 @@ Você pode vincular um cluster HDInsight normal usando o nome de usuário gerenc
 
         ![A caixa de diálogo Selecionar Classe Principal](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
 
-      * Como o código do aplicativo neste exemplo não exige argumentos de linha de comando nem JARs ou arquivos de referência, você pode deixar as caixas restantes em branco. Depois de fornecer todas as informações, a caixa de diálogo deve ser semelhante à imagem a seguir.
+      * Você pode fornecer as informações desejadas. Sobre as **configurações do trabalho**, temos o valor padrão. Você pode consultar a [API REST do Apache Livy](http://livy.incubator.apache.org./docs/latest/rest-api.html) para obter mais informações sobre as chaves. O **argumentos de linha de comando**, os **JARs referenciados** e os **arquivos referenciados** deve se parecer com a imagem abaixo. Você pode consultar [Configuração do Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) para obter mais informações sobre **JARs referenciados** e **arquivos referenciados**. Para que **JARs referenciados** e **arquivos referenciados** funcionem bem, carregue os recursos para o cluster que você enviar primeiro. Veja [Como carregar recursos para o cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). A caixa de diálogo de envio deve se parecer com a imagem a seguir.
         
+        ![O significado da configuração do trabalho da caixa de diálogo de Envio do Spark](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
+
+        ![O significado dos arquivos jar da caixa de diálogo de Envio do Spark](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
+
         ![A caixa de diálogo Envio do Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
 
    c. A guia **Envio do Spark** na parte inferior da janela deve começar a exibir o progresso. Você também pode interromper o aplicativo escolhendo o botão vermelho na janela **Envio do Spark**.

@@ -1,21 +1,21 @@
 ---
-title: Aplicativo Web de uma página da Pesquisa de Imagem do Bing | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Mostra como usar a API de Pesquisa de Imagem do Bing em um aplicativo Web de página única.
+title: 'Tutorial: Criar um aplicativo Web de página única – Pesquisa Visual do Bing'
+titleSuffix: Azure Cognitive Services
+description: Mostra como usar a API da Pesquisa Visual do Bing em um aplicativo Web de página única.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-brapel
-ms.openlocfilehash: 303d7745167d2ea25fda083ed99881ac4e0a7ec7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e3cd36d799256406b3ae12f35303bd2406468b3c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364270"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227173"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>Tutorial: Aplicativo Web de uma página Pesquisa Visual Única
 

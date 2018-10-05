@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 4434b67393d34c3418e44e82681a586c268a37e5
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746989"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409466"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -125,6 +125,16 @@ Set-AzureRmStorageSyncServerEndpoint `
     -CloudTiering true `
     -VolumeFreeSpacePercent 60
 ```
+<a id="server-endpoint-noactivity"></a>**O ponto de extremidade do servidor tem um status de integridade “Sem Atividade” ou “Pendente” e o estado do servidor na folha de servidores registrados é “Aparece offline”**  
+
+Esse problema poderá ocorrer se o processo do Monitor de Sincronização de Armazenamento não estiver em execução ou o servidor não conseguir se comunicar com o serviço de Sincronização de Arquivos do Azure devido a um proxy ou firewall.
+
+Para resolver esse problema, execute as seguintes etapas:
+
+1. Abra o Gerenciador de Tarefas no servidor e verifique se o processo do Monitor de Sincronização de Armazenamento (AzureStorageSyncMonitor.exe) está em execução. Se o processo não estiver funcionando, primeiro tente reiniciar o servidor. Se reiniciar o servidor não resolver o problema, desinstale e reinstale o agente de Sincronização de Arquivos do Azure (observação: as configurações do servidor são mantidas ao desinstalar e reinstalar o agente).
+2. Verifique se as configurações de Firewall e Proxy estão definidas corretamente:
+    - Se o servidor estiver atrás de um firewall, verifique se a porta 443 de saída é permitida. Se o firewall restringe o tráfego a domínios específicos, confirme se os domínios listados na [documentação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) do Firewall estão acessíveis.
+    - Se o servidor estiver atrás de um proxy, defina as configurações de proxy específicas do aplicativo ou para todo o computador seguindo as etapas na [documentação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) do Proxy.
 
 ## <a name="sync"></a>Sincronizar
 <a id="afs-change-detection"></a>**Se eu criar um arquivo diretamente em meu compartilhamento de arquivos do Azure usando SMB ou por meio do portal, quanto tempo levará para que o arquivo seja sincronizado com os servidores no grupo de sincronização?**  
@@ -226,14 +236,13 @@ Para ver esses erros, execute o script do PowerShell **FileSyncErrorsReport.ps1*
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Um arquivo foi alterado durante a sincronização, portanto, ele precisa ser sincronizado novamente. | Nenhuma ação é necessária. |
 
 #### <a name="handling-unsupported-characters"></a>Manipulando Caracteres Não Suportados
-Se o **FileSyncErrorsReport.ps1** script do PowerShell mostra falhas devido a caracteres sem suporte (0x7b códigos de erro e 0x8007007b), você deve remover ou renomear os caracteres com defeito dos respectivos arquivos. PowerShell provavelmente será impresso esses caracteres como pontos de interrogação ou retângulos vazios, pois a maior parte desses caracteres não têm nenhuma codificação de visual padrão.
+Se o **FileSyncErrorsReport.ps1** script do PowerShell mostra falhas devido a caracteres sem suporte (0x7b códigos de erro e 0x8007007b), você deve remover ou renomear os caracteres com defeito dos respectivos arquivos. PowerShell provavelmente será impresso esses caracteres como pontos de interrogação ou retângulos vazios, pois a maior parte desses caracteres não têm nenhuma codificação de visual padrão. A [Evalation Tool](storage-sync-files-planning.md#evaluation-tool) pode ser usada para identificar os caracteres que não têm suporte.
 
 A tabela abaixo contém todos os caracteres unicode que o Azure File Sync ainda não suporta.
 
 | Conjunto de caracteres | Contagem de caracteres |
 |---------------|-----------------|
 | <ul><li>0x0000009D (osc comando do sistema operacional)</li><li>0x00000090 (cadeia de controle de dispositivo de controladores de domínio)</li><li>0x0000008F (ss3 único shift três)</li><li>0x00000081 (predefinição de octeto alta)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverso alimentação de linha)</li></ul> | 6 |
-| <ul><li>0x0000200F (marca de direita para esquerda)</li><li>0x0000200E (marca da esquerda para a direita)</li><li>0x0000202E (marca de direita para esquerda)</li><li>0x0000202D (marca de direita para esquerda)</li><li>0x0000202C (formatação de mensagem pop-direcional)</li><li>0x0000202B (marca de direita para esquerda)</li><li>0x0000202A (marca de direita para esquerda)</li></ul> | 7 |
 | 0x0000FDD0 - 0x0000FDEF (apresentação árabe formulários-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (especiais) | 16 |
 | <ul><li>0x0001FFFE - 0x0001FFFF = 2 (não caracteres)</li><li>0x0002FFFE - 0x0002FFFF = 2 (não caracteres)</li><li>0x0003FFFE - 0x0003FFFF = 2 (não caracteres)</li><li>0x0004FFFE - 0x0004FFFF = 2 (não caracteres)</li><li>0x0005FFFE - 0x0005FFFF = 2 (não caracteres)</li><li>0x0006FFFE - 0x0006FFFF = 2 (não caracteres)</li><li>0x0007FFFE - 0x0007FFFF = 2 (não caracteres)</li><li>0x0008FFFE - 0x0008FFFF = 2 (não caracteres)</li><li>0x0009FFFE - 0x0009FFFF = 2 (não caracteres)</li><li>0x000AFFFE - 0x000AFFFF = 2 (não caracteres)</li><li>0x000BFFFE - 0x000BFFFF = 2 (não caracteres)</li><li>0x000CFFFE - 0x000CFFFF = 2 (não caracteres)</li><li>0x000DFFFE - 0x000DFFFF = 2 (não caracteres)</li><li>0x000EFFFE - 0x000EFFFF = 2 (indefinido)</li><li>0x000FFFFE - 0x000FFFFF = 2 (área de suplementares de uso particular)</li></ul> | 30 |

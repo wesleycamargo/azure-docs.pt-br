@@ -1,23 +1,23 @@
 ---
 title: Arquitetura de Conectividade de Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
 description: Este artigo fornece a visão geral da comunicação de Instância Gerenciada do Banco de Dados SQL do Azure e explica a arquitetura de conectividade, além de como os diferentes componentes funcionam para direcionar o tráfego para a Instância Gerenciada.
-keywords: ''
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.subservice: managed instance
+ms.subservice: managed-instance
 ms.custom: ''
-ms.date: 08/16/2018
+ms.devlang: ''
+ms.topic: conceptual
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.topic: conceptual
-ms.openlocfilehash: 54917c6548c7f0bfacad6408732c5619e6346683
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+manager: craigg
+ms.date: 08/16/2018
+ms.openlocfilehash: 312425d3ea02d15a992b9a694f09cb2be73b6221
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177415"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161583"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Arquitetura de Conectividade de Instância Gerenciada do Banco de Dados SQL do Azure 
 
@@ -73,8 +73,8 @@ Os serviços de gerenciamento e implantação se conectam à Instância Gerencia
 - Para uma visão geral, consulte  [O que é uma instância gerenciada](sql-database-managed-instance.md) 
 - Para obter mais informações sobre a configuração de rede virtual, consulte [configuração de rede virtual de instância gerenciada](sql-database-managed-instance-vnet-configuration.md). 
 - Para um início rápido, consulte como criar a instância gerenciada: 
-  - do [Portal do Azure](sql-database-managed-instance-create-tutorial-portal.md) 
-  - usando [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) 
+  - No [portal do Azure](sql-database-managed-instance-get-started.md) 
+  - Usando o [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) 
   - usando [modelo do Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/) 
   - usando [modelo do Resource Manager (jumpbox com o SSMS incluído)](https://portal.azure.com/) 
 

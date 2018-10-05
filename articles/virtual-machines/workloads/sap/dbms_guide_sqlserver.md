@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/11/2018
+ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db0d796a407c8e33501b0a312c78e8508f17297d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075026"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406901"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação do DBMS de Máquinas de Virtuais do SQL Server Azure para NetWeaver do SAP
 
@@ -381,8 +381,10 @@ O SQL Server 2014 e versões mais recentes abrem a possibilidade para armazenar 
 
 * A conta de armazenamento usada precisa estar na mesma região do Azure que a usada para implantar a VM em que o SQL Server está sendo executado.
 * As considerações listadas anteriormente em relação à distribuição de VHDs em diferentes Contas de Armazenamento do Azure também se aplicam a esse método de implantações. Significa a contagem de operações de E/S em relação aos limites da Conta de Armazenamento do Azure.
-* Em vez de contabilização em relação à cota de e/s de armazenamento da VM, o tráfego em blobs de armazenamento que representam os arquivos de log e de dados do SQL Server será contabilizado na largura de banda de rede da VM do tipo específico de VM. Para largura de banda de um tipo específico de VM, consulte o artigo [máquinas virtuais de tamanhos para Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* Em vez de contabilização em relação à cota de e/s de armazenamento da VM, o tráfego em blobs de armazenamento que representam os arquivos de log e de dados do SQL Server será contabilizado na largura de banda de rede da VM do tipo específico de VM. Para obter a largura de banda de rede e de armazenamento de um tipo específico de VM, confira o artigo [Tamanhos das máquinas virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* Como resultado do envio por push da E/S de arquivo por meio da cota de rede, você está deixando de lado grande parte da cota de armazenamento e, com isso, usando a largura de banda geral da VM apenas parcialmente.
 * As metas de desempenho de taxa de transferência e/s e IOPS que tem o armazenamento Premium do Azure para os tamanhos de disco diferentes não se aplicam mais. Mesmo se os blobs que você criou estejam localizados no armazenamento Premium do Azure. Os destinos são documentados no artigo [Armazenamento Premium de alto desempenho e discos gerenciados para VMs](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets). Como resultado de colocar arquivos de dados do SQL Server e arquivos de log diretamente nos blobs que são armazenados no armazenamento Premium do Azure, as características de desempenho podem ser diferentes em comparação com VHDs no armazenamento Premium do Azure.
+* O cache baseado em host disponível para discos de Armazenamento Premium do Azure não está disponível para arquivos de dados do SQL Server colocados diretamente nos blobs do Azure.
 * Em VMs da série M, acelerador de gravação do Azure não pode ser usado para dar suporte a gravações de submilissegundo contra o arquivo de log de transações do SQL Server. 
 
 Os detalhes dessa funcionalidade podem ser encontrados no artigo [arquivos de dados do SQL Server no Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-2017)

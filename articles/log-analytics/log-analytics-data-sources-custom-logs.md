@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 831b52a27a1ccfc349b9b54f8c3d874e41ddc322
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.component: ''
+ms.openlocfilehash: 5eab8e4bf6b1aa90a9eef3e26dfc3020e3e3179b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363136"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423503"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Logs personalizados no Log Analytics
 A fonte de dados de logs personalizados no Log Analytics permite que você colete eventos de arquivos de texto em computadores com Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registro standard, como o log de eventos do Windows ou Syslog.  Depois de coletados, você pode analisar cada registro no logon em campos individuais usando o recurso [Campos Personalizados](log-analytics-custom-fields.md) do Log Analytics.
@@ -40,6 +40,10 @@ Os arquivos de log a serem coletados devem corresponder aos critérios a seguir.
 >Se houver entradas duplicadas no arquivo de log, análise de Log coletará-los.  No entanto, os resultados da pesquisa será inconsistente onde os resultados do filtro mostram mais eventos do que a contagem de resultados.  É importante que você valide o log para determinar se o aplicativo que cria está causando o problema e resolvê-lo se possível, antes de criar a definição de coleção de log personalizado.  
 >
   
+>[!NOTE]
+> Se seu aplicativo criar um arquivo de log por dia ou quando atingir um determinado tamanho, o agente do Log Analytics para Linux somente os descobrirá quando for reiniciado. Isso ocorre porque o agente só enumera e inicia o monitoramento de padrões com os logs especificados ao ser iniciado e, por isso, você precisa planejar essa questão automatizando a reinicialização do agente.  Essa limitação não existe com o agente do Log Analytics para Windows.  
+>
+
 ## <a name="defining-a-custom-log"></a>Definindo um log personalizado
 Use o procedimento a seguir para definir um arquivo de log personalizado.  Role até o final deste artigo para encontrar um passo a passo de um exemplo de adição de um log personalizado.
 
@@ -66,9 +70,13 @@ Se um delimitador de carimbo de data/hora for usado, a propriedade TimeGenerated
 5. Clique em **Próximo**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Etapa 3. Adicionar caminhos de coleta de log
-Você deve definir um ou mais caminhos no agente no qual ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log ou pode especificar um caminho com um caractere curinga para o nome.  Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho.  Você também pode fornecer vários caminhos para um único arquivo de log.
+Você deve definir um ou mais caminhos no agente no qual ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log ou pode especificar um caminho com um caractere curinga para o nome. Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho. Você também pode fornecer vários caminhos para um único arquivo de log.
 
 Por exemplo, um aplicativo pode criar um arquivo de log por dia com a data incluída no nome, como log20100316.txt. Um padrão para tal log pode ser *log\*.txt*, que se aplica a qualquer arquivo de log após o esquema de nomenclatura do aplicativo.
+
+>[!NOTE]
+> Se seu aplicativo criar um arquivo de log por dia ou quando atingir um determinado tamanho, o agente do Log Analytics para Linux somente os descobrirá quando for reiniciado. Isso ocorre porque o agente só enumera e inicia o monitoramento de padrões com os logs especificados ao ser iniciado e, por isso, você precisa planejar essa questão automatizando a reinicialização do agente.  Essa limitação não existe com o agente do Log Analytics para Windows.  
+>
 
 A tabela a seguir fornece exemplos de padrões válidos para especificar diferentes arquivos de log.
 

@@ -1,23 +1,23 @@
 ---
-title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usando Node.js | Microsoft Docs
-description: Neste início rápido, você criará uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento para Node.js a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
+title: 'Início rápido: carregar, baixar e listar blobs usando Node.js – Armazenamento do Azure'
+description: Crie uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento para Node.js a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 services: storage
 author: craigshoemaker
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 09/20/2018
 ms.author: cshoe
-ms.openlocfilehash: b1cb7d327d8bfd9a7c6fe9d466445c50620f8b45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1c62dbd6856ec7bf2663f0b70a47357b52528899
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976867"
+ms.locfileid: "47040805"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Início rápido: Carregar, baixar e listar blobs usando Node.js
 
-Neste início rápido, você aprenderá a usar o Node.js para carregar, baixar e listar blobs de blocos em um contêiner usando o Armazenamento de Blobs do Azure.
+Neste início rápido, você aprenderá a usar o Node.js para carregar, baixar e listar blobs e gerenciar contêineres com o Armazenamento de Blobs do Azure.
 
 Para concluir este início rápido, você precisa de uma [assinatura do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -48,69 +48,91 @@ npm install
 ```
 
 ## <a name="run-the-sample"></a>Execute o exemplo
-Agora que as dependências estão instaladas, você pode executar o exemplo passando comandos para o script. Por exemplo, para criar um contêiner de blob, execute o comando a seguir:
+Agora que as dependências estão instaladas, você pode executar o exemplo emitindo o comando a seguir:
 
 ```bash
-node index.js --command createContainer
+npm start
 ```
 
-Os comandos disponíveis incluem:
+A saída do script será semelhante ao seguinte:
 
-| Comando | DESCRIÇÃO |
-|---------|---------|
-|*createContainer* | Cria um contêiner chamado *test-container* (terá êxito mesmo se já existir um contêiner) |
-|*upload*          | Carrega o arquivo *example.txt* para o contêiner *test-container* |
-|*download*        | Baixa o conteúdo do blob *example* para *example.downloaded.txt* |
-|*delete*          | Exclui o blob *example* |
-|*list*            | Lista o conteúdo do contêiner *test-container* para o console |
+```bash
+Containers:
+ - container-one
+ - container-two
+Container "demo" is created
+Blob "quickstart.txt" is uploaded
+Local file "./readme.md" is uploaded
+Blobs in "demo" container:
+ - quickstart.txt
+ - readme.md
+Blob downloaded blob content: "hello Blob SDK"
+Blob "quickstart.txt" is deleted
+Container "demo" is deleted
+Done
+```
 
+Observe que, se você estiver usando uma nova conta de armazenamento para este início rápido, poderá não ver os nomes de contêiner listados sob o rótulo "*Contêineres*".
 
-## <a name="understanding-the-sample-code"></a>Entendendo o código de exemplo
-Este exemplo de código usa alguns módulos para fazer interface com o sistema de arquivos e a linha de comando. 
+## <a name="understanding-the-code"></a>Compreender o código
+A primeira expressão é usada para carregar valores em variáveis de ambiente.
 
 ```javascript
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').load();
 }
+```
+
+O módulo *dotenv* carrega variáveis de ambiente ao executar o aplicativo localmente para depuração. Valores são definidos em um arquivo chamado *.env* e carregados no contexto de execução atual. Em contextos de produção, a configuração do servidor fornece esses valores, e é por isso que esse código é executado somente quando o script não está em execução em um contexto de "produção".
+
+```javascript
 const path = require('path');
-const args = require('yargs').argv;
 const storage = require('azure-storage');
 ```
 
 O propósito desses módulos é o seguinte: 
 
-- *dotenv* carrega variáveis de ambiente definidas em um arquivo chamado *.env* no contexto de execução atual
+arquivo denominado *.env* no contexto de execução atual
 - *path* é necessário para determinar o caminho absoluto de arquivo do arquivo a ser carregado no armazenamento de blobs
-- *yargs* expõe uma interface simples para acessar argumentos de linha de comando
 - *azure-storage* é o módulo do [SDK do Armazenamento do Azure](https://docs.microsoft.com/javascript/api/azure-storage) para Node.js
 
-Em seguida, uma série de variáveis é inicializada:
+Em seguida, a variável **blobService** é inicializada como uma nova instância do serviço Blob do Azure.
 
 ```javascript
 const blobService = storage.createBlobService();
-const containerName = 'test-container';
-const sourceFilePath = path.resolve('./example.txt');
-const blobName = path.basename(sourceFilePath, path.extname(sourceFilePath));
 ```
 
-As variáveis são definidas com os seguintes valores:
+Na implementação a seguir, cada uma das funções *blobService* é encapsulada em uma *Promise*, que permite o acesso à função *async* do JavaScript e ao operador *await* para simplificar a natureza de retorno de chamada da [API do Armazenamento do Azure](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest). Quando uma resposta bem-sucedida é retornada para cada função, a promessa é resolvida com dados relevantes, juntamente com uma mensagem específica para a ação.
 
-- *blobService* é definido como uma nova instância do serviço Blob do Azure
-- *containerName* é definido como o nome do contêiner
-- *sourceFilePath* é definido como o caminho absoluto do arquivo a ser carregado
-- *blobName* é criado utilizando o nome do arquivo e removendo a extensão do arquivo
+### <a name="list-containers"></a>Listar contêineres
 
-Na implementação a seguir, cada uma das funções *blobService* é encapsulada em uma *Promise*, que permite o acesso à função *async* do JavaScript e ao operador *await* para simplificar a natureza de retorno de chamada da [API do Armazenamento do Azure](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest). Quando uma resposta bem-sucedida é retornada para cada função, a promessa é resolvida com dados relevantes, juntamente com uma mensagem específica para a ação.
-
-### <a name="create-a-blob-container"></a>Criar um contêiner de blob
-
-A função *createContainer* chama [createContainerIfNotExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) e define o nível de acesso apropriado para o blob.
+A função *listContainers* chama [listContainersSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listcontainerssegmented), que retorna coleções de contêineres em grupos.
 
 ```javascript
-const createContainer = () => {
+const listContainers = async () => {
+    return new Promise((resolve, reject) => {
+        blobService.listContainersSegmented(null, (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve({ message: `${data.entries.length} containers`, containers: data.entries });
+            }
+        });
+    });
+};
+```
+
+O tamanho dos grupos é configurável por meio de [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest). Chamar *listContainersSegmented* retorna metadados de blob como uma matriz de instâncias de [ContainerResult](/nodejs/api/azure-storage/blobresult). Os resultados são retornados em 5.000 lotes de incremento (segmentos). Se houver mais de 5.000 blobs em um contêiner, os resultados incluirão um valor para *continuationToken*. Para listar segmentos subsequentes do contêiner de blob, você pode passar o token de continuação de volta para *listContainersSegment* como o segundo argumento.
+
+### <a name="create-a-container"></a>Criar um contêiner
+
+A função *createContainer* chama [createContainerIfNotExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) e define o nível de acesso apropriado para o blob.
+
+```javascript
+const createContainer = async (containerName) => {
     return new Promise((resolve, reject) => {
         blobService.createContainerIfNotExists(containerName, { publicAccessLevel: 'blob' }, err => {
-            if(err) {
+            if (err) {
                 reject(err);
             } else {
                 resolve({ message: `Container '${containerName}' created` });
@@ -124,39 +146,56 @@ O segundo parâmetro (*options*) para **createContainerIfNotExists** aceita um v
 
 O uso de **createContainerIfNotExists** permite que o aplicativo execute o comando *createContainer* várias vezes sem retornar erros quando o contêiner já existir. Em um ambiente de produção, geralmente você só chama **createContainerIfNotExists** uma vez, isso porque o mesmo contêiner é usado em todo o aplicativo. Nesses casos, é possível criar o contêiner antecipadamente por meio do portal ou através da CLI do Azure.
 
-### <a name="upload-a-blob-to-the-container"></a>Carregar um blob para o contêiner
+### <a name="upload-text"></a>Carregar texto
 
-A função *upload* usa a função [createBlockBlobFromLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile) para carregar e gravar ou substituir um arquivo do sistema de arquivos no armazenamento de blobs. 
+A função *uploadString* chama [createBlockBlobFromText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext) para gravar (ou substituir) uma cadeia de caracteres arbitrária para o contêiner de blob.
 
 ```javascript
-const upload = () => {
+const uploadString = async (containerName, blobName, text) => {
     return new Promise((resolve, reject) => {
-        blobService.createBlockBlobFromLocalFile(containerName, blobName, sourceFilePath, err => {
-            if(err) {
+        blobService.createBlockBlobFromText(containerName, blobName, text, err => {
+            if (err) {
                 reject(err);
             } else {
-                resolve({ message: `Upload of '${blobName}' complete` });
+                resolve({ message: `Text "${text}" is written to blob storage` });
             }
         });
     });
 };
 ```
-No contexto do aplicativo de exemplo, o arquivo chamado *example.txt* é carregado para um blob chamado de *example* dentro de um contêiner chamado de *test-container*. Outras abordagens disponíveis para carregar conteúdo em blobs incluem trabalhar com [textos](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext) e [transmissões](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream).
+### <a name="upload-a-local-file"></a>Carregar um arquivo local
 
-Para verificar se o arquivo foi carregado ao seu armazenamento de blobs, você pode usar o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para exibir os dados em sua conta.
-
-### <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
-
-A função *list* chama o método [listBlobsSegmented](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented) para retornar uma lista de metadados de blob em um contêiner. 
+A função *uploadLocalFile* usa [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile) para carregar e gravar (ou substituir) um arquivo do sistema de arquivos no armazenamento de blobs. 
 
 ```javascript
-const list = () => {
+const uploadLocalFile = async (containerName, filePath) => {
     return new Promise((resolve, reject) => {
-        blobService.listBlobsSegmented(containerName, null, (err, data) => {
-            if(err) {
+        const fullPath = path.resolve(filePath);
+        const blobName = path.basename(filePath);
+        blobService.createBlockBlobFromLocalFile(containerName, blobName, fullPath, err => {
+            if (err) {
                 reject(err);
             } else {
-                resolve({ message: `Items in container '${containerName}':`, data: data });
+                resolve({ message: `Local file "${filePath}" is uploaded` });
+            }
+        });
+    });
+};
+```
+Outras abordagens disponíveis para carregar conteúdo em blobs incluem trabalhar com [textos](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) e [transmissões](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream). Para verificar se o arquivo foi carregado ao seu armazenamento de blobs, você pode usar o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para exibir os dados em sua conta.
+
+### <a name="list-the-blobs"></a>Listar os blobs
+
+A função *listBlobs* chama o método [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) para retornar uma lista de metadados de blob em um contêiner. 
+
+```javascript
+const listBlobs = async (containerName) => {
+    return new Promise((resolve, reject) => {
+        blobService.listBlobsSegmented(containerName, null, (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve({ message: `${data.entries.length} blobs in '${containerName}'`, blobs: data.entries });
             }
         });
     });
@@ -165,35 +204,35 @@ const list = () => {
 
 Chamar *listBlobsSegmented* retorna metadados de blob como uma matriz de instâncias [BlobResult](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.blobresult?view=azure-node-latest). Os resultados são retornados em 5.000 lotes de incremento (segmentos). Se houver mais de 5.000 blobs em um contêiner, os resultados incluirão um valor para **continuationToken**. Para listar segmentos subsequentes do contêiner de blob, você pode passar o token de continuação de volta para **listBlobSegmented** como o segundo argumento.
 
-### <a name="download-a-blob-from-the-container"></a>Baixar um blob do contêiner
+### <a name="download-a-blob"></a>Baixar um blob
 
-A função *download* usa [getBlobToLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtolocalfile) para baixar o conteúdo do blob para o caminho de arquivo absoluto fornecido.
+A função *downloadBlob* usa [getBlobToText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtotext) para baixar o conteúdo do blob para o caminho de arquivo absoluto fornecido.
 
 ```javascript
-const download = () => {
-    const dowloadFilePath = sourceFilePath.replace('.txt', '.downloaded.txt');
+const downloadBlob = async (containerName, blobName) => {
+    const dowloadFilePath = path.resolve('./' + blobName.replace('.txt', '.downloaded.txt'));
     return new Promise((resolve, reject) => {
-        blobService.getBlobToLocalFile(containerName, blobName, dowloadFilePath, err => {
-            if(err) {
+        blobService.getBlobToText(containerName, blobName, (err, data) => {
+            if (err) {
                 reject(err);
             } else {
-                resolve({ message: `Download of '${blobName}' complete` });
+                resolve({ message: `Blob downloaded "${data}"`, text: data });
             }
         });
     });
 };
 ```
-A implementação exibida aqui altera o caminho do arquivo de origem para acrescentar *.downloaded.txt* ao nome do arquivo. Em contextos do mundo real, é possível alterar o local, bem como o nome do arquivo ao selecionar um destino de download.
+A implementação mostrada aqui altera a origem e retorna o conteúdo do blob como uma cadeia de caracteres. Você também pode baixar o blob como um [fluxo](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtostream), bem como diretamente para um [arquivo local](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtolocalfile).
 
-### <a name="delete-blobs-in-the-container"></a>Excluir blobs no contêiner
+### <a name="delete-a-blob"></a>Excluir um blob
 
-A função *deleteBlock* (com o alias de comando de console *delete*) chama a função [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists). Como o nome implica, essa função não retorna um erro se o blob já tiver sido excluído.
+A função *deleteBlob* chama a função [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists). Como o nome implica, essa função não retorna um erro se o blob já tiver sido excluído.
 
 ```javascript
-const deleteBlock = () => {
+const deleteBlob = async (containerName, blobName) => {
     return new Promise((resolve, reject) => {
         blobService.deleteBlobIfExists(containerName, blobName, err => {
-            if(err) {
+            if (err) {
                 reject(err);
             } else {
                 resolve({ message: `Block blob '${blobName}' deleted` });
@@ -203,76 +242,101 @@ const deleteBlock = () => {
 };
 ```
 
-### <a name="upload-and-list"></a>Carregar e listar
+### <a name="delete-a-container"></a>Excluir um contêiner
 
-Um dos benefícios de usar promessas é a possibilidade de unir comandos. A função **uploadAndList** demonstra como é fácil listar o conteúdo de um Blob diretamente depois de carregar um arquivo.
+Contêineres são excluídos chamando o método *deleteContainer* do serviço Blob e passando o nome do contêiner.
 
 ```javascript
-const uploadAndList = () => {
-    return _module.upload().then(_module.list);
+const deleteContainer = async (containerName) => {
+    return new Promise((resolve, reject) => {
+        blobService.deleteContainer(containerName, err => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve({ message: `Container '${containerName}' deleted` });
+            }
+        });
+    });
 };
 ```
 
 ### <a name="calling-code"></a>Código de chamada
 
-Para expor as funções implementadas para a linha de comando, cada uma das funções é mapeada até um literal de objeto.
+Para dar suporte à sintaxe *async/await* JavaScript, todo o código de chamada é encapsulado em uma função denominada *execute*. Em seguida, execute é chamado e tratado como uma promessa.
 
 ```javascript
-const _module = {
-    "createContainer": createContainer,
-    "upload": upload,
-    "download": download,
-    "delete": deleteBlock,
-    "list": list,
-    "uploadAndList": uploadAndList
-};
-```
-
-Com *_module* agora em vigor, cada um dos comandos está disponível na linha de comando.
-
-```javascript
-const commandExists = () => exists = !!_module[args.command];
-```
-
-Se um determinado comando não existir, as propriedades de *_module* são renderizadas para o console como texto de ajuda ao usuário. 
-
-A função *executeCommand* é uma função *async*, que chama o comando especificado usando o operador *await* e registra quaisquer mensagens de dados no console.
-
-```javascript
-const executeCommand = async () => {
-    const response = await _module[args.command]();
-
-    console.log(response.message);
-
-    if (response.data) {
-        response.data.entries.forEach(entry => {
-            console.log('Name:', entry.name, ' Type:', entry.blobType)
-        });
-    }
-};
-```
-
-Por fim, primeiro o código de execução chama *commandExists* para verificar se um comando conhecido foi passado pelo script. Se um comando existente estiver selecionado, o comando será executado, e os erros serão registrados no console.
-
-```javascript
-try {
-    const cmd = args.command;
-
-    console.log(`Executing '${cmd}'...`);
-
-    if (commandExists()) {
-        executeCommand();
-    } else {
-        console.log(`The '${cmd}' command does not exist. Try one of these:`);
-        Object.keys(_module).forEach(key => console.log(` - ${key}`));
-    }
-} catch (e) {
-    console.log(e);
+async function execute() {
+    // commands 
 }
+
+execute().then(() => console.log("Done")).catch((e) => console.log(e));
+```
+Todo o código a seguir é executado dentro da função execute em que o comentário `// commands` está inserido.
+
+Em primeiro lugar, as variáveis relevantes são declaradas para atribuir nomes e conteúdo de exemplo e para apontar para o arquivo local a ser carregado no armazenamento de Blobs.
+
+```javascript
+const containerName = "demo";
+const blobName = "quickstart.txt";
+const content = "hello Node SDK";
+const localFilePath = "./readme.md";
+let response;
+```
+
+Para listar os contêineres na conta de armazenamento, a função listContainers é chamada e a lista retornada de contêineres é registrada para a janela de saída.
+
+```javascript
+console.log("Containers:");
+response = await listContainers();
+response.containers.forEach((container) => console.log(` -  ${container.name}`));
+```
+
+Depois que a lista de contêineres estiver disponível, você poderá usar o método *findIndex* de Matriz para ver se o contêiner que você deseja criar já existe. Se o contêiner não existir, ele será criado.
+
+```javascript
+const containerDoesNotExist = response.containers.findIndex((container) => container.name === containerName) === -1;
+
+if (containerDoesNotExist) {
+    await createContainer(containerName);
+    console.log(`Container "${containerName}" is created`);
+}
+```
+Em seguida, uma cadeia de caracteres e um arquivo local serão carregados para o armazenamento de Blobs.
+
+```javascript
+await uploadString(containerName, blobName, content);
+console.log(`Blob "${blobName}" is uploaded`);
+
+response = await uploadLocalFile(containerName, localFilePath);
+console.log(response.message);
+```
+O processo para listar os blobs é o mesmo que para listar contêineres. A chamada para *listBlobs* retorna uma matriz de blobs no contêiner e é registrada na janela de saída.
+
+```javascript
+console.log(`Blobs in "${containerName}" container:`);
+response = await listBlobs(containerName);
+response.blobs.forEach((blob) => console.log(` - ${blob.name}`));
+```
+
+Para baixar um blob, a resposta é capturada e usada para acessar o valor do blob. Da resposta, readableStreamBody é convertido em uma cadeia de caracteres e desconectado da janela de saída.
+
+```javascript
+response = await downloadBlob(containerName, blobName);
+console.log(`Downloaded blob content: "${response.text}"`);
+```
+
+Por fim, o contêiner e o blob são excluídos da conta de armazenamento.
+
+```javascript
+await deleteBlob(containerName, blobName);
+console.log(`Blob "${blobName}" is deleted`);
+
+await deleteContainer(containerName);
+console.log(`Container "${containerName}" is deleted`);
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se você não planeja usar os dados ou as contas criadas neste artigo, convém excluí-los para evitar cobranças indesejadas. Para excluir o blob e os contêineres, é possível usar os métodos [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists) e [deleteContainerIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deletecontainerifexists). Também é possível excluir a conta de armazenamento [por meio do portal](../common/storage-create-storage-account.md).
+Todos os dados gravados para a conta de armazenamento são excluídos automaticamente no final do exemplo de código. 
 
 ## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>Recursos para desenvolvimento de aplicativos Node.js com blobs
 
@@ -289,9 +353,7 @@ Confira estes recursos adicionais para o desenvolvimento em Node.js com armazena
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este início rápido demonstra como carregar um arquivo entre um disco local e o Armazenamento de Blobs do Azure usando o Node.js. Para saber mais sobre como trabalhar com o Armazenamento de Blobs, prossiga para as instruções do Armazenamento de Blobs.
+Este início rápido demonstra como carregar um arquivo entre um disco local e o Armazenamento de Blobs do Azure usando o Node.js. Para saber mais sobre como trabalhar com o armazenamento de Blobs, prossiga para o repositório do GitHub.
 
 > [!div class="nextstepaction"]
-> [Instruções de operações do Armazenamento de Blobs](storage-nodejs-how-to-use-blob-storage.md)
-
-Para obter a referência Node.js para Armazenamento do Azure, consulte [Pacote do Armazenamento do Azure](https://docs.microsoft.com/javascript/api/azure-storage).
+> [SDK de Armazenamento do Azure para o repositório JavaScript](https://github.com/Azure/azure-storage-node)

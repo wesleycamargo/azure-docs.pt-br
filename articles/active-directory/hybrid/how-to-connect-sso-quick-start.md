@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 532a37c5de7b69c44f0f8502613ac534f57c8ef9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306435"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405981"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -124,9 +124,9 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
     O resultado é semelhante a:
 
-    Valor: https://autologon.microsoftazuread-sso.com
+    Nome do valor: https://autologon.microsoftazuread-sso.com
   
-    Data: 1
+    Valor (dados): 1
 
    >[!NOTE]
    > Se você quiser cancelar a permissão de uso do SSO Contínuo de alguns usuários (por exemplo, se esses usuários estiverem entrando em quiosques compartilhados), defina os valores anteriores como **4**. Essa ação adiciona s URL do Azure Active Directory à zona Restrita e ocasiona a falha do SSO Contínuo todas as vezes.

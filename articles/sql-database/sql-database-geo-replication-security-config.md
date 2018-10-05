@@ -2,19 +2,22 @@
 title: Configurar a segurança do Banco de Dados SQL do Azure para recuperação de desastre | Microsoft Docs
 description: Aprenda as considerações de segurança para configurar e gerenciar a segurança após uma restauração de banco de dados ou um failover para um servidor secundário.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: anosov1960
 ms.author: sashan
-ms.openlocfilehash: 0796e5900bc67d93e51a0ce377ef5d1144346e2c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 2f5a455cecfbf4b40b1a410a756117d70c4a4b69
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646857"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166819"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurar e gerenciar a segurança do Banco de Dados SQL para restauração geográfica ou failover 
 
@@ -30,7 +33,7 @@ Ao contrário de usuários tradicionais, que devem ser mapeados para logons no b
 A principal desvantagem é que gerenciar o processo de recuperação de desastre em grande escala é mais desafiador. Quando você tiver vários bancos de dados que usam o mesmo logon, manter as credenciais usando usuários independentes em vários bancos de dados pode invalidar os benefícios de usuários independentes. Por exemplo, a política de rotação de senha requer que alterações ocorram consistentemente em vários bancos de dados em vez de alterar a senha do logon apenas uma vez no banco de dados mestre. Por esse motivo, se você tiver vários bancos de dados que usam o mesmo nome de usuário e senha, a utilização de usuários independentes não será recomendada. 
 
 ## <a name="how-to-configure-logins-and-users"></a>Como configurar logons e usuários
-Se estiver usando logons e usuários (em vez de usuários independentes), será necessário realizar etapas extras para garantir que os mesmos logons existam no banco de dados mestre. As seções a seguir descrevem as etapas envolvidas e considerações adicionais.
+Se você estiver usando logons e usuários (em vez de usuários independentes), precisará realizar etapas extras para garantir que os mesmos logons existam no banco de dados mestre. As seções a seguir descrevem as etapas envolvidas e considerações adicionais.
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Configurar o acesso do usuário a um banco de dados secundário ou recuperado
 Para o banco de dados secundário poder ser usado como banco de dados secundário somente leitura e para garantir o acesso apropriado ao novo banco de dados primário ou o banco de dados recuperado usando a restauração geográfica, o banco de dados mestre do servidor de destino deve ter a configuração de segurança apropriadas em vigor antes da recuperação.

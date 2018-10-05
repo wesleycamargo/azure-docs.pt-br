@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6048a17bf50ecac691c7cf687f87e454c54ee9d9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 839e462522be4f492010ca1c22631cb4dd6affe4
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521876"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064406"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Criar o perfil de aplicativos Web dinâmicos do Azure com o Application Insights
 
-De modo geral, este recurso do Azure Application Insights está disponível para o recurso de Aplicativos Web do Serviço de Aplicativo do Azure e está em versão prévia para os recursos de computação do Azure. Para obter informações sobre o [uso local do criador de perfil](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
+Este recurso do Azure Application Insights está em disponibilidade geral para o recurso de Aplicativos Web do Serviço de Aplicativo do Azure e recursos de computação do Azure. Para obter informações sobre o [uso local do criador de perfil](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
 
 Este artigo aborda a quantidade de tempo gasto em cada método de seu aplicativo Web em tempo real quando você usa o [Application Insights](app-insights-overview.md). A ferramenta Application Insights Profiler exibe perfis detalhados de solicitações ao vivo que foram atendidas pelo seu aplicativo. O Profiler destaca o *afunilamento* que gasta o maior tempo. Solicitações com tempos de resposta variados são analisadas em uma base de amostragem. Usando uma variedade de técnicas, você pode minimizar a sobrecarga associada ao aplicativo.
 
@@ -45,9 +45,9 @@ Depois de implantar um Aplicativo Web, independentemente de ter incluído o SDK 
 
     ![Configuração de aplicativo para o Profiler][profiler-app-setting]
 
-### <a name="enable-profiler-for-azure-compute-resources-preview"></a>Habilite o Profiler para recursos de computação do Azure (visualização)
+### <a name="enable-profiler-for-azure-compute-resources"></a>Habilite o Profiler para recursos de computação do Azure
 
-Para obter informações, consulte a [versão prévia do Profiler para recursos de computação do Azure](https://go.microsoft.com/fwlink/?linkid=848155).
+Para obter informações, consulte a [versão do Profiler para recursos de computação do Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 
 ## <a name="view-profiler-data"></a>Exibir dados do criador de perfil
 
@@ -204,7 +204,7 @@ Se você estiver reimplantando seu aplicativo Web em um recurso dos Aplicativos 
 
 *Diretório não vazio 'D:\\home\\site\\wwwroot\\App_Data\\jobs'*
 
-Este erro ocorrerá se você executar a Implantação da Web de scripts ou do Pipeline de implantação do Visual Studio Team Services. A solução é adicionar os seguintes parâmetros de implantação adicionados à tarefa de Implantação da Web:
+Este erro ocorrerá se você executar a Implantação da Web de scripts ou do Pipeline de Implantação do Azure DevOps. A solução é adicionar os seguintes parâmetros de implantação adicionados à tarefa de Implantação da Web:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'

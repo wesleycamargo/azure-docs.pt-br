@@ -1,24 +1,27 @@
 ---
-title: Atualizar a base de dados de conhecimento, Início Rápido do Java – Serviços Cognitivos do Azure | Microsoft Docs
+title: 'Início Rápido: Atualizar base de dados de conhecimento do Java – QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Como atualizar uma base de dados de conhecimento em Java para o QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: ea55305479888e678166431123b9bd58188e2d78
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: f78e9bca7b1b4ce048826b887f99c6dc12f596b7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "43768524"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039999"
 ---
 # <a name="update-a-knowledge-base-in-java"></a>Atualizar uma base de dados de conhecimento em Java
 
 O código a seguir atualiza uma base de dados de conhecimento existente usando o método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 Se você não tiver uma base de dados de conhecimento, pode criar uma de amostra para usar para este início rápido: [Criar uma nova base de dados de conhecimento](create-new-kb-java.md).
 
@@ -352,7 +355,7 @@ public class UpdateKB {
 
 ## <a name="understand-what-qna-maker-returns"></a>Entender o que o QnA Maker retorna
 
-Uma resposta bem-sucedida é retornada em JSON, conforme mostrado no seguinte exemplo. Seus resultados podem ser um pouco diferentes. Se a chamada final retornar um estado de "Bem-sucedido", isso indica que sua base de dados de conhecimento foi atualizada com sucesso. Para solucionar problemas, veja os códigos de resposta de [Atualizar base de conhecimentos](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) da API de QnA Maker.
+Uma resposta bem-sucedida é retornada em JSON, conforme mostrado no seguinte exemplo. Seus resultados podem ser um pouco diferentes. Se a chamada final retornar um estado de "Bem-sucedido", isso indica que sua base de dados de conhecimento foi atualizada com sucesso. Para solucionar problemas, veja os códigos de resposta de [Atualizar Base de Dados de Conhecimentos](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) da API de QnA Maker.
 
 ```json
 {

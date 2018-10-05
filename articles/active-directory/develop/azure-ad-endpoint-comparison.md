@@ -1,9 +1,9 @@
 ---
-title: Comparando o endpoint do Azure AD v2.0 com o endpoint v1.0 | Microsoft Docs
+title: Comparando o ponto de extremidade do Azure AD v2.0 com o ponto de extremidade v1.0 | Microsoft Docs
 description: Conheça as diferenças entre o endpoint do Azure AD v2.0 e o endpoint v1.0
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/27/2018
 ms.author: andret
-ms.reviewer: hirsin, celested
+ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: 02c7edc84d2ac3a91c33d8f266d022db5cd5cb40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948944"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406525"
 ---
-# <a name="comparing-the-azure-ad-v20-endpoint-with-v10-endpoint"></a>Comparando o ponto de extremidade do Azure AD v2.0 com o ponto de extremidade da v1.0
+# <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Comparando o ponto de extremidade Azure AD v2.0 com o ponto de extremidade v1.0
 
 Ao desenvolver um novo aplicativo, é importante conhecer as diferenças entre os pontos de extremidade v1.0 e v2.0. Abaixo estão as principais diferenças, bem como algumas limitações existentes para o terminal v2.0.
 
 > [!NOTE]
-> Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](#limitations).
+> Nem todos os recursos e cenários do Azure AD (Azure Active Directory) têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](#limitations).
 
 ## <a name="who-can-sign-in"></a>Quem pode entrar
 
@@ -37,7 +37,7 @@ Ao desenvolver um novo aplicativo, é importante conhecer as diferenças entre o
 
 * O ponto de extremidade v1.0 permite que apenas contas do trabalho e da escola entrem no seu aplicativo (Azure AD)
 
-* O endpoint v2.0 permite que contas do trabalho e da escola do Active Directory do Azure e de contas pessoais (MSA) (hotmail.com, outlook.com, msn.com) façam logon.
+* O ponto de extremidade v2.0 permite que contas corporativas e de estudante do Azure AD e contas pessoais (MSA) (hotmail.com, outlook.com, msn.com) se conectem.
 
 * Os pontos de extremidade v1.0 e v2.0 também aceitam logins de *[usuários convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório do Azure AD para aplicativos configurados como *[locatário único](single-and-multi-tenant-apps.md)* ou para *aplicativos de vários locatários* configurados para apontar para o terminal específico do inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
@@ -214,15 +214,13 @@ Atualmente, o suporte de biblioteca para o ponto de extremidade v2.0 é limitado
 
 O ponto de extremidade v2.0 não dá suporte ao SAML ou Web Services Federation; ele dá suporte apenas ao Open ID Connect e OAuth 2.0. Nem todos os recursos e funcionalidades dos protocolos OAuth foram incorporados ao ponto de extremidade v2.0.
 
-No momento, os recursos e as funcionalidades de protocolo a seguir *não estão disponíveis* no ponto de extremidade v2.0:
+No momento, os seguintes recursos e funcionalidades de protocolo *não estão disponíveis* ou *não têm suporte* no ponto de extremidade v2.0:
 
-* No momento, a declaração `email` será retornada somente se uma declaração opcional estiver configurada e o escopo scope=email tiver sido especificado na solicitação. No entanto, esse comportamento será alterado conforme o ponto de extremidade v2.0 for atualizado para estar ainda mais em conformidade com os padrões Open ID Connect e OAuth 2.0.
+* A declaração `email` será retornada somente se uma declaração opcional estiver configurada e o escopo scope=email tiver sido especificado na solicitação. No entanto, esse comportamento deverá ser alterado conforme o ponto de extremidade v2.0 for atualizado para melhorar ainda mais a conformidade com os padrões Open ID Connect e OAuth2.0.
 
 * O ponto de extremidade v2.0 não dá suporte à emissão de declarações de função ou de grupo em tokens de ID.
 
-* Não há suporte para a [Concessão de Credenciais de Senha de Proprietário do Recurso do OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3) no ponto de extremidade v2.0.
-
-Além disso, o ponto de extremidade v2.0 não dá suporte a nenhum formato dos protocolos SAML ou Web Services Federation.
+* O ponto de extremidade v2.0 não dá suporte à [Concessão de credenciais de senha de proprietário de recurso do OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3).
 
 Para entender melhor o escopo da funcionalidade de protocolo com suporte no ponto de extremidade v2.0, leia nossa [referência de protocolo do OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 

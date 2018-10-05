@@ -1,80 +1,70 @@
 ---
-title: Tutorial Usando Funções de Padrão para Melhorar as Previsões do LUIS - Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Neste tutorial, use funções de padrão para entidades relacionadas ao contexto para melhorar as previsões de LUIS.
+title: 'Tutorial 4: funções de padrão para dados relacionados ao contexto'
+titleSuffix: Azure Cognitive Services
+description: Use um padrão para extrair dados de um enunciado de modelo bem formatado. O enunciado de modelo usa uma entidade simples e funções para extrair dados relacionados, como o local de origem e o local de destino.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 6f3e7c9db7bbdb6bc24d123208355fc7a1d8e7e8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2c3705d28d6496c3d20999231de98572bc26e3be
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161927"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160240"
 ---
-# <a name="tutorial-improve-app-with-pattern-roles"></a>Tutorial: melhorar o aplicativo com papéis padrão
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: extrair padrões relacionados contextualmente
 
-Neste tutorial, use uma entidade simples com funções combinadas com padrões para aumentar a intenção e a predição da entidade.  Ao usar padrões, menos declarações de exemplo são necessárias para a intenção.
+Neste tutorial, use um padrão para extrair dados de um enunciado de modelo bem formatado. O enunciado de modelo usa uma entidade simples e funções para extrair dados relacionados, como o local de origem e o local de destino.  Ao usar padrões, menos declarações de exemplo são necessárias para a intenção.
 
-> [!div class="checklist"]
-* Entender as funções padrão
-* Usar a entidade simples com funções 
-* Criar padrão para declarações usando a entidade simples com funções
-* Como verificar aprimoramentos na previsão de padrões
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Antes de começar
-Se você não tiver o aplicativo Recursos Humanos no tutorial [padrão](luis-tutorial-pattern.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON para um novo aplicativo no site [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json).
-
-Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `roles`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. 
-
-## <a name="the-purpose-of-roles"></a>A finalidade de funções
 O propósito das funções é extrair entidades relacionadas ao contexto em um enunciado. No enunciado, `Move new employee Robert Williams from Sacramento and San Francisco`, a cidade de origem e os valores da cidade de destino estão relacionados entre si e usam uma linguagem comum para denotar cada local. 
 
-Ao usar padrões, qualquer entidade no padrão deve ser detectada _antes de_ o padrão corresponder à expressão. 
 
-Quando você cria um padrão, o primeiro passo é selecionar a intenção do padrão. Ao selecionar a intenção, se o padrão corresponder, a intenção correta será sempre retornada com uma pontuação alta (normalmente 99-100%). 
-
-### <a name="compare-hierarchical-entity-to-simple-entity-with-roles"></a>Comparar a entidade hierárquica com entidade simples com funções
-
-No [tutorial hierárquico](luis-quickstart-intent-and-hier-entity.md), a intenção **MoveEmployee** detectou quando mover um funcionário existente de um prédio e escritório para outro. Os exemplos de declarações tinham localizações de origem e destino, mas não utilizavam funções. Em vez disso, a origem e o destino eram filhos da entidade hierárquica. 
-
-Neste tutorial, o aplicativo Recursos Humanos detecta enunciados sobre como mover novos funcionários de uma cidade para outra. Esses dois tipos de enunciados são semelhantes, mas resolvidos com diferentes habilidades de LUIS.
-
-|Tutorial|Exemplo de enunciado|Locais de origem e destino|
-|--|--|--|
-|[Hierarchical (não há funções)](luis-quickstart-intent-and-hier-entity.md)|MV Jill Jones partir **a-2349** para **b-1298**|a-2349, b-1298|
-|Neste tutorial (com funções)|Mover Billy Patterson partir **Yuma** à **Denver**.|Yuma, Denver|
-
-Você não pode usar a entidade hierárquica no padrão porque somente os pais hierárquicos são usados em padrões. Para retornar os locais nomeados de origem e destino, você deve usar um padrão.
-
-### <a name="simple-entity-for-new-employee-name"></a>Entidade simples para o novo nome do funcionário
 O nome do novo funcionário, Billy Patterson, não faz parte da entidade lista **funcionário** ainda. O nome do novo funcionário é extraído primeiro, para enviar o nome a um sistema externo para criar as credenciais da empresa. Depois que as credenciais da empresa são criadas, as credenciais dos funcionários são adicionadas à entidade da lista **Funcionários**.
 
-O **funcionário** lista foi criada na [tutorial lista](luis-quickstart-intent-and-list-entity.md).
-
-A entidade **NewEmployee** é uma entidade simples sem funções. 
-
-### <a name="simple-entity-with-roles-for-relocation-cities"></a>Entidade simples com funções para cidades de realocação
 O novo funcionário e a família precisam ser transferidos da cidade atual para uma cidade onde a empresa fictícia esteja localizada. Como um novo funcionário pode vir de qualquer cidade, os locais precisam ser descobertos. Uma lista de configurações, como uma entidade de lista, não funcionaria porque apenas as cidades da lista seriam extraídas.
 
-Os nomes de funções associados às cidades de origem e de destino precisam ser exclusivos em todas as entidades. Uma maneira fácil de garantir que as funções sejam exclusivas é vinculá-las à entidade que as contém por meio de uma estratégia de nomenclatura. A entidade **NewEmployeeRelocation** é uma entidade simples com duas funções: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**.
+Os nomes de funções associados às cidades de origem e de destino precisam ser exclusivos em todas as entidades. Uma maneira fácil de garantir que as funções sejam exclusivas é vinculá-las à entidade que as contém por meio de uma estratégia de nomenclatura. A entidade **NewEmployeeRelocation** é uma entidade simples com duas funções: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**. Relo é a abreviação de realocação.
 
-### <a name="simple-entities-need-enough-examples-to-be-detected"></a>Entidades simples precisam suficiente exemplos para ser detectada
 Porque a expressão de exemplo `Move new employee Robert Williams from Sacramento and San Francisco` tem somente entidades computador aprendeu, é importante fornecer suficiente declarações de exemplo à intenção, de modo que as entidades são detectadas.  
 
 **Embora os padrões permitem que você forneça declarações menos de exemplo, se as entidades não são detectadas, o padrão não coincide.**
 
 Se você tiver dificuldades com a detecção de entidade simples, porque é um nome como uma cidade, considere adicionar uma lista de frases de valores semelhantes. Isso ajuda na detecção do nome da cidade, dando LUIS um sinal adicional sobre esse tipo de palavra ou frase. As listas de frases só ajudam o padrão ajudando na detecção de entidade, que é necessária para que o padrão corresponda. 
 
+**Neste tutorial, você aprenderá a:**
+
+> [!div class="checklist"]
+> * Usar o aplicativo do tutorial existente
+> * Criar novas entidades
+> * Criar nova tentativa
+> * Treinar
+> * Publicar
+> * Obter intenções e entidades do ponto de extremidade
+> * Criar padrão com funções
+> * Criar lista de expressões de cidades
+> * Obter intenções e entidades do ponto de extremidade
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Usar o aplicativo existente
+Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
+
+Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
+
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+
+2. Importe o JSON em um novo aplicativo.
+
+3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `roles`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
+
 ## <a name="create-new-entities"></a>Criar novas entidades
-1. Selecione **Build** no menu superior.
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **entidades** na navegação à esquerda. 
 
@@ -124,15 +114,15 @@ Rotular as entidades nessas etapas pode ser mais fácil se a entidade keyPhrase 
 
     Se você removeu a entidade keyPhrase, adicione-a novamente ao aplicativo agora.
 
-## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
+## <a name="train"></a>Treinar
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
+## <a name="publish"></a>Publicar
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-without-pattern"></a>Consulta o ponto de extremidade sem padrão
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter a intenção e as entidades do ponto de extremidade
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -224,9 +214,12 @@ Rotular as entidades nessas etapas pode ser mais fácil se a entidade keyPhrase 
 
 A pontuação de predição de intenção é apenas cerca de 50%. Se o seu aplicativo cliente requer um número maior, isso precisa ser corrigido. As entidades não estavam previstos qualquer um.
 
+Um dos locais foi extraído, mas o outro não. 
+
 Os padrões ajudarão a pontuação de previsão, no entanto, as entidades devem ser corretamente previstas antes que o padrão corresponda à expressão. 
 
-## <a name="add-a-pattern-that-uses-roles"></a>Adicionar um padrão que usa funções
+## <a name="pattern-with-roles"></a>Padrão com funções
+
 1. Selecione **Build** no painel de navegação superior.
 
 2. Selecione **padrões** no painel de navegação à esquerda.
@@ -237,8 +230,8 @@ Os padrões ajudarão a pontuação de previsão, no entanto, as entidades devem
 
     Se você treina, publica e consulta o endpoint, pode ficar desapontado ao ver que as entidades não são encontradas, portanto, o padrão não corresponde, portanto, a previsão não melhorou. Essa é uma consequência de não haver exemplos de declarações suficientes com entidades rotuladas. Em vez de adicionar mais exemplos, adicione uma lista de frases para corrigir esse problema.
 
-## <a name="create-a-phrase-list-for-cities"></a>Criar uma lista de frases para cidades
-As cidades, como os nomes das pessoas, são complicadas, pois podem ser qualquer mistura de palavras e pontuação. Mas as cidades da região e do mundo são conhecidas, então LUIS precisa de uma lista de frases de cidades para começar a aprender. 
+## <a name="cities-phrase-list"></a>Lista de expressões de cidades
+As cidades, como os nomes das pessoas, são complicadas, pois podem ser qualquer mistura de palavras e pontuação. As cidades da região e do mundo são conhecidas, de modo que o LUIS precisa de uma lista de expressões de cidades para começar a aprender. 
 
 1. Selecione **lista de frases** da **melhorar o desempenho do aplicativo** seção do menu à esquerda. 
 
@@ -255,16 +248,13 @@ As cidades, como os nomes das pessoas, são complicadas, pois podem ser qualquer
     |Miami|
     |Dallas|
 
-    Não adicione todas as cidades do mundo ou mesmo todas as cidades da região. LUIS precisa ser capaz de generalizar o que uma cidade é da lista. 
-
-    Certifique-se de manter **esses valores são intercambiáveis** selecionado. Essa configuração significa que as palavras na lista em tratado como sinônimos. Isso é exatamente como eles devem ser tratados no padrão.
-
-    Lembre-se [a última vez](luis-quickstart-primary-and-secondary-data.md) também foi criada uma lista de frases de série de tutoriais melhorar a detecção de entidade de uma entidade simples.  
+    Não adicione todas as cidades do mundo ou mesmo todas as cidades da região. LUIS precisa ser capaz de generalizar o que uma cidade é da lista. Certifique-se de manter **esses valores são intercambiáveis** selecionado. Essa configuração significa que as palavras na lista em tratado como sinônimos. 
 
 3. Treine e publique o aplicativo.
 
-## <a name="query-endpoint-for-pattern"></a>Ponto final da consulta para o padrão
-1. Na página **Publicar**, selecione o link do **ponto de extremidade** na parte inferior da página. Essa ação abre outra janela do navegador com a URL de ponto de extremidade na barra de endereços. 
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter a intenção e as entidades do ponto de extremidade
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Vá até o final da URL no endereço e insira `Move wayne berry from miami to mount vernon`. O último parâmetro de querystring é `q`, o enunciado **consulta**. 
 
@@ -380,11 +370,24 @@ As cidades, como os nomes das pessoas, são complicadas, pois podem ser qualquer
 
 A pontuação da intenção agora é muito maior e os nomes das funções são parte da resposta da entidade.
 
+## <a name="hierarchical-entities-versus-roles"></a>Funções versus entidades hierárquicas
+
+No [tutorial hierárquico](luis-quickstart-intent-and-hier-entity.md), a intenção **MoveEmployee** detectou quando mover um funcionário existente de um prédio e escritório para outro. Os exemplos de declarações tinham localizações de origem e destino, mas não utilizavam funções. Em vez disso, a origem e o destino eram filhos da entidade hierárquica. 
+
+Neste tutorial, o aplicativo Recursos Humanos detecta enunciados sobre como mover novos funcionários de uma cidade para outra. Esses dois tipos de enunciados são semelhantes, mas são resolvidos com diferentes habilidades do LUIS.
+
+|Tutorial|Exemplo de enunciado|Locais de origem e destino|
+|--|--|--|
+|[Hierarchical (não há funções)](luis-quickstart-intent-and-hier-entity.md)|MV Jill Jones partir **a-2349** para **b-1298**|a-2349, b-1298|
+|Neste tutorial (com funções)|Mover Billy Patterson partir **Yuma** à **Denver**.|Yuma, Denver|
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
+
+Este tutorial adicionou uma entidade com funções e uma intenção com enunciados de exemplo. A primeira previsão de ponto de extremidade que usa a entidade previu corretamente a intenção, mas com uma baixa pontuação de confiança. Apenas uma das duas entidades foi detectada. Em seguida, o tutorial adicionou um padrão que usava as funções de entidade e uma lista de expressões para aumentar o valor dos nomes de cidades nos enunciados. A segunda previsão de ponto de extremidade retornou uma pontuação de alta confiança e encontrou as duas funções de entidade. 
 
 > [!div class="nextstepaction"]
 > [Conheça as práticas recomendadas para aplicativos do LUIS](luis-concept-best-practices.md)

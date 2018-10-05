@@ -2,20 +2,22 @@
 title: Gerenciar retenção de backup de longo prazo do Banco de Dados SQL do Azure | Microsoft Docs
 description: Saiba como armazenar backups automatizados no armazenamento do SQL do Azure e como restaurá-los
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/25/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d448a4a75d966dcf2cdc6e3d50da2c94f8e7f5d8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: 0a91139d92570a2ee2828f9295590d580902c501
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163117"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164983"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure
 
@@ -29,7 +31,7 @@ As seções a seguir mostram como usar o Portal do Azure para configurar a reten
 
 Você pode configurar o Banco de Dados SQL para [reter backups automatizados](sql-database-long-term-retention.md) por um período maior que o período de retenção da camada de serviços. 
 
-1. No portal do Azure, selecione o servidor SQL e clique em **Gerenciar Backups**. Na guia **Configurar políticas**, selecione o banco de dados no qual você deseja definir ou modificar políticas de retenção de backup de longo prazo.
+1. No portal do Azure, selecione o servidor SQL e clique em **Gerenciar Backups**. Na guia **Configurar políticas**, marque a caixa de seleção do banco de dados no qual deseja definir ou modificar políticas de retenção de backup de longo prazo.
 
    ![link gerenciar backups](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 

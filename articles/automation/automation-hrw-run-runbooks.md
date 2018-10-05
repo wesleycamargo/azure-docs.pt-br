@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f21457a63470b88e93ead97454f996cea38073a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a0b5188605874a04f0341cde1a68487c8a50df84
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103761"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431807"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
@@ -39,7 +39,8 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 
 ## <a name="runbook-permissions"></a>Permissões de runbook
 
-Os runbooks em execução em um Hybrid Runbook Worker não podem usar o mesmo método que é normalmente usado para autenticação de runbooks nos recursos do Azure, já que eles acessarão recursos fora do Azure. O runbook pode fornecer sua própria autenticação aos recursos locais, ou você pode especificar uma conta RunAs para fornecer um contexto de usuário a todos os runbooks.
+Os runbooks em execução em um Hybrid Runbook Worker não podem usar o mesmo método que é normalmente usado para autenticação de runbooks nos recursos do Azure, já que eles acessarão recursos fora do Azure. O runbook pode fornecer sua própria autenticação aos recursos locais, ou pode configurar a autenticação usando [entidades gerenciadas para os recursos do Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager
+), ou você pode especificar uma conta RunAs para fornecer um contexto de usuário a todos os runbooks.
 
 ### <a name="runbook-authentication"></a>Autenticação de runbook
 
@@ -74,6 +75,32 @@ Use o procedimento a seguir para especificar uma conta RunAs para um grupo do Hy
 4. Escolha **Todas as configurações** e **Configurações do grupo do Hybrid Worker**.
 5. Altere **Executar como** de **Padrão** para **Personalizado**.
 6. Escolha a credencial e clique em **Salvar**.
+
+### <a name="managed-identities-for-azure-resources"></a>Identidades Gerenciadas para os recursos do Azure
+
+Hybrid Runbook Workers em execução em máquinas virtuais do Azure podem usar identidades gerenciadas para recursos do Azure para autenticação para recursos do Azure. Alguns dos benefícios do uso de identidades gerenciadas para recursos do Azure em contas Executar como.
+
+* Não é preciso exportar o certificado Executar como e, em seguida, importá-lo para o Hybrid Runbook Worker
+* Não há necessidade de renovar o certificado usado pela conta Executar como
+* Não é preciso lidar com o objeto de conexão Executar como no código do runbook
+
+Para usar uma identidade gerenciada para recursos do Azure em um Hybrid Runbook Worker, você precisará concluir as etapas a seguir:
+
+1. Criar uma VM do Azure
+2. [Configurar identidades gerenciadas para recursos do Azure em sua VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
+3. [Conceder acesso a um grupo de recursos no Resource Manager para sua VM](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)
+4. [Obter um token de acesso usando a identidade gerenciada atribuída pelo sistema da VM] (../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
+5. [Instalar o Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) na máquina virtual.
+
+Depois que as etapas anteriores forem concluídas, você poderá usar `Connect-AzureRmAccount -Identity` no runbook para autenticação nos recursos do Azure. Isso reduz a necessidade de utilizar uma conta Executar como e gerenciar o certificado para a conta Executar como.
+
+```powershell
+# Connect to Azure using the Managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
+Connect-AzureRmAccount -Identity
+
+# Get all VM names from the subscription
+Get-AzureRmVm | Select Name
+```
 
 ### <a name="automation-run-as-account"></a>Conta de automação Executar como
 

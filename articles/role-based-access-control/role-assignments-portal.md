@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 97bf33cb882d5a121b9811a8e36a1d26f9a954f8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 1cac4e4cee408e5208d2d5d84f81b8ad7a89f03b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715362"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033984"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gerenciar acesso usando o RBAC e o Portal do Azure
 
@@ -89,7 +89,7 @@ Ao gerenciar o acesso, você deseja saber quem tem acesso, quais são suas permi
 
     ![Folha IAM (controle) de acesso para uma assinatura](./media/role-assignments-portal/subscription-access-control.png)
 
-    Os administradores e coadministradores de assinatura clássicos são, na realidade, os proprietários da assinatura no novo modelo de RBAC.
+    Os administradores de assinatura clássicos e os coadministradores são considerados proprietários da assinatura no modelo RBAC.
 
 ### <a name="list-role-assignments-for-a-management-group"></a>Listar as atribuições de função para um grupo de gerenciamento
 
@@ -109,9 +109,9 @@ Ao gerenciar o acesso, você deseja saber quem tem acesso, quais são suas permi
 
 ## <a name="grant-access"></a>Conceder acesso
 
-No RBAC, para conceder acesso, você cria uma atribuição de função. Siga estas etapas para conceder acesso em diferentes escopos.
+No RBAC, para conceder acesso, você atribui uma função. Siga estas etapas para conceder acesso em diferentes escopos.
 
-### <a name="create-a-role-assignment-at-a-resource-group-scope"></a>Criar uma atribuição de função em um escopo de grupo de recursos
+### <a name="assign-a-role-at-a-resource-group-scope"></a>Atribuir uma função em um escopo de grupo de recursos
 
 1. Na lista de navegação, escolha **Grupos de recursos**.
 
@@ -131,11 +131,11 @@ No RBAC, para conceder acesso, você cria uma atribuição de função. Siga est
 
 1. Na lista **Selecionar**, selecione um usuário, grupo ou aplicativo. Se você não vir a entidade de segurança na lista, digite na caixa **Selecionar** para pesquisar nomes de exibição, endereços de email e identificadores de objeto no diretório.
 
-1. Escolha **Salvar** para criar a atribuição de função.
+1. Escolha **Salvar** para atribuir a função.
 
    Após alguns instantes, a entidade de segurança é atribuída à função no escopo do grupo de recursos.
 
-### <a name="create-a-role-assignment-at-a-subscription-scope"></a>Criar uma atribuição de função em um escopo de assinatura
+### <a name="assign-a-role-at-a-subscription-scope"></a>Atribuir uma função em um escopo de assinatura
 
 1. No Portal do Azure, escolha **Todos os serviços** e **Assinaturas**.
 
@@ -155,11 +155,37 @@ No RBAC, para conceder acesso, você cria uma atribuição de função. Siga est
 
 1. Na lista **Selecionar**, selecione um usuário, grupo ou aplicativo. Se você não vir a entidade de segurança na lista, digite na caixa **Selecionar** para pesquisar nomes de exibição, endereços de email e identificadores de objeto no diretório.
 
-1. Escolha **Salvar** para criar a atribuição de função.
+1. Escolha **Salvar** para atribuir a função.
 
    Após alguns instantes, a entidade de segurança é atribuída à função no escopo da assinatura.
 
-### <a name="create-a-role-assignment-at-a-management-group-scope"></a>Criar uma atribuição de função em um escopo de grupo de gerenciamento
+### <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Atribuir um usuário como um administrador de uma assinatura
+
+Para tornar um usuário administrador de uma assinatura do Azure, atribua-o à função [Proprietário](built-in-roles.md#owner) no escopo da assinatura. A função Proprietário permite ao usuário acesso completo a todos os recursos na assinatura, inclusive o direito de delegar acesso a outras pessoas. Essas etapas são as mesmas que as de qualquer outra atribuição de função.
+
+1. No Portal do Azure, escolha **Todos os serviços** e **Assinaturas**.
+
+1. Escolha sua assinatura.
+
+1. Escolha **Controle de acesso (IAM)** para ver a lista atual de atribuições de função no escopo da assinatura.
+
+   ![Folha IAM (controle) de acesso para uma assinatura](./media/role-assignments-portal/grant-subscription-access-control.png)
+
+1. Escolha **Adicionar** para abrir o painel **Adicionar permissões**.
+
+   Se você não tiver permissões para atribuir funções, não verá a opção **Adicionar**.
+
+   ![Painel Adicionar permissões](./media/role-assignments-portal/add-permissions.png)
+
+1. Na lista suspensa **Função**, selecione a função **Proprietário**.
+
+1. Na lista **Selecionar**, selecione um usuário. Se o usuário não estiver na lista, digite na caixa **Selecionar** para pesquisar no diretório os nomes de exibição e os endereços de email.
+
+1. Escolha **Salvar** para atribuir a função.
+
+   Após alguns instantes, o usuário é atribuído à função Proprietário no escopo da assinatura.
+
+### <a name="assign-a-role-at-a-management-group-scope"></a>Atribuir uma função em um escopo de grupo de gerenciamento
 
 1. No portal do Azure, escolha **todos os serviços** e, em seguida **grupos de gerenciamento**.
 
@@ -181,11 +207,11 @@ No RBAC, para conceder acesso, você cria uma atribuição de função. Siga est
 
 1. Na lista suspensa **Função**, selecione uma função como **Colaborador do grupo de gerenciamento**.
 
-    Para obter informações sobre as ações com suporte em grupos de gerenciamento para várias funções, consulte [organizar seus recursos com grupos de gerenciamento do Azure](../azure-resource-manager/management-groups-overview.md#management-group-access).
+    Para obter informações sobre as ações com suporte em grupos de gerenciamento para várias funções, consulte [organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/index.md#management-group-access).
 
 1. Na lista **Selecionar**, selecione um usuário, grupo ou aplicativo. Se você não vir a entidade de segurança na lista, digite na caixa **Selecionar** para pesquisar nomes de exibição, endereços de email e identificadores de objeto no diretório.
 
-1. Escolha **Salvar** para criar a atribuição de função.
+1. Escolha **Salvar** para atribuir a função.
 
    Após alguns instantes, a entidade de segurança é atribuída à função no escopo do grupo de gerenciamento.
 

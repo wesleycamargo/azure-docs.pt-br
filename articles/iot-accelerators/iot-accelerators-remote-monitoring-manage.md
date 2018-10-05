@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b1e12ad837def690e55fc501c67d8b2ed5e3cd4d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6e92ef276d270fcc4c351fb89c699c8addd74632
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284604"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222142"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configurar e gerenciar dispositivos conectados à sua solução de monitoramento
 
@@ -144,7 +144,7 @@ Agora, o operador da Contoso pode consultar dispositivos de acordo com a equipe 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este tutorial mostrou como configurar e gerenciar os dispositivos conectados para o acelerador de solução de Monitoramento Remoto. Para saber como usar o acelerador de solução para identificar e corrigir problemas com seus dispositivos conectados, continue para o próximo tutorial.
+Este tutorial mostrou como configurar e gerenciar os dispositivos conectados para o acelerador de solução de Monitoramento Remoto. Para saber como usar o Solution Accelerator para realizar uma análise da causa raiz em um alerta inesperado, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Usar alertas do dispositivo para identificar e corrigir problemas em dispositivos conectados à solução de monitoramento](iot-accelerators-remote-monitoring-maintain.md)
+> [Realizar uma análise da causa-raiz em um alerta](iot-accelerators-remote-monitoring-root-cause-analysis.md)

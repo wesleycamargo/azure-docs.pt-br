@@ -1,23 +1,23 @@
 ---
-title: Início Rápido do Node do SDK da Pesquisa | Microsoft Docs
-description: Configuração para aplicativo de console do SDK da Pesquisa de Vídeo.
+title: 'Início Rápido: SDK da Pesquisa Visual do Bing, Node'
 titleSuffix: Azure Cognitive Services
+description: Configuração para aplicativo de console do SDK da Pesquisa de Vídeo.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: bb245f9eab0f367a0e1b69af88352c54132ea29d
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: afccbc66da94d5c2d276a05a47ffe60dfbae2261
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782433"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219695"
 ---
-# <a name="visual-search-sdk-node-quickstart"></a>Guia de início rápido do Node do SDK da Pesquisa Visual
+# <a name="quickstart-bing-visual-search-sdk-node"></a>Início Rápido: SDK da Pesquisa Visual do Bing, Node 
 
 O SDK da Pesquisa Visual do Bing usa a funcionalidade da API REST para pedidos web e analisar resultados.
 O [código-fonte para exemplos de SDK da Pesquisa Visual](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js) está disponível no Git Hub.

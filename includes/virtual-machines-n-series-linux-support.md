@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 05/29/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 1813367a2d143f75fb51a3160dd00219c709c57b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: dc03f49a684bfeb43ffd8bac9f551a67f034a04f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935798"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042870"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuições e drivers com suporte
 
@@ -26,11 +26,11 @@ Drivers NVIDIA Tesla para NC, NCv2, NCv3 e VMs da série ND (opcional para a sé
 
 | Distribuição | Driver |
 | --- | -- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/> CentOS 7.3 ou 7.4, HPC baseado em CentOS 7.4 | NVIDIA CUDA 9.1, ramificação do driver R390 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/> CentOS 7.3 ou 7.4, HPC baseado em CentOS 7.4 | NVIDIA CUDA 10.0, branch do driver R410 |
 
 ### <a name="nvidia-grid-drivers"></a>Drivers NVIDIA GRID
 
-A Microsoft redistribui os instaladores do driver de Grade NVIDIA para VMs da série NV usada como estações de trabalho virtual para aplicativos virtuais. Instale somente esses drivers de grade em VMs do Azure NV, apenas em distribuições listadas na tabela a seguir. Esses drivers incluem o licenciamento de Software de GPU Virtual de GRID no Azure.
+A Microsoft redistribui os instaladores do driver NVIDIA GRID para VMs das séries NV e NVv2 usadas como estações de trabalho virtuais ou para aplicativos virtuais. Instale somente esses drivers de grade em VMs do Azure NV, apenas em distribuições listadas na tabela a seguir. Esses drivers incluem o licenciamento de Software de GPU Virtual de GRID no Azure.
 
 | Distribuição | Driver |
 | --- | -- |

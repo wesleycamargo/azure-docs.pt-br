@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 05ce8c932e9d3d812e34e23c082d459c3193ea40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f720c8921a9a49e76465cce1c8226232fdb12ea
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608494"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096234"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Início Rápido: Integrar uma conta de armazenamento do Azure com a CDN do Azure
 Neste início rápido, você habilita a [Rede de Distribuição de Conteúdo (CDN) do Azure](cdn-overview.md) para armazenar em cache o conteúdo do armazenamento do Azure. A CDN do Azure oferece aos desenvolvedores uma solução global para fornecimento de conteúdo de alta largura de banda. Ele consegue armazenar em cache blobs e conteúdo estático de instâncias de computação em nós físicos nos Estados Unidos, na Europa, na Ásia, na Austrália e na América do Sul.
@@ -84,7 +84,7 @@ Há vários métodos que você pode usar para criar uma conta de armazenamento, 
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>Habilitar a CDN do Azure para a conta de armazenamento
 
-Você pode habilitar a CDN do Azure para sua conta de armazenamento diretamente da sua conta de armazenamento. Se você deseja especificar configurações avançadas para o ponto de extremidade CDN, por exemplo, o tipo de otimização, use a [extensão da CDN do Azure](cdn-create-new-endpoint.md) para criar um perfil CDN ou um ponto de extremidade CDN.
+Você pode habilitar a CDN do Azure para sua conta de armazenamento diretamente da sua conta de armazenamento. Se você deseja especificar as configurações avançadas para o ponto de extremidade CDN, como a [otimização do download de grandes arquivos](cdn-optimization-overview.md#large-file-download), use a [extensão da CDN do Azure](cdn-create-new-endpoint.md) para criar um perfil ou um ponto de extremidade CDN.
 
 1. Selecione uma conta de armazenamento do painel e selecione **CDN do Azure** no painel esquerdo. Se o botão **CDN do Azure** não estiver visível imediatamente, insira a CDN na caixa **Pesquisar** do painel esquerdo para encontrá-lo.
     
@@ -109,6 +109,9 @@ Você pode habilitar a CDN do Azure para sua conta de armazenamento diretamente 
 Na página da **CDN do Azure** da conta de armazenamento, selecione o ponto de extremidade da CDN na lista para abrir a página de configuração da CDN. Nessa página, é possível habilitar recursos adicionais da CDN para sua entrega, como [compactação](cdn-improve-performance.md), [armazenamento em cache da cadeia de caracteres de consulta](cdn-query-string.md) e [filtragem de área geográfica](cdn-restrict-access-by-country.md). 
     
 ![Configuração de ponto de extremidade CDN do armazenamento](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
+
+## <a name="enable-sas"></a>Habilitar SAS
+Se você deseja conceder acesso limitado aos contêineres de armazenamento privado, você pode usar o recurso de Assinatura de Acesso Compartilhado (SAS) de sua conta de armazenamento do Azure. Uma SAS é um URI que concede direitos de acesso restrito aos seus recursos do armazenamento do Azure sem expor sua chave de conta. Para obter mais informações, consulte [Usar a CDN do Azure com o SAS](cdn-sas-storage-support.md).
 
 ## <a name="access-cdn-content"></a>Acesse o conteúdo CDN
 Para acessar o conteúdo armazenado em cache na CDN, utilize a URL da CDN fornecida no portal. O endereço de um blob armazenado em cache tem o seguinte formato:
@@ -139,8 +142,8 @@ Nas etapas anteriores, você criou um perfil CDN e um ponto de extremidade em um
 3. Para excluir sua conta de armazenamento, selecione-a no painel e selecione **Excluir** no menu superior.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como adicionar um domínio personalizado em seu ponto de extremidade CDN, confira o tutorial a seguir:
+Para saber mais sobre como adicionar um domínio personalizado e habilitar o HTTPS no seu ponto de extremidade CDN, consulte o tutorial a seguir:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Adicionar um domínio personalizado ao seu ponto de extremidade da CDN do Azure](cdn-map-content-to-custom-domain.md)
+> [Tutorial: acessar blobs de armazenamento usando um domínio personalizado da CDN do Azure via HTTPS](cdn-storage-custom-domain-https.md)
 

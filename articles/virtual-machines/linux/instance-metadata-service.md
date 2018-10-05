@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f2b6ba4b7faaeb7092c24d964d32c69946264906
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 229f3dd11a90c4f6d65c9cae2a5dd3447eedf83e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023286"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225252"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -382,7 +382,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### <a name="getting-azure-environment-where-the-vm-is-running"></a>Obter o Ambiente do Azure em que a VM está em execução 
 
-O Azure tem várias nuvens soberanas, como [Azure Governamental](https://azure.microsoft.com/overview/clouds/government/), e algumas vezes o Ambiente do Azure é necessário para tomar algumas decisões em tempo de execução. O exemplo a seguir mostrará como é possível conseguir isso
+O Azure tem várias nuvens soberanas, como o [Azure Governamental](https://azure.microsoft.com/overview/clouds/government/). Às vezes, é necessário que o Ambiente do Azure tome algumas decisões de tempo de execução. A amostra a seguir apresentará como é possível fazer isso.
 
 **Solicitação**
 
@@ -445,7 +445,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Sim, o serviço de metadados está disponível para instâncias de conjunto de escala. 
 8. Como posso obter suporte para o serviço?
    * Para obter suporte para o serviço, crie um problema de suporte no portal do Azure para a máquina virtual na qual você não consegue obter resposta de metadados após várias tentativas 
-9. Eu recebo o tempo limite da solicitação para minha chamada no serviço?
+9. Eu recebo uma solicitação com tempo limite para minha chamada ao serviço?
    * Chamadas de metadados devem ser feitas do endereço IP principal atribuído à placa de rede da VM, além disso, caso você tenha alterado lá suas rotas devem ser uma rota para o endereço de 169.254.0.0/16 fora de sua placa de rede.
 10. Atualizei minhas marcas no conjunto de dimensionamento de máquinas virtuais, mas elas não aparecem nas instâncias, ao contrário das VMs.
    * Atualmente, para marcas de ScaleSets são exibidas apenas na VM em um reiníco/ao refazer imagem/ou uma alteração de disco na instância. 

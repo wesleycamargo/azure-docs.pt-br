@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: e2fe7c375525389da865a3c85b52fad4dd11e333
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77ccc6ebbb48ab3d7ce22d6c593bd62aa8dec3ac
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957460"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419467"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Conectar, configurar, ativar o Gateway da Caixa de Dados do Azure (Visualizar) 
 
@@ -40,7 +40,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 
 > [!IMPORTANT]
-> - O Data Box Gateway está na pré-visualização. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução. 
+> - O Gateway do Data Box está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -122,7 +122,7 @@ Agora você está no **Dashboard** do seu dispositivo.
        
          ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
     
-    3. Isso reinicia o dispositivo. Você precisará aguardar de 2 a 3 minutos antes do dispositivo é ativado com êxito. Depois que o dispositivo for reiniciado, você será levado à página de entrada.
+    3. Talvez você precise aguardar um minuto antes do dispositivo ser ativado com êxito. Após a ativação, a página será atualizada para indicar que o dispositivo foi ativado com êxito.
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
-ms.openlocfilehash: 07d3915fd007c0827b885b0603eb176b9e408576
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: f5a148cba172b4e1e4490b52afb3b500da3a593c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508355"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434153"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implantação do Azure Active Directory
 Procurando orientação de ponta a ponta sobre como implantar alguns recursos do Azure AD (Azure Active Directory)? Os planos de implantação a seguir explicam o valor comercial, as considerações de planejamento, o design e os procedimentos operacionais necessários para implantar com êxito alguns dos recursos mais comuns do Azure AD. 
@@ -27,6 +27,8 @@ Adoraríamos receber seus comentários sobre os documentos. Participe desta pequ
 |Cenário |DESCRIÇÃO |
 |-|-|
 |[Logon Único](https://aka.ms/SSODPDownload)|O logon único o ajuda a acessar todos os aplicativos e recursos necessários para fazer negócios fazendo logon uma única vez, usando uma conta de usuário única. Depois de entrar, você pode ir do Microsoft Office para o SalesForce e para o Box sem a exigência de autenticação (por exemplo, digitar uma senha) uma segunda vez.|
+|[Provisionamento de entrada de usuário controlada pelo Workday](https://aka.ms/WorkdayDeploymentPlan)|O provisionamento de entrada de usuário controlada pelo Workday cria uma base para a governança de identidade contínua e melhora a qualidade dos processos de negócios que dependem de dados de identidade autoritativos. Usando esse recurso, você pode gerenciar facilmente o ciclo de vida de identidade de funcionários e trabalhadores contingentes por meio da configuração de regras que mapeiam os processos de ligação/movimentação/saída (como nova contratação, rescisão, transferência) para ações de provisionamento de TI (como criar, habilitar, desabilitar, excluir contas).|
+|[Painel de Acesso](https://aka.ms/AccessPanelDPDownload)|Oferece a seus usuários um hub simples para descobrir e acessar todos os seus aplicativos. Capacita-os para serem mais produtivos com recursos de autoatendimento, como a capacidade de solicitar acesso a novos aplicativos e grupos ou gerenciar o acesso a esses recursos em nome de outras pessoas.|
 |[Provisionamento do usuário](https://aka.ms/UserProvisioningDPDownload)|O Azure AD ajuda a automatizar a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem (SaaS) como Dropbox, Salesforce, ServiceNow e outros.|
 |[Autenticação Multifator](https://aka.ms/MFADPDownload)|A Autenticação Multifator do Azure é uma solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, o Azure MFA ajuda a proteger o acesso a dados e a aplicativos, ao mesmo tempo que atende à demanda por um processo de logon simples.|
 |[Acesso condicional](https://aka.ms/CADPDownload)|Com o acesso condicional, você pode implementar decisões de controle de acesso automatizado sobre quem pode acessar os aplicativos de nuvem com base em condições.|
@@ -35,3 +37,4 @@ Adoraríamos receber seus comentários sobre os documentos. Participe desta pequ
 |[SSO contínuo](https://aka.ms/SeamlessSSODPDownload)|O SSO Contínuo do Azure AD (Logon Único Contínuo do Azure Active Directory) conecta usuários automaticamente quando estiverem nos respectivos dispositivos corporativos conectados à sua rede corporativa. Depois de ativar esse recurso, os usuários não precisarão digitar suas senhas para entrar no Azure AD e, normalmente, não precisarão nem mesmo digitar os nomes de usuário. Esse recurso fornece aos usuários acesso fácil a seus aplicativos baseados em nuvem sem a necessidade de nenhum componente local adicional.|
 |[Redefinição de senha de autoatendimento](https://aka.ms/SSPRDPDownload)|A redefinição de senha de autoatendimento fornece aos usuários a capacidade de redefinir sua senha, sem nenhuma intervenção do administrador, quando e onde eles precisarem.|
 |[Proxy de Aplicativo do Azure AD](https://aka.ms/AppProxyDPDownload)|Os funcionários de hoje querem ser produtivos em qualquer lugar, a qualquer momento e com qualquer dispositivo. Eles desejam trabalhar em seus próprios dispositivos, sejam laptops, telefones ou tablets. Além disso, os funcionários esperam poder acessar todos os aplicativos, tanto aplicativos SaaS na nuvem como aplicativos corporativos locais. O fornecimento de acesso a aplicativos locais sempre envolveu VPNs (redes virtuais privadas), redes de perímetro ou proxies reversos locais. Essas soluções são complexas e difíceis de proteger, além de serem caras para configurar e gerenciar. Há uma opção melhor! – Proxy de Aplicativo do Azure AD|
+

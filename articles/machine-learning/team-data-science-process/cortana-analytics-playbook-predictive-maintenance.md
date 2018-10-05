@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7802aa8ea9798b18d5424c2342ba63c01406b25a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972376"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221699"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -426,19 +426,19 @@ A seção final deste guia fornece uma lista de modelos de solução PdM, tutori
 
 ## <a name="training-resources-for-predictive-maintenance"></a>Recursos de treinamento para manutenção preditiva
 
-O [caminho de aprendizado do Azure AI](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md) fornece o material de treinamento para uma compreensão mais profunda dos conceitos e matemática por trás de algoritmos e técnicas usadas em problemas de PdM. 
-
-O Microsoft Azure oferece conteúdo gratuito e treinamento em prática e conceitos de AI gerais.
+O Microsoft Azure oferece roteiros de aprendizagem para os conceitos fundamentais por trás das técnicas de PdM, além de conteúdo e dá treinamento sobre conceitos e práticas gerais de inteligência artificial.
 
 | Recursos de treinamento  | Disponibilidade |
 |:-------------------|--------------|
+| [Roteiro de aprendizagem do PdM usando árvores e florestas aleatórias](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Público | 
+| [Roteiro de aprendizagem do PdM usando Deep Learning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Público |
 | [Desenvolvedor de AI no Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Público |
 | [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | Público |
 | [Aprendizado do Azure AI do GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Público |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Público |
 | [Microsoft AI Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Público |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | Para parceiros da Microsoft |
-| [Microsoft Partner Network](http://learningportal.microsoft.com) | Para parceiros da Microsoft |
+| [LearnAI@MS](http://learnanalytics.microsoft.com) | Parceiros |
+| [Microsoft Partner Network](http://learningportal.microsoft.com) | Parceiros |
 
 Além disso, MOOCS livres (cursos online abertos massivos) em AI estão online oferecidos por instituições acadêmicas como Stanford e MIT e outras empresas educacionais.

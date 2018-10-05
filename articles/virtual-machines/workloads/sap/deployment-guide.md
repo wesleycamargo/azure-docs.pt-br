@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2016
+ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: eb2b26333647d464a3a18cd07bf1576251fb3830
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9208f2cb207daff2b122550fede48a8dda11d1db
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715396"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407919"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -483,7 +483,7 @@ No portal do Azure, insira os seguintes parâmetros para o modelo:
   * **Nome de Usuário do Administrador** e **Senha do Administrador**: nome de usuário e senha.
     Um novo usuário é criado para entrar na máquina virtual.
   * **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criadas ou uma sub-rede existente é usada. Se já tiver uma rede virtual conectada à rede local, selecione **Existente**.
-  * **ID de sub-rede**: a ID da sub-rede à qual as máquinas virtuais se conectarão. Selecione a sub-rede da sua VPN (rede privada virtual) ou rede virtual Azure ExpressRoute a ser usada para conectar a máquina virtual à a rede local. A ID geralmente tem esta aparência: /subscriptions/&lt;id da assinatura>/resourceGroups/&lt;nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/&lt;nome de rede virtual> /subnets/&lt;nome da sub-rede>
+  * **ID de sub-rede**: se você deseja implantar a VM em uma VNet existente em que há uma sub-rede definida, a VM deve ser atribuída à ID dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/&lt;id da assinatura>/resourceGroups/&lt;nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/&lt;nome de rede virtual> /subnets/&lt;nome da sub-rede>
 
 1. **Termos e condições**:  
     Examine e aceite o termos legais.
@@ -614,9 +614,7 @@ No portal do Azure, insira os seguintes parâmetros para o modelo:
 
     Um novo usuário é criado para entrar na máquina virtual.
   * **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criadas ou uma sub-rede existente é usada. Se já tiver uma rede virtual conectada à rede local, selecione **Existente**.
-  * **ID de sub-rede**: a ID da sub-rede à qual as máquinas virtuais se conectarão. Selecione a sub-rede da sua VPN ou a rede virtual da ExpressRoute a ser usada para conectar a máquina virtual à rede local. A ID geralmente tem esta aparência:
-
-    /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
+  * **ID de sub-rede**: se você deseja implantar a VM em uma VNet existente em que há uma sub-rede definida, a VM deve ser atribuída à ID dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/&lt;id da assinatura>/resourceGroups/&lt;nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/&lt;nome de rede virtual> /subnets/&lt;nome da sub-rede>
 
 1. **Termos e condições**:  
     Examine e aceite o termos legais.
@@ -697,9 +695,7 @@ No portal do Azure, insira os seguintes parâmetros para o modelo:
   * **URI do VHD de disco do SO** (somente modelo de disco não gerenciado): o URI do disco do SO particular, por exemplo, https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd.
   * **Id do Disco Gerenciados do disco do SO** (apenas modelo de disco gerenciado): a Id do disco de SO do Disco Gerenciado /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
   * **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criadas ou uma sub-rede existente é usada. Se já tiver uma rede virtual conectada à rede local, selecione **Existente**.
-  * **ID de sub-rede**: a ID da sub-rede à qual as máquinas virtuais se conectarão. Selecione a sub-rede da sua VPN ou a rede virtual Azure ExpressRoute para conectar a máquina virtual à a rede local. A ID geralmente tem esta aparência:
-
-    /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
+  * **ID de sub-rede**: se você deseja implantar a VM em uma VNet existente em que há uma sub-rede definida, a VM deve ser atribuída à ID dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/&lt;id da assinatura>/resourceGroups/&lt;nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/&lt;nome de rede virtual> /subnets/&lt;nome da sub-rede>
 
 1. **Termos e condições**:  
     Examine e aceite o termos legais.
@@ -923,9 +919,7 @@ A saída do script inclui as seguintes informações:
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>CLI do Azure para VMs Linux
 Para instalar a Extensão de Monitoramento Avançado do Azure para SAP usando a CLI do Azure:
 
-1. Instalar usando a CLI 1.0 do Azure
-
-   1. Instale a CLI 1.0 do Azure conforme descrito em [Instalar a CLI 1.0 do Azure][azure-cli].
+   1. Instale a CLI clássica do Azure conforme descrito em [Instalar a CLI clássica do Azure][azure-cli].
    1. Entre usando sua conta do Azure:
 
       ```
@@ -1005,6 +999,10 @@ Essa verificação garante que todas as métricas de desempenho que aparecem no 
   >
 
 Se a Extensão de Monitoramento Avançado do Azure não estiver instalada ou o serviço AzureEnhancedMonitoring não estiver em execução, a extensão não foi configurada corretamente. Para obter informações detalhadas sobre como implantar a extensão, confira [Solução de problemas de infraestrutura de monitoramento do Azure para SAP][deployment-guide-5.3].
+
+> [!NOTE]
+> O Azperflib.exe é um componente que não pode ser usado para finalidades próprias. Ele é um componente que fornece dados de monitoramento do Azure relacionados à VM para o Agente de Host SAP.
+> 
 
 ##### <a name="check-the-output-of-azperflibexe"></a>Verifique a saída de azperflib.exe
 A saída de azperflib.exe mostra que todos os contadores de desempenho do Azure para SAP populados. Na parte inferior da lista de contadores coletados, um indicador de integridade e resumo mostra o status de monitoramento do Azure.
@@ -1099,6 +1097,10 @@ Se parte do monitoramento de dados não for entregue corretamente, conforme indi
 
 Verifique se cada resultado da verificação de integridade é **OK**. Se algumas verificações não exibirem **OK**, execute o cmdlet de atualização, conforme descrito em [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5]. Aguarde 15 minutos e repita as verificações descritas em [Verificação de preparação de Monitoramento Avançado do Azure para SAP][deployment-guide-5.1] e [Verificação de integridade para Configuração de Infraestrutura de Monitoramento do Azure][deployment-guide-5.2]. Se as verificações ainda indicarem um problema em alguns dos contadores ou todos eles, confira [Solução de problemas da infraestrutura de monitoramento do Azure para SAP][deployment-guide-5.3].
 
+> [!Note]
+> Você pode encontrar alguns avisos em casos em que usar Discos do Azure Standard Gerenciados. Os avisos serão exibidos em vez dos testes retornando "OK". Isso é normal e intencional no caso desse tipo de disco. Veja também [Solucionando problemas de infraestrutura de monitoramento do Azure para SAP][deployment-guide-5.3]
+> 
+
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Solucionando problemas de infraestrutura de monitoramento do Azure para SAP
 
 #### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Os contadores de desempenho do Azure não aparecem
@@ -1150,6 +1152,23 @@ O diretório \\var\\lib\\waagent\\ não tem um subdiretório para a extensão de
 
 ###### <a name="solution"></a>Solução
 A extensão não está instalada. Determine se esse é um problema de proxy (conforme descrito anteriormente). Talvez seja necessário reiniciar a máquina e/ou executar novamente o script de configuração `Set-AzureRmVMAEMExtension`.
+
+##### <a name="the-execution-of-set-azurermvmaemextension-and-test-azurermvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>A execução de Set-AzureRmVMAEMExtension e Test-AzureRmVMAEMExtension mostra mensagens de aviso indicando que os Discos Gerenciados Standard não são compatíveis
+
+###### <a name="issue"></a>Problema
+Ao executar Set-AzureRmVMAEMExtension ou Test-AzureRmVMAEMExtension mensagens como estas são exibidas:
+
+<pre><code>
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+</code></pre>
+
+Ao executar o azperfli.exe como descrito anteriormente, você pode obter um resultado que indica um estado não íntegro. 
+
+###### <a name="solution"></a>Solução
+As mensagens são causadas pelo fato de que os Discos Gerenciados Standard não estão fornecendo as APIs usadas pela extensão de monitoramento para verificar as estatísticas das Contas de Armazenamento do Azure Standard. Isso não é motivo de preocupação. O motivo para introduzir o monitoramento para contas de Armazenamento em Disco Standard foi a limitação de E/S que ocorria com frequência. Os discos gerenciados evitarão essa limitação limitando o número de discos em uma conta de armazenamento. Portanto, não ter esse tipo de dados de monitoramento não é crítico.
+
 
 #### <a name="linuxlogolinux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Faltam alguns contadores de desempenho do Azure
 Métricas de desempenho no Azure são coletadas por um daemon, que obtém os dados de várias fontes. Alguns dados de configuração são coletados localmente e algumas métricas de desempenho são lidas do Diagnóstico do Azure. Contadores de armazenamento vêm dos logs em sua assinatura de armazenamento.

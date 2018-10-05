@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 06/26/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6cf3a721dfd601fc4d4beb122f56b4a4de5fe426
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 0a32f925aa1ff4066a893fb107f4d785bd1fd8f8
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918569"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423554"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Python em seu dispositivo simulado
 
@@ -41,7 +41,7 @@ Um dispositivo do Azure IoT Edge:
 
 Recursos de nuvem:
 
-* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão no Azure. 
+* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) de camada gratuita no Azure. 
 
 Recursos de desenvolvimento:
 

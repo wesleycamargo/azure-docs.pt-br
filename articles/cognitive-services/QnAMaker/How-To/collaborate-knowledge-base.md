@@ -1,25 +1,25 @@
 ---
-title: Colaborar com sua base de dados de conhecimento - Serviços Cognitivos da Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Como colaborar com sua base de dados de conhecimento do QnA Maker
+title: Colaborando na base de dados de conhecimento – QnA Maker
+titleSuffix: Azure Cognitive Services
+description: O QnA Maker permite que várias pessoas colaborem em uma base de dados de conhecimento. Esse recurso é fornecido com o Controle de Acesso Baseado em Função do Azure.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: e18d656236276595fc5186a6656349bf28974ead
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: bb074b1f256275c26889a30435dff28c86060a7b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364208"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035225"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Colaborar com sua base de dados de conhecimento
 
-O QnA Maker permite que várias pessoas colaborem em uma base de dados de conhecimento. Esse recurso é fornecido com o [Controle de Acesso Baseado em Função](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) do Azure. 
+O QnA Maker permite que várias pessoas colaborem em uma base de dados de conhecimento. Esse recurso é fornecido com o [Controle de Acesso Baseado em Função](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) do Azure. 
 
 Execute as seguintes etapas para compartilhar seu serviço QnA Maker com alguém:
 

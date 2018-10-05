@@ -2,20 +2,22 @@
 title: Glossário de ferramentas de Banco de Dados Elástico | Microsoft Docs
 description: Explicação dos termos usados para as ferramentas de banco de dados elástico
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 4ab938bc556d5e3dea8b7ec093f590ff1746ea29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 354d972e78a7fb7270b1b09f4af5aa95709fcd06
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647537"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162569"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossário de ferramentas do banco de dados elástico
 Os termos a seguir são definidos para as [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md), um recurso do Banco de Dados SQL do Azure. As ferramentas são usadas para gerenciar [mapas de fragmentos](sql-database-elastic-scale-shard-map-management.md) e incluem a [biblioteca de cliente](sql-database-elastic-database-client-library.md), a [ferramenta de divisão e mesclagem](sql-database-elastic-scale-overview-split-and-merge.md), [pools elásticos](sql-database-elastic-pool.md) e [consultas](sql-database-elastic-query-overview.md). 
@@ -79,7 +81,7 @@ Esta é uma representação de bancos de dados de único locatário e multilocat
 
 **Dividir**: o ato de mover vários shardlets de um fragmento para outro (normalmente novo). Uma chave de fragmentação é fornecida pelo usuário como o ponto de divisão.
 
-**Dimensionamento vertical**: o ato de escalar (ou reduzir) verticalmente o nível de desempenho de um fragmento individual. Por exemplo, alterar um fragmento de Standard para Premium (o que resulta em mais recursos de computação). 
+**Dimensionamento vertical**: o ato de escalar (ou reduzir) verticalmente o tamanho de computação de um fragmento individual. Por exemplo, alterar um fragmento de Standard para Premium (o que resulta em mais recursos de computação). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

@@ -2,19 +2,22 @@
 title: Recursos de escala do Banco de Dados SQL do Azure | Microsoft Docs
 description: Este artigo explica como dimensionar o banco de dados, adicionando ou removendo os recursos alocados.
 services: sql-database
-author: jovanpop-msft
-ms.reviewer: carlrab
 ms.service: sql-database
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: jovanpop-msft
 ms.author: jovanpop
+ms.reviewer: carlrab
 manager: craigg
-ms.openlocfilehash: 2378a4d5bb7d7f52ee2e96224db01e5e386b4c46
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.date: 09/20/2018
+ms.openlocfilehash: cd0653cf1920bd62621b89410b8cd2de2570fae3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141218"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162909"
 ---
 # <a name="scale-database-resources"></a>Dimensionar os recursos de banco de dados
 
@@ -30,13 +33,14 @@ Você não precisa se preocupar com a compra do hardware e a alteração da infr
 
 O Banco de Dados SQL do Azure oferece um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). 
 -   O [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) oferece uma mistura de computação, memória e recursos de E/S em três camadas de serviço para dar suporte a cargas de trabalho leves e pesadas de banco de dados: Básico, Standard e Premium. Níveis de desempenho dentro de cada camada fornecem uma mistura diferente desses recursos, aos quais você pode adicionar recursos de armazenamento.
--   O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) permite que você escolha o número de vCores, a quantidade ou memória e a quantidade e velocidade de armazenamento.
-Você pode criar seu primeiro aplicativo em um único banco de dados pequeno por um valor baixo por mês e alterar sua camada de serviço manualmente ou por meio de programação a qualquer momento para atender às necessidades de sua solução. Você pode ajustar o desempenho sem tempo de inatividade para seu aplicativo ou para seus clientes. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente às mudanças rápidas de requisitos de recursos e que você pague apenas pelos recursos de que precisa, quando precisar deles.
+-   O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) permite que você escolha o número de vCores, a quantidade ou memória e a quantidade e velocidade de armazenamento. O modelo de compra oferece três camadas de serviço: Uso Geral, Comercialmente Crítica e Hiperescala (versão prévia).
+Você pode criar seu primeiro aplicativo em um banco de dados individual pequeno a um valor baixo por mês na camada de serviço de Uso Geral e, depois, alterar sua camada de serviço manualmente ou de forma programática a qualquer momento para a camada de serviço Comercialmente Crítica para atender às necessidades da solução. Você pode ajustar o desempenho sem tempo de inatividade para seu aplicativo ou para seus clientes. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente às mudanças rápidas de requisitos de recursos e que você pague apenas pelos recursos de que precisa, quando precisar deles.
 
+> [!IMPORTANT]
+> Não é possível dimensionar de uma camada de serviço de Uso Geral ou Comercialmente Crítica para uma camada de serviço de Hiperescala. No entanto, é possível alterar os níveis de desempenho dentro da camada de serviço Hiperescala.
 
 > [!NOTE]
 > A escalabilidade dinâmica é diferente do dimensionamento automático. O dimensionamento automático é quando um serviço pode ser dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmico permite o redimensionamento manual sem tempo de inatividade.
->
 
 O Banco de Dados SQL do Azure Individual oferece suporte à escalabilidade dinâmica manual, mas não ao dimensionamento automático. Para uma experiência mais *automática*, considere o uso de pools elásticos, que permitem que os bancos de dados compartilhem recursos em um pool com base nas necessidades individuais do banco de dados.
 No entanto, há scripts que podem ajudar a automatizar a escalabilidade de um Banco de Dados individual SQL do Azure. Para ver um exemplo, consulte [Usar o PowerShell para monitorar e dimensionar um Banco de Dados SQL individual](scripts/sql-database-monitor-and-scale-database-powershell.md).
@@ -47,12 +51,11 @@ Você pode alterar os [níveis de serviço de DTU](sql-database-service-tiers-dt
 
 Todos os três tipos de Bancos de Dados SQL do Azure oferecem alguma capacidade de dimensionar dinamicamente os bancos de dados:
 -   No [Banco de Dados Individual SQL do Azure](sql-database-single-database-scale.md), você pode usar modelos de [DTU](sql-database-dtu-resource-limits-single-databases.md) ou [vCore](sql-database-vcore-resource-limits-single-databases.md) para definir a quantidade máxima de recursos que serão atribuídos a cada banco de dados.
--   A [Instância Gerenciada do SQL do Azure](sql-database-managed-instance.md) usa o modo [vCores](/azure/sql-database/sql-database-managed-instance#vcore-based-purchasing-model-preview) e permite que você defina o máximo de núcleos de CPU e o máximo de armazenamento alocado para sua instância. Todos os bancos de dados na instância compartilharão os recursos alocados para a instância.
+-   A [Instância Gerenciada do SQL do Azure](sql-database-managed-instance.md) usa o modo [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) e permite que você defina o máximo de núcleos de CPU e o máximo de armazenamento alocado para sua instância. Todos os bancos de dados na instância compartilharão os recursos alocados para a instância.
 -   Os [Pools Elásticos do SQL do Azure](sql-database-elastic-pool-scale.md) permitem que você defina o limite máximo de recursos por grupo de bancos de dados no pool.
 
 ## <a name="alternative-scale-methods"></a>Métodos alternativos de escala
-O dimensionamento de recursos é a maneira mais fácil e mais eficiente para melhorar o desempenho do banco de dados sem alterar o código do banco de dados ou do aplicativo.
-Em alguns casos, até mesmo os mais altos níveis de desempenho e as mais altas otimizações de desempenho podem não manipular a carga de trabalho de forma bem-sucedida e econômica. Nesses casos, você tem outras opções para dimensionar o banco de dados:
+O dimensionamento de recursos é a maneira mais fácil e mais eficiente para melhorar o desempenho do banco de dados sem alterar o código do banco de dados ou do aplicativo. Em alguns casos, até mesmo as camadas de serviço, os tamanhos de computação e as otimizações de desempenho mais altas podem não conseguir manipular a carga de trabalho com sucesso e de forma econômica. Nesses casos, há outras opções para dimensionar o banco de dados:
 -   A [escala de leitura](sql-database-read-scale-out.md) é um recurso disponível em que você obtém uma réplica somente leitura de seus dados, na qual você pode executar consultas somente leitura mais exigentes, como relatórios. A réplica somente leitura manipulará a carga de trabalho somente leitura sem afetar o uso de recursos no banco de dados primário.
 -   A [fragmentação de banco de dados](sql-database-elastic-scale-introduction.md) é um conjunto de técnicas que permite dividir os dados em vários bancos de dados e dimensioná-los de forma independente.
 

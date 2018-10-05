@@ -1,31 +1,31 @@
 ---
-title: Início rápido do Python do SDK de Pesquisa de Vídeo | Microsoft Docs
+title: 'Início Rápido: SDK da Pesquisa de Vídeo, Python'
+titleSuffix: Azure Cognitive Services
 description: Configuração para aplicativo de console do SDK da Pesquisa de Vídeo.
-titleSuffix: Azure Video Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1c4769a6ca3391fa595cc078651beff330bbfd60
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 9784894ea9a9deb350171e0d19042eb65644093b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364651"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225643"
 ---
-# <a name="video-search-sdk-python-quickstart"></a>Guia de início rápido do Python do SDK da Pesquisa de Vídeo
+# <a name="quickstart-bing-video-search-sdk-with-python"></a>Início Rápido: SDK da Pesquisa de Vídeo do Bing com o Python
 
-O SDK da Pesquisa de Imagem do Bing contém a funcionalidade da API REST para consultas na Web e resultados de análise.
+O SDK de Pesquisa de Imagem do Bing contém a funcionalidade de API REST para consultas à Web e resultados de análise.
 
 O [código-fonte para amostras do SDK de Pesquisa de Vídeo do Bing em Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) está disponível no GitHub.
 
 
 ## <a name="application-dependencies"></a>Dependências de aplicativo
-Se você ainda não tiver feito isso, instale o Python. O SDK é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6.
+Se o Python ainda não estiver instalado, instale-o. O SDK é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6.
 
 A recomendação geral para o desenvolvimento em Python é usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv). Instale o virtualenv para o Python 2.7.
 ```
@@ -181,5 +181,5 @@ def video_detail(subscription_key):
 ```
 ## <a name="next-steps"></a>Próximas etapas
 
-[Amostras do SDK do Python de Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Exemplos do SDK do Python dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 

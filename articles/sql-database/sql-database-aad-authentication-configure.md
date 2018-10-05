@@ -2,21 +2,22 @@
 title: Configurar Autenticação do Azure Active Directory – SQL| Microsoft Docs
 description: Saiba como se conectar ao Banco de Dados SQL, à Instância Gerenciada e ao SQL Data Warehouse usando a Autenticação do Azure Active Directory – após a configuração do Azure AD.
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: data warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/07/2018
+author: GithubMirek
 ms.author: mireks
-ms.reviewer: carlrab
-ms.openlocfilehash: a648071d4d98f500e70557b330d5c79dba747a1f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: efec5b3d8ac2ec3f757d06e88df65fe5f50aae17
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43346600"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064298"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configurar e gerenciar a autenticação do Azure Active Directory com o Banco de Dados SQL, a Instância Gerenciada ou o SQL Data Warehouse
 
@@ -31,7 +32,7 @@ Este artigo mostra como criar e preencher o Azure AD e, em seguida, usar o Azure
 ## <a name="create-and-populate-an-azure-ad"></a>Criar e popular um Azure AD
 Crie um Azure AD e popule-o com usuários e grupos. O Azure AD pode ser o domínio gerenciado pelo Azure AD inicial. O Azure AD também pode ser um Active Directory Domain Services local federado com o Azure AD.
 
-Para obter mais informações, consulte [Integrando suas identidades locais no Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Adicionar seu próprio nome de domínio ao Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administrando seu diretório do Azure AD](../active-directory/fundamentals/active-directory-administer.md), [Gerenciar o Azure AD usando o Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) e [Portas e protocolos necessários para a identidade híbrida](..//active-directory/connect/active-directory-aadconnect-ports.md).
+Para obter mais informações, consulte [Integrando suas identidades locais no Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Adicionar seu próprio nome de domínio ao Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administrando seu diretório do Azure AD](../active-directory/fundamentals/active-directory-administer.md), [Gerenciar o Azure AD usando o Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) e [Portas e protocolos necessários para a identidade híbrida](../active-directory/hybrid/reference-connect-ports.md).
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Associar ou adicionar uma assinatura do Azure ao Azure Active Directory
 
@@ -189,16 +190,16 @@ O seguinte exemplo remove um administrador do AD do Azure:
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-Você também pode provisionar um administrador do Azure Active Directory usando as APIs REST. Para saber mais, confira [Referência da API REST de Gerenciamento de Serviços e Operações de Bancos de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+Você também pode provisionar um administrador do Azure Active Directory usando as APIs REST. Para obter mais informações, confira [Referência da API REST de Gerenciamento de Serviços e Operações do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/dn505719.aspx)
 
 ### <a name="cli"></a>CLI  
 É possível provisionar um administrador do Azure AD chamando os seguintes comandos da CLI:
 | Comando | DESCRIÇÃO |
 | --- | --- |
-|[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) |Provisiona um administrador do Azure Active Directory para o Azure SQL Server ou o SQL Data Warehouse do Azure. (Precisa ser da assinatura atual.) |
-|[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) |Remove um administrador do Azure Active Directory para o Azure SQL Server ou para o SQL Data Warehouse do Azure. |
-|[az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) |Retorna informações sobre um administrador do Azure Active Directory atualmente configurado para o Azure SQL Server ou para o SQL Data Warehouse do Azure. |
-|[az sql server ad-admin update](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) |Atualiza o administrador do Active Directory para um Azure SQL Server ou SQL Data Warehouse do Azure. |
+|[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Provisiona um administrador do Azure Active Directory para o Azure SQL Server ou o SQL Data Warehouse do Azure. (Precisa ser da assinatura atual.) |
+|[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) |Remove um administrador do Azure Active Directory para o Azure SQL Server ou para o SQL Data Warehouse do Azure. |
+|[az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) |Retorna informações sobre um administrador do Azure Active Directory atualmente configurado para o Azure SQL Server ou para o SQL Data Warehouse do Azure. |
+|[az sql server ad-admin update](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) |Atualiza o administrador do Active Directory para um Azure SQL Server ou SQL Data Warehouse do Azure. |
 
 Para obter mais informações sobre comandos da CLI, consulte [SQL – az sql](https://docs.microsoft.com/cli/azure/sql/server).  
 

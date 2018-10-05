@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kylestorck
-ms.openlocfilehash: b0dd5e0c365c65fc7b29752f7885acb71bdb3df8
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c19b19cab33ae868f11ded0b7ce87dac99269596
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181095"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431961"
 ---
 # <a name="known-issues"></a>Problemas conhecidos
 Você pode encontrar os seguintes problemas conhecidos ao usar o Designer Preview for Project Acoustics.
@@ -27,7 +27,7 @@ Se você renomear uma cena, todos os parâmetros acústicos pertencentes a essa 
 
 Isso deve padronizar um caminho relativo para facilitar o compartilhamento de projetos entre os colaboradores. Como alternativa, altere o caminho para serem relativos ao diretório do projeto.
 
-## <a name="runtime-voxels-are-a-different-size-than-design-time-voxels"></a>Tempo de execução voxels são um tamanho diferente voxels de tempo de design
+## <a name="runtime-voxels-are-a-different-size-than-scene-preview-voxels"></a>Os voxels de tempo de execução têm um tamanho diferente dos voxels de visualização de cena
 
 Se você fizer um **Calcular** na aba **Sondas** e ver os voxels, então faça um assar e visualize os voxels em tempo de execução para a mesma cena, os voxels são tamanhos diferentes. Os voxels mostrados pré-cozedura são os voxels usados na simulação. Os voxels mostrados no tempo de execução são usados para interpolação entre pontos de teste. Isso pode causar uma inconsistência na qual os portais aparecerão abertos no tempo de execução que não estão realmente abertos.
 

@@ -1,21 +1,23 @@
 ---
 title: Tutorial de SaaS Database-per-tenant – Banco de Dados SQL do Azure | Microsoft Docs
 description: Implante e explore o aplicativo Wingtip Tickets SaaS multilocatário, que demonstra o banco de dados por locatário e outros padrões de SaaS usando o Banco de Dados SQL do Azure.
-keywords: tutorial do banco de dados SQL
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: cc3e870d67f3c38fe4173275b6fd210d0c4ee05a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 77e3cdcbd18a4a5313160b947ce278a75f3e3de3
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423528"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056379"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o Banco de Dados SQL
 
@@ -242,7 +244,7 @@ Navegue até o servidor **tenants1-dpt-&lt;usuário&gt;** e selecione **Pool1** 
 - O primeiro gráfico, rotulado **Utilização de recursos**, mostra a utilização de eDTU do pool.
 - O segundo gráfico mostra a utilização de eDTU dos cinco bancos de dados mais ativos no pool.
 
-Os dois gráficos ilustram que os pools elásticos e o Banco de Dados SQL são bem adaptados às cargas de trabalho imprevisíveis do aplicativo SaaS. Os gráficos mostram que quatro bancos de dados são cada um intermitências para até 40 eDTUs e ainda oferecem suporte confortavelmente a todos os bancos de dados para um pool de 50-eDTU. O pool de 50-eDTU pode dar suporte a cargas de trabalho ainda mais pesadas. Se os bancos de dados forem provisionados como bancos de dados autônomos, cada um precisará ser um S2 (50 DTU) para suportar as explosões. O custo de quatro bancos de dados independentes S2 é quase três vezes o preço do pool. Em situações reais, os clientes do Banco de Dados SQL executam até 500 bancos de dados em 200 pools de eDTU. Para obter mais informações, consulte o [Tutorial de monitoramento de desempenho](saas-dbpertenant-performance-monitoring.md).
+Os dois gráficos ilustram que os pools elásticos e o Banco de Dados SQL são bem adaptados às cargas de trabalho imprevisíveis do aplicativo SaaS. Os gráficos mostram que quatro bancos de dados são cada um intermitências para até 40 eDTUs e ainda oferecem suporte confortavelmente a todos os bancos de dados para um pool de 50-eDTU. O pool de 50-eDTU pode dar suporte a cargas de trabalho ainda mais pesadas. Se os bancos de dados forem provisionados como bancos de dados individuais, cada um precisará ser um S2 (50 DTU) para dar suporte às intermitências. O custo de quatro bancos de dados independentes S2 é quase três vezes o preço do pool. Em situações reais, os clientes do Banco de Dados SQL executam até 500 bancos de dados em 200 pools de eDTU. Para obter mais informações, consulte o [Tutorial de monitoramento de desempenho](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

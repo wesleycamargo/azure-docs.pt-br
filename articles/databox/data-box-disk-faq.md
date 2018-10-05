@@ -13,26 +13,26 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/04/2018
+ms.date: 09/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 26f8f59d940c1e4a25e24229c2a3df75052e63e4
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 611dcb2cb904b5d3ee6ce0f571c2d04cfd7e7c35
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783270"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451743"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>O que é o Disco do Azure Data Box? (Visualização)
 
-A solução de nuvem Disco do Microsoft Azure Data Box permite que você envie terabytes de dados do Azure de maneira rápida, barata e confiável. Estas Perguntas frequentes contém perguntas e respostas sobre dúvidas que você pode ter ao usar Discos do Data Box no portal do Azure. 
+A solução de nuvem Disco do Microsoft Azure Data Box permite que você envie terabytes de dados para o Azure de maneira rápida, barata e confiável. Estas Perguntas frequentes contêm respostas para perguntas que podem surgir durante o uso dos Discos do Data Box no portal do Azure. 
 
 As perguntas e respostas são organizadas nas seguintes categorias:
 
 - Sobre o serviço
-- Configurar e conectar-se 
-- Controlar status
+- Configuração e conexão 
+- Rastreamento de status
 - Migrar dados 
-- Verificar e carregar dados 
+- Verificação e carregamento de dados 
 
 > [!IMPORTANT]
 > O Disco do Data Box está em versão prévia. Reveja os [Termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar a solução.
@@ -40,10 +40,10 @@ As perguntas e respostas são organizadas nas seguintes categorias:
 ## <a name="about-the-service"></a>Sobre o serviço
 
 ### <a name="q-what-is-azure-data-box-service"></a>P. O que é o serviço Azure Data Box? 
-a.  O serviço Azure Data Box foi projetado para ingestão de dados offline. Esse serviço gerencia uma matriz de produtos sob medida para transportar dados em diferentes capacidades de armazenamento. 
+a.  O serviço Azure Data Box foi criado para a ingestão de dados offline. Esse serviço gerencia uma variedade de produtos e é personalizado para o transporte de dados em diferentes capacidades de armazenamento. 
 
 ### <a name="q-what-are-azure-data-box-disks"></a>P. O que são os Discos do Azure Data Box?
-a. Os Discos do Azure Data Box permitem uma transferência rápida, barata e segura de terabytes de dados do Azure e para ele. A Microsoft envia um a cinco discos, com capacidade de armazenamento máxima de 35 TB. Você pode configurar, conectar e desbloquear facilmente esses discos por meio do serviço Data Box no Portal do Azure.  
+a. Os Discos do Azure Data Box permitem uma transferência de terabytes de dados rápida, barata e segura entre a plataforma do Azure. A Microsoft fornece de um a cinco discos, com capacidade de armazenamento máxima de 35 TB. Você pode configurar, conectar e desbloquear facilmente esses discos por meio do serviço Data Box no Portal do Azure.  
 
 Os discos são criptografados usando a Criptografia de Unidade de Disco BitLocker da Microsoft e suas chaves de criptografia são gerenciadas no portal do Azure. Em seguida, você copia os dados dos servidores do cliente. No datacenter, a Microsoft migra os dados da unidade para a nuvem usando um link de carregamento rápido de rede privada e os carrega para o Azure.
 
@@ -68,30 +68,32 @@ a. O Disco do Data Box tem suporte em todas as regiões nos EUA, no Canadá, na 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>P. Quem devo contatar se eu encontrar problemas com Discos do Data Box?
 a. Se você tiver problemas com Discos do Data Box, entre em contato com o [Suporte ao Disco do Data Box](mailto:expresspodsupport@microsoft.com).
 
-## <a name="configure-and-connect"></a>Configurar e conectar-se
+## <a name="configure-and-connect"></a>Configuração e conexão
  
 ### <a name="q-can-i-specify-the-number-of-data-box-disks-in-the-order"></a>P. Posso especificar o número de Discos do Data Box no pedido?
 a.  Não. Você obtém os discos de 8 TB (máximo de até cinco discos) dependendo do tamanho de seus dados e da disponibilidade dos discos.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>P. Como faço para desbloquear os Discos do Data Box? 
-a.  No portal do Azure, vá para o pedido do Disco do Data Box e navegue até **Detalhes do dispositivo**. Copie a chave de acesso. Baixe e extraia a ferramenta de desbloqueio do Disco do Data Box e execute *DataBoxDiskUnlock.exe* no computador que tem os dados que você deseja copiar para os discos. Forneça a chave de acesso para desbloquear os discos. A mesma chave de acesso desbloqueia todos os discos.
+a.  No portal do Azure, vá para o pedido do Disco do Data Box e navegue até **Detalhes do dispositivo**. Copie a chave de acesso. Baixe e extraia a ferramenta de desbloqueio do Disco do Data Box do portal do Azure para seu sistema operacional. Execute a ferramenta no computador que contém os dados que você deseja copiar para os discos. Forneça a chave de acesso para desbloquear os discos. A mesma chave de acesso desbloqueia todos os discos. 
+
+Para obter instruções passo a passo, acesse [Desbloquear discos em um cliente do Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) ou [Desbloquear discos em um cliente do Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box-disks"></a>P. Posso usar um computador de host do Linux para me conectar e copiar os dados para Discos do Data Box?
-a.  Não. Somente computadores Windows têm suporte. Para obter mais informações, vá para a lista de [sistemas operacionais com suporte](data-box-disk-system-requirements.md) de seu computador host.
+a.  Sim. Os clientes do Linux e do Windows podem ser usados para conectar-se e copiar dados em Discos do Data Box. Para obter mais informações, acesse a lista de [sistemas operacionais com suporte](data-box-disk-system-requirements.md) do seu computador host.
 
-### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>P. Meus discos foram expedidos, mas agora quero cancelar o pedido. Por que o botão Cancelar não está disponível?
-a.  Você só pode cancelar o pedido depois que os discos são solicitados antes da remessa. Depois que os discos são expedidos, você não pode cancelar o pedido. No período de versão prévia, você pode devolver os discos sem nenhum encargo, mas isso provavelmente será alterado quando a solução estiver disponível. 
+### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>P. Meus discos já foram enviados, mas agora quero cancelar o pedido. Por que o botão Cancelar não está disponível?
+a.  Pedidos só podem ser cancelados após a realização do pedido de discos e antes do envio. Depois que os discos são expedidos, você não pode cancelar o pedido. No período de versão prévia, você pode devolver os discos sem nenhum encargo, mas isso provavelmente será alterado quando a solução estiver disponível. 
 
 ### <a name="q-can-i-connect-multiple-data-box-disks-at-the-same-to-the-host-computer-to-transfer-data"></a>P. Posso conectar vários Discos do Data Box ao mesmo tempo ao computador host para transferir dados?
 a. Sim. Vários Discos do Data Box podem ser conectados ao mesmo computador host para transferir dados, e vários trabalhos de cópia podem ser executados paralelamente.
 
-## <a name="track-status"></a>Controlar status
+## <a name="track-status"></a>Rastreamento de status
 
-### <a name="q-how-do-i-track-the-disks-from-when-i-placed-the-order-to-shipping-the-disks-back"></a>P. Como fazer para acompanhar os discos desde o pedido até a remessa de devolução? 
-a.  Você pode acompanhar o status do pedido de Disco do Data Box no portal do Azure. Quando você cria o pedido, também precisa fornecer um email de notificação. Se tiver fornecido um email, você será notificado por ele sobre todas as alterações de status do pedido. Para obter mais informações, consulte como [configurar emails de notificação](data-box-portal-ui-admin.md#edit-notification-details).
+### <a name="q-how-do-i-track-the-disks-from-when-i-placed-the-order-to-shipping-the-disks-back"></a>P. Como rastrear os discos desde a realização do pedido até a devolução? 
+a.  Você pode rastrear o status do pedido de Disco do Data Box no portal do Azure. Ao criar o pedido, é necessário também fornecer um email para notificações. Através desse email você será notificado sobre todas as alterações de status do pedido. Para obter mais informações, consulte como [configurar emails de notificação](data-box-portal-ui-admin.md#edit-notification-details).
 
 ### <a name="q-how-do-i-return-the-disks"></a>P. Como fazer para retornar os discos? 
-a.  A Microsoft fornece uma etiqueta de remessa com os Discos do Data Box no pacote de envio. Fixe o rótulo na caixa de envio e o pacote lacrado no seu local da operadora de envio de redistribuição. Se o rótulo estiver danificado ou for perdido, vá para **Visão geral > Baixar etiqueta de remessa** e baixe um novo rótulo de remessa de devolução.
+a.  A Microsoft fornece uma etiqueta de remessa com os Discos do Data Box no pacote de envio. Cole a etiqueta na embalagem para envio e leve o pacote lacrado à transportadora responsável. Se o rótulo estiver danificado ou for perdido, vá para **Visão geral > Baixar etiqueta de remessa** e baixe um novo rótulo de remessa de devolução.
 
 ## <a name="migrate-data"></a>Migrar dados
 
@@ -139,10 +141,10 @@ a.  Depois que o status do pedido de cópia de dados aparece como concluído, vo
 a.  Quando você copia os dados nas pastas *BlockBlob* e *PageBlob* no disco, um contêiner é criado na conta de armazenamento do Azure para cada subpasta nas pastas *BlockBlob* e *PageBlob*. Se você copiou os arquivos nas pastas *BlockBlob* e *PageBlob* diretamente, eles estarão em um contêiner padrão *$root* na conta de armazenamento do Azure. 
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>P. Acabei de ver que não segui os requisitos de nomenclatura do Azure para meus contêineres. Meus dados serão carregados no Azure?
-a. Se os nomes de contêiner têm uma letra maiúscula, elas serão automaticamente convertidas em minúsculas. Se os nomes não estiverem de acordo com de outros requisitos (caracteres especiais, outros idiomas e assim por diante), o carregamento falhará.
+a. Se os nomes de contêiner têm uma letra maiúscula, elas serão automaticamente convertidas em minúsculas. Se os nomes não estiverem de acordo com de outros requisitos (caracteres especiais, outros idiomas e assim por diante), o carregamento falhará. Para obter mais informações, acesse [Convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions).
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-multiple-data-box-disks"></a>P. Como fazer para verificar os dados que copiei em vários Discos do Data Box?
-a.  Depois que a cópia de dados for concluída, você poderá executar `AzureExpressDiskService.cmd` fornecido na pasta *AzureImportExport* para gerar somas de verificação para validação. Se você tiver vários discos, precisará abrir uma janela de comando por disco e executar esse comando. Tenha em mente que a operação pode levar muito tempo (~ horas) dependendo do tamanho dos dados.
+a.  Depois que a cópia de dados for concluída, você poderá executar `DataBoxDiskValidation.cmd` fornecido na pasta *DataBoxDiskImport* para gerar somas de verificação para validação. Se você tiver vários discos, precisará abrir uma janela de comando por disco e executar esse comando. Tenha em mente que a operação pode levar muito tempo (~ horas) dependendo do tamanho dos dados.
 
 ### <a name="q-what-happens-to-my-data-after-i-have-returned-the-disks"></a>P. O que acontece com meus dados após eu devolver os discos?
 a.  Depois que a cópia de dados para o Azure for concluída, os dados dos discos serão apagados com segurança de acordo com as diretrizes NIST SP 800-88 Revision 1.  

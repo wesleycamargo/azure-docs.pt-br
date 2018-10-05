@@ -2,19 +2,22 @@
 title: Resolvendo diferenças do T-SQL durante migração para o Banco de Dados SQL do Azure | Microsoft Docs
 description: Instruções Transact-SQL que têm suporte menor que o total pelo Banco de Dados SQL
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: e89c863ac50a8b906b388c505f444cd60fdbaad3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: dfff51d7541ffdc2d279b238a6d993d5e29515f0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649067"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160700"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolvendo diferenças de Transact-SQL durante a migração para o Banco de Dados SQL   
 Quando [migrar seu banco de dados](sql-database-cloud-migrate.md) do SQL Server para o SQL Server do Azure, você poderá descobrir que seu banco de dados requer alguma reengenharia antes que o SQL Server possa ser migrado. Este artigo fornece diretrizes para ajudá-lo a realizar essa reengenharia quanto a entender os motivos subjacentes pelos quais a reengenharia é necessária. Para detectar incompatibilidades, use o [DMA (Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595).
@@ -49,7 +52,7 @@ Além das instruções Transact-SQL relacionadas aos recursos sem suporte descri
 - Alta disponibilidade: sintaxe relacionada à alta disponibilidade, gerenciada por meio de sua conta do Microsoft Azure. Isso inclui a sintaxe de backup, restauração, do AlwaysOn, espelhamento de banco de dados, envio de logs e dos modos de recuperação.
 - Leitor de log: sintaxe que se baseia no leitor de log, que não está disponível no Banco de Dados SQL: Replicação por Push, Captura de Dados de Alteração. O Banco de Dados SQL pode ser um assinante de um artigo de replicação de push.
 - Funções: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
-- Hardware: sintaxe relacionada às configurações de servidor relacionadas ao hardware como memória, threads de trabalho, afinidade da CPU, sinalizadores de rastreamento. Em vez disso, use níveis de serviço.
+- Hardware: sintaxe relacionada às configurações de servidor relacionadas ao hardware como memória, threads de trabalho, afinidade da CPU, sinalizadores de rastreamento. Use as camadas de serviço e os tamanhos de computação em vez disso.
 - `KILL STATS JOB`
 - `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` e nomes de quatro partes
 - .NET Framework: integração CLR com o SQL Server

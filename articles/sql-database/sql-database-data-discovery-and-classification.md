@@ -2,24 +2,26 @@
 title: Descoberta e Classificação de Dados do Banco de Dados SQL do Azure | Microsoft Docs
 description: Descoberta e Classificação de Dados do Banco de Dados SQL do Azure
 services: sql-database
-author: giladmit
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/10/2018
+author: giladmit
 ms.author: giladm
-ms.openlocfilehash: 6ef9a701f3a228e4c40da94f83310ef2884a3f59
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/10/2018
+ms.openlocfilehash: d34bb54729fe0adc4b26d213bfaa4ad4fb210ab7
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146292"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064164"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Descoberta e Classificação de Dados do Banco de Dados SQL do Azure
 A Descoberta e Classificação de Dados (atualmente em versão prévia) fornece recursos internos avançados no Banco de Dados SQL do Microsoft Azure para **descobrir**, **classificar**, **rotular** & **proteger** os dados confidenciais em seus bancos de dados.
-Descobrir e classificar seus dados mais confidenciais (negócios/financeiros, serviços de saúde, informações de identificação pessoal etc.) pode desempenhar uma função essencial na estatura de proteção das informações organizacionais. Pode servir como infraestrutura para:
+Descobrir e classificar seus dados mais confidenciais (negócios, financeiros, atendimento à saúde, PII [informações de identificação pessoal] etc.) pode desempenhar uma função essencial para a estatura de proteção das informações organizacionais. Pode servir como infraestrutura para:
 * Ajudar a cumprir os padrões de privacidade de dados e os requisitos de conformidade a normas.
 * Vários cenários de segurança, como monitoramento (auditoria) e alertas sobre acesso anômalo a dados confidenciais.
 * Controlar o acesso e proteção da segurança de bancos de dados contendo dados altamente confidenciais.
@@ -42,6 +44,17 @@ A seção a seguir descreve as etapas para descobrir, classificar e rotular colu
 A classificação inclui dois atributos de metadados:
 * Rótulos – Os principais atributos de classificação, usados para definir o nível de confidencialidade dos dados armazenados na coluna.  
 * Tipos de informações – Fornece granularidade adicional ao tipo de dados armazenados na coluna.
+
+## <a name="define-and-customize-your-classification-taxonomy"></a>Definir e personalizar sua taxonomia de classificação
+
+A Descoberta e Classificação de Dados SQL vem com um conjunto interno de rótulos de confidencialidade e um conjunto interno de tipos de informações e lógica de descoberta. Agora, você tem a possibilidade de personalizar esta taxonomia e definir um conjunto e uma classificação de constructos de classificação especificamente para seu ambiente.
+
+A definição e a personalização de sua taxonomia de classificação são feitas em um local central para todo o seu locatário do Azure. O local é a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro), como parte de sua Política de Segurança. Somente alguém com direitos administrativos no grupo de gerenciamento raiz do Locatário pode executar essa tarefa.
+
+Como parte do gerenciamento de políticas da Proteção de Informações, você pode definir rótulos personalizados, classificá-los e associá-los a um conjunto selecionado de tipos de informações. Você também pode adicionar seus próprios tipos de informações personalizadas e configurá-los com padrões de cadeia de caracteres, que são adicionados à lógica de descoberta para identificar esse tipo de dados em seus bancos de dados.
+Saiba mais sobre como personalizar e gerenciar sua política no [Guia de instruções sobre política da Proteção de Informações](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+
+Depois que a política de todo o locatário tiver sido definida, você poderá continuar com a classificação de bancos de dados individuais usando sua política personalizada.
 
 ## <a name="classify-your-sql-database"></a>Classificar o Banco de Dados SQL
 
@@ -104,9 +117,9 @@ Você pode usar o T-SQL para adicionar/remover classificações de coluna, bem c
 > [!NOTE]
 > Ao usar o T-SQL para gerenciar rótulos, não há nenhuma validação de que os rótulos adicionados a uma coluna existem na política de proteção de informações organizacionais (o conjunto de rótulos exibido nas recomendações do portal). Portanto, cabe a você validar isto.
 
-* Adicione/atualize a classificação de uma ou mais colunas: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* Remova a classificação de uma ou mais colunas: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* Exiba todas as classificações no banco de dados: [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+* Adicione/atualize a classificação de uma ou mais colunas: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* Remova a classificação de uma ou mais colunas: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* Exiba todas as classificações no banco de dados: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 Também é possível usar APIs REST para gerenciar programaticamente as classificações. As APIs REST publicadas dão suporte às seguintes operações:
 * [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - Cria ou atualiza o rótulo de confidencialidade de uma determinada coluna

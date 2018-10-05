@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 09/21/2018
+ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: a21b97f603fc28cdbba8983547ce958a34df0774
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 54d177d7542d7501a91a955be20af776b16657a2
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968587"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182358"
 ---
 # <a name="what-is-azure-virtual-wan"></a>O que é a WAN Virtual do Azure?
 
@@ -43,6 +43,8 @@ Quando você trabalha com um parceiro de WAN Virtual, o processo é:
 Se você não quiser usar um parceiro preferencial, poderá configurar a conexão manualmente. Veja [Criar uma conexão site a site usando a WAN Virtual](virtual-wan-site-to-site-portal.md).
 
 ## <a name="p2s"></a>Conexões ponto a site (versão prévia)
+
+Uma conexão P2S (ponto a site) permite que você crie uma conexão segura para seu hub virtual de um computador cliente individual. Uma conexão P2S é estabelecida iniciando-a do computador cliente. Essa solução é útil para pessoas que trabalham remotamente que querem se conectar de um local remoto, como de casa ou de uma conferência. A VPN P2S também é uma solução útil para usar em vez de uma VPN S2S, quando você tiver apenas alguns clientes que precisam se conectar.
 
 Para criar a conexão manualmente, veja [Criar uma conexão ponto a site usando a WAN Virtual](https://go.microsoft.com/fwlink/p/?linkid=2020051&clcid).
 

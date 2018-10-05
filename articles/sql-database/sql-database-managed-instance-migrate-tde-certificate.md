@@ -1,26 +1,27 @@
 ---
 title: Migrar certificado de TDE - Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
-description: Migrar a chave de criptografia de banco de dados de proteção do certificado de um banco de dados com a Criptografia de Dados transparente para a instância gerenciada do Azure SQL
-keywords: tutorial banco de dados sql, instância gerenciada do banco de dados sql, migrar certificado de TDE
+description: Migrar o certificado que protege a Chave de Criptografia do Banco de Dados de um banco de dados com Transparent Data Encryption para a Instância Gerenciada do Banco de Dados SQL do Azure
 services: sql-database
-author: MladjoA
-ms.reviewer: carlrab, jovanpop
 ms.service: sql-database
-ms.custom: managed instance
-ms.topic: tutorial
-ms.date: 08/09/2018
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: MladjoA
 ms.author: mlandzic
+ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.openlocfilehash: 73990d6feeed56114bc3c66164bbb53c093bbe21
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 08/09/2018
+ms.openlocfilehash: 078a64bf625fad15b66a3c4e6e31e798f675fc33
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050604"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161770"
 ---
-# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>Migrar o certificado de banco de dados protegido por TDE para Instância Gerenciada do SQL do Azure
+# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrar o certificado do banco de dados protegido por TDE para a Instância Gerenciada do Banco de Dados SQL do Azure
 
-Ao migrar um banco de dados protegido por [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) para Instância Gerenciada do SQL do Azure usando a opção de restauração nativa, o certificado correspondente do local ou do SQL Server de IaaS deverá ser migrado antes da restauração do banco de dados. Este artigo orienta você pelo processo de migração manual do certificado para a Instância Gerenciada do Banco de Dados SQL do Azure:
+Durante a migração de um banco de dados protegido por [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) para a Instância Gerenciada do Banco de Dados SQL do Azure usando a opção de restauração nativa, o certificado correspondente do SQL Server local ou de IaaS deve ser migrado antes da restauração do banco de dados. Este artigo orienta você pelo processo de migração manual do certificado para a Instância Gerenciada do Banco de Dados SQL do Azure:
 
 > [!div class="checklist"]
 > * Exportação do certificado para um arquivo .pfx (Troca de Informações Pessoais)
@@ -30,7 +31,7 @@ Ao migrar um banco de dados protegido por [Transparent Data Encryption](https://
 Para uma opção alternativa usando o serviço totalmente gerenciado para migração direta do banco de dados protegido por TDE e o certificado correspondente, consulte [Como migrar seu banco de dados local para a Instância Gerenciada usando o Serviço de Migração de Banco de Dados do Azure ](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> O Transparent Data Encryption para Instância Gerenciada do SQL do Azure funciona no modo gerenciado pelo serviço. O certificado migrado é usado apenas para a restauração do banco de dados protegido por TDE. Logo após a conclusão da restauração, o certificado migrado é substituído por um certificado diferente, gerenciado pelo sistema.
+> A Transparent Data Encryption para Instância Gerenciada do Banco de Dados SQL do Azure funciona no modo gerenciado pelo serviço. O certificado migrado é usado apenas para a restauração do banco de dados protegido por TDE. Logo após a conclusão da restauração, o certificado migrado é substituído por um certificado diferente, gerenciado pelo sistema.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -109,7 +110,7 @@ Se o certificado for mantido no repositório de certificados do computador local
 
 4. Siga o assistente para exportar o certificado e a chave privada para um formato de Troca de Informações Pessoais
 
-## <a name="upload-certificate-to-azure-sql-managed-instance-using-azure-powershell-cmdlet"></a>Carregar o certificado na Instância Gerenciada do SQL do Azure usando o cmdlet do Azure PowerShell
+## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Carregar o certificado na Instância Gerenciada do Banco de Dados SQL do Azure usando o cmdlet do Azure PowerShell
 
 1. Comece com as etapas de preparação no PowerShell:
 
@@ -139,6 +140,6 @@ Agora, o certificado está disponível para a Instância Gerenciada especificada
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a migrar a chave de criptografia de proteção de certificado do banco de dados com a Transparent Data Encryption, do SQL Server local ou IaaS para a Instância Gerenciada do SQL do Azure.
+Neste artigo, você aprendeu a migrar a chave de criptografia de proteção de certificado do banco de dados com a Transparent Data Encryption, do SQL Server local ou de IaaS para a Instância Gerenciada do Banco de Dados SQL do Azure.
 
 Confira [Restaurar um backup de banco de dados em uma Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-get-started-restore.md) para saber como restaurar um backup de banco de dados em uma Instância Gerenciada do Banco de Dados SQL do Azure.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c0c215c4c599bbd5551891cdf6f999719983d31e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7208eb112b5f4a5b458c0374541dff113906aa0c
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060776"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47185768"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium gerenciados e não gerenciados
 
@@ -144,6 +144,9 @@ Os discos SSD padrão são discos padrão com o apoio de mídia de estado sólid
 
 <a id="standard-ssds-azure-regions"></a>**Quais são as regiões atualmente suportadas para discos SSD padrão?**
 Todas as regiões do Azure agora oferecem suporte a discos SSD Standard.
+
+**O Backup do Azure está disponível ao usar SSDs Standard?**
+Não, o Backup do Azure ainda não está disponível.
 
 **Como criar discos SSD padrão?**
 Você pode criar discos SSD padrão usando modelos do Azure Resource Manager, SDK, PowerShell ou CLI. Abaixo estão os parâmetros necessários no modelo do Gerenciador de Recursos para criar discos SSD padrão:

@@ -8,35 +8,35 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: e16d32bdba1374540c03d1034a94192a54e6a109
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8fee8dd727623e81140656a070e6855547693154
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634889"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451147"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar arquivos com o Hub IoT
 
-Como detalhado no artigo [Pontos de extremidade do Hub IoT][lnk-endpoints], um dispositivo pode iniciar um upload de arquivo enviando uma notificação por meio de um ponto de extremidade voltado para o dispositivo (**/devices/{deviceId}/files**). Quando um dispositivo notifica o Hub IoT de um upload concluído, o Hub IoT envia uma mensagem de notificação de upload de arquivo por meio do ponto de extremidade voltado para o serviço **/messages/servicebound/filenotifications**.
+Como detalhado no artigo [Pontos de extremidade do Hub IoT](iot-hub-devguide-endpoints.md), um dispositivo pode iniciar um upload de arquivo enviando uma notificação por meio de um ponto de extremidade voltado para o dispositivo (**/devices/{deviceId}/files**). Quando um dispositivo notifica o Hub IoT de um upload concluído, o Hub IoT envia uma mensagem de notificação de upload de arquivo por meio do ponto de extremidade voltado para o serviço **/messages/servicebound/filenotifications**.
 
 Em vez da corretagem mensagens por meio do próprio Hub IoT, o Hub IoT age como um dispatcher para uma conta do Armazenamento do Azure associada. Um dispositivo solicita um token de armazenamento do Hub IoT específico para o arquivo que o dispositivo deseja carregar. O dispositivo usa o URI de SAS para carregar o arquivo de armazenamento e, quando o upload for concluído, o dispositivo enviará uma notificação de conclusão para o Hub IoT. O Hub IoT verifica se o upload do arquivo está concluído e então adiciona uma mensagem de notificação de upload de arquivo ao ponto de extremidade de notificação de arquivo voltado para o serviço.
 
-Antes de carregar um arquivo no Hub IoT de um dispositivo, você deve configurar seu hub [associando uma conta do Armazenamento do Azure][lnk-associate-storage] a ele.
+Antes de carregar um arquivo no Hub IoT de um dispositivo, você deve configurar seu hub [associando uma conta do Armazenamento do Azure](iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub) a ele.
 
-Em seguida, seu dispositivo pode [inicializar um carregamento][lnk-initialize] e [notificar o Hub IoT][lnk-notify] após a conclusão do carregamento. Opcionalmente, quando um dispositivo notifica o Hub IoT de que o carregamento foi concluído, o serviço pode gerar uma [mensagem de notificação][lnk-service-notification].
+Em seguida, seu dispositivo pode [inicializar um upload](iot-hub-devguide-file-upload.md#initialize-a-file-upload) e [notificar o Hub IoT](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) após a conclusão do upload. Opcionalmente, quando um dispositivo notifica o Hub IoT de que o upload foi concluído, o serviço pode gerar uma [mensagem de notificação](iot-hub-devguide-file-upload.md#file-upload-notifications).
 
 ### <a name="when-to-use"></a>Quando usar
 
 Use o carregamento de arquivos para enviar arquivos de mídia e lotes grandes de telemetria carregados por dispositivos conectados de forma intermitente ou compactados para economizar largura de banda.
 
-Veja as[diretrizes de comunicação do dispositivo para a nuvem][lnk-d2c-guidance] se está em dúvida entre o uso de propriedades reportadas, mensagens do dispositivo para a nuvem ou carregamento do arquivo.
+Veja as [Diretrizes de comunicação do dispositivo para nuvem](iot-hub-devguide-d2c-guidance.md) se está em dúvida entre o uso de propriedades reportadas, mensagens do dispositivo para nuvem ou upload do arquivo.
 
 ## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Associar uma conta do Armazenamento do Azure com o Hub IoT
 
-Para usar a funcionalidade de upload de arquivos, primeiro você deve vincular uma conta do Armazenamento do Azure para o Hub IoT. Você pode concluir essa tarefa por meio do [Portal do Azure][lnk-management-portal] ou programaticamente por meio das [APIs REST do provedor de recursos do Hub IoT][lnk-resource-provider-apis]. Depois de associar a uma conta do Armazenamento do Azure ao Hub IoT, o serviço retorna um URI de SAS para um dispositivo quando o dispositivo inicia uma solicitação de upload de arquivos.
+Para usar a funcionalidade de upload de arquivos, primeiro você deve vincular uma conta do Armazenamento do Azure para o Hub IoT. Você pode concluir essa tarefa por meio do [portal do Azure](https://portal.azure.com) ou programaticamente por meio das [APIs REST do provedor de recursos do Hub IoT](/rest/api/iothub/iothubresource). Depois de associar a uma conta do Armazenamento do Azure ao Hub IoT, o serviço retorna um URI de SAS para um dispositivo quando o dispositivo inicia uma solicitação de upload de arquivos.
 
 > [!NOTE]
-> Os [SDKs do Azure IoT][lnk-sdks] tratam automaticamente da recuperação do URI de SAS, do upload do arquivo e da notificação do Hub IoT de um upload concluído.
+> Os [SDKs do Azure IoT](iot-hub-devguide-sdks.md) tratam automaticamente da recuperação do URI de SAS, do upload do arquivo e da notificação do Hub IoT de um upload concluído.
 
 
 ## <a name="initialize-a-file-upload"></a>Inicializar um upload de arquivo
@@ -68,6 +68,7 @@ O Hub IoT retorna os seguintes dados, que são usados pelo dispositivo para carr
 O Hub IoT tem dois pontos de extremidade REST para dar suporte ao upload de arquivo, um para obter o URI de SAS para armazenamento e o outro para notificar o hub IoT de um upload concluído. O dispositivo inicia o processo de upload de arquivo, enviando um GET para o hub IoT em `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. O Hub IoT retorna:
 
 * Um URI de SAS específico para o arquivo a ser carregado.
+
 * Uma ID de correlação a ser usada quando o upload for concluído.
 
 ## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Notificar o Hub IoT de um upload de arquivo concluído
@@ -93,7 +94,7 @@ Os tópicos de referência a seguir fornecem a você mais informações sobre co
 
 Opcionalmente, quando um dispositivo notifica o Hub IoT da conclusão de um upload, o Hub IoT gera uma mensagem de notificação com o local de armazenamento e o nome do arquivo.
 
-Como explicado em [Pontos de extremidade][lnk-endpoints], o Hub IoT fornece notificações de upload de arquivos por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/fileuploadnotifications**) como mensagens. A semântica de recebimento das notificações de upload de arquivos é a mesma das mensagens da nuvem para o dispositivo e tem o mesmo [ciclo de vida da mensagem][lnk-lifecycle]. Cada mensagem recuperada do ponto de extremidade de notificação de upload de arquivos é um registro JSON com as seguintes propriedades:
+Como explicado em [Pontos de extremidade](iot-hub-devguide-endpoints.md), o Hub IoT fornece notificações de upload de arquivos por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/fileuploadnotifications**) como mensagens. A semântica de recebimento das notificações de upload de arquivos é a mesma das mensagens da nuvem para dispositivo e tem o mesmo [ciclo de vida da mensagem](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Cada mensagem recuperada do ponto de extremidade de notificação de upload de arquivos é um registro JSON com as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO |
 | --- | --- |
@@ -132,43 +133,30 @@ Cada hub IoT expõe as seguintes opções de configuração para notificações 
 
 Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:
 
-* [Pontos de extremidade do Hub IoT][lnk-endpoints] descreve os vários pontos de extremidade que cada Hub IoT expõe para operações de tempo de execução e de gerenciamento.
-* [Limitação e cotas][lnk-quotas] descreve as cotas e os comportamentos de limitação que se aplicam ao serviço Hub IoT.
-* [SDKs de dispositivo e serviço IoT do Azure][lnk-sdks] lista os vários SDKs de linguagem que você pode usar no desenvolvimento de aplicativos de dispositivo e de serviço que interagem com o Hub IoT.
-* A [linguagem de consulta do Hub IoT][lnk-query] descreve a linguagem de consulta que você pode usar para recuperar informações do Hub IoT sobre dispositivos gêmeos e trabalhos.
-* [Suporte ao MQTT do Hub IoT][lnk-devguide-mqtt] fornece mais informações sobre o suporte do Hub IoT para o protocolo MQTT.
+* [Pontos de extremidade do Hub IoT](iot-hub-devguide-endpoints.md) descreve os vários pontos de extremidade que cada Hub IoT expõe para operações de tempo de execução e de gerenciamento.
+
+* [Limitação e cotas](iot-hub-devguide-quotas-throttling.md) descreve as cotas e os comportamentos de limitação que se aplicam ao serviço do Hub IoT.
+
+* [SDKs do dispositivo e do serviço IoT do Azure](iot-hub-devguide-sdks.md) lista os vários SDKs de linguagem que você pode usar no desenvolvimento de aplicativos de dispositivo e de serviço que interagem com o Hub IoT.
+
+* [Linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md) descreve a linguagem de consulta que você pode usar para recuperar informações do Hub IoT sobre dispositivos gêmeos e trabalhos.
+
+* O [suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do Hub IoT ao protocolo MQTT.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu a carregar arquivos de dispositivos usando o Hub IoT, talvez se interesse pelos tópicos a seguir do Guia do desenvolvedor do Hub IoT:
 
-* [Gerenciar identidades do dispositivo no Hub IoT][lnk-devguide-identities]
-* [Controlar o acesso ao Hub IoT][lnk-devguide-security]
-* [Usar dispositivos gêmeos para sincronizar o estado e as configurações][lnk-devguide-device-twins]
-* [Invocar um método direto em um dispositivo][lnk-devguide-directmethods]
-* [Agendar trabalhos em vários dispositivos][lnk-devguide-jobs]
+* [Gerenciar identidades do dispositivo no Hub IoT](iot-hub-devguide-identity-registry.md)
+
+* [Controlar o acesso ao Hub IoT](iot-hub-devguide-security.md)
+
+* [Usar dispositivos gêmeos para sincronizar o estado e as configurações](iot-hub-devguide-device-twins.md)
+
+* [Invocar um método direto em um dispositivo](iot-hub-devguide-direct-methods.md)
+
+* [Agendar trabalhos em vários dispositivos](iot-hub-devguide-jobs.md)
 
 Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutorial do Hub IoT a seguir:
 
-* [Como carregar arquivos de dispositivos para a nuvem com o Hub IoT][lnk-fileupload-tutorial]
-
-[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-query]: iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-management-portal]: https://portal.azure.com
-[lnk-fileupload-tutorial]: iot-hub-csharp-csharp-file-upload.md
-[lnk-associate-storage]: iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub
-[lnk-initialize]: iot-hub-devguide-file-upload.md#initialize-a-file-upload
-[lnk-notify]: iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload
-[lnk-service-notification]: iot-hub-devguide-file-upload.md#file-upload-notifications
-[lnk-lifecycle]: iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-
-[lnk-devguide-identities]: iot-hub-devguide-identity-registry.md
-[lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
-[lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
-[lnk-devguide-jobs]: iot-hub-devguide-jobs.md
+* [Como carregar arquivos de dispositivos para a nuvem com o Hub IoT](iot-hub-csharp-csharp-file-upload.md)

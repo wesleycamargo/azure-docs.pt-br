@@ -1,26 +1,27 @@
 ---
-title: Content Moderator do Azure - moderação de vídeo | Microsoft Docs
+title: Moderação de vídeo com revisão humana – Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Usar a moderação vídeo assistido por computador e ferramentas de análise humana para moderar conteúdo inadequado
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: fb26c9af55381c80a3f520b1a0068d8f72c91061
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 33956e1986265b36f6df9a2d19909cb974bd3197
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35363401"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222073"
 ---
-# <a name="video-moderation"></a>Moderação de vídeo
+# <a name="video-moderation-with-human-review"></a>Moderação de vídeo com revisão humana
 
 Use a [moderação vídeo](video-moderation-api.md) assistido por computador do Content Moderator e a [ferramenta de análise humana](Review-Tool-User-Guide/human-in-the-loop.md) para moderar vídeos e transcrições conteúdos para adultos (explícito) e obscenos (sugestivos) para obter os melhores resultados para sua empresa.
 
-## <a name="video-trained-classifier"></a>Classificador treinado de vídeo
+## <a name="video-trained-classifier-preview"></a>Classificador treinado para vídeo (versão prévia)
 
 A classificação de vídeo assistido por computador é obtida com os modelos treinados de imagem ou modelos treinados de vídeo. Ao contrário de classificadores de vídeos treinados de imagem, o classificador de vídeos adultos e obscenos da Microsoft é treinado com vídeos. Esse método resulta em melhor qualidade da correspondência.
 

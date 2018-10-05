@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/12/2018
+ms.date: 09/21/2018
 ms.topic: overview
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 10fef55ef09e4be427fbd36c730528a993dd64e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 470802c1119c1c367dcd72f782dfc1036f75f6db
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960848"
+ms.locfileid: "47035939"
 ---
 # <a name="what-is-azure-cost-management"></a>O que é o Gerenciamento de Custo do Azure?
 
@@ -23,7 +23,7 @@ O gerenciamento de custos é o processo no qual você efetivamente planeja e con
 
 Embora relacionado, o faturamento difere do gerenciamento de custos. O faturamento é o processo de faturar os clientes por bens ou serviços e gerenciar o relacionamento comercial.  As equipes de suprimento e finanças geralmente realizam tarefas de faturamento.
 
-O gerenciamento de custos mostra os padrões de custo e uso da organização com análises avançadas. Os relatórios no Gerenciamento de Custos mostram o custo, o uso, a instância reservada e o uso do Benefício Híbrido do Azure do Azure. Coletivamente, os relatórios mostram seus custos internos e externos. Os relatórios ajudam você a entender seus gastos e uso de recursos e podem ajudar a encontrar anomalias de gastos. A análise preditiva também está disponível. O Gerenciamento de Custos usa grupos de gerenciamento, orçamentos e recomendações do Azure para mostrar claramente como suas despesas são organizadas e como você pode reduzir custos.
+O gerenciamento de custos mostra os padrões de custo e uso da organização com análises avançadas. Os relatórios no Gerenciamento de Custos mostram o custo, o uso, a instância reservada e o uso do Benefício Híbrido do Azure do Azure. Coletivamente, os relatórios mostram seus custos internos e externos de uso e os encargos do Microsoft Azure Marketplace. Outros encargos, como compras de reserva, suporte e impostos ainda não são mostrados nos relatórios. Os relatórios ajudam você a entender seus gastos e uso de recursos e podem ajudar a encontrar anomalias de gastos. A análise preditiva também está disponível. O Gerenciamento de Custos usa grupos de gerenciamento, orçamentos e recomendações do Azure para mostrar claramente como suas despesas são organizadas e como você pode reduzir custos.
 
 Você pode usar o portal do Azure ou várias APIs para automação de exportação para integrar dados de custo com sistemas e processos externos. A exportação automática de dados de faturamento e relatórios agendados também estão disponíveis.
 

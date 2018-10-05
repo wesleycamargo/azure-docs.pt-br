@@ -1,5 +1,5 @@
 1. Entre no [Portal do Azure][Azure portal].
-2. No menu esquerdo, selecione **+ Criar um recurso**. Em seguida, selecione **Enterprise Integration** > **Retransmissão**.
+2. No menu esquerdo, selecione **+ Criar um recurso**. Em seguida, selecione **Integração** > **Retransmissão**. Se a opção **Retransmissão** não for exibida na lista, selecione **Ver Tudo** no canto superior direito. 
 3. Em **Criar um namespace**, insira um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
 4. Na caixa **Assinatura**, selecione uma assinatura do Azure na qual criar o namespace.
 5. Na caixa [Grupo de recursos](../articles/azure-resource-manager/resource-group-portal.md), selecione um grupo de recursos existente no qual colocar o namespace, ou então crie um novo.  

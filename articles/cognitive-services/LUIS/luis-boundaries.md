@@ -1,21 +1,21 @@
 ---
-title: Noções básicas sobre limites do LUIS (Reconhecimento vocal) | Microsoft Docs
-titleSuffix: Azure
-description: Este artigo contém limites do LUIS conhecidos.
+title: Limites do LUIS (Reconhecimento vocal)
+titleSuffix: Azure Cognitive Services
+description: Este artigo contém os limites conhecidos do LUIS (Reconhecimento vocal) dos Serviços Cognitivos do Azure. O LUIS tem várias áreas de limite. O limite de modelo controla intenções, entidades e recursos no LUIS. Limites de cota com base no tipo de chave. A combinação de teclado controla o site do LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0a75c113f619aa70ba6c504f07afc8dc8a35b694
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b7a2d1554d668b4000b87b210a69b290def9b19e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399824"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035429"
 ---
 # <a name="luis-boundaries"></a>Limites do LUIS
 O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-boundaries), que controla intenções, entidades e recursos no LUIS. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. A terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site do LUIS. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS. 
@@ -30,7 +30,7 @@ O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-b
 | **[Composição](./luis-concept-entity-types.md)|100 com até 10 filhos |
 | Lista explícita | 50 por aplicativo|
 | **[Hierárquico](./luis-concept-entity-types.md) |100 com até 10 filhos |
-| [Intenções][intents]|500 por aplicativo<br>O aplicativo [com base em expedição](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) tem 500 fontes de expedição correspondentes|
+| [Intenções][intents]|500 por aplicativo<br>O aplicativo [com base em expedição](https://aka.ms/dispatch-tool) tem 500 fontes de expedição correspondentes|
 | [Entidades de lista](./luis-concept-entity-types.md) | Pai: 50, filho: 20 mil itens. O nome Canonical é o máximo de caracteres padrão* Valores de sinônimos não têm restrição de comprimento. |
 | [Padrões](luis-concept-patterns.md)|500 padrões por aplicativo.<br>O comprimento máximo do padrão é de 400 caracteres.<br>3 entidades Pattern.any por padrão<br>Máximo de 2 textos opcionais aninhados no padrão|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicativo, 3 entidades pattern.any por padrão |

@@ -1,5 +1,5 @@
 ---
-title: Documentação da API do SDK de Fala dos Serviços Cognitivos, Serviços Cognitivos do Azure - Tutoriais, Referência de API
+title: Documentação da API do SDK de Fala dos Serviços Cognitivos, Serviços Cognitivos do Azure – Tutoriais, referência de API
 description: Saiba como criar e desenvolver aplicativos com o SDK de Serviços Cognitivos de Fala
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 65ff0e47cf7a53d519bfd0c50ea4c3ebd09a5766
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 4bfede8df88c64e795e33620650efb579f43ebba
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41929829"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404301"
 ---
-# <a name="shipping-an-application"></a>Enviar um aplicativo
+# <a name="ship-an-application"></a>Enviar um aplicativo
 
-Observe a [Licença do SDK de fala](license.md), bem como as [notificações de software de terceiros](third-party-notices.md) ao distribuir o SDK de Serviços Cognitivos de Fala. Além disso, leia a [Política de privacidade da Microsoft](https://aka.ms/csspeech/privacy).
+Observe a [Licença do SDK de fala](https://aka.ms/csspeech/license201809), bem como as [notificações de software de terceiros](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html) ao distribuir o SDK de Fala de Serviços Cognitivos do Azure. Além disso, leia a [Política de privacidade da Microsoft](https://aka.ms/csspeech/privacy).
 
 Dependendo da plataforma, existem dependências diferentes para executar seu aplicativo.
 
@@ -31,29 +31,29 @@ O SDK dos Serviços Cognitivos de Fala exige o [Pacotes Redistribuíveis do Visu
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
 
-Se seu aplicativo estiver usando código gerenciado, o `.NET Framework 4.6.1` ou posterior será necessário no computador de destino.
+Se seu aplicativo usar código gerenciado, o `.NET Framework 4.6.1` ou posterior será necessário no computador de destino.
 
 Para a entrada do microfone, as bibliotecas do Media Foundation precisam ser instaladas. Essas bibliotecas fazem parte do Windows 10 e do Windows Server 2016. É possível usar o SDK de Fala sem essas bibliotecas, contanto que o microfone não seja usado como o dispositivo de entrada de áudio.
 
-Os arquivos necessários do SDK de Fala podem ser implantados no mesmo diretório do seu aplicativo. Dessa forma, seu aplicativo pode acessar diretamente as bibliotecas. Selecione a versão correta (Win32/x64) correspondente ao seu aplicativo.
+Os arquivos necessários do SDK de Fala podem ser implantados no mesmo diretório do seu aplicativo. Dessa forma, seu aplicativo pode acessar diretamente as bibliotecas. Selecione a versão correta (Win32/x64) que corresponda ao seu aplicativo.
 
 | NOME | Função
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | SDK principal, necessário para implantação nativa e gerenciada
-| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | necessário para implantação gerenciada
-| `Microsoft.CognitiveServices.Speech.csharp.dll` | necessário para implantação gerenciada
+| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | Necessário para implantação gerenciada
+| `Microsoft.CognitiveServices.Speech.csharp.dll` | Necessário para implantação gerenciada
 
 ## <a name="linux"></a>Linux
 
 Para um aplicativo nativo, você precisa enviar a biblioteca do SDK de Fala, `libMicrosoft.CognitiveServices.Speech.core.so`.
-Selecione a versão (x86/x64) correspondente ao seu aplicativo. Dependendo da versão do Linux, você precisará também incluir as seguintes dependências:
+Selecione a versão (x86/x64) que corresponde ao seu aplicativo. Dependendo da versão do Linux, talvez você também precise incluir as seguintes dependências:
 
 * As bibliotecas compartilhadas da biblioteca GNU C (incluindo a biblioteca de programação de Threads POSIX, `libpthreads`)
 * A biblioteca OpenSSL (`libssl.so.1.0.0`)
 * A biblioteca cURL (`libcurl.so.4`)
 * A biblioteca compartilhada para aplicativos ALSA (`libasound.so.2`)
 
-No Ubuntu 16.04, por exemplo, as bibliotecas de GNU C já devem estar instaladas por padrão. Os três últimos podem ser instalados usando esses comandos:
+No Ubuntu 16.04, por exemplo, as bibliotecas de GNU C já devem estar instaladas por padrão. Os três últimos podem ser instalados usando estes comandos:
 
 ```sh
 sudo apt-get update

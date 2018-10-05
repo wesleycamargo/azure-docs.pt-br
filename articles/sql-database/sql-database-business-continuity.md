@@ -3,21 +3,22 @@ title: Continuidade dos negócios em nuvem - recuperação de banco de dados - B
 description: Saiba como o Banco de Dados SQL do Azure dá suporte para a continuidade dos negócios em nuvem e para a recuperação de banco de dados, além de ajudar a manter os aplicativos em nuvem críticos em execução.
 keywords: continuidade dos negócios, continuidade dos negócios em nuvem, recuperação de desastre do banco de dados, recuperação de banco de dados
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.workload: On Demand
-ms.date: 07/25/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ce0684f9ab06b5362ccdf25aeaff15ea668ce96c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444141"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221138"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 
@@ -59,11 +60,11 @@ A tabela a seguir compara o ERT e o RPO para cada camada de serviço para os tr�
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperar um banco de dados para o servidor existente
 
-O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados semanais, backups de bancos de dados diferenciais por hora e backups de logs de transação a cada 5 a 10 minutos para proteger sua empresa contra perda de dados. Os backups são armazenados no armazenamento RA-GRS por 35 dias para todas as camadas de serviço, exceto camadas de serviço de DTU Básicas, nas quais os backups são armazenados por 7 dias. Para saber mais, consulte [backups de banco de dados automáticos](sql-database-automated-backups.md). É possível restaurar um formulário do banco de dados existente, backups automatizados para um ponto anterior no tempo, como um novo banco de dados no mesmo servidor lógico, usando o portal do Azure, o PowerShell ou a API REST. Para obter mais informações, consulte [Recuperação pontual](sql-database-recovery-using-backups.md#point-in-time-restore).
+O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados completos semanais, backups de bancos de dados diferenciais geralmente a cada 12 horas e backups de logs de transações a cada 5 a 10 minutos para proteger sua empresa contra perda de dados. Os backups são armazenados no armazenamento RA-GRS por 35 dias para todas as camadas de serviço, exceto camadas de serviço de DTU Básicas, nas quais os backups são armazenados por 7 dias. Para saber mais, consulte [backups de banco de dados automáticos](sql-database-automated-backups.md). É possível restaurar um formulário do banco de dados existente, backups automatizados para um ponto anterior no tempo, como um novo banco de dados no mesmo servidor lógico, usando o portal do Azure, o PowerShell ou a API REST. Para obter mais informações, consulte [Recuperação pontual](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Se o período máximo de retenção de PITR com suporte não for suficiente para o aplicativo, será possível estendê-lo configurando uma política LTR (retenção de longo prazo) para o(s) banco(s) de dados. Para obter mais informações, confira [Retenção de backup de longo prazo](sql-database-long-term-retention.md).
 
-Você pode usar esses backups automáticos do banco de dados para recuperar um banco de dados de diversos eventos de interrupção, tanto em seu data center quanto em outro. Ao usar os backups automáticos de banco de dados, o tempo estimado de recuperação dependerá de vários fatores, incluindo o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo, o tamanho do banco de dados, o tamanho do log de transações e a largura de banda da rede. Normalmente, o tempo de recuperação é menor do que 12 horas. Pode levar mais tempo para recuperar um banco de dados muito grande ou ativo. Para obter mais informações sobre tempo de recuperação, consulte [tempo de recuperação do banco de dados](sql-database-recovery-using-backups.md#recovery-time). Ao recuperar em outra região de dados, a perda de dados potencial será limitada a uma hora pelo armazenamento com redundância geográfica dos backups de banco de dados diferenciais por hora.
+Você pode usar esses backups automáticos do banco de dados para recuperar um banco de dados de diversos eventos de interrupção, tanto em seu data center quanto em outro. Ao usar os backups automáticos de banco de dados, o tempo estimado de recuperação dependerá de vários fatores, incluindo o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo, o tamanho do banco de dados, o tamanho do log de transações e a largura de banda da rede. Normalmente, o tempo de recuperação é menor do que 12 horas. Pode levar mais tempo para recuperar um banco de dados muito grande ou ativo. Para obter mais informações sobre tempo de recuperação, consulte [tempo de recuperação do banco de dados](sql-database-recovery-using-backups.md#recovery-time). Ao recuperar em outra região de dados, a possível perda de dados é limitada a uma hora com o uso dos backups com redundância geográfica.
 
 Utilize backups automatizados e [recuperação pontual](sql-database-recovery-using-backups.md#point-in-time-restore) como mecanismo de recuperação e continuidade dos negócios, se o aplicativo:
 
@@ -101,7 +102,7 @@ Esse recurso é usado para proteger contra interrupções de negócios, no caso 
 * Tenha uma alta taxa de alteração de dados e que a perda de uma hora de dados não seja aceitável.
 * Que o custo adicional da replicação geográfica ativa seja menor que a responsabilidade financeira potencial e das perdas associadas do negócio.
 
-Ao executar uma ação, o tempo que levará para você recuperar e a quantidade de dados perdidos dependerá de como você decide usar os recursos de continuidade dos negócios em seu aplicativo. Na verdade, você poderá escolher por usar uma combinação de backups de banco de dados e a replicação geográfica ativa dependendo dos requisitos do seus aplicativo. Para uma discussão sobre as considerações de design do aplicativo para bancos de dados independentes e pools elásticos que usam esses recursos de continuidade de negócios, consulte [Criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Estratégias de recuperação de desastre para Pool Elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Ao executar uma ação, o tempo que levará para você recuperar e a quantidade de dados perdidos dependerá de como você decide usar os recursos de continuidade dos negócios em seu aplicativo. Na verdade, você poderá escolher por usar uma combinação de backups de banco de dados e a replicação geográfica ativa dependendo dos requisitos do seus aplicativo. Para obter uma discussão sobre as considerações de design do aplicativo para bancos de dados independentes e pools elásticos que usam esses recursos de continuidade de negócios, confira [Criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Estratégias de recuperação de desastre para pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 As seções a seguir fornecem uma visão geral das etapas para recuperar usando os backups de banco de dados ou a replicação geográfica ativa. Para obter as etapas detalhadas, incluindo os requisitos de planejamento, as etapas pós-recuperação e as informações sobre como simular uma interrupção para executar uma análise de recuperação de desastre, confira [Recover a SQL Database from an outage (Recuperar um Banco de Dados SQL de uma interrupção)](sql-database-disaster-recovery.md).
 
@@ -122,12 +123,10 @@ Se você estiver usando a replicação geográfica ativa e os grupos de failover
 > 
 
 ### <a name="perform-a-geo-restore"></a>Executar uma restauração geográfica
-Se você estiver usando backups automatizados com a replicação de armazenamento com redundância geográfica como o mecanismo de recuperação, [inicie uma recuperação de banco de dados usando a restauração geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore). A recuperação normalmente ocorre em 12 horas, com perda de dados de até uma hora determinada pela ocasião em que o último backup diferencial ocorreu e foi replicado. Até que a recuperação seja concluída, o banco de dados não poderá registrar nenhuma transação ou responder a qualquer consulta. Embora isso restaure um banco de dados para o último ponto disponível no tempo, atualmente, não há suporte para a restauração do geográfico secundário em qualquer ponto no tempo.
+Se estiver usando backups automatizados com o armazenamento com redundância geográfica (habilitado por padrão), você poderá recuperar o banco de dados usando a [restauração geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore). A recuperação normalmente ocorre após 12 horas, com perda de dados de até uma hora determinada pelo momento em que o último backup de log ocorreu e foi replicado. Até que a recuperação seja concluída, o banco de dados não poderá registrar nenhuma transação ou responder a qualquer consulta. Observe que a restauração geográfica só restaura o banco de dados para o último momento disponível.
 
 > [!NOTE]
 > Se o data center voltar a ficar online antes de você transferir seu aplicativo para o banco de dados recuperado, você poderá cancelar a recuperação.  
->
->
 
 ### <a name="perform-post-failover--recovery-tasks"></a>Executar pós-failover / tarefas de recuperação
 Após recuperar de um dos mecanismos de recuperação, você deverá executar as seguintes tarefas adicionais antes que os usuários e aplicativos entrem em funcionamento novamente:
@@ -142,4 +141,4 @@ Após recuperar de um dos mecanismos de recuperação, você deverá executar as
 Às vezes, um aplicativo deve ser colocado offline devido à manutenção planejada, como uma atualização do aplicativo. [Gerenciar atualizações de aplicativos](sql-database-manage-application-rolling-upgrade.md) descreve como usar a replicação geográfica ativa para habilitar as atualizações sem interrupção do seu aplicativo em nuvem para minimizar o tempo de inatividade durante as atualizações e fornecer um caminho de recuperação caso algo saia errado. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para uma discussão sobre as considerações de design de aplicativo para bancos de dados independentes em pools elásticos, confira [Criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Estratégias de recuperação de desastre para Pool Elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Para obter uma discussão sobre as considerações de design de aplicativo para bancos de dados independentes e para pools elásticos, confira [Criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Estratégias de recuperação de desastre para pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

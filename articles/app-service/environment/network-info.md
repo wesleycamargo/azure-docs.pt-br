@@ -1,5 +1,5 @@
 ---
-title: Considerações de rede com um ambiente do Serviço de Aplicativo do Azure
+title: Considerações de rede com um Ambiente do Serviço de Aplicativo do Azure
 description: Explica o tráfego de rede do ASE e como definir NSGs e UDRs com seu ASE
 services: app-service
 documentationcenter: na
@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: d099163cdc34624afd8f01b8f1978c5ee902d1ff
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6d4f7fab0c36095d96cec0038a39744102e8972b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433745"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
@@ -28,9 +29,9 @@ ms.lasthandoff: 05/20/2018
 - **ASE externo**: expõe os aplicativos ASE hospedados em um endereço IP acessado pela Internet. Para saber mais, confira [Criar um ASE externo][MakeExternalASE].
 - **ILB ASE**: expõe os aplicativos hospedados do ASE em um endereço IP dentro da sua VNet. O ponto de extremidade interno é um ILB (balanceador de carga interno) e, por isso, ele é chamado de ASE do ILB. Para saber mais, confira [Criar e usar um ASE ILB][MakeILBASE].
 
-Agora há duas versões do Ambiente do Serviço de Aplicativo: ASEv1 e ASEv2. Para saber mais sobre o ASEv1, consulte [Introdução ao Ambiente do Serviço de Aplicativo v1][ASEv1Intro]. O ASEv1 pode ser implantado em uma VNet clássica ou do Resource Manager. Um ASEv2 só pode ser implantado em uma VNet do Resource Manager.
+Há duas versões do Ambiente do Serviço de Aplicativo: ASEv1 e ASEv2. Para saber mais sobre o ASEv1, consulte [Introdução ao Ambiente do Serviço de Aplicativo v1][ASEv1Intro]. O ASEv1 pode ser implantado em uma VNet clássica ou do Resource Manager. Um ASEv2 só pode ser implantado em uma VNet do Resource Manager.
 
-Todas as chamadas de um ASE que vão para a Internet deixam a rede virtual por meio de um VIP atribuído ao ASE. O IP público desse VIP é o IP de origem para todas as chamadas do ASE que vão para a Internet. Se os aplicativos em seu ASE fizerem chamadas a recursos na sua VNet ou por uma VPN, o IP de origem será um dos IPs na sub-rede usada pelo ASE. Como o ASE é na VNet, também pode acessar recursos na VNet sem nenhuma configuração adicional. Se a VNet estiver conectada à sua rede local, os aplicativos em seu ASE também terão acesso aos recursos de lá. Você não precisa fazer amais nenhuma configuração no seu aplicativo ou o ASE.
+Todas as chamadas de um ASE que vão para a Internet deixam a rede virtual por meio de um VIP atribuído ao ASE. O IP público desse VIP é o IP de origem de todas as chamadas do ASE que vão para a Internet. Se os aplicativos em seu ASE fizerem chamadas a recursos na sua VNet ou por uma VPN, o IP de origem será um dos IPs na sub-rede usada pelo ASE. Como o ASE é na VNet, também pode acessar recursos na VNet sem nenhuma configuração adicional. Se a VNet estiver conectada à sua rede local, os aplicativos no ASE também terão acesso aos recursos de lá sem configuração adicional.
 
 ![ASE externo][1] 
 
@@ -43,7 +44,7 @@ Se você tiver um ASE externo, o VIP público também será o ponto de extremida
 
 ![ILB ASE][2]
 
-Se você tiver um ASE ILB, o endereço IP do ILB será o ponto de extremidade para HTTP/S, FTP/S, implantação da Web e depuração remota.
+Se você tiver um ASE ILB, o endereço do ILB será o ponto de extremidade para HTTP/S, FTP/S, implantação da Web e depuração remota.
 
 As portas de acesso normais do aplicativo são:
 
@@ -57,14 +58,18 @@ Isso será verdadeiro se você estiver em um ASE externo ou em um ASE ILB. Se vo
 
 ## <a name="ase-subnet-size"></a>Tamanho da sub-rede ASE ##
 
-O tamanho da sub-rede usada para hospedar um ASE não pode ser alterado depois da implantação do ASE.  O ASE usa um endereço para cada função de infraestrutura, bem como para cada instância de plano do serviço de aplicativo isolado.  Além disso, existem 5 endereços usados pela rede do Azure para cada sub-rede criada.  Um ASE sem nenhum plano do serviço de aplicativo usará 12 endereços antes de criar um aplicativo.  Se for um ASE ILB, ele usará 13 endereços antes de você criar um aplicativo no ASE. À medida que você expande seus planos de serviço de aplicativo, eles vão exigir endereços adicionais para cada Front-End adicionado.  Por padrão, os servidores de Front-End são adicionados para todas as 15 instâncias do plano de serviço de aplicativo. 
+O tamanho da sub-rede usada para hospedar um ASE não pode ser alterado depois da implantação do ASE.  O ASE usa um endereço para cada função de infraestrutura, bem como para cada instância de plano do serviço de aplicativo isolado.  Além disso, existem 5 endereços usados pela rede do Azure para cada sub-rede criada.  Um ASE sem nenhum plano do serviço de aplicativo usará 12 endereços antes de criar um aplicativo.  Se for um ASE ILB, ele usará 13 endereços antes de você criar um aplicativo no ASE. Conforme você expande seu ASE, funções de infraestrutura são adicionadas a cada múltiplo de 15 e de 20 de suas instâncias do Plano do Serviço de Aplicativo.
 
    > [!NOTE]
-   > Nada mais pode existir na sub-rede além do ASE. Escolha um espaço de endereço que possibilite crescimento futuro. Você não poderá alterar essa configuração mais tarde. Recomendamos um tamanho de `/25`, com 128 endereços.
+   > Nada mais pode existir na sub-rede além do ASE. Escolha um espaço de endereço que possibilite crescimento futuro. Você não poderá alterar essa configuração mais tarde. É recomendável um tamanho de `/24` com 256 endereços.
+
+Quando você escala ou reduz verticalmente, são adicionadas novas funções de tamanho apropriado e, em seguida, suas cargas de trabalho são migradas do tamanho atual para o tamanho de destino. As VMs originais são removidas somente depois que seus aplicativos são migrados. Isso significa que, se você tivesse um ASE com 100 instâncias de ASP, haveria um período em que você precisaria duplicar o número de VMs.  É por esse motivo que recomendamos o uso de um “/ 24” para acomodar as alterações que poderão ser necessárias.  
 
 ## <a name="ase-dependencies"></a>Dependências do ASE ##
 
-Uma dependência de acesso de entrada do ASE é:
+### <a name="ase-inbound-dependencies"></a>Dependências de entrada do ASE ###
+
+As dependências de acesso de entrada do ASE são:
 
 | Uso | Da | Para |
 |-----|------|----|
@@ -73,7 +78,7 @@ Uma dependência de acesso de entrada do ASE é:
 |  Permitir a entrada do Azure Load Balancer | Azure Load Balancer | Sub-rede ASE: todas as portas
 |  Endereços IP atribuídos ao aplicativo | Endereços atribuído de aplicativo | Sub-rede ASE: todas as portas
 
-O tráfego de entrada fornece o comando e o controle do ASE, além de monitoramento do sistema. Os IPs de origem para esse tráfego são listadas no documento [Endereços de gerenciamento do ASE endereços][ASEManagement]. A configuração de segurança de rede deve permitir o acesso de todos os IPs nas portas 454 e 455.
+O tráfego de gerenciamento de entrada fornece o comando e o controle do ASE, além de monitoramento do sistema. Os endereços de origem desse tráfego são listados no documento [Endereços de gerenciamento do ASE endereços][ASEManagement]. A configuração de segurança de rede deve permitir o acesso de todos os IPs nas portas 454 e 455. Se você bloquear o acesso desses endereços, seu ASE deixará de ser íntegro e será suspenso.
 
 Dentro da sub-rede ASE há muitas portas usadas para a comunicação interna do componente e elas podem mudar.  Isso exige que todas as portas na sub-rede ASE estejam acessíveis por meio da sub-rede ASE. 
 
@@ -81,26 +86,23 @@ Para a comunicação entre o balanceador de carga do Azure e a sub-rede do ASE, 
 
 Se você estiver usando os endereços IP atribuídos pelo aplicativo, será necessário permitir o tráfego dos IPs atribuídos a seus aplicativos à sub-rede do ASE.
 
-Para acesso de saída, um ASE depende de vários sistemas externos. Essas dependências de sistema são definidas com nomes DNS e não são mapeadas para um conjunto fixo de endereços IP. Assim, o ASE requer acesso de saída da sub-rede do ASE para todos os IPs externos em uma variedade de portas. Um ASE tem as seguintes dependências de saída:
+O tráfego TCP que chega nas portas 454 e 455 deve voltar do mesmo VIP ou você terá um problema de roteamento assimétrico. 
 
-| Uso | Da | Para |
-|-----|------|----|
-| Armazenamento do Azure | Sub-rede ASE | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 só é necessário para o ASEv1). |
-| Banco de Dados SQL do Azure | Sub-rede ASE | database.windows.net: 1433, 11000-11999, 14000-14999 (Para saber mais, confira [Uso da porta do Banco de Dados SQL V12](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
-| Gerenciamento do Azure | Sub-rede ASE | management.core.windows.net, management.azure.com: 443 
-| Verificação de certificado SSL |  Sub-rede ASE            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
-| Azure Active Directory        | Sub-rede ASE            |  Internet: 443
-| Gerenciamento do Serviço de Aplicativo        | Sub-rede ASE            |  Internet: 443
-| DNS do Azure                     | Sub-rede ASE            |  Internet: 53
-| Comunicação interna ASE    | Sub-rede ASE: todas as portas |  Sub-rede ASE: todas as portas
+### <a name="ase-outbound-dependencies"></a>Dependências de saída do ASE ###
 
-Se o ASE perde o acesso a essas dependências, ele deixa de funcionar. Quando isso acontece por tempo suficiente, o ASE fica suspenso.
+Para acesso de saída, um ASE depende de vários sistemas externos. Muitas dessas dependências do sistema são definidas com nomes DNS e não são mapeadas para um conjunto fixo de endereços IP. Assim, o ASE requer acesso de saída da sub-rede do ASE para todos os IPs externos em uma variedade de portas. 
+
+A lista completa das dependências de saída está no documento que descreve [Como bloquear o tráfego de saída do Ambiente do Serviço de Aplicativo](./firewall-integration.md). Se perder o acesso a suas dependências, o ASE deixará de funcionar. Quando isso acontece por tempo suficiente, o ASE fica suspenso. 
 
 ### <a name="customer-dns"></a>DNS do cliente ###
 
 Se a VNet for configurada com um servidor DNS definido pelo cliente, as cargas de trabalho de locatário usarão esse servidor DNS. O ASE ainda precisa se comunicar com o DNS do Azure para fins de gerenciamento. 
 
 Se a VNet for configurada com um DNS de cliente no outro lado de uma VPN, o servidor DNS deverá poder ser acessado da sub-rede que contém o ASE.
+
+Para testar a resolução do seu aplicativo Web, você pode usar o comando de console *nameresolver*. Vá até a janela de depuração no site do SCM de seu aplicativo ou vá até o aplicativo no portal e selecione o console. No prompt de shell, você pode emitir o comando *nameresolver* junto com o endereço que deseja pesquisar. O resultado obtido é o mesmo que o seu aplicativo obteria ao fazer a mesma pesquisa. Se usar nslookup, você fará uma pesquisa usando o DNS do Azure.
+
+Se alterar a configuração de DNS da VNet em que seu ASE se encontra, você precisará reiniciar o ASE. Para evitar a reinicialização do ASE, é altamente recomendável que você defina as configurações de DNS da VNet antes de criar o ASE.  
 
 <a name="portaldep"></a>
 
@@ -140,6 +142,9 @@ Um ASE tem alguns endereços IP para reconhecer. Eles são:
 - **Endereços SSL com base em IP atribuídos ao aplicativo**: possível somente com um ASE externo e quando o SSL baseado em IP está configurado.
 
 Todos esses endereços IP ficam visíveis em um ASEv2 no portal do Azure, na interface do usuário do ASE. Se você tiver um ASE ILB, o IP para o ILB estará listado.
+
+   > [!NOTE]
+   > Esses endereços IP não serão alterados desde que o ASE permanece em execução.  Se o ASE for suspenso e restaurado, os endereços usados por ele serão alterados. Normalmente, um ASE será suspenso se você bloquear o acesso do gerenciamento de entrada ou bloquear o acesso a uma dependência do ASE. 
 
 ![Endereços IP][3]
 

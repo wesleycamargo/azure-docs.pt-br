@@ -1,23 +1,23 @@
 ---
-title: Início rápido do Node do SDK da Pesquisa de Vídeo | Microsoft Docs
-description: Configuração para aplicativo de console do SDK da Pesquisa de Vídeo.
-titleSuffix: Azure cognitive services
+title: 'Início Rápido: SDK da Pesquisa de Vídeo do Bing, Node'
+titleSuffix: Azure Cognitive Services
+description: Configuração para o aplicativo de console do SDK da Pesquisa de Vídeo do Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
-ms.author: v-gedod
-ms.openlocfilehash: 5718c750288e0a5605db3296d2911cca5e03375c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: rosh
+ms.openlocfilehash: 4dcc9220d4d38bfe34514edd6a3ad47c7a7d4ba8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35364807"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225609"
 ---
-# <a name="video-search-sdk-node-quickstart"></a>Início rápido do Node do SDK da Pesquisa de Vídeo
+# <a name="quickstart-bing-video-search-sdk-with-node"></a>Início Rápido: SDK da Pesquisa de Vídeo do Bing com o Node
 
 O SDK da Pesquisa de Vídeo do Bing contém a funcionalidade da API REST para consultas de vídeo e resultados de análise. 
 
@@ -38,7 +38,7 @@ Em seguida, instancie o cliente:
 const VideoSearchAPIClient = require('azure-cognitiveservices-videosearch');
 let client = new VideoSearchAPIClient(credentials);
 ```
-Pesquisar resultados.
+Pesquise resultados.
 ```
 client.videosOperations.search('Interstellar Trailer').then((result) => {
     console.log(result.value);
@@ -57,4 +57,4 @@ The code prints `result.value` items to the console without parsing any text. Th
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Exemplos de SDK do Node.js dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Amostras do SDK do Node.js de Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

@@ -1,21 +1,21 @@
 ---
-title: Como obter a análise em sua base de dados de conhecimento - Serviços Cognitivos da Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Como obter a análise em sua base de dados de conhecimento
+title: Análise na base de dados de conhecimento
+titleSuffix: Azure Cognitive Services
+description: O QnA Maker armazena todos os logs de chat e outros dados telemétricos, se você habilitou o App Insights durante a criação do serviço do QnA Maker. Execute os exemplos de consultas para obter seus logs de bate-papo do App Insights.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: 1588d0c5a8eaf4e161b5319c9f33a772dc56b247
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim88
+ms.openlocfilehash: dc363a3ba0d809a3307a6803993bdf500da45f1b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364224"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035397"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obter a análise em sua base de dados de conhecimento
 

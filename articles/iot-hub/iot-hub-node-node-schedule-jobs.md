@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: juanpere
-ms.openlocfilehash: 2161cd12f8bdb6aa3018d81a7864816a97ed122a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 69469d6b302f951301c92c0ee7984df95911624e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187743"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221291"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Agendar e transmitir trabalhos (Node)
 
@@ -115,7 +115,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que responde a um 
 8. Salve e feche o arquivo **simDevice.js**.
 
 > [!NOTE]
-> Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias][lnk-transient-faults] do MSDN.
+> Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugerido no artigo [Tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
 > 
 > 
 
@@ -268,4 +268,3 @@ Para continuar a introdução ao Hub IoT, consulte [Introdução ao Azure IoT Ed
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

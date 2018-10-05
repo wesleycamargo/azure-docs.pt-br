@@ -1,21 +1,22 @@
 ---
-title: Introdução ao Serviço de Fala Personalizada no Azure | Microsoft Docs
+title: Introdução ao Serviço de Fala Personalizado
+titlesuffix: Azure Cognitive Services
 description: Assinar o Serviço de Fala Personalizada e vincular as atividades de serviço a uma assinatura do Azure para treinar um modelo e fazer uma implantação.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: bf674261a58aab4fee37920d12ce6a2ac54b58b8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ae72edd626bd91dea7cd2812a3ef821b905f59a4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975776"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225235"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Introdução ao Serviço de Fala Personalizada
 
@@ -51,7 +52,7 @@ Ao criar modelos acústicos personalizados e/ou modelos de linguagem, eles podem
 Você pode encontrar uma descrição detalhada sobre como criar um ponto de extremidade de conversão de fala em texto personalizado [aqui](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md).
 
 ## <a name="using-a-custom-speech-endpoint"></a>Usar um ponto de extremidade de fala personalizada
-Solicitações podem ser enviadas para um ponto de extremidade de conversão de fala em texto CRIS de maneira muito semelhante ao ponto de extremidade de fala padrão dos Serviços Cognitivos da Microsoft. Observe que esses pontos de extremidade são funcionalmente idênticos aos pontos de extremidade padrão da API de Fala. Assim, a mesma funcionalidade disponível via a biblioteca de cliente ou a API REST para a API de Fala também está disponível para o ponto de extremidade personalizado.
+As solicitações podem ser enviadas para um ponto de extremidade de conversão de fala em texto CRIS de maneira muito semelhante ao ponto de extremidade de fala padrão dos Serviços Cognitivos do Azure. Observe que esses pontos de extremidade são funcionalmente idênticos aos pontos de extremidade padrão da API de Fala. Assim, a mesma funcionalidade disponível via a biblioteca de cliente ou a API REST para a API de Fala também está disponível para o ponto de extremidade personalizado.
 
 Você pode encontrar uma descrição detalhada sobre como usar um ponto de extremidade de conversão de fala em texto personalizado [aqui](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md).
 

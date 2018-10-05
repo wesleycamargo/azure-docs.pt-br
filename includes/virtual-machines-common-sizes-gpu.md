@@ -5,20 +5,20 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 09/10/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 268da0e5d078f7b6b4b36929dbf6755068adb444
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e9f88a018ba0f40d41bf7ad17a74850a9edf8ae6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37907167"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47043839"
 ---
 Os tamanhos de VM otimizados para GPU são máquinas virtuais especializadas disponíveis com um ou vários GPUs NVIDIA. Esses tamanhos são projetados para cargas de trabalho de visualização e com muita computação e muitos gráficos. Este artigo fornece informações sobre o número e o tipo de GPUs, vCPUs, discos de dados e NICs. A taxa de transferência de armazenamento e a largura de banda de rede também são incluídos para cada tamanho neste agrupamento. 
 
-* Os tamanhos **NC, NCv2, NCv3 e ND** são otimizados para aplicativos e algoritmos que fazem uso intensivo de rede e computação. Alguns exemplos são aplicativos baseados em CUDA e OpenCL e simulações, AI e Aprendizagem Profunda. 
-* Os tamanhos **NV** são otimizados e projetados para cenários de visualização remota, streaming, jogos, codificação e VDI usando estruturas como OpenGL e DirectX.  
+* Os tamanhos **NC, NCv2, NCv3 e ND** são otimizados para aplicativos e algoritmos que fazem uso intensivo de rede e computação. Alguns exemplos são aplicativos baseados em CUDA e OpenCL e simulações, AI e Aprendizagem Profunda. A série NCv3 concentra-se em cargas de trabalho de computação de alto desempenho com a tecnologia das GPUs Tesla V100 da NVIDIA.  A série ND concentra-se em cenários de treinamento e inferência para aprendizado profundo. Ela usa a GPU Tesla P40 da NVIDIA.
+* Os tamanhos **NV e NVv2** são otimizados e projetados para cenários de visualização remota, streaming, jogos, codificação e VDI usando estruturas como OpenGL e DirectX.  Essas VMs são apoiadas pela GPU Tesla M60 da NVIDIA.
 
 
 ## <a name="nc-series"></a>Série NC
@@ -125,6 +125,24 @@ Cada GPU em instâncias NV vem com uma licença GRID. Esta licença oferece flex
 | Standard_NV6 |6 |56 |340 | 1 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
 | Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
+
+1 GPU = metade de um cartão M60.
+
+## <a name="nvv2-series-preview"></a>Série NVv2 (versão prévia)
+
+Armazenamento Premium: com suporte
+
+Cache de Armazenamento Premium: com suporte
+
+As máquinas virtuais da série NVv2 contam com as GPUs [Tesla M60 NVIDIA](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e a tecnologia NVIDIA GRID com CPUs Intel Broadwell. Essas máquinas virtuais são direcionadas para aplicativos com gráficos acelerados por GPU e áreas de trabalho virtuais em que os clientes querem visualizar dados, simular resultados para exibição, trabalhar no CAD ou renderizar e transmitir conteúdo por streaming. Além disso, essas máquinas virtuais podem executar cargas de trabalho de precisão simples, como codificação e renderização. As máquinas virtuais NVv2 são compatíveis com o Armazenamento Premium e oferecem duas vezes mais memória (RAM) em comparação com a Série NV anterior.  
+
+Cada GPU em instâncias da NVv2 vem com uma licença GRID. Esta licença oferece flexibilidade para usar uma instância NV como uma estação de trabalho virtual para um único usuário ou 25 usuários simultâneos podem se conectar à VM para um cenário de aplicativo virtual.
+
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Discos de dados máximos | Máximo de NICs | Estações de trabalho virtuais | Aplicativos virtuais | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV6s_v2 |6 |112 |320 | 1 | 12 | 4 | 1 | 25 |
+| Standard_NV12s_v2 |12 |224 |640 | 2 | 24 | 8 | 2 | 50 |
+| Standard_NV24s_v2 |24 |448 |1280 | 4 | 32 | 8 | 4 | 100 |
 
 1 GPU = metade de um cartão M60.
 

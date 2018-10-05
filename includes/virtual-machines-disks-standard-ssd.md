@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a7a4e4b487c324bada818d4815f253110f7f7a60
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234623"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060370"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Discos Gerenciados SSD Padrão para carga de trabalho da Máquina virtual
 
@@ -39,9 +39,12 @@ A tabela a seguir contém os tamanhos de disco atualmente oferecidos atualmente 
 |E10     |128 GiB         |Até 500         |Até 60 MiB por segundo         |
 |E15     |256 GiB         |Até 500         |Até 60 MiB por segundo         |
 |E20     |512 GiB         |Até 500         |Até 60 MiB por segundo         |
-|E30     |1024 GiB         |Até 500         |Até 60 MiB por segundo         |
-|E40     |2048 GiB         |Até 500         |Até 60 MiB por segundo         |
-|E50     |4095 GiB         |Até 500         |Até 60 MiB por segundo         |
+|E30     |1.024 GiB       |Até 500         |Até 60 MiB por segundo         |
+|E40     |2.048 GiB       |Até 500         |Até 60 MiB por segundo         |
+|E50     |4.095 GiB       |Até 500         |Até 60 MiB por segundo         |
+|E60     |8.192 GiB       |Até 1.300       |Até 300 MiB por segundo        |
+|E70     |16.384 GiB      |Até 2.000       |Até 500 MiB por segundo        |
+|E80     |32,767 GiB      |Até 2.000       |Até 500 MiB por segundo        |
 
 SSDs Padrão são projetadas para fornecer latências de milissegundo de dígito único para a maioria das operações de E/S e para entregar IOPS e taxa de transferência até os limites descritos na tabela acima. IOPS e Taxa de Transferência reais podem variar às vezes, dependendo dos padrões de tráfego. SSDs Padrão fornecerão um desempenho mais consistente do que os discos HD com a menor latência.
 

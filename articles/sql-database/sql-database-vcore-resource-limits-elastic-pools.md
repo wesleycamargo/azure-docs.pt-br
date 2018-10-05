@@ -2,19 +2,22 @@
 title: Limites de recursos baseados em vCore do Banco de Dados SQL do Azure – pool elásticos | Microsoft Docs
 description: Esta página descreve alguns limites de recursos baseados em vCore comuns para pools elásticos no Banco de Dados SQL do Azure.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 068ecf8283b92873542a7cb9ab2202212fd2ad2c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+author: oslake
+ms.author: moslake
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 3c85398f140ccd61202c066f4394fa54358e0a1e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495502"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161552"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Limites do modelo de compra baseado em vCore para Banco de Dados SQL do Azure para pools elásticos
 
@@ -25,17 +28,17 @@ Para limites de modelo de compra baseados em DTU, veja [Limites de recursos base
 > [!IMPORTANT]
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Pool elástico: tamanhos de armazenamento e níveis de desempenho
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Pool elástico: tamanhos de armazenamento e de computação
 
-Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os recursos disponíveis em cada nível de desempenho e camada de serviço. Você pode definir a camada de serviço, o nível de desempenho e a quantidade de armazenamento usando o [Portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [CLI do Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) ou a [API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+Para pools elásticos do Banco de Dados SQL, as tabelas a seguir mostram os recursos disponíveis em cada tamanho de computação e camada de serviço. Você pode definir a camada de serviço, o tamanho de computação e a quantidade de armazenamento usando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), o [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), a [CLI do Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) ou a [API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
-> Os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com o mesmo nível de desempenho. Por exemplo, o máximo de trabalhos simultâneos para um banco de dados GP_Gen4_1 é 200. Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool de GP_Gen4_1 também é 200. Observe que o número total de trabalhos simultâneos no pool de GP_Gen4_1 é 210.
+> Os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com o mesmo tamanho de computação. Por exemplo, o máximo de trabalhos simultâneos para um banco de dados GP_Gen4_1 é 200. Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool de GP_Gen4_1 também é 200. Observe que o número total de trabalhos simultâneos no pool de GP_Gen4_1 é 210.
 
 ### <a name="general-purpose-service-tier"></a>Camada de serviço de Uso Geral
 
 #### <a name="generation-4-compute-platform"></a>Plataforma de computação de Geração 4
-|Nível de desempenho|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
+|Tamanho de computação|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -50,8 +53,8 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |Máximo de trabalhos simultâneos (solicitações)|210|420|840|1680|3360|5040|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
-|Densidade de pool máxima|100|200|500|500|500|500|
-|Paradas de clique do pool elástico mínimo/máximo|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|Número máximo de BDs por pool|100|200|500|500|500|500|
+|Opções mínimas/máximas de vCore do pool elástico por banco de dados|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |Número de réplicas|1|1|1|1|1|1|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -59,7 +62,7 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |||
 
 #### <a name="generation-5-compute-platform"></a>Plataforma de computação de Geração 5
-|Nível de desempenho|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Tamanho de computação|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
@@ -74,8 +77,8 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |Máximo de trabalhos simultâneos (solicitações)|210|420|840|1680|2520|3360|4200|8400
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|
-|Densidade de pool máxima|100|200|500|500|500|500|500|500|
-|Paradas de clique do pool elástico mínimo/máximo|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|Número máximo de BDs por pool|100|200|500|500|500|500|500|500|
+|Opções mínimas/máximas de vCore do pool elástico por banco de dados|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Número de réplicas|1|1|1|1|1|1|1|1|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -85,7 +88,7 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 ### <a name="business-critical-service-tier"></a>Camada de serviço comercialmente crítica
 
 #### <a name="generation-4-compute-platform"></a>Plataforma de computação de Geração 4
-|Nível de desempenho|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|Tamanho de computação|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -100,8 +103,8 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |Máximo de trabalhos simultâneos (solicitações)|210|420|840|1680|3360|5040|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
-|Densidade de pool máxima|N/D|50|100|100|100|100|
-|Paradas de clique do pool elástico mínimo/máximo|N/D|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|Número máximo de BDs por pool|Somente bancos de dados individuais têm suporte nesse tamanho de computação|50|100|100|100|100|
+|Opções mínimas/máximas de vCore do pool elástico por banco de dados|N/D|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |Número de réplicas|3|3|3|3|3|3|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
 |Escala de leitura|SIM|sim|sim|sim|sim|SIM|
@@ -109,7 +112,7 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |||
 
 #### <a name="generation-5-compute-platform"></a>Plataforma de computação de Geração 5
-|Nível de desempenho|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|GP_Gen5_40|BC_Gen5_80|
+|Tamanho de computação|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|GP_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Geração de hardware|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
@@ -124,8 +127,8 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |IOPS de destino (64 KB)|5.000|10000|20000|40000|60000|80000|100000|200000
 |Máximo de trabalhos simultâneos (solicitações)|210|420|840|1680|2520|3360|5040|8400|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|
-|Densidade de pool máxima|N/D|50|100|100|100|100|100|100|
-|Paradas de clique do pool elástico mínimo/máximo|N/D|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|Número máximo de BDs por pool|N/D|50|100|100|100|100|100|100|
+|Opções mínimas/máximas de vCore do pool elástico por banco de dados|N/D|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Número de réplicas|3|3|3|3|3|3|3|3|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Escala de leitura|SIM|sim|sim|sim|sim|sim|sim|SIM|

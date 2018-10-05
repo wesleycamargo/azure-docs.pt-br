@@ -1,71 +1,81 @@
 ---
-title: Tutorial para examinar enunciados de ponto de extremidade no Serviço Inteligente de Reconhecimento Vocal (LUIS) - Azure | Microsoft Docs
-description: Neste tutorial, aprenda a analisar os enunciados de ponto de extremidade do domínio de recursos humanos (RH) no LUIS.
+title: 'Tutorial 1: Analisando os enunciados do ponto de extremidade com o aprendizado ativo'
+titleSuffix: Azure Cognitive Services
+description: Melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Alguns enunciados podem ser verificados quanto à intenção e outros quanto à entidade. Você deve analisar os enunciados de ponto de extremidade como uma parte regular da sua manutenção agendada do LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: db44bfad5ece59ed3373699c10d6134201bf1879
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1047c117228b57f7361a1e386bc6cde7acbfdde8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160074"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042256"
 ---
-# <a name="tutorial-review-endpoint-utterances"></a>Tutorial: Examinar enunciados de ponto de extremidade
-Neste tutorial, melhore previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS. 
+# <a name="tutorial-1-fix-unsure-predictions"></a>Tutorial 1: Corrigir previsões incertas
+Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Alguns enunciados podem precisar ser verificados quanto à intenção e outros quanto à entidade. Você deve analisar os enunciados de ponto de extremidade como uma parte regular da sua manutenção agendada do LUIS. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Entender como examinar os enunciados de ponto de extremidade 
-> * Usar o aplicativo LUIS para o domínio dos recursos humanos (RH) 
-> * Examinar declarações de ponto de extremidade
-> * Treinar e publicar o aplicativo
-> * Consulte ponto de extremidade do aplicativo para ver a resposta JSON do LUIS
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Antes de começar
-Se você não tiver o aplicativo de recursos humanos do tutorial sobre [sentimento](luis-quickstart-intent-and-sentiment-analysis.md), importe o aplicativo do repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json). Se você usar este tutorial como um aplicativo novo e importado, você também precisa treinar, publicar e, em seguida, adicionar os enunciados para o ponto de extremidade com um [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou a partir do ponto de extremidade em um navegador. Os enunciados a serem adicionados são:
-
-   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
-
-Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `review`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. 
-
-Se você tiver todas as versões do aplicativo, por meio da série de tutoriais, você poderá se surpreender ao ver que a lista **Examinar enunciados de ponto de extremidade** não muda com base na versão. Há um único conjunto de enunciados para revisar, independentemente de qual versão a expressão está ativamente editando ou qual versão do aplicativo foi publicado no ponto de extremidade. 
-
-## <a name="purpose-of-reviewing-endpoint-utterances"></a>Objetivo de examinar os enunciados de ponto de extremidade
-Esse processo de revisão é outra maneira do LUIS aprender sobre o domínio do seu aplicativo. LUIS selecionou os enunciados na lista de revisão. Esta lista é:
+Esse processo de revisão é outra maneira do LUIS aprender sobre o domínio do seu aplicativo. O LUIS selecionou os enunciados que aparecem na lista de análise. Esta lista é:
 
 * Específica para o aplicativo.
 * Destina-se a melhorar a precisão da previsão do aplicativo. 
 * Deve ser revisada regularmente. 
 
-Ao revisar os enunciados de ponto de extremidade, você verifica ou corrige a intenção prevista do enunciado. Você também pode rotular entidades personalizadas que não foram previstas. 
+Ao revisar os enunciados de ponto de extremidade, você verifica ou corrige a intenção prevista do enunciado. Você também pode rotular entidades personalizadas que não foram previstas ou foram previstas incorretamente. 
+
+**Neste tutorial, você aprenderá a:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Usar o aplicativo do tutorial existente
+> * Examinar declarações de ponto de extremidade
+> * Atualizar lista de frases
+> * Treinar o aplicativo
+> * Publicar aplicativo
+> * Consulte ponto de extremidade do aplicativo para ver a resposta JSON do LUIS
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Usar o aplicativo existente
+
+Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
+
+Se não tiver o aplicativo HumanResources do tutorial anterior, siga estas etapas:
+
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+
+2. Importe o JSON em um novo aplicativo.
+
+3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `review`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
+
+    Se você usar este tutorial como um aplicativo novo e importado, você também precisa treinar, publicar e, em seguida, adicionar os enunciados para o ponto de extremidade com um [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou a partir do ponto de extremidade em um navegador. Os enunciados a serem adicionados são:
+
+   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
+
+    Se você tiver todas as versões do aplicativo, por meio da série de tutoriais, você poderá se surpreender ao ver que a lista **Examinar enunciados de ponto de extremidade** não muda com base na versão. Há um único pool de enunciados para analisar, independentemente de qual versão está ativamente editando ou qual versão do aplicativo foi publicada no ponto de extremidade. 
 
 ## <a name="review-endpoint-utterances"></a>Examinar declarações de ponto de extremidade
 
-1. Verifique se o seu aplicativo de recursos humanos está na seção **Compilar** do LUIS. Você pode alterar essa seção selecionando **Compilar** na barra de menus da parte superior direita. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Examinar enunciados de ponto de extremidade** na barra de navegação à esquerda. A lista é filtrada para a intenção **ApplyForJob**. 
 
-    [ ![Captura de tela do botão Examinar enunciados de ponto de extremidade na barra de navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png)](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png#lightbox)
+    [ ![Captura de tela do botão Examinar enunciados de ponto de extremidade na barra de navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
 3. Alterne o **modo de exibição de Entidades** para ver as entidades rotuladas. 
     
-    [ ![Captura de tela de Examinar enunciados de ponto de extremidade com o modo de exibição de Entidades destacado](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
+    [ ![Captura de tela de Examinar enunciados de ponto de extremidade com o modo de exibição de Entidades destacado](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |Enunciado|Intenção correta|Entidades ausentes|
     |:--|:--|:--|
     |Estou procurando por um trabalho de processamento de linguagem natural|GetJobInfo|Trabalho - “Processamento de linguagem natural”|
 
     Esse enunciado não está na intenção correta e tem uma pontuação inferior a 50%. A intenção **ApplyForJob** tem 21 declarações em comparação com os sete enunciados em **GetJobInformation**. Além de alinhar corretamente o enunciado de ponto de extremidade, mais enunciados devem ser adicionados à intenção **GetJobInformation**. Isso será deixado como um exercício para você concluir por conta própria. Cada intenção, exceto a intenção **None**, deve ter aproximadamente o mesmo número de enunciados de exemplo. A intenção **None** deve conter 10% do total de enunciados no aplicativo. 
-
-    Quando você estiver no **Modo de exibição de Tokens**, você pode passar o mouse sobre qualquer texto azul do enunciado para ver o nome da entidade prevista. 
 
 4. Para a intenção `I'm looking for a job with Natual Language Processing`, selecione a intenção correta **GetJobInformation** na coluna **Alinhar intenção**. 
 
@@ -87,11 +97,13 @@ Ao revisar os enunciados de ponto de extremidade, você verifica ou corrige a in
 
     [ ![Captura de tela de Finalizando os enunciados restantes para a intenção alinhada](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. A lista não deve ter mais esses enunciados. Se aparecerem mais enunciados, continue a trabalhar na lista, corrigindo as intenções e rotulando quaisquer entidades ausentes, até que ela fique vazia. Selecione a intenção seguinte na lista de Filtros e continue a corrigir os enunciados e a rotular as entidades. Lembre-se que a última etapa de cada intenção é selecionar **Adicionar à intenção alinhada** na linha do enunciado ou marcar a caixa para cada enunciado e selecionar **Adicionar selecionada** acima da tabela. 
+9. A lista não deve ter mais esses enunciados. Se aparecerem mais enunciados, continue a trabalhar na lista, corrigindo as intenções e rotulando quaisquer entidades ausentes, até que ela fique vazia. 
 
-    Esse é um aplicativo muito pequeno. O processo de revisão leva apenas alguns minutos.
+10. Selecione a intenção seguinte na lista de Filtros e continue a corrigir os enunciados e a rotular as entidades. Lembre-se que a última etapa de cada intenção é selecionar **Adicionar à intenção alinhada** na linha do enunciado ou marcar a caixa para cada enunciado e selecionar **Adicionar selecionada** acima da tabela.
 
-## <a name="add-new-job-name-to-phrase-list"></a>Adicionar um novo nome de trabalho à lista de frases
+    Continue até que todas as intenções e entidades na lista de filtro tenham uma lista vazia. Esse é um aplicativo muito pequeno. O processo de revisão leva apenas alguns minutos. 
+
+## <a name="update-phrase-list"></a>Atualizar lista de frases
 Mantenha a lista de frases atualizada com os nomes de quaisquer nomes de trabalho descobertos recentemente. 
 
 1. Selecione as **listas de Frases** no painel de navegação esquerdo.
@@ -100,19 +112,19 @@ Mantenha a lista de frases atualizada com os nomes de quaisquer nomes de trabalh
 
 3. Adicione `Natural Language Processing` como um valor e, em seguida, selecione **Salvar**. 
 
-## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
+## <a name="train"></a>Treinar
 
 LUIS não sabe sobre as alterações até que seja treinado. 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
+## <a name="publish"></a>Publicar
 
 Se você importou esse aplicativo, você precisa selecionar **Análise de sentimento**.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-an-utterance"></a>Consultar o ponto de extremidade com um enunciado
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter intenção e entidades do ponto de extremidade
 
 Tente um enunciado próximo ao enunciado corrigido. 
 
@@ -223,16 +235,14 @@ Tente um enunciado próximo ao enunciado corrigido.
 Você deve estar imaginando por que não adicionar mais exemplos de enunciado. Qual é o objetivo de examinar os enunciados de ponto de extremidade? Em um aplicativo do mundo real LUIS, os enunciados de ponto de extremidade são de usuários com um arranjo e escolha de palavras que você ainda não usou. Se você tivesse usado o mesmo arranjo e escolha de palavras, a previsão original teria tido um percentual mais alto. 
 
 ## <a name="why-is-the-top-intent-on-the-utterance-list"></a>Por que a intenção mais bem pontuada está na lista de enunciados? 
-Alguns enunciados de ponto de extremidade terão uma porcentagem alta na lista de revisão. Ainda assim é necessário examinar esses enunciados. Eles estão na lista porque a intenção com a segunda pontuação mais alta tinha uma pontuação muito próxima da intenção com a maior pontuação. 
-
-## <a name="what-has-this-tutorial-accomplished"></a>O que esse tutorial conseguiu fazer?
-A precisão da previsão do aplicativo aumentou ao revisar os enunciados do ponto de extremidade. 
+Alguns enunciados de ponto de extremidade terão uma pontuação de previsão alta na lista de análise. Ainda assim é necessário examinar esses enunciados. Eles estão na lista porque a intenção com a segunda pontuação mais alta tinha uma pontuação muito próxima da intenção com a maior pontuação. Você deseja cerca de 15% de diferença entre as duas primeiras intenções.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
+Neste tutorial, você analisou enunciados enviados no ponto de extremidade sobre os quais o LUIS não tinha certeza. Depois que esses enunciados forem verificados e movidos para as intenções corretas como enunciados de exemplo, o LUIS melhorará a precisão da previsão.
 
 > [!div class="nextstepaction"]
 > [Saiba como usar padrões](luis-tutorial-pattern.md)

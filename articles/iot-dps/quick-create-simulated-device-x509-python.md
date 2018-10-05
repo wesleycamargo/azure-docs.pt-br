@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: c058d991d2655985d24b66cc1c6f30da3ddb7785
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: b2346276def178461a04eed008cc21fb22dc8464
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023719"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040543"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Python para o Serviço de Provisionamento do Dispositivo Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -57,26 +57,38 @@ Se você não estiver familiarizado com o processo de provisionamento automátic
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Criar um certificado de dispositivo X.509 autoassinado e entrada de registro individual
 
-Nesta seção, você usará um certificado X.509 autoassinado, é importante ter em mente o seguinte:
+Nesta seção, você usará um certificado X.509 autoassinado. É importante ter em mente os seguintes pontos:
 
-* Os certificados autoassinados são somente para teste e não devem ser usado na produção.
+* Os certificados autoassinados são somente para teste e não devem ser usados em produção.
 * A data de validade padrão para um certificado autoassinado é de um ano.
 
 Você usará o código de exemplo do SDK de C do IoT do Azure para criar o certificado a ser usado na entrada de registro individual do dispositivo simulado.
 
 1. Abra a solução gerada na pasta *cmake* denominada `azure_iot_sdks.sln`e compile-a no Visual Studio.
 
-2. Clique com o botão direito do mouse no projeto **dados\_dispositivo\_registro** da pasta **Provision\_Tools** e selecione **Definir como Projeto de Inicialização**. Execute a solução. Na janela de saída, insira `i` para registro individual quando solicitado. A janela de saída exibe um certificado X.509 gerado localmente para seu dispositivo simulado. Copie para a área de transferência a saída que começa em *-----BEGIN CERTIFICATE-----* e termina em *-----END CERTIFICATE-----*, não deixando de incluir ambas essas linhas também. 
+2. Clique com o botão direito do mouse no projeto **dados\_dispositivo\_registro** da pasta **Provision\_Tools** e selecione **Definir como Projeto de Inicialização**. Execute a solução. 
+
+3. Na janela de saída, insira `i` para registro individual quando solicitado. A janela de saída exibe um certificado X.509 gerado localmente para seu dispositivo simulado. 
+    
+    Copie o primeiro certificado para área de transferência. Comece com a primeira ocorrência de:
+    
+        -----BEGIN CERTIFICATE----- 
+        
+    Termine a cópia após a primeira ocorrência de:
+    
+        -----END CERTIFICATE-----
+        
+    Inclua essas duas linhas também. 
 
     ![Aplicativo de registro de dispositivo de dados](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  
-3. Crie um arquivo chamado **_X509testcertificate.pem_** em seu computador Windows, abra-o em um editor de sua escolha e copie o conteúdo da área de transferência para o arquivo. Salve o arquivo. 
+4. Crie um arquivo chamado **_X509testcertificate.pem_** em seu computador Windows, abra-o em um editor de sua escolha e copie o conteúdo da área de transferência para o arquivo. Salve o arquivo. 
 
-4. Faça logon no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o serviço de provisionamento.
+5. Entre no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o serviço de provisionamento.
 
-5. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** guia e clique no botão **Adicionar** na parte superior. 
+6. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** e clique no botão **Adicionar registro individual** na parte superior. 
 
-6. No painel **Adicionar registro**, insira as seguintes informações:
+7. No painel **Adicionar registro**, insira as seguintes informações:
     - Selecione **X.509** como o *Mecanismo* de atestado de identidade.
     - No *Arquivo .pem ou .cer de certificado primário*, clique em *Selecionar um arquivo* para selecionar o arquivo de certificado **X509testcertificate.pem** criado nas etapas anteriores.
     - Opcionalmente, você pode fornecer as seguintes informações:
@@ -85,13 +97,13 @@ Você usará o código de exemplo do SDK de C do IoT do Azure para criar o certi
       - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
     - Uma vez concluído, clique no botão **Salvar**. 
 
-    [![Adicionar um registro individual para atestado de X.509 no portal](./media/python-quick-create-simulated-device-x509/individual-enrollment.png)](./media/python-quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
+    [![Adicionar um registro individual para atestado de X.509 no portal](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
    Após o registro bem-sucedido, o dispositivo X.509 é exibido como **riot-device-cert** na coluna *ID do Registro* na guia o *Registros Individuais*. 
 
 ## <a name="simulate-the-device"></a>Simular o dispositivo
 
-1. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Visão geral**. Tome nota do _Escopo da ID_ e do _Ponto de Extremidade de Serviço Global_.
+1. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Visão geral**. Anote o _Escopo da ID_ e o _Ponto de Extremidade de Serviço Global_.
 
     ![Informações de serviço](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
@@ -132,7 +144,7 @@ Você usará o código de exemplo do SDK de C do IoT do Azure para criar o certi
 
 8. No portal, navegue até o hub IoT vinculado ao seu serviço de provisionamento e abra a folha **Device Explorer**. No provisionamento bem-sucedido do dispositivo X.509 simulado para o hub, sua ID de dispositivo aparecerá na folha **Device Explorer** com o *STATUS* **habilitado**. Talvez seja necessário clicar no botão **Atualizar** na parte superior, se você já tiver aberto a folha antes de executar o aplicativo de dispositivo de exemplo. 
 
-    ![Dispositivo é registrado no Hub IoT](./media/python-quick-create-simulated-device-x509/hub-registration.png) 
+    ![Dispositivo é registrado no Hub IoT](./media/python-quick-create-simulated-device-x509/registration.png) 
 
 > [!NOTE]
 > Se você tiver alterado o *estado de dispositivo gêmeo inicial* do valor padrão na entrada de registro para o seu dispositivo, pode receber o estado desejado duas do hub e agir de acordo. Para saber mais, veja [Noções básicas e uso de dispositivos gêmeos no Hub IoT](../iot-hub/iot-hub-devguide-device-twins.md).

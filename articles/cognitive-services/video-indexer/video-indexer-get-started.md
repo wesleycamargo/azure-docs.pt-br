@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: tutorial
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: f7c86985d12d52ac2dc8b4d2952f048969d3c339
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 89d15e83954f529705b3ac3c6f12e2a16a17479d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984468"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220002"
 ---
 # <a name="tutorial-how-to-sign-up-and-upload-your-first-video"></a>Tutorial: Como se inscrever e carregar seu primeiro vídeo
 
@@ -25,7 +25,7 @@ Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliaçã
 
 ## <a name="sign-up-for-video-indexer"></a>Inscrever-se no Video Indexer
 
-Para começar a desenvolver com o Video Indexer, navegue até o site do [Video Indexer](https://www.videoindexer.com) e inscreva-se.
+Para começar a desenvolver com o Video Indexer, navegue para o site do [Video Indexer](https://www.videoindexer.com) e inscreva-se.
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>Carregar um vídeo usando o site do Video Indexer
 

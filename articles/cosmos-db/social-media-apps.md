@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 7925ef15dc7b3ce25ae919810a5ed2220184fe6e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 5c916f847bf5098145c3ed14fad87c7669d916c8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700836"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222685"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Expandindo o Azure Cosmos DB para as redes sociais
 Viver em uma sociedade amplamente interconectada significa que, em determinado momento da vida, você acaba se tornando parte de uma **rede social**. Você usa redes sociais para manter contato com amigos, colegas, família ou, às vezes, para compartilhar seu entusiasmo com pessoas que têm os mesmos interesses.
@@ -39,7 +39,7 @@ Por que o SQL não é a melhor opção nesse cenário? Vamos examinar a estrutur
 É claro que, para atender às necessidades de seu conteúdo, você poderia usar uma instância SQL gigantesca com capacidade suficiente para resolver milhares de consultas com essas várias junções, mas, sinceramente, por que faria isso quando há uma solução mais simples?
 
 ## <a name="the-nosql-road"></a>O caminho NoSQL
-Este artigo orientará você na modelagem de dados de sua plataforma social com o banco de dados NoSQL do Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), de maneira econômica, aproveitando outros recursos de Azure Cosmos DB, como a [API do Gremlin](../cosmos-db/graph-introduction.md). Usando uma abordagem [NoSQL](https://en.wikipedia.org/wiki/NoSQL), armazenando os dados no formato JSON e aplicando a [desnormalização](https://en.wikipedia.org/wiki/Denormalization), sua postagem anteriormente complicada pode ser transformada em um único [Documento](https://en.wikipedia.org/wiki/Document-oriented_database):
+Este artigo orientará você na modelagem de dados de sua plataforma social com o banco de dados NoSQL do Azure, o [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), de maneira econômica, aproveitando outros recursos do Azure Cosmos DB, como a [API do Gremlin](../cosmos-db/graph-introduction.md). Usando uma abordagem [NoSQL](https://en.wikipedia.org/wiki/NoSQL), armazenando os dados no formato JSON e aplicando a [desnormalização](https://en.wikipedia.org/wiki/Denormalization), sua postagem anteriormente complicada pode ser transformada em um único [Documento](https://en.wikipedia.org/wiki/Document-oriented_database):
 
 
     {
@@ -99,7 +99,7 @@ A criação de feeds resume-se à criação de documentos que podem reter uma li
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Você poderia ter um fluxo “mais recentes” com as postagens ordenadas por data de criação, um fluxo “mais populares” com as postagens com o maior número de curtidas nas últimas 24 horas... Poderia, até mesmo, implementar um fluxo personalizado para cada usuário baseado em lógica como seguidores e interesses, e ainda seria uma lista de postagens. É uma questão de como criar essas listas, mas fazer com que o desempenho de leitura permaneça ilimitado. Depois de adquirir uma dessas listas, você emitirá uma única consulta para o Cosmos DB usando o [operador IN](sql-api-sql-query.md#WhereClause) para obter páginas de postagens de uma só vez.
+Poderia haver um fluxo de “mais recentes” com as postagens ordenadas por data de criação, um fluxo “mais populares” com as postagens com o maior número de curtidas nas últimas 24 horas ou você poderia, até mesmo, implementar um fluxo personalizado para cada usuário com base em lógica, como seguidores e interesses, e isso ainda seria uma lista de postagens. É uma questão de como criar essas listas, mas fazer com que o desempenho de leitura permaneça ilimitado. Depois de adquirir uma dessas listas, você emitirá uma única consulta para o Cosmos DB usando o [operador IN](sql-api-sql-query.md#WhereClause) para obter páginas de postagens de uma só vez.
 
 As transmissões de feed podem ser criadas usando processos em segundo plano dos [Serviços de Aplicativos do Azure](https://azure.microsoft.com/services/app-service/): [Webjobs](../app-service/web-sites-create-web-jobs.md). Depois de criar uma postagem, o processamento em segundo plano pode ser disparado usando o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/), ao passo que as [Filas](../storage/queues/storage-dotnet-how-to-use-queues.md) e os Webjobs podem ser disparados usando o [SDK do Azure Webjobs](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando a propagação de postagem nas transmissões, de acordo com sua própria lógica personalizada. 
 
@@ -139,7 +139,7 @@ Como vocês devem ter observado no documento JSON que faz referência a uma post
 
 Para possibilitar consultas mais rápidas, você fica sujeito à duplicação de dados. O problema com esse efeito colateral é que, se por alguma ação, ocorrerem alterações aos dados de um usuário, será preciso encontrar todas as atividades já realizadas por ele e atualizá-las. Não parece prático, certo?
 
-Isso será resolvido isso identificando os principais atributos de um usuário mostrados em seu aplicativo para cada atividade. Se você mostrar visualmente uma postagem em seu aplicativo e mostrar apenas o nome e a imagem do criador, por que armazenar todos os dados do usuário no atributo “createdBy”? Se, para cada comentário, mostrar apenas a imagem do usuário, realmente, você não precisa do restante das informações dele. É nesse momento que entra em cena o que chamo de “padrão de Escada”.
+Isso será resolvido isso identificando os principais atributos de um usuário mostrados em seu aplicativo para cada atividade. Se você mostra visualmente uma postagem em seu aplicativo e apenas o nome e a imagem do criador, para que armazenar todos os dados do usuário no atributo “createdBy”? Se, para cada comentário, mostrar apenas a imagem do usuário, realmente, você não precisa do restante das informações dele. É nesse momento que entra em cena o que chamo de “padrão de Escada”.
 
 Vamos usar as informações do usuário como exemplo:
 
@@ -190,7 +190,7 @@ E um Post teria a seguinte aparência:
         }
     }
 
-E quando surgir uma edição em que um dos atributos da parte é afetado, será fácil encontrar os documentos afetados usando consultas que apontam para os atributos indexados (SELECT * FROM posts p WHERE p.createdBy.id == “edited_user_id”) e, em seguida, atualizando as partes.
+E quando surgir uma edição em que um dos atributos da parte é afetado, será fácil encontrar os documentos afetados usando consultas que apontam para os atributos indexados (SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id") e, em seguida, atualizando as partes.
 
 ## <a name="the-search-box"></a>A caixa de pesquisa
 Felizmente, os usuários vão gerar muito conteúdo. Além disso, você deve ser capaz de fornecer os meios pelos quais seja possível pesquisar e encontrar o conteúdo que, talvez, não esteja disponível diretamente em seus fluxos de conteúdo, provavelmente, porque não segue os criadores ou porque está apenas tentando encontrar aquela mensagem antiga que postou há seis meses.
@@ -240,7 +240,7 @@ Ao replicar os dados globalmente, você precisa garantir que os clientes podem a
 ![Adicionando cobertura global à plataforma social](./media/social-media-apps/social-media-apps-global-replicate.png)
 
 ## <a name="conclusion"></a>Conclusão
-Este artigo tenta esclarecer as alternativas para a criação completa de redes sociais no Azure com serviços de baixo custo e para a entrega de excelentes resultados com o incentivo do uso de uma solução de armazenamento em várias camadas e da distribuição de dados chamada “Escada”.
+Este artigo tenta esclarecer as alternativas para a criação completa de redes sociais no Azure com serviços de baixo custo e oferecendo excelentes resultados por meio do incentivo do uso de uma solução de armazenamento em várias camadas e da distribuição de dados chamada “Escada”.
 
 ![Diagrama de interação entre os serviços do Azure para rede social](./media/social-media-apps/social-media-apps-azure-solution.png)
 

@@ -1,20 +1,21 @@
 ---
-title: Noções básicas sobre as chaves do LUIS – Azure| Microsoft Docs
-description: Use as chaves LUIS (Reconhecimento vocal) para criar seu aplicativo e consultar seu ponto de extremidade.
+title: Entenda suas chaves do LUIS
+titleSuffix: Azure Cognitive Services
+description: 'O LUIS usa duas chaves: criação e ponto de extremidade. A chave de criação é criada para você automaticamente quando você cria sua conta LUIS. Quando você estiver pronto para publicar seu aplicativo de LUIS, será necessário criar a chave do ponto de extremidade, atribuí-la ao seu aplicativo de LUIS e usá-la com a consulta de ponto de extremidade.'
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b40ca74999be1821ffa329224ff419646591960e
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a4bd20f9f8a6a8317e161b1d84e948391cd08140
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225169"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034919"
 ---
 # <a name="keys-in-luis"></a>Chaves no LUIS
 O LUIS usa duas chaves: [criação](#programmatic-key) e [ponto de extremidade](#endpoint-key). A chave de criação é criada para você automaticamente quando você cria sua conta LUIS. Quando estiver pronto para publicar seu aplicativo LUIS, será necessário [criar a chave do ponto de extremidade](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [atribuí-la](luis-how-to-manage-keys.md#assign-endpoint-key) ao seu aplicativo LUIS e [usá-la com a consulta de ponto de extremidade](#use-endpoint-key-in-query). 
@@ -41,9 +42,9 @@ Quando desejar fazer **consultas de ponto de extremidade de produção**, crie u
 > Para sua conveniência, muitos dos exemplos usam a chave de criação, porque ela fornece algumas chamadas de ponto de extremidade em sua [cota](luis-boundaries.md#key-limits).  
 
 ## <a name="endpoint-key"></a>Chave do ponto de extremidade
- Quando precisar de **consultas de ponto de extremidade de produção**, crie uma [chave LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) no portal do Azure. Lembre-se do nome usado para criar a chave, você precisará dele quando for adicionar a chave ao aplicativo.
+ Quando precisar de **consultas de ponto de extremidade de produção**, crie uma [chave LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) no portal do Azure. Lembre-se do nome usado para criar a chave. Você precisará dele quando for adicionar a chave ao aplicativo.
 
-Quando o processo de assinatura do LUIS for concluído, [adicione a chave](luis-how-to-manage-keys.md#assign-endpoint-key) ao aplicativo na página **Publicar**. 
+Quando o processo de assinatura do LUIS for concluído, [atribua a chave](luis-how-to-manage-keys.md#assign-endpoint-key) ao aplicativo. 
 
 A chave do ponto de extremidade permite uma cota de ocorrências de ponto de extremidade com base no plano de uso especificado ao criar a chave. Confira [Preços de Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) para obter informações sobre preços.
 
@@ -73,6 +74,10 @@ Regiões de publicação são diferentes de regiões de criação. Certifique-se
 
 ## <a name="key-limit-errors"></a>Erros no limite de chave
 Se você exceder sua cota por segundo, receberá um erro HTTP 429. Se você exceder sua cota por mês, receberá um erro HTTP 403. Corrija esses erros obtendo uma chave de [ponto de extremidade](#endpoint-key) de LUIS, [atribuindo](luis-how-to-manage-keys.md#assign-endpoint-key) a chave ao aplicativo na página **Publicar** do site do [LUIS](luis-reference-regions.md#luis-website).
+
+## <a name="automating-assignment-of-the-endpoint-key"></a>Automatizar a atribuição da chave do ponto de extremidade
+
+Para atribuir a chave do ponto de extremidade a um aplicativo de LUIS, você precisa usar o site do LUIS para a criação correta e a publicação de [regiões](luis-reference-regions.md). Não há **nenhum** método automatizado para fazer isso, independentemente do mecanismo, como com um script do Azure Resource Manager, a CLI do Azure, o SDK programático ou com as APIs.
 
 ## <a name="next-steps"></a>Próximas etapas
 

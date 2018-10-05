@@ -1,20 +1,21 @@
 ---
-title: Testar em lote seu aplicativo LUIS - Azure | Microsoft Docs
+title: Testar em lote seu aplicativo LUIS – Reconhecimento vocal
+titleSuffix: Azure Cognitive Services
 description: Use o teste em lote para trabalhar continuamente em seu aplicativo para aprimorá-lo e melhorar o reconhecimento do idioma.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bba3f2ff942fbe5dffc9b694990964e4e3078dbe
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 414862d7ba1956f9449fde3ba063906fae6ef01b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222646"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041601"
 ---
 # <a name="batch-testing-in-luis"></a>Teste em lote no LUIS
 

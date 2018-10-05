@@ -9,18 +9,18 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7e27b5117f5f0ea98916ecfefcbb0dac9323e1d9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a71e867bd23cf64b2ac7fc8cd1c54c55d92ce924
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181080"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431781"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ## <a name="what-is-project-acoustics"></a>O que é Projeto Acústico?
 
-O plugin Project Acoustics Unity é um sistema acústico que calcula o comportamento das ondas sonoras antes do tempo de execução, semelhante à iluminação estática. A nuvem faz o trabalho pesado da física de onda no tempo de design, portanto, o custo da CPU de tempo de execução é baixo.  
+O plugin Project Acoustics Unity é um sistema acústico que calcula o comportamento das ondas sonoras antes do tempo de execução, semelhante à iluminação estática. A nuvem faz o trabalho pesado dos cálculos de física de onda, portanto, o custo da CPU de tempo de execução é baixo.  
 
 ## <a name="where-can-i-download-the-plugin"></a>Onde posso baixar o plug-in?
 
@@ -28,7 +28,7 @@ Se você estiver interessado em avaliar o plug-in de acústica, registre [aqui](
 
 ## <a name="is-azure-used-at-runtime"></a>O Azure é usado em tempo de execução?
 
-Não, a integração na nuvem é usada apenas durante o estágio de pré -ompósito no tempo de design.
+Não, a integração na nuvem é usada apenas durante o estágio de pré-computação que faz parte da configuração da cena.
  
 ## <a name="what-is-simulation-input"></a>O que é a entrada de simulação? 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 102f087f31aa304aaaee49e0e39ff8c6874127b4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 47dee26c84d96ebf5b0a421c2f10d18892d6d933
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966776"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227241"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos com suporte para alertas de métrica no Azure Monitor
 
@@ -32,7 +32,7 @@ Use também os alertas de métrica mais recentes em logs populares do Log Analyt
 Atualmente, é possível criar alertas de métrica mais novos apenas no portal do Azure, [API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) ou [Modelos do Gerenciador de Recursos](monitoring-create-metric-alerts-with-templates.md). Suporte para configurar os alertas mais recentes usando o PowerShell e a CLI do Azure versões 2.0 e superiores em breve.
 
 ## <a name="metrics-and-dimensions-supported"></a>Medidas e dimensões com suporte
-Os alertas de métrica mais recentes fornecem suporte a alertas para métricas que usam dimensões. É possível usar dimensões para filtrar sua métrica para o nível certo. Todas as métricas compatíveis, juntamente com as dimensões aplicáveis, podem ser exploradas e visualizadas do [Azure Monitor – Metrics Explorer (versão prévia)](monitoring-metric-charts.md).
+Os alertas de métrica mais recentes fornecem suporte a alertas para métricas que usam dimensões. É possível usar dimensões para filtrar sua métrica para o nível certo. Todas as métricas compatíveis, juntamente com as dimensões aplicáveis, podem ser exploradas e visualizadas no [Azure Monitor – Metrics Explorer](monitoring-metric-charts.md).
 
 Esta é a lista completa das origens métricas do Azure Monitor com suporte pelos alertas mais recentes:
 

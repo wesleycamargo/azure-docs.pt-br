@@ -1,21 +1,21 @@
 ---
-title: Aplicativo Web de página única da Pesquisa Visual do Bing (código-fonte) | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: 'Tutorial: Criar um aplicativo Web de página única (código-fonte) – Pesquisa Visual do Bing'
+titleSuffix: Azure Cognitive Services
 description: Código-fonte para tutorial mostrando como usar a API de Pesquisa Visual do Bing em um aplicativo Web de página única.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 9b6164b811f897ec5cd8a67d27d3aa4f3d250f2e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a908bdcf447039ad3a27ceae04f0a6cfff890d21
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002585"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225745"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>Tutorial: Aplicativo Web de uma página Pesquisa Visual Única
 

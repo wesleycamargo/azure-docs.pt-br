@@ -9,14 +9,14 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 86a24c2cdba890046f2cbb0ccf6b73decdac7235
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2ff7c3482100545c476040ba556d464b9f44e434
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997515"
+ms.locfileid: "47031111"
 ---
-# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Instalar o tempo de execução do Azure IoT Edge no Windows para usar com contêineres do Linux
+# <a name="install-the-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Instalar o tempo de execução do Azure IoT Edge no Windows para usá-lo com contêineres do Linux
 
 O tempo de execução do Azure IoT Edge é o que transforma um dispositivo em um dispositivo do IoT Edge. O tempo de execução pode ser implantado em dispositivos pequenos como um Raspberry Pi ou grandes como um servidor industrial. Após um dispositivo ser configurado com o tempo de execução do IoT Edge, você poderá começar a implantar a lógica de negócios da nuvem nele. 
 
@@ -110,7 +110,7 @@ iotedge list
 
 ## <a name="tips-and-suggestions"></a>Dicas e sugestões
 
-Se sua rede tem um servidor proxy, siga as etapas em [Configurar seu dispositivo IoT Edge para se comunicar por meio de um servidor proxy](how-to-configure-proxy-support.md).
+Se a rede tiver um servidor proxy, siga as etapas em [Configurar o dispositivo IoT Edge para se comunicar por meio de um servidor proxy](how-to-configure-proxy-support.md) para instalar e iniciar o tempo de execução do IoT Edge.
 
 ## <a name="next-steps"></a>Próximas etapas
 

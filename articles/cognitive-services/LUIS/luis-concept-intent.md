@@ -1,20 +1,21 @@
 ---
-title: Noções básicas sobre intenções em aplicativos LUIS no Azure | Microsoft Docs
-description: Descreve quais intenções estão nos aplicativos LUIS (Serviço Inteligente de Reconhecimento Vocal).
+title: Noções básicas sobre intenções em aplicativos LUIS
+titleSuffix: Azure Cognitive Services
+description: Uma intenção representa uma tarefa ou ação que o usuário deseja executar. É uma finalidade ou uma meta expressa no enunciado de um usuário. Defina um conjunto de intenções que corresponda às ações que os usuários desejem executar em seu aplicativo.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 456f28191161c9a2fac223bf2a31e62e54ae28ae
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cfad122b44944cfb637d8ef98931410d60c81ab8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225781"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041153"
 ---
 # <a name="intents-in-luis"></a>Intenções no LUIS
 

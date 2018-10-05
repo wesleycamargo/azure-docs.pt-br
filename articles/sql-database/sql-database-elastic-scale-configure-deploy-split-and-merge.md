@@ -2,19 +2,22 @@
 title: Implantar um serviço de divisão e mesclagem | Microsoft Docs
 description: Use a ferramenta de divisão e mesclagem também para mover dados entre bancos de dados fragmentados.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 51a5f70cc56b2a4196ee7b151be0af3a9e16fc4f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: e277e2fa5ca7062cde1c0061e585dfb092337d4a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646925"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159324"
 ---
 # <a name="deploy-a-split-merge-service"></a>Implantar um serviço de divisão e mesclagem
 A ferramenta de divisão e mesclagem permite mover dados entre bancos de dados fragmentados. Veja [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -29,13 +32,11 @@ A ferramenta de divisão e mesclagem permite mover dados entre bancos de dados f
 
 Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** onde *x.x.xxx.x* reflete o número de versão. Localize os arquivos do Serviço de divisão e mesclagem no subdiretório **content\splitmerge\service** e os scripts de divisão e mesclagem do PowerShell (e as dlls do cliente necessárias) no subdiretório **content\splitmerge\powershell**.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de divisão e mesclagem. Vá para o [Portal do Azure](https://portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
 2. Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. No portal, em **Configurações de Firewall**, verifique se a configuração **Permitir acesso aos Serviços do Azure** foi definida como **Ativada**. Clique no botão “Salvar”.
-   
-   ![Serviços permitidos][1]
-3. Crie uma conta de Armazenamento do Azure que será usada para a saída de diagnóstico. Vá para o portal do Azure. Na barra esquerda, clique em **Criar um recurso**, clique em **Dados + Armazenamento** e, em seguida, em **Armazenamento**.
-4. Crie um Serviço de nuvem do Azure que conterá o seu serviço de Divisão-Mesclagem.  Vá para o portal do Azure. Na barra esquerda, clique em **Criar um recurso** e, em seguida, em **Computação**, **Serviço de Nuvem** e **Criar**. 
+3. Crie uma conta de Armazenamento do Azure para saída de diagnóstico.
+4. Crie um serviço de nuvem do Azure para seu serviço de divisão/mesclagem.
 
 ## <a name="configure-your-split-merge-service"></a>Configurar o serviço de divisão e mesclagem
 ### <a name="split-merge-service-configuration"></a>Configuração do serviço de Divisão-Mesclagem
@@ -118,17 +119,14 @@ Para a função da web:
 Observe que para implantações de produção devem ser usados certificados separados para a autoridade de certificação, para criptografia, o certificado do servidor e os certificados de cliente. Para obter instruções detalhadas sobre isso, consulte a [Configuração de segurança](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ## <a name="deploy-your-service"></a>Implantar o serviço
-1. Vá para o [Portal do Azure](https://manage.windowsazure.com).
-2. Clique na guia **Serviços de nuvem** à esquerda e selecione o serviço de nuvem que você criou anteriormente.
-3. Clique em **Painel**.
-4. Escolha o ambiente de preparo e clique em **Carregar uma nova implantação de preparo**.
-   
-   ![Staging][3]
+1. Vá para o [Portal do Azure](https://portal.azure.com)
+2. Selecione o serviço de nuvem que você já criou.
+3. Clique em **Visão Geral**.
+4. Escolha o ambiente de preparo e clique em **Carregar**.
 5. Na caixa de diálogo, digite um rótulo de implantação. Para 'Pacote' e 'Configuração', clique em 'Do local' e escolha o arquivo **SplitMergeService.cspkg** e seu arquivo cscfg configurado anteriormente.
 6. Certifique-se de que a caixa de seleção rotulada **Implantar mesmo se uma ou mais funções contiverem uma única instância** esteja marcada.
 7. Clique no botão de escala no canto inferior direito para iniciar a implantação. Isso poderá levar alguns minutos para ser concluído.
 
-   ![Carregar][4]
 
 ## <a name="troubleshoot-the-deployment"></a>Solucionar problemas de implantação
 Se sua função web não ficar online, provavelmente é um problema com a configuração de segurança. Verifique se o SSL está configurado como descrito acima.
@@ -144,11 +142,11 @@ Se sua função de trabalho não fica online, mas sua função web tiver êxito,
    ```
 
 * Verifique se o nome do servidor não começa com **https://**.
-* Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. Para fazer isso, abra https://manage.windowsazure.com, clique em "Bancos de dados SQL" à esquerda, clique em "Servidores" na parte superior e selecione seu servidor. Clique em **Configurar** na parte superior e verifique se a configuração dos **Serviços do Azure** estão definidas como “Sim”. (Consulte a seção Pré-requisitos na parte superior deste artigo).
+* Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. Para fazer isso, abra o banco de dados no portal e verifique se a configuração **Permitir acesso aos serviços do Azure** está definida como **Habilitada****.
 
 ## <a name="test-the-service-deployment"></a>Testar a implantação do serviço
 ### <a name="connect-with-a-web-browser"></a>Conectar-se com um navegador da Web
-Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Você pode descobrir isso no Portal Clássico do Azure acessando o **Painel** do seu serviço de nuvem e procurando em **URL do Site**, no lado direito. Substitua **http://** por **https://**, uma vez que as configurações de segurança padrão desabilitam o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
+Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Encontre-o no portal acessando a **Visão geral** do serviço de nuvem e procurando em **URL do Site** no lado direito. Substitua **http://** por **https://**, uma vez que as configurações de segurança padrão desabilitam o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
 
 ### <a name="test-with-powershell-scripts"></a>Testes com scripts do PowerShell
 A implantação e sue ambiente podem ser testados, executando os scripts de exemplo do PowerShell incluídos.

@@ -1,45 +1,133 @@
 ---
-title: Exibir todos os grupos existentes do Azure AD | Microsoft Docs
-description: Como exibir ou pesquisar grupos no Azure Active Directory
+title: Guia de Início Rápido para exibir os grupos e membros da sua organização no Azure Active Directory | Microsoft Docs
+description: Guia de Início Rápido com etapas sobre como pesquisar e exibir os grupos da sua organização e seus membros atribuídos usando o portal do Azure.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
-ms.date: 08/28/2017
+ms.date: 09/24/2018
 ms.author: lizross
-ms.custom: H1Hack27Feb2017;it-pro
+ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: 4022bfc465f87fe086de5d7198dac1d748ddbca6
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9da9f055163f5df4ea064bd46caa811e39fba20c
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860296"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056396"
 ---
-# <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Ver ou procurar seus grupos de usuários no Azure Active Directory
-Este artigo explica como exibir os grupos no Azure AD (Azure Active Directory). Um dos recursos de gerenciamento de usuário do Azure AD é que você pode usar grupos para realizar tarefas de gerenciamento, como a atribuição de permissões ou licenças para um número de usuários de uma só vez.
+<!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
-## <a name="how-do-i-see-all-the-groups"></a>Como vejo todos os grupos?
-1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-2. Selecione **Todos os serviços**, insira **Usuários e grupos** na caixa de texto e, em seguida, selecione **Enter**.
+# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Guia de Início Rápido: exibir os grupos e membros da sua organização no Azure Active Directory
+Você pode exibir os grupos e membros do grupo existentes da sua organização usando o portal do Azure. Grupos são usados para gerenciar usuários (membros) que precisam ter todos o mesmo acesso e as mesmas permissões para aplicativos e serviços potencialmente restritos.
 
-   ![Abrir usuários e grupos](./media/active-directory-groups-view-azure-portal/search-user-management.png)
-3. Na folha **Usuários e grupos**, escolha **Todos os grupos**.
+Neste início rápido, você vai exibir todos os grupos existentes de sua organização e os membros atribuídos.
 
-   ![Abrir a folha de grupos](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
-4. Na folha **Usuários e grupos - Todos os grupos** , é possível adicionar ou remover colunas de exibição, filtrar a lista para procurar um grupo ou fazer alterações em grupos para os quais você tem permissões suficientes para alterar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
+
+## <a name="prerequisites"></a>Pré-requisitos
+Antes de começar, você precisará:
+
+- Criar um locatário do Azure Active Directory. Para obter mais informações, veja [Acessar o portal do Azure Active Directory e criar um novo locatário](active-directory-access-create-new-tenant.md).
+
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
+Você deve entrar no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador global para o diretório.
+
+## <a name="create-a-new-group"></a>Criar um novo grupo 
+Criar um novo grupo chamado _Política do MDM – Oeste_. Para obter mais informações sobre como criar um grupo, veja [Como criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
+
+1. Selecione **Azure Active Directory**, **Grupos** e selecione **Novo grupo**.
+
+2. Conclua a página **Grupo**:
+    
+    - **Tipo de grupo:** selecione **Segurança**
+    
+    - **Nome do grupo:** tipo _Política do MDM – Oeste_
+    
+    - **Tipo de associação:** selecione **Atribuída**.
+
+3. Selecione **Criar**.
+
+## <a name="create-a-new-user"></a>Criar um novo usuário
+Criar um novo usuário denominado _Alain Charon_. Um usuário deve existir antes de ser adicionado como membro do grupo. Para obter mais informações sobre como criar um usuário, veja [Como adicionar ou excluir usuários](add-users-azure-active-directory.md).
+
+1. Selecione **Azure Active Directory**, **Usuários** e selecione **Novo usuário**.
+
+2. Conclua a página **usuário**:
+
+    - **Nome:** tipo _Alain Charon_.
+
+    - **Nome de usuário:** tipo *alain@contoso.com*.
+
+3. Copie a senha gerada automaticamente fornecida na caixa **Senha** e, em seguida, selecione **Criar**.
+
+## <a name="add-a-group-member"></a>Adicionar um membro do grupo
+Agora que você tem um grupo e um usuário, pode adicionar _Alain Charon_ como um membro ao grupo _Política do MDM – Oeste_. Para obter mais informações sobre como adicionar membros do grupo, veja [Como adicionar ou remover membros do grupo](active-directory-groups-members-azure-portal.md).
+
+1. Selecione **Azure Active Directory** > **Grupos**.
+
+2. Na página **Grupos – Todos os grupos**, pesquise e selecione o grupo **Política do MDM – Oeste**.
+
+3. Na página **Política do MDM – Visão geral do Oeste**, selecione **membros** na área **Gerenciar**.
+
+4. Selecione **Adicionar membros** e pesquise e selecione **Alain Charon**.
+
+5. Escolha **Selecionar**.
+
+## <a name="view-all-groups"></a>Exibir todos os grupos
+Você pode ver todos os grupos para a sua organização na página **Grupos – Todos os grupos** do portal do Azure.
+
+- Selecionar Azure **Active Directory** > **Grupos**.
+
+    A página **Grupos – Todos os grupos** é exibida mostrando todos os grupos do Active Directory.
+
+    ![Página de Grupos – Todos os grupos mostrando todos os grupos existentes](media/active-directory-groups-view-azure-portal/groups-all-groups-blade-with-all-groups.png)
+
+## <a name="search-for-the-group"></a>Pesquisar o grupo
+Pesquise a página **Grupos – Todos os grupos** para encontrar o grupo **Política do MDM – Oeste**.
+
+1. Na página **Grupos – Todos os grupos**, digite _MDM_ na caixa **Pesquisa**.
+
+    Os resultados da pesquisa são exibidos na caixa **Pesquisa**, incluindo o grupo _Política do MDM – Oeste_.
+
+    ![Página de Grupos – Todos os grupos com a caixa de pesquisa preenchida](media/active-directory-groups-view-azure-portal/search-for-specific-group.png)
+
+3. Selecionar o grupo **Política do MDM – Oeste**.
+
+4. Exiba as informações de grupo na página **Política do MDM – Visão Geral do Oeste**, incluindo o número de membros desse grupo.
+
+    ![Página Política do MDM – Visão Geral do Oeste com informações de membro](media/active-directory-groups-view-azure-portal/group-overview-blade.png)
+
+## <a name="view-group-members"></a>Exibir membros do grupo
+Agora que você encontrou o grupo, pode exibir todos os membros atribuídos.
+
+- Selecione **Membros** na área **Gerenciar** e, em seguida, examine a lista completa de nomes de membros atribuídos a esse grupo específico, incluindo _Alain Charon_.
+
+    ![Lista de membros atribuídos ao grupo de política do MDM – Oeste](media/active-directory-groups-view-azure-portal/groups-all-members.png)
+
+## <a name="clean-up-resources"></a>Limpar recursos
+Esse grupo é usado em vários dos processos de instruções disponíveis na seção **Guias de instruções** desta documentação. No entanto, se você preferir não usar esse grupo, poderá excluir ele e seus membros atribuídos usando as seguintes etapas:
+
+1. Na página **Grupos – todos os grupos**, pesquise o grupo **Política do MDM – Oeste**.
+
+2.  Selecionar o grupo **Política do MDM – Oeste**.
+
+    A página **Política do MDM – Visão Geral do Oeste** é exibida.
+
+3. Selecione **Excluir**.
+
+    O grupo e seus membros associados são excluídos.
+
+    ![Página Política do MDM – Visão Geral do Oeste com link Excluir realçado](media/active-directory-groups-view-azure-portal/group-overview-blade-delete.png)
+
+    >[!Important]
+    >Isso não exclui o usuário Alain Charon, apenas sua associação no grupo excluído.
 
 ## <a name="next-steps"></a>Próximas etapas
-Esses artigos fornecem mais informações sobre o Active Directory do Azure.
+Avance para o próximo artigo para saber como associar uma assinatura do seu diretório do Azure AD.
 
-* [Ver grupos existentes](active-directory-groups-view-azure-portal.md)
-* [Criar um novo grupo e adicionando membros](active-directory-groups-create-azure-portal.md)
-* [Gerenciar configurações de um grupo](active-directory-groups-settings-azure-portal.md)
-* [Gerenciar membros de um grupo](active-directory-groups-members-azure-portal.md)
-* [Gerenciar associações de um grupo](active-directory-groups-membership-azure-portal.md)
-* [Gerenciar regras dinâmicas para usuários em um grupo](../users-groups-roles/groups-dynamic-membership.md)
+> [!div class="nextstepaction"]
+> [Associar uma assinatura do Azure](active-directory-how-subscriptions-associated-directory.md)

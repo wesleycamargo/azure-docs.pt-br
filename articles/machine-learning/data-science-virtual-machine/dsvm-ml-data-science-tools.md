@@ -15,17 +15,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: cf73f792bcce906a673da0c6fb2eec099239c1c2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a9dc868c4f22f95ca5027e3c95513d176c69eac
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409543"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392390"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Ferramentas de ciência de dados e aprendizado de máquina
 A DSVM (Máquina Virtual de Ciência de Dados) tem um rico conjunto de ferramentas e bibliotecas para aprendizado de máquina disponível em linguagens populares como Python, R, Julia. 
 
 Aqui estão algumas da ferramentas e bibliotecas de aprendizado de máquina na DSVM. 
+
+## <a name="azure-machine-learning-servicehttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>SDK do [Serviço Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml)
+|    |           |
+| ------------- | ------------- |
+| O que é?   |   O Azure Machine Learning é um serviço de nuvem que você pode usar para desenvolver e implantar modelos de machine learning.  Você pode acompanhar seus modelos ao criar, treinar, dimensionar e gerenciá-los usando o SDK Python. Implante modelos como contêineres e execute-os na nuvem, localmente ou no IoT Edge.   |
+| Edições do DSVM com suporte     | Windows (ambiente do Conda: AzureML), Linux (ambiente do Conda: py36)    |
+| Usos típicos      | Plataforma de ML geral      |
+| Como é configurado/instalado no DSVM?      |  Instalada com o suporte a GPU   |
+| Como usar/executar?      | Com o SDK Python e a AZ CLI (ferramenta de linha de comando do Azure). Ative para o ambiente do Conda `AzureML` na edição do Windows ou para o `py36` na edição do Linux.      |
+| Links para exemplos      | Exemplos Jupyter Notebooks estão incluídos no diretório `AzureML` em blocos de anotações  |
+| Ferramentas relacionadas ao DSVM      | Visual Studio Code, Jupyter   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |

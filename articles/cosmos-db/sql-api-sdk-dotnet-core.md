@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b8004500df2e29ab865a8eb78adf278ef61d5ee8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7000fc13a792f4f6def592e78dc759c8cf165881
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702428"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451911"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK do .NET Core do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -53,6 +53,24 @@ ms.locfileid: "43702428"
 
 O SDK do .NET Core do Azure Cosmos DB tem paridade de recurso com a versão mais recente do [SDK do .NET do Azure Cosmos DB](sql-api-sdk-dotnet.md).
 
+### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
+
+* Adição de maior resiliência a falhas transitórias de solicitação de várias regiões.
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+
+* Adição de compatibilidade à gravação em várias regiões.
+* Melhorias de desempenho de consultar entre partições com TOP e MaxBufferedItemCount.
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+
+* Adicionado suporte para cancelamento de solicitações.
+* Adicionado SetCurrentLocation para ConnectionPolicy, que preenche automaticamente as localizações preferenciais com base na região.
+* Corrigido o Bug em Consultas de Partição Cruzada com Mín/Máx e um filtro que não corresponde a nenhum documento em uma partição individual.
+* Os métodos DocumentClient agora têm paridade com IDocumentClient.
+* Pilha de transporte de TCP direto atualizada para reduzir o número de conexões estabelecidas.
+* Adicionado suporte para TCP de modo direto para clientes não Windows.
+
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * Adicionado suporte para cancelamento de solicitações.
@@ -78,7 +96,7 @@ O SDK do .NET Core do Azure Cosmos DB tem paridade de recurso com a versão mais
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
-* Correção do bug que é acessado em determinadas condições de corrida, que resulta em erros intermitentes "Microsoft.Azure.Documents.NotFoundException: A sessão de leitura não está disponível para o token de sessão de entrada" ao usar o nível de consistência de sessão.
+* Correção do bug que ocorria em determinadas condições de corrida, que resultava em erros intermitentes “Microsoft.Azure.Documents.NotFoundException: a sessão de leitura não está disponível para o token de sessão de entrada” ao usar o nível de consistência de sessão.
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
@@ -186,8 +204,9 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](http:/
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
-| [2.0.0-preview2](#2.0.0-preview2) |26 de julho de 2018 |--- |
-| [2.0.0-preview](#2.0.0-preview) |11 de maio de 2018 |--- |
+| [2.1.1](#2.1.1) |27 de setembro de 2018 |--- |
+| [2.1.0](#2.1.0) |21 de setembro de 2018 |--- |
+| [2.0.0](#2.0.0) |07 de setembro de 2018 |--- |
 | [1.9.1](#1.9.1) |09 de março de 2018 |--- |
 | [1.8.2](#1.8.2) |21 de fevereiro de 2018 |--- |
 | [1.8.1](#1.8.1) |5 de fevereiro de 2018 |--- |
