@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 89f6a0c1adaded724f159ffbf33aae98969ab9fe
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 14e32bdfcde6969b820c0950d59bd5cf946a51e6
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027162"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802314"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>O armazenamento do Azure Stack: diferenças e considerações
 
@@ -41,7 +41,6 @@ Este artigo resume as diferenças do armazenamento do Azure Stack conhecidas dos
 |Discos gerenciados|Premium e standard com suporte|Suporte quando você usa a versão 1808 ou posterior.
 |Nome de blob|1.024 caracteres (2.048 bytes)|880 caracteres (1,760 bytes)
 |Tamanho máximo do blob de blocos|4,75 TB (100 MB X 50.000 blocos)|4,75 TB (100 MB x 50.000 blocos) para a atualização 1802 ou a versão mais recente. 50.000 x 4 MB (aproximadamente 195 GB) para versões anteriores.
-|Cópia de instantâneo de blob de página|Backup do Azure não gerenciado VM discos anexados a uma VM em execução com suporte|Ainda não tem suporte.
 |Cópia de instantâneo incremental de blob de página|Premium e blobs de página padrão do Azure com suporte|Ainda não tem suporte.
 |Camadas de armazenamento para o armazenamento de BLOBs|Frequente, esporádica ou de camadas de armazenamento de arquivos.|Ainda não tem suporte.
 Exclusão reversível para o armazenamento de BLOBs|Visualização|Ainda não tem suporte.

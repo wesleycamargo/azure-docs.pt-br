@@ -1,20 +1,23 @@
 ---
 title: Aplicativo de conexão da Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
 description: Este artigo descreve como conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure.
+services: sql-database
 ms.service: sql-database
-author: srdan-bozovic-msft
-manager: craigg
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/21/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 82e8836892b033ccbb3c3ad9806257348afe3702
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: f57d582aacad568811314494c0ed614839ccabba
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818395"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221733"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -22,16 +25,13 @@ Atualmente, você tem várias opções ao decidir como e onde hospedar seu aplic
  
 Você pode optar por hospedar o aplicativo na nuvem usando o Serviço de Aplicativo do Azure ou algumas das opções integradas de VNET (rede virtual) do Azure como o Ambiente do Serviço de Aplicativo do Azure, a Máquina Virtual e o Conjunto de Dimensionamento de Máquinas Virtuais. Você também pode adotar uma abordagem de nuvem híbrida e manter seus aplicativos localmente. 
  
-Seja qual for sua escolha, você poderá conectá-la a uma Instância Gerenciada (versão prévia).  
+Seja qual for sua escolha, você poderá conectá-la a uma Instância Gerenciada.  
 
 ![alta disponibilidade](./media/sql-database-managed-instance/application-deployment-topologies.png)  
-
 ## <a name="connect-an-application-inside-the-same-vnet"></a>Conectar um aplicativo dentro da mesma VNET 
 
 Este cenário é o mais simples. As máquinas virtuais dentro da VNET podem se conectar entre si diretamente mesmo se estão em sub-redes diferentes. Isso significa que tudo o que você precisa para conectar o aplicativo em um Ambiente de Aplicativo do Azure ou uma Máquina Virtual é definir a cadeia de conexão corretamente.  
  
-Caso você não possa estabelecer a conexão, verifique se você tem um Grupo de Segurança de Rede definido na sub-rede do aplicativo. Nesse caso, você precisa abrir a conexão de saída na porta 1433 do SQL, bem como o intervalo 11000-12000 de portas para o redirecionamento. 
-
 ## <a name="connect-an-application-inside-a-different-vnet"></a>Conectar um aplicativo em uma VNET diferente 
 
 Este cenário é um pouco mais complexo porque a Instância Gerenciada tem o endereço IP privado em sua própria VNET. Para se conectar, um aplicativo precisa ter acesso à VNET na qual a Instância Gerenciada foi implantada. Portanto, primeiro você precisa fazer uma conexão entre o aplicativo e a VNET da Instância Gerenciada. As VNETs não precisam estar na mesma assinatura para que este cenário funcione. 
@@ -55,6 +55,19 @@ Há duas opções de conexão do local à VNET do Azure:
  
 Se você estabeleceu com êxito a conexão do local ao Azure e não pode estabelecer a conexão à Instância Gerenciada, verifique se o firewall tem a conexão de saída aberta na porta 1433 do SQL, bem como no intervalo 11000-12000 de portas para o redirecionamento. 
 
+## <a name="connect-an-application-on-the-developers-box"></a>Conectar um aplicativo na caixa de desenvolvedores
+
+A Instância Gerenciada pode ser acessada somente por meio de um endereço IP privado. Portanto, para acessá-la na caixa de desenvolvedor, primeiro você precisa fazer uma conexão entre a caixa de desenvolvedor e a VNET da Instância Gerenciada. Para isso, configure uma conexão ponto a site a uma VNet usando a autenticação de certificado nativa do Azure. Para ver mais informações, consulte [Configurar uma conexão ponto a site para conectar-se a uma Instância Gerenciada do Banco de Dados SQL do Azure do computador local](sql-database-managed-instance-configure-p2s.md).
+
+## <a name="connect-from-on-premises-with-vnet-peering"></a>Conectar-se do local com o emparelhamento VNet
+Outro cenário implementado pelos clientes é quando o gateway de VPN está instalado em uma rede virtual e uma assinatura separada daquela que hospeda a Instância Gerenciada. As duas redes virtuais são, então, emparelhadas. O diagrama de arquitetura de exemplo a seguir mostra como isso pode ser implementado.
+
+![Emparelhamento VNet](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
+
+Depois que a infraestrutura básica for configurada, será necessário modificar alguma configuração para que o Gateway de VPN possa ver os endereços IP na rede virtual que hospeda a Instância Gerenciada. Para fazer isso, faça as seguintes alterações muito específicas nas **Configurações de emparelhamento**.
+1.  Na VNet que hospeda o gateway de VPN, acesse **Emparelhamentos**, em seguida, acesse a conexão VNet emparelhada à Instância Gerenciada e clique em **Permitir trânsito de gateway**.
+2.  Na VNet que hospeda a Instância Gerenciada, acesse **Emparelhamentos**, em seguida, acesse a conexão VNet emparelhada ao Gateway de VPN e clique em **Usar gateways remotos**.
+
 ## <a name="connect-an-azure-app-service-hosted-application"></a>Conectar um aplicativo hospedado no Serviço de Aplicativo do Azure 
 
 A Instância Gerenciada pode ser acessada somente por meio de um endereço IP privado. Portanto, para acessá-la no Serviço de Aplicativo do Azure, primeiro você precisa fazer uma conexão entre o aplicativo e a VNET da Instância Gerenciada. Consulte [Integrar seu aplicativo a uma Rede Virtual do Azure](../app-service/web-sites-integrate-with-vnet.md).  
@@ -71,11 +84,48 @@ Este cenário é ilustrado no seguinte diagrama:
 
 ![emparelhamento de aplicativo integrado](./media/sql-database-managed-instance/integrated-app-peering.png)
  
-## <a name="connect-an-application-on-the-developers-box"></a>Conectar um aplicativo na caixa de desenvolvedores 
+## <a name="troubleshooting-connectivity-issues"></a>Solucionar problemas de conectividade
 
-A Instância Gerenciada pode ser acessada somente por meio de um endereço IP privado. Portanto, para acessá-la na caixa de desenvolvedor, primeiro você precisa fazer uma conexão entre a caixa de desenvolvedor e a VNET da Instância Gerenciada.  
- 
-Configure uma conexão Ponto a Site com uma VNET usando a autenticação nativa de certificado do Azure. Os artigos ([portal do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [CLI do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) mostram em detalhes como isso pode ser feito. 
+Para solucionar problemas de conectividade, examine o seguinte:
+- Se não for possível conectar-se à Instância Gerenciada de uma máquina virtual do Azure na mesma VNet, mas em uma sub-rede diferente, verifique se há um Grupo de Segurança de Rede definido na sub-rede da VM que poderia estar bloqueando o acesso. Além disso, observe que é necessário abrir a conexão de saída na porta SQL 1433, bem como as portas no intervalo de 11000 a 12000, pois elas são necessárias para conectar-se por meio de redirecionamento de dentro dos limites do Azure. 
+- Verifique se a Propagação de BGP está definida como **Habilitada** para a tabela de rotas associada à VNet.
+- Se estiver usando VPN P2S, verifique a configuração no portal do Azure para verificar se os números de **Entrada/Saída** são mostrados. Números diferentes de zero indicam que o Azure está roteando o tráfego de/para o local.
+
+   ![Números de entrada/saída](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)
+
+- Verifique se o computador cliente (que executa o cliente VPN) tem entradas de rota para todas as Vnets que você precisa acessar. As rotas são armazenadas em `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
+
+
+   ![route.txt](./media/sql-database-managed-instance-connect-app/route-txt.png)
+
+   Conforme mostrado nesta imagem, há duas entradas para cada VNet envolvida e uma terceira entrada para o ponto de extremidade VPN configurado no Portal.
+
+   Outra maneira de verificar as rotas é por meio do comando a seguir. A saída mostra as rotas para as diversas sub-redes: 
+
+   ```cmd
+   C:\ >route print -4
+   ===========================================================================
+   Interface List
+   14...54 ee 75 67 6b 39 ......Intel(R) Ethernet Connection (3) I218-LM
+   57...........................rndatavnet
+   18...94 65 9c 7d e5 ce ......Intel(R) Dual Band Wireless-AC 7265
+   1...........................Software Loopback Interface 1
+   Adapter===========================================================================
+   
+   IPv4 Route Table
+   ===========================================================================
+   Active Routes:
+   Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0       10.83.72.1     10.83.74.112     35
+         10.0.0.0    255.255.255.0         On-link       172.26.34.2     43
+     
+         10.4.0.0    255.255.255.0         On-link       172.26.34.2     43
+   ===========================================================================
+   Persistent Routes:
+   None
+   ```
+
+- Se você usar o emparelhamento VNet, verifique se as instruções de configuração [Permitir trânsito de gateway e usar gateways remotos](#connect-from-on-premises-with-vnet-peering) foram seguidas. 
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versões necessárias de drivers e ferramentas
 
@@ -89,7 +139,7 @@ As seguintes versões mínimas das ferramentas e drivers são recomendadas se vo
 |Driver JDBC    | 6.4.0 |
 |Driver Node.js | 2.1.1 |
 |Driver OLE DB   | 18.0.2.0 |
-|SSMS   | 17.8.1 ou [superior](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
+|SSMS   | 17.8.1 ou [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## <a name="next-steps"></a>Próximas etapas
 

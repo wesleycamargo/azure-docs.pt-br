@@ -3,8 +3,8 @@ title: Monitoramento de ponto de extremidade do Gerenciador de Tráfego do Azure
 description: Este artigo pode ajudar você a entender como o Gerenciador de Tráfego usa o monitoramento de ponto de extremidade e o failover automático do ponto de extremidade para ajudar clientes do Azure a implantarem aplicativos de alta disponibilidade
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 0124c70916d1c9a6f6b818a68f13d7a189a1b70f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 64f3595206c580d0d177622d23aa49753100d3c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398828"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221087"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitoramento de ponto de extremidade do Gerenciador de Tráfego
 
@@ -32,17 +32,19 @@ Para configurar o monitoramento de ponto de extremidade, é necessário especifi
 * **Protocolo**. Escolha HTTP, HTTPS ou TCP como o protocolo que o Gerenciador de Tráfego usa ao investigar seu ponto de extremidade para verificar sua integridade. O monitoramento HTTPS não verifica se o seu certificado SSL é válido, apenas verifica se o certificado está presente.
 * **Porta**. Escolha a porta usada para a solicitação.
 * **Caminho**. Esta definição de configuração é válida somente para os protocolos HTTP e HTTPS, para quais é necessário especificar o caminho de configuração. Fornecer essa configuração para o protocolo de monitoramento TCP resulta em um erro. Para o protocolo HTTP e HTTPS, forneça o caminho relativo e o nome da página da Web ou do arquivo que o monitoramento acessa. Uma barra (/) é uma entrada válida para o caminho relativo. Esse valor indica que o arquivo está no diretório raiz (padrão).
+* **Configurações de cabeçalho personalizado** Essa definição de configuração ajuda a adicionar cabeçalhos HTTP específicos às verificações de integridade que o Gerenciador de Tráfego envia para os pontos de extremidade em um perfil. Os cabeçalhos personalizados podem ser especificados em um nível de perfil para ser aplicável a todos os pontos de extremidade nesse perfil e / ou em um nível de ponto de extremidade aplicável somente a esse ponto de extremidade. Você pode usar os cabeçalhos personalizados para que as verificações de integridade para pontos de extremidade em um ambiente de multilocatário sejam devidamente roteadas para seu destino, especificando um cabeçalho de host. Também é possível usar essa configuração adicionando cabeçalhos exclusivos que podem ser usados para identificar solicitações HTTP(S) originadas no Gerenciador de Tráfego e processá-las de forma diferente.
+* **Intervalos de código de status esperados** Essa configuração permite que você especifique vários intervalos de código com êxito no formato 200-299, 301-301. Se esses códigos de status forem recebidos como resposta de um ponto de extremidade quando uma verificação de integridade é iniciada, o Gerenciador de Tráfego marcará esses pontos de extremidade como íntegros. É possível especificar um máximo de oito intervalos de código de status. Essa configuração se aplica somente aos protocolos HTTP e HTTPS e a todos os pontos de extremidade. Essa configuração reside no nível de perfil do Gerenciador de Tráfego e, por padrão, o valor de 200 é definido como o código de status com êxito.
 * **Intervalo de investigação**. Esse valor especifica a frequência com que a integridade de um ponto de extremidade é verificada usando um agente de investigação do Gerenciador de Tráfego. Você pode especificar dois valores aqui: 30 segundos (investigação normal) e 10 segundos (investigação rápida). Se nenhum valor for fornecido, o perfil será definido como um valor padrão de 30 segundos. Acesse a página [Preços do Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager) para saber mais sobre os preços de investigação rápida.
 * **Número de falhas tolerado**. Esse valor especifica quantas falhas um agente de investigação do Gerenciador de Tráfego tolera antes de marcar o ponto de extremidade como não íntegro. Seu valor pode variar entre 0 e 9. Um valor de 0 significa que uma única falha de monitoramento pode fazer esse ponto de extremidade ser marcado como não íntegro. Se nenhum valor for especificado, ele usará o valor padrão de 3.
-* **Tempo limite de monitoramento**. Essa propriedade especifica a quantidade de tempo que o agente de investigação do Gerenciador de Tráfego deve esperar antes de considerar uma verificação de falha quando uma investigação de verificação de integridade é enviada ao ponto de extremidade. Se o Intervalo de Investigação for definido como 30 segundos, você poderá definir o valor de Tempo Limite entre 5 e 10 segundos. Se nenhum valor for especificado, ele usará um valor padrão de 10 segundos. Se o Intervalo de Investigação for definido como 10 segundos, você poderá definir o valor de Tempo Limite entre 5 e 9 segundos. Se nenhum valor de Tempo Limite for especificado, ele usará um valor padrão de 9 segundos.
+* **Tempo limite da investigação**. Essa propriedade especifica a quantidade de tempo que o agente de investigação do Gerenciador de Tráfego deve esperar antes de considerar uma verificação de falha quando uma investigação de verificação de integridade é enviada ao ponto de extremidade. Se o Intervalo de Investigação for definido como 30 segundos, você poderá definir o valor de Tempo Limite entre 5 e 10 segundos. Se nenhum valor for especificado, ele usará um valor padrão de 10 segundos. Se o Intervalo de Investigação for definido como 10 segundos, você poderá definir o valor de Tempo Limite entre 5 e 9 segundos. Se nenhum valor de Tempo Limite for especificado, ele usará um valor padrão de 9 segundos.
 
-![Monitoramento de ponto de extremidade do Gerenciador de Tráfego](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
+    ![Monitoramento de ponto de extremidade do Gerenciador de Tráfego](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-**Figura 1: Monitoramento de ponto de extremidade do Gerenciador de Tráfego**
+    **Figura: monitoramento de ponto de extremidade do Gerenciador de Tráfego**
 
 ## <a name="how-endpoint-monitoring-works"></a>Como o monitoramento de ponto de extremidade funciona
 
-Se o protocolo de monitoramento for definido como HTTP ou HTTPS, o agente de investigação do Gerenciador de Tráfego fará uma solicitação GET ao ponto de extremidade usando o protocolo, a porta e o caminho relativo fornecidos. Se ele obtiver de volta uma resposta 200-OK, esse ponto de extremidade será considerado íntegro. Se a resposta for um valor diferente ou se nenhuma resposta for recebida dentro do período de tempo limite especificado, o agente de investigação do Gerenciador de Tráfego tentará novamente de acordo com a configuração de Número de Falhas Tolerado (nenhuma nova tentativa será feita se essa configuração for de 0). Se o número de falhas consecutivas for maior do que a configuração Número de Falhas Tolerado, o ponto de extremidade será marcado como não íntegro. 
+Se o protocolo de monitoramento for definido como HTTP ou HTTPS, o agente de investigação do Gerenciador de Tráfego fará uma solicitação GET ao ponto de extremidade usando o protocolo, a porta e o caminho relativo fornecidos. Caso receba uma resposta 200-OK ou qualquer resposta configurada nos **Intervalos *de código de status esperados**, esse ponto de extremidade será considerado íntegro. Se a resposta for um valor diferente ou se nenhuma resposta for recebida dentro do período de tempo limite especificado, o agente de investigação do Gerenciador de Tráfego tentará novamente de acordo com a configuração de Número de Falhas Tolerado (nenhuma nova tentativa será feita se essa configuração for de 0). Se o número de falhas consecutivas for maior do que a configuração Número de Falhas Tolerado, o ponto de extremidade será marcado como não íntegro. 
 
 Se o protocolo de monitoramento for TCP, o agente de sondagem do Gerenciador de Tráfego iniciará uma solicitação de conexão TCP usando a porta especificada. Se o ponto de extremidade responder à solicitação com uma resposta para estabelecer a conexão, essa verificação de integridade será marcada como um êxito e o agente de investigação do Gerenciador de Tráfego redefinirá a conexão TCP. Se a resposta for um valor diferente ou se nenhuma resposta for recebida dentro do período de tempo limite especificado, o agente de investigação do Gerenciador de Tráfego tentará novamente acordo com a configuração de número de falhas tolerado (nenhuma nova tentativa será feita se essa configuração for de 0). Se o número de falhas consecutivas for maior do que a configuração Número de Falhas Tolerado, o ponto de extremidade será marcado como não íntegro.
 
@@ -101,7 +103,7 @@ O Gerenciador de Tráfego verifica periodicamente a integridade de cada ponto de
 
 Um ponto de extremidade não está íntegro quando qualquer um dos seguintes eventos ocorrem:
 - Se o protocolo de monitoramento for HTTP ou HTTPS:
-    - Uma resposta diferente de 200 será recebida (incluindo um código 2xx diferente ou um redirecionamento 301/302).
+    - Uma resposta diferente de 200 ou que não inclua o intervalo de status especificado na configuração **Intervalos de código de status esperados** foi recebida (incluindo um código diferente de 2xx ou um redirecionamento 301/302).
 - Se o protocolo de monitoramento for TCP: 
     - Uma resposta que não seja ACK ou SYN-ACK será recebida em resposta à solicitação de sincronização enviada pelo Gerenciador de Tráfego para tentar estabelecer uma conexão.
 - Tempo limite. 
@@ -109,14 +111,14 @@ Um ponto de extremidade não está íntegro quando qualquer um dos seguintes eve
 
 Para obter mais informações sobre como solucionar problemas de verificações com falha, consulte [Solução de problemas de status degradado no Gerenciador de Tráfego do Azure](traffic-manager-troubleshooting-degraded.md). 
 
-A seguinte linha de tempo na Figura 2 é uma descrição detalhada do processo de monitoramento do ponto de extremidade do Gerenciador de Tráfego que tem as seguintes configurações: o protocolo de monitoramento é HTTP, o intervalo de sondagem é de 30 segundos, o número de falhas toleradas é de 3, o valor de tempo limite é de 10 segundos e o TTL do DNS é de 30 segundos.
+A linha de tempo na figura a seguir é uma descrição detalhada do processo de monitoramento do ponto de extremidade do Gerenciador de Tráfego que tem as seguintes configurações: o protocolo de monitoramento é HTTP, o intervalo de investigação é de 30 segundos, o número de falhas tolerado é 3, o valor de tempo limite é de 10 segundos e a TTL do DNS é de 30 segundos.
 
 ![Sequência de failover e failback de ponto de extremidade do Gerenciador de Tráfego](./media/traffic-manager-monitoring/timeline.png)
 
-**Figura 2: Failover do ponto de extremidade do Gerenciador de Tráfego e sequência de recuperação**
+**Figura: failover do ponto de extremidade do Gerenciador de Tráfego e sequência de recuperação**
 
 1. **GET**. Para cada ponto de extremidade, o sistema de monitoramento do Gerenciador de Tráfego executa uma solicitação GET no caminho especificados nas configurações de monitoramento.
-2. **200 OK**. O sistema de monitoramento espera o retorno de uma mensagem HTTP 200 OK dentro de 10 segundos. Quando recebe essa resposta, ele reconhece que o serviço está disponível.
+2. **Configuração de monitoramento de perfil do Gerenciador de Tráfego com intervalo de código personalizado ou 200 OK especificado**. O sistema de monitoramento espera a mensagem de um HTTP 200 OK ou o intervalo de código personalizado especificado na configuração de monitoramento de perfil do Gerenciador de Tráfego seja retornada dentro de 10 segundos. Quando recebe essa resposta, ele reconhece que o serviço está disponível.
 3. **30 segundos entre verificações**. A verificação de integridade do ponto de extremidade é repetida a cada 30 segundos.
 4. **Serviço indisponível**. O serviço torna-se indisponível. O Gerenciador de Tráfego não saberá disso até a próxima verificação de integridade.
 5. **Tenta acessar o caminho de monitoramento**. O sistema de monitoramento executa uma solicitação GET, mas não recebe uma resposta dentro do período de tempo limite de 10 segundos (outra opção é de uma resposta diferente de 200 ser recebida). Posteriormente, ele realiza mais três tentativas em intervalos de 30 segundos. Se uma das tentativas for bem-sucedida, o número de tentativas será redefinido.
@@ -137,6 +139,8 @@ Quando um ponto de extremidade tem um status Degradado, ele não é retornado em
 * **Ponderado**. Qualquer ponto de extremidade disponível é escolhido aleatoriamente com base em seus pesos atribuídos e nos pesos de outros pontos de extremidade disponíveis.
 * **Desempenho**. O ponto de extremidade mais próximo ao usuário final é retornado. Se esse ponto de extremidade não estiver disponível, o Gerenciador de Tráfego moverá o tráfego para os pontos de extremidade da região do Azure seguinte mais próxima. Você pode configurar planos de failover alternativos para o roteamento de tráfego de desempenho usando [perfis aninhados do Gerenciador de Tráfego](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geográfico**. O ponto de extremidade mapeado para atender a localização geográfica com base no IP da solicitação de consulta é retornado. Se esse ponto de extremidade não estiver disponível, não será selecionado outro ponto de extremidade para failover, já que uma localização geográfica pode ser mapeada somente para um ponto de extremidade em um perfil (mais detalhes estão nas [Perguntas frequentes](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Como uma melhor prática, ao usar o roteamento geográfico, é recomendável que os clientes usem perfis de Gerenciador de Tráfego aninhados com mais de um ponto de extremidade como os pontos de extremidade do perfil.
+* **Vários Valores** Vários pontos de extremidade mapeados para endereços IPv4/IPv6 são retornados. Quando uma consulta é recebida para este perfil, os pontos de extremidade íntegros são retornados com base no valor **Número máximo de registros na resposta** que você especificou. O número padrão de respostas são dois pontos de extremidade.
+* **Sub-rede** O ponto de extremidade mapeado para um conjunto de intervalos de endereços IP será retornado. Quando uma solicitação é recebida de endereço IP, o ponto de extremidade retornado é aquele mapeado para esse endereço IP. 
 
 Para obter mais informações, consulte [Métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
 

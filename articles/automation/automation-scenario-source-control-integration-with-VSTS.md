@@ -1,25 +1,25 @@
 ---
-title: Integrar a Automação do Azure com o controle do código-fonte do Visual Studio Team Services
-description: O cenário guia você pela configuração de integração com uma conta de Automação do Azure e o controle do código-fonte do Visual Studio Team Services.
+title: Integrar a Automação do Azure ao controle do código-fonte do Azure DevOps Services
+description: O cenário orientará você durante a configuração da integração com uma conta de Automação do Azure e o controle do código-fonte do Azure DevOps Services.
 services: automation
 author: eamonoreilly
 ms.author: eamono
-keywords: Azure PowerShell, VSTS, controle do código-fonte, automação
+keywords: azure powershell, Azure DevOps Services, controle do código-fonte, automação
 ms.service: automation
 ms.component: process-automation
 ms.topic: conceptual
 ms.date: 03/19/2017
-ms.openlocfilehash: f34267490a0db71e05ece97c23b86467dbf7dbeb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ef21060e98972dd7bc561f9a4311fa0c4bdec3b4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194294"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227054"
 ---
-# <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Cenário da Automação do Azure – Integração de controle do código-fonte da Automação com o Visual Studio Team Services
+# <a name="azure-automation-scenario---automation-source-control-integration-with-azure-devops"></a>Cenário da Automação do Azure – Integração de controle do código-fonte ao Azure DevOps
 
-Nesse cenário, você tem um projeto do Visual Studio Team Services que você está usando para gerenciar runbooks da Automação do Azure ou configurações do DSC sob o controle do código-fonte.
-Este artigo descreve como integrar o VSTS em seu ambiente de Automação do Azure para que ocorra a integração contínua ocorra para cada check-in.
+Nesse cenário, você tem um projeto do Azure DevOps usado para gerenciar runbooks da Automação do Azure ou configurações do DSC sob o controle do código-fonte.
+Este artigo descreve como integrar o Azure DevOps ao seu ambiente da Automação do Azure para que a integração contínua ocorra a cada check-in.
 
 ## <a name="getting-the-scenario"></a>Obtendo o cenário
 
@@ -29,70 +29,71 @@ Este cenário é composto por dois runbooks do PowerShell que você pode importa
 
 Runbook | DESCRIÇÃO| 
 --------|------------|
-Sync-VSTS | Importar runbooks ou configurações do controle do código-fonte do VSTS quando é feito um check-in. Se executado manualmente, ele importa e publica todos os runbooks ou configurações para a conta de Automação.| 
-Sync-VSTSGit | Importar runbooks ou configurações do controle do código-fonte do VSTS sob o Git quando é feito um check-in. Se executado manualmente, ele importa e publica todos os runbooks ou configurações para a conta de Automação.|
+Sync-VSTS | Importar runbooks ou configurações do controle do código-fonte do Azure DevOps quando é realizado um check-in. Se executado manualmente, ele importa e publica todos os runbooks ou configurações para a conta de Automação.| 
+Sync-VSTSGit | Importar runbooks ou configurações do controle do código-fonte do Azure DevOps no Git quando é realizado um check-in. Se executado manualmente, ele importa e publica todos os runbooks ou configurações para a conta de Automação.|
 
 ### <a name="variables"></a>variáveis
 
 Variável | DESCRIÇÃO|
 -----------|------------|
-VSToken | Ativo de variável segura que você cria e que contém o token de acesso pessoal do VSTS. Você pode aprender como criar um token de acesso pessoal do VSTS na [página de autenticação do VSTS](/vsts/accounts/use-personal-access-tokens-to-authenticate).
+VSToken | Ativo de variável segura que você cria e que contém o token de acesso pessoal do Azure DevOps. Você pode aprender como criar um token de acesso pessoal do Azure DevOps na [página de autenticação do Azure DevOps](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 ## <a name="installing-and-configuring-this-scenario"></a>Instalando e configurando esse cenário
 
-Criar um [token de acesso pessoal](/vsts/accounts/use-personal-access-tokens-to-authenticate) no VSTS que é usado para sincronizar runbooks ou configurações em sua conta de automação.
+Criar um [token de acesso pessoal](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) no Azure DevOps que é usado para sincronizar os runbooks ou as configurações na sua conta de automação.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png) 
 
-Criar uma [variável segura](automation-variables.md) na sua conta de automação para armazenar o token de acesso pessoal para que o runbook possa autenticar o VSTS e sincronizar os runbooks ou configurações na conta de Automação. Você pode nomear esse VSToken. 
+Criar uma [variável segura](automation-variables.md) na sua conta de automação para armazenar o token de acesso pessoal para que o runbook possa autenticar o Azure DevOps e sincronizar os runbooks ou as configurações na conta de Automação. Você pode nomear esse VSToken.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-Importe o runbook que sincroniza seus runbooks ou configurações para a conta de automação. É possível utilizar o [runbook de exemplo do VSTS](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) ou o [runbook de exemplo do VSTS com Git] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) do PowerShellGallery.com, dependendo se você usa o controle do código-fonte do VSTS ou VSTS com Git e implantar na conta de automação.
+Importe o runbook que sincroniza seus runbooks ou configurações para a conta de automação. É possível utilizar o [runbook de exemplo do Azure DevOps](https://www.powershellgallery.com/packages/Sync-VSTS) ou o [runbook de exemplo do Azure DevOps com Git](https://www.powershellgallery.com/packages/Sync-VSTSGit) da [Galeria do PowerShell](https://www.powershellgallery.com), dependendo de se você usa o controle do código-fonte do Azure DevOps ou o Azure DevOps com Git e implanta na sua conta de automação.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 
 Agora você pode [publicar](automation-creating-importing-runbook.md#publishing-a-runbook) esse runbook para que você possa criar um webhook. 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPublishRunbook.png)
 
-Criar um [webhook](automation-webhooks.md) para este runbook Sync-VSTS e preencha os parâmetros conforme mostrado abaixo. Certifique-se de copiar a URL do webhook, pois você precisa dela para um gancho de serviço no VSTS. O VSAccessTokenVariableName é o nome (VSToken) da variável segura que você criou anteriormente para conter o token de acesso pessoal. 
+Criar um [webhook](automation-webhooks.md) para este runbook Sync-VSTS e preencha os parâmetros conforme mostrado abaixo. Verifique se você copiou a URL do webhook, pois ela será necessária para o gancho de serviço no Azure DevOps. O VSAccessTokenVariableName é o nome (VSToken) da variável segura que você criou anteriormente para conter o token de acesso pessoal. 
 
-A integração com o VSTS (Sync-VSTS.ps1) utiliza os parâmetros a seguir:
+A integração com o Azure DevOps (Sync-VSTS.ps1) utiliza os parâmetros a seguir:
 ### <a name="sync-vsts-parameters"></a>Parâmetros do Sync-VSTS
 
 Parâmetro | DESCRIÇÃO| 
 --------|------------|
-WebhookData | Isso contém as informações de check-in enviadas do gancho de serviço do VSTS. Você deve deixar esse parâmetro em branco.| 
+WebhookData | Isso contém as informações de check-in enviadas do gancho de serviço do Azure DevOps. Você deve deixar esse parâmetro em branco.| 
 ResourceGroup | Esse é o nome do grupo de recursos em que a conta de automação está contida.|
-AutomationAccountName | O nome da conta de automação que é sincronizada com o VSTS.|
-VSFolder | O nome da pasta do VSTS em que os runbooks e as configurações existem.|
-VSAccount | O nome da conta do Visual Studio Team Services.| 
-VSAccessTokenVariableName | O nome da variável segura (VSToken) que contém o token de acesso pessoal do VSTS.| 
+AutomationAccountName | O nome da conta de automação que é sincronizada com o Azure DevOps.|
+VSFolder | O nome da pasta no Azure DevOps em que os runbooks e as configurações existem.|
+VSAccount | O nome da organização do Azure DevOps.| 
+VSAccessTokenVariableName | O nome da variável segura (VSToken) que contém o token de acesso pessoal do Azure DevOps.| 
 
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSWebhook.png)
 
-Se você estiver usando o VSTS com GIT (Sync-VSTSGit.ps1), ele utilizará os parâmetros a seguir.
+Se você estiver usando o Azure DevOps com GIT (Sync-VSTSGit.ps1), ele utilizará os parâmetros a seguir.
 
 Parâmetro | DESCRIÇÃO|
 --------|------------|
-WebhookData | Isso conterá as informações de check-in enviadas do gancho de serviço do VSTS. Você deve deixar esse parâmetro em branco.| ResourceGroup | Esse é o nome do grupo de recursos em que a conta de automação está contida.|
-AutomationAccountName | O nome da conta de automação que é sincronizada com o VSTS.|
-VSAccount | O nome da conta do Visual Studio Team Services.|
-VSProject | O nome do projeto no VSTS em que os runbooks e as configurações existem.|
+WebhookData | Isso conterá as informações de check-in enviadas do gancho de serviço do Azure DevOps. Você deve deixar esse parâmetro em branco.| 
+ResourceGroup | Esse é o nome do grupo de recursos em que a conta de automação está contida.|
+AutomationAccountName | O nome da conta de automação que é sincronizada com o Azure DevOps.|
+VSAccount | O nome da organização do Azure DevOps.|
+VSProject | O nome do projeto no Azure DevOps em que os runbooks e as configurações existem.|
 GitRepo | O nome do repositório Git.|
-GitBranch | O nome da ramificação no repositório Git do VSTS.|
-Pasta | O nome da pasta na ramificação Git do VSTS.|
-VSAccessTokenVariableName | O nome da variável segura (VSToken) que contém o token de acesso pessoal do VSTS.|
+GitBranch | O nome do branch no repositório Git do Azure DevOps.|
+Pasta | O nome da pasta no branch Git do Azure DevOps.|
+VSAccessTokenVariableName | O nome da variável segura (VSToken) que contém o token de acesso pessoal do Azure DevOps.|
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
 
-Crie um gancho de serviço no VSTS para check-ins para a pasta que dispara esse webhook no check-in de código. Selecione **Web Hooks** como o serviço com o qual se integrar ao criar uma nova assinatura. Você pode aprender mais sobre os ganchos de serviço na [documentação de ganchos de serviço do VSTS](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
+Crie um gancho de serviço no Azure DevOps para check-ins na pasta que dispara esse webhook no check-in de código. Selecione **Web Hooks** como o serviço com o qual se integrar ao criar uma nova assinatura. Você pode aprender mais sobre os ganchos de serviço na [documentação de Ganchos de serviço do Azure DevOps](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSServiceHook.png)
 
-Agora você deve ser capaz de fazer todos os check-ins de runbooks e configurações no VSTS e sincronizá-los automaticamente em sua conta de automação.
+Agora você deverá poder realizar todos os check-ins de runbooks e configurações no Azure DevOps e sincronizá-los automaticamente na sua conta de automação.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSSyncRunbookOutput.png)
 
-Se você executar esse runbook manualmente sem ser disparado pelo VSTS, você poderá deixar o parâmetro webhookdata vazio e ele fará uma sincronização completa da pasta do VSTS especificada.
+Se você executar esse runbook manualmente sem ser disparado pelo Azure DevOps, você poderá deixar o parâmetro webhookdata vazio e ele fará uma sincronização completa da pasta do Azure DevOps especificada.
 
-Se você deseja desinstalar o cenário, remova o gancho de serviço do VSTS, exclua o runbook e a variável VSToken.
+Se você deseja desinstalar o cenário, remova o gancho de serviço do Azure DevOps, exclua o runbook e a variável VSToken.

@@ -1,7 +1,7 @@
 ---
 title: Criar uma palavra de ativação personalizada
-description: Criando uma palavra de ativação personalizada para o SDK de Dispositivos de Fala.
-titleSuffix: Microsoft Cognitive Services
+description: Saiba como criar uma palavra de ativação personalizada para o SDK de Dispositivos de Fala.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
@@ -9,69 +9,70 @@ ms.technology: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 615a901c70fff92141442699ea6e4b8fce1c9ace
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7ba62ce0cc2d391c96c31795aabaac9c8796f6d5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282566"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165527"
 ---
-# <a name="create-a-custom-wake-word-using-speech-service"></a>Criar uma palavra de ativação personalizada usando o serviço de Fala
+# <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Criar uma palavra de ativação personalizada usando o serviço de Fala
 
-Seu dispositivo está sempre escutando uma palavra de ativação (ou frase). Por exemplo, "Ei, Cortana" é uma palavra de ativação para o assistente Cortana. Quando o usuário diz que a palavra de ativação, o dispositivo começa a enviar todo o áudio subsequente para a nuvem até que o usuário para de falar. Personalizar sua palavra de ativação é uma maneira eficiente de diferenciar o seu dispositivo e fortalecer sua identidade visual.
+Seu dispositivo está sempre escutando uma palavra de ativação (ou frase). Por exemplo, "Ei, Cortana" é uma palavra de ativação para o assistente Cortana. Quando o usuário diz que a palavra de ativação, o dispositivo envia todo o áudio subsequente para a nuvem até que o usuário pare de falar. Personalizar sua palavra de ativação é uma maneira eficiente de diferenciar o seu dispositivo e fortalecer sua identidade visual.
 
 Neste artigo, você aprenderá a criar uma palavra de ativação personalizada para o seu dispositivo.
 
-## <a name="choosing-an-effective-wake-word"></a>Escolhendo uma palavra de ativação eficaz
+## <a name="choose-an-effective-wake-word"></a>Escolher uma palavra de ativação eficaz
 
-Considere as seguintes diretrizes ao escolher uma palavra de ativação.
+Considere as seguintes diretrizes ao escolher uma palavra de ativação:
 
 * Sua palavra de ativação deve ser uma palavra ou uma frase em inglês. Não deve levar mais dois segundos para ser dita.
 
-* Palavras de 4 a 7 sílabas funcionam melhor. Por exemplo, "Hey, Computer" é uma boa palavra de ativação, enquanto apenas "Hey" é uma palavra ruim.
+* Palavras com quatro a sete sílabas funcionam melhor. Por exemplo, "Hey, Computer" ("Ei Computador") é uma boa palavra de ativação. Apenas "Hey" ("Ei") seria uma ruim.
 
 * Palavras de ativação devem seguir as regras de pronúncia comuns do inglês.
 
-* Uma palavra exclusiva ou até mesmo inventada que siga as regras comuns de pronúncia do inglês pode reduzir falsos positivos. Por exemplo, "computerama" pode ser uma boa palavra de ativação.
+* Uma palavra única ou até mesmo inventada que siga as regras comuns de pronúncia do português pode reduzir falsos positivos. Por exemplo, “computerama” pode ser uma boa palavra de ativação.
 
 * Não escolha uma palavra comum. Por exemplo, "comer" e "ir" são palavras que as pessoas costumam usar em conversas. Elas podem ser gatilhos falsos para o seu dispositivo.
 
-* Evite usar uma palavra de ativação que possa ter pronúncias alternativas. Os usuários precisariam saber a pronúncia "certa" para fazer o dispositivo responder. Por exemplo, "509" poderia ser pronunciado como "five zero nine", "five oh nine" ou "five hundred and nine." "R.E.I." pode ser pronunciado como "R E I" ou "Ray". "Live" poderia ser pronunciado como [līv] ou [liv].
+* Evite usar uma palavra de ativação que possa ter pronúncias alternativas. Os usuários precisariam saber a pronúncia "certa" para fazer o dispositivo responder. Por exemplo, “509” poderia ser pronunciado como "five zero nine" ("cinco zero nove") ou "five hundred and nine" ("quinhentos e nove"). "R.E.I." pode ser pronunciado como “r-e-i” ou “ray”. "Live" pode ser pronunciado "/līv/" ou "/liv/".
 
-* Não use caracteres especiais, símbolos nem dígitos. Por exemplo, "Go#" e "20 + cats" não seriam boas palavras de ativação. No entanto, "go sharp" ou "twenty plus cats" funcionariam. Você ainda pode usar os símbolos em sua identidade visual e usar marketing e documentação para reforçar a pronúncia adequada.
+* Não use caracteres especiais, símbolos nem dígitos. Por exemplo, "Go#" e "20 + cats" não seriam boas palavras de ativação. No entanto, "go sharp" ("fique esperto") ou "twenty plus cats" ("mais de vinte gatos") pode funcionar. Você ainda pode usar os símbolos na sua identidade visual, bem como marketing e documentação para reforçar a pronúncia adequada.
 
 > [!NOTE]
-> Se você escolher uma palavra de marca como sua palavra de ativação, você deverá ser o proprietário da marca ou ter permissão do proprietário para usá-la. A Microsoft não é responsável por nenhum problema legal que possa surgir da sua escolha de palavra de ativação.
+> Se você escolher uma palavra de marca registrada como sua palavra de ativação, será preciso ser o proprietário dessa marca ou ter permissão do proprietário para usá-la. A Microsoft não é responsável por nenhum problema legal que possa surgir da sua escolha de palavra de ativação.
 
-## <a name="creating-your-wake-word"></a>Criando sua palavras de ativação
+## <a name="create-your-wake-word"></a>Criar sua palavra de ativação
 
-Antes de usar uma palavra de ativação personalizada com seu dispositivo, você deverá criá-la usando o serviço Geração de Palavra de Ativação Personalizada da Microsoft. Depois de você fornecer uma palavra de ativação, o serviço produz um arquivo que você pode implantar no seu kit de desenvolvimento para habilitar a palavra de ativação no dispositivo.
+Antes de usar uma palavra de ativação personalizada com seu dispositivo, será preciso criá-la usando o serviço de Geração de Palavra de Ativação Personalizada da Microsoft. Depois de você fornecer uma palavra de ativação, o serviço produzirá um arquivo que deverá ser implantado no seu kit de desenvolvimento para habilitar a palavra de ativação no dispositivo.
 
-1. Vá para o [portal do Serviço de Fala Personalizado](https://cris.ai/).
+1. Acesse o [portal do Serviço de Fala Personalizada](https://cris.ai/).
 
-2. Crie uma nova conta com o endereço de email em que você recebeu o convite para o Azure Active Directory. 
+2. Crie uma conta com o endereço de email no qual você recebeu o convite para o Azure Active Directory. 
 
-    ![criar nova conta](media/speech-devices-sdk/wake-word-1.png)
+    ![Criar uma nova conta](media/speech-devices-sdk/wake-word-1.png)
  
-3.  Depois de conectado, preencha o formulário e clique em **Iniciar a jornada.**
+3.  Depois de entrar, preencha o formulário e selecione **Iniciar minha jornada**.
 
-    ![logon realizado com sucesso](media/speech-devices-sdk/wake-word-3.png)
+    ![Conectado com êxito](media/speech-devices-sdk/wake-word-3.png)
  
-4. A página **Palavra de Ativação Personalizada** não está disponível para o público, portanto, não há nenhum link que o leve para ela. Em vez disso, clique em ou cole este link: https://cris.ai/customkws.
+4. A página **Palavra de Ativação Personalizada** não está disponível para o público, portanto, não há nenhum link que leve até ela. O recurso de Fala Personalizada requer uma assinatura do Azure, mas o recurso de Palavra de Ativação Personalizada não. Se você receber a página de erro **Nenhuma assinatura encontrada.** basta substituir a parte **"Subscriptions?errorMessage=No%20Subscriptions%20found"** por "**customkws**" na URL e pressionar ENTER. A URL deverá ser uma destas opções: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, dependendo da localização da sua região.   
 
-    ![página oculta](media/speech-devices-sdk/wake-word-4.png)
+
+    ![A página Palavra de Ativação Personalizada é oculta](media/speech-devices-sdk/wake-word-4.png)
  
-6. Digite a palavra de ativação de sua escolha e, em seguida, escolha **Enviar**.
+6. Digite a palavra de ativação de sua escolha e, em seguida, selecione **Enviar a palavra**.
 
-    ![insira sua palavra de ativação](media/speech-devices-sdk/wake-word-5.png)
+    ![Insira sua palavra de ativação](media/speech-devices-sdk/wake-word-5.png)
  
-7. Pode demorar alguns minutos para os arquivos serem gerados. Você verá um círculo girando na guia do navegador. Após um momento, uma barra de informações será exibida solicitando que você baixe um arquivo `.zip`.
+7. Pode demorar alguns minutos para os arquivos serem gerados. Você verá um círculo girando na janela do navegador. Após alguns momentos, uma barra de informações será exibida solicitando que você baixe um arquivo .zip.
 
-    ![recebendo um arquivo .zip](media/speech-devices-sdk/wake-word-6.png)
+    ![Receber o arquivo .zip](media/speech-devices-sdk/wake-word-6.png)
 
-8. Salve o arquivo `.zip` no computador. Você precisará desse arquivo para implantar a palavra de ativação personalizada para o kit de desenvolvimento, seguindo as instruções em [Introdução ao SDK de Dispositivos de Fala](speech-devices-sdk-qsg.md).
+8. Salve o arquivo .zip no computador. Você precisará desse arquivo para implantar a palavra de ativação personalizada no kit de desenvolvimento. Para implantar a palavra de ativação personalizada, siga as instruções em [Introdução ao SDK de Dispositivos de Fala](speech-devices-sdk-qsg.md).
 
-9. Agora você pode **Sair.**
+9. Selecione **Sair.**
 
 ## <a name="next-steps"></a>Próximas etapas
 
