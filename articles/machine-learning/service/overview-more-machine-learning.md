@@ -1,94 +1,110 @@
 ---
-title: Outros produtos de aprendizado de máquina da Microsoft — Azure Machine Learning | Microsoft Docs
-description: Além do Azure Machine Learning, há uma variedade de opções na Microsoft para criar, implantar e gerenciar modelos de aprendizado de máquina.
+title: Compare as opções de produto de aprendizado de máquina da Microsoft – Azure | Microsoft Docs
+description: Compare a variedade de produtos da Microsoft para compilar, implantar e gerenciar seus modelos de machine learning. Decida quais produtos escolher para sua solução.
 services: machine-learning
-author: haining
-ms.author: haining
-manager: cgronlun
-ms.reviewer: garyericson, mldocs
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
 ms.topic: overview
-ms.date: 04/11/2018
-ms.openlocfilehash: 138fbb64ca2d157059c952d9e82541cfac3ff597
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.reviewer: jmartens
+author: garyericson
+ms.author: garye
+ms.date: 09/24/2018
+ms.openlocfilehash: 182504373795b3cb0f2794acbed5e253ac6bc95c
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579047"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419552"
 ---
-# <a name="other-machine-learning-products-and-services-from-microsoft"></a>Outros produtos de aprendizado de máquina e serviços da Microsoft
+# <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Quais são as opções do produto de aprendizado de máquina da Microsoft?
 
-Além do [Azure Machine Learning](overview-what-is-azure-ml.md), há uma variedade de opções na Microsoft para criar, implantar e gerenciar modelos de aprendizado de máquina. 
-* Serviços de Machine Learning do SQL Server
-* Microsoft Machine Learning Server
-* Máquina Virtual da Ciência de Dados do Azure
-* MLLib Spark no HDInsight
-* Serviço de Treinamento de IA do Lote
-* CNTK (Microsoft Cognitive Toolkit)
-* Serviços Cognitivos do Azure
+A Microsoft fornece uma variedade de opções de produto para compilar, implantar e gerenciar seu modelos de aprendizado de máquina. Compare esses produtos e escolha o que você precisa para desenvolver com mais eficiência soluções de aprendizado de máquina.
 
+| Produto de aprendizado de máquina | O que é | O que você pode fazer com ele |
+|-|-|-|
+| Na nuvem | | |
+| [Serviço do Azure Machine Learning](#azure-machine-learning-services) | O serviço de nuvem gerenciado para ML  | Treinar, implantar e gerenciar modelos no Azure usando o Python e a CLI |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Interface visual do tipo "arrastar e soltar" para ML | Criar, experimentar e implantar modelos usando algoritmos pré-configurados |
+| [Azure Databricks](#azure-databricks) | Plataforma de análise com base no Spark | Crie e implante modelos e fluxos de trabalho de dados |
+| [Serviços Cognitivos do Azure](#azure-cognitive-services) | Serviços do Azure com modelos predefinidos de ML e IA | Adicione facilmente recursos inteligentes aos seus aplicativos |
+| [Máquina Virtual de Ciência de Dados do Azure](#azure-data-science-virtual-machine) | Máquina virtual com as ferramentas de ciência de dados previamente instaladas | Desenvolver soluções de ML em um ambiente de pré-configurado |
+| Configuração local | | |
+| [Serviços de Machine Learning do SQL Server](#sql-server-machine-learning-services) | Mecanismo de análise inserido em SQL | Compilar e implantar modelos dentro do SQL Server |
+| [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Servidor empresarial autônomo para análise de previsão | Compilar e implantar modelos com R e Python |
+| Ferramentas de desenvolvedor | | |
+| [ML.NET](#mlnet) | Código-fonte aberto, SDK de ML multiplataforma | Desenvolver soluções de ML para aplicativos .NET |
+| [Windows ML](#windows-ml) | Plataforma do Windows 10 ML | Avaliar modelos treinados em um dispositivo Windows 10 |
 
-## <a name="sql-server-machine-learning-services"></a>Serviços de Machine Learning do SQL Server
-Os [Serviços de Machine Learning do SQL Server da Microsoft](https://docs.microsoft.com/sql/advanced-analytics/r/r-services) permitem que você execute, treine e implante modelos de aprendizado de máquina usando o R ou Python. Você pode usar dados situados localmente e em Bancos de Dados do SQL Server. 
+## <a name="azure-machine-learning-service"></a>Serviço do Azure Machine Learning
 
-Use os Serviços de Machine Learning da Microsoft quando você precisar treinar ou implantar modelos localmente ou dentro do Microsoft SQL Server. Modelos criados com os Serviços de Machine Learning podem ser implantados usando o Gerenciamento de Modelos do Azure Machine Learning. 
+O [serviço do Azure Machine Learning](overview-what-is-azure-ml.md) (versão prévia) é um serviço de nuvem totalmente gerenciado usado para treinar, implantar e gerenciar modelos de ML em escala. Ele dá suporte total a tecnologias de software livre, portanto, você pode usar dezenas de milhares de pacotes do Python de software livre, como TensorFlow, PyTorch e scikit-learn. Ferramentas avançadas também estão disponíveis, como [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebooks](http://jupyter.org) ou [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) para facilitar a exploração e a transformação de dados e então o treinamento e a implantação de modelos. Os serviços do Azure Machine Learning incluem recursos que automatizam a geração e o ajuste de modelo com facilidade, eficiência e precisão.
 
-## <a name="microsoft-machine-learning-server"></a>Microsoft Machine Learning Server 
-[O Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server) é um servidor empresarial para hospedagem e gerenciamento de cargas de trabalho paralelas e distribuídas de processos do R e do Python. O Microsoft Machine Learning Server é executado no Windows, Linux, Hadoop e Apache Spark. Ele também está disponível em [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/). Ele fornece um mecanismo de execução para soluções criadas usando [pacotes do Microsoft Machine Learning](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package) e estende o R e o Python de software livre com suporte para os seguintes cenários:
+Use os serviços do Azure Machine Learning para treinar, implantar e gerenciar modelos de ML usando Python e CLI em escala de nuvem.
 
-- Análise de alto desempenho
-- Análise estatística
-- Aprendizado de máquina
-- Conjuntos de dados realmente grandes
+>[!Note]
+> Você pode experimentar o Azure Machine Learning gratuitamente. Não é necessário nenhum cartão de crédito ou assinatura do Azure. Comece agora mesmo. https://azure.microsoft.com/free/
 
-A funcionalidade agregada é fornecida por meio de pacotes de proprietários que são instalados com o servidor. Para desenvolvimento, você pode usar IDEs como [Ferramentas do R para Visual Studio](https://www.visualstudio.com/vs/rtvs/) e [Ferramentas Python para Visual Studio](https://www.visualstudio.com/vs/python/).
+## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 
-Use o Microsoft Machine Learning Server quando você precisar:
+[O Azure Machine Learning Studio](../studio/what-is-ml-studio.md) oferece um workspace visual e interativo que você pode usar para compilar, testar e implantar modelos usando algoritmos de aprendizado de máquina predefinidos com rapidez e facilidade. O Machine Learning Studio publica modelos como serviços Web que podem ser facilmente consumidos por aplicativos personalizados ou ferramentas de BI como o Excel.
+Nenhuma programação é necessária: você constrói seu modelo de machine learning conectando conjuntos de dados e módulos de análise em uma tela interativa e, em seguida, implanta-o com alguns cliques.
 
-- Compilar e implantar modelos criados com R e Python em um servidor
-- Distribuir o treinamento de R e Python em grande escala em um cluster Spark ou Hadoop
+Use o Machine Learning Studio quando quiser desenvolver e implantar modelos sem exigir nenhum código.
 
-## <a name="azure-data-science-virtual-machine"></a>Máquina Virtual da Ciência de Dados do Azure
-O [Máquina Virtual de Ciência de Dados](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) é um ambiente de máquina virtual personalizada na nuvem do Microsoft Azure, especificamente criada para ciência de dados. Ela tem muitas ferramentas conhecidas de ciência de dados, entre outras, pré-instaladas e pré-configuradas que ajudam a começar a criar rapidamente aplicativos inteligentes para análise avançada. A VM de Ciência de Dados está disponível em um versões do Windows Server 2012 e 2016, em uma VM Linux Ubuntu 16.04 LTS e em distribuições de OpenLogic CentOS 7.4. 
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-Use a VM de Ciência de Dados quando você precisar executar ou hospedar seus trabalhos em um único nó. Ou então, se você precisar expandir remotamente o processamento em um único computador. A Máquina Virtual de Ciência de Dados tem suporte como um destino para Experimentação do Azure Machine Learning e Gerenciamento de Modelos do Azure Machine Learning. 
+## <a name="azure-databricks"></a>Azure Databricks
 
-## <a name="spark-mllib-in-hdinsight"></a>MLLib Spark no HDInsight
-O [MLLib Spark no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-ipython-notebook-machine-learning) permite que você crie modelos como parte de trabalhos Spark que estão em execução em Big Data. O Spark permite que você transforme e prepare dados com facilidade e, em seguida, expanda a criação de modelos em um único trabalho. Modelos criados por meio do MLLib Spark podem ser implantados, gerenciados e monitorados por meio do Gerenciamento de Modelos do Azure Machine Learning. Execuções de treinamento podem ser distribuídas e gerenciadas com a Experimentação do Azure Machine Learning. O Spark também pode ser usado para expandir trabalhos de preparação de dados criados no Machine Learning Workbench. 
+O [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) é uma plataforma de análise baseada no Apache Spark otimizada para a plataforma de Serviços de Nuvem do Microsoft Azure. O Databricks é integrado com o Azure para fornecer instalação com um clique, fluxos de trabalho simplificados e um workspace interativo que permite a colaboração entre os cientistas de dados, os engenheiros de dados e os analistas empresariais.
+Use código R, Python, Scala e SQL em blocos de anotações baseado na Web para consultar, visualizar e modelar dados.
 
-Use o Spark quando você precisar expandir o processamento de dados e criar modelos como parte de um pipeline de dados. Você pode criar trabalhos Spark no Scala, Java, Python ou R. 
-
-## <a name="batch-ai-training"></a>Treinamento de IA do Lote 
-O [Treinamento de IA do Lote do Azure](https://aka.ms/batchaitraining) ajuda a fazer experiências em paralelo com seus modelos de IA usando qualquer estrutura, então treina-os em grande escala em GPUs clusterizadas. Descreva sua configuração e requisitos de trabalho para a execução e nós cuidaremos do restante. 
-
-O Treinamento de IA do Lote permite que você expanda trabalhos de aprendizagem profunda entre GPUs clusterizadas usando estruturas como:
-
-- Kit de Ferramentas Cognitivas
-- Caffe
-- Encadeador
-- TensorFlow
-
-O Gerenciamento de Modelos do Azure Machine Learning pode ser usado para implantar, gerenciar e monitorar modelos tomados do Treinamento de IA do Lote.  O Treinamento de IA do Lote será integrado à Experimentação do Azure Machine Learning no futuro. 
-
-## <a name="microsoft-cognitive-toolkit-cntk"></a>CNTK (Microsoft Cognitive Toolkit)
-O [Kit de Ferramentas Cognitivas da Microsoft](https://www.microsoft.com/en-us/cognitive-toolkit/) é um kit de ferramentas de aprendizagem profunda unificado que descreve as redes neurais como etapas computacionais em um grafo direcionado. Nesse grafo direcionado, nós de folha representam valores de entrada ou parâmetros de rede, enquanto outros nós representam as operações de matriz sobre as respectivas entradas. O Kit de Ferramentas Cognitivas permite facilmente perceber e combinar tipos de modelo populares como DNNs de encaminhamento do feed, CNNs (redes convolucionais) e RNNs/LSTMs (redes recorrentes). Ele implementa o SGD (gradiente descendente estocástico, erro backpropagation) com diferenciação automática e paralelização entre vários GPUs e servidores.
-
-Use o Kit de Ferramentas Cognitivas quando você desejar criar um modelo usando aprendizagem profunda.  O Kit de Ferramentas Cognitivas pode ser usado em qualquer um dos serviços acima.
+Use o Databricks quando quiser colaborar na criação de soluções de aprendizado de máquina no Apache Spark.
 
 ## <a name="azure-cognitive-services"></a>Serviços Cognitivos do Azure
-Os [Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/#pivot=products&panel=ai) são um conjunto de cerca de 30 APIs que permitem que você crie aplicativos que usam métodos naturais de comunicação. Essas APIs permitem que seus aplicativos vejam, ouçam, falem, entendam e interpretem as necessidades dos usuários com apenas algumas linhas de código. Adicione facilmente recursos inteligentes para seus aplicativos, tais como: 
+
+Os [Serviços Cognitivos do Azure](/azure/cognitive-services/welcome) são um conjunto de APIs que permitem criar aplicativos que usam métodos naturais de comunicação. Essas APIs permitem que seus aplicativos vejam, ouçam, falem, entendam e interpretem as necessidades dos usuários com apenas algumas linhas de código. Adicione facilmente recursos inteligentes para seus aplicativos, tais como: 
 
 - Detecção de emoção e sentimento
 - Visão e reconhecimento de fala
 - LUIS (Reconhecimento vocal)
 - Conhecimento e pesquisa
 
-Os Serviços Cognitivos podem ser usados para desenvolver aplicativos entre dispositivos e plataformas. As APIs estão em constante aperfeiçoamento e são fáceis de configurar. 
+Use Serviços Cognitivos para desenvolver aplicativos entre dispositivos e plataformas. As APIs estão em constante aperfeiçoamento e são fáceis de configurar.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+## <a name="azure-data-science-virtual-machine"></a>Máquina Virtual da Ciência de Dados do Azure
+
+A [Máquina Virtual de Ciência de Dados do Azure](../data-science-virtual-machine/overview.md) é um ambiente de máquina virtual personalizada na nuvem do Microsoft Azure, especificamente criada para ciência de dados. Ela tem muitas ferramentas conhecidas de ciência de dados, entre outras, pré-instaladas e pré-configuradas que ajudam a começar a criar rapidamente aplicativos inteligentes para análise avançada.
+A Máquina Virtual de Ciência de Dados está disponível nas versões para Windows e Linux Ubuntu (não há suporte para os serviços do Azure Machine Learning no Linux CentOS).
+Para obter informações de versão específica e uma lista do que foi incluído, veja [Introdução à Máquina Virtual de Ciência de Dados do Azure](../data-science-virtual-machine/overview.md).
+Há suporte para a Máquina Virtual de Ciência de Dados como um destino para os serviços do Azure Machine Learning.
+
+Use a VM de Ciência de Dados quando você precisar executar ou hospedar seus trabalhos em um único nó. Ou então, se você precisar expandir remotamente o processamento em um único computador.
+
+## <a name="sql-server-machine-learning-services"></a>Serviços de Machine Learning do SQL Server
+
+O [Serviço do Microsoft Machine Learning para SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services) adiciona análise estatística, visualização de dados e análise preditiva em R e Python para dados relacionais em bancos de dados do SQL Server. Bibliotecas em R e Python da Microsoft incluem modelagem avançada e algoritmos de ML que podem ser executados em paralelo e em escala no SQL Server.
+
+Use os Serviços de Machine Learning do SQL Server quando precisar de IA integrada e análise preditiva em dados relacionais no SQL Server.
+
+## <a name="microsoft-machine-learning-server"></a>Microsoft Machine Learning Server
+
+[O Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server) é um servidor empresarial para hospedagem e gerenciamento de cargas de trabalho paralelas e distribuídas de processos do R e do Python. O Microsoft Machine Learning Server é executado em Windows, Linux, Hadoop e Apache Spark e também está disponível no [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/). Ele fornece um mecanismo de execução para soluções criadas usando [pacotes RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package) e [MicrosoftML](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package), e estende R e Python de software livre com suporte para análise de alto desempenho, análise estatística, aprendizado de máquina e conjuntos de dados realmente grandes. Essa funcionalidade agregada é fornecida por meio de pacotes de proprietários que são instalados com o servidor. Para desenvolvimento, você pode usar IDEs como [Ferramentas do R para Visual Studio](https://www.visualstudio.com/vs/rtvs/) e [Ferramentas Python para Visual Studio](https://www.visualstudio.com/vs/python/).
+
+Use o Microsoft Machine Learning Server quando precisar compilar e operacionalizar modelos criados com R e Python em um servidor ou distribuir o treinamento de R e Python em grande escala em um cluster Hadoop ou Spark.
+
+## <a name="mlnet"></a>ML.NET
+
+[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/) é uma estrutura de aprendizado de máquina gratuita, de software livre e multiplataforma que permite que você crie soluções de aprendizado de máquina personalizadas e integre-as em seus aplicativos .NET.
+
+Use ML.NET quando quiser integrar soluções de aprendizado de máquina a seus aplicativos .NET.
+
+## <a name="windows-ml"></a>Windows ML
+
+[Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/) permite que você use modelos de aprendizado de máquina treinados em seus aplicativos, avaliando modelos treinados localmente em dispositivos Windows 10.
+
+Use o Windows ML quando quiser usar modelos de aprendizado de máquina treinados em seus aplicativos do Windows.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Leia a visão geral do [Azure Machine Learning](overview-what-is-azure-ml.md).
+- Para saber mais sobre todos os produtos de desenvolvimento de IA (Inteligência Artificial) disponíveis na Microsoft, veja [Plataforma de IA da Microsoft](https://www.microsoft.com/ai)
+- Para obter treinamento sobre como desenvolver soluções de IA, veja a [Microsoft AI School](https://aischool.microsoft.com/learning-paths)

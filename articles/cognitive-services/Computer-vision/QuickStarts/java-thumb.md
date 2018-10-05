@@ -1,46 +1,68 @@
 ---
-title: Início rápido de Java da API de Pesquisa Visual Computacional | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, você pode gerar uma miniatura de uma imagem usando a Pesquisa Visual Computacional com Java nos Serviços Cognitivos.
+title: 'Início Rápido: gerar uma miniatura – REST, Java – Pesquisa Visual Computacional'
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, você gerará uma miniatura de uma imagem usando a API da Pesquisa Visual Computacional com Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 8907b104cacfbcce53f6e490e348f108580d84a3
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8627a3b2e5f0a1e250401bdddc1870381979dca8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43768862"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225902"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-java"></a>Início Rápido: Gerar uma miniatura – REST, Java
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>Início Rápido: gerar uma miniatura usando a API REST e Java na Pesquisa Visual Computacional
 
-Neste início rápido, você gerará uma miniatura de uma imagem usando Pesquisa Visual Computacional.
+Neste início rápido, você gerará uma miniatura de uma imagem usando a API RES da Pesquisa Visual Computacional. Com o método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), é possível gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a região de interesse de modo inteligência e gerar as coordenadas de corte com base nessa região.
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar a Pesquisa Visual Computacional, você precisa de uma chave de assinatura. Veja [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- É preciso ter a [Java&trade; Platform e o Standard Edition Development Kit 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 ou 8) instalados.
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="get-thumbnail-request"></a>Solicitação Obter Miniatura
+## <a name="create-and-run-the-sample-application"></a>Criar e executar o aplicativo de exemplo
 
-Com o [método Obter Miniatura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), você pode gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a região de interesse de modo inteligência e gerar as coordenadas de corte com base nessa região.
+Para criar e executar o exemplo, siga estas etapas:
 
-Para executar a amostra, siga estas etapas:
+1. Crie um projeto Java em seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java com um modelo de aplicativo de linha de comando.
+1. Importe as bibliotecas a seguir para seu projeto Java. Se você usar o Maven, as coordenadas do Maven serão fornecidas para cada biblioteca.
+   - [Cliente do Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
+   - [Núcleo do Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
+   - [Biblioteca JSON](https://github.com/stleary/JSON-java) (org.json:json:20180130)
+1. Adicione as seguintes instruções `import` ao arquivo que contém a classe pública `Main` para seu projeto.  
 
-1. Crie um novo aplicativo de linha de comando.
-1. Substitua a classe Main pelo código a seguir (mantenha todas as instruções `package`).
-1. Substitua `<Subscription Key>` pela sua chave de assinatura válida.
-1. Altere o valor `uriBase` para o local em que você adquiriu suas chaves de assinatura, se necessário.
-1. Opcionalmente, altere o valor `imageToAnalyze` para outra imagem.
-1. Baixe essas bibliotecas do Repositório Maven para o diretório `lib` em seu projeto:
-   * `org.apache.httpcomponents:httpclient:4.5.5`
-   * `org.apache.httpcomponents:httpcore:4.4.9`
-   * `org.json:json:20180130`
-1. Execute “Main”.
+   ```java
+   import java.awt.*;
+   import javax.swing.*;
+   import java.net.URI;
+   import java.io.InputStream;
+   import javax.imageio.ImageIO;
+   import java.awt.image.BufferedImage;
+   import org.apache.http.HttpEntity;
+   import org.apache.http.HttpResponse;
+   import org.apache.http.client.methods.HttpPost;
+   import org.apache.http.entity.StringEntity;
+   import org.apache.http.client.utils.URIBuilder;
+   import org.apache.http.impl.client.CloseableHttpClient;
+   import org.apache.http.impl.client.HttpClientBuilder;
+   import org.apache.http.util.EntityUtils;
+   import org.json.JSONObject;
+   ```
+
+1. Substitua a classe pública `Main` pelo código a seguir e realize as seguintes alterações no código, se necessário:
+   1. Substitua o valor de `subscriptionKey` pela sua chave de assinatura.
+   1. Substitua o valor de `uriBase` pela URL do ponto de extremidade para o método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) da região do Azure em que você adquiriu suas chaves de assinatura, se necessário.
+   1. Outra opção é substituir o valor de `imageToAnalyze` pela URL de uma imagem diferente para a qual você deseja gerar uma miniatura.
+1. Salve e compile o projeto Java.
+1. Se você usar um IDE, execute `Main`. Caso contrário, abra uma janela do prompt de comando e use o comando `java` para executar a classe compilada. Por exemplo, `java Main`.
 
 ```java
 // This sample uses the following libraries:
@@ -48,22 +70,6 @@ Para executar a amostra, siga estas etapas:
 //  - Apache HTTP core (org.apache.httpcomponents:httpccore:4.4.9)
 //  - JSON library (org.json:json:20180130).
 
-import java.awt.*;
-import javax.swing.*;
-import java.net.URI;
-import java.io.InputStream;
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
 
 public class Main {
     // **********************************************
@@ -73,12 +79,14 @@ public class Main {
     // Replace <Subscription Key> with your valid subscription key.
     private static final String subscriptionKey = "<Subscription Key>";
 
-    // You must use the same region in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URI below with "westus".
+    // You must use the same Azure region in your REST API method as you used to
+    // get your subscription keys. For example, if you got your subscription keys
+    // from the West US region, replace "westcentralus" in the URL
+    // below with "westus".
     //
-    // Free trial subscription keys are generated in the westcentralus region. If you
-    // use a free trial subscription key, you shouldn't need to change this region.
+    // Free trial subscription keys are generated in the West Central US region.
+    // If you use a free trial subscription key, you shouldn't need to change
+    // this region.
     private static final String uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail";
 
@@ -96,7 +104,7 @@ public class Main {
             uriBuilder.setParameter("height", "150");
             uriBuilder.setParameter("smartCropping", "true");
 
-            // Prepare the URI for the REST API call.
+            // Prepare the URI for the REST API method.
             URI uri = uriBuilder.build();
             HttpPost request = new HttpPost(uri);
 
@@ -109,7 +117,7 @@ public class Main {
                     new StringEntity("{\"url\":\"" + imageToAnalyze + "\"}");
             request.setEntity(requestEntity);
 
-            // Make the REST API call and get the response entity.
+            // Call the REST API method and get the response entity.
             HttpResponse response = httpClient.execute(request);
             HttpEntity entity = response.getEntity();
 
@@ -154,32 +162,17 @@ public class Main {
 }
 ```
 
-## <a name="get-thumbnail-response"></a>Resposta de Obter Miniatura
+## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida contém o binário da imagem em miniatura. Se a solicitação falhar, a resposta conterá um código de erro e uma mensagem para ajudar a determinar o que deu errado. O texto a seguir é um exemplo de uma resposta bem-sucedida.
+Uma resposta bem-sucedida é retornada como dados binários, que representam os dados da imagem da miniatura. Se a solicitação for bem-sucedida, a miniatura será gerada com base nos dados binários na resposta e exibida em uma janela separada criada pelo aplicativo de exemplo. Se a solicitação falhar, a resposta será exibida na janela do console. A resposta para a solicitação com falha conterá um código de erro e uma mensagem para ajudar a determinar o que deu errado.
 
-```text
-Response:
+## <a name="clean-up-resources"></a>Limpar recursos
 
-StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
-{
-  Pragma: no-cache
-  apim-request-id: 131eb5b4-5807-466d-9656-4c1ef0a64c9b
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  x-content-type-options: nosniff
-  Cache-Control: no-cache
-  Date: Tue, 06 Jun 2017 20:54:07 GMT
-  X-AspNet-Version: 4.0.30319
-  X-Powered-By: ASP.NET
-  Content-Length: 5800
-  Content-Type: image/jpeg
-  Expires: -1
-}
-```
+Quando não for mais necessário, exclua o projeto Java, incluindo a classe compilada e as bibliotecas importadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore um aplicativo Swing Java que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para experimentar rapidamente as APIs de Pesquisa Visual Computacional, tente o [Console de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore um aplicativo Swing Java que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para experimentar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial de Java da API de Pesquisa Visual Computacional](../Tutorials/java-tutorial.md)

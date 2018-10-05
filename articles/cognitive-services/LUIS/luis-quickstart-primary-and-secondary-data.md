@@ -1,54 +1,71 @@
 ---
-title: Tutorial sobre como criar um aplicativo LUIS para extrair dados - Azure | Microsoft Docs
-description: Neste tutorial, saiba como criar um aplicativo LUIS simples usando intenções e uma entidade simple para extrair dados de aprendizado de máquina.
+title: 'Tutorial 7: lista de entidades com frases simples no LUIS'
+titleSuffix: Azure Cognitive Services
+description: Extrair dados de aprendizado de máquina de um enunciado
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a69ea8ea45a02399b7c6ad22f0dc514ad8537e06
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159649"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036042"
 ---
-# <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Tutorial: 7. Adicionar entidade simples e lista de frases
-Neste tutorial, crie um aplicativo que demonstra como extrair dados de aprendizado de máquina de um enunciado usando a entidade **Simple**.
+# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutorial 7: extrair os nomes com uma lista de entidades e frases simples
+
+Neste tutorial, extraia dados de aprendizado de máquina de um nome de cargo de um enunciado usando a entidade **Simples**. Para aumentar a precisão da extração, adicione uma lista de frases de termos específicos para a entidade simples.
+
+Este tutorial adiciona uma nova entidade simples para extrair o nome do cargo. A finalidade da entidade simples no aplicativo LUIS é ensinar ao LUIS o que é um nome trabalho e onde um enunciado pode ser encontrado. A parte do enunciado que é o nome do cargo pode mudar de acordo com o enunciado e com base no tamanho do enunciado e na escolha de palavras. O LUIS precisa de exemplos de nomes de cargo em todas as intenções que usam nomes de trabalho.  
+
+A entidade simples é uma boa escolha para esse tipo de dados quando:
+
+* Os dados são um conceito único.
+* Os dados não foram bem formatados como uma expressão regular.
+* Os dados não são comuns como uma entidade predefinida de dados ou número de telefone.
+* Os dados não correspondem exatamente à lista de palavras conhecidas como uma entidade de lista.
+* Os dados não contêm outros itens de dados como uma entidade de composição ou hierárquica.
+
+**Neste tutorial, você aprenderá a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Entender as entidades simple 
-> * Criar um novo aplicativo LUIS para o domínio dos recursos humanos (RH) 
+> * Usar o aplicativo de tutorial existente
 > * Adicionar uma entidade simples para extrair a mensagem do aplicativo
-> * Treinar e publicar o aplicativo
-> * Consulte ponto de extremidade do aplicativo para ver a resposta JSON do LUIS
 > * Adicionar lista de frase para aumentar o sinal de palavras de trabalho
-> * Treinar, publicar o aplicativo e repetir a consulta no ponto de extremidade
+> * Treinar 
+> * Publicar 
+> * Obter intenções e entidades do ponto de extremidade
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
-Caso não tenha o aplicativo de recursos humanos do tutorial da [entidade composta](luis-tutorial-composite-entity.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json).
+## <a name="use-existing-app"></a>Usar o aplicativo existente
 
-Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `simple`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original.  
+Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-## <a name="purpose-of-the-app"></a>Finalidade do aplicativo
-Este aplicativo demonstra como efetuar pull dos dados fora de um enunciado. Considere os seguintes enunciados de um chatbot:
+Se não tiver o aplicativo HumanResources do tutorial anterior, siga estas etapas:
+
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json).
+
+2. Importe o JSON para um novo aplicativo.
+
+3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `simple`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, ele não pode conter nenhum caractere que não seja válido em uma URL.
+
+## <a name="simple-entity"></a>Entidade simples
+A entidade simples detecta um conceito de dados único contido em palavras ou frases.
+
+Considere os seguintes enunciados de um chatbot:
 
 |Enunciado|Nome do trabalho extraível|
 |:--|:--|
 |Desejo me candidatar para o novo trabalho de contabilidade.|contabilidade|
-|Envie meu currículo para o cargo de engenharia.|engenharia|
+|Enviar meu currículo para o cargo de engenharia.|engenharia|
 |Preencher o aplicativo para o trabalho 123456|123456|
-
-Este tutorial adiciona uma nova entidade para extrair o nome do trabalho. 
-
-## <a name="purpose-of-the-simple-entity"></a>Finalidade da entidade simple
-A finalidade da entidade simples no aplicativo LUIS é ensinar ao LUIS o que é um nome trabalho e onde um enunciado pode ser encontrado. A parte do enunciado que é o trabalho pode mudar de acordo com o enunciado e com base no tamanho do enunciado e na escolha de palavras. O LUIS precisa de exemplos de trabalhos em qualquer enunciado em todas as intenções.  
 
 É difícil determinar o nome do trabalho porque um nome pode ser um substantivo, um verbo ou uma frase com várias palavras. Por exemplo: 
 
@@ -65,15 +82,13 @@ A finalidade da entidade simples no aplicativo LUIS é ensinar ao LUIS o que é 
 |extrusor|
 |construtor de moinhos|
 
-Esse aplicativo LUIS tem nomes de trabalho em várias intenções. Ao rotular essas palavras em todos os enunciados de intenções, o LUIS aprende mais sobre o que é um trabalho e onde ele é encontrado em enunciados.
+Esse aplicativo LUIS tem nomes de trabalho em várias intenções. Ao rotular essas palavras em todos os enunciados de intenções, o LUIS aprende mais sobre o que é um nome de cargo e em que local ele é encontrado em enunciados.
 
-## <a name="create-job-simple-entity"></a>Criar uma entidade simple de trabalho
+Após as entidades serem marcadas nos enunciados de exemplo, é importante adicionar uma lista de frases para ampliar o sinal da entidade simples. Uma lista de frases **não** é usada como uma correspondência exata e não precisa ser todos os valores possíveis que você espera. 
 
-1. Verifique se o seu aplicativo de recursos humanos está na seção **Compilar** do LUIS. Você pode alterar essa seção selecionando **Compilar** na barra de menus da parte superior direita. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Na página **Intenções**, selecione a intenção **ApplyForJob**. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "Captura de tela do LUIS com intenção de “ApplyForJob” realçada")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
 
 3. No enunciado, `I want to apply for the new accounting job`, selecione `accounting`, digite `Job` no campo superior do menu pop-up, depois selecione **Criar nova entidade** no menu pop-up. 
 
@@ -110,7 +125,10 @@ Esse aplicativo LUIS tem nomes de trabalho em várias intenções. Ao rotular es
     |Meu currículo para professor de biologia está anexado.|professor de biologia|
     |Gostaria de me candidatar para o cargo em fotografia.|fotografia|git 
 
-## <a name="label-entity-in-example-utterances-for-getjobinformation-intent"></a>Entidade de rótulo em enunciados de exemplo para a intenção GetJobInformation
+## <a name="label-entity-in-example-utterances"></a>Entidade de rótulo em enunciados de exemplo
+
+Ao rotular, ou _marcar_, a entidade mostra ao LUIS em que local a entidade está nos enunciados de exemplo.
+
 1. Selecione **Intents** no menu esquerdo.
 
 2. Selecione **GetJobInformation** na lista de intenções. 
@@ -125,80 +143,83 @@ Esse aplicativo LUIS tem nomes de trabalho em várias intenções. Ao rotular es
 
     Há outros enunciados de exemplo, mas eles não contêm palavras de trabalho.
 
-## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
+## <a name="train"></a>Treinar
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
+## <a name="publish"></a>Publicar
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto de extremidade com um enunciado diferente
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter a intenção e as entidades do ponto de extremidade 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vá até o final da URL no endereço e insira `Here is my c.v. for the programmer job`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, é um bom teste e deve retornar os enunciados `ApplyForJob`.
 
-```JSON
-{
-  "query": "Here is my c.v. for the programmer job",
-  "topScoringIntent": {
-    "intent": "ApplyForJob",
-    "score": 0.9826467
-  },
-  "intents": [
+    ```JSON
     {
-      "intent": "ApplyForJob",
-      "score": 0.9826467
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.0218927357
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.007849265
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00349470088
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.00348804821
-    },
-    {
-      "intent": "None",
-      "score": 0.00319909188
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00222647213
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00211193133
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00172086991
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00138010911
+      "query": "Here is my c.v. for the programmer job",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.9826467
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.9826467
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0218927357
+        },
+        {
+          "intent": "MoveEmployee",
+          "score": 0.007849265
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00349470088
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.00348804821
+        },
+        {
+          "intent": "None",
+          "score": 0.00319909188
+        },
+        {
+          "intent": "FindForm",
+          "score": 0.00222647213
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00211193133
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.00172086991
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.00138010911
+        }
+      ],
+      "entities": [
+        {
+          "entity": "programmer",
+          "type": "Job",
+          "startIndex": 24,
+          "endIndex": 33,
+          "score": 0.5230502
+        }
+      ]
     }
-  ],
-  "entities": [
-    {
-      "entity": "programmer",
-      "type": "Job",
-      "startIndex": 24,
-      "endIndex": 33,
-      "score": 0.5230502
-    }
-  ]
-}
-```
+    ```
+    
+    O LUIS encontrou a intenção correta, **ApplyForJob**, e extraiu a entidade correta, **Job**, com um valor de `programmer`.
+
 
 ## <a name="names-are-tricky"></a>Nomes são complicados
 O aplicativo LUIS encontrou a intenção correta com alta confiança e extraiu o nome do trabalho, mas nomes são complicados. Tente usar o enunciado `This is the lead welder paperwork`.  
@@ -260,18 +281,15 @@ No JSON a seguir, o LUIS responde com a intenção correta, `ApplyForJob`, mas n
 
 Como um nome pode ser qualquer coisa, o LUIS prevê as intenções mais precisamente caso tenha uma lista de frase de palavras para melhorar o sinal.
 
-## <a name="to-boost-signal-add-jobs-phrase-list"></a>Para melhorar o sinal, adicione uma lista de frases de trabalhos
+## <a name="to-boost-signal-add-phrase-list"></a>Para melhorar o sinal, adicione uma lista de frases
+
 Abra o [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) do repositório Github LUIS-Samples. A lista tem mais de mil palavras de trabalho e frases. Examine a lista de palavras em busca de palavras de trabalho que sejam significativas para você. Se suas palavras ou frases não estiverem na lista, adicione suas próprias.
 
 1. Na seção **Compilar** do aplicativo LUIS, selecione **Listas de frase**, encontrada no menu **Melhorar o desempenho do aplicativo**.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png "Captura de tela com o botão Listas de frase realçado no painel de navegação à esquerda")](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png#lightbox)
-
 2. Selecione **Criar nova lista de frase**. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png "Captura de tela do botão Criar nova lista de frase realçado")](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png#lightbox)
-
-3. Nomeie a nova lista de frase como `Jobs` e copie a lista de jobs-phrase-list.csv para a caixa de texto **Valores**. Selecione enter. 
+3. Nomeie a nova lista de frase como `Job` e copie a lista de jobs-phrase-list.csv para a caixa de texto **Valores**. Selecione enter. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Captura da caixa de diálogo pop-up Criar nova lista de frase")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -348,22 +366,13 @@ Abra o [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/mas
     }
     ```
 
-## <a name="phrase-lists"></a>Listas de frase
-A adição da lista de frases aumentou o sinal das palavras na lista, mas **não** é usada como uma correspondência exata. A lista de frases tem vários trabalhos com a primeira palavra `lead`, e também tem o trabalho `welder`, mas não tem o `lead welder`. Essa lista de frases de trabalhos pode não ser concluída. À medida que você [examinar enunciados de ponto de extremidade](luis-how-to-review-endoint-utt.md) regularmente e encontrar outras palavras de trabalho, adicione-as à sua lista de frases. Em seguida, treine e publique novamente.
-
-## <a name="what-has-this-luis-app-accomplished"></a>O que esse aplicativo de LUIS realizou?
-Esse aplicativo, com uma entidade simple e uma lista de frases com palavras, identificou uma intenção de consulta de linguagem natural e retornou os dados do trabalho. 
-
-Agora, seu chatbot tem informações suficientes para determinar a ação primária de se candidatar e um parâmetro dessa ação, à qual o trabalho está referenciado. 
-
-## <a name="where-is-this-luis-data-used"></a>Onde esses dados do LUIS são usados? 
-O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot, pode usar o resultado de topScoringIntent e os dados da entidade para usar uma API de terceiros para enviar as informações do trabalho para um representante dos recursos humanos. Se houver outras opções de programação para o aplicativo de chamada ou o bot, o LUIS não executará esse trabalho. O LUIS só determina qual é a intenção do usuário. 
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
+
+Neste tutorial, o aplicativo de Recursos Humanos usa uma entidade simples de aprendizado de máquina para encontrar nomes de cargo em enunciados. Como os nomes de trabalho podem ser uma ampla variedade de palavras e frases, o aplicativo precisava de uma lista de frases para aumentar as palavras relacionadas a nomes de cargo. 
 
 > [!div class="nextstepaction"]
 > [Adicionar uma entidade de keyphrase predefinida](luis-quickstart-intent-and-key-phrase.md)
