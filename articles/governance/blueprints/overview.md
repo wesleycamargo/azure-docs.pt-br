@@ -18,11 +18,11 @@ ms.locfileid: "46957480"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
-Assim como uma planta permite que um engenheiro ou arquiteto desenhe os parâmetros de um projeto, o Azure Blueprints permite que arquitetos de nuvem e TI definam um conjunto repetivel de recursos do Azure que implementa e adere aos padrões, modelos e requisitos de uma organização. O Azure Blueprints permite que as equipes de desenvolvimento forneçam e criem novos ambientes rapidamente, sabendo que eles são criados dentro da conformidade organizacional e contêm um conjunto de componentes integrados - como redes - para acelerar o desenvolvimento e a entrega.
+Assim como uma planta permite que um engenheiro ou arquiteto desenhe os parâmetros de um projeto, o Azure Blueprints permite que arquitetos de nuvem e TI definam um conjunto repetível de recursos do Azure que implementa e adere aos padrões, modelos e requisitos de uma organização. O Azure Blueprints permite que as equipes de desenvolvimento forneçam e criem novos ambientes rapidamente, sabendo que eles são criados dentro da conformidade organizacional e contêm um conjunto de componentes integrados - como redes - para acelerar o desenvolvimento e a entrega.
 
 Blueprints são uma maneira declarativa de orquestrar a implementação de vários modelos de recursos e outros artefatos, como:
 
-- Atribuições de Funções (Cargos)
+- Atribuições de Funções
 - Atribuições de Políticas
 - Modelos do Azure Resource Manager
 - Grupos de recursos
@@ -37,7 +37,7 @@ Com o Blueprints, a relação entre a definição do blueprint (o _que deve ser_
 
 Não há necessidade de escolher entre um modelo do Resource Manager e um blueprint. Cada blueprint pode consistir em zero ou mais artefatos _do modelo do Resource Manager_. Isso significa que os esforços anteriores para desenvolver e manter uma biblioteca de modelos do Resource Manager podem ser aproveitados no Blueprints.
 
-## <a name="how-it-is-different-from-azure-policy"></a>Como é diferente do Azure Policy
+## <a name="how-it-is-different-from-azure-policy"></a>Como é diferente do Azure Policy?
 
 Um blueprint é um pacote ou contêiner para composição de conjuntos específicos de foco de padrões, modelos e requisitos relacionados à implementação de serviços em nuvem, segurança e design do Azure que podem ser reutilizados para garantir consistência e conformidade.
 
@@ -67,7 +67,7 @@ Ao criar uma definição de blueprint, você definirá onde o blueprint será sa
 
 ### <a name="blueprint-parameters"></a>Parâmetros de blueprint
 
-Blueprint podem passar parâmetros para uma iniciativa de política/ou um modelo do Azure Resource Manager.
+Blueprints podem passar parâmetros para uma iniciativa/política ou um modelo do Azure Resource Manager.
 Quando qualquer um dos _artefato_ é adicionada para um blueprint, o autor é capaz de se decidir para fornecer um valor definido para cada atribuição de blueprint ou para permitir que cada atribuição de blueprint forneça um valor em tempo de atribuição. Essa flexibilidade fornece a opção para definir um valor predeterminado para todos os usos do blueprint ou para habilitar essa decisão a ser feita no momento da atribuição.
 
 > [!NOTE]
@@ -77,7 +77,7 @@ Para obter mais informações, consulte [parâmetros de blueprint](./concepts/pa
 
 ### <a name="blueprint-publishing"></a>Publicação de blueprint
 
-Quando um blueprint é criado, ele é considerado para estar no modo **rascunho**. Quando estiver pronto para ser atribuído, ele precisa ser **Publicado**. A publicação requer a definição de uma **Versão** (letras, números e hifens com um comprimento máximo de 20 caracteres) juntamente com **Alterar anotações** opcionais.
+Quando um blueprint é criado, ele é considerado para estar no modo **rascunho**. Quando estiver pronto para ser atribuído, ele precisa ser **Publicado**. A publicação requer a definição de uma cadeia de caracteres da **Versão** (letras, números e hifens com um comprimento máximo de 20 caracteres) juntamente com **Alterar anotações** opcionais.
 A **versão** a diferencia de futuras alterações no mesmo blueprint e permite que cada versão seja atribuída. Isso também significa que diferentes **versões** do mesmo blueprint podem ser atribuídos à mesma assinatura. Quando são feitas alterações adicionais para o blueprint, a **versão publicada** ainda existe, além das **alterações não publicadas**. Depois que as alterações forem concluídas, o blueprint atualizado está **publicado** com uma nova e exclusiva **versão** e agora também podem ser atribuídos.
 
 ## <a name="blueprint-assignment"></a>Atribuição de blueprint
