@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 2c7dc650109ecc3844ee2ae90e50b2267f5716c4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996512"
+ms.locfileid: "47036534"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como migrar do Serviço de Controle de Acesso do Azure
 
@@ -61,6 +61,51 @@ Toda a comunicação com o STS e as operações de gerenciamento são feitas nes
 A exceção a isso é qualquer tráfego para `https://accounts.accesscontrol.windows.net`. O tráfego para essa URL já é gerenciado por um serviço diferente e **não** é afetado pela substituição do Controle de Acesso. 
 
 Para mais informações sobre o Controle de Acesso, consulte [Serviço de Controle de Acesso 2.0 (arquivado)](https://msdn.microsoft.com/library/hh147631.aspx).
+
+## <a name="find-out-which-of-your-apps-will-be-impacted"></a>Descubra quais dos seus aplicativos serão afetados
+
+Siga as etapas nesta seção para descobrir quais dos seus aplicativos serão afetados pela desativação do ACS.
+
+### <a name="download-and-install-acs-powershell"></a>Baixar e instalar o PowerShell do ACS
+
+1. Vá para a Galeria do PowerShell e baixe [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
+1. Instale o módulo fazendo a execução
+
+    ```powershell
+    Install-Module -Name Acs.Namespaces
+    ```
+
+1. Obtenha uma lista de todos os comandos possíveis fazendo a execução
+
+    ```powershell
+    Get-Command -Module Acs.Namespaces
+    ```
+
+    Para obter ajuda sobre um comando específico, execute:
+
+    ```
+     Get-Help [Command-Name] -Full
+    ```
+    
+    em que `[Command-Name]` é o nome do comando do ACS.
+
+### <a name="list-your-acs-namespaces"></a>Liste seus namespaces do ACS
+
+1. Conecte-se ao ACS usando o cmdlet **Connect-AcsAccount**.
+  
+    Pode ser necessário executar `Set-ExecutionPolicy -ExecutionPolicy Bypass` antes de poder executar comandos e ser o administrador dessas assinaturas para executar os comandos.
+
+1. Liste suas assinaturas do Azure disponíveis usando o cmdlet **Get-AcsSubscription**.
+1. Liste seus namespaces do ACS usando o cmdlet **Get-AcsNamespace**.
+
+### <a name="check-which-applications-will-be-impacted"></a>Verifique quais aplicativos serão afetados
+
+1. Use o namespace da etapa anterior e vá para `https://<namespace>.accesscontrol.windows.net`
+
+    Por exemplo, se um dos namespaces for contoso-test, vá para `https://contoso-test.accesscontrol.windows.net`
+
+1. Sob **Relações de confiança**, selecione **Aplicativos de terceira parte confiável** para ver a lista de aplicativos que serão afetados pela desativação do ACS.
+1. Repita as etapas 1-2 para outros namespaces do ACS que você possa ter.
 
 ## <a name="retirement-schedule"></a>Cronograma de desativação
 

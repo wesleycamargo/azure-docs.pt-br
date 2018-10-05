@@ -1,6 +1,6 @@
 ---
-title: Configurar a replicação de sistema do SAP HANA em VMs (máquinas virtuais) do Azure | Microsoft Docs
-description: Estabeleça alta disponibilidade do SAP HANA em VMs (máquinas virtuais) do Azure.
+title: Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server | Microsoft Docs
+description: Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 7a0797d79da95db77174a3e067a1e84276f286a5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e2e76e3cd058e5798b0159923118b050f38d077e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140602"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034630"
 ---
-# <a name="high-availability-of-sap-hana-on-azure-virtual-machines"></a>Alta disponibilidade do SAP HANA em VMs (máquinas virtuais) do Azure
+# <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -68,6 +68,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
 * A Nota SAP [1984787] tem informações gerais sobre o SUSE Linux Enterprise Server 12.
 * A Nota SAP [1999351] tem informações de solução de problemas adicionais para a Extensão de Monitoramento Avançado do Azure para SAP.
 * [WIKI da comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as Notas SAP necessárias para Linux.
+* [SAP HANA certificada IaaS plataformas](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * Guia de [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide].
 * [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide] (este artigo).
 * Guia de [Implantação de Máquinas Virtuais do Azure do DBMS para SAP no Linux][dbms-guide].
@@ -110,9 +111,13 @@ Para implantar o modelo, siga estas etapas:
     - Em **SYSTEMAVAILABILITY**, selecione **HA**.
     - **Nome de usuário do administrador e senha do administrador**: um novo usuário é criado e pode ser usado para fazer logon no computador.
     - **Sub-rede nova ou existente**: determina se uma nova rede virtual e sub-rede devem ser criadas ou se uma sub-rede existente é usada. Se já tiver uma rede virtual conectada à rede local, selecione **Existente**.
-    - **ID da sub-rede**: a ID da sub-rede à qual as máquinas virtuais devem estar conectadas. Para conectar a máquina virtual à rede local, selecione a sub-rede da VPN ou rede virtual do Azure ExpressRoute. Geralmente, a ID é semelhante a **/subscriptions/\<ID da assinatura ID>/resourceGroups/\<nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual>/subnets/\<nome da sub-rede>**.
+    - **ID de sub-rede**: se você deseja implantar a VM em uma VNet existente em que há uma sub-rede definida, a VM deve ser atribuída à ID dessa sub-rede específica. Geralmente, a ID é semelhante a **/subscriptions/\<ID da assinatura ID>/resourceGroups/\<nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual>/subnets/\<nome da sub-rede>**.
 
 ### <a name="manual-deployment"></a>Implantação manual
+
+> [!IMPORTANT]
+> Selecione o sistema operacional SAP certificado para o SAP HANA nos tipos de VM específicos que você está usando. A lista de tipos de VM certificados do SAP HANA e suas versões do sistema operacional podem ser pesquisados em [Plataformas de IaaS certificadas do SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Clique nos detalhes do tipo de VM listado para obter a lista completa de versões do sistema operacional com suporte do SAP HANA para o tipo de VM específico
+>  
 
 1. Crie um grupos de recursos.
 1. Crie uma rede virtual.
@@ -121,12 +126,10 @@ Para implantar o modelo, siga estas etapas:
 1. Crie um balanceador de carga (interno).
    - Selecione a rede virtual criada na etapa 2.
 1. Crie a máquina virtual 1.
-   - Use pelo menos SLES4SAP 12 SP1. Este exemplo usa a imagem do SLES4SAP 12 SP2 https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-   - Use SLES para SAP 12 SP2 (Premium).
+   - Use uma imagem SLES4SAP na galeria do Azure que tem suporte para o SAP HANA no tipo de VM que você selecionou.
    - Selecione o conjunto de disponibilidade criado na etapa 3.
 1. Crie a máquina virtual 2.
-   - Use pelo menos SLES4SAP 12 SP1. Este exemplo usa a imagem de BYOS do SLES4SAP 12 SP1 https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-   - Use SLES para SAP 12 SP2 (Premium).
+   - Use uma imagem SLES4SAP na galeria do Azure que tem suporte para o SAP HANA no tipo de VM que você selecionou.
    - Selecione o conjunto de disponibilidade criado na etapa 3. 
 1. Adicione discos de dados.
 1. Configure o balanceador de carga. Primeiro, crie um pool de IP de front-end:
@@ -677,6 +680,9 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 ### <a name="suse-tests"></a>Testes de SUSE
 
+> [!IMPORTANT]
+> Selecione o sistema operacional SAP certificado para o SAP HANA nos tipos de VM específicos que você está usando. A lista de tipos de VM certificados do SAP HANA e suas versões do sistema operacional podem ser pesquisados em [Plataformas de IaaS certificadas do SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Clique nos detalhes do tipo de VM listado para obter a lista completa de versões do sistema operacional com suporte do SAP HANA para o tipo de VM específico
+
 Execute todos os casos de teste listados no guia Cenário otimizado para desempenho do SR do SAP HANA ou Cenário otimizado para custo do SR do SAP HANA, dependendo do caso de uso. Os guias podem ser encontrados na [página de melhores práticas do SLES para SAP][sles-for-sap-bp].
 
 Os testes a seguir são uma cópia das descrições de teste do guia de Cenário otimizado para desempenho do SR do SAP HANA do SUSE Linux Enterprise Server para Aplicativos SAP 12 SP1. Para uma versão atualizada, sempre leia também o próprio guia. Antes de iniciar o teste, sempre certifique-se de que o HANA está em sincronização e também que a configuração do Pacemaker está correta.
@@ -969,7 +975,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   O Pacemaker detectará a instância do HANA parada e marcará o recurso como com falha no nó hn1-db-1. Execute o seguinte comando para limpar o estado com falha. Em seguida, o Pacemaker deverá reiniciar automaticamente a instância do HANA.
+   O Pacemaker detectará a instância do HANA parada e marcará o recurso como com falha no nó hn1-db-1. O Pacemaker deverá reiniciar automaticamente a instância do HANA. Execute o seguinte comando para limpar o estado com falha.
 
    <pre><code># run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
