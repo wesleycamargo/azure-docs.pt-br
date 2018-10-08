@@ -166,6 +166,8 @@ items:
       href: functions-how-to-use-azure-function-app-settings.md
     - name: Defina a versão de tempo de execução
       href: set-runtime-version.md
+    - name: Registrar manualmente uma extensão
+      href: install-update-binding-extensions-manual.md
     - name: Desabilitar uma função
       href: disable-function.md
     - name: Solucionar problemas de armazenamento
@@ -204,6 +206,10 @@ items:
       href: durable-functions-event-publishing.md
     - name: Usar o SDK do WebJobs
       href: durable-functions-webjobs-sdk.md
+  - name: Solucionar problemas
+    items:
+    - name: Solucionar problemas de armazenamento
+      href: functions-recover-storage-account.md
 - name: Referência
   items:
   - name: Associações
@@ -276,9 +282,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: cf5f18b386f6a9e4182c62d17b8c62249e3d4c7b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0db8c68bb4bfae9bc54b4430d2e024340b79c1c0
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391649"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801635"

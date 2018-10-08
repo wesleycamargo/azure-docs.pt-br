@@ -58,8 +58,9 @@ items:
   - name: Conceitos
     items:
     - name: Tipos de aplicativos
-      href: app-types.md
       items:
+      - name: Tipos de aplicativos
+        href: app-types.md
       - name: Aplicativo de página única
         href: single-page-application.md
       - name: Aplicativo Web
@@ -71,26 +72,27 @@ items:
       - name: Aplicativo daemon ou de servidor
         href: service-to-service.md
     - name: Autenticação
-      href: authentication-scenarios.md
       items:
-      - name: Protocolos
+      - name: Noções básicas de autenticação
+        href: authentication-scenarios.md
+      - name: Protocolos OAuth 2.0 e OpenID Connect
         items:
-        - name: OAuth e o protocolo OpenID Connect
-          items:
-          - name: Fluxo de concessão implícita do OAuth 2.0
-            href: v1-oauth2-implicit-grant-flow.md
-          - name: Concessão de código de autenticação do OAuth 2.0
-            href: v1-protocols-oauth-code.md
-          - name: Fluxo em nome de do OAuth 2.0
-            href: v1-oauth2-on-behalf-of-flow.md
-          - name: Concessão de credenciais de cliente do OAuth 2.0
-            href: v1-oauth2-client-creds-grant-flow.md
-        - name: SAML 2.0
-          items:
-          - name: Logon único
-            href: single-sign-on-saml-protocol.md
-          - name: Sair
-            href: single-sign-out-saml-protocol.md
+        - name: OpenID Connect
+          href: v1-protocols-openid-connect-code.md
+        - name: Fluxo de concessão implícita do OAuth 2.0
+          href: v1-oauth2-implicit-grant-flow.md
+        - name: Concessão de código de autenticação do OAuth 2.0
+          href: v1-protocols-oauth-code.md
+        - name: Fluxo em nome de do OAuth 2.0
+          href: v1-oauth2-on-behalf-of-flow.md
+        - name: Concessão de credenciais de cliente do OAuth 2.0
+          href: v1-oauth2-client-creds-grant-flow.md
+      - name: Protocolo SAML 2.0
+        items:
+        - name: Logon único
+          href: single-sign-on-saml-protocol.md
+        - name: Sair
+          href: single-sign-out-saml-protocol.md
         - name: O certificado do provedor de identidade do Web Services Federation
           items:
           - name: Metadados de federação
@@ -106,16 +108,18 @@ items:
       - name: Tokens SAML
         href: reference-saml-tokens.md
     - name: Configuração de aplicativo
-      href: app-objects-and-service-principals.md
       items:
+      - name: Aplicativos e entidades de serviço
+        href: app-objects-and-service-principals.md
       - name: Como e por que aplicativos são adicionados ao Azure AD
         href: active-directory-how-applications-are-added.md
       - name: Aplicativos multilocatário e de único locatário
         href: single-and-multi-tenant-apps.md
     - name: Permissões e consentimento
       displayName: Scopes
-      href: v1-permissions-and-consent.md
       items:
+      - name: Tipos de permissões e consentimento
+        href: v1-permissions-and-consent.md
       - name: Estrutura de consentimento
         href: consent-framework.md
       - name: Experiências de consentimento de aplicativo
@@ -143,6 +147,8 @@ items:
           href: ../active-directory-enterprise-app-role-management.md
         - name: Personalizar declarações
           href: active-directory-saml-claims-customization.md
+      - name: Práticas recomendadas para tratamento de erro do ADAL
+        href: active-directory-devhowto-adal-error-handling.md
     - name: Configuração de aplicativo
       items:
       - name: Converter um aplicativo de locatário único em um aplicativo multilocatário
@@ -185,7 +191,7 @@ items:
       href: https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers
   - name: Referências
     items:
-    - name: Bibliotecas de autenticação do Azure AD
+    - name: Bibliotecas de autenticação
       displayName: ADAL
       href: active-directory-authentication-libraries.md
     - name: API do Graph do AD do Azure
@@ -194,7 +200,7 @@ items:
       href: active-directory-optional-claims.md
     - name: Manifesto do aplicativo
       href: reference-app-manifest.md
-    - name: Códigos de autenticação e erro de autorização
+    - name: Códigos de erro de autenticação e autorização
       href: reference-aadsts-error-codes.md
     - name: Alterações de última hora
       href: reference-breaking-changes.md
@@ -276,20 +282,21 @@ items:
     - name: Tipos de aplicativos
       href: v2-app-types.md
     - name: Autenticação
-      href: authentication-scenarios.md
       items:
-      - name: Protocolos
+      - name: Noções básicas de autenticação
+        href: authentication-scenarios.md
+      - name: Protocolos OAuth 2.0 e OpenID Connect
         items:
-        - name: OAuth e o protocolo OpenID Connect
-          items:
-          - name: Fluxo de concessão implícita do OAuth 2.0
-            href: v2-oauth2-implicit-grant-flow.md
-          - name: Concessão de código de autenticação do OAuth 2.0
-            href: v2-oauth2-auth-code-flow.md
-          - name: Fluxo em nome de do OAuth 2.0
-            href: v2-oauth2-on-behalf-of-flow.md
-          - name: Concessão de credenciais de cliente do OAuth 2.0
-            href: v2-oauth2-client-creds-grant-flow.md
+        - name: OpenID Connect
+          href: v2-protocols-oidc.md
+        - name: Fluxo de concessão implícita do OAuth 2.0
+          href: v2-oauth2-implicit-grant-flow.md
+        - name: Concessão de código de autenticação do OAuth 2.0
+          href: v2-oauth2-auth-code-flow.md
+        - name: Fluxo em nome de do OAuth 2.0
+          href: v2-oauth2-on-behalf-of-flow.md
+        - name: Concessão de credenciais de cliente do OAuth 2.0
+          href: v2-oauth2-client-creds-grant-flow.md
       - name: Tokens de ID
         href: id-tokens.md
       - name: Tokens de acesso
@@ -297,14 +304,16 @@ items:
       - name: Credenciais de certificado
         href: active-directory-certificate-credentials.md
     - name: Configuração de aplicativo
-      href: app-objects-and-service-principals.md
       items:
+      - name: Aplicativos e entidades de serviço
+        href: app-objects-and-service-principals.md
       - name: Aplicativos multilocatário e de único locatário
         href: single-and-multi-tenant-apps.md
     - name: Permissões e consentimento
       displayName: Scopes
-      href: v2-permissions-and-consent.md
       items:
+      - name: Tipos de permissões e consentimento
+        href: v2-permissions-and-consent.md
       - name: Estrutura de consentimento
         href: consent-framework.md
       - name: Experiências de consentimento de aplicativo
@@ -347,14 +356,14 @@ items:
         href: vs-active-directory-error.md
   - name: Referências
     items:
-    - name: Biblioteca de Autenticação da Microsoft
+    - name: Bibliotecas de autenticação
       displayName: MSAL
       href: reference-v2-libraries.md
     - name: APIs do Azure AD no Microsoft Graph
       href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
     - name: Manifesto do aplicativo
       href: reference-app-manifest.md
-    - name: Códigos de autenticação e erro de autorização
+    - name: Códigos de erro de autenticação e autorização
       href: reference-aadsts-error-codes.md
     - name: Alterações de última hora
       href: reference-breaking-changes.md
@@ -373,9 +382,9 @@ items:
     href: developer-support-help-options.md
   - name: Identidade de Serviço Gerenciada para recursos do Azure
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 180b7962d6083887a25f582471b6b3e405f3f8f9
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 139d80313bb663a45e476e90812ce7772beccc19
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419654"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784969"
