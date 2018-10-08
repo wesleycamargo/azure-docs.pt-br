@@ -18,10 +18,10 @@ ms.locfileid: "47056430"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e atribuir um blueprint do Azure no portal
 
-Entender como criar e atribuir blueprints no Azure permite que uma organização defina padrões comuns de consistência e desenvolva configurações reutilizáveis e rapidamente implementáveis com base em modelos do Resource Manager, políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Blueprint do Azure para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização, como:
+Entender como criar e atribuir blueprints no Azure permite que uma organização defina padrões comuns de consistência e desenvolva configurações reutilizáveis e rapidamente implementáveis com base em modelos, políticas, segurança e muito mais do Resource Manager. Neste tutorial, você aprenderá a usar o Blueprint do Azure para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização, como:
 
 > [!div class="checklist"]
-> - Criar um novo blueprint e adicione vários artefatos com suporte
+> - Criar um novo blueprint e adicionar vários artefatos com suporte
 > - Faça alterações em um blueprint existente ainda em **Rascunho**
 > - Marque um blueprint como pronto para atribuição com **Publicado**
 > - Atribuir um blueprint a uma assinatura existente
@@ -34,20 +34,20 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 A primeira etapa na definição de um modelo padrão para conformidade é compor um blueprint a partir dos recursos disponíveis. Neste exemplo, crie um novo blueprint chamado 'MyBlueprint' para configurar atribuições de função e política para a assinatura, adicione um novo grupo de recursos e crie um modelo de Gerenciador de Recursos e uma atribuição de função no novo grupo de recursos.
 
-1. Inicie o serviço de Azure blueprint no portal do Azure clicando no **todos os serviços** e procurando e selecionando **diretiva** no painel esquerdo. Sobre a **política** página, clique em **blueprint**.
+1. Inicie o serviço Azure Blueprint no portal do Azure clicando em **Todos os serviços** e procurando e selecionando **Política** no painel esquerdo. Na página **Política**, clique em **Blueprints**.
 
-1. Selecione **definições de blueprint** da página à esquerda e clique no **+ criar Blueprint** botão na parte superior da página.
+1. Selecione **Definições de blueprint** na página à esquerda e clique no botão **+ Criar Blueprint** na parte superior da página.
 
    - Alternativamente, clique em **Criar** na página **Introdução** para ir direto para a criação de um blueprint.
 
    ![Criar blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Forneça um **Nome do Blueprint** como "MyBlueprint" (letras e números - até 48 caracteres, mas sem espaços ou caracteres especiais) para o blueprint, mas deixe **Descrição do Blueprint** em branco por enquanto .  Na caixa **Definir Local**, clique nas reticências à direita, selecione o [grupo de gerenciamento](../management-groups/overview.md) onde deseja salvar o blueprint e clique em **Selecione**.
+1. Forneça um **Nome do Blueprint**, como "MyBlueprint" (letras e números - até 48 caracteres, mas sem espaços ou caracteres especiais), para o blueprint, mas deixe **Descrição do Blueprint** em branco por enquanto. Na caixa **Definir Local**, clique nas reticências à direita, selecione o [grupo de gerenciamento](../management-groups/overview.md) onde deseja salvar o blueprint e clique em **Selecionar**.
 
    > [!NOTE]
-   > Definições de blueprint só podem ser salvo para grupos de gerenciamento. Para criar seu primeiro grupo de gerenciamento, siga [estas etapas](../management-groups/create.md).
+   > Definições de blueprint só podem ser salvas para grupos de gerenciamento. Para criar seu primeiro grupo de gerenciamento, siga [estas etapas](../management-groups/create.md).
 
-1. Verifique se as informações estão corretas (os campos **Nome do Blueprint** e **Definition Location** não podem ser alterados mais tarde) e clique em **Next: Artefatos** na parte inferior da página ou **Artefatos** na parte superior da página.
+1. Verifique se as informações estão corretas (os campos **Nome do Blueprint** e **Local de Definição** não podem ser alterados mais tarde) e clique em **Próximo: Artefatos** na parte inferior da página ou em **Artefatos** na parte superior da página.
 
 1. Adicionar atribuição de função na assinatura: clique com o botão esquerdo na linha **+ Adicionar artefato...** em **Assinatura** e a janela "Adicionar artefato" será aberta no lado direito do navegador. Selecione 'Atribuição de Função' para _tipo de Artefato_. Em _Papel_, selecione 'Colaborador' e deixe o campo _Adicionar Usuário, Aplicativo ou Grupo_ com a caixa de seleção indicando um **parâmetro dinâmico**. Clique em **adicionar** para adicionar este artefato para o blueprint.
 
@@ -62,7 +62,7 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
 
 1. Adicionar grupo de recursos na assinatura: clique com o botão esquerdo na linha **+ Adicionar artefato...** em **Assinatura**. Selecione 'Grupo de recursos' _tipo de artefato_. Deixe os campos _Nome do grupo de recursos_ e _Local_ em branco, mas verifique se a caixa de seleção está marcada em cada propriedade para torná-los **parâmetros dinâmicos**. Clique em **adicionar** para adicionar este artefato para o blueprint.
 
-1. Adicionar modelo ao grupo de recursos: clique com o botão esquerdo do mouse no **+ Adicionar artefato.** linha diretamente sob o **ResourceGroup** entrada. Selecione 'Modelo do Azure Resource Manager' para _Tipo de artefato_, defina _Nome de exibição do artefato_ como 'StorageAccount' e deixe _Descrição_ em branco. Na guia **Template** na caixa do editor, cole o seguinte modelo do Resource Manager. Depois de colar o modelo, clique na guia **Parâmetros** e observe que o parâmetro **storageAccountType** e o valor padrão **Standard_LRS** foram automaticamente detectados e preenchidos, mas configurados como **parâmetro dinâmico**. Remova a marca da caixa de seleção e observe que a lista suspensa contém apenas valores incluídos no modelo do Resource Manager em **allowedValues**. Verifique a caixa para defini-lo de volta para um **parâmetro dinâmico**. Clique em **adicionar** para adicionar este artefato para o blueprint.
+1. Adicionar modelo ao grupo de recursos: clique com o botão esquerdo do mouse na linha **+ Adicionar artefato.** diretamente sob a entrada **ResourceGroup**. Selecione 'Modelo do Azure Resource Manager' para _Tipo de artefato_, defina _Nome de exibição do artefato_ como 'StorageAccount' e deixe _Descrição_ em branco. Na guia **Modelo** na caixa do editor, cole o modelo do Resource Manager a seguir. Depois de colar o modelo, clique na guia **Parâmetros** e observe que o parâmetro **storageAccountType** e o valor padrão **Standard_LRS** foram automaticamente detectados e preenchidos, mas configurados como **parâmetro dinâmico**. Remova a marca da caixa de seleção e observe que a lista suspensa contém apenas valores incluídos no modelo do Resource Manager em **allowedValues**. Verifique a caixa para defini-lo de volta para um **parâmetro dinâmico**. Clique em **Adicionar** para adicionar esse artefato ao blueprint.
 
    > [!IMPORTANT]
    > Se estiver importando o modelo, verifique se o arquivo é apenas JSON e não inclui HTML. Ao apontar para uma URL no GitHub, assegure-se de ter clicado em **RAW** para obter o arquivo JSON puro e não aquele envolvido com HTML para exibição no GitHub. Se o modelo importado não for puramente JSON, ocorrerá um erro.
@@ -129,7 +129,7 @@ Em [Crie um blueprint](#create-a-blueprint), uma Descrição não foi fornecida 
 
 1. Clique em **Próximo: Artefatos** na parte inferior da página ou na guia **Artefatos** na parte superior da página.
 
-1. Adicionar atribuição de função no grupo de recursos: Clique com o botão esquerdo na linha **+ Adicionar artefato...** diretamente na entrada **ResourceGroup**. Selecione 'Atribuição de Função' para _tipo de Artefato_. Em _Função_, selecione "Proprietário" e remova a verificação do campo _Adicionar usuário, Aplicativo ou Grupo_ e pesquise e selecione um usuário, aplicativo ou grupo para adicionar. Este será um **parâmetro estático** e será usado em todas as designações deste blueprint. Clique em **adicionar** para adicionar este artefato para o blueprint.
+1. Adicionar atribuição de função no grupo de recursos: clique com o botão esquerdo do mouse na linha **+ Adicionar artefato...** diretamente na entrada **ResourceGroup**. Selecione 'Atribuição de Função' para _Tipo de artefato_. Em _Função_, selecione "Proprietário" e remova a verificação do campo _Adicionar Usuário, Aplicativo ou Grupo_ e pesquise e selecione um usuário, aplicativo ou grupo para adicionar. Este será um **parâmetro estático** e será usado em todas as designações desse blueprint. Clique em **Adicionar** para adicionar esse artefato ao blueprint.
 
    ![Artifact - Role Assignment #2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
@@ -190,7 +190,7 @@ Depois que um blueprint for publicado, ele poderá ser atribuído a uma assinatu
 
 Quando um blueprint foi atribuído a uma ou mais assinaturas, duas coisas acontecem:
 
-- O blueprint é incluído na página **Blueprints Atribuídos** por assinatura atribuída a
+- O blueprint é incluído na página **Blueprints Atribuídos** de acordo com a assinatura à qual ele foi atribuído
 - Inicia o processo de implantação de todos os artefatos definidos pelo blueprint
 
 Agora que o blueprint foi atribuído a uma assinatura, verifique o progresso da implantação.
