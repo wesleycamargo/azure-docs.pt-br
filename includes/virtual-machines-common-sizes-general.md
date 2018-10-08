@@ -8,21 +8,24 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 1606b5e38b79cb535108ca747783a05de1fbc982
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: eac6c6d76bcc3b3d9cfeda7d8ca4e52e28ba9d8f
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40026009"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369218"
 ---
 Os tamanhos de VM para uso geral fornecem uma relação de CPU para memória equilibrada. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento para tamanhos neste agrupamento. 
 
-- As VMs da série Av2 podem ser implantadas em uma variedade de tipos de hardware e processadores. O tamanho é limitado, com base no hardware, para oferecer desempenho de processador consistente para a instância em execução, independentemente do hardware em que é implantado. Para determinar o hardware físico no qual esse tamanho é implantado, consulte o hardware virtual de dentro da Máquina Virtual.
+- As VMs da série Av2 podem ser implantadas em uma variedade de tipos de hardware e processadores. As VMs da série A possuem configurações de memória e de desempenho de CPU mais adequadas para cargas de trabalho de entrada, como desenvolvimento e teste. O tamanho é limitado, com base no hardware, para oferecer desempenho de processador consistente para a instância em execução, independentemente do hardware em que é implantado. Para determinar o hardware físico no qual esse tamanho é implantado, consulte o hardware virtual de dentro da Máquina Virtual.
 
-- A série Dv2, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração do processador Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz ou E5-2673 v4 2.3 GHz (Broadwell) e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3,1 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
+  Os exemplos de casos de uso incluem servidores de desenvolvimento e teste, servidores Web de tráfego baixo, bancos de dados pequenos a médios, servidores para prova de conceito e repositórios de código.
+
+- A série Dv2, uma continuação da série D original, apresenta uma CPU mais potente e a configuração ideal de CPU / memória, tornando-a adequada para a maioria das cargas de trabalho de produção. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração do processador Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz ou E5-2673 v4 2.3 GHz (Broadwell) e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3,1 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 
 - A série de Dv3 inclui o processador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz ou o processador Intel XEON ® E5-2673 v4 (Broadwell) de 2,3 GHz mais recente em uma configuração hyper-threaded, fornecendo uma proposta de valor melhor para a maioria das cargas de trabalho para uso geral.  A memória foi expandida (de ~3.5 GiB/vCPU para 4 GiB/vCPU) enquanto os limites de rede e disco em uma base por núcleo foram ajustados para alinhar com a mudança para o hyperthreading.  O Dv3 não tem mais os tamanhos de VM de alta memória das famílias D/Dv2, aqueles que foram movidos para a nova família de Ev3.
 
+  Os exemplos de casos de uso incluem aplicativos de nível empresarial, bancos de dados relacionais, cache em memória e análise. 
 
 ## <a name="b-series"></a>Série B
 
@@ -31,6 +34,8 @@ Armazenamento Premium: com suporte
 Cache de Armazenamento Premium: sem suporte
 
 As VMs expansíveis série B são ideais para cargas de trabalho que não precisam do desempenho total da CPU continuamente, como servidores web, bancos de dados pequenos e ambientes de desenvolvimento e teste. Normalmente, essas cargas de trabalho têm requisitos de desempenho expansíveis. A série B fornece esses clientes a possibilidade de comprar um tamanho VM com um preço consciência da linha de base de desempenho que permite que a instância VM criar créditos quando a VM é menor que o desempenho de base. Quando a VM tiver acumulado crédito, poderá disparar acima da linha de base da VM usando até 100% da CPU quando seu aplicativo requer o maior desempenho de CPU.
+
+Os exemplos de casos de uso incluem servidores de desenvolvimento e teste, servidores Web de tráfego baixo, bancos de dados pequenos, microsserviços, servidores para prova de conceito, servidores de build.
 
 
 | Tamanho             | vCPU  | Memória: GiB | SSD local: GiB | Desempenho base de um núcleo | Créditos armazenados/hora | Máximo de créditos armazenados | Discos de dados máximos | Desempenho de disco local máx: IOPS/MBps | Máximo desempenho de disco eliminado do cache: IOPS/MBps | Máximo de NICs |          
