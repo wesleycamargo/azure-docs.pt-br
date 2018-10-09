@@ -296,7 +296,7 @@ Agora você está pronto para configurar um Grupo de Disponibilidade usando as s
 
     ![Novo assistente de AG, selecionar sincronização de dados inicial](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Na página **Selecionar Sincronização de Dados Inicial** , selecione **Completo** e especifique um local de rede compartilhada. Para o local, use o [compartilhamento de backup criado](#backupshare). No exemplo, era **\\\\\<First SQL Server\>\Backup\\**. Clique em **Próximo**.
+8. Na página **Selecionar Sincronização de Dados Inicial** , selecione **Completo** e especifique um local de rede compartilhada. Para o local, use o [compartilhamento de backup criado](#backupshare). No exemplo, era **\\\\\<First SQL Server\>\Backup\\**. Clique em **Próximo.**
 
    >[!NOTE]
    >A sincronização completa usa um backup completo do banco de dados na primeira instância do SQL Server e o restaura na segunda instância. Em caso de grandes bancos de dados, a sincronização completa não é recomendada porque pode levar muito tempo. Você pode reduzir esse tempo manualmente usando um backup do banco de dados e restaurando-o com `NO RECOVERY`. Se o banco de dados já foi restaurado com `NO RECOVERY` no segundo SQL Server antes da configuração do Grupo de Disponibilidade, escolha **Somente junção**. Se você quiser usar o backup depois de configurar o Grupo de Disponibilidade, escolha **Ignorar sincronização inicial de dados**.
