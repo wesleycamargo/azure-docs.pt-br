@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: d7b93c28bf83e468d1470b0962dcf9d87a52adb2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 00a1f7edfb24d9bd44e48161f3cd2e69cba36bfc
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189569"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052115"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Criar um aplicativo Web ASP.NET Core no Azure
 
@@ -36,11 +36,12 @@ Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial:
+Para concluir este tutorial, instale o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> com a carga de trabalho do **ASP.NET e de desenvolvimento para a Web**.
 
-Instalar o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> com a carga de trabalho **ASP.NET e desenvolvimento Web**.
+Se você já instalou o Visual Studio 2017:
 
-Se você já instalou o Visual Studio, adicione a carga de trabalho no Visual Studio clicando em **Ferramentas** > **Obter Ferramentas e Recursos**.
+- Instale as atualizações mais recentes no Visual Studio, clicando em **Ajuda** > **Verificar Atualizações**.
+- Adicione a carga de trabalho clicando em **Ferramentas** > **Obter Ferramentas e Recursos**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Criar um aplicativo Web ASP.NET Core
 
@@ -52,7 +53,7 @@ Nomeie o aplicativo como _myFirstAzureWebApp_ e clique em **OK**.
    
 ![Caixa de diálogo Novo Projeto](./media/app-service-web-get-started-dotnet/new-project.png)
 
-Você pode implantar qualquer tipo de aplicativo Web ASP.NET Core no Azure. Para o início rápido, selecione o modelo **Aplicativo Web** e verifique se a autenticação está definida como **Sem Autenticação**.
+Você pode implantar qualquer tipo de aplicativo Web ASP.NET Core no Azure. Para este início rápido, selecione o modelo **Aplicativo Web** e verifique se a autenticação está definida para **Sem Autenticação** e nenhuma outra opção está selecionada.
       
 Selecione **OK**.
 
@@ -62,21 +63,19 @@ No menu, selecione **Depurar > Iniciar sem depuração** para executar o aplicat
 
 ![Executar o aplicativo localmente](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
-## <a name="publish-to-azure"></a>Publicar no Azure
+## <a name="launch-the-publish-wizard"></a>Iniciar assistente de publicação
 
 No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **myFirstAzureWebApp** e selecione **Publicar**.
 
 ![Publicar no Gerenciador de Soluções](./media/app-service-web-get-started-dotnet/right-click-publish.png)
 
-Verifique se o **Serviço de Aplicativo do Microsoft Azure** está selecionado e clique em **Publicar**.
+O assistente de publicação é iniciado automaticamente. Selecione **Serviço de Aplicativo** > **Publicar** para abrir a caixa de diálogo **Criar Serviço de Aplicativo**.
 
 ![Publicar na página de visão geral do projeto](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-Isso abre a caixa de diálogo **Criar Serviço de Aplicativo**, que ajuda a criar todos os recursos do Azure necessários para executar o aplicativo Web ASP.NET Core no Azure.
-
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Na caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Adicionar uma conta** e faça logon em sua assinatura do Azure. Se você já estiver conectado, selecione a conta que contém a assinatura desejada na lista suspensa.
+Na caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Adicionar uma conta** e faça logon em sua assinatura do Azure. Se você já estiver conectado, selecione a conta que deseja na lista suspensa.
 
 > [!NOTE]
 > Se você já estiver conectado, não selecione **Criar** ainda.
@@ -96,9 +95,9 @@ Nomeie o grupo de recursos **myResourceGroup** e selecione **Ok**.
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-Ao lado de **Plano do Serviço de Aplicativo**, selecione **Novo**. 
+Ao lado de **Plano de Hospedagem**, selecione **Novo**. 
 
-Na caixa de diálogo **Configurar Plano do Serviço de Aplicativo**, use as configurações na tabela de acordo com a captura de tela.
+Na caixa de diálogo **Configurar Plano de Hospedagem**, use as configurações na tabela de acordo com a captura de tela.
 
 ![Criar plano de Serviço de Aplicativo](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
@@ -112,17 +111,17 @@ Selecione **OK**.
 
 ## <a name="create-and-publish-the-web-app"></a>Publicar e publicar o aplicativo Web
 
-Em **Nome do Aplicativo Web**, digite um nome exclusivo do aplicativo (os caracteres válidos são `a-z`, `0-9`, e `-`), ou aceite o nome exclusivo gerado automaticamente. A URL do aplicativo Web é `http://<app_name>.azurewebsites.net`, onde `<app_name>` é o nome do aplicativo Web.
+Em **Nome do Aplicativo**, digite um nome exclusivo do aplicativo (os caracteres válidos são `a-z`, `0-9` e `-`) ou aceite o nome exclusivo gerado automaticamente. A URL do aplicativo Web é `http://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome do aplicativo.
 
 Clique em **Criar** para começar a criar os recursos do Azure.
 
-![Configurar o nome do aplicativo Web](./media/app-service-web-get-started-dotnet/web-app-name.png)
+![Configurar nome do aplicativo](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
 Após a conclusão do assistente, ele publicará o aplicativo Web ASP.NET Core no Azure e, em seguida, iniciará o aplicativo no navegador padrão.
 
 ![Aplicativo Web ASP.NET publicado no Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
-O nome do aplicativo Web especificado na [etapa criar e publicar](#create-and-publish-the-web-app) é usado como o prefixo de URL no formato `http://<app_name>.azurewebsites.net`.
+O nome do aplicativo especificado na [etapa para criar e publicar](#create-and-publish-the-web-app) é usado como o prefixo de URL no formato `http://<app_name>.azurewebsites.net`.
 
 Parabéns, seu aplicativo Web ASP.NET Core está em execução no Serviço de Aplicativo do Azure.
 
@@ -130,7 +129,7 @@ Parabéns, seu aplicativo Web ASP.NET Core está em execução no Serviço de Ap
 
 No **Gerenciador de Soluções**, abra _Pages/Index.cshtml_.
 
-Encontre o rótulo HTML `<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">` próximo à parte superior e substitua o elemento inteiro pelo seguinte código:
+Substitua as duas marcas `<div>` pelo código a seguir:
 
 ```HTML
 <div class="jumbotron">
