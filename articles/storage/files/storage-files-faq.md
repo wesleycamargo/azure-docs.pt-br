@@ -239,17 +239,17 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
     Se a assinatura sob a qual o compartilhamento de arquivos foi implantado estiver associada ao mesmo locatário do Azure AD como o deploymnet dos Serviços de Domínio do Azure AD ao qual a VM ingressou no domínio, você poderá acessar os Arquivos do Azure usando as mesmas credenciais do Azure AD. A limitação é imposta não na assinatura, mas no locatário associado do Azure AD.    
     
 * <a id="ad-support-subscription"></a>
-** Posso habilitar a autenticação do Azure AD em SMB para arquivos do Azure com um locatário do Azure AD diferente do inquilino principal com o qual o compartilhamento de arquivo é associado?**
+**Posso habilitar a autenticação do Azure AD em SMB para arquivos do Azure com um locatário do Azure AD diferente do inquilino principal com o qual o compartilhamento de arquivo é associado?**
 
     Não, o Azure Files só oferece suporte à integração do Azure AD com um locatário do Azure AD que reside na mesma assinatura do compartilhamento de arquivos. Somente uma assinatura pode ser associada a um locatário do Azure AD.
 
 * <a id="ad-linux-vms"></a>
-** A autenticação do AD do Azure em SMB para arquivos do Azure (visualização) oferece suporte a VMs do Linux?**
+**A autenticação do AD do Azure em SMB para arquivos do Azure (visualização) oferece suporte a VMs do Linux?**
 
     Não, a autenticação das VMs do Linux não é suportada na versão de visualização.
 
 * <a id="ad-aad-smb-afs"></a>
-** Posso usar a autenticação do AD do Azure em recursos de SMB em compartilhamentos de arquivos gerenciados pelo Azure File Sync?**
+**Posso usar a autenticação do AD do Azure em recursos de SMB em compartilhamentos de arquivos gerenciados pelo Azure File Sync?**
 
     Não, o Azure Files não oferece suporte à preservação de ACLs do NTFS em compartilhamentos de arquivos gerenciados pelo Azure File Sync. As ACLs de arquivo transportadas de servidores de arquivos locais são persistidas pelo Azure File Sync. Quaisquer ACLs NTFS configuradas nativamente em Arquivos do Azure serão sobrescritas pelo serviço de Sincronização de Arquivos do Azure. Além disso, o Azure Files não oferece suporte à autenticação com credenciais do Azure AD para acesso a compartilhamentos de arquivos gerenciados pelo serviço de Sincronização de Arquivos do Azure.
 
