@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7cf3e08caad93bb7fb7fd221b6fdb9b2fc39397a
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b6cb095736bbf41d53359bf7d07206703de5335c
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816728"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869986"
 ---
 # <a name="azure-stack-1805-update"></a>Atualização da pilha 1805 do Azure
 
@@ -72,8 +72,8 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 ## <a name="before-you-begin"></a>Antes de começar    
 
 ### <a name="prerequisites"></a>Pré-requisitos
-- Instalar o Azure Stack [1804 atualizar](azure-stack-update-1804.md) antes de aplicar a atualização do Azure Stack 1805.  
-- Instalar a versão mais recente disponível [atualização ou hotfix para a versão 1804](azure-stack-update-1804.md#post-update-steps).   
+- Instale a atualização do Azure Stack 1804 antes de aplicar a atualização do Azure Stack 1805.  
+- Instale a atualização mais recente disponível ou o hotfix para a versão 1804.   
 - Antes de você iniciar a instalação da atualização 1805, execute [AzureStack teste](azure-stack-diagnostic-test.md) para validar o status do Azure Stack e resolva os problemas operacionais encontrados. Também examinar os alertas ativos e resolva todos os que exigem ação. 
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização   
@@ -117,7 +117,7 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
   Solução alternativa: Para resolver esse problema depois de instalar essa atualização, use a etapa 3 das [disparar automação configurar declarações de confiança do provedor no Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedimento para redefinir o proprietário da assinatura do provedor padrão.   
 
 <!-- TBD - IS ASDK --> 
-- Alguns tipos de assinatura administrativas não estão disponíveis.  Quando você atualizar o Azure Stack para esta versão, os tipos de assinatura de dois foram [introduzido na versão 1804](azure-stack-update-1804.md#new-features) não são visíveis no console. Isso é esperado. São os tipos de assinatura não está disponível *assinatura de medição*, e *assinatura de consumo*. Esses tipos de assinatura são visíveis em novos ambientes Azure Stack, começando com a versão 1804, mas ainda não estão prontos para uso. Você deve continuar a usar o *provedor padrão* tipo de assinatura.  
+- Alguns tipos de assinatura administrativas não estão disponíveis. Quando você atualizar o Azure Stack para esta versão, os tipos de assinatura de dois que foram introduzidos com a versão 1804 não são visíveis no console. Isso é esperado. São os tipos de assinatura não está disponível *assinatura de medição*, e *assinatura de consumo*. Esses tipos de assinatura são visíveis em novos ambientes Azure Stack, começando com a versão 1804, mas ainda não estão prontos para uso. Você deve continuar a usar o *provedor padrão* tipo de assinatura.  
 
 <!-- 2403291 - IS ASDK --> 
 - Você pode não ter o uso da barra de rolagem horizontal na parte inferior do portais do administrador e usuário. Se você não pode acessar a barra de rolagem horizontal, use a trilha para navegar até uma folha anterior no portal, selecionando o nome da folha você quer exibir na lista de navegação estrutural na parte superior esquerda do portal.

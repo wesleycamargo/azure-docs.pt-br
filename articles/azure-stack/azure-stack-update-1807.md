@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bde8ea74d2b6d36cd070598d0542e5be4bdef244
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: bce76827c56fd660b6ab4353fed1c43f88132587
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816167"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868812"
 ---
 # <a name="azure-stack-1807-update"></a>Atualização de 1807 de pilha do Azure
 
@@ -190,7 +190,7 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links aci
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
 Após a instalação dessa atualização, instale os Hotfixes aplicáveis. Para obter mais informações, consulte os seguintes artigos de base de Conhecimento, bem como nossos [política de manutenção](azure-stack-servicing-policy.md). 
-- [KB 4464231 – o Azure Stack Hotfix Azure Stack Hotfix 1.1807.1.78](https://support.microsoft.com/help/4464231)
+- [KB 4467061 – o Azure Stack Hotfix Azure Stack Hotfix 1.1807.3.82](https://support.microsoft.com/help/4467061/)
 
 <!-- 2933866 – IS --> Após a instalação dessa atualização, você pode ver **aprimorado de status para instalações de atualização com falha.** Isso pode incluir informações sobre falhas de instalação de atualização anterior que são revisados para refletir as duas novas categorias de estado. As novas categorias de estado são *PreparationFailed*, e *InstallationFailed*.  
 
@@ -211,7 +211,7 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 - Quando você instala um novo ambiente do Azure Stack que executa esta versão, o alerta indicar *ativação necessária* podem não ser exibidos. [Ativação](azure-stack-registration.md) é necessária antes que você pode usar a distribuição do marketplace.  
 
 <!-- TBD - IS ASDK --> 
-- Os dois tipos de assinatura administrativos foram [introduzido na versão 1804](azure-stack-update-1804.md#new-features) não deve ser usado. Os tipos de assinatura são **assinatura de medição**, e **assinatura de consumo**. Esses tipos de assinatura são visíveis em novos ambientes Azure Stack, começando com a versão 1804, mas ainda não estão prontos para uso. Você deve continuar a usar o **provedor padrão** tipo de assinatura.
+- Os dois tipos de assinatura administrativos que foram introduzidos com a versão 1804 não devem ser usados. Os tipos de assinatura são **assinatura de medição**, e **assinatura de consumo**. Esses tipos de assinatura são visíveis em novos ambientes Azure Stack, começando com a versão 1804, mas ainda não estão prontos para uso. Você deve continuar a usar o **provedor padrão** tipo de assinatura.
 
 <!-- 2403291 - IS ASDK --> 
 - Você pode não ter o uso da barra de rolagem horizontal na parte inferior do portais do administrador e usuário. Se você não pode acessar a barra de rolagem horizontal, use a trilha para navegar até uma folha anterior no portal, selecionando o nome da folha você quer exibir na lista de navegação estrutural na parte superior esquerda do portal.

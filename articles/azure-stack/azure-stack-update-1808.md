@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: ae5eadda56ca0a144ef46385dc2dcae143da378d
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a870ba238239a20af154f611f88e7c2fdb95f9f7
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815844"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870909"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
@@ -158,7 +158,7 @@ Essa atualização também contém atenuação para a vulnerabilidade de canal d
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
 Após a instalação dessa atualização, instale os Hotfixes aplicáveis. Para obter mais informações, consulte os seguintes artigos de base de Conhecimento, bem como nossos [política de manutenção](azure-stack-servicing-policy.md). 
-- [KB 4465859 – o Azure Stack Hotfix Azure Stack Hotfix 1.1808.2.104](https://support.microsoft.com/help/4465859/)
+- [KB 4467062 – o Azure Stack Hotfix Azure Stack Hotfix 1.1808.4.108](https://support.microsoft.com/help/4467062/)
 
 
 ## <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
@@ -197,7 +197,7 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 - Quando você instala um novo ambiente do Azure Stack que executa esta versão, o alerta indicar *ativação necessária* podem não ser exibidos. [Ativação](azure-stack-registration.md) é necessária antes que você pode usar a distribuição do marketplace.  
 
 <!-- TBD - IS ASDK --> 
-- Os dois tipos de assinatura administrativos foram [introduzido na versão 1804](azure-stack-update-1804.md#new-features) não deve ser usado. Os tipos de assinatura são **assinatura de medição**, e **assinatura de consumo**. Esses tipos de assinatura são visíveis em novos ambientes Azure Stack, começando com a versão 1804, mas ainda não estão prontos para uso. Você deve continuar a usar o **provedor padrão** tipo de assinatura.
+- Os dois tipos de assinatura administrativos que foram introduzidos com a versão 1804 não devem ser usados. Os tipos de assinatura são **assinatura de medição**, e **assinatura de consumo**. Esses tipos de assinatura são visíveis em novos ambientes Azure Stack, começando com a versão 1804, mas ainda não estão prontos para uso. Você deve continuar a usar o **provedor padrão** tipo de assinatura.
 
 <!-- TBD - IS ASDK --> 
 - Excluindo resultados de assinaturas do usuário em recursos órfãos. Como alternativa, primeiro exclua os recursos de usuário ou grupo de recursos inteiro e, em seguida, exclua as assinaturas do usuário.
@@ -251,7 +251,7 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
       1. No portal do locatário, vá para **assinaturas** e localize a assinatura. Clique em **provedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **registrar novamente**.
       2. Sob a mesma assinatura, vá para **controle de acesso (IAM)**, verifique se **do Azure Stack – Managed Disk** está listado.
    2. Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas:
-      1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4465859).
+      1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4467062/).
       2. Siga as etapas em [deste artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
 
 <!-- 2869209 – IS, ASDK --> 
