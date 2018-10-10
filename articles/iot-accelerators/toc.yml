@@ -97,61 +97,6 @@ items:
       href: iot-accelerators-remote-monitoring-rbac.md
     - name: Conceder acesso ao gerenciador de telemetria
       href: iot-accelerators-remote-monitoring-rbac-tsi.md
-  - name: Monitoramento remoto (versão anterior)
-    items:
-    - name: Quais são as soluções pré-configuradas?
-      href: ../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md
-    - name: Perguntas frequentes
-      href: ../iot-suite/iot-suite-v1-faq.md
-    - name: Introdução
-      items:
-      - name: Introdução a soluções pré-configuradas
-        href: ../iot-suite/iot-suite-v1-getstarted-preconfigured-solutions.md
-      - name: Permissões no azureiotsuite.com
-        href: ../iot-suite/iot-suite-v1-permissions.md
-      - name: Passo a passo da solução de Monitoramento Remoto
-        href: ../iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md
-      - name: Conectar seu Raspberry Pi
-        href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-get-started.md
-        items:
-        - name: Usar C
-          items:
-          - name: Dados simulados
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md
-          - name: Usar sensores reais
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md
-          - name: Implementar atualização do firmware
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md
-        - name: Usar o Node.js
-          items:
-          - name: Dados simulados
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md
-          - name: Usar sensores reais
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md
-          - name: Implementar atualização do firmware
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md
-      - name: Conecte seu MXChip IoT DevKit
-        href: ../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md
-    - name: Guias de instruções
-      items:
-      - name: Conectar um dispositivo simulado
-        items:
-        - name: C no Windows
-          href: ../iot-suite/iot-suite-v1-connecting-devices.md
-        - name: C no Linux
-          href: ../iot-suite/iot-suite-v1-connecting-devices-linux.md
-        - name: Node.js
-          href: ../iot-suite/iot-suite-v1-connecting-devices-node.md
-      - name: Conectar um Aplicativo Lógico à solução de Monitoramento Remoto
-        href: ../iot-suite/iot-suite-v1-logic-apps-tutorial.md
-      - name: Personalizar um acelerador de solução
-        href: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
-      - name: Usar telemetria dinâmica com a solução de Monitoramento Remoto
-        href: ../iot-suite/iot-suite-v1-dynamic-telemetry.md
-      - name: Criar regra personalizada na solução de Monitoramento Remoto
-        href: ../iot-suite/iot-suite-v1-custom-rule.md
-      - name: Informações do dispositivo na solução de Monitoramento Remoto
-        href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
   - name: Fábrica conectada
     items:
     - name: Usar o painel
@@ -203,7 +148,7 @@ items:
   - name: Soluções
     items:
     - name: Aceleradores de solução do IoT
-      href: /azure/iot-suite
+      href: /azure/iot-accelerators
     - name: Central da IoT
       href: https://docs.microsoft.com/microsoft-iot-central/
   - name: Serviços de plataforma
@@ -256,9 +201,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Roteiro de aprendizagem dos aceleradores de solução do IoT
     href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
-ms.openlocfilehash: 935b9acf2eeaaee73745426eefb5625f470f62b7
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f0efa66bd9ed85ed4ab79f5937355bd19c404a64
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365461"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884316"
