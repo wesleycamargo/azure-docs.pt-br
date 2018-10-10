@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/09/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: d59de5beb01da3b23de0a7e177fd1cb1887694fc
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 410566e62daeb42100443e72f2d8a1acb8dad5a3
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586046"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902273"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
@@ -210,11 +210,11 @@ Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, v
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
-      -BillingModel Capacity
+      -BillingModel Capacity `
       -RegistrationName $RegistrationName
   ```
    > [!Note]  
-   > Você pode desabilitar o uso dos relatórios com o parâmetro UsageReportingEnabled para o **AzsRegistration conjunto** cmdlet. Defina o parâmetro como false. Por exemplo: ' UsageReportingEnabled
+   > Você pode desabilitar o uso dos relatórios com o parâmetro UsageReportingEnabled para o **AzsRegistration conjunto** cmdlet, definindo o parâmetro como false. 
    
   Para obter mais informações sobre o cmdlet Set-AzsRegistration, consulte [referência de registro](#registration-reference).
 

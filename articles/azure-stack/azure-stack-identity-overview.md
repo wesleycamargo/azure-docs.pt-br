@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 10/09/2018
 ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: 84ab374c95f3e77b2897ff142c3cacef3df87140
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718909"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902834"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Visão geral da identidade para o Azure Stack
 
@@ -59,7 +59,7 @@ Como você pode cria e gerenciar usuários e grupos depende de você usar a solu
 
 No Azure Stack, contas de usuário:
 
-- São criados na *username@domain* formato. Embora o AD FS mapeia as contas de usuário a uma instância do Active Directory, AD FS não suporta o uso do  *\<domínio >\<alias >* formato.
+- São criados na *username@domain* formato. Embora o AD FS mapeia as contas de usuário a uma instância do Active Directory, AD FS não suporta o uso do  *\\ \<domínio >\\\<alias >* formato.
 - Pode ser configurado para usar a autenticação multifator.
 - São restritos para o diretório em que eles primeiro registram, que é o diretório da organização.
 - Podem ser importados de seus diretórios locais. Para obter mais informações, consulte [integrar seus diretórios locais ao Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).

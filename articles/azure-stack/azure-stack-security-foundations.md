@@ -1,5 +1,5 @@
 ---
-title: Entender os controles de segurança do Azure Stack | Microsoft Docs
+title: Entender os controles de segurança do Azure Stack
 description: Como um administrador de serviço Saiba mais sobre os controles de segurança aplicados para o Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/9/2018
 ms.author: patricka
-ms.openlocfilehash: 048a2e8204b3b8776b5a7e0e425dbc5fdf3d504c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 32c268c1e4a0ff4d17c5b03f0ffd33b0ddf5b927
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719008"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901474"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Postura de segurança de infraestrutura do Azure Stack
 
 *Aplica-se a: sistemas integrados do Azure Stack*
 
-Considerações de segurança e regulamentos de conformidade estão entre os drivers principais para usar nuvens híbridas. O Azure Stack foi projetado para esses cenários, e é importante entender os controles já em vigor ao adotar o Azure Stack.
+Considerações de segurança e regulamentos de conformidade estão entre os drivers principais para usar nuvens híbridas. O Azure Stack é projetado para esses cenários. Este artigo explica os controles de segurança em vigor para o Azure Stack.
 
 Coexistam de duas camadas de postura de segurança no Azure Stack. A primeira camada é a infraestrutura do Azure Stack, que inclui os componentes de hardware até o Gerenciador de recursos do Azure. A primeira camada inclui o administrador e os portais de locatário. A segunda camada consiste em cargas de trabalho criado, implantado e gerenciado por locatários. A segunda camada inclui itens como máquinas virtuais e sites da web de serviços de aplicativos.
 
@@ -50,14 +50,14 @@ Todos os pontos de extremidade externos de infraestrutura, como os pontos de ext
 Embora os certificados autoassinados possam ser usados para esses pontos de extremidade externos, a Microsoft aconselha em relação a usá-los. 
 
 ## <a name="secret-management"></a>Gerenciamento de segredos
-Infraestrutura do Azure Stack usa uma infinidade de segredos, como senhas, para funcionar. A maioria deles é girada automaticamente com frequência, porque eles são contas de serviço gerenciado de grupo, gire a cada 24 horas.
+Infraestrutura do Azure Stack usa uma infinidade de segredos, como senhas, para funcionar. A maioria deles é girada automaticamente com frequência, porque eles são contas de serviço de Group-Managed que girar a cada 24 horas.
 
-Os segredos restantes que não são contas de serviço gerenciado de grupo podem ser giradas manualmente com um script no ponto de extremidade com privilégios.
+Os segredos restantes que não são contas de serviço Group-Managed podem ser giradas manualmente com um script no ponto de extremidade com privilégios.
 
 ## <a name="code-integrity"></a>Integridade de código
 O Azure Stack utiliza o o Windows Server 2016 mais recentes recursos de segurança. Um deles é o Windows Defender Device Guard, que fornece a lista de permissões de aplicativo e garante que apenas autorizados a executar o código dentro da infraestrutura do Azure Stack. 
 
-Código não autorizado é assinado pela Microsoft ou o parceiro OEM, e ele está incluído na lista de permitidos software que é especificado em uma política definida pela Microsoft. Em outras palavras, apenas o software que foi aprovado para ser executado na infraestrutura do Azure Stack pode ser executado. Qualquer tentativa de executar código não autorizado está bloqueada e uma auditoria é gerada.
+Código não autorizado é assinado pela Microsoft ou o parceiro OEM. O código não autorizado assinado está incluído na lista de permitidos software especificado em uma política definida pela Microsoft. Em outras palavras, apenas o software que foi aprovado para ser executado na infraestrutura do Azure Stack pode ser executado. Qualquer tentativa de executar código não autorizado está bloqueada e uma auditoria é gerada.
 
 A política de Device Guard também impede que os agentes de terceiros ou de software em execução na infraestrutura do Azure Stack.
 
@@ -67,7 +67,7 @@ Outro recurso de segurança do Windows Server 2016 no Azure Stack é o Windows D
 ## <a name="antimalware"></a>Antimalware
 Todos os componentes no Azure Stack (hosts Hyper-V e máquinas virtuais) é protegido com o Windows Defender antivírus.
 
-Em cenários conectados, atualizações de mecanismos e definições de antivírus são aplicadas várias vezes ao dia. Em cenários desconectados, atualizações de antimalware são aplicadas como parte das atualizações mensais do Azure Stack. Ver [atualizar o Windows Defender antivírus no Azure Stack](azure-stack-security-av.md) para obter mais informações.
+Em cenários conectados, atualizações de mecanismos e definições de antivírus são aplicadas várias vezes ao dia. Em cenários desconectados, atualizações de antimalware são aplicadas como parte das atualizações mensais do Azure Stack. Para obter mais informações, consulte [atualizar o Windows Defender antivírus no Azure Stack](azure-stack-security-av.md).
 
 ## <a name="constrained-administration-model"></a>Modelo de administração restrito
 Administração do Azure Stack é controlada com o uso de três pontos de entrada, cada um com uma finalidade específica: 
@@ -76,12 +76,24 @@ Administração do Azure Stack é controlada com o uso de três pontos de entrad
 3. Para operações específicas de baixo nível, por exemplo data center integração ou dar suporte a cenários, Azure Stack expõe um ponto de extremidade do PowerShell chamado [ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md). Esse ponto de extremidade expõe somente um conjunto na lista de permissões de cmdlets e ele intensamente é auditado.
 
 ## <a name="network-controls"></a>Controles de rede
-Infraestrutura do Azure Stack é fornecido com várias camadas de rede List(ACL) de controle de acesso. As ACLs impedir acesso não autorizado para os componentes da infraestrutura e limitam a comunicação de infraestrutura para somente os caminhos que são necessários para seu funcionamento. 
+Infraestrutura do Azure Stack é fornecido com várias camadas da lista de controle de acesso (ACL) de rede. As ACLs impedir acesso não autorizado para os componentes da infraestrutura e limitam a comunicação de infraestrutura para somente os caminhos que são necessários para seu funcionamento. 
 
 As ACLs de rede são aplicadas em três camadas:
 1.  Topo de Rack
 2.  Rede definida pelo software
 3.  Firewalls de sistema operacional do host e a VM
+
+## <a name="regulatory-compliance"></a>Conformidade normativa
+
+O Azure Stack passou por meio de uma avaliação formal por uma firma de auditoria independentes de terceiros. Como resultado, a documentação sobre como a infraestrutura do Azure Stack atende os controles aplicáveis de vários padrões de conformidade principais está disponível. A documentação não é uma certificação do Azure Stack devido aos padrões, incluindo vários controles relacionadas ao processo e pessoal. Em vez disso, os clientes podem usar esta documentação para iniciar rapidamente seu processo de certificação.
+
+As avaliações incluem os seguintes padrões:
+
+- [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) aborda a indústria de cartões de pagamento.
+- [Matriz de controle de nuvem CSA](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) é um mapeamento abrangente em vários padrões, incluindo FedRAMP moderado, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53 e outros.
+- [FedRAMP alto](https://www.fedramp.gov/fedramp-releases-high-baseline/) para clientes do governo.
+
+A documentação de conformidade pode ser encontrada na [Portal de confiança do serviço de Microsoft](https://servicetrust.microsoft.com/ViewPage/Blueprint). Os guias de conformidade são um recurso protegido e exigem que você entre com suas credenciais de serviço de nuvem do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
