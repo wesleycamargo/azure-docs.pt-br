@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 4f8ad67fafa20fd9adce62e8beb619999203ef62
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: db9c22acfba0f6f1781348b36a1d253a515cc063
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346654"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977246"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK do dispositivo IoT do Azure para C
 
@@ -71,7 +71,7 @@ Há várias ferramentas de código-fonte aberto para ajudá-lo a gerenciar seu H
 
 * Um aplicativo do Windows chamado [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 * Uma extensão de código do Visual Studio de plataforma cruzada chamada [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
-* Uma ferramenta de CLI do Python de plataforma cruzada denominada [a extensão de IoT do Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* Uma CLI do Python multiplataforma denominada [a extensão de IoT da CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 Este tutorial usa a ferramenta gráfica *Gerenciador de Dispositivos*. Você pode usar a extensão do *Azure IoT Toolkit para o código VS* se desenvolver no Código VS. Você também pode usar a ferramenta *a extensão de IoT do Azure CLI 2.0* se preferir usar uma ferramenta CLI.
 
@@ -156,7 +156,7 @@ Quando você tiver um **IOTHUB\_CLIENT\_HANDLE** válido, será possível inicia
 
 ### <a name="send-messages"></a>Enviar mensagens
 
-O aplicativo de exemplo configura um loop para enviar mensagens para o Hub IoT. O seguinte trecho de código:
+O aplicativo de exemplo configura um loop para enviar mensagens para o Hub IoT. O seguinte snippet de código:
 
 - Cria uma mensagem.
 - Adiciona uma propriedade à mensagem.
@@ -202,7 +202,7 @@ do
 } while (g_continueRunning);
 ```
 
-Sempre que você enviar uma mensagem, será possível especificar uma referência a uma função de retorno de chamada que é invocada quando os dados são enviados. Neste exemplo, a função de retorno de chamada se chama **SendConfirmationCallback**. O trecho abaixo mostra essa função de retorno de chamada:
+Sempre que você enviar uma mensagem, será possível especificar uma referência a uma função de retorno de chamada que é invocada quando os dados são enviados. Neste exemplo, a função de retorno de chamada se chama **SendConfirmationCallback**. O snippet abaixo mostra essa função de retorno de chamada:
 
 ```c
 static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 614375c95f4af3a5fbeeb4368ff8c577372e6381
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 2ec712dcce1295a91f552176ddcf6572d3f23ecc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933948"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993554"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Fazer logon em uma máquina virtual do Linux no Azure usando a autenticação do Azure Active Directory (versão prévia)
 
@@ -35,7 +35,7 @@ Há muitos benefícios de usar a autenticação do Azure AD para fazer logon em 
   - Dependendo menos da contas de administrador local, você não precisa se preocupar com a perda ou o roubo de credenciais, credenciais fracas configuradas pelos usuários, etc.
   - As políticas de complexidade e de tempo de vida de senha configuradas para o diretório do Azure AD também ajudam a proteger as VMs do Linux.
   - Para proteger ainda mais o logon nas máquinas virtuais do Azure, você pode configurar a autenticação multifator.
-  - A capacidade de fazer logon em VMs do Linux com Azure Active Directory também funciona para clientes que usam os [Serviços de Federação](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
+  - A capacidade de fazer logon em VMs do Linux com Azure Active Directory também funciona para clientes que usam os [Serviços de Federação](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
 - **Colaboração contínua:** com RBAC (controle de acesso baseado em função), você pode especificar quem pode entrar em uma determinada VM como um usuário normal ou com privilégios de administrador. Quando os usuários entram na equipe ou saem dela, você pode atualizar a política RBAC da VM para conceder acesso conforme o necessário. Essa experiência é muito mais simples do que ter que limpar as VMs para remover as chaves públicas SSH desnecessárias. Quando os funcionários saem da organização e a conta de usuário é desabilitada ou removida do Azure AD, eles deixam de ter acesso aos recursos.
 
@@ -59,7 +59,7 @@ No momento, há suporte para as seguintes regiões do Azure durante a versão pr
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual Linux
 
@@ -117,7 +117,7 @@ az role assignment create \
 > [!NOTE]
 > Se o domínio do AAD e o domínio do nome de usuário de logon não corresponderem, especifique a ID de objeto da conta de usuário com *--assignee-object-id*, não apenas o nome de usuário de *--assignee*. É possível obter a ID de objeto para a conta de usuário com [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
-Para obter mais informações de como usar o RBAC para gerenciar o acesso aos recursos da sua assinatura do Azure, confira o uso da [CLI do Azure 2.0](../../role-based-access-control/role-assignments-cli.md), do [portal do Azure](../../role-based-access-control/role-assignments-portal.md) ou do [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Para obter mais informações sobre como usar o RBAC para gerenciar o acesso aos recursos da sua assinatura do Azure, confira o uso da [CLI do Azure](../../role-based-access-control/role-assignments-cli.md), do [portal do Azure](../../role-based-access-control/role-assignments-portal.md) ou do [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Você também pode configurar o Azure AD para exigir a autenticação multifator de um usuário específico para que ele entre na máquina virtual do Linux. Para obter mais informações, confira [Introdução ao Servidor de Autenticação Multifator do Microsoft Azure na nuvem](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
@@ -179,4 +179,4 @@ Compartilhe seus comentários sobre este recurso de visualização ou informe pr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure Active Directory, confira [O que é o Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) e [Introdução ao Azure Active Directory](../../active-directory/fundamentals/get-started-azure-ad.md)
+Para obter mais informações sobre o Azure Active Directory, confira [O que é o Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)

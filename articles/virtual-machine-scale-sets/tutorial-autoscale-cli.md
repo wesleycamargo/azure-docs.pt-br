@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Dimensionar automaticamente um conjunto de dimensionamento com a CLI do Azure 2.0 | Microsoft Docs
-description: Saiba como usar a CLI do Azure 2.0 para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais conforme a demanda de CPU aumenta e diminui
+title: Tutorial – Dimensionar automaticamente um conjunto de dimensionamento com a CLI do Azure | Microsoft Docs
+description: Saiba como usar a CLI do Azure para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais conforme a demanda de CPU aumenta e diminui
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4dedf4a84d5eaa47018fe0cd1cb6fd9a92d8ef7e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7c3d536cd4fb99d6d83b973989279d289e8434a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630145"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995356"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Tutorial: Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure 2.0
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo. Neste tutorial, você aprenderá a:
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.32 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.32 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de escala
 
@@ -216,7 +216,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial você aprendeu a reduzir ou escalar aplicativos horizontal e automaticamente um conjunto de dimensionamento com a CLI do Azure 2.0:
+Neste tutorial, você aprendeu como dimensionar automaticamente ou reduzir horizontalmente um conjunto de dimensionamento com a CLI do Azure:
 
 > [!div class="checklist"]
 > * Usar o dimensionamento automático com um conjunto de dimensionamento
@@ -224,7 +224,7 @@ Neste tutorial você aprendeu a reduzir ou escalar aplicativos horizontal e auto
 > * Testar instâncias de VM sob estresse e disparar regras de dimensionamento automático
 > * Redimensionar automaticamente conforme a demanda é reduzida
 
-Para obter mais exemplos de conjuntos de dimensionamento de máquinas virtuais em ação, consulte os seguintes scripts de exemplo do exemplo da CLI do Azure 2.0:
+Para obter mais exemplos de conjuntos de dimensionamento de máquinas virtuais em ação, confira os seguintes scripts de exemplo de CLI do Azure de exemplo:
 
 > [!div class="nextstepaction"]
-> [Exemplos de script de conjunto de dimensionamento para a CLI do Azure 2.0](cli-samples.md)
+> [Exemplos de script de conjunto de dimensionamento para a CLI do Azure](cli-samples.md)

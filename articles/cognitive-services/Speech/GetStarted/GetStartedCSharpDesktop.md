@@ -1,22 +1,24 @@
 ---
-title: Introdução à API de Reconhecimento de Fala da Microsoft usando a biblioteca de área de trabalho em C# | Microsoft Docs
-description: Desenvolva aplicativos básicos do Windows que usam a API de Reconhecimento de Fala da Microsoft para converter áudio de fala em texto.
+title: Introdução à API de Reconhecimento de Fala do Bing usando a biblioteca de área de trabalho em C# | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Desenvolva aplicativos básicos do Windows que usam a API de Reconhecimento de Fala do Bing para converter áudio de fala em texto.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e59b0e25401fb5182edd52f82985ffed9052286d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5b85a548d692b06a6da009432678d9c02242cb50
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363639"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996818"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-c35-for-net-on-windows"></a>Introdução à API de Reconhecimento de Fala em C&#35; para .NET no Windows
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Início Rápido: usar a API de Reconhecimento de Fala do Bing em C&#35; para .NET no Windows
 
 Esta página mostra como desenvolver um aplicativo básico do Windows que usa a API de Reconhecimento de Fala para converter áudio de fala em texto. O uso da Biblioteca de clientes permite a transmissão em tempo real, o que significa que, quando o aplicativo cliente envia o áudio ao serviço, ele recebe simultaneamente e parcialmente de forma assíncrona os resultados do reconhecimento.
 
@@ -24,7 +26,7 @@ Os desenvolvedores que querem usar o Serviço de Fala de aplicativos executados 
 
 As seções a seguir descrevem como instalar, compilar e executar o aplicativo de exemplo em C#, usando a biblioteca de área de trabalho em C#.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 

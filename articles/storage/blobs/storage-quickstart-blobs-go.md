@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 90858501cbf20af032c98ca8703f9e74b475e9c1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 93dc651767fc2be815fb706f71386ce72b382a37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398552"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981690"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início rápido: Carregar, baixar e listar blobs usando Go
 
@@ -23,11 +23,14 @@ Neste início rápido, você aprenderá a usar a linguagem de programação Go p
 
 Para concluir este guia de início rápido: 
 * Instale o [Go 1.8 ou superior](https://golang.org/dl/)
-* Baixe e instale o [SDK do Azure Storage Blob para Go](https://github.com/azure/azure-storage-blob-go/) usando `go get -u github.com/azure/azure-storage-blob-go/2016-05-31/azblob`. 
+* Baixe e instale o [SDK do Azure Storage Blob para Go](https://github.com/azure/azure-storage-blob-go/) usando `go get -u github.com/Azure/azure-storage-blob-go/2016-05-31/azblob`. 
+
+> [!WARNING]
+> Não se esqueça de colocar Azure em maiúsculas na URL. Fazer o contrário pode causar problemas de importação relacionadas a caso ao trabalhar com o SDK. Você também precisa colocar Azure em maiúsculas em suas instruções de importação.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 O [aplicativo de exemplo](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) usado neste início rápido é um aplicativo Go básico.  

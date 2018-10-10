@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/06/2018
-ms.openlocfilehash: cd1219fda7821fdc99e334de58826317113415d4
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 09/08/2018
+ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053634"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960236"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Criar um cluster do Kubernetes com o Serviço do Azure Kubernetes e o Terraform
 [ O Azure Kubernetes Service (AKS) ](/azure/aks/) gerencia seu ambiente hospedado do Kubernetes, tornando rápido e fácil implantar e gerenciar aplicativos em contêiner sem a experiência em orquestração de contêineres. Também elimina a sobrecarga das operações em andamento e a manutenção provisionando, atualizando e dimensionamento os recursos sob demanda, sem colocar seus aplicativos offline.
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como executar as seguintes tarefas ao criar um 
 
 - **Configure o Terraform**: Siga as instruções no artigo, [ Terraform e configure o acesso ao Azure ](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Principal do serviço do Azure**: siga as instruções na seção **Criar o principal do serviço** no artigo, [ Crie um objeto de serviço do Azure com o Azure CLI 2.0 ](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Anote os valores para o appId, displayName, senha e inquilino.
+- **Entidade de serviço do Azure**: siga as instruções na seção **Criar a entidade de serviço** do artigo [Criar uma entidade de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Anote os valores para o appId, displayName, senha e inquilino.
 
 ## <a name="create-the-directory-structure"></a>Crie a estrutura de diretórios
 O primeiro passo é criar o diretório que contém os arquivos de configuração do Terraform para o exercício.
@@ -295,7 +295,14 @@ Nesta seção, você verá como usar o comando `terraform init` para criar os re
 
     ![Exemplo de resultados de "terraform init"](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. Execute o comando `terraform plan` para criar o plano Terraform que define os elementos da infraestrutura. O comando solicitará dois valores: **var.client_id** e **var.client_secret**. Para a variável **var.client_id**, insira o valor **appId** associado ao seu responsável pelo serviço. Para a variável **var.client_secret**, insira o valor **password** associado à sua entidade de serviço.
+1. Exporte as credenciais da entidade de serviço. Substitua os espaços reservados &lt;your-client-id> e &lt;your-client-secret> pelos valores de **appId** e **senha** associados à entidade de serviço respectivamente.
+
+    ```bash
+    export TF_VAR_client_id=<your-client-id>
+    export TF_VAR_client_secret=<your-client-secret>
+    ```
+
+1. Execute o comando `terraform plan` para criar o plano Terraform que define os elementos da infraestrutura. 
 
     ```bash
     terraform plan -out out.plan

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 25e6fba6ac8aa34c0c30fd61f5fe297b94720439
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247775"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983660"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerenciar ciclo de vida do Armazenamento de Blobs do Azure (Versão Prévia)
 
@@ -30,7 +30,7 @@ Considere a possibilidade de um conjunto de dados que são acessados frequenteme
 
 ## <a name="storage-account-support"></a>Suporte da conta de armazenamento
 
-A política de gerenciamento do ciclo de vida está disponível tanto com a conta GPv2 (de uso geral v2) quanto com a conta de Armazenamento de Blobs. Você pode converter uma conta GPv1 (de uso geral) existente para uma conta GPv2 por um processo simples de um clique no portal do Azure. Consulte [Opções de conta de armazenamento do Azure](../common/storage-account-options.md) para saber mais.  
+A política de gerenciamento do ciclo de vida está disponível tanto com a conta GPv2 (de uso geral v2) quanto com a conta de Armazenamento de Blobs. Você pode converter uma conta GPv1 (de uso geral) existente para uma conta GPv2 por um processo simples de um clique no portal do Azure. Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta de Armazenamento do Azure](../common/storage-account-overview.md) para saber mais.  
 
 ## <a name="pricing"></a>Preços 
 
@@ -54,7 +54,7 @@ Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 ```
 Se o recurso for aprovado e registrado corretamente, você deverá receber o estado "Registrado".
 
-### <a name="cli-20"></a>CLI 2.0
+### <a name="azure-cli"></a>CLI do Azure
 
 Para enviar uma solicitação: 
 ```cli
@@ -69,7 +69,7 @@ Se o recurso for aprovado e registrado corretamente, você deverá receber o est
 
 ## <a name="add-or-remove-policies"></a>Adicionar ou remover políticas 
 
-Você pode adicionar, editar ou remover uma política usando o Portal do Azure, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [APIs REST](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) ou ferramentas cliente nos seguintes idiomas: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Você pode adicionar, editar ou remover uma política usando o Portal do Azure, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [APIs REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) ou ferramentas cliente nos seguintes idiomas: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Portal do Azure
 

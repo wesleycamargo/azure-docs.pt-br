@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 9c39d621bfc8df338a4556fd412ae54489982074
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: fb9de98a80d348c3ba1e84ae19551c7ca080628b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092760"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966836"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -234,7 +234,7 @@ Este exemplo configura as seguintes regras:
 
 O valor de categoria em *host.json* controla o registro em log para todas as categorias que começam com o mesmo valor. Por exemplo, "Host" em *host.json* controla o registro em log para "Host.General", "Host.Executor", "Host.Results" e assim por diante.
 
-Se *host.json* incluir várias categorias que comecem com a mesma cadeia de caracteres, será feito primeiro a correspondência com as mais longas. Por exemplo, suponha que você queira que tudo do tempo de execução, exceto "Host.Aggregator", seja registrado em log no nível `Error`, enquanto os "Host.Aggregator" é registrado em log no nível `Information`:
+Se *host.json* incluir várias categorias que comecem com a mesma cadeia de caracteres, será feito primeiro a correspondência com as mais longas. Por exemplo, suponha que você queira que tudo do tempo de execução, exceto o "Host.Aggregator", registre no nível `Error`, mas queira que "Host.Aggregator" registre no nível `Information`:
 
 ```json
 {
@@ -298,7 +298,7 @@ Conforme observado na seção anterior, o tempo de execução agrega dados sobre
 
 ## <a name="configure-sampling"></a>Configurar a amostragem
 
-O Application Insights tem um recurso de [amostragem](../application-insights/app-insights-sampling.md) que pode protegê-lo contra a produção de excesso de dados de telemetria em horários de pico de carregamento. Quando o número de itens de telemetria excede uma taxa especificada, o Application Insights começa a ignorar aleatoriamente alguns dos itens de entrada. A configuração padrão para o número máximo de itens por segundo é 5. Você pode configurar a amostragem em *host.json*.  Aqui está um exemplo:
+O Application Insights tem um recurso de [amostragem](../application-insights/app-insights-sampling.md) que pode protegê-lo contra a produção de excesso de dados de telemetria em horários de pico de carregamento. Quando a taxa de telemetria de entrada excede um limite especificado, o Application Insights começa a ignorar aleatoriamente alguns dos itens de entrada. A configuração padrão para o número máximo de itens por segundo é 5. Você pode configurar a amostragem em *host.json*.  Aqui está um exemplo:
 
 ```json
 {
@@ -457,11 +457,6 @@ namespace functionapp0915
                 };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
-            
-            return name == null
-                ? req.CreateResponse(HttpStatusCode.BadRequest, 
-                    "Please pass a name on the query string or in the request body")
-                : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
         
         // This correllates all telemetry with the current Function invocation
@@ -499,18 +494,6 @@ module.exports = function (context, req) {
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:{"ai.operation.id": context.invocationId}});
     client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:{"ai.operation.id": context.invocationId}});
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
     context.done();
 };
 ```
@@ -547,9 +530,9 @@ Mesmo se a guia **Monitor** mostrar dados do Application Insights, você pode ve
 
 ### <a name="real-time-monitoring"></a>Monitoramento em tempo real
 
-Você pode transmitir arquivos de log para uma sessão de linha de comando em uma estação de trabalho local usando a [CLI (Interface de Linha de Comando) 2.0 do Azure](/cli/azure/install-azure-cli) ou o [Azure PowerShell](/powershell/azure/overview).  
+Você pode transmitir arquivos de log por streaming para uma sessão de linha de comando em uma estação de trabalho local usando a [CLI (Interface de Linha de Comando) do Azure](/cli/azure/install-azure-cli) ou o [Azure PowerShell](/powershell/azure/overview).  
 
-Para a CLI do Azure 2.0, use os comandos a seguir para entrar, escolha sua assinatura e transmita os arquivos de log:
+Na CLI do Azure, use os comandos a seguir para entrar, escolha sua assinatura e transmita os arquivos de log por streaming:
 
 ```
 az login

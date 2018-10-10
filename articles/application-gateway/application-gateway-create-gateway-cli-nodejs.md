@@ -1,6 +1,6 @@
 ---
-title: Criar um Gateway de Aplicativo do Azure - CLI do Azure 1.0 | Microsoft Docs
-description: Saiba como criar um Gateway de Aplicativo usando a CLI do Azure 1.0 no Resource Manager
+title: Criar um Gateway de Aplicativo do Azure – CLI clássica do Azure | Microsoft Docs
+description: Saiba como criar um Gateway de Aplicativo usando a CLI clássica do Azure no Resource Manager
 services: application-gateway
 documentationcenter: na
 author: vhorne
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 29eec4ad1883db9d824b416bdfc7e984a5af4fbe
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35630782"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974418"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Criar um gateway de aplicativo usando a CLI do Azure
 
@@ -29,16 +29,16 @@ ms.locfileid: "35630782"
 > * [PowerShell do Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Modelo do Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [CLI 1.0 do Azure](application-gateway-create-gateway-cli.md)
-> * [CLI 2.0 do Azure](application-gateway-create-gateway-cli.md)
+> * [CLI clássica do Azure](application-gateway-create-gateway-cli.md)
+> * [CLI do Azure](application-gateway-create-gateway-cli.md)
 > 
 > 
 
-O Azure Gateway de Aplicativo é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo tem os seguintes recursos de entrega de aplicativo: balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento SSL (protocolo SSL), investigações de integridade personalizadas e suporte para vários sites.
+O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo tem os seguintes recursos de entrega de aplicativo: balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento SSL (protocolo SSL), investigações de integridade personalizadas e suporte para vários sites.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Pré-requisito: instalar a CLI do Azure
 
-Para executar as etapas deste artigo, será necessário [instalar a Interface de Linha de Comando do Azure para Mac, Linux e Windows (CLI do Azure)](../xplat-cli-install.md) e você precisará fazer [logon no Azure](/cli/azure/authenticate-azure-cli). 
+Para executar as etapas neste artigo, será necessário [instalar a CLI do Azure](../xplat-cli-install.md) e [fazer logon no Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
 > Se você não tiver uma conta do Azure, crie uma. Inscreva-se em uma [avaliação gratuita aqui](../active-directory/fundamentals/sign-up-organization.md).

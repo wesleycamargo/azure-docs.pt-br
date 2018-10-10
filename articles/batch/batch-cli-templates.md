@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 08/02/2018
 ms.author: danlep
-ms.openlocfilehash: 50ed5a6b57c3c994f636db5cc975ad1908e50c7d
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493426"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964285"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usar modelos CLI do Azure de Lote e o arquivo de transferência
 
@@ -47,7 +47,7 @@ Por exemplo, [ffmpeg](http://ffmpeg.org/) é um aplicativo popular que processa 
 
 ## <a name="installation"></a>Instalação
 
-Para instalar a extensão de CLI do Lote do Microsoft Azure, primeiro [instale CLI do Azure 2.0](/cli/azure/install-azure-cli), ou execute a CLI do Azure no [Azure Cloud Shell](../cloud-shell/overview.md).
+Para instalar a extensão da CLI do Lote do Azure, primeiro [instale a CLI do Azure 2.0](/cli/azure/install-azure-cli) ou execute a CLI do Azure no [Azure Cloud Shell](../cloud-shell/overview.md).
 
 Instale a última versão da extensão do Lote, usando o comando da CLI do Azure seguir:
 

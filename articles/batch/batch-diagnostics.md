@@ -15,16 +15,17 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 85bda9e1a936f19a37be2f2c1c42f948cab727d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122460"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965481"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Logs, alertas e métricas do Lote para avaliação e monitoramento de diagnóstico
 
-Este artigo explica como monitorar uma conta do Lote usando os recursos do [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). O Azure Monitor coleta [métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para recursos na conta do Lote. Colete e consuma esses dados de várias maneiras para monitorar a conta do Lote e diagnosticar problemas. Também é possível configurar [alertas de métrica](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data) para receber notificações quando uma métrica alcançar um valor especificado. 
+ 
+Este artigo explica como monitorar uma conta do Lote usando os recursos do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor coleta [métricas](../monitoring/monitoring-data-collection.md#metrics) e [logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para recursos na conta do Lote. Colete e consuma esses dados de várias maneiras para monitorar a conta do Lote e diagnosticar problemas. Também é possível configurar [alertas de métrica](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para receber notificações quando uma métrica alcançar um valor especificado. 
 
 ## <a name="batch-metrics"></a>Métricas do Lote
 
@@ -64,7 +65,8 @@ Para configurar um alerta de métrica no portal:
 2. Em **Monitoramento**, clique em **Regras de alerta** > **Adicionar métrica de alerta**.
 3. Selecione uma métrica, uma condição de alerta (por exemplo, quando uma métrica exceder um valor específico durante um período) e uma ou mais notificações.
 
-Também é possível configurar um alerta quase em tempo real usando a [API REST](https://docs.microsoft.com/rest/api/monitor/). Para obter mais informações, consulte [Usar os alertas de métrica mais recentes para os serviços do Azure no Portal do Azure](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
+Também é possível configurar um alerta quase em tempo real usando a [API REST](https://docs.microsoft.com/rest/api/monitor/). Para obter mais informações, confira [Visão geral de alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+
 ## <a name="batch-diagnostics"></a>Diagnóstico do Lote
 
 Os logs de diagnóstico contêm informações emitidas pelos recursos do Azure que descrevem a operação de cada recurso. Para o Lote, é possível coletar os logs a seguir:

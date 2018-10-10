@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 2802a725bca7f63f6956293048b0e854ebfb59b5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141862"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999861"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -259,3 +259,24 @@ Não. Não há suporte para emparelhamento transitivo. É necessário emparelhar
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Há alguma limitação de largura de banda para conexões de emparelhamento?
 Não. O emparelhamento VNet, seja local ou global, não impõe restrições de largura de banda. A largura de banda é limitada apenas pela VM ou pelo recurso de computação.
 
+## <a name="virtual-network-tap"></a>TAP de rede virtual
+
+### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Quais regiões do Azure estão disponíveis para o TAP de rede virtual?
+Durante a versão prévia do desenvolvedor, a funcionalidade está disponível na região Centro-oeste dos EUA. Os adaptadores de rede monitorados, o recurso do TAP de rede virtual e a solução de análise ou coletor devem ser implantados na mesma região.
+
+### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>O TAP de rede virtual é compatível com alguma funcionalidade de filtragem nos pacotes espelhados?
+Não há suporte para funcionalidades de filtragem com a versão prévia do TAP da rede virtual. Quando uma configuração TAP é adicionada a um adaptador de rede, uma cópia profunda de todo o tráfego de entrada e de saída no adaptador de rede é transmitida para o destino do TAP.
+
+### <a name="can-multiple-tap-configurations-be-added-to-a-monitored-network-interface"></a>Várias configurações TAP podem ser adicionadas a um adaptador de rede monitorado?
+Um adaptador de rede monitorado pode ter apenas uma configuração TAP. Confira se as [soluções de parceiros](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) individuais têm a funcionalidade para transmitir várias cópias do tráfego do TAP para as ferramentas de análise de sua escolha.
+
+### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>O mesmo recurso de TAP de rede virtual pode agregar tráfego de adaptadores de rede monitorados em mais de uma rede virtual?
+Sim. O mesmo recurso de TAP de rede virtual pode ser usado para agregar tráfego espelhado dos adaptadores de rede monitorados em redes virtuais emparelhadas na mesma assinatura ou em uma assinatura diferente. O recurso de TAP de rede virtual e o balanceador de carga de destino ou adaptador de rede de destino devem estar na mesma assinatura. Todas as assinaturas deve estar no mesmo locatário do Azure Active Directory.
+
+### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Haverá alguma consideração de desempenho sobre o tráfego da produção se eu habilitar uma configuração do TAP de rede virtual em um adaptador de rede?
+
+O TAP de rede virtual está em versão prévia do desenvolvedor. Durante a versão prévia, não há nenhum contrato de nível de serviço. A funcionalidade não deve ser usada para cargas de trabalho de produção. Quando um adaptador de rede de máquina virtual é habilitado com uma configuração TAP, os mesmos recursos no host do Azure alocados à máquina virtual para enviar o tráfego de produção são usados para executar a função de espelhamento e enviar os pacotes espelhados. Selecione o tamanho de máquina virtual [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) correto para garantir que os recursos suficientes estejam disponíveis para a máquina virtual enviar o tráfego de produção e o tráfego espelhado.
+
+### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>Há suporte para a rede acelerada para [Linux](create-vm-accelerated-networking-cli.md) ou [Windows](create-vm-accelerated-networking-powershell.md) com o TAP de rede virtual?
+
+Será possível adicionar uma configuração TAP em um adaptador de rede anexado a uma máquina virtual habilitada com uma rede acelerada. Mas o desempenho e a latência na máquina virtual serão afetados ao adicionar a configuração TAP, porque, no momento, hão há suporte para o descarregamento do tráfego de espelhamento pela rede acelerada do Azure.

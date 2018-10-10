@@ -1,6 +1,6 @@
 ---
 title: Entenda o ponto de extremidade interno Azure Hub IoT | Microsoft Docs
-description: Guia do desenvolvedor - descreve como usar o ponto de extremidade compatível com evento interno Hub para ler mensagens de dispositivo para nuvem.
+description: Guia do Desenvolvedor – descreve como usar o ponto de extremidade compatível com hub de eventos interno para ler mensagens de dispositivo para nuvem.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 767c91e4926e553b63b8331ac99edcd7823d2c13
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 02624b4f3b0fceb1816f4f43b1f435356f8d5235
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055008"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984034"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
 
@@ -26,7 +26,7 @@ Por padrão, as mensagens são roteadas para o ponto de extremidade voltado para
 
 O Hub IoT também permite que você gerencie grupos de consumidores no ponto de extremidade de recebimento do dispositivo para a nuvem interno.
 
-Por padrão, todas as mensagens que não correspondem explicitamente a uma regra de roteamento de mensagem são gravadas no ponto de extremidade interno. Se você desabilitar esta rota de fallback, as mensagens que não corresponderão explicitamente a nenhuma regra de roteamento de mensagem são descartadas.
+Se você estiver usando [roteamento de mensagens](iot-hub-devguide-messages-d2c.md) e a [rota de fallback](iot-hub-devguide-messages-d2c.md#fallback-route) estiver habilitada, todas as mensagens que não corresponderem a uma consulta em qualquer rota serão gravadas para o ponto de extremidade interno. Se você desabilitar esta rota de fallback, as mensagens que não corresponderem a nenhuma consulta serão descartadas.
 
 Você pode modificar o tempo de retenção, seja de maneira programática usando as [APIs REST do provedor de recursos do Hub IoT][lnk-resource-provider-apis] ou com o [portal do Azure][lnk-management-portal].
 
@@ -39,9 +39,8 @@ Ao usar o [SDK do Barramento de Serviço do Azure para .NET][lnk-servicebus-sdk]
 Ao usar os SDKs (ou integrações de produtos) que não reconhecem o Hub IoT, será necessário recuperar um ponto de extremidade compatível com o Hub de Eventos e o nome compatível com o Hub de Eventos:
 
 1. Entre no [Portal do Azure][lnk-management-portal] e navegue até o seu Hub IoT.
-1. Clique em **Pontos de Extremidade**.
-1. Na seção **Pontos de extremidade internos**, clique em **Eventos**. 
-1. A página de propriedades é aberta, contendo os seguintes valores: **Ponto de extremidade compatível com o Hub de Eventos**, **Nome compatível com o Hub de Eventos**, **Partições**, **Ponto de retenção** e **Grupos de consumidores**.
+1. Clique em **Pontos de extremidade internos**.
+1. A seção **Eventos** contém os seguintes valores: **Ponto de extremidade compatível com Hub de Eventos**, **Nome compatível com o Hub de Eventos**, **Partições**, **Ponto de retenção** e **Grupos de consumidores**.
 
     ![Configurações de dispositivo para a nuvem][img-eventhubcompatible]
 
@@ -63,11 +62,9 @@ Os SDKs e integrações que você pode usar com os pontos de extremidade compat�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre pontos de extremidade do Hub IoT, confira [Pontos de extremidade do Hub IoT][lnk-endpoints].
-
-Os [Inícios Rápidos][lnk-get-started] mostram como enviar mensagens de dispositivo para nuvem a partir de dispositivos simulados e ler as mensagens do ponto de extremidade interno. Para saber mais, confira o tutorial [Como processar as mensagens entre o dispositivo e a nuvem do Hub IoT usando rotas][lnk-d2c-tutorial].
-
-Se você quiser encaminhar as mensagens de dispositivo para nuvem para pontos de extremidade personalizados, consulte [Usar rotas de mensagens e pontos de extremidade personalizados para mensagens de dispositivo para nuvem][lnk-custom].
+* Para saber mais sobre pontos de extremidade do Hub IoT, confira [Pontos de extremidade do Hub IoT][lnk-endpoints].
+* Os [Inícios Rápidos][lnk-get-started] mostram como enviar mensagens de dispositivo para nuvem a partir de dispositivos simulados e ler as mensagens do ponto de extremidade interno. Para saber mais, confira o tutorial [Como processar as mensagens entre o dispositivo e a nuvem do Hub IoT usando rotas][lnk-d2c-tutorial].
+* Se você quiser encaminhar as mensagens de dispositivo para nuvem para pontos de extremidade personalizados, consulte [Usar rotas de mensagens e pontos de extremidade personalizados para mensagens de dispositivo para nuvem][lnk-custom].
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 

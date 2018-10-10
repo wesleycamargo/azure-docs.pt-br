@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d89e9b4dcfe44648f1e3ddd95fb01b62a36295df
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6bb13ad19f9b0b6137cdb2b4a9afbb2f325b9d36
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166330"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975047"
 ---
 # <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Introdução às soluções de hospedagem de contêineres do Docker com o Serviço de Contêiner do Azure 
 
@@ -30,7 +30,7 @@ Usando o Serviço de Contêiner do Azure, você pode aproveitar as vantagens dos
 Nosso objetivo com o Serviço de Contêiner do Azure é fornecer um ambiente de hospedagem de contêineres usando ferramentas e tecnologias de código-fonte aberto, que são comuns entre os nossos clientes hoje. Com essa finalidade, expusemos os pontos de extremidade da API padrão para seu orquestrador escolhido (DC/SO, Docker Swarm ou Kubernetes). Usando esses pontos de extremidade, é possível utilizar qualquer software que possa se comunicar com os pontos de extremidade. Por exemplo, no caso do ponto de extremidade Docker Swarm, você pode optar por usar a interface de linha de comando do Docker (CLI). Para o DC/SO, você pode optar pela CLI do DCOS. Para Kubernetes, você pode escolher `kubectl`.
 
 ## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Criação de um cluster do Docker usando o Serviço de Contêiner do Azure
-Para começar a usar o Serviço de Contêiner do Azure, implante um cluster do Serviço de Contêiner do Azure através do portal (pesquise no Marketplace por **Serviço de Contêiner do Azure**) usando um modelo do Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/SO](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) ou [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) ou com a [CLI do Azure 2.0](container-service-create-acs-cluster-cli.md). Os modelos de início rápido fornecidos também podem ser modificados para incluir uma configuração do Azure avançada ou adicional. Para obter mais informações, consulte [Implantar um cluster do Serviço de Contêiner do Azure](container-service-deployment.md).
+Para começar a usar o Serviço de Contêiner do Azure, implante um cluster do Serviço de Contêiner do Azure pelo portal (pesquise no Marketplace por **Serviço de Contêiner do Azure**) usando um modelo do Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/SO](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) ou [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) ou com a [CLI do Azure](container-service-create-acs-cluster-cli.md). Os modelos de início rápido fornecidos também podem ser modificados para incluir uma configuração do Azure avançada ou adicional. Para obter mais informações, consulte [Implantar um cluster do Serviço de Contêiner do Azure](container-service-deployment.md).
 
 ## <a name="deploying-an-application"></a>Implantação de um aplicativo
 O Serviço de Contêiner do Azure fornece uma opção de Docker Swarm, DC/SO ou Kubernetes para orquestração. Como implantar o aplicativo depende do orquestrador que você escolhe.
@@ -55,7 +55,8 @@ Por padrão, o controlador de domínio/sistema operacional em execução no serv
 ![Universo DC/OS no Serviço de Contêiner do Azure](media/dcos/universe.png)
 
 #### <a name="using-marathon"></a>Usando o Marathon
-O Marathon é um sistema de inicialização e controle de todo o cluster para serviços em cgroups ou, no caso do Serviço de Contêiner do Azure, em contêineres formatados pelo Docker. O Marathon fornece uma interface do usuário da Web na qual você pode implantar seus aplicativos. Você pode acessar isso em uma URL semelhante a `http://DNS_PREFIX.REGION.cloudapp.azure.com`, em que DNS\_PREFIX e REGION são definidos no momento da implantação. É claro, você também pode fornecer seu próprio nome DNS. Para saber mais sobre como executar um contêiner usando a interface do usuário da Web do Marathon, consulte [Gerenciamento de contêiner DC/SO por meio da interface do usuário da Web do Marathon](container-service-mesos-marathon-ui.md).
+O Marathon é um sistema de inicialização e controle de todo o cluster para serviços em cgroups ou, no caso do Serviço de Contêiner do Azure, em contêineres formatados pelo Docker. O Marathon fornece uma interface do usuário da Web na qual você pode implantar seus aplicativos. Você pode acessar isso em uma URL que se parece com `http://DNS_PREFIX.REGION.cloudapp.azure.com`
+em que DNS\_PREFIX e REGION são definidos no momento da implantação. É claro, você também pode fornecer seu próprio nome DNS. Para saber mais sobre como executar um contêiner usando a interface do usuário da Web do Marathon, consulte [Gerenciamento de contêiner DC/SO por meio da interface do usuário da Web do Marathon](container-service-mesos-marathon-ui.md).
 
 ![Lista de aplicativos Marathon](media/dcos/marathon-applications-list.png)
 
@@ -102,4 +103,4 @@ Criação de aplicativos com o serviço de contêiner do Azure (Compilação 201
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Implantar um cluster de serviço de contêiner usando o [portal](container-service-deployment.md) ou a [CLI do Azure 2.0](container-service-create-acs-cluster-cli.md).
+Implantar um cluster de serviço de contêiner usando o [portal](container-service-deployment.md) ou a [CLI do Azure](container-service-create-acs-cluster-cli.md).

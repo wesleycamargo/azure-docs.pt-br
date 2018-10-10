@@ -1,5 +1,5 @@
 ---
-title: Gerenciar Aplicativo Web para Contêineres usando a CLI do Azure 2.0 | Microsoft Docs
+title: Gerenciar Aplicativo Web para Contêineres usando a CLI do Azure | Microsoft Docs
 description: Gerenciar aplicativo Web para Contêineres usando a CLI do Azure.
 keywords: serviço de aplicativo do azure, aplicativo web, cli, linux, oss
 services: app-service
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 54c979313a6ffa43008aa9870332b92d2b2f182a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 024ca5bcf9c1f82f07656691d6ef5358ca3d5111
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24105382"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998484"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gerenciar aplicativo Web para Contêineres usando a CLI do Azure
 
-Com os comandos apresentados neste artigo, é possível criar e gerenciar Aplicativo Web para Contêineres usando a CLI do Azure 2.0.
+Usando os comandos deste artigo, é possível criar e gerenciar Aplicativo Web para Contêineres usando a CLI do Azure.
 Você pode começar a usar a nova versão da CLI de duas maneiras:
 
-* [Instalando a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
+* [Instalando a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
 * Usando o [Azure Cloud Shell (versão prévia)](../../cloud-shell/overview.md)
 
 ## <a name="create-a-linux-app-service-plan"></a>Criar um Plano do Serviço de Aplicativo do Linux
@@ -105,7 +105,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>Próximas etapas
 
 * [O que é o Serviço de Aplicativo do Azure no Linux?](app-service-linux-intro.md)
-* [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Instalar a CLI do Azure.](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (versão prévia)](../../cloud-shell/overview.md)
 * [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Implantação Contínua com o Aplicativo Web para Contêineres](app-service-linux-ci-cd.md)

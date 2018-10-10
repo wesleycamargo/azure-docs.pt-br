@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145664"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952470"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos e módulos gêmeos, trabalhos e roteamento de mensagens
 
 O Hub IoT fornece uma linguagem avançada semelhante à SQL para recuperação de informações sobre [dispositivos gêmeos][lnk-twins] e [trabalhos][lnk-jobs] e [encaminhamento de mensagens][lnk-devguide-messaging-routes]. Este artigo apresenta:
 
 * Uma introdução aos principais recursos da linguagem de consulta do Hub IoT e
-* Uma descrição mais detalhada da linguagem.
+* Uma descrição mais detalhada da linguagem. Para obter detalhes sobre a linguagem de consulta do roteamento de mensagens, confira [consultas no roteamento de mensagens](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -165,7 +165,7 @@ Consultar módulos gêmeos é semelhante a consultar dispositivos gêmeos, mas u
 SELECT * FROM devices.modules
 ```
 
-Não permitimos a união de coleções de dispositivos e módulos. Se você deseja pesquisar módulos gêmeos em dispositivos, você o faz com base em marcas. Essa consulta retornará todos os módulos gêmeos em todos os dispositivos com o status de “examinando”:
+Não permitimos a união de coleções de dispositivos e módulos. Para consultar módulos gêmeos entre dispositivos, use marcas. Essa consulta retornará todos os módulos gêmeos em todos os dispositivos com o status de “examinando”:
 
 ```sql
 Select * from devices.modules where properties.reported.status = 'scanning'
@@ -304,126 +304,6 @@ No momento, as consultas em **devices.jobs** não dão suporte a:
 * Projeções, portanto, apenas `SELECT *` é possível.
 * Condições que se referem ao dispositivo gêmeo além das propriedades de trabalho (consulte a seção anterior).
 * Realização de agregações, tal como count, avg e group by.
-
-## <a name="device-to-cloud-message-routes-query-expressions"></a>Expressões de consulta de rotas de mensagem do dispositivo para a nuvem
-
-Usando as [rotas do dispositivo para nuvem ][lnk-devguide-messaging-routes], você poderá configurar o Hub IoT para enviar mensagens do dispositivo para nuvem para pontos de extremidade diferentes. A distribuição é baseada em expressões avaliadas em relação a mensagens individuais.
-
-A [condição][lnk-query-expressions] da rota usa a sintaxe da linguagem de consulta do Hub IoT como condições em consultas gêmeas e de trabalho, mas apenas um subconjunto das funções está disponível. Condições de rota são avaliadas no corpo e nos cabeçalhos de mensagem. A expressão de consulta de direcionamento pode envolver somente cabeçalhos de mensagens, apenas o corpo da mensagem ou os cabeçalhos e o corpo da mensagem. O Hub IoT assume um esquema específico para os cabeçalhos e o corpo da mensagem para rotear mensagens, e as seções a seguir descrevem o que é necessário para o Hub IoT rotear adequadamente.
-
-### <a name="routing-on-message-headers"></a>Encaminhamento em cabeçalhos de mensagens
-
-O Hub IoT pressupõe que haja a seguinte representação JSON dos cabeçalhos de mensagem para direcionamento de mensagens:
-
-```json
-{
-  "message": {
-    "systemProperties": {
-      "contentType": "application/json",
-      "contentEncoding": "utf-8",
-      "iothub-message-source": "deviceMessages",
-      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
-    },
-    "appProperties": {
-      "processingPath": "<optional>",
-      "verbose": "<optional>",
-      "severity": "<optional>",
-      "testDevice": "<optional>"
-    },
-    "body": "{\"Weather\":{\"Temperature\":50}}"
-  }
-}
-```
-
-As propriedades do sistema de mensagens são fixadas previamente com o símbolo `'$'`.
-As propriedades do usuário sempre serão acessadas com seu nome. Se um nome da propriedade do usuário coincidir com uma propriedade do sistema (como `$contentType`), a propriedade do usuário será recuperada com a expressão `$contentType`.
-Você sempre pode acessar a propriedade do sistema usando colchetes `{}`: por exemplo, é possível usar a expressão `{$contentType}` para acessar a propriedade de sistema `contentType`. Nomes de propriedade entre colchetes sempre recuperam a propriedade do sistema correspondente.
-
-Lembre-se que os nomes de propriedade não diferenciam maiúsculas de minúsculas.
-
-> [!NOTE]
-> Todas as propriedades de mensagem são cadeias de caracteres. As propriedades do sistema, conforme descrito no [guia do desenvolvedor][lnk-devguide-messaging-format], não estão disponíveis para serem usadas em consultas no momento.
->
-
-Por exemplo, se você usar uma propriedade `messageType`, poderá querer rotear toda a telemetria para um ponto de extremidade e todos os alertas para outro. Você pode escrever a expressão a seguir para rotear a telemetria:
-
-```sql
-messageType = 'telemetry'
-```
-
-E a expressão a seguir para rotear as mensagens de alerta:
-
-```sql
-messageType = 'alert'
-```
-
-Também há suporte para expressões e funções boolianas. Esse recurso permite distinguir entre o nível de severidade, por exemplo:
-
-```sql
-messageType = 'alerts' AND as_number(severity) <= 2
-```
-
-Consulte a seção [Expressão e condições][lnk-query-expressions] para ver a lista completa de funções e operadores com suporte.
-
-### <a name="routing-on-message-bodies"></a>Encaminhamento em corpos de mensagem
-
-O Hub IoT somente poderá rotear com base no conteúdo do corpo da mensagem se o corpo da mensagem estiver corretamente formado em JSON codificado em UTF-8, UTF-16 ou UTF-32. Defina o tipo de conteúdo da mensagem para `application/json`. Defina a codificação de conteúdo para uma das codificações UTF com suporte nos cabeçalhos de mensagens. Se nenhum dos cabeçalhos for especificado, o Hub IoT não tentará avaliar nenhuma expressão de consulta que envolva o corpo em relação à mensagem. Se sua mensagem não for uma mensagem JSON, ou se a mensagem não especifica o tipo de conteúdo e a codificação de conteúdo, você ainda poderá usar o roteamento de mensagens para rotear a mensagem com base nos cabeçalhos de mensagens.
-
-O exemplo a seguir mostra como criar uma mensagem com um corpo JSON formado e codificado corretamente:
-
-```csharp
-string messageBody = @"{ 
-                            ""Weather"":{ 
-                                ""Temperature"":50, 
-                                ""Time"":""2017-03-09T00:00:00.000Z"", 
-                                ""PrevTemperatures"":[ 
-                                    20, 
-                                    30, 
-                                    40 
-                                ], 
-                                ""IsEnabled"":true, 
-                                ""Location"":{ 
-                                    ""Street"":""One Microsoft Way"", 
-                                    ""City"":""Redmond"", 
-                                    ""State"":""WA"" 
-                                }, 
-                                ""HistoricalData"":[ 
-                                    { 
-                                    ""Month"":""Feb"", 
-                                    ""Temperature"":40 
-                                    }, 
-                                    { 
-                                    ""Month"":""Jan"", 
-                                    ""Temperature"":30 
-                                    } 
-                                ] 
-                            } 
-                        }"; 
- 
-// Encode message body using UTF-8 
-byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
- 
-using (var message = new Message(messageBytes)) 
-{ 
-    // Set message body type and content encoding. 
-    message.ContentEncoding = "utf-8"; 
-    message.ContentType = "application/json"; 
- 
-    // Add other custom application properties.  
-    message.Properties["Status"] = "Active";    
- 
-    await deviceClient.SendEventAsync(message); 
-}
-```
-
-Você pode usar `$body` na expressão de consulta para direcionar a mensagem. Você pode usar uma referência de corpo simples, referência de matriz de corpo ou várias referências de corpo na expressão de consulta. A expressão de consulta também pode combinar uma referência de corpo a uma referência de cabeçalho de mensagem. Por exemplo, a seguir estão todas as expressões de consulta válidas:
-
-```sql
-$body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
-length($body.Weather.Location.State) = 2
-$body.Weather.Temperature = 50 AND Status = 'Active'
-```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Noções básicas de uma consulta de Hub IoT
 Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM, com cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. A cláusula FROM indica a coleção de documentos a ser iterada em (**devices** ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com agregações, os resultados dessa etapa são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, uma linha é gerada conforme especificado na cláusula SELECT.
@@ -614,8 +494,7 @@ Saiba como executar consultas em seus aplicativos usando [SDKs do IoT do Azure][
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-read-custom.md
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
 [lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

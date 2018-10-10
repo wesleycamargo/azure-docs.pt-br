@@ -1,21 +1,21 @@
 ---
-title: Exibir métricas-chave nos painéis de controle de gerenciamento de custos do Azure | Microsoft Docs
-description: Este artigo descreve como exibir as principais métricas com painéis no gerenciamento de custo do Azure.
+title: Exibir principais métricas com painéis do Cloudyn no Azure | Microsoft Docs
+description: Este artigo descreve como exibir as principais métricas com painéis no Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/05/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b1dc2e2eca900ca0ae72329c3c373b2d24f1b2e0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1d2b4a0cd78f3d68a76bd9186be4174f2dd1d86c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301969"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999677"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Exibir chave métricas com painéis de custo
 
@@ -34,7 +34,7 @@ Versões do painel são diferentes para usuários de gerenciamento (MSP), Enterp
 
 Disponibilidade do painel depende do tipo de conta de provedor de serviço de nuvem que é usada ao exibir os painéis. O tipo de informação disponível e coletado pelo Cloudyn afeta relatórios em painéis. Por exemplo, se você não tiver uma conta AWS você não verá o painel do rastreador S3. Da mesma forma, se você não habilitar o acesso do Azure Resource Manager para Cloudyn, em seguida, você não verá todas as informações específicas do Azure em widgets do painel de otimizador.
 
-Você pode usar qualquer um dos painéis pré-criados ou você pode criar seu próprio painel com relatórios personalizados. Se você não estiver familiarizado com os relatórios de Cloudyn, consulte [relatórios de gerenciamento de custo de usar](use-reports.md).
+Você pode usar qualquer um dos painéis pré-criados ou você pode criar seu próprio painel com relatórios personalizados. Se você não estiver familiarizado com os relatórios do Cloudyn, confira [Usar relatórios do Cloudyn](use-reports.md).
 
 ## <a name="create-a-custom-dashboard"></a>Crie um painel personalizado
 
@@ -284,7 +284,7 @@ O painel de comparação de nuvem ajuda você a comparar os custos de provedores
 ![Painel de comparação de nuvem](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Custo no Azure com o tipo de instância
-Esse widget realça os últimos 30 dias de uso em taxas de sob demanda. Ele comares o custo com a atual EC2 Amazon custo versus o potencial de custo no Azure.
+Esse widget realça os últimos 30 dias de uso em taxas de sob demanda. Ele compara o custo com o custo atual do EC2 Amazon com o custo potencial no Azure.
 - Passe o mouse sobre as barras para comparar os custos por tipo de instância.
 - Clique o widget para abrir a portabilidade sua implantação – relatório de análise de custo.
 
@@ -295,3 +295,6 @@ Esse widget mostra seus custos atuais do Amazon EC2 e compara-as para o Azure. A
 ### <a name="ec2azure-instance-type-mapping"></a>Mapeamento de tipo de instância EC2/do Azure
 Esse widget realça o mapeamento de melhor de unidades de computação elástica entre EC2 Amazon e o Azure.
 - Clique no widget para abrir o relatório Instances Over Time.
+
+## <a name="next-steps"></a>Próximas etapas
+- Leia o artigo [Usar relatórios do Cloudyn](use-reports.md) para saber mais sobre relatórios.

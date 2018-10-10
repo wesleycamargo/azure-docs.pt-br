@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: c11883156f53ab53ebe6f84d66232f81f8cf31ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bd8a9e651c3b2369ae29be966ba4c9cbe0ae579b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697357"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972905"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Como atribuir vários endereços IP a máquinas virtuais usando a CLI do Azure
 
@@ -34,7 +34,7 @@ Este artigo explica como criar uma máquina virtual (VM) por meio do Modelo de i
 
 As etapas a seguir explicam como criar uma máquina virtual de exemplo com vários endereços IP, como descrito no cenário. Altere os valores da variável em "" e os tipos de endereço IP conforme exigido por sua implementação. 
 
-1. Instale a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) se você ainda não tiver instalado.
+1. Instale a [CLI do Azure](/cli/azure/install-azure-cli) se você ainda não tiver instalado.
 2. Siga as etapas em [Como criar um par de chaves público e privado SSH para VMs do Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para criar um par de chaves público e privado SSH para VMs do Linux.
 3. Faça logon com o comando `az login` de um shell de comando e selecione a assinatura que você está usando.
 4. Execute o script a seguir em um computador Linux ou Mac para criar a VM. O script cria um grupo de recursos, uma rede virtual (VNet), uma NIC com três configurações de IP e uma VM com dois NICs anexados a ela. A NIC, o endereço IP público, a rede virtual e os recursos da VM devem existir no mesmo local e assinatura. Embora não seja obrigatório que todos os recursos existam no mesmo grupo de recursos, no script a seguir é obrigatório.
@@ -157,7 +157,7 @@ az vm create \
 
 Além de criar uma VM com uma NIC com três configurações de IP, o script cria:
 
-- Um único disco gerenciado premium por padrão, mas há outras opções para você criar outros tipos de disco. Veja o artigo [Como criar uma VM do Linux usando a CLI 2.0 do Azure](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter mais informações.
+- Um único disco gerenciado premium por padrão, mas há outras opções para você criar outros tipos de disco. Leia o artigo [Como criar uma VM do Linux usando a CLI do Azure](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter detalhes.
 - Uma rede virtual com uma sub-rede e dois endereços IP públicos. Como alternativa, você pode usar uma rede virtual, uma sub-rede, uma NIC ou recursos de endereço IP público *existentes*. Para saber como usar os recursos de rede existente em vez de criar recursos adicionais, digite `az vm create -h`.
 
 Endereços IP públicos têm um valor nominal. Para saber mais sobre preços de endereço IP, leia a página [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Limites do Azure](../azure-subscription-service-limits.md#networking-limits).
@@ -170,7 +170,7 @@ Adicione os endereços IP privados ao sistema operacional da VM executando as et
 
 Você pode adicionar endereços IP públicos e privados adicionais para uma interface de rede do Azure existente ao concluir as etapas a seguir. Os exemplos baseiam-se no [cenário](#Scenario) descrito neste artigo.
 
-1. Abra um shell de comando e conclua as etapas restantes nesta seção dentro de uma única sessão. Se você ainda não tiver instalado e configurado a CLI do Azure, conclua as etapas do artigo [Instalação da CLI 2.0 do Azure](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) e faça logon em sua conta do Azure com o comando `az-login`.
+1. Abra um shell de comando e conclua as etapas restantes nesta seção dentro de uma única sessão. Se a CLI do Azure ainda não estiver instalada e configurada, conclua as etapas do artigo [Instalação da CLI do Azure](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) e faça logon em sua conta do Azure com o comando `az-login`.
 
 2. Conclua as etapas em uma das seções a seguir, com base em seus requisitos:
 

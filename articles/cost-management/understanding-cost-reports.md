@@ -1,23 +1,23 @@
 ---
-title: Compreendendo os relatórios de gerenciamento de custos no Gerenciamento de Custos do Azure | Microsoft Docs
+title: Noções básicas dos relatórios de gerenciamento de custos do Cloudyn no Azure | Microsoft Docs
 description: Este artigo ajuda você a entender a estrutura básica e funções dos relatórios de gestão de custos do Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/18/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e4d4c2115ddae592e9ca7bdf119b36d0ccee2da4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064229"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998705"
 ---
-# <a name="understanding-cost-management-reports"></a>Compreendendo os relatórios do gerenciamento de custos
+# <a name="understanding-cloudyn-cost-management-reports"></a>Noções básicas dos relatórios de gerenciamento de custos do Cloudyn
 
 Este artigo ajuda você a entender a estrutura básica e funções dos relatórios de gestão de custos do Cloudyn. A maioria dos relatórios do Cloudyn é intuitiva e tem uma aparência uniforme. Depois de ler este artigo, você estará pronto para usar todos os relatórios de gestão de custos. Muitos recursos padrão estão disponíveis em vários relatórios, permitindo uma fácil navegação pelos relatórios. Os relatórios são personalizáveis, e você pode selecionar várias opções para calcular e exibir os resultados.
 
@@ -203,5 +203,5 @@ Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre os relatórios incluídos no Cloudyn em [Use os relatórios de Gerenciamento de Custos](use-reports.md).
+- Saiba mais sobre os relatórios incluídos no Cloudyn em [Usar relatórios do Cloudyn](use-reports.md).
 - Saiba como usar relatórios para criar [painéis](dashboards.md).

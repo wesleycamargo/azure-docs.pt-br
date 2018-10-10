@@ -1,29 +1,31 @@
 ---
-title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usando o Explorer | Microsoft Docs
-description: Neste início rápido, você usa o Gerenciador de Armazenamento do Azure no armazenamento de objeto (Blob). Em seguida, use o Gerenciador de Armazenamento do Azure para carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
+title: 'Início Rápido: Usar o Gerenciador de Armazenamento do Azure para criar um blob no armazenamento de objetos'
+description: Neste início rápido, você aprenderá como usar o Gerenciador de Armazenamento do Azure para criar um contêiner e um blob. Em seguida, você aprenderá como baixar o blob para seu computador local e como exibir todos os blobs em um contêiner. Você também aprenderá como criar um instantâneo de um blob, gerenciar as políticas de acesso do contêiner e criar uma assinatura de acesso compartilhado.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 08/27/2018
 ms.author: tamram
-ms.openlocfilehash: 83698abd3006671c5edce37e3cada26d07d25b8f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 3f0418e9ccdc5fe3babd2f1ac4482795994fe3b4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399629"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996121"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Início rápido: Carregar, baixar e listar blobs usando o Gerenciador de Armazenamento do Azure
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Início Rápido: Usar o Gerenciador de Armazenamento do Azure para criar um blob no armazenamento de objetos
 
-O [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) é uma interface de usuário multiplataforma usada para gerenciar o conteúdo de suas contas de armazenamento. Este guia detalha o uso do Gerenciador de Armazenamento do Azure para transferir arquivos entre um disco local e o Armazenamento de Blobs do Azure.
+Neste início rápido, você aprenderá como usar o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para criar um contêiner e um blob. Em seguida, você aprenderá como baixar o blob para seu computador local e como exibir todos os blobs em um contêiner. Você também aprenderá como criar um instantâneo de um blob, gerenciar as políticas de acesso do contêiner e criar uma assinatura de acesso compartilhado.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Este guia de início rápido requer que o Gerenciador de Armazenamento do Azure esteja instalado. Se você precisa instalá-lo, visite [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para baixá-lo para o Windows, Macintosh ou Linux.
+Este início rápido requer que você instale o Gerenciador de Armazenamento do Azure. Para instalar o Gerenciador de Armazenamento do Azure para Windows, Macintosh ou Linux, confira o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="log-in-to-storage-explorer"></a>Fazer logon no Gerenciador de Armazenamento
 

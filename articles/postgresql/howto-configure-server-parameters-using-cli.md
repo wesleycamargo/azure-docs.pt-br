@@ -10,20 +10,20 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: df32578c92b1973568c9b811cb7f9e9db067915f
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 5520c08d2bf5dba85ece1de0bca7329286625911
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29691386"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968043"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Personalizar os parâmetros de configuração do servidor usando a CLI do Azure
 Você pode listar, exibir e atualizar os parâmetros de configuração de um servidor PostgreSQL do Azure usando a CLI (Interface de Linha de Comando) do Azure. Um subconjunto de configurações de mecanismo é exposto no nível do servidor e pode ser modificado. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de instruções, você precisa:
 - Criar um banco de dados e um servidor de Banco de Dados do Azure para PostgreSQL seguindo [Criar um Banco de Dados do Azure para o servidor PostgreSQL](quickstart-create-server-database-azure-cli.md)
-- Instalar a interface de linha de comando [CLI do Azure 2.0](/cli/azure/install-azure-cli) no seu computador ou usar o [Azure Cloud Shell](../cloud-shell/overview.md) no Portal do Azure usando seu navegador.
+- Instalar a interface de linha de comando da [CLI do Azure](/cli/azure/install-azure-cli) no computador ou usar o [Azure Cloud Shell](../cloud-shell/overview.md) no portal do Azure usando seu navegador.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>Listar os parâmetros de configuração de servidor para o bando de dados do Azure para servidor PostgreSQL
 Para listar todos os parâmetros modificáveis em um servidor e seus valores, execute o comando [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list).

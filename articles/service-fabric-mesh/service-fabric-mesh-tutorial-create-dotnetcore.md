@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar, depurar e implantar um aplicativo Web de vários serviços na malha do Service Fabric | Microsoft Docs'
+title: 'Tutorial: Criar, depurar, implantar e monitorar um aplicativo de vários serviços na Malha do Service Fabric | Microsoft Docs'
 description: Neste tutorial, você cria um aplicativo de malha de vários serviços do Azure Service Fabric consistindo em um site do ASP.NET Core que se comunica com um serviço Web de back-end, depura-o localmente e o publica no Azure.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 09112aafdbabf0cda2b3ae13af73a9223533a6e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918872"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979186"
 ---
-# <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Tutorial: Criar, depurar e implantar um aplicativo Web de vários serviços na malha do Service Fabric
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutorial: Criar, depurar, implantar e atualizar um aplicativo de vários serviços para Malha do Service Fabric
 
-Este tutorial é a primeira parte de uma série. Você aprenderá a criar um aplicativo de malha do Azure Service Fabric com um front-end Web do ASP.NET e um serviço de back-end da API Web do ASP.NET Core. Em seguida, você depura o aplicativo no cluster de desenvolvimento local e publica o aplicativo no Azure. Quando tiver terminado, você terá um aplicativo de tarefas pendentes simples que demonstra uma chamada entre serviços em um aplicativo de malha do Service Fabric em execução na malha do Azure Service Fabric.
+Este tutorial é a primeira parte de uma série. Você aprenderá como usar o Visual Studio para criar um aplicativo de Malha do Azure Service Fabric com um front-end da Web do ASP.NET e um serviço de back-end da API Web do ASP.NET Core. Em seguida, você depurará o aplicativo no cluster de desenvolvimento local. Você publicará o aplicativo no Azure e, em seguida, fará alterações de configuração e código e atualizará o aplicativo. Por fim, você limpará os recursos do Azure não utilizados para que você não seja cobrado pelo que não está usando.
+
+Quando tiver terminado, você terá passado pela maioria das fases do gerenciamento de ciclo de vida do aplicativo e terá criado um aplicativo que demonstra uma chamada de serviço a serviço em um aplicativo de Malha do Service Fabric.
 
 Se você não quiser criar o aplicativo de tarefas pendentes manualmente, [baixe o código-fonte](https://github.com/azure-samples/service-fabric-mesh) do aplicativo concluído e vá direto para [Depurar o aplicativo localmente](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
 
 Na primeira parte da série, você aprenderá a:
 
 > [!div class="checklist"]
-> * Crie um aplicativo de malha do Service Fabric com um front-end Web do ASP.NET.
+> * Use o Visual Studio para criar um aplicativo de Malha do Service Fabric com um front-end Web do ASP.NET.
 > * Crie um modelo para representar itens de tarefas pendentes.
 > * Crie um serviço de back-end e recupere dados dele.
 > * Adicione um controlador e um DataContext como parte desse padrão de Controlador de Exibição de Modelo para o serviço de back-end.
@@ -40,9 +42,11 @@ Na primeira parte da série, você aprenderá a:
 
 Nesta série de tutoriais, você aprenderá a:
 > [!div class="checklist"]
-> * Compilar um aplicativo de malha do Service Fabric
-> * [Depurar o aplicativo localmente](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [Publicar o aplicativo no Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * Criar um aplicativo da Malha do Service Fabric no Visual Studio
+> * [Depurar um aplicativo da Malha do Service Fabric em execução no cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Implantar um aplicativo da Malha do Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Atualizar um aplicativo da Malha do Service Fabric](service-fabric-mesh-tutorial-upgrade.md)
+> * [Limpar os recursos da Malha do Service Fabric](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -54,9 +58,7 @@ Antes de começar este tutorial:
 
 * Verifique se [configurou o ambiente de desenvolvimento](service-fabric-mesh-howto-setup-developer-environment-sdk.md), o que inclui a instalação do tempo de execução do Service Fabric, SDK, Docker e Visual Studio 2017.
 
-* O aplicativo para este tutorial deve, por enquanto, ser compilado usando a localidade de inglês.
-
-## <a name="create-a-service-fabric-mesh-project"></a>Criar um projeto de malha do Service Fabric
+## <a name="create-a-service-fabric-mesh-project-in-visual-studio"></a>Crie um projeto de Malha do Service Fabric no Visual Studio
 
 Abra o Visual Studio e selecione **Arquivo** > **Novo** > **Projeto...**
 
@@ -212,10 +214,7 @@ public static class DataContext
 
     static DataContext()
     {
-        ToDoList = new Model.ToDoList("Main List");
-
         // Seed to-do list
-
         ToDoList.Add(Model.ToDoItem.Load("Learn about microservices", 0, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric", 1, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric Mesh", 2, false));
@@ -368,6 +367,7 @@ No arquivo service.yaml, adicione as variáveis a seguir a `environmentVariables
 
 > [!IMPORTANT]
 > Use espaços, não tabulações, para recuar as variáveis no arquivo service.yaml ou ele não será compilado. O Visual Studio pode inserir tabulações conforme você cria as variáveis de ambiente. Substitua todas as tabulações por espaços. Embora você veja erros na saída de depuração **build**, o aplicativo ainda será iniciado. Ele não funcionará, no entanto, até que você converta as tabulações em espaços. Para garantir que não há tabulações no arquivo service.yaml, você poderá tornar espaços em branco visíveis no editor do Visual Studio com **Editar**  > **Avançado**  > **Exibir Espaço em Branco**.
+> Observe que os arquivos service.yaml são processados usando a localidade do inglês.  Por exemplo, se você precisar usar um separador decimal, use um ponto em vez de uma vírgula.
 
 O **WebFrontEnd** do arquivo **service.yaml** do projeto deve ficar mais ou menos assim, embora seu valor `ApiHostPort` seja provavelmente diferente:
 
@@ -380,7 +380,7 @@ Agora você está pronto para compilar e implantar a imagem do aplicativo de mal
 Nesta parte do tutorial, você aprendeu a:
 
 > [!div class="checklist"]
-> * Crie um aplicativo de malha do Service Fabric com um front-end Web do ASP.NET.
+> * Crie um aplicativo de Malha do Service Fabric com um front-end da Web do ASP.NET.
 > * Crie um modelo para representar itens de tarefas pendentes.
 > * Crie um serviço de back-end e recupere dados dele.
 > * Adicione um controlador e um DataContext como parte desse padrão de Controlador de Exibição de Modelo para o serviço de back-end.
@@ -389,4 +389,4 @@ Nesta parte do tutorial, você aprendeu a:
 
 Prosseguir para o próximo tutorial:
 > [!div class="nextstepaction"]
-> [Depurar um aplicativo de malha do Service Fabric em execução localmente](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> [Depurar um aplicativo da Malha do Service Fabric em execução em seu cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)

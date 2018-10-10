@@ -1,6 +1,6 @@
 ---
 title: Registrar um novo dispositivo do Azure IoT Edge (CLI)| Microsoft Docs
-description: Usar a extensão do IoT para CLI 2.0 do Azure para registrar um novo dispositivo do IoT Edge
+description: Usar a extensão do IoT para CLI do Azure para registrar um novo dispositivo IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 451f4df31cd1c520b14227829923f72fe80c38c3
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: ee5e68d45c7d966619238312dabedc1628a4bf61
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325489"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998025"
 ---
-# <a name="register-a-new-azure-iot-edge-device-with-azure-cli-20"></a>Registrar um novo dispositivo do Azure IoT Edge com CLI 2.0 do Azure
+# <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Registrar um novo dispositivo Azure IoT Edge com a CLI do Azure
 
 Antes de poder usar os dispositivos do IoT com Azure IoT Edge, será necessário registrá-los no hub IoT. Após registrar um dispositivo, você receberá uma cadeia de conexão que poderá ser utilizada para configurar o dispositivo para cargas de trabalho do Edge. 
 
-A [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de software livre para gerenciamento dos recursos do Azure como, por exemplo, o IoT Edge. Isso permite que você gerencie instantaneamente recursos, instâncias de serviço de provisionamento de dispositivos e hubs vinculados do Hub IoT. A nova extensão de IoT aprimora a CLI do Azure 2.0 com recursos como gerenciamento de dispositivos e todos os recursos do IoT Edge.
+A [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de plataforma cruzada de software livre para gerenciar recursos do Azure como o IoT Edge. Isso permite que você gerencie instantaneamente recursos, instâncias de serviço de provisionamento de dispositivos e hubs vinculados do Hub IoT. A nova extensão de IoT enriquece a CLI do Azure com recursos como gerenciamento de dispositivos e funcionalidade completa do IoT Edge.
 
-Este artigo descreve como registrar um novo dispositivo do IoT Edge usando a CLI 2.0 do Azure.
+Este artigo descreve como registrar um novo dispositivo IoT Edge usando a CLI do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-using-cli.md) na assinatura do Azure. 
-* [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. A versão 2.0 da CLI do Azure deve ser 2.0.24 ou superior. Use `az –-version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
-* [Extensão de IoT para CLI 2.0 do Azure](https://github.com/Azure/azure-iot-cli-extension).
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.24 ou superior. Use `az –-version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
+* A [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="create-a-device"></a>Criar um dispositivo
 
@@ -67,4 +67,4 @@ O parâmetro da id do dispositivo diferencia maiúsculas de minúsculas. Não co
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [Implantar módulos em um dispositivo com a CLI 2.0 do Azure](how-to-deploy-modules-cli.md)
+Saiba como [Implantar módulos em um dispositivo com a CLI do Azure](how-to-deploy-modules-cli.md)

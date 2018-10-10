@@ -1,22 +1,24 @@
 ---
-title: Idiomas compatíveis com a API de Tradução de Fala da Microsoft | Microsoft Docs
-description: Exiba idiomas compatíveis com a API de Tradução de Fala da Microsoft.
+title: Idiomas com suporte – API de Tradução de Fala
+titlesuffix: Azure Cognitive Services
+description: Exibir idiomas com suporte da API de Tradução de Fala.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0d33033442a012290baa78d80f1b8bde0499b3f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3c0d0e17026dc0c970138c30f83dc9eb98db4228
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364777"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950175"
 ---
-# <a name="languages-supported-by-the-microsoft-translator-speech-api"></a>Idiomas compatíveis com a API de Tradução de Fala da Microsoft
+# <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas com suporte da API de Tradução de Fala
 Os idiomas a seguir são compatíveis com tradução de fala. Se ambos os idiomas forem compatíveis com tradução de fala, a conversão de fala em fala ou a conversão de fala em texto estará disponível. Se não houver suporte para o idioma de destino para a tradução de fala, apenas a tradução com conversão de fala em texto estará disponível. 
 
 | Idioma de fala    |
@@ -32,7 +34,7 @@ Os idiomas a seguir são compatíveis com tradução de fala. Se ambos os idioma
 | Russo      |
 | Espanhol      | 
 
-A API de Tradução de Fala da Microsoft é compatível com os seguintes idiomas como um idioma de destino para tradução com conversão de fala em texto. 
+A API de Tradução de Fala dá suporte aos seguintes idiomas como destino para tradução com conversão de fala em texto. 
 
 | Idioma de texto    | Código de idioma |
 |:----------- |:-------------:|
@@ -102,7 +104,7 @@ A API de Tradução de Fala da Microsoft é compatível com os seguintes idiomas
 
 ## <a name="access-the-list-programmatically"></a>Acessar a lista programaticamente
 
-Você pode acessar a lista de idiomas compatíveis programaticamente usando o recurso de idiomas. A lista fornece o código de idioma, bem como o nome do idioma em inglês ou em qualquer outro idioma compatível. Essa lista é atualizada automaticamente pelo serviço Microsoft Translator conforme novos idiomas são disponibilizados.
+Você pode acessar a lista de idiomas compatíveis programaticamente usando o recurso de idiomas. A lista fornece o código de idioma, bem como o nome do idioma em inglês ou em qualquer outro idioma compatível. Essa lista é atualizada automaticamente pelo serviço de Tradução de Fala conforme novos idiomas são disponibilizados.
 
 O recurso de Idiomas retorna a lista de idiomas compatíveis para fala, texto e conversão de texto em fala. O recurso de idiomas não requer autenticação.
 

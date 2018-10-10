@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: bf2ba6d31c170715a52b84439276c45665293c35
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 893b0ee70f577d9240d577e76062eea36b704058
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246389"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989865"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Este artigo, **Etapa 2**, mostra a preparação dos VHDs (discos rígidos virtuais) que você implantará no Azure Marketplace. Seus VHDs são a base de sua SKU. O processo é diferente dependendo se você está fornecendo uma SKU baseada em Linux ou em Windows. Este artigo aborda ambos os cenários. Esse processo pode ser executado em paralelo com [Criação e registro de conta][link-acct-creation].
@@ -189,9 +189,9 @@ Para obter mais informações sobre imagens de VM revise os posts de blog abaixo
 * [Guia do PowerShell da Imagem da VM](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 * [Sobre imagens VM no Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-### <a name="set-up-the-necessary-tools-powershell-and-azure-cli"></a>Configurar as ferramentas necessárias, PowerShell e CLI do Azure
+### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>Configurar as ferramentas necessárias, PowerShell e CLI Clássica do Azure
 * [Como configurar o PowerShell](/powershell/azure/overview)
-* [Como configurar a CLI do Azure](../cli-install-nodejs.md)
+* [Como configurar a CLI clássica do Azure](../cli-install-nodejs.md)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 Criar uma imagem VM de usuário
 #### <a name="capture-vm"></a>Capturar VM
@@ -427,11 +427,13 @@ A seguir são mostradas as etapas para gerar a URL SAS usando o Gerenciador de A
 
 11. Repita essas etapas para cada VHD na SKU.
 
-**CLI do Azure (recomendado para não Windows e Integração Contínua)**
+**CLI Clássica do Azure (recomendado para não Windows e Integração Contínua)**
 
-A seguir são mostradas as etapas para gerar a URL SAS usando a CLI do Azure
+A seguir são mostradas as etapas para gerar a URL SAS usando a CLI clássica do Azure
 
-1.  Baixe a CLI do Microsoft Azure [aqui](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Você também pode encontrar links diferentes para **[Windows](http://aka.ms/webpi-azure-cli)** e **[MAC OS](http://aka.ms/mac-azure-cli)**.
+[!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
+
+1.  Baixe a CLI clássica do Azure [aqui](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Você também pode encontrar links diferentes para **[Windows](http://aka.ms/webpi-azure-cli)** e **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
 2.  Após concluir o download, instale-o
 
@@ -447,9 +449,9 @@ A seguir são mostradas as etapas para gerar a URL SAS usando a CLI do Azure
 
     b. **`<Storage Account Key>`**: informe a chave de conta de armazenamento
 
-    c. **`<Permission Start Date>`**: Para garantir a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 26 de outubro de 2016, o valor deverá ser 25/10/2016. Se estiver usando CLI do Azure 2.0 (comando az), forneça a data e a hora nas datas de início e término, por exemplo: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: Para garantir a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 26 de outubro de 2016, o valor deverá ser 25/10/2016. Se estiver usando CLI do Azure versão 2.0 ou superior, forneça a data e a hora nas datas de início e término, por exemplo: 10-25-2016T00:00:00Z.
 
-    d. **`<Permission End Date>`**: selecione uma data que seja pelo menos três semanas após a data em **Hora de Início**. O valor deve ser **02/11/2016**. Se estiver usando CLI do Azure 2.0 (comando az), forneça a data e a hora nas datas de início e término, por exemplo: 11-02-2016T00:00:00Z.
+    d. **`<Permission End Date>`**: selecione uma data que seja pelo menos três semanas após a data em **Hora de Início**. O valor deve ser **02/11/2016**. Se estiver usando CLI do Azure versão 2.0 ou superior, forneça a data e a hora nas datas de início e término, por exemplo: 11-02-2016T00:00:00Z.
 
     Veja a seguir o código de exemplo depois de atualizar os parâmetros corretos
 
@@ -520,7 +522,7 @@ Depois de criar sua oferta e SKU, você deve digitar os detalhes da imagem assoc
 |Falha ao copiar as imagens – “sp=rl” não existe URL SAS|Falha: Copiando Imagens. Não é possível baixar blobs usando o URI SAS fornecido|Atualizar a URL SAS com permissões definidas como “Leitura” e “Listagem”|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Falha ao copiar imagens – A URL SAS tem espaços em branco no nome do vhd|Falha: Copiando Imagens. Não é possível baixar blobs usando o URI SAS fornecido.|Atualize a URL SAS sem espaços em branco|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Falha ao copiar imagens – Erro de autorização da URL SAS|Falha: Copiando Imagens. Não é possível baixar o blob devido a um erro de autorização|Gere novamente a URL SAS|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens – os parâmetros "st" e "se" da URL SAS não têm especificação de data e hora completa|Falha: Copiando Imagens. Não é possível baixar o blob devido a uma URL SAS incorreta |Os parâmetros de Data de Início e de Término da URL SAS ("st", "se") são obrigatórios para se ter uma especificação de data e hora completa como 11-02-2017T00:00:00Z e não apenas a data ou versões abreviadas para a hora. É possível encontrar esse cenário usando a CLI do Azure 2.0 (comando az). Verifique se você forneceu a especificação de data e hora completa e gere novamente a URL SAS.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens – os parâmetros "st" e "se" da URL SAS não têm especificação de data e hora completa|Falha: Copiando Imagens. Não é possível baixar o blob devido a uma URL SAS incorreta |Os parâmetros de Data de Início e de Término da URL SAS ("st", "se") são obrigatórios para se ter uma especificação de data e hora completa como 11-02-2017T00:00:00Z e não apenas a data ou versões abreviadas para a hora. É possível encontrar esse cenário usando a CLI do Azure versão 2.0 ou superior. Verifique se você forneceu a especificação de data e hora completa e gere novamente a URL SAS.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Próxima etapa
 Depois de concluir os detalhes do SKU, avance até o [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging]. Nessa etapa do processo de publicação, você fornece o conteúdo de marketing, o preço e outras informações necessárias antes da **Etapa 3: testando sua oferta de VM em preparo**, onde pode testar vários cenários de caso de uso antes de implantar a oferta no Azure Marketplace para visibilidade pública e compra.  

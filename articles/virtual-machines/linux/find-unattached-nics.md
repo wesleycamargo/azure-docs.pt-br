@@ -1,6 +1,6 @@
 ---
 title: Encontre e exclua os NIcs do Azure não anexados | Microsoft Docs
-description: Como encontrar e excluir o NICs do Azure que não estão anexados às Máquinas Virtuais no Azure CLI 2.0
+description: Como localizar e excluir NICs do Azure que não estão anexadas a VMs com a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 54315b2b66b9fb11ae904593c285eb7623cccdbb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 9d8345aacb603a6411fdc693ac9f808778d27333
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930504"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954323"
 ---
 # <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Como encontrar e excluir as placas de interface de rede não anexadas (NICs) para as máquinas virtuais do Azure
 Quando você exclui uma máquina virtual (VM) no Azure, as placas de interface de rede (NICs) são excluídas por padrão. Se você criar e excluir várias máquinas virtuais, os NICs não usados continuarão a usar as concessões de endereço de IP internas. Conforme você cria outras NICs de máquina virtual, podem não conseguir obter uma concessão de IP no espaço de endereço da sub-rede. Esse artigo mostra como encontrar e excluir NICs não anexadas.

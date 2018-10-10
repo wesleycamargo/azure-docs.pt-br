@@ -1,5 +1,6 @@
 ---
-title: Conceitos | Microsoft Docs
+title: Conceitos de Fala do Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Conceitos básicos usados no serviço de fala da Microsoft.
 services: cognitive-services
 author: zhouwangzw
@@ -7,14 +8,15 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bc23f4fb7dfc045a0f8cc87155c31875c4de8450
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 08790d73dd4fd182d8129c755a291fd99b6136a2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363660"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954102"
 ---
 # <a name="basic-concepts"></a>Conceitos básicos
 
@@ -77,10 +79,10 @@ O serviço de reconhecimento de fala Microsoft fornece duas maneiras para que de
 
 | Casos de uso | [APIs REST](GetStarted/GetStartedREST.md) | [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Converter um áudio curto falado, por exemplo, comandos (tamanho do áudio < 15 s) sem resultados intermediários | sim | sim |
-| Converter um áudio longo (> 15 s) | Não  | sim |
-| Fluxo de áudio desejado com resultados intermediários | Não  | sim |
-| Entender o texto convertido de áudio usando LUIS | Não  | sim |
+| Converter um áudio curto falado, por exemplo, comandos (tamanho do áudio < 15 s) sem resultados intermediários | SIM | SIM |
+| Converter um áudio longo (> 15 s) | Não  | SIM |
+| Fluxo de áudio desejado com resultados intermediários | Não  | SIM |
+| Entender o texto convertido de áudio usando LUIS | Não  | SIM |
 
  Se a linguagem ou plataforma ainda não tiver um SDK, você pode criar sua própria implementação baseada na [documentação de protocolo](API-Reference-REST/websocketprotocol.md).
 

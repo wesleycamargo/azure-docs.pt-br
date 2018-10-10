@@ -1,20 +1,22 @@
 ---
-title: Introdução à API de Reconhecimento de Fala da Microsoft usando bibliotecas de clientes de Fala do Bing | Microsoft Docs
-description: Use a as bibliotecas de cliente dos Serviços de Fala da Microsoft nos Serviços Cognitivos da Microsoft para desenvolver aplicativos que convertem áudio falado para texto.
+title: Introdução à API de Reconhecimento de Fala do Bing usando bibliotecas de clientes | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Use as bibliotecas de clientes de Fala do Bing nos Serviços Cognitivos da Microsoft para desenvolver aplicativos que convertem áudio falado em texto.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6fb490def6807204943a1ce3ba3c53186055102b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ROBOTS: NOINDEX
+ms.openlocfilehash: e9d1bf1a6a2383a58a890ce9add816f9e9060273
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048450"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948115"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Introdução às bibliotecas de clientes do Serviço de Fala do Bing
 
@@ -43,3 +45,4 @@ Em maio de 2018, também lançamos o novo [Serviço de Fala](../../speech-servic
 ## <a name="license"></a>Licença
 
 Todos os SDKs dos Serviços Cognitivos da Microsoft e exemplos são licenciados com a licença do MIT. Para obter mais informações, consulte [Licença](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+

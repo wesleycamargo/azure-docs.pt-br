@@ -1,6 +1,6 @@
 ---
-title: Exemplos da CLI do Azure 2.0 – Conjunto de dimensionamento com redundância de zona | Microsoft Docs
-description: Exemplos da CLI do Azure 2.0
+title: Exemplos da CLI do Azure – Conjunto de dimensionamento com redundância de zona | Microsoft Docs
+description: Exemplos de CLI do Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5b999ab1ffa9a0c576bc4f00f14b12512ebcb80d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f59a1083e76f8d2a629f1589f6b44c241eadca89
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618158"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986738"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais de redundância de zona com o PowerShell
 Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Ubuntu em várias Zonas de disponibilidade. Após a execução do script, é possível acessar a máquina virtual por RDP.
@@ -50,6 +50,6 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um conjunt
 | [az group delete](/cli/azure/ad/group#delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre a CLI do Azure 2.0, consulte a [documentação da CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/overview).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Outros exemplos de script da CLI do Azure 2.0 de conjunto de dimensionamento de máquinas virtuais podem ser encontrados na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../cli-samples.md).
+Outros exemplos de script da CLI do Azure de conjunto de dimensionamento de máquinas virtuais podem ser encontrados na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../cli-samples.md).

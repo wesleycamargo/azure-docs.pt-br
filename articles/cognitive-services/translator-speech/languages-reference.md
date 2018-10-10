@@ -1,25 +1,26 @@
 ---
-title: Método Languages da API de Tradução de Fala da Microsoft | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Use o método Languages da API de Tradução de Fala da Microsoft.
+title: Método de Idiomas da API de Tradução de Fala
+titleSuffix: Azure Cognitive Services
+description: Use o método de Idiomas da API de Tradução de Fala.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech
+ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: 5396e3be17345c3c36197a9b6cbace86e1f574c1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9fbbba7ed5e81cae1d30c5a480b9f7f7a13342c5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364791"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986414"
 ---
-# <a name="speech-api-languages"></a>Speech API: Languages
+# <a name="translator-speech-api-languages"></a>API de Tradução de Fala: idiomas
 
-O Microsoft Translator estende continuamente a lista de idiomas compatíveis com seus serviços. Use essa API para descobrir o conjunto de idiomas atualmente disponíveis para uso com o serviço de Tradução de Fala.
+A API de Tradução de Fala estende continuamente a lista de idiomas compatíveis com seus serviços. Use essa API para descobrir o conjunto de idiomas atualmente disponíveis para uso com o serviço da API de Tradução de Fala.
 
 Exemplos de código demonstrando o uso da API para obter idiomas disponíveis podem ser obtidos no [site Microsoft Translator GitHub](https://github.com/MicrosoftTranslator).
 
@@ -129,7 +130,7 @@ Languages { speech (object, optional), text (object, optional), tts (object, opt
 
 ### <a name="headers"></a>Cabeçalhos
 
-|Cabeçalho|DESCRIÇÃO|type|
+|Cabeçalho|DESCRIÇÃO|Tipo|
 :--|:--|:--|
 X-RequestId|Valor gerado pelo servidor para identificar a solicitação e usado para fins de solução de problemas.|string|
 

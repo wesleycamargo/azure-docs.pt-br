@@ -1,25 +1,27 @@
 ---
-title: Início rápido para Serviços Cognitivos do Python, API de Tradução de Fala da Microsoft | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar a API de Tradução de Fala da Microsoft nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: API de Tradução de Fala com Python'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Tradução de Fala.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a24ccd456df533542e7cbd2315fc1050cd82afbf
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ROBOTS: NOINDEX
+ms.openlocfilehash: 601e8473482cf6d90151b221309aef4d48d368d0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41929878"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979008"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Início rápido da API de Tradução de Fala da Microsoft com Python 
+# <a name="quickstart-translator-speech-api-with-python"></a>Início Rápido: API de Tradução de Fala com Python
 <a name="HOLTop"></a>
 
-Este artigo mostra como usar a API de Tradução de Fala da Microsoft para traduzir palavras faladas em um arquivo .wav.
+Este artigo mostra como usar a API de Tradução de Fala para traduzir palavras faladas em um arquivo .wav.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

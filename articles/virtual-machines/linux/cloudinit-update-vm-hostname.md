@@ -1,6 +1,6 @@
 ---
 title: Usar cloud-init para definir o nome do host para uma VM Linux no Azure | Microsoft Docs
-description: Como usar cloud-init para personalizar uma VM Linux durante a criação com a CLI do Azure 2.0
+description: Como usar cloud-init para personalizar uma VM Linux durante a criação com a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: a858a12ec81db7ae1c0a7b7cfea06fa2abdcdcc6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e985111a28805f861242240a5c2e3d7b6664be4e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29124017"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996104"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Usar cloud-init para definir o nome do host para uma VM Linux no Azure
 Este artigo mostra como usar [cloud-init](https://cloudinit.readthedocs.io) para configurar um nome do host específico em uma VM (máquina virtual) ou em um VMSS (conjuntos de dimensionamento de máquinas virtuais) no momento do provisionamento no Azure. Esses scripts de cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure. Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)

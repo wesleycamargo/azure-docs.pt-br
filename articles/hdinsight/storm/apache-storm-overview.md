@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 3446488a5dc2bdd1bb01b39bc25b60137fcbc331
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 353ab846c576a9b133cf640bbc856ec6eddf73f4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040040"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982879"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>O que é o Apache Storm no Azure HDInsight?
 
@@ -84,7 +84,7 @@ Você pode provisionar um novo cluster Storm no HDInsight em minutos. Para saber
 
   Para obter mais informações, confira os documentos [Administrar o HDInsight usando a interface do usuário do Ambari](../hdinsight-hadoop-manage-ambari.md) e [Monitorar e gerenciar usando a interface do usuário do Storm](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui).
 
-* __Azure PowerShell e CLI do Azure__: o PowerShell e a CLI fornecem utilitários de linha de comando que você pode usar no sistema cliente para trabalhar com o HDInsight e outros serviços do Azure.
+* __Azure PowerShell e CLI Clássica do Azure__: o PowerShell e a CLI Clássica fornecem utilitários de linha de comando que você pode usar no sistema cliente para trabalhar com o HDInsight e outros serviços do Azure.
 
 * __Integração do Visual Studio__: o Ferramentas do Azure Data Lake para Visual Studio inclui modelos de projeto para criar topologias Storm em C# usando a estrutura SCP.Net. O Data Lake Tools também fornece ferramentas para implantar, monitorar e gerenciar soluções com o Storm no HDInsight.
 

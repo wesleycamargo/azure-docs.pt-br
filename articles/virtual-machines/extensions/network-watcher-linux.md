@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: efd512395b49d3c274bb5aa409d1cbd527673659
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 35cd773c2a30549dde10a73b2fbe6db1a0c8b34a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781880"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989372"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux
 
@@ -87,7 +87,7 @@ O JSON a seguir mostra o esquema para a extensão do Agente do Observador de Red
 
 Você pode implantar extensões de VM do Azure com um modelo do Azure Resource Manager. Para implantar a extensão do Agente do Observador de Rede, use o esquema json anterior em seu modelo.
 
-## <a name="azure-cli-10-deployment"></a>Implantação de CLI do Azure 1.0
+## <a name="azure-classic-cli-deployment"></a>Implantação da CLI clássica do Azure
 
 O exemplo a seguir implanta a extensão de VM de Agente do Observador de Rede para uma VM existente implantada por meio do modelo de implantação clássico:
 
@@ -96,7 +96,7 @@ azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
 
-## <a name="azure-cli-20-deployment"></a>Implantação da CLI do Azure 2.0
+## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
 
 O exemplo a seguir implanta a extensão de VM de Agente do Observador de Rede para uma VM existente implantada por meio do Gerenciador de Recursos:
 
@@ -110,7 +110,7 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 Você pode recuperar dados sobre o estado das implantações de extensão usando o portal do Azure ou a CLI do Azure.
 
-O exemplo a seguir mostra o estado de implantação de extensões para uma VM implantada por meio do modelo de implantação clássico, usando a CLI do Azure 1.0:
+O exemplo a seguir mostra o estado de implantação de extensões para uma VM implantada por meio do modelo de implantação clássico, usando a CLI clássica do Azure:
 
 ```azurecli
 azure config mode asm
@@ -122,7 +122,7 @@ A saída de execução da extensão é registrada nos arquivos localizados no se
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 `
 
-O exemplo a seguir mostra o estado de implantação da extensão NetworkWatcherAgentLinux para uma VM implantada por meio do Gerenciador de Recursos, usando a CLI do Azure 2.0:
+O exemplo a seguir mostra o estado de implantação da extensão NetworkWatcherAgentLinux para uma VM implantada por meio do Resource Manager, usando a CLI do Azure:
 
 ```azurecli
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1

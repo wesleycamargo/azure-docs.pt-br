@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: faa213caf415f98c230af741822e17a511b6fe43
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: aa2613f7cb73c2c338189aaaa48587c49a3093f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696288"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962164"
 ---
 # <a name="build-a-java-application-by-using-azure-cosmos-db-async-java-sdk"></a>Criar um aplicativo Java usando o SDK de Java assíncrono do Azure Cosmos DB 
 
@@ -26,7 +26,6 @@ ms.locfileid: "43696288"
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 O Azure Cosmos DB é um banco de dados multimodelo distribuído globalmente. Este tutorial mostra como usar contas de API de SQL do Azure Cosmos DB para armazenar e acessar dados por meio de um aplicativo Java assíncrono. 
@@ -101,7 +100,7 @@ public class AccountSettings
 ![Captura de tela do Portal do Azure usado pelo tutorial do NoSQL para criar um aplicativo de console em Java. Mostra uma conta do Azure Cosmos DB com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Azure Cosmos DB e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
 
 ## <a name="step-4-initialize-the-client-object"></a>Etapa 4: Inicializar o objeto de cliente
-Inicializar o objeto de cliente usando o os valores de URI e de chave primária do host definidos no arquivo “AccountSettings.java”
+Inicializar o objeto cliente usando os valores de URI e de chave primária do host definidos no arquivo “AccountSettings.java”
 
 ```java
 client = new AsyncDocumentClient.Builder()

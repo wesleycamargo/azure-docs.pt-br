@@ -1,5 +1,5 @@
 
-1. Conecte-se à sua assinatura do Azure usando as etapas listadas em [Conectar ao Azure pela CLI do Azure 1.0](/cli/azure/authenticate-azure-cli).
+1. Entre em sua assinatura do Azure usando as etapas listadas em [Conectar-se ao Azure pela CLI clássica do Azure](/cli/azure/authenticate-azure-cli).
 
 2. Verifique se que você está no modo de implantação Clássica da seguinte maneira:
 
@@ -52,5 +52,5 @@
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter detalhes sobre todos esses comandos de máquina virtual da CLI do Azure 1.0, leia [Usando a CLI do Azure 1.0 com a API da implantação Clássica](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+Para obter detalhes sobre todos esses comandos de máquina virtual da CLI clássica do Azure, leia [Usando a CLI clássica do Azure com a API da implantação clássica](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 

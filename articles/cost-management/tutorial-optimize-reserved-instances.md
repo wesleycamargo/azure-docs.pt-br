@@ -1,30 +1,30 @@
 ---
-title: Tutorial - Otimizar custos de instância reservada com o Gerenciamento de Custos do Azure | Microsoft Docs
+title: Tutorial – Otimizar reserva instância os custos com a Cloudyn no Azure | Microsoft Docs
 description: Neste tutorial, você aprenderá a otimizar os custos de instância reservada para os serviços Azure e AWS (Amazon Web Services).
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: f0edad58256ecc29e2fd215095e8b5ab13d69ce8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177316"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987740"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
 # <a name="tutorial-optimize-reserved-instances"></a>Tutorial: otimizar instâncias reservadas
 
-Neste tutorial, você aprenderá como o Gerenciamento de Custos pode ajudá-lo a otimizar os custos e o uso da instância reservada para os serviços Azure e AWS (Amazon Web Services). Uma instância reservada com um desses provedores de serviços de nuvem é um compromisso com um contrato de longo prazo em que você se compromete de antemão a usar a VM no futuro. E isso talvez possa trazer uma economia significativa em comparação com o modelo de preços de VM de pagamento por uso padrão. A possível economia só ocorre quando você usa totalmente a capacidade das instâncias reservadas.
+Neste tutorial, você aprenderá como o Cloudyn pode ajudá-lo a otimizar os custos e o uso da instância reservada para os serviços Azure e AWS (Amazon Web Services). Uma instância reservada com um desses provedores de serviços de nuvem é um compromisso com um contrato de longo prazo em que você se compromete de antemão a usar a VM no futuro. E isso talvez possa trazer uma economia significativa em relação ao modelo de preços de VM padrão com pagamento por uso. A possível economia só ocorre quando você usa totalmente a capacidade das instâncias reservadas.
 
-Este tutorial explica como as RIs (instâncias reservadas) do Azure e do AWS têm suporte pelo Gerenciamento de Custos. Ele também descreve como você pode otimizar os custos da instância reservada. Primeiramente, fazendo com que as reservas sejam totalmente utilizadas. Neste tutorial, você irá:
+Este tutorial explica como o Cloudyn dá suporte ao Azure e a RIs (Instâncias Reservadas) do AWS. O tutorial descreve também como otimizar os custos da instância reservada. Primeiramente, fazendo com que as reservas sejam totalmente utilizadas. Neste tutorial, você irá:
 
 > [!div class="checklist"]
 > * Compreender os custos de RI do Azure
@@ -41,7 +41,7 @@ Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azu
 ## <a name="prerequisites"></a>pré-requisitos
 
 - Você deve ter uma conta do Azure.
-- Você deve ter um registro de avaliação ou uma assinatura paga do Gerenciamento de Custos do Azure.
+- Você precisa ter um registro de avaliação ou uma assinatura paga do Cloudyn.
 - Você deve ter comprado RIs no Azure ou no AWS.
 
 ## <a name="understand-azure-ri-costs"></a>Compreender os custos de RI do Azure
@@ -53,11 +53,11 @@ Quando você compra Instâncias de VM Reservadas do Azure, já paga adiantadamen
 - por um prazo de um ou três anos
 - até uma quantidade de VMs adquirida.
 
-Você pode exibir seu Instâncias de VM Reservadas do Azure adquiridas no portal do Azure em [Reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+Você pode exibir suas Instâncias de VM Reservadas do Azure adquiridas no portal do Azure em [Reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 O termo _Instância de VM Reservada do Azure_ só se aplica a um modelo de preços. Ele não altera suas VMs em execução. O termo é específico para o Azure e costuma ser chamado de _instância reservada_ ou _reserva_. As instâncias reservadas que você comprou não se aplicam a VMs específicas; elas se aplicam a qualquer VM correspondente. Por exemplo, uma reserva para um tipo de VM que é executado em uma região que você escolheu para a reserva adquirida.
 
-As instâncias reservadas adquiridas se aplicam apenas ao hardware básico. Elas não abrangem licenças de software de uma VM. Por exemplo, você pode reservar uma instância e ter uma VM correspondente que executa o Windows. A instância reservada só cobre o custo base da VM. Neste exemplo, você paga o preço total das licenças Windows necessárias. Para obter um desconto no sistema operacional ou outros softwares em execução nas VMs, pense em usar os [Benefícios Híbridos do Azure](https://azure.microsoft.com/pricing/hybrid-benefit). Os Benefícios Híbridos oferecem um desconto para suas licenças de software de maneira semelhante às instâncias reservadas em relação às VMs de base.
+As instâncias reservadas adquiridas se aplicam apenas ao hardware básico. Elas não abrangem licenças de software de uma VM. Por exemplo, você pode reservar uma instância e ter uma VM correspondente que executa o Windows. A instância reservada só cobre o custo base da VM. Neste exemplo, você paga o preço total das licenças Windows necessárias. Para obter um desconto no sistema operacional ou em outro software executado nas VMs, pense em usar os [Benefícios Híbridos do Azure](https://azure.microsoft.com/pricing/hybrid-benefit). Os Benefícios Híbridos oferecem um desconto para suas licenças de software de maneira semelhante às instâncias reservadas em relação às VMs de base.
 
 A utilização de instância reservada não afeta diretamente o custo. Em outras palavras, a execução de uma VM a 100% de utilização da CPU ou a 0% de utilização da CPU tem o mesmo efeito: você paga pela alocação da VM, não pela utilização real.
 
@@ -67,7 +67,7 @@ Vamos ver como fica o custo do uso de VM sob demanda padrão em relação a inst
 
 
 
-As barras em vermelho mostram o custo acumulado da compra de instância reservada. Você paga apenas o valor de uso único. Uso da VM é gratuito. As barras azuis mostram o custo acumulado da mesma VM em execução com o modelo de preços pré-pago ou sob demanda. Entre o sétimo e o oitavo mês de uso da VM, há um *ponto de neutralização de custo*. A partir do oitavo mês é que você começa a reduzir os custos neste exemplo.
+As barras em vermelho mostram o custo acumulado da compra de instância reservada. Você paga apenas o valor de uso único. Uso da VM é gratuito. As barras azuis mostram o custo acumulado da mesma VM executada com o modelo de preços pago conforme o uso ou sob demanda. Entre o sétimo e o oitavo mês de uso da VM, há um *ponto de neutralização de custo*. A partir do oitavo mês é que você começa a reduzir os custos neste exemplo.
 
 ## <a name="benefits-of-ris"></a>Benefícios das RIs
 
@@ -75,7 +75,7 @@ Todas as compras de instância reservada aplicam-se a uma máquina virtual de um
 
 ![Detalhes de instância reservada do Azure](./media/tutorial-optimize-reserved-instances/azure02.png)
 
-A compra de instância reservada se torna útil quando uma máquina virtual é executada por tempo suficiente para alcançar o ponto de neutralização de custo da reserva. A VM deve corresponder ao tamanho e ao local da instância reservada. Por exemplo, o ponto de neutralização de custo está entre o sétimo e o oitavo mês no gráfico anterior. Portanto, a compra é benéfica quando a VM correspondente à reserva é executada pelo menos por 7,5 meses \* 30 dias \* 24 horas = 5.400 horas. Se a VM correspondente for executada por menos de 5.400 horas, a reserva é mais cara do que no pagamento por uso.
+A compra de instância reservada se torna útil quando uma máquina virtual é executada por tempo suficiente para alcançar o ponto de neutralização de custo da reserva. A VM deve corresponder ao tamanho e ao local da instância reservada. Por exemplo, o ponto de neutralização de custo está entre o sétimo e o oitavo mês no gráfico anterior. Portanto, a compra é benéfica quando a VM correspondente à reserva é executada pelo menos por 7,5 meses \* 30 dias \* 24 horas = 5.400 horas. Se a VM correspondente for executada por menos de 5.400 horas, a reserva é mais cara do que no pagamento conforme o uso.
 
 O ponto de neutralização de custo pode ser diferente para cada tamanho de VM e para cada local. Isso também depende do preço da VM pago conforme o uso negociado. Antes de fazer uma compra, verifique o ponto de neutralização de custo aplicável ao seu caso.
 
@@ -85,7 +85,7 @@ O escopo de compra compartilhado é o mais flexível e recomendado sempre que po
 
 ## <a name="optimize-azure-ri-costs"></a>Otimizar os custos de RI do Azure
 
-O Gerenciamento de Custos do Azure dá suporte a instâncias reservadas e benefícios híbridos:
+O Cloudyn dá suporte a instâncias reservadas e Benefícios híbridos da seguinte maneira:
 
 - Mostrando os custos associados aos modelos de preços
 - Controlando o uso da RI
@@ -104,7 +104,7 @@ O relatório Impacto de Compra de Instância Reservada pode ajudar a responder a
 
 No portal do Cloudyn, navegue até **Otimizador** > **Comparação de RI** e selecione **Impacto de Compra de Instância Reservada**.
 
-No relatório Impacto de Compra de Instância Reservada, selecione um tamanho de VM (tipo de instância), local (região), prazo de reserva, quantidade e tempo de execução esperado. Em seguida, avalie se sua compra vai economizar dinheiro.
+No relatório Impacto de Compra de Instância Reservada, selecione um tamanho de VM (tipo de instância), local (região), prazo de reserva, quantidade e tempo de execução esperado. Em seguida, avalie se sua compra resultará em economias.
 
 Por exemplo, se você comprar uma reserva para uma VM do tipo DS1\_v2 no Leste dos EUA que é executada 24 horas por dia, 7 dias por semana durante um ano inteiro, poderá economizar US$ 369,48 por ano. O ponto de neutralização de custo ocorre em cinco meses. Veja a seguinte imagem:
 
@@ -116,7 +116,7 @@ No entanto, se ela é executada apenas 50% do tempo, o ponto de neutralização 
 
 ## <a name="view-ri-costs"></a>Exibir os custos de RI
 
-Quando você compra uma reserva, faz um pagamento único. Há duas maneiras de exibir o pagamento no Gerenciamento de Custos:
+Ao adquirir uma reserva, você faz um pagamento único. Há duas maneiras de exibir o pagamento no Cloudyn:
 
 - Custo real
 - Custo amortizado
@@ -131,17 +131,17 @@ Navegue até **Custo** > **Análise de Custo** > no portal do Cloudyn e selecion
 
 Você pode filtrar por um serviço, **Azure/VM** neste exemplo e agrupar por **modelo de preço** e **tipo de recurso**, conforme mostrado na imagem abaixo:
 
-![Filtros e grupos do relatório Custo Real](./media/tutorial-optimize-reserved-instances/azure06.png)
+![Filtros e grupos do relatório de Custo Real](./media/tutorial-optimize-reserved-instances/azure06.png)
 
-Você também pode analisar o tipo de pagamentos feitos, como valores de uso únicos, valores de uso e valores de licença.
+Você também pode analisar os tipos de pagamentos feitos, como tarifas únicas, de uso e de licença.
 
 ### <a name="amortized-reserved-instance-cost"></a>Custo amortizado de instância reservada
 
-Ao comprar uma RI, você paga um valor inicial que pode ser visto no mês da compra. Ela não fica visível nas suas faturas subsequentes. Assim, a verificação do uso mensal pode ser enganosa. O mês realmente custa o uso mensal mais parte proporcional (amortizada) de valores de uso únicos eventualmente pagos anteriormente. O relatório Custo Amortizado pode ajudá-lo a obter a noção real.
+Ao comprar uma RI, você paga um valor inicial que pode ser visto no mês da compra. Ela não fica visível nas suas faturas subsequentes. Dessa forma, a análise do seu uso mensal pode não ser precisa. O custo mensal real consiste do uso mensal mais a parte proporcional (amortizada) de tarifas de uso único pagas anteriormente. O relatório de Custo Amortizado pode ajudá-lo a obter uma visão real.
 
 O custo da instância reservada amortizado é calculado considerando o valor de uso único de reserva e sua amortização durante o prazo de reserva. Em relatórios de custo real, os valores de uso únicos só são vistos no mês da compra da reserva. Os gastos diários e mensais não aparecem no custo real da implantação. Os relatórios de custos amortizados mostram o custo real da implantação ao longo do tempo.  O relatório de custo amortizado é a única maneira de ver suas tendências de custo reais. Também é a única maneira de projetar seus gastos futuros.
 
-O relatório Custo Real, você viu um pico de compra de RI em 16 de novembro de US$ 747. No relatório Custo Amortizado (consulte a imagem a seguir), há um custo diário parcial em 16 de novembro. Iniciando em 17 de novembro, você vê o custo de RI amortizado de US $747/365 = US$ 2,05. Por acaso, você também nota que a reserva adquirida não foi usada e, portanto, você pode otimizá-la alternando-a para um tamanho de VM diferente.
+No relatório de Custo Real, você observou um pico de compra de RI em 16 de novembro de US$ 747. No relatório Custo Amortizado (consulte a imagem a seguir), há um custo diário parcial em 16 de novembro. A partir de 17 de novembro, você verá o custo de RI amortizado de US $747/365 = US$ 2,05. Você perceberá também que a reserva adquirida não foi usada e, portanto, você pode otimizá-la alternando-a para um tamanho de VM diferente.
 
 Para exibi-lo, navegue até **Custo** > **Análise de Custo** > e selecione **Análise de Custo Amortizado** ou **Custo Amortizado ao Longo do Tempo**.
 
@@ -168,7 +168,7 @@ A imagem a seguir mostra as recomendações de compra do relatório.
 
 ![Recomendações de compra](./media/tutorial-optimize-reserved-instances/aws01.png)
 
-Neste exemplo, o Cloudyn mostra \_uma conta com 32 recomendações de compra de instância reservada. Se você seguir todas as recomendações de compra, poderia poupar até US$ 137.770 por ano. Tenha em mente que as recomendações de compra fornecidas pelo Cloudyn assumem que o uso de suas cargas de trabalho em execução permanecerão consistentes.
+Neste exemplo, o Cloudyn mostra \_uma conta com 32 recomendações de compra de instância reservada. Se você seguir todas as recomendações de compra, poderia poupar até US$ 137.770 por ano. Tenha em mente que as recomendações de compra fornecidas pelo Cloudyn presumem que o uso de suas cargas de trabalho em execução permanecerão consistentes.
 
 Para exibir detalhes sobre por que cada compra é recomendada, clique no símbolo de adição (**+**) em **Justificativas** . Aqui está um exemplo para a primeira recomendação na lista.
 
@@ -176,13 +176,13 @@ Para exibir detalhes sobre por que cada compra é recomendada, clique no símbol
 
 O exemplo anterior mostra que a execução da carga de trabalho sob demanda custaria US$ 90.456 por ano. No entanto, se você comprar a reserva com antecedência, a mesma carga de trabalho teria um custo de US$ 56.592 e economizaria US$ 33.864 por ano.
 
-Clique no símbolo de adição ao lado de **Impacto de compra de RI EC2** para exibir o ponto de neutralização de custo durante um ano para ver aproximadamente quando seu investimento de compra se paga. Cerca de oito meses depois da compra é que o custo acumulado sob demanda começa a exceder o custo acumulado da RI no exemplo abaixo:
+Clique no símbolo de adição ao lado de **Impacto de compra de RI EC2** para exibir o ponto de neutralização de custo durante um ano para ver aproximadamente quando seu investimento de compra se paga. Cerca de oito meses depois da compra o custo acumulado sob demanda começa a exceder o custo acumulado da RI no exemplo abaixo:
 
-![Impacto de compra](./media/tutorial-optimize-reserved-instances/aws03.png)
+![Impacto da compra](./media/tutorial-optimize-reserved-instances/aws03.png)
 
 Você começa a poupar neste ponto.
 
-Você pode examinar as **Instâncias ao Longo do Tempo** para verificar a precisão da recomendação compra sugerida. Neste exemplo, você pode ver que seis instâncias foram usadas em média para a carga de trabalho no último período de 30 dias.
+Examine as **Instâncias ao Longo do Tempo** para verificar a precisão da recomendação da compra sugerida. Neste exemplo, você pode ver que seis instâncias foram usadas em média para a carga de trabalho no último período de 30 dias.
 
 ![Instâncias ao longo do tempo](./media/tutorial-optimize-reserved-instances/aws04.png)
 

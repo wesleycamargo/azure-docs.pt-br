@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 8/10/2018
+ms.date: 9/6/2018
 ms.author: victorh
-ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 56c66418b9f47e0ae0d345cd6e8a7d3ef2914b82
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037963"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986669"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -40,7 +40,7 @@ O Gateway de Aplicativo fornece suporte HTTP, HTTPS, HTTP/2 e WebSocket.
 
 O suporte ao protocolo HTTP/2 está disponível para os clientes que conectam apenas os ouvintes do Gateway de Aplicativo. A comunicação para pools de servidores back-end é sobre HTTP/1.1. 
 
-Por padrão, o suporte HTTP/2 está desabilitado. O trecho de código do Azure PowerShell a seguir mostra como é possível habilitá-lo:
+Por padrão, o suporte HTTP/2 está desabilitado. O snippet de código do Azure PowerShell a seguir mostra como é possível habilitá-lo:
 
 ```
 $gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
@@ -84,7 +84,7 @@ Não, o Gateway de Aplicativo não oferece suporte a endereços IP públicos est
 
 Há suporte a apenas um endereço IP público em um Gateway de Aplicativo.
 
-**P. Com qual tamanho devo criar minha sub-rede do Gateway de Aplicativo?**
+**P. Com que tamanho devo criar minha sub-rede do Gateway de Aplicativo?**
 
 O Gateway de Aplicativo consome um endereço IP privado por instância, além de outro endereço IP privado se uma configuração de IP de front-end privado for configurada. Além disso, o Azure reservará os quatro primeiros e o último endereço IP em cada sub-rede para uso interno.
 Por exemplo, se o Gateway de Aplicativo for definido como três instâncias e nenhum IP de front-end privado, um tamanho de sub-rede /29 ou maior será necessário. Nesse caso, o Gateway de Aplicativo usa três endereços IP. Se você tiver três instâncias e um endereço IP para a configuração de IP de front-end privado, um tamanho de sub-rede /28 ou maior será necessário, visto que quatro endereços IP são necessários.
@@ -93,7 +93,7 @@ Por exemplo, se o Gateway de Aplicativo for definido como três instâncias e ne
 
 Sim, o Gateway de Aplicativo insere cabeçalhos x-forwarded-for, x-forwarded-proto e x-forwarded-port na solicitação encaminhada ao back-end. O formato do cabeçalho x-forwarded-for é uma lista separada por vírgulas de IP:Porta. Os valores válidos para x-forwarded-proto são http ou https. X-forwarded-port especifica a porta na qual a solicitação alcançou o Gateway de Aplicativo.
 
-O Gateway de aplicativo também insere o cabeçalho X-Original-Host que contém o cabeçalho de Host original com o qual a solicitação chegou. Esse cabeçalho é útil em cenários como a integração do site do Azure, onde o cabeçalho de host de entrada é modificado antes do tráfego é roteado para o back-end.
+O Gateway de Aplicativo também insere o cabeçalho X-Original-Host que contém o cabeçalho de Host original com o qual a solicitação chegou. Esse cabeçalho é útil em cenários como a integração do site do Azure, onde o cabeçalho de host de entrada é modificado antes do tráfego é roteado para o back-end.
 
 **P. Quanto tempo demora para implantar um Gateway de Aplicativo? O meu Gateway de Aplicativo ainda funciona quando está sendo atualizado?**
 
@@ -333,7 +333,7 @@ No momento, o WAF oferece suporte a CRS [2.2.9](application-gateway-crs-rulegrou
 
 **P. O WAF também oferece suporte à prevenção de DDoS?**
 
-Não, o WAF não oferece prevenção de DDoS.
+Sim. Você pode habilitar a Proteção contra DDoS na rede virtual em que o gateway de aplicativo é implantado. Isso garante que o VIP do gateway de aplicativo também seja protegido usando o serviço de Proteção contra DDoS do Azure.
 
 ## <a name="diagnostics-and-logging"></a>Diagnóstico e registro em log
 
@@ -360,6 +360,12 @@ Os logs de auditoria estão disponíveis para o Gateway de Aplicativo. No portal
 **P. Posso configurar alertas com o Gateway de Aplicativo?**
 
 Sim, o Gateway de Aplicativo oferece suporte a alertas, e os alertas são configurados com base em métricas. No momento, o Gateway de Aplicativo tem uma métrica de "taxa de transferência", que pode ser configurada para o alerta. Para saber mais sobre alertas, visite [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+
+**P. Como faço para analisar estatísticas de tráfego para o Gateway de Aplicativo?**
+
+Você pode exibir e analisar os logs de Acesso por meio de vários mecanismos, como Azure Log Analytics, Excel, Power BI etc.
+
+Publicamos também um modelo do Resource Manager que instala e executa o popular analisador de logs [GoAccess](https://goaccess.io/) para logs de acesso do Gateway de Aplicativo. O GoAccess fornece valiosas estatísticas de tráfego HTTP, tais como visitantes exclusivos, arquivos solicitados, hosts, sistemas operacionais, navegadores, códigos de status HTTP e muito mais. Para obter mais detalhes, consulte o [arquivo Leiame na pasta de modelo do Resource Manager no GitHub](https://aka.ms/appgwgoaccessreadme).
 
 **P. A integridade do back-end retorna um status desconhecido, o que pode estar causando esse status?**
 

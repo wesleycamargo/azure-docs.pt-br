@@ -1,25 +1,27 @@
 ---
-title: Node.js Início rápido para Serviços Cognitivos do Python, API de Tradução de Fala da Microsoft | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar a API de Tradução de Fala da Microsoft nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: API de Tradução de Fala Node.js'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Tradução de Fala.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e652ee1e201e60d0d75f10bb8fceb4fbcd205381
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 533faeca37f021beb86148a4f11a0f04c631a30a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41929761"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954578"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-nodejs"></a>Início rápido da API de Tradução de Fala da Microsoft com Node.js 
+# <a name="quickstart-translator-speech-api-with-nodejs"></a>Início Rápido: API de Tradução de Fala com o Node.js 
 <a name="HOLTop"></a>
 
-Este artigo mostra como usar a API de Tradução de Fala da Microsoft para traduzir palavras faladas em um arquivo .wav.
+Este artigo mostra como usar a API de Tradução de Fala para traduzir palavras faladas em um arquivo .wav.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

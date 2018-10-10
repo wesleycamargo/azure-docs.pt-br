@@ -1,5 +1,6 @@
 ---
-title: Amostras de uso para o Serviço de Fala da Microsoft | Microsoft Docs
+title: Exemplos de uso da Fala do Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Amostras para usar o Serviço de Fala da Microsoft que converte o áudio falado em texto.
 services: cognitive-services
 author: zhouwangzw
@@ -7,18 +8,19 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 20ffba69d9f0f5b6648b19967c086e23e1dcb923
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 75166fcf42943e6c411acb2092272982e2dd1033
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41929830"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963128"
 ---
-# <a name="microsoft-speech-client-samples"></a>Amostras de cliente de fala da Microsoft
+# <a name="bing-speech-client-samples"></a>Exemplos de cliente de Fala do Bing
 
-O Serviço de Fala da Microsoft fornece amostras de ponta a ponta mostrando como usar a API de reconhecimento de fala da Microsoft em casos de uso diferentes, por exemplo o reconhecimento de comando, reconhecimento contínuo e detecção de intenção. Todos os exemplos estão disponíveis no GitHub e podem ser baixados pelos links a seguir: o README.md em cada repositório, bem como a [página de bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md) fornecem detalhes sobre como criar e executar os exemplos.
+A Fala do Bing fornece exemplos de ponta a ponta para demonstrar os diferentes casos de uso, por exemplo, reconhecimento de comando, reconhecimento contínuo e detecção de intenção. Todos os exemplos estão disponíveis no GitHub e podem ser baixados pelos links a seguir: o README.md em cada repositório, bem como a [página de bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md) fornecem detalhes sobre como criar e executar os exemplos.
 
 - [Exemplos de API REST](https://github.com/Azure-Samples/SpeechToText-REST)
 

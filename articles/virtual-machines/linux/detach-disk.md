@@ -1,6 +1,6 @@
 ---
 title: Desanexar um disco de dados de uma VM Linux – Azure | Microsoft Docs
-description: Saiba como desanexar um disco de dados de uma máquina virtual no Azure usando a CLI 2.0 ou o portal do Azure.
+description: Saiba como desanexar um disco de dados de uma máquina virtual no Azure usando a CLI do Azure ou o portal do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: cynthn
-ms.openlocfilehash: 0225c6605109489c4b9b599918dc09983ae25ac8
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b087040e5d219941ec0b2ee0f58dfe0058a1ad04
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144067"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968333"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Linux
 
@@ -99,7 +99,7 @@ sudo umount /dev/sdc1 /datadrive
 ```
 
 
-## <a name="detach-a-data-disk-using-cli-20"></a>Desanexar um disco de dados usando a CLI 2.0
+## <a name="detach-a-data-disk-using-azure-cli"></a>Desanexar um disco de dados usando a CLI do Azure 
 
 Este exemplo desanexa o disco *myDataDisk* da VM nomeada *myVM* em *myResourceGroup*.
 
@@ -110,7 +110,7 @@ az vm disk detach \
     -n myDataDisk
 ```
 
-O disco permanece no armazenamento, mas não está mais conectado a uma máquina virtual.
+O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
 
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desanexar um disco de dados usando o portal
@@ -123,7 +123,7 @@ O disco permanece no armazenamento, mas não está mais conectado a uma máquina
 5. Depois que o disco for removido, clique em Salvar na parte superior do painel.
 6. No painel da máquina virtual, clique em **Visão Geral** e, em seguida, clique no botão **Iniciar** na parte superior do painel para reiniciar a VM.
 
-O disco permanece no armazenamento, mas não está mais conectado a uma máquina virtual.
+O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
 
 
 

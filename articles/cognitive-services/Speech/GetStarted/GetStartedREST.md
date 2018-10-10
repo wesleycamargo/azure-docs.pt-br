@@ -1,5 +1,6 @@
 ---
-title: Introdução à API de Reconhecimento de Fala da Microsoft usando REST | Microsoft Docs
+title: Introdução à API de reconhecimento de Fala do Bing usando REST | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Use REST para acessar a API de reconhecimento de Fala nos Serviços Cognitivos da Microsoft para converter o áudio falado em texto.
 services: cognitive-services
 author: zhouwangzw
@@ -7,20 +8,21 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 53785cdfd75c23910802f2be20e6305817b3b097
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0f98182a73cebdd4df9f7849b2306f89c620f24b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363647"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973942"
 ---
-# <a name="get-started-with-speech-recognition-by-using-the-rest-api"></a>Começar a usar o reconhecimento de fala, usando a API REST
+# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Início Rápido: usar a API REST de reconhecimento de Fala do Bing
 
-Com o serviço de fala baseado em nuvem, você pode desenvolver aplicativos usando a API REST para converter o áudio falado em texto.
+Com o serviço de Fala do Bing baseado em nuvem, você pode desenvolver aplicativos usando a API REST para converter áudio falado em texto.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>Inscreva-se na API de Fala e receba uma chave de assinatura de avaliação gratuita
 
@@ -179,7 +181,7 @@ Depois de processar a solicitação, o serviço de fala retorna os resultados em
 > [!NOTE]
 > Se o código anterior retorna um erro, consulte [solução de problemas](../troubleshooting.md) para localizar a possível causa.
 
-O trecho de código a seguir mostra um exemplo de como você pode ler a resposta do fluxo.
+O snippet de código a seguir mostra um exemplo de como você pode ler a resposta do fluxo.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
 

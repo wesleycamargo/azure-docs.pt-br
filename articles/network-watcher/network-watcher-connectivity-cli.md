@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de conexões com o Observador de Rede do Azure – CLI do Azure 2.0 | Microsoft Docs
-description: Saiba como usar o recurso de resolução de problemas de conexão do Observador de Rede do Azure usando a CLI do Azure 2.0.
+title: Solucionar problemas de conexões com o Observador de Rede do Azure – CLI do Azure | Microsoft Docs
+description: Saiba como usar a funcionalidade de solução de problemas de conexão do Observador de Rede do Azure usando a CLI do Azure.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 1ce5856a5ee2c37d96483df82836d2e8b2a61d4c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ee7aff0256cf5567b4b29e6140ffb57b3717631a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182099"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978039"
 ---
-# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>Solucionar problemas de conexões com o Observador de Rede do Azure usando a CLI do Azure 2.0
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Solucionar problemas de conexões com o Observador de Rede do Azure usando a CLI do Azure
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [CLI do Azure](network-watcher-connectivity-cli.md)
 > - [API REST do Azure](network-watcher-connectivity-rest.md)
 
 Saiba como usar a resolução de problemas de conexão para verificar se uma conexão TCP direta de uma máquina virtual para um determinado ponto de extremidade pode ser estabelecida.

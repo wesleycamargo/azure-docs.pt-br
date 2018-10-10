@@ -1,6 +1,6 @@
 ---
 title: Converter uma máquina virtual Linux no Azure de discos não gerenciados para Managed Disks – Azure Managed Disks | Microsoft Docs
-description: Como converter uma VM Linux de discos não gerenciados em Managed Disks usando a CLI do Azure 2.0 no modelo de implantação do Resource Manager
+description: Como converter uma VM Linux de discos não gerenciados em discos gerenciados usando a CLI do Azure no modelo de implantação do Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
@@ -15,18 +15,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
-ms.openlocfilehash: a3a2bbc15dd94ef09755d34a20e69c97854416b3
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 62ac70134c1bdf9d178d59723ff73561049a4bbf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30289253"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993061"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual Linux de discos não gerenciados em Managed Disks
 
 Se você tiver máquinas virtuais (VMs) do Linux existentes que usam discos não gerenciados, é possível converter as VMs para usar o [Azure Managed Disks](../linux/managed-disks-overview.md). Esse processo converte o disco do sistema operacional e os discos de dados anexados.
 
-Este artigo mostra como converter VMs usando a CLI do Azure. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli). 
+Este artigo mostra como converter VMs usando a CLI do Azure. Se você precisar instalar ou atualizá-lo, confira [instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Antes de começar
 * Examine [as perguntas frequentes sobre migração para Managed Disks](faq-for-disks.md#migrate-to-managed-disks).

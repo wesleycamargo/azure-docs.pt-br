@@ -1,28 +1,30 @@
 ---
-title: Introdução à API de Reconhecimento de Fala da Microsoft em Objective-C no iOS | Microsoft Docs
-description: Use a API de Reconhecimento de Fala da Microsoft para converter áudio de fala em texto.
+title: Introdução à API de Reconhecimento de Fala do Bing em Objective-C no iOS | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Use a API de Reconhecimento de Fala do Bing para desenvolver aplicativos iOS que convertem áudio de fala em texto.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bbb8d3975cdab537135b97ca9bbf6e845aa3fa0e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: a12c9b5325898afe508398f67939c39e591eb1cc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363637"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954493"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-objective-c-on-ios"></a>Introdução à API de Reconhecimento de Fala em Objective-C no iOS
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Início Rápido: Introdução à API de Reconhecimento de Fala do Bing em Objective-C no iOS
 
 Com a API de reconhecimento de fala, você pode desenvolver aplicativos do iOS que usam o serviço de fala baseado em nuvem para converter o áudio falado em texto. A API dá suporte a streaming em tempo real, para que seu aplicativo possa simultaneamente e assincronamente receber os resultados de reconhecimento parcial ao mesmo tempo em que ele está enviando áudio para o serviço.
 
 Este artigo usa um aplicativo de exemplo para demonstrar os conceitos básicos de como iniciar a API de reconhecimento de fala para desenvolver um aplicativo iOS. Para obter uma referência completa de API, consulte o [referência da biblioteca cliente SDK de Fala](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
@@ -135,7 +137,7 @@ Você pode anexar vários manipuladores de eventos para o cliente criado por voc
 * **Eventos de resultado**:
   * No modo `SpeechRecognitionMode_ShortPhrase`, esse evento é chamado e retorna os melhores resultados após parar de falar.
   * No modo `SpeechRecognitionMode_LongDictation`, o manipulador de eventos é chamado várias vezes, com base em onde o serviço identifica pausas de sentença.
-  * **Para cada uma das melhores escolhas**, um valor de confiança e algumas formas diferentes do texto reconhecido são retornados. Para obter mais informações, consulte [Formato de saída](../Concepts.md#output-format).
+  * **Para cada uma das melhores escolhas**, um valor de confiança e algumas formas diferentes do texto reconhecido são retornados. Para obter mais informações, consulte o [Formato de saída](../Concepts.md#output-format).
 
 ## <a name="related-topics"></a>Tópicos relacionados
 

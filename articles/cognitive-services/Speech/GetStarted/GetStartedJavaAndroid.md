@@ -1,5 +1,6 @@
 ---
 title: Introdução à API de Reconhecimento de Fala da Microsoft em Java no Android | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Use a API de fala da Microsoft para desenvolver aplicativos do Android que convertem o áudio falado em texto.
 services: cognitive-services
 author: zhouwangzw
@@ -7,22 +8,23 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a10f7be1c36fb431016a9867f606e26be858069e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3b1e82d65a3eafb9e41277a18569270ef02cd8e5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363640"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989032"
 ---
-# <a name="get-started-with-speech-recognition-in-java-on-android"></a>Introdução ao reconhecimento de fala em Java no Android
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Início Rápido: Usar a API de reconhecimento de Fala do Bing em Java no Android
 
-Com a API de reconhecimento de fala, você pode desenvolver aplicativos do Android que usam o serviço de fala baseado em nuvem para converter o áudio falado em texto. A API dá suporte a streaming em tempo real, para que seu aplicativo possa simultaneamente e assincronamente receber os resultados de reconhecimento parcial ao mesmo tempo em que ele está enviando áudio para o serviço.
+Com a API de Reconhecimento de Fala do Bing, você pode desenvolver aplicativos do Android que usam o Serviço de Fala do Bing baseado em nuvem para converter o áudio falado em texto. A API dá suporte a streaming em tempo real, para que seu aplicativo possa simultaneamente e assincronamente receber os resultados de reconhecimento parcial ao mesmo tempo em que ele está enviando áudio para o serviço.
 
 Este artigo usa um aplicativo de exemplo para demonstrar como usar a biblioteca de cliente de fala para Android para desenvolver aplicativos de fala em texto em Java para dispositivos Android.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
@@ -138,7 +140,7 @@ Você pode anexar vários manipuladores de eventos para o cliente criado por voc
 * **Eventos de resultado**:
   * No modo `ShortPhrase`, esse evento é chamado e retorna os melhores resultados após parar de falar.
   * No modo `LongDictation`, o manipulador de eventos é chamado várias vezes, com base em onde o serviço identifica pausas de sentença.
-  * **Para cada uma das melhores escolhas**, um valor de confiança e algumas formas diferentes do texto reconhecido são retornados. Para obter mais informações, consulte [Formato de saída](../Concepts.md#output-format).
+  * **Para cada uma das melhores escolhas**, um valor de confiança e algumas formas diferentes do texto reconhecido são retornados. Para obter mais informações, consulte o [Formato de saída](../Concepts.md#output-format).
 
 ## <a name="related-topics"></a>Tópicos relacionados
 

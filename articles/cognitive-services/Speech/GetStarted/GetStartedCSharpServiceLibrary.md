@@ -1,22 +1,24 @@
 ---
 title: Introdução à API de Reconhecimento de Fala da Microsoft usando a biblioteca de serviço em C# | Microsoft Docs
-description: Use a biblioteca de serviço de reconhecimento de fala Microsoft para converter o idioma falado em texto.
+titlesuffix: Azure Cognitive Services
+description: Use a biblioteca de serviço de reconhecimento de Fala do Bing para converter o idioma falado em texto.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 0320f41658a7ac4d6bf9e88ed998c853b665d485
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5716f7a0af16bd3e40dea4468e2fae884f911718
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363650"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967550"
 ---
-# <a name="get-started-with-the-speech-recognition-service-library-in-c35-for-net-windows"></a>Introdução à API de Reconhecimento de Fala em C&#35; para .NET no Windows
+# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Início Rápido: Introdução ao serviço de reconhecimento de Fala do Bing em C&#35; para .NET no Windows
 
 A biblioteca de serviço é para desenvolvedores que têm seu próprio serviço de nuvem e desejam chamar o serviço de fala do seu serviço. Se você deseja chamar o serviço de reconhecimento de fala de aplicativos de dispositivo associados, não use esse SDK. (usar outras bibliotecas de cliente ou APIs REST para fazer isso).
 
@@ -24,7 +26,7 @@ Para usar a biblioteca de serviço C#, instale o [pacote NuGet Microsoft.Bing.Sp
 
 As seções a seguir descrevem como instalar, compilar e executar o aplicativo de exemplo em C#, usando a biblioteca de área de trabalho em C#.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 

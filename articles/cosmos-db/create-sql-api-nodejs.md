@@ -1,37 +1,35 @@
 ---
-title: 'Azure Cosmos DB: compilar um aplicativo com o Node.js e com a API do SQL | Microsoft Docs'
+title: 'Azure Cosmos DB: criar um aplicativo do Node.js usando o SDK do JavaScript para gerenciar os dados da API do SQL do Azure Cosmos DB | Microsoft Docs'
 description: Apresenta um exemplo de código Node.js que pode ser usado para se conectar e consultar a API do SQL do Azure Cosmos DB
 services: cosmos-db
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: f5130a1ec1817448285d9995fa2d769178629114
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a8a81556002bec82325bf4cf53b68ff49b8b6917
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698308"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982317"
 ---
-# <a name="azure-cosmos-db-build-a-sql-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: compilar um aplicativo de API do SQL com o Node.js e com o Portal do Azure
+# <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB: criar um aplicativo do Node.js usando o SDK do JavaScript para gerenciar os dados da API do SQL do Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
-> * [Node.js- v2](create-sql-api-nodejs-preview.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-Este início rápido demonstra como criar uma conta [API do SQL](sql-api-introduction.md) do Azure Cosmos DB, um banco de dados de documento e uma coleção usando o Portal do Azure. Em seguida, crie e execute um aplicativo de console criado na [API do Node.js do SQL](sql-api-sdk-node.md).
+Este início rápido demonstra como criar uma conta de [API do SQL](sql-api-introduction.md), um banco de dados de documento e um contêiner do Azure Cosmos DB usando o portal do Azure. Em seguida, crie e execute um aplicativo de console criado no [SDK do JavaScript em SQL](sql-api-sdk-node.md). Este início rápido usa a versão 2.0 do [SDK do JavaScript](https://www.npmjs.com/package/@azure/cosmos).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +37,7 @@ Este início rápido demonstra como criar uma conta [API do SQL](sql-api-introdu
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * Além disso:
-    * [Node.js](https://nodejs.org/en/) versão v0.10.29 ou superior
+    * [Node.js](https://nodejs.org/en/) versão v6.0.0 ou superior
     * [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
@@ -60,7 +58,7 @@ Este início rápido demonstra como criar uma conta [API do SQL](sql-api-introdu
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
-Agora vamos clonar um aplicativo de API do SQL do GitHub, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática. 
+Agora vamos clonar um aplicativo de API do SQL do GitHub, definir a cadeia de conexão e executá-lo.
 
 1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
 
@@ -77,65 +75,59 @@ Agora vamos clonar um aplicativo de API do SQL do GitHub, definir a cadeia de co
 3. Execute o comando a seguir para clonar o repositório de exemplo. Este comando cria uma cópia do aplicativo de exemplo no seu computador.
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-nodejs-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started.git
     ```
 
 ## <a name="review-the-code"></a>Examine o código
 
-Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-string). 
+Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os snippets de código a seguir. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-string). 
 
-Todos os trechos de código a seguir são retirados do arquivo app.js.
+Observe que se você estiver familiarizado com a versão anterior do SDK do JavaScript, poderá estar acostumado a ver os termos 'coleção' e 'documento'. Como o Azure Cosmos DB dá suporte a [vários modelos de API](https://docs.microsoft.com/azure/cosmos-db/introduction#key-capabilities), a versão 2.0 ou superior do SDK do JavaScript usa o termos genéricos 'contêiner', que pode ser uma coleção, um gráfico ou uma tabela, e 'item' para descrever o conteúdo do contêiner.
 
-* O `documentClient` é inicializado.
+Todos os snippets de código a seguir são retirados do arquivo **app.js**.
+
+* O `CosmosClient` é inicializado.
 
     ```nodejs
-    var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
+    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
     ```
 
 * Um novo banco de dados é criado.
 
     ```nodejs
-    client.createDatabase(config.database, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    const { database } = await client.databases.createIfNotExists({ id: databaseId });
     ```
 
-* Uma nova coleção é criada.
+* É criado um novo contêiner (coleção).
 
     ```nodejs
-    client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
     ```
 
-* Alguns documentos são criados.
+* Um item (documento) é criado.
 
     ```nodejs
-    client.createDocument(collectionUrl, document, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
     ```
 
 * Uma consulta SQL no JSON é executada.
 
     ```nodejs
-    client.queryDocuments(
-        collectionUrl,
-        'SELECT VALUE r.children FROM root r WHERE r.lastName = "Andersen"'
-    ).toArray((err, results) => {
-        if (err) reject(err)
-        else {
-            for (var queryResult of results) {
-                let resultString = JSON.stringify(queryResult);
-                console.log(`\tQuery returned ${resultString}`);
+    const querySpec = {
+        query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
+        parameters: [
+            {
+                name: "@lastName",
+                value: "Andersen"
             }
-            console.log();
-            resolve(results);
-        }
-    });
+        ]
+    };
+
+    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec).toArray();
+    for (var queryResult of results) {
+        let resultString = JSON.stringify(queryResult);
+        console.log(`\tQuery returned ${resultString}\n`);
+    }
     ```    
 
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
@@ -154,7 +146,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 4. Em seguida, copie o valor da CHAVE PRIMÁRIA do portal e transforme-o no valor de `config.primaryKey` em `config.js`. Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
 
-    `config.primaryKey "FILLME"`
+    `config.primaryKey = "FILLME"`
     
 ## <a name="run-the-app"></a>Execute o aplicativo
 1. Executar `npm install` em um terminal para instalar os módulos npm necessários

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Depurar um aplicativo Web da Malha do Azure Service Fabric | Microsoft Docs
+title: Tutorial – Depurar um aplicativo Web da Malha do Azure Service Fabric em execução em seu cluster de desenvolvimento local | Microsoft Docs
 description: Neste tutorial, depure um aplicativo da Malha do Azure Service Fabric em execução em seu cluster local.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c519d24a8401823039f3d6598276890ec6498bbc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918570"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997005"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Tutorial: Depurar um aplicativo Web da Malha do Service Fabric
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutorial: Depurar um aplicativo da Malha do Service Fabric em execução em seu cluster de desenvolvimento local
 
-Este tutorial é a segunda parte de uma série e mostra como depurar um aplicativo Web da Malha do Azure Service Fabric em seu cluster de desenvolvimento local.
+Este tutorial é a parte dois de uma série e mostra como criar e depurar um aplicativo da Malha do Azure Service Fabric em seu cluster de desenvolvimento local.
 
 Neste tutorial, você irá aprender:
 
@@ -34,9 +34,11 @@ Neste tutorial, você irá aprender:
 
 Nesta série de tutoriais, você aprenderá a:
 > [!div class="checklist"]
-> * [Compilar um aplicativo da Malha do Service Fabric](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * Depurar o aplicativo localmente
-> * [Publicar o aplicativo no Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Criar um aplicativo da Malha do Service Fabric no Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * Depurar um aplicativo da Malha do Service Fabric em execução no cluster de desenvolvimento local
+> * [Implantar um aplicativo da Malha do Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Atualizar um aplicativo da Malha do Service Fabric](service-fabric-mesh-tutorial-upgrade.md)
+> * [Limpar os recursos da Malha do Service Fabric](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -105,4 +107,4 @@ Nesta parte do tutorial, você aprendeu a:
 
 Prosseguir para o próximo tutorial:
 > [!div class="nextstepaction"]
-> [Publicar um aplicativo Web de Malha do Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> [Implantar um aplicativo da Malha do Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

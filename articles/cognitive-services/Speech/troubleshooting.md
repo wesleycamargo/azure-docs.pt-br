@@ -1,22 +1,24 @@
 ---
-title: Solução de problemas | Microsoft Docs
-description: Como resolver problemas ao usar o Serviço de Fala da Microsoft.
+title: Solução de problemas da API de Fala do Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Como resolver problemas ao usar API de Fala do Bing.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 04f3da19939d523d201d357b2b0293db1508431d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 532916106f62e0236b8dd53cf7988a648355aef4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363619"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991854"
 ---
-# <a name="troubleshooting"></a>solução de problemas
+# <a name="troubleshooting-bing-speech"></a>Solução de problemas da API de Fala do Bing
 
 ## <a name="error-http-403-forbidden"></a>Erro `HTTP 403 Forbidden`
 
@@ -127,7 +129,7 @@ O erro é mais provável porque nenhum dado de áudio é enviado para o serviço
 
 ## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>O `RecognitionStatus` na resposta é `InitialSilenceTimeout`
 
-Dados de áudio geralmente são o motivo do problema. Por exemplo,
+Os dados de áudio geralmente são a causa do problema. Por exemplo,
 
 - o áudio tem um tempo de silêncio longo no começo. O serviço interromperá o reconhecimento após alguns segundos e retornará `InitialSilenceTimeout`.
 - o áudio usa o formato de codec sem suporte, fazendo com que os dados de áudio sejam tratados como silêncio.

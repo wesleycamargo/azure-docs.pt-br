@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 84766ba4cf9e844184752bc44d2e0a471b97db27
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159121"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963587"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -31,7 +31,7 @@ O glossário do Microsoft Azure é um pequeno dicionário de terminologia de nuv
 
 ## <a name="account"></a>conta
 Uma conta que é usada para acessar e gerenciar uma assinatura do Azure. Ele também é conhecido como uma conta do Azure Embora uma conta pode ser um dos seguintes: um trabalho existente, escola, ou pessoais conta da Microsoft, ou um nome de usuário do Office 365 e senha. Você também pode criar uma conta para gerenciar uma assinatura do Azure, quando você se inscreve para o [avaliação gratuita](https://azure.microsoft.com).  
-veja [inscrever-se para uma assinatura do Azure com sua conta do Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) e [contas que você pode usar para entrar no](active-directory/active-directory-how-subscriptions-associated-directory.md).
+veja [inscrever-se para uma assinatura do Azure com sua conta do Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) e [contas que você pode usar para entrar no](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>Aplicativo de API
 Outro nome para o [aplicativo de Serviço de Aplicativo](#app-service-app).
@@ -47,7 +47,7 @@ Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](virtual-mach
 Um dos dois [modelos de implantação](resource-manager-deployment-model.md) usados para implantar recursos no Azure (o novo modelo é o Azure Resource Manager). Alguns serviços do Azure dão suporte somente ao modelo de implantação do Resource Manager, alguns dão suporte somente para o modelo de implantação clássico e alguns dão suporte a ambos. A documentação para cada serviço do Azure especifica a quais modelos esse serviço dá suporte.
 
 ## <a name="cli"></a>CLI (interface de linha de comando) do Azure
-Uma interface de linha de comando que pode ser usada para gerenciar os serviços do Azure de Windows, macOS e Linux.  Alguns serviços, ou recursos do serviço, podem ser gerenciados apenas por meio do PowerShell ou da CLI. Veja [CLI do Azure 2.0](/cli/azure)
+Uma interface de linha de comando que pode ser usada para gerenciar os serviços do Azure de Windows, macOS e Linux.  Alguns serviços, ou recursos do serviço, podem ser gerenciados apenas por meio do PowerShell ou da CLI. Confira a [CLI do Azure](/cli/azure)
 
 ## <a name="powershell"></a>PowerShell do Azure
 Uma interface de linha de comando para gerenciar os serviços do Azure por meio de uma linha de comando em computadores Windows. Alguns serviços, ou recursos do serviço, podem ser gerenciados apenas por meio do PowerShell ou da CLI.
@@ -66,10 +66,10 @@ Veja [Regiões do Azure](best-practices-availability-paired-regions.md)
 
 ## <a name="geo-replication"></a>replicação geográfica
 O processo de replicação automaticamente de conteúdo como blobs, tabelas e filas dentro de um par regional.  
-Veja [Replicação Geográfica Ativa para o Banco de Dados SQL do Azure](sql-database/sql-database-geo-replication-overview.md)
+Veja [Replicação geográfica ativa para o Banco de Dados SQL do Azure](sql-database/sql-database-geo-replication-overview.md)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
-## <a name="image"></a>imagem
+## <a name="image"></a>image
 Um arquivo que contém o sistema operacional e a configuração de aplicativo que pode ser usada para criar qualquer quantidade de máquinas virtuais. No Azure, há dois tipos de imagens: a imagem da VM e a imagem do SO. Uma imagem de VM inclui um sistema operacional e todos os discos anexados a uma máquina virtual quando a imagem é criada. Uma imagem do SO contém apenas um sistema operacional generalizado sem qualquer configuração de disco de dados.  
 Veja [Navegar e selecionar imagens de máquinas virtuais do Windows no Azure com o PowerShell ou a CLI](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -127,7 +127,7 @@ Veja [Sobre as contas de armazenamento do Azure](storage/common/storage-create-s
 
 ## <a name="subscription"></a>subscription
 Um contrato do cliente com a Microsoft que permite a obtenção dos serviços do Azure. Os preços da assinatura e os termos relacionados são governados pela oferta escolhida para a assinatura.
-Veja [Contrato de Assinatura do Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/) e [Como as assinaturas do Azure estão associadas ao Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
+Veja [Contrato de Assinatura do Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/) e [Como as assinaturas do Azure estão associadas ao Azure Active Directory](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 ## <a name="tag"></a>marca
 Um termo de indexação que permite a classificação dos recursos de acordo com suas necessidades de gerenciamento ou cobrança. Quando você tiver uma coleção complexa de recursos, você poderá usar marcas para visualizar esses ativos da maneira que fizer mais sentido. Por exemplo, você pode marcar os recursos que servem para uma função semelhante em sua organização ou pertencem ao mesmo departamento.  

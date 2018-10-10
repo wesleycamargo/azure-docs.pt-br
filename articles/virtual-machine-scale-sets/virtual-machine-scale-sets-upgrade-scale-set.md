@@ -1,6 +1,6 @@
 ---
 title: Modificar um conjunto de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
-description: Saiba como modificar e atualizar uma escala de máquina virtual do Azure com as APIs REST, Azure PowerShell e CLI do Azure 2.0
+description: Saiba como modificar e atualizar um conjunto de dimensionamento de máquinas virtuais do Azure com as APIs REST, Azure PowerShell e CLI do Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194039"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996648"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
-Em todo o ciclo de vida de seus aplicativos, talvez seja necessário modificar ou atualizar o conjunto de escala de máquina virtual. Essas atualizações podem incluir como atualizar a configuração do conjunto de escala, ou alterar a configuração do aplicativo. Este artigo descreve como modificar uma escala existente com as APIs REST, o Azure PowerShell ou o CLI do Azure 2.0.
+Em todo o ciclo de vida de seus aplicativos, talvez seja necessário modificar ou atualizar o conjunto de escala de máquina virtual. Essas atualizações podem incluir como atualizar a configuração do conjunto de escala, ou alterar a configuração do aplicativo. Este artigo descreve como modificar um conjunto de dimensionamento com as APIs REST, o Azure PowerShell ou o CLI do Azure.
 
 ## <a name="fundamental-concepts"></a>Conceitos fundamentais
 
@@ -42,7 +42,7 @@ Um conjunto de dimensionamento tem um "modelo de conjunto de dimensionamento" qu
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- CLI do Azure 2.0 com [mostrar de vmss az](/cli/azure/vmss#az_vmss_show):
+- CLI do Azure com [az vmss show](/cli/azure/vmss#az_vmss_show):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -50,7 +50,7 @@ Um conjunto de dimensionamento tem um "modelo de conjunto de dimensionamento" qu
 
 - Você também pode usar [resources.azure.com](https://resources.azure.com) ou específicos do idioma [Azure SDKs](https://azure.microsoft.com/downloads/).
 
-A apresentação exata da saída depende das opções que você fornecer para o comando. O exemplo a seguir mostra a saída de modelo condensado a partir do CLI do Azure 2.0:
+A apresentação exata da saída depende das opções que você fornecer para o comando. O exemplo a seguir mostra a saída de exemplo condensada da CLI do Azure:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -86,7 +86,7 @@ Um conjunto de dimensionamento também tem uma "exibição de instância do conj
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- CLI do Azure 2.0 com [az vmss get-instância-view](/cli/azure/vmss#az_vmss_get_instance_view):
+- CLI do Azure com [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -94,7 +94,7 @@ Um conjunto de dimensionamento também tem uma "exibição de instância do conj
 
 - Você também pode usar [resources.azure.com](https://resources.azure.com) ou específicos do idioma [Azure SDKs](https://azure.microsoft.com/downloads/)
 
-A apresentação exata da saída depende das opções que você fornecer para o comando. O exemplo a seguir mostra a saída de modelo condensado a partir do CLI do Azure 2.0:
+A apresentação exata da saída depende das opções que você fornecer para o comando. O exemplo a seguir mostra a saída de exemplo condensada da CLI do Azure:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -140,7 +140,7 @@ Semelhante a como um conjunto de dimensionamento tem uma exibição de modelo, c
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- CLI do Azure 2.0 com [mostrar de vmss az](/cli/azure/vmss#az_vmss_show):
+- CLI do Azure com [az vmss show](/cli/azure/vmss#az_vmss_show):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -148,7 +148,7 @@ Semelhante a como um conjunto de dimensionamento tem uma exibição de modelo, c
 
 - Você também pode usar [resources.azure.com](https://resources.azure.com) ou [Azure SDKs](https://azure.microsoft.com/downloads/).
 
-A apresentação exata da saída depende das opções que você fornecer para o comando. O exemplo a seguir mostra a saída de modelo condensado a partir do CLI do Azure 2.0:
+A apresentação exata da saída depende das opções que você fornecer para o comando. O exemplo a seguir mostra a saída de exemplo condensada da CLI do Azure:
 
 ```azurecli
 $ az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -180,7 +180,7 @@ Semelhante a como um conjunto de dimensionamento tem uma exibição de instânci
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- CLI do Azure 2.0 com [az vmss get-instância-view](/cli/azure/vmss#az_vmss_get_instance_view)
+- CLI do Azure com [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -188,7 +188,7 @@ Semelhante a como um conjunto de dimensionamento tem uma exibição de instânci
 
 - Você também pode usar [resources.azure.com](https://resources.azure.com) ou [Azure SDKs](https://azure.microsoft.com/downloads/)
 
-A apresentação exata da saída depende das opções que você fornecer para o comando. O exemplo a seguir mostra a saída de modelo condensado a partir do CLI do Azure 2.0:
+A apresentação exata da saída depende das opções que você fornecer para o comando. O exemplo a seguir mostra a saída de exemplo condensada da CLI do Azure:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -259,7 +259,7 @@ Para atualizar uma propriedade global do conjunto de dimensionamento, você deve
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- CLI do Azure 2.0 com [az vmss atualização](/cli/azure/vmss#az_vmss_update):
+- CLI do Azure com [az vmss update](/cli/azure/vmss#az_vmss_update):
     - Para modificar uma propriedade:
 
         ```azurecli
@@ -306,7 +306,7 @@ Para atualizar VMs existentes, você deve fazer uma "atualização manual" de ca
     Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- CLI do Azure 2.0 com [az vmss atualização-instâncias](/cli/azure/vmss#az_vmss_update_instances)
+- CLI do Azure com [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
@@ -331,7 +331,7 @@ Há um tipo de modificação das propriedades globais do conjunto de dimensionam
     Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- CLI do Azure 2.0 com [az vmss refazer imagem](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
+- CLI do Azure com [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -392,7 +392,7 @@ Você pode ter um conjunto de dimensionamento executando uma versão antiga do U
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- CLI do Azure 2.0 com [az vmss atualização](/cli/azure/vmss#az_vmss_update_instances):
+- CLI do Azure com [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
@@ -418,7 +418,7 @@ Digamos que você tenha um conjunto de dimensionamento com um Azure Load Balance
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 
-- CLI do Azure 2.0:
+- CLI do Azure:
 
     ```azurecli
     # Remove the load balancer backend pool from the scale set model
@@ -436,4 +436,4 @@ Digamos que você tenha um conjunto de dimensionamento com um Azure Load Balance
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Você também pode executar tarefas comuns de gerenciamento em conjuntos de dimensionamento com o [CLI do Azure 2.0](virtual-machine-scale-sets-manage-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
+Também é possível executar tarefas comuns de gerenciamento em conjuntos de dimensionamento com a [CLI do Azure](virtual-machine-scale-sets-manage-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

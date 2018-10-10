@@ -9,28 +9,28 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: 1988593fa7cb0d84baffc4264147d350962bb6bc
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d036922d68116689d1c54c2c3e89be5accedb533
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093060"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983474"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrando para ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters HDInsight
 
-O HDInsight está preterindo as ferramentas baseadas em ASM (Azure Service Manager) para o HDInsight. Se você usa o Azure PowerShell, a CLI do Azure ou o SDK do .NET do HDInsight para trabalhar com clusters HDInsight, nós o incentivamos a usar as versões do Azure Resource Manager do PowerShell, da CLI e do SDK do .NET no futuro. Este artigo fornece sugestões sobre como migrar para a nova abordagem baseada no Resource Manager. Sempre que aplicável, este documento destaca as diferenças entre as abordagens do ASM e do Resource Manager em relação ao HDInsight.
+O HDInsight está preterindo as ferramentas baseadas em ASM (Azure Service Manager) para o HDInsight. Se você usa o Azure PowerShell, a CLI Clássica do Azure ou o SDK do .NET do HDInsight para trabalhar com clusters HDInsight, nós o incentivamos a usar as versões do Azure Resource Manager do PowerShell, da CLI e do SDK do .NET no futuro. Este artigo fornece sugestões sobre como migrar para a nova abordagem baseada no Resource Manager. Sempre que aplicável, este documento destaca as diferenças entre as abordagens do ASM e do Resource Manager em relação ao HDInsight.
 
 > [!IMPORTANT]
 > O suporte para o PowerShell, a CLI e o SDK do .NET baseado em ASM será descontinuado em **1º de janeiro de 2017**.
 > 
 > 
 
-## <a name="migrating-azure-cli-to-azure-resource-manager"></a>Migrando a CLI do Azure para o Azure Resource Manager
+## <a name="migrating-azure-classic-cli-to-azure-resource-manager"></a>Migrando a CLI Clássica do Azure para o Azure Resource Manager
 
 > [!IMPORTANT]
-> A CLI do Azure 2.0 não oferece suporte para trabalhar com clusters HDInsight. Ainda é possível usar a CLI do Azure 1.0 com HDInsight, mas a CLI do Azure 1.0 foi preterida.
+> A CLI do Azure não oferece suporte para trabalhar com clusters HDInsight. Você ainda pode usar a CLI Clássica do Azure com HDInsight, no entanto, a CLI Clássica do Azure foi preterida.
 
-A seguir, há comandos básicos para trabalhar com o HDInsight por meio da CLI do Azure 1.0:
+A seguir, há comandos básicos para trabalhar com o HDInsight por meio da CLI clássica do Azure:
 
 * `azure hdinsight cluster create` - cria um novo cluster HDInsight
 * `azure hdinsight cluster delete` - exclui um cluster HDInsight existente
@@ -231,7 +231,7 @@ Esta seção fornece sugestões de mais informações sobre como executar determ
 | --- | --- |
 | Criar clusters HDInsight usando o SDK do .NET |Veja [Criar clusters HDInsight usando o SDK do .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
 | Personalizar um cluster usando a Ação de Script com o SDK do .NET |Veja [Personalizar os clusters HDInsight do Linux usando a Ação de Script](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
-| Autenticar aplicativos de forma interativa usando o Azure Active Directory com o SDK do .NET |Veja [Executar consultas do Hive usando o SDK do .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). O trecho de código neste artigo usa o método de autenticação interativa. |
+| Autenticar aplicativos de forma interativa usando o Azure Active Directory com o SDK do .NET |Veja [Executar consultas do Hive usando o SDK do .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). O snippet de código neste artigo usa o método de autenticação interativa. |
 | Autenticar aplicativos de forma não interativa usando o Azure Active Directory com o SDK do .NET |Veja [Criar aplicativos não interativos para o HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | Enviar um trabalho do Hive usando o SDK do .NET |Veja [Enviar trabalhos do Hive](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
 | Enviar um trabalho do Pig usando o SDK do .NET |Veja [Enviar trabalhos do Pig](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
@@ -244,7 +244,7 @@ Esta seção fornece sugestões de mais informações sobre como executar determ
 | Excluir clusters HDInsight usando o SDK do .NET |Veja [Excluir clusters HDInsight](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
 
 ### <a name="examples"></a>Exemplos
-Estes são alguns exemplos sobre como uma operação é executada usando o SDK baseado em ASM e o trecho de código equivalente para o SDK baseado no Resource Manager.
+Estes são alguns exemplos sobre como uma operação é executada usando o SDK baseado em ASM e o snippet de código equivalente para o SDK baseado no Resource Manager.
 
 **Criando um cliente CRUD do cluster**
 

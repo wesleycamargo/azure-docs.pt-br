@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: agaiha
-ms.openlocfilehash: 8ffa9823000efbb101be73397cd0025f9933cecd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652637"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994795"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -51,12 +51,13 @@ Estas instruções de instalação e uma [configuração de amostra para downloa
 
 A configuração para download é apenas um exemplo; modifique-a para atender às suas necessidades.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 * **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para atualizá-la.
-* **CLI do Azure**. [Configurar o ambiente do CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
+* **CLI do Azure**. [Configurar o ambiente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
 * O comando wget, caso ainda não o tenha: execute `sudo apt-get install wget`.
 * Uma assinatura existente do Azure e uma conta de armazenamento existente nela para armazenar os dados.
+* A lista de distribuições Linux com suporte está em https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
 ### <a name="sample-installation"></a>Instalação de exemplo
 
@@ -147,7 +148,7 @@ Você pode facilmente construir o token de SAS necessário por meio do Portal do
 1. Verifique as seções apropriadas conforme descrito anteriormente
 1. Clique no botão "Gerar SAS".
 
-![imagem](./media/diagnostics-linux/make_sas.png)
+![image](./media/diagnostics-linux/make_sas.png)
 
 Copie o SAS gerado no campo storageAccountSasToken; remova o ponto de interrogação ("?") do início.
 
@@ -687,7 +688,7 @@ O `resourceId` na configuração deve corresponder à da máquina virtual ou con
 
 Use o Portal do Azure para exibir dados de desempenho ou definir alertas:
 
-![imagem](./media/diagnostics-linux/graph_metrics.png)
+![image](./media/diagnostics-linux/graph_metrics.png)
 
 Os dados de `performanceCounters` são sempre armazenados em uma tabela de Armazenamento do Azure. As APIs do Armazenamento do Azure estão disponíveis em várias linguagens e plataformas.
 
@@ -700,7 +701,7 @@ Além disso, você pode usar essas ferramentas de interface do usuário para ace
 
 Esse instantâneo de uma sessão do Gerenciador de Armazenamento do Microsoft Azure mostra as tabelas do Armazenamento do Azure geradas e os contêineres de uma extensão de LAD 3.0 configurada corretamente em uma VM de teste. A imagem não coincide exatamente com a [configuração de amostra do LAD 3.0](#an-example-lad-30-configuration).
 
-![imagem](./media/diagnostics-linux/stg_explorer.png)
+![image](./media/diagnostics-linux/stg_explorer.png)
 
 Consulte a [Documentação de EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) correspondente para aprender a consumir mensagens publicadas em um ponto de extremidade de EventHubs.
 

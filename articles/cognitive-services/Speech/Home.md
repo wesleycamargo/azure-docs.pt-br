@@ -1,5 +1,6 @@
 ---
 title: Serviço de Fala do Bing da Microsoft | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Use o API de Fala da Microsoft para adicionar ações controladas por voz para seus aplicativos, incluindo interação em tempo real com os usuários.
 services: cognitive-services
 author: zhouwangzw
@@ -7,16 +8,17 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: d58642b95a60d4f1c83dfd969d0c76511dca4653
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3b4ab55f4bd8bbd66f2edc8c262524169c79d7f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43097388"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975625"
 ---
-# <a name="microsoft-bing-speech-api-overview"></a>Visão geral da API de Fala do Bing da Microsoft
+# <a name="what-is-bing-speech"></a>O que é a Fala do Bing?
 
 A API de Fala do Bing da Microsoft baseada em nuvem fornece aos desenvolvedores uma forma fácil de criar recursos avançados habilitados para fala em seus aplicativos, como controle de comando de voz, diálogo do usuário usando conversa de fala natura e transcrição e ditado de fala. A API de Fala da Microsoft dá suporte a *Conversão de fala em texto* e *Texto em fala*.
 

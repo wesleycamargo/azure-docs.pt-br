@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: e83d51a18c7ab5861699114e4622bda167dab41d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a90ec3102f3ce821193d58b6d14ca119f6d7e916
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042090"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959675"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Usar a Consulta Interativa com o HDInsight
 Consulta Interativa (também chamado Hive LLAP ou [Processamento Analítico de Baixa Latência](https://cwiki.apache.org/confluence/display/Hive/LLAP)) é um [tipo de cluster do Azure HDInsight](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). A Consulta Interativa dá suporte ao cache na memória, o que torna as consultas do Hive mais rápidas e muito mais interativas.
@@ -24,7 +24,7 @@ Consulta Interativa (também chamado Hive LLAP ou [Processamento Analítico de B
 Um cluster de Consulta Interativa é diferente de um cluster Hadoop. Ele contém apenas o serviço do Hive. 
 
 > [!NOTE]
-> É possível acessar o serviço do Hive no cluster da Consulta Interativa somente por meio da exibição do Hive do Ambari, do Beeline e do driver Microsoft Hive Open Database Connectivity (Hive ODBC). Não é possível acessá-lo por meio do console do Hive, Templeton, a CLI do Azure (ferramenta de linha de comando do Azure) ou Azure PowerShell. 
+> É possível acessar o serviço do Hive no cluster da Consulta Interativa somente por meio da exibição do Hive do Ambari, do Beeline e do driver Microsoft Hive Open Database Connectivity (Hive ODBC). Não é possível acessá-lo por meio do console do Hive, do Templeton, da CLI Clássica do Azure nem do Azure PowerShell. 
 > 
 > 
 

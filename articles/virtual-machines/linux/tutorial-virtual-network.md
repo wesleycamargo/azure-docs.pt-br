@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Criar e gerenciar redes virtuais do Azure para VMs Linux | Microsoft Docs
-description: Neste tutorial, você aprenderá a usar a CLI 2.0 do Azure para criar e gerenciar redes virtuais do Azure para máquinas virtuais do Linux
+description: Neste tutorial, você aprenderá a usar a CLI do Azure para criar e gerenciar redes virtuais do Azure para Máquinas Virtuais do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e214e60cf61f809d8bc4a541c2f4ecf544feccd9
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: daee5a2073e78ca5bb9e0eb0386617d7638ab930
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928651"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988505"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli-20"></a>Tutorial: Criar e gerenciar redes virtuais do Azure para máquinas virtuais do Linux com a CLI 2.0 do Azure
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e gerenciar redes virtuais do Azure para Máquinas Virtuais do Linux com a CLI do Azure
 
 As máquinas virtuais do Azure usam a rede do Azure para comunicação de rede interna e externa. Este tutorial explica como implantar duas máquinas virtuais e configurar a rede do Azure para essas VMs. Os exemplos neste tutorial supõem que as VMs estão hospedando um aplicativo Web com um back-end de banco de dados. No entanto, não há implantação de aplicativo no tutorial. Neste tutorial, você aprenderá como:
 
@@ -36,7 +36,7 @@ As máquinas virtuais do Azure usam a rede do Azure para comunicação de rede i
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="vm-networking-overview"></a>Visão Geral da VM
 

@@ -1,123 +1,156 @@
 ---
-title: Como compilar agendas complexas e recorrência avançada com o Agendador do Microsoft Azure
-description: Como compilar agendas complexas e recorrência avançada com o Agendador do Microsoft Azure.
+title: Criar agendamentos de trabalho avançados e recorrências – Agendador do Azure
+description: Saiba como criar agendamentos avançados e recorrências para trabalhos no Agendador do Azure
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.suite: infrastructure-services
+ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: 4293442e13fc4bae871b1f32a3ed4231d9f32632
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f5a8b929cf5af6e4e43c6003e6b622d04a50b93e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29692327"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980933"
 ---
-# <a name="build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Como compilar agendas complexas e recorrência avançada com o Agendador do Microsoft Azure
+# <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Criar agendamentos avançados e recorrências para trabalhos no Agendador do Azure
 
-O núcleo de um trabalho do Agendador do Microsoft Azure é a agenda. A agenda determina quando e como o Agendador executará o trabalho. 
+> [!IMPORTANT]
+> Os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) estão substituindo o Agendador do Azure, que está sendo desativado. Para agendar trabalhos, [experimente os Aplicativos Lógicos do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-É possível usar o Agendador para definir vários agendamentos recorrentes e de execução única para um trabalho. Agendas de execução única acionam uma vez em um horário especificado. Efetivamente, as agendas de execução única são horários recorrentes que são executados apenas uma vez. Os agendamentos recorrentes são acionados com uma frequência predeterminada.
+Dentro de um trabalho do [Agendador do Azure](../scheduler/scheduler-intro.md), a agenda é o núcleo que determina quando e como o serviço do Agendador executa o trabalho. É possível definir agendamentos recorrentes e únicos para um trabalho com o Agendador. Os agendamentos únicos são executados apenas uma vez no horário especificado e são basicamente agendamentos recorrentes que são executados apenas uma vez. Os agendamentos recorrentes são executados em uma frequência especificada. Com esta flexibilidade, é possível usar o Agendador para vários cenários empresariais, por exemplo:
 
-Com esta flexibilidade, é possível utilizar o Agendador para uma grande variedade de cenários de negócios:
+* **Limpar dados regularmente**: crie um trabalho diário que exclui todos os tweets com mais de três meses.
 
-* **Limpeza periódica de dados**. Por exemplo, todos os dias, exclua todos os tweets com mais de três meses.
-* **Arquivamento**. Por exemplo, todos os meses, envie por push o histórico de faturas para um serviço de backup.
-* **Solicitações para dados externos**. Por exemplo, a cada 15 minutos, efetue pull de um novo relatório meteorológico de esqui a partir de NOAA.
-* **Processamento de imagens**. Por exemplo, todos os dias da semana, fora do horário de pico, use a computação em nuvem para compactar imagens que foram carregadas no dia.
+* **Arquivar dados**: crie um trabalho mensal que envia por push o histórico de fatura para um serviço de backup.
 
-Neste artigo, percorremos trabalhos de exemplos que podem ser criados utilizando o Agendador. Nós fornecemos os dados JSON que descrevem cada agendamento. Se você utilizar a [API REST do Agendador](https://msdn.microsoft.com/library/mt629143.aspx), poderá usar esse mesmo JSON para [criar um trabalho do Agendador](https://msdn.microsoft.com/library/mt629145.aspx).
+* **Solicitar dados externos**: crie um trabalho que é executado a cada 15 minutos e recebe um novo relatório de previsão do tempo do NOAA.
+
+* **Processar imagens**: crie um trabalho de dia da semana que é executado fora dos horários de pico e usa a computação em nuvem para a compactação de imagens carregadas durante o dia.
+
+Este artigo descreve trabalhos de exemplo que você pode criar usando o Agendador e a [API REST do Agendador do Azure](https://docs.microsoft.com/rest/api/schedule) e inclui a definição do JSON (JavaScript Object Notation) para cada agendamento. 
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
-Os exemplos neste artigo ilustram a amplitude dos cenários que o Agendador fornece suporte. Os exemplos ilustram amplamente como criar agendas para muitos padrões de comportamento, incluindo:
+
+Estes exemplos mostram a variedade de cenários compatíveis com o Agendador do Azure e como criar agendamentos para diversos padrões de comportamento, por exemplo:
 
 * Executar uma vez em uma data e hora específicas.
 * Executar e repetir um número específico de vezes.
 * Executar imediatamente e repetir.
 * Executar e repetir a cada *n* minutos, horas, dias, semanas ou meses, iniciando em um horário específico.
-* Executar e repetir em uma frequência semanal ou mensal, mas apenas em dias específicos da semana ou em dias específicos do mês.
-* Executar e repetir várias vezes em um período. Por exemplo, na última sexta-feira e última segunda-feira de cada mês, ou às 5:15 e às 17:15 todos os dias.
+* Executar e repetir semanalmente ou mensalmente, mas apenas em dias específicos da semana ou em dias específicos do mês.
+* Executar e repetir várias vezes por um período específico. Por exemplo, todos os meses, na última sexta-feira e última segunda-feira, ou diariamente às 5:15 e às 17:15.
 
-## <a name="date-and-date-time"></a>Data e data/hora
-As referências de data nos trabalhos do Agendador seguem as [especificações ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) e incluem apenas a data.
+Mais tarde este artigo descreve esses cenários mais detalhadamente.
 
-As referências de data/hora nos trabalhos do Agendador seguem as [especificações ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) e incluem a data e a hora. Uma data/hora que não especifica um deslocamento de UTC é assumida como UTC.  
+<a name="create-scedule"></a>
 
-## <a name="use-json-and-the-rest-api-to-create-a-schedule"></a>Usar JSON e API REST para criar uma agenda
-Para criar uma agenda básica usando a [API REST do Agendador](https://msdn.microsoft.com/library/mt629143), primeiro [registre sua assinatura com um provedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx). O nome do provedor do Agendador é **Microsoft.Scheduler**. Em seguida, [crie uma coleção de trabalhos](https://msdn.microsoft.com/library/mt629159.aspx). Por fim, [crie um trabalho](https://msdn.microsoft.com/library/mt629145.aspx). 
+## <a name="create-schedule-with-rest-api"></a>Criar o agendamento com a API REST
 
-Ao criar um trabalho, é possível especificar o agendamento e a recorrência utilizando o JSON, como neste extrato:
+Para criar um agendamento básico com a [API REST do Agendador do Azure](https://docs.microsoft.com/rest/api/schedule), siga estas etapas:
 
-    {
-        "startTime": "2012-08-04T00:00Z", // Optional
-         …
-        "recurrence":                     // Optional
-        {
-            "frequency": "week",     // Can be "year", "month", "day", "week", "hour", or "minute"
-            "interval": 1,                // How often to fire
-            "schedule":                   // Optional (advanced scheduling specifics)
-            {
-                "weekDays": ["monday", "wednesday", "friday"],
-                "hours": [10, 22]                      
-            },
-            "count": 10,                  // Optional (default to recur infinitely)
-            "endTime": "2012-11-04",      // Optional (default to recur infinitely)
-        },
-        …
-    }
+1. Registre sua assinatura do Azure com um provedor de recursos usando a [Operação de registro – API REST do Resource Manager](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). O nome do provedor do serviço do Agendador do Azure é **Microsoft.Scheduler**. 
 
-## <a name="job-schema-basics"></a>Noções básicas sobre esquemas de trabalho
-A tabela a seguir fornece uma visão geral de alto nível dos principais elementos utilizados para definir a recorrência e o agendamento em um trabalho:
+1. Crie uma coleção de trabalhos usando a [Operação de criação ou atualização para coleções de trabalhos](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) na API REST do Agendador. 
 
-| Nome JSON | DESCRIÇÃO |
-|:--- |:--- |
-| **startTime** |Um valor de data/hora. Para agendas básicas, **startTime** é a primeira ocorrência. Para agendas complexas, o trabalho não inicia antes do **startTime**. |
-| **recurrence** |Especifica as regras de recorrência para o trabalho e a recorrência na qual o trabalho executa. O objeto de recorrência tem suporte para os elementos **frequency**, **interval**, **endTime**, **count** e **schedule**. Se a**recorrência** estiver definida, a **frequência** será obrigatória. Outros elementos da **recorrência** são opcionais. |
-| **frequency** |Uma cadeia de caracteres que representa a unidade de frequência na qual o trabalho repete. Os valores com suporte são "minutos", "hora", "dia", "semana" e "mês". |
-| **interval** |Um número inteiro positivo. **Interval** indica o intervalo para o valor da **frequência** que determina a frequência com que o trabalho é executado. Por exemplo, se **interval** for 3 e **frequency** for "week", o trabalho se repetirá a cada três semanas.<br /><br />O Agendador tem suporte para um **intervalo** máximo de 18 para frequência mensal, 78 para frequência semanal e 548 para frequência diária. Para a frequência em hora e em minuto, o intervalo com suporte é 1 <= **interval** <= 1.000. |
-| **endTime** |Uma cadeia de caracteres que especifica a data/hora além da qual o trabalho não é executado. Você pode definir um valor para **endTime** que está no passado. Se **endTime** e **count** não forem especificados, o trabalho será executado infinitamente. Você não pode incluir **endTime** e **count** no mesmo trabalho. |
-| **count** |Um número inteiro positivo (maior que zero) que especifica o número de vezes que o trabalho é executado antes de ser concluído.<br /><br />**count** representa o número de vezes que o trabalho é executado antes de ser determinado concluído. Por exemplo, para um trabalho que é executado diariamente com um **count** de 5 e uma data de início de segunda-feira, o trabalho será concluído após a execução na sexta-feira. Se a data de início estiver no passado, a primeira execução é calculada do momento da criação.<br /><br />Se nem **endTime** nem **count** forem especificados, o trabalho será executado de maneira infinita. Você não pode incluir **endTime** e **count** no mesmo trabalho. |
-| **schedule** |Um trabalho com uma frequência especificada altera sua recorrência com base em um agendamento de recorrência. Um valor **schedule** contém as modificações com base em minutos, horas, dias da semana, dias do mês e em número da semana. |
+1. Crie um trabalho usando a [Operação de criação ou atualização para trabalhos](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
 
-## <a name="job-schema-defaults-limits-and-examples"></a>Padrões, limites e exemplos de esquema de trabalhos
-Posteriormente, discutiremos detalhadamente no artigo cada um dos elementos a seguir:
+## <a name="job-schema-elements"></a>Elementos de esquema do trabalho
 
-| Nome JSON | Tipo de valor | Obrigatório? | Valor padrão | Valores válidos | Exemplo |
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** |string |Não  |Nenhum |Data/hora ISO 8601 |`"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** |objeto |Não  |Nenhum |Objeto de recorrência |`"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **frequency** |string |sim |Nenhum |"minuto", "hora", "dia", "semana", "mês" |`"frequency" : "hour"` |
-| **interval** |número |sim |Nenhum |1 a 1000 |`"interval":10` |
-| **endTime** |string |Não  |Nenhum |Valor de data/hora que representa uma hora no futuro |`"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **count** |número |Não  |Nenhum |>= 1 |`"count": 5` |
-| **schedule** |objeto |Não  |Nenhum |Objeto de agendamento |`"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+Esta tabela fornece uma visão geral de alto nível para os principais elementos JSON que podem ser usados ao configurar recorrências e agendamentos para trabalhos. 
 
-## <a name="deep-dive-starttime"></a>Análise aprofundada: startTime
-A tabela a seguir descreve como **startTime** controla a maneira que um trabalho é executado:
+| Elemento | Obrigatório | DESCRIÇÃO | 
+|---------|----------|-------------|
+| **startTime** | Não  | Um valor de cadeia de caracteres de DateTime em [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho é iniciado em um cronograma básico. <p>Para agendas complexas, o trabalho não inicia antes do **startTime**. | 
+| **recurrence** | Não  | As regras de recorrência para quando o trabalho é executado. O objeto de **recorrência** tem suporte para estes elementos: **frequency**, **interval**, **schedule**, **count** e **endTime**. <p>Se você usar o elemento **recurrence**, também deverá usar o **frequency**, enquanto outros elementos **recurrence** são opcionais. |
+| **frequency** | Sim, quando você usa **recurrence** | A unidade de tempo entre ocorrências e a compatibilidade desses valores: "Minute", "Hour", "Day", "Week", "Month" e "Year" | 
+| **interval** | Não  | Um inteiro positivo que determina o número de unidades de tempo entre ocorrências com base em **frequency**. <p>Por exemplo, se **interval** for 10 e **frequency** for "Week", o trabalho se repetirá a cada 10 semanas. <p>Aqui estão o número máximo de intervalos para cada frequência: <p>– 18 meses <br>– 78 semanas <br>– 548 dias <br>– Para horas e minutos, o intervalo é 1 <= <*interval*> <= 1000. | 
+| **schedule** | Não  | Defina as alterações para a recorrência com base nas marcas de minuto, marcas de hora, dias da semana e dias do mês especificados | 
+| **count** | Não  | Um número inteiro positivo que especifica o número de vezes que o trabalho é executado antes de ser concluído. <p>Por exemplo, quando um trabalho diário tem **count** definido como 7 e a data de início é Monday, o trabalho conclui a execução em um domingo. Se a data de início já tiver passado, a primeira execução será calculada do momento da criação. <p>Sem **endTime** ou **count**, o trabalho será executado de maneira infinita. Não é possível usar **count** e **endTime** no mesmo trabalho, mas a regra que termina primeiro é respeitada. | 
+| **endTime** | Não  | Um valor de cadeia de caracteres de Date ou DateTime no [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho para de ser executado. Você pode definir um valor para **endTime** que está no passado. <p>Sem **endTime** ou **count**, o trabalho será executado de maneira infinita. Não é possível usar **count** e **endTime** no mesmo trabalho, mas a regra que termina primeiro é respeitada. |
+|||| 
 
-| Valor startTime | Sem recorrência | Recorrência, sem agendamento | Recorrência com agendamento |
-|:--- |:--- |:--- |:--- |
-| **Sem hora de início** |Executar uma vez imediatamente. |Executar uma vez imediatamente. Executar as execuções subsequentes calculadas a partir do último tempo de execução. |Executar uma vez imediatamente.<br /><br />Realizar as execuções subsequentes com base no agendamento de recorrência. |
-| **Hora de início no passado** |Executar uma vez imediatamente. |Calcular a primeira hora de execução futura após a hora de início e executar naquela hora.<br /><br />Executar as execuções subsequentes calculadas a partir do último tempo de execução. <br /><br />Para obter mais informações, consulte o exemplo que segue esta tabela. |O trabalho é iniciado *somente na* hora de início especificada. A primeira ocorrência baseia-se no elemento schedule calculado com base na hora de início.<br /><br />Realizar as execuções subsequentes com base no agendamento de recorrência. |
-| **Hora de início no futuro ou a hora atual** |Executar uma vez na hora de início especificada. |Executar uma vez na hora de início especificada.<br /><br />Executar as execuções subsequentes calculadas a partir do último tempo de execução.|O trabalho é iniciado *somente na* hora de início especificada. A primeira ocorrência baseia-se no elemento schedule calculado com base na hora de início.<br /><br />Realizar as execuções subsequentes com base no agendamento de recorrência. |
+Por exemplo, esse esquema JSON descreve um agendamento básico e a recorrência para um trabalho: 
 
-Vejamos um exemplo do que acontece quando **startTime** está no passado, com recorrência, mas sem agenda.  Suponha que a hora atual seja 2015-04-08 13:00, que **startTime** seja 2015-04-07 14:00 e que **recurrence** seja a cada dois dias (definida com **frequency**: day e **interval**: 2.) Observe que **startTime** está no passado e ocorre antes da hora atual.
+```json
+"properties": {
+   "startTime": "2012-08-04T00:00Z", 
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "weekDays": ["Monday", "Wednesday", "Friday"],
+         "hours": [10, 22]                      
+      },
+      "count": 10,       
+      "endTime": "2012-11-04"
+   },
+},
+``` 
 
-Nessas condições, a primeira execução será em 09-04-2015 às 14:00\. O mecanismo do Agendador calcula as ocorrências de execução desde a hora de início. As instâncias no passado serão descartadas. O mecanismo usa a próxima instância que ocorrer no futuro. Nesse caso, **startTime** é 07/04/2015 às 14:00, portanto, a próxima instância será dois dias a partir dessa hora, que será em 09/04/2015 às 14:00.
+*Valores de Dates e DateTime*
 
-Observe que a primeira execução seria a mesma se **startTime** fosse 05/04/2015 14:00 ou 01/04/2015 14:00\. Após a primeira execução, as execuções seguintes são calculadas com o uso do agendamento. Elas serão em 11/04/2015 às 14:00, depois em 13/04/2015 às 14:00, em seguida, 15/04/2015 às 14:00, e assim por diante.
+* As datas em trabalhos do Agendador incluem apenas a data e seguem a [especificação da ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-Por fim, quando um trabalho tiver uma agenda, se as horas e os minutos não estiverem definidos na agenda, serão adotados os valores padrão para as horas e os minutos da primeira execução, respectivamente.
+* Os valores de hora e data em trabalhos do Agendador incluem a data e a hora, seguem a [especificação da ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) e são considerados UTC quando nenhuma diferença de UTC é especificada. 
 
-## <a name="deep-dive-schedule"></a>Análise aprofundada: agenda
+Para obter mais informações, confira [Conceitos, terminologia e entidades](../scheduler/scheduler-concepts-terms.md).
+
+<a name="start-time"></a>
+
+## <a name="details-starttime"></a>Detalhes: startTime
+
+Esta tabela descreve como **startTime** controla como um trabalho é executado:
+
+| startTime | Sem recorrência | Recorrência, sem agendamento | Recorrência com agendamento |
+|-----------|---------------|-------------------------|--------------------------|
+| **Sem hora de início** | Executar uma vez imediatamente. | Executar uma vez imediatamente. Executar as execuções subsequentes calculadas a partir do último tempo de execução. | Executar uma vez imediatamente. Realizar as execuções subsequentes com base no agendamento de recorrência. | 
+| **Hora de início no passado** | Executar uma vez imediatamente. | Calcular a primeira hora de execução futura após a hora de início e executar naquela hora. <p>Executar as execuções subsequentes calculadas a partir do último tempo de execução. <p>Confira o exemplo depois desta tabela. | Inicie o trabalho *somente na* hora de início especificada. A primeira ocorrência baseia-se no elemento schedule calculado com base na hora de início. <p>Realizar as execuções subsequentes com base no agendamento de recorrência. | 
+| **Hora de início no futuro ou a hora atual** | Executar uma vez na hora de início especificada. | Executar uma vez na hora de início especificada. <p>Executar as execuções subsequentes calculadas a partir do último tempo de execução. | Inicie o trabalho *somente na* hora de início especificada. A primeira ocorrência baseia-se no elemento schedule calculado com base na hora de início. <p>Realizar as execuções subsequentes com base no agendamento de recorrência. |
+||||| 
+
+Suponha que esse exemplo com estas condições: uma hora de início no passado com uma recorrência, mas sem agendamento.
+
+```json
+"properties": {
+   "startTime": "2015-04-07T14:00Z", 
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 2
+   }
+}
+```
+
+* A data e a hora atuais são "2015-04-08 13:00".
+
+* A data e a hora de início são "2015-04-07 14:00", que são antes da data e hora atuais.
+
+* A recorrência é a cada dois dias.
+
+1. Sob essas condições, a primeira execução será em 09/04/2015 às 14h. 
+
+   O Agendador calcula as ocorrências de execução com base na hora de início, descarta todas as instâncias no passado e usa a próxima instância no futuro. 
+   Nesse caso, **startTime** é 07/04/2015 às 14h, portanto, a próxima instância será dois dias a partir dessa hora, que será em 09/04/2015 às 14h.
+
+   A primeira execução é igual quer **startTime** seja 2015-04-05 14:00 quer seja 2015-04-01 14:00. Após a primeira execução, as execuções seguintes são calculadas com base no agendamento. 
+   
+1. As execuções ocorrem nesta ordem: 
+   
+   1. 11/04/2015 às 14h
+   1. 13/04/2015 às 14h 
+   1. 15/04/2015 às 14h
+   1. E assim por diante...
+
+1. Por fim, quando um trabalho tiver um agendamento, mas não tiver horas e minutos especificados, esses valores assumem como padrão as horas e minutos na primeira execução, respectivamente.
+
+<a name="schedule"></a>
+
+## <a name="details-schedule"></a>Detalhes: agendamento
+
 Você pode usar **schedule** para *limitar* o número de execuções de trabalho. Por exemplo, se um trabalho com uma **frequência** de "month" tiver uma agenda que executa somente no dia 31, o trabalho será executado apenas em meses que tenham um trigésimo primeiro dia.
 
 Também é possível usar **schedule** para *expandir* o número de execuções de trabalho. Por exemplo, se um trabalho com uma **frequência** de "month" tiver uma agenda para ser executado nos dias 1 e 2 do mês, o trabalho será executado no primeiro e segundo dias do mês, em vez de apenas uma vez por mês.
@@ -135,6 +168,7 @@ A tabela a seguir descreve elementos schedule em detalhes:
 | **Dias do mês** |Dia do mês em que o trabalho executa. Pode ser especificado apenas com uma frequência mensal. |Uma matriz dos valores a seguir:<br />- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31|
 
 ## <a name="examples-recurrence-schedules"></a>Exemplos: agendamentos de recorrência
+
 Os exemplos a seguir mostram vários agendamentos de recorrência. Os exemplos concentram-se no objeto de agendamento e seus subelementos.
 
 Esses agendamentos assumem que **intervalo** está definido para 1\. Os exemplos também assumem os valores de **frequência** corretos para os valores na **agenda**. Por exemplo, não é possível usar uma **frequência** de "day" e ter uma modificação **monthDays** na **agenda**. Nós descrevemos essas restrições no início do artigo.
@@ -151,7 +185,7 @@ Esses agendamentos assumem que **intervalo** está definido para 1\. Os exemplos
 | `{"minutes":[15]}` |Executar 15 minutos após a hora exata a cada hora.<br /><br />Executa a cada hora, iniciando em 00:15, 1:15, 2:15, e assim por diante. Termina às 23:15. |
 | `{"hours":[17], "weekDays":["saturday"]}` |Executar às 17:00 aos sábados todas as semanas. |
 | `{hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |Executar às 17:00 nas segundas-feiras, quartas-feiras e sextas-feiras todas as semanas. |
-| `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |Executar às 17:15 e às 17:45 às segundas-feiras, quartas-feiras e sextas-feiras todas as semanas. |
+| `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |Executar às 17h15 e às 17h45 às segundas-feiras, quartas-feiras e sextas-feiras toda semana. |
 | `{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}` |Executar às 17:00 e às 17:00 às segundas-feiras, quartas-feiras e sextas-feiras todas as semanas. |
 | `{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}` |Executar às 5:15, 5:45, 17:15 e 17:45 às segundas-feiras, quartas-feiras e sextas-feiras todas as semanas. |
 | `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` |Executar a cada 15 minutos em dias da semana. |
@@ -167,7 +201,7 @@ Esses agendamentos assumem que **intervalo** está definido para 1\. Os exemplos
 | `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Executar na primeira sexta-feira de cada mês às 5:00. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Executar na primeira sexta-feira de cada mês na hora de início. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` |Executar na terceira sexta-feira do final do mês, todos os meses, na hora de início. |
-| `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` |Executar na primeira e última sexta-feira de cada mês às 5:15. |
+| `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` |Executar na primeira e última sexta-feira de cada mês às 5h15. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` |Executar na primeira e última sexta-feira de cada mês na hora de início. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` |Executar na quinta sexta-feira de cada mês na hora de início.<br /><br />Se não houver quinta sexta-feira em um mês, o trabalho não será executado. Considere o uso de -1 em vez de 5 na ocorrência se você quiser executar o trabalho na última sexta-feira do mês. |
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |Executar a cada 15 minutos na última sexta-feira do mês. |
@@ -175,13 +209,6 @@ Esses agendamentos assumem que **intervalo** está definido para 1\. Os exemplos
 
 ## <a name="see-also"></a>Consulte também
 
-- [O que é o Agendador?](scheduler-intro.md)
-- [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
-- [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
-- [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
-- [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
-- [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
-- [Alta disponibilidade e confiabilidade do Agendador do Microsoft Azure](scheduler-high-availability-reliability.md)
-- [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
-- [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
-
+* [O que é o Agendador do Azure?](scheduler-intro.md)
+* [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
+* [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)

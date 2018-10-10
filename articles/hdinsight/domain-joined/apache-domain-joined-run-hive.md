@@ -1,26 +1,26 @@
 ---
-title: Configurar políticas do Hive no HDInsight ingressado no domínio - Azure
-description: Saiba como configurar as políticas do Ranger Apache para o Hive em um serviço do Azure HDInsight ingressado no domínio.
+title: Configurar políticas do Hive no HDInsight com o Enterprise Security Package – Azure
+description: Aprenda a configurar as políticas do Apache Ranger para o Hive no serviço do Azure HDInsight com o Enterprise Security Package.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.openlocfilehash: 55abb5331da24c3914075c21579e5082853b3c1f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/24/2018
+ms.openlocfilehash: bdad0bac0d320b641359df4093ae10c9505b7de2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042073"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993418"
 ---
-# <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurar políticas do Hive no HDInsight ingressado no domínio
+# <a name="configure-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar políticas do Hive no HDInsight com o Enterprise Security Package
 Saiba como configurar políticas do Ranger Apache para o Hive. Neste artigo, você criará duas políticas do Ranger para restringir o acesso a hivesampletable. O hivesampletable fornecido com clusters HDInsight. Depois de configurar as políticas, você usa o Excel e o driver ODBC para conectar-se a tabelas do Hive no HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Um cluster HDInsight associado a um domínio. Confira [Configurar clusters HDInsight associados ao domínio](apache-domain-joined-configure.md).
+* Um cluster HDInsight com Enterprise Security Package. Confira [Configurar clusters do HDInsight com ESP](apache-domain-joined-configure.md).
 * Uma estação de trabalho com Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone ou Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Conectar-se à interface do usuário de Administração do Apache Ranger
@@ -34,15 +34,15 @@ Saiba como configurar políticas do Ranger Apache para o Hive. Neste artigo, voc
    >
 2. Faça logon usando o nome de usuário e a senha de domínio de administrador de cluster:
 
-    ![Home page do Ranger associado ao domínio do HDInsight](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
+    ![Home page do HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
 
     Atualmente, o Ranger só funciona com o Hive e o Yarn.
 
 ## <a name="create-domain-users"></a>Criar usuários de Domínio
-Consulte [Criar um cluster HDInsight ingressado no domínio](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster), para obter informações sobre como criar hiveruser1 e hiveuser2. Você usará as duas contas de usuário neste tutorial.
+Confira [Criar um cluster HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), para obter informações sobre como criar hiveruser1 e hiveuser2. Você usará as duas contas de usuário neste tutorial.
 
 ## <a name="create-ranger-policies"></a>Criar políticas do Ranger
-Nesta seção, você criará duas políticas do Ranger para acessar hivesampletable. Você pode dar permissão select em um conjunto diferente de colunas. Ambos os usuários foram criados em [Criar um cluster HDInsight ingressado no domínio](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). Na próxima seção, você testará as duas políticas no Excel.
+Nesta seção, você criará duas políticas do Ranger para acessar hivesampletable. Você pode dar permissão select em um conjunto diferente de colunas. Ambos os usuários foram criados em [Criar um cluster HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). Na próxima seção, você testará as duas políticas no Excel.
 
 **Para criar políticas do Ranger**
 
@@ -57,7 +57,7 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
    * Selecione o usuário: hiveuser1
    * Permissões: selecionar
 
-     ![Configurar política do Hive do Ranger associada ao domínio do HDInsight](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+     ![Configurar política do Hive do Ranger com ESP do HDInsight](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
      > [!NOTE]
      > Se um usuário de domínio não estiver populado em Selecionar Usuário, aguarde alguns instantes para que o Ranger seja sincronizado com o AAD.
@@ -131,9 +131,9 @@ Para testar a segunda política (read-hivesampletable-devicemake) que você crio
     Quando estiver pronto, você deverá ver duas colunas de dados importados.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para configurar um cluster HDInsight associado a um domínio, confira [Configurar clusters HDInsight associados a domínio](apache-domain-joined-configure.md).
-* Para gerenciar um cluster HDInsight associado a um domínio, confira [Gerenciar clusters HDInsight associados a domínio](apache-domain-joined-manage.md).
-* Para executar consultas Hive usando SSH em clusters HDInsight adicionados ao domínio, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Para configurar um cluster HDInsight com Enterprise Security Package, confira [Configurar clusters HDInsight com ESP](apache-domain-joined-configure.md).
+* Para gerenciar um cluster HDInsight com ESP, confira [Gerenciar clusters HDInsight com ESP](apache-domain-joined-manage.md).
+* Para executar consultas Hive usando SSH em clusters HDInsight com ESP, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Para conectar o Hive usando o JDBC Hive, confira [Conectar ao Hive no Azure HDInsight usando o driver JDBC do Hive](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
 * Para conectar o Excel ao Hadoop usando o ODBC do Hive, confira [Conectar o Excel ao Hadoop com a unidade ODBC do Microsoft Hive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
 * Para conectar o Excel ao Hadoop usando o Power Query, confira [Conectar o Excel ao Hadoop usando o Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md)

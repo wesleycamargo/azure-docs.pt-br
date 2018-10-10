@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: dd094f2b9cdb9b5eb164dda2925d094cafa7cd89
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 59cfcc72abee100b95cf17033083827fbb30f9f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895605"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986686"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerenciar a Proteção contra DDoS do Azure Standard usando o Portal do Azure
 
@@ -38,7 +38,7 @@ A criação de mais de um plano não é necessária para a maioria das organiza�
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
 2. Pesquise por *DDoS*. Selecione **Plano de proteção contra DDoS** quando aparecer nos resultados da pesquisa.
-3. Clique em **Criar**.
+3. Selecione **Criar**.
 4. Insira ou selecione seus próprios valores, ou insira ou selecione os seguintes valores de exemplo e, em seguida, selecione **Criar**:
 
     |Configuração        |Valor                                              |
@@ -116,22 +116,7 @@ Para simular um ataque de DDoS para validar seu alerta, consulte [Validar detec�
 
 Você também pode aprender mais sobre [configuração de webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [aplicativos lógicos](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para criação de alertas.
 
-## <a name="configure-logging-for-ddos-protection-metrics"></a>Configurar o registro em log para métricas de proteção contra DDoS
-
-1. Selecione **Todos os serviços** na parte superior esquerda do portal.
-2. Digite *Monitor* na caixa **Filtro**. Selecione **Monitorar** quando aparecer nos resultados.
-3. Em **Configurações**, selecione **Configurações de diagnóstico**.
-4. Selecione a **Assinatura** e o **Grupo de recursos** que contêm o endereço IP público que você deseja registrar.
-5. Selecione **Endereço IP público** para **Tipo de recurso**, em seguida, selecione o endereço IP público específico para o qual você deseja registrar métricas.
-6. Selecione **Ativar diagnóstico para coletar os dados a seguir** e, em seguida, selecione quantas opções a seguir precisar:
-
-    - **Arquivar em uma conta de armazenamento**: os dados são gravados em uma conta de armazenamento do Azure. Para saber mais sobre essa opção, consulte [Arquivar os logs de diagnóstico](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Transmitir para um hub de eventos**: permite que um destinatário de log colete os logs usando um Hub de Eventos do Azure. Os Hubs de Eventos habilitam a integração com o Splunk ou outros sistemas SIEM. Para saber mais sobre essa opção, consulte [Transmitir os logs de diagnóstico para um hub de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Enviar para o Log Analytics**: grava os logs no serviço Azure Log Analytics do OMS. Para saber mais sobre essa opção, consulte [Coletar logs para uso no Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-Para simular um ataque de DDoS para validar o registro, consulte [Validar detecção de DDoS](#validate-ddos-detection).
-
-## <a name="use-ddos-protection-telemetry"></a>Usar a telemetria da Proteção contra DDoS
+## <a name="use-ddos-protection-telemetry"></a>Usar telemetria da proteção contra DDoS
 
 A telemetria de um ataque é fornecida por meio do Azure Monitor em tempo real. A telemetria está disponível somente durante o tempo pelo qual um endereço IP público está sob mitigação. Você não vê a telemetria antes nem depois de um ataque ser mitigado.
 
@@ -157,6 +142,56 @@ A Proteção contra DDoS padrão aplica TCP SYN, TCP e UDP (três políticas de 
 ![Exibir políticas de mitigação](./media/manage-ddos-protection/view-mitigation-policies.png)
 
 Os limites da política são configurados automaticamente por meio da nossa criação de perfil de tráfego de rede baseada em aprendizado de máquina do Azure. Somente quando o limite da política for excedido, ocorre a mitigação de DDoS para o endereço IP sob ataque.
+
+## <a name="configure-ddos-attack-analytics"></a>Configurar a análise de ataque de DDoS
+O padrão de Proteção contra DDoS do Azure fornece informações detalhadas de ataque e visualização com Análise de Ataque de DDoS. Os clientes que protegem suas redes virtuais contra ataques de DDoS têm visibilidade detalhada sobre o tráfego de ataque e as ações tomadas para reduzir o ataque por meio de relatórios de mitigação de ataque e logs de fluxo de mitigação. 
+
+## <a name="configure-ddos-attack-mitigation-reports"></a>Configurar relatórios de mitigação de ataque de DDoS
+Relatórios de mitigação de ataque usam os dados do protocolo Netflow agregados para fornecer informações detalhadas sobre o ataque em seu recurso. Sempre que um recurso IP público estiver sob ataque, a geração de relatórios começará assim que a atenuação for iniciada. Também será gerado um relatório de incremental a cada 5 minutos e um relatório de pós-atenuação para todo o período de mitigação. Isso é para garantir que, no caso de o ataque de DDoS continuar por mais tempo, você poderá exibir o instantâneo mais recentes do relatório de atenuação a cada 5 minutos e um resumo completo quando a mitigação de ataque estiver concluída. 
+
+1. Selecione **Todos os serviços** na parte superior esquerda do portal.
+2. Digite *Monitor* na caixa **Filtro**. Selecione **Monitorar** quando aparecer nos resultados.
+3. Em **Configurações**, selecione **Configurações de diagnóstico**.
+4. Selecione a **Assinatura** e o **Grupo de recursos** que contêm o endereço IP público que você deseja registrar.
+5. Selecione **Endereço IP público** para **Tipo de recurso**, em seguida, selecione o endereço IP público específico para o qual você deseja registrar métricas.
+6. Selecione **Ativar diagnóstico para coletar o log DDoSMitigationReports** e, em seguida, selecione tantas opções a seguir quanto você precisar:
+
+    - **Arquivar em uma conta de armazenamento**: os dados são gravados em uma conta de armazenamento do Azure. Para saber mais sobre essa opção, consulte [Arquivar os logs de diagnóstico](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Transmitir para um hub de eventos**: permite que um destinatário de log colete os logs usando um Hub de Eventos do Azure. Os Hubs de Eventos habilitam a integração com o Splunk ou outros sistemas SIEM. Para saber mais sobre essa opção, consulte [Transmitir os logs de diagnóstico para um hub de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Enviar para o Log Analytics**: grava os logs no serviço Azure Log Analytics do OMS. Para saber mais sobre essa opção, consulte [Coletar logs para uso no Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Os relatórios de mitigação incrementais e pós-ataque incluem os seguintes campos
+- Vetores de ataque
+- Estatísticas de tráfego
+- Motivo para pacotes ignorados
+- Protocolos envolvidos
+- Principais 10 regiões ou países de origem
+- Principais 10 ASNs de origem
+
+## <a name="configure-ddos-attack-mitigation-flow-logs"></a>Configurar logs de fluxo de mitigação de ataque de DDoS
+Os Logs de Fluxo de Mitigação de Ataque permitem examinar o tráfego ignorado, o tráfego encaminhado e outros datapoints interessante durante um ataque de DDoS ativo quase em tempo real. Você pode ingerir o fluxo constante desses dados em seus sistemas SIEM por meio do hub de eventos para o monitoramento quase em tempo real, realizar ações possíveis e atender à necessidade de suas operações de defesa. 
+
+1. Selecione **Todos os serviços** na parte superior esquerda do portal.
+2. Digite *Monitor* na caixa **Filtro**. Selecione **Monitorar** quando aparecer nos resultados.
+3. Em **Configurações**, selecione **Configurações de diagnóstico**.
+4. Selecione a **Assinatura** e o **Grupo de recursos** que contêm o endereço IP público que você deseja registrar.
+5. Selecione **Endereço IP público** para **Tipo de recurso**, em seguida, selecione o endereço IP público específico para o qual você deseja registrar métricas.
+6. Selecione **Ativar diagnóstico para coletar o log DDoSMitigationFlowLogs** e, em seguida, selecione tantas opções a seguir quanto você precisar:
+
+    - **Arquivar em uma conta de armazenamento**: os dados são gravados em uma conta de armazenamento do Azure. Para saber mais sobre essa opção, consulte [Arquivar os logs de diagnóstico](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Transmitir para um hub de eventos**: permite que um destinatário de log colete os logs usando um Hub de Eventos do Azure. Os Hubs de Eventos habilitam a integração com o Splunk ou outros sistemas SIEM. Para saber mais sobre essa opção, consulte [Transmitir os logs de diagnóstico para um hub de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Enviar para o Log Analytics**: grava os logs no serviço Azure Log Analytics do OMS. Para saber mais sobre essa opção, consulte [Coletar logs para uso no Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+7. Para exibir os dados de logs de fluxo no painel de análise do Azure, você pode importar o painel de exemplo do https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
+
+Os logs de fluxo terão os seguintes campos: 
+- IP de origem
+- IP de destino
+- Porta de origem 
+- Porta de destino 
+- Tipo de protocolo 
+- Ação executada durante a mitigação
+
+
 
 ## <a name="validate-ddos-detection"></a>Validar detecção de DDoS
 

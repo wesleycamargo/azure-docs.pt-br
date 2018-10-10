@@ -1,24 +1,26 @@
 ---
-title: Protocolo WebSocket de reconhecimento de fala da Microsoft | Microsoft Docs
-description: Documentação do protocolo para o Serviço de Fala com base em WebSockets
+title: Protocolo WebSocket da Fala do Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Documentação do protocolo da Fala do Bing com base em WebSockets
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 17954536e8bdb49c09204c2e522586b79cb1bef5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6ee61a38615ac8cbf4c4fcf6b8d631c5f9a8f7d1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363663"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962769"
 ---
-# <a name="speech-service-websocket-protocol"></a>Protocolo WebSocket do Serviço de Fala
+# <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket da Fala do Bing
 
-  O  Serviço de Fala é uma plataforma baseada em nuvem que apresenta os algoritmos mais avançados disponíveis para converter áudio falado em texto. O protocolo de Serviço de Fala define a  [instalação de conexão](#connection-establishment) entre aplicativos cliente e o serviço e as mensagens de reconhecimento de fala trocadas entre os equivalentes ([Mensagens originadas do cliente](#client-originated-messages)e [mensagens originadas do serviço](#service-originated-messages)). Além disso, [mensagens de telemetria](#telemetry-schema) e [tratamento de erros](#error-handling) são descritas.
+A Fala do Bing é uma plataforma baseada em nuvem que apresenta os algoritmos mais avançados disponíveis para converter áudio falado em texto. O protocolo da Fala do Bing define a [configuração da conexão](#connection-establishment) entre aplicativos clientes e o serviço e as mensagens de reconhecimento de fala trocadas entre as partes ([mensagens originadas do cliente](#client-originated-messages) e [mensagens originadas do serviço](#service-originated-messages)). Além disso, [mensagens de telemetria](#telemetry-schema) e [tratamento de erros](#error-handling) são descritas.
 
 ## <a name="connection-establishment"></a>Estabelecimento de conexão
 
@@ -78,7 +80,7 @@ As seguintes informações de cabeçalho são necessárias para o token de acess
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | Sua chave de assinatura |
 
-O serviço de token retorna o token de acesso JWT como `text/plain`. Em seguida, o JWT é passado como um `Base64 access_token` para o handshake como um cabeçalho de *Autorização* prefixado com a cadeia de caracteres `Bearer`. Por exemplo: 
+O serviço de token retorna o token de acesso do JWT como `text/plain`. Em seguida, o JWT é passado como um `Base64 access_token` para o handshake como um cabeçalho de *Autorização* prefixado com a cadeia de caracteres `Bearer`. Por exemplo: 
 
 `Authorization: Bearer [Base64 access_token]`
 
@@ -227,7 +229,7 @@ O elemento system.version da `speech.config` mensagem contém a versão de fala 
 | device.model | O modelo do dispositivo. | Obrigatório |
 | device.version | A versão do software do dispositivo fornecida pelo fabricante do dispositivo. Esse valor especifica uma versão do dispositivo que pode ser acompanhado pelo fabricante. | Obrigatório |
 
-### <a name="message-audio"></a>Mensagem`audio`
+### <a name="message-audio"></a>Mensagem `audio`
 
 Aplicativos cliente habilitados para fala enviam áudio para serviço de fala, convertendo o fluxo de áudio em uma série de blocos de áudio. Cada parte do áudio executa um segmento do áudio falado que deve ser transcrito pelo serviço. O tamanho máximo de um único bloco de áudio é 8.192 bytes. As mensagens do fluxo de áudio são *mensagens WebSocket binárias*.
 
@@ -518,9 +520,9 @@ A descrição do erro deve ser no máximo de 50 caracteres e idealmente deve ser
 | NoNetwork | O cliente tentou uma conexão, mas a pilha de rede relatou que nenhuma rede física estava disponível. |
 | NoAuthorization | A conexão de cliente falhou ao tentar adquirir um token de autorização para a conexão. |
 | NoResources | O cliente ficou sem algum recurso local (por exemplo, memória) ao tentar estabelecer uma conexão. |
-| Proibido | O cliente não pôde se conectar ao serviço porque o serviço retornou um `403 Forbidden` código de status de HTTP na solicitação de atualização WebSocket. |
-| Não Autorizado | O cliente não pôde se conectar ao serviço porque o serviço retornou um `401 Unauthorized` código de status de HTTP na solicitação de atualização WebSocket. |
-| BadRequest | O cliente não pôde se conectar ao serviço porque o serviço retornou um `400 Bad Request` código de status de HTTP na solicitação de atualização WebSocket. |
+| Proibido | O cliente não pôde se conectar ao serviço porque o serviço retornou um HTTP `403 Forbidden` código de status sobre a solicitação de atualização de WebSocket. |
+| Não Autorizado | O cliente não pôde se conectar ao serviço porque o serviço retornou um HTTP `401 Unauthorized` código de status sobre a solicitação de atualização de WebSocket. |
+| BadRequest | O cliente não pôde se conectar ao serviço porque o serviço retornou um HTTP `400 Bad Request` código de status sobre a solicitação de atualização de WebSocket. |
 | ServerUnavailable | O cliente não pôde se conectar ao serviço porque o serviço retornou um HTTP `503 Server Unavailable` código de status sobre a solicitação de atualização de WebSocket. |
 | ServerError | O cliente não pôde se conectar ao serviço porque o serviço retornou um `HTTP 500` código de status de erro interno na solicitação de atualização de WebSocket. |
 | Tempo limite | Solicitação de conexão do cliente atingiu o tempo limite sem uma resposta do serviço. O campo *Final*  contém a hora em que o cliente atingiu o tempo limite e interrompida aguardando a conexão. |

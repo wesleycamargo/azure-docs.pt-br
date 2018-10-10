@@ -1,25 +1,27 @@
 ---
-title: Início Rápido para Serviços Cognitivos do Azure, API de Tradução de Fala da Microsoft | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar a API de Tradução de Fala da Microsoft nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: API de Tradução de Fala Java'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Tradução de Fala.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0db55f4064d3415cb647519ea9030936012a8446
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ROBOTS: NOINDEX
+ms.openlocfilehash: dde7d3dc7c1a744da9a22c0e4c0a483a186aa327
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41929722"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969454"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-java"></a>Início Rápido da API de Tradução de Fala da Microsoft com Java 
+# <a name="quickstart-translator-speech-api-with-java"></a>Início Rápido: API de Tradução de Fala com Java 
 <a name="HOLTop"></a>
 
-Este artigo mostra como usar a API de Tradução de Fala da Microsoft para traduzir palavras faladas em um arquivo .wav.
+Este artigo mostra como usar a API de Tradução de Fala para traduzir palavras faladas em um arquivo .wav.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

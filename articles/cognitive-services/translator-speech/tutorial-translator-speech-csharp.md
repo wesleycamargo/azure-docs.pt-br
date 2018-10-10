@@ -1,26 +1,26 @@
 ---
-title: Tutorial da Tradução de Fala (C#) | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Saiba como usar o serviço de Tradução de Fala para traduzir o texto em tempo real.
+title: 'Tutorial: API de Tradução de Fala em C#'
+titleSuffix: Azure Cognitive Services
+description: Use a API de Tradução de Fala para traduzir texto em tempo real.
 services: cognitive-services
 author: v-jerkin
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.devlang: csharp
-ms.topic: article
+ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 010ad8b5ceeaf046c8d361ff352e6058154a482d
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2de56366c3204e77eb2e6775ddd88b6fc4f0c219
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41929695"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993860"
 ---
-# <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>Tutorial: aplicativo WPF do Microsoft Translator em C#
+# <a name="tutorial-translator-speech-application-in-c"></a>Tutorial: aplicativo Tradução de Fala em C#
 
-Este tutorial é um tour de uma ferramenta de conversão de fala interativa que usa o serviço de tradução do Microsoft Translator Speech, uma parte dos Serviços Cognitivos da Microsoft no Azure. Você aprenderá como:
+Este tutorial é um tour de uma ferramenta de tradução de fala interativa que usa a API de Tradução de Fala, uma parte dos Serviços Cognitivos do Azure. Você saberá como:
 
 > [!div class="checklist"]
 > * Solicitar uma lista de idiomas com suporte pelo serviço
@@ -42,7 +42,7 @@ A terceira biblioteca [JSON.Net](https://www.newtonsoft.com/json) (da Newtonsoft
 
 ## <a name="trying-the-translation-app"></a>Testando o aplicativo de tradução
 
-Depois de abrir a solução Microsoft Speech Translator (`SpeechTranslator.sln`) no Visual STudio, pressione F5 para compilar e iniciar o aplicativo.  A janela principal do programa é exibida.
+Depois de abrir a solução Tradutor de Fala (`SpeechTranslator.sln`) no Visual STudio, pressione F5 para compilar e iniciar o aplicativo.  A janela principal do programa é exibida.
 
 ![[Janela principal da Tradução de Fala]](media/speech-translator-main-window.png)
 
@@ -50,7 +50,7 @@ Na primeira execução, escolha **Configurações de conta** no menu **Configura
 
 ![[Janela principal da Tradução de Fala]](media/speech-translator-settings-window.png)
 
-Cole a chave de assinatura do Microsoft Translator Speech nesta janela, clique em **Salvar.** A chave é salva entre as execuções.
+Cole a chave de assinatura da Tradução de Fala nesta janela e, em seguida, clique em **Salvar.** A chave é salva entre as execuções.
 
 Volte na janela principal, escolha a entrada de áudio e dispositivos de saída que você deseja usar e os idiomas de origem e destino. Se você quiser ouvir o áudio da conversão, verifique se a opção **TTS** opção (texto em fala) está marcada. Se você quiser ver traduções parciais especulativas conforme fala, habilite a opção de **resultados parciais**.
 
@@ -58,7 +58,7 @@ Por fim, clique em **Iniciar** para começar a conversão. Diga algo que você d
 
 ## <a name="obtaining-supported-languages"></a>Obtendo idiomas com suporte
 
-Atualmente, o serviço Microsoft Translator oferece suporte a mais de cinco dúzias de idiomas para conversão de texto. Um número menor de idiomas é compatível para a tradução de fala. Esses idiomas requerem suporte para para transcrição (reconhecimento de fala) e para saída de texto para fala, síntese.
+Atualmente, o serviço Tradução de Fala dá suporte a mais de cinco dúzias de idiomas para tradução de texto. Um número menor de idiomas é compatível para a tradução de fala. Esses idiomas requerem suporte para para transcrição (reconhecimento de fala) e para saída de texto para fala, síntese.
 
 Em outras palavras, para a tradução de fala, o idioma de origem deve ser um suporte para a transcrição. O idioma de saída pode ser qualquer um dos idiomas com suporte para conversão de texto, supondo que você deseje um resultado de texto. Se desejar a saída de fala, você só pode se transformar em um idioma com suporte para texto em fala.
 

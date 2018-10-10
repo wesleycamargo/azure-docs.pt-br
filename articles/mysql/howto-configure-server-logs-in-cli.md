@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 57b72ded77484dc1c8ca4c62811b62e171365db4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e3940f07ab97eb2ad03c347c39bf2412a8497f5e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423450"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978447"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e acessar logs de servidor usando a CLI do Azure
 É possível baixar os logs de servidor do Banco de Dados do Azure para MySQL usando a CLI do Azure, o utilitário de linha de comando do Azure.
@@ -23,7 +23,7 @@ ms.locfileid: "39423450"
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de instruções, você precisa:
 - [Servidor do Banco de Dados do Azure para MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
-- A [CLI do Azure 2.0](/cli/azure/install-azure-cli) ou o Azure Cloud Shell no navegador
+- A [CLI do Azure](/cli/azure/install-azure-cli) ou o Azure Cloud Shell no navegador
 
 ## <a name="configure-logging-for-azure-database-for-mysql"></a>Configurar o registro em log para o Banco de Dados do Azure para MySQL
 É possível configurar o servidor para acessar os logs de consulta lenta do MySQL executando as seguintes etapas:

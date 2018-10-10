@@ -16,16 +16,19 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6b431ee55ee73b4f5a69471cca3cc16270198c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 33b0b2b4148a8cfbe97413bf3cdec23d375206bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930232"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983870"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual do Linux com os modelos do Azure Resource Manager
-Este artigo mostra como implantar rapidamente uma VM (máquina virtual) do Linux com a CLI do Azure e modelos do Azure Resource Manager. 
 
+Este artigo mostra como implantar rapidamente uma VM (máquina virtual) do Linux com a CLI do Azure e modelos do Azure Resource Manager. Você também pode executar essas etapas com a [CLI clássica do Azure](create-ssh-secured-vm-from-template-nodejs.md).
+
+
+Este artigo mostra como implantar rapidamente uma VM (máquina virtual) do Linux com a CLI do Azure e modelos do Azure Resource Manager. 
 
 ## <a name="templates-overview"></a>Visão geral de modelos
 Os modelos do Azure Resource Manager são arquivos JSON que definem a infraestrutura e a configuração de sua solução do Azure. Usando um modelo, você pode implantar a solução repetidamente em todo seu ciclo de vida e com a confiança de que seus recursos serão implantados em um estado consistente. Para saber mais sobre o formato do modelo e como construí-o, veja [Criar seu primeiro modelo do Azure Resource Manager](../../azure-resource-manager/resource-manager-create-first-template.md). Para exibir a sintaxe JSON para os tipos de recursos, consulte [Definir recursos nos modelos do Azure Resource Manager](/azure/templates/).

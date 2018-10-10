@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: f81ef3c231874f314d6fe023ba247a0bcff61e90
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 6535eee93b0fcaa2c0888fc6b647811c21e564d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42141813"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971902"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>Configurar e monitorar dispositivos do IoT em escala usando a CLI do Azure
 
@@ -34,12 +34,12 @@ As configurações automáticas do dispositivo trabalham ao atualizar um conjunt
 ## <a name="cli-prerequisites"></a>Pré-requisitos da CLI
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-using-cli.md) na assinatura do Azure. 
-* [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. A versão 2.0 da CLI do Azure deve ser 2.0.24 ou superior. Use `az –-version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
-* [Extensão de IoT para CLI 2.0 do Azure](https://github.com/Azure/azure-iot-cli-extension).
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.24 ou superior. Use `az –-version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
+* A [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implementar dispositivos gêmeos para configurar dispositivos
 
-As configurações automáticas de dispositivo requerem o uso de dispositivos gêmeos para sincronizar o estado entre a nuvem e os dispositivos.  Consulte [Entender e usas dispositivos gêmeos no Hub IoT](iot-hub-devguide-device-twins.md) para orientação sobre como usar dispositivos gêmeos.
+As configurações automáticas de dispositivo requerem o uso de dispositivos gêmeos para sincronizar o estado entre a nuvem e os dispositivos.  Consulte [Compreender e usar gêmeos de dispositivos no Hub IoT](iot-hub-devguide-device-twins.md) para obter orientações sobre o uso de gêmeos de dispositivos.
 
 ## <a name="identify-devices-using-tags"></a>Identificar dispositivos usando marcações
 
@@ -56,7 +56,7 @@ Antes de criar uma configuração, você deve especificar quais dispositivos voc
 
 ## <a name="define-the-target-content-and-metrics"></a>Definir as métricas e o conteúdo de destino
 
-As consultas de métrica e conteúdo de destino são especificadas como documentos JSON que descrevem as propriedades desejadas de dispositivo gêmeo a serem definidas e as propriedades relatadas a serem medidas.  Para criar uma configuração automática de dispositivo usando a CLI 2.0 do Azure, salve a métrica e o conteúdo de destino e localmente como arquivos .txt. Você usará os caminhos de arquivo em uma próxima seção quando executar o comando para aplicar a configuração ao dispositivo. 
+As consultas de métrica e conteúdo de destino são especificadas como documentos JSON que descrevem as propriedades desejadas de dispositivo gêmeo a serem definidas e as propriedades relatadas a serem medidas.  Para criar uma configuração de dispositivo automática usando a CLI do Azure, salve o conteúdo de destino e as métricas localmente como arquivos .txt. Você usará os caminhos de arquivo em uma próxima seção quando executar o comando para aplicar a configuração ao dispositivo. 
 
 A seguir é apresentando um exemplo de conteúdo de destino básico:
 
@@ -196,14 +196,14 @@ az iot hub configuration delete --config-id [configuration id] \
 
 Neste artigo, você aprendeu como configurar e monitorar dispositivos IoT em escala. Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
-* [Gerenciar identidades de dispositivo do Hub IoT em massa](iot-hub-bulk-identity-mgmt.md)
-* [Métricas do Hub IoT](iot-hub-metrics.md)
+* [Gerencie suas identidades de dispositivo do Hub IoT em massa](iot-hub-bulk-identity-mgmt.md)
+* [Métricas do IoT Hub](iot-hub-metrics.md)
 * [Monitoramento de operações](iot-hub-operations-monitoring.md)
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 * [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
-* [Implantação do IA em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Para explorar usando o Serviço de Provisionamento de Dispositivos do Hub IoT para habilitar o provisionamento sem toque e Just-In-Time, consulte: 
 

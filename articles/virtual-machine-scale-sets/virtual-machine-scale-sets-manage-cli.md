@@ -1,6 +1,6 @@
 ---
-title: Gerenciar Conjuntos de dimensionamento de máquina virtual com a CLI do Azure 2.0 | Microsoft Docs
-description: 'Comandos comuns da CLI do Azure 2.0 para gerenciar Conjuntos de dimensionamento de máquina virtual, por exemplo: como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.'
+title: Gerenciar conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure | Microsoft Docs
+description: 'Comandos comuns da CLI do Azure para gerenciar conjuntos de dimensionamento de máquinas virtuais, por exemplo: como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.'
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 014e6ff2bc769675e47743cfdd4fbf7fc6234974
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42141403"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999827"
 ---
-# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gerenciar um conjunto de dimensionamento de máquina virtual com a CLI do Azure 2.0
-Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Além disso, talvez você deseje criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos comuns do CLI do Azure 2.0 que permitem executar essas tarefas.
+# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gerenciar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
+Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Além disso, talvez você deseje criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos comuns da CLI do Azure que permitem executar essas tarefas.
 
-Para concluir essas tarefas de gerenciamento, é necessário a CLI do Azure 2.0 mais recente. Para obter informações, consulte [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli). Se for preciso criar um conjunto de dimensionamento de máquinas virtuais, você pode [criar um conjunto de dimensionamento com a CLI do Azure 2.0](quick-create-cli.md).
+Para concluir essas tarefas de gerenciamento, é necessário ter a CLI do Azure mais recente. Para obter informações, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se for necessário criar um conjunto de dimensionamento de máquinas virtuais, será possível [criar um conjunto de dimensionamento com a CLI do Azure](quick-create-cli.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Exibir informações sobre um conjunto de dimensionamento

@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 9dbd230e431b2bc3041cfc854c0161ce8d453870
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 673faff51c3d06e50941a6982a9f654c28598d86
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133200"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47006461"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
@@ -60,6 +60,8 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Tabelas de rota definida pelo usuário |200 |
 | Rotas definidas pelo usuário por tabela de rotas |400 |
 | Certificados raiz de ponto a site por gateway de VPN |20 |
+| TAPs de rede virtual |100 |
+| Configurações de TAP do adaptador de rede por TAP de rede virtual |100 |
 
 #### <a name="publicip-address"></a>Limites do endereço IP público
 
@@ -75,17 +77,17 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
 | Balanceadores de Carga | 100 | 1000 |
-| Regras por recurso, Básico | 150 | 250 |
-| Regras por recurso, Standard | 1250 | 1500 |
+| Regras por recurso, Básico | 250 | 250 |
+| Regras por recurso, Standard | 1500 | 1500 |
 | Regras por configuração de IP | 299 |299 |
 | Configurações de IP de front-end, Básico | 10 | 200 |
 | Configurações de IP de front-end, Standard | 10 | 600 |
 | Pool de back-end, Básico | 100, um único conjunto de disponibilidade | 100, um único conjunto de disponibilidade |
 | Pool de back-end, Standard | 1000, única VNet | 1000, única VNet |
-| Recurso de back-end pelo Azure Load Balancer, Standard&ast; | 50 | 150 |
+| Recursos de back-end pelo Load Balancer, Standard* | 150 | 150 |
 | Portas de alta disponibilidade, Standard | 1 por front-end interno | 1 por front-end interno |
 
-&ast; Até Máquinas 150 máquinas virtuais autônomas, conjuntos recursos, qualquer combinação de máquinas virtuais autônomas, conjuntos de disponibilidade e conjuntos de dimensionamento de máquina virtual.
+**Até 150 recursos, qualquer combinação de máquinas virtuais autônomas, conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais.
 
 [Entre em contato com o suporte](../articles/azure-supportability/resource-manager-core-quotas-request.md ) caso precise aumentar esses limites.
 

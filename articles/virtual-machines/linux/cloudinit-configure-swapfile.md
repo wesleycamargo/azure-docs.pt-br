@@ -1,6 +1,6 @@
 ---
 title: Usar cloud-init para configurar um arquivo de permuta em uma VM Linux | Microsoft Docs
-description: Como usar cloud-init para configurar um arquivo de permuta em uma VM Linux durante a criação com a CLI do Azure 2.0
+description: Como usar o cloud-init para configurar um arquivo de permuta em uma VM Linux durante a criação com a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 88a141922f113caf7ad67c89de48f84a821f7ba3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2a5a878b7c8c3b6126d90b978241fbcb237d8db7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29952591"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946299"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Usar cloud-init para configurar um arquivo de permuta em uma VM Linux
 Este artigo mostra como usar a [cloud-init](https://cloudinit.readthedocs.io) para configurar o arquivo de permuta em várias distribuições do Linux. O arquivo de permuta tradicionalmente foi configurado pelo Agente Linux (WALA) com base em quais distribuições exigem um.  Este documento detalhará o processo para criar o arquivo de permuta sob demanda durante o tempo de provisionamento usando a cloud-init.  Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)
@@ -27,7 +27,7 @@ Este artigo mostra como usar a [cloud-init](https://cloudinit.readthedocs.io) pa
 ## <a name="create-swapfile-for-ubuntu-based-images"></a>Criar arquivo de permuta para imagens baseadas em Ubuntu
 Por padrão no Azure, as imagens da galeria do Ubuntu não criam arquivos de permuta. Para habilitar a configuração de arquivo de permuta durante o tempo de provisionamento de VM usando a cloud-init, consulte o [documento AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions) na wiki do Ubuntu.
 
-## <a name="create-swapfile-for-redhat-and-centos-based-images"></a>Criar um arquivo de permuta para imagens baseadas em RedHat e CentOS
+## <a name="create-swapfile-for-red-hat-and-centos-based-images"></a>Criar o arquivo de permuta para Red Hat e imagens baseadas em CentOS
 
 Crie um arquivo em seu shell atual chamado *cloud_init_swapfile.txt* e cole a configuração a seguir. Para este exemplo, crie o arquivo no Cloud Shell, não no seu computador local. Você pode usar qualquer editor que queira. Insira `sensible-editor cloud_init_swapfile.txt` para criar o arquivo e ver uma lista de editores disponíveis. Escolha #1 para usar o editor **nano**. Verifique se o arquivo cloud-init inteiro foi copiado corretamente, principalmente a primeira linha.  
 

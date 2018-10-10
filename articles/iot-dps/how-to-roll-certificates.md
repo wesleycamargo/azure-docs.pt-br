@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145260"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976747"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como implantar certificados de dispositivo X.509
 
@@ -41,7 +41,7 @@ Certificados em um dispositivo devem sempre ser armazenados em um local seguro, 
 
 Se você obter seus certificados de terceiros, você deve examinar como distribuição seus certificados. O processo pode ser incluído em sua organização com eles, ou pode ser um serviço separado que oferecem. 
 
-Se você estiver gerenciando seus próprios certificados de dispositivo, você precisará criar seu próprio pipeline para a atualização de certificados. Verifique se ambos os certificados de folha antiga e nova têm o mesmo nome comum (CN). Por ter o mesmo CN, o dispositivo pode Reprovisionar em si sem criar um registro duplicado.
+Se você estiver gerenciando seus próprios certificados de dispositivo, você precisará criar seu próprio pipeline para a atualização de certificados. Verifique se ambos os certificados de folha antiga e nova têm o mesmo nome comum (CN). Por ter o mesmo CN, o dispositivo pode Reprovisionar em si sem criar um registro duplicado. 
 
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>Implantar o certificado no Hub IoT
@@ -78,10 +78,13 @@ Se você estiver implantando certificados em resposta a uma violação de segura
 
     ![Gerenciar registros individuais](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
-3. Depois que o certificado comprometido for removido do serviço de provisionamento, navegue até seu IoT hub e remova o registro de dispositivo associado ao certificado comprometido.     
+3. Depois que o certificado comprometido tiver sido removido do serviço de provisionamento, o certificado ainda poderá ser usado para fazer conexões de dispositivo ao hub IoT, desde que um registro de dispositivo para ele exista. Há duas maneiras de abordar isso: 
+
+    A primeira maneira seria acessar manualmente seu hub IoT e remover imediatamente o registro de dispositivo associado ao certificado comprometido. Em seguida, quando o dispositivo provisionar novamente com um certificado atualizado, será criado um novo registro de dispositivo.     
 
     ![Remova o registro de dispositivo do hub IoT](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
+    A segunda maneira seria usar o reprovisionamento de suporte para reprovisionar o dispositivo para o mesmo hub IoT. Essa abordagem pode ser usada para substituir o certificado para o registro de dispositivo no hub IoT. Para obter mais informações, confira [Como reprovisionar dispositivos](how-to-reprovision.md).
 
 ## <a name="individual-enrollments-and-certificate-expiration"></a>Registros individuais e a expiração do certificado
 
@@ -118,9 +121,14 @@ Para atualizar um registro de grupo em resposta a uma violação de segurança, 
 
     ![Selecione o novo certificado de Autoridade de Certificação raiz](./media/how-to-roll-certificates/select-new-root-cert.png)
 
-6. Depois que o certificado comprometido for removido do serviço de provisionamento, navegue até o Hub IoT vinculado que contém os registros de dispositivo comprometido e remova os registros associados com o certificado comprometido.
+6. Depois que o certificado comprometido tiver sido removido do serviço de provisionamento, o certificado ainda poderá ser usado para fazer conexões de dispositivo ao hub IoT, desde que registros de dispositivo para ele existam. Há duas maneiras de abordar isso: 
+
+    A primeira maneira seria acessar manualmente seu hub IoT e remover imediatamente o registro de dispositivo associado ao certificado comprometido. Em seguida, quando os dispositivos forem provisionados novamente com certificados atualizados, um novo registro de dispositivo será criado para cada um deles.     
 
     ![Remova o registro de dispositivo do hub IoT](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    A segunda maneira seria usar o reprovisionamento de suporte para reprovisionar os dispositivos para o mesmo hub IoT. Essa abordagem pode ser usada para substituir certificados para os registros de dispositivos no hub IoT. Para obter mais informações, confira [Como reprovisionar dispositivos](how-to-reprovision.md).
+
 
 
 #### <a name="update-compromised-intermediate-certificates"></a>Atualize os certificados intermediários comprometidos
@@ -134,9 +142,13 @@ Para atualizar um registro de grupo em resposta a uma violação de segurança, 
     ![Gerenciar registros individuais](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
-3. Depois que o certificado comprometido for removido do serviço de provisionamento, navegue até o Hub IoT vinculado que contém os registros de dispositivo e remova os registros associados com o certificado comprometido.
+3. Depois que o certificado comprometido tiver sido removido do serviço de provisionamento, o certificado ainda poderá ser usado para fazer conexões de dispositivo ao hub IoT, desde que registros de dispositivo para ele existam. Há duas maneiras de abordar isso: 
+
+    A primeira maneira seria acessar manualmente seu hub IoT e remover imediatamente o registro de dispositivo associado ao certificado comprometido. Em seguida, quando os dispositivos forem provisionados novamente com certificados atualizados, um novo registro de dispositivo será criado para cada um deles.     
 
     ![Remova o registro de dispositivo do hub IoT](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    A segunda maneira seria usar o reprovisionamento de suporte para reprovisionar os dispositivos para o mesmo hub IoT. Essa abordagem pode ser usada para substituir certificados para os registros de dispositivos no hub IoT. Para obter mais informações, confira [Como reprovisionar dispositivos](how-to-reprovision.md).
 
 
 ## <a name="enrollment-groups-and-certificate-expiration"></a>Grupos de registro e expiração do certificado

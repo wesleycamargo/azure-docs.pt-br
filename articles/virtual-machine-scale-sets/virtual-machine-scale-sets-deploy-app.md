@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 8817facc21d2a7ac86bdaf198aab3179a93c4914
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 86bb231a4eb9468ccc92c182b099714950b2a81c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718974"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979419"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implantar o aplicativo em conjuntos de dimensionamento de máquinas virtuais
 Para executar aplicativos em instâncias de VM (máquina virtual) em um conjunto de dimensionamento, primeiro é necessário instalar os componentes de aplicativo e os arquivos necessários. Este artigo apresenta maneiras de criar uma imagem de VM personalizada para instâncias em um conjunto de dimensionamento ou executar scripts de instalação automaticamente em instâncias de VM existentes. Você também aprenderá a gerenciar aplicativos ou atualizações do SO em um conjunto de dimensionamento.
@@ -31,14 +31,14 @@ Quando você usa uma das imagens de plataforma do Azure para criar as instância
 
 Para reduzir o gerenciamento de configuração e a hora para provisionar uma VM, você pode criar uma imagem de VM personalizada que está pronta para executar o aplicativo assim que uma instância é provisionada no conjunto de dimensionamento. Para obter mais informações sobre como criar e usar uma imagem de VM personalizada com um conjunto de dimensionamento, consulte os seguintes tutoriais:
 
-- [CLI 2.0 do Azure](tutorial-use-custom-image-cli.md)
+- [CLI do Azure](tutorial-use-custom-image-cli.md)
 - [PowerShell do Azure](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Instalar um aplicativo com a Extensão de Script Personalizado
 A extensão de script personalizado baixa e executa scripts em VMs do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Os scripts podem ser baixados do armazenamento do Azure ou do GitHub, ou fornecidos ao Portal do Azure no tempo de execução da extensão. Para obter mais informações sobre como criar e usar uma imagem de VM personalizada com um conjunto de dimensionamento, consulte os seguintes tutoriais:
 
-- [CLI 2.0 do Azure](tutorial-install-apps-cli.md)
+- [CLI do Azure](tutorial-install-apps-cli.md)
 - [PowerShell do Azure](tutorial-install-apps-powershell.md)
 - [Modelo do Azure Resource Manager](tutorial-install-apps-template.md)
 
@@ -114,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>Instalar aplicativos com atualizações de SO
 Quando novas versões de sistema operacional estão disponíveis, você pode usar ou compilar uma nova imagem personalizada e [implantar atualizações do SO](virtual-machine-scale-sets-upgrade-scale-set.md) em um conjunto de dimensionamento. Cada instância VM é atualizada para a imagem mais recente que você especificar. Você pode usar uma imagem personalizada com o aplicativo já instalado, a Extensão de Script Personalizado ou DSC do PowerShell para que seu aplicativo fique disponível automaticamente conforme você realiza a atualização. Talvez seja necessário planejar a manutenção de aplicativos conforme você executa esse processo para garantir que não haja nenhum problema de compatibilidade de versão.
 
-Se você usar uma imagem VM personalizada com o aplicativo já instalado, você poderá integrar as atualizações de aplicativo com um pipeline de implantação para compilar as novas imagens e implantar atualizações de SO em todo o conjunto de dimensionamento. Essa abordagem permite que o pipeline pegue os builds mais recentes do aplicativo, criar e validar uma imagem de VM e atualizar as instâncias de VM no conjunto de dimensionamento. Para executar um pipeline de implantação que compila e implanta atualizações de aplicativos em imagens de VM personalizadas, você pode [criar uma imagem do Packer e implantar com o Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset) ou usar outra plataforma como [Spinnaker](https://www.spinnaker.io/) ou [Jenkins](https://jenkins.io/).
+Se você usar uma imagem VM personalizada com o aplicativo já instalado, você poderá integrar as atualizações de aplicativo com um pipeline de implantação para compilar as novas imagens e implantar atualizações de SO em todo o conjunto de dimensionamento. Essa abordagem permite que o pipeline pegue os builds mais recentes do aplicativo, criar e validar uma imagem de VM e atualizar as instâncias de VM no conjunto de dimensionamento. Para executar um pipeline de implantação que compila e implanta atualizações de aplicativos em imagens de VM personalizadas, você pode [criar uma imagem do Packer e implantar com o Azure DevOps Services](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset) ou usar outra plataforma como [Spinnaker](https://www.spinnaker.io/) ou [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Próximas etapas

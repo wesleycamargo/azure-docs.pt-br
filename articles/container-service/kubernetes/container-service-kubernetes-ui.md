@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0680551d3a87c942574a4eac70fa380cc1e9b5d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b5079ddb63f468f924577f61adda6a3056ec8c6c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163241"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998518"
 ---
 # <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Usando a interface do usuário da Web Kubernetes com o Serviço de Contêiner do Azure
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este passo a passo presume que você tenha [criado um cluster Kubernetes usando o Serviço de contêiner do Azure](container-service-kubernetes-walkthrough.md).
 
 
-Isso também pressupõe que você tenha a CLI do Azure 2.0 e as ferramentas `kubectl` instaladas.
+Isso também pressupõe que você tenha as ferramentas `kubectl` e da CLI do Azure instaladas.
 
 Você pode testar se tem a ferramenta `az` instalada executando:
 

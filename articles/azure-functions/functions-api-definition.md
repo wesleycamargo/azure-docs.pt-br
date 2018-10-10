@@ -2,26 +2,26 @@
 title: Metadados de OpenAPI no Azure Functions | Microsoft Docs
 description: Visão geral do suporte OpenAPI em Azure Functions
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 93e6b8c606c0a6d7abebeb515b938a45001757c1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950362"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Suporte aos metadados de OpenAPI 2.0 no Azure Functions (versão prévia)
 O suporte aos metadados de OpenAPI 2.0 (conhecido antes como Swagger) no Azure Functions é um recurso de visualização que você pode usar para gravar uma definição de OpenAPI 2.0 dentro de um aplicativo de funções. Depois, você pode hospedar esse arquivo usando o aplicativo de funções.
+
+> [!IMPORTANT]
+> A versão prévia do recurso do OpenAPI só está disponível no tempo de execução 1.x, no momento. Informações de como criar um aplicativo de funções 1.x [podem ser encontradas aqui](./functions-versions.md#creating-1x-apps).
 
 [Metadados de OpenAPI](http://swagger.io/) permitem que uma função que hospeda uma API REST seja consumida por vários outros softwares. Entre esses softwares estão as ofertas da Microsoft como o PowerApps e o [recurso de Aplicativos de API do Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), ferramentas de desenvolvedor de terceiros, como [Postman](https://www.getpostman.com/docs/importing_swagger) e [muitos outros pacotes](http://swagger.io/tools/).
 
@@ -32,6 +32,9 @@ O suporte aos metadados de OpenAPI 2.0 (conhecido antes como Swagger) no Azure F
 
 ## <a name="enable"></a>Habilitar o suporte à definição de OpenAPI
 Você pode definir todas as configurações de OpenAPI na página **Definição de API** nos **Recursos da plataforma** de seu aplicativo de funções.
+
+> [!NOTE]
+> O recurso de definição de API de função não tem suporte no tempo de execução beta no momento.
 
 Para habilitar a geração de uma definição de OpenAPI hospedada e uma definição de início rápido, defina **Origem de definição da API** para **Função (Versão prévia)**. **URL Externa** permite que sua função use uma definição de OpenAPI que é hospedada em outro lugar.
 

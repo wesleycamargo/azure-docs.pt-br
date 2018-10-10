@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: e6e6b8e03102825a15035adbea80ac5e9f3fa404
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125752"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996444"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipe?
 
@@ -71,7 +71,7 @@ O diagrama a seguir fornece um modo de exibição de grade das tarefas (em azul)
 
 ## <a name="standardized-project-structure"></a>Estrutura de projeto padronizada
 
-Ter todos os projetos compartilhando uma estrutura de diretórios, e usar modelos para documentos do projeto, facilita muito para os membros da equipe a localização de informações sobre seus projetos. Todos os documentos e código são armazenados em um VCS (Sistema de controle de versão) como Git, TFS ou Subversion para habilitar a colaboração em equipe. O acompanhamento de tarefas e recursos em um sistema de acompanhamento de projetos ágil, como Jira, Rally ou Visual Studio Team Services, permite que um controle mais preciso do código com relação a recursos individuais. Esse controle também permite que as equipes obtenham as melhores estimativas de custo. O TDSP recomenda a criação de um repositório separado para cada projeto no VCS para controle de versão, segurança das informações e colaboração. A estrutura padronizada para todos os projetos ajuda a criar conhecimento institucional por toda a organização.
+Ter todos os projetos compartilhando uma estrutura de diretórios, e usar modelos para documentos do projeto, facilita muito para os membros da equipe a localização de informações sobre seus projetos. Todos os documentos e código são armazenados em um VCS (Sistema de controle de versão) como Git, TFS ou Subversion para habilitar a colaboração em equipe. O acompanhamento de tarefas e recursos em um sistema de acompanhamento de projetos ágil, como Jira, Rally e Azure DevOps, permite um acompanhamento mais preciso do código com relação a recursos individuais. Esse controle também permite que as equipes obtenham as melhores estimativas de custo. O TDSP recomenda a criação de um repositório separado para cada projeto no VCS para controle de versão, segurança das informações e colaboração. A estrutura padronizada para todos os projetos ajuda a criar conhecimento institucional por toda a organização.
 
 Fornecemos modelos para a estrutura de pastas e documentos obrigatórios em locais padrão. Essa estrutura de pastas organiza os arquivos que contêm código para exploração de dados e extração de recurso, e que registram iterações do modelo. Esses modelos facilitam para os membros da equipe a compreensão do trabalho feito por outras pessoas e a adição de novos membros às equipes. É fácil exibir e atualizar modelos de documento no formato markdown. Use modelos para fornecer listas de verificação com perguntas fundamentais para cada projeto a fim de garantir que o problema esteja bem definido e que os resultados atendam à qualidade esperada. Os exemplos incluem:
 
@@ -89,10 +89,10 @@ A estrutura de diretórios pode ser clonada no [Github](https://github.com/Azure
 
 O TDSP fornece recomendações para o gerenciamento de infraestrutura compartilhada de análise e armazenamento, como:
 
-- sistemas de arquivos de nuvem para armazenamento de conjuntos de dados, 
+- sistemas de arquivos de nuvem para armazenar conjuntos de dados 
 - databases
 - clusters de big data (Hadoop ou Spark) 
-- serviços de machine learning. 
+- serviço de aprendizado de máquina 
 
 A infraestrutura de análise e armazenamento pode ser local ou na nuvem. É nela que os conjuntos de dados brutos e processados são armazenados. Essa infraestrutura permite a reprodução da análise. Também evita a duplicação, o que pode resultar em inconsistências e custos de infraestrutura desnecessários. As ferramentas são fornecidas para provisionar os recursos compartilhados, acompanhá-los e permitir que cada membro da equipe se conecte a esses recursos com segurança. Também é uma boa prática que os membros do projeto criem um ambiente de computação consistente. Assim, membros diferentes da equipe podem replicar e validar experiências.
 

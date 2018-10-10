@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: b6fb39ef5941157cfe0d18324deeb9d836d7ab09
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377614"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981365"
 ---
 # <a name="batch-transcription"></a>Transcrição de lote
 
@@ -59,36 +59,38 @@ Para transmissões de áudio estéreo, a transcrição de Lote divide os canais 
 
 ## <a name="authorization-token"></a>Token de autorização
 
-Como acontece com todos os recursos do Serviço de Fala Unificado, você cria uma chave de assinatura no [portal do Azure](https://portal.azure.com). Além disso, você adquire uma chave de API no portal do Speech: 
+Como acontece com todos os recursos do Serviço de Fala Unificado, você cria uma chave de assinatura no [portal do Azure](https://portal.azure.com) seguindo nosso [Guia de introdução](get-started.md). Se você planeja obter transcrições de nossos modelos de linha de base, isso é tudo o que você precisa fazer. 
+
+Se você pretende personalizar e usar um modelo personalizado, precisará adicionar essa chave de assinatura ao portal de fala personalizada da seguinte forma:
 
 1. Entre em [Fala Personalizada](https://customspeech.ai).
 
 2. Selecione **Assinaturas**.
 
-3. Selecione **Gerar chave de API**.
+3. Selecione **Conectar Assinatura Existente**.
+
+4. Adicionar a chave de assinatura e um alias na exibição que aparece
 
     ![Captura de tela da página Assinaturas de Fala Personalizada](media/stt/Subscriptions.jpg)
 
-4. Copie e cole essa chave no código do cliente no exemplo a seguir.
+5. Copie e cole essa chave no código do cliente no exemplo a seguir.
 
 > [!NOTE]
-> Se você planeja usar um modelo personalizado, também precisará da ID desse modelo. Observe que essa não é a ID do ponto de extremidade nem de implantação que você encontra no modo de exibição Detalhes do Ponto de Extremidade. É a ID do modelo que você pode recuperar ao selecionar os detalhes desse modelo.
+> Se você planeja usar um modelo personalizado, também precisará da ID desse modelo. Observe que essa não é a ID do ponto de extremidade que você encontra no modo de exibição Detalhes do Ponto de Extremidade. É a ID do modelo que você pode recuperar ao selecionar os detalhes desse modelo.
 
 ## <a name="sample-code"></a>Exemplo de código
 
 Personalize o seguinte código de exemplo com uma chave de API e chave de assinatura. Isso permite que você obtenha um token de portador.
 
 ```cs
-    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+     public static CrisClient CreateApiV2Client(string key, string hostName, int port)
+
         {
             var client = new HttpClient();
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
-
-            var tokenProviderPath = "/oauth/ctoken";
-            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
-
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+         
             return new CrisClient(client);
         }
 ```
@@ -98,8 +100,8 @@ Após obter o token, será necessário especificar o URI do SAS apontando para o
 ```cs
    static async Task TranscribeAsync()
         { 
-            private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
-            private const string HostName = "cris.ai";
+            private const string SubscriptionKey = "<your Speech subscription key>";
+            private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
             // Creating a Batch transcription API Client
@@ -167,7 +169,7 @@ Após obter o token, será necessário especificar o URI do SAS apontando para o
 ```
 
 > [!NOTE]
-> No código anterior, a chave de assinatura é do recurso de Fala (versão prévia) que você cria no portal do Azure. Chaves obtidas do recurso de Serviço de Fala Personalizado não funcionam.
+> No código anterior, a chave de assinatura é do recurso de Fala que você cria no portal do Azure. Chaves obtidas do recurso de Serviço de Fala Personalizado não funcionam.
 
 Observe a configuração assíncrona para postar o status de transcrição de áudio e recebimento. O cliente criado é um cliente Http .NET. Existe um método `PostTranscriptions`para enviar os detalhes do arquivo de áudio e um método`GetTranscriptions` para receber os resultados. `PostTranscriptions` retorna um identificador e `GetTranscriptions` usa esse identificador para criar um identificador para obter o status de transcrição.
 

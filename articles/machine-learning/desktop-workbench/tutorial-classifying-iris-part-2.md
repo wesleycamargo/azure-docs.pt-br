@@ -1,6 +1,6 @@
 ---
-title: Criar um tutorial de modelo para os serviços do Azure Machine Learning (versão prévia) | Microsoft Docs
-description: Este tutorial completo mostra como usar os serviços do Azure Machine Learning (versão prévia) de ponta a ponta. Essa é a parte dois e aborda a experimentação.
+title: Criar um tutorial de modelo para o serviço do Azure Machine Learning (versão prévia) | Microsoft Docs
+description: Este tutorial completo mostra como usar o serviço do Azure Machine Learning (versão prévia) de ponta a ponta. Essa é a parte dois e aborda a experimentação.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,17 +12,21 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6faabc3003048c93c08451c537496e762352b50b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41924717"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997296"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Tutorial 2: Classificar Iris – criar um modelo
-Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
 
-Este tutorial é a **parte dois de uma série de três partes**. Nessa parte do tutorial, você usará os serviços do Azure Machine Learning para:
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+O serviço do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
+
+Este tutorial é a **parte dois de uma série de três partes**. Nessa parte do tutorial, você usará o serviço do Azure Machine Learning para:
 
 > [!div class="checklist"]
 > * Abrir os scripts e examinar o código
@@ -39,7 +43,7 @@ Este tutorial usa o [Conjunto de dados de flor de íris](https://en.wikipedia.or
 
 Para concluir este tutorial, você precisará:
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
-- Uma conta de experimentação e o Azure Machine Learning Workbench instalado, conforme descrito neste [início rápido](../service/quickstart-installation.md)
+- Uma conta de experimentação e o Azure Machine Learning Workbench instalado, conforme descrito neste [início rápido](quickstart-installation.md)
 - O projeto e dados preparados do Iris da [Parte 1 do tutorial](tutorial-classifying-iris-part-1.md)
 - Um mecanismo do Docker instalado e em execução localmente. Docker Community Edition é suficiente. Saiba como instalar o Docker aqui: https://docs.docker.com/engine/installation/.
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714444"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956496"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>O que é o controle de acesso baseado em função (RBAC)?
 
@@ -89,7 +89,7 @@ Quando você concede acesso a um escopo pai, essas permissões são herdadas pel
 - Se você atribuir a função [Leitor](built-in-roles.md#reader) função a um grupo no escopo da assinatura, os membros desse grupo pode exibir todos os grupo de recursos e recursos na assinatura.
 - Se você atribuir a função [Colaborador](built-in-roles.md#contributor) a um aplicativo no escopo do grupo de recursos, ele pode gerenciar recursos de todos os tipos nesse mesmo grupo de recursos, mas não em outros grupos de recursos na assinatura.
 
-### <a name="role-assignment"></a>Atribuição de função
+### <a name="role-assignments"></a>Atribuições de função
 
 Uma *atribuição de função* é o processo de associar uma definição de função a um usuário, grupo ou entidade de serviço em um escopo específico com a finalidade de conceder acesso. O acesso é concedido criando uma atribuição de função, e é revogado removendo uma atribuição de função.
 
@@ -98,6 +98,32 @@ O diagrama a seguir mostra um exemplo de uma atribuição de função. Neste exe
 ![Atribuição de função para controlar o acesso](./media/overview/rbac-overview.png)
 
 Você pode criar atribuições de função usando o portal do Azure, CLI do Azure, Azure PowerShell, SDKs do Azure ou APIs REST. Em cada assinatura, você pode ter até 2.000 atribuições de função. Para criar e remover as atribuições de função, você deve ter a permissão `Microsoft.Authorization/roleAssignments/*`. Essa permissão deve ser concedida pelas funções [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator).
+
+## <a name="deny-assignments"></a>Negar atribuições
+
+Anteriormente, o RBAC era um modelo somente de permissão, sem negação, mas agora ele dá suporte a atribuições de negações, com limitações. Semelhante a uma atribuição de função, uma *atribuição de negação* associa um conjunto de ações de negação a um usuário, um grupo ou uma entidade de serviço em um escopo específico com a finalidade de negar acesso. Uma atribuição de função define um conjunto de ações que são *permitidas*, enquanto uma atribuição de negação define um conjunto de ações que *não são permitidas*. Em outras palavras, as atribuições de negação impedem que os usuários executem ações especificadas, mesmo quando uma atribuição de função lhes concede acesso. As atribuições de negação têm precedência sobre as atribuições de função.
+
+Atualmente as atribuições de negação são **somente leitura** e só podem ser definidas pelo Azure. Mesmo que você não possa criar suas próprias atribuições de negação, é possível listar as atribuições de negação, porque elas poderiam afetar suas permissões efetivas. Para obter informações sobre uma atribuição de negação, você precisa ter a permissão `Microsoft.Authorization/denyAssignments/read`, que está incluída na maioria das [funções internas](built-in-roles.md#owner). Para obter mais informações, confira [Compreender atribuições de negação](deny-assignments.md).
+
+## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Como o RBAC determina se um usuário tem acesso a um recurso
+
+A seguir estão as etapas gerais que o RBAC usa para determinar se você tem acesso a um recurso no plano de gerenciamento. Convém entender isso quando você está tentando solucionar problemas de acesso.
+
+1. Um usuário (ou uma entidade de serviço) adquire um token do Azure Resource Manager.
+
+    O token inclui as associações a um grupo do usuário (incluindo associações de grupo transitivas).
+
+1. O usuário faz uma chamada à API REST para o Azure Resource Manager com o token anexado.
+
+1. O Azure Resource Manager recupera todas as atribuições de função e as atribuições de negação que se aplicam ao recurso no qual a ação está sendo realizada.
+
+1. O Azure Resource Manager restringe as atribuições de função que se aplicam a esse usuário ou ao seu grupo e determina as funções que o usuário tem para este recurso.
+
+1. O Azure Resource Manager determina se a ação na chamada à API está incluída nas funções que o usuário tem para este recurso.
+
+1. Se o usuário não tem uma função com a ação no escopo solicitado, o acesso não é concedido. Caso contrário, o Azure Resource Manager verifica se uma atribuição de negação se aplica.
+
+1. Se houver uma atribuição de negação aplicável, o acesso será bloqueado. Caso contrário, o acesso será permitido.
 
 ## <a name="next-steps"></a>Próximas etapas
 

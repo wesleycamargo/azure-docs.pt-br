@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4f6a40fde23ee70391c5057762f17ce1eb44123
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ffcf483b2852ec87c263573a97b4508d5b5d39c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561121"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997464"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurar endereços IP privados para uma máquina virtual usando a CLI do Azure
 
@@ -42,13 +42,13 @@ Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você t
 
 Para criar uma VM denominada *DNS01* na sub-rede *FrontEnd* de uma VNet chamada *TestVNet* com o endereço IP privado estático *192.168.1.101*, conclua as seguintes etapas:
 
-1. Caso ainda não tenha feito isso, instale e configure a versão mais recente da [CLI do Azure 2.0](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/reference-index#az_login). 
+1. Caso ainda não tenha feito isso, instale e configure a versão mais recente da [CLI do Azure](/cli/azure/install-azure-cli) e faça logon na conta do Azure usando [az login](/cli/azure/reference-index#az_login).
 
 2. Crie um IP público para a VM com o comando [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). A lista exibida após a saída explicar os parâmetros usados.
 
     > [!NOTE]
     > Dependendo do seu ambiente, talvez você queira ou precise usar valores diferentes em seus argumentos nesta e nas etapas a seguir.
-   
+
     ```azurecli
     az network public-ip create \
     --name TestPIP \
@@ -58,7 +58,7 @@ Para criar uma VM denominada *DNS01* na sub-rede *FrontEnd* de uma VNet chamada 
     ```
 
     Saída esperada:
-   
+
    ```json
    {
         "publicIp": {

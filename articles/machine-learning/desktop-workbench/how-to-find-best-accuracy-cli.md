@@ -7,19 +7,20 @@ ms.author: kefzhou
 manager: akannava
 ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: 077af8b5d3367dd2188cbd6e5d76aaf52512a1e8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 094fd6d8c6c6d647533cf5409d1a85283c71c80e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830792"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953235"
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Localizar execuções com a maior precisão e no menor tempo
-Como há várias execuções, um caso de uso deve encontrar execuções com a maior precisão. Uma abordagem é usar a interface de linha de comando (CLI) com uma consulta [JMESPath](http://jmespath.org/). Para saber mais sobre como usar JMESPath na CLI do Azure, veja [Usar consultas JMESPath com a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). No exemplo a seguir, quatro execuções são criadas com valores de precisão de 0, 0,98 e 1 e 1. Execuções são filtradas se estiverem no intervalo `[MaxAccuracy-Threshold, MaxAccuracy]` em que `Threshold = .03`.
+Como há várias execuções, um caso de uso deve encontrar execuções com a maior precisão. Uma abordagem é usar a interface de linha de comando (CLI) com uma consulta [JMESPath](http://jmespath.org/). Para saber mais sobre como usar JMESPath na CLI do Azure, veja [Usar consultas JMESPath com a CLI do Azure](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). No exemplo a seguir, quatro execuções são criadas com valores de precisão de 0, 0,98 e 1 e 1. Execuções são filtradas se estiverem no intervalo `[MaxAccuracy-Threshold, MaxAccuracy]` em que `Threshold = .03`.
 
 ## <a name="sample-data"></a>Dados de amostra
 Se você não tiver execuções existentes com um valor `Accuracy`, as etapas a seguir gerarão execuções para consultas.

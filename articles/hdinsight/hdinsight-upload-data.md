@@ -1,6 +1,6 @@
 ---
 title: Carregar dados para trabalhos do Hadoop no HDInsight
-description: Saiba como carregar e acessar os dados de trabalhos do Hadoop no HDInsight usando o Azure CLI, Azure Storage Explorer, Azure PowerShell, a linha de comando do Hadoop ou o Sqoop.
+description: Saiba como carregar e acessar os dados de trabalhos do Hadoop no HDInsight usando a CLI clássica do Azure, o Gerenciador de Armazenamento do Azure, o Azure PowerShell, a linha de comando do Hadoop ou o Sqoop.
 keywords: hadoop de etl, inserindo dados no hadoop, carregar dados no hadoop
 services: hdinsight
 author: jasonwhowell
@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 838444898500ce7127e1a9e999d0b5ee7b1e3687
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 44aaccee436011bd7d27bec87515fde0e898732e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051817"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985972"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carregar dados para trabalhos do Hadoop no HDInsight
 
@@ -38,22 +38,22 @@ A Microsoft fornece os seguintes utilitários para trabalhar com o Armazenamento
 
 | Ferramenta | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Interface de Linha de Comando do Azure][azurecli] |✔ |✔ |✔ |
+| [CLI clássica do Azure][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Comando do Hadoop](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> Embora a CLI do Azure, o Azure PowerShell e o AzCopy possam ser usados fora do Azure, o comando do Hadoop só está disponível no cluster HDInsight. Além disso, o comando apenas permite carregar dados do sistema de arquivos local para o Armazenamento do Azure.
+> Embora a CLI Clássica do Azure, o Azure PowerShell e o AzCopy possam ser usados fora do Azure, o comando do Hadoop só está disponível no cluster HDInsight. Além disso, o comando apenas permite carregar dados do sistema de arquivos local para o Armazenamento do Azure.
 >
 >
 
-#### <a id="xplatcli"></a>Azure CLI
-O Azure CLI é uma ferramenta de plataforma cruzada que permite que você gerencie os serviços do Azure. Use as seguintes etapas para carregar dados no Armazenamento do Azure:
+#### <a id="xplatcli"></a>CLI clássica do Azure
+A CLI Clássica do Azure é uma ferramenta multiplataforma que permite que você gerencie os serviços do Azure. Use as seguintes etapas para carregar dados no Armazenamento do Azure:
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-1. [Instalar e configurar a CLI do Azure para Mac, Linux e Windows](../cli-install-nodejs.md).
+1. [Instalar e configurar a CLI Clássica do Azure para Mac, Linux e Windows](../cli-install-nodejs.md).
 2. Abra um prompt de comando, bash ou outro shell e use os dados a seguir para autenticar a sua assinatura do Azure.
 
     ```cli

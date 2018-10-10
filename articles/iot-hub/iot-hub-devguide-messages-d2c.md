@@ -1,89 +1,93 @@
 ---
-title: Compreender mensagens de dispositivo para a nuvem do Hub IoT do Azure | Microsoft Docs
-description: Guia do desenvolvedor – como usar mensagens de dispositivo para a nuvem com o Hub IoT. Inclui informações sobre o envio de dados de telemetria e não telemetria e o uso do direcionamento para entregar mensagens.
-author: dominicbetts
-manager: timlt
+title: Entender o roteamento de mensagens do Hub IoT do Azure | Microsoft Docs
+description: Guia do desenvolvedor – como usar o roteamento de mensagens para enviar mensagens de dispositivo para nuvem. Inclui informações de como enviar dados telemétricos e dados que não são de telemetria.
+author: ash2017
+manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: be87b00f27f0d0b25cd77a0634ab1c653a85e5ac
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.date: 08/13/2018
+ms.author: asrastog
+ms.openlocfilehash: 7c36ab2f0d4d3e5c772f8ef62c13161a2649362f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126435"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966734"
 ---
-# <a name="send-device-to-cloud-messages-to-iot-hub"></a>Enviar mensagens de dispositivo para a nuvem para o Hub IoT
+# <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usar o roteamento de mensagens para enviar mensagens de dispositivo para nuvem a diferentes pontos de extremidade
 
-Para enviar telemetria de série temporal e alertas de dispositivos ao back-end da solução, envie mensagens de dispositivo para a nuvem do dispositivo para o hub IoT. Para ver uma discussão sobre outras opções de dispositivo para a nuvem com suporte no Hub IoT, confira [Orientação sobre comunicações de dispositivo para a nuvem][lnk-d2c-guidance].
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Você envia mensagens do dispositivo para a nuvem por meio de um ponto de extremidade voltado para o dispositivo (**/devices/{deviceId}/messages/events**). As regras de roteamento roteiam as mensagens para um dos pontos de extremidade voltados para o serviço em seu Hub IoT. As regras de roteamento usam os cabeçalhos e o corpo das mensagens de dispositivo para a nuvem para determinar para onde roteá-las. Por padrão, as mensagens são roteadas para o ponto de extremidade voltado para o serviço interno (**mensagens/eventos**) compatíveis com [Hubs de Eventos][lnk-event-hubs]. Portanto, você pode usar os [SDKs e integração com Hubs de Evento][lnk-compatible-endpoint] Standard para receber mensagens de dispositivo para a nuvem no back-end da solução.
+Roteamento de mensagens permite que você envie mensagens de dispositivos para serviços de nuvem de maneira automatizada, escalonável e confiável. O roteamento de mensagens pode ser usado para: 
 
-O Hub IoT implementa mensagens de dispositivo para nuvem usando um padrão de sistema de mensagens de streaming. As mensagens do dispositivo para nuvem do Hub IoT são mais semelhantes a *eventos* de [Hubs de Eventos][lnk-event-hubs] do que a *mensagens* do [Barramento de Serviço][lnk-servicebus] na medida em que há um alto volume de eventos passando pelo serviço que pode ser lido por vários leitores.
+* **Enviar mensagens de telemetria e eventos do dispositivo**, ou seja, eventos de ciclo de vida do dispositivo e eventos de alteração de dispositivo gêmeo para o ponto de extremidade interno e para os pontos de extremidade personalizados. Saiba mais sobre [pontos de extremidade de roteamentos](##routing-endpoints).
 
-As mensagens de dispositivo para a nuvem com o Hub IoT têm as seguintes características:
+* **Filtrar dados antes de roteá-los para vários pontos de extremidade** aplicando consultas avançadas. O roteamento de mensagens permite consultar as propriedades da mensagem e o corpo da mensagem, bem como as marcas do dispositivo gêmeo e as propriedades do dispositivo gêmeo. Saiba mais sobre como usar [consultas no roteamento de mensagens](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
-* As mensagens do dispositivo para a nuvem são duráveis e mantidas em um ponto de extremidade de **mensagens/eventos** padrão do Hub IoT por até sete dias.
-* As mensagens de dispositivo para a nuvem podem ter no máximo 256 KB e podem ser agrupadas em lotes para otimizar os envios. Os lotes podem ter no máximo 256 KB.
-* Como explicado na seção [Controlar o acesso ao Hub IoT][lnk-devguide-security], o Hub IoT habilita a autenticação e o controle de acesso por dispositivo.
-* O Hub IoT permite que você crie até 10 pontos de extremidade personalizados. As mensagens são entregues aos pontos de extremidade com base nas rotas configuradas em seu Hub IoT. Para saber mais, confira [Regras de direcionamento](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
-* O Hub IoT habilita milhões de dispositivos conectados simultaneamente (confira [Cotas e limitação][lnk-quotas]).
-* O Hub IoT não permite o particionamento arbitrário. As mensagens do dispositivo para a nuvem são particionadas com base em sua **deviceId**de origem.
+O Hub IoT precisa de acesso de gravação a esses pontos de extremidade para que o direcionamento de mensagens funcione. Se você configurar os pontos de extremidade por meio do Portal do Azure, as permissões necessárias serão adicionadas para você. Certifique-se de configurar os serviços para dar suporte à taxa de transferência esperada. Quando você configurar pela primeira vez sua solução IoT, talvez seja necessário monitorar seus pontos de extremidade adicionais ao configurar e fazer eventuais ajustes necessários para a carga real.
 
-Para saber mais sobre as diferenças entre Hubs de Eventos e o Hub IoT, confira [Comparação do Hub IoT do Azure e Hubs de Eventos do Azure][lnk-comparison].
+O Hub IoT define um [formato comum](../iot-hub/iot-hub-devguide-messages-construct.md) para todas as mensagens de dispositivo para nuvem que permite a interoperabilidade entre protocolos. Se uma mensagem corresponder a várias rotas e todas apontarem para o mesmo ponto de extremidade, o Hub IoT entregará mensagens a esse ponto apenas uma vez. Portanto, você não precisa configurar a eliminação de duplicação nem no tópico nem na fila do Barramento de Serviço. Em filas particionados, a afinidade de partição garante a ordenação das mensagens. Use este tutorial para aprender a [configurar o roteamento de mensagem] (https://docs.microsoft.com/azure/iot-hub/tutorial-routing).
 
-## <a name="send-non-telemetry-traffic"></a>Enviar tráfego sem telemetria
+## <a name="routing-endpoints"></a>Pontos de extremidade de roteamento
 
-Muitas vezes, além da telemetria, os dispositivos enviam mensagens e solicitações que exigem execução separada e manipulação no back-end de solução. Por exemplo, alertas críticos que devem disparar uma ação específica no back-end. Você pode escrever uma [regra de direcionamento][lnk-devguide-custom] para enviar esses tipos de mensagens a um ponto de extremidade dedicado ao respectivo processamento, com base em um cabeçalho da mensagem ou um valor no corpo da mensagem.
+Um Hub IoT tem um padrão de ponto de extremidade interno (**mensagens/eventos**) que é compatível com Hubs de Eventos. Você pode criar [pontos de extremidade personalizados](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints) para encaminhar mensagens vinculando outros serviços em sua assinatura ao Hub IoT. No momento, o Hub IoT dá suporte aos seguintes serviços como pontos de extremidade personalizados:
 
-Para obter mais informações sobre a melhor maneira de processar esse tipo de mensagem, consulte o [Tutorial: como processar mensagens do dispositivo para a nuvem do Hub IoT][lnk-d2c-tutorial].
+### <a name="built-in-endpoint"></a>Ponto de extremidade interno
+Você pode usar [SDKs e integração padrão dos Hubs de Eventos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) para receber mensagens de dispositivo para nuvem do ponto de extremidade interno (**mensagens/eventos**). Observe que depois que uma rota é criada, os dados param de fluir para o ponto de extremidade interno, a menos que uma rota seja criada para esse ponto de extremidade.
 
-## <a name="route-device-to-cloud-messages"></a>Encaminhar mensagens do dispositivo para a nuvem
+### <a name="azure-blob-storage"></a>Armazenamento do Blobs do Azure
+O Hub IoT dá suporte somente à gravação de dados no Armazenamento de Blobs do Azure no formato [Apache Avro](http://avro.apache.org/). O Hub IoT envia lotes de mensagens e grava dados em um blob sempre que o lote atinge um determinado tamanho ou após um determinado período de tempo decorrido.
 
-Você tem duas opções para direcionamento de mensagens de dispositivo para a nuvem para os aplicativos de back-end:
-
-* Use o [ponto de extremidade compatível com o Hub de Eventos][lnk-compatible-endpoint] interno para habilitar os aplicativos de back-end para ler as mensagens de dispositivo para a nuvem recebidas pelo hub. Para saber mais sobre o ponto de extremidade compatível com o Hub de Eventos interno, confira [Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno][lnk-devguide-builtin].
-* Use regras de direcionamento para enviar mensagens a pontos de extremidade personalizados no hub IoT. Os pontos de extremidade personalizados permitem que os aplicativos de back-end a ler mensagens de dispositivo para a nuvem usando Hubs de Eventos, filas do Barramento de Serviço ou tópicos do Barramento de Serviço. Para saber mais sobre pontos de extremidade personalizados e direcionamentos, confira [Usar pontos de extremidade personalizados e regras de direcionamento de mensagens de dispositivo para a nuvem][lnk-devguide-custom].
-
-## <a name="anti-spoofing-properties"></a>Propriedades antifalsificação
-
-Para evitar a falsificação em mensagens do dispositivo para a nuvem, o Hub IoT carimba todas as mensagens com as seguintes propriedades:
-
-* **ConnectionDeviceId**
-* **ConnectionDeviceGenerationId**
-* **ConnectionAuthMethod**
-
-As duas primeiras contêm a **deviceId** e a **generationId** do dispositivo de origem, conforme as [Propriedades de identidade do dispositivo][lnk-device-properties].
-
-A propriedade **ConnectionAuthMethod** contém um objeto JSON serializado com as seguintes propriedades:
-
-```json
-{
-  "scope": "{ hub | device }",
-  "type": "{ symkey | sas | x509 }",
-  "issuer": "iothub"
-}
+O Hub IoT segue a seguinte convenção de nomenclatura de arquivo padrão:
+```
+{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
 ```
 
+Você pode usar qualquer convenção de nomenclatura de arquivo, no entanto, é necessário usar todos os tokens listados. O Hub IoT gravará em um blob vazio se não houver nenhum dado para gravação.
+
+### <a name="service-bus-queues-and-service-bus-topics"></a>Filas do Barramento de Serviço e Tópicos do Barramento de Serviço
+As filas e os tópicos do Barramento de Serviço utilizados como pontos de extremidade do Hub IoT não devem ter **Sessões** nem **Detecção Duplicada** habilitadas. Se qualquer uma dessas opções estiver habilitada, o ponto de extremidade aparecerá como **Inacessível** no Portal do Azure.
+
+### <a name="event-hubs"></a>Hubs de Eventos
+Além do ponto de extremidade compatível com os Hubs de Eventos internos, você também pode encaminhar dados para pontos de extremidade personalizados do tipo Hubs de Eventos. 
+
+Quando você usa pontos de extremidade personalizados, as mensagens só são entregues ao ponto de extremidade interno se elas não corresponderem a todas as regras. Para entregar mensagens ao ponto de extremidade interno, bem como a um ponto de extremidade personalizado, adicione uma rota que envie mensagens ao ponto de extremidade de eventos.
+
+## <a name="reading-data-that-has-been-routed"></a>Lendo dados que foram encaminhados
+Configure uma rota seguindo este [tutorial](https://docs.microsoft.com/azure/iot-hub/tutorial-routing).
+
+Use os tutoriais a seguir para saber como ler a mensagem de um ponto de extremidade.
+
+* Lendo do [ponto de extremidade interno](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node)
+* Lendo do [Armazenamento de Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart)
+* Lendo dos [Hubs de Eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+* Lendo das [Filas do Barramento de Serviço](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues)
+* Ler dos [Tópicos do Barramento de Serviço](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)
+
+## <a name="fallback-route"></a>Rota de fallback
+A rota de fallback envia todas as mensagens que não atendem às condições de consulta em nenhuma das rotas existentes para os Hubs de Eventos internos em (**mensagens/eventos**), compatíveis com [Hubs de Eventos](https://docs.microsoft.com/azure/event-hubs/). Se o roteamento de mensagens estiver habilitado, você poderá habilitar a funcionalidade de rota de fallback. Observe que depois que uma rota é criada, os dados param de fluir para o ponto de extremidade interno, a menos que uma rota seja criada para esse ponto de extremidade. Se não houver nenhuma rota para o ponto de extremidade interno e houver uma rota de fallback habilitada, somente as mensagens que não corresponderem a nenhuma condição de consulta nas rotas serão enviadas ao ponto de extremidade interno. Além disso, se todas as rotas existentes forem excluídas, a rota de fallback precisará ser habilitada para receber todos os dados no ponto de extremidade interno. 
+
+Você pode habilitar/desabilitar a rota de fallback na folha Portal do Azure -> Roteamento de Mensagens. Você também pode usar o Azure Resource Manager para [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para usar um ponto de extremidade personalizado para a rota de fallback.
+
+## <a name="non-telemetry-events"></a>Eventos que não são de telemetria
+Além da telemetria do dispositivo, o roteamento de mensagens também permite enviar eventos de alteração de dispositivo gêmeo e eventos de ciclo de vida do dispositivo. Por exemplo, se uma rota é criada com a fonte de dados definida como **eventos de alteração de dispositivo gêmeo**, o Hub IoT envia mensagens para o ponto de extremidade que contém a alteração no dispositivo gêmeo. Da mesma forma, se uma rota for criada com a fonte de dados definida como **eventos de ciclo de vida do dispositivo**, o Hub IoT enviará uma mensagem indicando se o dispositivo foi excluído ou criado. 
+[O Hub IoT também se integra à Grade de Eventos do Azure](iot-hub-event-grid.md) para publicar eventos de dispositivo para dar suporte a integrações em tempo real e à automação de fluxos de trabalho com base nesses eventos. Confira as principais [diferenças entre o roteamento de mensagens e Grade de Eventos](iot-hub-event-grid-routing-comparison.md) para saber o que funciona melhor para seu cenário.
+
+## <a name="testing-routes"></a>Testando rotas
+Ao criar uma rota ou editar uma rota existente, você deve testar a consulta de rota com uma mensagem de exemplo. Você pode testar rotas individuais ou todas as rotas de uma vez. Não será roteada nenhuma mensagem aos pontos de extremidade durante o teste. O portal do Azure, o Azure Resource Manager, o Azure PowerShell e a CLI do Azure podem ser usados para o teste. Os resultados ajudam a identificar se a mensagem de exemplo correspondeu à consulta, se a mensagem não correspondeu à consulta ou se o teste não foi executado porque a sintaxe de mensagem ou de consulta de exemplo está incorreta. Para saber mais, confira [Testar Rota](https://docs.microsoft.com/rest/api/iothub/iothubresource/testroute) e [Testar todas as rotas](https://docs.microsoft.com/rest/api/iothub/iothubresource/testallroutes).
+
+## <a name="latency"></a>Latency
+Ao rotear mensagens de telemetria do dispositivo para nuvem usando pontos de extremidade internos, haverá um pequeno aumento na latência de ponta a ponta após a criação da primeira rota.
+
+Na maioria dos casos, o aumento médio na latência é menor que 500 ms. Você pode monitorar a latência usando a métrica do Hub IoT **Roteamento: latência de mensagem para mensagens/eventos** ou **d2c.endpoints.latency.builtIn.events**. Criar ou excluir qualquer rota após a primeira não afeta a latência de ponta a ponta.
+
+## <a name="monitoring-and-troubleshooting"></a>Monitoramento e solução de problemas
+O Hub IoT fornece várias métricas relacionadas a roteamento e a ponto de extremidade que fornecem uma visão geral da integridade do hub e o número de mensagens enviadas. Você pode combinar informações de várias métricas para identificar a causa raiz de problemas. Por exemplo, use a métrica **Roteamento: mensagens de telemetria removidas** ou **d2c.telemetry.egress.dropped** para identificar o número de mensagens que foram removidas quando não corresponderam às consultas em nenhuma das rotas e a rota de fallback foi desabilitada. [Métricas do Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) lista todas as métricas que são habilitadas por padrão para o Hub IoT.
+
+Usando os logs de diagnóstico de **rotas** nas [configurações de diagnóstico](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health) do Azure Monitor, você pode rastrear erros que ocorrem durante a avaliação de uma consulta de roteamento e integridade e de ponto de extremidade, como visto pelo Hub IoT, por exemplo, quando um ponto de extremidade está inativo. Esses logs de diagnóstico podem ser enviados ao Log Analytics, aos Hubs de Eventos ou ao Armazenamento do Azure para processamento personalizado.
+
 ## <a name="next-steps"></a>Próximas etapas
-
-Para saber mais sobre os SDKs que você pode usar para enviar mensagens de dispositivo para a nuvem, confira [SDKs do Azure IoT][lnk-sdks].
-
-Os [Guias de Início Rápido][lnk-get-started] mostram como enviar mensagens de dispositivo para nuvem a partir de dispositivos simulados. Para saber mais, confira o tutorial [Como processar as mensagens entre o dispositivo e a nuvem do Hub IoT usando rotas][lnk-d2c-tutorial].
-
-[lnk-devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
-[lnk-devguide-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-comparison]: iot-hub-compare-event-hubs.md
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-[lnk-get-started]: quickstart-send-telemetry-node.md
-
-[lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
-[lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-compatible-endpoint]: iot-hub-devguide-messages-read-builtin.md
-[lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
-[lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-d2c-tutorial]: tutorial-routing.md
+* Para aprender como criar Rotas de Mensagens, confira o tutorial [Processar mensagens de dispositivo para nuvem do Hub IoT usando rotas](../iot-hub/tutorial-routing.md).
+* Os [Inícios Rápidos](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node) mostram como enviar mensagens de dispositivo para nuvem usando dispositivos simulados.
+* Para saber mais sobre os SDKs que você pode usar para enviar mensagens de dispositivo para nuvem, confira [SDKs de IoT do Azure](../iot-hub/iot-hub-devguide-sdks.md).

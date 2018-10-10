@@ -237,6 +237,9 @@ items:
     - name: Servidores vinculados
       href: /azure/templates/Microsoft.Cache/redis/linkedServers
       maintainContext: true
+    - name: Agendamentos para aplicar patch
+      href: /azure/templates/Microsoft.Cache/redis/patchschedules
+      maintainContext: true
     maintainContext: true
 - name: CDN
   items:
@@ -373,7 +376,7 @@ items:
     - name: Relações
       href: /azure/templates/Microsoft.CustomerInsights/hubs/relationships
       maintainContext: true
-    - name: Atribuições de função
+    - name: Atribuições de Funções
       href: /azure/templates/Microsoft.CustomerInsights/hubs/roleAssignments
       maintainContext: true
     - name: Modos de exibição
@@ -609,6 +612,15 @@ items:
   - name: Componentes
     href: /azure/templates/Microsoft.insights/components
     maintainContext: true
+  - name: Alertas de Métricas
+    href: /azure/templates/microsoft.insights/metricalerts
+    maintainContext: true
+  - name: Configurações de Diagnóstico do Convidado
+    href: /azure/templates/microsoft.insights/guestdiagnosticsettings
+    maintainContext: true
+  - name: Regras de Consulta Agendadas
+    href: /azure/templates/microsoft.insights/scheduledqueryrules
+    maintainContext: true
   - name: Testes da Web
     href: /azure/templates/Microsoft.insights/webtests
     maintainContext: true
@@ -661,10 +673,58 @@ items:
   - name: Serviços Web
     href: /azure/templates/Microsoft.MachineLearning/webServices
     maintainContext: true
+- name: MariaDB
+  items:
+  - name: Servidores
+    href: /azure/templates/microsoft.dbformariadb/servers
+    items:
+    - name: Configurações
+      href: /azure/templates/microsoft.dbformariadb/servers/configurations
+      maintainContext: true
+    - name: Bancos de dados
+      href: /azure/templates/microsoft.dbformariadb/servers/databases
+      maintainContext: true
+    - name: Regras de firewall
+      href: /azure/templates/microsoft.dbformariadb/servers/firewallrules
+      maintainContext: true
+    - name: Políticas de Alerta de Segurança
+      href: /azure/templates/microsoft.dbformariadb/servers/securityalertpolicies
+      maintainContext: true
+    maintainContext: true
 - name: Mídia
   items:
   - name: Serviços de mídia
     href: /azure/templates/Microsoft.Media/mediaservices
+    items:
+    - name: Ativos
+      href: /azure/templates/microsoft.media/mediaservices/assets
+      maintainContext: true
+    - name: Políticas da Chave de Conteúdo
+      href: /azure/templates/microsoft.media/mediaservices/contentkeypolicies
+      maintainContext: true
+    - name: Eventos ao Vivo
+      href: /azure/templates/microsoft.media/mediaservices/liveevents
+      items:
+      - name: Saídas ao Vivo
+        href: /azure/templates/microsoft.media/mediaservices/liveevents/liveoutputs
+        maintainContext: true
+      maintainContext: true
+    - name: Ponto de extremidade de streaming
+      href: /azure/templates/microsoft.media/mediaservices/streamingendpoints
+      maintainContext: true
+    - name: Localizadores de Streaming
+      href: /azure/templates/microsoft.media/mediaservices/streaminglocators
+      maintainContext: true
+    - name: Políticas de Streaming
+      href: /azure/templates/microsoft.media/mediaservices/streamingpolicies
+      maintainContext: true
+    - name: Transformações
+      href: /azure/templates/microsoft.media/mediaservices/transforms
+      items:
+      - name: Trabalhos
+        href: /azure/templates/microsoft.media/mediaservices/transforms/jobs
+        maintainContext: true
+      maintainContext: true
     maintainContext: true
 - name: MySQL
   items:
@@ -1040,6 +1100,9 @@ items:
     - name: Configurações de recuperação de desastre
       href: /azure/templates/Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs
       maintainContext: true
+    - name: Configurações da Migração
+      href: /azure/templates/Microsoft.ServiceBus/namespaces/migrationconfigurations
+      maintainContext: true
     - name: Filas
       href: /azure/templates/Microsoft.ServiceBus/namespaces/queues
       items:
@@ -1066,6 +1129,17 @@ items:
   items:
   - name: Clusters
     href: /azure/templates/Microsoft.ServiceFabric/clusters
+    maintainContext: true
+- name: Malha do Service Fabric
+  items:
+  - name: APLICATIVOS
+    href: /azure/templates/microsoft.servicefabricmesh/applications
+    maintainContext: true
+  - name: Redes
+    href: /azure/templates/microsoft.servicefabricmesh/networks
+    maintainContext: true
+  - name: Volumes
+    href: /azure/templates/microsoft.servicefabricmesh/volumes
     maintainContext: true
 - name: SQL
   items:
@@ -1359,9 +1433,9 @@ items:
         maintainContext: true
       maintainContext: true
     maintainContext: true
-ms.openlocfilehash: 47f6e2d53e2bb7de5b1be13de03cb5378be96948
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: ca2143fbe061561b27f8d8f6f0181820181634a0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419705"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902647"

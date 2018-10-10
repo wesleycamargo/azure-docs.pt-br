@@ -1,30 +1,31 @@
 ---
-title: Documentação da API de Tradução de Fala | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Use a API de Tradução de Fala do Microsoft Translator para adicionar a conversão de fala em fala e de fala em texto aos seus aplicativos.
+title: O que é o serviço de Tradução de Fala?
+titleSuffix: Azure Cognitive Services
+description: Use a API do serviço de Tradução de Fala para adicionar a conversão de fala em fala e de fala em texto aos seus aplicativos.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 15f27e6b5b2fd7384958a660156855fc65f4e558
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: fd974d153e9db48b25c1b732b9719c21b16b5e01
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363701"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948767"
 ---
-# <a name="microsoft-translator-speech-api"></a>API de Tradução de Fala da Microsoft
-A API de Tradução de Fala da Microsoft pode ser usada para adicionar traduções de fala completas e em tempo real a aplicativos, ferramentas ou a qualquer solução que exige a tradução de fala em vários idiomas, seja qual for o sistema operacional ou as linguagens de desenvolvimento de destino. A API pode ser usada para a conversão de fala em fala e de fala em texto.
+# <a name="what-is-translator-speech-api"></a>O que é a API de Tradução de Fala?
+A API de Tradução de Fala pode ser usada para adicionar traduções de fala de ponta a ponta e em tempo real a aplicativos, ferramentas ou a qualquer solução que requeira tradução de fala em vários idiomas, seja qual for o sistema operacional ou as linguagens de desenvolvimento de destino. A API pode ser usada para a conversão de fala em fala e de fala em texto.
 
-A API de Tradução de Texto da Microsoft é um serviço do Azure, parte da [coleção de APIs dos Serviços Cognitivos da Microsoft](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) de aprendizado de máquina e algoritmos de IA na nuvem, prontamente consumíveis nos projetos de desenvolvimento.
+A API de Tradução de Texto é um serviço do Azure, que faz parte da [coleção de APIs dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) de aprendizado de máquina e algoritmos de IA na nuvem, prontamente consumíveis nos projetos de desenvolvimento.
 
-Com a API de Tradução de Fala da Microsoft, os aplicativos cliente transmitem um áudio de fala para o serviço e recebem um fluxo de resultados baseados em texto e áudio, que incluem o texto reconhecido no idioma de origem e sua tradução no idioma de destino. Os resultados de texto são produzidos pela aplicação do ASR (Reconhecimento Automático de Fala) ativado por redes neurais profundas no fluxo de áudio de entrada. A saída bruta do ASR é aprimorada ainda por uma nova técnica chamada TrueText para refletir melhor a intenção do usuário. Por exemplo, o TrueText remove disfluências (hesitações e pigarros), palavras repetidas e restaura pontuação e uso adequados de maiúsculas. A capacidade de mascarar ou excluir linguagem vulgar também está incluída. Os mecanismos de reconhecimento e tradução são especificamente treinados para lidar com a fala conversacional. 
+Com a API de Tradução de Fala, os aplicativos clientes transmitem um áudio de fala ao serviço e recebem um fluxo de resultados baseados em texto e áudio, que incluem o texto reconhecido no idioma de origem e sua tradução no idioma de destino. Os resultados de texto são produzidos pela aplicação do ASR (Reconhecimento Automático de Fala) ativado por redes neurais profundas no fluxo de áudio de entrada. A saída bruta do ASR é aprimorada ainda por uma nova técnica chamada TrueText para refletir melhor a intenção do usuário. Por exemplo, o TrueText remove disfluências (hesitações e pigarros), palavras repetidas e restaura pontuação e uso adequados de maiúsculas. A capacidade de mascarar ou excluir linguagem vulgar também está incluída. Os mecanismos de reconhecimento e tradução são especificamente treinados para lidar com a fala conversacional. 
 
-O serviço de Tradução de Fala usa a detecção de silêncio para determinar o fim de um enunciado. Após uma pausa na atividade de voz, o serviço transmitirá novamente um resultado final para o enunciado concluído. O serviço também pode enviar de volta resultados parciais, que fornecem traduções e reconhecimentos intermediários de um enunciado em andamento. 
+O serviço de Tradução de Fala usa a detecção de silêncio para determinar o final de um enunciado. Após uma pausa na atividade de voz, o serviço transmitirá novamente um resultado final para o enunciado concluído. O serviço também pode enviar de volta resultados parciais, que fornecem traduções e reconhecimentos intermediários de um enunciado em andamento. 
 
 Para a tradução de fala em fala, o serviço fornece a capacidade de sintetizar a fala (texto em fala) do texto falado nos idiomas de destino. O áudio de conversão de texto em fala é criado no formato especificado pelo cliente. Os formatos WAV e MP3 estão disponíveis.
 
@@ -36,7 +37,7 @@ O Microsoft Translator é um serviço de tradução automática baseado em nuvem
 Saiba mais sobre o [serviço Microsoft Translator](https://www.microsoft.com/en-us/translator/home.aspx)
 
 ## <a name="microsoft-translator-neural-machine-translation-nmt"></a>NMT (Tradução Automática Neural) do Microsoft Translator
-A API de Tradução de Fala da Microsoft fala usa a SMT (tradução automática estatística herdada) e a mais recente NMT (tradução automática neural) para fornecer traduções.
+A API de Tradução de Fala usa a SMT (tradução automática estatística) herdada e a NMT (tradução automática neural) mais recente para fornecer traduções.
 
 A tradução automática estatística atingiu uma estabilidade em termos de melhoria de desempenho. A qualidade da tradução não está mais melhorando de nenhuma maneira significativa nos sistemas genéricos com SMT. Uma nova tecnologia de tradução baseada em IA ganha força com base na NN (Redes Neurais).
 

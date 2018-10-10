@@ -3,20 +3,19 @@ title: Criar uma API sem servidor usando o Azure Functions| Microsoft Docs
 description: Como criar uma API sem servidor usando o Azure Functions
 services: functions
 author: mattchenderson
-manager: cfowler
-ms.service: functions
-ms.tgt_pltfrm: na
+manager: jeconnoc
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9a35c1205c0b564c8d0db1fbd0535d41bb9c84a0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24811593"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989899"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Criar uma API sem servidor usando o Azure Functions
 
@@ -30,7 +29,7 @@ A função resultante será ser usada no restante deste tutorial.
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Abra o portal do Azure. Para fazer isso, entre em [https://portal.azure.com](https://portal.azure.com) usando sua conta do Azure.
+Abra o portal do Azure. Para fazer isso, entre no [https://portal.azure.com](https://portal.azure.com) com sua conta do Azure.
 
 ## <a name="customize-your-http-function"></a>Personalizar sua função HTTP
 
@@ -42,7 +41,7 @@ Por padrão, sua função disparada por HTTP é configurada para aceitar qualque
 
 1. Use as configurações do gatilho HTTP conforme especificado na tabela.
 
-    | Campo | Valor de exemplo | Descrição |
+    | Campo | Valor de exemplo | DESCRIÇÃO |
     |---|---|---|
     | Métodos HTTP selecionados | Métodos selecionados | Determina quais métodos HTTP podem ser usados para chamar essa função |
     | Métodos HTTP selecionados | GET | Permite que apenas os métodos HTTP selecionados possam ser usados para chamar essa função |
@@ -54,7 +53,7 @@ Por padrão, sua função disparada por HTTP é configurada para aceitar qualque
 
 1. Clique em **Salvar**.
 
-Você pode aprender mais sobre a personalização de funções HTTP em [Associações HTTP e webhook do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
+Você pode aprender mais sobre a personalização de funções HTTP em [Associações de HTTP do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
 
 ### <a name="test-your-api"></a>Testar sua API
 
@@ -102,9 +101,9 @@ Repita as etapas para [Criar um aplicativo de função](https://docs.microsoft.c
     ![Criação de um proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. Use as configurações de proxy conforme especificado na tabela. 
 
-    | Campo | Valor de exemplo | Descrição |
+    | Campo | Valor de exemplo | DESCRIÇÃO |
     |---|---|---|
-    | Nome | HelloProxy | Um nome amigável usado apenas para gerenciamento |
+    | NOME | HelloProxy | Um nome amigável usado apenas para gerenciamento |
     | Modelo de rota | /api/hello | Determina qual rota pode ser usada para chamar esse proxy |
     | URL do back-end | https://%HELLO_HOST%/api/hello | Especifica o ponto de extremidade ao qual a solicitação deve ser transmitida por proxy |
     
@@ -187,7 +186,7 @@ Neste tutorial, você aprendeu a compilar e personalizar uma API no Azure Functi
 
 As referências a seguir podem ser úteis durante o desenvolvimento de sua API:
 
-- [Associações HTTP e de webhook do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
+- [Associações de HTTP do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
 - [Trabalhar com Proxies do Azure Functions]
 - [Documentar uma API do Azure Functions (visualização)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 

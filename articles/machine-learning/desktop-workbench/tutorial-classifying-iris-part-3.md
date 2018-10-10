@@ -1,6 +1,6 @@
 ---
-title: Implantar um tutorial de modelo para os serviços do Azure Machine Learning
-description: Este tutorial completo mostra como usar os serviços do Azure Machine Learning de ponta a ponta. Essa é a parte três e discute o modelo de implantação.
+title: Tutorial para implantar um modelo do serviço do Azure Machine Learning
+description: Este tutorial completo mostra como usar o serviço do Azure Machine Learning de ponta a ponta. Essa é a parte três e discute o modelo de implantação.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41919099"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946605"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: Classificar Iris – implantar um modelo
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 O Azure Machine Learning (versão prévia) é uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais. Os cientistas de dados podem usá-los para preparar dados, desenvolver experimentos e implantar modelos em escala de nuvem.
 
 Este tutorial é a **terceira e última parte de uma série**. Nessa parte do tutorial, você usará o Azure Machine Learning (versão prévia) para:
@@ -38,7 +42,7 @@ Este tutorial usa o [Conjunto de dados de flor de íris](https://en.wikipedia.or
 
 Para concluir este tutorial, você precisará:
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
-- Uma conta de experimentação e o Azure Machine Learning Workbench instalado, conforme descrito neste [início rápido](../service/quickstart-installation.md)
+- Uma conta de experimentação e o Azure Machine Learning Workbench instalado, conforme descrito neste [início rápido](quickstart-installation.md)
 - O modelo de classificação de [Tutorial parte 2](tutorial-classifying-iris-part-2.md)
 - Um mecanismo do Docker instalado e em execução localmente
 
@@ -53,7 +57,7 @@ Na parte anterior do tutorial, o script **iris_sklearn.py** foi executado localm
 
 1. Examine o arquivo **iris_sklearn.py** para ver onde o arquivo pickle foi gerado. Selecione Control + F para abrir a caixa de diálogo **Localizar** e, em seguida, localize a palavra **pickle** no código Python.
 
-   Este trecho de código mostra como o arquivo de saída processado pelo pickle foi gerado. O arquivo pickle de saída é denominado **model.pkl** no disco. 
+   Este snippet de código mostra como o arquivo de saída processado pelo pickle foi gerado. O arquivo pickle de saída é denominado **model.pkl** no disco. 
 
    ```python
    print("Export the model to model.pkl")
@@ -224,9 +228,9 @@ Agora você está pronto para criar o serviço Web em tempo real.
 1. Use o comando a seguir para criar um serviço Web em tempo real:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s ./output/service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
-   Esse comando gera uma ID de serviço Web que você pode usar mais tarde.
+   Esse comando gera uma ID de serviço Web que você pode usar mais tarde. Omita o diretório de saída se estiver usando um bloco de anotações.
 
    As opções a seguir são usadas com o comando **az ml service create realtime**:
 
@@ -276,9 +280,9 @@ Primeiro, registre o modelo. Em seguida, gere o manifesto, compile a imagem do D
    Para criar um manifesto, use o comando a seguir e forneça a saída de ID de modelo da etapa anterior:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s ./output/service_schema.json -c aml_config\conda_dependencies.yml
    ```
-   Este comando gera uma ID de manifesto.
+   Este comando gera uma ID de manifesto.  Omita o diretório de saída se estiver usando um bloco de anotações.
 
 1. Crie uma imagem do Docker.
 

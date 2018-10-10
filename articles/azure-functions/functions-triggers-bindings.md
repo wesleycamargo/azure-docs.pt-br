@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 05/24/2018
 ms.author: glenga
-ms.openlocfilehash: e3f2cc24a3ff765a33d27bbe5a43ca9d5a229e1b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092948"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969420"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
@@ -160,7 +160,7 @@ Em alguns ambientes de desenvolvimento, você precisa explicitamente *registrar*
 |Biblioteca de classes C# usando o Visual Studio de 2017|[Usar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|[Usar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|
 |Biblioteca de classes C# usando o código do Visual Studio|N/D|[Use o .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
-Os seguintes tipos de associação são exceções que não exigem o registro explícito porque eles são registrados automaticamente em todos os ambientes e versões: HTTP, o timer e o armazenamento do Azure (blobs, filas e tabelas). 
+Os seguintes tipos de associação são exceções que não exigem registro explícito porque são registrados automaticamente em todas as versões e ambientes: HTTP e temporizador.
 
 ### <a name="azure-portal-development"></a>Desenvolvimento do portal do Azure
 

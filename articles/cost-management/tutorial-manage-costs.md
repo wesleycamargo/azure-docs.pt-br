@@ -1,26 +1,29 @@
 ---
-title: 'Tutorial: Gerenciar custos usando o Gerenciamento de Custos do Azure | Microsoft Docs'
+title: Tutorial – Gerenciar os custos com Cloudyn no Azure | Microsoft Docs
 description: Neste tutorial, você aprende a gerenciar custos usando a alocação de custos e relatórios de análise e estorno.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 16f86eace9b5848f263e0d0772db441a123f21ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 743576d8cbd7135369fb692e601360cb57a6c3bd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989628"
 ---
-# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Tutorial: Gerenciar custos usando o Gerenciamento de Custos do Azure
+# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Gerenciar custos usando Cloudyn
 
-Gerencie os custos e produza relatórios de análise no Gerenciamento de Custos do Azure alocando os custos com base em marcas. O processo de alocação de custos atribui os custos aos recursos de nuvem consumidos. Os custos são totalmente alocados quando todos os seus recursos são categorizados com marcas. Depois que os custos são alocados, você pode fornecer análise ou estorno para seus usuários com painéis e relatórios. Porém, muitos recursos poderão estar desmarcados ou não ser marcáveis quando você começar a usar o Gerenciamento de Custos.
+Gerencie os custos e produza relatórios de análise no Cloudyn alocando os custos com base em marcas. O processo de alocação de custos atribui os custos aos recursos de nuvem consumidos. Os custos são totalmente alocados quando todos os seus recursos são categorizados com marcas. Depois que os custos são alocados, você pode fornecer análise ou estorno para seus usuários com painéis e relatórios. Porém, muitos recursos poderão estar desmarcados ou não ser marcáveis quando você começar a usar o Cloudyn.
 
 Por exemplo, você talvez queira obter reembolso para custos de engenharia. Você precisa ser capaz de mostrar à sua equipe de engenharia que é necessário um valor específico, com base em custos de recursos. Você pode mostrar um relatório para todos os recursos consumidos que estiverem marcados como *engenharia*.
+
+Neste artigo, marcas e categorias às vezes são sinônimos. Categorias são coleções amplas e podem ser muitas coisas. Podem incluir unidades de negócios, centros de custo, serviços Web ou qualquer elemento que esteja marcado. Marcas são pares de nome/valor que permitem classificar recursos e exibir e gerenciar informações de faturamento consolidado aplicando a mesma marca a vários recursos e grupos de recursos. Em versões anteriores do portal do Azure, um *nome da marca* era conhecido como uma *chave*. As marcas são criadas e armazenadas por uma única assinatura do Azure. As marcas no AWS consistem em pares chave/valor. Porque o Azure e o AWS usam o termo *chave*, o Cloudyn usa esse termo. O Gerenciador de Categorias usa chaves (nomes de marca) para mesclar as marcas.
 
 Neste tutorial, você aprenderá como:
 
@@ -33,13 +36,22 @@ Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azu
 ## <a name="prerequisites"></a>pré-requisitos
 
 - Você deve ter uma conta do Azure.
-- Você deve ter um registro de avaliação ou uma assinatura paga do Gerenciamento de Custos do Azure.
+- Você precisa ter um registro de avaliação ou uma assinatura paga do Cloudyn.
+- [Contas não ativadas devem ser ativadas](activate-subs-accounts.md) no portal do Cloudyn.
+- [Monitoramento de nível de convidado](azure-vm-extended-metrics.md) deve estar habilitada em suas máquinas virtuais.
+
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Usar marcas personalizadas para alocar os custos
 
+O Cloudyn obtém dados de marca do grupo de recursos do Azure e propaga automaticamente informações de marcas aos recursos. Na alocação de custo, você pode ver os custos por marcas de recurso.
+
+Usando o modelo de alocação de custos, você define categorias (marcas) que serão aplicadas internamente a recursos não categorizados (sem marcas) para agrupar os custos e definir regras para lidar com custos não marcados. Regras de alocação de custo são suas instruções salvas em que os custos do serviço são distribuídos para algum outro serviço. Depois disso, esses recursos então mostram marcas/categorias em relatórios de *alocação de custos* selecionando o modelo que você criou.
+
+Tenha em mente que as informações de marca não aparecem para esses recursos nos relatórios de *análise de custo*. Além disso, marcas aplicadas no Cloudyn usando a alocação de custo não são enviadas para o Azure, portanto, você não as vê no portal do Azure.
+
 Quando você inicia a alocação de custos, a primeira coisa a que fazer é definir o escopo por meio de um modelo de custo. O modelo de custo não altera os custos, mas os distribui. Quando você cria um modelo de custo, você segmenta os dados por entidade de custo, conta ou assinatura, bem como por várias marcas. Marcas de exemplo comuns podem incluir um código de faturamento, o centro de custo ou o nome de grupo. Marcas também lhe ajudam a executar análise ou estorno para outras partes da organização.
 
-Para criar um modelo de alocação de custo personalizado, selecione **Custo** &gt; **Gerenciamento de Custos** &gt; **Alocação de Custo 360°** no menu do relatório.
+Para criar um modelo de alocação de custo personalizado, selecione **Custos** &gt; **Gerenciamento de Custos** &gt; **Alocação de Custo 360°** no menu do relatório.
 
 ![Seleção de Alocação de Custo 360](./media/tutorial-manage-costs/cost-allocation-360.png)
 
@@ -59,7 +71,7 @@ Por exemplo, convém pegar seus custos de armazenamento do Azure e distribuí-lo
 
 
 
-Em um exemplo diferente, você talvez queira alocar todos os seus custos de rede do Azure para uma unidade de negócios específica na sua organização. Para fazer isso, selecione o serviço **Azure/Rede** e, em seguida, selecione **Distribuição Explícita**. Em seguida, defina o percentual de distribuição para 100 e selecione a unidade de negócios —**G&amp;A** na imagem a seguir:
+Em um exemplo diferente, você talvez queira alocar todos os seus custos de rede do Azure para uma unidade de negócios específica na sua organização. Para fazer isso, selecione o serviço **Azure/Rede** e, em seguida, em **Definir Regra de Alocação**, selecione **Distribuição Explícita**. Em seguida, defina o percentual de distribuição para 100 e selecione a unidade de negócios —**G&amp;A** na imagem a seguir:
 
 ![Regra de alocação de modelo de custo de exemplo para uma unidade de negócios específica](./media/tutorial-manage-costs/cost-model03.png)
 
@@ -99,7 +111,7 @@ Os dados de marca que você visualiza nos relatórios do Cloudyn originam-se em 
 
 Para visualizar as marcas do provedor de nuvem nos relatórios de custos do Cloudyn, você deve criar um modelo personalizado de alocação de custos utilizando a Alocação de Custo 360. Para fazer isso, acesse **Custos** > **Gerenciamento de Custos** > **Alocação de Custos 360**, selecione as marcas desejadas e, em seguida, defina regras para tratar os custos não marcados. Em seguida, crie um novo modelo de custo. Posteriormente, você poderá exibir relatórios na Análise de Alocação de Custos para visualizar, filtrar e classificar as marcas de recursos do Azure.
 
-As marcas de recursos do Azure aparecem somente nos relatórios de **Análise de Alocação de Custos**.
+As marcas de recursos do Azure aparecem somente nos relatórios de **Custos** > **Análise de Alocação de Custos**.
 
 As marcas de cobrança do fornecedor de nuvem aparecem em todos os relatórios de custos.
 

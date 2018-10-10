@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: d3438f42753cba82a28d16be2b63926c4762b26b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c8f9db2674976d2c1efa7686b8b224b48a19a534
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421926"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964438"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Implantar um cluster do Docker CE
 
@@ -24,7 +24,7 @@ O Docker CE no Serviço de Contêiner do Azure está na versão prévia e **não
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -169,7 +169,7 @@ Neste guia de início rápido, foram usadas imagens de contêiner criadas previa
 
 Neste guia de início rápido, você implantou um cluster do Docker Swarm e um aplicativo de com vários contêineres nele.
 
-Para aprender mais sobre como integrar o Docker Swarm no Visual Studio Team Services, continue no CI/CD com Docker Swarm e VSTS.
+Para saber mais sobre como integrar o Docker Swarm ao Azure DevOps, continue na CI/CD com o Docker Swarm e o Azure DevOps.
 
 > [!div class="nextstepaction"]
-> [CI/CD com Docker Swarm e VSTS](./container-service-docker-swarm-setup-ci-cd.md)
+> [CI/CD com o Docker Swarm e o Azure DevOps](./container-service-docker-swarm-setup-ci-cd.md)

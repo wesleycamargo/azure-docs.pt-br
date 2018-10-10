@@ -12,14 +12,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 83d6f529330a05e6a7c46ad45b19f0338f93bfc7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "35630889"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995084"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificação de imagens usando o Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Abordagens de classificação de imagens podem ser usadas para resolver um grande número de problemas da Pesquisa Visual Computacional.
 Isso inclui a criação de modelos, que responde a perguntas como: *Um OBJETO está presente na imagem?*, em que OBJETO poderia ser, por exemplo, *cachorro*, *carro* ou *navio*. Ou perguntas mais complexas como: *Qual classe de gravidade de doença ocular é evidenciada pelo exame de retina desse paciente?*.
@@ -51,7 +56,7 @@ Embora a experiência anterior com o aprendizado de máquina e o CNTK não seja 
 Os pré-requisitos para executar este exemplo são os seguintes:
 
 1. Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-2. O [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](../service/quickstart-installation.md) para instalar o programa e criar um espaço de trabalho.  
+2. O [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) seguindo o [guia de instalação de início rápido](quickstart-installation.md) para instalar o programa e criar um espaço de trabalho.  
 3. Um computador Windows. O sistema operacional Windows é necessário, pois o Workbench dá suporte apenas ao Windows e MacOS, enquanto o Cognitive Toolkit da Microsoft (que usamos como uma biblioteca de aprendizagem profunda) dá suporte apenas ao Windows e Linux.
 4. Uma GPU dedicada não é necessária para executar o treinamento de SVM na parte 1. No entanto, ela é necessária para refinar a DNN descrita na parte 2. Caso você não tenha uma GPU forte, deseje treinar em várias GPUs ou não tenha um computador Windows, considere a possibilidade de usar uma Máquina Virtual de Aprendizagem Profunda do Azure com o sistema operacional Windows. Consulte [aqui](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) para obter um guia de implantação com um clique. Depois de implantada, conecte-se à VM por meio de uma conexão de área de trabalho remota, instale o Workbench nesse local e execute o código localmente na VM.
 5. Várias bibliotecas do Python como OpenCV precisam ser instaladas. Clique em *Abrir Prompt de Comando* do menu *Arquivo* no Workbench e execute os seguintes comandos para instalar essas dependências:  
@@ -95,7 +100,7 @@ A execução dessas etapas cria a estrutura do projeto mostrada abaixo. O diret�
 
 ## <a name="data-description"></a>Descrição dos dados
 
-Este tutorial usa como exemplo funcional um conjunto de dados de textura de vestuário para a parte superior do corpo que consiste em até 428 imagens. Cada imagem é anotada como uma das três texturas diferentes (bolinhas, listrada e estampa de leopardo). Mantivemos o número de imagens pequeno para que este tutorial pudesse ser executado rapidamente. No entanto, o código é bem testado e funciona com dezenas de milhares de imagens ou mais. Todas as imagens foram capturadas usando a Pesquisa de Imagem do Bing e anotadas manualmente, conforme explicado na [Parte 3](#using-a-custom-dataset). As URLs da imagem com seus respectivos atributos são listadas no arquivo */resources/fashionTextureUrls.tsv*.
+Este tutorial usa como exemplo funcional um conjunto de dados de textura de vestuário para a parte superior do corpo que consiste em até 428 imagens. Cada imagem é anotada como uma das três texturas diferentes (bolinhas, listrada e estampa de leopardo). Mantivemos o número de imagens pequeno para que este tutorial pudesse ser executado rapidamente. No entanto, o código é bem testado e funciona com dezenas de milhares de imagens ou mais. Todas as imagens foram anotadas manualmente, conforme explicado em [parte 3](#using-a-custom-dataset). As URLs da imagem com seus respectivos atributos são listadas no arquivo */resources/fashionTextureUrls.tsv*.
 
 O script `0_downloadData.py` baixa todas as imagens no diretório *DATA_DIR/images/fashionTexture/*. Algumas das 428 URLs estão provavelmente desfeitas. Isso não é um problema e apenas significa que temos um pouco menos imagens para treinamento e teste. Todos os scripts fornecidos neste exemplo precisam ser executados localmente e não, por exemplo, em ambiente de docker remoto.
 
@@ -263,11 +268,11 @@ Estas são algumas das oportunidades mais promissoras de melhorias:
 
 ## <a name="part-3---custom-dataset"></a>Parte 3 – Conjunto de dados personalizado
 
-Nas partes 1 e 2, treinamos e avaliamos um modelo de classificação de imagens usando as imagens de texturas de vestuário para a parte superior do corpo fornecidas. Agora mostramos como usar um conjunto de dados personalizado fornecido pelo usuário. Ou, se ele não estiver disponível, como gerar e anotar um conjunto de dados como esse usando a Pesquisa de Imagem do Bing.
+Nas partes 1 e 2, treinamos e avaliamos um modelo de classificação de imagens usando as imagens de texturas de vestuário para a parte superior do corpo fornecidas. Agora mostramos como usar um conjunto de dados personalizado fornecido pelo usuário. 
 
 ### <a name="using-a-custom-dataset"></a>Usando um conjunto de dados personalizado
 
-Primeiro, vamos dar uma olhada na estrutura de pastas dos dados de textura de vestuário. Observe como todas as imagens para os diferentes atributos estão nas respectivas subpastas *dotted*, *leopard e *striped* em *DATA_DIR/images/fashionTexture/*. Observe ainda como o nome da pasta da imagem também ocorre no arquivo `PARAMETERS.py`:
+Primeiro, vamos dar uma olhada na estrutura de pastas dos dados de textura de vestuário. Observe como todas as imagens para os diferentes atributos estão nas respectivas subpastas *dotted*, *leopard* e *striped* em *DATA_DIR/images/fashionTexture/*. Observe ainda como o nome da pasta da imagem também ocorre no arquivo `PARAMETERS.py`:
 ```python
 datasetName = "fashionTexture"
 ```
@@ -280,14 +285,23 @@ O uso de um conjunto de dados personalizado é tão simples quanto reproduzir es
 
 ### <a name="image-scraping-and-annotation"></a>Captura de imagem e anotação
 
-Pode ser difícil coletar um número suficientemente grande de imagens anotadas para treinamento e teste. Uma maneira de resolver esse problema é capturar imagens da Internet. Por exemplo, veja abaixo os resultados da Pesquisa de Imagem do Bing para a consulta *camiseta listrada*. Conforme esperado, a maioria das imagens na verdade são camisetas listradas. Algumas imagens incorretas ou ambíguas (como a coluna 1, linha 1; ou a coluna 3, linha 2) podem ser identificadas e removidas facilmente:
+Pode ser difícil coletar um número suficientemente grande de imagens anotadas para treinamento e teste. Uma maneira de resolver esse problema é capturar imagens da Internet.
+
+> [!IMPORTANT] 
+> Para quaisquer imagens que você usar, certifique-se de não violar seus direitos autorais e o licenciamento. 
+
+<!--
+For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
+-->
 
 Para gerar um conjunto de dados grande e diversificado, várias consultas devem ser usadas. Por exemplo, 7\*3 = 21 consultas podem ser sintetizadas automaticamente usando todas as combinações de itens de vestuário {blusa, capuz, pulôver, suéter, camiseta, colete} e atributos {listrado, bolinhas e estampa de leopardo}. O download das 50 principais imagens por consulta levaria a um máximo de 21*50=1050 imagens.
 
-Em vez de baixar manualmente as imagens da Pesquisa de Imagem do Bing, é muito mais fácil de usar a [API de Pesquisa de Imagem do Bing dos Serviços Cognitivos](https://www.microsoft.com/cognitive-services/bing-image-search-api) que retorna um conjunto de URLs de imagem considerando uma cadeia de consulta.
+<!--
+Rather than manually downloading images from Bing Image Search, it is much easier to instead use the [Cognitive Services Bing Image Search API](https://www.microsoft.com/cognitive-services/bing-image-search-api) which returns a set of image URLs given a query string.
+-->
 
 Algumas imagens baixadas são exatas ou quase duplicatas (por exemplo, diferem apenas por resolução de imagem ou artefatos de jpg). Essas duplicatas devem ser removidas para que a divisão de teste e treinamento não contenha as mesmas imagens. A remoção de imagens duplicadas pode ser obtida usando uma abordagem baseada em hash, que funciona em duas etapas: (i) primeiro, a cadeia de caracteres de hash é calculada para todas as imagens; (ii) em uma segunda passagem sobre as imagens, somente essas imagens são mantidas com uma cadeia de caracteres de hash que ainda não foi vista. Todas as outras imagens são descartadas. Descobrimos que a abordagem `dhash` na biblioteca do Python `imagehash` e descrita neste [blog](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) tem um bom desempenho, com o parâmetro `hash_size` definido como 16. Não há problemas em remover incorretamente algumas imagens não duplicadas, desde que a maioria das duplicatas reais seja removida.
 

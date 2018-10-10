@@ -1,45 +1,46 @@
 ---
-title: Referência da API de Tradução de Fala da Microsoft | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Documentação de referência para a API de Tradução de Fala da Microsoft.
+title: Referência da API de Tradução de Fala
+titleSuffix: Azure Cognitive Services
+description: Documentação de referência para a API de Tradução de Fala.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech
+ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: be8faddf56158de3399713c41638c0b913b4627e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 46aeab52014a28d1a962195de802d0e000b62509
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364771"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978702"
 ---
-# <a name="microsoft-translator-speech-api"></a>API de Tradução de Fala da Microsoft
+# <a name="translator-speech-api"></a>API de Tradução de Fala
 
-Esse serviço oferece uma API de streaming para transcrever fala conversacional de um idioma em texto de outro idioma. A API também integra funcionalidades de conversão de texto em fala para falar o texto traduzido novamente. A API de Tradução de Fala da Microsoft permite cenários como a tradução em tempo real de conversas conforme visto no Skype Translator.
+Esse serviço oferece uma API de streaming para transcrever fala conversacional de um idioma em texto de outro idioma. A API também integra funcionalidades de conversão de texto em fala para falar o texto traduzido novamente. A API de Tradução de Fala permite cenários como a tradução em tempo real de conversas conforme visto no Skype Translator.
 
-Com a API de Tradução de Fala da Microsoft, os aplicativos cliente transmitem por streaming áudio de fala para o serviço e recebem de volta um fluxo de resultados baseados em texto, incluindo o texto reconhecido no idioma de origem e sua tradução no idioma de destino. Os resultados de texto são produzidos pela aplicação do ASR (Reconhecimento Automático de Fala) ativado por redes neurais profundas no fluxo de áudio de entrada. A saída de ASR bruta é aprimorada ainda por uma nova técnica chamada TrueText para refletir melhor a intenção do usuário. Por exemplo, TrueText remove quebras de fluências (hesitações e pigarros), palavras repetidas e restaura a pontuação e o uso de maiúsculas adequados. A capacidade de mascarar ou excluir linguagem vulgar também está incluída. Os mecanismos de reconhecimento e tradução são especificamente treinados para lidar com a fala conversacional. O serviço de Tradução de Fala usa a detecção de silêncio para determinar o fim de um enunciado. Após uma pausa na atividade de voz, o serviço transmitirá novamente um resultado final para o enunciado concluído. O serviço também pode enviar de volta resultados parciais, que fornecem traduções e reconhecimentos intermediários de um enunciado em andamento. Para os resultados finais, o serviço oferece a capacidade de sintetizar a fala (texto em fala) do texto falado nos idiomas de destino. O áudio de conversão de texto em fala é criado no formato especificado pelo cliente. Os formatos WAV e MP3 estão disponíveis.
+Com a API de Tradução de Fala, os aplicativos cliente transmitem por streaming áudio de fala para o serviço e recebem de volta um fluxo de resultados baseados em texto, incluindo o texto reconhecido no idioma de origem e sua tradução no idioma de destino. Os resultados de texto são produzidos pela aplicação do ASR (Reconhecimento Automático de Fala) ativado por redes neurais profundas no fluxo de áudio de entrada. A saída de ASR bruta é aprimorada ainda por uma nova técnica chamada TrueText para refletir melhor a intenção do usuário. Por exemplo, TrueText remove quebras de fluências (hesitações e pigarros), palavras repetidas e restaura a pontuação e o uso de maiúsculas adequados. A capacidade de mascarar ou excluir linguagem vulgar também está incluída. Os mecanismos de reconhecimento e tradução são especificamente treinados para lidar com a fala conversacional. O serviço de Tradução de Fala usa a detecção de silêncio para determinar o fim de um enunciado. Após uma pausa na atividade de voz, o serviço transmitirá novamente um resultado final para o enunciado concluído. O serviço também pode enviar de volta resultados parciais, que fornecem traduções e reconhecimentos intermediários de um enunciado em andamento. Para os resultados finais, o serviço oferece a capacidade de sintetizar a fala (texto em fala) do texto falado nos idiomas de destino. O áudio de conversão de texto em fala é criado no formato especificado pelo cliente. Os formatos WAV e MP3 estão disponíveis.
 
-A API de Tradução de Fala da Microsoft usa o protocolo WebSocket para fornecer um canal de comunicação full duplex entre o cliente e o servidor. Um aplicativo exigirá estas etapas para usar o serviço:
+A API de Tradução de Fala usa o protocolo WebSocket para fornecer um canal de comunicação full duplex entre o cliente e o servidor. Um aplicativo exigirá estas etapas para usar o serviço:
 
 ## <a name="1-getting-started"></a>1. Introdução
-Para acessar a API de Tradução de Texto da Microsoft, você precisará [inscrever-se para o Microsoft Azure](translator-speech-how-to-signup.md).
+Para acessar a API de Tradução de Texto, você precisará [inscrever-se para o Microsoft Azure](translator-speech-how-to-signup.md).
 
 ## <a name="2-authentication"></a>2. Autenticação
 
-Use a chave de assinatura para autenticar-se. A API de Tradução de Fala da Microsoft é compatível com dois modos de autenticação:
+Use a chave de assinatura para autenticar-se. A API de Tradução de Fala dá suporte a dois modos de autenticação:
 
-* **Usando um token de acesso:** em seu aplicativo, obtenha um token de acesso do serviço de token. Use sua chave de assinatura da API de Tradução de Fala da Microsoft para obter um token de acesso do serviço de autenticação de Serviços Cognitivos. O token de acesso é válido por 10 minutos. Obtenha um novo token de acesso a cada 10 minutos e continue usando o mesmo token de acesso para solicitações repetidas dentro desses 10 minutos.
+* **Usando um token de acesso:** em seu aplicativo, obtenha um token de acesso do serviço de token. Use sua chave de assinatura da API de Tradução de Fala para obter um token de acesso do serviço de autenticação dos Serviços Cognitivos do Azure. O token de acesso é válido por 10 minutos. Obtenha um novo token de acesso a cada 10 minutos e continue usando o mesmo token de acesso para solicitações repetidas dentro desses 10 minutos.
 
 * **Usando uma chave de assinatura diretamente:** em seu aplicativo, passe sua chave de assinatura como um valor no cabeçalho `Ocp-Apim-Subscription-Key`.
 
 Trate a sua chave de assinatura e o token de acesso como segredos que devem ficar ocultos da exibição.
 
 ## <a name="3-query-languages"></a>3. Idiomas de consulta
-**Consulte o recurso de Idiomas para o conjunto atual de idiomas compatíveis.** O [recurso de idiomas](languages-reference.md) expõe os conjuntos de idiomas e vozes disponíveis para reconhecimento de fala, tradução de texto e texto em fala. Cada idioma ou voz recebe um identificador que a API de Tradução de Fala da Microsoft usa para identificar o mesmo idioma ou voz.
+**Consulte o recurso de Idiomas para o conjunto atual de idiomas compatíveis.** O [recurso de idiomas](languages-reference.md) expõe os conjuntos de idiomas e vozes disponíveis para reconhecimento de fala, tradução de texto e texto em fala. Cada idioma ou voz recebe um identificador que a API de Tradução de Fala usa para identificar o mesmo idioma ou voz.
 
 ## <a name="4-stream-audio"></a>4. Transmitir áudio por streaming
 **Abra uma conexão e comece a transmitir por streaming áudio ao serviço.** A URL do serviço é `wss://dev.microsofttranslator.com/speech/translate`. Parâmetros e formatos de áudio esperados pelo serviço são descritos abaixo, na operação `/speech/translate`. Um dos parâmetros é usado para passar o token de acesso da Etapa 2 acima.
@@ -47,7 +48,7 @@ Trate a sua chave de assinatura e o token de acesso como segredos que devem fica
 ## <a name="5-process-the-results"></a>5. Processar os resultados
 **Processe os resultados transmitidos por streaming de volta do serviço.** O formato dos resultados parciais, dos resultados finais e dos segmentos de áudio de texto em fala são descritos na documentação da operação `/speech/translate` abaixo.
 
-Exemplos de código demonstrando o uso da API de Tradução de Fala da Microsoft estão disponíveis no [site do Microsoft Translator GitHub](https://github.com/MicrosoftTranslator).
+Exemplos de códigos demonstrando o uso da API de Tradução de Fala estão disponíveis no [site do Microsoft Translator GitHub](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Notas de implementação
 

@@ -1,6 +1,6 @@
 ---
 title: Criar uma máquina virtual do Azure com Rede Acelerada | Microsoft Docs
-description: Saiba como criar uma máquina virtual Linux com Rede Acelerada.
+description: Saiba como criar uma máquina virtual Linux com Rede Acelerada habilitada.
 services: virtual-network
 documentationcenter: na
 author: gsilva5
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 9ea843df4cf437b97f7fe1d62636a51f8201376e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: b6aaf98ca3b5581691b6c70783be5250b506056c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414565"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990953"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual Linux com Rede Acelerada
 
@@ -75,7 +75,7 @@ Embora este artigo forneça etapas para criar uma máquina virtual com a rede ac
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Instale a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente e faça logon em uma conta do Azure usando [az login](/cli/azure/reference-index#az_login). Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myNic* e *myVm*.
+Instale a [CLI do Azure](/cli/azure/install-azure-cli) mais recente do Azure e faça logon em uma conta do Azure usando [az login](/cli/azure/reference-index#az_login). Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myNic* e *myVm*.
 
 Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *centralus*:
 

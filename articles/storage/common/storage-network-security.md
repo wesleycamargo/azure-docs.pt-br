@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 9eaaaaa4cc9be661cdc2ffde2b634e062c95a404
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523250"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972548"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar Redes Virtuais e firewalls do Armazenamento do Microsoft Azure
 O Armazenamento do Azure fornece um modelo de segurança em camadas, permitindo que você proteja suas contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede são configuradas, somente aplicativos das redes permitidas podem acessar uma conta de armazenamento.  Ao chamar de uma rede permitida, os aplicativos continuam a exigir a autorização apropriada (uma chave de acesso ou token SAS válido) para acessar a conta de armazenamento.
 
 > [!IMPORTANT]
-> Ativar as regras do Firewall para sua conta de armazenamento bloqueará o acesso a solicitações de entrada de dados, inclusive de outros serviços do Azure.  Isso inclui o uso do Portal, logs de gravação etc.  Para serviços participantes, você pode habilitar novamente a funcionalidade através da seção [Exceções](#Exceptions)abaixo.  Para acessar o Portal, é necessário fazer isso partir de um computador dentro do limite confiável (IP ou VNet) que você configurou.
+> Ativar as regras do Firewall para sua conta de armazenamento bloqueará o acesso a solicitações de entrada de dados, inclusive de outros serviços do Azure.  Isso inclui o uso do Portal, logs de gravação etc.  Para serviços participantes, você pode habilitar novamente a funcionalidade através da seção [Exceções](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)abaixo.  Para acessar o Portal, é necessário fazer isso partir de um computador dentro do limite confiável (IP ou VNet) que você configurou.
 >
 
 ## <a name="scenarios"></a>Cenários
@@ -35,7 +35,7 @@ O tráfego de disco da máquina virtual (incluindo as operações de montagem e 
 
 As contas de armazenamento clássicas **não** dão suporte a firewalls e redes virtuais.
 
-Backup e restauração de Máquinas Virtuais usando discos não gerenciados em contas de armazenamento com as regras de rede aplicadas é suportado por meio da criação de uma exceção conforme documentado na seção [Exceções](/storage/common/storage-network-security#exceptions) deste artigo.  Exceções de firewall não são aplicáveis com discos gerenciados, pois eles já são gerenciados pelo Azure.
+Backup e restauração de Máquinas Virtuais usando discos não gerenciados em contas de armazenamento com as regras de rede aplicadas é suportado por meio da criação de uma exceção conforme documentado na seção [Exceções](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) deste artigo.  Exceções de firewall não são aplicáveis com discos gerenciados, pois eles já são gerenciados pelo Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>Alterar a regra de acesso de rede padrão
 Por padrão, as contas de armazenamento aceitam conexões de clientes em qualquer rede.  Para limitar o acesso a redes selecionadas, primeiro você deve alterar a ação padrão.
@@ -70,7 +70,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 ```    
 
 #### <a name="cliv2"></a>CLIv2
-1. [Instale a CLI do Azure 2.0](/cli/azure/install-azure-cli) e [faça logon](/cli/azure/authenticate-azure-cli).
+1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [fazer logon](/cli/azure/authenticate-azure-cli).
 2. Exiba o status da regra padrão para a conta de armazenamento.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
@@ -152,7 +152,7 @@ Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Na
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Instale a CLI do Azure 2.0](/cli/azure/install-azure-cli) e [faça logon](/cli/azure/authenticate-azure-cli).
+1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [fazer logon](/cli/azure/authenticate-azure-cli).
 2. Liste as regras de rede virtual
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
@@ -208,7 +208,7 @@ As regras de rede IP para contas de armazenamento podem ser gerenciadas por meio
 2. Clique no menu de configurações chamado **Firewalls e redes virtuais**.
 3. Certifique-se de que você optou por permitir o acesso de “Redes selecionadas”.
 4. Para conceder acesso a um intervalo de IP de Internet, insira o endereço IP ou o intervalo de endereços (no formato CIDR) em Firewall, Intervalos de Endereços.
-5. Para remover uma regra de rede IP, clique em "..." para abrir o menu de contexto para a regra e clique em "Remover".
+5. Para remover uma regra de rede IP, clique no ícone de lixeira ao lado da regra de rede.
 6. Clique em *Salvar* para aplicar suas alterações.
 
 #### <a name="powershell"></a>PowerShell
@@ -243,7 +243,7 @@ Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Ac
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Instale a CLI do Azure 2.0](/cli/azure/install-azure-cli) e [faça logon](/cli/azure/authenticate-azure-cli).
+1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [fazer logon](/cli/azure/authenticate-azure-cli).
 2. Liste as regras de rede IP
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
@@ -290,7 +290,9 @@ Quando a exceção "Serviços Microsoft Confiáveis" estiver habilitada, os segu
 |Grade de Eventos do Azure|Microsoft.EventGrid|Habilitar a publicação de eventos do Armazenamento de Blobs.  [Saiba mais](https://docs.microsoft.com/azure/event-grid/overview).|
 |Hubs de eventos do Azure|Microsoft.EventHub|Arquivar dados com a Captura de Hubs de Evento.  [Saiba mais](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Rede do Azure|Microsoft.Networking|Armazenar e analisar os logs de tráfego de rede.  [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-||||
+|Azure Monitor|Microsoft.insights| Permite a gravação de dados de monitoramento para uma conta de armazenamento protegida [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|
+
 
 ### <a name="storage-analytics-data-access"></a>Acesso a dados de análise de armazenamento
 Em alguns casos, o acesso para ler as métricas e logs de diagnóstico é necessário de fora do limite de rede.  Exceções às regras de rede podem ser concedidas para permitir o acesso de leitura para os arquivos de log da conta de armazenamento, as tabelas de métricas ou ambos. [Saiba mais sobre como trabalhar com a análise de armazenamento.](/azure/storage/storage-analytics)
@@ -327,7 +329,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Instale a CLI do Azure 2.0](/cli/azure/install-azure-cli) e [faça logon](/cli/azure/authenticate-azure-cli).
+1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [fazer logon](/cli/azure/authenticate-azure-cli).
 2. Exiba as exceções para as regras de rede da conta de armazenamento.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass

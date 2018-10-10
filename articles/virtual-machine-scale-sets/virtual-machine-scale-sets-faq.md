@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: b61b6b730d645e2ffd518628abe2a121f119fd09
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9ec049ebbfaa8e6ee5dbf585488d5c2e8ff25802
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715056"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949699"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -49,7 +49,7 @@ Obtenha respostas para as perguntas frequentes sobre os conjuntos de dimensionam
 
 **P.** Como posso criar um conjunto de dimensionamento usando uma imagem personalizada?
 
-**A.** Criar e capturar uma imagem de VM e depois usá-la como a fonte para o conjunto de dimensionamento. Para obter um tutorial sobre como criar e usar uma imagem de VM personalizada, use a [CLI do Azure 2.0](tutorial-use-custom-image-cli.md) ou o [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+**A.** Criar e capturar uma imagem de VM e depois usá-la como a fonte para o conjunto de dimensionamento. Para obter um tutorial de como criar e usar uma imagem de VM personalizada, use a [CLI do Azure](tutorial-use-custom-image-cli.md) ou o [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 **P.** Se eu reduzir a capacidade do meu conjunto de dimensionamento de 20 para 15, quais VMs serão removidas?
 
@@ -129,7 +129,7 @@ Você pode escolher qualquer contador de desempenho da VM como a métrica para a
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Como configuro o dimensionamento automático em um conjunto de dimensionamento de máquinas virtuais usando o PowerShell?
 
-Para configurar o dimensionamento automático em um conjunto de dimensionamento de máquinas virtuais usando o PowerShell, confira [dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais](tutorial-autoscale-powershell.md). Você também pode configurar o dimensionamento automático com a [CLI do Azure 2.0 ](tutorial-autoscale-cli.md) e [modelos do Azure](tutorial-autoscale-template.md)
+Para configurar o dimensionamento automático em um conjunto de dimensionamento de máquinas virtuais usando o PowerShell, confira [dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais](tutorial-autoscale-powershell.md). Você também pode configurar o dimensionamento automático com a [CLI do Azure](tutorial-autoscale-cli.md) e os [modelos do Azure](tutorial-autoscale-template.md)
 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Se eu tiver interrompido (desalocado) uma VM, essa VM será iniciada como parte de uma operação de dimensionamento automático?
