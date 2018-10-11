@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: bcc5f23c163a391639d916b8a50c2c05d228ee91
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.component: ''
+ms.openlocfilehash: c43f8acf7f9278ca412bee9ad15f2d51541cd27b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432079"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044324"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>As propriedades padrão nos registros do Log Analytics
 Os dados no [Log Analytics](../log-analytics/log-analytics-queries.md) são armazenados como um conjunto de registros, cada um com um determinado tipo de dados, com um conjunto exclusivo de propriedades. Muitos tipos de dados terão propriedades padrão comuns a vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como você pode usá-las em consultas.

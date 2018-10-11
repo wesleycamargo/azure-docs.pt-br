@@ -1,6 +1,6 @@
 ---
 title: Recurso de Monitor de Desempenho na solução Monitor de Desempenho de Rede no Azure Log Analytics | Microsoft Docs
-description: O recurso Monitor de Desempenho no Monitor de Desempenho de Rede ajuda a monitorar a conectividade de rede em vários pontos em sua rede. Você pode monitorar a conectividade de rede entre vários pontos em sua rede, como implantações de nuvem e localizações locais, vários data centers e filiais, e vários aplicativos ou microsserviços multiníveis críticos à missão.
+description: O recurso Monitor de Desempenho no Monitor de Desempenho de Rede ajuda a monitorar a conectividade de rede em vários pontos em sua rede. Você pode monitorar as implantações de nuvem e locais internos, vários data centers e filiais, e aplicativos críticos ou microsserviços de várias camadas.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: na
-ms.openlocfilehash: 3d51399edbb9679d1cf7b62b075ba34aa5ede42f
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 1254afc1ad1c513c18d565be8a6543a6ee0ae94b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131331"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040584"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solução do Monitor de Desempenho de Rede – Monitoramento de Desempenho
 
-O recurso Monitor de Desempenho no [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md) ajuda a monitorar a conectividade de rede em vários pontos em sua rede. Você pode monitorar a conectividade de rede entre vários pontos em sua rede, como implantações de nuvem e localizações locais, vários data centers e filiais, e vários aplicativos ou microsserviços multiníveis críticos à missão. Com o Monitor de Desempenho, você pode detectar problemas de rede antes de seus usuários reclamarem. As principais vantagens são que você pode: 
+O recurso Monitor de Desempenho no [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md) ajuda a monitorar a conectividade de rede em vários pontos em sua rede. Você pode monitorar as implantações de nuvem e locais internos, vários data centers e filiais, e aplicativos críticos ou microsserviços de várias camadas. Com o Monitor de Desempenho, você pode detectar problemas de rede antes de seus usuários reclamarem. As principais vantagens são que você pode: 
 
-- Monitorar perda e latência entre várias sub-redes e definir alertas.
+- Monitorar perda e latência em várias sub-redes e definir alertas.
 - Monitorar todos os caminhos (incluindo caminhos redundantes) na rede.
-- Solucionar problemas de rede transitórios e pontuais, que são difíceis de replicar.
-- Determinar um segmento específico na rede, que é responsável pelo desempenho degradado.
+- Solucionar problemas de rede transitórios e relevantes a um certo período de tempo, que são difíceis de replicar.
+- Determinar um segmento específico na rede, que é responsável pela redução do desempenho.
 - Monitorar a integridade da rede, sem a necessidade de SNMP.
 
 
@@ -44,7 +44,7 @@ Para abrir a configuração do Monitor de Desempenho de Rede, abra a [solução 
 
 Uma rede no Monitor de Desempenho de Rede é um contêiner lógico para sub-redes. Ele ajuda você a organizar o monitoramento da infraestrutura de rede de acordo com suas necessidades. Você pode criar uma rede com um nome amigável e adicionar sub-redes a ele de acordo com a sua lógica de negócios. Por exemplo, você pode criar uma rede chamada Londres e adicionar todas as sub-redes em seu data center Londres. Ou você pode criar uma rede chamada *ContosoFrontEnd* e adicionar a essa rede todas as sub-redes chamadas Contoso que servem ao front-end do seu aplicativo. A solução cria automaticamente uma rede padrão que contém todas as sub-redes descobertas no seu ambiente. 
 
-Sempre que você criar uma rede, você adiciona uma sub-rede a ela. Essa sub-rede será removida da rede padrão. Se você excluir uma rede, todas as suas sub-redes serão retornadas automaticamente para a rede padrão. A rede Padrão age como o contêiner para todas as sub-redes que não estão contidas em nenhuma rede definida pelo usuário. Você não pode editar nem excluir a rede padrão. Ela sempre permanece no sistema. Você pode criar tantas redes personalizadas quantas forem necessárias. Na maioria dos casos, as sub-redes em sua organização são organizadas em mais de uma rede. Crie uma ou mais redes para agrupar suas sub-redes para a sua lógica de negócios.
+Sempre que você criar uma rede, você adiciona uma sub-rede a ela. Essa sub-rede será removida da rede padrão. Se você excluir uma rede, todas as suas sub-redes serão retornadas automaticamente para a rede padrão. A rede Padrão age como o contêiner para todas as sub-redes que não estão contidas em nenhuma rede definida pelo usuário. Você não pode editar nem excluir a rede padrão. Ela sempre permanece no sistema. Você pode criar tantas redes personalizadas quantas forem necessárias. Na maioria dos casos, as sub-redes em sua organização são distribuídas em mais de uma rede. Crie uma ou mais redes para agrupar suas sub-redes para a sua lógica de negócios.
 
 Para criar uma nova rede:
 
@@ -69,30 +69,30 @@ Para criar regras de monitoramento personalizadas:
 1. Selecione **Adicionar Regra** na guia **Monitor** e digite o nome da regra e uma descrição.
 2. Selecione nas listas o par de links de rede ou sub-rede para monitorar. 
 3. Selecione a rede que contém as sub-redes que você deseja na lista suspensa de rede. Em seguida, selecione as sub-redes na lista suspensa de sub-rede correspondente. Se desejar monitorar todas as sub-redes em um link de rede, selecione **Todas as sub-redes**. Da mesma forma, selecione outras sub-redes desejadas. Para excluir o monitoramento de links de sub-rede específicos das seleções feitas, selecione **Adicionar Exceção**. 
-4. Escolha entre os protocolos TCP e ICMP para executar transações sintéticas. 
+4. Escolha o protocolo TCP ou ICMP para executar transações sintéticas. 
 5. Se não quiser criar eventos de integridade para os itens que você selecionou, desmarque **Ativar o monitoramento de integridade nos links cobertos por essa regra**. 
 6. Escolha as condições de monitoramento. Para definir limites personalizados para geração de eventos de integridade, digite os valores de limite. Sempre que o valor da condição exceder o limite selecionado para o par de rede ou sub-rede selecionado, será gerado um evento de integridade. 
 7. Selecione **Salvar** para salvar a configuração. 
 
 Depois de salvar uma regra de monitoramento, você pode integrar essa regra ao Gerenciamento de Alertas selecionando **Criar Alerta**. Uma regra de alerta é criada automaticamente com a consulta de pesquisa. Outros parâmetros necessários são preenchidos automaticamente. Usando uma regra de alerta, você pode receber alertas baseados em email, além de alertas existentes em Monitor de Desempenho de Rede. Os alertas podem disparar ações corretivas com runbooks ou podem integrar soluções de gerenciamento de serviço existentes usando webhooks. Selecione **Gerenciar Alerta** para editar as configurações de alerta. 
 
-Agora você pode criar mais regras de Monitor de Desempenho ou mover para o painel de solução para usar o recurso.
+Agora você pode criar mais regras para o Monitor de Desempenho ou passar para o painel de solução a fim de usar o recurso.
 
 ### <a name="choose-the-protocol"></a>Escolha o protocolo
 
 O Monitor de Desempenho de Rede usa transações sintéticas para calcular métricas de desempenho de rede como perda de pacote e latência de link. Para entender esse conceito melhor, considere um agente de Monitor de Desempenho de Rede conectado a uma extremidade de um link de rede. Este agente de Monitor de Desempenho de Rede envia pacotes de teste para um segundo agente do Monitor de Desempenho de Rede conectado à outra extremidade da rede. O segundo agente responde com pacotes de resposta. Esse processo é repetido algumas vezes. Medindo o número de respostas e o tempo necessário para receber cada resposta, o primeiro agente de Monitor de Desempenho de Rede avalia a latência de link e os descartes de pacotes. 
 
-O formato, o tamanho e a sequência desses pacotes são determinados pelo protocolo que você escolheu ao criar regras de monitoramento. Com base no protocolo dos pacotes, os dispositivos de rede intermediários, como roteadores, comutadores podem processar esses pacotes de maneira diferente. Consequentemente, a opção de protocolo afeta a precisão dos resultados. A escolha de protocolo também determina se será necessário executar alguma etapa manual após implantar a solução Monitor de Desempenho de Rede. 
+O formato, o tamanho e a sequência desses pacotes são determinados pelo protocolo que você escolheu ao criar regras de monitoramento. Com base no protocolo dos pacotes, os dispositivos de rede intermediários, como roteadores e comutadores, podem processar esses pacotes de maneira diferente. Consequentemente, a opção de protocolo afeta a precisão dos resultados. A escolha de protocolo também determina se será necessário executar alguma etapa manual após implantar a solução Monitor de Desempenho de Rede. 
 
 O Monitor de Desempenho de Rede permite que você escolha entre os protocolos TCP e ICMP para executar transações sintéticas. Se você escolher o ICMP quando criar uma regra de transação sintética, os agentes de Monitor de Desempenho de Rede usarão mensagens de eco ICMP para calcular a latência de rede e a perda de pacote. O Eco ICMP usa a mesma mensagem enviada pelo utilitário ping convencional. Quando você usa o TCP como protocolo, os agentes de Monitor de Desempenho de Rede enviam pacotes TCP SYN pela rede. Essa etapa é seguida pela conclusão de um handshake TCP e a conexão é removida usando pacotes RST. 
 
 Antes de escolher um protocolo, considere as seguintes informações: 
 
-* **Descoberta de várias rotas de rede.** O TCP é mais preciso ao descobrir várias rotas e exige menos agentes em cada sub-rede. Por exemplo, um ou dois agentes que usem TCP podem descobrir todos os caminhos redundantes entre sub-redes. Você precisa de vários agentes que usam o ICMP para alcançar resultados semelhantes. Usando o ICMP e, se você tiver um número de rotas entre duas sub-redes, precisará de mais de 5N agentes na sub-rede de origem ou de destino.
+* **Descoberta de várias rotas de rede.** O TCP é mais preciso ao descobrir várias rotas e exige menos agentes em cada sub-rede. Por exemplo, um ou dois agentes que usem TCP podem descobrir todos os caminhos redundantes entre sub-redes. Você precisa de vários agentes que usam o ICMP para alcançar resultados semelhantes. Usando o ICMP e, se você tiver várias rotas entre duas sub-redes, serão necessários mais do que 5N agentes na sub-rede de origem ou de destino.
 
 * **Precisão dos resultados.** Roteadores e comutadores tendem a atribuir a prioridade mais baixa para pacotes de eco ICMP em comparação com pacotes TCP. Em determinadas situações, quando os dispositivos de rede estão sobrecarregados, os dados obtidos pelo TCP refletem mais a perda e a latência apresentadas pelos aplicativos. Isso ocorre porque a maioria do tráfego do aplicativo flui pelo TCP. Nesses casos, o ICMP fornece resultados menos precisos em comparação ao TCP. 
 
-* **Configuração do firewall.** O protocolo TCP exige que os pacotes TCP sejam enviados a uma porta de destino. A porta padrão usada por agentes do Monitor de Desempenho de Rede é 8084. Você pode alterar a porta quando configurar agentes. Verifique se seus firewalls de rede ou regras de Grupo de Segurança de Rede (NSG) no Azure permitem o tráfego na porta. Você também precisa certificar-se de que o firewall local nos computadores em que os agentes são instalados esteja configurado para permitir o tráfego nesta porta. Você pode usar scripts do PowerShell para configurar regras de firewall em computadores que executam o Windows, no entanto, você precisa configurar manualmente o firewall da rede. Por outro lado, o ICMP não funciona por meio de uma porta. Na maioria dos cenários de negócios, o tráfego do ICMP é permitido por meio de firewalls para que você use ferramentas de diagnóstico de rede como o utilitário Ping. Se você puder executar Ping de um computador para o outro, poderá usar o protocolo ICMP sem ter que configurar firewalls manualmente.
+* **Configuração do firewall.** O protocolo TCP exige que os pacotes TCP sejam enviados a uma porta de destino. A porta padrão usada por agentes do Monitor de Desempenho de Rede é 8084. Você pode alterar a porta quando configurar agentes. Verifique se os firewalls de rede ou as regras do Grupo de Segurança de Rede (NSG) no Azure permitem o tráfego na porta. Você também precisa certificar-se de que o firewall local nos computadores em que os agentes são instalados esteja configurado para permitir o tráfego nesta porta. Você pode usar scripts do PowerShell para configurar regras de firewall em computadores que executam o Windows, no entanto, você precisa configurar manualmente o firewall da rede. Por outro lado, o ICMP não funciona por meio de uma porta. Na maioria dos cenários de negócios, o tráfego do ICMP é permitido por meio de firewalls para que você use ferramentas de diagnóstico de rede como o utilitário Ping. Se você puder executar Ping de um computador para o outro, poderá usar o protocolo ICMP sem ter que configurar firewalls manualmente.
 
 >[!NOTE] 
 > Alguns firewalls podem bloquear o ICMP, o que pode levar à retransmissão resultando em um grande número de eventos em seu sistema de gerenciamento de evento e informações de segurança. Verifique se o protocolo que você escolher não está bloqueado por um firewall de rede ou NSG. Caso contrário, o Monitor de Desempenho de Rede não pode monitorar o segmento de rede. Recomendamos que você use TCP para monitoramento. Use ICMP nos cenários em que você não pode usar o TCP, como quando: 
@@ -132,7 +132,7 @@ Todos os caminhos entre os dois nós selecionados são criados em gráfico no ma
 
 Analise a perda, a latência e o número de saltos em cada caminho no painel **Ação**. Use a barra de rolagem para exibir os detalhes dos caminhos não íntegros. Use os filtros para selecionar os caminhos com o nó íntegro, de forma que somente a topologia para os caminhos selecionados seja criada em gráfico. Para ampliar ou reduzir o mapa de topologia, use a roda do mouse. 
 
-Na imagem a seguir, a causa raiz das áreas problemáticas para a seção específica da rede aparece nos caminhos e nos saltos vermelhos. Selecione um nó no mapa de topologia para revelar as propriedades do nó, incluindo o FQDN e o endereço IP. Selecione um salto mostra o endereço IP do nó. 
+Na imagem a seguir, a causa raiz das áreas problemáticas para a seção específica da rede aparece nos caminhos e nos saltos vermelhos. Selecione um nó no mapa de topologia para revelar as propriedades do nó, incluindo o FQDN e o endereço IP. Ao selecionar um salto, um endereço IP do nó será exibido. 
  
 ![Mapa de topologia com as propriedades do nó selecionadas](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
 

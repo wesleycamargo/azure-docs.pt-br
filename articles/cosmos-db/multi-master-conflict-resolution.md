@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5feefdb8fe6204bc8ef42a5e65bf1e30354e0cf9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 39fd393e78a2b66749c6aa34a758b185b38effdf
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393920"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041180"
 ---
 # <a name="multi-master-conflict-resolution-in-azure-cosmos-db"></a>Resolução de conflitos de vários mestres no Azure Cosmos DB 
 
@@ -157,7 +157,7 @@ O procedimento tem quatro parâmetros:
 
 * **conflictingDocuments:** especifica uma coleção da versão confirmada de todos os documentos no banco de dados, que estão conflitando com incomingDocument na coluna de ID ou quaisquer campos de índice exclusivo. Esses documentos terão um valor "rid" diferente quando comparados com o incomingDocument.
 
-O procedimento definido pelo usuário tem acesso completo à chave de partição do Cosmos DB e pode executar qualquer operação de armazenamento para resolver conflitos. Se o procedimento definido pelo usuário não confirmar a versão do conflito, o sistema removerá o conflito e o existingDocument permanecerá confirmado. Se o procedimento definido pelo usuário falhar ou não existir, o Azure Cosmos DB adicionará o conflito no feed de conflitos somente leitura em que ele poderá ser processado de maneira assíncrona, conforme mostrado no [Modo de resolução de conflitos assíncrono](). 
+O procedimento definido pelo usuário tem acesso completo à chave de partição do Cosmos DB e pode executar qualquer operação de armazenamento para resolver conflitos. Se o procedimento definido pelo usuário não confirmar a versão do conflito, o sistema removerá o conflito e o existingDocument permanecerá confirmado. Se o procedimento definido pelo usuário falhar ou não existir, o Azure Cosmos DB adicionará o conflito no feed de conflitos somente leitura em que ele poderá ser processado de maneira assíncrona, conforme mostrado no [Modo de resolução de conflitos assíncrono](#custom--asynchronous). 
 
 ### <a name="custom--asynchronous"></a>Personalizado – Assíncrono  
 

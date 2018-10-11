@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: na
-ms.openlocfilehash: 661107779b74b6e21dec01aecf6d545ec2b7a702
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 50ab09d39fc0c224a97b6cf0c758c55026ac8ce7
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131745"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042826"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviços de TI
 Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM e o ITSMC (Conector de Gerenciamento de Serviços de TI) no Log Analytics para gerenciar seus itens de trabalho de forma centralizada. Para obter mais informações sobre o ITSMC, consulte [Visão geral](log-analytics-itsmc-overview.md).
@@ -39,7 +39,7 @@ Há suporte para os seguintes produtos/serviços ITSM. Selecione o produto para 
 
 As seções a seguir fornecem detalhes sobre como conectar seu produto System Center Service Manager ao ITSMC no Azure.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se os seguintes pré-requisitos foram atendidos:
 
@@ -184,7 +184,7 @@ O exemplo a seguir mostra os detalhes de uma conexão bem-sucedida:
 
 As seções a seguir fornecem detalhes sobre como conectar seu produto ServiceNow ao ITSMC no Azure.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Verifique se os seguintes pré-requisitos foram atendidos:
 - ITSMC instalado. Mais informações: [Adicionando o Conector de Gerenciamento de Serviço de TI](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versões com suporte do ServiceNow: Kingston, Jacarta, Istambul, Helsinque, Geneva.
@@ -284,7 +284,7 @@ Depois que o usuário é criado com êxito, o status de **lista de verificação
 As seções a seguir fornecem detalhes sobre como conectar seu produto Provance ao ITSMC no Azure.
 
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se os seguintes pré-requisitos foram atendidos:
 
@@ -337,7 +337,7 @@ Saiba mais: [ Crie itens de trabalho ITSM a partir de alertas do Azure ](log-ana
 
 As seções a seguir fornecem detalhes sobre como conectar seu produto Cherwell ao ITSMC no Azure.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se os seguintes pré-requisitos foram atendidos:
 

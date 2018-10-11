@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 240e56e3e482b81d6336f7d6d2a1f5688953ecd8
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: e668b2e989571d911c967d08d8012b11adaebd4d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131544"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041026"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Coletar alertas do Nagios e do Zabbix no Log Analytics do Agente do OMS para Linux 
 O [Nagios](https://www.nagios.org/) e o [Zabbix](http://www.zabbix.com/) são ferramentas de monitoramento de software livre. Você pode coletar alertas dessas ferramentas para o Log Analytics para analisá-los junto com os [alertas de outras fontes](log-analytics-alerts.md).  Este artigo descreve como configurar o Agente do OMS para Linux para coletar alertas desses sistemas.
  
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 O Agente do OMS para Linux dá suporte para coletar alertas do Nagios até a versão 4.2.x e do Zabbix até a versão 2.x.
 
 ## <a name="configure-alert-collection"></a>Configurar coleta de alertas
@@ -87,7 +87,7 @@ Registros de alerta coletados pelo Nagios têm **Type** definido como **Alert** 
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| type |*Alerta* |
+| Tipo |*Alerta* |
 | SourceSystem |*Nagios* |
 | AlertName |Nome do alerta. |
 | AlertDescription | Descrição do alerta. |
@@ -103,7 +103,7 @@ Registros de alerta coletados pelo Zabbix têm **Type** definido como **Alert** 
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| type |*Alerta* |
+| Tipo |*Alerta* |
 | SourceSystem |*Zabbix* |
 | AlertName | Nome do alerta. |
 | AlertPriority | Severidade do alerta.<br><br>não classificado<br>informações<br>Aviso<br>média<br>alto<br>desastre  |

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 179d5c71a309fd79c23519544d1da6bcc07cda0c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.component: ''
+ms.openlocfilehash: dfb95a57da62037df8f7fbe7e5d8edd970e264ac
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044993"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044358"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerenciar o custo controlando a retenção e o volume de dados no Log Analytics
 
@@ -55,7 +55,7 @@ Há duas maneiras pelas quais o volume de dados pode ser limitado e ajudar a con
 O Log Analytics facilita reconhecer quais são os custos com base nos padrões de uso recentes.  Para fazer isso, execute as seguintes etapas.  
 
 1. Faça logon no [Portal do Azure](http://portal.azure.com). 
-2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 3. No painel de assinaturas do Log Analytics, selecione seu espaço de trabalho e clique em  **Uso e custos estimados** do painel esquerdo.<br><br> ![Página Uso e custos estimados](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
 
 A partir daqui, é possível analisar o volume de dados para o mês. Isso inclui todos os dados recebidos e retidos no espaço de trabalho do Log Analytics.  Clique em **Detalhes de uso** na parte superior da página para exibir o painel de uso com informações sobre tendências de volume de dados por fonte, computadores e oferta. Para exibir e definir um limite diário ou modificar o período de retenção, clique em **Gerenciamento de volume de dados**.

@@ -5,17 +5,16 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 8/9/2018
+ms.date: 08/09/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 5a93cb7b2abbf0eaa25304f61a8a422edf209959
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: bd7f8748dc5260ed6574a1b48632318e9399bca0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091162"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042114"
 ---
-# <a name="integrate-azure-active-directory-with-aks"></a>Integrar o Azure Active Directory ao AKS
+# <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Azure Active Directory ao Serviço de Kubernetes do Azure
 
 O AKS (Serviço de Kubernetes do Azure) pode ser configurado para usar o Azure Active Directory (AD) para autenticação do usuário. Nessa configuração, é possível fazer logon em um cluster do AKS usando o token de autenticação do Azure Active Directory. Além disso, os administradores de cluster podem configurar o controle de acesso baseado em função (RBAC) do Kubernetes com base na identidade de um usuário ou associação no grupo de diretórios.
 
@@ -120,13 +119,16 @@ No portal do Azure, selecione **Azure Active Directory** > **Propriedades** e an
 Utilize o comando [az group create][az-group-create] para criar um grupo de recursos para o cluster do AKS.
 
 ```azurecli
-az group create --name myAKSCluster --location eastus
+az group create --name myResourceGroup --location eastus
 ```
 
 Implante o cluster usando o comando [az aks create][az-aks-create]. Substitua os valores no comando de exemplo abaixo pelos valores coletados ao criar os aplicativos do Azure AD.
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-keys --enable-rbac \
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --generate-ssh-keys \
   --aad-server-app-id b1536b67-29ab-4b63-b60f-9444d0c15df1 \
   --aad-server-app-secret wHYomLe2i1mHR2B3/d4sFrooHwADZccKwfoQwK2QHg= \
   --aad-client-app-id 8aaf8bd5-1bdd-4822-99ad-02bfaa63eea7 \
@@ -140,7 +142,7 @@ Antes que uma conta do Azure Active Directory possa ser usada com o cluster do A
 Primeiro, use o comando [az aks get-credentials][az-aks-get-credentials] com o argumento `--admin` para fazer logon no cluster com acesso de administrador.
 
 ```azurecli
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
 Em seguida, use o manifesto a seguir para criar um ClusterRoleBinding para uma conta do Azure AD. Atualize o nome de usuário com um do seu locatário do Azure AD. Este exemplo fornece à conta acesso total a todos os namespaces do cluster:
@@ -184,7 +186,7 @@ Para obter mais informações sobre como proteger um cluster do Kubernetes com R
 Em seguida, efetue pull do contexto para o usuário não administrador usando o comando [az aks get-credentials][az-aks-get-credentials].
 
 ```azurecli
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Depois de executar qualquer comando kubectl, você será solicitado a autenticar com o Azure. Siga as instruções na tela.
@@ -195,18 +197,18 @@ $ kubectl get nodes
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BUJHWDGNL to authenticate.
 
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-42032720-0   Ready     agent     1h        v1.9.6
-aks-nodepool1-42032720-1   Ready     agent     1h        v1.9.6
-aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
+aks-nodepool1-79590246-0   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 ```
 
 Após concluído, o token de autenticação será armazenado em cache. Você será novamente solicitado a fazer logon somente quando o token expirar ou o arquivo de configuração do Kubernetes for recriado.
 
 Caso receba uma mensagem de erro de autorização depois de entrar, verifique se o usuário com o qual você está entrando é um convidado no Microsoft Azure AD. Geralmente, isso se aplica quando você usa um logon federado de outro diretório.
+
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

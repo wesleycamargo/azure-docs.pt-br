@@ -2,24 +2,24 @@
 title: Replicar VMs do Hyper-V em nuvens de Virtual Machine Manager para um site secundário com o PowerShell (Azure Resource Manager) | Microsoft Docs
 description: Descreve como replicar VMs do Hyper-V em nuvens de Virtual Machine Manager para um site de Virtual Machine Manager secundário usando PowerShell (Gerenciador de Recursos)
 services: site-recovery
-author: sujaytalasila
+author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 0fecc7ba48daf396c3d25969cdda5891bdf08232
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 896b3cb3c40673dfbc7269cab1d37790f78912b0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917958"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041349"
 ---
 # <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Replicar VMs do Hyper-V para um site secundário usando PowerShell (Gerenciador de Recursos)
 
 Este artigo mostra como automatizar as etapas para a replicação de VMs do Hyper-V em nuvens de System Center Virtual Machine Manager para uma nuvem de Virtual Machine Manager em um site local secundário usando o [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Examine os [componentes e a arquitetura do cenário](hyper-v-vmm-architecture.md).
 - Examine os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md) de todos os componentes.
@@ -142,7 +142,7 @@ Verifique se você tem o PowerShell do Azure pronto para uso:
 4. Inicie a associação do contêiner de proteção (nuvem do Virtual Machine Manager) com a política de replicação.
 
        $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
-5. Aguarde o conclusão do trabalho de associação da política. Para verificar se o trabalho foi concluído, use o seguinte trecho do PowerShell:
+5. Aguarde o conclusão do trabalho de associação da política. Para verificar se o trabalho foi concluído, use o seguinte snippet do PowerShell:
 
        $job = Get-AzureRmSiteRecoveryJob -Job $associationJob
 

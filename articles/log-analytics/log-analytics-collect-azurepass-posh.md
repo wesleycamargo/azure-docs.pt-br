@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: b44a6627ab12c8a4ad21e7beded7c5fd2c2e1d39
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: beac96629ef2cc0cbbe8644929e7e0cc7c97a243
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128455"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044341"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Coletar métricas de recursos de PaaS do Azure com Log Analytics
 
@@ -28,7 +28,7 @@ Plataforma do Azure como um recurso de serviço (PaaS), como SQL Azure e Sites d
 
 Hoje, não há nenhuma maneira de habilitar registro de métricas para recursos de PaaS através do portal do Azure. Portanto, você precisa usar um script do PowerShell. Esse recurso de registro de métricas nativo junto com monitoramento de Log Analytics permitem monitorar recursos do Azure em grande escala. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Verifique se você tem os seguintes módulos do Azure Resource Manager instalados no seu computador antes de continuar:
 
 - AzureRM.Insights
