@@ -1,9 +1,9 @@
 ---
-title: Gerenciamento de região na pilha do Azure | Microsoft Docs
-description: Visão geral do gerenciamento de região na pilha do Azure.
+title: Gerenciamento de região no Azure Stack | Microsoft Docs
+description: Visão geral do gerenciamento de região no Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
@@ -13,44 +13,44 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 0286ed9c7b3fe320b936d33fe3beaddccd6ac0fa
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 401b81ceb7ab71528a4ad11bc7d8944b4d732933
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247527"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078834"
 ---
-# <a name="region-management-in-azure-stack"></a>Gerenciamento de região na pilha do Azure
+# <a name="region-management-in-azure-stack"></a>Gerenciamento de região no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-A pilha do Azure usa o conceito de regiões, que são entidades lógicas abrange os recursos de hardware que compõem a infra-estrutura de pilha do Azure. Em gerenciamento de região, você pode localizar todos os recursos que são necessárias para operar com êxito a infraestrutura de pilha do Azure.
+Pilha do Azure usa o conceito de regiões, que são entidades lógicas compostas por recursos de hardware que compõem a infraestrutura do Azure Stack. Dentro do gerenciamento de região, você pode encontrar todos os recursos que são necessários para operar com êxito a infraestrutura do Azure Stack.
 
-Um integrado de implantação de sistema (conhecido como um *nuvem Azure pilha*) compõe uma única região. Cada Kit de desenvolvimento de pilha do Azure tem uma região, denominada **local**. Se você implantar um sistema de pilha do Azure integradas segundo ou configurar outra instância do kit de desenvolvimento em hardware separado, esta nuvem de pilha do Azure é uma região diferente.
+Uma delas integrada a implantação de sistema (conhecido como um *nuvem do Azure Stack*) compõe uma única região. Cada Kit de desenvolvimento do Azure Stack tem uma região, denominada **local**. Se você implantar um segundo sistema integrado do Azure Stack ou se você configurar a outra instância do kit de desenvolvimento em um hardware separado, essa nuvem do Azure Stack é uma região diferente.
 
 ## <a name="information-available-through-the-region-management-tile"></a>Informações disponíveis por meio do bloco de gerenciamento de região
 
-A pilha do Azure tem um conjunto de recursos de gerenciamento de região disponíveis no **gerenciamento região** lado a lado. Este bloco está disponível para um operador de pilha do Azure usando o painel padrão no portal do administrador. Por esse bloco, você pode monitorar e atualizar sua região de pilha do Azure e seus componentes, que são específicas da região.
+O Azure Stack tem um conjunto de recursos de gerenciamento de região disponíveis na **gerenciamento de região** lado a lado. Esse bloco está disponível para um operador do Azure Stack no painel no portal do administrador padrão. Por meio de lado a lado, você pode monitorar e atualizar sua região do Azure Stack e seus componentes, que são específicas da região.
 
  ![O bloco de gerenciamento de região](media/azure-stack-manage-region/image1.png)
 
- Se você clicar em uma região no bloco de gerenciamento de região, você pode acessar as informações a seguir:
+ Se você clicar em uma região no bloco do gerenciamento de região, você pode acessar as informações a seguir:
 
   ![Descrição dos painéis na folha de gerenciamento de região](media/azure-stack-manage-region/image2.png)
 
-1. **O menu de recurso**. Aqui, você pode acessar as áreas do gerenciamento de infraestrutura específicos e exibir e gerenciar recursos do usuário como contas de armazenamento e redes virtuais.
+1. **Menu de recursos**. Aqui, você pode acessar áreas de gerenciamento de infraestrutura específicos e exibir e gerenciar recursos do usuário como contas de armazenamento e redes virtuais.
 
-2. **Alertas**. Isso lista alertas de todo o sistema e fornece detalhes sobre cada um desses alertas.
+2. **Alertas**. Isso lista os alertas de todo o sistema e fornece detalhes sobre cada um desses alertas.
 
-3. **Atualizações**. Aqui você pode ver a versão atual de sua infraestrutura de pilha do Azure, as atualizações disponíveis e o histórico de atualização. Você também pode atualizar seu sistema.
+3. **Atualizações**. Aqui você pode exibir a versão atual de sua infraestrutura do Azure Stack, as atualizações disponíveis e o histórico de atualização. Você também pode atualizar seu sistema integrado.
 
-4. **Provedores de recursos**. Provedores de recursos é o local para gerenciar a funcionalidade de usuário oferecida pelos componentes necessários para executar a pilha do Azure. Cada provedor de recursos é fornecido com uma experiência administrativa. Essa experiência pode incluir alertas para o provedor específico, métricas e outros recursos de gerenciamento específicos para o provedor de recursos.
+4. **Provedores de recursos**. Provedores de recursos é o lugar para gerenciar a funcionalidade de usuário oferecida pelos componentes necessários para executar o Azure Stack. Cada provedor de recursos é fornecido com uma experiência administrativa. Essa experiência pode incluir alertas para o provedor específico, métricas e outros recursos de gerenciamento específicos para o provedor de recursos.
 
-5. **Funções de infraestrutura**. Funções de infraestrutura são os componentes necessários para executar a pilha do Azure. Somente as funções de infraestrutura que relatam alertas são listadas. Selecionando uma função, você pode exibir os alertas associados a função e as instâncias de função em que essa função está em execução.
+5. **Funções de infraestrutura**. Funções de infraestrutura são os componentes necessários para executar o Azure Stack. Somente as funções de infraestrutura que relatam os alertas são listadas. Selecionando uma função, você pode exibir os alertas associados com a função e as instâncias de função em que essa função está em execução.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Monitorar a integridade e alertas na pilha do Azure](azure-stack-monitor-health.md)
-- [Gerenciar atualizações na pilha do Azure](azure-stack-updates.md)
+- [Monitorar a integridade e alertas no Azure Stack](azure-stack-monitor-health.md)
+- [Gerenciar atualizações no Azure Stack](azure-stack-updates.md)

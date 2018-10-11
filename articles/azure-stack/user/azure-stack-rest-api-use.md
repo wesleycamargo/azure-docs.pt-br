@@ -3,22 +3,22 @@ title: Use o API do Azure Stack | Microsoft Docs
 description: Saiba como recuperar uma autenticação do Azure para fazer solicitações de API para o Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: cblackuk
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 10/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 3b89564bf17a9884640b51faa1c3966dce93f89a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 945c5df9aa76cef6d55b759e3cef7c00bf54e1c4
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346783"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078323"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -28,13 +28,13 @@ ms.locfileid: "37346783"
 
 Você pode usar a Interface de programação de aplicativo (API) para automatizar as operações como adicionar uma máquina virtual à nuvem do Azure Stack.
 
-A API requer que seu cliente para autenticar o ponto de extremidade de logon do Microsoft Azure. O ponto de extremidade retorna um token a ser usado no cabeçalho de cada solicitação enviada para a API do Azure Stack. O Microsoft Azure usa Oauth 2.0.
+A API requer que seu cliente autenticar para o Microsoft Azure entrar no ponto de extremidade. O ponto de extremidade retorna um token a ser usado no cabeçalho de cada solicitação enviada para a API do Azure Stack. O Microsoft Azure usa Oauth 2.0.
 
 Este artigo fornece exemplos que usam o **cURL** utilitário para criar solicitações de pilha do Azure. O aplicativo, cURL, é uma ferramenta de linha de comando com uma biblioteca para a transferência de dados. Esses exemplos percorrer o processo de recuperar um token para acessar a API do Azure Stack. A maioria das linguagens de programação fornecem bibliotecas de Oauth 2.0, que têm robustas tarefas de gerenciamento e o identificador de token tal uma atualização do token.
 
 Examinar todo o processo de usar a API REST do Azure Stack com um cliente REST genérico, como **cURL**, para ajudar você a entender subjacente solicita e mostra o que você pode esperar receber em uma carga de resposta.
 
-Este artigo não explorar todas as opções disponíveis para recuperar tokens, como o logon interativo ou criação de IDs de aplicativo dedicado. Para obter informações sobre esses tópicos, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/).
+Este artigo não explorar todas as opções disponíveis para recuperar tokens como entrada interativa ou criação de IDs de aplicativo dedicado. Para obter informações sobre esses tópicos, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Obter um token do Azure
 
@@ -206,7 +206,7 @@ A cadeia de caracteres fornece parâmetros adicionais simples, como os critério
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}
 ```
 
-### <a name="uri-syntax"></a>Sintaxe de URI
+### <a name="uri-syntax"></a>Sintaxe URI
 
 ```
 https://adminmanagement.local.azurestack.external/{subscription id}/resourcegroups/{resource group}/providers/{provider}/{resource-path}?{api-version}

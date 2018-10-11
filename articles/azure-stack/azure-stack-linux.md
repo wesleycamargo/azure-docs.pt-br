@@ -1,9 +1,9 @@
 ---
-title: Adicionar imagens Linux a pilha do Azure
-description: Saiba como adicionar imagens Linux a pilha do Azure.
+title: Adicionar imagens do Linux para o Azure Stack
+description: Saiba como adicionar imagens do Linux para o Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,34 +12,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 64a860bc925b9c7499363c1fe39d03df88a9a51d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: db52d145c3bfbd9415072be13ccb502969f07374
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935697"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077640"
 ---
-# <a name="add-linux-images-to-azure-stack"></a>Adicionar imagens Linux a pilha do Azure
+# <a name="add-linux-images-to-azure-stack"></a>Adicionar imagens do Linux para o Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Você pode implantar máquinas virtuais do Linux (VMs) na pilha do Azure, adicionando uma imagem baseada em Linux no Azure Marketplace de pilha. É a maneira mais fácil para adicionar uma imagem do Linux a pilha do Azure por meio do gerenciamento do Marketplace. Essas imagens foram preparadas e testadas quanto à compatibilidade com a pilha do Azure.
+Você pode implantar máquinas virtuais do Linux (VMs) no Azure Stack, adicionando uma imagem baseada em Linux no Azure Stack Marketplace. É a maneira mais fácil para adicionar uma imagem do Linux para o Azure Stack por meio do gerenciamento do Marketplace. Essas imagens foram preparadas e testadas quanto à compatibilidade com o Azure Stack.
 
 ## <a name="marketplace-management"></a>Gerenciamento do Marketplace
 
-Para fazer o download de imagens do Linux do Azure Marketplace, use os procedimentos no artigo a seguir. Selecione as imagens do Linux que você deseja oferecer aos usuários em sua pilha do Azure. 
+Para fazer o download de imagens do Linux no Azure Marketplace, use os procedimentos no artigo a seguir. Selecione as imagens do Linux que você deseja oferecer aos usuários no Azure Stack. 
 
-[Fazer o download de itens do marketplace do Azure para a pilha do Azure](azure-stack-download-azure-marketplace-item.md).
+[Baixar itens do marketplace do Azure para o Azure Stack](azure-stack-download-azure-marketplace-item.md).
 
-Observe que há atualizações frequentes para essas imagens, por isso verifique gerenciamento Marketplace com frequência para manter atualizadas.
+Observe que há atualizações frequentes para essas imagens, portanto, verifique o gerenciamento do Marketplace com frequência para manter atualizado.
 
 ## <a name="prepare-your-own-image"></a>Preparar sua própria imagem
 
- Sempre que possível, baixe as imagens disponíveis por meio do gerenciamento de mercado que estejam preparados e testado para a pilha do Azure. 
+ Sempre que possível, baixe as imagens disponíveis por meio do gerenciamento do Marketplace que estejam preparados e testado para o Azure Stack. 
  
- O agente Linux do Azure (geralmente chamado `WALinuxAgent` ou `walinuxagent`) é necessária, e nem todas as versões do agente funcionará na pilha do Azure. Você deve usar a versão 2.2.18 ou posterior se você criar sua própria imagem. Observe que [init nuvem](https://cloud-init.io/) não tem suporte na pilha do Azure no momento.
+ Agente Linux do Azure (normalmente chamado `WALinuxAgent` ou `walinuxagent`) é necessário, e nem todas as versões do agente funcionará no Azure Stack. Você deve usar a versão 2.2.18 ou posterior, se você cria sua própria imagem. Observe que [cloud_init](https://cloud-init.io/) não tem suporte no Azure Stack no momento.
 
  Você pode preparar sua própria imagem do Linux usando as instruções a seguir:
 
@@ -50,8 +50,8 @@ Observe que há atualizações frequentes para essas imagens, por isso verifique
    * [Ubuntu Server](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
     
-## <a name="add-your-image-to-the-marketplace"></a>Adicionar a imagem do Marketplace
+## <a name="add-your-image-to-the-marketplace"></a>Adicione sua imagem no Marketplace
  
-Execute [adicionar a imagem do Marketplace](azure-stack-add-vm-image.md). Verifique se o `OSType` parâmetro está definido como `Linux`.
+Siga [adicionar a imagem do Marketplace](azure-stack-add-vm-image.md). Certifique-se de que o `OSType` parâmetro é definido como `Linux`.
 
-Depois de adicionar a imagem do Marketplace, um item do Marketplace é criado e os usuários podem implantar uma máquina virtual Linux.
+Depois de adicionar a imagem no Marketplace, um item do Marketplace é criado e os usuários podem implantar uma máquina virtual Linux.

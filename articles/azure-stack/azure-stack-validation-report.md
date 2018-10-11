@@ -3,7 +3,7 @@ title: Relatório de validação para o Azure Stack | Microsoft Docs
 description: Use o relatório de verificador de preparação do Azure Stack para examinar os resultados da validação.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 06b5660a9428e98d2e99b5d447a05700968ec884
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 156b84e4941363716721b5cee6c19333ffe7594c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381906"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079439"
 ---
 # <a name="azure-stack-validation-report"></a>Relatório de validação de pilha do Azure
 Use o verificador de preparação de pilha do Azure para executar validações que dão suporte à implantação e manutenção de um ambiente do Azure Stack. A ferramenta grava os resultados em um arquivo de relatório. JSON. O relatório exibe dados resumidos e detalhados sobre o estado de pré-requisitos para implantação do Azure Stack. O relatório também exibe informações sobre a rotação de segredos para implantações de pilha do Azure existente.  

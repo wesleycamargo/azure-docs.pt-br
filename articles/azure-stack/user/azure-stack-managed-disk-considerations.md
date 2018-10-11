@@ -3,7 +3,7 @@ title: Diferenças e considerações para o Managed Disks no Azure Stack | Micro
 description: Saiba mais sobre as diferenças e considerações ao trabalhar com o Managed Disks no Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 26f8880d01da00780317ee2a6f66ee5007576a50
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2870bf8911c48ac4cbb442278f172b37a474152b
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347657"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078046"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Managed Disks do Azure Stack: Diferenças e considerações
 Este artigo resume as diferenças conhecidas entre discos gerenciados do Azure Stack e Managed Disks do Azure. Para saber mais sobre as diferenças de alto nível entre o Azure Stack e o Azure, consulte a [considerações da chave](azure-stack-considerations.md) artigo.

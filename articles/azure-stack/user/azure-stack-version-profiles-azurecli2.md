@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 59b637e6887a645430d902cd846cacda13b14cfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972803"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067696"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Use perfis de versão de API com a CLI do Azure no Azure Stack
 
@@ -168,7 +168,8 @@ Use as seguintes etapas para se conectar ao Azure Stack:
 
 1. Entre seu ambiente do Azure Stack usando o `az login` comando. Você pode entrar no ambiente do Azure Stack como um usuário ou como um [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Entrar como um *usuário*: você pode especificar o nome de usuário e senha diretamente dentro de `az login` de comando ou autenticar usando um navegador. Você precisa fazer o último se sua conta tiver a autenticação multifator habilitada.
+    * Ambientes de AAD
+      * Entrar como um *usuário*: você pode especificar o nome de usuário e senha diretamente dentro de `az login` de comando ou autenticar usando um navegador. Você precisa fazer o último se sua conta tiver a autenticação multifator habilitada.
 
       ```azurecli
       az login \
@@ -179,7 +180,7 @@ Use as seguintes etapas para se conectar ao Azure Stack:
       > [!NOTE]
       > Se sua conta de usuário tiver a autenticação multifator habilitada, você pode usar o `az login command` sem fornecer o `-u` parâmetro. Executando o comando fornece uma URL e um código que você deve usar para autenticar.
    
-   * Entrar como um *entidade de serviço*: antes de entrar no, [criar uma entidade de serviço por meio do portal do Azure](azure-stack-create-service-principals.md) ou a CLI e atribuí-lo uma função. Agora, entre usando o comando a seguir:
+      * Entrar como um *entidade de serviço*: antes de entrar no, [criar uma entidade de serviço por meio do portal do Azure](azure-stack-create-service-principals.md) ou a CLI e atribuí-lo uma função. Agora, entre usando o comando a seguir:
 
       ```azurecli
       az login \
@@ -188,6 +189,22 @@ Use as seguintes etapas para se conectar ao Azure Stack:
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
+    * Ambientes do AD FS
+
+        * Entrar como um *entidade de serviço*: 
+          1.    Prepare o arquivo. PEM a ser usado para logon de entidade de serviço.
+                * No computador cliente em que a entidade foi criada, exporte o certificado de entidade de serviço como um pfx com a chave privada (localizado em cert: \CurrentUser\My; o nome do certificado tem o mesmo nome que a entidade de segurança).
+
+                *   Converta o pfx em pem (Utilitário de OpenSSL para uso).
+
+          1.    Faça logon na CLI. :
+                ```azurecli
+                az login --service-principal \
+                 -u <Client ID from the Service Principal details> \
+                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
+                 --tenant <Tenant ID> \
+                 --debug 
+                ```
 
 ## <a name="test-the-connectivity"></a>Testar a conectividade
 

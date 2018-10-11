@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8a7ecac3776d767160b07f550251c54793926056
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8fbfd37be0bc6f05f30b71fdae2e7cc88601d628
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033185"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785538"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Acesso de criação e do usuário de ponto de extremidade
 O acesso de criação está disponível para proprietários e colaboradores. Para um aplicativo privado, o acesso de ponto de extremidade está disponível para proprietários e colaboradores. Para um aplicativo público, o acesso de ponto de extremidade está disponível a todos que têm sua conta LUIS e que tem a ID do aplicativo público. 
@@ -85,7 +85,7 @@ If the Microsoft user account is part of an Azure Active Directory (AAD), and th
 
 ## <a name="security-compliance"></a>Conformidade de segurança
  
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-security-compliance.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-security-compliance.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

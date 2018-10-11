@@ -1,9 +1,9 @@
 ---
-title: Validar a identidade do Azure para a pilha do Azure | Microsoft Docs
-description: Use o verificador de preparação de pilha do Azure para validar a identidade do Azure.
+title: Validar a identidade do Azure para o Azure Stack | Microsoft Docs
+description: Use o verificador de preparação do Azure Stack para validar a identidade do Azure.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,49 +13,49 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: fe5e7281cbe01ad11f667729df344f91ef1327d2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9c7ac89d1f12e8ec033b201f2c2dd845c11486e2
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937824"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077810"
 ---
 # <a name="validate-azure-identity"></a>Validar a identidade do Azure 
-Use a ferramenta de verificador de preparação de pilha do Azure (AzsReadinessChecker) para validar que o Azure Active Directory (AD do Azure) está pronto para uso com a pilha do Azure. Valide sua solução de identidade do Azure antes de começar uma implantação de pilha do Azure.  
+Use a ferramenta de verificador de preparação do Azure Stack (AzsReadinessChecker) para validar que seu Azure Active Directory (Azure AD) está pronta para uso com o Azure Stack. Valide sua solução de identidade do Azure antes de começar uma implantação do Azure Stack.  
 
 Valida o verificador de preparação:
- - Azure Active Directory (AD do Azure) como um provedor de identidade para a pilha do Azure.
- - A conta do AD do Azure que você planeja usar pode fazer logon como um administrador global do Active Directory do Azure. 
+ - Azure Active Directory (Azure AD) como um provedor de identidade para o Azure Stack.
+ - Conta do Azure AD que você planeja usar pode fazer logon como um administrador global do Active Directory do Azure. 
 
-A validação garante que o seu ambiente está preparado para a pilha do Azure armazenar informações sobre usuários, aplicativos, grupos e entidades de serviço da pilha do Azure no AD do Azure.
+A validação garante que seu ambiente está preparado para o Azure Stack armazenar informações sobre usuários, aplicativos, grupos e entidades de serviço do Azure Stack no Azure AD.
 
-## <a name="get-the-readiness-checker-tool"></a>Obter o verificador de preparação
-Baixar a versão mais recente da ferramenta Verificador de preparação de pilha do Azure (AzsReadinessChecker) da [PSGallery](https://aka.ms/AzsReadinessChecker).  
+## <a name="get-the-readiness-checker-tool"></a>Obter a ferramenta de verificação da prontidão
+Baixar a versão mais recente da ferramenta de verificador de preparação do Azure Stack (AzsReadinessChecker) a [PSGallery](https://aka.ms/AzsReadinessChecker).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Os seguintes pré-requisitos devem estar em vigor.
 
-**O computador onde a ferramenta é executada:**
+**O computador em que a ferramenta é executada:**
  - Windows 10 ou Windows Server 2016, a conectividade com a internet.
- - PowerShell 5.1 ou posterior. Para verificar a versão, execute o seguinte cmd do PowerShell e, em seguida, examine o *principais* versão e *secundária* versões:  
+ - PowerShell 5.1 ou posterior. Para verificar sua versão, execute o seguinte comando do PowerShell e, em seguida, examine os *principais* versão e *secundárias* versões:  
 
    > `$PSVersionTable.PSVersion`
- - Configurar [PowerShell para Azure pilha](azure-stack-powershell-install.md). 
- - A versão mais recente do [Verificador de preparação de pilha do Microsoft Azure](https://aka.ms/AzsReadinessChecker) ferramenta.
+ - Configure [PowerShell para o Azure Stack](azure-stack-powershell-install.md). 
+ - A versão mais recente do [Verificador de preparação do Microsoft Azure Stack](https://aka.ms/AzsReadinessChecker) ferramenta.
 
 **Ambiente do Active Directory do Azure:**
- - Identificar a conta do AD do Azure é usado para a pilha do Azure e certifique-se de que ele seja um Administrador Global do Active Directory do Azure.
+ - Identifique a conta do Azure AD, você usará para o Azure Stack e verifique se que ele é um Administrador Global do Active Directory do Azure.
  - Identificar o nome do locatário do Azure AD. O nome do locatário deve ser o *primário* nome de domínio do Active Directory do Azure. Por exemplo, *contoso.onmicrosoft.com*. 
- - Identificar o AzureEnvironement que você usará: *AzureCloud*, *AzureGermanCloud*, ou *AzureChinaCloud*.
+ - Identificar o AzureEnvironement você usará: *AzureCloud*, *AzureGermanCloud*, ou *AzureChinaCloud*.
 
 ## <a name="validate-azure-identity"></a>Validar a identidade do Azure 
 1. Em um computador que atenda aos pré-requisitos, abra um prompt do PowerShell administrativo e, em seguida, execute o seguinte comando para instalar o AzsReadinessChecker:  
 
    > `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-2. No prompt do PowerShell, execute o seguinte para definir *$serviceAdminCredential* como o administrador de serviço para seu locatário do AD do Azure.  Substituir *serviceadmin@contoso.onmicrosoft.com* com sua conta e locatário. 
+2. No prompt do PowerShell, execute o seguinte para definir *$serviceAdminCredential* como o administrador de serviço para seu locatário do AD do Azure.  Substitua *serviceadmin@contoso.onmicrosoft.com* com sua conta e o locatário. 
    > `$serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant"` 
 
 3. No prompt do PowerShell, execute o seguinte para iniciar a validação do AD do Azure. 
@@ -63,54 +63,54 @@ Os seguintes pré-requisitos devem estar em vigor.
    - Especifique o nome do locatário do Azure Active Directory para substituir *contoso.onmicrosoft.com*. 
 
    > `Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AADDirectoryTenantName contoso.onmicrosoft.com`
-4. Depois que a ferramenta é executada, examine a saída. Confirme o status é **Okey** para o logon e os requisitos de instalação. Validação bem-sucedida é exibida como a imagem a seguir: 
+4. Depois que a ferramenta é executada, examine a saída. Confirme o status é **Okey** para logon e os requisitos de instalação. Uma validação bem-sucedida é exibida como a imagem a seguir: 
  
 ![executar a validação](./media/azure-stack-validate-identity/validation.png)
 
 
 ## <a name="report-and-log-file"></a>Arquivo de log e relatório
-Executa a validação de cada vez, ela registra resultados **AzsReadinessChecker.log** e **AzsReadinessCheckerReport.json**. Exibe o local desses arquivos com os resultados de validação no PowerShell.
+A cada hora de validação é executada, ela registra resultados a serem **AzsReadinessChecker.log** e **AzsReadinessCheckerReport.json**. Exibe o local desses arquivos com os resultados de validação no PowerShell.
 
-Esses arquivos podem ajudá-lo a compartilhar o status de validação antes de implantar o Azure pilha ou investigar problemas de validação.  Os dois arquivos mantém os resultados de cada verificação de validação subsequentes. O relatório fornece sua confirmação da equipe de implantação da configuração de identidade. O arquivo de log pode ajudar sua equipe de implantação ou o suporte a investigar problemas de validação. 
+Esses arquivos podem ajudá-lo a compartilhar o status de validação antes de implantar o Azure Stack ou investigar problemas de validação.  Os dois arquivos persistirem os resultados de cada verificação de validação subsequente. O relatório fornece sua confirmação da equipe de implantação da configuração de identidade. O arquivo de log pode ajudar sua equipe de implantação ou suporte a investigar problemas de validação. 
 
 Por padrão, os dois arquivos são gravados *C:\Users\<nome de usuário > \AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json*.  
- - Use o **- OutputPath** ***&lt;caminho&gt;*** parâmetro no final da linha de comando de execução para especificar um local diferente do relatório.   
+ - Use o **- OutputPath** ***&lt;caminho&gt;*** parâmetro no final da linha de comando executar para especificar um local diferente do relatório.   
  - Use o **- CleanReport** parâmetro no final do comando para limpar as informações de execução *AzsReadinessCheckerReport.json*.  sobre as execuções anteriores da ferramenta. 
 
-Para obter mais informações, [relatório de validação de pilha do Azure](azure-stack-validation-report.md).
+Para obter mais informações, [relatório de validação do Azure Stack](azure-stack-validation-report.md).
 
-## <a name="validation-failures"></a>Falhas de validação
-Se uma verificação de validação falhar, detalhes sobre a falha são exibidos na janela do PowerShell. A ferramenta também registra informações de AzsReadinessChecker.log.
+## <a name="validation-failures"></a>Falha na validação
+Se uma verificação de validação falhar, detalhes sobre a falha será exibido na janela do PowerShell. A ferramenta também registra informações para o AzsReadinessChecker.log.
 
-Os exemplos a seguir fornecem orientação sobre falhas de validação comuns.
+Os exemplos a seguir fornecem orientação sobre as falhas comuns de validação.
 
 ### <a name="expired-or-temporary-password"></a>Senha expirada ou temporária 
  
-![expirado senha](./media/azure-stack-validate-identity/expired-password.png)
-**causa** -a conta não é possível fazer logon porque a senha expirou ou é temporária.     
+![senha expirada](./media/azure-stack-validate-identity/expired-password.png)
+**causa** -a conta não pode fazer logon porque a senha expirou ou é temporária.     
 
-**Resolução** - no PowerShell, execute o seguinte e, em seguida, siga os prompts para redefinir a senha.  
+**Resolução** - o no PowerShell, execute o seguinte e, em seguida, siga os prompts para redefinir a senha.  
 > `Login-AzureRMAccount`
 
-Como alternativa, o logon em https://portal.azure.com como a conta e o usuário serão forçados a alterar a senha.
+Como alternativa, faça logon no https://portal.azure.com como a conta e o usuário serão forçados a alterar a senha.
 ### <a name="unknown-user-type"></a>Tipo de usuário desconhecido 
  
 ![usuário desconhecido](./media/azure-stack-validate-identity/unknown-user.png)
-**causa** -a conta não pode efetuar logon especificado do Azure Active Directory (AADDirectoryTenantName). Neste exemplo, *AzureChinaCloud* é especificado como o *AzureEnvironment*.
+**causa** -a conta não é possível fazer logon no Azure Active Directory especificado (AADDirectoryTenantName). Neste exemplo, *AzureChinaCloud* é especificado como o *AzureEnvironment*.
 
-**Resolução** -confirme se a conta é válida para o ambiente do Azure especificado. No PowerShell, execute o seguinte para verificar se a conta é válida para um ambiente específico: logon-AzureRmAccount – EnvironmentName AzureChinaCloud 
+**Resolução** -confirme que a conta é válida para o ambiente do Azure especificado. No PowerShell, execute o seguinte para verificar a conta é válida para um ambiente específico: Login-AzureRmAccount-EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>Conta não é um administrador 
  
 ![não administrador](./media/azure-stack-validate-identity/not-admin.png)
 
-**Causa** -embora com êxito, a conta pode fazer logon, a conta não é um administrador do Active Directory do Azure (AADDirectoryTenantName).  
+**Causa** -Embora a conta com êxito pode fazer logon, a conta não é um administrador do Azure Active Directory (AADDirectoryTenantName).  
 
-**Resolução** -logon em https://portal.azure.com como a conta, vá para **Active Directory do Azure** > **usuários** > *selecione o usuário*  >  **Função de diretório**e, em seguida, certifique-se de que o usuário é um **Administrador Global**.  Se a conta for um usuário, vá para **Active Directory do Azure** > **domínio personalizado** nomes e confirme que o nome fornecido para *AADDirectoryTenantName* é marcado como o nome de domínio primário para este diretório.  Neste exemplo, que é *contoso.onmicrosoft.com*. 
+**Resolução** -faça logon no https://portal.azure.com como a conta, acesse **Azure Active Directory** > **usuários** > *selecione o usuário*  >  **Função de diretório**e, em seguida, verifique se o usuário é um **Administrador Global**.  Se a conta for um usuário, acesse **Azure Active Directory** > **domínio personalizado** nomeia e confirme que o nome fornecido para *AADDirectoryTenantName* é marcado como o nome de domínio primário para este diretório.  Neste exemplo, que é *contoso.onmicrosoft.com*. 
 
-A pilha do Azure requer que o nome de domínio é o nome de domínio primário.
+O Azure Stack requer que o nome de domínio é o nome de domínio primário.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Validar o registro do Azure](azure-stack-validate-registration.md)  
 [Exibir o relatório de preparação](azure-stack-validation-report.md)  
-[Considerações sobre a integração geral do Azure pilha](azure-stack-datacenter-integration.md)  
+[Considerações sobre a integração geral do Azure Stack](azure-stack-datacenter-integration.md)  
 

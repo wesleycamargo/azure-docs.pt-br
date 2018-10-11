@@ -3,7 +3,7 @@ title: Neste tutorial, você aprenderá a assinar uma oferta do Azure Stack | Mi
 description: Este tutorial mostra como criar uma nova assinatura para serviços do Azure Stack e testar a oferta com a criação de uma máquina virtual de teste.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 0e2fa9b01d27d68c1eab9097a20b6e350ba47f99
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: aff20cba3bc07924f669420a8c367613b41111a1
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028787"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076093"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Tutorial: criar e testar uma assinatura
 Este tutorial mostra como criar uma assinatura que contém uma oferta e, em seguida, testá-lo. Para o teste, entrar no portal do usuário do Azure Stack como um administrador de nuvem, assine a oferta e, em seguida, criar uma máquina virtual.

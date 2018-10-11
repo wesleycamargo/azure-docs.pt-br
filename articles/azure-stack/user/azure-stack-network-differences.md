@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.author: brenduns
 ms.date: 08/02/2018
 ms.topic: article
 ms.service: azure-stack
+ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 50fe3c0c7fda745047c71afb8eedf7fa8806c4ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 1863236a51d89dd311cd8aacfcd737faddf21ab0
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139484"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079184"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considerações sobre a rede do Azure Stack
 
@@ -40,7 +40,7 @@ Este artigo fornece uma visão geral das considerações exclusivas para a rede 
 |  | Configurações de IP do conjunto de dimensionamento | Com suporte | Ainda não tem suporte. |
 |  | Serviços de acesso privado (sub-rede) | Com suporte | Ainda não tem suporte. |
 |  | Pontos de extremidade de serviço | Suporte para conexão de (sem Internet) interno para serviços do Azure. | Ainda não tem suporte. |
-| Há suporte apenas para IPv4. | Políticas de ponto de extremidade de serviço | Com suporte | Ainda não tem suporte. |
+| Há suporte apenas para IPv4. | Políticas do Ponto de Extremidade do Serviço | Com suporte | Ainda não tem suporte. |
 |  | Túneis de serviço | Com suporte | Ainda não tem suporte.  |
 | Grupos de segurança de rede | Regras de segurança aumentadas | Com suporte | Ainda não tem suporte. |
 |  | Regras de segurança efetivas | Com suporte | Ainda não tem suporte. |
@@ -63,7 +63,7 @@ Este artigo fornece uma visão geral das considerações exclusivas para a rede 
 | Endereço IP público | Versão do endereço IP público | Azure dá suporte a IPv6 e IPv4 | Há suporte apenas para IPv4. |
 | Interface de rede | Obter tabela efetiva de rotas | Com suporte | Ainda não tem suporte. |
 |  | Obter as ACLs em vigor | Com suporte | Ainda não tem suporte. |
-|  | Habilitar a rede acelerada | Com suporte | Ainda não tem suporte. |
+|  | Habilitar Rede acelerada | Com suporte | Ainda não tem suporte. |
 |  | encaminhamento IP | Desabilitado por padrão.  Pode ser habilitado. | Ativar/desativar essa configuração não é suportado.  Em por padrão. |
 |  | Várias configurações de IP por interface | Com suporte | Ainda não tem suporte. |
 |  | Grupos de segurança do aplicativo | Com suporte | Ainda não tem suporte. |
