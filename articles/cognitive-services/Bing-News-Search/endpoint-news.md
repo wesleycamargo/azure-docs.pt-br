@@ -1,22 +1,23 @@
 ---
-title: Ponto de extremidade da Pesquisa de Notícias do Bing | Microsoft Docs
+title: Ponto de extremidade da Pesquisa de Notícias do Bing
+titlesuffix: Azure Cognitive Services
 description: Resumo do ponto de extremidade da API de Pesquisa de Notícias.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: v-gedod
-ms.openlocfilehash: ab892e947566adf025499382b213a52ed3e96e35
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0ed8b9048c04c4aff5214cea697810a0c573559e
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433677"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800538"
 ---
-# <a name="news-search-endpoints"></a>Ponto de extremidade da Pesquisa de Notícias
+# <a name="bing-news-search-endpoints"></a>Ponto de extremidade da Pesquisa de Notícias do Bing
 A **API de Pesquisa de Notícias** retorna artigos de notícias, páginas da Web, imagens, vídeos e [entidades](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). As entidades contêm informações de resumo sobre uma pessoa, lugar ou tópico.
 ## <a name="endpoints"></a>Pontos de extremidade
 Para obter resultados de pesquisa de notícias, usando a API do Bing, envie uma solicitação `GET` para um dos seguintes pontos de extremidade. Os cabeçalhos e parâmetros de URL definem mais especificações.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: ce397b1ba8d77d2916caa2798c0161ba55f51dbb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0b14c13462f15dd90285ed9e37080487324a4d85
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42447097"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831272"
 ---
 # <a name="useful-operators-in-log-analytics-queries"></a>Operadores úteis em consultas do Log Analytics
 
@@ -31,7 +31,7 @@ A tabela abaixo fornece algumas funções comuns a serem usadas para diferentes 
 Categoria                                |Função de Análise Relevante
 ----------------------------------------|----------------------------------------
 Aliases de Seleção e Coluna            |`project`, `project-away`, `extend`
-Constantes e tabelas temporárias          |`let scalar_alias_name = …;` <br> `let table_alias_name = (){ … &#124; … &#124; … };`
+Constantes e tabelas temporárias          |`let scalar_alias_name = …;` <br> `let table_alias_name =  …  …  … ;`| 
 Operadores de Comparação e Cadeia de Caracteres         |`startswith`, `!startswith`, `has`, `!has` <br> `contains`, `!contains`, `containscs` <br> `hasprefix`, `!hasprefix`, `hassuffix`, `!hassuffix`, `in`, `!in` <br> `matches regex` <br> `==`, `=~`, `!=`, `!~`
 Funções de cadeia de caracteres comuns                 |`strcat()`, `replace()`, `tolower()`, `toupper()`, `substring()`, `strlen()`
 Funções matemáticas comuns                   |`sqrt()`, `abs()` <br> `exp()`, `exp2()`, `exp10()`, `log()`, `log2()`, `log10()`, `pow()` <br> `gamma()`, `gammaln()`

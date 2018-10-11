@@ -1,3 +1,26 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: active-directory
+documentationcenter: dev-center-name
+author: jmprieur
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: jmprieur
+ms.custom: include file
+ms.openlocfilehash: d333f8ecd7e1044575f570d893227f9dcb394974
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843270"
+---
 ## <a name="test-your-code"></a>Testar seu código
 
 Para executar o projeto no Visual Studio, selecione **F5**. Seu aplicativo **MainWindow** é exibido, conforme mostrado aqui:

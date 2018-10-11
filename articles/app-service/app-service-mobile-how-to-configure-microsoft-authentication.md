@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 4fb5bdf30502dbca3eba961165a1ab643427abd6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: abf09444e92c6faded42a9143b4b5c849a4cf41d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149996"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853259"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Como configurar seu aplicativo do Serviço de Aplicativo para usar o logon da Conta da Microsoft
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -42,9 +42,11 @@ Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar 
 
     > [!IMPORTANT]
     > A senha é uma credencial de segurança importante. Não compartilhe a senha com ninguém nem distribua-a em um aplicativo cliente.
+    
+8. Clique em **Salvar**
 
 ## <a name="secrets"> </a>Adicionar informações da conta da Microsoft ao seu aplicativo de Serviço de Aplicativo
-1. De volta ao [portal do Azure], navegue até o aplicativo, clique em **Configurações** > **Autenticação/Autorização**.
+1. De volta ao [Portal do Azure], navegue até o aplicativo, clique em **Configurações** > **Autenticação/Autorização**.
 2. Se o recurso Autenticação/Autorização não estiver habilitado, mude-o para **Ativado**.
 3. Clique em **Conta da Microsoft**. Cole os valores de ID do Aplicativo e da Senha que você obteve anteriormente e, como alternativa, habilite os escopos exigidos pelo seu aplicativo. Em seguida, clique em **OK**.
    
@@ -67,4 +69,4 @@ Agora você está pronto para usar uma conta da Microsoft para autenticação em
 <!-- URLs. -->
 
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[portal do Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
