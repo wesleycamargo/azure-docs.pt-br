@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 636b48f409c1a86f7da87c38b6250610026d4547
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 00c7605b09c32328a8324b13b8151a258a39dc22
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392594"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857594"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensagens, payloads e serialização
 
@@ -89,7 +89,6 @@ As variantes de .NET Standard e Java API só aceitam matrizes de bytes, o que si
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 
-* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -8,12 +8,12 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
-ms.openlocfilehash: 1cf21dfee0e0e5bcbfff80945a3bfdfbc4bad83b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b0db5e79ac3f52bfcd9c7791a843265a421ef1bf
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300585"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48903004"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
@@ -86,7 +86,7 @@ Para obter mais informações sobre como criar clusters, consulte [Criar um clus
 
 ## <a name="create-storage-account-file-system"></a>Criar sistema de arquivos da conta de armazenamento
 
-Nesta seção, você cria um bloco de anotações no espaço de trabalho do Azure Databricks e executa trechos de código para configurar a conta de armazenamento.
+Nesta seção, você cria um bloco de anotações no espaço de trabalho do Azure Databricks e executa snippets de código para configurar a conta de armazenamento.
 
 1. No [Portal do Azure](https://portal.azure.com), vá para o espaço de trabalho do Azure Databricks que você criou e selecione **Inicializar Espaço de Trabalho**.
 
@@ -105,7 +105,7 @@ Nesta seção, você cria um bloco de anotações no espaço de trabalho do Azur
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    dbutils.fs.ls("abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false") 
     ```
 
@@ -119,13 +119,13 @@ Antes de iniciar esta seção, você deve concluir os pré-requisitos a seguir:
 
 Insira o código a seguir em uma célula do bloco de anotações:
 
-    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+    %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
 Na célula, pressione `Shift` + `Enter` para executar o código.
 
 Agora, em uma nova célula abaixo dessa, insira o código a seguir (substitua **FILE_SYSTEM** e **ACCOUNT_NAME** pelos mesmos valores que você usou anteriormente:
 
-    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
 
 Na célula, pressione `Shift` + `Enter` para executar o código.
 
@@ -133,7 +133,7 @@ Na célula, pressione `Shift` + `Enter` para executar o código.
 
 Execute as seguintes tarefas para executar um trabalho SQL do Spark nos dados.
 
-1. Execute uma instrução SQL para criar uma tabela temporária usando dados do arquivo de dados JSON de exemplo, **small_radio_json.json**. No trecho de código a seguir, substitua os valores de espaço reservado pelo nome do seu sistema de arquivos e o nome da conta de armazenamento. Usando o bloco de notas criando anteriormente, cole o trecho de código em uma célula de código no bloco de notas e pressione SHIFT + ENTER.
+1. Execute uma instrução SQL para criar uma tabela temporária usando dados do arquivo de dados JSON de exemplo, **small_radio_json.json**. No snippet de código a seguir, substitua os valores de espaço reservado pelo nome do seu sistema de arquivos e o nome da conta de armazenamento. Usando o bloco de notas criando anteriormente, cole o snippet de código em uma célula de código no bloco de notas e pressione SHIFT + ENTER.
 
     ```sql
     %sql
@@ -141,7 +141,7 @@ Execute as seguintes tarefas para executar um trabalho SQL do Spark nos dados.
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>/small_radio_json.json"
+     path  "abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>/small_radio_json.json"
     )
     ```
 
@@ -149,7 +149,7 @@ Execute as seguintes tarefas para executar um trabalho SQL do Spark nos dados.
 
     O comando mágico de linguagem `%sql` permite que você execute um código SQL do bloco de notas, mesmo que o bloco seja de outro tipo. Para obter mais informações, consulte [Combinar linguagens em um bloco de notas](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
 
-2. Vamos examinar um instantâneo dos dados do JSON de exemplo para entender melhor a consulta que você executou. Cole o trecho de código a seguir em uma célula de código e pressione **SHIFT+ENTER**.
+2. Vamos examinar um instantâneo dos dados do JSON de exemplo para entender melhor a consulta que você executou. Cole o snippet de código a seguir em uma célula de código e pressione **SHIFT+ENTER**.
 
     ```sql
     %sql 

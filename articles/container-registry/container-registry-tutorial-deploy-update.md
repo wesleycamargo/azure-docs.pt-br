@@ -2,19 +2,18 @@
 title: Tutorial do Registro de Contêiner do Azure – Enviar por push uma imagem atualizada para implantações regionais
 description: Envie por push uma imagem do Docker modificada para o Registro que contém o Azure com replicação geográfica e veja as alterações implantadas automaticamente nos aplicativos Web em execução em várias regiões. Parte três de uma série de três partes.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 1a18b6f627a28b912baeda6f180297dc703e665e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 96e46c84039b7c72d5419972c7a5a401eab64659
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031196"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855503"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Tutorial: enviar por push uma imagem atualizada para implantações regionais
 

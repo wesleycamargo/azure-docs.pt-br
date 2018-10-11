@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 789e637f3a5806aafe0ca8cad5b6408ef77b32d0
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 90d82abb6570028308b8d516a868fa981c75eb94
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919607"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49066982"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Realizar uma simulação de recuperação de desastre para VMs do Azure para uma região do Azure secundária
 
@@ -28,7 +28,7 @@ Este tutorial mostra a você como realizar uma simulação de recuperação de d
 
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Antes de executar um failover de teste, é recomendável verificar as propriedades da VM para certificar-se de que tudo está conforme o esperado.  Acesse as propriedades da VM em **Itens replicados**. A folha **Conceitos básicos** mostra as informações sobre as configurações e o status dos computadores.
 - É recomendável utilizar uma rede de VM do Azure separada para o failover de teste e não a rede padrão que foi configurada quando você habilitou a replicação.

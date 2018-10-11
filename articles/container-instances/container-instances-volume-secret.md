@@ -2,18 +2,17 @@
 title: Montar um volume secreto em Instâncias de Contêiner do Azure
 description: Saiba como montar um volume secreto para armazenar informações confidenciais de acesso pelas instâncias de contêiner
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
-ms.author: marsma
-ms.openlocfilehash: 572e6701bbe69bbb07c76d468a309030fc37d984
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.author: danlep
+ms.openlocfilehash: 9aa80cf3cb02237cea11e370151eda8c67c7b10e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159882"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856744"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montar um volume secreto em Instâncias de Contêiner do Azure
 

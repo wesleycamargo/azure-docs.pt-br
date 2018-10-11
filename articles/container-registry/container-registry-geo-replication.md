@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: e4695428b03961f5e899007609dfb1088dde77a8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 784174c1fb2427441e0ed1a13b147d2440539fa9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768202"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870331"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicação geográfica no Registro de Contêiner do Azure
 
@@ -36,8 +36,8 @@ A equipe de desenvolvimento está localizada em Seattle WA, utilizando o data ce
 Antes de usar os recursos de replicação geográfica, a Contoso tinha um Registro no Oeste dos EUA, com um Registro adicional na Europa Ocidental. Para atender a essas regiões diferentes, a equipe de desenvolvimento precisava efetuar push de imagens para dois Registros diferentes.
 
 ```bash
-docker push contoso.azurecr.io/pubic/products/web:1.2
-docker push contosowesteu.azurecr.io/pubic/products/web:1.2
+docker push contoso.azurecr.io/public/products/web:1.2
+docker push contosowesteu.azurecr.io/public/products/web:1.2
 ```
 ![Efetuando pull de vários Registros](media/container-registry-geo-replication/before-geo-replicate-pull.png)<br />*Efetuando pull de vários Registros*
 

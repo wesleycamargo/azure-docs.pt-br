@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842440"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855418"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para aplicativos de lógica do Azure
 
@@ -101,7 +101,7 @@ Para obter informações sobre como usar o gateway com outros serviços, consult
 
 ## <a name="install-data-gateway"></a>Instalar gateway de dados
 
-1. [Baixe, salve e execute o instalador do gateway em um computador local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Baixe, salve e execute o instalador do gateway em um computador local](https://aka.ms/on-premises-data-gateway-installer).
 
 2. Aceite o caminho de instalação padrão ou especifique o local no computador em que você quer instalar o gateway.
 
@@ -182,7 +182,7 @@ Se for necessário alterar o local do gateway, mover a instalação do gateway p
 
 1. A partir do **Painel de Controle** do seu computador, acesse **Programas e Recursos**. Na lista de programas, selecione **Gateway de dados local** e, em seguida, escolha **Desinstalar**.
 
-2. [Reinstale o gateway de dados local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+2. [Reinstale o gateway de dados local](https://aka.ms/on-premises-data-gateway-installer).
 
 3. Depois que o instalador for aberto, entre com a mesma conta corporativa ou de estudante usada anteriormente para instalar o gateway.
 
@@ -211,7 +211,7 @@ Para fornecer informações de proxy para o gateway, confira [Definir configura�
 > [!NOTE]
 > Esse comando apenas testa a conectividade de rede e a conectividade com o Barramento de Serviço do Azure. O comando não tem qualquer relação com o gateway nem com o serviço de nuvem do gateway que criptografa e armazena as credenciais e detalhes do gateway. 
 >
-> Além disso, esse comando só está disponível no Windows Server 2012 R2 ou posterior e no Windows 8.1 ou posterior. Em versões anteriores do SO, você pode usar o Telnet para testar a conectividade. Saiba mais sobre [Soluções híbridas e de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+> Além disso, esse comando só está disponível no Windows Server 2012 R2 ou posterior e no Windows 8.1 ou posterior. Em versões anteriores do SO, você pode usar o Telnet para testar a conectividade. Saiba mais sobre [Soluções híbridas e de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md).
 
 Os resultados devem ser semelhantes a este exemplo com **TcpTestSucceeded** definido como **True**:
 
@@ -232,7 +232,7 @@ O firewall também pode bloquear conexões que o Barramento de Serviço do Azure
 
 ## <a name="configure-ports"></a>Configure portas
 
-O gateway cria uma conexão de saída para o [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/) e comunica-se nas portas de saída: TCP 443 (padrão), 5671, 5672, 9350 a 9354. O gateway não exige portas de entrada. Saiba mais sobre [Soluções híbridas e de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+O gateway cria uma conexão de saída para o [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/) e comunica-se nas portas de saída: TCP 443 (padrão), 5671, 5672, 9350 a 9354. O gateway não exige portas de entrada. Saiba mais sobre [Soluções híbridas e de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md).
 
 O gateway usa estes nomes de domínio totalmente qualificados:
 

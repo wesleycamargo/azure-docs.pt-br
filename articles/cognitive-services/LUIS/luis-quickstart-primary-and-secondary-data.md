@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e0cdda629ddded121a424af61377c04ee8d958d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036042"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867537"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutorial 7: extrair os nomes com uma lista de entidades e frases simples
 
@@ -35,7 +35,7 @@ A entidade simples é uma boa escolha para esse tipo de dados quando:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Usar o aplicativo de tutorial existente
+> * Usar o aplicativo do tutorial existente
 > * Adicionar uma entidade simples para extrair a mensagem do aplicativo
 > * Adicionar lista de frase para aumentar o sinal de palavras de trabalho
 > * Treinar 
@@ -48,13 +48,13 @@ A entidade simples é uma boa escolha para esse tipo de dados quando:
 
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se não tiver o aplicativo HumanResources do tutorial anterior, siga estas etapas:
+Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
 
 1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json).
 
-2. Importe o JSON para um novo aplicativo.
+2. Importe o JSON em um novo aplicativo.
 
-3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `simple`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, ele não pode conter nenhum caractere que não seja válido em uma URL.
+3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `simple`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
 
 ## <a name="simple-entity"></a>Entidade simples
 A entidade simples detecta um conceito de dados único contido em palavras ou frases.
@@ -299,7 +299,7 @@ Abra o [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/mas
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Captura de tela da caixa de diálogo pop-up Criar nova lista de frases com palavras na caixa Valores da lista de frases")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. [Treine](#train-the-luis-app) e [publique](#publish-the-app-to-get-the-endpoint-URL) o aplicativo novamente para usar a lista de frases.
+5. [Treine](#train) e [publique](#publish) o aplicativo novamente para usar a lista de frases.
 
 6. Repita a consulta no ponto de extremidade com o mesmo enunciado: `This is the lead welder paperwork.`
 

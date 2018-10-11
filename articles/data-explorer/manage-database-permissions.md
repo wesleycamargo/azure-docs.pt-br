@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: fbbc5a199116e46aac0874f3dc6d6d9aa18c60cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b0fb2cd79c0ee685ad2000c5444a84d53e462f24
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954006"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868268"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gerenciar permissões do banco de dados do Azure Data Explorer
 
@@ -31,14 +31,13 @@ O Azure Data Explorer tem as seguintes funções:
 |Usuário do banco de dados              |Pode ler todos os dados e metadados no banco de dados. Além disso, podem criar tabelas (tornando-se o administrador da tabela para essa tabela) e funções no banco de dados.|
 |Visualizador do banco de dados            |Pode ler todos os dados e metadados no banco de dados.|
 |Ingestor de banco de dados          |Pode ingerir dados para todas as tabelas existentes no banco de dados, mas não consultar os dados.|
-|Visualizador irrestrito do banco de dados|Pode consultar tabelas que tenham a política **RestrictedViewAccess** habilitada. Não pode consultar outras tabelas.|
 |Monitor do banco de dados           |Pode executar comandos '.show ...' no contexto do banco de dados e suas entidades filhas.|
 |Administrador de tabela                |Pode fazer qualquer ação no escopo de uma tabela específica. |
 |Ingestor de tabela             |Pode ingerir dados no escopo de uma tabela específica, mas não consultar os dados.|
 
 ## <a name="manage-permissions-in-the-azure-portal"></a>Gerenciar permissões no portal do Azure
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 1. Navegue até o cluster do Azure Data Explorer.
 

@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 2ffb1f7edef0cf92cbbf7adc4314967858bcfeb1
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128636"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855367"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>Arquitetura de integração empresarial com filas e eventos
 
@@ -81,7 +81,7 @@ A Grade de Eventos usam um modelo sem servidor. A cobrança é calculada com bas
 
 ### <a name="use-peeklock-to-consume-service-bus-messages"></a>Usar PeekLock ao consumir mensagens do Barramento de Serviço
 
-Ao criar um aplicativo lógico para consumir mensagens do Barramento de Serviço, use [PeekLock](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#queues) no aplicativo lógico para acessar um grupo de mensagens. Ao usar o PeekLock pode executar etapas para validar cada mensagem antes de concluir ou abandonar a mensagem. Essa abordagem protege contra a perda acidental de mensagens.
+Ao criar um aplicativo lógico para consumir mensagens do Barramento de Serviço, use [PeekLock](../service-bus-messaging/service-bus-messaging-overview.md#queues) no aplicativo lógico para acessar um grupo de mensagens. Ao usar o PeekLock pode executar etapas para validar cada mensagem antes de concluir ou abandonar a mensagem. Essa abordagem protege contra a perda acidental de mensagens.
 
 ### <a name="check-for-multiple-objects-when-an-event-grid-trigger-fires"></a>Verificar vários objetos quando um gatilho da Grade de Eventos é acionado
 

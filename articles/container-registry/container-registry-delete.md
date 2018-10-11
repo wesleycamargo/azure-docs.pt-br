@@ -2,18 +2,17 @@
 title: Excluir recursos de imagem no Registro de Contêiner do Azure
 description: Detalhes sobre como gerenciar com eficiência o tamanho do registro, excluindo os dados da imagem do contêiner.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/27/2018
-ms.author: marsma
-ms.openlocfilehash: 6ab667a01eddd84d1145868a3ae499e7497035c9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.author: danlep
+ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266570"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857764"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Excluir imagens de contêiner no Registro de Contêiner do Azure
 
@@ -262,7 +261,7 @@ Use os scripts de exemplo a seguir com cuidado – excluído dados de imagem sã
 
 **CLI do Azure no Bash**
 
-O script Bash a seguir exclui todas as imagens não marcadas de um repositório. Ele requer a CLI do Azure e **xargs**. Por padrão, o script não realiza nenhuma exclusão. Alterar o `ENABLE_DELETE` valor para `true` permitir a exclusão de imagem.
+O script Bash a seguir exclui todas as imagens não marcadas de um repositório. Ele requer a CLI do Azure e **xargs**. Por padrão, o script não realiza nenhuma exclusão. Altere o `ENABLE_DELETE` valor para `true` para ativar a exclusão da imagem.
 
 > [!WARNING]
 > Se você tiver sistemas que obtêm imagens pelo resumo do manifesto (em oposição ao nome da imagem), você não deve executar esse script. A exclusão de imagens não marcadas impedirá esses sistemas de puxar as imagens do seu registro. Em vez de receber pelo manifesto, considerar a adoção de uma *marcação exclusiva* esquema, um [melhor prática recomendada][tagging-best-practices].

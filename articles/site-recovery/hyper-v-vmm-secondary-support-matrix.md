@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 13b4dc6e49c67ae9fd880ab64880966835242dec
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e1a0ee2a9ad958a5938569927a489785edd8ee1f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923414"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078827"
 ---
 # <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para replicação de VMs do Hyper-V para um site secundário
 
@@ -55,15 +55,15 @@ Somente computadores Linux com o armazenamento a seguir podem ser replicados:
 
 **Configuração** | **Com suporte**  
 --- | --- 
-Host - Agrupamento NIC | sim 
-Host - VLAN | sim 
-Host - IPv4 | sim 
+Host - Agrupamento NIC | SIM 
+Host - VLAN | SIM 
+Host - IPv4 | SIM 
 Host - IPv6 | Não  
 VM Convidada - Agrupamento NIC | Não 
-VM Convidada - IPv4 | sim
+VM Convidada - IPv4 | SIM
 VM Convidada - IPv6 | Não 
-VM Convidada - Windows/Linux - Endereço IP estático | sim
-VM Convidada - Multi-NIC | sim
+VM Convidada - Windows/Linux - Endereço IP estático | SIM
+VM Convidada - Multi-NIC | SIM
 
 
 ## <a name="storage"></a>Armazenamento
@@ -73,9 +73,9 @@ VM Convidada - Multi-NIC | sim
 **Armazenamento (host)** | **Com suporte**
 --- | --- 
 NFS | N/D
-SMB 3.0 |  sim
-SAN (ISCSI) | sim
-Múltiplos caminhos (MPIO) | sim
+SMB 3.0 |  SIM
+SAN (ISCSI) | SIM
+Múltiplos caminhos (MPIO) | SIM
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento do servidor físico ou convidado
 
@@ -83,19 +83,19 @@ Múltiplos caminhos (MPIO) | sim
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sim (até 16 discos)
-VM ger 2 | sim
+VM ger 2 | SIM
 Disco de cluster compartilhado | Não 
 Disco criptografado | Não 
 UEFI| N/D
 NFS | Não 
 SMB 3.0 | Não 
 RDM | N/D
-Disco > 1 TB | sim
-Volume com discos distribuídos > 1 TB<br/><br/> LVM | sim
-Espaços de Armazenamento | sim
+Disco > 1 TB | SIM
+Volume com discos distribuídos > 1 TB<br/><br/> LVM | SIM
+Espaços de Armazenamento | SIM
 Adição/remoção de disco a quente | Não 
-Exclusão de disco | sim
-Múltiplos caminhos (MPIO) | sim
+Exclusão de disco | SIM
+Múltiplos caminhos (MPIO) | SIM
 
 ## <a name="vaults"></a>Cofres
 

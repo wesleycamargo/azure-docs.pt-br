@@ -3,20 +3,20 @@ title: Artigo sobre as limitações de migração e os problemas conhecidos das 
 description: Saiba mais sobre as limitações de migração e os problemas conhecidos das migrações online para o Banco de Dados do Azure para MySQL.
 services: database-migration
 author: HJToland3
-ms.author: jtoland
+ms.author: scphang
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/24/2018
-ms.openlocfilehash: d1d1483edd31702b1b9f14eaf4aba1a3f38ed142
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 10/09/2018
+ms.openlocfilehash: 6e82c10d8e9109279045095c1b856520245a5a6f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889163"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884503"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Limitações de migração e problemas conhecidos das migrações online para o BD do Azure para MySQL
 
@@ -34,7 +34,7 @@ Os problemas conhecidos e as limitações associados às migrações online do M
     - Defina binlog_format = row
     - Expire_logs_days = 5 (recomendado, apenas para o MySQL 5.6)
 - O usuário precisa ter a função ReplicationAdmin.
-- Os agrupamentos definidos para o banco de dados MySQL de origem devem ser os mesmos que os definidos no Banco de Dados do Azure para MySQL de destino.
+- As ordenações definidas para o banco de dados MySQL de origem devem ser as mesmas que as definidos no Banco de Dados do Azure para MySQL de destino.
 - O esquema precisa corresponder entre o banco de dados MySQL de origem e o banco de dados de destino no Banco de Dados do Azure para MySQL.
 - O esquema no Banco de Dados do Azure para MySQL de destino não pode ter chaves estrangeiras. Use a consulta a seguir para remover as chaves estrangeiras:
     ```

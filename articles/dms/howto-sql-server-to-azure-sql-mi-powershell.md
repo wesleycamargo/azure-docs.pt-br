@@ -2,21 +2,21 @@
 title: Use o módulo de Serviço de Migração de Banco de Dados do Azure no Microsoft Azure PowerShell para migrar SQL Server local para Instância Gerenciada do Banco de Dados SQL do Azure| Microsoft Docs
 description: Saiba como migrar do SQL Server local para Instância Gerenciada do Banco de Dados SQL do Azure usando Azure PowerShell.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/13/2018
-ms.openlocfilehash: 7bd7e7a4cb78cf8a9f818936c980b47a2e7865e7
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.date: 10/09/2018
+ms.openlocfilehash: 6760d2832b6c39759f9287797363fcd5a116ccfb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099615"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883647"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrar o SQL Server local para o BD SQL do Azure usando o Azure PowerShell
 Neste artigo, você migra o banco de dados **Adventureworks2012** restaurado em uma instância local do SQL Server 2005 ou posterior para um Banco de Dados SQL do Azure usando o Microsoft Azure PowerShell. Migre bancos de dados de uma instância local do SQL Server para o Banco de Dados SQL do Azure usando o módulo `AzureRM.DataMigration` no Microsoft Azure PowerShell.

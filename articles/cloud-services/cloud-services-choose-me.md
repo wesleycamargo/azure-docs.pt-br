@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6af4533a4ab374071b904cc4b03ca239a3e83364
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011654"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857815"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Visão geral dos Serviços de Nuvem do Azure
 Os Serviços de Nuvem do Azure são um exemplo de uma [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (Plataforma como Serviço). Como o [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), essa tecnologia foi desenvolvida para dar suporte aos aplicativos escalonáveis, confiáveis e baratos de operar. Da mesma forma que o Serviço de Aplicativo é hospedado em máquinas virtuais (VMs), os Serviços de Nuvem do Azure também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software em VMs que usam os Serviços de Nuvem do Azure acessá-las remotamente.
@@ -33,7 +33,7 @@ Há dois tipos de funções do Serviço de Nuvem do Azure. A única diferença e
 
 * **Função de Trabalho**: não usa IIS e executa o aplicativo de modo autônomo.
 
-Por exemplo, um aplicativo simples pode usar apenas uma única função web, atendendo a um site. Um aplicativo mais complexo pode usar uma função Web para lidar com solicitações de entrada de usuários e, em seguida, passar essas solicitações a uma função de trabalho para processamento. (Essa comunicação pode usar [Barramento de Serviço do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) ou [Armazenamento de Filas do Azure](../storage/common/storage-introduction.md).)
+Por exemplo, um aplicativo simples pode usar apenas uma única função web, atendendo a um site. Um aplicativo mais complexo pode usar uma função Web para lidar com solicitações de entrada de usuários e, em seguida, passar essas solicitações a uma função de trabalho para processamento. (Essa comunicação pode usar [Barramento de Serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) ou [Armazenamento de Filas do Azure](../storage/common/storage-introduction.md).)
 
 Como a figura anterior sugere, todas as VMs em um único aplicativo executado no mesmo serviço de nuvem. Os usuários acessam o aplicativo por meio de um único endereço IP público, com a carga de solicitações balanceada automaticamente entre as VMs do aplicativo. A plataforma [dimensiona e implanta](cloud-services-how-to-scale-portal.md) as VMs em um aplicativo de Serviços de Nuvem do Azure de uma maneira que evita um único ponto de falha de hardware.
 

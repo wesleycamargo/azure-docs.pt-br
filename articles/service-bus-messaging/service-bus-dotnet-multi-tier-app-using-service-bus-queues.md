@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 6ec59c8af290a9ff7b7d9640b2253a0f91886256
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b905feef4d3a5445ba27b92637448443c3bbb4a3
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394345"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855605"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicativo multicamadas .NET usando filas do Barramento de Serviço do Azure
 
@@ -352,7 +352,6 @@ Agora você criará a função de trabalho que processa o envio de pedidos. Este
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o Barramento de Serviço, consulte os seguintes recursos:  
 
-* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Introdução ao uso de filas do Barramento de Serviço][sbacomqhowto]
 * [Página de serviço do Barramento de Serviço][sbacom]  
 

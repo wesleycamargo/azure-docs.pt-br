@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 0833a7ec71a0aea66f8ebfdfff81d88925019309
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12902fef0a27aa0af5995d2fd6ab87d951413d1d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701858"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857968"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Tutorial de Retransmissão de WCF do Azure
 
@@ -55,7 +55,7 @@ O contrato de serviço especifica a quais operações (a terminologia do serviç
 
 3. Instalar o pacote NuGet do Barramento de Serviço. Esse pacote adiciona automaticamente referências para as bibliotecas do Barramento de Serviço, bem como o WCF **System.ServiceModel**. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o namespace que permite o acesso programático aos recursos básicos do WCF. O Barramento de Serviço usa vários dos objetos e atributos do WCF para definir contratos de serviço.
 
-    No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e em **Gerenciar Pacotes NuGet...**. Clique na guia **Procurar** e então procure **WindowsAzure.ServiceBus**. Verifique se o nome do projeto está selecionado na caixa **Versão(ões)**. Clique em **Instalar**e aceite os termos de uso.
+    No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e em **Gerenciar Pacotes NuGet...**. Clique na guia Procurar e então procure **WindowsAzure.ServiceBus**. Verifique se o nome do projeto está selecionado na caixa **Versão(ões)**. Clique em **Instalar**e aceite os termos de uso.
 
     ![][3]
 4. No Gerenciador de Soluções, clique duas vezes no arquivo Program.cs para abri-lo no editor, se já não estiver aberto.
@@ -719,7 +719,6 @@ Este tutorial mostrou como compilar um serviço e um aplicativo cliente simples 
 
 Para saber mais sobre a Retransmissão do Azure, consulte os tópicos a seguir.
 
-* [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Visão geral da Retransmissão do Azure](relay-what-is-it.md)
 * [Como usar o serviço de Retransmissão de WCF com o .NET](relay-wcf-dotnet-get-started.md)
 

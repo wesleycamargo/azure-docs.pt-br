@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: d75f8654a33d670f107508b9e91661b1a7719755
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: adc9d64c4756e055b3ff9b772feebd80902d2c9f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408534"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857866"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controle de acesso do Barramento de Serviço com Assinaturas de Acesso Compartilhado
 
@@ -31,7 +31,7 @@ SAS protege o acesso ao Barramento de Serviço com base nas regras de autorizaç
 
 Assinaturas de Acesso Compartilhado são um mecanismo de autorização baseada em declarações usando tokens simples. Usando SAS, chaves nunca são passadas na conexão. As chaves são usadas para assinar criptograficamente informações que posteriormente podem ser verificadas pelo serviço. A SAS pode ser usada como esquema de nome de usuário e senha no qual o cliente está em posse imediata de um nome de regra de autorização e uma chave correspondente. A SAS também pode ser usada como modelo de segurança federada, no qual o cliente recebe um token de acesso de tempo limitado e assinado de um serviço de token de segurança sem nunca ter posse da chave de assinatura.
 
-A autenticação de SAS no Barramento de Serviço está configurada com [Regras de Autorização de Acesso Compartilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) designadas com direitos de acesso associados e um par de chaves de criptografia primário e secundário. As chaves são valores de 256 bits na representação Base64. Você pode configurar regras no nível de namespace, em [retransmissões](service-bus-fundamentals-hybrid-solutions.md#relays) de Barramento de Serviço, [filas](service-bus-fundamentals-hybrid-solutions.md#queues) e [tópicos](service-bus-fundamentals-hybrid-solutions.md#topics).
+A autenticação de SAS no Barramento de Serviço está configurada com [Regras de Autorização de Acesso Compartilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) designadas com direitos de acesso associados e um par de chaves de criptografia primário e secundário. As chaves são valores de 256 bits na representação Base64. Você pode configurar regras no nível de namespace, em [retransmissões](../service-bus-relay/relay-what-is-it.md) de Barramento de Serviço, [filas](/service-bus-messaging/service-bus-messaging-overview.md#queues) e [tópicos](/service-bus-messaging/service-bus-messaging-overview.md#topics).
 
 O token de [Assinatura de Acesso Compartilhado](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) contém o nome da regra de autorização escolhida, o URI do recurso que deve ser acessado, uma expiração instantânea e uma assinatura criptográfica HMAC-SHA256 calculada com esses campos usando a chave de criptografia primária ou secundária da regra de autorização escolhida.
 
@@ -301,7 +301,6 @@ A tabela a seguir mostra os direitos de acesso necessários para diversas opera�
 
 Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópicos a seguir.
 
-* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
 * [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)

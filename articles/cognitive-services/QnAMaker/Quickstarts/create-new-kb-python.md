@@ -1,21 +1,21 @@
 ---
 title: 'Início Rápido: API do Python – Criar uma base de dados de conhecimento – QnA Maker'
 titlesuffix: Azure Cognitive Services
-description: Este início rápido orienta você pela criação programática de um exemplo de base de dados de conhecimento de QnA Maker, que será exibido no painel do Azure da sua conta da API dos serviços Cognitivos.
+description: Neste início rápido orienta você pela criação de um exemplo de base de dados de Conhecimento de QnA Maker, programaticamente, que será exibido no painel do Azure da sua conta da API dos serviços Cognitivos.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 9a3b801058a2614b9b484a3ebf414a9225c5371e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4df7ad95891a07cd4a01589651f441189dad136b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033287"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887063"
 ---
 # <a name="create-a-new-knowledge-base-in-python"></a>Criar uma nova base de dados de conhecimento em Python
 

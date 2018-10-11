@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: b3ca7be647ff7db0d147eca57edb20e658a28130
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 782ddc3ebb7b3c533d0eb5c4b7735a13cbaf268c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919464"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077673"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Executar failover e failback em VMs do Hyper-V replicadas para o site local secundário
 
@@ -35,7 +35,7 @@ O failover e o failback têm três estágios:
 3. Após o failover planejado, se desejar inicie a replicação do site primário para o secundário novamente.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Verifique se você concluiu uma [simulação de recuperação de desastre](hyper-v-vmm-test-failover.md) para verificar se tudo está funcionando conforme o esperado.
 - Para concluir o failback, verifique se os servidores VMM primário e secundário estão conectados ao Site Recovery.
