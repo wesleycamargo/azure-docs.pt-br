@@ -72,7 +72,7 @@ Para exibir logs relacionados ao Agente de Autenticação de Passagem, abra o ap
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Excluir arquivos de log de rastreamento do Agente de Autenticação
 
-É necessário verificar regularmente o conteúdo de **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** e excluir o conteúdo dessa pasta a cada 48 horas. 
+É necessário verificar regularmente o conteúdo de **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\** e excluir o conteúdo dessa pasta a cada 48 horas. 
 
 >[!IMPORTANT]
 >Se o Serviço de Autenticação do Agente estiver em execução, não será possível excluir o arquivo de log atual na pasta. Pare o serviço antes de tentar novamente. Para evitar falhas de entrada do usuário, é necessário ter configurado a Autenticação de Passagem para [alta disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
