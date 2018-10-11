@@ -2,21 +2,21 @@
 title: Usar o Serviço de Migração de Banco de Dados do Azure para migrar do SQL Server para o Banco de Dados SQL do Azure offline | Microsoft Docs
 description: Saiba como migrar do SQL Server local para o Banco de Dados SQL do Azure offline usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
-author: edmacauley
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/22/2018
-ms.openlocfilehash: 02a4e38d90e327289fcc51160cbb2858636a2f0e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.date: 10/10/2018
+ms.openlocfilehash: 86b1cc50128cd74f4a11ff599c1ca26ce5ae5117
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128886"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067833"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Migrar do SQL Server para o Banco de Dados SQL do Azure offline usando DMS
 Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do SQL Server local para o [Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/). Neste artigo, você migra o banco de dados **Adventureworks2012** restaurado em uma instância local do SQL Server 2016 (ou posterior) para um Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure.

@@ -17,12 +17,12 @@ ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4989d221ccc21b2dd454339f8d83245f1556c109
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8f24f25a4eb4db9e9f3e0b4569874dab94ef11b5
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971341"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900951"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referência de token SAML do Azure AD
 
@@ -156,7 +156,7 @@ Este é um exemplo de um token SAML típico.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 * Consulte as [Operações de política](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) do Graph do AD do Azure e o [Entidade de política](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), para saber mais sobre o gerenciamento de políticas de tempo de vida do token por meio da API do Graph do AD do Azure.
-* Para obter mais informações e exemplos sobre como gerenciar as políticas por meio de cmdlets do PowerShell, incluindo exemplos, consulte [Tempos de vida de token configuráveis no AD do Azure](../active-directory-configurable-token-lifetimes.md). 
+* Para obter mais informações e exemplos sobre como gerenciar as políticas por meio de cmdlets do PowerShell, incluindo exemplos, consulte [Tempos de vida de token configuráveis no AD do Azure](active-directory-configurable-token-lifetimes.md). 
 * Adicione [declarações opcionais e personalizadas](active-directory-optional-claims.md) para os tokens do aplicativo.
 * Use o [Logon Único (SSO) com SAML](single-sign-on-saml-protocol.md).
 * Use o [Protocolo SAML de Logout Único do Azure](single-sign-out-saml-protocol.md)

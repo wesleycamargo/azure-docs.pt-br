@@ -2,19 +2,18 @@
 title: Tutorial do Registro de Contêiner do Azure – Preparar um Registro de contêiner do Azure com replicação geográfica
 description: Crie um Registro de contêiner do Azure, configure a replicação geográfica, prepare uma imagem do Docker e implante-a no Registro. Parte um de uma série de três partes.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 379878e261007eca13a4e455ef2b97237c81eeba
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9d1371dc02f37889b15b3448d82c62d76472f847
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450021"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854296"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: preparar um registro de contêiner do Azure com replicação geográfica
 

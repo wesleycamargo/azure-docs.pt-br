@@ -5,16 +5,16 @@ description: Mostra como a tradução de fala usando o Speech SDK para Java.
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: b08d9df3e0af82476582e342e42f98c41cff9dd3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 098410f94d4218bed5718e77feb3c4d82b96b3cb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974333"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887625"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-java"></a>Tradução de fala com o SDK de Fala dos Serviços Cognitivos para Java
 

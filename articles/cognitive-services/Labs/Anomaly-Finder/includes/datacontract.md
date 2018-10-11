@@ -5,17 +5,17 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-finder
+ms.component: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: e37d3ef5b6f65ad31bc19f9f8c15350014d1c9ad
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9280790f6692096a0b3909c9d1dfab2e94a8c0d7
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364009"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48904506"
 ---
 Com a [API de Localização de Anomalias](https://labs.cognitive.microsoft.com/en-us/project-anomaly-finder), você pode carregar dados de série temporal no formato JSON no ponto de extremidade da API e, em seguida, ler o resultado da resposta da API. Você pode carregar os dados de série temporal, cada ponto de dados inclui:  
 * Timestamp - o carimbo de data/hora para o ponto de dados. Certifique-se de que ele usa uma cadeia de caracteres de data/hora em UTC, por exemplo, “2017-08-01T00:00:00Z”
@@ -27,8 +27,8 @@ Os resultados são formados por:
 * ExpectedValue - O valor previsto pelo modelo baseado em aprendizado
 * IsAnomaly - O resultado que diz se os pontos de dados são anomalias ou não em ambas as direções (picos ou quedas)
 * IsAnomaly_Neg - O resultado que diz se os pontos de dados são anomalias na direção negativa (quedas)
-* IsAnomaly_Pos - O resultado que diz se os pontos de dados são anomalias na direção positiva (picos)
-* UpperMargin - A soma de ExpectedValue e UpperMargin determina o limite superior do ponto de dados para o qual ele ainda é considerado como normal
+* IsAnomaly_Pos: o resultado sobre se os pontos de dados são anomalias na direção positiva (picos)
+* UpperMargin: a soma de ExpectedValue e UpperMargin determina o limite superior para que o ponto de dados ainda seja considerado normal
 * LowerMargin - (ExpectedValue - LowerMargin) determina se o limite inferior do ponto de dados ainda é considerado como normal
 
 Detalhes do contrato de dados podem ser encontrados [aqui](../apiref.md).

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a741cb1c2643e48080018e5c9f4ada7038bce29e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b24b21ee5fc929d3e7bd026191ce8791d79f9abc
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434799"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870767"
 ---
 # <a name="glossary"></a>Glossário
 O glossário do LUIS (Reconhecimento vocal) explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
@@ -74,7 +74,7 @@ No contexto do LUIS, um **domínio** é uma área de conhecimento. Seu domínio 
 
 ## <a name="endpoint"></a>Ponto de extremidade
 
-A URL do [ponto de extremidade LUIS](https://aka.ms/luis-endpoint-apis) é onde você envia consultas LUIS após o [aplicativo LUIS](#luis-app) ser criado e publicado. A URL de ponto de extremidade contém a região do aplicativo publicado, bem como a ID do aplicativo. Você pode encontrar o ponto de extremidade na página **[Chaves e pontos de extremidade](/luis-how-to-manage-keys.md)** do aplicativo ou obter a URL do ponto de extremidade na API [Obter Informações do Aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
+A URL do [ponto de extremidade LUIS](https://aka.ms/luis-endpoint-apis) é onde você envia consultas LUIS após o [aplicativo LUIS](#luis-app) ser criado e publicado. A URL de ponto de extremidade contém a região do aplicativo publicado, bem como a ID do aplicativo. Você pode encontrar o ponto de extremidade na página **[Chaves e pontos de extremidade](luis-how-to-manage-keys.md)** do aplicativo ou obter a URL do ponto de extremidade na API [Obter Informações do Aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
 
 Um exemplo de ponto de extremidade tem a seguinte aparência:
 

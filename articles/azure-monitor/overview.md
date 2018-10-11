@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 0413357b6e17bf66b0ae9b504bc23b9702d03c91
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0f17cf7f2ef655f482b08b5c7163c0d85be77ce5
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220968"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068683"
 ---
 # <a name="azure-monitor-overview"></a>Visão geral do Azure Monitor
 
@@ -70,7 +70,7 @@ O Azure Monitor pode coletar dados de log de qualquer cliente REST usando a [API
 Os dados de monitoramento só serão úteis se puderem aumentar sua visibilidade em relação ao funcionamento do ambiente de computação. O Azure Monitor inclui vários recursos e ferramentas que fornecem insights valiosos sobre seus aplicativos e outros recursos dos quais eles dependem. [Soluções de monitoramento](../monitoring/monitoring-solutions.md) e recursos como o [Application Insights](../application-insights/app-insights-overview.md) e o Container Insights fornecem informações aprofundadas sobre diferentes aspectos do aplicativo e de serviços específicos do Azure. 
 
 ### <a name="application-insights"></a>Application Insights
-O [Application Insights](http://azure.microsoft.com/documentation/services/application-insights) monitora a disponibilidade, o desempenho e o uso do seu aplicativo, seja hospedado na nuvem ou localmente. Ele aproveita a plataforma de análise de dados avançada no Log Analytics para fornecer informações detalhadas sobre as operações do aplicativo e diagnosticar erros sem esperar que um usuário relate-os. O Application Insights inclui pontos de conexão com uma variedade de ferramentas de desenvolvimento e integra-se ao Visual Studio para dar suporte a seus processos de DevOps.
+O [Application Insights](../application-insights/app-insights-overview.md) monitora a disponibilidade, o desempenho e o uso do seu aplicativo, seja hospedado na nuvem ou localmente. Ele aproveita a plataforma de análise de dados avançada no Log Analytics para fornecer informações detalhadas sobre as operações do aplicativo e diagnosticar erros sem esperar que um usuário relate-os. O Application Insights inclui pontos de conexão com uma variedade de ferramentas de desenvolvimento e integra-se ao Visual Studio para dar suporte a seus processos de DevOps.
 
 ![Insights de aplicativo](media/overview/app-insights.png)
 

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 578488163482dd0b7b486ca152455ff9686f1a43
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 93ff349eb14823784ca574a70279cd623c720872
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949206"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853718"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM do Linux
 Este artigo mostra a você como anexar um disco persistente à sua VM para que você possa preservar dados, mesmo que sua VM seja provisionada novamente devido à manutenção ou ao redimensionamento. 
@@ -169,7 +169,7 @@ sudo mount /dev/sdc1 /datadrive
 Para garantir que a unidade seja remontada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo */etc/fstab*. Além disso, é altamente recomendável que o UUID (Identificador Universal Exclusivo) seja usado no */etc/fstab* para fazer referência à unidade e não apenas ao nome do dispositivo (por exemplo, */dev/sdc1*). Se o sistema operacional detectar um erro de disco durante a inicialização, usar o UUID evita que o disco incorreto seja montado em um determinado local. Os discos de dados restantes seriam então atribuídos a essas mesmas IDs de dispositivo. Para localizar o UUID da nova unidade, use o utilitário `blkid`:
 
 ```bash
-sudo -i blkid
+sudo blkid
 ```
 
 A saída deve ser semelhante ao seguinte exemplo:

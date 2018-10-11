@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 407782ff59147f227f5f34bc3318333093b4f57e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 820caf1ef1b5a92ccea066ef1b5fc8e20737ef21
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283564"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870412"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificar um circuito da ExpressRoute usando o PowerShell (clássico)
 
@@ -47,7 +47,7 @@ Para entrar na conta do Azure, use o seguinte exemplo:
 
 1. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
 
-  ```powershel
+  ```powershell
   Connect-AzureRmAccount
   ```
 2. Verificar as assinaturas da conta.

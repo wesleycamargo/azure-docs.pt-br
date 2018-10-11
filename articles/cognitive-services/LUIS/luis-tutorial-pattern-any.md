@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 4ff4a7085a8caeedebe2a734014afb1cb46d9fbf
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 90dc7b8bc69c86128b65c16920886b7c4af5c5cf
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164388"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888298"
 ---
 # <a name="tutorial-5-extract-free-form-data"></a>Tutorial 5: extrair dados de formulário livre
 
@@ -64,13 +64,13 @@ O comprimento variável inclui palavras que podem confundir o LUIS sobre onde a 
 ## <a name="use-existing-app"></a>Usar o aplicativo existente
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se não tiver o aplicativo HumanResources do tutorial anterior, siga estas etapas:
+Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
 
 1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
 
-2. Importe o JSON para um novo aplicativo.
+2. Importe o JSON em um novo aplicativo.
 
-3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `patt-any`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, ele não pode conter nenhum caractere que não seja válido em uma URL.
+3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `patt-any`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
 
 ## <a name="add-example-utterances"></a>Adicionar enunciados de exemplo 
 Remova a entidade keyPhrase predefinida se for difícil criar e identificar a entidade FormName. 

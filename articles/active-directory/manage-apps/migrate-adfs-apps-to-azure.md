@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 8d5f31f09d51794f9ad3c126edf2fd935f379221
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296457"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48903021"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrar aplicativos locais do AD FS para o Azure 
 
@@ -151,7 +151,7 @@ Aplicativos que você pode migrar facilmente no momento incluem aplicativos SAML
 - Nome.
 - Sobrenome.
 - Atributo alternativo, como **NameID** do SAML, incluindo o atributo de email, o prefixo de email, employeeid, os atributos de extensão 1-15 a 15 ou **SamAccountName** local. Para saber mais, confira [Editando a declaração NameIdentifier](../develop/active-directory-saml-claims-customization.md).
-- Declarações personalizadas. Para saber mais sobre mapeamentos de declarações com suporte, confira [Mapeamento de declarações no Azure Active Directory](../active-directory-claims-mapping.md) e [Personalizando declarações emitidas no token SAML para aplicativos empresariais no Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+- Declarações personalizadas. Para saber mais sobre mapeamentos de declarações com suporte, confira [Mapeamento de declarações no Azure Active Directory](../develop/active-directory-claims-mapping.md) e [Personalizando declarações emitidas no token SAML para aplicativos empresariais no Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 Além dos elementos de **NameID** e declarações personalizadas, outras configurações que exigem etapas de configuração adicional no Azure AD como parte da migração incluem:
 - Autorização personalizada ou regras de autenticação multifator no AD FS. Você pode configurá-las usando o recurso [Acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md).
@@ -171,7 +171,7 @@ Os aplicativos que exigem os recursos a seguir não podem ser migrados atualment
 - Declarações em recursos de token:
     - Emissão de nomes de grupo local como declarações.
     - Declarações de armazenamentos diferentes do Azure AD.
-    - Regras de transformação de emissão de declarações complexas. Para saber mais sobre mapeamentos de declarações com suporte, confira [Mapeamento de declarações no Azure Active Directory](../active-directory-claims-mapping.md) e [Personalizando declarações emitidas no token SAML para aplicativos empresariais no Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+    - Regras de transformação de emissão de declarações complexas. Para saber mais sobre mapeamentos de declarações com suporte, confira [Mapeamento de declarações no Azure Active Directory](../develop/active-directory-claims-mapping.md) e [Personalizando declarações emitidas no token SAML para aplicativos empresariais no Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
     - Emissão de extensões de diretório como declarações.
     - Especificação personalizada do formato **NameID**.
     - Emissão de atributos com vários valores.

@@ -10,12 +10,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: cb1abdce3bbd7349695ece70ff336c7e513c0918
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 344423ea9943e04dc5f02ebee0903d179be90bbd
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162178"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887574"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Pacote de aceleração de hardware do Azure Machine Learning
 
@@ -148,7 +148,7 @@ Esse código de exemplo mostra como usar o SDK para implantar um modelo em uma m
 
 ## <a name="reporting-issues"></a>Problemas de relatórios
 
-Use o [fórum](https://aka.ms/aml-forum) para relatar quaisquer problemas que você encontrar com o pacote.
+Use o [fórum](https://aka.ms/aml-forum-service) para relatar quaisquer problemas que você encontrar com o pacote.
 
 ## <a name="next-steps"></a>Próximas etapas
 

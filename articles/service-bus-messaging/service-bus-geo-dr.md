@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 8cf21b283053760077ca2903349f0dc5e4cbb9e2
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0436248dac2812c447d25de16a4ac6b45bd7248f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392475"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855164"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
 
@@ -121,7 +121,6 @@ Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usan
 
 Para saber mais sobre as mensagens do Barramento de Serviço, confira os artigos a seguir:
 
-* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)

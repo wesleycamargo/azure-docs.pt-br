@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 51c7bacbfa30a74aef89abba133e48c483375032
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 91979d46a341f0892d4e5774246bac5a7897f698
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971443"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815606"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 e o protocolo OpenID Connect
 
@@ -111,7 +111,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | locatário |Obrigatório |Você pode usar o valor `{tenant}` no caminho da solicitação para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para saber mais, veja [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
 | client_id |Obrigatório |A ID de aplicativo do [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuída ao seu aplicativo. |
-| response_type |Obrigatório |Deve incluir `id_token` para conexão do OpenID Connect. Ele também pode incluir outros `response_types` valores, como `code`. |
+| response_type |Obrigatório |Deve incluir `id_token` para conexão do OpenID Connect. Ele também pode incluir outros `response_type` valores, como `code`. |
 | redirect_uri |Recomendadas |O URI de redirecionamento do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal, com exceção de que ele deve ser codificado por URL. |
 | scope |Obrigatório |Uma lista de escopos separados por espaços. Para o OpenID Connect, é necessário incluir o escopo `openid`, que é traduzido para a permissão "Fazer seu logon" na interface do usuário de consentimento. Você também pode incluir outros escopos nesta solicitação para solicitar o consentimento. |
 | nonce |Obrigatório |Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no valor do id_token resultante como uma declaração. O aplicativo pode verificar esse valor para reduzir os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
@@ -177,7 +177,7 @@ A tabela a seguir descreve os códigos de erro que podem ser retornados no parâ
 
 Apenas receber o id_token não é suficiente para autenticar o usuário; você deve validar a assinatura do id_token e verificar as declarações no token de acordo com os requisitos do aplicativo. O ponto de extremidade v2.0 usa [JWTs (Tokens Web JSON)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar tokens e verificar se eles são válidos.
 
-Você pode escolher validar o `id_token` no código do cliente, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação nele. Após a validação da assinatura do id_token, será necessário verificar algumas declarações: Consulte a [referência do `id_token`](id-tokens.md) para obter mais informações, incluindo [Validação de tokens](id-tokens.md#validating-idtokens) e [Informações importantes sobre substituição de chave de assinatura](active-directory-signing-key-rollover.md). Há, pelo menos, uma disponível para a maioria das linguagens e plataformas.
+Você pode escolher validar o `id_token` no código do cliente, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação nele. Após a validação da assinatura do id_token, será necessário verificar algumas declarações: Consulte a [referência do `id_token`](id-tokens.md) para obter mais informações, incluindo [Validação de tokens](id-tokens.md#validating-an-idtoken) e [Informações importantes sobre substituição de chave de assinatura](active-directory-signing-key-rollover.md). Há, pelo menos, uma disponível para a maioria das linguagens e plataformas.
 <!--TODO: Improve the information on this-->
 
 Talvez você também queira validar declarações adicionais, dependendo do cenário. Algumas validações comuns incluem:
@@ -278,4 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Para obter uma descrição dos possíveis códigos de erro e as respostas recomendadas do cliente, veja [Códigos de erro para erros de ponto de extremidade de autorização](#error-codes-for-authorization-endpoint-errors).
 
-Quando você tiver um código de autorização e um token de ID, poderá conectar o usuário e obter tokens de acesso em seu nome. Para conectar o usuário, você deve validar o token de ID [exatamente como descrito ](id-tokens.md#validating-idtokens). Para obter tokens de acesso, siga as etapas descritas na [documentação do fluxo de código OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).
+Quando você tiver um código de autorização e um token de ID, poderá conectar o usuário e obter tokens de acesso em seu nome. Para conectar o usuário, você deve validar o token de ID [exatamente como descrito ](id-tokens.md#validating-an-idtoken). Para obter tokens de acesso, siga as etapas descritas na [documentação do fluxo de código OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).

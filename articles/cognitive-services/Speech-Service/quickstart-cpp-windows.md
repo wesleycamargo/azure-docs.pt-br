@@ -5,26 +5,26 @@ description: Saiba como reconhecer fala em C++ no Windows Desktop usando o SDK d
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: e6f8b8f2a3bcdf78de28bddc73502872e851da12
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 12faf7ae7e45e6f6ede739b24d9ead28ff26313e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434289"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886322"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em C++ no Windows usando o SDK de Fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, você criará um aplicativo de console C++ para o Windows. Você usará o [SDK de Fala](speech-sdk.md) dos Serviços Cognitivos para transcrever a conversão de fala em texto em tempo real do microfone do seu computador. O aplicativo foi criado com o [Pacote NuGet do SDK de Fala](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
+Neste artigo, você criará um aplicativo de console C++ para o Windows. Você usará o [SDK de Fala](speech-sdk.md) dos Serviços Cognitivos para transcrever a conversão de fala em texto em tempo real do microfone do seu computador. O aplicativo é criado com o [Pacote NuGet do SDK de Fala](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa de uma chave de assinatura do serviço de Fala para concluir este Início Rápido. Você pode obter uma gratuitamente. Confira [Experimentar o serviço de Fala gratuitamente](get-started.md) para obter mais detalhes.
+Você precisa de uma chave de assinatura do serviço de Fala para concluir este Início Rápido. Obtenha uma gratuitamente. Confira [Experimentar o serviço de Fala gratuitamente](get-started.md) para obter mais detalhes.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -54,7 +54,7 @@ Você precisa de uma chave de assinatura do serviço de Fala para concluir este 
 
     ![Captura de tela do Gerenciador de Soluções, com a opção Gerenciar Pacotes NuGet para a Solução realçada](media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
 
-1. No canto superior direito, no campo **Origem do Pacote**, selecione **nuget.org**. Procure o pacote `Microsoft.CognitiveServices.Speech` e instale-o no projeto **helloworld**.
+1. No canto superior direito, no campo **Package Source**, selecione **nuget.org**. Procure o pacote `Microsoft.CognitiveServices.Speech` e instale-o no projeto **helloworld**.
 
     ![Captura de tela da caixa de diálogo Gerenciar Pacotes para Solução](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 

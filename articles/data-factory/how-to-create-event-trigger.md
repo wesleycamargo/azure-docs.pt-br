@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: douglasl
-ms.openlocfilehash: 53ea7425f0497eca7c95ddefeaa09aa40259672b
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 38fbb62de60bc5604210c8ad7339368a04967c27
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216251"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867019"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um gatilho que executa um pipeline em resposta a um evento
 
@@ -58,11 +58,11 @@ Assim que o arquivo chega ao local de armazenamento e o blob correspondente é c
 
 ### <a name="map-trigger-properties-to-pipeline-parameters"></a>Mapear propriedades de gatilho para parâmetros de pipeline
 
-Quando um gatilho de evento é acionado para um blob específico, o evento captura o nome de arquivo e o caminho de pasta do blob para as propriedades `@triggerBody().folderPath` e `@triggerBody().fileName`. Para usar os valores dessas propriedades em um pipeline, é necessário mapear as propriedades para parâmetros de pipeline. Depois de mapear as propriedades para parâmetros, acesse os valores capturados pelo gatilho por meio da expressão `@pipeline.parameters.parameterName` em todo o pipeline.
+Quando um gatilho de evento é acionado para um blob específico, o evento captura o nome de arquivo e o caminho de pasta do blob para as propriedades `@triggerBody().folderPath` e `@triggerBody().fileName`. Para usar os valores dessas propriedades em um pipeline, é necessário mapear as propriedades para parâmetros de pipeline. Depois de mapear as propriedades para parâmetros, acesse os valores capturados pelo gatilho por meio da expressão `@pipeline().parameters.parameterName` em todo o pipeline.
 
 ![Mapeando propriedades para parâmetros de pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
-Por exemplo, na captura de tela anterior, o gatilho está configurado para ser acionado quando um caminho de blob que termina com `.csv` for criado na Conta de Armazenamento. Como resultado, quando um blob com a extensão `.csv` é criada em qualquer lugar da Conta de Armazenamento, as propriedades `folderPath` e `fileName` capturam o local do novo blob. Por exemplo, `@triggerBody().folderPath` tem um valor como `/containername/foldername/nestedfoldername` e `@triggerBody().fileName` tem um valor como `filename.csv`. Esses valores são mapeados no exemplo para os parâmetros de pipeline `sourceFolder` e `sourceFile`. Você pode usá-los em todo o pipeline como `@pipeline.parameters.sourceFolder` e `@pipeline.parameters.sourceFile`, respectivamente.
+Por exemplo, na captura de tela anterior, o gatilho está configurado para ser acionado quando um caminho de blob que termina com `.csv` for criado na Conta de Armazenamento. Como resultado, quando um blob com a extensão `.csv` é criada em qualquer lugar da Conta de Armazenamento, as propriedades `folderPath` e `fileName` capturam o local do novo blob. Por exemplo, `@triggerBody().folderPath` tem um valor como `/containername/foldername/nestedfoldername` e `@triggerBody().fileName` tem um valor como `filename.csv`. Esses valores são mapeados no exemplo para os parâmetros de pipeline `sourceFolder` e `sourceFile`. Você pode usá-los em todo o pipeline como `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile`, respectivamente.
 
 ## <a name="json-schema"></a>JSON schema
 

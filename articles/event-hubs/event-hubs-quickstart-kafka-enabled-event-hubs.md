@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2018
 ms.author: bahariri
-ms.openlocfilehash: 90d9f3620f954da42add08a0aebf779a95c7e7a3
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 2fbca7179d8bc64a92f79f6eaced8d4f1666c530
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023190"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069209"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Transmitir para Hubs de Eventos do Apache Kafka
 Este guia de início rápido mostra como transmitir para o Kafka habilitado dos Hubs de Eventos sem alterar seus clientes de protocolo ou seus próprio clusters em execução. Você aprenderá a usar seu produtores e os consumidores para se comunicar com os Hubs de Eventos habilitados com Kafka com apenas uma alteração de configuração nos seus aplicativos. Hubs de Eventos do Azure dá suporte para [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -75,12 +75,14 @@ Agora você pode transmitir eventos de aplicativos que usam o protocolo Kafka no
     sasl.mechanism=PLAIN
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
+    
 4. Execute o código de produtor e fluxo nos Hubs de Eventos habilitado com Kafka:
    
     ```shell
     mvn clean package
     mvn exec:java -Dexec.mainClass="TestProducer"                                    
     ```
+    
 5. Navegue até `azure-event-hubs/samples/kafka/quickstart/consumer`.
 
 6. Atualize os detalhes de configuração para o consumidor no `src/main/resources/consumer.config` da seguinte maneira:

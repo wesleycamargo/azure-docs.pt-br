@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 1f9a2b786db59ecfee6ede53b2b789d84651c975
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 1347d3aac01c62040c164eee22c7a905b07e8236
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577111"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816949"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
@@ -68,7 +68,7 @@ A primeira etapa do uso do Azure AD para realizar a autenticação é registrar 
 
 Ao registrar o aplicativo, você fornece informações sobre ele ao Azure AD. O Microsoft Azure AD, em seguida, fornece um ID do aplicativo (também chamado de *ID do Cliente*) que você usa para associar o aplicativo ao Microsoft Azure AD no tempo de execução. Para saber mais sobre a ID do aplicativo, veja [Objetos de aplicativo e de entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registrar o aplicativo Lote, siga as etapas da seção [Adicionar um aplicativo](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) em [Integração de aplicativos com o Azure Active Directory][aad_integrate]. Se você registrar o aplicativo como um Aplicativo Nativo, poderá especificar qualquer URI válido para o **URI de Redirecionamento**. Ele não precisa ser um ponto de extremidade real.
+Para registrar o aplicativo Lote, siga as etapas da seção [Adicionar um aplicativo](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) em [Integração de aplicativos com o Azure Active Directory][aad_integrate]. Se você registrar o aplicativo como um Aplicativo Nativo, poderá especificar qualquer URI válido para o **URI de Redirecionamento**. Ele não precisa ser um ponto de extremidade real.
 
 Depois de registrar o aplicativo, você verá a ID do aplicativo:
 

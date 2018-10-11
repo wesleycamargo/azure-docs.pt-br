@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 53d613052713e5144cb9d96aeeb937392fd4736a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577179"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902919"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess
 
@@ -162,10 +162,10 @@ Este exemplo usa o [Portal do Azure](https://portal.azure.com) para atualizar o 
 >[!NOTE]
 >Para usar uma declaração personalizada, você também deve ter uma política personalizada definida e atribuída ao aplicativo.  Essa política deve incluir todos os atributos personalizados necessários.
 >
->Atribuição e definição de política podem ser feitas por meio do PowerShell, do Azure AD Graph Explorer ou do MS Graph.  Se você estiver fazendo isso no PowerShell, precisará primeiro usar `New-AzureADPolicy `e, em seguida, atribuí-la para o aplicativo com `Set-AzureADServicePrincipalPolicy`.  Para obter mais informações, consulte a [Documentação da política do Azure AD](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>Atribuição e definição de política podem ser feitas por meio do PowerShell, do Azure AD Graph Explorer ou do MS Graph.  Se você estiver fazendo isso no PowerShell, precisará primeiro usar `New-AzureADPolicy `e, em seguida, atribuí-la para o aplicativo com `Set-AzureADServicePrincipalPolicy`.  Para obter mais informações, consulte a [Documentação da política do Azure AD](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### <a name="optional---use-a-custom-claim"></a>Opcional – use uma declaração personalizada
-Para fazer seu aplicativo usar uma declaração personalizada e incluir campos adicionais, crie também uma [política de mapeamento de declarações personalizadas e atribuída ao aplicativo](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+Para fazer seu aplicativo usar uma declaração personalizada e incluir campos adicionais, crie também uma [política de mapeamento de declarações personalizadas e atribuída ao aplicativo](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>Baixar o PingAccess e configurar seu aplicativo
 

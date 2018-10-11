@@ -6,21 +6,21 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qnamaker
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2f92868c0963048ed66895d023b35d22e28755b5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 28e8c29658cd6e11e2a532834da815385b093f73
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364197"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901118"
 ---
 # <a name="supported-languages"></a>Idiomas com suporte
 
 Atualmente, o Aprendizado de Conversa suporta os seguintes idiomas e localidades.
 
-|Idiomas com suporte| Localidade|
+|Idiomas com suporte| Local|
 |-----|----|
 |Inglês|pt-BR|

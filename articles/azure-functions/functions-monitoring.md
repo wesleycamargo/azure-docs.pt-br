@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: fb9de98a80d348c3ba1e84ae19551c7ca080628b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 66d04ca93a79f4d9cdd9f162c6cd3210ae35f4d2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966836"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902698"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -317,9 +317,9 @@ Você pode gravar logs no seu código de função que apareçam como rastreament
 
 ### <a name="ilogger"></a>ILogger
 
-Use um parâmetro [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) em funções, em vez de um parâmetro `TraceWriter`. Logs criados usando `TraceWriter` vão para o Application Insights, mas o `ILogger` permite que você faça [registro em log estruturado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+Use um parâmetro [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) em funções, em vez de um parâmetro `TraceWriter`. Logs criados usando `TraceWriter` vão para o Application Insights, mas o `ILogger` permite que você faça [registro em log estruturado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Com um objeto `ILogger`, chame os `Log<level>` [métodos de extensão no ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loggerextensions#Methods_) para criar logs. Por exemplo, o código a seguir grava `Information` logs com a categoria "Função".
+Com um objeto `ILogger`, chame os `Log<level>` [métodos de extensão no ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) para criar logs. Por exemplo, o código a seguir grava `Information` logs com a categoria "Função".
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)

@@ -10,12 +10,12 @@ ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 4712c0b40209cd6d40703176f95a80f491d0364c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ffd134bd4e47f92264f8b299f8fd4bdb76f6c9f
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979093"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870309"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Guia de início rápido: compilar um aplicativo do Cassandra com o Python e o Azure Cosmos DB
 
@@ -26,7 +26,7 @@ ms.locfileid: "46979093"
 > * [Python](create-cassandra-python.md)
 >  
 
-Este guia de início rápido mostra como usar o Python e a [API Cassandra](cassandra-introduction.md) do Azure Cosmos DB para compilar um aplicativo de perfil clonando um exemplo do GitHub. Neste início rápido também mostra como usar o portal do Azure baseados na web para criar uma conta do Azure Cosmos DB.
+Este guia de início rápido mostra como usar o Python e a [API Cassandra](cassandra-introduction.md) do Azure Cosmos DB para compilar um aplicativo de perfil clonando um exemplo do GitHub. Este Início Rápido também mostra como usar o portal do Azure baseado na Web para criar uma conta do Azure Cosmos DB.
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, tabelas, valores-chave e bancos de dados de gráfico, todos os quais se beneficiam de recursos de distribuição global e escala horizontal e no núcleo do Azure Cosmos DB.
 
@@ -34,7 +34,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Como alternativa, você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem ônus e sem compromisso.
 
-Além disso, você precisa:
+Além disso, você precisa de:
 * Versão v2.7.14 do [Python](https://www.python.org/downloads/)
 * [Git](http://git-scm.com/)
 * [Driver do Python para Apache Cassandra](https://github.com/datastax/python-driver)
@@ -49,7 +49,7 @@ Antes de criar um banco de dados de documentos, você precisa criar uma conta Ca
 
 Agora vamos clonar um aplicativo de API Cassandra do github, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática. 
 
-1. Abra um prompt de comando. Criar uma nova pasta chamada `git-samples`. Não feche o prompt de comando.
+1. Abra um prompt de comando. Crie uma pasta chamada `git-samples`. Em seguida, feche o prompt de comando.
 
     ```bash
     md "C:\git-samples"
@@ -69,7 +69,7 @@ Agora vamos clonar um aplicativo de API Cassandra do github, definir a cadeia de
 
 ## <a name="review-the-code"></a>Examine o código
 
-Esta etapa é opcional. Se você estiver interessado em aprender como o código cria os recursos de banco de dados,examine os trechos de código a seguir. Os snippets de código são todos obtidos do arquivo pyquickstart.py. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-string). 
+Esta etapa é opcional. Se você estiver interessado em aprender como o código cria os recursos de banco de dados, examine os trechos de código a seguir. Os snippets de código são todos obtidos do arquivo pyquickstart.py. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-string). 
 
 * Os valores de nome de usuário e senha são definidos usando a página de cadeia de conexão no portal do Microsoft Azure. O `path\to\cert` fornece um caminho para um X509 certificado. 
 
@@ -112,13 +112,13 @@ Esta etapa é opcional. Se você estiver interessado em aprender como o código 
 
     ```Python
     insert_data = session.prepare("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)")
-    batch = BatchStatement()
-    batch.add(insert_data, (1, 'LyubovK', 'Dubai'))
-    batch.add(insert_data, (2, 'JiriK', 'Toronto'))
-    batch.add(insert_data, (3, 'IvanH', 'Mumbai'))
-    batch.add(insert_data, (4, 'YuliaT', 'Seattle'))
+    session.execute(insert_data, [1,'Lybkov','Seattle'])
+    session.execute(insert_data, [2,'Doniv','Dubai'])
+    session.execute(insert_data, [3,'Keviv','Chennai'])
+    session.execute(insert_data, [4,'Ehtevs','Pune'])
+    session.execute(insert_data, [5,'Dnivog','Belgaum'])
     ....
-    session.execute(batch)
+    
     ```
 
 * Consulta para obter todos os pares chave-valor.
@@ -138,7 +138,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como o código 
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. A cadeia de conexão permite que seu aplicativo se comunique com o banco de dados hospedado.
 
-1. No [portal do Azure](http://portal.azure.com/), selecione **Cadeia de conexão**. 
+1. No [portal do Azure](http://portal.azure.com/), selecione **Cadeia de Conexão**. 
 
     Use o ![botão Copiar](./media/create-cassandra-python/copy.png) no lado direito da tela para copiar o valor superior, o PONTO DE CONTATO.
 

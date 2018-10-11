@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: spelluru
-ms.openlocfilehash: 5f8c35be2a4d9605fff7c4c0f6d547ad28723b7b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 0da4fdf5afc0cbe76e19260b486aa9112d0d74c8
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407239"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854313"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controle de acesso baseado em função do Active Directory (versão prévia)
 
@@ -80,7 +80,6 @@ Ao executar o aplicativo de console, você precisará selecionar um cenário, cl
 
 Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópicos a seguir.
 
-* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
