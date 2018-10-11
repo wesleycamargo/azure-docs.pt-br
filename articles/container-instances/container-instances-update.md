@@ -2,18 +2,17 @@
 title: Atualizar contêineres nas Instâncias de Contêiner do Azure
 description: Saiba como atualizar os contêineres em execução nos grupos de contêineres das Instâncias de Contêiner do Azure.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/01/2018
-ms.author: marsma
-ms.openlocfilehash: 5a42b0983b0f754b119fa304317e758a976fb4f6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: danlep
+ms.openlocfilehash: 2df6a2724cbdcd6bbb6c6ca6636256b7e399da8e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432609"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854534"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Atualizar contêineres nas Instâncias de Contêiner do Azure
 
@@ -23,7 +22,7 @@ Durante a operação normal das instâncias de contêiner, talvez seja necessár
 
 Atualize os contêineres em um grupo de contêineres com a reimplantação de um grupo existente com pelo menos uma propriedade modificada. Ao atualizar um grupo de contêineres, todos os contêineres em execução no grupo são reiniciados no local.
 
-Reimplante um grupo de contêiner existente, emitindo o comando criar (ou use o portal do Azure) e especifique o nome de um grupo existente. Modifique pelo menos uma propriedade válida do grupo ao emitir o comando criar para disparar a reimplantação. Nem todas as propriedades do grupo de contêineres são válidas para reimplantação. Consulte as [Propriedades que exigem exclusão](#properties-that-require-delete) para obter uma lista de propriedades sem suporte.
+Reimplante um grupo de contêiner existente, emitindo o comando criar (ou use o portal do Azure) e especifique o nome de um grupo existente. Modifique pelo menos uma propriedade válida do grupo ao emitir o comando criar para disparar a reimplantação. Nem todas as propriedades do grupo de contêineres são válidas para reimplantação. Consulte as [Propriedades que exigem exclusão](#properties-that-require-container-delete) para obter uma lista de propriedades sem suporte.
 
 O exemplo da CLI do Azure a seguir atualiza um grupo de contêineres com um novo rótulo de nome DNS. Como a propriedade do rótulo de nome DNS do grupo é modificada, o grupo de contêineres é reimplantado e os contêineres reiniciados.
 

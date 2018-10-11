@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 54bb6056c41126aecada265eb0e079bc7c281be8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d5f5b66dee88a993347b6c1672fd9526ece09dc4
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865926"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269506"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -58,17 +58,17 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |NOME|DESCRIÇÃO|Obrigatório|  
 |----------|-----------------|--------------|  
-|check-header|Elemento raiz.|sim|  
+|check-header|Elemento raiz.|SIM|  
 |value|Valor do cabeçalho HTTP permitido. Quando vários elementos de valor são especificados, a verificação é considerada um sucesso se qualquer um dos valores é uma correspondência.|Não |  
   
 ### <a name="attributes"></a>Atributos  
   
 |NOME|DESCRIÇÃO|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|failed-check-error-message|A mensagem de erro para retornar no corpo da resposta HTTP se o cabeçalho não existe ou tem um valor inválido. Esta mensagem deve conter quaisquer caracteres especiais adequadamente seguidos por caracteres de escape.|sim|N/D|  
-|failed-check-httpcode|O código de status HTTP para retornar se o cabeçalho não existir ou tiver um valor inválido.|sim|N/D|  
-|header-name|O nome do cabeçalho HTTP para verificar.|sim|N/D|  
-|ignore-case|Pode ser definido como True ou False. Se definido como True, maiúsculas e minúsculas são ignoradas quando o valor do cabeçalho é comparado com o conjunto de valores aceitáveis.|sim|N/D|  
+|failed-check-error-message|A mensagem de erro para retornar no corpo da resposta HTTP se o cabeçalho não existe ou tem um valor inválido. Esta mensagem deve conter quaisquer caracteres especiais adequadamente seguidos por caracteres de escape.|SIM|N/D|  
+|failed-check-httpcode|O código de status HTTP para retornar se o cabeçalho não existir ou tiver um valor inválido.|SIM|N/D|  
+|header-name|O nome do cabeçalho HTTP para verificar.|SIM|N/D|  
+|ignore-case|Pode ser definido como True ou False. Se definido como True, maiúsculas e minúsculas são ignoradas quando o valor do cabeçalho é comparado com o conjunto de valores aceitáveis.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -113,7 +113,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |NOME|DESCRIÇÃO|Obrigatório|  
 |----------|-----------------|--------------|  
-|set-limit|Elemento raiz.|sim|  
+|set-limit|Elemento raiz.|SIM|  
 |api|Adicione um ou mais desses elementos para impor um limite de taxa de chamadas para as APIs dentro do produto. Limites de taxa de chamadas à API e ao produto são aplicados de forma independente. A API pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado.|Não |  
 |operation|Adicione um ou mais desses elementos para impor um limite de taxa de chamadas para as operações dentro de uma API. Limites de taxa de chamadas à API, operação e produto são aplicados de forma independente. A operação pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado.|Não |  
   
@@ -121,9 +121,9 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |NOME|DESCRIÇÃO|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|Nome|O nome da API para a qual aplicar o limite de taxa.|sim|N/D|  
-|chamadas|O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.|sim|N/D|  
-|renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|sim|N/D|  
+|Nome|O nome da API para a qual aplicar o limite de taxa.|SIM|N/D|  
+|chamadas|O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.|SIM|N/D|  
+|renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -172,16 +172,16 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |NOME|DESCRIÇÃO|Obrigatório|  
 |----------|-----------------|--------------|  
-|set-limit|Elemento raiz.|sim|  
+|set-limit|Elemento raiz.|SIM|  
   
 ### <a name="attributes"></a>Atributos  
   
 |NOME|DESCRIÇÃO|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|chamadas|O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.|sim|N/D|  
-|counter-key|A chave a ser usada para a política de limite de taxa.|sim|N/D|  
+|chamadas|O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.|SIM|N/D|  
+|counter-key|A chave a ser usada para a política de limite de taxa.|SIM|N/D|  
 |increment-condition|A expressão booliana que especifica se a solicitação deve ser contabilizada para a cota (`true`).|Não |N/D|  
-|renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|sim|N/D|  
+|renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -215,7 +215,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |NOME|DESCRIÇÃO|Obrigatório|  
 |----------|-----------------|--------------|  
-|ip-filter|Elemento raiz.|sim|  
+|ip-filter|Elemento raiz.|SIM|  
 |endereço|Especifica um único endereço IP no qual filtrar.|Pelo menos um elemento `address` ou `address-range` é necessário.|  
 |address-range from="address" to="address"|Especifica um intervalo de endereços IP nos quais filtrar.|Pelo menos um elemento `address` ou `address-range` é necessário.|  
   
@@ -224,7 +224,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |NOME|DESCRIÇÃO|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="address" to="address"|Um intervalo de endereços IP aos quais o acesso será permitido ou negado.|Necessário quando o elemento `address-range` é usado.|N/D|  
-|ip-filter action="allow &#124; forbid"|Especifica se chamadas para os endereços IP e intervalos de endereços IP especificados devem ou não ser permitidas.|sim|N/D|  
+|ip-filter action="allow &#124; forbid"|Especifica se chamadas para os endereços IP e intervalos de endereços IP especificados devem ou não ser permitidas.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -268,7 +268,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |NOME|DESCRIÇÃO|Obrigatório|  
 |----------|-----------------|--------------|  
-|quota|Elemento raiz.|sim|  
+|quota|Elemento raiz.|SIM|  
 |api|Adicione um ou mais desses elementos para impor uma cota para as APIs dentro do produto. Cotas de API e produto são aplicadas de forma independente. A API pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado.|Não |  
 |operation|Adicione um ou mais desses elementos para impor uma cota para as operações dentro de uma API. Cotas de operações, APIs e produtos são aplicadas de forma independente. A operação pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado.|Não |  
   
@@ -276,10 +276,10 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |NOME|DESCRIÇÃO|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|Nome|O nome da API ou operação à qual a cota se aplica.|sim|N/D|  
+|Nome|O nome da API ou operação à qual a cota se aplica.|SIM|N/D|  
 |largura de banda|O número total máximo de kilobytes permitidos durante o intervalo de tempo especificado no `renewal-period`.|`calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados.|N/D|  
 |chamadas|O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.|`calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados.|N/D|  
-|renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|sim|N/D|  
+|renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -288,7 +288,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 -   **Escopos de política:** produto  
   
 ##  <a name="SetUsageQuotaByKey"></a> Definir uma cota de uso por chave  
- A política `quota-by-key` impõe uma cota renovável ou de tempo de vida de volume de chamadas e/ou largura de banda, para cada chave. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção da cota.  
+ A política `quota-by-key` impõe uma cota renovável ou de tempo de vida de volume de chamadas e/ou largura de banda, para cada chave. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção da cota. Quando essa política é disparada, o chamador recebe um código de status de resposta `403 Forbidden`.
   
  Para obter mais informações e exemplos dessa política, consulte [Limitação de solicitação avançada com o Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
@@ -329,7 +329,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |NOME|DESCRIÇÃO|Obrigatório|  
 |----------|-----------------|--------------|  
-|quota|Elemento raiz.|sim|  
+|quota|Elemento raiz.|SIM|  
   
 ### <a name="attributes"></a>Atributos  
   
@@ -337,9 +337,9 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |----------|-----------------|--------------|-------------|  
 |largura de banda|O número total máximo de kilobytes permitidos durante o intervalo de tempo especificado no `renewal-period`.|`calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados.|N/D|  
 |chamadas|O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.|`calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados.|N/D|  
-|counter-key|A chave a ser usada para a política de cota.|sim|N/D|  
+|counter-key|A chave a ser usada para a política de cota.|SIM|N/D|  
 |increment-condition|A expressão booliana que especifica se a solicitação deve ser contabilizada para a cota (`true`)|Não |N/D|  
-|renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|sim|N/D|  
+|renewal-period|O período de tempo, em segundos, durante o qual uma cota reinicia.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -486,7 +486,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Elemento|DESCRIÇÃO|Obrigatório|  
 |-------------|-----------------|--------------|  
-|validate-jwt|Elemento raiz.|sim|  
+|validate-jwt|Elemento raiz.|SIM|  
 |públicos-alvo|Contém uma lista de declarações de público-alvo aceitáveis que podem estar presentes no token. Se vários valores de público-alvo estiverem presentes, cada valor será tentado até que todos sejam esgotados (nesse caso, a validação falhará) ou até obter êxito. Pelo menos um público-alvo deve ser especificado.|Não |  
 |issuer-signing-keys|Uma lista de chaves de segurança codificadas em Base64 usadas para validar tokens assinados. Se várias chaves de segurança estiverem presentes, cada chave será tentada até que todas sejam esgotadas (nesse caso, a validação falhará) ou até obter êxito (útil para substituição de token). Elementos-chave têm um atributo `id` opcional usado para correspondência com a declaração `kid`.|Não |  
 |emissores|Uma lista de entidades aceitáveis que emitiram o token. Se vários valores de emissor estiverem presentes, cada valor será tentado até que todos sejam esgotados (nesse caso, a validação falhará) ou até obter êxito.|Não |  
@@ -509,7 +509,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |require-scheme|O nome do esquema do token, por exemplo, "Portador". Quando esse atributo for definido, a política garantirá que o esquema especificado esteja presente no valor do cabeçalho de Autorização.|Não |N/D|
 |require-signed-tokens|Booliano. Especifica se é necessário que um determinado token seja assinado.|Não |verdadeiro|  
 |separador|Cadeia de caracteres. Especifica um separador (por exemplo, ",") a ser usado para extrair um conjunto de valores de uma declaração com valores múltiplos.|Não |N/D| 
-|url|URL ponto de extremidade de configuração de Open ID da qual é possível obter os metadados de configuração de Open ID. A resposta deve ser de acordo com as especificações definidas na URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Para o Azure Active Directory, use a seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o seu nome de locatário do diretório, por exemplo, `contoso.onmicrosoft.com`.|sim|N/D|  
+|url|URL ponto de extremidade de configuração de Open ID da qual é possível obter os metadados de configuração de Open ID. A resposta deve ser de acordo com as especificações definidas na URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Para o Azure Active Directory, use a seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o seu nome de locatário do diretório, por exemplo, `contoso.onmicrosoft.com`.|SIM|N/D|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  

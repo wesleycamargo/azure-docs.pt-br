@@ -17,12 +17,12 @@ ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3d6692808bad2010779323cecc42778def32a38c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd164882f9820cab970edd4d01f2f28c26771f88
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980263"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815199"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Como listar seu aplicativo na galeria de aplicativos do Azure Active Directory
 
@@ -39,7 +39,7 @@ ms.locfileid: "46980263"
 
 - Para aplicativos federados (Open ID e SAML / WS-Fed), o aplicativo deve oferecer suporte ao modelo SaaS para ser listado na galeria do Azure AD. Os aplicativos de galeria da empresa devem oferecer suporte a várias configurações de cliente e não a nenhum cliente específico.
 
-- Para o Open ID Connect, o aplicativo deve ser multitenariado e a [estrutura de consentimento do Azure AD](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) deve ser implementada adequadamente para o aplicativo. O usuário pode enviar a solicitação de login para um terminal comum para que qualquer cliente possa fornecer consentimento para o aplicativo. É possível controlar acesso de usuário com base na ID do locatário e o UPN do usuário recebido no token.
+- Para o Open ID Connect, o aplicativo deve ser multitenariado e a [estrutura de consentimento do Azure AD](consent-framework.md) deve ser implementada adequadamente para o aplicativo. O usuário pode enviar a solicitação de login para um terminal comum para que qualquer cliente possa fornecer consentimento para o aplicativo. É possível controlar acesso de usuário com base na ID do locatário e o UPN do usuário recebido no token.
 
 - Para o SAML 2.0 / WS-Fed, seu aplicativo precisa ter a capacidade de fazer a integração SSO de SAML / WS-Fed no modo SP ou IDP. Por favor, verifique se está funcionando corretamente antes de enviar a solicitação.
 

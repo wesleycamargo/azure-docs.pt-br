@@ -8,14 +8,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: tonyxing
-ms.openlocfilehash: 1080bb0ad1d901a8b9a5ace4993d4e0d46924a03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2a0715d3becf695600ed84edbae38151acf055a8
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364005"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246835"
 ---
 # <a name="what-is-anomaly-finder"></a>O que é Localizador de Anomalias?
+
+[!INCLUDE [PrivatePreviewNote](../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 O Localizador de Anomalias permite monitorar dados ao longo do tempo e detectar anomalias com o aprendizado de máquina que se adapta a seus dados exclusivos aplicando automaticamente o modelo estatístico correto, independentemente do setor, cenário ou volume de dados. Usando uma série temporal como entrada, a API do Localizador de Anomalias retorna se um ponto de dados é uma anomalia ou não, determina o valor esperado e os limites superior e inferior da visualização. Como um serviço de IA predefinido, o Localizador de Anomalias não requer nenhum conhecimento do aprendizado de máquina além de saber como usar uma API RESTful. Isso torna o desenvolvimento simples e versátil porque ele trabalha com os dados da série temporal e pode também ser baseado nos sistemas de dados de streaming. O Localizador de Anomalias abrange muitos casos de uso, por exemplo, ferramentas financeiras para gerenciar fraudes, roubo, mercados em evolução e possíveis incidentes de negócios ou monitoramento do tráfego de dispositivos IoT preservando o anonimato. Essa solução também pode ser monetizada como parte de um serviço de clientes finais para entender as alterações nos dados, gastos, retorno sobre investimento ou atividade do usuário.
 Experimente a API do Localizador de Anomalias e entenda melhor seus dados. 

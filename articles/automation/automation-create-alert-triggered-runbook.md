@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac117994140f96ec993e4fed739626f736ad7efc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 98de7a84dc388f74c64d7c265d2ce8ed32995a5a
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965272"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784768"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usar um alerta para disparar um runbook de Automação do Azure
 
@@ -211,7 +211,7 @@ Para criar uma ação de notificação no grupo de ações:
    ![Adicionar página do grupo de ações](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 1. Selecione **OK** para criar o grupo de ações.
 
-Você pode usar este grupo de ações nos [alertas de log de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) e [alertas quase em tempo real](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fazure%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal) que você criar.
+Você pode usar este grupo de ações nos [alertas de log de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) e [alertas quase em tempo real](../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) que você criar.
 
 ## <a name="classic-alert"></a>Alerta clássico
 
@@ -231,4 +231,4 @@ Para criar um alerta clássico:
 * Para obter mais informações sobre como iniciar um runbook da Automação usando um webhook, veja [Iniciar um runbook com base em um webhook](automation-webhooks.md).
 * Para obter detalhes sobre diferentes maneiras de iniciar um runbook, consulte [Como iniciar um runbook](automation-starting-a-runbook.md).
 * Para saber mais sobre como criar um alerta de log de atividades, veja [Criar alertas do log de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
-* Para saber como criar um alerta quase em tempo real, veja [Criar uma regra de alerta no Portal do Azure](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fazure%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal).
+* Para saber como criar um alerta quase em tempo real, veja [Criar uma regra de alerta no Portal do Azure](../monitoring-and-diagnostics/alert-metric.md?toc=/azure/azure-monitor/toc.json).

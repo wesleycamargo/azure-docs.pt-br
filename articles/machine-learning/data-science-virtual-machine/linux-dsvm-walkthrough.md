@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c125f503166e3f63599dbd09acf42c69fab8d2ce
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116156"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044647"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Máquina Virtual da Ciência de Dados do Linux no Azure
 Este passo a passo mostra como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux. A Máquina Virtual da Ciência de Dados do Linux (DSVM) é uma imagem da máquina virtual disponível no Azure pré-instalada com uma coleção de ferramentas usadas comumente para a análise de dados e o aprendizado de máquina. Os principais componentes do software são detalhados no tópico [Provisionar a Máquina Virtual da Ciência de Dados do Linux](linux-dsvm-intro.md) . A imagem da VM facilita começar a fazer a ciência de dados em minutos, sem precisar instalar e configurar cada uma das ferramentas individualmente. Você pode dimensionar facilmente a VM, se necessário, e parar quando não estiver em uso. Portanto, esse recurso é elástico e econômico.
@@ -544,6 +544,6 @@ E consulte com o sqlcmd:
 Você também pode consultar com o Squirrel SQL. Siga as etapas semelhantes para o PostgreSQL, usando o Driver JDBC do Microsoft MSSQL Server, que pode ser encontrado em ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter uma visão geral dos tópicos que explicam as tarefas que compõem o processo de Ciência de dados no Azure, confira [Processo de Ciência de Dados de Equipe](http://aka.ms/datascienceprocess).
+Para obter uma visão geral dos tópicos que explicam as tarefas que compõem o processo de Ciência de dados no Azure, confira [Processo de Ciência de Dados de Equipe](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
 
 Para obter uma descrição de outras orientações de ponta a ponta que demonstram as etapas no Processo da Ciência de Dados de Equipe para cenários específicos, consulte [Explicações Passo a Passo do Processo da Ciência de Dados de Equipe](../team-data-science-process/walkthroughs.md). As orientações também mostram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 60a6061d6ac0998064897462c0e82db811bdc187
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9a867289cffa17030e397ef170e9055451057410
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435242"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237731"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Suporte ao idioma e à região para a API do Serviço de Fala
 
@@ -31,16 +31,16 @@ A API de reconhecimento de fala da Microsoft é compatível com os seguintes idi
  ca-ES | Catalão (Espanha) | Não  | Não | Não 
  da-DK | Dinamarquês (Dinamarca) | Não  | Não | Não 
  de-DE | Alemão (Alemanha) | SIM | sim | Não 
- en-AU | Inglês (Austrália) | SIM | sim | SIM
- en-CA | Inglês (Canadá) | SIM | sim | SIM
- en-GB | Inglês (Reino Unido) | SIM | sim | SIM
- en-IN | Inglês (Índia) | Não  | sim | SIM
- en-NZ | Inglês (Nova Zelândia) | SIM | sim | SIM  
+ en-AU | Inglês (Austrália) | Não  | sim | SIM
+ en-CA | Inglês (Canadá) | Não  | sim | SIM
+ en-GB | Inglês (Reino Unido) | Não  | sim | SIM
+ en-IN | Inglês (Índia) | SIM | sim | SIM
+ en-NZ | Inglês (Nova Zelândia) | Não  | sim | SIM  
  pt-BR | Inglês (Estados Unidos) | SIM | sim | SIM
- es-ES | Espanhol (Espanha) | SIM | sim | Não 
- es-MX | Espanhol (México) | SIM | sim | Não 
+ es-ES | Espanhol (Espanha) | Não  | Sim | Não 
+ es-MX | Espanhol (México) | Não  | Sim | Não 
  fi-FI | Finlandês (Finlândia) | Não  | Não | Não 
- fr-CA | Francês (Canadá) | SIM | sim | Não 
+ fr-CA | Francês (Canadá) | Não  | Sim | Não 
  fr-FR | Francês (França) | SIM | sim | Não 
  hi-IN | Hindi (Índia) | Não  | Sim | Não 
  it-IT | Italiano (Itália) | SIM | sim | Não 
@@ -51,7 +51,7 @@ A API de reconhecimento de fala da Microsoft é compatível com os seguintes idi
  pl-PL | Polonês (Polônia) | Não  | Não | Não 
  pt-BR | Português (Brasil) | Não  | Sim | Não 
  pt-PT | Português (Portugal) | Não  | Sim | Não 
- ru-RU | Russo (Rússia) | Não  | Sim | Não 
+ ru-RU | Russo (Rússia) | SIM | sim | Não 
  sv-SE | Sueco (Suécia) | Não  | Não | Não 
  zh-CN | Chinês (mandarim, simplificado) | SIM | sim | Não 
  zh-HK | Chinês (Mandarim, tradicional) | Não  | Sim | Não 
@@ -161,8 +161,6 @@ A personalização de voz está disponível para inglês dos EUA (en-US), chinê
 ## <a name="speech-translation"></a>Tradução de Fala
 
 A API de **Tradução de Fala** é compatível com diferentes idiomas para conversão de fala em fala e de fala em texto. O idioma de origem precisa sempre ser da seguinte tabela de idiomas de fala. Os idiomas de destino disponíveis dependem de se o destino de tradução é fala ou texto.
-
-É possível obter a lista de idiomas de forma programática usando o ponto de extremidade de Idiomas da API REST. A lista fornece o código de cada idioma, bem como o nome do idioma em inglês ou em outros idiomas com suporte. Esta lista é atualizada pelo serviço Microsoft Translator sempre que um novo idioma é disponibilizado.
 
 ### <a name="speech-languages"></a>Idiomas de fala
 

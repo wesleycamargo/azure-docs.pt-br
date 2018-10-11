@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 3ac97ac5e9ae0a7059d9c74c5918212f1ce02790
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959947"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816337"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicativos na v1.0
 
@@ -69,7 +69,7 @@ Para obter detalhes, saiba como [registrar um aplicativo com o ponto de extremid
 O provisionamento fica mais claro quando você entende que há duas categorias de aplicativos que podem ser desenvolvidos e integrados no Azure AD:
 
 * **Aplicativo de locatário único**: um aplicativo de locatário único para uso em uma organização. Eles normalmente são aplicativos de linha de negócios (LoB) escritos por um desenvolvedor empresarial. Um aplicativo de locatário único só precisa ser acessado por usuários em um diretório e, como resultado, ele só precisa ser provisionado em um diretório. Esses aplicativos geralmente são registrados por um desenvolvedor na organização.
-* **Aplicativos multilocatários**: um aplicativo multilocatário é destinado para uso em muitas organizações, não apenas em uma. Esses são normalmente aplicativos de software como serviço (SaaS) escritos por um fornecedor de software independente (ISV). Aplicativos multilocatários precisam ser provisionados em cada diretório em que serão usados, o que requer o consentimento do usuário ou administrador para registrá-los. Esse processo de consentimento é iniciado quando um aplicativo tiver sido registrado no diretório e receber acesso à API do Graph ou talvez a outra API da Web. Quando um usuário ou administrador de uma organização diferente se inscreve para usar o aplicativo, é apresentada uma caixa de diálogo que exibe as permissões exigidas pelo aplicativo. O usuário ou administrador pode então dar consentimento para o aplicativo, que fornece ao aplicativo acesso aos dados declarados e, por fim, registra o aplicativo em seu diretório. Para obter mais informações, consulte [Visão geral da estrutura de consentimento](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework).
+* **Aplicativos multilocatários**: um aplicativo multilocatário é destinado para uso em muitas organizações, não apenas em uma. Esses são normalmente aplicativos de software como serviço (SaaS) escritos por um fornecedor de software independente (ISV). Aplicativos multilocatários precisam ser provisionados em cada diretório em que serão usados, o que requer o consentimento do usuário ou administrador para registrá-los. Esse processo de consentimento é iniciado quando um aplicativo tiver sido registrado no diretório e receber acesso à API do Graph ou talvez a outra API da Web. Quando um usuário ou administrador de uma organização diferente se inscreve para usar o aplicativo, é apresentada uma caixa de diálogo que exibe as permissões exigidas pelo aplicativo. O usuário ou administrador pode então dar consentimento para o aplicativo, que fornece ao aplicativo acesso aos dados declarados e, por fim, registra o aplicativo em seu diretório. Para obter mais informações, consulte [Visão geral da estrutura de consentimento](consent-framework.md).
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Considerações adicionais ao desenvolver aplicativos de locatário único ou multilocatário
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: eb47b1d8d3f2859b2b5c0b79633b2d37e5a40756
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f7561ef4978e19439eafb6ef1a6ca1275c0f2bc7
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380158"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804609"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Usar o portal do Azure para restaurar máquinas virtuais
 Proteja seus dados criando instantâneos de dados em intervalos definidos. Esses instantâneos são conhecidos como pontos de recuperação e são armazenados nos cofres dos Serviços de Recuperação. Se for necessário reparar ou recriar uma VM (máquina virtual), você poderá restaurá-la de qualquer um dos pontos de recuperação salvos. Quando restaura um ponto de recuperação, você pode:
@@ -37,6 +37,7 @@ A restauração de uma VM ou de todos os discos do backup de VM envolve duas eta
 * Selecionar o tipo de restauração, criar uma nova VM ou restaurar discos e especificar os parâmetros necessários. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Selecionar um ponto de restauração para restauração
+
 1. Entre no [Portal do Azure](http://portal.azure.com/).
 
 1. No menu do Azure, selecione **Procurar**. Na lista de serviços, digite **Serviços de Recuperação**. A lista de serviços é ajustada de acordo com o que você digitar. Quando você vir a opção **cofres de Serviços de Recuperação**, selecione-a.
@@ -102,7 +103,7 @@ Após selecionar o ponto de restauração, escolha uma configuração de restaur
 O portal fornece uma opção de **Criação Rápida** para a VM restaurada. Para personalizar a configuração da VM ou os nomes dos recursos criados como parte da criação de uma nova opção de VM, use o PowerShell ou o portal para restaurar os discos de backup. Use comandos do PowerShell para anexá-los à sua opção de configuração da VM. Ou você pode usar o modelo fornecido com os discos restaurados para personalizar a VM restaurada. Para obter informações sobre como restaurar uma VM que tem várias NICs ou que está sob um balanceador de carga, consulte [Restaurar uma VM com configurações de rede especiais](#restore-vms-with-special-network-configurations). Se sua VM do Windows usar o [licenciamento de HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaure os discos e use o PowerShell/modelo conforme especificado neste artigo para criar a VM. Não deixe de especificar o **Tipo de Licença** como "Windows_Server" ao criar a VM para tirar proveito dos benefícios do HUB na VM restaurada. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Criar uma nova VM de um ponto de restauração
-1. Se ainda não tiver feito isto, [selecione um ponto de restauração](#restore-a vm-with-special-network-configurations) antes de começar a criar uma nova VM de um ponto de restauração. Após selecionar um ponto de restauração, na folha **Configuração de restauração**, insira ou selecione valores para cada um dos campos a seguir:
+1. Se ainda não tiver feito isto, [selecione um ponto de restauração](#select-a-restore-point-for-restore) antes de começar a criar uma nova VM de um ponto de restauração. Após selecionar um ponto de restauração, na folha **Configuração de restauração**, insira ou selecione valores para cada um dos campos a seguir:
 
     a. **Tipo de Restauração**. Crie uma máquina virtual.
 
@@ -239,9 +240,9 @@ Para recriar completamente as VMs após restaurar para o disco, siga estas etapa
 
    b. Criar uma VM para se conectar a um [balanceador de carga voltado para a Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 
-   c. Criar uma VM com [diversas NICs](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
+   c. Criar uma VM com [diversas NICs](../virtual-machines/windows/multiple-nics.md).
 
-   d. Criar uma VM com [vários IPs reservados](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
+   d. Criar uma VM com [vários IPs reservados](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você pode restaurar suas VMs, consulte o artigo de solução de problemas para obter informações sobre erros comuns com VMs. Além disso, confira o artigo sobre como gerenciar tarefas com suas VMs.

@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: giladmit
-ms.author: giladm
+author: ronitr
+ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/10/2018
-ms.openlocfilehash: d34bb54729fe0adc4b26d213bfaa4ad4fb210ab7
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/04/2018
+ms.openlocfilehash: e40f2f3f0a6551fd9fc38ad138d92f694a09879f
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064164"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803232"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Descoberta e Classificação de Dados do Banco de Dados SQL do Azure
 A Descoberta e Classificação de Dados (atualmente em versão prévia) fornece recursos internos avançados no Banco de Dados SQL do Microsoft Azure para **descobrir**, **classificar**, **rotular** & **proteger** os dados confidenciais em seus bancos de dados.

@@ -9,18 +9,20 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f81c99b77f931b5b259633fa8fcd0bf3e358e281
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f5f055be584aa9c6afb66ff651fd3c01851afd76
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364000"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246388"
 ---
 # <a name="use-the-anomaly-finder-api-with-php"></a>Usar a API de Localização de Anomalias com PHP
 
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
 Este artigo fornece informações e exemplos de código para ajudar você a começar a usar a API de Localização de Anomalias com PHP para realizar tarefas de obtenção de resultado de anomalias para dados de série temporal.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
@@ -74,7 +76,7 @@ catch (HttpException $ex)
 
 ### <a name="example-response"></a>Exemplo de resposta
 
-Uma resposta bem-sucedida é retornada em JSON. A seguir está a resposta de exemplo.
+Uma resposta com êxito é retornada em JSON. A seguir está a resposta de exemplo.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Próximas etapas

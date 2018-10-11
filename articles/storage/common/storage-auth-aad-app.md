@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d065dd6db361c5c348713c6e1ceabe3a4c42c312
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 6a0b7139fd8d216397090154a4324c8e4305a939
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577697"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816371"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Autenticar com Microsoft Azure Active Directory a partir de um aplicativo do Armazenamento do Microsoft Azure (versão prévia)
 
@@ -25,10 +25,7 @@ Antes de poder autenticar uma entidade de segurança a partir do aplicativo do A
 
 Para obter uma visão geral do fluxo de concessão do código do OAuth 2.0, consulte [Autorizar acesso a aplicativos Web do Azure Active Directory usando o fluxo de concessão do código do OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
-> [!IMPORTANT]
-> Esta versão prévia é destinada apenas para uso não produtivo. Os SLAs (contratos de nível de serviço) de produção não estarão disponíveis até que a integração do Microsoft Azure Active Directory para Armazenamento do Microsoft Azure seja declarada geralmente disponível. Se a integração do Microsoft Azure Active Directory ainda não tiver suporte no seu cenário, continue usando os tokens de autorização ou a chave compartilhada nos aplicativos. Para obter informações adicionais sobre a versão prévia, consulte [Autenticar o acesso ao Armazenamento do Microsoft Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).
->
-> Durante a versão prévia, as atribuições de função do RBAC podem levar até cinco minutos para serem propagadas.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registre o aplicativo com um locatário do Azure AD
 
@@ -36,7 +33,7 @@ A primeira etapa do uso do Azure AD para autorizar o acesso a recursos de armaze
 
 Ao registrar o aplicativo, você fornece informações sobre ele ao Azure AD. O Azure AD, em seguida, fornece uma ID do cliente (também chamado de *ID do aplicativo*) que você usa para associar o aplicativo ao Azure AD no tempo de execução. Para saber mais sobre a ID do cliente, consulte [Objetos de entidade de serviço e aplicativo no Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registrar o aplicativo do Armazenamento do Microsoft Azure, siga as etapas na seção [Adicionar um aplicativo](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) em [Integração de aplicativos com o Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Se você registrar o aplicativo como um aplicativo nativo, poderá especificar qualquer URI válido para **URI de Redirecionamento**. O valor não precisa ser um ponto de extremidade real.
+Para registrar o aplicativo do Armazenamento do Microsoft Azure, siga as etapas na seção [Adicionar um aplicativo](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) em [Integração de aplicativos com o Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Se você registrar o aplicativo como um aplicativo nativo, poderá especificar qualquer URI válido para **URI de Redirecionamento**. O valor não precisa ser um ponto de extremidade real.
 
 ![Captura de tela mostrando como registrar o aplicativo de armazenamento com Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
@@ -176,7 +173,7 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre as funções RBAC para armazenamento do Azure, consulte [Gerenciar os direitos de acesso aos dados de armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md).
-- Para saber como usar a Identidade de Serviço Gerenciada com o Armazenamento do Microsoft Azure, consulte [Autenticar com Azure AD a partir de uma Identidade de Serviço Gerenciada do Azure (versão prévia)](storage-auth-aad-msi.md).
+- Para saber mais sobre como usar identidades gerenciadas para recursos do Azure com o Armazenamento do Azure, confira [Autenticar o acesso aos blobs e às filas com as identidades gerenciadas do Azure para Recursos do Azure (versão prévia)](storage-auth-aad-msi.md).
 - Para saber como efetuar logon na CLI do Azure e no PowerShell com uma identidade do Azure AD, consulte [Use uma identidade do Azure AD para acessar o Armazenamento do Microsoft Azure com a CLI ou o PowerShell (versão prévia)](storage-auth-aad-script.md).
 - Para obter informações adicionais sobre a integração do Azure AD para Filas e Blobs do Azure, consulte a postagem no blog da equipe do Armazenamento do Microsoft Azure, [Anunciando a versão prévia de autenticação do Azure AD para Armazenamento do Microsoft Azure](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
 

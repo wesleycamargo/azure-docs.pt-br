@@ -9,18 +9,20 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 3c1d791b8c0478715b4ffa93cd7dfa43f9be4586
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 31049e24687192b1ea1030a7180299f57bc76771
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363996"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246323"
 ---
 # <a name="use-the-anomaly-finder-api-with-curl"></a>Usar a API do Localizador de Anomalias com cURL
 
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
 Este artigo fornece informações e exemplos de código para ajudá-lo a começar a usar a API do Localizador de Anomalias com cURL para realizar a tarefa de obter resultados anormais de dados de série temporais.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 

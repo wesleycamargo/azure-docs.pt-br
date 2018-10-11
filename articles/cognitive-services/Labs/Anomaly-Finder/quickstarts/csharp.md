@@ -9,18 +9,20 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 867ce4d0262c94de8da0dadeb8de71c28a8295d5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3ae3d85e8e37fbf896405948f9bc7042bcdaca7b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364002"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246441"
 ---
 # <a name="use-the-anomaly-finder-api-with-c"></a>Usar a API de Localização de Anomalias com C#
 
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
 Este artigo fornece informações e exemplos de código para ajudar você a começar a usar a API de Localização de Anomalias com C# para realizar tarefas de obtenção de resultado de anomalias em dados de série temporal.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
@@ -119,7 +121,7 @@ namespace Console
 
 ### <a name="example-response"></a>Exemplo de resposta
 
-Uma resposta bem-sucedida é retornada em JSON. A seguir está a resposta de exemplo.
+Uma resposta com êxito é retornada em JSON. A seguir está a resposta de exemplo.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Próximas etapas

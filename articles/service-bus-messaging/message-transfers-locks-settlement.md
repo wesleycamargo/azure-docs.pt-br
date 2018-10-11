@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 73143c8c79da609099d562f8cc6c588fe6dc08c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a1835e26f67427f84abd8a3cf24ad196fec8e99d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410044"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854415"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagem, bloqueios e liquidação
 
@@ -126,7 +126,6 @@ O mecanismo típico para identificar as entregas de mensagem duplicada é verifi
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 
-* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)

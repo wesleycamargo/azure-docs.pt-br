@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jasonh
-ms.openlocfilehash: 3dea97d674c2027307ac7eb7cae34b6664e40b0b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 29d6aa99b972dacb12ffb016eabb3a46afab7c7a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108113"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804065"
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Portas usadas pelos serviços do Hadoop em execução no HDInsight
 
@@ -37,7 +37,7 @@ Para ingressar mais computadores na rede virtual, primeiramente é preciso criar
 Todos os nós em um cluster HDInsight estão localizados em uma Rede Virtual do Azure e não podem ser acessados diretamente da internet. Um gateway público fornece acesso à internet para as portas a seguir, que são comuns a todos os tipos de cluster HDInsight.
 
 | Serviço | Porta | Protocolo | DESCRIÇÃO |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | sshd |22 |SSH |Conecta os clientes a sshd no nó de cabeçalho primário. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |22 |SSH |Conecta clientes ao sshd no nó de borda. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |23 |SSH |Conecta os clientes a sshd no nó de cabeçalho secundário. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |

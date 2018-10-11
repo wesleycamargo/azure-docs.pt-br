@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2018
 ms.author: spelluru
-ms.openlocfilehash: f3aed8949502e9c716de608ad0ca0a5e9511c3ec
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d2e95e7ed35ef002c116b0edd41fb2ddd4ba2522
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405760"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854500"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessões de mensagem: PEPS (primeiro a entrar, primeiro a sair) 
 
@@ -81,7 +81,6 @@ O estado de sessão mantido em uma fila ou em uma assinatura conta para a cota d
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 
-* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)

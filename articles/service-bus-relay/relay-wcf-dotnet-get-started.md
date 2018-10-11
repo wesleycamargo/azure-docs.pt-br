@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: b9701eae026522238424a21ae3ecf2baa40334fa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701758"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854109"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Como usar as retransmissões WCF da Retransmissão do Azure com .NET
 Este artigo descreve como usar o serviço Retransmissão do Azure. Os exemplos são escritos em C# e usam a API da WCF (Windows Communication Foundation) com extensões contidas no assembly do Barramento de Serviço. Para obter mais informações sobre a retransmissão do Azure, consulte a [Visão geral da Retransmissão do Azure](relay-what-is-it.md).
@@ -220,7 +220,6 @@ As definições de ponto de extremidade são movidas para o arquivo App.config. 
 Agora que você já sabe os conceitos básicos sobre a Retransmissão do Azure, siga estes links para saber mais.
 
 * [O que é Retransmissão do Azure?](relay-what-is-it.md)
-* [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * Baixe exemplos de Barramento de Serviço das [amostras do Azure][Azure samples] ou confira a [visão geral de amostras do Barramento de Serviço][overview of Service Bus samples].
 
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md
