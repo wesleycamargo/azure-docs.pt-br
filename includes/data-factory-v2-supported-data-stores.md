@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/28/2018
+ms.date: 09/19/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 8486bd1d9fac7caced83536d81782690d4a9b6d0
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 95647ff712cfb8244e3d3dcd6ed1fdc261508fbc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40026232"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46509281"
 ---
 | Categoria | Armazenamento de dados | Tem suporte como origem | Tem suporte como coletor | Suporte do [IR do Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Suporte do [IR auto-hospedado](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -69,12 +69,15 @@ ms.locfileid: "40026232"
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-source) |✓ | | |✓  |
+| &nbsp; |[Google AdWords (Versão prévia)](../articles/data-factory/connector-google-adwords.md) |✓ | |✓ |✓  |
 | &nbsp; |[HubSpot (versão prévia)](../articles/data-factory/connector-hubspot.md) |✓ | |✓ |✓  |
 | &nbsp; |[Jira (versão prévia)](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
 | &nbsp; |[Magento (versão prévia)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
 | &nbsp; |[Marketo (versão prévia)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
+| &nbsp; |[Office 365 (Versão prévia)](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Eloqua (versão prévia)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Responsys (versão prévia)](../articles/data-factory/connector-oracle-responsys.md) |✓ | |✓ |✓  |
+| &nbsp; |[Serviço de Nuvem da Oracle (Versão prévia)](../articles/data-factory/connector-oracle-service-cloud.md) |✓ | |✓ |✓  |
 | &nbsp; |[PayPal (versão prévia)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  |
 | &nbsp; |[QuickBooks (versão prévia)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |

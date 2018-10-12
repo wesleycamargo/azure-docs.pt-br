@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/11/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: d06ad47dc2962b249b4e7aef5667492e642be35e
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 16d775b15c9e4ec8898d5c7e498299288f1c37c2
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830116"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113424"
 ---
 # <a name="azure-stack-registration"></a>Registro de pilha do Azure
 Você pode registrar sua instalação do Kit de desenvolvimento na pilha do Azure (ASDK) com o Azure para baixar itens do marketplace do Azure e configurar dados de comércio relatórios de volta para a Microsoft. Registro é necessário para dar suporte à funcionalidade completa do Azure Stack, incluindo a sindicalização do marketplace. Registro é recomendado porque ele permite que você teste funcionalidades importantes da pilha do Azure, como o relatório de uso e distribuição de mercado. Depois de registrar o Azure Stack, o uso é relatado para comércio do Azure. Você pode vê-lo sob a assinatura que você usou para o registro. No entanto, os usuários ASDK não são cobrados por qualquer uso que eles relatam.
@@ -62,13 +62,13 @@ Siga estas etapas para registrar o ASDK com o Azure.
     $AzureContext = Get-AzureRmContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     $RegistrationName = "<unique-registration-name>"
-    $UsageReporting = True # Set to False if you using a Capacity Billing Model
+    $UsageReporting = $true # Set to $false if using the Capacity Billing model
     Set-AzsRegistration `
-        -PrivilegedEndpointCredential $CloudAdminCred `
-        -PrivilegedEndpoint AzS-ERCS01 `
-        -BillingModel Development `
-        -RegistrationName $RegistrationName `
-        -EnableUsageReporting $UsageReporting
+    -PrivilegedEndpointCredential $CloudAdminCred `
+    -PrivilegedEndpoint AzS-ERCS01 `
+    -BillingModel Development `
+    -RegistrationName $RegistrationName `
+    -EnableUsageReporting:$UsageReporting
     ```
 3. Quando o script for concluído, você deverá ver esta mensagem: **seu ambiente agora está registrado e ativada usando os parâmetros fornecidos.**
 

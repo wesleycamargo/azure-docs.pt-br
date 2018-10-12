@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 54a81e6c5c6e1fe5c37b985e40174dc369edfe6d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cf6604730ab3bd9ee04fac36e703022f63dcb949
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630402"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090358"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Relatar dados de uso do Azure Stack para o Azure 
 
@@ -95,10 +95,6 @@ Para vários nós do Azure Stack, há suporte para assinaturas do Enterprise Agr
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Relatório de trabalho em nuvens soberanas de dados de uso?
 
 No Kit de desenvolvimento do Azure Stack, relatórios de dados de uso requer assinaturas que são criadas no sistema global do Azure. As assinaturas criadas em uma das nuvens soberanas (as nuvens do Azure governamental, Azure Alemanha e Azure China) não podem ser registradas com o Azure, portanto, eles não oferecem suporte a relatórios de dados de uso.
-
-## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Como os usuários podem identificar os dados de uso do Azure Stack no portal de cobrança do Azure?
-
-Os usuários podem ver os dados de uso do Azure Stack no arquivo de detalhes de uso. Para saber sobre como obter o arquivo de detalhes de uso, veja a [baixar o arquivo de uso do artigo do Centro de contas do Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). O arquivo de detalhes de uso contém os medidores de pilha do Azure que identificam as VMs e armazenamento do Azure Stack. Todos os recursos usados no Azure Stack são relatados na região nomeada "Pilha do Azure".
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Por uso relatado no Azure Stack não coincidem com o relatório gerado a partir do Centro de contas do Azure?
 
