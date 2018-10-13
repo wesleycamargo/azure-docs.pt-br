@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9f584213a65b9f2408d4ca2a06108cf18222376d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268792"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166875"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo para o Azure Stack
 
@@ -130,7 +130,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 11. Insira os detalhes do SQL Server para a instância do servidor usada para hospedar os bancos de dados do provedor de recursos do serviço de aplicativo e, em seguida, selecione **próxima**. O instalador valida as propriedades de conexão SQL.
 
     > [!NOTE]
-    > O instalador tentará testar a conectividade com o SQL Server antes de continuar. No entanto, se você estiver implantando em uma rede virtual existente, esse teste de conectividade pode do arquivo. Você recebe um aviso e um prompt para continuar. Se as informações do SQL Server estão corretas, continue a implantação.
+    > O instalador tentará testar a conectividade com o SQL Server antes de continuar. Mas, se você estiver implantando em uma rede virtual existente, esse teste de conectividade pode falhar. Você recebe um aviso e um prompt para continuar. Se as informações do SQL Server estão corretas, continue a implantação.
     >
     > Do serviço de aplicativo do Azure no Azure Stack 1.3 em diante, o instalador verificará se o SQL Server tem a contenção de banco de dados habilitada no nível do SQL Server.  Se não for, você será solicitado com a seguinte exceção:
     > ```sql

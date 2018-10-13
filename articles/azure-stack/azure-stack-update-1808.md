@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: a870ba238239a20af154f611f88e7c2fdb95f9f7
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e913881faadd4892ad1ebc8cb404efe6489eb0d
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870909"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310891"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
@@ -40,7 +40,7 @@ Este artigo descreve o conteúdo do pacote de atualização de 1808. O pacote de
 Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 
 <!--  2682594   | IS  --> 
-- **Todos os ambientes do Azure Stack agora usam o formato de fuso horário do tempo Universal Coordenado (UTC).**  Todos os dados de log e informações relacionadas agora exibe em formato UTC. Se você atualizar de uma versão anterior que não foi instalada usando o formato UTC, seu ambiente é atualizado para usar o UTC. 
+- **Todos os ambientes do Azure Stack agora usam o formato de fuso horário do tempo Universal Coordenado (UTC).**  Todos os dados de log e informações relacionadas agora exibem no formato UTC. Se você atualizar de uma versão anterior que não foi instalada usando o formato UTC, seu ambiente é atualizado para usar o UTC. 
 
 <!-- 2437250  | IS  ASDK --> 
 - **Há suporte para discos gerenciados.** Agora você pode usar o Managed Disks em máquinas virtuais do Azure Stack e conjuntos de dimensionamento de máquina virtual. Para obter mais informações, consulte [Managed Disks do Azure Stack: diferenças e considerações](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
@@ -61,10 +61,10 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 - **Suporte para configurações de política de IPSec/IKE personalizadas** para [gateways de VPN no Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
 <!-- | IS ASDK--> 
-- **Item do marketplace Kubernetes**. Agora você pode implantar um cluster Kubernetes usando o [item do Marketplace do Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md). Os usuários podem selecionar o item de Kubernetes e preencha alguns parâmetros ao implantar um cluster Kubernetes no Azure Stack. A finalidade dos modelos é tornar isso simples para os usuários para implantações de Kubernetes de desenvolvimento/teste de instalação em poucas etapas.
+- **Item do marketplace Kubernetes**. Agora você pode implantar um cluster Kubernetes usando o [item do Marketplace do Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md). Os usuários podem selecionar o item de Kubernetes e preencha alguns parâmetros ao implantar um cluster Kubernetes no Azure Stack. A finalidade dos modelos é tornar isso simples para os usuários para configurar implantações de Kubernetes de desenvolvimento/teste em poucas etapas.
 
 <!-- | IS ASDK--> 
-- **Modelos de Blockchain**. Agora você pode executar [implantações de consortium Ethereum](azure-stack-ethereum.md) no Azure Stack. Você pode encontrar três novos modelos na [do Azure Stack modelos de início rápido](https://github.com/Azure/AzureStack-QuickStart-Templates). Eles permitem que o usuário implantar e configurar uma rede de Ethereum consortium vários membros com o mínimo de conhecimento do Azure e Ethereum. A finalidade dos modelos é tornar isso simples para os usuários para implantações de Blockchain de desenvolvimento/teste de instalação em poucas etapas.
+- **Modelos de Blockchain**. Agora você pode executar [implantações de consortium Ethereum](azure-stack-ethereum.md) no Azure Stack. Você pode encontrar três novos modelos na [do Azure Stack modelos de início rápido](https://github.com/Azure/AzureStack-QuickStart-Templates). Eles permitem que o usuário implantar e configurar uma rede de Ethereum consortium vários membros com o mínimo de conhecimento do Azure e Ethereum. A finalidade dos modelos é tornar isso simples para os usuários para configurar implantações de Blockchain de desenvolvimento/teste em poucas etapas.
 
 <!-- | IS ASDK--> 
 - **O API versão 2017-03-09-perfil foi atualizado para 2018-03-01-hybrid**. Perfis de API especificar o provedor de recursos do Azure e a versão da API para pontos de extremidade REST do Azure. Para obter mais informações sobre perfis, consulte [perfis de versão da API de gerenciar no Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
@@ -144,6 +144,13 @@ Essa atualização também contém atenuação para a vulnerabilidade de canal d
   ```   
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização
+
+<!-- TBD - IS -->
+- Talvez você veja os seguintes alertas repetidamente aparecem e desaparecem no sistema do Azure Stack:
+   - *Instância de função de infraestrutura não está disponível*
+   - *Nó de unidade de escala está offline*
+   
+  Execute o [AzureStack teste](azure-stack-diagnostic-test.md) cmdlet para verificar a integridade das instâncias de função de infraestrutura e dimensionar nós de unidade. Se nenhum problema for detectado pelo [AzureStack teste](azure-stack-diagnostic-test.md), você pode ignorar esses alertas. Se for detectado um problema, você pode tentar iniciar a instância de função de infraestrutura ou de um nó usando o portal de administração do PowerShell.
 
 - Quando você executa [AzureStack teste](azure-stack-diagnostic-test.md) após a atualização 1808, será exibida uma mensagem de aviso do Baseboard Management Controller (BMC). Você pode ignorar com segurança esse aviso.
 
@@ -226,7 +233,7 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 
 
 <!-- 2812138 | IS --> 
-- Você pode ver um alerta para **armazenamento** componente que tem os seguintes detalhes:
+- Você pode ver um alerta para **armazenamento** componente que contém os seguintes detalhes:
 
    - NOME: Erro de comunicação interna do serviço de armazenamento  
    - GRAVIDADE: crítico  

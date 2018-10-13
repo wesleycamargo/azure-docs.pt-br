@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 70ed5d45701133434c708ad80aaafc58645297e8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 343c29db4ac5fba37d8ea1b17862b86566ae15ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077106"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309188"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Visão geral de plano, oferta, cotas e assinatura
 
@@ -40,7 +40,7 @@ Quando você fornece um serviço, siga estas etapas de alto nível:
 2. Crie um plano que tem um ou mais serviços. Ao criar um plano, selecione ou crie as cotas que definem os limites de recursos de cada serviço no plano.
 3. Crie uma oferta que contém um ou mais planos. A oferta pode incluir planos de base e planos de complemento opcional.
 
-Depois de criar a oferta, os usuários podem assiná-la para acessar os serviços e recursos que fornece a oferta. Os usuários podem assinar ofertas quantos desejar. O diagrama a seguir mostra um exemplo simples de um usuário que tenha se inscrito para duas ofertas. Cada oferta tem um plano ou dois, e cada plano oferece acesso a serviços.
+Depois de criar a oferta, os usuários podem assiná-la para acessar os serviços e recursos que fornece a oferta. Os usuários podem assinar ofertas quantos desejar. A figura a seguir mostra um exemplo simples de um usuário que tenha se inscrito para duas ofertas. Cada oferta tem um plano ou dois, e cada plano oferece acesso a serviços.
 
 ![Assinaturas de locatários com ofertas e planos](media/azure-stack-key-features/image4.png)
 
@@ -50,7 +50,7 @@ Os planos são agrupamentos de um ou mais serviços. Como um operador do Azure S
 
 ### <a name="quotas"></a>Cotas
 
-Para ajudar você a gerenciar a capacidade de nuvem, você pode usar cotas pré-configurados ou crie uma nova cota para cada serviço em um plano. As cotas de definem os limites de recurso superior que uma assinatura de usuário pode provisionar ou consumir. Por exemplo, uma cota pode permitir que um usuário crie até cinco VMs (máquinas virtuais). Você pode definir cotas adicionais nas máquinas virtuais, como núcleos de CPU e RAM.
+Para ajudar você a gerenciar a capacidade de nuvem, você pode usar o pré-configurado *cotas*, ou crie uma nova cota para cada serviço em um plano. As cotas de definem os limites de recurso superior que uma assinatura de usuário pode provisionar ou consumir. Por exemplo, uma cota pode permitir que um usuário crie até cinco VMs (máquinas virtuais).
 
 É possível configurar cotas por região. Por exemplo, um plano que fornece serviços de computação para a região A poderia ter uma cota de duas VMs com 4 GB de RAM e 8 núcleos de CPU.
 
@@ -61,7 +61,7 @@ Saiba mais sobre [tipos de cotas no Azure Stack](azure-stack-quota-types.md).
 
 ### <a name="base-plan"></a>Plano de base
 
-Ao criar uma oferta, o administrador de serviços pode incluir um plano de base. Esses planos base são incluídos por padrão, quando um usuário assina essa oferta. Quando um usuário assina, eles têm acesso a todos os provedores de recursos especificados nesses planos base (com as cotas correspondentes.)
+Ao criar uma oferta, o administrador de serviços pode incluir um plano de base. Esses planos base são incluídos por padrão, quando um usuário assina essa oferta. Quando um usuário assina, eles têm acesso a todos os provedores de recursos especificados nesses planos base (com as cotas correspondentes).
 
 ### <a name="add-on-plans"></a>Planos de complemento
 
@@ -81,8 +81,8 @@ Cada combinação de um usuário com uma oferta é uma assinatura exclusiva. Um 
 
 ### <a name="default-provider-subscription"></a>Assinatura do provedor padrão
 
-A assinatura de provedor padrão é criada automaticamente quando você implanta o Kit de desenvolvimento do Azure Stack. Essa assinatura pode ser usada para gerenciar o Azure Stack, implante provedores de recursos adicionais e criar planos e ofertas para os usuários. Por motivos de licenciamento e de segurança, ele não deve ser usado para executar aplicativos e cargas de trabalho do cliente.
+A assinatura do provedor padrão é criada automaticamente quando você implanta o Kit de desenvolvimento do Azure Stack. Essa assinatura pode ser usada para gerenciar o Azure Stack, implante provedores de recursos adicionais e criar planos e ofertas para os usuários. Por motivos de licenciamento e de segurança, ele não deve ser usado para executar aplicativos e cargas de trabalho do cliente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Criar um plano](azure-stack-create-plan.md)
+Para obter mais informações sobre planos e ofertas, consulte [criar um plano de](azure-stack-create-plan.md).

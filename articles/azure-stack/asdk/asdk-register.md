@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 16d775b15c9e4ec8898d5c7e498299288f1c37c2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 19206163a07964b564300bbed1fed45973c8fc74
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113424"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311058"
 ---
 # <a name="azure-stack-registration"></a>Registro de pilha do Azure
 Você pode registrar sua instalação do Kit de desenvolvimento na pilha do Azure (ASDK) com o Azure para baixar itens do marketplace do Azure e configurar dados de comércio relatórios de volta para a Microsoft. Registro é necessário para dar suporte à funcionalidade completa do Azure Stack, incluindo a sindicalização do marketplace. Registro é recomendado porque ele permite que você teste funcionalidades importantes da pilha do Azure, como o relatório de uso e distribuição de mercado. Depois de registrar o Azure Stack, o uso é relatado para comércio do Azure. Você pode vê-lo sob a assinatura que você usou para o registro. No entanto, os usuários ASDK não são cobrados por qualquer uso que eles relatam.
@@ -68,7 +68,7 @@ Siga estas etapas para registrar o ASDK com o Azure.
     -PrivilegedEndpoint AzS-ERCS01 `
     -BillingModel Development `
     -RegistrationName $RegistrationName `
-    -EnableUsageReporting:$UsageReporting
+    -UsageReportingEnabled:$UsageReporting
     ```
 3. Quando o script for concluído, você deverá ver esta mensagem: **seu ambiente agora está registrado e ativada usando os parâmetros fornecidos.**
 

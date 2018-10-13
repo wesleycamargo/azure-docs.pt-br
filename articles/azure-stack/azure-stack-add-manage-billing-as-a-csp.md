@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: b8c00795c7777e5485f4725e1da63fc764973f43
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: b4df9d3b107945b2c0797875718f3266b7fd0b10
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628923"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166536"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Gerenciar o uso e cobrança para o Azure Stack como um provedor de serviços de nuvem 
 
@@ -35,7 +35,7 @@ O diagrama a seguir mostra as etapas que você precisará escolher sua conta de 
 
 ![Processo para habilitar o uso e gerenciamento como um provedor de serviços de nuvem.](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png)
 
-## <a name="create-a-csp-or-cspss-subscription"></a>Criar uma assinatura de CSP ou CSPSS
+## <a name="create-a-csp-or-apss-subscription"></a>Criar uma assinatura de CSP ou APSS
 
 ### <a name="cloud-service-provider-subscription-types"></a>Tipos de assinatura do provedor de serviços de nuvem
 
@@ -44,13 +44,13 @@ Você precisará escolher o tipo de conta de serviços compartilhados que você 
  - Provedor de serviços de nuvem 
  - Assinatura de parceiro de serviços compartilhados 
 
-#### <a name="csp-shared-services"></a>Serviços compartilhados do CSP
+#### <a name="azure-partner-shared-services"></a>Serviços compartilhados do parceiro do Azure
 
-Assinaturas de serviços de compartilhado de provedor de serviço (CSPSS) de nuvem são a opção preferencial para o registro quando um CSP direto ou um distribuidor de CSP opera o Azure Stack.
+Assinaturas de parceiro Shared Services (APSS) do Azure são a opção preferencial para o registro quando um CSP direto ou um distribuidor de CSP opera o Azure Stack.
 
-Assinaturas de CSPSS são associadas um locatário de serviços compartilhados. Quando você registra o Azure Stack, você precisa fornecer credenciais para uma conta que seja um proprietário da assinatura. A conta usada para registrar o Azure Stack pode ser diferente da conta de administrador que você pode usar para a implantação. Além disso, as duas contas fazer *não* devem pertencer ao mesmo domínio. Em outras palavras, você pode implantar usando o locatário que você já usa. Por exemplo você pode usar ContosoCSP.onmicrosoft.com e se registrar usando um locatário diferente, por exemplo IURContosoCSP.onmicrosoft.com. Você precisará se lembrar de que você entrar usando ContosoCSP.onmicrosoft.com quando você fizer a administração do dia para fazer do Azure Stack. Quando você entra no Azure usando IURContosoCSP.onmicrosoft.com quando você precisa realizar as operações de registro.
+Assinaturas de APSS são associadas um locatário de serviços compartilhados. Quando você registra o Azure Stack, você precisa fornecer credenciais para uma conta que seja um proprietário da assinatura. A conta usada para registrar o Azure Stack pode ser diferente da conta de administrador que você pode usar para a implantação. Além disso, as duas contas fazer *não* devem pertencer ao mesmo domínio. Em outras palavras, você pode implantar usando o locatário que você já usa. Por exemplo você pode usar ContosoCSP.onmicrosoft.com e se registrar usando um locatário diferente, por exemplo IURContosoCSP.onmicrosoft.com. Você precisará se lembrar de que você entrar usando ContosoCSP.onmicrosoft.com quando você fizer a administração do dia para fazer do Azure Stack. Quando você entra no Azure usando IURContosoCSP.onmicrosoft.com quando você precisa realizar as operações de registro.
 
-Consulte o seguinte para obter uma descrição de assinaturas CSPSS e instruções sobre como criar assinatura [adicionar parceiro do Azure Shared Services](https://msdn.microsoft.com/partner-center/shared-services).
+Consulte o seguinte para obter uma descrição de assinaturas APSS e instruções sobre como criar assinatura [adicionar parceiro do Azure Shared Services](https://msdn.microsoft.com/partner-center/shared-services).
 
 #### <a name="csp-subscriptions"></a>Assinaturas de CSP
 
@@ -58,7 +58,7 @@ Assinaturas de nuvem do provedor de serviços (CSP) são a opção preferencial 
 
 ## <a name="register-azure-stack"></a>Registrar o Azure Stack
 
-Use a assinatura CSPSS criado seguindo as informações na seção anterior para registrar o Azure Stack com o Azure. Para obter mais informações, consulte [registrar o Azure Stack com sua assinatura do Azure](azure-stack-registration.md).
+Use a assinatura APSS criado seguindo as informações na seção anterior para registrar o Azure Stack com o Azure. Para obter mais informações, consulte [registrar o Azure Stack com sua assinatura do Azure](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Adicionar cliente final
 
@@ -72,7 +72,7 @@ Usando o registro do Azure Stack pode:
  - Encaminhar dados de uso do Azure Stack para comércio do Azure e cobraremos uma assinatura do Azure.
  - Relatar o uso de cada cliente em uma assinatura diferente com uma implantação de multilocatário do Azure Stack. A multilocação permite que o Azure Stack oferecer suporte a organizações diferentes na mesma instância do Azure Stack.
 
-Para cada pilha do Azure, há uma assinatura padrão e muitas assinaturas de locatários. A assinatura padrão é uma assinatura do Azure que é cobrada se não houver uma assinatura específica do locatário. Ele deve ser o primeiro a assinatura registrada. Para o uso de vários locatário relatório seja executado, a assinatura deve ser uma assinatura de CSP ou CSPSS.
+Para cada pilha do Azure, há uma assinatura padrão e muitas assinaturas de locatários. A assinatura padrão é uma assinatura do Azure que é cobrada se não houver uma assinatura específica do locatário. Ele deve ser o primeiro a assinatura registrada. Para o uso de vários locatário relatório seja executado, a assinatura deve ser uma assinatura de CSP ou APSS.
 
 Em seguida, o registro é atualizado com uma assinatura do Azure para cada locatário que irá usar o Azure Stack. As assinaturas de locatários devem ser do tipo CSP e reverta para o parceiro que possui a assinatura padrão. Em outras palavras, você não pode registrar os clientes de outra pessoa.
 

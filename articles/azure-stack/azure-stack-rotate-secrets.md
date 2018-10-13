@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b0fe9acc187aab87e8ee0528cf998e2ef923f897
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: cc7b1b9e96e32b090c0ec9ec9ab029588e5ec4ce
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722003"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166960"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Girar os segredos no Azure Stack
 
@@ -81,7 +81,8 @@ Executar a rotação do segredo usando as instruções a seguir corrigirá esses
 
    > [!IMPORTANT]  
    > Certifique-se de rotação do segredo ainda não foi executada com êxito em seu ambiente. Se a rotação do segredo já foi executada, atualização do Azure Stack para versão 1807 ou posterior antes de executar a rotação do segredo. 
-1.  Notifique os usuários de qualquer operação de manutenção. Agende janelas de manutenção normal, tanto quanto possíveis, fora do horário comercial. Operações de manutenção podem afetar as cargas de trabalho do usuário e operações do portal.
+1.  Operadores podem perceber alertas abrem e fecham automaticamente durante a rotação de segredos do Azure Stack.  Esse comportamento é esperado e os alertas podem ser ignorados.  Operadores podem verificar a validade desses alertas executando o teste AzureStack.  Para operadores usando o SCOM para monitorar sistemas do Azure Stack, colocando um sistema no modo de manutenção impedirão que esses alertas de alcançar seus sistemas ITSM, mas continuarão a alertar se o sistema do Azure Stack torna-se inacessível. 
+2. Notifique os usuários de qualquer operação de manutenção. Agende janelas de manutenção normal, tanto quanto possíveis, fora do horário comercial. Operações de manutenção podem afetar as cargas de trabalho do usuário e operações do portal.
     > [!note]  
     > As próximas etapas se aplicam somente quando a rotação de segredos externos do Azure Stack.
 3. Prepare um novo conjunto de substituição de certificados externos. O novo conjunto corresponde as especificações do certificado descritas as [requisitos de certificado PKI de pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
