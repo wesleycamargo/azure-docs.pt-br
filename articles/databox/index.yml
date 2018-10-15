@@ -1,23 +1,22 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f4ef48157896d7cf4947fbc8ef6eba8b59ec414b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7056f5478838eec1cccf6329e172d86ea90d4dd8
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986500"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311041"
 documentType: LandingData
-title: Azure Data Box para transferência offline
+title: Documentação do Azure Data Box - Transferência Offline
 metadata:
-  title: Documentação do Azure Data Box para transferência offline
-  description: A família do Azure Data Box permite que você transfira centenas de terabytes de dados para o Azure de forma rápida, barata e confiável. Use os dispositivos do Data Box para transferência de dados offline quando houver limite de hora, rede ou custos.
+  title: Documentação do Azure Data Box - Transferência Offline
+  description: Use os dispositivos do Data Box de transferência de dados offline para o Azure quando houver limite de tempo, rede ou custos.
   services: databox
   author: alkohli
   manager: twooley
   ms.service: databox
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: pod
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 10/12/2018
   ms.author: alkohli
 abstract:
   description: 'A família do Azure Data Box permite que você transfira centenas de terabytes de dados para o Azure de forma rápida, barata e confiável. Use os dispositivos do Data Box para transferência de dados offline quando houver limite de hora, rede ou custos.<p>Dependendo do tamanho dos dados, escolha entre o Disco do Data Box, Data Box<SUP>Versão prévia</SUP> ou Data Box Heavy<SUP>Versão prévia</SUP>. Para cada dispositivo, a transferência para o Azure ocorre em quatro etapas simples: solicitar, receber, copiar dados para o dispositivo e retornar para o Azure. No datacenter do Azure, os dados são carregados e, em seguida, apagados.</p><p>Confira nossos tutoriais e guias de início rápido para saber como aproveitar o Data Box para a transferência de dados offline.</p>'

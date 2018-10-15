@@ -77,6 +77,7 @@
 #### [AD no Windows com Disco Compartilhado para a Instância do (A)SCS](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [AD no Windows com o Compartilhamento de Arquivos SOFS para a Instância do (A)SCS](sap-high-availability-guide-wsfc-file-share.md)
 #### [AD no SUSE Linux para a Instância do (A)SCS](high-availability-guide-suse.md)
+#### [Alta disponibilidade no Red Hat Enterprise Linux para a Instância do (A)SCS](high-availability-guide-rhel.md)
 ### Preparação da Infraestrutura do Azure
 #### [Windows com Disco Compartilhado para a Instância do (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows com Compartilhamento de Arquivos SOFS para a Instância do (A)SCS](sap-high-availability-infrastructure-wsfc-file-share.md)

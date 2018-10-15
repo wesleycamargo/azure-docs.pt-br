@@ -4,6 +4,18 @@ items:
   items:
   - name: O que é o Content Moderator?
     href: overview.md
+- name: Guia de início rápido
+  items:
+  - name: Introdução ao Content Moderator
+    href: quick-start.md
+  - name: Usando o SDK .NET
+    items:
+    - name: Verificar conteúdo da imagem
+      href: image-moderation-quickstart-dotnet.md
+    - name: Verificar conteúdo do texto
+      href: text-moderation-quickstart-dotnet.md
+    - name: Verificar conteúdo do vídeo
+      href: video-moderation-api.md
 - name: Exemplos
   items:
   - name: Exemplos de SDK do .NET
@@ -26,30 +38,20 @@ items:
   items:
   - name: Experimente o Content Moderator
     items:
-    - name: Introdução ao Content Moderator
-      href: quick-start.md
     - name: APIs de Moderação
       items:
-      - name: Biblioteca auxiliar – .NET
-        href: content-moderator-helper-quickstart-dotnet.md
       - name: Imagens – console de API
         href: try-image-api.md
-      - name: Imagens – .NET
-        href: image-moderation-quickstart-dotnet.md
+      - name: Verificar imagens em listas personalizadas
+        href: image-lists-quickstart-dotnet.md
       - name: Imagens personalizadas – console de API
         href: try-image-list-api.md
-      - name: Imagens personalizadas – .NET
-        href: image-lists-quickstart-dotnet.md
       - name: Texto – console de API
         href: try-text-api.md
-      - name: Texto – .NET
-        href: text-moderation-quickstart-dotnet.md
+      - name: Verificar texto em termos personalizados
+        href: term-lists-quickstart-dotnet.md
       - name: Termos personalizados – console de API
         href: try-terms-list-api.md
-      - name: Termos personalizados – .NET
-        href: term-lists-quickstart-dotnet.md
-      - name: Vídeos – .NET
-        href: video-moderation-api.md
     - name: Analisar APIs
       items:
       - name: Trabalhos – console de API
@@ -132,9 +134,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Webinar sob demanda
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-ms.openlocfilehash: 32f0c64253836d3080cc815753e361d810e1f2e8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 68febbe4e4206c774f75e1a07216eddf86dc5888
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433796"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309818"
