@@ -33,7 +33,6 @@
 ### [Aplicativo Web Ruby on Rails](ruby-rails-web-app.md)
 ### [Cliente Cassandra e Node.js](cassandra-nodejs.md)
 ### [Tomcat](setup-tomcat.md)
-### [Cluster RDMA para executar aplicativos MPI](rdma-cluster.md)
 ### HPC Pack
 #### [Criar um cluster para cargas de trabalho do Linux](hpcpack-cluster-powershell-script.md)
 #### [Gerenciar um cluster nós do Linux](hpcpack-cluster.md)
