@@ -2,4 +2,4 @@ O serviço e o seu tipo de subscrição determinam o número de consultas por se
 
 ## <a name="denial-of-service-versus-throttling"></a>Negação de serviço versus limitação
 
-O serviço faz uma diferenciação entre um ataque de negação de serviço (DoS) e uma violação QPS. Se o serviço suspeitar de um ataque DoS, a solicitação tem êxito (o código de status HTTP é 200 OK); no entanto, o corpo da resposta está vazio.
+O serviço faz uma diferenciação entre um ataque de negação de serviço (DoS) e uma violação QPS. Se o serviço suspeitar de um ataque DoS, a solicitação terá êxito (o código de status HTTP será 200 OK). No entanto, o corpo da resposta estará vazio.

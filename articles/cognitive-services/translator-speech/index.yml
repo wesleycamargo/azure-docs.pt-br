@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 879dd4e9b20a57257dd7b93fddb54168d6bceb33
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ac2b928e73031adb77616161f844f3f7fabdf146
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095058"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339841"
 documentType: LandingData
 title: Documentação da API de Tradução de Fala
 metadata:
@@ -21,8 +21,12 @@ metadata:
   ms.date: 3/5/2018
   ms.author: v-jansko
 abstract:
-  description: A API de Tradução de Fala da Microsoft, parte da coleção de API dos Serviços Cognitivos da Microsoft, é um serviço de tradução automática baseado em nuvem que fornece tradução de conversão de fala em texto e conversão de fala em fala. Com base na tecnologia REST padrão do setor, é possível utilizá-la para adicionar traduções de fala de ponta a ponta em tempo real em qualquer aplicativo, ferramenta ou solução que exija tradução de fala em vários idiomas, independentemente do SO de destino ou das linguagens de desenvolvimento. Para obter a lista de idiomas com suporte, consulte <a href="languages.md">Idiomas com suporte</a>.
+  description: A API de Tradução de Fala da Microsoft, parte da coleção de API dos Serviços Cognitivos da Microsoft, é um serviço de tradução automática baseado em nuvem que fornece tradução de conversão de fala em texto e conversão de fala em fala. Com base na tecnologia REST padrão do setor, é possível utilizá-la para adicionar traduções de fala de ponta a ponta em tempo real em qualquer aplicativo, ferramenta ou solução que exija tradução de fala em vários idiomas, independentemente do SO de destino ou das linguagens de desenvolvimento. Para obter a lista de idiomas com suporte, confira o artigo <a href="languages.md">Idiomas com Suporte</a>.
 sections:
+- title: 
+  items:
+  - type: paragraph
+    text: '<b>OBSERVAÇÃO: o novo Serviço de Fala e o SDK estão substituindo a API de Tradução de Fala, que deixará de funcionar a partir de 15 de outubro de 2019. Para ver informações sobre como trocar para o Serviço de Fala, confira <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api">Migrar da API de Tradução de Fala para o Serviço de Fala </a></b>'
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph

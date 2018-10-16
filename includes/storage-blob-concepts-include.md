@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 63593ff5f02f5e37fc25c988c4cef071a03a00b4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a934a1b75e85e03b6803be5c8afcd8fe74b0fad5
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066026"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45739191"
 ---
 O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. O armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários.
+
+Armazenamento de objetos extremamente escalonável para dados não estruturados
 
 O armazenamento de Blobs é ideal para:
 
@@ -36,7 +38,7 @@ O armazenamento de Blobs expõe três recursos: sua conta de armazenamento, os c
 
 ### <a name="storage-account"></a>Conta de armazenamento
 
-Todo o acesso a objetos de dados no Armazenamento do Azure ocorre por meio de uma conta de armazenamento. Para saber mais, confira [Sobre as contas de armazenamento do Azure](../articles/storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Todo o acesso a objetos de dados no Armazenamento do Azure ocorre por meio de uma conta de armazenamento. Para obter mais informações, confira [Visão geral da conta de armazenamento do Azure](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="container"></a>Contêiner
 

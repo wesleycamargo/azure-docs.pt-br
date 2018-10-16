@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2018
+ms.date: 09/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e46503f8dc97f58db1cd5acfd2122e2895fb15b0
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918794"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162301"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -272,6 +272,11 @@ Há várias práticas recomendadas, resultando em centenas de implantações de 
 - As VMs na VNet têm uma alocação estática do endereço IP privado. Veja o artigo [Tipos de endereço IP e métodos de alocação no Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) como referência.
 - Restrições de roteamento de e para as VMs de DBMS **não** são definidas com firewalls instalados nas VMs DBMS locais. Em vez disso, o roteamento de tráfego é definido com [grupos de segurança de rede (NSG) do Azure](https://docs.microsoft.com/azure/virtual-network/security-overview)
 - Para fins de separação e isolar o tráfego para a VM de DBMS, você pode atribuir diferentes NICs à VM. Em que cada NIC tem um endereço IP diferente e cada NIC é um valor atribuído a uma sub-rede de rede virtual diferente, que novamente tem diferentes regras NSG. Tenha em mente que o isolamento ou a separação do tráfego de rede é apenas uma medida para o roteamento e não permite definir cotas para taxa de transferência de rede.
+
+> [!NOTE]
+> Você deve atribuir endereços IP estáticos por meio do Azure para vNICs individuais. Você não deve atribuir endereços IP estáticos dentro do SO convidado para um vNIC. Alguns serviços do Azure, como o serviço de Backup do Azure, dependem do fato de que pelo menos o vNIC primário esteja definido como DHCP, e não para endereços IP estáticos. Veja também o documento [Solucionar problemas de backup da máquina virtual do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Se você precisar atribuir vários endereços IP estáticos a uma VM, precisará atribuir vários vNICs a uma VM.
+>
+>
 
 Usando duas VMs para sua implantação de DBMS dentro de um conjunto de disponibilidade do Azure além de um roteamento separado para a camada de aplicativo SAP e o tráfego de gerenciamento e operações para as duas VMs de DBMS em produção, o diagrama aproximado pareceria com:
 
