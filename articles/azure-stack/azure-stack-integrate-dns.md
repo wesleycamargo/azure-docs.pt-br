@@ -6,19 +6,19 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: b4935dc95ccf525c0a40b10dcc8c59ec8aba710e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: bf412809f9d10296ad600e64abb6d870dbb88d3e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42139429"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339671"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integração do datacenter do Azure Stack - DNS
-Ser capaz de acessar pontos de extremidade do Azure Stack (`portal`, `adminportal`, `management`, `adminmanagement`, etc.)  de fora do Azure Stack, você precisa integrar os serviços de DNS do Azure Stack com os servidores DNS que hospedam as zonas DNS que você deseja usar no Azure Stack.
+Ser capaz de acessar pontos de extremidade do Azure Stack (**portal**, **adminportal**, **gerenciamento**, **adminmanagement**, etc.)  de fora do Azure Stack, você precisa integrar os serviços de DNS do Azure Stack com os servidores DNS que hospedam as zonas DNS que você deseja usar no Azure Stack.
 
 ## <a name="azure-stack-dns-namespace"></a>Namespace de DNS de pilha do Azure
 Será necessário fornecer algumas informações importantes relacionadas ao DNS quando você implanta o Azure Stack.

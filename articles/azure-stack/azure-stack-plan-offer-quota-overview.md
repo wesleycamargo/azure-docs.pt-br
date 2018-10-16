@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 343c29db4ac5fba37d8ea1b17862b86566ae15ca
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: ee336fb5a60998aaac1518a85b8b92f63d9d4b64
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309188"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318122"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Visão geral de plano, oferta, cotas e assinatura
 
@@ -52,7 +52,7 @@ Os planos são agrupamentos de um ou mais serviços. Como um operador do Azure S
 
 Para ajudar você a gerenciar a capacidade de nuvem, você pode usar o pré-configurado *cotas*, ou crie uma nova cota para cada serviço em um plano. As cotas de definem os limites de recurso superior que uma assinatura de usuário pode provisionar ou consumir. Por exemplo, uma cota pode permitir que um usuário crie até cinco VMs (máquinas virtuais).
 
-É possível configurar cotas por região. Por exemplo, um plano que fornece serviços de computação para a região A poderia ter uma cota de duas VMs com 4 GB de RAM e 8 núcleos de CPU.
+É possível configurar cotas por região. Por exemplo, um plano que fornece serviços de computação para a região A poderia ter uma cota de duas VMs.
 
 >[!NOTE]
 >No Kit de desenvolvimento do Azure Stack, apenas uma região (denominada *local*) está disponível.

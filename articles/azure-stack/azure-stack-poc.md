@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/04/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 848df59b01cc0c03b9a5f3dae2644d469c8651bb
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: b2b81938eafe104369e52e72f9958e2adf2cca6f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234879"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345213"
 ---
 # <a name="what-is-azure-stack"></a>O que é o Azure Stack?
 
@@ -47,5 +47,6 @@ O ASDK tem as seguintes limitações:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Principais recursos e conceitos](azure-stack-key-features.md)
-- [Azure Stack: Uma Extensão do Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
+[Principais recursos e conceitos](azure-stack-key-features.md)
+
+[Azure Stack: Uma Extensão do Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)

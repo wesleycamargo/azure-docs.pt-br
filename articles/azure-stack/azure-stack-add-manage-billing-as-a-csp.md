@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: b4df9d3b107945b2c0797875718f3266b7fd0b10
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 209152b157ef2cfae872490bcff4f2a7100c3a4d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166536"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339331"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Gerenciar o uso e cobrança para o Azure Stack como um provedor de serviços de nuvem 
 
@@ -33,7 +33,7 @@ O diagrama a seguir mostra as etapas que você precisará escolher sua conta de 
 
 **Etapas para adicionar o rastreamento como um CSP de uso**
 
-![Processo para habilitar o uso e gerenciamento como um provedor de serviços de nuvem.](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png)
+[ ![Processo para habilitar o uso e gerenciamento como um provedor de serviços de nuvem](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png "processo para habilitar o uso e gerenciamento como um provedor de serviços de nuvem") ](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png#lightbox)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>Criar uma assinatura de CSP ou APSS
 

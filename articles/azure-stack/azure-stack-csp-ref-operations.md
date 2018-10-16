@@ -11,33 +11,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 10/15/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 9396d49f455f8f4af1abf7f0020e95e8fd0a14cc
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729579"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343836"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gerenciar o registro de locatário no Azure Stack
 
 *Aplica-se a: sistemas integrados do Azure Stack*
 
-Este artigo contém detalhes sobre as operações que você pode usar para gerenciar seus registros de Inquilino e como o uso do locatário é controlado. Você pode encontrar detalhes sobre como adicionar, lista, ou remover mapeamentos de locatário. Você pode usar o PowerShell ou os pontos de extremidade de API de cobrança para gerenciar o uso de controle.
+Este artigo contém detalhes sobre operações de registro. Você pode usar essas operações:
+- Gerenciar registros do inquilino
+- Gerenciar o controle de uso do locatário
+
+Você pode encontrar detalhes sobre como adicionar, lista, ou remover mapeamentos de locatário. Você pode usar o PowerShell ou os pontos de extremidade de API de cobrança para gerenciar o uso de controle. Você pode encontrar detalhes sobre como adicionar, lista, ou remover mapeamentos de locatário. Você pode usar o PowerShell ou os pontos de extremidade de API de cobrança para gerenciar o uso de controle.
 
 ## <a name="add-tenant-to-registration"></a>Adicione o locatário ao registro
 
-Use esta operação quando você deseja adicionar um novo locatário em seu registro, para que seu uso é relatado em uma assinatura do Azure conectada com seu locatário do Azure Active Directory (Azure AD).
+Use a operação quando você deseja adicionar um novo locatário em seu registro. Uso de locatário é relatado em uma assinatura do Azure conectada com seu locatário do Azure Active Directory (Azure AD).
 
-Você também pode usar essa operação, se você quiser alterar a assinatura associada a um locatário, você pode chamar PUT/New-AzureRMResource novamente. O mapeamento antigo será substituído.
+Se você quiser alterar a assinatura associada a um locatário, você também pode usar a operação. Chame PUT/New-AzureRMResource para substituir o mapeamento anterior.
 
-Observe que apenas uma assinatura do Azure pode ser associada a um locatário. Se você tentar adicionar uma segunda assinatura para um locatário existente, a primeira assinatura é escrita em excesso. 
+Você pode associar uma única assinatura do Azure com um locatário. Se você tentar adicionar uma segunda assinatura para um locatário existente, a primeira assinatura é escrita em excesso.
 
 ### <a name="use-api-profiles"></a>Use perfis de API
 
-Os cmdlets neste artigo exigem que você especifique um perfil de API, quando a execução do PowerShell. Perfis de API representam um conjunto de provedores de recursos do Azure e suas versões de API. Elas ajudam você a usar a versão correta da API ao interagir com várias nuvens do Azure, por exemplo ao trabalhar com global do Azure e o Azure Stack. Perfis são especificados por um nome que corresponda à sua data de lançamento. Este artigo, você precisará usar o **2017-09-03** perfil.
+Os cmdlets do registro exige que você especifique um perfil de API, quando a execução do PowerShell. Perfis de API representam um conjunto de provedores de recursos do Azure e suas versões de API. Eles ajudam você a usar a versão correta da API ao interagir com várias nuvens do Azure. Por exemplo, você trabalha com várias nuvens ao trabalhar com global do Azure e o Azure Stack. Os perfis especificam um nome que corresponda à sua data de lançamento. Você precisará usar o **2017-09-03** perfil.
 
 Para obter mais informações sobre perfis de API e o Azure Stack, consulte [perfis de versão da API de gerenciar no Azure Stack](user/azure-stack-version-profiles.md). Para obter instruções sobre como colocar em funcionamento com o perfil de API com o PowerShell, consulte [perfis de versão da API de uso do PowerShell no Azure Stack](user/azure-stack-version-profiles-powershell.md).
 
@@ -46,7 +50,7 @@ Para obter mais informações sobre perfis de API e o Azure Stack, consulte [per
 | Parâmetro                  | DESCRIÇÃO |
 |---                         | --- |
 | registrationSubscriptionID | A assinatura do Azure que foi usada para o registro inicial. |
-| customerSubscriptionID     | A assinatura do Azure (não o Azure Stack) que pertencem ao cliente a ser registrado. Deve ser criado na oferta de provedor de serviços de nuvem (CSP). Na prática, isso significa, por meio do Partner Center. Se um cliente tiver mais de um locatário, essa assinatura deve ser criada no locatário que será usado para fazer logon no Azure Stack. |
+| customerSubscriptionID     | A assinatura do Azure (não o Azure Stack) que pertencem ao cliente a ser registrado. Deve ser criado na oferta de provedor de serviços de nuvem (CSP) por meio do Partner Center. Se um cliente tiver mais de um locatário, criou uma assinatura do locatário para fazer logon no Azure Stack. |
 | resourceGroup              | O grupo de recursos no Azure em que o registro é armazenado. |
 | registrationName           | O nome do registro do seu Azure Stack. Ele é um objeto armazenado no Azure. O nome geralmente está no CloudID-azurestack em formulário, onde CloudID é a ID de nuvem da sua implantação do Azure Stack. |
 

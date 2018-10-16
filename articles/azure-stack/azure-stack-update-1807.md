@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bce76827c56fd660b6ab4353fed1c43f88132587
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868812"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345264"
 ---
 # <a name="azure-stack-1807-update"></a>Atualização de 1807 de pilha do Azure
 
@@ -232,6 +232,14 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 
 
 ### <a name="health-and-monitoring"></a>Monitoramento e integridade
+
+<!-- TBD - IS -->
+- Talvez você veja os seguintes alertas repetidamente aparecem e desaparecem no sistema do Azure Stack:
+   - *Instância de função de infraestrutura não está disponível*
+   - *Nó de unidade de escala está offline*
+   
+  Execute o [AzureStack teste](azure-stack-diagnostic-test.md) cmdlet para verificar a integridade das instâncias de função de infraestrutura e dimensionar nós de unidade. Se nenhum problema for detectado pelo [AzureStack teste](azure-stack-diagnostic-test.md), você pode ignorar esses alertas. Se for detectado um problema, você pode tentar iniciar a instância de função de infraestrutura ou de um nó usando o portal de administração do PowerShell.
+
 <!-- 1264761 - IS ASDK -->  
 - Você pode ver os alertas para o **controlador de integridade** componente que tem os seguintes detalhes:  
 
